@@ -514,7 +514,9 @@
         if (port.device_owner === "" && port.admin_state === "UP") {
           port.subnet_names = getPortSubnets(port, network.subnets);
           port.network_name = network.name;
-          ports.push(port);
+          if (!port.hasOwnProperty("trunk_id")) {
+            ports.push(port);
+          }
         }
       });
       push.apply(model.ports, ports);

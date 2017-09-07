@@ -91,8 +91,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                  shared=True) \
             .AndReturn(self.networks.list()[1:])
         for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
+            api.neutron.port_list_with_trunk_types(IsA(http.HttpRequest),
+                                                   network_id=net.id,
+                                                   tenant_id=self.tenant.id) \
                 .AndReturn(self.ports.list())
 
     def _mock_nova_lists(self):
@@ -1596,7 +1597,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.glance: ('image_list_detailed',),
                            quotas: ('tenant_limit_usages',)})
@@ -1642,8 +1643,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                  shared=True) \
             .AndReturn(self.networks.list()[1:])
         for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
+            api.neutron.port_list_with_trunk_types(IsA(http.HttpRequest),
+                                                   network_id=net.id,
+                                                   tenant_id=self.tenant.id) \
                 .AndReturn(self.ports.list())
 
         api.nova.extension_supported('DiskConfig',
@@ -1846,7 +1848,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.glance: ('image_list_detailed',),
                            quotas: ('tenant_limit_usages',)})
@@ -1888,8 +1890,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                  shared=True) \
             .AndReturn(self.networks.list()[1:])
         for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
+            api.neutron.port_list_with_trunk_types(IsA(http.HttpRequest),
+                                                   network_id=net.id,
+                                                   tenant_id=self.tenant.id) \
                 .AndReturn(self.ports.list())
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
@@ -1936,7 +1939,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -2050,7 +2053,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -2174,7 +2177,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('server_create',
                                       'extension_supported',
@@ -2277,7 +2280,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -2356,7 +2359,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.glance: ('image_list_detailed',),
         api.neutron: ('network_list',
                       'port_create',
-                      'port_list',
+                      'port_list_with_trunk_types',
                       'security_group_list',),
         api.nova: ('extension_supported',
                    'is_feature_available',
@@ -2484,7 +2487,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.glance: ('image_list_detailed',),
         api.neutron: ('network_list',
                       'port_create',
-                      'port_list',
+                      'port_list_with_trunk_types',
                       'security_group_list',),
         api.nova: ('extension_supported',
                    'is_feature_available',
@@ -2555,7 +2558,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
@@ -2614,7 +2617,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.neutron: ('network_list',
                                          'port_create',
                                          'port_delete',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -2724,7 +2727,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -2805,7 +2808,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -2913,7 +2916,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -3022,7 +3025,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -3081,8 +3084,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                  shared=True) \
             .AndReturn(self.networks.list()[1:])
         for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
+            api.neutron.port_list_with_trunk_types(IsA(http.HttpRequest),
+                                                   network_id=net.id,
+                                                   tenant_id=self.tenant.id) \
                 .AndReturn(self.ports.list())
         api.nova.extension_supported(
             'DiskConfig', IsA(http.HttpRequest)).AndReturn(True)
@@ -3168,7 +3172,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -3383,7 +3387,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
@@ -3536,7 +3540,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
-                                         'port_list',
+                                         'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.glance: ('image_list_detailed',),
                            quotas: ('tenant_limit_usages',)})

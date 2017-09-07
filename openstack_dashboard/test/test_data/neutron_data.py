@@ -45,6 +45,7 @@ def data(TEST):
     TEST.neutron_quota_usages = utils.TestDataContainer()
     TEST.ip_availability = utils.TestDataContainer()
     TEST.qos_policies = utils.TestDataContainer()
+    TEST.tp_ports = utils.TestDataContainer()
 
     # Data return by neutronclient.
     TEST.api_agents = utils.TestDataContainer()
@@ -65,6 +66,8 @@ def data(TEST):
     TEST.api_extensions = utils.TestDataContainer()
     TEST.api_ip_availability = utils.TestDataContainer()
     TEST.api_qos_policies = utils.TestDataContainer()
+    TEST.api_tp_trunks = utils.TestDataContainer()
+    TEST.api_tp_ports = utils.TestDataContainer()
 
     # 1st network.
     network_dict = {'admin_state_up': True,
@@ -709,3 +712,170 @@ def data(TEST):
                     'tenant_id': '1'}
     TEST.api_qos_policies.add(policy_dict1)
     TEST.qos_policies.add(neutron.QoSPolicy(policy_dict1))
+
+    # TRUNKPORT
+    #
+    #  The test setup was created by the following command sequence:
+    #    openstack network create tst
+    #    openstack subnet create tstsub --network tst\
+    #    --subnet-range 10.10.16.128/26
+    #    openstack network create tstalt
+    #    openstack subnet create tstaltsub --network tstalt\
+    #    --subnet-range 10.10.17.128/26
+    #    openstack port create --network tst plain
+    #    openstack port create --network tst parent
+    #    openstack port create --network tst child1
+    #    openstack port create --network tstalt child2
+    #    openstack network trunk create --parent-port parent trunk
+    #    openstack network trunk set\
+    #    --subport port=child1,segmentation-type=vlan,segmentation-id=100 trunk
+    #    openstack network trunk set\
+    #    --subport port=child2,segmentation-type=vlan,segmentation-id=200 trunk
+    #   ids/uuids are captured from a live setup.
+
+    # This collection holds the test setup.
+    tdata = {'tenant_id':            '19c9123a944644cb9e923497a018d0b7',
+             'trunk_id':             '920625a3-13de-46b4-b6c9-8b35f29b3cfe',
+             'security_group':       '3fd8c007-9093-4aa3-b475-a0c178d4e1e4',
+             'tag_1':                100,
+             'tag_2':                200,
+             'net':    {'tst_id':    '5a340332-cc92-42aa-8980-15f47c0d0f3d',
+                        'tstalt_id': '0fb41ffd-3933-4da4-8a83-025d328aedf3'},
+             'subnet': {'tst_id':    '0b883baf-5a21-4605-ab56-229a24ec585b',
+                        'tstalt_id': '0e184cf2-97dc-4738-b4b3-1871faf5d685'},
+             'child1': {'id':        '9c151ffb-d7a6-4f15-8eae-d0950999fdfe',
+                        'ip':        '10.10.16.140',
+                        'mac':       'fa:16:3e:22:63:6f',
+                        'device_id': '279989f7-54bb-41d9-ba42-0d61f12fda61'},
+             'child2': {'id':        'cedb145f-c163-4630-98a3-e1990744bdef',
+                        'ip':        '10.10.17.137',
+                        'mac':       'fa:16:3e:0d:ca:eb',
+                        'device_id': '9872faaa-b2b2-eeee-9911-21332eedaa77'},
+             'parent': {'id':        '5b27429d-048b-40fa-88f9-8e2c4ff7d28b',
+                        'ip':        '10.10.16.141',
+                        'mac':       'fa:16:3e:ab:a8:22',
+                        'device_id': 'af75c8e5-a1cc-4567-8d04-44fcd6922890'},
+             'plain':  {'id':        'bc04da56-d7fc-461e-b95d-a2c66e77ad9a',
+                        'ip':        '10.10.16.135',
+                        'mac':       'fa:16:3e:9c:d5:7f',
+                        'device_id': '7180cede-bcd8-4334-b19f-f7ef2f331f53'}}
+
+    #  network tst
+
+    #    trunk
+    tp_trunk_dict = {
+        'status': 'UP',
+        'sub_ports': [{'segmentation_type': 'vlan',
+                       'segmentation_id': tdata['tag_1'],
+                       'port_id': tdata['child1']['id']},
+                      {'segmentation_type': u'vlan',
+                       'segmentation_id': tdata['tag_2'],
+                       'port_id': tdata['child2']['id']}],
+        'name': 'trunk',
+        'admin_state_up': True,
+        'tenant_id': tdata['tenant_id'],
+        'project_id': tdata['tenant_id'],
+        'port_id': tdata['parent']['id'],
+        'id': tdata['trunk_id']
+    }
+    TEST.api_tp_trunks.add(tp_trunk_dict)
+
+    #    port parent
+    parent_port_dict = {
+        'admin_state_up': True,
+        'device_id': tdata['parent']['device_id'],
+        'device_owner': 'compute:nova',
+        'fixed_ips': [{'ip_address': tdata['parent']['ip'],
+                       'subnet_id': tdata['subnet']['tst_id']}],
+        'id': tdata['parent']['id'],
+        'mac_address': tdata['parent']['mac'],
+        'name': 'parent',
+        'network_id': tdata['net']['tst_id'],
+        'status': 'ACTIVE',
+        'tenant_id': tdata['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [tdata['security_group']],
+        'trunk_details': {
+            'sub_ports': [{'segmentation_type': 'vlan',
+                           'mac_address': tdata['child1']['mac'],
+                           'segmentation_id': tdata['tag_1'],
+                           'port_id': tdata['child1']['id']},
+                          {'segmentation_type': 'vlan',
+                           'mac_address': tdata['child2']['mac'],
+                           'segmentation_id': tdata['tag_2'],
+                           'port_id': tdata['child2']['id']}],
+            'trunk_id': tdata['trunk_id']}
+    }
+    TEST.api_tp_ports.add(parent_port_dict)
+    TEST.tp_ports.add(neutron.PortTrunkParent(parent_port_dict))
+
+    #    port child1
+    child1_port_dict = {
+        'admin_state_up': True,
+        'device_id': tdata['child1']['device_id'],
+        'device_owner': 'compute:nova',
+        'fixed_ips': [{'ip_address': tdata['child1']['ip'],
+                       'subnet_id': tdata['subnet']['tst_id']}],
+        'id': tdata['child1']['id'],
+        'mac_address': tdata['child1']['mac'],
+        'name': 'child1',
+        'network_id': tdata['net']['tst_id'],
+        'status': 'ACTIVE',
+        'tenant_id': tdata['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [tdata['security_group']]
+    }
+    TEST.api_tp_ports.add(child1_port_dict)
+    TEST.tp_ports.add(neutron.PortTrunkSubport(
+        child1_port_dict,
+        {'trunk_id': tdata['trunk_id'],
+         'segmentation_type': 'vlan',
+         'segmentation_id': tdata['tag_1']}))
+
+    #    port plain
+    port_dict = {
+        'admin_state_up': True,
+        'device_id': tdata['plain']['device_id'],
+        'device_owner': 'compute:nova',
+        'fixed_ips': [{'ip_address': tdata['plain']['ip'],
+                       'subnet_id': tdata['subnet']['tst_id']}],
+        'id': tdata['plain']['id'],
+        'mac_address': tdata['plain']['mac'],
+        'name': 'plain',
+        'network_id': tdata['net']['tst_id'],
+        'status': 'ACTIVE',
+        'tenant_id': tdata['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [tdata['security_group']]
+    }
+    TEST.api_tp_ports.add(port_dict)
+    TEST.tp_ports.add(neutron.Port(port_dict))
+
+    #  network tstalt
+
+    #    port child2
+    child2_port_dict = {
+        'admin_state_up': True,
+        'device_id': tdata['child2']['device_id'],
+        'device_owner': 'compute:nova',
+        'fixed_ips': [{'ip_address': tdata['child2']['ip'],
+                       'subnet_id': tdata['subnet']['tstalt_id']}],
+        'id': tdata['child2']['id'],
+        'mac_address': tdata['child2']['mac'],
+        'name': 'child2',
+        'network_id': tdata['net']['tstalt_id'],
+        'status': 'ACTIVE',
+        'tenant_id': tdata['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [tdata['security_group']]
+    }
+    TEST.api_tp_ports.add(child2_port_dict)
+    TEST.tp_ports.add(neutron.PortTrunkSubport(
+        child2_port_dict,
+        {'trunk_id': tdata['trunk_id'],
+         'segmentation_type': 'vlan',
+         'segmentation_id': tdata['tag_2']}))

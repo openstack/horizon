@@ -133,8 +133,9 @@ class Ports(generic.View):
         """
         # see
         # https://github.com/openstack/neutron/blob/master/neutron/api/v2/attributes.py
-        result = api.neutron.port_list(request, **request.GET.dict())
-        return{'items': [n.to_dict() for n in result]}
+        result = api.neutron.port_list_with_trunk_types(request,
+                                                        **request.GET.dict())
+        return {'items': [n.to_dict() for n in result]}
 
 
 @urls.register
