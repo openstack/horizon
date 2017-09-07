@@ -136,6 +136,11 @@ def download_rc_file(request):
 
     # make v3 specific changes
     context['user_domain_name'] = request.user.user_domain_name
+    try:
+        project_domain_id = request.user.token.project['domain_id']
+    except KeyError:
+        project_domain_id = ''
+    context['project_domain_id'] = project_domain_id
     # sanity fix for removing v2.0 from the url if present
     context['auth_url'], _ = utils.fix_auth_url_version_prefix(
         context['auth_url'])
