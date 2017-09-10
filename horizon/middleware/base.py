@@ -31,8 +31,6 @@ from django import shortcuts
 from django.utils.encoding import iri_to_uri
 from django.utils import timezone
 
-from openstack_auth import views as auth_views
-
 from horizon import exceptions
 from horizon.utils import functions as utils
 
@@ -44,14 +42,6 @@ class HorizonMiddleware(object):
     """The main Horizon middleware class. Required for use of Horizon."""
 
     logout_reason = None
-
-    def _logout(self, request, login_url=None, message=None, status='success'):
-        """Logout a user and display a logout message."""
-        response = auth_views.logout(request, login_url)
-        if message is not None:
-            self.logout_reason = message
-            utils.add_logout_reason(request, response, message, status)
-        return response
 
     def process_request(self, request):
         """Adds data necessary for Horizon to function to the request."""
