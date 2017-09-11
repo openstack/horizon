@@ -14,7 +14,7 @@ django-nose>=1.4.4 # BSD
 doc8 # Apache-2.0
 flake8-import-order==0.12 # LGPLv3
 mock>=2.0.0 # BSD
-mox3!=0.19.0,>=0.7.0 # Apache-2.0
+mox3>=0.20.0 # Apache-2.0
 nodeenv>=0.9.4 # BSD
 nose # LGPL
 nose-exclude # LGPL
