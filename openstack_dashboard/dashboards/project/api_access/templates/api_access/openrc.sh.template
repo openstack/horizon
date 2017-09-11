@@ -19,6 +19,8 @@ export OS_PROJECT_ID={{ tenant_id }}
 export OS_PROJECT_NAME="{{ tenant_name|shellfilter }}"
 export OS_USER_DOMAIN_NAME="{{ user_domain_name|shellfilter }}"
 if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
+export OS_PROJECT_DOMAIN_ID="{{ project_domain_id|shellfilter }}"
+if [ -z "$OS_PROJECT_DOMAIN_ID" ]; then unset OS_PROJECT_DOMAIN_ID; fi
 
 # unset v2.0 items in case set
 unset OS_TENANT_ID
