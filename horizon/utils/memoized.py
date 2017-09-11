@@ -12,7 +12,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import collections
 import functools
+import threading
 import warnings
 import weakref
 
@@ -58,6 +60,7 @@ def memoized(func):
     # instance for every decorated function, and it's stored in a closure of
     # the wrapped function.
     cache = {}
+    locks = collections.defaultdict(threading.Lock)
 
     @functools.wraps(func)
     def wrapped(*args, **kwargs):
@@ -71,6 +74,7 @@ def memoized(func):
             try:
                 # The key here is from closure, and is calculated later.
                 del cache[key]
+                del locks[key]
             except KeyError:
                 # Some other weak reference might have already removed that
                 # key -- in that case we don't need to do anything.
@@ -78,22 +82,25 @@ def memoized(func):
 
         key = _get_key(args, kwargs, remove)
         try:
-            # We want cache hit to be as fast as possible, and don't really
-            # care much about the speed of a cache miss, because it will only
-            # happen once and likely calls some external API, database, or
-            # some other slow thing. That's why the hit is in straightforward
-            # code, and the miss is in an exception.
-            value = cache[key]
-        except KeyError:
-            value = cache[key] = func(*args, **kwargs)
+            with locks[key]:
+                try:
+                    # We want cache hit to be as fast as possible, and don't
+                    # really care much about the speed of a cache miss, because
+                    # it will only happen once and likely calls some external
+                    # API, database, or some other slow thing. That's why the
+                    # hit is in straightforward code, and the miss is in an
+                    # exception.
+                    value = cache[key]
+                except KeyError:
+                    value = cache[key] = func(*args, **kwargs)
         except TypeError:
-            # The calculated key may be unhashable when an unhashable object,
-            # such as a list, is passed as one of the arguments. In that case,
-            # we can't cache anything and simply always call the decorated
-            # function.
+            # The calculated key may be unhashable when an unhashable
+            # object, such as a list, is passed as one of the arguments. In
+            # that case, we can't cache anything and simply always call the
+            # decorated function.
             warnings.warn(
-                "The key %r is not hashable and cannot be memoized." % (key,),
-                UnhashableKeyWarning, 2)
+                "The key %r is not hashable and cannot be memoized."
+                % (key,), UnhashableKeyWarning, 2)
             value = func(*args, **kwargs)
         return value
     return wrapped
