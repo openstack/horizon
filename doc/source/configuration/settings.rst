@@ -53,7 +53,7 @@ Default:
         'domains_panel': False,
         'users_panel': False,
         'groups_panel': False,
-        'roles_panel': False
+        'roles_panel': True
     }
 
 A dictionary of currently available AngularJS features. This allows simple
