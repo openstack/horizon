@@ -1,19 +1,19 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
-# Ching Kuo <gene@openstack.org>, 2016. #zanata
-# Ching Kuo <gene@openstack.org>, 2017. #zanata
+# Gene Kuo <gene@openstack.org>, 2016. #zanata
+# Gene Kuo <gene@openstack.org>, 2017. #zanata
 # Kyle Bai <kyle.b@inwinstack.com>, 2017. #zanata
 # Tom Fifield <tom@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc3.dev2\n"
+"Project-Id-Version: horizon 12.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-24 12:15+0000\n"
+"POT-Creation-Date: 2017-09-08 13:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-24 07:10+0000\n"
-"Last-Translator: Ching Kuo <gene@openstack.org>\n"
+"PO-Revision-Date: 2017-09-10 11:16+0000\n"
+"Last-Translator: Gene Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -89,8 +89,50 @@ msgstr ""
 "<b>磁區</b>：這個選項利用已存在的磁區。它不會建立新磁區。您可以選擇在刪除實例"
 "時一併刪除磁區。<em>附註：當選取磁區時，您只能啟動一個實例。</em>"
 
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>這一行文字將進行精細列印。</small>"
+
+msgid "A Confirmation Dialog"
+msgstr "確認對話框"
 
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
@@ -118,6 +160,18 @@ msgstr ""
 "          所以在上傳資料前，您必須至少先在帳戶中\n"
 "          定義一個儲存器。"
 
+msgid "A container with that name exists."
+msgstr "同名稱的容器已存在。"
+
+msgid "A description list is perfect for defining terms."
+msgstr "用來定義術語的描述列表"
+
+msgid "A description of the Volume."
+msgstr "雲硬碟的說明。"
+
+msgid "A description of the image."
+msgstr "映像檔描述"
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -142,6 +196,9 @@ msgstr ""
 "密鑰組容許您以 SSH 方式進入最近新增的雲實例。\n"
 "    您可能要選擇現有密鑰組、匯入密鑰組或產生新密鑰組。"
 
+msgid "A local file should be selected."
+msgstr "需要選擇一個本地檔案"
+
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
@@ -153,14 +210,37 @@ msgstr "為您的雲實例命名。"
 msgid "A port represents a virtual switch port on a logical network switch."
 msgstr "埠代表邏輯網路交換器上的虛擬交換器埠。"
 
+msgid ""
+"A volume description less than {$createVolumeCtrl.validationRules."
+"fieldMaxLength + 1$} characters is required."
+msgstr ""
+"雲硬碟描述需要少於 {$createVolumeCtrl.validationRules.fieldMaxLength + 1$} 個"
+"字元。"
+
+msgid ""
+"A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
+"1$} characters is required."
+msgstr ""
+"雲硬碟名需要少於 {$createVolumeCtrl.validationRules.fieldMaxLength + 1$} 個字"
+"元。"
+
 msgid "AKI"
 msgstr "AKI"
+
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon Kernel Image"
 
 msgid "AMI"
 msgstr "AMI"
 
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon Machine Image"
+
 msgid "ARI"
 msgstr "ARI"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdisk Image"
 
 msgid "Action"
 msgstr "動作"
@@ -173,6 +253,9 @@ msgstr "使用中"
 
 msgid "Add Interface"
 msgstr "加入網路卡"
+
+msgid "Add Ons, Required and Feedback"
+msgstr "添加，必需的和反饋"
 
 msgid "Admin State"
 msgstr "管理員狀態"
@@ -193,6 +276,12 @@ msgstr "管理員安裝可用於附加到雲實例的浮動 IP 倉庫。"
 
 msgid "Alerts"
 msgstr "警報"
+
+msgid "Amount of RAM in MB that is required to boot the image."
+msgstr "啟動映像檔所需的 RAM 量（以 MB 為單位）。"
+
+msgid "Amount of disk space in GB that is required to boot the image."
+msgstr "啟動映像檔所需的磁碟空間量（以 GB 為單位）。"
 
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
@@ -220,6 +309,29 @@ msgid ""
 msgstr ""
 "發動雲實例時有硬碟分割這個進階選項可用。有兩種硬碟分割選項。選擇<b>自動</b>來"
 "調整硬碟容量並設定於單一的分割。選擇<b>手動</b>允許您在硬碟上新增多個分割。"
+
+msgid "An external (HTTP) URL is required"
+msgstr "需要一個外部 (HTTP) URL"
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "使用外部 (HTTP) URL 下載映像檔"
+
+msgid "An image description less than 256 characters is required."
+msgstr "映像檔描述需要少於 256 個字元。"
+
+msgid ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"映像檔描述需要少於 {$ctrl.validationRules.fieldMaxLength + 1$} 個字元。"
+
+msgid "An image name less than 256 characters is required."
+msgstr "映像檔名需要少於 256 個字元。"
+
+msgid ""
+"An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr "映像檔名需要少於 {$ctrl.validationRules.fieldMaxLength + 1$} 個字元。"
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
@@ -254,8 +366,14 @@ msgstr "可用區域"
 msgid "Available"
 msgstr "可用"
 
+msgid "Available Scheduler Hints"
+msgstr "可用的 Scheduler Hints"
+
 msgid "Badges"
 msgstr "識別證"
+
+msgid "Bare Metal"
+msgstr "裸機"
 
 msgid "Basic"
 msgstr "基本"
@@ -284,6 +402,12 @@ msgstr "品牌"
 msgid "Breadcrumbs"
 msgstr "瀏覽途徑"
 
+msgid "Browse..."
+msgstr "瀏覽..."
+
+msgid "Build"
+msgstr "建置"
+
 msgid "Button"
 msgstr "按鈕"
 
@@ -294,7 +418,7 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Cannot get service catalog from keystone."
-msgstr "無法從 Keystone 獲得伺服器分類。"
+msgstr "無法從 Keystone 獲得服務分類。"
 
 msgid "Cannot get the extension list."
 msgstr "無法獲得擴充清單。"
@@ -313,8 +437,14 @@ msgstr ""
 msgid "Checkbox"
 msgstr "勾選框"
 
+msgid "Checking if this name is used..."
+msgstr "檢查名稱是否已經被使用..."
+
 msgid "Checksum"
 msgstr "檢查碼"
+
+msgid "Choose an image"
+msgstr "選擇映像檔"
 
 msgid "Click to see more details"
 msgstr "點擊來顯示更多詳細資訊"
@@ -328,6 +458,9 @@ msgstr "已關閉"
 msgid "Closing"
 msgstr "關閉中"
 
+msgid "Collecting information for deletion:"
+msgstr "為刪除搜集的訊息："
+
 msgid "Color"
 msgstr "顏色"
 
@@ -336,6 +469,9 @@ msgstr "直欄內容"
 
 msgid "Column heading"
 msgstr "直欄標題"
+
+msgid "Community"
+msgstr "社群"
 
 msgid "Configuration"
 msgstr "設置"
@@ -346,9 +482,21 @@ msgstr "設定檔硬碟"
 msgid "Confirm Delete"
 msgstr "確認刪除"
 
+msgid "Confirm Delete Flavor"
+msgid_plural "Confirm Delete Flavors"
+msgstr[0] "確認刪除虛擬硬體樣板"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "確認刪除映像檔"
+
+msgid "Confirm Delete Role"
+msgid_plural "Confirm Delete Roles"
+msgstr[0] "確認刪除角色"
+
+msgid "Confirm Delete Trunk"
+msgid_plural "Confirm Delete Trunks"
+msgstr[0] "確認刪除中繼"
 
 msgid "Connecting"
 msgstr "連線中"
@@ -389,6 +537,12 @@ msgstr "內容類型"
 msgid "Contextual alternatives"
 msgstr "環境定義替代方案"
 
+msgid "Copy Data"
+msgstr "複製資料"
+
+msgid "Copy Private Key to Clipboard"
+msgstr "複制私鑰到剪貼簿"
+
 msgid "Could not decrypt the password"
 msgstr "不能解鎖密碼"
 
@@ -406,6 +560,9 @@ msgstr "新增資料夾"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "建立資料夾位置：{$ ctrl.model.container.name $}"
+
+msgid "Create Image"
+msgstr "建立映像檔"
 
 msgid "Create Key Pair"
 msgstr "新增密鑰對"
@@ -430,6 +587,9 @@ msgstr "已新增"
 
 msgid "Created At"
 msgstr "新增時間"
+
+msgid "Created at"
+msgstr "建立時間"
 
 #, python-format
 msgid "Created keypair: %s"
@@ -463,8 +623,14 @@ msgstr "DNS 記錄"
 msgid "DNS Records"
 msgstr "DNS 記錄"
 
+msgid "DSCP Mark"
+msgstr "DSCP 標記"
+
 msgid "Danger"
 msgstr "危險"
+
+msgid "Danger Anchor"
+msgstr "危險錨點"
 
 msgid "Danger Button"
 msgstr "危險按鈕"
@@ -478,11 +644,20 @@ msgstr "日期"
 msgid "Date Created"
 msgstr "新增日期"
 
+msgid "Datepicker"
+msgstr "時間選擇器"
+
 msgid "Datetime"
 msgstr "日期時間"
 
+msgid "Deactivated"
+msgstr "已取消啟動"
+
 msgid "Default"
 msgstr "預設"
+
+msgid "Default Anchor"
+msgstr "預設錨點"
 
 msgid "Default Button"
 msgstr "預設按鈕"
@@ -493,15 +668,27 @@ msgstr "預設按鈕"
 msgid "Default input"
 msgstr "預設輸入"
 
+msgid "Definition list"
+msgstr "定義列表"
+
+msgid "Degraded"
+msgstr "降級"
+
 msgid "Delete"
 msgstr "刪除"
 
 msgid "Delete Container"
 msgstr "刪除容器"
 
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "在 {$ ctrl.model.container.name $} 中刪除文件"
+
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "刪除虛擬硬體樣板"
+
+msgid "Delete Flavors"
+msgstr "刪除虛擬硬體樣板"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -523,17 +710,32 @@ msgid "Delete Role"
 msgid_plural "Delete Roles"
 msgstr[0] "刪除角色"
 
+msgid "Delete Roles"
+msgstr "刪除角色"
+
 msgid "Delete Router"
 msgstr "刪除路由器"
 
 msgid "Delete Subnet"
 msgstr "刪除子網路"
 
+msgid "Delete Trunk"
+msgid_plural "Delete Trunks"
+msgstr[0] "刪除中繼"
+
+msgid "Delete Trunks"
+msgstr "刪除中繼"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "在雲實例刪除時刪除雲硬碟"
 
 msgid "Deleted"
 msgstr "已刪除"
+
+#, python-format
+msgid "Deleted Flavor: %s."
+msgid_plural "Deleted Flavors: %s."
+msgstr[0] "已刪除虛擬硬體樣板：%s."
 
 #, python-format
 msgid "Deleted Image: %s."
@@ -545,11 +747,22 @@ msgid "Deleted Role: %s."
 msgid_plural "Deleted Roles: %s."
 msgstr[0] "已刪除角色: %s."
 
+#, python-format
+msgid "Deleted Trunk: %s."
+msgid_plural "Deleted Trunks: %s."
+msgstr[0] "已刪除中繼: %s."
+
 msgid "Deleting"
 msgstr "正在刪除"
 
+msgid "Deleting:"
+msgstr "刪除："
+
 msgid "Description"
 msgstr "描述"
+
+msgid "Description lists"
+msgstr "描述列表"
 
 msgid "Details"
 msgstr "詳細資訊"
@@ -566,8 +779,11 @@ msgstr "對話框"
 msgid "Direct"
 msgstr "方向"
 
+msgid "Direct Physical"
+msgstr "直通硬體"
+
 msgid "Direction"
-msgstr "方向"
+msgstr "直連"
 
 msgid "Disabled"
 msgstr "已停用"
@@ -584,6 +800,9 @@ msgstr "硬碟格式"
 msgid "Disk Partition"
 msgstr "硬碟分割"
 
+msgid "Distribution Charts"
+msgstr "分布圖表"
+
 msgid "Docker"
 msgstr "Docker"
 
@@ -591,13 +810,16 @@ msgid "Domain"
 msgstr "地域"
 
 msgid "Domain ID"
-msgstr "地域識別號"
+msgstr "區域 ID"
 
 msgid "Domain Name"
-msgstr "地域名稱"
+msgstr "區域名稱"
 
 msgid "Domains"
 msgstr "地域"
+
+msgid "Done"
+msgstr "完成"
 
 msgid "Down"
 msgstr "離線"
@@ -620,6 +842,18 @@ msgstr "Dropup"
 msgid "Edit"
 msgstr "編輯"
 
+msgid "Edit File"
+msgstr "編輯資料"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "編輯資料： {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Image"
+msgstr "編輯映像檔"
+
+msgid "Edit Role"
+msgstr "編輯角色"
+
 msgid "Email"
 msgstr "電子郵件信箱"
 
@@ -629,8 +863,17 @@ msgstr "強調類別"
 msgid "Enabled"
 msgstr "已啟用"
 
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "出現 {$ ctrl.model.deleted.failures $} 錯誤。"
+
 msgid "Encrypted"
 msgstr "已加密"
+
+msgid "Enter an Image Description"
+msgstr "輸入一個映像檔描述"
+
+msgid "Enter an Image name"
+msgstr "輸入一個映像檔名稱"
 
 msgid "Ephemeral Disk"
 msgstr "暫時性硬碟"
@@ -646,6 +889,9 @@ msgstr "網路協定類型"
 
 msgid "Example body text"
 msgstr "範例內文文字"
+
+msgid "Existing Scheduler Hints"
+msgstr "存在的 Scheduler Hints"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -710,6 +956,9 @@ msgstr "資料夾名稱"
 msgid "Form"
 msgstr "表格"
 
+msgid "Form Output"
+msgstr "表單輸出"
+
 msgid "Format"
 msgstr "格式"
 
@@ -764,6 +1013,9 @@ msgstr "標題 6"
 msgid "Home"
 msgstr "首頁"
 
+msgid "Horizontal Definition List"
+msgstr "橫向定義列表"
+
 msgid "Host ID"
 msgstr "主機 ID"
 
@@ -774,7 +1026,7 @@ msgid "Hypervisors"
 msgstr "虛擬機器管理程式"
 
 msgid "ID"
-msgstr "識別號"
+msgstr "ID"
 
 msgid "IP"
 msgstr "IP"
@@ -784,6 +1036,9 @@ msgstr "IP 位址"
 
 msgid "ISO"
 msgstr "ISO"
+
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - Optical Disk Image"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -796,6 +1051,16 @@ msgid ""
 msgstr ""
 "若未在發動雲實例前指定安全性群組，您在佈署後將只會擁有有限的權限存取雲實例。"
 "您將只可以從 VNC 主控臺存取雲實例。"
+
+msgid "If set to 'Yes' then the image cannot be deleted."
+msgstr "如果設為 True，則無法將映像檔刪除。"
+
+msgid ""
+"If uploading the image via a HTTP URL the image location must be accessible "
+"to the Image Service and be a URL direct to the image binary."
+msgstr ""
+"如果通過 HTTP URL 上傳映像檔，映像檔的位置必須可用被映像檔服務訪問，URL 需要"
+"指向鏡像的 binary。"
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -825,11 +1090,37 @@ msgstr ""
 msgid "Image"
 msgstr "映像檔"
 
+#, python-format
+msgid "Image %s was successfully created."
+msgstr "已順利建立映像檔 %s。"
+
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "已順利更新映像檔 %s。"
+
+msgid "Image Description"
+msgstr "映像檔描述"
+
+msgid "Image Detail"
+msgstr "映像檔詳情"
+
 msgid "Image Details"
 msgstr "映像檔詳細資訊"
 
 msgid "Image Name"
 msgstr "映像檔名稱"
+
+msgid "Image Requirements"
+msgstr "映像檔需求"
+
+msgid "Image Sharing"
+msgstr "映像檔共享"
+
+msgid "Image Source"
+msgstr "映像檔來源"
+
+msgid "Image from Other Project - Non-Public"
+msgstr "其他專案的映像黨 — 非公有"
 
 msgid "Images"
 msgstr "映像檔"
@@ -846,8 +1137,17 @@ msgstr "指示器"
 msgid "Info"
 msgstr "資訊"
 
+msgid "Info Anchor"
+msgstr "資訊錨點"
+
 msgid "Info Button"
 msgstr "資訊按鈕"
+
+msgid "Inline"
+msgstr "Inline"
+
+msgid "Inline Form"
+msgstr "Inline 形式"
 
 msgid "Input Sizes"
 msgstr "輸入大小"
@@ -879,11 +1179,25 @@ msgstr "雲實例即時存檔"
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "雲實例計數需要最少為 1 的整數"
 
+msgid ""
+"Instance source is the template used to create an instance.\n"
+"    You can use an image, a snapshot of an instance (image snapshot),\n"
+"    a volume or a volume snapshot (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"雲實例來源是用來新增雲實例的範本。\n"
+"      您可以使用已存在雲實例的即時存檔、\n"
+"      雲硬碟或雲硬碟即時存擋（若已啟用）。\n"
+"      您也可以選擇新增新的雲硬碟來使用持續性硬碟。"
+
 msgid "Instances"
 msgstr "雲實例"
 
 msgid "Interfaces"
 msgstr "網路卡"
+
+msgid "Is Public"
+msgstr "是公開的"
 
 msgid "Item Actions:"
 msgstr "項目工作："
@@ -938,6 +1252,9 @@ msgstr "金鑰組已經存在，或者名稱包含不正確的字元。"
 msgid "Killed"
 msgstr "已中斷"
 
+msgid "Large Modal"
+msgstr "Large Modal"
+
 msgid "Large button"
 msgstr "大型按鈕"
 
@@ -962,6 +1279,9 @@ msgstr "圖註"
 msgid "Library"
 msgstr "檔案庫"
 
+msgid "Line Charts"
+msgstr "折線圖"
+
 msgid "Link"
 msgstr "鏈結"
 
@@ -973,6 +1293,9 @@ msgstr "清單群組項目標題"
 
 msgid "List groups"
 msgstr "清單群組"
+
+msgid "Live Edit Schema Form Examples"
+msgstr "即時編輯模式範例"
 
 msgid "Load Balancer Pool"
 msgstr "負載平衡器儲存區"
@@ -1010,8 +1333,17 @@ msgstr "MacVTap"
 msgid "Manual"
 msgstr "手動"
 
+msgid "Max Burst Kbits"
+msgstr "瞬間頻寬上限 (Kbits)。"
+
+msgid "Max Kbps"
+msgstr "最大 Kbps"
+
 msgid "Max Port"
 msgstr "最大端口"
+
+msgid "Max. Size (bytes)"
+msgstr "最大容量（bytes）"
 
 msgid "Members"
 msgstr "成員"
@@ -1028,11 +1360,35 @@ msgstr "詮釋資料定義"
 msgid "Metadata Definitions"
 msgstr "詮釋資料定義"
 
+msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key and value is 255 characters."
+msgstr ""
+"Metadata 是與實例相關聯的鍵值對的集合。\n"
+"    每個 metadata 鍵值對的最大長度為 255 個字符。"
+
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and viewing.\n"
+"    In some installations this information may affect how the instance is\n"
+"    deployed or behaves."
+msgstr ""
+"Metadata 被用來為映像檔提供額外的\n"
+"    信息。有時這個信息只被用來進行排序和查看。\n"
+"    在一些安裝中，這個信息會影響到實例是如何部署以及\n"
+"    如何運行的。"
+
+msgid "Metadata was successfully updated."
+msgstr "已順利 metadata 。"
+
 msgid "Middle"
 msgstr "中間"
 
 msgid "Min Disk (GB)"
 msgstr "最小硬碟（GB）"
+
+msgid "Min Kbps"
+msgstr "最小 Kbps"
 
 msgid "Min Port"
 msgstr "最小端口"
@@ -1046,11 +1402,23 @@ msgstr "最小硬碟"
 msgid "Min. RAM"
 msgstr "最小隨機存取記憶體"
 
+msgid "Min. Size (bytes)"
+msgstr "最小容量 (bytes)"
+
 msgid "Mini button"
 msgstr "微型按鈕"
 
 msgid "Minimum Disk"
 msgstr "硬碟容量下限"
+
+msgid "Minimum Disk (GB)"
+msgstr "硬碟容量下限 (GB)"
+
+msgid "Minimum RAM"
+msgstr "RAM 下限"
+
+msgid "Minimum RAM (MB)"
+msgstr "RAM 下限 (MB)"
 
 msgid "Modals"
 msgstr "限制模式"
@@ -1112,6 +1480,9 @@ msgstr "網路"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "網路為雲實例提供雲中的通訊頻道。"
 
+msgid "New File Contents"
+msgstr "新增資料內容"
+
 msgid "Newer"
 msgstr "較新"
 
@@ -1124,8 +1495,14 @@ msgstr "否"
 msgid "No available items"
 msgstr "無可用的項目"
 
+msgid "No available scheduler hints"
+msgstr "沒有可用的 Scheduler Hints"
+
 msgid "No description available."
 msgstr "無可用的描述。"
+
+msgid "No existing scheduler hints"
+msgstr "沒有存在的 Scheduler Hints"
 
 msgid "No items to display."
 msgstr "沒有項目可以列出。"
@@ -1138,6 +1515,9 @@ msgstr "適中"
 
 msgid "Not Set"
 msgstr "未設定"
+
+msgid "Not public"
+msgstr "非公開"
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1157,13 +1537,16 @@ msgstr ""
 "          以新增深層資料夾。"
 
 msgid "Number"
-msgstr "數字"
+msgstr "序號"
 
 msgid "OK"
 msgstr "確定"
 
 msgid "OVA"
 msgstr "OVA"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Open Virtual Appliance"
 
 msgid "Object"
 msgstr "物件"
@@ -1186,8 +1569,20 @@ msgstr "排序"
 msgid "One fine body…"
 msgstr "一個精細內文..."
 
+msgid "One large body…"
+msgstr "One large body…"
+
 msgid "One more separated link"
 msgstr "另一個已區隔的鏈結"
+
+msgid "One small body…"
+msgstr "One small body…"
+
+msgid "One super large body…"
+msgstr "One super large body…"
+
+msgid "One tiny body…"
+msgstr "One tiny body…"
 
 msgid "Open"
 msgstr "開啟"
@@ -1201,14 +1596,29 @@ msgstr "這是第一個選項"
 msgid "Option two can be something else"
 msgstr "第二個選項可以是其他內容"
 
+msgid "Ordered"
+msgstr "排序的"
+
 msgid "Other Input Types"
 msgstr "其他輸入類型"
+
+msgid "Other lists"
+msgstr "其他列表"
 
 msgid "Overview"
 msgstr "概觀"
 
 msgid "Owner"
 msgstr "擁有者"
+
+msgid "Ownership"
+msgstr "所有權"
+
+msgid "PLOOP"
+msgstr "PLOOP"
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 
 msgid "Pager"
 msgstr "分頁器"
@@ -1243,6 +1653,9 @@ msgstr "警告畫面"
 msgid "Panels"
 msgstr "畫面"
 
+msgid "Parent Port"
+msgstr "母端口"
+
 msgid "Password"
 msgstr "密碼"
 
@@ -1255,6 +1668,9 @@ msgstr "實體網路"
 msgid "Pills"
 msgstr "藥片"
 
+msgid "Please Wait"
+msgstr "請稍等"
+
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
@@ -1263,11 +1679,23 @@ msgstr ""
 "請提供雲實例的初始主機名稱、將用來部署的可用區域以及雲實例計數。\n"
 "    增加「計數」以使用相同的設定新增多個雲實例。"
 
+msgid "Policy"
+msgstr "政策"
+
+msgid "Policy Details"
+msgstr "原則詳細資料"
+
+msgid "Policy ID"
+msgstr "原則 ID"
+
+msgid "Policy Name"
+msgstr "原則名稱"
+
 msgid "Policy check failed."
 msgstr "政策檢查失敗。"
 
 msgid "Popovers"
-msgstr "烤鬆餅"
+msgstr "Popovers"
 
 msgid "Port ID"
 msgstr "接口識別號"
@@ -1281,11 +1709,17 @@ msgid ""
 msgstr ""
 "埠為雲實例提供了額外的通訊頻道。您可以選取埠，而不是網路或這兩者的混合。"
 
+msgid "Prefix"
+msgstr "前綴"
+
 msgid "Previous"
 msgstr "上一頁"
 
 msgid "Primary"
 msgstr "主要的"
+
+msgid "Primary Anchor"
+msgstr "主要錨點"
 
 msgid "Primary Button"
 msgstr "主要按鈕"
@@ -1303,7 +1737,7 @@ msgid "Private Key"
 msgstr "私鑰"
 
 msgid "Profile"
-msgstr "基本資料"
+msgstr "概要"
 
 msgid "Progress bars"
 msgstr "進度條"
@@ -1312,7 +1746,7 @@ msgid "Project"
 msgstr "專案"
 
 msgid "Project ID"
-msgstr "專案識別號"
+msgstr "專案 ID"
 
 msgid ""
 "Project networks are created by users.\n"
@@ -1328,7 +1762,7 @@ msgid "Properties:"
 msgstr "內容："
 
 msgid "Protected"
-msgstr "保護"
+msgstr "受保護的"
 
 msgid "Protocol"
 msgstr "協定"
@@ -1355,6 +1789,15 @@ msgstr "公鑰"
 msgid "QCOW2"
 msgstr "QCOW2"
 
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU Emulator"
+
+msgid "QoS Policies"
+msgstr "QOS 原則"
+
+msgid "QoS Policy"
+msgstr "QOS 原則"
+
 msgid "Queued"
 msgstr "已排入"
 
@@ -1370,11 +1813,17 @@ msgstr "RX/TX 因數"
 msgid "Radios"
 msgstr "圓鈕"
 
+msgid "Radios, Checkboxes and Select"
+msgstr "單選按鈕，多选和預設選擇"
+
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
 msgid "Ramdisk ID"
 msgstr "Ramdisk ID"
+
+msgid "Raw"
+msgstr "Raw"
 
 msgid "Re-order items using drag and drop"
 msgstr "使用拖拉來重新排列"
@@ -1388,11 +1837,18 @@ msgstr "遠端"
 msgid "Resource ID(s)"
 msgstr "資源ID(s)"
 
+msgid "Revision Number"
+msgstr "版本號"
+
 msgid "Right"
 msgstr "右側"
 
 msgid "Role"
 msgstr "角色"
+
+#, python-format
+msgid "Role %s was successfully created."
+msgstr "已順利建立角色 %s"
 
 msgid "Role updated successfully."
 msgstr "已順利更新角色。"
@@ -1402,6 +1858,12 @@ msgstr "角色"
 
 msgid "Root Disk"
 msgstr "根硬碟"
+
+msgid "Rule ID"
+msgstr "規則 ID"
+
+msgid "Rules"
+msgstr "規則"
 
 msgid "STATUS"
 msgstr "狀態"
@@ -1415,11 +1877,22 @@ msgstr "儲存變更"
 msgid "Saving"
 msgstr "正在儲存"
 
+msgid "Scheduler Hints"
+msgstr "Scheduler Hints"
+
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr "使用 scheduler hint 可用向計算調度程序傳遞額外的放置信息。"
+
 msgid "Schema"
 msgstr "綱目"
 
 msgid "Search"
 msgstr "搜尋"
+
+msgid "Sections and Fieldsets"
+msgstr "區域和組合"
 
 msgid "Security"
 msgstr "安全性"
@@ -1434,8 +1907,22 @@ msgid ""
 "Security groups are project-specific and cannot be shared across projects."
 msgstr "安全性群組是專案專屬的，不可與其他專案共享。"
 
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Network | Security "
+"Groups</b> view, then find the security group and click <b>Manage Rules</b>."
+msgstr ""
+"安全性群組定義一組 IP 篩選規則來決定流入與流出雲實例的網路交通。用戶可以加入"
+"額外的規則到已存在的安全性群組來增進已定義的雲實例存取選項。欲新增額外的規"
+"則，請到<b>網路 | 安全性群組</b>檢視並尋找安全性群組並點擊<b>管理規則</b>。"
+
 msgid "Segmentation ID"
 msgstr "分段識別號"
+
+msgid "Segmentation Type"
+msgstr "分段類型"
 
 msgid "Select Boot Source"
 msgstr "選擇開機來源"
@@ -1443,11 +1930,17 @@ msgstr "選擇開機來源"
 msgid "Select Example"
 msgstr "選擇範例"
 
+msgid "Select Title"
+msgstr "選擇標題"
+
 msgid "Select a container to browse."
 msgstr "選擇容器來瀏覽。"
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "從下列可用的密鑰對中選擇。"
+
+msgid "Select a server group from the available groups below."
+msgstr "從下列可用群組中選擇一個伺服器群組。"
 
 msgid "Select a source from those listed below."
 msgstr "從下列列表中選擇來源。"
@@ -1473,11 +1966,37 @@ msgstr "從下列可用群組中選擇一個或多個安全性群組。"
 msgid "Select ports from those listed below."
 msgstr "從下面列出的埠中選取埠。"
 
+msgid "Select the Ramdisk from the drop down menu."
+msgstr "從下拉選單中選擇 Ramdisk。"
+
+msgid "Select the availability zone from the drop down menu."
+msgstr "從下拉選單中選擇可用區域。"
+
+msgid "Select the format of the disk from the drop down menu."
+msgstr "從下拉選單中選擇磁碟的格式。"
+
+msgid "Select the kernel to run from the drop down menu."
+msgstr "從下拉選單中選擇運行的核心。"
+
 msgid "Select the security groups to launch the instance in."
 msgstr "選取要在其中啟動雲實例的安全群組。"
 
+msgid "Select the server group to launch the instance in."
+msgstr "選取要在其中啟動實例的伺服器群組。"
+
+msgid ""
+"Select the volume type from the drop down menu. In an environment with "
+"multiple-storage back ends, the scheduler determines where to send the "
+"volume based on the volume type."
+msgstr ""
+"從下拉選單中選擇雲硬碟類型。在一個有多個存儲後端的環境中，調度器會根據雲硬碟"
+"的類型決定把雲硬碟發送到什麼地方。"
+
 msgid "Selects"
 msgstr "選取"
+
+msgid "Send invitation"
+msgstr "寄送邀請"
 
 msgid "Separated link"
 msgstr "已區隔的鏈結"
@@ -1485,9 +2004,26 @@ msgstr "已區隔的鏈結"
 msgid "Server Groups"
 msgstr "伺服器群組"
 
+msgid ""
+"Server groups are project-specific and cannot be shared across projects."
+msgstr "伺服器群組是專案專屬的，不可與其他專案共享。"
+
+msgid ""
+"Server groups define collections of VM's so that the entire\n"
+"    collection can be given specific properties. For example, the policy of "
+"a\n"
+"    server group may specify that VM's in this group should not be placed "
+"on\n"
+"    the same physical hardware due to availability requirements."
+msgstr ""
+"伺服器組定義了一組虛擬機，它們可以被分配\n"
+"    特定的屬性。例如，一個伺服器組的策略可以\n"
+"    規定，因為可用性的要求，在這個組中的虛擬機\n"
+"    不能被放置到同一個物理硬體上。"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr "未啟用伺服器類型：%(desiredType)s"
+msgstr "未啟用服務類型：%(desiredType)s"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
@@ -1496,11 +2032,20 @@ msgstr "未啟用設定：%(setting)s"
 msgid "Shared"
 msgstr "已分享"
 
+msgid "Shared With Project"
+msgstr "與專案共享"
+
 msgid "Shared with Project"
 msgstr "與專案共享"
 
 msgid "Size"
 msgstr "容量"
+
+msgid "Size (GiB)"
+msgstr "容量 (GiB)"
+
+msgid "Small Modal"
+msgstr "Small Modal"
 
 msgid "Small button"
 msgstr "小型按鈕"
@@ -1526,8 +2071,17 @@ msgstr "原始碼"
 msgid "Source Title"
 msgstr "來源標題"
 
+msgid "Source Type"
+msgstr "來源類型"
+
+msgid "Specify an image to upload to the Image Service."
+msgstr "指定映像檔以上傳到「映像檔服務」。"
+
 msgid "Stacked"
 msgstr "已堆疊"
+
+msgid "Standard Modal"
+msgstr "Standard Modal"
 
 msgid "Standard Table"
 msgstr "標準表格"
@@ -1551,6 +2105,9 @@ msgstr "子網路"
 msgid "Subnets Associated"
 msgstr "子網路已聯結"
 
+msgid "Subport Count"
+msgstr "子端口數量"
+
 msgid "Success"
 msgstr "成功"
 
@@ -1567,6 +2124,21 @@ msgstr "支援詳細資料顯示："
 msgid "Swap Disk"
 msgstr "Swap 硬碟"
 
+msgid "Swift Account"
+msgstr "Swift 帳號"
+
+msgid "Swift Accounts"
+msgstr "Swift 帳號"
+
+msgid "Swift Container"
+msgstr "Swift 容器"
+
+msgid "Swift Containers"
+msgstr "Swift 容器"
+
+msgid "Tab Array"
+msgstr "表格陣列"
+
 msgid "Table Columns:"
 msgstr "表格欄位"
 
@@ -1582,11 +2154,36 @@ msgstr "標籤"
 msgid "Tel"
 msgstr "電話"
 
+msgid "Tenant ID"
+msgstr "租戶 ID"
+
+msgid "Text"
+msgstr "文字"
+
 msgid "Text Inputs"
 msgstr "文本輸入"
 
 msgid "Textarea"
 msgstr "文字區"
+
+msgid "The access permission for the image."
+msgstr "映像檔的訪問權限"
+
+msgid "The architecture of the image."
+msgstr "映像檔的架構。"
+
+msgid ""
+"The current Horizon settings indicate no valid\n"
+"                       image creation methods are available. Providing\n"
+"                       an image location and/or uploading from the\n"
+"                       local file system must be allowed to support\n"
+"                       image creation."
+msgstr ""
+"Horizon設定中沒有可用的\n"
+"                       建立映像檔方式。\n"
+"                       提供映像檔位置或是\n"
+"                       從本地檔案系統上傳必須被允許才能\n"
+"                       建立映像檔。"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1625,6 +2222,24 @@ msgid ""
 "determined by the compute provider."
 msgstr "每個雲實例可提供的最大鍵/值組數由計算機提供者決定。"
 
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"啟動這個映像檔所需的磁碟容量下限。如果未指定，則此值預設為 0（無下限）。"
+
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+"啟動這個映像檔所需的記憶體容量下限。如果未指定，則此值預設為 0（無下限）。"
+
+msgid "The name of the Volume."
+msgstr "雲硬碟的名稱"
+
+msgid "The name of the image."
+msgstr "映像檔名稱"
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -1642,6 +2257,9 @@ msgid ""
 msgstr ""
 "選擇的 %(sourceType)s 來源需要最少 %(minRam)s MB 隨機存取記憶體的虛擬硬體樣"
 "板。選擇大一點隨機存取記憶體的虛擬硬體樣板或使用不同的 %(sourceType)s 來源。"
+
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "雲硬碟大小 (GB)。"
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "這個狀態表示這個網路是否有使用中的連線。"
@@ -1661,12 +2279,44 @@ msgstr ""
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "雲硬碟容量最少需要 %(minVolumeSize)s GB"
 
+msgid "Themable Checkbox"
+msgstr "主題可變的多選框"
+
+msgid "Themable Option 1"
+msgstr "主題可變的選擇 1"
+
+msgid "Themable Option 2"
+msgstr "主題可變的選擇 2"
+
+msgid "Themable Radios"
+msgstr "主題可變的單選匡"
+
+msgid "Themable Selects"
+msgstr "主題可變的選擇"
+
+msgid "There are no Availability Zones."
+msgstr "沒有可用區域"
+
+msgid ""
+"There are no allowed boot sources.\n"
+"      If you think this is wrong please contact your administrator."
+msgstr ""
+"沒有允許的開機來源。\n"
+"      如果您認為這不正確，請聯繫您的系統管理員。"
+
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
 "有兩種方法產生密鑰對。在 Linux 系統，\n"
 "  以 <samp>ssh-keygen</samp> 命令來產生密鑰對："
+
+msgid ""
+"This JavaScript object contains your new form and can be used with "
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
+msgstr ""
+"這個 JavaScript object 包括了新的表單，可以和 <code>horizo​​n.framework."
+"widgets.form.ModalFormService</code> 一起使用"
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
@@ -1705,8 +2355,25 @@ msgstr "此限制目前未設定。"
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr "此限制目前設為 {$ model.novaLimits.maxServerMeta $}。"
 
+msgid "This name already exists."
+msgstr "此名稱已經存在"
+
+msgid ""
+"This page contains examples of the different fields provided by Schema Form "
+"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
+"be edited inline to customise the form output. For further documentation on "
+"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
+msgstr ""
+"This page contains examples of the different fields provided by Schema Form "
+"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
+"be edited inline to customise the form output. For further documentation on "
+"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
+
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "此步驟容許您將詮釋資料項目新增至雲實例。"
+
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr "這一步允許為實例添加 scheduler hint。"
 
 msgid "Time"
 msgstr "時間"
@@ -1739,6 +2406,18 @@ msgstr "隨機存取記憶體總合"
 
 msgid "Total VCPUs"
 msgstr "虛擬處理器總合"
+
+msgid "Total Volume Storage"
+msgstr "總共的雲硬碟儲存空間"
+
+msgid "Total Volumes"
+msgstr "雲硬碟總和"
+
+msgid "Trunk"
+msgstr "中繼"
+
+msgid "Trunks"
+msgstr "中繼"
 
 msgid "Type"
 msgstr "類型"
@@ -1796,6 +2475,9 @@ msgstr "無法新增專案。"
 msgid "Unable to create the role."
 msgstr "無法新增角色。"
 
+msgid "Unable to create the server snapshot."
+msgstr "無法建立伺服器即時存擋。"
+
 msgid "Unable to create the server."
 msgstr "無法新增伺服器。"
 
@@ -1809,9 +2491,24 @@ msgid "Unable to create the volume."
 msgstr "無法新增雲硬碟。"
 
 #, python-format
+msgid "Unable to delete Flavor: %s."
+msgid_plural "Unable to delete Flavors: %s."
+msgstr[0] "無法刪除虛擬硬體樣板：%s。"
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "無法刪除映像檔：%s。"
+
+#, python-format
+msgid "Unable to delete Role: %s."
+msgid_plural "Unable to delete Roles: %s."
+msgstr[0] "無法刪除角色：%s。"
+
+#, python-format
+msgid "Unable to delete Trunk: %s."
+msgid_plural "Unable to delete Trunks: %s."
+msgstr[0] "無法刪除中繼：%s。"
 
 msgid "Unable to delete the container."
 msgstr "無法刪除容器。"
@@ -1848,17 +2545,28 @@ msgstr "無法刪除角色"
 msgid "Unable to delete the roles."
 msgstr "無法刪除角色"
 
+#, python-format
+msgid "Unable to delete the server with id: %(id)s"
+msgstr "無法刪除 ID 為 %(id)s 的伺服器"
+
 msgid "Unable to delete the user."
 msgstr "無法刪除用戶。"
 
 msgid "Unable to delete the users."
 msgstr "無法刪除用戶。"
 
+#, python-format
+msgid "Unable to delete trunk: %(id)s"
+msgstr "無法刪除中繼：%(id)s 。"
+
 msgid "Unable to disassociate floating IP address."
 msgstr "無法與浮動 IP 位址取消關聯。"
 
 msgid "Unable to edit instance metadata."
 msgstr "無法編輯雲實例詮釋資料。"
+
+msgid "Unable to edit snapshot metadata."
+msgstr "無法更改即時存擋 metadata 。"
 
 msgid "Unable to edit the aggregate extra specs."
 msgstr "無法編輯聚合額外規格。"
@@ -1880,6 +2588,15 @@ msgstr "無法編輯角色"
 
 msgid "Unable to edit the user."
 msgstr "無法編輯用戶。"
+
+msgid "Unable to edit volume metadata."
+msgstr "無法更改雲硬碟 metadata 。"
+
+msgid "Unable to edit volume type metadata."
+msgstr "無法更改雲硬碟類型 metadata 。"
+
+msgid "Unable to fetch the groups."
+msgstr "無法提取群組。"
 
 msgid "Unable to fetch the service catalog."
 msgstr "無法獲得伺服器分類。"
@@ -1911,8 +2628,35 @@ msgstr "無法獲得容器中的物件。"
 msgid "Unable to grant the role."
 msgstr "無法賦予角色權力。"
 
+#, python-format
+msgid "Unable to hard-reboot the server with id: %(id)s"
+msgstr "無法強制重啟 ID 為 %(id)s 的伺服器"
+
 msgid "Unable to import the keypair."
 msgstr "無法匯入密鑰對。"
+
+msgid "Unable to load the server actions."
+msgstr "無法載入伺服器操作"
+
+msgid "Unable to load the server console info."
+msgstr "無法獲得伺服器終端機訊息"
+
+msgid "Unable to load the server console log."
+msgstr "無法獲得伺服器終端機日誌"
+
+msgid "Unable to load the server security groups."
+msgstr "無法獲得伺服器安全性群組。"
+
+msgid "Unable to load the server volumes."
+msgstr "無法獲得伺服器硬碟"
+
+#, python-format
+msgid "Unable to pause the server with id: %(id)s"
+msgstr "無法暫停 (pause) ID 為 %(id)s 的伺服器"
+
+#, python-format
+msgid "Unable to resume the server with id: %(id)s"
+msgstr "無法恢復 ID 為 %(id)s 的伺服器"
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "無法獲得浮動 IP 儲存區。"
@@ -1925,6 +2669,9 @@ msgstr "無法獲得雲實例詮釋資料。"
 
 msgid "Unable to retrieve instances."
 msgstr "無法獲得雲實例。"
+
+msgid "Unable to retrieve server groups."
+msgstr "無法獲得伺服器群組。"
 
 msgid "Unable to retrieve settings."
 msgstr "無法獲得設定。"
@@ -1950,6 +2697,9 @@ msgstr "無法獲得 Cinder 服務。"
 msgid "Unable to retrieve the current user session."
 msgstr "無法獲得目前用戶連線階段。"
 
+msgid "Unable to retrieve the default quotas."
+msgstr "無法獲得預設的配額。"
+
 msgid "Unable to retrieve the default volume type."
 msgstr "無法獲得預設雲硬碟類型。"
 
@@ -1958,6 +2708,9 @@ msgstr "無法獲得地域。"
 
 msgid "Unable to retrieve the domains."
 msgstr "無法獲得地域。"
+
+msgid "Unable to retrieve the editable quotas."
+msgstr "無法獲得可編輯的的配額。"
 
 msgid "Unable to retrieve the extensions."
 msgstr "無法獲得擴充套件。"
@@ -2007,6 +2760,12 @@ msgstr "無法獲得專案。"
 msgid "Unable to retrieve the projects."
 msgstr "無法獲得專案。"
 
+msgid "Unable to retrieve the qos policies."
+msgstr "無法擷取 QoS 原則。"
+
+msgid "Unable to retrieve the qos policy."
+msgstr "無法擷取 QoS 原則。"
+
 msgid "Unable to retrieve the resource types."
 msgstr "無法獲得資源類型。"
 
@@ -2022,8 +2781,18 @@ msgstr "無法獲得安全性群組。"
 msgid "Unable to retrieve the server."
 msgstr "無法獲得伺服器。"
 
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "無法擷取即時存擋 metadata 。"
+
 msgid "Unable to retrieve the subnets."
 msgstr "無法獲得子網路。"
+
+#, python-format
+msgid "Unable to retrieve the trunk with id: %(id)s"
+msgstr "無法擷取 ID 為 %(id)s 的中繼"
+
+msgid "Unable to retrieve the trunks."
+msgstr "無法獲得中繼。"
 
 msgid "Unable to retrieve the user."
 msgstr "無法獲得用戶。"
@@ -2031,8 +2800,14 @@ msgstr "無法獲得用戶。"
 msgid "Unable to retrieve the users."
 msgstr "無法獲得用戶。"
 
+msgid "Unable to retrieve the volume metadata."
+msgstr "無法擷取雲硬碟 metadata 。"
+
 msgid "Unable to retrieve the volume snapshots."
 msgstr "無法獲得雲硬碟即時存檔。"
+
+msgid "Unable to retrieve the volume type metadata."
+msgstr "無法擷取雲硬碟類型 metadata 。"
 
 msgid "Unable to retrieve the volume type."
 msgstr "無法獲得雲硬碟類型。"
@@ -2045,6 +2820,35 @@ msgstr "無法獲得雲硬碟。"
 
 msgid "Unable to retrieve the volumes."
 msgstr "無法獲得雲硬碟。"
+
+msgid "Unable to set the default quotas."
+msgstr "無法設置預設的配額。"
+
+#, python-format
+msgid "Unable to soft-reboot the server with id: %(id)s"
+msgstr "無法軟重啟 ID 為 %(id)s 的伺服器"
+
+#, python-format
+msgid "Unable to start the server with id: %(id)s"
+msgstr "無法啟動 ID 為 %(id)s 的伺服器"
+
+#, python-format
+msgid "Unable to stop the server with id: %(id)s"
+msgstr "無法停止 ID 為 %(id)s 的伺服器"
+
+#, python-format
+msgid "Unable to suspend the server with id: %(id)s"
+msgstr "無法暫停 (suspend) ID 為 %(id)s 的伺服器"
+
+#, python-format
+msgid "Unable to unpause the server with id: %(id)s"
+msgstr "無法停止暫停 ID 為 %(id)s 的伺服器"
+
+msgid "Unable to update metadata."
+msgstr "無法更新 metadata 。"
+
+msgid "Unable to update project quota data."
+msgstr "無法更新專案的配額。"
 
 msgid "Unable to update the flavor."
 msgstr "無法更新虛擬硬體樣板。"
@@ -2061,31 +2865,49 @@ msgstr "無法驗證範本。"
 msgid "Unknown"
 msgstr "不明"
 
+msgid "Unordered"
+msgstr "未排序的"
+
+msgid "Unstyled"
+msgstr "無風格的"
+
 msgid "Up"
 msgstr "上線"
 
 msgid "Update Aggregate Metadata"
-msgstr "更新聚合詮釋資料"
+msgstr "更新聚合 metadata"
 
 msgid "Update Flavor Metadata"
-msgstr "更新虛擬硬體樣板詮釋資料"
+msgstr "更新虛擬硬體樣板 metadata"
 
 msgid "Update Image"
 msgstr "更新映像檔"
 
 msgid "Update Image Metadata"
-msgstr "更新映像檔詮釋資料"
+msgstr "更新映像檔 metadata"
 
 msgid "Update Instance Metadata"
-msgstr "更新雲實例詮釋資料"
+msgstr "更新雲實例 metadata"
 
 msgid "Update Metadata"
 msgstr "更新詮釋資料"
+
+msgid "Update Volume Metadata"
+msgstr "更新雲硬碟 metadata"
+
+msgid "Update Volume Snapshot Metadata"
+msgstr "更新雲硬碟即時存擋 metadata"
+
+msgid "Update Volume Type Metadata"
+msgstr "更新雲硬碟類型 metadata"
 
 msgid "Updated"
 msgstr "已更新"
 
 msgid "Updated At"
+msgstr "更新時間"
+
+msgid "Updated at"
 msgstr "更新時間"
 
 msgid "Upload File"
@@ -2097,11 +2919,35 @@ msgstr "將檔案上傳至：{$ ctrl.model.container.name $}"
 msgid "Uploading"
 msgstr "正在上傳"
 
+msgid "Uploading the image from a local file or from a specified URL."
+msgstr "從本地資料或一個指定的 URL 上傳映像檔。"
+
 msgid "Url"
 msgstr "URL"
 
+msgid "Usage Charts"
+msgstr "使用量圖表"
+
 msgid "Use image as a source"
 msgstr "使用映像檔作為來源"
+
+msgid ""
+"Use the form to set titles, descriptions and choose specific UI element "
+"types for each schema item. In the form builder, the form must be JSON, but "
+"you can use JavaScript in production code, such as <code>gettext</code> for "
+"translation."
+msgstr ""
+"使用表單為每個 schema 項設置標題、描述及特定的 UI 項。在表單建構城市中，表單"
+"必須是 JSON，但在產生代碼時可以使用，如使用 <code>gettext</code> 生成需要翻譯"
+"的內容。"
+
+msgid ""
+"Use the schema to describe the data model and valid input patterns. A schema "
+"is always JSON. NOTE: A schema element is not needed for items that have no "
+"data model, like sections and fieldsets."
+msgstr ""
+"使用 schema 描述數據模型和有效的輸入特徵。 schema 總是 JSON。請注意：沒有數據"
+"模型的項不需要 schema 項，如 section 和 fieldset."
 
 msgid "User"
 msgstr "用戶"
@@ -2118,23 +2964,41 @@ msgstr "虛擬處理器數"
 msgid "VDI"
 msgstr "VDI"
 
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Virtual Disk Image"
+
 msgid "VHD"
 msgstr "VHD"
+
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtual Hard Disk"
 
 msgid "VMDK"
 msgstr "VMDK"
 
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Virtual Machine Disk"
+
 msgid "VNIC type"
 msgstr "虛擬網路卡類型"
 
+msgid "View As Modal"
+msgstr "View As Modal"
+
 msgid "View Details"
 msgstr "檢視詳細資訊"
+
+msgid "View Form JSON"
+msgstr "查看表單 JSON"
 
 msgid "View Instance Details"
 msgstr "檢視雲實例詳細資訊"
 
 msgid "View Router Details"
 msgstr "檢視路由器詳細資訊"
+
+msgid "Virtio Forwarder"
+msgstr "Virtio 轉發器"
 
 msgid "Virtual Size"
 msgstr "虛擬容量"
@@ -2176,6 +3040,9 @@ msgstr "雲硬碟即時存檔"
 msgid "Volume Type Description:"
 msgstr "雲硬碟類型說明："
 
+msgid "Volume and Snapshot Quota (GiB)"
+msgstr "雲硬碟和即時存檔配額 (GB)"
+
 msgid "Volume size is required and must be an integer"
 msgstr "雲硬碟容量需要一個整數"
 
@@ -2194,6 +3061,9 @@ msgstr ""
 
 msgid "Warning"
 msgstr "警告"
+
+msgid "Warning Anchor"
+msgstr "警告錨點"
 
 msgid "Warning Button"
 msgstr "警告按鈕"
@@ -2240,12 +3110,25 @@ msgstr ""
 "    該埠可供使用。如果您尚未準備好讓其他使用者使用此埠，\n"
 "    則您可以將<b>管理狀態</b>設為<b>離線</b>。"
 
+msgid "XL Modal"
+msgstr "XL Modal"
+
+msgid "XS"
+msgstr "XS"
+
 msgid "Yes"
 msgstr "是"
 
 #, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "不容許您刪除映像檔：%s"
+
+#, python-format
+msgid "You are not allowed to delete trunks: %s"
+msgstr "不容許您刪除中繼：%s"
+
+msgid "You can add arbitrary metadata to your image."
+msgstr "您可用為您的映像檔添加任意metadata。"
 
 msgid ""
 "You can add arbitrary metadata to your instance so that you can more easily "
@@ -2265,10 +3148,38 @@ msgstr ""
 "您可以使用在此出現的選項，在雲實例啟動之後對雲實例進行自訂。\n"
 "    「自訂 Script」類似於其他系統中的「使用者資料」。"
 
+msgid ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
+msgstr ""
+"您可以透過將項目從左側直欄移到右側直欄來指定 scheduler hints。左側直欄包含來"
+"自 Glance 描述資料類別的 scheduler hints 定義。使用「自訂」選項來新增包含所選"
+"索引鍵的 scheduler hints 。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
+msgstr[0] "您已選取 \"%s\"。已刪除的中繼將不可回復。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted flavor is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
+msgstr[0] "您已選取 \"%s\"。已刪除的虛擬硬體樣板不可回復。"
+
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "您已選取 \"%s\"。已刪除的映像檔將不可恢復。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted role is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
+msgstr[0] "您已選取 \"%s\"。已刪除的角色將不可回復。"
+
+msgid "Your Form as JavaScript"
+msgstr "Javascript格式"
 
 msgid "error"
 msgid_plural "errors"
@@ -2302,3 +3213,10 @@ msgstr[0] "標題"
 
 msgid "volume"
 msgstr "雲硬碟"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"{$ ctrl.model.counted.files $} 資料在\n"
+"      {$ ctrl.model.counted.folders $} 資料夾中。"

@@ -2,19 +2,19 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
-# Ching Kuo <gene@openstack.org>, 2016. #zanata
-# Ching Kuo <gene@openstack.org>, 2017. #zanata
+# Gene Kuo <gene@openstack.org>, 2016. #zanata
+# Gene Kuo <gene@openstack.org>, 2017. #zanata
 # Tom Fifield <tom@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc3.dev2\n"
+"Project-Id-Version: horizon 12.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-24 12:15+0000\n"
+"POT-Creation-Date: 2017-09-08 13:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-24 07:26+0000\n"
-"Last-Translator: Ching Kuo <gene@openstack.org>\n"
+"PO-Revision-Date: 2017-09-10 11:24+0000\n"
+"Last-Translator: Gene Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -365,6 +365,12 @@ msgstr "加入用戶"
 
 msgid "Add allowed address pair"
 msgstr "增加容許使用的位址配對"
+
+msgid ""
+"Add an allowed address pair for this port. This will allow multiple MAC/IP "
+"address (range) pairs to pass through this port."
+msgstr ""
+"為這個端口添加允許的地址對。這將允許多個 MAC/IP 地址（範圍）對通過這個端口。"
 
 msgid ""
 "Add and remove security groups to this instance from the list of available "
@@ -815,6 +821,10 @@ msgstr "CIDR"
 msgid "CIDR must be specified."
 msgstr "必須指定 CIDR。"
 
+#, python-format
+msgid "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
+msgstr "CIDRs 允許的使用者私人 %(ip_ver)s 網路是 %(allowed)s。"
+
 msgid "CPU architecture of the image."
 msgstr "映像檔的處理器架構。"
 
@@ -985,6 +995,11 @@ msgstr "點擊這裡以顯示單獨的主控臺"
 
 msgid "Clone Consistency Group"
 msgstr "複製一制性群組"
+
+msgid ""
+"Clone each of the volumes in the source Consistency Group, and then add them "
+"to a newly created Consistency Group."
+msgstr "複製來源一致性組中的每個雲硬碟，然後把它們添加到新創建的一致性組中。"
 
 msgid "Close"
 msgstr "關閉"
@@ -1249,6 +1264,13 @@ msgstr "新增雲硬碟類型加密"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "新增雲硬碟類型的額外規格"
+
+msgid ""
+"Create a Consistency Group that will contain newly created volumes cloned "
+"from each of the snapshots in the source Consistency Group Snapshot."
+msgstr ""
+"創建一個一致性組，它包括對來源一致性組快照中的每個快照進行複製所新創建的雲硬"
+"碟。"
 
 msgid "Create a Metadata Namespace"
 msgstr "新增詮釋資料命名空間"
@@ -1937,6 +1959,9 @@ msgstr "方向"
 
 msgid "Direct Input"
 msgstr "直接輸入"
+
+msgid "Direct Physical"
+msgstr "直通硬體"
 
 msgid "Direction"
 msgstr "方向"
@@ -2851,6 +2876,9 @@ msgstr "強制主機複製"
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "正在強制從附加的雲硬碟新增即時存檔「%s」。"
 
+msgid "Form Builder"
+msgstr "格式創建氣"
+
 msgid "Format"
 msgstr "格式"
 
@@ -3165,6 +3193,15 @@ msgid ""
 msgstr ""
 "若不提供容器名稱，將提供您預設的容器命名 volumebackups。備份將擁有與雲硬碟原"
 "本容量相同的容量。"
+
+msgid ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
+msgstr ""
+"這裡如果你不指定一個IP地址，則會使用被選定子網路的閘道器地址作為路由器上新建"
+"接口的IP地址。如果閘道器IP地址已經被使用，你必須使用選定子網路的其它地址。  "
 
 msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
@@ -5593,6 +5630,11 @@ msgid "Specifies that the volume can be used to launch an instance"
 msgstr "指定可用於發動雲實例的雲硬碟。"
 
 msgid ""
+"Specify \"Address pool\" or select \"Enter Network Address manually\" and "
+"specify \"Network Address\"."
+msgstr "指定 \"地址池\" 或選擇 \"手工輸入網路地址\" 並指定 \"網路地址\"。"
+
+msgid ""
 "Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
 "step."
 msgstr "指定「網路位址」，或者在上一步中清除「新增子網路」勾選框。"
@@ -6164,6 +6206,14 @@ msgid ""
 "implemented."
 msgstr "已實作的虛擬網路所用的實體網路名稱。"
 
+msgid ""
+"The name of the physical network over which the virtual network is "
+"implemented. Specify one of the physical networks defined in your neutron "
+"deployment."
+msgstr ""
+"實體網絡的名稱在其上的虛擬網絡為flat和VLAN網絡實現。指定一個在 Neutron 部署環"
+"境中定義的實體網路"
+
 msgid "The page you were looking for doesn't exist"
 msgstr "您所查看的頁面並不存在"
 
@@ -6460,6 +6510,9 @@ msgstr "轉移名稱"
 
 msgid "Transfer name"
 msgstr "轉移名稱"
+
+msgid "Trunks"
+msgstr "中繼"
 
 msgid "Type"
 msgstr "類型"
@@ -7206,6 +7259,9 @@ msgstr "無法獲得此埠的安全性群組。"
 
 msgid "Unable to retrieve security groups."
 msgstr "無法獲得安全性群組。"
+
+msgid "Unable to retrieve shared images."
+msgstr "無法獲得共享的映像檔。"
 
 msgid "Unable to retrieve snapshot data."
 msgstr "無法獲得即時存檔資料。"
