@@ -24,7 +24,8 @@ LOG = logging.getLogger(__name__)
 # entry should be the current service version when the feature was added to
 # horizon.
 # Further documentation can be found at
-# http://docs.openstack.org/developer/horizon/topics/microversion_support.html
+# https://docs.openstack.org/horizon/latest/contributor/topics/
+# microversion_support.html
 MICROVERSION_FEATURES = {
     "nova": {
         "locked_attribute": ["2.9", "2.42"]

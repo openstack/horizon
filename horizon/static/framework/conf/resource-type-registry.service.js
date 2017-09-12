@@ -39,7 +39,7 @@
    * retrieved from a service API. Other types might include Nova servers or
    * Swift objects. The HEAT type names are listed:
    *
-   *   http://docs.openstack.org/developer/heat/template_guide/openstack.html
+   *   https://docs.openstack.org/heat/latest/template_guide/openstack.html
    *
    * Each resource type is a singleton; to create or retrieve the type use:
    *

@@ -230,7 +230,7 @@ class Images(generic.View):
 class MetadefsNamespaces(generic.View):
     """API for Single Glance Metadata Definitions.
 
-       http://docs.openstack.org/developer/glance/metadefs-concepts.html
+       https://docs.openstack.org/glance/latest/user/metadefs-concepts.html
     """
     url_regex = r'glance/metadefs/namespaces/$'
 
@@ -282,7 +282,7 @@ class MetadefsNamespaces(generic.View):
 class MetadefsResourceTypesList(generic.View):
     """API for getting Metadata Definitions Resource Types List.
 
-       http://docs.openstack.org/developer/glance/metadefs-concepts.html
+       https://docs.openstack.org/glance/latest/user/metadefs-concepts.html
     """
     url_regex = r'glance/metadefs/resourcetypes/$'
 
