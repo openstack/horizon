@@ -2,6 +2,15 @@
 {% load i18n %}
 
 {% block modal-body-right %}
-  <p><strong>{% trans "Volume Backup:" %}</strong> {% trans "Volume Backups are stored using the Object Storage service. You must have this service activated in order to create a backup." %}</p>
-  <p>{% trans "If no container name is provided, a default container named volumebackups will be provisioned for you. Backups will be the same size as the volume they originate from." %}</p>
+  <p><strong>{% trans "Volume Backup:" %}</strong>
+  {% blocktrans %}
+  Volume Backups are stored using one of cinder-backup drivers
+  (object storage service, Ceph, NFS, etc ...).
+  You must have one of these services activated in order to create a backup.
+  {% endblocktrans %}</p>
+  <p>{% blocktrans %}
+  If no container name is provided, a default container named volumebackups
+  will be provisioned for you.
+  Backups will be the same size as the volume they originate from.
+  {% endblocktrans %}</p>
 {% endblock %}
