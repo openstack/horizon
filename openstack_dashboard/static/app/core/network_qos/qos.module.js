@@ -93,16 +93,16 @@
    */
   function qosProperties() {
     return {
-      name: gettext('Policy Name'),
-      id: gettext('Policy ID'),
-      description: gettext('Description'),
-      shared: { label: gettext('Shared'), filters: ['yesno'] },
-      tenant_id: gettext('Tenant ID'),
-      project_id: gettext('Project ID'),
-      created_at: gettext('Created At'),
-      updated_at: gettext('Updated At'),
-      rules: gettext('Rules'),
-      revision_number: gettext('Revision Number')
+      'name': {label: gettext('Policy Name'), filters: ['noName'] },
+      'id': {label: gettext('Policy ID'), filters: ['noValue'] },
+      'description': {label: gettext('Description'), filters: ['noName'] },
+      'shared': {label: gettext('Shared'), filters: ['yesno'] },
+      'tenant_id': {label: gettext('Tenant ID'), filters: ['noValue'] },
+      'project_id': {label: gettext('Project ID'), filters: ['noValue'] },
+      'created_at': {label: gettext('Created At'), filters: ['simpleDate'] },
+      'updated_at': {label: gettext('Updated At'), filters: ['simpleDate'] },
+      'rules': {label: gettext('Rules'), filters: ['noValue'] },
+      'revision_number': {label: gettext('Revision Number'), filters: ['noValue'] }
     };
   }
 
