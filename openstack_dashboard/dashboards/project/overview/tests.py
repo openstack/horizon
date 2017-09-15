@@ -19,8 +19,6 @@
 import datetime
 import logging
 
-from django.conf import settings
-from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
@@ -166,11 +164,9 @@ class UsageViewTests(test.TestCase):
         self._nova_stu_enabled(exception)
 
     def test_unauthorized(self):
-        self._stub_nova_api_calls_unauthorized(
-            self.exceptions.nova_unauthorized)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:overview:index')
+        url = reverse('horizon:admin:volumes:index')
 
         # Avoid the log message in the test
         # when unauthorized exception will be logged
@@ -178,11 +174,7 @@ class UsageViewTests(test.TestCase):
         res = self.client.get(url)
         logging.disable(logging.NOTSET)
 
-        self.assertEqual(302, res.status_code)
-        self.assertEqual(('Location', settings.TESTSERVER +
-                          settings.LOGIN_URL + '?' +
-                          REDIRECT_FIELD_NAME + '=' + url),
-                         res._headers.get('location', None),)
+        self.assertEqual(403, res.status_code)
 
     def test_usage_csv(self):
         self._test_usage_csv(nova_stu_enabled=True)

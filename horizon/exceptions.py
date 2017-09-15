@@ -226,19 +226,8 @@ def handle_unauthorized(request, message, redirect, ignore, escalate, handled,
         # some clients, so let's define our own fallback.
         fallback = _("Unauthorized. Please try logging in again.")
         messages.error(request, message or fallback)
-    # Escalation means logging the user out and raising NotAuthorized
-    # so the middleware will redirect them appropriately.
-    if escalate:
-        # Prevents creation of circular import. django.contrib.auth
-        # requires openstack_dashboard.settings to be loaded (by trying to
-        # access settings.CACHES in django.core.caches) while
-        # openstack_dashboard.settings requires django.contrib.auth to be
-        # loaded while importing openstack_auth.utils
-        from django.contrib.auth import logout
-        logout(request)
-        raise NotAuthorized
-    # Otherwise continue and present our "unauthorized" error message.
-    return NotAuthorized
+    # Continue and present our "unauthorized" error message.
+    raise NotAuthorized
 
 
 def handle_notfound(request, message, redirect, ignore, escalate, handled,

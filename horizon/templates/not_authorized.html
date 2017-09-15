@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block breadcrumb_nav %}
+{% endblock %}
+{% block title %}{% trans "Unauthorized. Please try logging in again." %}{% endblock %}
+
+{% block main %}
+  {% trans "You are mot authorized to access this page" %}
+  <a href="{% url 'login' %}">{% trans "Login" %}</a>
+{% endblock %}
