@@ -11,14 +11,14 @@ hacking!=0.13.0,<0.14,>=0.12.0 # Apache-2.0
 #
 coverage!=4.4,>=4.0 # Apache-2.0
 django-nose>=1.4.4 # BSD
-doc8 # Apache-2.0
+doc8>=0.6.0 # Apache-2.0
 flake8-import-order==0.12 # LGPLv3
 mock>=2.0.0 # BSD
 mox3>=0.20.0 # Apache-2.0
 nodeenv>=0.9.4 # BSD
-nose # LGPL
-nose-exclude # LGPL
-nosexcover # BSD
+nose>=1.3.7 # LGPL
+nose-exclude>=0.3.0 # LGPL
+nosexcover>=1.0.10 # BSD
 openstack.nose-plugin>=0.7 # Apache-2.0
 openstackdocstheme>=1.17.0 # Apache-2.0
 reno>=2.5.0 # Apache-2.0
