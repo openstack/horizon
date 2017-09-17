@@ -4,20 +4,25 @@
 # Pablo Caruana <pcaruana@redhat.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
+# Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev66\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev100\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 13:30+0000\n"
+"POT-Creation-Date: 2017-09-16 22:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-22 06:22+0000\n"
-"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
+"PO-Revision-Date: 2017-09-16 08:02+0000\n"
+"Last-Translator: Zeus Arias Lucero <zeusariaslucero@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid "%(total)s %(type)s"
+msgstr "%(total)s %(type)s"
 
 #, python-format
 msgid "%s GB"
@@ -76,7 +81,7 @@ msgid "An error occurred. Please try again later."
 msgstr "Ha ocurrido un error. Inténtelo de nuevo más tarde."
 
 msgid "Array items must be unique"
-msgstr "Los elementos del arreglo deben ser únicos"
+msgstr "Los elementos del Array deben ser únicos"
 
 msgid "Available"
 msgstr "Disponible"
@@ -199,7 +204,7 @@ msgid "Invalid type, expected {$schema.type$}"
 msgstr "Tipo inválido, se esperaba {$schema.type$}"
 
 msgid "Load script from a file"
-msgstr "Leer guión desde un fichero"
+msgstr "Leer Script desde un fichero"
 
 msgid "Loading"
 msgstr "Cargando"
@@ -290,8 +295,8 @@ msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
 "| bytes $}"
 msgstr ""
-"Tamaño guión: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
+"Tamaño Script: {$ (scriptLength || 0) | bytes $} of {$ config."
+"MAX_SCRIPT_SIZE | bytes $}"
 
 msgid "Search in current results"
 msgstr "Buscar entre los resultados"
@@ -334,7 +339,7 @@ msgid "The data in this field is invalid"
 msgstr "El dato en este campo es inválido"
 
 msgid "The script is larger than the maximum size"
-msgstr "El guión es mayor que el tamaño máximo"
+msgstr "El Script es mayor que el tamaño máximo"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
@@ -349,6 +354,12 @@ msgstr "Alternar desplegable"
 
 msgid "Toggle navigation"
 msgstr "Activar la navegación"
+
+msgid "Too few properties defined, minimum {$schema.minProperties$}"
+msgstr "Pocas propiedades definidas, mínimo {$schema.minProperties$}"
+
+msgid "Too many properties defined, maximum {$schema.maxProperties$}"
+msgstr "Muchas propiedades definidas, máximo {$schema.maxProperties$}"
 
 #, python-format
 msgid "Unable to delete: %s."
@@ -402,8 +413,46 @@ msgstr "Predeterminados del pool"
 msgid "selected \"%s\""
 msgstr "seleccionado \"%s\""
 
+msgid "{$ 'Please provide a search criteria first.' $}"
+msgstr ""
+"{$ 'Por favor, especifique un criterio de búsqueda en primer lugar.' $}"
+
 msgid "{$ column.title $}"
 msgstr "{$ column.title $}"
 
 msgid "{$ message || 'No items to display.' $}"
 msgstr "{$ message || 'No items to display.' $}"
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} es un campo obligatorio"
+
+msgid "{$schema.title$} is formatted incorrectly"
+msgstr "{$schema.title$} el formato es incorrecto"
+
+msgid ""
+"{$schema.title$} is too long ({$viewValue.length$} characters), maximum "
+"{$schema.maxLength$}"
+msgstr ""
+"{$schema.title$} es muy largo ({$viewValue.length$} characters), máximo "
+"{$schema.maxLength$}"
+
+msgid ""
+"{$schema.title$} is too short ({$viewValue.length$} characters), minimum "
+"{$schema.minLength$}"
+msgstr ""
+"{$schema.title$} es muy corto ({$viewValue.length$} characters), mínimo "
+"{$schema.minLength$}"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr ""
+"{$viewValue$} es más grande que el máximo permitido de {$schema.maximum$}"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr ""
+"{$viewValue$} es más pequeño que el mínimo permitido de {$schema.minimum$}"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} no es múltiple de {$schema.multipleOf$}"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} no es un numero valido"

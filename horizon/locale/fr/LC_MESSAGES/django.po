@@ -1,22 +1,18 @@
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
-# Adrien Cunin <adrien@adriencunin.fr>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
-# Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
-# Léonard TAVAE <leonard.tavae@gmail.com>, 2016. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2017. #zanata
-# Mateusz Kowalski <mateusz.kowalski@cern.ch>, 2017. #zanata
 # Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev47\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev100\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-22 03:18+0000\n"
+"POT-Creation-Date: 2017-09-16 22:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-07 06:29+0000\n"
-"Last-Translator: Pascal Larivée <pascal@larivee.photo>\n"
+"PO-Revision-Date: 2017-09-16 08:02+0000\n"
+"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -90,7 +86,7 @@ msgid "-"
 msgstr "-"
 
 msgid "0 Bytes"
-msgstr "0 Octets"
+msgstr "0 Octet"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
@@ -100,10 +96,10 @@ msgid "Actions"
 msgstr "Actions"
 
 msgid "Active Instances:"
-msgstr "Instances Actives :"
+msgstr "Instances actives :"
 
 msgid "Active RAM:"
-msgstr "RAM Active :"
+msgstr "RAM active :"
 
 msgid "Add a row"
 msgstr "Ajouter une ligne"
@@ -162,8 +158,8 @@ msgstr[1] "Descendre les éléments"
 #. Translators: test code, don't really have to translate
 msgid "Downed Item"
 msgid_plural "Downed Items"
-msgstr[0] "Élément descendu"
-msgstr[1] "Éléments descendus"
+msgstr[0] "Elément descendu"
+msgstr[1] "Eléments descendus"
 
 #, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
@@ -192,7 +188,7 @@ msgid "Incorrect format for IP address"
 msgstr "Format d'adresse IP incorrect"
 
 msgid "Infinity"
-msgstr "Infinie"
+msgstr "Infini"
 
 msgid "Info: "
 msgstr "Information :"
@@ -202,8 +198,8 @@ msgstr "Format d'adresse MAC invalide"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
-"La saisie des métadonnées est non valide. Utiliser les paires clé=valeur "
-"séparées par des virgules"
+"Métadonnées saisies invalides. Utiliser des paires clé=valeur séparées par "
+"des virgules"
 
 msgid "Invalid subnet mask"
 msgstr "Masque de sous-réseau invalide"
@@ -267,7 +263,7 @@ msgid "None available."
 msgstr "Aucun disponible."
 
 msgid "Not a valid ICMP code"
-msgstr "Code ICMP non valide"
+msgstr "Code ICMP invalide"
 
 msgid "Not a valid ICMP type"
 msgstr "Type ICMP non valide"
@@ -325,7 +321,7 @@ msgstr "Se connecter"
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "Chiot vendu"
-msgstr[1] "Chiots Vendus"
+msgstr[1] "Chiots vendus"
 
 msgid "Submit"
 msgstr "Envoyer"
@@ -343,7 +339,7 @@ msgstr ""
 "tâche."
 
 msgid "The date should be in YYYY-MM-DD format."
-msgstr "La date doit être au format AAAA-MM-DD."
+msgstr "La date doit être au format AAAA-MM-JJ."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "La chaîne ne peut contenir que des caractères ASCII imprimables."
@@ -359,16 +355,16 @@ msgstr ""
 "\" ou \"https://\""
 
 msgid "This Period's GB-Hours:"
-msgstr "GB-Heures de cette période :"
+msgstr "Go-Heures de cette période :"
 
 msgid "This Period's RAM-Hours:"
 msgstr "RAM-Heures de cette période :"
 
 msgid "This Period's VCPU-Hours:"
-msgstr "VCPU-Heures de cette Période :"
+msgstr "VCPU-Heures de cette période :"
 
 msgid "This action cannot be undone."
-msgstr "Cette action ne peut pas être défaite."
+msgstr "Cette action ne peut pas être annulée."
 
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
@@ -389,8 +385,8 @@ msgstr[1] "Remonter les éléments"
 
 msgid "Update Item"
 msgid_plural "Update Items"
-msgstr[0] "Mise à jour de l'élément"
-msgstr[1] "Mise à jour des éléments"
+msgstr[0] "Mettre à jour l'élément"
+msgstr[1] "Mettre à jour les éléments"
 
 msgid "Updated Item"
 msgid_plural "Updated Items"
@@ -400,19 +396,19 @@ msgstr[1] "Éléments mis à jour"
 #. Translators: test code, don't really have to translate
 msgid "Upped Item"
 msgid_plural "Upped Items"
-msgstr[0] "Élément remonté"
-msgstr[1] "Éléments remontés"
+msgstr[0] "Elément remonté"
+msgstr[1] "Eléments remontés"
 
 msgid "Usage Summary"
 msgstr "Résumé de l'Utilisation"
 
 #, python-format
 msgid "Used <span> %(used)s </span>(No Limit)"
-msgstr "Utilisé <span> %(used)s </span>(Pas de limite)"
+msgstr " %(used)s <span>utilisé</span>(Pas de limite)"
 
 #, python-format
 msgid "Used <span> %(used)s </span>of<span> %(available)s </span>"
-msgstr "Utilisé <span> %(used)s </span>sur<span> %(available)s </span>"
+msgstr "%(used)s<span>utilisé</span>sur<span> %(available)s </span>"
 
 msgid "Warning: "
 msgstr "Avertissement :"

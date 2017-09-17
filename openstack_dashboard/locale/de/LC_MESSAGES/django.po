@@ -4,20 +4,17 @@
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2017. #zanata
-# Eugen Block <eblock@nde.ag>, 2017. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2017. #zanata
-# Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev56\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev100\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-25 05:45+0000\n"
+"POT-Creation-Date: 2017-09-16 22:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-02 01:35+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2017-09-16 08:03+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -2761,7 +2758,7 @@ msgstr "Schnittstelle konnte nicht hinzugefügt werden: %s"
 #, python-format
 msgid "Failed to add project %(project)s to volume type access."
 msgstr ""
-"Fehler beim hinzufügen des Projekts %(project)s zum Datenträgertyp-Zugriff."
+"Fehler beim Hinzufügen des Projekts %(project)s zum Datenträgertyp-Zugriff."
 
 #, python-format
 msgid "Failed to add route: %s"
@@ -2791,12 +2788,12 @@ msgstr "Router \"%s\" konnte nicht angelegt werden."
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
 msgstr ""
-"Fehler beim erzeugen des Subnetzes \"%(sub)s\" für Netzwerk \"%(net)s\": "
+"Fehler beim Erzeugen des Subnetzes \"%(sub)s\" für Netzwerk \"%(net)s\": "
 "%(reason)s"
 
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "Fehler beim erzeugen des Subnetzes \"%(sub)s\": %(reason)s"
+msgstr "Fehler beim Erzeugen des Subnetzes \"%(sub)s\": %(reason)s"
 
 #, python-format
 msgid "Failed to delete agent: %s"
@@ -2904,7 +2901,7 @@ msgstr ""
 #, python-format
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr ""
-"Fehler beim entfernen des Projekts %(project)s vom Datenträgertyp-Zugriff."
+"Fehler beim Entfernen des Projekts %(project)s vom Datenträgertyp-Zugriff."
 
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
@@ -3414,6 +3411,17 @@ msgstr ""
 "Wird kein Containername angegeben, so wird ein Standardcontainer mit Namen "
 "volumebackups angelegt. Sicherungskopien haben die selbe Größe wie der "
 "Datenträger, von dem sie erstellt wurden."
+
+msgid ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
+msgstr ""
+"Wenn Sie hier keine IP Adresse angeben, so wird die IP Adresse des Gateways "
+"im ausgewählten Subnetz als IP Adresse des neuen Router-Interfaces "
+"verwendet. Wenn die Gateway-Adresse bereits verwendet wird, müssen Sie eine "
+"andere zum gewählten Subnetz gehörige Adresse verwenden."
 
 msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
@@ -6925,6 +6933,9 @@ msgstr "Transfername"
 
 msgid "Transfer name"
 msgstr "Transfername"
+
+msgid "Trunks"
+msgstr "Trunks"
 
 msgid "Type"
 msgstr "Typ"

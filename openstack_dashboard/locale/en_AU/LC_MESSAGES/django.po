@@ -3,20 +3,41 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Tom Fifield <tom@openstack.org>, 2016. #zanata
+# Tom Fifield <tom@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev56\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev100\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-25 05:45+0000\n"
+"POT-Creation-Date: 2017-09-16 22:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-10 03:58+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2017-08-21 06:43+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia)\n"
 "Language: en-AU\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s GiB Used\n"
+"      "
+msgstr ""
+"\n"
+"      %(used)s of %(quota)s GiB Used\n"
+"      "
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s Used\n"
+"      "
+msgstr ""
+"\n"
+"      %(used)s of %(quota)s Used\n"
+"      "
 
 msgid " - End"
 msgstr " - End"
@@ -32,6 +53,17 @@ msgstr ""
 " A protocol entry contains information that dictates which mapping rules to "
 "use for a given incoming request. An Identity Provider may have multiple "
 "supported protocols."
+
+msgid ""
+" You can create a port for the network.\n"
+"     If you specify device ID to be attached, the device specified will\n"
+"     be attached to the port created.\n"
+"     "
+msgstr ""
+" You can create a port for the network.\n"
+"     If you specify device ID to be attached, the device specified will\n"
+"     be attached to the port created.\n"
+"     "
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -55,6 +87,10 @@ msgstr ""
 "setting the QoS Spec to \"None\" will remove the current association."
 
 #, python-format
+msgid "%(dev)s on %(instance)s"
+msgstr "%(dev)s on %(instance)s"
+
+#, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: Invalid IP address (value=%(ip)s)"
 
@@ -76,6 +112,10 @@ msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
 
 #, python-format
+msgid "%(pool_name)s %(cidr)s"
+msgstr "%(pool_name)s %(cidr)s"
+
+#, python-format
 msgid "%(resource_status)s: %(resource_status_reason)s"
 msgstr "%(resource_status)s: %(resource_status_reason)s"
 
@@ -90,6 +130,18 @@ msgstr "%(type)s (%(backend)s backend)"
 #, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s used"
+
+#, python-format
+msgid "%(used)s of %(quota)s GiB Used"
+msgstr "%(used)s of %(quota)s GiB Used"
+
+#, python-format
+msgid "%(used)s of %(quota)s MB Used"
+msgstr "%(used)s of %(quota)s MB Used"
+
+#, python-format
+msgid "%(used)s of %(quota)s Used"
+msgstr "%(used)s of %(quota)s Used"
 
 #, python-format
 msgid "%s (Default)"
@@ -380,6 +432,9 @@ msgid_plural "Added Users"
 msgstr[0] "Added User"
 msgstr[1] "Added Users"
 
+msgid "Additional Routes"
+msgstr "Additional Routes"
+
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
 "nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
@@ -482,6 +537,9 @@ msgstr "All available volume types"
 
 msgid "All available volumes"
 msgstr "All available volumes"
+
+msgid "All ports"
+msgstr "All ports"
 
 msgid ""
 "All selected volume types must be associated with the same volume backend "
@@ -701,6 +759,9 @@ msgstr "Backup Size (GiB)"
 msgid "Backups"
 msgstr "Backups"
 
+msgid "Bare Metal"
+msgstr "Bare Metal"
+
 msgid "Binding"
 msgstr "Binding"
 
@@ -809,6 +870,12 @@ msgstr "Cannot get console for instance %s."
 msgid "Cannot specify both file and direct input."
 msgstr "Cannot specify both file and direct input."
 
+msgid "Case sensitive"
+msgstr "Case sensitive"
+
+msgid "Case-sensitive"
+msgstr "Case-sensitive"
+
 msgid "Centralized"
 msgstr "Centralised"
 
@@ -827,11 +894,21 @@ msgstr "Change Template"
 msgid "Change Volume Type"
 msgstr "Change Volume Type"
 
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+msgstr ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr "Change user's password. We highly recommend you create a strong one."
 
 msgid "Change your password. We highly recommend you create a strong one. "
 msgstr "Change your password. We highly recommend you create a strong one. "
+
+msgid "Changes Since"
+msgstr "Changes Since"
 
 msgid "Changing password is not supported."
 msgstr "Changing password is not supported."
@@ -877,6 +954,13 @@ msgstr ""
 
 msgid "Choose Your Boot Source Type."
 msgstr "Choose Your Boot Source Type."
+
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
 
 msgid "Choose a Host to migrate to."
 msgstr "Choose a Host to migrate to."
@@ -1114,6 +1198,9 @@ msgstr "Create Encrypted Volume Type"
 msgid "Create Encryption"
 msgstr "Create Encryption"
 
+msgid "Create Extra Spec For {{ qos_spec_name }}"
+msgstr "Create Extra Spec For {{ qos_spec_name }}"
+
 msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "Create Failed"
@@ -1245,6 +1332,38 @@ msgstr "Create a mapping."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Create a new \"extra spec\" key-value pair for a volume type."
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\".\n"
+"      Valid key names are expected in the QoS specs. The acceptable values "
+"for key are\n"
+"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
+"  <br>\n"
+"  <br>\n"
+"  Example:\n"
+"  <br>\n"
+"  Key: minIOPS and Value:20 (number value less than maxIOPS)\n"
+"  <br>\n"
+"  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  <br>\n"
+"  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  "
+msgstr ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\".\n"
+"      Valid key names are expected in the QoS specs. The acceptable values "
+"for key are\n"
+"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
+"  <br>\n"
+"  <br>\n"
+"  Example:\n"
+"  <br>\n"
+"  Key: minIOPS and Value:20 (number value less than maxIOPS)\n"
+"  <br>\n"
+"  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  <br>\n"
+"  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  "
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -1429,6 +1548,9 @@ msgstr "Customization Script Source"
 
 msgid "DHCP Agents"
 msgstr "DHCP Agents"
+
+msgid "DHCP Enabled"
+msgstr "DHCP Enabled"
 
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "DHCPv6 stateful: Address discovered from OpenStack DHCP"
@@ -1948,6 +2070,9 @@ msgstr "Direct"
 msgid "Direct Input"
 msgstr "Direct Input"
 
+msgid "Direct Physical"
+msgstr "Direct Physical"
+
 msgid "Direction"
 msgstr "Direction"
 
@@ -2115,11 +2240,17 @@ msgstr "Down"
 msgid "Download CSV Summary"
 msgstr "Download CSV Summary"
 
+msgid "Download OpenStack RC File"
+msgstr "Download OpenStack RC File"
+
 msgid "Download transfer credentials"
 msgstr "Download transfer credentials"
 
 msgid "EC2 Access Key"
 msgstr "EC2 Access Key"
+
+msgid "EC2 Credentials"
+msgstr "EC2 Credentials"
 
 msgid "EC2 Secret Key"
 msgstr "EC2 Secret Key"
@@ -2138,6 +2269,9 @@ msgstr ""
 
 msgid "Edit"
 msgstr "Edit"
+
+msgid "Edit Access"
+msgstr "Edit Access"
 
 msgid "Edit Consistency Group"
 msgstr "Edit Consistency Group"
@@ -2218,6 +2352,9 @@ msgstr "Edit Volume"
 msgid "Edit Volume Type"
 msgstr "Edit Volume Type"
 
+msgid "Edit Volume Type Access"
+msgstr "Edit Volume Type Access"
+
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edit Volume Type Extra Spec"
 
@@ -2250,11 +2387,17 @@ msgstr "Edit the role's details."
 msgid "Edit the user's details, including the Primary Project."
 msgstr "Edit the user's details, including the Primary Project."
 
+msgid "Edit {{ qos_spec_name }} Spec Value"
+msgstr "Edit {{ qos_spec_name }} Spec Value"
+
 msgid "Egress"
 msgstr "Egress"
 
 msgid "Email"
 msgstr "Email"
+
+msgid "Enable Admin State"
+msgstr "Enable Admin State"
 
 msgid "Enable DHCP"
 msgstr "Enable DHCP"
@@ -2279,6 +2422,9 @@ msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "Enable User"
 msgstr[1] "Enable Users"
+
+msgid "Enable anti-spoofing rules for the port"
+msgstr "Enable anti-spoofing rules for the port"
 
 msgid "Enable rollback on create/update failure."
 msgstr "Enable rollback on create/update failure."
@@ -2341,6 +2487,9 @@ msgstr "Enter a value for ICMP code in the range (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Enter a value for ICMP type in the range (-1: 255)"
+
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr "Enter an integer value between -1 and 255 (-1 means wild card)."
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "Enter an integer value between 0 and 255."
@@ -2473,6 +2622,15 @@ msgid "Events"
 msgstr "Events"
 
 msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
+"For <tt>mod_auth_mellon</tt>, this could be <tt>MELLON_IDP</tt>."
+msgstr ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
+"For <tt>mod_auth_mellon</tt>, this could be <tt>MELLON_IDP</tt>."
+
+msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavors."
@@ -2544,6 +2702,18 @@ msgstr "Failed to add %s project groups and update project quotas."
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Failed to add agent %(agent_name)s for network %(network)s."
 
+#, python-format
+msgid "Failed to add interface: %s"
+msgstr "Failed to add interface: %s"
+
+#, python-format
+msgid "Failed to add project %(project)s to volume type access."
+msgstr "Failed to add project %(project)s to volume type access."
+
+#, python-format
+msgid "Failed to add route: %s"
+msgstr "Failed to add route: %s"
+
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Failed to check if network-ip-availability extension is supported."
 
@@ -2562,6 +2732,15 @@ msgstr "Failed to create network %s"
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Failed to create router \"%s\"."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+msgstr ""
+"Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
+msgstr "Failed to create subnet \"%(sub)s\": %(reason)s"
 
 #, python-format
 msgid "Failed to delete agent: %s"
@@ -2608,6 +2787,13 @@ msgstr "Failed to get network list {0}"
 
 msgid "Failed to get network list."
 msgstr "Failed to get network list."
+
+#, python-format
+msgid "Failed to get network list: %s"
+msgstr "Failed to get network list: %s"
+
+msgid "Failed to live migrate instance to a new host."
+msgstr "Failed to live migrate instance to a new host."
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
@@ -2657,8 +2843,16 @@ msgstr ""
 "an error status"
 
 #, python-format
+msgid "Failed to remove project %(project)s from volume type access."
+msgstr "Failed to remove project %(project)s from volume type access."
+
+#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Failed to retrieve network %s for a subnet"
+
+#, python-format
+msgid "Failed to set gateway: %s"
+msgstr "Failed to set gateway: %s"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -2697,6 +2891,9 @@ msgstr "File exceeds maximum size (16kb)"
 
 msgid "Filter"
 msgstr "Filter"
+
+msgid "Filter by an ISO 8061 formatted time, e.g. 2016-06-14T06:27:59Z"
+msgstr "Filter by an ISO 8061 formatted time, e.g. 2016-06-14T06:27:59Z"
 
 msgid "Fingerprint"
 msgstr "Fingerprint"
@@ -2748,6 +2945,9 @@ msgstr "Flavour Information"
 
 msgid "Flavor Name"
 msgstr "Flavor Name"
+
+msgid "Flavor Name ="
+msgstr "Flavour Name ="
 
 msgid "Flavor name cannot be empty."
 msgstr "Flavour name cannot be empty."
@@ -2816,6 +3016,9 @@ msgstr "Force Host Copy"
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Forcing to create snapshot \"%s\" from attached volume."
+
+msgid "Form Builder"
+msgstr "Form Builder"
 
 msgid "Format"
 msgstr "Format"
@@ -2970,6 +3173,9 @@ msgstr "Host Aggregate Information"
 msgid "Host Aggregates"
 msgstr "Host Aggregates"
 
+msgid "Host Name ="
+msgstr "Host Name ="
+
 msgid "Host Routes"
 msgstr "Host Routes"
 
@@ -3035,6 +3241,9 @@ msgstr "IP Address or CIDR"
 
 msgid "IP Addresses"
 msgstr "IP Addresses"
+
+msgid "IP Allocation Pools"
+msgstr "IP Allocation Pools"
 
 msgid "IP Protocol"
 msgstr "IP Protocol"
@@ -3139,6 +3348,17 @@ msgstr ""
 "If no container name is provided, a default container named volumebackups "
 "will be provisioned for you. Backups will be the same size as the volume "
 "they originate from."
+
+msgid ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
+msgstr ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
 
 msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
@@ -3290,6 +3510,9 @@ msgstr "Instance Console Log"
 msgid "Instance ID"
 msgstr "Instance ID"
 
+msgid "Instance ID ="
+msgstr "Instance ID ="
+
 msgid "Instance Name"
 msgstr "Instance Name"
 
@@ -3313,6 +3536,9 @@ msgstr "Instances"
 
 msgid "Insufficient privilege level to retrieve image list."
 msgstr "Insufficient privilege level to retrieve image list."
+
+msgid "Insufficient privilege level to retrieve key pair list."
+msgstr "Insufficient privilege level to retrieve key pair list."
 
 msgid "Insufficient privilege level to view domain information."
 msgstr "Insufficient privilege level to view domain information."
@@ -3349,6 +3575,10 @@ msgstr "Internal:"
 
 msgid "Invalid date format: Using today as default."
 msgstr "Invalid date format: Using today as default."
+
+#, python-format
+msgid "Invalid format for routes: %s"
+msgstr "Invalid format for routes: %s"
 
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
@@ -3498,6 +3728,10 @@ msgid_plural "Lock Instances"
 msgstr[0] "Lock Instance"
 msgstr[1] "Lock Instances"
 
+msgctxt "Locked status of an instance"
+msgid "Locked"
+msgstr "Locked"
+
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
 msgstr[0] "Locked Instance"
@@ -3630,6 +3864,9 @@ msgstr "Memory Usage"
 msgid "Message"
 msgstr "Message"
 
+msgid "Messages"
+msgstr "Messages"
+
 msgid "Metadata"
 msgstr "Metadata"
 
@@ -3739,6 +3976,10 @@ msgid ""
 msgstr ""
 "Modified project information and members, but unable to modify project "
 "quotas."
+
+#, python-format
+msgid "Modified volume type access: %s"
+msgstr "Modified volume type access: %s"
 
 msgid "Modify Access"
 msgstr "Modify Access"
@@ -3876,6 +4117,12 @@ msgstr "Network Name"
 
 msgid "Network Ports"
 msgstr "Network Ports"
+
+msgid "Network QoS"
+msgstr "Network QoS"
+
+msgid "Network QoS Policies"
+msgstr "Network QoS Policies"
 
 msgid "Network Topology"
 msgstr "Network Topology"
@@ -4069,6 +4316,9 @@ msgstr "No router"
 msgid "No rules defined."
 msgstr "No rules defined."
 
+msgid "No security group is associated"
+msgstr "No security group is associated"
+
 msgid "No security groups available"
 msgstr "No security groups available"
 
@@ -4196,6 +4446,9 @@ msgstr "Object Store"
 msgid "Old Flavor"
 msgstr "Old Flavor"
 
+msgid "Old password and new password must be different"
+msgstr "Old password and new password must be different"
+
 msgid "On Demand"
 msgstr "On Demand"
 
@@ -4214,6 +4467,24 @@ msgstr "Open Port"
 
 msgid "Open Port/Port Range:"
 msgstr "Open Port/Port Range:"
+
+msgid "OpenStack Profiler"
+msgstr "OpenStack Profiler"
+
+msgid "OpenStack RC File (Identity API v2.0)"
+msgstr "OpenStack RC File (Identity API v2.0)"
+
+msgid "OpenStack RC File (Identity API v3)"
+msgstr "OpenStack RC File (Identity API v3)"
+
+msgid "OpenStack RC File v2"
+msgstr "OpenStack RC File v2"
+
+msgid "OpenStack RC File v3"
+msgstr "OpenStack RC File v3"
+
+msgid "OpenStack clouds.yaml File"
+msgstr "OpenStack clouds.yaml File"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Optionally, you may choose to create a new volume."
@@ -4248,6 +4519,34 @@ msgstr "Overview"
 
 msgid "Owner"
 msgstr "Owner"
+
+msgid "Owner of the device attached to the port"
+msgstr "Owner of the device attached to the port"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
+"request accept</tt> command."
+msgstr ""
+"Ownership of a volume can be transferred from one project to another. "
+"Accepting a transfer requires obtaining the Transfer ID and Authorisation "
+"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
+"request accept</tt> command."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>openstack volume "
+"transfer create</tt> command."
+msgstr ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>openstack volume "
+"transfer create</tt> command."
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 
 msgid "Page Not Found"
 msgstr "Page Not Found"
@@ -4341,6 +4640,9 @@ msgstr "Port %s was successfully updated."
 
 msgid "Port Range"
 msgstr "Port Range"
+
+msgid "Port Security"
+msgstr "Port Security"
 
 msgid "Port Security Enabled"
 msgstr "Port Security Enabled"
@@ -4535,6 +4837,25 @@ msgstr "QoS Spec: {{ qos_spec_name }}"
 msgid "QoS Specs"
 msgstr "QoS Specs"
 
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>openstack volume qos create</tt> command. Once the QoS "
+"Spec gets created, click the \"Manage Specs\" button to manage the key-value "
+"specs for the QoS Spec. <br> <br> Each QoS Spec entity has a \"Consumer\" "
+"value which indicates where the administrator would like the QoS policy to "
+"be enforced. This value can be \"front-end\" (Compute back-end), \"back-end"
+"\" (Block Storage back-end), or \"both\"."
+msgstr ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>openstack volume qos create</tt> command. Once the QoS "
+"Spec gets created, click the \"Manage Specs\" button to manage the key-value "
+"specs for the QoS Spec. <br> <br> Each QoS Spec entity has a \"Consumer\" "
+"value which indicates where the administrator would like the QoS policy to "
+"be enforced. This value can be \"front-end\" (Compute back-end), \"back-end"
+"\" (Block Storage back-end), or \"both\"."
+
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "Queued"
@@ -4646,6 +4967,10 @@ msgstr "Rebuilding instance %s."
 
 msgid "Recreate EC2 Credentials"
 msgstr "Recreate EC2 Credentials"
+
+#, python-format
+msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
+msgstr "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
 
 msgid "Region"
 msgstr "Region"
@@ -5006,6 +5331,9 @@ msgstr "S3 URL"
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Address discovered from OpenStack Router"
 
+msgid "SLAAC: Address discovered from an external router"
+msgstr "SLAAC: Address discovered from an external router"
+
 msgid "SNAT"
 msgstr "SNAT"
 
@@ -5073,6 +5401,9 @@ msgstr "Script File"
 msgid "Security Group"
 msgstr "Security Group"
 
+msgid "Security Group ID"
+msgstr "Security Group ID"
+
 msgid "Security Group Rules"
 msgstr "Security Group Rules"
 
@@ -5081,6 +5412,24 @@ msgstr "Security Groups"
 
 msgid "Security group rule already exists."
 msgstr "Security group rule already exists."
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. After the security group is created, you can add rules "
+"to the security group."
+msgstr ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. After the security group is created, you can add rules "
+"to the security group."
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. You can edit the name and its description of the "
+"security group."
+msgstr ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. You can edit the name and its description of the "
+"security group."
 
 msgid "Segmentation ID"
 msgstr "Segmentation ID"
@@ -5227,6 +5576,13 @@ msgid ""
 msgstr ""
 "Select the projects where the flavours will be used. If no projects are "
 "selected, then the flavour will be available in all projects."
+
+msgid ""
+"Select the projects where the volume types will be used. If no projects are "
+"selected, then volume type will be only visible by users with the admin role."
+msgstr ""
+"Select the projects where the volume types will be used. If no projects are "
+"selected, then volume type will be only visible by users with the admin role."
 
 msgid "Selected Hosts"
 msgstr "Selected Hosts"
@@ -5446,6 +5802,9 @@ msgstr "Snapshot Volumes"
 msgid "Snapshot source must be specified"
 msgstr "Snapshot source must be specified"
 
+msgid "Snapshots"
+msgstr "Snapshots"
+
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
@@ -5538,6 +5897,9 @@ msgstr "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgid "Specify an image to upload to the Image Service."
 msgstr "Specify an image to upload to the Image Service."
 
+msgid "Specify the MAC address for the new port"
+msgstr "Specify the MAC address for the new port"
+
 msgid "Specify the details for launching an instance."
 msgstr "Specify the details for launching an instance."
 
@@ -5560,8 +5922,14 @@ msgstr "Stack Events"
 msgid "Stack ID"
 msgstr "Stack ID"
 
+msgid "Stack ID ="
+msgstr "Stack ID ="
+
 msgid "Stack Name"
 msgstr "Stack Name"
+
+msgid "Stack Name ="
+msgstr "Stack Name ="
 
 msgid "Stack Parameters"
 msgstr "Stack Parameters"
@@ -5622,6 +5990,10 @@ msgstr[0] "Started Instance"
 msgstr[1] "Started Instances"
 
 #, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "Starting to evacuate host: %s."
+
+#, python-format
 msgid "Starting to migrate host: %(current)s"
 msgstr "Starting to migrate host: %(current)s"
 
@@ -5665,6 +6037,9 @@ msgstr "Subnet ID"
 
 msgid "Subnet Name"
 msgstr "Subnet Name"
+
+msgid "Subnet Pool"
+msgstr "Subnet Pool"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Subnet list can not be retrieved."
@@ -5881,6 +6256,9 @@ msgstr ""
 "perform volume migration. Note that migration may take a significant amount "
 "of time to complete, in some cases hours."
 
+msgid "The \"Type\" selected must be different from the current volume type."
+msgstr "The \"Type\" selected must be different from the current volume type."
+
 msgid "The \"from\" port number is invalid."
 msgstr "The \"from\" port number is invalid."
 
@@ -6053,6 +6431,14 @@ msgstr "The instance password encrypted with your public key."
 msgid "The instance(s) will be shut off."
 msgstr "The instance(s) will be shut off."
 
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the button below."
+msgstr ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the button below."
+
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
@@ -6085,6 +6471,15 @@ msgid ""
 msgstr ""
 "The name of the physical network over which the virtual network is "
 "implemented."
+
+msgid ""
+"The name of the physical network over which the virtual network is "
+"implemented. Specify one of the physical networks defined in your neutron "
+"deployment."
+msgstr ""
+"The name of the physical network over which the virtual network is "
+"implemented. Specify one of the physical networks defined in your neutron "
+"deployment."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "The page you were looking for doesn't exist"
@@ -6136,11 +6531,41 @@ msgid ""
 msgstr ""
 "The requested instance port is already associated with another floating IP."
 
+#, python-format
+msgid ""
+"The requested instance(s) cannot be launched as your quota will be exceeded: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"The requested instance(s) cannot be launched as your quota will be exceeded: "
+"Available: %(avail)s, Requested: %(req)s."
+
 msgid "The specified port is invalid."
 msgstr "The specified port is invalid."
 
 msgid "The state to start the network in."
 msgstr "The state to start the network in."
+
+msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>openstack volume set --state</tt> "
+"command."
+msgstr ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>openstack volume set --state</tt> "
+"command."
+
+msgid ""
+"The status of a volume snapshot is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
+"tt> command."
+msgstr ""
+"The status of a volume snapshot is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
+"tt> command."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -6214,6 +6639,23 @@ msgid ""
 msgstr ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
+
+msgid ""
+"This instance is currently locked. To enable more actions on it, please "
+"unlock it by selecting Unlock Instance from the actions menu."
+msgstr ""
+"This instance is currently locked. To enable more actions on it, please "
+"unlock it by selecting Unlock Instance from the actions menu."
+
+msgid "This instance is unlocked."
+msgstr "This instance is unlocked."
+
+msgid ""
+"This is equivalent to the <tt>openstack volume qos associate</tt> and "
+"<tt>openstack volume qos disassociate</tt> commands."
+msgstr ""
+"This is equivalent to the <tt>openstack volume qos associate</tt> and "
+"<tt>openstack volume qos disassociate</tt> commands."
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -6338,11 +6780,18 @@ msgid ""
 msgstr ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
 
+msgid "Total Volume Storage"
+msgstr "Total Volume Storage"
+
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "Total disk usage (GB * Hours Used) for the project"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "Total memory usage (MB * Hours Used) for the project"
+
+#, python-format
+msgid "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
+msgstr "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
 
 msgid "Transfer ID"
 msgstr "Transfer ID"
@@ -6353,8 +6802,14 @@ msgstr "Transfer Name"
 msgid "Transfer name"
 msgstr "Transfer name"
 
+msgid "Trunks"
+msgstr "Trunks"
+
 msgid "Type"
 msgstr "Type"
+
+msgid "Type ="
+msgstr "Type ="
 
 msgid "Type of backend device identifier provided"
 msgstr "Type of backend device identifier provided"
@@ -6709,6 +7164,9 @@ msgstr "Unable to modify domain \"%s\"."
 msgid "Unable to modify flavor \"%s\"."
 msgstr "Unable to modify flavor \"%s\"."
 
+msgid "Unable to modify flavor access."
+msgstr "Unable to modify flavour access."
+
 #, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "Unable to modify instance \"%s\"."
@@ -7034,6 +7492,9 @@ msgstr "Unable to retrieve port details"
 msgid "Unable to retrieve port details."
 msgstr "Unable to retrieve port details."
 
+msgid "Unable to retrieve port security state"
+msgstr "Unable to retrieve port security state"
+
 msgid "Unable to retrieve ports information."
 msgstr "Unable to retrieve ports information."
 
@@ -7089,6 +7550,9 @@ msgstr "Unable to retrieve security group."
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 
+msgid "Unable to retrieve security groups for the port."
+msgstr "Unable to retrieve security groups for the port."
+
 msgid "Unable to retrieve security groups."
 msgstr "Unable to retrieve security groups."
 
@@ -7130,6 +7594,9 @@ msgstr "Unable to retrieve tenant limits."
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Unable to retrieve the aggregate to be updated"
+
+msgid "Unable to retrieve the instance."
+msgstr "Unable to retrieve the instance."
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "Unable to retrieve the project information of the image."
@@ -7173,6 +7640,10 @@ msgstr "Unable to retrieve volume consistency group snapshots."
 msgid "Unable to retrieve volume consistency groups."
 msgstr "Unable to retrieve volume consistency groups."
 
+#, python-format
+msgid "Unable to retrieve volume details for volume %s."
+msgstr "Unable to retrieve volume details for volume %s."
+
 msgid "Unable to retrieve volume details."
 msgstr "Unable to retrieve volume details."
 
@@ -7196,17 +7667,27 @@ msgstr "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgid "Unable to retrieve volume list."
 msgstr "Unable to retrieve volume list."
 
+msgid "Unable to retrieve volume messages."
+msgstr "Unable to retrieve volume messages."
+
 msgid "Unable to retrieve volume project information."
 msgstr "Unable to retrieve volume project information."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Unable to retrieve volume snapshot."
 
+#, python-format
+msgid "Unable to retrieve volume snapshots for volume %s."
+msgstr "Unable to retrieve volume snapshots for volume %s."
+
 msgid "Unable to retrieve volume snapshots."
 msgstr "Unable to retrieve volume snapshots."
 
 msgid "Unable to retrieve volume transfer."
 msgstr "Unable to retrieve volume transfer."
+
+msgid "Unable to retrieve volume type access list."
+msgstr "Unable to retrieve volume type access list."
 
 msgid "Unable to retrieve volume type details."
 msgstr "Unable to retrieve volume type details."
@@ -7711,6 +8192,9 @@ msgstr "VDI - Virtual Disk Image"
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Virtual Hard Disk"
 
+msgid "VHDX - Large Virtual Hard Disk"
+msgstr "VHDX - Large Virtual Hard Disk"
+
 msgid "VIF Details"
 msgstr "VIF Details"
 
@@ -7756,6 +8240,9 @@ msgstr "View Routers"
 
 msgid "View Usage"
 msgstr "View Usage"
+
+msgid "Virtio Forwarder"
+msgstr "Virtio Forwarder"
 
 msgid "Virtual Size"
 msgstr "Virtual Size"
@@ -7935,6 +8422,21 @@ msgstr "Volume source must be specified"
 
 msgid "Volume transfer name cannot be empty."
 msgstr "Volume transfer name cannot be empty."
+
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>openstack volume type create</"
+"tt> command. Once the volume type gets created, click the \"View Extra Specs"
+"\" button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>openstack volume type create</"
+"tt> command. Once the volume type gets created, click the \"View Extra Specs"
+"\" button to set up extra specs key-value pair(s) for that volume type."
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."
@@ -8147,6 +8649,9 @@ msgstr "unknown IP address"
 
 msgid "up"
 msgstr "up"
+
+msgid "vCPUs ="
+msgstr "vCPUs ="
 
 msgid "yes"
 msgstr "yes"
