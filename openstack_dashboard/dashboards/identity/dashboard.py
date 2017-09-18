@@ -21,7 +21,6 @@ import horizon
 class Identity(horizon.Dashboard):
     name = _("Identity")
     slug = "identity"
-    default_panel = 'projects'
 
 
 horizon.register(Identity)
