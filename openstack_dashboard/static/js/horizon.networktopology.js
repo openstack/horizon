@@ -127,34 +127,19 @@ horizon.network_topology = {
       })
       .on('click', 'a.vnc_window', function(e) {
         e.preventDefault();
-        var vncWindow = window.open(angular.element(this).attr('href'), vncWindow,
-                                     'width=760,height=560');
+        var vncWindow = window.open(angular.element(this).attr('href'), vncWindow, 'width=760,height=560');
         self.delete_balloon();
       });
 
-    angular.element('#toggle_labels').click(function() {
-      if (angular.element('.nodeLabel').css('display') == 'none') {
-        angular.element('.nodeLabel').show();
-        horizon.cookies.put('show_labels', true);
-      } else {
-        angular.element('.nodeLabel').hide();
-        horizon.cookies.put('show_labels', false);
-      }
+    angular.element('#toggle_labels').change(function() {
+      horizon.cookies.put('show_labels', this.checked);
+      self.refresh_labels();
     });
 
-    angular.element('#toggle_networks').click(function() {
-      for (var n in self.nodes) {
-        if ({}.hasOwnProperty.call(self.nodes, n)) {
-          if (self.nodes[n].data instanceof Network || self.nodes[n].data instanceof ExternalNetwork) {
-            self.collapse_network(self.nodes[n]);
-          }
-          if (horizon.cookies.get('show_labels')) {
-            angular.element('.nodeLabel').show();
-          }
-        }
-      }
-      var current = horizon.cookies.get('are_networks_collapsed');
-      horizon.cookies.put('are_networks_collapsed', !current);
+    angular.element('#toggle_networks').change(function() {
+      horizon.cookies.put('are_networks_collapsed', this.checked);
+      self.refresh_networks();
+      self.refresh_labels();
     });
 
     // set up loader first thing
@@ -177,7 +162,48 @@ horizon.network_topology = {
     });
 
     // register for message notifications
-    horizon.networktopologymessager.addMessageHandler(this.handleMessage, this);
+    horizon.networktopologymessager.addMessageHandler(
+        this.handleMessage, this
+    );
+  },
+
+  // Shows/Hides graph labels
+  refresh_labels: function() {
+    var show_labels = horizon.cookies.get('show_labels') == 'true';
+    angular.element('.nodeLabel').toggle(show_labels);
+  },
+
+  // Collapses/Uncollapses networks in the graph
+  refresh_networks: function() {
+    var self = this;
+    var are_collapsed = horizon.cookies.get('are_networks_collapsed') == 'true';
+    for (var n in self.nodes) {
+      if ({}.hasOwnProperty.call(self.nodes, n)) {
+        if (self.nodes[n].data instanceof Network || self.nodes[n].data instanceof ExternalNetwork) {
+            self.collapse_network(self.nodes[n], are_collapsed);
+        }
+      }
+    }
+  },
+
+  // Load config from cookie
+  load_config: function() {
+    var self = this;
+
+    var labels = horizon.cookies.get('show_labels') == 'true';
+    var networks = horizon.cookies.get('are_networks_collapsed') == 'true';
+
+    if(networks) {
+      angular.element('#toggle_networks_label').addClass('active');
+      angular.element('#toggle_networks').prop('checked', networks);
+      self.refresh_networks();
+    }
+
+    if(labels) {
+      angular.element('#toggle_labels_label').addClass('active');
+      angular.element('#toggle_labels').prop('checked', labels);
+      self.refresh_labels();
+    }
   },
 
   handleMessage:function(message) {
@@ -200,24 +226,6 @@ horizon.network_topology = {
         self.force.tick();
         i++;
       }
-    }
-  },
-
-  // Load config from cookie
-  load_config: function() {
-    var labels = horizon.cookies.get('show_labels');
-    var networks = horizon.cookies.get('are_networks_collapsed');
-    if (labels) {
-      angular.element('.nodeLabel').show();
-      angular.element('#toggle_labels').addClass('active');
-    }
-    if (networks) {
-      for (var n in this.nodes) {
-        if ({}.hasOwnProperty.call(this.nodes, n)) {
-          this.collapse_network(this.nodes[n], true);
-        }
-      }
-      angular.element('#toggle_networks').addClass('active');
     }
   },
 
