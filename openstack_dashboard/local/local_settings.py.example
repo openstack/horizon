@@ -562,16 +562,6 @@ LOGGING = {
         },
     },
     'loggers': {
-        # Logging from django.db.backends is VERY verbose, send to null
-        # by default.
-        'django.db.backends': {
-            'handlers': ['null'],
-            'propagate': False,
-        },
-        'requests': {
-            'handlers': ['null'],
-            'propagate': False,
-        },
         'horizon': {
             'handlers': ['console'],
             'level': 'DEBUG',
@@ -593,6 +583,11 @@ LOGGING = {
             'propagate': False,
         },
         'cinderclient': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'keystoneauth': {
             'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': False,
@@ -622,6 +617,11 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False,
         },
+        'oslo_policy': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
         'openstack_auth': {
             'handlers': ['console'],
             'level': 'DEBUG',
@@ -635,6 +635,24 @@ LOGGING = {
         'django': {
             'handlers': ['console'],
             'level': 'DEBUG',
+            'propagate': False,
+        },
+        # Logging from django.db.backends is VERY verbose, send to null
+        # by default.
+        'django.db.backends': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'requests': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'urllib3': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'chardet.charsetprober': {
+            'handlers': ['null'],
             'propagate': False,
         },
         'iso8601': {
