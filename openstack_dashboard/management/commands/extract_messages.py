@@ -18,6 +18,9 @@ from subprocess import call
 
 from django.core.management.base import BaseCommand
 
+DOMAINS = ['django', 'djangojs']
+MODULES = ['openstack_dashboard', 'horizon']
+
 
 class Command(BaseCommand):
     help = ('Extract strings that have been marked for translation into .POT '
@@ -25,12 +28,15 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument('-m', '--module', type=str, nargs='+',
-                            default=['openstack_dashboard', 'horizon'],
+                            default=MODULES,
                             help=("The target python module(s) to extract "
-                                  "strings from"))
-        parser.add_argument('-d', '--domain', choices=['django', 'djangojs'],
-                            nargs='+', default=['django', 'djangojs'],
-                            help="Domain(s) of the .pot file")
+                                  "strings from. "
+                                  "Default: %s" % MODULES))
+        parser.add_argument('-d', '--domain', choices=DOMAINS,
+                            nargs='+', default=DOMAINS,
+                            metavar='DOMAIN',
+                            help=("Domain(s) of the .pot file. "
+                                  "Default: %s" % DOMAINS))
         parser.add_argument('--check-only', action='store_true',
                             help=("Checks that extraction works correctly, "
                                   "then deletes the .pot file to avoid "
