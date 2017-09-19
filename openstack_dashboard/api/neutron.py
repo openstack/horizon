@@ -1108,6 +1108,12 @@ def port_list_with_trunk_types(request, **params):
          gracefully.
     """
     LOG.debug("port_list_with_trunk_types(): params=%s", params)
+
+    # When trunk feature is disabled in neutron, we have no need to fetch
+    # trunk information and port_list() is enough.
+    if not is_extension_supported(request, 'trunk'):
+        return port_list(request, **params)
+
     ports = neutronclient(request).list_ports(**params)['ports']
     trunk_filters = {}
     if 'tenant_id' in params:

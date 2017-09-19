@@ -394,6 +394,8 @@ class NeutronApiTests(test.APITestCase):
         trunks = self.api_tp_trunks.list()
 
         neutronclient = self.stub_neutronclient()
+        neutronclient.list_extensions() \
+            .AndReturn({'extensions': self.api_extensions.list()})
         neutronclient.list_ports().AndReturn({'ports': ports})
         neutronclient.list_trunks().AndReturn({'trunks': trunks})
         self.mox.ReplayAll()
@@ -421,6 +423,25 @@ class NeutronApiTests(test.APITestCase):
         self.assertEqual(expected_parent_port_ids, parent_port_ids)
         self.assertEqual(expected_subport_ids, subport_ids)
         self.assertEqual(expected_normal_port_ids, normal_port_ids)
+
+    def test_port_list_with_trunk_types_without_trunk_extension(self):
+        extensions = [ext for ext in self.api_extensions.list()
+                      if ext['alias'] != 'trunk']
+        ports = self.api_tp_ports.list()
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.list_extensions().AndReturn({'extensions': extensions})
+        neutronclient.list_ports().AndReturn({'ports': ports})
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.port_list_with_trunk_types(self.request)
+
+        self.assertEqual(len(ports), len(ret_val))
+        self.assertEqual(set(p['id'] for p in ports),
+                         set(p.id for p in ret_val))
+        # When trunk extension is disabled, all returned values should be
+        # instances of Port class.
+        self.assertTrue(all(isinstance(p, api.neutron.Port) for p in ret_val))
 
     def test_port_get(self):
         port = {'port': self.api_ports.first()}
