@@ -67,7 +67,7 @@ class QuotaKeypairMixin(object):
 
 class ImportKeyPair(QuotaKeypairMixin, tables.LinkAction):
     name = "import"
-    verbose_name = _("Import Key Pair")
+    verbose_name = _("Import Public Key")
     url = "horizon:project:key_pairs:import"
     classes = ("ajax-modal",)
     icon = "upload"
@@ -75,7 +75,7 @@ class ImportKeyPair(QuotaKeypairMixin, tables.LinkAction):
 
     def allowed(self, request, keypair=None):
         if super(ImportKeyPair, self).allowed(request, keypair):
-            self.verbose_name = _("Import Key Pair")
+            self.verbose_name = _("Import Public Key")
         return True
 
 
