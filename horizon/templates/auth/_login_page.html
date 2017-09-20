@@ -13,6 +13,11 @@
   {{ block.super }}
 {% endblock %}
 
+{% block login_footer %}
+  {{ block.super }}
+  {% include '_login_form_footer.html' %}
+{% endblock %}
+
 {% block post_login %}
       {{ block.super }}
       </div>
