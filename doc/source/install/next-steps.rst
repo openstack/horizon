@@ -12,13 +12,9 @@ complete the following tasks:
   any SSL certificate connection problems, point the server
   IP address to a domain name, and give users access.
 
-* Customize your dashboard. See section
-  `Customize and configure the Dashboard
-  <https://docs.openstack.org/admin-guide/dashboard-customize-configure.html>`__.
+* Customize your dashboard. For details, see :doc:`/admin/customize-configure`.
 
-* Set up session storage. See
-  `Set up session storage for the dashboard
-  <https://docs.openstack.org/admin-guide/dashboard-sessions.html>`__.
+* Set up session storage. For derails, see :doc:`/admin/sessions`.
 
 * To use the VNC client with the dashboard, the browser
   must support HTML5 Canvas and HTML5 WebSockets.
