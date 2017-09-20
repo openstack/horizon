@@ -31,18 +31,7 @@ from openstack_dashboard.usage import quotas
 LOG = logging.getLogger(__name__)
 
 
-class CheckNetworkEditable(object):
-    """Mixin class to determine the specified network is editable."""
-
-    def allowed(self, request, datum=None):
-        # Only administrator is allowed to create and manage shared networks.
-        if datum and datum.shared:
-            return False
-        return True
-
-
-class DeleteNetwork(policy.PolicyTargetMixin, CheckNetworkEditable,
-                    tables.DeleteAction):
+class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -106,8 +95,7 @@ class CreateNetwork(tables.LinkAction):
         return True
 
 
-class EditNetwork(policy.PolicyTargetMixin, CheckNetworkEditable,
-                  tables.LinkAction):
+class EditNetwork(policy.PolicyTargetMixin, tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Network")
     url = "horizon:project:networks:update"
@@ -116,8 +104,7 @@ class EditNetwork(policy.PolicyTargetMixin, CheckNetworkEditable,
     policy_rules = (("network", "update_network"),)
 
 
-class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
-                   tables.LinkAction):
+class CreateSubnet(policy.PolicyTargetMixin, tables.LinkAction):
     name = "subnet"
     verbose_name = _("Create Subnet")
     url = "horizon:project:networks:createsubnet"
