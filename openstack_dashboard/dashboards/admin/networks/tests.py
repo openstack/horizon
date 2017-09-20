@@ -24,6 +24,7 @@ from horizon import forms
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks import tests
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard import usage
 
 INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 INDEX_URL = reverse('horizon:admin:networks:index')
@@ -157,13 +158,18 @@ class NetworkTests(test.BaseAdminViewTests):
                                       'subnet_list',
                                       'port_list',
                                       'is_extension_supported',
-                                      'list_dhcp_agent_hosting_networks',)})
+                                      'list_dhcp_agent_hosting_networks',),
+                        usage.quotas: ('tenant_quota_usages',)})
     def test_network_detail_ports_tab(self, mac_learning=False):
-        network_id = self.networks.first().id
-        api.neutron.network_get(IsA(http.HttpRequest), network_id)\
-            .AndReturn(self.networks.first())
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
+        network = self.networks.first()
+        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
+            .MultipleTimes().AndReturn(self.networks.first())
+        api.neutron.port_list(IsA(http.HttpRequest), network_id=network.id)\
             .AndReturn([self.ports.first()])
+        quota_data = self.neutron_quota_usages.first()
+        usage.quotas.tenant_quota_usages(
+            IsA(http.HttpRequest), tenant_id=network.tenant_id,
+            targets=('ports',)).MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'network-ip-availability').AndReturn(True)
@@ -176,7 +182,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
         url = reverse('horizon:admin:networks:ports_tab',
-                      args=[network_id])
+                      args=[network.id])
         res = self.client.get(urlunquote(url))
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
