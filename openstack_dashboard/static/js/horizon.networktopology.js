@@ -919,7 +919,7 @@ horizon.network_topology = {
         object.router_id = port.device_id;
         object.url = port.url;
         object.port_status = port.status;
-        object.port_status_css = (port.original_status === 'ACTIVE') ? 'active' : 'down';
+        object.port_status_class = (port.original_status === 'ACTIVE') ? 'active' : 'down';
         var ipAddress = '';
         try {
           for (var ip in port.fixed_ips) {

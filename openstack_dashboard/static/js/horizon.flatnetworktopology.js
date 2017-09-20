@@ -523,7 +523,7 @@ horizon.flat_network_topology = {
       object.router_id = port.device_id;
       object.url = port.url;
       object.port_status = port.status;
-      object.port_status_css = (port.status === "ACTIVE")? 'active' : 'down';
+      object.port_status_class = (port.original_status === "ACTIVE")? 'active' : 'down';
       var ip_address = '';
       try {
         ip_address = port.fixed_ips[0].ip_address;
@@ -557,7 +557,7 @@ horizon.flat_network_topology = {
       type:d.type,
       delete_label: gettext("Delete"),
       status:d.status,
-      status_class:(d.status === "ACTIVE")? 'active' : 'down',
+      status_class:(d.original_status === "ACTIVE")? 'active' : 'down',
       status_label: gettext("STATUS"),
       id_label: gettext("ID"),
       interfaces_label: gettext("Interfaces"),
