@@ -44,7 +44,7 @@ from openstack_dashboard.dashboards.project.instances.workflows \
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
 from openstack_dashboard import policy
-
+from openstack_dashboard.views import get_url_with_pagination
 
 LOG = logging.getLogger(__name__)
 
@@ -1207,6 +1207,14 @@ def render_locked(instance):
     return mark_safe(locked_status)
 
 
+def get_server_detail_link(obj, request):
+    return get_url_with_pagination(request,
+                                   InstancesTable._meta.pagination_param,
+                                   InstancesTable._meta.prev_pagination_param,
+                                   'horizon:project:instances:detail',
+                                   obj.id)
+
+
 class InstancesTable(tables.DataTable):
     TASK_STATUS_CHOICES = (
         (None, True),
@@ -1223,7 +1231,7 @@ class InstancesTable(tables.DataTable):
         ("shelved_offloaded", True),
     )
     name = tables.WrappingColumn("name",
-                                 link="horizon:project:instances:detail",
+                                 link=get_server_detail_link,
                                  verbose_name=_("Instance Name"))
     image_name = tables.WrappingColumn("image_name",
                                        verbose_name=_("Image Name"))

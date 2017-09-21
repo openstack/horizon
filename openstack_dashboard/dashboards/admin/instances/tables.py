@@ -26,6 +26,7 @@ from openstack_dashboard.dashboards.project.instances import audit_tables
 from openstack_dashboard.dashboards.project.instances \
     import tables as project_tables
 from openstack_dashboard import policy
+from openstack_dashboard.views import get_url_with_pagination
 
 
 class AdminEditInstance(project_tables.EditInstance):
@@ -109,6 +110,13 @@ class AdminInstanceFilterAction(tables.FilterAction):
     ) + project_tables.INSTANCE_FILTER_CHOICES
 
 
+def get_server_detail_link(obj, request):
+    return get_url_with_pagination(
+        request, AdminInstancesTable._meta.pagination_param,
+        AdminInstancesTable._meta.prev_pagination_param,
+        "horizon:admin:instances:detail", obj.id)
+
+
 class AdminInstancesTable(tables.DataTable):
     TASK_STATUS_CHOICES = (
         (None, True),
@@ -134,7 +142,7 @@ class AdminInstancesTable(tables.DataTable):
                          verbose_name=_("Host"),
                          classes=('nowrap-col',))
     name = tables.WrappingColumn("name",
-                                 link="horizon:admin:instances:detail",
+                                 link=get_server_detail_link,
                                  verbose_name=_("Name"))
     image_name = tables.Column("image_name",
                                verbose_name=_("Image Name"))

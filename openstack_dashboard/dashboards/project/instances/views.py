@@ -53,6 +53,7 @@ from openstack_dashboard.dashboards.project.instances \
     import tabs as project_tabs
 from openstack_dashboard.dashboards.project.instances \
     import workflows as project_workflows
+from openstack_dashboard.views import get_url_with_pagination
 
 LOG = logging.getLogger(__name__)
 
@@ -322,7 +323,12 @@ class DetailView(tabs.TabView):
                                          args=[instance.image['id']])
         instance.volume_url = self.volume_url
         context["instance"] = instance
-        context["url"] = reverse(self.redirect_url)
+        context["url"] = get_url_with_pagination(
+            self.request,
+            project_tables.InstancesTable._meta.pagination_param,
+            project_tables.InstancesTable._meta.prev_pagination_param,
+            self.redirect_url)
+
         context["actions"] = self._get_actions(instance)
         return context
 
