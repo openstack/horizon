@@ -4,13 +4,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev124\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev130\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-21 04:56+0000\n"
+"POT-Creation-Date: 2017-09-22 04:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 03:04+0000\n"
+"PO-Revision-Date: 2017-09-21 12:29+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -1243,6 +1243,9 @@ msgstr "Buat Jaringan (Quota terlampaui)"
 
 msgid "Create Port"
 msgstr "Membuat Port"
+
+msgid "Create Port (Quota exceeded)"
+msgstr "Buat Port (Kuota terlampaui)"
 
 msgid "Create Project"
 msgstr "Membuat projek"
@@ -2709,6 +2712,9 @@ msgstr "Gagal menghapus jaringan %s"
 msgid "Failed to delete port %s"
 msgstr "Gagal menghapus port %s"
 
+msgid "Failed to delete stack."
+msgstr "Gagal menghapus stack."
+
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Gagal menghapus subnet %s"
@@ -2794,6 +2800,9 @@ msgstr ""
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Gagal menghapus proyek %(project)s dari akses jenis volume"
 
+msgid "Failed to resume stack."
+msgstr "Gagal melanjutkan stack."
+
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Gagal mengambil jaringan %s untuk sebuah subnet"
@@ -2801,6 +2810,9 @@ msgstr "Gagal mengambil jaringan %s untuk sebuah subnet"
 #, python-format
 msgid "Failed to set gateway: %s"
 msgstr "Gagal menyetel gerbang: %s"
+
+msgid "Failed to suspend stack."
+msgstr "Gagal menangguhkan stack."
 
 #, python-format
 msgid "Failed to update network %s"
@@ -2915,6 +2927,9 @@ msgstr "Floating IP (IP mengambang)"
 
 msgid "Floating IP Address (optional)"
 msgstr "Floating IP Address (optional) (alamat IP mengambang)"
+
+msgid "Floating IP Address ="
+msgstr "Floating IP Address ="
 
 msgid "Floating IP Details"
 msgstr "Detail IP mengambang"
@@ -3465,6 +3480,9 @@ msgstr "Instance ID ="
 msgid "Instance Name"
 msgstr "Nama Instance"
 
+msgid "Instance Name ="
+msgstr "Instance Name ="
+
 msgid "Instance Overview"
 msgstr "Instance Overview"
 
@@ -3563,6 +3581,9 @@ msgstr "Key Pair Details (detail pasangan kunci)"
 
 msgid "Key Pair Name"
 msgstr "Nama Key Pair (nama pasangan kunci)"
+
+msgid "Key Pair Name ="
+msgstr "Key Pair Name ="
 
 msgid "Key Pairs"
 msgstr "Key Pair (pasangan kunci)"
@@ -3701,6 +3722,9 @@ msgstr "Alamat MAC"
 
 msgid "MAC Learning State"
 msgstr "MAC Learning State"
+
+msgid "MAC address for the port"
+msgstr "Alamat MAC untuk port"
 
 msgid "MB"
 msgstr "MB"
@@ -4055,6 +4079,9 @@ msgstr "Network Details (rincian jaraingan)"
 
 msgid "Network ID"
 msgstr "Network ID (ID Jaringan)"
+
+msgid "Network ID ="
+msgstr "Network ID ="
 
 msgid "Network Mask"
 msgstr "Network Mask"
@@ -4585,6 +4612,9 @@ msgstr "Port %s berhasil dibuat."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Port %s berhasil diperbarui."
+
+msgid "Port ID ="
+msgstr "Port ID ="
 
 msgid "Port Range"
 msgstr "Port Range (rentang port)"
@@ -8222,6 +8252,9 @@ msgstr "Volume Encryption Details: {{ volume.name }}"
 msgid "Volume Encryption Overview"
 msgstr "Volume Encryption Overview"
 
+msgid "Volume Groups"
+msgstr "Kelompok volume"
+
 msgid "Volume ID"
 msgstr "ID Volume"
 
@@ -8429,6 +8462,10 @@ msgstr "Anda sudah menggunakan semua IP mengambang yang tersedia."
 msgid "You are already using all of your available volumes."
 msgstr "Anda sudah menggunakan semua volume yang tersedia Anda."
 
+#, python-format
+msgid "You are not allowed to create a port for network %s."
+msgstr "Anda tidak diperbolehkan membuat port untuk jaringan %s."
+
 msgid ""
 "You can connect a specified external network to the router. The external "
 "network is regarded as a default route of the router and the router acts as "
@@ -8462,6 +8499,10 @@ msgstr ""
 "Anda dapat menentukan template aturan yang diinginkan atau menggunakan "
 "aturan kustom, opsinya adalah Custom TCP Rule, Custom UDP Rule, atau Custom "
 "ICMP Rule."
+
+msgid "You can update the editable properties of your port here."
+msgstr ""
+"Anda dapat memperbarui properti yang dapat diedit dari port Anda di sini."
 
 msgid "You cannot disable your current project"
 msgstr "Anda tidak dapat menonaktifkan proyek Anda saat ini"
@@ -8566,6 +8607,9 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "down (turun)"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "misalnya ACTIVE / DOWN / ERROR"
 
 msgid "e.g. UP / DOWN"
 msgstr "e.g. UP / DOWN"
