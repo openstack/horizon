@@ -170,7 +170,7 @@ msgstr "Horizon"
 msgid ""
 "If you are not sure which authentication method to use, contact your "
 "administrator."
-msgstr "사용하는  인증 방법을 모르는경우, 관리자에게 문의하십시오."
+msgstr "인증 방법을 모르 경우, 관리자에게 문의하십시오."
 
 msgid "Incorrect format for IP address"
 msgstr "IP 주소 형식이 잘못되었습니다."
