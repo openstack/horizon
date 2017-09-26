@@ -86,6 +86,7 @@ class AdminIndexView(tables.DataTableView):
         tenants = []
         tenant_dict = {}
         images = []
+        image_map = {}
         flavors = []
         full_flavors = {}
 
@@ -124,6 +125,7 @@ class AdminIndexView(tables.DataTableView):
             try:
                 tmp_images = api.glance.image_list_detailed(self.request)[0]
                 images.extend(tmp_images)
+                image_map.update([(image.id, image) for image in images])
             except Exception:
                 msg = _("Unable to retrieve image list.")
                 exceptions.handle(self.request, msg)
@@ -169,8 +171,17 @@ class AdminIndexView(tables.DataTableView):
 
         _task_get_instances()
 
-        # Loop through instances to get flavor and tenant info.
+        # Loop through instances to get image, flavor and tenant info.
         for inst in instances:
+            if hasattr(inst, 'image') and isinstance(inst.image, dict):
+                if inst.image.get('id') in image_map:
+                    inst.image = image_map[inst.image.get('id')]
+                # In case image not found in image_map, set name to empty
+                # to avoid fallback API call to Glance in api/nova.py
+                # until the call is deprecated in api itself
+                else:
+                    inst.image['name'] = _("-")
+
             flavor_id = inst.flavor["id"]
             try:
                 if flavor_id in full_flavors:
