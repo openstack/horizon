@@ -527,10 +527,14 @@ class ThemableCheckboxChoiceInput(ChoiceInput):
 
     def __init__(self, *args, **kwargs):
         super(ThemableCheckboxChoiceInput, self).__init__(*args, **kwargs)
-        self.value = set(force_text(v) for v in self.value)
+        # NOTE(e0ne): Django sets default value to None
+        if self.value:
+            self.value = set(force_text(v) for v in self.value)
 
     def is_checked(self):
-        return self.choice_value in self.value
+        if self.value:
+            return self.choice_value in self.value
+        return False
 
     def render(self, name=None, value=None, attrs=None, choices=()):
         if self.id_for_label:
@@ -545,43 +549,23 @@ class ThemableCheckboxChoiceInput(ChoiceInput):
         )
 
 
-# NOTE(adriant): CheckboxFieldRenderer was removed in Django 1.11 so
-# has been moved here until we redo how we handle widgets.
-@html.html_safe
-@python_2_unicode_compatible
-class CheckboxFieldRenderer(object):
-    """CheckboxFieldRenderer class from django 1.10.7 codebase
-
-    An object used by RadioSelect to enable customization of radio widgets.
-    """
-
-    choice_input_class = None
+class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
+    choice_input_class = ThemableCheckboxChoiceInput
+    _empty_value = []
     outer_html = '<ul{id_attr}>{content}</ul>'
     inner_html = '<li>{choice_value}{sub_widgets}</li>'
 
-    def __init__(self, name, value, attrs, choices):
-        self.name = name
-        self.value = value
-        self.attrs = attrs
-        self.choices = choices
-
-    def __getitem__(self, idx):
-        return list(self)[idx]
-
-    def __iter__(self):
-        for idx, choice in enumerate(self.choices):
-            yield self.choice_input_class(
-                self.name, self.value, self.attrs.copy(), choice, idx)
-
-    def __str__(self):
-        return self.render()
-
-    def render(self):
+    def render(self, name=None, value=None, attrs=None):
         """Outputs a <ul> for this set of choice fields.
 
         If an id was given to the field, it is applied to the <ul> (each
         item in the list will get an id of `$id_$i`).
         """
+        attrs = {} or attrs
+        self.attrs = attrs
+        self.name = name
+        self.value = value
+
         id_ = self.attrs.get('id')
         output = []
         for i, choice in enumerate(self.choices):
@@ -613,15 +597,6 @@ class CheckboxFieldRenderer(object):
             id_attr=html.format_html(' id="{}"', id_) if id_ else '',
             content=mark_safe('\n'.join(output)),
         )
-
-
-class ThemableCheckboxFieldRenderer(CheckboxFieldRenderer):
-    choice_input_class = ThemableCheckboxChoiceInput
-
-
-class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
-    renderer = ThemableCheckboxFieldRenderer
-    _empty_value = []
 
 
 class ExternalFileField(fields.FileField):
