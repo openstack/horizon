@@ -11,13 +11,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev124\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev133\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-21 04:56+0000\n"
+"POT-Creation-Date: 2017-09-27 05:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-31 08:27+0000\n"
+"PO-Revision-Date: 2017-09-25 07:09+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -1255,6 +1255,9 @@ msgstr "Criar Rede (Quota excedida)"
 
 msgid "Create Port"
 msgstr "Criar Porta"
+
+msgid "Create Port (Quota exceeded)"
+msgstr "Criar Porta (Quota excedida)"
 
 msgid "Create Project"
 msgstr "Criar Projeto"
@@ -3015,6 +3018,9 @@ msgstr "IP Flutuante"
 msgid "Floating IP Address (optional)"
 msgstr "Endereço IP Flutuante (opcional)"
 
+msgid "Floating IP Address ="
+msgstr "Endereço IP Flutuante="
+
 msgid "Floating IP Details"
 msgstr "Detalhes do IP Flutuante"
 
@@ -3678,6 +3684,9 @@ msgstr "Detalhes do Par de Chaves"
 msgid "Key Pair Name"
 msgstr "Nome do par de chaves"
 
+msgid "Key Pair Name ="
+msgstr "Nome do Par de Chaves="
+
 msgid "Key Pairs"
 msgstr "Pares de Chave"
 
@@ -4177,6 +4186,9 @@ msgstr "Detalhes de Rede"
 
 msgid "Network ID"
 msgstr "ID de Rede"
+
+msgid "Network ID ="
+msgstr "ID de Rede="
 
 msgid "Network Mask"
 msgstr "Máscara de Rede"
@@ -4711,6 +4723,9 @@ msgstr "Porta %s criada com sucesso."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Porta %s atualizada com sucesso."
+
+msgid "Port ID ="
+msgstr "ID da Porta="
 
 msgid "Port Range"
 msgstr "Faixa de Portas"
@@ -8784,6 +8799,9 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "Inativo"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "i.e. ATIVO / DESATIVADO / ERRO"
 
 msgid "e.g. UP / DOWN"
 msgstr "e.g. ATIVO / INATIVO"
