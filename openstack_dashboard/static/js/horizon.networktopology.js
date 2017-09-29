@@ -957,7 +957,11 @@ horizon.network_topology = {
         object.ip_address = ipAddress;
         object.device_owner = deviceOwner;
         object.network_id = networkId;
-        object.is_interface = (deviceOwner === 'router_interface' || deviceOwner === 'router_gateway');
+        object.is_interface = (
+          deviceOwner === 'router_interface' ||
+          deviceOwner === 'router_gateway' ||
+          deviceOwner === 'ha_router_replicated_interface'
+        );
         ports.push(object);
       });
     } else if (d.hasOwnProperty('subnets')) {
