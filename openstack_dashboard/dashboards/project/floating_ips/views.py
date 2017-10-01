@@ -112,6 +112,7 @@ class IndexView(tables.DataTableView):
 
         attached_instance_ids = [ip.instance_id for ip in floating_ips
                                  if ip.instance_id is not None]
+        instances_dict = {}
         if attached_instance_ids:
             instances = []
             try:
@@ -125,8 +126,8 @@ class IndexView(tables.DataTableView):
 
             instances_dict = dict([(obj.id, obj.name) for obj in instances])
 
-            for ip in floating_ips:
-                ip.instance_name = instances_dict.get(ip.instance_id)
-                ip.pool_name = pool_dict.get(ip.pool, ip.pool)
+        for ip in floating_ips:
+            ip.instance_name = instances_dict.get(ip.instance_id)
+            ip.pool_name = pool_dict.get(ip.pool, ip.pool)
 
         return floating_ips
