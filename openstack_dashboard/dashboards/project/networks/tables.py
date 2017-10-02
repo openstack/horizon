@@ -13,12 +13,13 @@
 #    under the License.
 import logging
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django import template
 from django.template import defaultfilters as filters
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
+from neutronclient.common import exceptions as neutron_exceptions
 
 from horizon import exceptions
 from horizon import tables
@@ -54,6 +55,7 @@ class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
 
     def delete(self, request, network_id):
         network_name = network_id
+        redirect_url = reverse_lazy("horizon:project:networks:index")
         try:
             # Retrieve the network list.
             network = api.neutron.network_get(request, network_id,
@@ -66,12 +68,19 @@ class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
                 LOG.debug('Deleted subnet %s', subnet_id)
             api.neutron.network_delete(request, network_id)
             LOG.debug('Deleted network %s successfully', network_id)
+        except neutron_exceptions.Conflict as e:
+            LOG.info('Failed to delete network %(id)s with 409 Conflict: '
+                     '%(exc)s', {'id': network_id, 'exc': e})
+            msg = (_('Failed to delete network %(network_name)s. '
+                     'Most possible case is that one or more ports still '
+                     'exist on the requested network.') %
+                   {"network_name": network_name, "subnet_id": subnet_id})
+            exceptions.handle(request, msg, redirect=redirect_url)
         except Exception as e:
             LOG.info('Failed to delete network %(id)s: %(exc)s',
                      {'id': network_id, 'exc': e})
-            msg = _('Failed to delete network %s')
-            redirect = reverse("horizon:project:networks:index")
-            exceptions.handle(request, msg % network_name, redirect=redirect)
+            msg = _('Failed to delete network %s') % network_name
+            exceptions.handle(request, msg, redirect=redirect_url)
 
 
 class CreateNetwork(tables.LinkAction):
