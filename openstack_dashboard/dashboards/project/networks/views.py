@@ -139,6 +139,10 @@ class DetailView(tabs.TabbedTableView):
                               redirect=self.get_redirect_url())
         return network
 
+    def get_subnets_data(self):
+        # MultiTableMixin requires this method to be defined
+        pass
+
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         network = self._get_data()
