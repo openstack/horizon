@@ -16,13 +16,12 @@ from django.template.defaultfilters import title
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
+from heatclient import exc
 
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
 from horizon.utils import filters
-
-from heatclient import exc
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.stacks import mappings

@@ -10,12 +10,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from selenium.webdriver.common import by
+
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import menus
 from openstack_dashboard.test.integration_tests.regions import tables
-
-from selenium.webdriver.common import by
 
 
 class FlavorsTable(tables.TableRegion):

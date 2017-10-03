@@ -13,6 +13,7 @@
 # under the License.
 
 from django.conf.urls import url
+
 from horizon.browsers.views import AngularIndexView
 
 urlpatterns = [

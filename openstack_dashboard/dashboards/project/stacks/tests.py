@@ -20,18 +20,16 @@ from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
 from django.utils import html
-
+from heatclient.common import template_format as hc_format
 from mox3.mox import IsA
 import six
 
-from heatclient.common import template_format as hc_format
 from openstack_dashboard import api
-from openstack_dashboard.test import helpers as test
-
 from openstack_dashboard.dashboards.project.stacks import api as project_api
 from openstack_dashboard.dashboards.project.stacks import forms
 from openstack_dashboard.dashboards.project.stacks import mappings
 from openstack_dashboard.dashboards.project.stacks import tables
+from openstack_dashboard.test import helpers as test
 
 
 INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'

@@ -16,10 +16,9 @@ import logging
 
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
+from novaclient import exceptions as nova_exception
 
 from horizon import exceptions
-
-from novaclient import exceptions as nova_exception
 
 from openstack_dashboard import api
 

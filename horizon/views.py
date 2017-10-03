@@ -17,11 +17,10 @@ from django import shortcuts
 from django import template
 from django.utils import encoding
 from django.views import generic
+from osprofiler import profiler
 
 import horizon
 from horizon import exceptions
-
-from osprofiler import profiler
 
 
 class PageTitleMixin(object):

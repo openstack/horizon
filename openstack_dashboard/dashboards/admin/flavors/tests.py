@@ -15,15 +15,13 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
 from mox3.mox import IsA
-
-from openstack_dashboard import api
-from openstack_dashboard.test import helpers as test
-
 from novaclient.v2 import flavors
 
+from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.flavors import constants
 from openstack_dashboard.dashboards.admin.flavors import tables
 from openstack_dashboard.dashboards.admin.flavors import workflows
+from openstack_dashboard.test import helpers as test
 
 
 class FlavorsViewTests(test.BaseAdminViewTests):

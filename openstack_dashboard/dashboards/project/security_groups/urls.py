@@ -17,6 +17,7 @@
 #    under the License.
 
 from django.conf.urls import url
+
 from openstack_dashboard.dashboards.project.security_groups import views
 
 urlpatterns = [

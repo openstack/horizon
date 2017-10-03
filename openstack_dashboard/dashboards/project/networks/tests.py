@@ -16,11 +16,10 @@ from django.core.urlresolvers import reverse
 from django import http
 from django.utils.html import escape
 from django.utils.http import urlunquote
-
-from horizon.workflows import views
-
 from mox3.mox import IsA
 import six
+
+from horizon.workflows import views
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks import tables\

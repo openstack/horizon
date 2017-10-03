@@ -12,14 +12,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-
-from horizon.test import helpers as test
-from horizon import views
-
 from django import forms
 from django.test import client
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
+
+from horizon.test import helpers as test
+from horizon import views
 
 FAKENAME = "FakeName"
 

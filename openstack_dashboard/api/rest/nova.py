@@ -17,10 +17,9 @@ from collections import OrderedDict
 from django.utils import http as utils_http
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
+from novaclient import exceptions
 
 from horizon import exceptions as hz_exceptions
-
-from novaclient import exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import json_encoder

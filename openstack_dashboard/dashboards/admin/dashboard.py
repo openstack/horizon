@@ -12,13 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-
 from openstack_auth import utils
 
 import horizon
-
-from django.conf import settings
 
 
 class Admin(horizon.Dashboard):
