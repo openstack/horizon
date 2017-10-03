@@ -71,7 +71,9 @@ class IndexView(tables.DataTableView):
         search_opts = self.get_filters({'marker': marker, 'paginate': True})
 
         instances = []
+        flavors = []
         full_flavors = {}
+        images = []
         image_map = {}
 
         def _task_get_instances():
@@ -100,7 +102,8 @@ class IndexView(tables.DataTableView):
         def _task_get_flavors():
             # Gather our flavors to correlate our instances to them
             try:
-                flavors = api.nova.flavor_list(self.request)
+                tmp_flavors = api.nova.flavor_list(self.request)
+                flavors.extend(tmp_flavors)
                 full_flavors.update([(str(flavor.id), flavor)
                                      for flavor in flavors])
             except Exception:
@@ -110,15 +113,26 @@ class IndexView(tables.DataTableView):
             # Gather our images to correlate our instances to them
             try:
                 # TODO(gabriel): Handle pagination.
-                images = api.glance.image_list_detailed(self.request)[0]
+                tmp_images = api.glance.image_list_detailed(self.request)[0]
+                images.extend(tmp_images)
                 image_map.update([(str(image.id), image) for image in images])
             except Exception:
                 exceptions.handle(self.request, ignore=True)
 
         with futurist.ThreadPoolExecutor(max_workers=3) as e:
-            e.submit(fn=_task_get_instances)
             e.submit(fn=_task_get_flavors)
             e.submit(fn=_task_get_images)
+
+        if 'image_name' in search_opts and \
+                not swap_filter(images, search_opts, 'image_name', 'image'):
+            self._more = False
+            return instances
+        elif 'flavor_name' in search_opts and \
+                not swap_filter(flavors, search_opts, 'flavor_name', 'flavor'):
+            self._more = False
+            return instances
+
+        _task_get_instances()
 
         # Loop through instances to get flavor info.
         for instance in instances:

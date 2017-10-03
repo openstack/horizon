@@ -162,17 +162,10 @@ class AdminIndexView(tables.DataTableView):
                     message=_('Unable to retrieve IP addresses from Neutron.'),
                     ignore=True)
 
-        with futurist.ThreadPoolExecutor(max_workers=4) as e:
+        with futurist.ThreadPoolExecutor(max_workers=3) as e:
             e.submit(fn=_task_get_tenants)
             e.submit(fn=_task_get_images)
             e.submit(fn=_task_get_flavors)
-            e.submit(fn=_task_get_instances)
-
-        # This code gets activated only in case of filtering by nonexistent
-        # project, image or flavor. Executing it before _task_get_instances
-        # would make Horizon make less API calls, but as a drawback would make
-        # it impossible to parallelize the request. Executing it after is
-        # a tradeoff, as it happens less often to filter by nonexistent values.
 
         if 'project' in search_opts and \
                 not swap_filter(tenants, search_opts, 'project', 'tenant_id'):
@@ -186,6 +179,8 @@ class AdminIndexView(tables.DataTableView):
                 not swap_filter(flavors, search_opts, 'flavor_name', 'flavor'):
                 self._more = False
                 return instances
+
+        _task_get_instances()
 
         # Loop through instances to get flavor and tenant info.
         for inst in instances:
