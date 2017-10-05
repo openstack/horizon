@@ -2,15 +2,16 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015. #zanata
 # Andi Chandler <andi@gowling.com>, 2016. #zanata
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
+# Andi Chandler <andi@gowling.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev64\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev144\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-27 11:34+0000\n"
+"POT-Creation-Date: 2017-10-04 12:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-07 11:20+0000\n"
+"PO-Revision-Date: 2017-10-04 11:07+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -136,6 +137,45 @@ msgstr ""
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>This line of text is meant to be treated as fine print.</small>"
 
+msgid "A Confirmation Dialog"
+msgstr "A Confirmation Dialogue"
+
+msgid ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+msgstr ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"    you to organize your data. You can think of a container as a folder in\n"
+"    Windows® or a directory in UNIX®. The primary difference between a\n"
+"    container and these other file system concepts is that containers cannot "
+"be\n"
+"    nested. You can, however, create an unlimited number of containers "
+"within\n"
+"    your account. Data must be stored in a container so you must have at "
+"least\n"
+"    one container defined in your account prior to uploading data."
+msgstr ""
+"A container is a storage compartment for your data and provides a way for\n"
+"    you to organise your data. You can think of a container as a folder in\n"
+"    Windows® or a directory in UNIX®. The primary difference between a\n"
+"    container and these other file system concepts is that containers cannot "
+"be\n"
+"    nested. You can, however, create an unlimited number of containers "
+"within\n"
+"    your account. Data must be stored in a container so you must have at "
+"least\n"
+"    one container defined in your account prior to uploading data."
+
+msgid "A container with that name exists."
+msgstr "A container with that name exists."
+
+msgid "A description list is perfect for defining terms."
+msgstr "A description list is perfect for defining terms."
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -180,11 +220,20 @@ msgstr "A port represents a virtual switch port on a logical network switch."
 msgid "AKI"
 msgstr "AKI"
 
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon Kernel Image"
+
 msgid "AMI"
 msgstr "AMI"
 
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon Machine Image"
+
 msgid "ARI"
 msgstr "ARI"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdisk Image"
 
 msgid "Action"
 msgstr "Action"
@@ -194,6 +243,9 @@ msgstr "Actions"
 
 msgid "Active"
 msgstr "Active"
+
+msgid "Add Ons, Required and Feedback"
+msgstr "Add Ons, Required and Feedback"
 
 msgid "Admin State"
 msgstr "Admin State"
@@ -219,6 +271,12 @@ msgstr ""
 msgid "Alerts"
 msgstr "Alerts"
 
+msgid "Amount of RAM in MB that is required to boot the image."
+msgstr "Amount of RAM in MB that is required to boot the image."
+
+msgid "Amount of disk space in GB that is required to boot the image."
+msgstr "Amount of disk space in GB that is required to boot the image."
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -251,6 +309,26 @@ msgstr ""
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
 "b> allows you to create multiple partitions on the disk."
+
+msgid "An external (HTTP) URL is required"
+msgstr "An external (HTTP) URL is required"
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "An external (HTTP) URL to load the image from"
+
+msgid ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+
+msgid ""
+"An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
@@ -265,12 +343,18 @@ msgstr "Animated"
 msgid "Another action"
 msgstr "Another action"
 
+msgid "Any Availability Zone"
+msgstr "Any Availability Zone"
+
 msgid "Architecture"
 msgstr "Architecture"
 
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "Are you sure you want to delete container %(name)s?"
+
+msgid "Array"
+msgstr "Array"
 
 msgid "Automatic"
 msgstr "Automatic"
@@ -314,6 +398,9 @@ msgstr "Brand"
 msgid "Breadcrumbs"
 msgstr "Breadcrumbs"
 
+msgid "Browse..."
+msgstr "Browse..."
+
 msgid "Button"
 msgstr "Button"
 
@@ -341,6 +428,9 @@ msgstr ""
 msgid "Checkbox"
 msgstr "Checkbox"
 
+msgid "Checking if this name is used..."
+msgstr "Checking if this name is used..."
+
 msgid "Checksum"
 msgstr "Checksum"
 
@@ -361,6 +451,9 @@ msgstr "Column content"
 
 msgid "Column heading"
 msgstr "Column heading"
+
+msgid "Community"
+msgstr "Community"
 
 msgid "Configuration"
 msgstr "Configuration"
@@ -412,6 +505,9 @@ msgstr "Content Type"
 msgid "Contextual alternatives"
 msgstr "Contextual alternatives"
 
+msgid "Copy Data"
+msgstr "Copy Data"
+
 msgid "Count"
 msgstr "Count"
 
@@ -424,6 +520,9 @@ msgstr "Create Folder"
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Create Folder In: {$ ctrl.model.container.name $}"
 
+msgid "Create Image"
+msgstr "Create Image"
+
 msgid "Create Key Pair"
 msgstr "Create Key Pair"
 
@@ -432,6 +531,9 @@ msgstr "Create Keypair"
 
 msgid "Create New Volume"
 msgstr "Create New Volume"
+
+msgid "Create Volume"
+msgstr "Create Volume"
 
 msgid "Created"
 msgstr "Created"
@@ -471,6 +573,9 @@ msgstr "Date"
 msgid "Date Created"
 msgstr "Date Created"
 
+msgid "Datepicker"
+msgstr "Datepicker"
+
 msgid "Datetime"
 msgstr "Datetime"
 
@@ -489,6 +594,9 @@ msgstr "Default button"
 msgid "Default input"
 msgstr "Default input"
 
+msgid "Definition list"
+msgstr "Definition list"
+
 msgid "Delete"
 msgstr "Delete"
 
@@ -497,6 +605,14 @@ msgstr "Delete Container"
 
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Delete Files in {$ ctrl.model.container.name $}"
+
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] "Delete Image"
+msgstr[1] "Delete Images"
+
+msgid "Delete Images"
+msgstr "Delete Images"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Delete Volume on Instance Delete"
@@ -518,6 +634,9 @@ msgstr "Deleting:"
 
 msgid "Description"
 msgstr "Description"
+
+msgid "Description lists"
+msgstr "Description lists"
 
 msgid "Details"
 msgstr "Details"
@@ -558,8 +677,17 @@ msgstr "Distribution Charts"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "Domain"
+
 msgid "Domain ID"
 msgstr "Domain ID"
+
+msgid "Domain Name"
+msgstr "Domain Name"
+
+msgid "Domains"
+msgstr "Domains"
 
 msgid "Down"
 msgstr "Down"
@@ -579,6 +707,18 @@ msgstr "Dropdown link"
 msgid "Dropup"
 msgstr "Dropup"
 
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Edit File"
+msgstr "Edit File"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Image"
+msgstr "Edit Image"
+
 msgid "Email"
 msgstr "Email"
 
@@ -587,6 +727,9 @@ msgstr "Emphasis classes"
 
 msgid "Enabled"
 msgstr "Enabled"
+
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "Encountered {$ ctrl.model.deleted.failures $} failures."
 
 msgid "Encrypted"
 msgstr "Encrypted"
@@ -622,6 +765,10 @@ msgstr "File"
 #, python-format
 msgid "File %(name)s uploaded."
 msgstr "File %(name)s uploaded."
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "File %(path)s uploaded."
 
 msgid "File Name"
 msgstr "File Name"
@@ -660,6 +807,12 @@ msgstr "Folder %(name)s created."
 
 msgid "Folder Name"
 msgstr "Folder Name"
+
+msgid "Form"
+msgstr "Form"
+
+msgid "Form Output"
+msgstr "Form Output"
 
 msgid "Format"
 msgstr "Format"
@@ -710,6 +863,9 @@ msgstr "Heading 6"
 msgid "Home"
 msgstr "Home"
 
+msgid "Horizontal Definition List"
+msgstr "Horizontal Definition List"
+
 msgid "Host ID"
 msgstr "Host ID"
 
@@ -722,6 +878,9 @@ msgstr "IP"
 msgid "ISO"
 msgstr "ISO"
 
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - Optical Disk Image"
+
 msgid ""
 "If a network is shared, then all users in the project can access the network."
 msgstr ""
@@ -735,6 +894,9 @@ msgstr ""
 "If a security group is not associated with an instance before it is "
 "launched, then you will have very limited access to the instance after it is "
 "deployed. You will only be able to access the instance from a VNC console."
+
+msgid "If set to 'Yes' then the image cannot be deleted."
+msgstr "If set to 'Yes' then the image cannot be deleted."
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -769,11 +931,21 @@ msgid "Image"
 msgstr "Image"
 
 #, python-format
+msgid "Image %s was successfully created."
+msgstr "Image %s was successfully created."
+
+#, python-format
 msgid "Image %s was successfully updated."
 msgstr "Image %s was successfully updated."
 
 msgid "Image Name"
 msgstr "Image Name"
+
+msgid "Image Requirements"
+msgstr "Image Requirements"
+
+msgid "Image Source"
+msgstr "Image Source"
 
 msgid "Images"
 msgstr "Images"
@@ -795,6 +967,9 @@ msgstr "Info Anchor"
 
 msgid "Info Button"
 msgstr "Info Button"
+
+msgid "Inline"
+msgstr "Inline"
 
 msgid "Inline Form"
 msgstr "Inline Form"
@@ -883,6 +1058,9 @@ msgstr "Large button"
 msgid "Large input"
 msgstr "Large input"
 
+msgid "Launch"
+msgstr "Launch"
+
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
@@ -913,6 +1091,9 @@ msgstr "List group item heading"
 msgid "List groups"
 msgstr "List groups"
 
+msgid "Live Edit Schema Form Examples"
+msgstr "Live Edit Schema Form Examples"
+
 msgid "Load Function:"
 msgstr "Load Function:"
 
@@ -936,6 +1117,9 @@ msgstr "Manual"
 
 msgid "Max Port"
 msgstr "Max Port"
+
+msgid "Max. Size (bytes)"
+msgstr "Max. Size (bytes)"
 
 msgid "Members"
 msgstr "Members"
@@ -964,11 +1148,23 @@ msgstr "Min. Disk"
 msgid "Min. RAM"
 msgstr "Min. RAM"
 
+msgid "Min. Size (bytes)"
+msgstr "Min. Size (bytes)"
+
 msgid "Mini button"
 msgstr "Mini button"
 
+msgid "Minimum Disk"
+msgstr "Minimum Disk"
+
+msgid "Minimum RAM"
+msgstr "Minimum RAM"
+
 msgid "Modals"
 msgstr "Modals"
+
+msgid "Model"
+msgstr "Model"
 
 msgid "Month"
 msgstr "Month"
@@ -1004,6 +1200,9 @@ msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Networks provide the communication channels for instances in the cloud."
 
+msgid "New File Contents"
+msgstr "New File Contents"
+
 msgid "Newer"
 msgstr "Newer"
 
@@ -1022,11 +1221,17 @@ msgstr "No available scheduler hints"
 msgid "No existing scheduler hints"
 msgstr "No existing scheduler hints"
 
+msgid "No items to display."
+msgstr "No items to display."
+
 msgid "Normal"
 msgstr "Normal"
 
 msgid "Not Set"
 msgstr "Not Set"
+
+msgid "Not public"
+msgstr "Not public"
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1055,11 +1260,20 @@ msgstr "OK"
 msgid "OVA"
 msgstr "OVA"
 
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Open Virtual Appliance"
+
+msgid "Object"
+msgstr "Object"
+
 msgid "Object Count"
 msgstr "Object Count"
 
 msgid "Object Details"
 msgstr "Object Details"
+
+msgid "Objects"
+msgstr "Objects"
 
 msgid "Ok"
 msgstr "Ok"
@@ -1091,14 +1305,26 @@ msgstr "Option one is this"
 msgid "Option two can be something else"
 msgstr "Option two can be something else"
 
+msgid "Ordered"
+msgstr "Ordered"
+
 msgid "Other Input Types"
 msgstr "Other Input Types"
+
+msgid "Other lists"
+msgstr "Other lists"
 
 msgid "Overview"
 msgstr "Overview"
 
 msgid "Owner"
 msgstr "Owner"
+
+msgid "PLOOP"
+msgstr "PLOOP"
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 
 msgid "Pager"
 msgstr "Pager"
@@ -1173,6 +1399,9 @@ msgstr ""
 "Ports provide extra communication channels to your instances. You can select "
 "ports instead of networks or a mix of both."
 
+msgid "Prefix"
+msgstr "Prefix"
+
 msgid "Previous"
 msgstr "Previous"
 
@@ -1184,6 +1413,12 @@ msgstr "Primary Anchor"
 
 msgid "Primary Button"
 msgstr "Primary Button"
+
+msgid "Primary Project ID"
+msgstr "Primary Project ID"
+
+msgid "Primary Project Name"
+msgstr "Primary Project Name"
 
 msgid "Private"
 msgstr "Private"
@@ -1238,6 +1473,9 @@ msgstr "Public Key"
 msgid "QCOW2"
 msgstr "QCOW2"
 
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU Emulator"
+
 msgid "Queued"
 msgstr "Queued"
 
@@ -1250,8 +1488,20 @@ msgstr "RAW"
 msgid "Radios"
 msgstr "Radios"
 
+msgid "Radios, Checkboxes and Select"
+msgstr "Radios, Checkboxes and Select"
+
+msgid "Ramdisk ID"
+msgstr "Ramdisk ID"
+
+msgid "Raw"
+msgstr "Raw"
+
 msgid "Re-order items using drag and drop"
 msgstr "Re-order items using drag and drop"
+
+msgid "Registered Resource Types"
+msgstr "Registered Resource Types"
 
 msgid "Remote"
 msgstr "Remote"
@@ -1261,6 +1511,9 @@ msgstr "Resource ID(s)"
 
 msgid "Right"
 msgstr "Right"
+
+msgid "Role"
+msgstr "Role"
 
 msgid "Root Disk"
 msgstr "Root Disk"
@@ -1284,8 +1537,14 @@ msgstr ""
 "Scheduler hints allow you to pass additional placement related information "
 "to the compute scheduler."
 
+msgid "Schema"
+msgstr "Schema"
+
 msgid "Search"
 msgstr "Search"
+
+msgid "Sections and Fieldsets"
+msgstr "Sections and Fieldsets"
 
 msgid "Security"
 msgstr "Security"
@@ -1303,6 +1562,9 @@ msgstr "Segmentation ID"
 
 msgid "Select Boot Source"
 msgstr "Select Boot Source"
+
+msgid "Select Example"
+msgstr "Select Example"
 
 msgid "Select Title"
 msgstr "Select Title"
@@ -1389,6 +1651,9 @@ msgstr "Setting is not enabled: %(setting)s"
 msgid "Shared"
 msgstr "Shared"
 
+msgid "Shared With Project"
+msgstr "Shared With Project"
+
 msgid "Size"
 msgstr "Size"
 
@@ -1418,6 +1683,9 @@ msgstr "Source Code"
 
 msgid "Source Title"
 msgstr "Source Title"
+
+msgid "Specify an image to upload to the Image Service."
+msgstr "Specify an image to upload to the Image Service."
 
 msgid "Stacked"
 msgstr "Stacked"
@@ -1456,6 +1724,21 @@ msgstr "Supports Details View:"
 msgid "Swap Disk"
 msgstr "Swap Disk"
 
+msgid "Swift Account"
+msgstr "Swift Account"
+
+msgid "Swift Accounts"
+msgstr "Swift Accounts"
+
+msgid "Swift Container"
+msgstr "Swift Container"
+
+msgid "Swift Containers"
+msgstr "Swift Containers"
+
+msgid "Tab Array"
+msgstr "Tab Array"
+
 msgid "Table Columns:"
 msgstr "Table Columns:"
 
@@ -1474,8 +1757,27 @@ msgstr "Tel"
 msgid "Text"
 msgstr "Text"
 
+msgid "Text Inputs"
+msgstr "Text Inputs"
+
 msgid "Textarea"
 msgstr "Textarea"
+
+msgid "The access permission for the image."
+msgstr "The access permission for the image."
+
+msgid ""
+"The current Horizon settings indicate no valid\n"
+"                       image creation methods are available. Providing\n"
+"                       an image location and/or uploading from the\n"
+"                       local file system must be allowed to support\n"
+"                       image creation."
+msgstr ""
+"The current Horizon settings indicate no valid\n"
+"                       image creation methods are available. Providing\n"
+"                       an image location and/or uploading from the\n"
+"                       local file system must be allowed to support\n"
+"                       image creation."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1567,6 +1869,15 @@ msgstr "The volume size must be at least %(minVolumeSize)s GB"
 msgid "Themable Checkbox"
 msgstr "Themable Checkbox"
 
+msgid "Themable Option 1"
+msgstr "Themable Option 1"
+
+msgid "Themable Option 2"
+msgstr "Themable Option 2"
+
+msgid "Themable Radios"
+msgstr "Themable Radios"
+
 msgid "Themable Selects"
 msgstr "Themable Selects"
 
@@ -1579,6 +1890,13 @@ msgid ""
 msgstr ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
+
+msgid ""
+"This JavaScript object contains your new form and can be used with "
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
+msgstr ""
+"This JavaScript object contains your new form and can be used with "
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
@@ -1616,6 +1934,20 @@ msgstr "This limit is currently not set."
 
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+
+msgid "This name already exists."
+msgstr "This name already exists."
+
+msgid ""
+"This page contains examples of the different fields provided by Schema Form "
+"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
+"be edited inline to customise the form output. For further documentation on "
+"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
+msgstr ""
+"This page contains examples of the different fields provided by Schema Form "
+"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
+"be edited inline to customise the form output. For further documentation on "
+"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "This step allows you to add Metadata items to your instance."
@@ -1881,6 +2213,12 @@ msgstr "Unable to upload the object."
 msgid "Unable to validate the template."
 msgstr "Unable to validate the template."
 
+msgid "Unordered"
+msgstr "Unordered"
+
+msgid "Unstyled"
+msgstr "Unstyled"
+
 msgid "Up"
 msgstr "Up"
 
@@ -1917,8 +2255,31 @@ msgstr "URL"
 msgid "Usage Charts"
 msgstr "Usage Charts"
 
+msgid ""
+"Use the form to set titles, descriptions and choose specific UI element "
+"types for each schema item. In the form builder, the form must be JSON, but "
+"you can use JavaScript in production code, such as <code>gettext</code> for "
+"translation."
+msgstr ""
+"Use the form to set titles, descriptions and choose specific UI element "
+"types for each schema item. In the form builder, the form must be JSON, but "
+"you can use JavaScript in production code, such as <code>gettext</code> for "
+"translation."
+
+msgid ""
+"Use the schema to describe the data model and valid input patterns. A schema "
+"is always JSON. NOTE: A schema element is not needed for items that have no "
+"data model, like sections and fieldsets."
+msgstr ""
+"Use the schema to describe the data model and valid input patterns. A schema "
+"is always JSON. NOTE: A schema element is not needed for items that have no "
+"data model, like sections and fieldsets."
+
 msgid "User ID"
 msgstr "User ID"
+
+msgid "Users"
+msgstr "Users"
 
 msgid "VCPUS"
 msgstr "VCPUS"
@@ -1929,17 +2290,32 @@ msgstr "VCPUs"
 msgid "VDI"
 msgstr "VDI"
 
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Virtual Disk Image"
+
 msgid "VHD"
 msgstr "VHD"
+
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtual Hard Disk"
 
 msgid "VMDK"
 msgstr "VMDK"
 
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Virtual Machine Disk"
+
 msgid "VNIC type"
 msgstr "VNIC type"
 
+msgid "View As Modal"
+msgstr "View As Modal"
+
 msgid "View Details"
 msgstr "View Details"
+
+msgid "View Form JSON"
+msgstr "View Form JSON"
 
 msgid "Virtual Size"
 msgstr "Virtual Size"
@@ -1952,6 +2328,10 @@ msgstr "Visibility"
 
 msgid "Volume"
 msgstr "Volume"
+
+#, python-format
+msgid "Volume %s was successfully created."
+msgstr "Volume %s was successfully created."
 
 msgid "Volume Snapshot"
 msgstr "Volume Snapshot"
@@ -2070,8 +2450,15 @@ msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "You have selected \"%s\". Deleted image is not recoverable."
 msgstr[1] "You have selected \"%s\". Deleted images are not recoverable."
 
+msgid "Your Form as JavaScript"
+msgstr "Your Form as JavaScript"
+
 msgid "image"
 msgstr "image"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "resource load failed: %s"
 
 msgid "snapshot"
 msgstr "snapshot"

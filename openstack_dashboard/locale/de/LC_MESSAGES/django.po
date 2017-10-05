@@ -8,14 +8,14 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev124\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev144\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-21 04:56+0000\n"
+"POT-Creation-Date: 2017-10-04 12:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-16 08:03+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2017-09-29 10:49+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -1255,6 +1255,9 @@ msgstr "Netzwerk erstellen (Kontingent überschritten)"
 
 msgid "Create Port"
 msgstr "Port erstellen"
+
+msgid "Create Port (Quota exceeded)"
+msgstr "Port erstellen (Kontingent überschritten)"
 
 msgid "Create Project"
 msgstr "Projekt erzeugen"
@@ -2816,6 +2819,9 @@ msgstr "Das Netzwerk %s konnte nicht gelöscht werden."
 msgid "Failed to delete port %s"
 msgstr "Fehler beim Löschen des Ports %s"
 
+msgid "Failed to delete stack."
+msgstr "Fehler beim löschen des Stacks."
+
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Das Subnetz %s konnte nicht gelöscht werden."
@@ -2904,6 +2910,9 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr ""
 "Fehler beim Entfernen des Projekts %(project)s vom Datenträgertyp-Zugriff."
 
+msgid "Failed to resume stack."
+msgstr "Stack konnte nicht wiederaufgenommen werden."
+
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Das Netzwerk %s für ein Subnetz konnte nicht abgerufen werden."
@@ -2911,6 +2920,9 @@ msgstr "Das Netzwerk %s für ein Subnetz konnte nicht abgerufen werden."
 #, python-format
 msgid "Failed to set gateway: %s"
 msgstr "Gateway konnte nicht gesetzt werden: %s"
+
+msgid "Failed to suspend stack."
+msgstr "Stack konnte nicht ausgesetzt werden."
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3027,6 +3039,9 @@ msgstr "Floating IP"
 
 msgid "Floating IP Address (optional)"
 msgstr "Floating IP-Adresse (optional)"
+
+msgid "Floating IP Address ="
+msgstr "Floating IP-Adresse ="
 
 msgid "Floating IP Details"
 msgstr "Floating IP Details."
@@ -3688,6 +3703,9 @@ msgstr "Schlüsselpaar Details"
 msgid "Key Pair Name"
 msgstr "Schlüsselpaar-Name"
 
+msgid "Key Pair Name ="
+msgstr "Schlüsselpaarname ="
+
 msgid "Key Pairs"
 msgstr "Schlüsselpaare"
 
@@ -3828,6 +3846,9 @@ msgstr "MAC-Adresse"
 
 msgid "MAC Learning State"
 msgstr "MAC Lernstatus"
+
+msgid "MAC address for the port"
+msgstr "MAC-Adresse für diesen Port"
 
 msgid "MB"
 msgstr "MB"
@@ -4188,6 +4209,9 @@ msgstr "Netzwerkdetails"
 
 msgid "Network ID"
 msgstr "Netzwerk-ID"
+
+msgid "Network ID ="
+msgstr "Netzwerk-ID ="
 
 msgid "Network Mask"
 msgstr "Netzwerkmaske"
@@ -4720,6 +4744,9 @@ msgstr "Port %s wurde erfolgreich erstellt."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Port %s wurde erfolgreich aktualisiert."
+
+msgid "Port ID ="
+msgstr "Port-ID ="
 
 msgid "Port Range"
 msgstr "Port-Bereich"
@@ -7735,6 +7762,9 @@ msgstr "Sicherheitsgruppen für den Port können nicht abgerufen werden."
 msgid "Unable to retrieve security groups."
 msgstr "Sicherheitsgruppen können nicht abgerufen werden."
 
+msgid "Unable to retrieve shared images."
+msgstr "Freigegebene Abbilder können nicht abgerufen werden."
+
 msgid "Unable to retrieve snapshot data."
 msgstr "Schattenkopie-Daten können nicht abgerufen werden."
 
@@ -8478,6 +8508,9 @@ msgstr "Datenträger Verschlüsselungsdetails: {{ volume.name }}"
 msgid "Volume Encryption Overview"
 msgstr "Übersicht Datenträger-Verschlüsselung"
 
+msgid "Volume Groups"
+msgstr "Datenträger-Gruppen"
+
 msgid "Volume ID"
 msgstr "Datenträger-ID"
 
@@ -8692,6 +8725,11 @@ msgstr "Sie verwenden bereits alle verfügbaren Floating IPs."
 msgid "You are already using all of your available volumes."
 msgstr "Sie benutzen bereits alle Ihrer verfügbaren Datenträger."
 
+#, python-format
+msgid "You are not allowed to create a port for network %s."
+msgstr ""
+"Sie haben keine Berechtigung zum erstellen eines Ports für das Netzwerk %s."
+
 msgid ""
 "You can connect a specified external network to the router. The external "
 "network is regarded as a default route of the router and the router acts as "
@@ -8724,6 +8762,9 @@ msgid ""
 msgstr ""
 "Sie können eine Regelvorlage angeben oder angepasste Regeln verwenden. Die "
 "Optionen sind angepasste TCP, UDP oder ICMP Regeln."
+
+msgid "You can update the editable properties of your port here."
+msgstr "Sie können alle editierbare Eigenschaften Ihres Ports hier ändern."
 
 msgid "You cannot disable your current project"
 msgstr "Sie können das aktuelle Projekt nicht deaktivieren"
@@ -8829,6 +8870,9 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "Inaktiv"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "z.B. AKTIV / INAKTIV / FEHLER"
 
 msgid "e.g. UP / DOWN"
 msgstr "z.B. AKTIV / INAKTIV"
