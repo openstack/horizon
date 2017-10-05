@@ -57,6 +57,7 @@ INSECURE = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
 CACERT = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
 
 
+@memoized
 def get_microversion(request, feature):
     client = novaclient(request)
     min_ver, max_ver = api_versions._get_server_version_range(client)
