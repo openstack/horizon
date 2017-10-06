@@ -1470,6 +1470,10 @@ def servers_update_addresses(request, servers, all_tenants=False):
        and Nova's networking info caching mechanism is not fast enough.
     """
 
+    # NOTE(e0ne): we don't need to call neutron if we have no instances
+    if not servers:
+        return
+
     # Get all (filtered for relevant servers) information from Neutron
     try:
         # NOTE(e0ne): we need tuple here to work with @memoized decorator.
