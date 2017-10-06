@@ -30,13 +30,13 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev100\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev144\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-16 22:35+0000\n"
+"POT-Creation-Date: 2017-10-04 12:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-16 08:03+0000\n"
+"PO-Revision-Date: 2017-09-29 01:10+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -1270,6 +1270,9 @@ msgstr "Создать сеть (превышена квота)"
 
 msgid "Create Port"
 msgstr "Создать порт"
+
+msgid "Create Port (Quota exceeded)"
+msgstr "Создать порт (квота исчерпана)"
 
 msgid "Create Project"
 msgstr "Создать проект"
@@ -3060,6 +3063,9 @@ msgstr "Плавающий IP"
 msgid "Floating IP Address (optional)"
 msgstr "Нефиксированный IP адресс()"
 
+msgid "Floating IP Address ="
+msgstr "Назначаемый IP адрес ="
+
 msgid "Floating IP Details"
 msgstr "Детали назначаемого IP"
 
@@ -3703,6 +3709,9 @@ msgstr "Детали ключевой пары"
 msgid "Key Pair Name"
 msgstr "Имя ключевой пары"
 
+msgid "Key Pair Name ="
+msgstr "Имя ключевой пары ="
+
 msgid "Key Pairs"
 msgstr "Ключевые пары"
 
@@ -3843,6 +3852,9 @@ msgstr "MAC адрес"
 
 msgid "MAC Learning State"
 msgstr "Состояние MAC Learning"
+
+msgid "MAC address for the port"
+msgstr "MAC адрес для порта"
 
 msgid "MB"
 msgstr "МБ"
@@ -4193,6 +4205,9 @@ msgstr "Подробности сети"
 
 msgid "Network ID"
 msgstr "ID сети"
+
+msgid "Network ID ="
+msgstr "ID сети ="
 
 msgid "Network Mask"
 msgstr "Маска сети"
@@ -4706,6 +4721,9 @@ msgstr "Порт %s был успешно создан."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Порт %s был успешно обновлен."
+
+msgid "Port ID ="
+msgstr "ID порта ="
 
 msgid "Port Range"
 msgstr "Диапазон Портов"
@@ -5367,6 +5385,9 @@ msgstr "Маршрутизатор %s успешно создан."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Маршрутизатор %s был успешно обновлен."
+
+msgid "Router ID ="
+msgstr "ID маршрутизатора ="
 
 msgid "Router Name"
 msgstr "Название Маршрутизатора"
@@ -7641,6 +7662,9 @@ msgstr "Невозможно получить группы безопаснос�
 msgid "Unable to retrieve security groups."
 msgstr "Не удалось получить группы безопасности."
 
+msgid "Unable to retrieve shared images."
+msgstr "Невозможно получить общие образы."
+
 msgid "Unable to retrieve snapshot data."
 msgstr "Не удалось получить информацию о снимке."
 
@@ -8368,6 +8392,9 @@ msgstr "Подробности шифрования диска: {{ volume.name }
 msgid "Volume Encryption Overview"
 msgstr "Обзор шифрования диска"
 
+msgid "Volume Groups"
+msgstr "Группы дисков"
+
 msgid "Volume ID"
 msgstr "ID диска"
 
@@ -8570,6 +8597,10 @@ msgstr "Вы уже используете все доступные назна�
 msgid "You are already using all of your available volumes."
 msgstr "Уже используются все доступные диски."
 
+#, python-format
+msgid "You are not allowed to create a port for network %s."
+msgstr "Вы не можете создать порт для сети %s."
+
 msgid ""
 "You can connect a specified external network to the router. The external "
 "network is regarded as a default route of the router and the router acts as "
@@ -8701,6 +8732,9 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "вниз"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "например АКТИВЕН/ВЫКЛЮЧЕН/ОШИБКА"
 
 msgid "e.g. UP / DOWN"
 msgstr "т.е. Вверх/Вниз"
