@@ -30,6 +30,7 @@ from django.conf import settings
 from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django.core import urlresolvers
+from django import http as http_request
 from django.test.client import RequestFactory
 from django.test import utils as django_test_utils
 from django.utils import http
@@ -693,3 +694,9 @@ def mock_factory(r):
     mocked = mock_obj_to_dict(r)
     mocked.configure_mock(**r)
     return mocked
+
+
+class IsHttpRequest(object):
+    """Class to compare param is django.http.HttpRequest."""
+    def __eq__(self, other):
+        return isinstance(other, http_request.HttpRequest)
