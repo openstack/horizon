@@ -21,24 +21,28 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
-class CinderApiTests(test.APITestCase):
+class CinderApiTests(test.APIMockTestCase):
 
     def test_volume_list(self):
         search_opts = {'all_tenants': 1}
         detailed = True
+
         volumes = self.cinder_volumes.list()
         volume_transfers = self.cinder_volume_transfers.list()
         cinderclient = self.stub_cinderclient()
-        cinderclient.volumes = self.mox.CreateMockAnything()
-        cinderclient.volumes.list(search_opts=search_opts,).AndReturn(volumes)
-        cinderclient.transfers = self.mox.CreateMockAnything()
-        cinderclient.transfers.list(
-            detailed=detailed,
-            search_opts=search_opts,).AndReturn(volume_transfers)
-        self.mox.ReplayAll()
+
+        volumes_mock = cinderclient.volumes.list
+        volumes_mock.return_value = volumes
+
+        transfers_mock = cinderclient.transfers.list
+        transfers_mock.return_value = volume_transfers
 
         api_volumes = api.cinder.volume_list(self.request,
                                              search_opts=search_opts)
+
+        volumes_mock.assert_called_once_with(search_opts=search_opts)
+        transfers_mock.assert_called_once_with(detailed=detailed,
+                                               search_opts=search_opts)
         self.assertEqual(len(volumes), len(api_volumes))
 
     def test_volume_list_paged(self):
@@ -47,16 +51,19 @@ class CinderApiTests(test.APITestCase):
         volumes = self.cinder_volumes.list()
         volume_transfers = self.cinder_volume_transfers.list()
         cinderclient = self.stub_cinderclient()
-        cinderclient.volumes = self.mox.CreateMockAnything()
-        cinderclient.volumes.list(search_opts=search_opts,).AndReturn(volumes)
-        cinderclient.transfers = self.mox.CreateMockAnything()
-        cinderclient.transfers.list(
-            detailed=detailed,
-            search_opts=search_opts,).AndReturn(volume_transfers)
-        self.mox.ReplayAll()
+
+        volumes_mock = cinderclient.volumes.list
+        volumes_mock.return_value = volumes
+
+        transfers_mock = cinderclient.transfers.list
+        transfers_mock.return_value = volume_transfers
 
         api_volumes, has_more, has_prev = api.cinder.volume_list_paged(
             self.request, search_opts=search_opts)
+
+        volumes_mock.assert_called_once_with(search_opts=search_opts)
+        transfers_mock.assert_called_once_with(detailed=detailed,
+                                               search_opts=search_opts)
         self.assertEqual(len(volumes), len(api_volumes))
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
@@ -70,22 +77,26 @@ class CinderApiTests(test.APITestCase):
         volume_transfers = self.cinder_volume_transfers.list()
 
         search_opts = {'all_tenants': 1}
-        mox_volumes = volumes[:page_size + 1]
-        expected_volumes = mox_volumes[:-1]
+        mock_volumes = volumes[:page_size + 1]
+        expected_volumes = mock_volumes[:-1]
 
         cinderclient = self.stub_cinderclient()
-        cinderclient.volumes = self.mox.CreateMockAnything()
-        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
-                                  sort='created_at:desc', marker=None).\
-            AndReturn(mox_volumes)
-        cinderclient.transfers = self.mox.CreateMockAnything()
-        cinderclient.transfers.list(
-            detailed=True,
-            search_opts=search_opts,).AndReturn(volume_transfers)
-        self.mox.ReplayAll()
+
+        volumes_mock = cinderclient.volumes.list
+        volumes_mock.return_value = mock_volumes
+
+        transfers_mock = cinderclient.transfers.list
+        transfers_mock.return_value = volume_transfers
 
         api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
             self.request, search_opts=search_opts, paginate=True)
+
+        volumes_mock.assert_called_once_with(search_opts=search_opts,
+                                             limit=page_size + 1,
+                                             sort='created_at:desc',
+                                             marker=None)
+        transfers_mock.assert_called_once_with(detailed=True,
+                                               search_opts=search_opts)
         self.assertEqual(len(expected_volumes), len(api_volumes))
         self.assertTrue(more_data)
         self.assertFalse(prev_data)
@@ -99,24 +110,28 @@ class CinderApiTests(test.APITestCase):
         volume_transfers = self.cinder_volume_transfers.list()
 
         search_opts = {'all_tenants': 1}
-        mox_volumes = volumes[page_size:page_size * 2 + 1]
-        expected_volumes = mox_volumes[:-1]
+        mock_volumes = volumes[page_size:page_size * 2 + 1]
+        expected_volumes = mock_volumes[:-1]
         marker = expected_volumes[0].id
 
         cinderclient = self.stub_cinderclient()
-        cinderclient.volumes = self.mox.CreateMockAnything()
-        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
-                                  sort='created_at:desc', marker=marker).\
-            AndReturn(mox_volumes)
-        cinderclient.transfers = self.mox.CreateMockAnything()
-        cinderclient.transfers.list(
-            detailed=True,
-            search_opts=search_opts,).AndReturn(volume_transfers)
-        self.mox.ReplayAll()
+
+        volumes_mock = cinderclient.volumes.list
+        volumes_mock.return_value = mock_volumes
+
+        transfers_mock = cinderclient.transfers.list
+        transfers_mock.return_value = volume_transfers
 
         api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
             self.request, search_opts=search_opts, marker=marker,
             paginate=True)
+
+        volumes_mock.assert_called_once_with(search_opts=search_opts,
+                                             limit=page_size + 1,
+                                             sort='created_at:desc',
+                                             marker=marker)
+        transfers_mock.assert_called_once_with(detailed=True,
+                                               search_opts=search_opts)
         self.assertEqual(len(expected_volumes), len(api_volumes))
         self.assertTrue(more_data)
         self.assertTrue(prev_data)
@@ -130,24 +145,28 @@ class CinderApiTests(test.APITestCase):
         volume_transfers = self.cinder_volume_transfers.list()
 
         search_opts = {'all_tenants': 1}
-        mox_volumes = volumes[-1 * page_size:]
-        expected_volumes = mox_volumes
+        mock_volumes = volumes[-1 * page_size:]
+        expected_volumes = mock_volumes
         marker = expected_volumes[0].id
 
         cinderclient = self.stub_cinderclient()
-        cinderclient.volumes = self.mox.CreateMockAnything()
-        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
-                                  sort='created_at:desc', marker=marker).\
-            AndReturn(mox_volumes)
-        cinderclient.transfers = self.mox.CreateMockAnything()
-        cinderclient.transfers.list(
-            detailed=True,
-            search_opts=search_opts,).AndReturn(volume_transfers)
-        self.mox.ReplayAll()
+
+        volumes_mock = cinderclient.volumes.list
+        volumes_mock.return_value = mock_volumes
+
+        transfers_mock = cinderclient.transfers.list
+        transfers_mock.return_value = volume_transfers
 
         api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
             self.request, search_opts=search_opts, marker=marker,
             paginate=True)
+
+        volumes_mock.assert_called_once_with(search_opts=search_opts,
+                                             limit=page_size + 1,
+                                             sort='created_at:desc',
+                                             marker=marker)
+        transfers_mock.assert_called_once_with(detailed=True,
+                                               search_opts=search_opts)
         self.assertEqual(len(expected_volumes), len(api_volumes))
         self.assertFalse(more_data)
         self.assertTrue(prev_data)
@@ -161,24 +180,28 @@ class CinderApiTests(test.APITestCase):
         volume_transfers = self.cinder_volume_transfers.list()
 
         search_opts = {'all_tenants': 1}
-        mox_volumes = volumes[page_size:page_size * 2 + 1]
-        expected_volumes = mox_volumes[:-1]
+        mock_volumes = volumes[page_size:page_size * 2 + 1]
+        expected_volumes = mock_volumes[:-1]
         marker = expected_volumes[0].id
 
         cinderclient = self.stub_cinderclient()
-        cinderclient.volumes = self.mox.CreateMockAnything()
-        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
-                                  sort='created_at:asc', marker=marker).\
-            AndReturn(mox_volumes)
-        cinderclient.transfers = self.mox.CreateMockAnything()
-        cinderclient.transfers.list(
-            detailed=True,
-            search_opts=search_opts,).AndReturn(volume_transfers)
-        self.mox.ReplayAll()
+
+        volumes_mock = cinderclient.volumes.list
+        volumes_mock.return_value = mock_volumes
+
+        transfers_mock = cinderclient.transfers.list
+        transfers_mock.return_value = volume_transfers
 
         api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
             self.request, search_opts=search_opts, sort_dir="asc",
             marker=marker, paginate=True)
+
+        volumes_mock.assert_called_once_with(search_opts=search_opts,
+                                             limit=page_size + 1,
+                                             sort='created_at:asc',
+                                             marker=marker)
+        transfers_mock.assert_called_once_with(detailed=True,
+                                               search_opts=search_opts)
         self.assertEqual(len(expected_volumes), len(api_volumes))
         self.assertTrue(more_data)
         self.assertTrue(prev_data)
@@ -192,24 +215,28 @@ class CinderApiTests(test.APITestCase):
         volume_transfers = self.cinder_volume_transfers.list()
 
         search_opts = {'all_tenants': 1}
-        mox_volumes = volumes[:page_size]
-        expected_volumes = mox_volumes
+        mock_volumes = volumes[:page_size]
+        expected_volumes = mock_volumes
         marker = expected_volumes[0].id
 
         cinderclient = self.stub_cinderclient()
-        cinderclient.volumes = self.mox.CreateMockAnything()
-        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
-                                  sort='created_at:asc', marker=marker).\
-            AndReturn(mox_volumes)
-        cinderclient.transfers = self.mox.CreateMockAnything()
-        cinderclient.transfers.list(
-            detailed=True,
-            search_opts=search_opts,).AndReturn(volume_transfers)
-        self.mox.ReplayAll()
+
+        volumes_mock = cinderclient.volumes.list
+        volumes_mock.return_value = mock_volumes
+
+        transfers_mock = cinderclient.transfers.list
+        transfers_mock.return_value = volume_transfers
 
         api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
             self.request, search_opts=search_opts, sort_dir="asc",
             marker=marker, paginate=True)
+
+        volumes_mock.assert_called_once_with(search_opts=search_opts,
+                                             limit=page_size + 1,
+                                             sort='created_at:asc',
+                                             marker=marker)
+        transfers_mock.assert_called_once_with(detailed=True,
+                                               search_opts=search_opts)
         self.assertEqual(len(expected_volumes), len(api_volumes))
         self.assertTrue(more_data)
         self.assertFalse(prev_data)
@@ -218,12 +245,12 @@ class CinderApiTests(test.APITestCase):
         search_opts = {'all_tenants': 1}
         volume_snapshots = self.cinder_volume_snapshots.list()
         cinderclient = self.stub_cinderclient()
-        cinderclient.volume_snapshots = self.mox.CreateMockAnything()
-        cinderclient.volume_snapshots.list(search_opts=search_opts).\
-            AndReturn(volume_snapshots)
-        self.mox.ReplayAll()
+
+        snapshots_mock = cinderclient.volume_snapshots.list
+        snapshots_mock.return_value = volume_snapshots
 
         api.cinder.volume_snapshot_list(self.request, search_opts=search_opts)
+        snapshots_mock.assert_called_once_with(search_opts=search_opts)
 
     def test_volume_snapshot_list_no_volume_configured(self):
         # remove volume from service catalog
@@ -235,12 +262,13 @@ class CinderApiTests(test.APITestCase):
         volume_snapshots = self.cinder_volume_snapshots.list()
 
         cinderclient = self.stub_cinderclient()
-        cinderclient.volume_snapshots = self.mox.CreateMockAnything()
-        cinderclient.volume_snapshots.list(search_opts=search_opts).\
-            AndReturn(volume_snapshots)
-        self.mox.ReplayAll()
+
+        snapshots_mock = cinderclient.volume_snapshots.list
+        snapshots_mock.return_value = volume_snapshots
 
         api.cinder.volume_snapshot_list(self.request, search_opts=search_opts)
+
+        snapshots_mock.assert_called_once_with(search_opts=search_opts)
 
     def test_volume_type_list_with_qos_associations(self):
         volume_types = self.cinder_volume_types.list()
@@ -254,18 +282,22 @@ class CinderApiTests(test.APITestCase):
         associations = self.cinder_qos_spec_associations.list()
 
         cinderclient = self.stub_cinderclient()
-        cinderclient.volume_types = self.mox.CreateMockAnything()
-        cinderclient.volume_types.list().AndReturn(volume_types)
-        cinderclient.qos_specs = self.mox.CreateMockAnything()
-        cinderclient.qos_specs.list().AndReturn(qos_specs_only_one)
-        cinderclient.qos_specs.get_associations = self.mox.CreateMockAnything()
-        cinderclient.qos_specs.get_associations(qos_specs_only_one[0].id).\
-            AndReturn(associations)
-        self.mox.ReplayAll()
+
+        volume_types_mock = cinderclient.volume_types.list
+        volume_types_mock.return_value = volume_types
+
+        cinderclient.qos_specs.list.return_value = qos_specs_only_one
+
+        qos_associations_mock = cinderclient.qos_specs.get_associations
+        qos_associations_mock.return_value = associations
 
         assoc_vol_types = \
             api.cinder.volume_type_list_with_qos_associations(self.request)
         associate_spec = assoc_vol_types[0].associated_qos_spec
+
+        volume_types_mock.assert_called_once()
+        cinderclient.qos_specs.list.assert_called_once()
+        qos_associations_mock.assert_called_once_with(qos_specs_only_one[0].id)
         self.assertEqual(associate_spec, qos_specs_only_one[0].name)
 
     def test_volume_type_get_with_qos_association(self):
@@ -275,19 +307,24 @@ class CinderApiTests(test.APITestCase):
         associations = self.cinder_qos_spec_associations.list()
 
         cinderclient = self.stub_cinderclient()
-        cinderclient.volume_types = self.mox.CreateMockAnything()
-        cinderclient.volume_types.get(volume_type.id).AndReturn(volume_type)
-        cinderclient.qos_specs = self.mox.CreateMockAnything()
-        cinderclient.qos_specs.list().AndReturn(qos_specs_only_one)
-        cinderclient.qos_specs.get_associations = self.mox.CreateMockAnything()
-        cinderclient.qos_specs.get_associations(qos_specs_only_one[0].id).\
-            AndReturn(associations)
-        self.mox.ReplayAll()
+
+        volume_types_mock = cinderclient.volume_types.get
+        volume_types_mock.return_value = volume_type
+
+        qos_specs_mock = cinderclient.qos_specs.list
+        qos_specs_mock.return_value = qos_specs_only_one
+
+        qos_associations_mock = cinderclient.qos_specs.get_associations
+        qos_associations_mock.return_value = associations
 
         assoc_vol_type = \
             api.cinder.volume_type_get_with_qos_association(self.request,
                                                             volume_type.id)
         associate_spec = assoc_vol_type.associated_qos_spec
+
+        volume_types_mock.assert_called_once_with(volume_type.id)
+        qos_specs_mock.assert_called_once()
+        qos_associations_mock.assert_called_once_with(qos_specs_only_one[0].id)
         self.assertEqual(associate_spec, qos_specs_only_one[0].name)
 
     def test_absolute_limits_with_negative_values(self):
@@ -295,60 +332,70 @@ class CinderApiTests(test.APITestCase):
         expected_results = {"maxTotalVolumes": float("inf"),
                             "totalVolumesUsed": 0}
 
-        limits = self.mox.CreateMockAnything()
-        limits.absolute = []
-        for key, val in values.items():
-            limit = self.mox.CreateMockAnything()
-            limit.name = key
-            limit.value = val
-            limits.absolute.append(limit)
+        class AbsoluteLimit(object):
+            def __init__(self, absolute):
+                self.absolute = absolute
+
+        class FakeLimit(object):
+            def __init__(self, name, value):
+                self.name = name
+                self.value = value
+
+        fake_limits = [FakeLimit(k, v) for k, v in values.items()]
 
         cinderclient = self.stub_cinderclient()
-        cinderclient.limits = self.mox.CreateMockAnything()
-        cinderclient.limits.get().AndReturn(limits)
-        self.mox.ReplayAll()
+        mock_limit = cinderclient.limits.get
+        mock_limit.return_value = AbsoluteLimit(fake_limits)
 
         ret_val = api.cinder.tenant_absolute_limits(self.request)
+
         for key in expected_results.keys():
             self.assertEqual(expected_results[key], ret_val[key])
+
+        mock_limit.assert_called_once()
 
     def test_pool_list(self):
         pools = self.cinder_pools.list()
         cinderclient = self.stub_cinderclient()
-        cinderclient.pools = self.mox.CreateMockAnything()
-        cinderclient.pools.list(detailed=True).AndReturn(pools)
-        self.mox.ReplayAll()
 
-        # No assertions are necessary. Verification is handled by mox.
+        cinderclient.pools.list.return_value = pools
+
         api.cinder.pool_list(self.request, detailed=True)
+
+        cinderclient.pools.list.assert_called_once_with(detailed=True)
 
     def test_volume_type_default(self):
         volume_type = self.cinder_volume_types.first()
         cinderclient = self.stub_cinderclient()
-        cinderclient.volume_types = self.mox.CreateMockAnything()
-        cinderclient.volume_types.default().AndReturn(volume_type)
-        self.mox.ReplayAll()
+
+        cinderclient.volume_types.default.return_value = volume_type
 
         default_volume_type = api.cinder.volume_type_default(self.request)
         self.assertEqual(default_volume_type, volume_type)
+        cinderclient.volume_types.default.assert_called_once()
 
     def test_cgroup_list(self):
         cgroups = self.cinder_consistencygroups.list()
         cinderclient = self.stub_cinderclient()
-        cinderclient.consistencygroups = self.mox.CreateMockAnything()
-        cinderclient.consistencygroups.list(search_opts=None).\
-            AndReturn(cgroups)
-        self.mox.ReplayAll()
+
+        mock_cgs = cinderclient.consistencygroups.list
+        mock_cgs.return_value = cgroups
+
         api_cgroups = api.cinder.volume_cgroup_list(self.request)
+
         self.assertEqual(len(cgroups), len(api_cgroups))
+        mock_cgs.assert_called_once_with(search_opts=None)
 
     def test_cgroup_get(self):
         cgroup = self.cinder_consistencygroups.first()
         cinderclient = self.stub_cinderclient()
-        cinderclient.consistencygroups = self.mox.CreateMockAnything()
-        cinderclient.consistencygroups.get(cgroup.id).AndReturn(cgroup)
-        self.mox.ReplayAll()
+
+        mock_cg = cinderclient.consistencygroups.get
+        mock_cg.return_value = cgroup
+
         api_cgroup = api.cinder.volume_cgroup_get(self.request, cgroup.id)
+
+        mock_cg.assert_called_once_with(cgroup.id)
         self.assertEqual(api_cgroup.name, cgroup.name)
         self.assertEqual(api_cgroup.description, cgroup.description)
         self.assertEqual(api_cgroup.volume_types, cgroup.volume_types)
@@ -357,14 +404,18 @@ class CinderApiTests(test.APITestCase):
         cgroups = self.cinder_consistencygroups.list()
         volume_types_list = self.cinder_volume_types.list()
         cinderclient = self.stub_cinderclient()
-        cinderclient.consistencygroups = self.mox.CreateMockAnything()
-        cinderclient.consistencygroups.list(search_opts=None).\
-            AndReturn(cgroups)
-        cinderclient.volume_types = self.mox.CreateMockAnything()
-        cinderclient.volume_types.list().AndReturn(volume_types_list)
-        self.mox.ReplayAll()
+
+        mock_cgs = cinderclient.consistencygroups.list
+        mock_cgs.return_value = cgroups
+
+        mock_volume_types = cinderclient.volume_types.list
+        mock_volume_types.return_value = volume_types_list
+
         api_cgroups = api.cinder.volume_cgroup_list_with_vol_type_names(
             self.request)
+
+        mock_cgs.assert_called_once_with(search_opts=None)
+        mock_volume_types.assert_called_once()
         self.assertEqual(len(cgroups), len(api_cgroups))
         for i in range(len(api_cgroups[0].volume_type_names)):
             self.assertEqual(volume_types_list[i].name,
@@ -373,21 +424,25 @@ class CinderApiTests(test.APITestCase):
     def test_cgsnapshot_list(self):
         cgsnapshots = self.cinder_cg_snapshots.list()
         cinderclient = self.stub_cinderclient()
-        cinderclient.cgsnapshots = self.mox.CreateMockAnything()
-        cinderclient.cgsnapshots.list(search_opts=None).\
-            AndReturn(cgsnapshots)
-        self.mox.ReplayAll()
+
+        mock_cg_snapshots = cinderclient.cgsnapshots.list
+        mock_cg_snapshots.return_value = cgsnapshots
+
         api_cgsnapshots = api.cinder.volume_cg_snapshot_list(self.request)
+
+        mock_cg_snapshots.assert_called_once_with(search_opts=None)
         self.assertEqual(len(cgsnapshots), len(api_cgsnapshots))
 
     def test_cgsnapshot_get(self):
         cgsnapshot = self.cinder_cg_snapshots.first()
         cinderclient = self.stub_cinderclient()
-        cinderclient.cgsnapshots = self.mox.CreateMockAnything()
-        cinderclient.cgsnapshots.get(cgsnapshot.id).AndReturn(cgsnapshot)
-        self.mox.ReplayAll()
+
+        mock_cg_snapshot = cinderclient.cgsnapshots.get
+        mock_cg_snapshot.return_value = cgsnapshot
+
         api_cgsnapshot = api.cinder.volume_cg_snapshot_get(self.request,
                                                            cgsnapshot.id)
+        mock_cg_snapshot.assert_called_once_with(cgsnapshot.id)
         self.assertEqual(api_cgsnapshot.name, cgsnapshot.name)
         self.assertEqual(api_cgsnapshot.description, cgsnapshot.description)
         self.assertEqual(api_cgsnapshot.consistencygroup_id,

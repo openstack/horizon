@@ -302,9 +302,9 @@ class CinderRestTestCase(test.TestCase):
     # Services
     #
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @mock.patch.object(api.base, 'is_service_enabled')
     @mock.patch.object(cinder.api, 'cinder')
-    def test_services_get(self, cc):
+    def test_services_get(self, cc, mock_service_enabled):
         request = self.mock_rest_request(GET={})
         cc.service_list.return_value = [mock.Mock(
             binary='binary_1',
@@ -321,9 +321,7 @@ class CinderRestTestCase(test.TestCase):
             status='status_2',
             state='state_2'
         )]
-        api.base.is_service_enabled(request, 'volume').AndReturn(True)
-
-        self.mox.ReplayAll()
+        mock_service_enabled.return_value = True
 
         response = cinder.Services().get(request)
         self.assertStatusCode(response, 200)
@@ -333,14 +331,13 @@ class CinderRestTestCase(test.TestCase):
         self.assertEqual(response_as_json['items'][1]['id'], 2)
         self.assertEqual(response_as_json['items'][1]['binary'], 'binary_2')
         cc.service_list.assert_called_once_with(request)
+        mock_service_enabled.assert_called_once_with(request, 'volume')
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
-    def test_services_get_disabled(self):
+    @mock.patch.object(api.base, 'is_service_enabled')
+    def test_services_get_disabled(self, mock_service_enabled):
         request = self.mock_rest_request(GET={})
 
-        api.base.is_service_enabled(request, 'volume').AndReturn(False)
-
-        self.mox.ReplayAll()
+        mock_service_enabled.return_value = False
 
         response = cinder.Services().get(request)
         self.assertStatusCode(response, 501)
@@ -485,7 +482,6 @@ class CinderRestTestCase(test.TestCase):
                          '"Service Cinder is disabled."')
         cc.tenant_quota_update.assert_not_called()
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
     @mock.patch.object(cinder.api, 'cinder')
     def test_availability_zones_get(self, cc):
         request = self.mock_rest_request(GET={})
@@ -495,7 +491,6 @@ class CinderRestTestCase(test.TestCase):
             'status': 'available'
         }
         cc.availability_zone_list.return_value = [mock_az]
-        self.mox.ReplayAll()
 
         response = cinder.AvailabilityZones().get(request)
         self.assertStatusCode(response, 200)
