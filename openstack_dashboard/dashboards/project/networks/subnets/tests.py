@@ -34,8 +34,7 @@ form_data_subnet = net_tests.form_data_subnet
 class NetworkSubnetTests(test.TestCase):
 
     @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_get',
-                                      'is_extension_supported')})
+                                      'subnet_get',)})
     def test_subnet_detail(self):
         network = self.networks.first()
         subnet = self.subnets.first()
@@ -64,6 +63,55 @@ class NetworkSubnetTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertRedirectsNoFollow(res, NETWORKS_INDEX_URL)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_get', 'subnetpool_get',
+                                      'is_extension_supported')})
+    def test_subnet_detail_with_subnetpool(self):
+        network = self.networks.first()
+        subnet = self.subnets.first()
+        subnetpool = self.subnetpools.first()
+        subnet.subnetpool_id = subnetpool.id
+
+        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
+            .MultipleTimes().AndReturn(network)
+        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
+            .AndReturn(subnet)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'subnet_allocation').AndReturn(True)
+        api.neutron.subnetpool_get(IsA(http.HttpRequest), subnetpool.id)\
+            .AndReturn(subnetpool)
+        self.mox.ReplayAll()
+
+        url = reverse(DETAIL_URL, args=[subnet.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertEqual(subnet.id, res.context['subnet'].id)
+        self.assertEqual(subnetpool.id, res.context['subnet'].subnetpool_id)
+        self.assertEqual(subnetpool.name,
+                         res.context['subnet'].subnetpool_name)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_get')})
+    def test_subnet_detail_with_subnetpool_prefixdelegation(self):
+        network = self.networks.first()
+        subnet = self.subnets.first()
+        subnet.subnetpool_id = 'prefix_delegation'
+
+        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
+            .MultipleTimes().AndReturn(network)
+        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
+            .AndReturn(subnet)
+        self.mox.ReplayAll()
+
+        url = reverse(DETAIL_URL, args=[subnet.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertEqual(subnet.id, res.context['subnet'].id)
+        self.assertEqual('prefix_delegation',
+                         res.context['subnet'].subnetpool_id)
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'is_extension_supported',
