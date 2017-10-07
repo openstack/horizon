@@ -20,6 +20,7 @@
 
   keypairsService.$inject = [
     '$filter',
+    'horizon.app.core.detailRoute',
     'horizon.app.core.openstack-service-api.nova'
   ];
 
@@ -33,9 +34,11 @@
   * but do not need to be restricted to such use.  Each exposed function
   * is documented below.
   */
-  function keypairsService($filter, nova) {
+  function keypairsService($filter, detailRoute, nova) {
     return {
-      getKeypairsPromise: getKeypairsPromise
+      getKeypairsPromise: getKeypairsPromise,
+      getKeypairPromise: getKeypairPromise,
+      urlFunction: urlFunction
     };
 
      /*
@@ -61,6 +64,18 @@
       }
     }
 
-  }
+    /*
+     * @ngdoc function
+     * @name getKeypairPromise
+     * @description
+     * Given a name, returns a promise for the keypair data.
+     */
+    function getKeypairPromise(name) {
+      return nova.getKeypair(name);
+    }
 
+    function urlFunction(item) {
+      return detailRoute + 'OS::Nova::Keypair/' + item.name;
+    }
+  }
 })();

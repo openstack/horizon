@@ -81,6 +81,17 @@ class Keypairs(generic.View):
 
 
 @urls.register
+class Keypair(generic.View):
+    """API for retrieving a single keypair."""
+    url_regex = r'nova/keypairs/(?P<name>[^/]+)$'
+
+    @rest_utils.ajax()
+    def get(self, request, name):
+        """Get a specific keypair."""
+        return api.nova.keypair_get(request, name).to_dict()
+
+
+@urls.register
 class Services(generic.View):
     """API for nova services."""
     url_regex = r'nova/services/$'

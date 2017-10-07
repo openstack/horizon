@@ -172,7 +172,7 @@ class NovaRestTestCase(test.TestCase):
     # Keypairs
     #
     @mock.patch.object(nova.api, 'nova')
-    def test_keypair_get(self, nc):
+    def test_keypair_list(self, nc):
         request = self.mock_rest_request()
         nc.keypair_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
@@ -213,6 +213,16 @@ class NovaRestTestCase(test.TestCase):
                          response.json)
         self.assertEqual('/api/nova/keypairs/Ni%21', response['location'])
         nc.keypair_import.assert_called_once_with(request, 'Ni!', 'hi')
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_keypair_get(self, nc):
+        request = self.mock_rest_request()
+        nc.keypair_get.return_value.to_dict.return_value = {'name': '1'}
+        response = nova.Keypair().get(request, '1')
+        self.assertStatusCode(response, 200)
+        self.assertEqual({"name": "1"},
+                         response.json)
+        nc.keypair_get.assert_called_once_with(request, "1")
 
     #
     # Availability Zones

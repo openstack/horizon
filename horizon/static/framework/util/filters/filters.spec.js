@@ -67,6 +67,21 @@
       });
     });
 
+    describe('mediumDate', function () {
+      var mediumDateFilter;
+      beforeEach(inject(function (_mediumDateFilter_) {
+        mediumDateFilter = _mediumDateFilter_;
+      }));
+
+      it('returns blank if nothing', function () {
+        expect(mediumDateFilter()).toBe('-');
+      });
+
+      it('returns the expected time', function() {
+        expect(mediumDateFilter('2001-02-03T16:05:06')).toBe('Feb 3, 2001 4:05:06 PM');
+      });
+    });
+
     describe('gb', function () {
       var gbFilter;
       beforeEach(inject(function (_gbFilter_) {

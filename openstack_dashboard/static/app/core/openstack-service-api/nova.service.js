@@ -44,6 +44,7 @@
       getServerSecurityGroups: getServerSecurityGroups,
       getKeypairs: getKeypairs,
       createKeypair: createKeypair,
+      getKeypair: getKeypair,
       getAvailabilityZones: getAvailabilityZones,
       getLimits: getLimits,
       createServer: createServer,
@@ -138,6 +139,23 @@
           } else {
             toastService.add('error', gettext('Unable to create the keypair.'));
           }
+        });
+    }
+
+    /**
+     * @name getKeypair
+     * @description
+     * Get a single keypair by name.
+     *
+     * @param {string} name
+     * The name of the keypair. Required.
+     *
+     * @returns {Object} The result of the API call.
+     */
+    function getKeypair(name) {
+      return apiService.get('/api/nova/keypairs/' + name)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the keypair.'));
         });
     }
 

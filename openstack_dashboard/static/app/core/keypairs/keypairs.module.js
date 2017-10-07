@@ -28,8 +28,7 @@
   angular
     .module('horizon.app.core.keypairs', [
       'ngRoute',
-      'horizon.app.core',
-      'horizon.framework.conf'
+      'horizon.app.core.keypairs.details'
     ])
     .constant('horizon.app.core.keypairs.resourceType', 'OS::Nova::Keypair')
     .run(run)
@@ -54,7 +53,8 @@
       .append({
         id: 'name',
         priority: 1,
-        sortDefault: true
+        sortDefault: true,
+        urlFunction: keypairsService.urlFunction
       })
       .append({
         id: 'fingerprint',
@@ -75,7 +75,7 @@
       'id': {label: gettext('ID'), filters: ['noValue'] },
       'name': {label: gettext('Name'), filters: ['noName'] },
       'fingerprint': {label: gettext('Fingerprint'), filters: ['noValue'] },
-      'created_at': {label: gettext('Created'), filters: ['simpleDate'] },
+      'created_at': {label: gettext('Created'), filters: ['mediumDate'] },
       'user_id': {label: gettext('User ID'), filters: ['noValue'] },
       'public_key': {label: gettext('Public Key'), filters: ['noValue'] }
     };
@@ -84,7 +84,8 @@
   config.$inject = [
     '$provide',
     '$windowProvider',
-    '$routeProvider'
+    '$routeProvider',
+    'horizon.app.core.detailRoute'
   ];
 
   /**
@@ -92,14 +93,22 @@
    * @param {Object} $provide
    * @param {Object} $windowProvider
    * @param {Object} $routeProvider
+   * @param {Object} detailRoute
    * @description Routes used by this module.
    * @returns {undefined} Returns nothing
    */
-  function config($provide, $windowProvider, $routeProvider) {
+  function config($provide, $windowProvider, $routeProvider, detailRoute) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/keypairs/';
     $provide.constant('horizon.app.core.keypairs.basePath', path);
     $routeProvider.when('/project/key_pairs', {
       templateUrl: path + 'panel.html'
+    })
+    .when('/project/key_pairs/:id', {
+      redirectTo: goToAngularDetails
     });
+
+    function goToAngularDetails(params) {
+      return detailRoute + 'OS::Nova::Keypair/' + params.id;
+    }
   }
 })();
