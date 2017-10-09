@@ -22,6 +22,7 @@ in https://wiki.openstack.org/wiki/APIChangeGuidelines.
 """
 
 # import REST API modules here
+from . import blazar       # noqa
 from . import cinder       # noqa
 from . import config       # noqa
 from . import glance       # noqa

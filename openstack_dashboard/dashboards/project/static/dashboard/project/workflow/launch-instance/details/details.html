@@ -32,6 +32,22 @@
         </select>
       </div>
 
+      <div class="form-group">
+        <label class="control-label" for="reservation">
+          <translate>Reservation</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <div class="alert alert-danger"
+             ng-if="model.reservations.length === 0"
+             translate>There are no active reservations.</div>
+        <select ng-if="model.reservations.length !== 0"
+                class="form-control"
+                id="reservation"
+                ng-options="reserv.value as reserv.label for reserv in model.reservations"
+                ng-model="model.newInstanceSpec.reservation">
+        </select>
+      </div>
+
       <div class="form-group" ng-class="{ 'has-error': launchInstanceDetailsForm.count.$invalid }">
         <label class="control-label" for="instance-count">
           <translate>Count</translate>

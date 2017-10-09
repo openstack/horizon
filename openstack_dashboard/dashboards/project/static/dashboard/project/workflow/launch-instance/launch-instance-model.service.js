@@ -33,6 +33,7 @@
   launchInstanceModel.$inject = [
     '$q',
     '$log',
+    'horizon.app.core.openstack-service-api.blazar',
     'horizon.app.core.openstack-service-api.cinder',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.neutron',
@@ -77,6 +78,7 @@
   function launchInstanceModel(
     $q,
     $log,
+    blazarAPI,
     cinderAPI,
     glanceAPI,
     neutronAPI,
@@ -133,6 +135,7 @@
        */
 
       availabilityZones: [],
+      reservations: [],
       flavors: [],
       allowedBootSources: [],
       images: [],
@@ -238,6 +241,7 @@
 
         promise = $q.all([
           novaAPI.getAvailabilityZones().then(onGetAvailabilityZones, noop),
+          blazarAPI.reservations().then(onGetReservations, noop),
           novaAPI.getFlavors({
             is_public: true,
             get_extras: true
@@ -309,6 +313,8 @@
       setFinalSpecSchedulerHints(finalSpec);
       setFinalSpecMetadata(finalSpec);
 
+      setFinalSpecReservation(finalSpec);
+
       return novaAPI.createServer(finalSpec).then(successMessage);
     }
 
@@ -355,6 +361,37 @@
         model.newInstanceSpec.availability_zone = model.availabilityZones[0].value;
       }
 
+    }
+
+    function onGetReservations(data) {
+      model.reservations.length = 0; // ?
+      push.apply(
+        model.reservations,
+        data.data.reservations
+        // .filter(function (reserv) {
+        //   return zone.zoneState && zone.zoneState.available;
+        // })
+        .map(function (reserv) {
+          return {
+            label: reserv.lease_name + " (" + reserv.id + ")",
+            value: reserv.id,
+          };
+        })
+      );
+
+      if (model.reservations.length < 1) {
+        // TODO: refuse to create instances/display warning
+      } else {
+        // force selection of the first one to remove the empty selection
+        model.newInstanceSpec.reservation = model.reservations[0].value;
+      }
+    }
+
+    // django form handler doesn't look at scheduler hints, but the api handler
+    // (openstack_dashboard/api/rest/nova.py#Servers.post) does
+    function setFinalSpecReservation(finalSpec) {
+      finalSpec.scheduler_hints['reservation'] = finalSpec['reservation'];
+      delete finalSpec['reservation'];
     }
 
     // Flavors
