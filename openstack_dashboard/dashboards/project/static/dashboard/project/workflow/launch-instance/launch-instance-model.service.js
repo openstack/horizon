@@ -382,8 +382,8 @@
       if (model.reservations.length < 1) {
         // TODO: refuse to create instances/display warning
       } else {
-        // force selection of the first one to remove the empty selection
-        model.newInstanceSpec.reservation = model.reservations[0].value;
+        // force selection of the first one?
+        // model.newInstanceSpec.reservation = model.reservations[0].value;
       }
     }
 

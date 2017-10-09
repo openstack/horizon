@@ -44,7 +44,8 @@
                 class="form-control"
                 id="reservation"
                 ng-options="reserv.value as reserv.label for reserv in model.reservations"
-                ng-model="model.newInstanceSpec.reservation">
+                ng-model="model.newInstanceSpec.reservation"
+                required>
         </select>
       </div>
 

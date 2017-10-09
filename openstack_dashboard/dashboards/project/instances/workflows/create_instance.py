@@ -23,7 +23,9 @@ import operator
 from oslo_utils import units
 import six
 
+from django.core.urlresolvers import reverse
 from django.template.defaultfilters import filesizeformat  # noqa
+from django.utils.safestring import mark_safe
 from django.utils.text import normalize_newlines  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables  # noqa
@@ -46,8 +48,10 @@ from openstack_dashboard.dashboards.project.images \
 from openstack_dashboard.dashboards.project.instances \
     import utils as instance_utils
 
+from blazar_dashboard.api import client as blazar
 
 LOG = logging.getLogger(__name__)
+NO_RESERV = ''
 
 
 class SelectProjectUserAction(workflows.Action):
@@ -80,6 +84,13 @@ class SelectProjectUser(workflows.Step):
 class SetInstanceDetailsAction(workflows.Action):
     availability_zone = forms.ThemableChoiceField(label=_("Availability Zone"),
                                                   required=False)
+
+    reservation_id = forms.ThemableChoiceField(
+        label=_("Reservation"),
+        help_text=_("Choose a reservation to launch this instance against. "
+                    "Only active reservations are displayed as options."),
+        required=False,
+    )
 
     name = forms.CharField(label=_("Instance Name"),
                            max_length=255)
@@ -358,6 +369,19 @@ class SetInstanceDetailsAction(workflows.Action):
         if check_method:
             check_method(cleaned_data)
 
+    def clean_reservation_id(self):
+        reservation_id = self.cleaned_data.get('reservation_id')
+        if reservation_id == NO_RESERV:
+            raise forms.ValidationError(
+                mark_safe(_( # assuming translations are safe
+                    'An active <a href="%(lease_url)s">reservation</a> is required '
+                    'to launch instances.'
+                ) % {
+                    'lease_url': reverse('horizon:project:leases:index'),
+                }),
+            )
+        return reservation_id
+
     def clean(self):
         cleaned_data = super(SetInstanceDetailsAction, self).clean()
 
@@ -368,6 +392,31 @@ class SetInstanceDetailsAction(workflows.Action):
 
     def populate_flavor_choices(self, request, context):
         return instance_utils.flavor_field_data(request, False)
+
+    def populate_reservation_id_choices(self, request, context):
+        leases = blazar.lease_list(request)
+        reservation_ids = []
+        if leases:
+            for lease in leases:
+                for reservation in lease.reservations:
+                    if reservation['status'] == 'active':
+                        label = '%s (%s)' % (lease['name'], reservation['id'])
+                        reservation_ids.append((reservation['id'], label))
+
+        if not reservation_ids:
+            reservation_ids.insert(0, (NO_RESERV, _("No reservations active")))
+            msg = mark_safe(_( # assuming translations are safe
+                'An active <a href="%(lease_url)s">reservation</a> is required '
+                'to launch instances.'
+            ) % {
+                'lease_url': reverse('horizon:project:leases:index'),
+            })
+            # injecting preemptive error causes multiple spurious errors to
+            # be emitted from a form that might just have one.
+            # self.errors['reservation_id'] = self.error_class([msg])
+            # self.add_action_error(msg)
+
+        return reservation_ids
 
     def populate_availability_zone_choices(self, request, context):
         try:
@@ -502,7 +551,7 @@ class SetInstanceDetailsAction(workflows.Action):
 class SetInstanceDetails(workflows.Step):
     action_class = SetInstanceDetailsAction
     depends_on = ("project_id", "user_id")
-    contributes = ("source_type", "source_id",
+    contributes = ("source_type", "source_id", "reservation_id",
                    "availability_zone", "name", "count", "flavor",
                    "device_name",  # Can be None for an image.
                    "vol_delete_on_instance_delete")
@@ -975,6 +1024,9 @@ class LaunchInstance(workflows.Workflow):
         server_group = context.get('server_group', None)
         if server_group:
             scheduler_hints['group'] = server_group
+        reservation_id = context.get('reservation_id', None)
+        if reservation_id:
+            scheduler_hints['reservation'] = reservation_id
 
         port_profiles_supported = api.neutron.is_port_profiles_supported()
 
