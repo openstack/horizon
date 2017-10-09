@@ -14,17 +14,18 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # bryan tak <neos346@gmail.com>, 2017. #zanata
+# johjuhyun <juhyun.joh@samsung.com>, 2017. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev6\n"
+"Project-Id-Version: horizon 12.0.1.dev23\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-16 18:21+0000\n"
+"POT-Creation-Date: 2017-10-07 17:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-16 06:58+0000\n"
-"Last-Translator: minwook-shin <minwook0106@gmail.com>\n"
+"PO-Revision-Date: 2017-09-29 12:23+0000\n"
+"Last-Translator: johjuhyun <juhyun.joh@samsung.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -7415,6 +7416,9 @@ msgstr "지금 포트에 대한 시큐리티 그룹을 찾지 못했습니다."
 msgid "Unable to retrieve security groups."
 msgstr "보안 그룹을 찾지 못했습니다."
 
+msgid "Unable to retrieve shared images."
+msgstr "공유 이미지를 찾지 못했습니다."
+
 msgid "Unable to retrieve snapshot data."
 msgstr "스냅샷 데이터를 가져올 수 없습니다."
 
@@ -8138,6 +8142,9 @@ msgstr "볼륨 암호화 세부 정보: {{ volume.name }}"
 
 msgid "Volume Encryption Overview"
 msgstr "볼륨 암호화 개요"
+
+msgid "Volume Groups"
+msgstr "볼륨 그룹"
 
 msgid "Volume ID"
 msgstr "볼륨 ID"
