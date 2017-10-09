@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev130\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev158\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-22 04:18+0000\n"
+"POT-Creation-Date: 2017-10-07 05:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-21 12:21+0000\n"
+"PO-Revision-Date: 2017-08-09 07:21+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -392,9 +392,6 @@ msgstr "Used <span> %(used)s </span>of<span> %(available)s </span>"
 
 msgid "Warning: "
 msgstr "Peringatan:"
-
-msgid "You are mot authorized to access this page"
-msgstr "Kamu tidak diperbolehkan mengakses halaman ini"
 
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
