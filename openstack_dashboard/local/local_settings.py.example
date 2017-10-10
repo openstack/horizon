@@ -303,6 +303,11 @@ OPENSTACK_HYPERVISOR_FEATURES = {
     'enable_quotas': True
 }
 
+# This settings controls whether IP addresses of servers are retrieved from
+# neutron in the project instance table. Setting this to ``False`` may mitigate
+# a performance issue in the project instance table in large deployments.
+#OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES = True
+
 # The OPENSTACK_CINDER_FEATURES settings can be used to enable optional
 # services provided by cinder that is not exposed by its extension API.
 OPENSTACK_CINDER_FEATURES = {

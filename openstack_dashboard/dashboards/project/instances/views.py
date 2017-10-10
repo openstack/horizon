@@ -91,6 +91,16 @@ class IndexView(tables.DataTableView):
                 # don't call api.network
                 return
 
+            # TODO(future): Explore more efficient logic to sync IP address
+            # and drop the setting OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES.
+            # The situation servers_update_addresses() is needed # is only
+            # when IP address of a server is updated via neutron API and
+            # nova network info cache is not synced. Precisely there is no
+            # need to check IP addresses of all serves. It is sufficient to
+            # fetch IP address information for servers recently updated.
+            if not getattr(settings,
+                           'OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES', True):
+                return
             try:
                 api.network.servers_update_addresses(self.request, instances)
             except Exception:

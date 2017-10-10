@@ -32,7 +32,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_stubs({
         api.nova: ('flavor_list', 'server_list', 'extension_supported',),
         api.keystone: ('tenant_list',),
-        api.network: ('servers_update_addresses',),
         api.glance: ('image_list_detailed',),
     })
     def test_index(self):
@@ -53,8 +52,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              search_opts=search_opts) \
             .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
-                                             all_tenants=True)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -66,7 +63,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova: ('flavor_list', 'flavor_get', 'server_list',
                    'extension_supported',),
         api.keystone: ('tenant_list',),
-        api.network: ('servers_update_addresses',),
         api.glance: ('image_list_detailed',),
     })
     def test_index_flavor_list_exception(self):
@@ -78,8 +74,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              search_opts=search_opts) \
             .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
-                                             all_tenants=True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
@@ -103,7 +97,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova: ('flavor_list', 'flavor_get', 'server_list',
                    'extension_supported',),
         api.keystone: ('tenant_list',),
-        api.network: ('servers_update_addresses',),
         api.glance: ('image_list_detailed',),
     })
     def test_index_flavor_get_exception(self):
@@ -123,8 +116,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              search_opts=search_opts) \
             .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
-                                             all_tenants=True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
@@ -207,7 +198,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_stubs({
         api.nova: ('flavor_list', 'server_list', 'extension_supported', ),
         api.keystone: ('tenant_list',),
-        api.network: ('servers_update_addresses',),
         api.glance: ('image_list_detailed',),
     })
     def test_index_options_before_migrate(self):
@@ -223,8 +213,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              search_opts=search_opts) \
             .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
-                                             all_tenants=True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
@@ -239,7 +227,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_stubs({
         api.nova: ('flavor_list', 'server_list', 'extension_supported',),
         api.keystone: ('tenant_list',),
-        api.network: ('servers_update_addresses',),
         api.glance: ('image_list_detailed',),
     })
     def test_index_options_after_migrate(self):
@@ -263,8 +250,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              search_opts=search_opts) \
             .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
-                                             all_tenants=True)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
