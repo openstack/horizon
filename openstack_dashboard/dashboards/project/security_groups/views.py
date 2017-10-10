@@ -58,8 +58,20 @@ class DetailView(tables.DataTableView):
         data = self._get_data()
         if data is None:
             return []
-        return sorted(data.rules, key=lambda rule: (rule.ip_protocol or '',
-                                                    rule.from_port or 0))
+
+        def _sort_key(rule):
+            return (
+                rule.direction or '',
+                rule.ethertype or '',
+                # IP protocol can be a string, an integer or None,
+                # so we need to normalize into string
+                # to make sorting work with py3
+                str(rule.ip_protocol) if rule.ip_protocol is not None else '',
+                rule.from_port or 0,
+                rule.to_port or 0,
+            )
+
+        return sorted(data.rules, key=_sort_key)
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
