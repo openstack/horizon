@@ -17,7 +17,6 @@ import logging
 
 from django.conf import settings
 from django.core import urlresolvers
-from django.http import HttpResponse
 from django import shortcuts
 from django import template
 from django.template.defaultfilters import title
@@ -390,36 +389,6 @@ class LaunchLink(tables.LinkAction):
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
         super(LaunchLink, self).__init__(attrs, **kwargs)
-
-    def allowed(self, request, datum):
-        try:
-            limits = api.nova.tenant_absolute_limits(request, reserved=True)
-
-            instances_available = limits['maxTotalInstances'] \
-                - limits['totalInstancesUsed']
-            cores_available = limits['maxTotalCores'] \
-                - limits['totalCoresUsed']
-            ram_available = limits['maxTotalRAMSize'] - limits['totalRAMUsed']
-
-            if instances_available <= 0 or cores_available <= 0 \
-                    or ram_available <= 0:
-                if "disabled" not in self.classes:
-                    self.classes = [c for c in self.classes] + ['disabled']
-                    self.verbose_name = string_concat(self.verbose_name, ' ',
-                                                      _("(Quota exceeded)"))
-            else:
-                self.verbose_name = _("Launch Instance")
-                classes = [c for c in self.classes if c != "disabled"]
-                self.classes = classes
-        except Exception:
-            LOG.exception("Failed to retrieve quota information")
-            # If we can't get the quota information, leave it to the
-            # API to check when launching
-        return True  # The action should always be displayed
-
-    def single(self, table, request, object_id=None):
-        self.allowed(request, None)
-        return HttpResponse(self.render(is_table_action=True))
 
 
 class LaunchLinkNG(LaunchLink):
