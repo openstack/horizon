@@ -24,6 +24,7 @@ from oslo_utils import units
 import six
 
 from django.core.urlresolvers import reverse
+from django.forms.widgets import HiddenInput
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.safestring import mark_safe
 from django.utils.text import normalize_newlines  # noqa
@@ -184,6 +185,8 @@ class SetInstanceDetailsAction(workflows.Action):
                 ("volume_snapshot_id",
                  _("Boot from volume snapshot (creates a new volume)")))
         self.fields['source_type'].choices = source_type_choices
+
+        self.fields['availability_zone'].widget = HiddenInput()
 
     @memoized.memoized_method
     def _get_flavor(self, flavor_id):
