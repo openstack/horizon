@@ -390,6 +390,66 @@
         "method": "get",
         "path": "/api/keystone/groups/",
         "error": "Unable to fetch the groups."
+      },
+      {
+        "func": "createGroup",
+        "method": "post",
+        "path": "/api/keystone/groups/",
+        "data": "new group",
+        "error": "Unable to create the group.",
+        "testInput": [
+          "new group"
+        ]
+      },
+      {
+        "func": "getGroup",
+        "method": "get",
+        "path": "/api/keystone/groups/14",
+        "error": "Unable to retrieve the group.",
+        "testInput": [
+          14
+        ]
+      },
+      {
+        "func": "editGroup",
+        "method": "patch",
+        "path": "/api/keystone/groups/42",
+        "data": {
+          "id": 42
+        },
+        "error": "Unable to edit the group.",
+        "testInput": [
+          {
+            "id": 42
+          }
+        ]
+      },
+      {
+        "func": "deleteGroup",
+        "method": "delete",
+        "path": "/api/keystone/groups/14",
+        "error": "Unable to delete the group.",
+        "testInput": [
+          14
+        ]
+      },
+      {
+        "func": "deleteGroups",
+        "method": "delete",
+        "path": "/api/keystone/groups/",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "error": "Unable to delete the groups.",
+        "testInput": [
+          [
+            1,
+            2,
+            3
+          ]
+        ]
       }
     ];
 

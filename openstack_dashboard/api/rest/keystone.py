@@ -589,3 +589,69 @@ class Groups(generic.View):
             request, domain=request.GET.get('domain_id', domain_context))]
 
         return {'items': items}
+
+    @rest_utils.ajax(data_required=True)
+    def post(self, request):
+        """Create a group.
+
+        This action creates a group using parameters supplied in the POST
+        application/json object. The "name" (string) parameter is required,
+        "description" (string) is optional.
+
+        This method returns the new group object on success.
+        """
+        domain_context = request.session.get('domain_context')
+        new_group = api.keystone.group_create(
+            request,
+            request.GET.get('domain_id', domain_context),
+            request.DATA['name'],
+            request.DATA.get("description", None))
+
+        return rest_utils.CreatedResponse(
+            '/api/keystone/groups/%s' % new_group.id,
+            new_group.to_dict()
+        )
+
+    @rest_utils.ajax(data_required=True)
+    def delete(self, request):
+        """Delete multiple groups by id.
+
+        The DELETE data should be an application/json array of group ids to
+        delete.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        for group_id in request.DATA:
+            api.keystone.group_delete(request, group_id)
+
+
+@urls.register
+class Group(generic.View):
+    """API over a single group."""
+    url_regex = r'keystone/groups/(?P<id>[0-9a-f]+)$'
+
+    @rest_utils.ajax()
+    def get(self, request, id):
+        """Get a specific group by id."""
+        return api.keystone.group_get(request, id).to_dict()
+
+    @rest_utils.ajax()
+    def delete(self, request, id):
+        """Delete a single group by id.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        api.keystone.group_delete(request, id)
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, id):
+        """Update a single group.
+
+        The PATCH data should be an application/json object with the
+        "name" and "description" attribute to update.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        api.keystone.group_update(request, id,
+                                  request.DATA['name'],
+                                  request.DATA.get("description", None))

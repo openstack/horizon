@@ -692,6 +692,97 @@ class KeystoneRestTestCase(test.TestCase):
                          {"items": [{"name": "uno!"}, {"name": "dos!"}]})
         kc.group_list.assert_called_once_with(request, domain='the_domain')
 
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_group_create(self, kc):
+        request = self.mock_rest_request(**{
+            'session.get': mock.Mock(return_value='the_domain'),
+            'GET': {},
+            'body': '{"name": "bug!", "description": "bugaboo!!"}',
+        })
+        kc.group_create.return_value.id = 'group789'
+        kc.group_create.return_value.to_dict.return_value = {
+            'id': 'group789', 'name': 'bug!', 'description': 'bugaboo!!'
+        }
+
+        response = keystone.Groups().post(request)
+        self.assertStatusCode(response, 201)
+        self.assertEqual(response['location'],
+                         '/api/keystone/groups/group789')
+        self.assertEqual(response.json,
+                         {"id": "group789",
+                          "name": "bug!",
+                          "description": "bugaboo!!"})
+        kc.group_create.assert_called_once_with(request, 'the_domain',
+                                                'bug!', 'bugaboo!!')
+
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_group_create_without_description(self, kc):
+        request = self.mock_rest_request(**{
+            'session.get': mock.Mock(return_value='the_domain'),
+            'GET': {},
+            'body': '{"name": "bug!"}',
+        })
+        kc.group_create.return_value.id = 'group789'
+        kc.group_create.return_value.to_dict.return_value = {
+            'id': 'group789', 'name': 'bug!'
+        }
+
+        response = keystone.Groups().post(request)
+        self.assertStatusCode(response, 201)
+        self.assertEqual(response['location'],
+                         '/api/keystone/groups/group789')
+        self.assertEqual(response.json,
+                         {"id": "group789",
+                          "name": "bug!"})
+        kc.group_create.assert_called_once_with(request, 'the_domain',
+                                                'bug!', None)
+
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_group_get(self, kc):
+        request = self.mock_rest_request()
+        kc.group_get.return_value.to_dict.return_value = {
+            'name': 'bug!', 'description': 'bugaboo!!'}
+        response = keystone.Group().get(request, 'the_id')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {"name": "bug!",
+                         "description": "bugaboo!!"})
+        kc.group_get.assert_called_once_with(request, 'the_id')
+
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_group_delete(self, kc):
+        request = self.mock_rest_request()
+        response = keystone.Group().delete(request, 'the_id')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content, b'')
+        kc.group_delete.assert_called_once_with(request, 'the_id')
+
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_group_patch(self, kc):
+        request = self.mock_rest_request(
+            body='{"name": "spam_i_am", "description": "Sir Spam"}')
+        response = keystone.Group().patch(request, 'the_id')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content, b'')
+        kc.group_update.assert_called_once_with(request,
+                                                'the_id',
+                                                'spam_i_am',
+                                                'Sir Spam')
+
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_group_delete_many(self, kc):
+        request = self.mock_rest_request(body='''
+            ["id1", "id2", "id3"]
+        ''')
+
+        response = keystone.Groups().delete(request)
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content, b'')
+        kc.group_delete.assert_has_calls([
+            mock.call(request, 'id1'),
+            mock.call(request, 'id2'),
+            mock.call(request, 'id3'),
+        ])
+
     #
     # Services
     #
