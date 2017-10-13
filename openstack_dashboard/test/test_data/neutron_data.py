@@ -46,6 +46,7 @@ def data(TEST):
     TEST.ip_availability = utils.TestDataContainer()
     TEST.qos_policies = utils.TestDataContainer()
     TEST.tp_ports = utils.TestDataContainer()
+    TEST.neutron_availability_zones = utils.TestDataContainer()
 
     # Data return by neutronclient.
     TEST.api_agents = utils.TestDataContainer()
@@ -361,7 +362,8 @@ def data(TEST):
                    'distributed': True,
                    'external_gateway_info':
                        {'network_id': ext_net['id']},
-                   'tenant_id': '1'}
+                   'tenant_id': '1',
+                   'availability_zone_hints': ['nova']}
     TEST.api_routers.add(router_dict)
     TEST.routers.add(neutron.Router(router_dict))
     router_dict = {'id': '10e3dc42-1ce1-4d48-87cf-7fc333055d6c',
@@ -879,3 +881,12 @@ def data(TEST):
         {'trunk_id': tdata['trunk_id'],
          'segmentation_type': 'vlan',
          'segmentation_id': tdata['tag_2']}))
+
+    # Availability Zones
+    TEST.neutron_availability_zones.add(
+        {
+            'state': 'available',
+            'resource': 'router',
+            'name': 'nova'
+        }
+    )

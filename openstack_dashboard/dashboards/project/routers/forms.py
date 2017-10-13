@@ -41,6 +41,12 @@ class CreateForm(forms.SelfHandlingForm):
                                                  required=False)
     mode = forms.ChoiceField(label=_("Router Type"))
     ha = forms.ChoiceField(label=_("High Availability Mode"))
+    az_hints = forms.MultipleChoiceField(
+        label=_("Availability Zone Hints"),
+        required=False,
+        help_text=_("Availability Zones where the router may be scheduled. "
+                    "Leaving this unset is equivalent to selecting all "
+                    "Availability Zones"))
     failure_url = 'horizon:project:routers:index'
 
     def __init__(self, request, *args, **kwargs):
@@ -70,6 +76,17 @@ class CreateForm(forms.SelfHandlingForm):
         else:
             del self.fields['external_network']
 
+        az_supported = api.neutron.is_extension_supported(
+            self.request, 'router_availability_zone')
+
+        if az_supported:
+            zones = api.neutron.list_availability_zones(self.request, 'router',
+                                                        'available')
+            self.fields['az_hints'].choices = [(zone['name'], zone['name'])
+                                               for zone in zones]
+        else:
+            del self.fields['az_hints']
+
     def _get_network_list(self, request):
         search_opts = {'router:external': True}
         try:
@@ -94,6 +111,8 @@ class CreateForm(forms.SelfHandlingForm):
             if 'external_network' in data and data['external_network']:
                 params['external_gateway_info'] = {'network_id':
                                                    data['external_network']}
+            if 'az_hints' in data and data['az_hints']:
+                params['availability_zone_hints'] = data['az_hints']
             if (self.dvr_allowed and data['mode'] != 'server_default'):
                 params['distributed'] = (data['mode'] == 'distributed')
             if (self.ha_allowed and data['ha'] != 'server_default'):
