@@ -715,6 +715,13 @@ class SetNetworkAction(workflows.Action):
 
     def __init__(self, request, *args, **kwargs):
         super(SetNetworkAction, self).__init__(request, *args, **kwargs)
+
+        # NOTE(e0ne): we don't need 'required attribute for networks
+        # checkboxes to be able to select only one network
+        # NOTE(e0ne): we need it for compatibility with different
+        # Django versions (prior to 1.11)
+        self.use_required_attribute = False
+
         network_list = self.fields["network"].choices
         if len(network_list) == 1:
             self.fields['network'].initial = [network_list[0][0]]
