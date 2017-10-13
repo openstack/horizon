@@ -23,6 +23,11 @@
     margin-bottom: 1px;
   }
 
+  .navbar-nav .header-overflow ul li{
+    white-space: nowrap;
+    padding: $bs-dropdown-item-padding-vertical $bs-dropdown-item-padding-horizontal;
+  }
+
   .dropdown-toggle > .fa {
     padding-left: $padding-small-vertical;
     padding-right: $padding-small-vertical;
