@@ -2,16 +2,17 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev124\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev167\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-21 04:56+0000\n"
+"POT-Creation-Date: 2017-10-13 04:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-15 01:28+0000\n"
+"PO-Revision-Date: 2017-10-10 03:49+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -2382,6 +2383,14 @@ msgstr "テーマ対応の選択メニュー"
 
 msgid "There are no Availability Zones."
 msgstr "アベイラビリティゾーンがありません。"
+
+msgid ""
+"There are no allowed boot\n"
+"      sources. If you think this is wrong please contact your administrator."
+msgstr ""
+"利用可能なブートソースがありません。\n"
+"      利用可能なブートソースがあるにも拘らず、このメッセージが表示されている"
+"場合には、管理者にお問い合わせください。"
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
