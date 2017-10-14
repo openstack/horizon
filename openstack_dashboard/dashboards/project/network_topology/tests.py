@@ -134,14 +134,19 @@ class NetworkTopologyTests(test.TestCase):
         # networks
         expect_net_urls = []
         if router_enable:
-            expect_net_urls += [{'id': net.id,
-                                 'url': '/project/networks/%s/detail' % net.id,
-                                 'name': net.name,
-                                 'router:external': net.router__external,
-                                 'status': net.status.title(),
-                                 'original_status': net.status,
-                                 'subnets': []}
-                                for net in external_networks]
+            expect_net_urls += [{
+                'id': net.id,
+                'url': '/project/networks/%s/detail' % net.id,
+                'name': net.name,
+                'router:external': net.router__external,
+                'status': net.status.title(),
+                'original_status': net.status,
+                'subnets': [{
+                    'cidr': snet.cidr,
+                    'id': snet.id,
+                    'url': '/project/networks/subnets/%s/detail' % snet.id}
+                    for snet in net.subnets]}
+                for net in external_networks]
         expect_net_urls.extend([{
             'id': net.id,
             'url': '/project/networks/%s/detail' % net.id,

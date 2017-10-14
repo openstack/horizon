@@ -301,13 +301,11 @@ class JSONView(View):
                 if publicnet.id in my_network_ids:
                     continue
                 try:
-                    subnets = []
-                    for subnet in publicnet.subnets:
-                        snet = {'id': subnet.id,
+                    subnets = [{'id': subnet.id,
                                 'cidr': subnet.cidr}
-                        self.add_resource_url(
-                            'horizon:project:networks:subnets:detail', snet)
-                        subnets.append(snet)
+                               for subnet in publicnet.subnets]
+                    self.add_resource_url(
+                        'horizon:project:networks:subnets:detail', subnets)
                 except Exception:
                     subnets = []
                 networks.append({
