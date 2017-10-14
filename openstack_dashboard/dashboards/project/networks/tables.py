@@ -24,6 +24,8 @@ from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.networks.subnets import tables \
+    as subnet_tables
 from openstack_dashboard import policy
 from openstack_dashboard.usage import quotas
 
@@ -104,7 +106,7 @@ class EditNetwork(policy.PolicyTargetMixin, tables.LinkAction):
     policy_rules = (("network", "update_network"),)
 
 
-class CreateSubnet(policy.PolicyTargetMixin, tables.LinkAction):
+class CreateSubnet(subnet_tables.SubnetPolicyTargetMixin, tables.LinkAction):
     name = "subnet"
     verbose_name = _("Create Subnet")
     url = "horizon:project:networks:createsubnet"

@@ -31,33 +31,30 @@ from openstack_dashboard.usage import quotas
 LOG = logging.getLogger(__name__)
 
 
-class CheckNetworkEditable(object):
-    """Mixin class to determine the specified network is editable."""
-
-    def allowed(self, request, datum=None):
-        # Only administrator is allowed to create and manage subnets
-        # on shared networks.
-        network = self.table._get_network()
-
-        if network.shared:
-            return False
-        return True
-
-
 class SubnetPolicyTargetMixin(policy.PolicyTargetMixin):
 
     def get_policy_target(self, request, datum=None):
         policy_target = super(SubnetPolicyTargetMixin, self)\
             .get_policy_target(request, datum)
-        network = self.table._get_network()
+        # Use the network information if it is passed in with datum.
+        if datum and "tenant_id" in datum:
+            network = datum
+        else:
+            # This is called by the table actions of the subnets table on the
+            # network details panel and some information is not available.
+            # 1. Network information is not passed in so need to make a neutron
+            #    API call to get it.
+            # 2. tenant_id and project_id are missing from policy_target.
+            network = self.table._get_network()
+            policy_target["tenant_id"] = network.tenant_id
+            policy_target["project_id"] = network.tenant_id
         # neutron switched policy target values, we'll support both
         policy_target["network:tenant_id"] = network.tenant_id
         policy_target["network:project_id"] = network.tenant_id
         return policy_target
 
 
-class DeleteSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
-                   tables.DeleteAction):
+class DeleteSubnet(SubnetPolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -89,8 +86,7 @@ class DeleteSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
             exceptions.handle(request, msg, redirect=redirect)
 
 
-class CreateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
-                   tables.LinkAction):
+class CreateSubnet(SubnetPolicyTargetMixin, tables.LinkAction):
     name = "create"
     verbose_name = _("Create Subnet")
     url = "horizon:project:networks:createsubnet"
@@ -118,8 +114,7 @@ class CreateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
         return True
 
 
-class UpdateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
-                   tables.LinkAction):
+class UpdateSubnet(SubnetPolicyTargetMixin, tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Subnet")
     url = "horizon:project:networks:editsubnet"
