@@ -35,7 +35,8 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
                                                    lookup_l3=True)
         return res
 
-    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'is_extension_supported'),
                         api.keystone: ('tenant_list',)})
     def test_index(self):
         tenants = self.tenants.list()
@@ -43,6 +44,9 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
             IsA(http.HttpRequest)).AndReturn(self.routers.list())
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
         self._mock_external_network_list()
 
         self.mox.ReplayAll()
@@ -53,11 +57,15 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         routers = res.context['table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-    @test.create_stubs({api.neutron: ('router_list',),
+    @test.create_stubs({api.neutron: ('router_list',
+                                      'is_extension_supported'),
                         api.keystone: ('tenant_list',)})
     def test_index_router_list_exception(self):
         api.neutron.router_list(
             IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
         self.mox.ReplayAll()
 
         res = self.client.get(self.INDEX_URL)
@@ -68,7 +76,8 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
 
     @test.create_stubs({api.neutron: ('agent_list',
                                       'router_list_on_l3_agent',
-                                      'network_list'),
+                                      'network_list',
+                                      'is_extension_supported'),
                         api.keystone: ('tenant_list',)})
     def test_list_by_l3_agent(self):
         tenants = self.tenants.list()
@@ -82,6 +91,9 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
             search_opts=None).AndReturn(self.routers.list())
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
         self._mock_external_network_list()
 
         self.mox.ReplayAll()
@@ -93,12 +105,16 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         routers = res.context['table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'is_extension_supported'),
                         api.keystone: ('tenant_list',)})
     def test_set_external_network_empty(self):
         router = self.routers.first()
         api.neutron.router_list(
             IsA(http.HttpRequest)).AndReturn([router])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([self.tenants.list(), False])
         self._mock_external_network_list(alter_ids=True)
@@ -114,7 +130,8 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertMessageCount(res, error=1)
 
     @test.create_stubs({api.neutron: ('router_list', 'network_list',
-                                      'port_list', 'router_delete',),
+                                      'port_list', 'router_delete',
+                                      'is_extension_supported'),
                         api.keystone: ('tenant_list',)})
     def test_router_delete(self):
         router = self.routers.first()
@@ -126,6 +143,9 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self._mock_external_network_list()
         api.neutron.router_list(
             IsA(http.HttpRequest)).AndReturn(self.routers.list())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .MultipleTimes().AndReturn(True)
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
         self._mock_external_network_list()
@@ -151,7 +171,8 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
 
     @test.create_stubs({api.neutron: ('router_list', 'network_list',
                                       'port_list', 'router_remove_interface',
-                                      'router_delete',),
+                                      'router_delete',
+                                      'is_extension_supported'),
                         api.keystone: ('tenant_list',)})
     def test_router_with_interface_delete(self):
         router = self.routers.first()
@@ -164,6 +185,9 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self._mock_external_network_list()
         api.neutron.router_list(
             IsA(http.HttpRequest)).AndReturn(self.routers.list())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .MultipleTimes().AndReturn(True)
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
         self._mock_external_network_list()
@@ -190,8 +214,14 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertIn('Deleted Router: ' + router.name,
                       res.content.decode('utf-8'))
 
+    @test.create_stubs({api.neutron: ('is_extension_supported',)})
     @test.update_settings(FILTER_DATA_FIRST={'admin.routers': True})
     def test_routers_list_with_admin_filter_first(self):
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .MultipleTimes().AndReturn(True)
+        self.mox.ReplayAll()
+
         res = self.client.get(self.INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
