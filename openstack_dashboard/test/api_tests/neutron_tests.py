@@ -14,6 +14,7 @@
 import copy
 
 from mox3.mox import IsA
+import netaddr
 from neutronclient.common import exceptions as neutron_exc
 from oslo_utils import uuidutils
 import six
@@ -165,17 +166,20 @@ class NeutronApiTests(test.APITestCase):
     def test_network_get(self):
         network = {'network': self.api_networks.first()}
         subnet = {'subnet': self.api_subnets.first()}
+        subnetv6 = {'subnet': self.api_subnets.list()[1]}
         network_id = self.api_networks.first()['id']
         subnet_id = self.api_networks.first()['subnets'][0]
+        subnetv6_id = self.api_networks.first()['subnets'][1]
 
         neutronclient = self.stub_neutronclient()
         neutronclient.show_network(network_id).AndReturn(network)
         neutronclient.show_subnet(subnet_id).AndReturn(subnet)
+        neutronclient.show_subnet(subnetv6_id).AndReturn(subnetv6)
         self.mox.ReplayAll()
 
         ret_val = api.neutron.network_get(self.request, network_id)
         self.assertIsInstance(ret_val, api.neutron.Network)
-        self.assertEqual(1, len(ret_val['subnets']))
+        self.assertEqual(2, len(ret_val['subnets']))
         self.assertIsInstance(ret_val['subnets'][0], api.neutron.Subnet)
 
     def test_network_get_with_subnet_get_notfound(self):
@@ -190,7 +194,7 @@ class NeutronApiTests(test.APITestCase):
 
         ret_val = api.neutron.network_get(self.request, network_id)
         self.assertIsInstance(ret_val, api.neutron.Network)
-        self.assertEqual(1, len(ret_val['subnets']))
+        self.assertEqual(2, len(ret_val['subnets']))
         self.assertNotIsInstance(ret_val['subnets'][0], api.neutron.Subnet)
         self.assertIsInstance(ret_val['subnets'][0], str)
 
@@ -1160,18 +1164,15 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
 
         api.neutron.floating_ip_disassociate(self.request, fip['id'])
 
-    def _get_target_id(self, port):
+    def _get_target_id(self, port, ip=None):
         param = {'id': port['id'],
-                 'addr': port['fixed_ips'][0]['ip_address']}
+                 'addr': ip or port['fixed_ips'][0]['ip_address']}
         return '%(id)s_%(addr)s' % param
 
-    def _get_target_name(self, port):
+    def _get_target_name(self, port, ip=None):
         param = {'svrid': port['device_id'],
-                 'addr': port['fixed_ips'][0]['ip_address']}
+                 'addr': ip or port['fixed_ips'][0]['ip_address']}
         return 'server_%(svrid)s: %(addr)s' % param
-
-    def _subs_from_port(self, port):
-        return [ip['subnet_id'] for ip in port['fixed_ips']]
 
     @override_settings(
         OPENSTACK_NEUTRON_NETWORK={
@@ -1185,12 +1186,20 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
         subnet_id = self.subnets.first().id
         shared_nets = [n for n in self.api_networks.list() if n['shared']]
         shared_subnet_ids = [s for n in shared_nets for s in n['subnets']]
-        target_ports = [
-            (self._get_target_id(p), self._get_target_name(p)) for p in ports
-            if (not p['device_owner'].startswith('network:') and
-                (subnet_id in self._subs_from_port(p) or
-                 (set(shared_subnet_ids) & set(self._subs_from_port(p)))))
-        ]
+        target_ports = []
+        for p in ports:
+            if p['device_owner'].startswith('network:'):
+                continue
+            port_subnets = [ip['subnet_id'] for ip in p['fixed_ips']]
+            if not (subnet_id in port_subnets or
+                    (set(shared_subnet_ids) & set(port_subnets))):
+                continue
+            for ip in p['fixed_ips']:
+                if netaddr.IPAddress(ip['ip_address']).version != 4:
+                    continue
+                target_ports.append((
+                    self._get_target_id(p, ip['ip_address']),
+                    self._get_target_name(p, ip['ip_address'])))
         filters = {'tenant_id': self.request.user.tenant_id}
         self.qclient.list_ports(**filters).AndReturn({'ports': ports})
         servers = self.servers.list()
@@ -1219,6 +1228,8 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
         rets = api.neutron.floating_ip_target_list(self.request)
         self.assertEqual(len(target_ports), len(rets))
         for ret, exp in zip(rets, target_ports):
+            pid, ip_address = ret.id.split('_', 1)
+            self.assertEqual(4, netaddr.IPAddress(ip['ip_address']).version)
             self.assertEqual(exp[0], ret.id)
             self.assertEqual(exp[1], ret.name)
 

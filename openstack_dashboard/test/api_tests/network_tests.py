@@ -14,6 +14,8 @@
 
 import collections
 
+import netaddr
+
 from django.test.utils import override_settings
 
 from openstack_dashboard import api
@@ -34,23 +36,24 @@ class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
         for p in server_ports:
             net_name = self.networks.get(id=p['network_id']).name
             for ip in p.fixed_ips:
+                version = netaddr.IPAddress(ip['ip_address']).version
                 addresses[net_name].append(
-                    {'version': 4,
+                    {'version': version,
                      'addr': ip['ip_address'],
                      'OS-EXT-IPS-MAC:mac_addr': p.mac_address,
                      'OS-EXT-IPS:type': 'fixed'})
-                if no_fip_expected:
-                    continue
-                fips = self.floating_ips.filter(port_id=p['id'])
-                if not fips:
-                    continue
-                # Only one FIP should match.
-                fip = fips[0]
-                addresses[net_name].append(
-                    {'version': 4,
-                     'addr': fip.floating_ip_address,
-                     'OS-EXT-IPS-MAC:mac_addr': p.mac_address,
-                     'OS-EXT-IPS:type': 'floating'})
+            if no_fip_expected:
+                continue
+            fips = self.floating_ips.filter(port_id=p['id'])
+            if not fips:
+                continue
+            # Only one FIP should match.
+            fip = fips[0]
+            addresses[net_name].append(
+                {'version': 4,
+                 'addr': fip.floating_ip_address,
+                 'OS-EXT-IPS-MAC:mac_addr': p.mac_address,
+                 'OS-EXT-IPS:type': 'floating'})
         return addresses
 
     def _check_server_address(self, res_server_data, no_fip_expected=False):
@@ -105,12 +108,14 @@ class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
         # The expected is also calculated, we examine the result manually once.
         addrs = servers[0].addresses['net1']
         if router_enabled:
+            self.assertEqual(3, len(addrs))
+            self.assertEqual('fixed', addrs[0]['OS-EXT-IPS:type'])
+            self.assertEqual('fixed', addrs[1]['OS-EXT-IPS:type'])
+            self.assertEqual('floating', addrs[2]['OS-EXT-IPS:type'])
+        else:
             self.assertEqual(2, len(addrs))
             self.assertEqual('fixed', addrs[0]['OS-EXT-IPS:type'])
-            self.assertEqual('floating', addrs[1]['OS-EXT-IPS:type'])
-        else:
-            self.assertEqual(1, len(addrs))
-            self.assertEqual('fixed', addrs[0]['OS-EXT-IPS:type'])
+            self.assertEqual('fixed', addrs[1]['OS-EXT-IPS:type'])
 
         # server[1] has one fixed IP.
         self._check_server_address(servers[1], no_fip_expected)

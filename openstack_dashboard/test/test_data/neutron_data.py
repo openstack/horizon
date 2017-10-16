@@ -74,7 +74,8 @@ def data(TEST):
                     'id': '82288d84-e0a5-42ac-95be-e6af08727e42',
                     'name': 'net1',
                     'status': 'ACTIVE',
-                    'subnets': ['e8abc972-eb0c-41f1-9edd-4bc6e3bcd8c9'],
+                    'subnets': ['e8abc972-eb0c-41f1-9edd-4bc6e3bcd8c9',
+                                '41e53a49-442b-4307-9e9a-88967a6b6657'],
                     'tenant_id': '1',
                     'router:external': False,
                     'shared': False}
@@ -90,15 +91,34 @@ def data(TEST):
                    'name': 'mysubnet1',
                    'network_id': network_dict['id'],
                    'tenant_id': network_dict['tenant_id']}
+    subnetv6_dict = {
+        'allocation_pools': [{'start': 'fdb6:b88a:488e::2',
+                              'end': 'fdb6:b88a:488e:0:ffff:ffff:ffff:ffff'}],
+        'dns_nameservers': [],
+        'host_routes': [],
+        'cidr': 'fdb6:b88a:488e::/64',
+        'enable_dhcp': True,
+        'gateway_ip': 'fdb6:b88a:488e::1',
+        'id': network_dict['subnets'][1],
+        'ip_version': 6,
+        'name': 'myv6subnet',
+        'network_id': network_dict['id'],
+        'tenant_id': network_dict['tenant_id'],
+        'ipv6_ra_mode': 'slaac',
+        'ipv6_address_mode': 'slaac'
+    }
 
     TEST.api_networks.add(network_dict)
     TEST.api_subnets.add(subnet_dict)
+    TEST.api_subnets.add(subnetv6_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
-    network['subnets'] = [subnet]
+    subnetv6 = neutron.Subnet(subnetv6_dict)
+    network['subnets'] = [subnet, subnetv6]
     TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
+    TEST.subnets.add(subnetv6)
 
     # Ports on 1st network.
     port_dict = {
@@ -130,7 +150,9 @@ def data(TEST):
         'device_id': '1',
         'device_owner': 'compute:nova',
         'fixed_ips': [{'ip_address': '10.0.0.4',
-                       'subnet_id': subnet_dict['id']}],
+                       'subnet_id': subnet_dict['id']},
+                      {'ip_address': 'fdb6:b88a:488e:0:f816:3eff:fe9d:e62f',
+                       'subnet_id': subnetv6_dict['id']}],
         'id': '7e6ce62c-7ea2-44f8-b6b4-769af90a8406',
         'mac_address': 'fa:16:3e:9d:e6:2f',
         'name': '',
@@ -158,6 +180,24 @@ def data(TEST):
                        'subnet_id': subnet_dict['id']}],
         'id': '9036eedb-e7fa-458e-bc6e-d9d06d9d1bc4',
         'mac_address': 'fa:16:3e:9c:d5:7f',
+        'name': '',
+        'network_id': network_dict['id'],
+        'status': 'ACTIVE',
+        'tenant_id': network_dict['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [],
+    }
+    TEST.api_ports.add(port_dict)
+    TEST.ports.add(neutron.Port(port_dict))
+    port_dict = {
+        'admin_state_up': True,
+        'device_id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
+        'device_owner': 'network:router_interface',
+        'fixed_ips': [{'ip_address': 'fdb6:b88a:488e::1',
+                       'subnet_id': subnetv6_dict['id']}],
+        'id': '8047e0d5-5ef5-4b6e-a1a7-d3a52ad980f7',
+        'mac_address': 'fa:16:3e:69:6e:e9',
         'name': '',
         'network_id': network_dict['id'],
         'status': 'ACTIVE',

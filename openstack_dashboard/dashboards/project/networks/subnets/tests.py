@@ -175,7 +175,7 @@ class NetworkSubnetTests(test.TestCase):
                                       'subnetpool_list')})
     def test_subnet_create_post_with_additional_attributes(self):
         network = self.networks.list()[1]
-        subnet = self.subnets.list()[1]
+        subnet = self.subnets.list()[2]
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
@@ -951,7 +951,7 @@ class NetworkSubnetTests(test.TestCase):
                                       'is_extension_supported',
                                       'subnetpool_list')})
     def test_subnet_update_post_with_additional_attributes(self):
-        subnet = self.subnets.list()[1]
+        subnet = self.subnets.list()[2]
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\

@@ -669,6 +669,9 @@ class FloatingIpManager(object):
             for ip in p.fixed_ips:
                 if ip['subnet_id'] not in reachable_subnets:
                     continue
+                # Floating IPs can only target IPv4 addresses.
+                if netaddr.IPAddress(ip['ip_address']).version != 4:
+                    continue
                 targets.append(FloatingIpTarget(p, ip['ip_address'],
                                                 server_name))
         return targets
