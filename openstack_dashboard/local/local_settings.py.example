@@ -104,8 +104,8 @@ WEBROOT = '/'
 #OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT = False
 
 # Set Console type:
-# valid options are "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL" or None
-# Set to None explicitly if you want to deactivate the console.
+# valid options are "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL", "MKS"
+# or None. Set to None explicitly if you want to deactivate the console.
 #CONSOLE_TYPE = "AUTO"
 
 # If provided, a "Report Bug" link will be displayed in the site header

@@ -242,7 +242,8 @@ class RemoteConsoleInfo(generic.View):
         CONSOLES = OrderedDict([('VNC', api.nova.server_vnc_console),
                                 ('SPICE', api.nova.server_spice_console),
                                 ('RDP', api.nova.server_rdp_console),
-                                ('SERIAL', api.nova.server_serial_console)])
+                                ('SERIAL', api.nova.server_serial_console),
+                                ('MKS', api.nova.server_mks_console)])
 
         """Get a tuple of console url and console type."""
         if console_type == 'AUTO':

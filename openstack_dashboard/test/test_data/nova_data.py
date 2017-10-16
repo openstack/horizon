@@ -392,17 +392,37 @@ def data(TEST):
     TEST.servers.add(server_1, server_2, server_3, server_4)
 
     # VNC Console Data
-    console = {u'console': {u'url': u'http://example.com:6080/vnc_auto.html',
-                            u'type': u'novnc'}}
+    console = {
+        u'remote_console': {
+            u'url': u'http://example.com:6080/vnc_auto.html',
+            u'type': u'novnc'
+        }
+    }
     TEST.servers.vnc_console_data = console
     # SPICE Console Data
-    console = {u'console': {u'url': u'http://example.com:6080/spice_auto.html',
-                            u'type': u'spice'}}
+    console = {
+        u'remote_console': {
+            u'url': u'http://example.com:6080/spice_auto.html',
+            u'type': u'spice'
+        }
+    }
     TEST.servers.spice_console_data = console
     # RDP Console Data
-    console = {u'console': {u'url': u'http://example.com:6080/rdp_auto.html',
-                            u'type': u'rdp'}}
+    console = {
+        u'remote_console': {
+            u'url': u'http://example.com:6080/rdp_auto.html',
+            u'type': u'rdp'
+        }
+    }
     TEST.servers.rdp_console_data = console
+    # MKS Console Data
+    console = {
+        u'remote_console': {
+            u'url': u'http://example.com:6080/mks_auto.html',
+            u'type': u'mks'
+        }
+    }
+    TEST.servers.mks_console_data = console
 
     # Usage
     usage_vals = {"tenant_id": TEST.tenant.id,

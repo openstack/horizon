@@ -27,7 +27,8 @@ LOG = logging.getLogger(__name__)
 CONSOLES = OrderedDict([('VNC', api.nova.server_vnc_console),
                        ('SPICE', api.nova.server_spice_console),
                        ('RDP', api.nova.server_rdp_console),
-                       ('SERIAL', api.nova.server_serial_console)])
+                       ('SERIAL', api.nova.server_serial_console),
+                       ('MKS', api.nova.server_mks_console)])
 
 
 def get_console(request, console_type, instance):

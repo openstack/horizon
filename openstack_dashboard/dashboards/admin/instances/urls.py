@@ -30,6 +30,7 @@ urlpatterns = [
     url(INSTANCES % 'detail', views.DetailView.as_view(), name='detail'),
     url(INSTANCES % 'console', views.console, name='console'),
     url(INSTANCES % 'vnc', views.vnc, name='vnc'),
+    url(INSTANCES % 'mks', views.mks, name='mks'),
     url(INSTANCES % 'spice', views.spice, name='spice'),
     url(INSTANCES % 'rdp', views.rdp, name='rdp'),
     url(INSTANCES % 'live_migrate', views.LiveMigrateView.as_view(),

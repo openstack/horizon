@@ -1,0 +1,4 @@
+---
+features:
+  - Add MKS console support.
+    Blueprint can be found at [`<https://blueprints.launchpad.net/horizon/+spec/support-mks-console-type>`_]

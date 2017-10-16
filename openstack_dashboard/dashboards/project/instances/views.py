@@ -209,6 +209,17 @@ def vnc(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+def mks(request, instance_id):
+    try:
+        instance = api.nova.server_get(request, instance_id)
+        console_url = project_console.get_console(request, 'MKS', instance)[1]
+        return shortcuts.redirect(console_url)
+    except Exception:
+        redirect = reverse("horizon:project:instances:index")
+        msg = _('Unable to get MKS console for instance "%s".') % instance_id
+        exceptions.handle(request, msg, redirect=redirect)
+
+
 def spice(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
