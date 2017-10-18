@@ -149,6 +149,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.neutron.floating_ip_simple_associate_supported(
@@ -182,6 +184,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(images)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndRaise(self.exceptions.nova)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
 
         self.mox.ReplayAll()
 
@@ -217,6 +221,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndRaise(self.exceptions.nova)
         api.glance.image_list_detailed(IgnoreArg()) \
             .AndReturn((self.images.list(), False, False))
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.neutron.floating_ip_simple_associate_supported(
@@ -261,6 +267,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.neutron.floating_ip_simple_associate_supported(
@@ -1444,6 +1452,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.neutron.floating_ip_simple_associate_supported(
@@ -3339,6 +3349,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+            .MultipleTimes().AndReturn(limits)
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.neutron.floating_ip_simple_associate_supported(
@@ -3357,6 +3369,54 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.assertEqual('Launch Instance', launch_action.verbose_name)
         self.assertEqual((('compute', 'os_compute_api:servers:create'),),
                          launch_action.policy_rules)
+
+    @helpers.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
+                   'extension_supported', 'is_feature_available',),
+        api.glance: ('image_list_detailed',),
+        api.neutron: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',),
+        api.network: ('servers_update_addresses',),
+    })
+    def test_launch_button_disabled_when_quota_exceeded(self):
+        servers = self.servers.list()
+        limits = self.limits['absolute']
+        limits['totalInstancesUsed'] = limits['maxTotalInstances']
+
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.is_feature_available(
+            IsA(http.HttpRequest), 'locked_attribute'
+        ).MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+            .MultipleTimes().AndReturn(limits)
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        tables.LaunchLink()
+        res = self.client.get(INDEX_URL)
+
+        launch_action = self.getAndAssertTableAction(
+            res, 'instances', 'launch-ng')
+
+        self.assertIn('disabled', launch_action.classes,
+                      'The launch button should be disabled')
+        self.assertEqual('Launch Instance (Quota exceeded)',
+                         six.text_type(launch_action.verbose_name))
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
@@ -3492,6 +3552,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.neutron.floating_ip_simple_associate_supported(
@@ -3969,6 +4031,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.network.servers_update_addresses(
             IsA(http.HttpRequest), servers[page_size:])
 
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.neutron.floating_ip_simple_associate_supported(
