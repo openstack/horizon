@@ -329,7 +329,7 @@ ANGULAR_FEATURES = {
     'domains_panel': False,
     'users_panel': False,
     'groups_panel': False,
-    'roles_panel': False,
+    'roles_panel': True
 }
 
 # Notice all customizable configurations should be above this line
