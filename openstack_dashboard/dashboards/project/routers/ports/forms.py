@@ -157,7 +157,7 @@ class SetGatewayForm(forms.SelfHandlingForm):
         try:
             networks = api.neutron.network_list(request, **search_opts)
         except Exception as e:
-            LOG.info('Faield to get network list: %s', e)
+            LOG.info('Failed to get network list: %s', e)
             msg = _('Failed to get network list: %s') % e
             messages.error(request, msg)
             redirect = reverse(self.failure_url)
