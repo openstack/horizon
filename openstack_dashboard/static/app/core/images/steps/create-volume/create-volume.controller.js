@@ -150,7 +150,7 @@
     function init() {
       cinder.getVolumeTypes().success(onGetVolumeTypes);
       cinder.getAbsoluteLimits().success(onGetAbsoluteLimits);
-      nova.getAvailabilityZones().success(onGetAvailabilityZones);
+      cinder.getAvailabilityZones().success(onGetAvailabilityZones);
     }
 
     function onGetVolumeTypes(response) {
