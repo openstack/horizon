@@ -1728,3 +1728,15 @@ def policy_get(request, policy_id, **kwargs):
     policy = neutronclient(request).show_qos_policy(
         policy_id, **kwargs).get('policy')
     return QoSPolicy(policy)
+
+
+@profiler.trace
+def list_availability_zones(request, resource=None, state=None):
+    az_list = neutronclient(request).list_availability_zones().get(
+        'availability_zones')
+    if resource:
+        az_list = [az for az in az_list if az['resource'] == resource]
+    if state:
+        az_list = [az for az in az_list if az['state'] == state]
+
+    return sorted(az_list, key=lambda zone: zone['name'])
