@@ -4,4 +4,7 @@
 {% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
   <p>{% trans "Creates a router with specified parameters." %}</p>
+  {% if enable_snat_allowed %}
+  <p>{% trans "Enable SNAT will only have an effect if an external network is set." %}</p>
+  {% endif %}
 {% endblock %}

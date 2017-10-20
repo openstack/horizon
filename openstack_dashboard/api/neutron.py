@@ -1264,8 +1264,10 @@ def router_remove_interface(request, router_id, subnet_id=None, port_id=None):
 
 
 @profiler.trace
-def router_add_gateway(request, router_id, network_id):
+def router_add_gateway(request, router_id, network_id, enable_snat=None):
     body = {'network_id': network_id}
+    if enable_snat is not None:
+        body['enable_snat'] = enable_snat
     neutronclient(request).add_gateway_router(router_id, body)
 
 
@@ -1638,6 +1640,15 @@ FEATURE_MAP = {
             'get': 'get_router:ha',
             'create': 'create_router:ha',
             'update': 'update_router:ha',
+        }
+    },
+    'ext-gw-mode': {
+        'extension': 'ext-gw-mode',
+        'policies': {
+            'create_router_enable_snat':
+                'create_router:external_gateway_info:enable_snat',
+            'update_router_enable_snat':
+                'update_router:external_gateway_info:enable_snat',
         }
     },
 }
