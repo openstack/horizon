@@ -197,6 +197,13 @@ def get_external_network(router):
         return _("-")
 
 
+def get_availability_zones(router):
+    if 'availability_zones' in router and router.availability_zones:
+        return ', '.join(router.availability_zones)
+    else:
+        return _("-")
+
+
 class RoutersFilterAction(tables.FilterAction):
     name = 'filter_project_routers'
     filter_type = 'server'
@@ -236,6 +243,8 @@ class RoutersTable(tables.DataTable):
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"),
                                 display_choices=ADMIN_STATE_DISPLAY_CHOICES)
+    availability_zones = tables.Column(get_availability_zones,
+                                       verbose_name=_("Availability Zones"))
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
         super(RoutersTable, self).__init__(
@@ -247,6 +256,9 @@ class RoutersTable(tables.DataTable):
             del self.columns["distributed"]
         if not api.neutron.get_feature_permission(request, "l3-ha", "get"):
             del self.columns["ha"]
+        if not api.neutron.is_extension_supported(request,
+                                                  "router_availability_zone"):
+            del self.columns["availability_zones"]
 
     def get_object_display(self, obj):
         return obj.name

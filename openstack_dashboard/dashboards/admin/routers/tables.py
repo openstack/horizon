@@ -55,4 +55,4 @@ class RoutersTable(r_tables.RoutersTable):
         table_actions = (DeleteRouter, AdminRoutersFilterAction)
         row_actions = (EditRouter, DeleteRouter,)
         columns = ('tenant', 'name', 'status', 'distributed', 'ext_net',
-                   'ha', 'admin_state',)
+                   'ha', 'availability_zones', 'admin_state',)

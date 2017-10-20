@@ -38,6 +38,9 @@ class RouterMixin(object):
                     support_l3_agent=True):
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'extraroute')\
             .MultipleTimes().AndReturn(extraroute)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .MultipleTimes().AndReturn(True)
         if lookup_l3:
             api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                                'l3_agent_scheduler')\
@@ -90,7 +93,8 @@ class RouterTests(RouterMixin, test.TestCase):
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
-    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_index(self):
         quota_data = self.neutron_quota_usages.first()
@@ -100,6 +104,9 @@ class RouterTests(RouterMixin, test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('routers', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
         self._mock_external_network_list()
         self.mox.ReplayAll()
 
@@ -109,7 +116,8 @@ class RouterTests(RouterMixin, test.TestCase):
         routers = res.context['table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_index_router_list_exception(self):
         quota_data = self.neutron_quota_usages.first()
@@ -120,6 +128,9 @@ class RouterTests(RouterMixin, test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('routers', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
         self._mock_external_network_list()
         self.mox.ReplayAll()
 
@@ -129,7 +140,8 @@ class RouterTests(RouterMixin, test.TestCase):
         self.assertEqual(len(res.context['table'].data), 0)
         self.assertMessageCount(res, error=1)
 
-    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_set_external_network_empty(self):
         router = self.routers.first()
@@ -140,6 +152,9 @@ class RouterTests(RouterMixin, test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('routers', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
         self._mock_external_network_list(alter_ids=True)
         self.mox.ReplayAll()
 
@@ -173,7 +188,8 @@ class RouterTests(RouterMixin, test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_list', 'network_list',
-                                      'port_list', 'router_delete',),
+                                      'port_list', 'router_delete',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_router_delete(self):
         router = self.routers.first()
@@ -184,6 +200,9 @@ class RouterTests(RouterMixin, test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('routers', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .MultipleTimes().AndReturn(True)
         self._mock_external_network_list()
         api.neutron.router_list(
             IsA(http.HttpRequest),
@@ -210,7 +229,8 @@ class RouterTests(RouterMixin, test.TestCase):
 
     @test.create_stubs({api.neutron: ('router_list', 'network_list',
                                       'port_list', 'router_remove_interface',
-                                      'router_delete',),
+                                      'router_delete',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_router_with_interface_delete(self):
         router = self.routers.first()
@@ -222,6 +242,9 @@ class RouterTests(RouterMixin, test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('routers', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .MultipleTimes().AndReturn(True)
         self._mock_external_network_list()
         api.neutron.router_list(
             IsA(http.HttpRequest),
@@ -856,7 +879,8 @@ class RouterViewTests(RouterMixin, test.TestCase):
     DASHBOARD = 'project'
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
 
-    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_disabled_when_quota_exceeded(self):
         quota_data = self.neutron_quota_usages.first()
@@ -867,6 +891,9 @@ class RouterViewTests(RouterMixin, test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('routers', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
 
         self._mock_external_network_list()
         self.mox.ReplayAll()
@@ -883,7 +910,8 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertEqual('Create Router (Quota exceeded)',
                          create_action.verbose_name)
 
-    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_shown_when_quota_disabled(self):
         quota_data = self.neutron_quota_usages.first()
@@ -894,6 +922,9 @@ class RouterViewTests(RouterMixin, test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('routers', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
 
         self._mock_external_network_list()
         self.mox.ReplayAll()
@@ -910,7 +941,8 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertEqual('Create Router',
                          create_action.verbose_name)
 
-    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_attributes(self):
         quota_data = self.neutron_quota_usages.first()
@@ -921,6 +953,9 @@ class RouterViewTests(RouterMixin, test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('routers', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(True)
 
         self._mock_external_network_list()
         self.mox.ReplayAll()
