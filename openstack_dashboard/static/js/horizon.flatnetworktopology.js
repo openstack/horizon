@@ -545,7 +545,12 @@ horizon.flat_network_topology = {
       object.network_id = network_id;
       object.ip_address = ip_address;
       object.device_owner = device_owner;
-      object.is_interface = (device_owner === 'router_interface' || device_owner === 'router_gateway');
+      object.is_interface = (
+        device_owner === 'router_interface' ||
+        device_owner === 'router_gateway' ||
+        device_owner === 'ha_router_replicated_interface'
+      );
+      // (device_owner === 'router_interface' || device_owner === 'router_gateway');
       ports.push(object);
     });
     var html;
