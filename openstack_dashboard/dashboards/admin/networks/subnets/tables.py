@@ -28,6 +28,7 @@ from openstack_dashboard.dashboards.project.networks.subnets \
     import tables as proj_tables
 from openstack_dashboard.dashboards.project.networks.subnets.tabs \
     import SubnetsTab as project_tabs_subnets_tab
+from openstack_dashboard.usage import quotas
 
 LOG = logging.getLogger(__name__)
 
@@ -75,6 +76,23 @@ class CreateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
     def get_link_url(self, datum=None):
         network_id = self.table.kwargs['network_id']
         return reverse(self.url, args=(network_id,))
+
+    def allowed(self, request, datum=None):
+        network = self.table._get_network()
+        usages = quotas.tenant_quota_usages(
+            request, tenant_id=network.tenant_id, targets=('subnets', ))
+
+        # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
+        # usages["subnets'] is empty
+        if usages.get('subnets', {}).get('available', 1) <= 0:
+            if 'disabled' not in self.classes:
+                self.classes = [c for c in self.classes] + ['disabled']
+                self.verbose_name = _('Create Subnet (Quota exceeded)')
+        else:
+            self.verbose_name = _('Create Subnet')
+            self.classes = [c for c in self.classes if c != 'disabled']
+
+        return True
 
 
 class UpdateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
