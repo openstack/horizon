@@ -1164,9 +1164,9 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
 
         api.neutron.floating_ip_disassociate(self.request, fip['id'])
 
-    def _get_target_id(self, port, ip=None):
+    def _get_target_id(self, port, ip=None, index=0):
         param = {'id': port['id'],
-                 'addr': ip or port['fixed_ips'][0]['ip_address']}
+                 'addr': ip or port['fixed_ips'][index]['ip_address']}
         return '%(id)s_%(addr)s' % param
 
     def _get_target_name(self, port, ip=None):
@@ -1233,12 +1233,10 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
             self.assertEqual(exp[0], ret.id)
             self.assertEqual(exp[1], ret.name)
 
-    def test_target_floating_ip_port_by_instance(self):
-        server = self.servers.first()
-        ports = self.api_ports.list()
+    def _test_target_floating_ip_port_by_instance(self, server, ports,
+                                                  candidates):
         # _target_ports_by_instance()
-        candidates = [p for p in ports if p['device_id'] == server.id]
-        search_opts = {'device_id': '1'}
+        search_opts = {'device_id': server.id}
         self.qclient.list_ports(**search_opts).AndReturn({'ports': candidates})
         # _get_reachable_subnets()
         search_opts = {'router:external': True}
@@ -1269,13 +1267,41 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
 
         self.mox.ReplayAll()
 
-        ret = api.neutron.floating_ip_target_list_by_instance(self.request,
-                                                              '1')
+        return api.neutron.floating_ip_target_list_by_instance(self.request,
+                                                               server.id)
+
+    def test_target_floating_ip_port_by_instance(self):
+        server = self.servers.first()
+        ports = self.api_ports.list()
+        candidates = [p for p in ports if p['device_id'] == server.id]
+
+        ret = self._test_target_floating_ip_port_by_instance(server, ports,
+                                                             candidates)
+        self.assertEqual(1, len(ret))
         ret_val = ret[0]
         self.assertEqual(self._get_target_id(candidates[0]), ret_val.id)
         self.assertEqual(candidates[0]['id'], ret_val.port_id)
         self.assertEqual(candidates[0]['device_id'], ret_val.instance_id)
-        self.assertEqual(len(candidates), len(ret))
+
+    def test_target_floating_ip_port_by_instance_with_ipv6(self):
+        server = self.servers.first()
+        ports = self.api_ports.list()
+        candidates = [p for p in ports if p['device_id'] == server.id]
+        # Move the IPv6 entry first
+        fixed_ips = candidates[0]['fixed_ips']
+        candidates[0]['fixed_ips'] = [fixed_ips[1], fixed_ips[0]]
+        # Check the first IP address is IPv6
+        first_ip = candidates[0]['fixed_ips'][0]['ip_address']
+        self.assertEqual(6, netaddr.IPAddress(first_ip).version)
+
+        ret = self._test_target_floating_ip_port_by_instance(server, ports,
+                                                             candidates)
+        self.assertEqual(1, len(ret))
+        ret_val = ret[0]
+        self.assertEqual(self._get_target_id(candidates[0], index=1),
+                         ret_val.id)
+        self.assertEqual(candidates[0]['id'], ret_val.port_id)
+        self.assertEqual(candidates[0]['device_id'], ret_val.instance_id)
 
     def _get_preloaded_targets(self):
         return [
