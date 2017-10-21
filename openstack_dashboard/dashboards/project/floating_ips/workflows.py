@@ -54,14 +54,13 @@ class AssociateIPAction(workflows.Action):
         q_port_id = self.request.GET.get('port_id')
         if q_instance_id:
             targets = self._get_target_list()
-            target_id = api.neutron.floating_ip_target_get_by_instance(
+            target = api.neutron.floating_ip_target_get_by_instance(
                 self.request, q_instance_id, targets)
-            self.initial['instance_id'] = target_id
+            self.initial['instance_id'] = target.id
         elif q_port_id:
             targets = self._get_target_list()
             for target in targets:
-                if (hasattr(target, 'port_id') and
-                        target.port_id == q_port_id):
+                if target.port_id == q_port_id:
                     self.initial['instance_id'] = target.id
                     break
 
@@ -99,14 +98,9 @@ class AssociateIPAction(workflows.Action):
     # TODO(amotoki): [drop-nova-network] Rename instance_id to port_id
     def populate_instance_id_choices(self, request, context):
         targets = self._get_target_list()
-
-        instances = []
-        for target in targets:
-            instances.append((target.id, target.name))
-
-        # Sort instances for easy browsing
-        instances = sorted(instances, key=lambda x: x[1])
-
+        instances = sorted([(target.id, target.name) for target in targets],
+                           # Sort FIP targets by server name for easy browsing
+                           key=lambda x: x[1])
         if instances:
             instances.insert(0, ("", _("Select a port")))
         else:

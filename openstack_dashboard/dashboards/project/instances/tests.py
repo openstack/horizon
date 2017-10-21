@@ -3634,8 +3634,11 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_disassociate_floating_ip(self):
         servers = self.servers.list()
         server = servers[0]
+        port = [p for p in self.ports.list() if p.device_id == server.id][0]
+        fip_target = api.neutron.FloatingIpTarget(
+            port, port['fixed_ips'][0]['ip_address'], server.name)
         fip = self.floating_ips.first()
-        fip.port_id = server.id
+        fip.port_id = port.id
 
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
@@ -3646,7 +3649,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn((self.images.list(), False, False))
         api.neutron.floating_ip_target_list_by_instance(
             IsA(http.HttpRequest),
-            server.id).AndReturn([server.id, ])
+            server.id).AndReturn([fip_target])
         api.neutron.tenant_floating_ip_list(
             IsA(http.HttpRequest)).AndReturn([fip])
         api.neutron.floating_ip_disassociate(

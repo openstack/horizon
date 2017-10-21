@@ -479,7 +479,8 @@ class FloatingIpTarget(base.APIDictWrapper):
     """
 
     def __init__(self, port, ip_address, label):
-        target = {'name': '%s: %s' % (label, ip_address),
+        name = '%s: %s' % (label, ip_address) if label else ip_address
+        target = {'name': name,
                   'id': '%s_%s' % (port.id, ip_address),
                   'port_id': port.id,
                   'instance_id': port.device_id}
@@ -606,8 +607,8 @@ class FloatingIpManager(object):
         ``port_id`` represents a VNIC of an instance.
         ``port_id`` argument is different from a normal neutron port ID.
         A value passed as ``port_id`` must be one of target_id returned by
-        ``list_targets``, ``get_target_id_by_instance`` or
-        ``list_target_id_by_instance`` method.
+        ``list_targets``, ``get_target_by_instance`` or
+        ``list_targets_by_instance`` method.
         """
         # NOTE: In Neutron Horizon floating IP support, port_id is
         # "<port_id>_<ip_address>" format to identify multiple ports.
@@ -687,8 +688,8 @@ class FloatingIpManager(object):
         return port_list(self.request, **search_opts)
 
     @profiler.trace
-    def get_target_id_by_instance(self, instance_id, target_list=None):
-        """Returns a target ID of floating IP association.
+    def get_target_by_instance(self, instance_id, target_list=None):
+        """Returns a FloatingIpTarget object of floating IP association.
 
         :param instance_id: ID of target VM instance
         :param target_list: (optional) a list returned by list_targets().
@@ -701,19 +702,21 @@ class FloatingIpManager(object):
                        if target['instance_id'] == instance_id]
             if not targets:
                 return None
-            return targets[0]['id']
+            return targets[0]
         else:
             # In Neutron one port can have multiple ip addresses, so this
             # method picks up the first one and generate target id.
             ports = self._target_ports_by_instance(instance_id)
             if not ports:
                 return None
-            return '{0}_{1}'.format(ports[0].id,
-                                    ports[0].fixed_ips[0]['ip_address'])
+            # TODO(amotoki): Avoid using p.fixed_ips[0].
+            # Extract all IPv4 addresses instead
+            return FloatingIpTarget(
+                ports[0], ports[0].fixed_ips[0]['ip_address'], '')
 
     @profiler.trace
-    def list_target_id_by_instance(self, instance_id, target_list=None):
-        """Returns a list of instance's target IDs of floating IP association.
+    def list_targets_by_instance(self, instance_id, target_list=None):
+        """Returns a list of FloatingIpTarget objects of FIP association.
 
         :param instance_id: ID of target VM instance
         :param target_list: (optional) a list returned by list_targets().
@@ -722,11 +725,15 @@ class FloatingIpManager(object):
             is retrieved from a back-end inside the method.
         """
         if target_list is not None:
-            return [target['id'] for target in target_list
+            return [target for target in target_list
                     if target['instance_id'] == instance_id]
         else:
             ports = self._target_ports_by_instance(instance_id)
-            return ['{0}_{1}'.format(p.id, p.fixed_ips[0]['ip_address'])
+            # TODO(amotoki): Avoid using p.fixed_ips[0].
+            # Extract all IPv4 addresses instead
+            # TODO(amotoki): Replace a label with an empty string
+            # with a real server name.
+            return [FloatingIpTarget(p, p.fixed_ips[0]['ip_address'], '')
                     for p in ports]
 
     def is_simple_associate_supported(self):
@@ -1407,12 +1414,12 @@ def floating_ip_target_list(request):
 
 
 def floating_ip_target_get_by_instance(request, instance_id, cache=None):
-    return FloatingIpManager(request).get_target_id_by_instance(
+    return FloatingIpManager(request).get_target_by_instance(
         instance_id, cache)
 
 
 def floating_ip_target_list_by_instance(request, instance_id, cache=None):
-    return FloatingIpManager(request).list_target_id_by_instance(
+    return FloatingIpManager(request).list_targets_by_instance(
         instance_id, cache)
 
 
