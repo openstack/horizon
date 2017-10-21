@@ -19,6 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 from horizon.utils import filters as utils_filters
+from openstack_dashboard import api
 
 
 SERVICE_ENABLED = "enabled"
@@ -161,6 +162,13 @@ class NetworkAgentsFilterAction(tables.FilterAction):
         return filter(comp, agents)
 
 
+def get_network_agent_zone(agent):
+    if agent.availability_zone:
+        return agent.availability_zone
+
+    return _('-')
+
+
 def get_network_agent_status(agent):
     if agent.admin_state_up:
         return _('Enabled')
@@ -196,6 +204,7 @@ class NetworkAgentsTable(tables.DataTable):
     agent_type = tables.Column('agent_type', verbose_name=_('Type'))
     binary = tables.Column("binary", verbose_name=_('Name'))
     host = tables.Column('host', verbose_name=_('Host'))
+    zone = tables.Column(get_network_agent_zone, verbose_name=_('Zone'))
     status = tables.Column(get_network_agent_status, verbose_name=_('Status'))
     state = tables.Column(get_network_agent_state, verbose_name=_('State'))
     heartbeat_timestamp = tables.Column('heartbeat_timestamp',
@@ -204,6 +213,19 @@ class NetworkAgentsTable(tables.DataTable):
                                             u'Last Updated'),
                                         filters=(utils_filters.parse_isotime,
                                                  filters.timesince))
+
+    def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
+        super(NetworkAgentsTable, self).__init__(
+            request,
+            data=data,
+            needs_form_wrapper=needs_form_wrapper,
+            **kwargs)
+
+        availability_zone_supported = api.neutron.is_extension_supported(
+            request,
+            "availability_zone")
+        if not availability_zone_supported:
+            del self.columns["zone"]
 
     def get_object_id(self, obj):
         return "%s-%s" % (obj.binary, obj.host)
