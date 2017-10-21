@@ -43,6 +43,9 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn(self.networks.list())
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
         for network in self.networks.list():
             usage.quotas.tenant_quota_usages(
                 IsA(http.HttpRequest), tenant_id=network.tenant_id,
@@ -70,6 +73,9 @@ class NetworkTests(test.BaseAdminViewTests):
     def test_index_network_list_exception(self):
         api.neutron.network_list(IsA(http.HttpRequest)) \
             .AndRaise(self.exceptions.neutron)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
@@ -119,6 +125,9 @@ class NetworkTests(test.BaseAdminViewTests):
 
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
@@ -157,6 +166,9 @@ class NetworkTests(test.BaseAdminViewTests):
             'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
@@ -192,6 +204,9 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
@@ -232,6 +247,9 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
@@ -335,6 +353,9 @@ class NetworkTests(test.BaseAdminViewTests):
             'dhcp_agent_scheduler').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
@@ -389,6 +410,9 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'network-ip-availability').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'dhcp_agent_scheduler')\
             .AndReturn(True)
@@ -774,6 +798,9 @@ class NetworkTests(test.BaseAdminViewTests):
             AndReturn(self.agents.list())
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
@@ -804,6 +831,9 @@ class NetworkTests(test.BaseAdminViewTests):
             AndReturn(self.agents.list())
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
@@ -825,6 +855,9 @@ class NetworkTests(test.BaseAdminViewTests):
     @test.create_stubs({api.neutron: ('is_extension_supported',)})
     @test.update_settings(FILTER_DATA_FIRST={'admin.networks': True})
     def test_networks_list_with_admin_filter_first(self):
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
