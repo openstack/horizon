@@ -1246,10 +1246,39 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
         self.assertEqual('1', ret.instance_id)
 
     def test_target_floating_ip_port_by_instance(self):
+        server = self.servers.first()
         ports = self.api_ports.list()
-        candidates = [p for p in ports if p['device_id'] == '1']
+        # _target_ports_by_instance()
+        candidates = [p for p in ports if p['device_id'] == server.id]
         search_opts = {'device_id': '1'}
         self.qclient.list_ports(**search_opts).AndReturn({'ports': candidates})
+        # _get_reachable_subnets()
+        search_opts = {'router:external': True}
+        ext_nets = [n for n in self.api_networks.list()
+                    if n['router:external']]
+        self.qclient.list_networks(**search_opts) \
+            .AndReturn({'networks': ext_nets})
+        self.qclient.list_routers() \
+            .AndReturn({'routers': self.api_routers.list()})
+        rinfs = [p for p in ports
+                 if p['device_owner'] in api.neutron.ROUTER_INTERFACE_OWNERS]
+        filters = {'device_owner': api.neutron.ROUTER_INTERFACE_OWNERS}
+        self.qclient.list_ports(**filters).AndReturn({'ports': rinfs})
+        shared_nets = [n for n in self.api_networks.list() if n['shared']]
+        self.qclient.list_networks(shared=True) \
+            .AndReturn({'networks': shared_nets})
+        shared_subnet_ids = [s for n in shared_nets for s in n['subnets']]
+        shared_subs = [s for s in self.api_subnets.list()
+                       if s['id'] in shared_subnet_ids]
+        self.qclient.list_subnets().AndReturn({'subnets': shared_subs})
+        # _get_server_name()
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn("2.45")
+        search_opts = {'project_id': self.request.user.tenant_id}
+        novaclient.servers.get(server.id).AndReturn(server)
+
         self.mox.ReplayAll()
 
         ret = api.neutron.floating_ip_target_list_by_instance(self.request,

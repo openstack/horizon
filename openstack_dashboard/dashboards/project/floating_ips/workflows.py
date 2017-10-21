@@ -53,10 +53,15 @@ class AssociateIPAction(workflows.Action):
         q_instance_id = self.request.GET.get('instance_id')
         q_port_id = self.request.GET.get('port_id')
         if q_instance_id:
-            targets = self._get_target_list()
-            target = api.neutron.floating_ip_target_get_by_instance(
-                self.request, q_instance_id, targets)
-            self.initial['instance_id'] = target.id
+            targets = self._get_target_list(q_instance_id)
+            # Setting the initial value here is required to avoid a situation
+            # where instance_id passed in the URL is used as the initial value
+            # unexpectedly. (This always happens if the form is invoked from
+            # the instance table.)
+            if targets:
+                self.initial['instance_id'] = targets[0].id
+            else:
+                self.initial['instance_id'] = ''
         elif q_port_id:
             targets = self._get_target_list()
             for target in targets:
@@ -84,10 +89,14 @@ class AssociateIPAction(workflows.Action):
         return options
 
     @memoized.memoized_method
-    def _get_target_list(self):
+    def _get_target_list(self, instance_id=None):
         targets = []
         try:
-            targets = api.neutron.floating_ip_target_list(self.request)
+            if instance_id:
+                targets = api.neutron.floating_ip_target_list_by_instance(
+                    self.request, instance_id)
+            else:
+                targets = api.neutron.floating_ip_target_list(self.request)
         except Exception:
             redirect = reverse('horizon:project:floating_ips:index')
             exceptions.handle(self.request,
@@ -97,7 +106,12 @@ class AssociateIPAction(workflows.Action):
 
     # TODO(amotoki): [drop-nova-network] Rename instance_id to port_id
     def populate_instance_id_choices(self, request, context):
-        targets = self._get_target_list()
+        q_instance_id = self.request.GET.get('instance_id')
+        # The reason of specifying an empty tuple when q_instance_id is None
+        # is to make memoized_method _get_target_list work. Two calls of
+        # _get_target_list from here and __init__ must have a same arguments.
+        params = (q_instance_id, ) if q_instance_id else ()
+        targets = self._get_target_list(*params)
         instances = sorted([(target.id, target.name) for target in targets],
                            # Sort FIP targets by server name for easy browsing
                            key=lambda x: x[1])

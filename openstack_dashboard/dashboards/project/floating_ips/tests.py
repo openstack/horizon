@@ -54,17 +54,14 @@ class FloatingIpViewTests(test.TestCase):
         # Verify that our "associated" floating IP isn't in the choices list.
         self.assertNotIn(self.floating_ips.first(), choices)
 
-    @test.create_stubs({api.neutron: ('floating_ip_target_list',
-                                      'floating_ip_target_get_by_instance',
+    @test.create_stubs({api.neutron: ('floating_ip_target_list_by_instance',
                                       'tenant_floating_ip_list',)})
     def test_associate_with_instance_id(self):
         targets = self._get_fip_targets()
         target = targets[0]
-        api.neutron.floating_ip_target_list(IsA(http.HttpRequest)) \
-            .AndReturn(targets)
-        api.neutron.floating_ip_target_get_by_instance(
-            IsA(http.HttpRequest), target.instance_id, targets) \
-            .AndReturn(target)
+        api.neutron.floating_ip_target_list_by_instance(
+            IsA(http.HttpRequest), target.instance_id) \
+            .AndReturn([target])
         api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
