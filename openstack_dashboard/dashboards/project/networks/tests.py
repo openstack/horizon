@@ -685,7 +685,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         test_with_subnetpool=False
     ):
         network = self.networks.first()
-        subnet_v6 = self.subnets.list()[3]
+        subnet_v6 = self.subnets.list()[4]
 
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
@@ -936,12 +936,14 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         network.subnets = [subnet.id for subnet in network.subnets]
         subnet_id = network.subnets[0]
+        subnetv6_id = network.subnets[1]
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id,
                                 expand_subnet=False)\
             .AndReturn(network)
         self._stub_net_list()
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
+        api.neutron.subnet_delete(IsA(http.HttpRequest), subnetv6_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)
 
         self.mox.ReplayAll()
@@ -959,12 +961,14 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         network.subnets = [subnet.id for subnet in network.subnets]
         subnet_id = network.subnets[0]
+        subnetv6_id = network.subnets[1]
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id,
                                 expand_subnet=False)\
             .AndReturn(network)
         self._stub_net_list()
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
+        api.neutron.subnet_delete(IsA(http.HttpRequest), subnetv6_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)\
             .AndRaise(self.exceptions.neutron)
 
