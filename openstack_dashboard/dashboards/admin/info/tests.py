@@ -41,6 +41,9 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
                                            'agent').AndReturn(True)
         agents = self.agents.list()
         api.neutron.agent_list(IsA(http.HttpRequest)).AndReturn(agents)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "availability_zone")\
+            .AndReturn(False)
 
         cinder_services = self.cinder_services.list()
         api.cinder.service_list(IsA(http.HttpRequest)).\
