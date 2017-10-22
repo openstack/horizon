@@ -464,6 +464,9 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
             MultipleTimes().AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            MultipleTimes().AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             MultipleTimes().AndReturn(True)
         api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
@@ -479,6 +482,57 @@ class NetworkTests(test.BaseAdminViewTests):
                      'external': True,
                      'shared': True,
                      'network_type': 'local'}
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.neutron: ('network_create',
+                                      'is_extension_supported',
+                                      'list_availability_zones',
+                                      'subnetpool_list'),
+                        api.keystone: ('tenant_list',)})
+    def test_network_create_post_with_az(self):
+        tenants = self.tenants.list()
+        tenant_id = self.tenants.first().id
+        network = self.networks.first()
+
+        api.keystone.tenant_list(IsA(http.HttpRequest))\
+            .AndReturn([tenants, False])
+        params = {'name': network.name,
+                  'tenant_id': tenant_id,
+                  'admin_state_up': network.admin_state_up,
+                  'router:external': True,
+                  'shared': True,
+                  'provider:network_type': 'local',
+                  'with_subnet': False,
+                  'az_hints': ['nova']}
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
+            MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            MultipleTimes().AndReturn(True)
+        api.neutron.list_availability_zones(IsA(http.HttpRequest),
+                                            "network", "available")\
+            .AndReturn(self.neutron_availability_zones.list())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            MultipleTimes().AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+        api.neutron.network_create(IsA(http.HttpRequest), **params)\
+            .AndReturn(network)
+
+        self.mox.ReplayAll()
+
+        form_data = {'tenant_id': tenant_id,
+                     'name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'external': True,
+                     'shared': True,
+                     'network_type': 'local',
+                     'availability_zone_hints': ['nova']}
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
 
@@ -508,6 +562,9 @@ class NetworkTests(test.BaseAdminViewTests):
 
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
             MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            MultipleTimes().AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             MultipleTimes().AndReturn(True)
@@ -552,6 +609,9 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
             MultipleTimes().AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            MultipleTimes().AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             MultipleTimes().AndReturn(True)
         api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
@@ -581,6 +641,9 @@ class NetworkTests(test.BaseAdminViewTests):
         api.keystone.tenant_list(
             IsA(http.HttpRequest)
         ).MultipleTimes().AndReturn([tenants, False])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            MultipleTimes().AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider')\
             .MultipleTimes().AndReturn(True)
 
@@ -611,6 +674,9 @@ class NetworkTests(test.BaseAdminViewTests):
             IsA(http.HttpRequest)
         ).MultipleTimes().AndReturn([tenants, False])
 
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            MultipleTimes().AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
             MultipleTimes().AndReturn(True)
         self.mox.ReplayAll()
@@ -642,6 +708,9 @@ class NetworkTests(test.BaseAdminViewTests):
             IsA(http.HttpRequest)
         ).MultipleTimes().AndReturn([tenants, False])
 
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            MultipleTimes().AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider')\
             .MultipleTimes().AndReturn(True)
 

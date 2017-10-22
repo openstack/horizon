@@ -363,6 +363,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                       'subnetpool_list')})
     def test_network_create_get(self):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
         api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
@@ -389,6 +392,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                   'admin_state_up': network.admin_state_up,
                   'shared': False}
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
         api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
@@ -411,12 +417,52 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
     @test.create_stubs({api.neutron: ('network_create',
                                       'is_extension_supported',
+                                      'list_availability_zones',
+                                      'subnetpool_list')})
+    def test_network_create_post_with_az(self):
+        network = self.networks.first()
+        params = {'name': network.name,
+                  'admin_state_up': network.admin_state_up,
+                  'shared': False,
+                  'az_hints': ['nova']}
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(True)
+        api.neutron.list_availability_zones(IsA(http.HttpRequest),
+                                            "network", "available")\
+            .AndReturn(self.neutron_availability_zones.list())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+        api.neutron.network_create(IsA(http.HttpRequest),
+                                   **params).AndReturn(network)
+        self.mox.ReplayAll()
+
+        form_data = {'net_name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'shared': False,
+                     'with_subnet': False,
+                     'availability_zone_hints': ['nova']}
+        form_data.update(form_data_no_subnet())
+        url = reverse('horizon:project:networks:create')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.neutron: ('network_create',
+                                      'is_extension_supported',
                                       'subnetpool_list')})
     def test_network_create_post_with_shared(self):
         network = self.networks.first()
         params = {'name': network.name,
                   'admin_state_up': network.admin_state_up,
                   'shared': True}
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -459,6 +505,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             subnet.ip_version = 4
             subnet_params['ip_version'] = subnet.ip_version
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
         api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
@@ -493,6 +542,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                   'shared': False,
                   'admin_state_up': network.admin_state_up}
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
         api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
@@ -516,15 +568,15 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     @test.create_stubs({api.neutron: ('network_create',
                                       'is_extension_supported',
                                       'subnetpool_list')})
-    def test_network_create_post_with_subnet_network_exception(
-        self,
-        test_with_subnetpool=False,
-    ):
+    def test_network_create_post_with_subnet_network_exception(self):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
                   'shared': False,
                   'admin_state_up': network.admin_state_up}
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -556,6 +608,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         params = {'name': network.name,
                   'shared': False,
                   'admin_state_up': network.admin_state_up}
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -593,6 +648,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
         api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
@@ -627,6 +685,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -665,6 +726,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         subnet = self.subnets.first()
 
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -707,6 +771,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         subnet_v6 = self.subnets.list()[4]
 
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -758,6 +825,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                          'enable_dhcp': subnet.enable_dhcp}
 
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
         api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
@@ -791,6 +861,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         subnet = self.subnets.first()
 
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -828,7 +901,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
-
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone').\
+            AndReturn(False)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)

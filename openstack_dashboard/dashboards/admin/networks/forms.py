@@ -139,6 +139,12 @@ class CreateNetwork(forms.SelfHandlingForm):
                                      }),
                                      initial=True,
                                      required=False)
+    az_hints = forms.MultipleChoiceField(
+        label=_("Availability Zone Hints"),
+        required=False,
+        help_text=_("Availability zones where the DHCP agents may be "
+                    "scheduled. Leaving this unset is equivalent to "
+                    "selecting all availability zones"))
 
     @classmethod
     def _instantiate(cls, request, *args, **kwargs):
@@ -237,6 +243,20 @@ class CreateNetwork(forms.SelfHandlingForm):
             else:
                 self.fields['network_type'].choices = network_type_choices
 
+        try:
+            if api.neutron.is_extension_supported(request,
+                                                  'network_availability_zone'):
+                zones = api.neutron.list_availability_zones(
+                    self.request, 'network', 'available')
+                self.fields['az_hints'].choices = [(zone['name'], zone['name'])
+                                                   for zone in zones]
+            else:
+                del self.fields['az_hints']
+        except Exception:
+            msg = _('Failed to get availability zone list.')
+            messages.warning(request, msg)
+            del self.fields['az_hints']
+
     def _hide_provider_network_type(self):
         self.fields['network_type'].widget = forms.HiddenInput()
         self.fields['physical_network'].widget = forms.HiddenInput()
@@ -261,6 +281,8 @@ class CreateNetwork(forms.SelfHandlingForm):
                 if network_type in self.nettypes_with_seg_id:
                     params['provider:segmentation_id'] = (
                         data['segmentation_id'])
+            if 'az_hints' in data and data['az_hints']:
+                params['availability_zone_hints'] = data['az_hints']
             network = api.neutron.network_create(request, **params)
             LOG.debug('Network %s was successfully created.', data['name'])
             return network
