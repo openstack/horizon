@@ -231,7 +231,7 @@ def cinderclient(request_auth_params, version=None):
     return c
 
 
-def get_microversion(request, feature):
+def get_microversion(request, features):
     for service_name in ('volume', 'volumev2', 'volumev3'):
         try:
             cinder_url = base.url_for(request, service_name)
@@ -241,8 +241,8 @@ def get_microversion(request, feature):
     else:
         return None
     min_ver, max_ver = cinder_client.get_server_version(cinder_url)
-    return (microversions.get_microversion_for_feature(
-        'cinder', feature, api_versions.APIVersion, min_ver, max_ver))
+    return (microversions.get_microversion_for_features(
+        'cinder', features, api_versions.APIVersion, min_ver, max_ver))
 
 
 def _replace_v2_parameters(data):
@@ -1061,7 +1061,7 @@ def pool_list(request, detailed=False):
 
 @profiler.trace
 def message_list(request, search_opts=None):
-    version = get_microversion(request, 'message_list')
+    version = get_microversion(request, ['message_list'])
     if version is None:
         LOG.warning("insufficient microversion for message_list")
         return []
