@@ -235,6 +235,24 @@ class FlavorExtraSpec(object):
         self.value = val
 
 
+class QuotaSet(base.QuotaSet):
+
+    # We don't support nova-network, so we exclude nova-network relatd
+    # quota fields from the response.
+    ignore_quotas = {
+        "floating_ips",
+        "fixed_ips",
+        "security_groups",
+        "security_group_rules",
+    }
+
+    def __init__(self, apiresource=None):
+        super(QuotaSet, self).__init__(apiresource)
+        for name in self.ignore_quotas:
+            if name in self.items:
+                del self.items[name]
+
+
 def get_auth_params_from_request(request):
     """Extracts properties needed by novaclient call from the request object.
 
@@ -682,7 +700,7 @@ def server_metadata_delete(request, instance_id, keys):
 
 @profiler.trace
 def tenant_quota_get(request, tenant_id):
-    return base.QuotaSet(novaclient(request).quotas.get(tenant_id))
+    return QuotaSet(novaclient(request).quotas.get(tenant_id))
 
 
 @profiler.trace
@@ -693,7 +711,7 @@ def tenant_quota_update(request, tenant_id, **kwargs):
 
 @profiler.trace
 def default_quota_get(request, tenant_id):
-    return base.QuotaSet(novaclient(request).quotas.defaults(tenant_id))
+    return QuotaSet(novaclient(request).quotas.defaults(tenant_id))
 
 
 @profiler.trace

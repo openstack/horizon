@@ -40,14 +40,9 @@ NOVA_COMPUTE_QUOTA_FIELDS = {
     "key_pairs",
 }
 
-NOVA_NETWORK_QUOTA_FIELDS = {
-    "floating_ips",
-    "fixed_ips",
-    "security_groups",
-    "security_group_rules",
-}
-
-NOVA_QUOTA_FIELDS = NOVA_COMPUTE_QUOTA_FIELDS | NOVA_NETWORK_QUOTA_FIELDS
+# We no longer supports nova-network, so network related quotas from nova
+# are not considered.
+NOVA_QUOTA_FIELDS = NOVA_COMPUTE_QUOTA_FIELDS
 
 CINDER_QUOTA_FIELDS = {"volumes",
                        "snapshots",
@@ -65,21 +60,20 @@ NEUTRON_QUOTA_FIELDS = {"network",
 QUOTA_FIELDS = NOVA_QUOTA_FIELDS | CINDER_QUOTA_FIELDS | NEUTRON_QUOTA_FIELDS
 
 QUOTA_NAMES = {
+    # nova
     "metadata_items": _('Metadata Items'),
     "cores": _('VCPUs'),
     "instances": _('Instances'),
     "injected_files": _('Injected Files'),
     "injected_file_content_bytes": _('Injected File Content Bytes'),
     "ram": _('RAM (MB)'),
-    "floating_ips": _('Floating IPs'),
-    "fixed_ips": _('Fixed IPs'),
-    "security_groups": _('Security Groups'),
-    "security_group_rules": _('Security Group Rules'),
     "key_pairs": _('Key Pairs'),
     "injected_file_path_bytes": _('Injected File Path Bytes'),
+    # cinder
     "volumes": _('Volumes'),
     "snapshots": _('Volume Snapshots'),
     "gigabytes": _('Total Size of Volumes and Snapshots (GB)'),
+    # neutron
     "network": _("Networks"),
     "subnet": _("Subnets"),
     "port": _("Ports"),
@@ -207,19 +201,17 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     tenant_id = tenant_id or request.user.tenant_id
     neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
 
-    if 'floating_ips' in disabled_quotas:
-        if 'floatingip' not in disabled_quotas:
-            # Rename floatingip to floating_ips since that's how it's
-            # expected in some places (e.g. Security & Access' Floating IPs)
-            fips_quota = neutron_quotas.get('floatingip').limit
-            qs.add(base.QuotaSet({'floating_ips': fips_quota}))
+    if 'floatingip' not in disabled_quotas:
+        # Rename floatingip to floating_ips since that's how it's
+        # expected in some places (e.g. Security & Access' Floating IPs)
+        fips_quota = neutron_quotas.get('floatingip').limit
+        qs.add(base.QuotaSet({'floating_ips': fips_quota}))
 
-    if 'security_groups' in disabled_quotas:
-        if 'security_group' not in disabled_quotas:
-            # Rename security_group to security_groups since that's how it's
-            # expected in some places (e.g. Security & Access' Security Groups)
-            sec_quota = neutron_quotas.get('security_group').limit
-            qs.add(base.QuotaSet({'security_groups': sec_quota}))
+    if 'security_group' not in disabled_quotas:
+        # Rename security_group to security_groups since that's how it's
+        # expected in some places (e.g. Security & Access' Security Groups)
+        sec_quota = neutron_quotas.get('security_group').limit
+        qs.add(base.QuotaSet({'security_groups': sec_quota}))
 
     if 'network' not in disabled_quotas:
         net_quota = neutron_quotas.get('network').limit
@@ -242,7 +234,9 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
 
 @profiler.trace
 def get_disabled_quotas(request):
-    disabled_quotas = set([])
+    # We no longer supports nova network, so we always disable
+    # network related nova quota fields.
+    disabled_quotas = set()
 
     # Cinder
     if not cinder.is_volume_service_enabled(request):
@@ -252,14 +246,7 @@ def get_disabled_quotas(request):
     if not base.is_service_enabled(request, 'network'):
         disabled_quotas.update(NEUTRON_QUOTA_FIELDS)
     else:
-        # Remove the nova network quotas
-        disabled_quotas.update(['floating_ips', 'fixed_ips'])
-
-        if neutron.is_extension_supported(request, 'security-group'):
-            # If Neutron security group is supported, disable Nova quotas
-            disabled_quotas.update(['security_groups', 'security_group_rules'])
-        else:
-            # If Nova security group is used, disable Neutron quotas
+        if not neutron.is_extension_supported(request, 'security-group'):
             disabled_quotas.update(['security_group', 'security_group_rule'])
 
         if not neutron.is_router_enabled(request):
@@ -341,8 +328,7 @@ def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
 
 @profiler.trace
 def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
-    enabled_quotas = ((NOVA_NETWORK_QUOTA_FIELDS | NEUTRON_QUOTA_FIELDS)
-                      - disabled_quotas)
+    enabled_quotas = NEUTRON_QUOTA_FIELDS - disabled_quotas
     if not enabled_quotas:
         return
 
@@ -405,9 +391,9 @@ def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
 
 
 NETWORK_QUOTA_API_KEY_MAP = {
-    'floating_ips': ['floatingip', 'floating_ips'],
-    'security_groups': ['security_group', 'security_groups'],
-    'security_group_rules': ['security_group_rule', 'security_group_rules'],
+    'floating_ips': ['floatingip'],
+    'security_groups': ['security_group'],
+    'security_group_rules': ['security_group_rule'],
     # Singular form key is used as quota field in the Neutron API.
     # We convert it explicitly here.
     # NOTE(amotoki): It is better to be converted in the horizon API wrapper

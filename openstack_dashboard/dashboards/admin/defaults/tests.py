@@ -80,18 +80,8 @@ class ServicesViewTests(test.BaseAdminViewTests):
                          '<Quota: (snapshots, 1)>',
                          '<Quota: (volumes, 1)>',
                          '<Quota: (cores, 10)>',
-                         '<Quota: (floating_ips, 1)>',
-                         '<Quota: (fixed_ips, 10)>',
-                         '<Quota: (security_groups, 10)>',
-                         '<Quota: (security_group_rules, 20)>',
                          '<Quota: (key_pairs, 100)>',
                          '<Quota: (injected_file_path_bytes, 255)>']
-        if neutron_enabled:
-            expected_tabs.remove('<Quota: (floating_ips, 1)>')
-            expected_tabs.remove('<Quota: (fixed_ips, 10)>')
-            if neutron_sg_enabled:
-                expected_tabs.remove('<Quota: (security_groups, 10)>')
-                expected_tabs.remove('<Quota: (security_group_rules, 20)>')
 
         self.assertQuerysetEqual(quotas_tab._tables['quotas'].data,
                                  expected_tabs,
@@ -101,7 +91,9 @@ class ServicesViewTests(test.BaseAdminViewTests):
 class UpdateDefaultQuotasTests(test.BaseAdminViewTests):
     def _get_quota_info(self, quota):
         quota_data = {}
-        for field in quotas.QUOTA_FIELDS:
+        updatable_quota_fields = (quotas.NOVA_QUOTA_FIELDS |
+                                  quotas.CINDER_QUOTA_FIELDS)
+        for field in updatable_quota_fields:
             if field != 'fixed_ips':
                 limit = quota.get(field).limit or 10
                 quota_data[field] = int(limit)
@@ -115,8 +107,7 @@ class UpdateDefaultQuotasTests(test.BaseAdminViewTests):
         quota = self.quotas.first()
 
         # init
-        quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+        quotas.get_disabled_quotas(IsA(http.HttpRequest)).AndReturn(set())
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         # update some fields

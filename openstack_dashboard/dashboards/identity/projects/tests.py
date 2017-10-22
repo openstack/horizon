@@ -333,7 +333,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     def test_add_project_post(self):
         project = self.tenants.first()
         quota = self.quotas.first()
-        disabled_quotas = self.disabled_quotas.first()
+        disabled_quotas = set()
         default_role = self.roles.first()
         default_domain = self._get_default_domain()
         domain_id = default_domain.id
@@ -345,7 +345,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
         # init
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -455,7 +455,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(True)
 
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
 
         quotas.get_default_quota_data(IsA(http.HttpRequest)) \
             .AndRaise(self.exceptions.nova)
@@ -506,7 +506,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.get_default_domain(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(default_domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -554,7 +554,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     def test_add_project_quota_update_error(self):
         project = self.tenants.first()
         quota = self.quotas.first()
-        disabled_quotas = self.disabled_quotas.first()
+        disabled_quotas = set()
         default_role = self.roles.first()
         default_domain = self._get_default_domain()
         domain_id = default_domain.id
@@ -566,7 +566,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.get_default_domain(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(default_domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -643,7 +643,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     def test_add_project_user_update_error(self):
         project = self.tenants.first()
         quota = self.quotas.first()
-        disabled_quotas = self.disabled_quotas.first()
+        disabled_quotas = set()
         default_role = self.roles.first()
         default_domain = self._get_default_domain()
         domain_id = default_domain.id
@@ -655,7 +655,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.get_default_domain(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(default_domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -739,7 +739,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.get_default_domain(IsA(http.HttpRequest)) \
             .AndReturn(default_domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -916,7 +916,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
             .AndReturn(self.domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -995,7 +995,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
 
         project = self.tenants.first()
         quota = self.quotas.first()
-        disabled_quotas = self.disabled_quotas.first()
+        disabled_quotas = set()
         default_role = self.roles.first()
         domain_id = project.domain_id
         users = self._get_all_users(domain_id)
@@ -1012,7 +1012,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
             .AndReturn(self.domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -1179,7 +1179,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
             .AndReturn(self.domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -1285,7 +1285,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
 
         project = self.tenants.first()
         quota = self.quotas.first()
-        disabled_quotas = self.disabled_quotas.first()
+        disabled_quotas = set()
         default_role = self.roles.first()
         domain_id = project.domain_id
         users = self._get_all_users(domain_id)
@@ -1302,7 +1302,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
             .AndReturn(self.domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -1432,7 +1432,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
             .MultipleTimes().AndReturn(self.domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -1491,7 +1491,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.user_list(IsA(http.HttpRequest),
                                domain=domain_id).AndReturn(users)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
 
         self._check_role_list(keystone_api_version, role_assignments, groups,
                               proj_users, roles, workflow_data)
@@ -1533,7 +1533,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
             .AndReturn(self.domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(self.disabled_quotas.first())
+            .AndReturn(set())
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id).AndReturn(quota)
         self.mox.ReplayAll()

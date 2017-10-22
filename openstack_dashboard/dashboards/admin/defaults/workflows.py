@@ -35,18 +35,13 @@ class UpdateDefaultQuotasAction(workflows.Action):
     metadata_items = forms.IntegerField(min_value=-1,
                                         label=_("Metadata Items"))
     ram = forms.IntegerField(min_value=-1, label=_("RAM (MB)"))
-    floating_ips = forms.IntegerField(min_value=-1, label=_("Floating IPs"))
     key_pairs = forms.IntegerField(min_value=-1, label=_("Key Pairs"))
     injected_file_path_bytes = forms.IntegerField(min_value=-1,
                                                   label=ifpb_label)
     instances = forms.IntegerField(min_value=-1, label=_("Instances"))
-    security_group_rules = forms.IntegerField(min_value=-1,
-                                              label=_("Security Group Rules"))
     injected_files = forms.IntegerField(min_value=-1,
                                         label=_("Injected Files"))
     cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
-    security_groups = forms.IntegerField(min_value=-1,
-                                         label=_("Security Groups"))
     gigabytes = forms.IntegerField(
         min_value=-1,
         label=_("Total Size of Volumes and Snapshots (GiB)"))
@@ -86,10 +81,9 @@ class UpdateDefaultQuotas(workflows.Workflow):
 
     def handle(self, request, data):
         # Update the default quotas.
-        # `fixed_ips` update for quota class is not supported by novaclient
         nova_data = {
             key: value for key, value in data.items()
-            if key in quotas.NOVA_QUOTA_FIELDS and key != 'fixed_ips'
+            if key in quotas.NOVA_QUOTA_FIELDS
         }
         is_error_nova = False
         is_error_cinder = False

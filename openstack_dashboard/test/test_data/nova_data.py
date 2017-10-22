@@ -163,7 +163,6 @@ def data(TEST):
     TEST.volumes = utils.TestDataContainer()
     TEST.quotas = utils.TestDataContainer()
     TEST.quota_usages = utils.TestDataContainer()
-    TEST.disabled_quotas = utils.TestDataContainer()
     TEST.usages = utils.TestDataContainer()
     TEST.certs = utils.TestDataContainer()
     TEST.availability_zones = utils.TestDataContainer()
@@ -297,26 +296,19 @@ def data(TEST):
     TEST.keypairs.add(keypair)
 
     # Quota Sets
-    quota_data = dict(metadata_items='1',
-                      injected_file_content_bytes='1',
-                      ram=10000,
-                      floating_ips='1',
-                      fixed_ips='10',
-                      instances='10',
-                      injected_files='1',
-                      cores='10',
-                      security_groups='10',
-                      security_group_rules='20',
-                      key_pairs=100,
-                      injected_file_path_bytes=255)
+    quota_data = {
+        'metadata_items': '1',
+        'injected_file_content_bytes': '1',
+        'ram': 10000,
+        'instances': '10',
+        'injected_files': '1',
+        'cores': '10',
+        'key_pairs': 100,
+        'injected_file_path_bytes': 255,
+    }
     quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
     TEST.quotas.nova = base.QuotaSet(quota)
     TEST.quotas.add(base.QuotaSet(quota))
-
-    # nova quotas disabled when neutron is enabled
-    disabled_quotas_nova = {'floating_ips', 'fixed_ips',
-                            'security_groups', 'security_group_rules'}
-    TEST.disabled_quotas.add(disabled_quotas_nova)
 
     # Quota Usages
     quota_usage_data = {'gigabytes': {'used': 0,
@@ -327,10 +319,6 @@ def data(TEST):
                                 'quota': 10000},
                         'cores': {'used': 0,
                                   'quota': 20},
-                        'floating_ips': {'used': 0,
-                                         'quota': 10},
-                        'security_groups': {'used': 0,
-                                            'quota': 10},
                         'volumes': {'used': 0,
                                     'quota': 10}}
     quota_usage = usage_quotas.QuotaUsage()
