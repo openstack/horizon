@@ -341,7 +341,8 @@ class ComputeApiTests(test.APITestCase):
 
         novaclient = self.stub_novaclient()
         novaclient.limits = self.mox.CreateMockAnything()
-        novaclient.limits.get(reserved=True).AndReturn(limits)
+        novaclient.limits.get(reserved=True,
+                              tenant_id=None).AndReturn(limits)
         self.mox.ReplayAll()
 
         ret_val = api.nova.tenant_absolute_limits(self.request, reserved=True)

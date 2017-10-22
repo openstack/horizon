@@ -333,10 +333,17 @@ def data(TEST):
         )
     )
     # Cinder Limits
-    limits = {"absolute": {"totalVolumesUsed": 1,
-                           "totalGigabytesUsed": 5,
-                           "maxTotalVolumeGigabytes": 1000,
-                           "maxTotalVolumes": 10}}
+    limits = {
+        "absolute": {
+            "totalVolumesUsed": 4,
+            "totalGigabytesUsed": 400,
+            'totalSnapshotsUsed': 3,
+            "maxTotalVolumes": 20,
+            "maxTotalVolumeGigabytes": 1000,
+            'maxTotalSnapshots': 10,
+        }
+    }
+
     TEST.cinder_limits = limits
 
     # QOS Specs

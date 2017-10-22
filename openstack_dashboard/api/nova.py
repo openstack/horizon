@@ -908,8 +908,13 @@ def migrate_host(request, host, live_migrate=False, disk_over_commit=False,
 
 
 @profiler.trace
-def tenant_absolute_limits(request, reserved=False):
-    limits = novaclient(request).limits.get(reserved=reserved).absolute
+def tenant_absolute_limits(request, reserved=False, tenant_id=None):
+    # Nova does not allow to specify tenant_id for non-admin users
+    # even if tenant_id matches a tenant_id of the user.
+    if tenant_id == request.user.tenant_id:
+        tenant_id = None
+    limits = novaclient(request).limits.get(reserved=reserved,
+                                            tenant_id=tenant_id).absolute
     limits_dict = {}
     for limit in limits:
         if limit.value < 0:
