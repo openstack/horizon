@@ -14,20 +14,20 @@
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 # Martine Marin <mmarin@fr.ibm.com>, 2016. #zanata
-# Cedric Savignan <liced@liced.fr>, 2017. #zanata
+# Cédric Savignan <liced@liced.fr>, 2017. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2017. #zanata
 # Loic Nicolle <loic.nicolle@orange.com>, 2017. #zanata
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 # Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev100\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-16 22:35+0000\n"
+"POT-Creation-Date: 2017-10-21 13:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-11 08:32+0000\n"
+"PO-Revision-Date: 2017-10-20 02:43+0000\n"
 "Last-Translator: Loic Nicolle <loic.nicolle@orange.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -2829,6 +2829,9 @@ msgstr "Échec lors de la suppression du réseau %s"
 msgid "Failed to delete port %s"
 msgstr "Échec lors de la suppression du port %s"
 
+msgid "Failed to delete stack."
+msgstr "Echec de suppression de la stack."
+
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Échec lors de la suppression du sous-réseau %s"
@@ -2914,6 +2917,9 @@ msgstr ""
 #, python-format
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Échec du retrait  du projet %(project)s à l'accès de type de volume."
+
+msgid "Failed to resume stack."
+msgstr "Echec de la reprise de la stack."
 
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
@@ -3710,6 +3716,9 @@ msgstr "Informations Paire de clés"
 msgid "Key Pair Name"
 msgstr "Nom de la paire de clés"
 
+msgid "Key Pair Name ="
+msgstr "Nom de la paire de clés ="
+
 msgid "Key Pairs"
 msgstr "Paires de clés"
 
@@ -4118,6 +4127,9 @@ msgstr "Modifier le nom, la description et l'état public du type de volume."
 msgid "Monitoring:"
 msgstr "Monitoring :"
 
+msgid "More"
+msgstr "Plus"
+
 msgid "N/A"
 msgstr "N/D"
 
@@ -4212,6 +4224,9 @@ msgstr "Détails du réseau"
 
 msgid "Network ID"
 msgstr "ID Réseau"
+
+msgid "Network ID ="
+msgstr "ID Réseau ="
 
 msgid "Network Mask"
 msgstr "Masque Réseau"
@@ -4748,6 +4763,9 @@ msgstr "Le port %s a été créé avec succès."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Le port %s a été mis à jour avec succès."
+
+msgid "Port ID ="
+msgstr "ID port ="
 
 msgid "Port Range"
 msgstr "Plage de ports"
@@ -5403,6 +5421,9 @@ msgstr "Le routeur %s a été créé avec succès."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Le routeur %s a été mis à jour avec succès."
+
+msgid "Router ID ="
+msgstr "ID routeur ="
 
 msgid "Router Name"
 msgstr "Nom du routeur"
@@ -6795,6 +6816,9 @@ msgstr ""
 msgid "This instance is unlocked."
 msgstr "Cette instance est déverrouillée."
 
+msgid "This is a test: "
+msgstr "Ceci est un test:"
+
 msgid ""
 "This is equivalent to the <tt>openstack volume qos associate</tt> and "
 "<tt>openstack volume qos disassociate</tt> commands."
@@ -7618,9 +7642,6 @@ msgstr "Impossible de récupérer les informations du projet de l'instance."
 
 msgid "Unable to retrieve instance size information."
 msgstr "Impossible de récupérer la taille de l'instance."
-
-msgid "Unable to retrieve instance."
-msgstr "Impossible de récupérer l'instance."
 
 msgid "Unable to retrieve instances."
 msgstr "Impossible de récupérer les instances."
@@ -8695,6 +8716,10 @@ msgstr "Vous utilisez déjà toutes vos IP flottantes disponibles."
 
 msgid "You are already using all of your available volumes."
 msgstr "Vous utilisez déjà tous vos volumes disponibles."
+
+#, python-format
+msgid "You are not allowed to create a port for network %s."
+msgstr "Vous n'êtes pas autorisé à créer un port pour le réseau %s."
 
 msgid ""
 "You can connect a specified external network to the router. The external "

@@ -4,13 +4,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev175\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-14 12:29+0000\n"
+"POT-Creation-Date: 2017-10-21 13:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-15 01:25+0000\n"
+"PO-Revision-Date: 2017-10-22 03:13+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -715,11 +715,21 @@ msgstr "Availability Zone (zona tersedia)"
 msgid "Availability Zone ="
 msgstr "Availability Zone ="
 
+msgid "Availability Zone Hints"
+msgstr "Petunjuk Zona Ketersediaan"
+
 msgid "Availability Zone Name"
 msgstr "Nama dari Zona yang Tersedia"
 
 msgid "Availability Zones"
 msgstr "Zona yang Tersedia"
+
+msgid ""
+"Availability Zones where the router may be scheduled. Leaving this unset is "
+"equivalent to selecting all Availability Zones"
+msgstr ""
+"Zona Ketersediaan di mana router mungkin dijadwalkan. Meninggalkan unset ini "
+"sama dengan memilih semua Zona Ketersediaan"
 
 msgid "Availability zone"
 msgstr "Availability zone (zona ketersediaan)"
@@ -3400,6 +3410,9 @@ msgstr "Import Key Pair (import pasangan kunci)"
 
 msgid "Import Namespace"
 msgstr "Import Namespace"
+
+msgid "Import Public Key"
+msgstr "Impor Public Key"
 
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
@@ -7413,9 +7426,6 @@ msgstr "Tidak dapat mengambil informasi proyek instance."
 
 msgid "Unable to retrieve instance size information."
 msgstr "Tidak dapat mengambil informasi ukuran instance."
-
-msgid "Unable to retrieve instance."
-msgstr "Tidak dapat mengambil instance"
 
 msgid "Unable to retrieve instances."
 msgstr "Tidak dapat mengambil instance."

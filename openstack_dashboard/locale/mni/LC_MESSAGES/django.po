@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev56\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-25 05:45+0000\n"
+"POT-Creation-Date: 2017-10-21 13:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3824,9 +3824,6 @@ msgstr "ইন্সতেন্স প্রোজেক্ত ইনফোর�
 
 msgid "Unable to retrieve instance size information."
 msgstr "ইন্সতেন্স সাইজ ইনফোর্মেসন রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve instance."
-msgstr "ইন্সতেন্স রিত্রিভ তৌবা ঙমদে।"
 
 msgid "Unable to retrieve instances."
 msgstr "ইন্সতেন্সশীং রিত্রিভ তৌবা ঙমদে।"

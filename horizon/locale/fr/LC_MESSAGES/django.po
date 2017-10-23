@@ -2,17 +2,18 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2017. #zanata
+# Loic Nicolle <loic.nicolle@orange.com>, 2017. #zanata
 # Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev100\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-16 22:35+0000\n"
+"POT-Creation-Date: 2017-10-21 13:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-16 08:02+0000\n"
-"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
+"PO-Revision-Date: 2017-10-20 02:38+0000\n"
+"Last-Translator: Loic Nicolle <loic.nicolle@orange.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -420,6 +421,9 @@ msgstr "Vous n'êtes pas autorisé à %(action)s : %(objs)s"
 #, python-format
 msgid "You are not authorized to access %s"
 msgstr "Vous n'êtes pas autorisé à accéder à %s"
+
+msgid "You are not authorized to access this page"
+msgstr "Vous n'êtes pas autorisé à accéder à cette page"
 
 msgid "You do not have permission to access the resource:"
 msgstr "Vous n'avez pas la permission d'accéder à la ressource :"

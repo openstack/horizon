@@ -10,6 +10,7 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2017. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
@@ -17,14 +18,14 @@
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev167\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-13 04:00+0000\n"
+"POT-Creation-Date: 2017-10-21 13:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-10 09:03+0000\n"
-"Last-Translator: Wonil Choi <wonil0522@gmail.com>\n"
+"PO-Revision-Date: 2017-10-21 03:06+0000\n"
+"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -716,11 +717,21 @@ msgstr "가용 구역"
 msgid "Availability Zone ="
 msgstr "Availability Zone ="
 
+msgid "Availability Zone Hints"
+msgstr "가용 구역 힌트"
+
 msgid "Availability Zone Name"
 msgstr "가용성 존 이름"
 
 msgid "Availability Zones"
 msgstr "가용성 존"
+
+msgid ""
+"Availability Zones where the router may be scheduled. Leaving this unset is "
+"equivalent to selecting all Availability Zones"
+msgstr ""
+"라우터가 스케줄되는 가용 구역. 이 항목을 선택하지 않는 것은 전체 가용구역을 "
+"선택한 것과 같습니다."
 
 msgid "Availability zone"
 msgstr "가용성 존"
@@ -1233,6 +1244,9 @@ msgstr "네트워크 생성 (Quota 초과)"
 
 msgid "Create Port"
 msgstr "포트 생성"
+
+msgid "Create Port (Quota exceeded)"
+msgstr "포트 생성 (Quota 초과)"
 
 msgid "Create Project"
 msgstr "프로젝트 생성"
@@ -2692,6 +2706,9 @@ msgstr "네트워크 %s을(를) 삭제하지 못하였습니다."
 msgid "Failed to delete port %s"
 msgstr "포트 %s를 삭제하지 못하였습니다."
 
+msgid "Failed to delete stack."
+msgstr "스택 삭제 실패"
+
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "서브넷 %s을 삭제하지 못하였습니다."
@@ -2776,6 +2793,9 @@ msgstr ""
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "볼륨 타입 접근 권한에서 프로젝트 %(project)s 를  제거하지 못했습니다."
 
+msgid "Failed to resume stack."
+msgstr "스택 재개 실패"
+
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "서브넷 네트워크 %s를 찾지 못하였습니다."
@@ -2783,6 +2803,9 @@ msgstr "서브넷 네트워크 %s를 찾지 못하였습니다."
 #, python-format
 msgid "Failed to set gateway: %s"
 msgstr "게이트웨이를 설정하지 못함: %s"
+
+msgid "Failed to suspend stack."
+msgstr "스택 일시중단 실패"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -2897,6 +2920,9 @@ msgstr "유동 IP"
 
 msgid "Floating IP Address (optional)"
 msgstr "Floating IP 주소 (옵션)"
+
+msgid "Floating IP Address ="
+msgstr "유동 IP 주소 ="
 
 msgid "Floating IP Details"
 msgstr "Floating IP를 찾을 수 없음"
@@ -3358,6 +3384,9 @@ msgstr "키 페어 가져오기"
 msgid "Import Namespace"
 msgstr "네임스페이스 가져오기"
 
+msgid "Import Public Key"
+msgstr "공개 키 가져오기"
+
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "사용 중"
@@ -3536,6 +3565,9 @@ msgstr "키 페어 세부 정보"
 msgid "Key Pair Name"
 msgstr "키 페어 이름"
 
+msgid "Key Pair Name ="
+msgstr "케 페어 이름 ="
+
 msgid "Key Pairs"
 msgstr "키 페어"
 
@@ -3672,6 +3704,9 @@ msgstr "MAC 주소"
 
 msgid "MAC Learning State"
 msgstr "MAC 러닝 상태"
+
+msgid "MAC address for the port"
+msgstr "포트 MAC 주소"
 
 msgid "MB"
 msgstr "MB"
@@ -3929,6 +3964,9 @@ msgstr "볼륨 타입 이름, 설명, 그리고 공용 상태를 수정합니다
 msgid "Monitoring:"
 msgstr "모니터링:"
 
+msgid "More"
+msgstr "더 보기"
+
 msgid "N/A"
 msgstr "N/A"
 
@@ -4020,6 +4058,9 @@ msgstr "네트워크 세부사항"
 
 msgid "Network ID"
 msgstr "네트워크 ID"
+
+msgid "Network ID ="
+msgstr "네트워크 ID ="
 
 msgid "Network Mask"
 msgstr "네트워크 마스크"
@@ -4544,6 +4585,9 @@ msgstr "포트 %s를 성공적으로 생성하였습니다."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "포트 %s를 성공적으로 업데이트 하였습니다."
+
+msgid "Port ID ="
+msgstr "포트 ID ="
 
 msgid "Port Range"
 msgstr "포트 범위"
@@ -5183,6 +5227,9 @@ msgstr "라우터 %s를 성공적으로 생성하였습니다."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "라우터 %s를 성공적으로 업데이트 했습니다."
+
+msgid "Router ID ="
+msgstr "라우터 ID ="
 
 msgid "Router Name"
 msgstr "라우터 이름"
@@ -6507,6 +6554,9 @@ msgstr ""
 msgid "This instance is unlocked."
 msgstr "인스턴스가 잠금 해제되었습니다."
 
+msgid "This is a test: "
+msgstr "이것은 테스트입니다:"
+
 msgid ""
 "This is equivalent to the <tt>openstack volume qos associate</tt> and "
 "<tt>openstack volume qos disassociate</tt> commands."
@@ -7295,9 +7345,6 @@ msgstr "인스턴스 프로젝트 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve instance size information."
 msgstr "인스턴스 크기 정보를 찾지 못했습니다."
-
-msgid "Unable to retrieve instance."
-msgstr "인스턴스를 찾지 못 했습니다."
 
 msgid "Unable to retrieve instances."
 msgstr "인스턴스를 찾지 못 했습니다."
@@ -8139,6 +8186,9 @@ msgstr "볼륨 암호화 세부 정보: {{ volume.name }}"
 msgid "Volume Encryption Overview"
 msgstr "볼륨 암호화 개요"
 
+msgid "Volume Groups"
+msgstr "볼륨 그룹"
+
 msgid "Volume ID"
 msgstr "볼륨 ID"
 
@@ -8373,6 +8423,9 @@ msgstr ""
 "자 정의 TCP 규칙, 사용자 정의 UDP 규칙, 또는 사용자 정의 ICMP 규칙이 있습니"
 "다. "
 
+msgid "You can update the editable properties of your port here."
+msgstr "여기서 포트의 편집 가능한 속성을 업데이트할 수 있습니다."
+
 msgid "You cannot disable your current project"
 msgstr "현재 프로젝트를 비활성화할 수 없습니다"
 
@@ -8468,6 +8521,9 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "down"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "예시:  동작중 / 다운 / 에러"
 
 msgid "e.g. UP / DOWN"
 msgstr "예시: UP / DOWN"
