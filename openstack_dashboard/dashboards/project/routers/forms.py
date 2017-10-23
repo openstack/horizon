@@ -76,15 +76,20 @@ class CreateForm(forms.SelfHandlingForm):
         else:
             del self.fields['external_network']
 
-        az_supported = api.neutron.is_extension_supported(
-            self.request, 'router_availability_zone')
+        try:
+            az_supported = api.neutron.is_extension_supported(
+                self.request, 'router_availability_zone')
 
-        if az_supported:
-            zones = api.neutron.list_availability_zones(self.request, 'router',
-                                                        'available')
-            self.fields['az_hints'].choices = [(zone['name'], zone['name'])
-                                               for zone in zones]
-        else:
+            if az_supported:
+                zones = api.neutron.list_availability_zones(
+                    self.request, 'router', 'available')
+                self.fields['az_hints'].choices = [(zone['name'], zone['name'])
+                                                   for zone in zones]
+            else:
+                del self.fields['az_hints']
+        except Exception:
+            msg = _("Failed to get availability zone list.")
+            exceptions.handle(self.request, msg)
             del self.fields['az_hints']
 
     def _get_network_list(self, request):

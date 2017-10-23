@@ -256,9 +256,15 @@ class RoutersTable(tables.DataTable):
             del self.columns["distributed"]
         if not api.neutron.get_feature_permission(request, "l3-ha", "get"):
             del self.columns["ha"]
-        if not api.neutron.is_extension_supported(request,
-                                                  "router_availability_zone"):
-            del self.columns["availability_zones"]
+        try:
+            if not api.neutron.is_extension_supported(
+                    request, "router_availability_zone"):
+                del self.columns["availability_zones"]
+        except Exception:
+            msg = _("Unable to check if router availability zone extension "
+                    "is supported")
+            exceptions.handle(self.request, msg)
+            del self.columns['availability_zones']
 
     def get_object_display(self, obj):
         return obj.name
