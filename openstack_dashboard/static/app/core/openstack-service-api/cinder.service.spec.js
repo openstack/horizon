@@ -222,6 +222,13 @@
         testInput: [
           42, {a: '1', b: '2'}, ['c', 'd']
         ]
+      },
+      {
+        func: 'getAvailabilityZones',
+        method: 'get',
+        path: '/api/cinder/availzones/',
+        error: 'Unable to retrieve the volume availability zones.',
+        testInput: []
       }
     ];
 

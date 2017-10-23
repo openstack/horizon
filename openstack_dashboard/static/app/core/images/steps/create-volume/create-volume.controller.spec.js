@@ -34,6 +34,13 @@
           }
         };
       },
+      getAvailabilityZones: function() {
+        return {
+          success: function(callback) {
+            return callback({ items: [{zoneName: 'zone1'}] });
+          }
+        };
+      },
       getAbsoluteLimits: angular.noop
     };
 
@@ -43,15 +50,6 @@
 
     beforeEach(inject(function ($injector, _$rootScope_, _$filter_) {
 
-      nova = {
-        getAvailabilityZones: function() {
-          return {
-            success: function(callback) {
-              return callback({ items: [{zoneName: 'zone1'}] });
-            }
-          };
-        }
-      };
       $scope = _$rootScope_.$new();
       $scope.image = {
         name: 'ImageName',
@@ -358,7 +356,7 @@
 
     it('not default the availability_zone if none present', function() {
 
-      nova.getAvailabilityZones = function() {
+      cinder.getAvailabilityZones = function() {
         return {
           success: function(callback) {
             return callback({ items: [] });

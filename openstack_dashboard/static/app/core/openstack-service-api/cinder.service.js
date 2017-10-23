@@ -46,6 +46,7 @@
       getVolumeSnapshots: getVolumeSnapshots,
       getExtensions: getExtensions,
       getQoSSpecs: getQoSSpecs,
+      getAvailabilityZones:getAvailabilityZones,
       createVolume: createVolume,
       getAbsoluteLimits: getAbsoluteLimits,
       getServices: getServices,
@@ -401,6 +402,25 @@
       return apiService.patch(url, quota)
         .error(function() {
           toastService.add('error', gettext('Unable to update project quota data.'));
+        });
+    }
+
+    // Availability Zones
+
+    /**
+     * @name getAvailabilityZones
+     * @description
+     * Get a list of Availability Zones.
+     *
+     * The listing result is an object with property "items". Each item is
+     * an availability zone.
+     * @returns {Object} The result of the API call
+     */
+    function getAvailabilityZones() {
+      return apiService.get('/api/cinder/availzones/')
+        .error(function () {
+          toastService.add('error',
+                        gettext('Unable to retrieve the volume availability zones.'));
         });
     }
   }

@@ -484,3 +484,21 @@ class CinderRestTestCase(test.TestCase):
         self.assertEqual(response.content.decode('utf-8'),
                          '"Service Cinder is disabled."')
         cc.tenant_quota_update.assert_not_called()
+
+    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_availability_zones_get(self, cc):
+        request = self.mock_rest_request(GET={})
+        mock_az = mock.Mock()
+        mock_az.to_dict.return_value = {
+            'name': 'cinder',
+            'status': 'available'
+        }
+        cc.availability_zone_list.return_value = [mock_az]
+        self.mox.ReplayAll()
+
+        response = cinder.AvailabilityZones().get(request)
+        self.assertStatusCode(response, 200)
+        response_as_json = json.loads(response.content.decode('utf-8'))
+        self.assertEqual(response_as_json['items'][0]['name'], 'cinder')
+        cc.availability_zone_list.assert_called_once_with(request, False)
