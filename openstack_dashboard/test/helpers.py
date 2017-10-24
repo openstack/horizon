@@ -20,6 +20,7 @@ import collections
 import copy
 from functools import wraps
 from importlib import import_module
+import logging
 import os
 import traceback
 import unittest
@@ -56,6 +57,8 @@ from openstack_dashboard import api
 from openstack_dashboard import context_processors
 from openstack_dashboard.test.test_data import utils as test_utils
 
+
+LOG = logging.getLogger(__name__)
 
 # Makes output of failing mox tests much easier to read.
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
@@ -464,6 +467,9 @@ class APITestCase(TestCase):
         return self.novaclient
 
     def stub_cinderclient(self):
+        LOG.warning("APITestCase has been deprecated for Cinder-related "
+                    "tests and will be removerd in 'S' release. Please "
+                    "convert  your to use APIMockTestCase instead.")
         if not hasattr(self, "cinderclient"):
             self.mox.StubOutWithMock(cinder_client, 'Client')
             self.cinderclient = self.mox.CreateMock(cinder_client.Client)
@@ -516,6 +522,13 @@ class APITestCase(TestCase):
             self.mox.StubOutWithMock(heat_client, 'Client')
             self.heatclient = self.mox.CreateMock(heat_client.Client)
         return self.heatclient
+
+
+class APIMockTestCase(APITestCase):
+    def stub_cinderclient(self):
+        if not hasattr(self, "cinderclient"):
+            self.cinderclient = mock.Mock()
+        return self.cinderclient
 
 
 # Need this to test both Glance API V1 and V2 versions
