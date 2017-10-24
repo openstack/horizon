@@ -106,6 +106,13 @@ DISPLAY_CHOICES = (
 )
 
 
+def get_availability_zones(network):
+    if 'availability_zones' in network and network.availability_zones:
+        return ', '.join(network.availability_zones)
+    else:
+        return _("-")
+
+
 class AdminNetworksFilterAction(project_tables.ProjectNetworksFilterAction):
     name = "filter_admin_networks"
     filter_choices = (('project', _("Project ="), True),) +\
@@ -131,6 +138,8 @@ class NetworksTable(tables.DataTable):
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
+    availability_zones = tables.Column(get_availability_zones,
+                                       verbose_name=_("Availability Zones"))
 
     def get_object_display(self, network):
         return network.name_or_id
@@ -147,6 +156,15 @@ class NetworksTable(tables.DataTable):
             request, data=data,
             needs_form_wrapper=needs_form_wrapper,
             **kwargs)
+        try:
+            if not api.neutron.is_extension_supported(
+                    request, "network_availability_zone"):
+                del self.columns["availability_zones"]
+        except Exception:
+            msg = _("Unable to check if network availability zone extension "
+                    "is supported")
+            exceptions.handle(self.request, msg)
+            del self.columns['availability_zones']
         try:
             if not api.neutron.is_extension_supported(request,
                                                       'dhcp_agent_scheduler'):

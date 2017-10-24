@@ -150,6 +150,13 @@ STATUS_DISPLAY_CHOICES = (
 )
 
 
+def get_availability_zones(network):
+    if 'availability_zones' in network and network.availability_zones:
+        return ', '.join(network.availability_zones)
+    else:
+        return _("-")
+
+
 class ProjectNetworksFilterAction(tables.FilterAction):
     name = "filter_project_networks"
     filter_type = "server"
@@ -178,6 +185,24 @@ class NetworksTable(tables.DataTable):
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
+    availability_zones = tables.Column(get_availability_zones,
+                                       verbose_name=_("Availability Zones"))
+
+    def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
+        super(NetworksTable, self).__init__(
+            request,
+            data=data,
+            needs_form_wrapper=needs_form_wrapper,
+            **kwargs)
+        try:
+            if not api.neutron.is_extension_supported(
+                    request, "network_availability_zone"):
+                del self.columns["availability_zones"]
+        except Exception:
+            msg = _("Unable to check if network availability zone extension "
+                    "is supported")
+            exceptions.handle(self.request, msg)
+            del self.columns['availability_zones']
 
     def get_object_display(self, network):
         return network.name_or_id

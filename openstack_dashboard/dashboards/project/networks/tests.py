@@ -123,7 +123,8 @@ class NetworkStubMixin(object):
 
 class NetworkTests(test.TestCase, NetworkStubMixin):
 
-    @test.create_stubs({api.neutron: ('network_list',),
+    @test.create_stubs({api.neutron: ('network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_index(self):
         quota_data = self.quota_usages.first()
@@ -136,6 +137,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -144,7 +148,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())
 
-    @test.create_stubs({api.neutron: ('network_list',),
+    @test.create_stubs({api.neutron: ('network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_index_network_list_exception(self):
         quota_data = self.neutron_quota_usages.first()
@@ -155,6 +160,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('networks', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -194,6 +202,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
         url = urlunquote(reverse('horizon:project:networks:detail',
@@ -219,6 +230,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
         self.mox.ReplayAll()
 
         url = urlunquote(reverse('horizon:project:networks:subnets_tab',
@@ -290,6 +304,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
         self.mox.ReplayAll()
 
         url = urlunquote(reverse('horizon:project:networks:subnets_tab',
@@ -330,6 +347,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
         self.mox.ReplayAll()
 
         url = urlunquote(reverse('horizon:project:networks:subnets_tab',
@@ -911,7 +931,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'network_list',
-                                      'network_delete')})
+                                      'network_delete',
+                                      'is_extension_supported')})
     def test_delete_network_no_subnet(self):
         network = self.networks.first()
         network.subnets = []
@@ -919,6 +940,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                 network.id,
                                 expand_subnet=False)\
             .AndReturn(network)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
         self._stub_net_list()
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)
 
@@ -931,7 +955,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     @test.create_stubs({api.neutron: ('network_get',
                                       'network_list',
                                       'network_delete',
-                                      'subnet_delete')})
+                                      'subnet_delete',
+                                      'is_extension_supported')})
     def test_delete_network_with_subnet(self):
         network = self.networks.first()
         network.subnets = [subnet.id for subnet in network.subnets]
@@ -941,6 +966,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                 network.id,
                                 expand_subnet=False)\
             .AndReturn(network)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
         self._stub_net_list()
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnetv6_id)
@@ -956,7 +984,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     @test.create_stubs({api.neutron: ('network_get',
                                       'network_list',
                                       'network_delete',
-                                      'subnet_delete')})
+                                      'subnet_delete',
+                                      'is_extension_supported')})
     def test_delete_network_exception(self):
         network = self.networks.first()
         network.subnets = [subnet.id for subnet in network.subnets]
@@ -966,6 +995,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                 network.id,
                                 expand_subnet=False)\
             .AndReturn(network)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
         self._stub_net_list()
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnetv6_id)
@@ -999,6 +1031,9 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -1028,6 +1063,9 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -1042,7 +1080,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
                       "The create button should be disabled")
         return button
 
-    @test.create_stubs({api.neutron: ('network_list',),
+    @test.create_stubs({api.neutron: ('network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_network_create_button_disabled_when_quota_exceeded_index(self):
         networks_tables.CreateNetwork()
@@ -1052,7 +1091,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self._test_create_button_disabled_when_quota_exceeded(_find_net_button,
                                                               network_quota=0)
 
-    @test.create_stubs({api.neutron: ('network_list',),
+    @test.create_stubs({api.neutron: ('network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_subnet_create_button_disabled_when_quota_exceeded_index(self):
         network_id = self.networks.first().id
@@ -1065,7 +1105,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self._test_create_button_disabled_when_quota_exceeded(
             _find_subnet_button, subnet_quota=0)
 
-    @test.create_stubs({api.neutron: ('network_list',),
+    @test.create_stubs({api.neutron: ('network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_network_create_button_shown_when_quota_disabled_index(self):
         # if quota_data doesnt contain a networks["available"] key its disabled
@@ -1074,7 +1115,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
             lambda res: self.getAndAssertTableAction(res, 'networks', 'create')
         )
 
-    @test.create_stubs({api.neutron: ('network_list',),
+    @test.create_stubs({api.neutron: ('network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_subnet_create_button_shown_when_quota_disabled_index(self):
         # if quota_data doesnt contain a subnets["available"] key, its disabled
@@ -1106,6 +1148,9 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -1135,7 +1180,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertNotIn('disabled', create_action.classes,
                          'The create button should be enabled')
 
-    @test.create_stubs({api.neutron: ('network_list',),
+    @test.create_stubs({api.neutron: ('network_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_attributes(self):
         create_action = self._test_create_button_shown_when_quota_disabled(
@@ -1184,6 +1230,9 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('ports',)) \
             .MultipleTimes().AndReturn(quota_data)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 

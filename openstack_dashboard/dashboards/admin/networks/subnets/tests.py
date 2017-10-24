@@ -429,6 +429,9 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             IsA(http.HttpRequest),
             'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network_availability_zone')\
+            .MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'dhcp_agent_scheduler')\
             .MultipleTimes().AndReturn(True)
         quotas.tenant_quota_usages(
