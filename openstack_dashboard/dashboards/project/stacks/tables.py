@@ -277,7 +277,8 @@ class StacksTable(tables.DataTable):
     created = tables.Column("creation_time",
                             verbose_name=_("Created"),
                             filters=(filters.parse_isotime,
-                                     filters.timesince_or_never))
+                                     filters.timesince_sortable),
+                            attrs={'data-type': 'timesince'})
     updated = tables.Column("updated_time",
                             verbose_name=_("Updated"),
                             filters=(filters.parse_isotime,
