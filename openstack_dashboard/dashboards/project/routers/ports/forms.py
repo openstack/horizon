@@ -145,12 +145,23 @@ class AddInterface(forms.SelfHandlingForm):
 
 class SetGatewayForm(forms.SelfHandlingForm):
     network_id = forms.ThemableChoiceField(label=_("External Network"))
+    enable_snat = forms.BooleanField(label=_("Enable SNAT"),
+                                     initial=True,
+                                     required=False)
     failure_url = 'horizon:project:routers:index'
 
     def __init__(self, request, *args, **kwargs):
         super(SetGatewayForm, self).__init__(request, *args, **kwargs)
-        c = self.populate_network_id_choices(request)
-        self.fields['network_id'].choices = c
+        networks = self.populate_network_id_choices(request)
+        self.fields['network_id'].choices = networks
+        self.ext_gw_mode = api.neutron.is_extension_supported(
+            self.request, 'ext-gw-mode')
+        self.enable_snat_allowed = api.neutron.get_feature_permission(
+            self.request,
+            "ext-gw-mode",
+            "update_router_enable_snat")
+        if not self.ext_gw_mode or not self.enable_snat_allowed:
+            del self.fields['enable_snat']
 
     def populate_network_id_choices(self, request):
         search_opts = {'router:external': True}
@@ -173,9 +184,13 @@ class SetGatewayForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            enable_snat = None
+            if 'enable_snat' in data:
+                enable_snat = data['enable_snat']
             api.neutron.router_add_gateway(request,
                                            self.initial['router_id'],
-                                           data['network_id'])
+                                           data['network_id'],
+                                           enable_snat)
             msg = _('Gateway interface is added')
             messages.success(request, msg)
             return True

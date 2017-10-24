@@ -285,6 +285,10 @@ class RouterActionTests(RouterMixin, test.TestCase):
     def test_router_create_post(self):
         router = self.routers.first()
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "ext-gw-mode",
+                                           "create_router_enable_snat")\
+            .AndReturn(True)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "dvr", "create")\
             .AndReturn(False)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
@@ -315,6 +319,10 @@ class RouterActionTests(RouterMixin, test.TestCase):
                                       'is_extension_supported')})
     def test_router_create_post_mode_server_default(self):
         router = self.routers.first()
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "ext-gw-mode",
+                                           "create_router_enable_snat")\
+            .AndReturn(True)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "dvr", "create")\
             .AndReturn(True)
@@ -348,6 +356,10 @@ class RouterActionTests(RouterMixin, test.TestCase):
                                       'is_extension_supported')})
     def test_dvr_ha_router_create_post(self):
         router = self.routers.first()
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "ext-gw-mode",
+                                           "create_router_enable_snat")\
+            .AndReturn(True)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "dvr", "create")\
             .MultipleTimes().AndReturn(True)
@@ -384,6 +396,10 @@ class RouterActionTests(RouterMixin, test.TestCase):
                                       'list_availability_zones')})
     def test_az_router_create_post(self):
         router = self.routers.first()
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "ext-gw-mode",
+                                           "create_router_enable_snat")\
+            .AndReturn(True)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "dvr", "create")\
             .MultipleTimes().AndReturn(False)
@@ -423,6 +439,10 @@ class RouterActionTests(RouterMixin, test.TestCase):
     def test_router_create_post_exception_error_case_409(self):
         router = self.routers.first()
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "ext-gw-mode",
+                                           "create_router_enable_snat")\
+            .AndReturn(True)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "dvr", "create")\
             .MultipleTimes().AndReturn(False)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
@@ -454,6 +474,10 @@ class RouterActionTests(RouterMixin, test.TestCase):
                                       'network_list')})
     def test_router_create_post_exception_error_case_non_409(self):
         router = self.routers.first()
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "ext-gw-mode",
+                                           "create_router_enable_snat")\
+            .AndReturn(True)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "dvr", "create")\
             .MultipleTimes().AndReturn(False)
@@ -730,24 +754,34 @@ class RouterActionTests(RouterMixin, test.TestCase):
 
     @test.create_stubs({api.neutron: ('router_get',
                                       'router_add_gateway',
-                                      'network_list')})
+                                      'network_list',
+                                      'is_extension_supported')})
     def test_router_add_gateway(self):
         router = self.routers.first()
         network = self.networks.first()
         api.neutron.router_add_gateway(
             IsA(http.HttpRequest),
             router.id,
-            network.id).AndReturn(None)
+            network.id,
+            True).AndReturn(None)
         api.neutron.router_get(
             IsA(http.HttpRequest), router.id).AndReturn(router)
         search_opts = {'router:external': True}
         api.neutron.network_list(
             IsA(http.HttpRequest), **search_opts).AndReturn([network])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'ext-gw-mode')\
+            .AndReturn(True)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "ext-gw-mode",
+                                           "update_router_enable_snat")\
+            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'router_id': router.id,
                      'router_name': router.name,
-                     'network_id': network.id}
+                     'network_id': network.id,
+                     'enable_snat': True}
 
         url = reverse('horizon:%s:routers:setgateway' % self.DASHBOARD,
                       args=[router.id])
@@ -758,24 +792,34 @@ class RouterActionTests(RouterMixin, test.TestCase):
 
     @test.create_stubs({api.neutron: ('router_get',
                                       'router_add_gateway',
-                                      'network_list')})
+                                      'network_list',
+                                      'is_extension_supported')})
     def test_router_add_gateway_exception(self):
         router = self.routers.first()
         network = self.networks.first()
         api.neutron.router_add_gateway(
             IsA(http.HttpRequest),
             router.id,
-            network.id).AndRaise(self.exceptions.neutron)
+            network.id,
+            True).AndRaise(self.exceptions.neutron)
         api.neutron.router_get(
             IsA(http.HttpRequest), router.id).AndReturn(router)
         search_opts = {'router:external': True}
         api.neutron.network_list(
             IsA(http.HttpRequest), **search_opts).AndReturn([network])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'ext-gw-mode')\
+            .AndReturn(True)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "ext-gw-mode",
+                                           "update_router_enable_snat")\
+            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'router_id': router.id,
                      'router_name': router.name,
-                     'network_id': network.id}
+                     'network_id': network.id,
+                     'enable_snat': True}
 
         url = reverse('horizon:%s:routers:setgateway' % self.DASHBOARD,
                       args=[router.id])

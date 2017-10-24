@@ -180,6 +180,17 @@ class CreateView(forms.ModalFormView):
     submit_label = _("Create Router")
     submit_url = reverse_lazy("horizon:project:routers:create")
 
+    def get_context_data(self, **kwargs):
+        context = super(CreateView, self).get_context_data(**kwargs)
+        context['enable_snat_allowed'] = self.initial['enable_snat_allowed']
+        return context
+
+    def get_initial(self):
+        enable_snat_allowed = api.neutron.get_feature_permission(
+            self.request, 'ext-gw-mode', 'create_router_enable_snat')
+        self.initial['enable_snat_allowed'] = enable_snat_allowed
+        return super(CreateView, self).get_initial()
+
 
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateForm

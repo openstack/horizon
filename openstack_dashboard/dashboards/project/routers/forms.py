@@ -39,6 +39,9 @@ class CreateForm(forms.SelfHandlingForm):
                                         required=False)
     external_network = forms.ThemableChoiceField(label=_("External Network"),
                                                  required=False)
+    enable_snat = forms.BooleanField(label=_("Enable SNAT"),
+                                     initial=True,
+                                     required=False)
     mode = forms.ChoiceField(label=_("Router Type"))
     ha = forms.ChoiceField(label=_("High Availability Mode"))
     az_hints = forms.MultipleChoiceField(
@@ -75,6 +78,10 @@ class CreateForm(forms.SelfHandlingForm):
             self.fields['external_network'].choices = networks
         else:
             del self.fields['external_network']
+
+        self.enable_snat_allowed = self.initial['enable_snat_allowed']
+        if (not networks or not self.enable_snat_allowed):
+            del self.fields['enable_snat']
 
         try:
             az_supported = api.neutron.is_extension_supported(
@@ -116,6 +123,9 @@ class CreateForm(forms.SelfHandlingForm):
             if 'external_network' in data and data['external_network']:
                 params['external_gateway_info'] = {'network_id':
                                                    data['external_network']}
+                if self.ext_gw_mode_supported and self.enable_snat_allowed:
+                    params['external_gateway_info']['enable_snat'] = \
+                        data['enable_snat']
             if 'az_hints' in data and data['az_hints']:
                 params['availability_zone_hints'] = data['az_hints']
             if (self.dvr_allowed and data['mode'] != 'server_default'):
