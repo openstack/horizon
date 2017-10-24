@@ -5,13 +5,13 @@
 # Andi Chandler <andi@gowling.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev175\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev216\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-14 12:29+0000\n"
+"POT-Creation-Date: 2017-10-23 22:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-14 11:39+0000\n"
+"PO-Revision-Date: 2017-10-23 06:34+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -2907,6 +2907,9 @@ msgstr "Unable to retrieve the user."
 
 msgid "Unable to retrieve the users."
 msgstr "Unable to retrieve the users."
+
+msgid "Unable to retrieve the volume availability zones."
+msgstr "Unable to retrieve the volume availability zones."
 
 msgid "Unable to retrieve the volume metadata."
 msgstr "Unable to retrieve the volume metadata."
