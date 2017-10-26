@@ -181,6 +181,7 @@
         availability_zone: null,
         admin_pass: null,
         config_drive: false,
+        description: null,
         // REQUIRED Server Key.  Null allowed.
         user_data: '',
         disk_config: 'AUTO',

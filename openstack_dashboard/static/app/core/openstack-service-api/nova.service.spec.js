@@ -41,6 +41,15 @@
 
     var tests = [
       {
+        "func": "isFeatureSupported",
+        "method": "get",
+        "path": "/api/nova/features/fake",
+        "error": "Unable to check the Nova service feature.",
+        "testInput": [
+          "fake"
+        ]
+      },
+      {
         "func": "getServices",
         "method": "get",
         "path": "/api/nova/services/",

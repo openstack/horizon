@@ -44,6 +44,17 @@ class Snapshots(generic.View):
 
 
 @urls.register
+class Features(generic.View):
+    """API for check if a specified feature is supported."""
+    url_regex = r'nova/features/(?P<name>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def get(self, request, name):
+        """Check if a specified feature is supported."""
+        return api.nova.is_feature_available(request, name)
+
+
+@urls.register
 class Keypairs(generic.View):
     """API for nova keypairs."""
     url_regex = r'nova/keypairs/$'
@@ -300,7 +311,7 @@ class Servers(generic.View):
     _optional_create = [
         'block_device_mapping', 'block_device_mapping_v2', 'nics', 'meta',
         'availability_zone', 'instance_count', 'admin_pass', 'disk_config',
-        'config_drive', 'scheduler_hints'
+        'config_drive', 'scheduler_hints', 'description'
     ]
 
     @rest_utils.ajax()

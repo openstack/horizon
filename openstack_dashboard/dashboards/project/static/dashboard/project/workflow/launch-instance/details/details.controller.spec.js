@@ -23,15 +23,24 @@
     beforeEach(module('horizon.dashboard.project'));
 
     describe('LaunchInstanceDetailsController', function() {
-      var scope, ctrl, deferred;
+      var $q, scope, ctrl, deferred;
+      var novaAPI = {
+        isFeatureSupported: function() {
+          var deferred = $q.defer();
+          deferred.resolve({ data: true });
+          return deferred.promise;
+        }
+      };
 
       beforeEach(module(function($provide) {
         $provide.value('horizon.framework.widgets.charts.donutChartSettings', noop);
         $provide.value('horizon.framework.widgets.charts.quotaChartDefaults', noop);
+        $provide.value('horizon.app.core.openstack-service-api.nova', novaAPI);
       }));
 
-      beforeEach(inject(function($controller, $rootScope, $q) {
-        scope = $rootScope.$new();
+      beforeEach(inject(function($injector, $controller, _$q_, _$rootScope_) {
+        scope = _$rootScope_.$new();
+        $q = _$q_;
         deferred = $q.defer();
         scope.initPromise = deferred.promise;
 
@@ -47,10 +56,20 @@
           }
         };
 
+        novaAPI = $injector.get('horizon.app.core.openstack-service-api.nova');
         ctrl = $controller('LaunchInstanceDetailsController', { $scope: scope });
 
         scope.$apply();
       }));
+
+      it('should have isDescriptionSupported defined', function() {
+        spyOn(novaAPI, 'isFeatureSupported').and.callFake(function () {
+          var deferred = $q.defer();
+          deferred.resolve({ data: true });
+          return deferred.promise;
+        });
+        expect(ctrl.isDescriptionSupported).toBe(true);
+      });
 
       it('should define error messages for invalid fields', function() {
         expect(ctrl.instanceNameError).toBeDefined();

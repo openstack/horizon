@@ -42,6 +42,7 @@
       getConsoleInfo: getConsoleInfo,
       getServerVolumes: getServerVolumes,
       getServerSecurityGroups: getServerSecurityGroups,
+      isFeatureSupported: isFeatureSupported,
       getKeypairs: getKeypairs,
       createKeypair: createKeypair,
       getKeypair: getKeypair,
@@ -83,6 +84,21 @@
     return service;
 
     ///////////
+
+    // Feature
+
+    /**
+     * @name isFeatureSupported
+     * @description
+     * Check if the feature is supported.
+     * @returns {Object} The result of the API call
+     */
+    function isFeatureSupported(feature) {
+      return apiService.get('/api/nova/features/' + feature)
+        .error(function () {
+          toastService.add('error', gettext('Unable to check the Nova service feature.'));
+        });
+    }
 
     // Nova Services
 

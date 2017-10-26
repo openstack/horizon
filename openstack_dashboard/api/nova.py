@@ -106,7 +106,7 @@ class Server(base.APIResourceWrapper):
 
     Preserves the request info so image name can later be retrieved.
     """
-    _attrs = ['addresses', 'attrs', 'id', 'image', 'links',
+    _attrs = ['addresses', 'attrs', 'id', 'image', 'links', 'description',
               'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
               'image_name', 'VirtualInterfaces', 'flavor', 'key_name', 'fault',
               'tenant_id', 'user_id', 'created', 'locked',
@@ -479,8 +479,11 @@ def server_create(request, name, image, flavor, key_name, user_data,
                   block_device_mapping_v2=None, nics=None,
                   availability_zone=None, instance_count=1, admin_pass=None,
                   disk_config=None, config_drive=None, meta=None,
-                  scheduler_hints=None):
-    return Server(novaclient(request).servers.create(
+                  scheduler_hints=None, description=None):
+    kwargs = {}
+    if description is not None:
+        kwargs['description'] = description
+    return Server(get_novaclient_with_instance_desc(request).servers.create(
         name.strip(), image, flavor, userdata=user_data,
         security_groups=security_groups,
         key_name=key_name, block_device_mapping=block_device_mapping,
@@ -488,7 +491,7 @@ def server_create(request, name, image, flavor, key_name, user_data,
         nics=nics, availability_zone=availability_zone,
         min_count=instance_count, admin_pass=admin_pass,
         disk_config=disk_config, config_drive=config_drive,
-        meta=meta, scheduler_hints=scheduler_hints), request)
+        meta=meta, scheduler_hints=scheduler_hints, **kwargs), request)
 
 
 @profiler.trace
@@ -501,9 +504,14 @@ def get_novaclient_with_locked_status(request):
     return novaclient(request, version=microversion)
 
 
+def get_novaclient_with_instance_desc(request):
+    microversion = get_microversion(request, "instance_description")
+    return novaclient(request, version=microversion)
+
+
 @profiler.trace
 def server_get(request, instance_id):
-    return Server(get_novaclient_with_locked_status(request).servers.get(
+    return Server(get_novaclient_with_instance_desc(request).servers.get(
         instance_id), request)
 
 
@@ -591,8 +599,9 @@ def server_rebuild(request, instance_id, image_id, password=None,
 
 
 @profiler.trace
-def server_update(request, instance_id, name):
-    return novaclient(request).servers.update(instance_id, name=name.strip())
+def server_update(request, instance_id, name, description=None):
+    return get_novaclient_with_instance_desc(request).servers.update(
+        instance_id, name=name.strip(), description=description)
 
 
 @profiler.trace
