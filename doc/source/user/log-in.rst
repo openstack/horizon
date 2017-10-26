@@ -16,9 +16,9 @@ The dashboard is generally installed on the controller node.
       To use the Virtual Network Computing (VNC) client for the dashboard,
       your browser must support HTML5 Canvas and HTML5 WebSockets. The VNC
       client is based on noVNC. For details, see `noVNC: HTML5 VNC
-      Client <https://github.com/kanaka/noVNC/blob/master/README.md>`__.
+      Client <https://github.com/novnc/noVNC/blob/master/README.md>`__.
       For a list of supported browsers, see `Browser
-      support <https://github.com/kanaka/noVNC/wiki/Browser-support>`__.
+      support <https://github.com/novnc/noVNC/wiki/Browser-support>`__.
 
 #. In the address bar, enter the host name or IP address for the
    dashboard, for example, ``https://ipAddressOrHostName/``.
