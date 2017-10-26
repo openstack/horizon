@@ -11,13 +11,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev167\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev234\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-13 04:00+0000\n"
+"POT-Creation-Date: 2017-10-25 02:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-10 10:09+0000\n"
+"PO-Revision-Date: 2017-10-24 07:27+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -2579,6 +2579,9 @@ msgstr "Não foi possível criar o flavor."
 msgid "Unable to create the folder."
 msgstr "Não é possível criar a pasta."
 
+msgid "Unable to create the group."
+msgstr "Não é possível criar o grupo."
+
 msgid "Unable to create the image."
 msgstr "Não foi possível criar a imagem."
 
@@ -2649,6 +2652,12 @@ msgstr "Não foi possível apagar o flavor com o id: %(id)s"
 msgid "Unable to delete the folder because it is not empty."
 msgstr "Não é possível excluir a pasta pois ela não está vazia."
 
+msgid "Unable to delete the group."
+msgstr "Não é possível excluir o grupo."
+
+msgid "Unable to delete the groups."
+msgstr "Não é possível excluir os grupos."
+
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "Não foi possível apagar a imagem com id:%(id)s"
@@ -2699,6 +2708,9 @@ msgstr "Não foi possível editar o domínio."
 
 msgid "Unable to edit the flavor extra specs."
 msgstr "Não é possível editar as características extras do sabor."
+
+msgid "Unable to edit the group."
+msgstr "Não é possível editar o grupo."
 
 msgid "Unable to edit the image custom properties."
 msgstr "Não é possível editar as propriedades da imagem personalizada."
@@ -2847,6 +2859,9 @@ msgstr "Não é possível recuperar flavor."
 msgid "Unable to retrieve the flavors."
 msgstr "Não foi possível recuperar flavors."
 
+msgid "Unable to retrieve the group."
+msgstr "Não é possível recuperar o grupo."
+
 msgid "Unable to retrieve the heat services."
 msgstr "Não é possível recuperar os serviços do Heat."
 
@@ -2925,6 +2940,9 @@ msgstr "Não foi possível recuperar usuário."
 
 msgid "Unable to retrieve the users."
 msgstr "Não foi é possível recuperar usuários."
+
+msgid "Unable to retrieve the volume availability zones."
+msgstr "Não é possível recuperar as zonas de disponibilidade de volume."
 
 msgid "Unable to retrieve the volume metadata."
 msgstr "Incapaz de recuperar os metadados do volume"
