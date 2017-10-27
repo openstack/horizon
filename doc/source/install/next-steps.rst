@@ -21,6 +21,6 @@ complete the following tasks:
 
   For details about browsers that support noVNC, see
   `README
-  <https://github.com/kanaka/noVNC/blob/master/README.md>`__
+  <https://github.com/novnc/noVNC/blob/master/README.md>`__
   and `browser support
-  <https://github.com/kanaka/noVNC/wiki/Browser-support>`__.
+  <https://github.com/novnc/noVNC/wiki/Browser-support>`__.
