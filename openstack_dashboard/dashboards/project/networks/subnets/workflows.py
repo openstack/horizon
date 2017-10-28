@@ -125,6 +125,8 @@ class UpdateSubnetInfo(CreateSubnetInfo):
 
 
 class UpdateSubnetDetailAction(network_workflows.CreateSubnetDetailAction):
+    allocation_pools = forms.CharField(widget=forms.HiddenInput(),
+                                       required=False)
 
     def __init__(self, request, context, *args, **kwargs):
         super(UpdateSubnetDetailAction, self).__init__(request, context,

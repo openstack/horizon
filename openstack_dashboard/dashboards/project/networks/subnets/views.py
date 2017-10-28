@@ -90,9 +90,6 @@ class UpdateView(workflows.WorkflowView):
                 subnet['ipv6_ra_mode'], subnet['ipv6_address_mode'])
 
         initial['dns_nameservers'] = '\n'.join(subnet['dns_nameservers'])
-        pools = ['%s,%s' % (p['start'], p['end'])
-                 for p in subnet['allocation_pools']]
-        initial['allocation_pools'] = '\n'.join(pools)
         routes = ['%s,%s' % (r['destination'], r['nexthop'])
                   for r in subnet['host_routes']]
         initial['host_routes'] = '\n'.join(routes)
