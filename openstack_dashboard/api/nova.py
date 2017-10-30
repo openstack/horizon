@@ -755,11 +755,6 @@ def usage_list(request, start, end):
 
 
 @profiler.trace
-def virtual_interfaces_list(request, instance_id):
-    return novaclient(request).virtual_interfaces.list(instance_id)
-
-
-@profiler.trace
 def get_x509_credentials(request):
     return novaclient(request).certs.create()
 
