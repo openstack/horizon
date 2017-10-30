@@ -1,0 +1,28 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}disassociate_fip_form{% endblock %}
+{% block form_action %}{% url "horizon:project:instances:disassociate" instance_id %}{% endblock %}
+
+{% block modal_id %}disassocaite_fip_modal{% endblock %}
+{% block modal-header %}{% trans "Disassociate Floating IP" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+<div class="right">
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% blocktrans trimmed %}
+  Select the floating IP to be disassociated from the instance.
+  {% endblocktrans %}</p>
+  <dl>
+  <dt>{% trans "Release Floating IP" %}</dt>
+  <dd>{% blocktrans trimmed %}
+  If checked, the selected floating IP will be released at the same time.
+  {% endblocktrans %}</dd>
+  </dl>
+</div>
+{% endblock %}

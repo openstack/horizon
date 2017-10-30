@@ -4156,13 +4156,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({
         api.neutron: ('floating_ip_target_list_by_instance',
                       'tenant_floating_ip_list',
-                      'floating_ip_disassociate',),
-        api.network: ('servers_update_addresses',),
-        api.glance: ('image_list_detailed',),
-        api.nova: ('server_list',
-                   'flavor_list'),
+                      'floating_ip_disassociate',
+                      'tenant_floating_ip_release'),
     })
-    def test_disassociate_floating_ip(self):
+    def _test_disassociate_floating_ip(self, is_release):
         servers = self.servers.list()
         server = servers[0]
         port = [p for p in self.ports.list() if p.device_id == server.id][0]
@@ -4171,35 +4168,40 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         fip = self.floating_ips.first()
         fip.port_id = port.id
 
-        self.mock_server_list.return_value = [servers, False]
-        self.mock_servers_update_addresses.return_value = None
-        self.mock_flavor_list.return_value = self.flavors.list()
-        self.mock_image_list_detailed.return_value = (self.images.list(),
-                                                      False, False)
         self.mock_floating_ip_target_list_by_instance.return_value = \
             [fip_target]
         self.mock_tenant_floating_ip_list.return_value = [fip]
         self.mock_floating_ip_disassociate.return_value = None
+        self.mock_tenant_floating_ip_release.return_value = None
 
-        formData = {'action': 'instances__disassociate__%s' % server.id}
-        res = self.client.post(INDEX_URL, formData)
+        url = reverse('horizon:project:instances:disassociate',
+                      args=[server.id])
+        form_data = {'fip': fip.id,
+                     'is_release': is_release}
+        res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(
-            helpers.IsHttpRequest(), search_opts=search_opts)
-        self.mock_servers_update_addresses.assert_called_once_with(
-            helpers.IsHttpRequest(), servers)
-        self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
-        self.mock_image_list_detailed.assert_called_once_with(
-            helpers.IsHttpRequest())
         self.mock_floating_ip_target_list_by_instance.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_tenant_floating_ip_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_floating_ip_disassociate.assert_called_once_with(
-            helpers.IsHttpRequest(), fip.id)
+        if is_release:
+            self.mock_floating_ip_disassociate.assert_not_called()
+            self.mock_tenant_floating_ip_release.assert_called_once_with(
+                helpers.IsHttpRequest(), fip.id)
+        else:
+            self.mock_floating_ip_disassociate.assert_called_once_with(
+                helpers.IsHttpRequest(), fip.id)
+            self.mock_tenant_floating_ip_release.assert_not_called()
+
+    @helpers.create_mocks({api.neutron: ('floating_ip_disassociate',)})
+    def test_disassociate_floating_ip(self):
+        self._test_disassociate_floating_ip(is_release=False)
+
+    @helpers.create_mocks({api.neutron: ('tenant_floating_ip_release',)})
+    def test_disassociate_floating_ip_with_release(self):
+        self._test_disassociate_floating_ip(is_release=True)
 
     @helpers.create_mocks({api.nova: ('server_get',
                                       'flavor_list',

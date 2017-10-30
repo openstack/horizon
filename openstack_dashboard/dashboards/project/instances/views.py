@@ -388,6 +388,22 @@ class DecryptPasswordView(forms.ModalFormView):
                 'keypair_name': self.kwargs['keypair_name']}
 
 
+class DisassociateView(forms.ModalFormView):
+    form_class = project_forms.Disassociate
+    template_name = 'project/instances/disassociate.html'
+    success_url = reverse_lazy('horizon:project:instances:index')
+    page_title = _("Disassociate floating IP")
+    submit_label = _("Disassocaite")
+
+    def get_context_data(self, **kwargs):
+        context = super(DisassociateView, self).get_context_data(**kwargs)
+        context['instance_id'] = self.kwargs['instance_id']
+        return context
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs['instance_id']}
+
+
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.InstanceDetailTabs
     template_name = 'horizon/common/_detail.html'

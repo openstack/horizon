@@ -17,7 +17,6 @@ import logging
 
 from django.conf import settings
 from django.http import HttpResponse
-from django import shortcuts
 from django import template
 from django.template.defaultfilters import title
 from django import urls
@@ -29,7 +28,6 @@ from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
-from horizon import conf
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
@@ -655,14 +653,11 @@ class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
         return "?".join([base_url, params])
 
 
-# TODO(amotoki): [drop-nova-network] The current SimpleDisassociateIP
-# just disassociates the first found FIP. It looks better to have a form
-# which allows to choose which FIP should be disassociated.
-# HORIZON_CONFIG['simple_ip_management'] can be dropped then.
-class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
+class DisassociateIP(tables.LinkAction):
     name = "disassociate"
     verbose_name = _("Disassociate Floating IP")
-    classes = ("btn-disassociate",)
+    url = "horizon:project:instances:disassociate"
+    classes = ("btn-disassociate", 'ajax-modal')
     policy_rules = (("network", "update_floatingip"),)
     action_type = "danger"
 
@@ -671,37 +666,11 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
             return False
         if not api.neutron.floating_ip_supported(request):
             return False
-        if not conf.HORIZON_CONFIG["simple_ip_management"]:
-            return False
         for addresses in instance.addresses.values():
             for address in addresses:
                 if address.get('OS-EXT-IPS:type') == "floating":
                     return not is_deleting(instance)
         return False
-
-    def single(self, table, request, instance_id):
-        try:
-            targets = api.neutron.floating_ip_target_list_by_instance(
-                request, instance_id)
-
-            target_ids = [t.port_id for t in targets]
-
-            fips = [fip for fip in api.neutron.tenant_floating_ip_list(request)
-                    if fip.port_id in target_ids]
-            # Removing multiple floating IPs at once doesn't work, so this pops
-            # off the first one.
-            if fips:
-                fip = fips.pop()
-                api.neutron.floating_ip_disassociate(request, fip.id)
-                messages.success(request,
-                                 _("Successfully disassociated "
-                                   "floating IP: %s") % fip.ip)
-            else:
-                messages.info(request, _("No floating IPs to disassociate."))
-        except Exception:
-            exceptions.handle(request,
-                              _("Unable to disassociate floating IP."))
-        return shortcuts.redirect(request.get_full_path())
 
 
 class UpdateMetadata(policy.PolicyTargetMixin, tables.LinkAction):
@@ -1280,10 +1249,10 @@ class InstancesTable(tables.DataTable):
         table_actions = launch_actions + (DeleteInstance,
                                           InstancesFilterAction)
         row_actions = (StartInstance, ConfirmResize, RevertResize,
-                       CreateSnapshot, AssociateIP,
-                       SimpleDisassociateIP, AttachInterface,
-                       DetachInterface, EditInstance, AttachVolume,
-                       DetachVolume, UpdateMetadata, DecryptInstancePassword,
+                       CreateSnapshot, AssociateIP, DisassociateIP,
+                       AttachInterface, DetachInterface, EditInstance,
+                       AttachVolume, DetachVolume,
+                       UpdateMetadata, DecryptInstancePassword,
                        EditInstanceSecurityGroups, ConsoleLink, LogLink,
                        TogglePause, ToggleSuspend, ToggleShelve,
                        ResizeLink, LockInstance, UnlockInstance,

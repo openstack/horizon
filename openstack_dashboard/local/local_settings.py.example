@@ -128,10 +128,6 @@ WEBROOT = '/'
 #    "help_text": _("Your password does not meet the requirements."),
 #}
 
-# Disable simplified floating IP address management for deployments with
-# multiple floating IP pools or complex network requirements.
-#HORIZON_CONFIG["simple_ip_management"] = False
-
 # Turn off browser autocompletion for forms including the login form and
 # the database creation workflow if so desired.
 #HORIZON_CONFIG["password_autocomplete"] = "off"
