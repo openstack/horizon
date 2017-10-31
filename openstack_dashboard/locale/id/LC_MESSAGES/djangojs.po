@@ -3,14 +3,14 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev175\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev42\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-14 12:29+0000\n"
+"POT-Creation-Date: 2017-10-30 07:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-15 01:28+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2017-10-30 03:48+0000\n"
+"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -2548,6 +2548,9 @@ msgstr "Tidak dapat mengaitkan alamat IP mengambang"
 msgid "Unable to change the container access."
 msgstr "Tidak dapat mengubah akses kontainer."
 
+msgid "Unable to check the Nova service feature."
+msgstr "Tidak dapat memeriksa fitur layanan Nova."
+
 msgid "Unable to copy the object."
 msgstr "Tidak dapat menyalin objek."
 
@@ -2920,6 +2923,9 @@ msgstr "Tidak dapat mengambil pengguna."
 
 msgid "Unable to retrieve the users."
 msgstr "Tidak dapat mengambil pengguna."
+
+msgid "Unable to retrieve the volume availability zones."
+msgstr "Tidak dapat mengambil zona ketersediaan volume."
 
 msgid "Unable to retrieve the volume metadata."
 msgstr "Tidak dapat mengambil metadata volume."

@@ -4,13 +4,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev42\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-21 13:30+0000\n"
+"POT-Creation-Date: 2017-10-30 07:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-22 03:13+0000\n"
+"PO-Revision-Date: 2017-10-30 03:46+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -733,6 +733,13 @@ msgstr ""
 
 msgid "Availability zone"
 msgstr "Availability zone (zona ketersediaan)"
+
+msgid ""
+"Availability zones where the DHCP agents may be scheduled. Leaving this "
+"unset is equivalent to selecting all availability zones"
+msgstr ""
+"Zona ketersediaan tempat agen DHCP mungkin dijadwalkan. Membiarkan "
+"ketidaksetaraan (unset) ini sama dengan memilih semua zona ketersediaan"
 
 msgid "Available"
 msgstr "Tersedia"
@@ -2380,6 +2387,12 @@ msgstr "Enable Domains"
 msgid "Enable HA mode"
 msgstr "Aktifkan modus HA"
 
+msgid "Enable SNAT"
+msgstr "Aktifkan SNAT"
+
+msgid "Enable SNAT will only have an effect if an external network is set."
+msgstr "Aktifkan SNAT hanya akan berpengaruh jika jaringan eksternal disetel."
+
 msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "Enable Service"
@@ -2740,6 +2753,9 @@ msgstr "Gagal mengevakuasi host : %s."
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Gagal melakukan evakuasi instances: %s"
+
+msgid "Failed to get availability zone list."
+msgstr "Gagal mendapatkan daftar zona ketersediaan."
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -3236,6 +3252,9 @@ msgstr ""
 "IP alamat kolam alokasi. Setiap entri adalah: start_ip_address, "
 "end_ip_address (misalnya, 192.168.1.100,192.168.1.120) dan satu entri per "
 "baris."
+
+msgid "IP address for the new port"
+msgstr "Alamat IP untuk port baru"
 
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
@@ -6566,6 +6585,9 @@ msgstr "Ukuran volume tidak bisa kurang dari ukuran snapshot (%sGiB)"
 msgid "The volume size cannot be less than the source volume size (%sGiB)"
 msgstr "Ukuran volume tidak bisa kurang dari ukuran volume sumber (%sGiB)"
 
+msgid "The way to specify an interface"
+msgstr "Cara untuk menentukan sebuah antarmuka"
+
 msgid "Theme Preview"
 msgstr "Theme Preview (tema preview)"
 
@@ -6610,6 +6632,9 @@ msgstr ""
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 "Aplikasi ini membutuhkan JavaScript harus diaktifkan di browser web Anda."
+
+msgid "This field is required."
+msgstr "Field ini diperlukan."
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -6855,6 +6880,14 @@ msgstr "Tidak dapat mengubah jenis volume untuk volume: \"%s\""
 
 msgid "Unable to check if DHCP agent scheduler extension is supported"
 msgstr "Tidak dapat memeriksa apakah ekstensi scheduler agen DHCP didukung"
+
+msgid "Unable to check if network availability zone extension is supported"
+msgstr ""
+"Tidak dapat memeriksa apakah ekstensi zona ketersediaan jaringan didukung"
+
+msgid "Unable to check if router availability zone extension is supported"
+msgstr ""
+"Tidak dapat memeriksa apakah ekstensi zona ketersediaan router didukung"
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
@@ -8617,6 +8650,12 @@ msgstr "back-end"
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "keduanya"
+
+msgid "by Network (and IP address)"
+msgstr "oleh Network (dan alamat IP)"
+
+msgid "by Port"
+msgstr "oleh Port"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
