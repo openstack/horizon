@@ -47,6 +47,7 @@ class Login(django_auth_forms.AuthenticationForm):
     Inherits from the base ``django.contrib.auth.forms.AuthenticationForm``
     class for added security features.
     """
+    use_required_attribute = False
     region = forms.ChoiceField(label=_("Region"), required=False)
     username = forms.CharField(
         label=_("User Name"),
