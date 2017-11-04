@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    [`blueprint ng-server-groups <https://blueprints.launchpad.net/horizon/+spec/ng-server-groups>`_]
+    This blueprint add angular server groups panel below the
+    Project->Compute panel group. The panel turns on if Nova API
+    extension 'ServerGroups' is available. It displays information about
+    server groups.
