@@ -449,6 +449,19 @@ class ServerGroups(generic.View):
 
 
 @urls.register
+class ServerGroup(generic.View):
+    url_regex = r'nova/servergroups/(?P<servergroup_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def delete(self, request, servergroup_id):
+        """Delete a specific server group
+
+        DELETE http://localhost/api/nova/servergroups/<servergroup_id>
+        """
+        api.nova.server_group_delete(request, servergroup_id)
+
+
+@urls.register
 class ServerMetadata(generic.View):
     """API for server metadata."""
     url_regex = r'nova/servers/(?P<server_id>[^/]+|default)/metadata$'

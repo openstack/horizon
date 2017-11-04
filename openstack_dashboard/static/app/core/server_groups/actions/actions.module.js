@@ -31,16 +31,38 @@
 
   registerServerGroupActions.$inject = [
     'horizon.app.core.server_groups.actions.create.service',
+    'horizon.app.core.server_groups.actions.delete.service',
     'horizon.app.core.server_groups.resourceType',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
   function registerServerGroupActions(
     createService,
+    deleteService,
     serverGroupResourceTypeCode,
     registry
   ) {
     var serverGroupResourceType = registry.getResourceType(serverGroupResourceTypeCode);
+
+    serverGroupResourceType.itemActions
+      .append({
+        id: 'deleteServerGroupAction',
+        service: deleteService,
+        template: {
+          type: 'delete',
+          text: gettext('Delete Server Group')
+        }
+      });
+
+    serverGroupResourceType.batchActions
+      .append({
+        id: 'batchDeleteServerGroupAction',
+        service: deleteService,
+        template: {
+          type: 'delete-selected',
+          text: gettext('Delete Server Groups')
+        }
+      });
 
     serverGroupResourceType.globalActions
       .append({

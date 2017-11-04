@@ -388,6 +388,13 @@ class NovaRestTestCase(test.TestCase):
         self.mock_server_group_create.assert_called_once_with(
             request, **server_group_data)
 
+    @test.create_mocks({api.nova: ['server_group_delete']})
+    def test_server_group_delete(self):
+        request = self.mock_rest_request()
+        self.mock_server_group_delete.return_value = None
+        nova.ServerGroup().delete(request, "1")
+        self.mock_server_group_delete.assert_called_once_with(request, "1")
+
     #
     # Server Metadata
     #
