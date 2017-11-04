@@ -53,6 +53,7 @@
       getServer: getServer,
       getServers: getServers,
       getServerGroups: getServerGroups,
+      createServerGroup: createServerGroup,
       deleteServer: deleteServer,
       pauseServer: pauseServer,
       unpauseServer: unpauseServer,
@@ -329,6 +330,28 @@
       return apiService.get('/api/nova/servergroups/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve server groups.'));
+        });
+    }
+
+    /**
+     * @name createServerGroup
+     * @description
+     * Create a new server group. This returns the new server group object on success.
+     *
+     * @param {Object} newServerGroup
+     * The server group to create.
+     *
+     * @param {string} newServerGroup.name
+     * The name of the new server group. Required.
+     *
+     * @param {array} newServerGroup.policies
+     * The policies of the new server group. Required.
+     * @returns {Object} The result of the API call
+     */
+    function createServerGroup(newServerGroup) {
+      return apiService.post('/api/nova/servergroups/', newServerGroup)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the server group.'));
         });
     }
 

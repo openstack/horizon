@@ -11,6 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+import json
 from json import loads as to_json
 
 from django.conf import settings
@@ -362,6 +364,29 @@ class NovaRestTestCase(test.TestCase):
         self.assertEqual({'items': [{'id': '1'}, {'id': '2'}]},
                          response.json)
         nc.server_group_list.assert_called_once_with(request)
+
+    @test.create_mocks({api.nova: ['server_group_create']})
+    def test_server_group_create(self):
+        req_data = json.dumps({
+            'name': 'server_group', 'policies': ['affinity']})
+
+        self.mock_server_group_create.return_value = mock.Mock(**{
+            'id': '123',
+            'to_dict.return_value': {'id': '123',
+                                     'name': 'server_group',
+                                     'policies': ['affinity']}
+        })
+
+        server_group_data = {'name': 'server_group',
+                             'policies': ['affinity']}
+        request = self.mock_rest_request(body=req_data)
+        response = nova.ServerGroups().post(request)
+
+        self.assertStatusCode(response, 201)
+        self.assertEqual('/api/nova/servergroups/123', response['location'])
+
+        self.mock_server_group_create.assert_called_once_with(
+            request, **server_group_data)
 
     #
     # Server Metadata

@@ -643,3 +643,17 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val, list)
         self.assertEqual(len(ret_val), len(server_groups))
         novaclient.server_groups.list.assert_called_once_with()
+
+    def test_server_group_create(self):
+        servergroup = self.server_groups.first()
+        kwargs = {'name': servergroup.name, 'policies': servergroup.policies}
+        novaclient = self.stub_novaclient()
+        self._mock_current_version(novaclient, '2.45')
+        novaclient.server_groups.create.return_value = servergroup
+
+        ret_val = api.nova.server_group_create(self.request, **kwargs)
+
+        self.assertEqual(servergroup.name, ret_val.name)
+        self.assertEqual(servergroup.policies, ret_val.policies)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.server_groups.create.assert_called_once_with(**kwargs)

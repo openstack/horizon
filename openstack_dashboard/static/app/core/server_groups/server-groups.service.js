@@ -34,7 +34,8 @@
    */
   function serverGroupsService(nova) {
     return {
-      getServerGroupsPromise: getServerGroupsPromise
+      getServerGroupsPromise: getServerGroupsPromise,
+      getServerGroupPolicies: getServerGroupPolicies
     };
 
     /*

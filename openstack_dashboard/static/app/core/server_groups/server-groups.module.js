@@ -26,7 +26,8 @@
   angular
     .module('horizon.app.core.server_groups', [
       'horizon.framework.conf',
-      'horizon.app.core'
+      'horizon.app.core',
+      'horizon.app.core.server_groups.actions'
     ])
     .constant('horizon.app.core.server_groups.resourceType', 'OS::Nova::ServerGroup')
     .run(run)
