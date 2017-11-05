@@ -19,24 +19,55 @@
     .factory('horizon.app.core.server_groups.service', serverGroupsService);
 
   serverGroupsService.$inject = [
+    '$window',
+    'horizon.app.core.detailRoute',
     'horizon.app.core.openstack-service-api.nova'
   ];
 
   /*
    * @ngdoc factory
    * @name horizon.app.core.server_groups.service
-   *
    * @description
    * This service provides functions that are used through the Server Groups
    * features. These are primarily used in the module registrations
    * but do not need to be restricted to such use.  Each exposed function
    * is documented below.
    */
-  function serverGroupsService(nova) {
+  function serverGroupsService($window, detailRoute, nova) {
     return {
-      getServerGroupsPromise: getServerGroupsPromise,
-      getServerGroupPolicies: getServerGroupPolicies
+      getDetailsPath: getDetailsPath,
+      getInstanceDetailsPath: getInstanceDetailsPath,
+      getServerGroupPolicies: getServerGroupPolicies,
+      getServerGroupPromise: getServerGroupPromise,
+      getServerGroupsPromise: getServerGroupsPromise
     };
+
+    /*
+     * @ngdoc function
+     * @name getDetailsPath
+     * @param item {Object} - The server group object
+     * @description
+     * Given a server group object, returns the relative path to the details
+     * view.
+     */
+    function getDetailsPath(item) {
+      return detailRoute + 'OS::Nova::ServerGroup/' + item.id;
+    }
+
+    /*
+     * @ngdoc function
+     * @name getInstanceDetailsPath
+     * @param item {Object} - The instance object
+     * @description
+     * Given an instance object, returns the relative path to the details
+     * view.
+     */
+    function getInstanceDetailsPath(item) {
+      // The current instances page only contains the django
+      // version, if we add angular instances pages in the future,
+      // the url here also needs to be modified accordingly.
+      return $window.WEBROOT + 'project/instances/' + item.id + '/';
+    }
 
     /*
      * @ngdoc function
@@ -58,6 +89,25 @@
           policies['soft-affinity'] = gettext('Soft Affinity');
         }
         return policies;
+      }
+    }
+
+    /*
+     * @ngdoc function
+     * @name getServerGroupPromise
+     * @description
+     * Given an id, returns a promise for the server group data.
+     */
+    function getServerGroupPromise(identifier) {
+      return nova.getServerGroup(identifier).then(modifyResponse);
+
+      function modifyResponse(response) {
+        return getServerGroupPolicies().then(modifyItem);
+
+        function modifyItem(policies) {
+          response.data.policy = policies[response.data.policies[0]];
+          return {data: response.data};
+        }
       }
     }
 

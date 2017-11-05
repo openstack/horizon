@@ -460,6 +460,14 @@ class ServerGroup(generic.View):
         """
         api.nova.server_group_delete(request, servergroup_id)
 
+    @rest_utils.ajax()
+    def get(self, request, servergroup_id):
+        """Get a specific server group
+
+        http://localhost/api/nova/servergroups/1
+        """
+        return api.nova.server_group_get(request, servergroup_id).to_dict()
+
 
 @urls.register
 class ServerMetadata(generic.View):

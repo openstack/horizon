@@ -52,6 +52,7 @@
       createServer: createServer,
       getServer: getServer,
       getServers: getServers,
+      getServerGroup: getServerGroup,
       getServerGroups: getServerGroups,
       createServerGroup: createServerGroup,
       deleteServerGroup: deleteServerGroup,
@@ -315,6 +316,21 @@
       return apiService.get('/api/nova/servers/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve instances.'));
+        });
+    }
+
+    /**
+     * @name getServerGroup
+     * @description
+     * Get a single server group by ID
+     * @param {string} id
+     * Specifies the id of the server group to request.
+     * @returns {Object} The result of the API call
+     */
+    function getServerGroup(id) {
+      return apiService.get('/api/nova/servergroups/' + id)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the server group.'));
         });
     }
 

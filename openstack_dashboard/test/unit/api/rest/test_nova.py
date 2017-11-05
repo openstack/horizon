@@ -395,6 +395,18 @@ class NovaRestTestCase(test.TestCase):
         nova.ServerGroup().delete(request, "1")
         self.mock_server_group_delete.assert_called_once_with(request, "1")
 
+    @test.create_mocks({api.nova: ['server_group_get']})
+    def test_server_group_get_single(self):
+        request = self.mock_rest_request()
+        servergroup = self.server_groups.first()
+        self.mock_server_group_get.return_value = servergroup
+
+        response = nova.ServerGroup().get(request, "1")
+
+        self.assertStatusCode(response, 200)
+        self.assertEqual(servergroup.to_dict(), response.json)
+        self.mock_server_group_get.assert_called_once_with(request, "1")
+
     #
     # Server Metadata
     #
