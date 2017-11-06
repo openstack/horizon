@@ -8,13 +8,13 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev47\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-21 13:30+0000\n"
+"POT-Creation-Date: 2017-11-02 07:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-17 03:37+0000\n"
+"PO-Revision-Date: 2017-11-02 02:13+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -724,14 +724,31 @@ msgstr "Verfügbarkeitszone"
 msgid "Availability Zone ="
 msgstr "Verfügbarkeitszone ="
 
+msgid "Availability Zone Hints"
+msgstr "Hinweise Verfügbarkeitszone"
+
 msgid "Availability Zone Name"
 msgstr "Name der Verfügbarkeitszone"
 
 msgid "Availability Zones"
 msgstr "Verfügbarkeitszonen"
 
+msgid ""
+"Availability Zones where the router may be scheduled. Leaving this unset is "
+"equivalent to selecting all Availability Zones"
+msgstr ""
+"Verfügbarkeitszonen, in denen der Router eingeplant werden darf. Keine "
+"Angabe entspricht der Auswahl aller Verfügbarkeitszonen."
+
 msgid "Availability zone"
 msgstr "Verfügbarkeitszone"
+
+msgid ""
+"Availability zones where the DHCP agents may be scheduled. Leaving this "
+"unset is equivalent to selecting all availability zones"
+msgstr ""
+"Verfügbarkeitszonen, in denen die DHCP-Agenten eingeplant werden dürfen. "
+"Keine Angabe entspricht der Auswahl aller Verfügbarkeitszonen."
 
 msgid "Available"
 msgstr "Verfügbar"
@@ -2458,6 +2475,14 @@ msgstr "Domänen freigeben"
 msgid "Enable HA mode"
 msgstr "HA Modus aktivieren"
 
+msgid "Enable SNAT"
+msgstr "SNAT aktivieren"
+
+msgid "Enable SNAT will only have an effect if an external network is set."
+msgstr ""
+"Die Aktivierung von SNAT hat nur eine Auswirkung, wenn ein externes Netzwerk "
+"angegeben ist."
+
 msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "Dienst aktivieren"
@@ -2837,6 +2862,9 @@ msgstr "Fehler beim Evakuieren des Hosts: %s"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Evakuierung von Instanzen fehlgeschlagen: %s"
+
+msgid "Failed to get availability zone list."
+msgstr "Fehler beim Abruf der Liste der Verfügbarkeitszonen. "
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -3341,6 +3369,9 @@ msgstr ""
 "start_ip_address,end_ip_address (z.B. 192.168.1.100,192.168.1.120) und jeder "
 "Eintrag benötigt eine eigene Zeile."
 
+msgid "IP address for the new port"
+msgstr "IP-Adresse für den neuen Port"
+
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
@@ -3515,6 +3546,9 @@ msgstr "Schlüsselpaar importieren"
 
 msgid "Import Namespace"
 msgstr "Namensraum importieren"
+
+msgid "Import Public Key"
+msgstr "Öffentlichen Schlüssel importieren"
 
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
@@ -6742,6 +6776,9 @@ msgstr ""
 "Die Datenträgergröße kann nicht kleiner sein als die Quell-Datenträgergröße "
 "(%sGiB)"
 
+msgid "The way to specify an interface"
+msgstr "Die Art zur Angabe des Interfaces"
+
 msgid "Theme Preview"
 msgstr "Themenvorschau"
 
@@ -6788,6 +6825,9 @@ msgstr ""
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 "Diese Anwendung benötigt ein aktiviertes JavaScript in Ihrem Webbrowser."
+
+msgid "This field is required."
+msgstr "Dieses Feld ist erforderlich."
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -7040,6 +7080,16 @@ msgstr "Datenträgertyp des Datenträgers kann nicht geändert werden: \"%s\""
 msgid "Unable to check if DHCP agent scheduler extension is supported"
 msgstr ""
 "Unterstützung der DHCP Scheduler Erweiterung kann nicht überprüft werden"
+
+msgid "Unable to check if network availability zone extension is supported"
+msgstr ""
+"Unterstützung der Erweiterung für die Netzwerk-Verfügbarkeitszone kann nicht "
+"überprüft werden"
+
+msgid "Unable to check if router availability zone extension is supported"
+msgstr ""
+"Unterstützung der Erweiterung für die Router-Verfügbarkeitszone kann nicht "
+"überprüft werden"
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
@@ -8867,6 +8917,12 @@ msgstr "Backend"
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "beide"
+
+msgid "by Network (and IP address)"
+msgstr "durch das Netzwerk (und die IP-Adresse)"
+
+msgid "by Port"
+msgstr "durch den Port"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"

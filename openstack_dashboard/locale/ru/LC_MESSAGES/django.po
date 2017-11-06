@@ -30,13 +30,13 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev47\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-21 13:30+0000\n"
+"POT-Creation-Date: 2017-11-02 07:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-29 01:10+0000\n"
+"PO-Revision-Date: 2017-11-03 12:35+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -2502,6 +2502,9 @@ msgstr "Включить домены"
 msgid "Enable HA mode"
 msgstr "Включить режим HA"
 
+msgid "Enable SNAT"
+msgstr "Разрешить SNAT"
+
 msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "Включить службу"
@@ -2872,6 +2875,9 @@ msgstr "Не удалось эвакуировать узел: %s"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Не удалось эвакуировать инстансы: %s"
+
+msgid "Failed to get availability zone list."
+msgstr "Не удалось получить список зон доступности."
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -3365,6 +3371,9 @@ msgstr ""
 "Распределение IP-адресов пула. Каждый ввод: start_ip_address,end_ip_address "
 "(напр. 192.168.1.100,192.168.1.120) по одной записи в строке."
 
+msgid "IP address for the new port"
+msgstr "IP адрес для нового порта"
+
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
@@ -3527,6 +3536,9 @@ msgstr "Импорт ключевой пары"
 
 msgid "Import Namespace"
 msgstr "Импортировать Пространство Имён"
+
+msgid "Import Public Key"
+msgstr "Импортировать открытый ключ"
 
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
@@ -4111,6 +4123,9 @@ msgstr "Редактировать имя, описание и публичны�
 
 msgid "Monitoring:"
 msgstr "Мониторинг:"
+
+msgid "More"
+msgstr "Еще"
 
 msgid "N/A"
 msgstr "Н/Д"
@@ -6361,6 +6376,9 @@ msgstr ""
 "выполнит миграцию диска. Миграция может занять существенное время, до "
 "нескольких часов в некоторых случаях."
 
+msgid "The \"Type\" selected must be different from the current volume type."
+msgstr "Выбранный \"Тип\" должен отличаться от текущего типа диска."
+
 msgid "The \"from\" port number is invalid."
 msgstr "Неверный начальный номер порта в диапазоне."
 
@@ -6730,6 +6748,9 @@ msgstr ""
 "JavaScript должен быть включен в вашем web-браузере для работы этого "
 "приложения ."
 
+msgid "This field is required."
+msgstr "Это поле обязательно для заполнения."
+
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
@@ -6747,6 +6768,9 @@ msgstr ""
 
 msgid "This instance is unlocked."
 msgstr "Этот инстанс разблокирован."
+
+msgid "This is a test: "
+msgstr "Это тест:"
 
 msgid ""
 "This is equivalent to the <tt>openstack volume qos associate</tt> and "
@@ -6967,6 +6991,9 @@ msgstr "Не удалось изменит тип диска для диска: 
 
 msgid "Unable to check if DHCP agent scheduler extension is supported"
 msgstr "Не удается проверить поддержку расширения планировщика DHCP агента."
+
+msgid "Unable to check if network availability zone extension is supported"
+msgstr "Не удалось проверить поддержку расширения сетевой зоны доступности"
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
@@ -8632,6 +8659,9 @@ msgstr ""
 "правила через опции Настраиваемое TCP Правило, Настраиваемое UDP Правило или "
 "Настраиваемое ICMP Правило."
 
+msgid "You can update the editable properties of your port here."
+msgstr "Вы можете обновить редактируемые свойства порта здесь."
+
 msgid "You cannot disable your current project"
 msgstr "Вы не можете отключить свой текущий проект"
 
@@ -8723,6 +8753,12 @@ msgstr "бэкенд"
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "оба"
+
+msgid "by Network (and IP address)"
+msgstr "сеть (и IP адрес)"
+
+msgid "by Port"
+msgstr "порт"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
