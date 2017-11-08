@@ -59,9 +59,7 @@ structure that looks like the following::
 
     mydashboard
     ├── dashboard.py
-    ├── dashboard.pyc
     ├── __init__.py
-    ├── __init__.pyc
     ├── mypanel
     │   ├── __init__.py
     │   ├── panel.py
