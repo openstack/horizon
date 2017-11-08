@@ -459,8 +459,8 @@ def keypair_import(request, name, public_key):
 
 
 @profiler.trace
-def keypair_delete(request, keypair_id):
-    novaclient(request).keypairs.delete(keypair_id)
+def keypair_delete(request, name):
+    novaclient(request).keypairs.delete(name)
 
 
 @profiler.trace
@@ -469,8 +469,8 @@ def keypair_list(request):
 
 
 @profiler.trace
-def keypair_get(request, keypair_id):
-    return novaclient(request).keypairs.get(keypair_id)
+def keypair_get(request, name):
+    return novaclient(request).keypairs.get(name)
 
 
 @profiler.trace

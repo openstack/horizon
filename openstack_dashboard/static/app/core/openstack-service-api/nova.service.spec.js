@@ -143,6 +143,19 @@
         ]
       },
       {
+        "func": "deleteKeypair",
+        "method": "delete",
+        "path": "/api/nova/keypairs/19",
+        "error": "Unable to delete the keypair with name: 19",
+        "testInput": [19]
+      },
+      {
+        "func": "deleteKeypair",
+        "method": "delete",
+        "path": "/api/nova/keypairs/19",
+        "testInput": [19, true]
+      },
+      {
         "func": "getKeypair",
         "method": "get",
         "path": "/api/nova/keypairs/19",
