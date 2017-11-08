@@ -16,6 +16,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django import template
+from django.utils.http import urlencode
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -55,7 +56,10 @@ class UpdatePort(policy.PolicyTargetMixin, tables.LinkAction):
 
     def get_link_url(self, port):
         network_id = self.table.kwargs['network_id']
-        return reverse(self.url, args=(network_id, port.id))
+        base_url = reverse(self.url, args=(network_id, port.id))
+        params = {'step': 'update_info'}
+        param = urlencode(params)
+        return '?'.join([base_url, param])
 
 
 DISPLAY_CHOICES = (

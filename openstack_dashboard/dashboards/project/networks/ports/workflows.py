@@ -24,6 +24,9 @@ from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.instances.workflows import \
+    update_instance as base_sec_group
+from openstack_dashboard.utils import filters
 
 
 LOG = logging.getLogger(__name__)
@@ -55,8 +58,6 @@ class UpdatePortInfoAction(workflows.Action):
                     self.fields['binding__vnic_type'] = forms.ChoiceField(
                         choices=vnic_type_choices,
                         label=_("Binding: VNIC Type"),
-                        help_text=_(
-                            "The VNIC type that is bound to the neutron port"),
                         required=False)
         except Exception:
             msg = _("Unable to verify the VNIC types extension in Neutron")
@@ -75,8 +76,13 @@ class UpdatePortInfoAction(workflows.Action):
             if api.neutron.is_extension_supported(request, 'port-security'):
                 self.fields['port_security_enabled'] = forms.BooleanField(
                     label=_("Port Security"),
-                    help_text=_("Enable anti-spoofing rules for the port"),
-                    required=False
+                    required=False,
+                    widget=forms.CheckboxInput(attrs={
+                        'class': 'switchable',
+                        'data-slug': 'port_security_enabled',
+                        'data-hide-tab': 'update_port__update_security_groups',
+                        'data-hide-on-checked': 'false'
+                    })
                 )
         except Exception:
             msg = _("Unable to retrieve port security state")
@@ -84,6 +90,8 @@ class UpdatePortInfoAction(workflows.Action):
 
     class Meta(object):
         name = _("Info")
+        slug = 'update_info'
+        help_text_template = 'project/networks/ports/_edit_port_help.html'
 
 
 class UpdatePortInfo(workflows.Step):
@@ -91,7 +99,25 @@ class UpdatePortInfo(workflows.Step):
     depends_on = ("network_id", "port_id")
     contributes = ["name", "admin_state",
                    "binding__vnic_type", "mac_state", "port_security_enabled"]
-    help_text = _("You can update the editable properties of your port here.")
+
+
+class UpdatePortSecurityGroupAction(base_sec_group.BaseSecurityGroupsAction):
+    def _get_initial_security_groups(self, context):
+        port_id = context.get('port_id', '')
+        port = api.neutron.port_get(self.request, port_id)
+        return port.security_groups
+
+    class Meta(object):
+        name = _("Security Groups")
+        slug = "update_security_groups"
+
+
+class UpdatePortSecurityGroup(base_sec_group.BaseSecurityGroups):
+    action_class = UpdatePortSecurityGroupAction
+    members_list_title = _("Port Security Groups")
+    help_text = _("Add or remove security groups to this port "
+                  "from the list of available security groups.")
+    depends_on = ("port_id", 'target_tenant_id')
 
 
 class UpdatePort(workflows.Workflow):
@@ -100,7 +126,7 @@ class UpdatePort(workflows.Workflow):
     finalize_button_name = _("Update")
     success_message = _('Port %s was successfully updated.')
     failure_message = _('Failed to update port "%s".')
-    default_steps = (UpdatePortInfo,)
+    default_steps = (UpdatePortInfo, UpdatePortSecurityGroup)
 
     def get_success_url(self):
         return reverse("horizon:project:networks:detail",
@@ -135,5 +161,19 @@ class UpdatePort(workflows.Workflow):
             params['mac_learning_enabled'] = data['mac_state']
         if data['port_security_enabled'] is not None:
             params['port_security_enabled'] = data['port_security_enabled']
+
+        # If port_security_enabled is set to False, security groups on the port
+        # must be cleared. We will clear the current security groups
+        # in this case.
+        if ('port_security_enabled' in params
+                and not params['port_security_enabled']):
+            params['security_groups'] = []
+        # In case of UpdatePortSecurityGroup registered, 'wanted_groups'
+        # exists in data.
+        elif 'wanted_groups' in data:
+            # If data has that key, we need to set its value
+            # even if its value is empty to clear sec group setting.
+            groups = map(filters.get_int_or_uuid, data['wanted_groups'])
+            params['security_groups'] = groups
 
         return params

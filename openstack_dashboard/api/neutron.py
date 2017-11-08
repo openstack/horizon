@@ -331,8 +331,12 @@ class SecurityGroupManager(object):
 
         :returns: List of SecurityGroup objects
         """
+        # This is to ensure tenant_id key is not populated
+        # if tenant_id=None is specified.
         tenant_id = params.pop('tenant_id', self.request.user.tenant_id)
-        return self._list(tenant_id=tenant_id, **params)
+        if tenant_id:
+            params['tenant_id'] = tenant_id
+        return self._list(**params)
 
     def _sg_name_dict(self, sg_id, rules):
         """Create a mapping dict from secgroup id to its name."""

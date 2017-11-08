@@ -1,0 +1,6 @@
+---
+features:
+  - Support security groups association per network port for operators
+    and users. Note that the current implementation only supports to edit
+    security groups of neutron port from the port tables in the network
+    detail page (Further improvement is planned).

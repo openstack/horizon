@@ -1,0 +1,25 @@
+{% load i18n %}
+
+<p>{% trans "You can edit the properties of your port here." %}</p>
+<dl>
+  <dt>{% trans "Enable Admin State" %}</dt>
+  <dd>{% blocktrans trimmed %}When the admin state of the port is enabled, the
+    networking service forward packets on the port. Otherwise, it does not
+    forward any packets on the port.{% endblocktrans %}</dd>
+  {% block admin_fields %}{% endblock %}
+  <dt>{% trans "Binding: VNIC Type" %}</dt>
+  <dd>{% blocktrans trimmed %}It specified the VNIC type bound to the
+    networking port.{% endblocktrans %}</dd>
+  <dt>{% trans "Port Security" %}</dt>
+  <dd>{% blocktrans trimmed %}
+    Enables anti-spoofing rules for the port if enabled. In addition,
+    if port security is disabled, security groups
+    on the port will be automatically cleared. When you enable port security
+    of the port, you may want to associate some security groups on
+    the port.{% endblocktrans %}</dd>
+  <dt>{% trans "Security Groups" %}</dt>
+  <dd>{% blocktrans trimmed %}You can add or remove security groups
+    associated with the port in the next tab (if the port security is
+    enabled for the port).
+    {% endblocktrans %}</dd>
+</dl>

@@ -140,6 +140,7 @@ def data(TEST):
             {'ip_address': '174.0.0.201',
              'mac_address': 'fa:16:3e:7a:7b:18'}
         ],
+        'port_security_enabled': True,
         'security_groups': [],
     }
 
@@ -162,6 +163,7 @@ def data(TEST):
         'tenant_id': network_dict['tenant_id'],
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
+        'port_security_enabled': True,
         'security_groups': [
             # sec_group_1 ID below
             'faad7c80-3b62-4440-967c-13808c37131d',

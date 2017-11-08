@@ -1509,7 +1509,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         server = self.servers.first()
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.neutron.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest),
+                                        tenant_id=None) \
             .AndReturn([])
         api.neutron.server_security_groups(IsA(http.HttpRequest),
                                            server.id).AndReturn([])
@@ -1561,7 +1562,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         wanted_groups = [secgroups[1].id, secgroups[2].id]
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.neutron.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest),
+                                        tenant_id=None) \
             .AndReturn(secgroups)
         api.neutron.server_security_groups(IsA(http.HttpRequest),
                                            server.id).AndReturn(server_groups)
