@@ -14,7 +14,7 @@
     type="button" ng-click="modalCtrl.cancel()">
     <span ng-bind="::modalCtrl.context.cancel"></span>
   </button>
-  <button class="btn btn-primary"
+  <button class="btn" ng-class="modalCtrl.context.confirmCssClass"
     type="button" ng-click="modalCtrl.submit()">
     <span ng-bind="::modalCtrl.context.submit"></span>
   </button>
