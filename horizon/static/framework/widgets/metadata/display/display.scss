@@ -3,9 +3,10 @@
     .selector-item {
       padding: $padding-base-vertical $padding-base-horizontal;
       color: $link-color;
-      cursor: pointer;
       border-radius: $nav-pills-border-radius;
-
+      &.clickable {
+        cursor: pointer;
+      }
       &.active {
         background: $nav-pills-active-link-hover-bg;
         color: $nav-pills-active-link-hover-color;
