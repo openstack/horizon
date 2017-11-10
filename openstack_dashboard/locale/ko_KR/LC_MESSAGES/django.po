@@ -18,9 +18,9 @@
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-21 13:30+0000\n"
+"POT-Creation-Date: 2017-11-09 16:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2014,9 +2014,6 @@ msgstr "장치 이름"
 msgid "Device Owner"
 msgstr "장치 소유자"
 
-msgid "Device owner attached to the port"
-msgstr "포트에 디바이스 소유자가 연결되었습니다."
-
 msgid "Device size (GB)"
 msgstr "장치 크기 (GB)"
 
@@ -3704,9 +3701,6 @@ msgstr "MAC 주소"
 
 msgid "MAC Learning State"
 msgstr "MAC 러닝 상태"
-
-msgid "MAC address for the port"
-msgstr "포트 MAC 주소"
 
 msgid "MB"
 msgstr "MB"
@@ -8422,9 +8416,6 @@ msgstr ""
 "규칙 템플릿을 지정하거나 사용자 정의 규칙을 사용할 수 있습니다. 옵션으로 사용"
 "자 정의 TCP 규칙, 사용자 정의 UDP 규칙, 또는 사용자 정의 ICMP 규칙이 있습니"
 "다. "
-
-msgid "You can update the editable properties of your port here."
-msgstr "여기서 포트의 편집 가능한 속성을 업데이트할 수 있습니다."
 
 msgid "You cannot disable your current project"
 msgstr "현재 프로젝트를 비활성화할 수 없습니다"

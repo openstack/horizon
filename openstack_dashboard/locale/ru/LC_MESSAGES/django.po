@@ -30,9 +30,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev47\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-02 07:32+0000\n"
+"POT-Creation-Date: 2017-11-09 16:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2141,9 +2141,6 @@ msgstr "Название устройства"
 msgid "Device Owner"
 msgstr "Владелец устройства"
 
-msgid "Device owner attached to the port"
-msgstr "Владелец устройства подключенного к порту"
-
 msgid "Device size (GB)"
 msgstr "Размер устройства (ГБ)"
 
@@ -3864,9 +3861,6 @@ msgstr "MAC адрес"
 
 msgid "MAC Learning State"
 msgstr "Состояние MAC Learning"
-
-msgid "MAC address for the port"
-msgstr "MAC адрес для порта"
 
 msgid "MB"
 msgstr "МБ"
@@ -8658,9 +8652,6 @@ msgstr ""
 "Вы можете задать желаемый шаблон правила или использовать настраиваемые "
 "правила через опции Настраиваемое TCP Правило, Настраиваемое UDP Правило или "
 "Настраиваемое ICMP Правило."
-
-msgid "You can update the editable properties of your port here."
-msgstr "Вы можете обновить редактируемые свойства порта здесь."
 
 msgid "You cannot disable your current project"
 msgstr "Вы не можете отключить свой текущий проект"

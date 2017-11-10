@@ -4,9 +4,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev42\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-30 07:48+0000\n"
+"POT-Creation-Date: 2017-11-09 16:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2037,9 +2037,6 @@ msgstr "Device Name (nama perangkat) "
 msgid "Device Owner"
 msgstr "Device Owner (pemilik perangkat)"
 
-msgid "Device owner attached to the port"
-msgstr "Pemilik perangkat yang terpasang ke port"
-
 msgid "Device size (GB)"
 msgstr "Device size (GB)"
 
@@ -3754,9 +3751,6 @@ msgstr "Alamat MAC"
 
 msgid "MAC Learning State"
 msgstr "MAC Learning State"
-
-msgid "MAC address for the port"
-msgstr "Alamat MAC untuk port"
 
 msgid "MB"
 msgstr "MB"
@@ -8548,10 +8542,6 @@ msgstr ""
 "Anda dapat menentukan template aturan yang diinginkan atau menggunakan "
 "aturan kustom, opsinya adalah Custom TCP Rule, Custom UDP Rule, atau Custom "
 "ICMP Rule."
-
-msgid "You can update the editable properties of your port here."
-msgstr ""
-"Anda dapat memperbarui properti yang dapat diedit dari port Anda di sini."
 
 msgid "You cannot disable your current project"
 msgstr "Anda tidak dapat menonaktifkan proyek Anda saat ini"

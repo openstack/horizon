@@ -21,9 +21,9 @@
 # Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev209\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-21 13:30+0000\n"
+"POT-Creation-Date: 2017-11-09 16:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2111,9 +2111,6 @@ msgstr "Nom du périphérique"
 msgid "Device Owner"
 msgstr "Propriétaire du périphérique"
 
-msgid "Device owner attached to the port"
-msgstr "Propriétaire du périphérique attaché au port."
-
 msgid "Device size (GB)"
 msgstr "Taille du périphérique (Go)"
 
@@ -3858,9 +3855,6 @@ msgstr "Adresse MAC"
 
 msgid "MAC Learning State"
 msgstr "État de l'apprentissage des MAC"
-
-msgid "MAC address for the port"
-msgstr "Adresse MAC du port"
 
 msgid "MB"
 msgstr "Mo"
