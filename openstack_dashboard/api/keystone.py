@@ -672,7 +672,7 @@ def get_project_groups_roles(request, project):
 @profiler.trace
 def role_assignments_list(request, project=None, user=None, role=None,
                           group=None, domain=None, effective=False,
-                          include_subtree=True):
+                          include_subtree=True, include_names=False):
     if VERSIONS.active < 3:
         raise exceptions.NotAvailable
 
@@ -683,7 +683,8 @@ def role_assignments_list(request, project=None, user=None, role=None,
 
     return manager.list(project=project, user=user, role=role, group=group,
                         domain=domain, effective=effective,
-                        include_subtree=include_subtree)
+                        include_subtree=include_subtree,
+                        include_names=include_names)
 
 
 @profiler.trace
