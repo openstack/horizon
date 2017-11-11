@@ -1,0 +1,40 @@
+- job:
+    name: horizon-openstack-tox-base
+    parent: openstack-tox
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+      - ^horizon/locale/.*$
+      - ^openstack_dashboard/locale/.*$
+
+- job:
+    name: horizon-openstack-tox-py27dj19
+    parent: horizon-openstack-tox-base
+    vars:
+      tox_envlist: py27dj19
+
+- job:
+    name: horizon-openstack-tox-py27dj110
+    parent: horizon-openstack-tox-base
+    vars:
+      tox_envlist: py27dj110
+
+- job:
+    name: horizon-selenium-headless
+    parent: horizon-openstack-tox-base
+    vars:
+      tox_envlist: selenium-headless
+
+- project:
+    name: openstack/horizon
+    check:
+      jobs:
+        - horizon-openstack-tox-py27dj110
+        - horizon-openstack-tox-py27dj19
+        - horizon-selenium-headless
+    gate:
+      jobs:
+        - horizon-openstack-tox-py27dj110
+        - horizon-openstack-tox-py27dj19
+        - horizon-selenium-headless
