@@ -32,6 +32,27 @@
     vars:
       tox_envlist: selenium-headless
 
+- job:
+    name: horizon-dsvm-tempest-plugin
+    parent: devstack-tempest
+    required-projects:
+      - name: openstack/horizon
+      - name: openstack/tempest
+      - name: openstack/tempest-horizon
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+    vars:
+      devstack_localrc:
+        TEMPEST_PLUGINS: "'{{ ansible_user_dir }}/src/git.openstack.org/openstack/tempest-horizon'"
+      devstack_services:
+        horizon: true
+        tempest: true
+      tempest_concurrency: 2
+      tempest_test_regex: horizon
+      tox_venvlist: all
+
 - project:
     name: openstack/horizon
     check:
@@ -40,9 +61,11 @@
         - horizon-openstack-tox-py27dj19
         - horizon-openstack-tox-py27dj18
         - horizon-selenium-headless
+        - horizon-dsvm-tempest-plugin
     gate:
       jobs:
         - horizon-openstack-tox-py27dj110
         - horizon-openstack-tox-py27dj19
         - horizon-openstack-tox-py27dj18
         - horizon-selenium-headless
+        - horizon-dsvm-tempest-plugin
