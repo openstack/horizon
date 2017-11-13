@@ -24,6 +24,12 @@ Form Views
 .. automodule:: horizon.forms.views
     :members:
 
+Auth Forms
+==========
+
+.. automodule:: openstack_auth.forms
+   :members:
+
 Forms Javascript
 ================
 
