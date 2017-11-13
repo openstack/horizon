@@ -6,11 +6,9 @@ recursive-include tools *.py *.sh
 include AUTHORS
 include ChangeLog
 include LICENSE
-include Makefile
 include manage.py
 include README.rst
 include tox.ini
-include doc/Makefile
 include doc/source/_templates/.placeholder
 include requirements.txt
 include test-requirements.txt
