@@ -13,21 +13,21 @@
           <div class="quota_subtitle">
             {% if quota.max|quotainf != '-1' %}
               {% if quota.type == "totalRAMUsed" %}
-                {% blocktrans trimmed with used=quota.used|mb_float_format available=quota.max|quotainf|mb_float_format %}
-                  Used <span> {{ used }} </span>of<span> {{ available }} </span>
+                {% blocktrans trimmed with usedphrase=quota.text used=quota.used|mb_float_format available=quota.max|quotainf|mb_float_format %}
+                  {{ usedphrase }} <span> {{ used }} </span>of<span> {{ available }} </span>
                 {% endblocktrans %}
               {% elif quota.type == "totalGigabytesUsed" %}
-                {% blocktrans trimmed with used=quota.used|diskgbformat available=quota.max|quotainf|diskgbformat %}
-                  Used <span> {{ used }} </span>of<span> {{ available }} </span>
+                {% blocktrans trimmed with usedphrase=quota.text used=quota.used|diskgbformat available=quota.max|quotainf|diskgbformat %}
+                  {{ usedphrase }} <span> {{ used }} </span>of<span> {{ available }} </span>
                 {% endblocktrans %}
               {% else %}
-                {% blocktrans trimmed with used=quota.used|intcomma available=quota.max|quotainf|intcomma %}
-                  Used <span> {{ used }} </span>of<span> {{ available }} </span>
+                {% blocktrans trimmed with usedphrase=quota.text used=quota.used|intcomma available=quota.max|quotainf|intcomma %}
+                  {{ usedphrase }} <span> {{ used }} </span>of<span> {{ available }} </span>
                 {% endblocktrans %}
               {% endif %}
             {% else %}
-              {% blocktrans trimmed with used=quota.used|intcomma %}
-                Used <span> {{ used }} </span>(No Limit)
+              {% blocktrans trimmed with usedphrase=quota.text used=quota.used|intcomma %}
+                {{ usedphrase }} <span> {{ used }} </span>(No Limit)
               {% endblocktrans %}
             {% endif %}
           </div>
