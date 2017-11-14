@@ -42,8 +42,8 @@ class CreateForm(forms.SelfHandlingForm):
     enable_snat = forms.BooleanField(label=_("Enable SNAT"),
                                      initial=True,
                                      required=False)
-    mode = forms.ChoiceField(label=_("Router Type"))
-    ha = forms.ChoiceField(label=_("High Availability Mode"))
+    mode = forms.ThemableChoiceField(label=_("Router Type"))
+    ha = forms.ThemableChoiceField(label=_("High Availability Mode"))
     az_hints = forms.MultipleChoiceField(
         label=_("Availability Zone Hints"),
         required=False,
