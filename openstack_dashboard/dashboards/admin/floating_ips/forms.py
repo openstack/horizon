@@ -24,8 +24,8 @@ from openstack_dashboard import api
 
 
 class AdminFloatingIpAllocate(forms.SelfHandlingForm):
-    pool = forms.ChoiceField(label=_("Pool"))
-    tenant = forms.ChoiceField(label=_("Project"))
+    pool = forms.ThemableChoiceField(label=_("Pool"))
+    tenant = forms.ThemableChoiceField(label=_("Project"))
     floating_ip_address = forms.IPField(
         label=_("Floating IP Address (optional)"),
         required=False,

@@ -55,10 +55,11 @@ class UpdatePortInfoAction(workflows.Action):
                             vnic_type for vnic_type in api.neutron.VNIC_TYPES
                             if vnic_type[0] in supported_vnic_types
                         ]
-                    self.fields['binding__vnic_type'] = forms.ChoiceField(
-                        choices=vnic_type_choices,
-                        label=_("Binding: VNIC Type"),
-                        required=False)
+                    self.fields['binding__vnic_type'] = (
+                        forms.ThemableChoiceField(
+                            choices=vnic_type_choices,
+                            label=_("Binding: VNIC Type"),
+                            required=False))
         except Exception:
             msg = _("Unable to verify the VNIC types extension in Neutron")
             exceptions.handle(self.request, msg)
