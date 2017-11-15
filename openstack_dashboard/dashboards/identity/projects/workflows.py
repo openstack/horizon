@@ -102,6 +102,9 @@ class ComputeQuotaAction(CommonQuotaAction):
     metadata_items = forms.IntegerField(min_value=-1,
                                         label=_("Metadata Items"))
     key_pairs = forms.IntegerField(min_value=-1, label=_("Key Pairs"))
+    server_groups = forms.IntegerField(min_value=-1, label=_("Server Groups"))
+    server_group_members = forms.IntegerField(
+        min_value=-1, label=_("Server Group Members"))
     injected_files = forms.IntegerField(min_value=-1,
                                         label=_("Injected Files"))
     injected_file_content_bytes = forms.IntegerField(

@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    Added server groups and server group members quota management.
+    Users can specify their values when creating or modifying project
+    information, and users can also change their quota default values
+    on the Admin-> System-> Defaults page.

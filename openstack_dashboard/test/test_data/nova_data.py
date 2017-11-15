@@ -300,6 +300,8 @@ def data(TEST):
         'injected_files': '1',
         'cores': '10',
         'key_pairs': 100,
+        'server_groups': 10,
+        'server_group_members': 10,
         'injected_file_path_bytes': 255,
     }
     quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)

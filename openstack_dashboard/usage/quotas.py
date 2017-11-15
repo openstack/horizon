@@ -39,6 +39,8 @@ NOVA_COMPUTE_QUOTA_FIELDS = {
     "injected_file_path_bytes",
     "ram",
     "key_pairs",
+    "server_groups",
+    "server_group_members",
 }
 
 # We no longer supports nova-network, so network related quotas from nova
