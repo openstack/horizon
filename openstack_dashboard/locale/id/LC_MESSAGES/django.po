@@ -4,13 +4,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev82\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-11-15 05:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-30 03:46+0000\n"
+"PO-Revision-Date: 2017-11-15 04:26+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -397,6 +397,13 @@ msgstr ""
 "Tambahkan host kedalam kelompok ini. Hosts bisa berada dalam beberapa "
 "kelompok."
 
+msgid ""
+"Add or remove security groups to this port from the list of available "
+"security groups."
+msgstr ""
+"Tambahkan atau hapus grup keamanan ke port ini dari daftar grup keamanan "
+"yang tersedia."
+
 msgid "Add static route to the router."
 msgstr "Tambahkan rute statis ke router."
 
@@ -564,8 +571,9 @@ msgstr "Mengalokasikan alamat jaringan dari kolam"
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Mengalokasikan IP mengambang dari pool IP mengambang  diberikan "
 
+msgctxt "Label in the limit summary"
 msgid "Allocated"
-msgstr "Allocated"
+msgstr "Dialokasikan"
 
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
@@ -2031,11 +2039,17 @@ msgstr "Device ID (ID perangkat)"
 msgid "Device ID attached to the port"
 msgstr "ID perangkat  terpasang ke port"
 
+msgid "Device ID attached to the port."
+msgstr "ID perangkat terpasang pada port."
+
 msgid "Device Name"
 msgstr "Device Name (nama perangkat) "
 
 msgid "Device Owner"
 msgstr "Device Owner (pemilik perangkat)"
+
+msgid "Device owner attached to the port."
+msgstr "Pemilik perangkat terpasang pada port."
 
 msgid "Device size (GB)"
 msgstr "Device size (GB)"
@@ -2426,6 +2440,17 @@ msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "Enabled User"
 
+msgid ""
+"Enables anti-spoofing rules for the port if enabled. In addition, if port "
+"security is disabled, security groups on the port will be automatically "
+"cleared. When you enable port security of the port, you may want to "
+"associate some security groups on the port."
+msgstr ""
+"Mengaktifkan aturan anti-spoofing untuk port jika diaktifkan. Selain itu, "
+"jika keamanan port dinonaktifkan, kelompok keamanan di port akan otomatis "
+"dibersihkan. Bila Anda mengaktifkan port keamanan dari port, Anda mungkin "
+"ingin menghubungkan beberapa grup keamanan di port."
+
 msgid "Encrypted"
 msgstr "Encrypted"
 
@@ -2723,6 +2748,14 @@ msgstr "Gagal menghapus antarmuka %s"
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Gagal menghapus jaringan \"%s\""
+
+#, python-format
+msgid ""
+"Failed to delete network %(network_name)s. Most possible case is that one or "
+"more ports still exist on the requested network."
+msgstr ""
+"Gagal menghapus jaringan %(network_name)s. Kasus yang paling mungkin terjadi "
+"adalah satu atau lebih port masih ada pada jaringan yang diminta."
 
 #, python-format
 msgid "Failed to delete network %s"
@@ -3587,6 +3620,9 @@ msgstr ""
 "Jangka waktu tidak valid. Anda meminta data dari masa depan yang mungkin "
 "tidak ada."
 
+msgid "It specified the VNIC type bound to the networking port."
+msgstr "Ini menentukan jenis VNIC yang terikat pada port jaringan."
+
 msgid "Items Per Page"
 msgstr "Items Per Page"
 
@@ -3751,6 +3787,9 @@ msgstr "Alamat MAC"
 
 msgid "MAC Learning State"
 msgstr "MAC Learning State"
+
+msgid "MAC address for the port."
+msgstr "Alamat MAC untuk port"
 
 msgid "MB"
 msgstr "MB"
@@ -4653,6 +4692,9 @@ msgstr "Port Security"
 
 msgid "Port Security Enabled"
 msgstr "Port Security Enabled"
+
+msgid "Port Security Groups"
+msgstr "Grup Keamanan Port"
 
 msgid "Port list can not be retrieved."
 msgstr "Daftar port tidak bisa diambil."
@@ -8122,6 +8164,10 @@ msgstr ""
 msgid "Use snapshot as a source"
 msgstr "Gunakan snapshot sebagai sumber"
 
+msgctxt "Label in the limit summary"
+msgid "Used"
+msgstr "Digunakan"
+
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "Digunakan <span> %(used)s </span> dari <span> %(available)s </span>"
@@ -8490,6 +8536,13 @@ msgstr ""
 "<br> Ini adalah setara dengan perintah  <tt>cinder unmanage</tt>."
 
 msgid ""
+"When the admin state of the port is enabled, the networking service forward "
+"packets on the port. Otherwise, it does not forward any packets on the port."
+msgstr ""
+"Bila status admin port diaktifkan, layanan jaringan meneruskan paket di "
+"port. Jika tidak, ia tidak meneruskan paket di port."
+
+msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
 "volume to an image."
 msgstr ""
@@ -8508,6 +8561,13 @@ msgstr "Anda sudah menggunakan semua volume yang tersedia Anda."
 #, python-format
 msgid "You are not allowed to create a port for network %s."
 msgstr "Anda tidak diperbolehkan membuat port untuk jaringan %s."
+
+msgid ""
+"You can add or remove security groups associated with the port in the next "
+"tab (if the port security is enabled for the port)."
+msgstr ""
+"Anda dapat menambahkan atau menghapus grup keamanan yang terkait dengan port "
+"pada tab berikutnya (jika keamanan port diaktifkan untuk port)."
 
 msgid ""
 "You can connect a specified external network to the router. The external "
@@ -8534,6 +8594,9 @@ msgid ""
 msgstr ""
 "Anda dapat menyesuaikan instance Anda setelah itu telah diluncurkan "
 "menggunakan pilihan yang tersedia di sini."
+
+msgid "You can edit the properties of your port here."
+msgstr "Anda dapat mengedit properti dari port Anda di sini."
 
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "

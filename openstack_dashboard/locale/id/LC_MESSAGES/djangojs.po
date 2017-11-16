@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev42\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev82\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-30 07:48+0000\n"
+"POT-Creation-Date: 2017-11-15 05:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-30 03:48+0000\n"
+"PO-Revision-Date: 2017-11-15 04:31+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -522,6 +522,10 @@ msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Konfirmasi hapus image"
 
+msgid "Confirm Delete Key Pair"
+msgid_plural "Confirm Delete Key Pairs"
+msgstr[0] "Confirm Delete Key Pair"
+
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "Confirm Delete Role"
@@ -737,6 +741,13 @@ msgstr "Delete Instance (hapus instance)"
 msgid "Delete Interface"
 msgstr "Delete Interface (hapus antarmuka)"
 
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "Delete Key Pair"
+
+msgid "Delete Key Pairs"
+msgstr "Delete Key Pairs"
+
 msgid "Delete Network"
 msgstr "Delete Network (hapus jaringan)"
 
@@ -775,6 +786,11 @@ msgstr[0] "Deleted Flavor: %s."
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Image terhapus: %s."
+
+#, python-format
+msgid "Deleted Key Pair: %s."
+msgid_plural "Deleted Key Pairs: %s."
+msgstr[0] "Deleted Key Pair: %s."
 
 #, python-format
 msgid "Deleted Role: %s."
@@ -2610,6 +2626,11 @@ msgid_plural "Unable to delete Images: %s."
 msgstr[0] "Tidak data menghapus image: %s."
 
 #, python-format
+msgid "Unable to delete Key Pair: %s."
+msgid_plural "Unable to delete Key Pairs: %s."
+msgstr[0] "Unable to delete Key Pair: %s."
+
+#, python-format
 msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "Unable to delete Role: %s."
@@ -2644,6 +2665,10 @@ msgstr "Tidak dapat menghapus grup."
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "Tidak dapat menghapus image dengan id: %(id)s"
+
+#, python-format
+msgid "Unable to delete the keypair with name: %(name)s"
+msgstr "Tidak dapat menghapus keypair dengan nama: %(name)s"
 
 msgid "Unable to delete the object."
 msgstr "Tidak dapat menghapus objek."
@@ -3317,6 +3342,11 @@ msgstr[0] "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "Anda telah memilih \"%s\". Image terhapus tidak dapat dipulihkan."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted key pair is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted key pair is not recoverable."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."
