@@ -334,7 +334,7 @@
       },
       function onBootSourceChange(newValue, oldValue) {
         if (newValue !== oldValue) {
-          $scope.$broadcast(events.AVAIL_CHANGED, {
+          $scope.$broadcast(events.TABLES_CHANGED, {
             'data': bootSources[newValue]
           });
         }

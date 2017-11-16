@@ -90,10 +90,10 @@
 
     // if available transfer table is updated dynamically (e.g. based on a dropdown
     // selection like in Launch Instance Boot Source), we need to update our data accordingly
-    var availableChangedWatcher = $scope.$on(events.AVAIL_CHANGED, onAvailChanged);
+    var tablesChangedWatcher = $scope.$on(events.TABLES_CHANGED, onTablesChanged);
 
     $scope.$on('$destroy', function () {
-      availableChangedWatcher();
+      tablesChangedWatcher();
     });
 
     init(trModel);
@@ -208,18 +208,22 @@
       Array.prototype.push.apply(ctrl.allocated.sourceItems, orderedItems);
     }
 
-    function onAvailChanged(e, args) {
-      ctrl.available = {
-        sourceItems: args.data.available,
-        displayedItems: args.data.displayedAvailable ? args.data.displayedAvailable : []
-      };
-
-      for (var i = 0; i < ctrl.available.sourceItems.length; i++) {
-        var item = ctrl.available.sourceItems[i];
-        if (item.id in ctrl.allocatedIds) {
-          ctrl.allocated.sourceItems.splice(i, 1);
-          delete ctrl.allocatedIds[item.id];
-        }
+    function onTablesChanged(e, args) {
+      if (args.data.available) {
+        ctrl.available.sourceItems = args.data.available;
+      }
+      if (args.data.displayedAvailable) {
+        ctrl.available.displayedItems = args.data.displayedAvailable;
+      }
+      if (args.data.allocated) {
+        ctrl.allocated.sourceItems = args.data.allocated;
+        ctrl.allocatedIds = {};
+        ctrl.allocated.sourceItems.forEach(function(item) {
+          ctrl.allocatedIds[item.id] = true;
+        });
+      }
+      if (args.data.displayedAllocated) {
+        ctrl.allocated.displayedItems = args.data.displayedAllocated;
       }
     }
 
