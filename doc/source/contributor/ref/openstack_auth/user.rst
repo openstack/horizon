@@ -1,6 +1,6 @@
-==============
-The User Class
-==============
+===============
+The User Module
+===============
 
 .. automodule:: openstack_auth.user
    :members:
