@@ -82,8 +82,10 @@
         actionResult.failed(resourceType, item.context.id);
       });
 
-      if (actionResult.result.failed.length === 0 && actionResult.result.deleted.length > 0) {
-        $location.path("/project/key_pairs");
+      var path = '/project/key_pairs';
+      if ($location.url() !== path && actionResult.result.failed.length === 0 &&
+          actionResult.result.deleted.length > 0) {
+        $location.path(path);
       } else {
         return actionResult.result;
       }
