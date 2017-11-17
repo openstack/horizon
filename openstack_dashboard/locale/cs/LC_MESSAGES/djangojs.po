@@ -2,16 +2,17 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
 # Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
+# Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev124\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev91\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-21 04:56+0000\n"
+"POT-Creation-Date: 2017-11-17 06:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-24 08:54+0000\n"
-"Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
+"PO-Revision-Date: 2017-11-17 06:13+0000\n"
+"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -2662,8 +2663,9 @@ msgstr[0] "odeslání"
 msgstr[1] "odeslání"
 msgstr[2] "odeslání"
 
+#, fuzzy
 msgid "success"
-msgid_plural "successs"
+msgid_plural "successes"
 msgstr[0] "úšpěch"
 msgstr[1] "úspěchy"
 msgstr[2] "úspěchy"

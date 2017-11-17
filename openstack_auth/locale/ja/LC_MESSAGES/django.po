@@ -1,0 +1,88 @@
+# Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 13.0.0.0b2.dev91\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-11-17 06:13+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-11-16 08:03+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "An error occurred authenticating. Please try again later."
+msgstr "認証中にエラーが発生しました。後ほどもう一度お試しください。"
+
+msgid "Authenticate using"
+msgstr "使用する認証方法"
+
+msgid "Could not find service provider ID on Keystone."
+msgstr "Keystone でサービスプロバイダー ID を見つけることができませんでした。"
+
+msgid "Domain"
+msgstr "ドメイン"
+
+msgid "Invalid credentials."
+msgstr "無効な認証情報です。"
+
+msgid "K2K Federation not setup for this session"
+msgstr "このセッションには K2K フェデレーションは設定されていません。"
+
+msgid ""
+"No authentication backend could be determined to handle the provided "
+"credentials."
+msgstr "指定された認証情報を処理する認証バックエンドが決定できませんでした。"
+
+msgid "Password"
+msgstr "パスワード"
+
+#, python-format
+msgid "Please consider changing your password, it will expire in %s minutes"
+msgstr ""
+"パスワードの変更をお勧めします。今のパスワードはあと %s 分で無効になります。"
+
+#, python-format
+msgid "Project switch failed for user \"%(username)s\"."
+msgstr "ユーザー \"%(username)s\" のプロジェクト切り替えに失敗しました。"
+
+msgid "Region"
+msgstr "リージョン"
+
+#, python-format
+msgid "Service provider authentication failed. %s"
+msgstr "サービスプロバイダーの認証に失敗しました。%s"
+
+#, python-format
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\"successful."
+msgstr ""
+"Keystone プロバイダー \"%(keystone_provider)s\" への切り替えが正常に完了しま"
+"した。"
+
+#, python-format
+msgid "Switch to project \"%(project_name)s\" successful."
+msgstr "プロジェクト \"%(project_name)s\" へ正常に切り替えました。"
+
+msgid "The authentication token issued by the Identity service has expired."
+msgstr "Identity サービスにより発行された認証トークンの期限が切れました。"
+
+msgid "Unable to establish connection to keystone endpoint."
+msgstr "Keystone エンドポイントへの接続を確立できません。"
+
+msgid "Unable to retrieve authorized domains."
+msgstr "認証されたドメインを取得できません。"
+
+msgid "Unable to retrieve authorized projects."
+msgstr "権限を持っているプロジェクトの情報を取得できません。"
+
+msgid "User Name"
+msgstr "ユーザー名"
+
+msgid "You are not authorized for any projects or domains."
+msgstr "どのプロジェクトやドメインに対しても権限がありません。"
+
+msgid "You are not authorized for any projects."
+msgstr "どのプロジェクトに対しても権限がありません。"
