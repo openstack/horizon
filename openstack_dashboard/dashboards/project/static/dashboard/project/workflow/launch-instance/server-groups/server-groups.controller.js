@@ -21,20 +21,18 @@
     .controller('LaunchInstanceServerGroupsController', LaunchInstanceServerGroupsController);
 
   LaunchInstanceServerGroupsController.$inject = [
-    'launchInstanceModel',
-    'horizon.dashboard.project.workflow.launch-instance.basePath'
+    'launchInstanceModel'
   ];
 
   /**
    * @ngdoc controller
    * @name LaunchInstanceServerGroupsController
    * @param {Object} launchInstanceModel
-   * @param {string} basePath
    * @description
    * Allows selection of server groups.
    * @returns {undefined} No return value
    */
-  function LaunchInstanceServerGroupsController(launchInstanceModel, basePath) {
+  function LaunchInstanceServerGroupsController(launchInstanceModel) {
     var ctrl = this;
 
     ctrl.tableData = {
@@ -43,8 +41,6 @@
       displayedAvailable: [],
       displayedAllocated: []
     };
-
-    ctrl.tableDetails = basePath + 'server-groups/server-group-details.html';
 
     ctrl.tableHelp = {
       /*eslint-disable max-len */
@@ -56,13 +52,5 @@
     ctrl.tableLimits = {
       maxAllocation: 1
     };
-
-    ctrl.filterFacets = [
-      {
-        label: gettext('Name'),
-        name: 'name',
-        singleton: true
-      }
-    ];
   }
 })();

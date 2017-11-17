@@ -19,8 +19,8 @@
           </th>
         </tr>
         <tr>
-          <th class="expander"></th>
           <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+          <th st-sort="policy" class="rsp-p1" translate>Policy</th>
           <th></th>
         </tr>
       </thead>
@@ -39,13 +39,10 @@
             </div>
           </td>
         </tr>
-        <tr ng-repeat-start="row in $displayedItems track by row.id"
+        <tr ng-repeat="row in $displayedItems track by row.id"
             ng-if="$isAllocatedTable || ($isAvailableTable && !trCtrl.allocatedIds[row.id])">
-          <td class="expander">
-              <span class="fa fa-chevron-right" hz-expand-detail
-                    title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
-          </td>
           <td class="rsp-p1">{$ row.name $}</td>
+          <td class="rsp-p1">{$ row.policies[0] | noValue $}</td>
           <td class="actions_column">
             <action-list>
               <action ng-if="$isAllocatedTable"
@@ -59,11 +56,6 @@
                 <span class="fa fa-arrow-up"></span>
               </action>
             </action-list>
-          </td>
-        </tr>
-        <tr ng-repeat-end class="detail-row">
-          <td></td>
-          <td class="detail" colspan="3" ng-include="ctrl.tableDetails">
           </td>
         </tr>
       </tbody>
