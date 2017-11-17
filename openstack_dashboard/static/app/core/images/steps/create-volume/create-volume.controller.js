@@ -135,11 +135,11 @@
       updateStorageGraph
     );
 
-    var volumeWatcher = $scope.$watch(
+    var volumeTypeWatcher = $scope.$watch(
       function() {
-        return ctrl.volume;
+        return ctrl.volumeType;
       },
-      volumeChangeEvent,
+      updateVolumeType,
       true
     );
 
@@ -222,13 +222,13 @@
       return image.name + ' (' + $filter('bytes')(image.size) + ')';
     }
 
-    function volumeChangeEvent() {
+    function updateVolumeType() {
       ctrl.volume.volume_type = ctrl.volumeType.name || '';
     }
 
     function deregisterWatchers() {
       capacityWatcher();
-      volumeWatcher();
+      volumeTypeWatcher();
     }
   }
 })();

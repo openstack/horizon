@@ -272,16 +272,12 @@
       expect(graph.maxLimit).toEqual(graph.maxLimit);
     });
 
-    it('should update volume type from volume name', function() {
+    it('should update volume type when ctrl.volumeType changes', function() {
       var ctrl = createController();
-
+      ctrl.volumeType = {name: 'spam'};
       $scope.$apply();
 
-      ctrl.volume.volume_type = 'spam';
-      ctrl.volume.name = 'nova2';
-      $scope.$apply();
-
-      expect(ctrl.volume.volume_type).toEqual('lvmdriver-1');
+      expect(ctrl.volume.volume_type).toEqual('spam');
     });
 
     it('should set the validity of the volume size input field based on the limit', function() {
@@ -342,13 +338,13 @@
       expect(graph.overMax).toBeFalsy();
     });
 
-    it('should deregister the volume watcher when the destroy event is thrown', function() {
+    it('should deregister the volume type watcher when the destroy event is thrown', function() {
       var ctrl = createController();
 
       $scope.$emit('$destroy');
       $scope.$emit.calls.reset();
 
-      ctrl.volume.size = 100;
+      ctrl.volumeType = {name: 'spam'};
       $scope.$apply();
 
       expect($scope.$emit).not.toHaveBeenCalled();
