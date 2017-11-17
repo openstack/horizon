@@ -269,8 +269,6 @@
    */
   function events() {
     return {
-      IMAGE_CHANGED: 'horizon.app.core.images.IMAGE_CHANGED',
-      IMAGE_METADATA_CHANGED: 'horizon.app.core.images.IMAGE_METADATA_CHANGED',
       IMAGE_UPLOAD_PROGRESS: 'horizon.app.core.images.IMAGE_UPLOAD_PROGRESS'
     };
   }

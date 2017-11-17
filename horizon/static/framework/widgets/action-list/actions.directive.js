@@ -115,7 +115,7 @@
    *      - When using 'delete-selected' for 'batch' type, all selected rows are passed as
    *        an array.
    *
-   *   There is a third optional function, initAction (which was previously called initScope)
+   *   There is a third optional function, initAction.
    *   Actions may perform post-config (in the angular sense) initialization by
    *   providing an initAction method. This might be typically invoked by initActions()
    *   on a ResourceType. Actions should not perform blocking operations in their

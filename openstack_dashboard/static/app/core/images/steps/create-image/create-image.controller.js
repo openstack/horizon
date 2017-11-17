@@ -56,7 +56,7 @@
     ctrl.apiVersion = 0;
     ctrl.allowPublicizeImage = true;
 
-    ctrl.image = {
+    $scope.stepModels.imageForm = ctrl.image = {
       source_type: '',
       image_url: '',
       data: {},
@@ -96,11 +96,9 @@
 
     init();
 
-    var imageChangedWatcher = $scope.$watchCollection('ctrl.image', watchImageCollection);
     var watchUploadProgress = $scope.$on(events.IMAGE_UPLOAD_PROGRESS, watchImageUpload);
 
     $scope.$on('$destroy', function() {
-      imageChangedWatcher();
       watchUploadProgress();
     });
 
@@ -146,13 +144,6 @@
     function isLocalFileUpload() {
       var type = ctrl.image.source_type;
       return (type === 'file-legacy' || type === 'file-direct');
-    }
-
-    // emits new data to parent listeners
-    function watchImageCollection(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        $scope.$emit(events.IMAGE_CHANGED, newValue);
-      }
     }
 
     function init() {

@@ -91,18 +91,7 @@
 
       beforeEach(function() {
         spyOn(deleteModalService, 'open').and.callThrough();
-        service.initScope($scope, labelize);
       });
-
-      function labelize(count) {
-        return {
-          title: ngettext('title', 'titles', count),
-          message: ngettext('message', 'messages', count),
-          submit: ngettext('submit', 'submits', count),
-          success: ngettext('success', 'successs', count),
-          error: ngettext('error', 'errors', count)
-        };
-      }
 
       ////////////
 
@@ -221,7 +210,6 @@
       beforeEach(function() {
         spyOn(resolver, 'success');
         spyOn(resolver, 'error');
-        service.initScope($scope);
       });
 
       ////////////
