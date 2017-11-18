@@ -1,0 +1,15 @@
+---
+features:
+  - |
+    [:bug:`1690433`] "Get me a network" feature provided by nova and neutron
+    is now exposed in the launch server form.
+    This feature will sets up a neutron network topology for a project
+    if there is no network in the project. It simplifies the workflow when
+    launching a server.
+    In the horizon support, when there is no network which can be used
+    for a server, a dummy network named 'auto_allocated_network' is shown
+    in the network choices.
+    The feature is disabled by default because it requires preparations
+    in your neutron deployment.
+    To enable it, set ``enable_auto_allocated_network`` in
+    ``OPENSTACK_NEUTRON_NETWORK`` to ``True``.

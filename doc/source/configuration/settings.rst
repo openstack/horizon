@@ -1552,6 +1552,7 @@ Default:
 
     {
         'default_dns_nameservers': [],
+        'enable_auto_allocated_network': False,
         'enable_distributed_router': False,
         'enable_fip_topology_check': True,
         'enable_ha_router': False,
@@ -1580,6 +1581,22 @@ Default DNS servers you would like to use when a subnet is created. This is
 only a default. Users can still choose a different list of dns servers.
 
 Example: ``["8.8.8.8", "8.8.4.4", "208.67.222.222"]``
+
+enable_auto_allocated_network
+#############################
+
+.. versionadded:: 14.0.0(Rocky)
+
+Default: ``False``
+
+Enable or disable Nova and Neutron 'get-me-a-network' feature.
+This sets up a neutron network topology for a project if there is no network
+in the project. It simplifies the workflow when launching a server.
+Horizon checks if both nova and neutron support the feature and enable it
+only when supported. However, whether the feature works properly depends on
+deployments, so this setting is disabled by default.
+(The detail on the required preparation is described in `the Networking Guide
+<https://docs.openstack.org/neutron/latest/admin/config-auto-allocation.html>`__.)
 
 enable_distributed_router
 #########################

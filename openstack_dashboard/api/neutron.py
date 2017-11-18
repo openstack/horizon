@@ -117,6 +117,36 @@ class Subnet(NeutronAPIDictWrapper):
         super(Subnet, self).__init__(apidict)
 
 
+AUTO_ALLOCATE_ID = '__auto_allocate__'
+
+
+class PreAutoAllocateNetwork(Network):
+    def __init__(self, request):
+        tenant_id = request.user.tenant_id
+        auto_allocated_subnet = Subnet({
+            'name': 'auto_allocated_subnet',
+            'id': AUTO_ALLOCATE_ID,
+            'network_id': 'auto',
+            'tenant_id': tenant_id,
+            # The following two fields are fake so that Subnet class
+            # and the network topology view work without errors.
+            'ip_version': 4,
+            'cidr': '0.0.0.0/0',
+        })
+        auto_allocated_network = {
+            'name': 'auto_allocated_network',
+            'description': 'Network to be allocated automatically',
+            'id': AUTO_ALLOCATE_ID,
+            'status': 'ACTIVE',
+            'admin_state_up': True,
+            'shared': False,
+            'router:external': False,
+            'subnets': [auto_allocated_subnet],
+            'tenant_id': tenant_id,
+        }
+        super(PreAutoAllocateNetwork, self).__init__(auto_allocated_network)
+
+
 class Trunk(NeutronAPIDictWrapper):
     """Wrapper for neutron trunks."""
 
@@ -989,8 +1019,35 @@ def network_list(request, **params):
     return [Network(n) for n in networks]
 
 
+def _is_auto_allocated_network_supported(request):
+    try:
+        neutron_auto_supported = is_service_enabled(
+            request, 'enable_auto_allocated_network',
+            'auto-allocated-topology', default=False)
+    except Exception:
+        exceptions.handle(request, _('Failed to check if neutron supports '
+                                     '"auto_alloocated_network".'))
+        neutron_auto_supported = False
+    if not neutron_auto_supported:
+        return False
+
+    try:
+        # server_create needs to support both features,
+        # so we need to pass both features here.
+        nova_auto_supported = nova.is_feature_available(
+            request, ("instance_description",
+                      "auto_allocated_network"))
+    except Exception:
+        exceptions.handle(request, _('Failed to check if nova supports '
+                                     '"auto_alloocated_network".'))
+        nova_auto_supported = False
+
+    return nova_auto_supported
+
+
 @profiler.trace
 def network_list_for_tenant(request, tenant_id, include_external=False,
+                            include_pre_auto_allocate=False,
                             **params):
     """Return a network list available for the tenant.
 
@@ -1016,6 +1073,12 @@ def network_list_for_tenant(request, tenant_id, include_external=False,
         # In the current Neutron API, there is no way to retrieve
         # both owner networks and public networks in a single API call.
         networks += network_list(request, shared=True, **params)
+
+    # Hack for auto allocated network
+    if include_pre_auto_allocate and not networks:
+        if _is_auto_allocated_network_supported(request):
+            networks.append(PreAutoAllocateNetwork(request))
+
     params['router:external'] = params.get('router:external', True)
     if params['router:external'] and include_external:
         if shared is not None:
@@ -1754,8 +1817,8 @@ def is_enabled_by_config(name, default=True):
 
 
 @memoized
-def is_service_enabled(request, config_name, ext_name):
-    return (is_enabled_by_config(config_name) and
+def is_service_enabled(request, config_name, ext_name, default=True):
+    return (is_enabled_by_config(config_name, default) and
             is_extension_supported(request, ext_name))
 
 

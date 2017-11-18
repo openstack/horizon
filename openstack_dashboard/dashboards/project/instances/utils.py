@@ -86,7 +86,8 @@ def server_group_list(request):
         return []
 
 
-def network_field_data(request, include_empty_option=False, with_cidr=False):
+def network_field_data(request, include_empty_option=False, with_cidr=False,
+                       for_launch=False):
     """Returns a list of tuples of all networks.
 
     Generates a list of networks available to the user (request). And returns
@@ -101,8 +102,12 @@ def network_field_data(request, include_empty_option=False, with_cidr=False):
     tenant_id = request.user.tenant_id
     networks = []
     if api.base.is_service_enabled(request, 'network'):
+        extra_params = {}
+        if for_launch:
+            extra_params['include_pre_auto_allocate'] = True
         try:
-            networks = api.neutron.network_list_for_tenant(request, tenant_id)
+            networks = api.neutron.network_list_for_tenant(
+                request, tenant_id, **extra_params)
         except Exception as e:
             msg = _('Failed to get network list {0}').format(six.text_type(e))
             exceptions.handle(request, msg)

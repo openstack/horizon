@@ -15,6 +15,7 @@ import logging
 
 from django import template
 from django.template import defaultfilters as filters
+from django.urls import reverse
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -52,6 +53,11 @@ class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
         )
 
     policy_rules = (("network", "delete_network"),)
+
+    def allowed(self, request, datum=None):
+        if datum and datum.id == api.neutron.AUTO_ALLOCATE_ID:
+            return False
+        return True
 
     @actions.handle_exception_with_detail_message(
         # normal_log_message
@@ -104,6 +110,11 @@ class EditNetwork(policy.PolicyTargetMixin, tables.LinkAction):
     icon = "pencil"
     policy_rules = (("network", "update_network"),)
 
+    def allowed(self, request, datum=None):
+        if datum and datum.id == api.neutron.AUTO_ALLOCATE_ID:
+            return False
+        return True
+
 
 class CreateSubnet(subnet_tables.SubnetPolicyTargetMixin, tables.LinkAction):
     name = "subnet"
@@ -117,6 +128,8 @@ class CreateSubnet(subnet_tables.SubnetPolicyTargetMixin, tables.LinkAction):
                            ("network:project_id", "tenant_id"),)
 
     def allowed(self, request, datum=None):
+        if datum and datum.id == api.neutron.AUTO_ALLOCATE_ID:
+            return False
         usages = quotas.tenant_quota_usages(request, targets=('subnet', ))
         # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
         # usages["subnet'] is empty
@@ -135,6 +148,12 @@ def get_subnets(network):
     template_name = 'project/networks/_network_ips.html'
     context = {"subnets": network.subnets}
     return template.loader.render_to_string(template_name, context)
+
+
+def get_network_link(network):
+    if network.id == api.neutron.AUTO_ALLOCATE_ID:
+        return None
+    return reverse('horizon:project:networks:detail', args=[network.id])
 
 
 DISPLAY_CHOICES = (
@@ -172,7 +191,7 @@ class ProjectNetworksFilterAction(tables.FilterAction):
 class NetworksTable(tables.DataTable):
     name = tables.WrappingColumn("name_or_id",
                                  verbose_name=_("Name"),
-                                 link='horizon:project:networks:detail')
+                                 link=get_network_link)
     subnets = tables.Column(get_subnets,
                             verbose_name=_("Subnets Associated"),)
     shared = tables.Column("shared", verbose_name=_("Shared"),

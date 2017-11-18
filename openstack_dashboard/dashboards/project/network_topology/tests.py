@@ -173,7 +173,8 @@ class NetworkTopologyTests(test.TestCase):
         self.mock_server_list.assert_called_once_with(
             test.IsHttpRequest())
         self.mock_network_list_for_tenant.assert_called_once_with(
-            test.IsHttpRequest(), self.tenant.id)
+            test.IsHttpRequest(), self.tenant.id,
+            include_pre_auto_allocate=False)
         if router_enable:
             self.mock_router_list.assert_called_once_with(
                 test.IsHttpRequest(), tenant_id=self.tenant.id)
