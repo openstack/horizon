@@ -17,7 +17,8 @@
   'use strict';
 
   describe('modal-form controller', function () {
-    var ctrl, modalInstance, context;
+    var ctrl, modalInstance, context,
+      mockEvent, mockSchemaInvalidForm, mockSchemaValidForm;
 
     beforeEach(module('horizon.framework.widgets.form'));
 
@@ -38,6 +39,12 @@
           $uibModalInstance: modalInstance,
           context: context
         });
+      mockEvent = {
+        stopPropagation: angular.noop,
+        preventDefault: angular.noop
+      };
+      mockSchemaInvalidForm = { '$invalid': true };
+      mockSchemaValidForm = { '$invalid': false };
     }));
 
     it('sets formTitle on scope', function() {
@@ -58,8 +65,14 @@
 
     it('calls modalInstance close on submit', function() {
       spyOn(modalInstance, 'close');
-      ctrl.submit();
+      ctrl.submit(mockEvent, mockSchemaValidForm);
       expect(modalInstance.close.calls.count()).toBe(1);
+    });
+
+    it('does not call close on submit if form is invalid', function() {
+      spyOn(modalInstance, 'close');
+      ctrl.submit(mockEvent, mockSchemaInvalidForm);
+      expect(modalInstance.close.calls.count()).toBe(0);
     });
 
     it('calls modalInstance dismiss on cancel', function() {

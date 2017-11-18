@@ -13,7 +13,8 @@
         sf-form="ctrl.form"
         sf-model="ctrl.model"
         sf-options="{ validateOnRender: true,
-                      pristine: { errors: false, success: false } }">
+                      pristine: { errors: false, success: false } }"
+        ng-submit="ctrl.submit($event, schemaForm)">
   </form>
 </div>
 
@@ -44,7 +45,7 @@
   <button type="button"
           class="btn btn-primary"
           ng-disabled="schemaForm.$invalid"
-          ng-click="ctrl.submit()">
+          ng-click="ctrl.submit($event, schemaForm)">
     <span class="fa fa-{$::ctrl.submitIcon$}"></span>
     {$::ctrl.submitText$}
   </button>

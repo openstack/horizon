@@ -51,8 +51,12 @@
     ctrl.submitIcon = context.submitIcon;
     ctrl.cancel = cancel;
 
-    function submit() {
-      return $uibModalInstance.close(context);
+    function submit($event, schemaForm) {
+      $event.preventDefault();
+      $event.stopPropagation();
+      if (!schemaForm.$invalid) {
+        return $uibModalInstance.close(context);
+      }
     }
 
     function cancel() {
