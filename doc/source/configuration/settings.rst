@@ -768,6 +768,28 @@ will be from the beginning of the current month until the current date. The
 legacy behaviour is not recommended for large deployments as Horizon suffers
 significant lag in this case.
 
+POLICY_DIRS
+-----------
+
+.. versionadded:: 13.0.0(Queens)
+
+Default: ``{}``
+
+Specifies a list of policy directories per service types. The directories
+are relative to `POLICY_FILES_PATH`_. Services whose additional policies
+are defined here must be defined in `POLICY_FILES`_ too. Otherwise,
+additional policies specified in ``POLICY_DIRS`` are not loaded.
+
+Example:
+
+.. code-block:: python
+
+    {
+        'identity': ['keystone_policy.d'],
+        'compute': ['nova_policy.d'],
+        'network': ['neutron_policy.d'],
+    }
+
 POLICY_FILES
 ------------
 
@@ -1449,6 +1471,17 @@ The commom value for this setting is ``HTTP_X_REAL_IP`` or
 ``HTTP_X_FORWARDED_FOR``.
 If not present, then ``REMOTE_ADDR`` header is used. (``REMOTE_ADDR`` is the
 field of Django HttpRequest object which contains IP address of the client.)
+
+TOKEN_DELETION_DISABLED
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``False``
+
+This setting allows deployers to control whether a token is deleted on log out.
+This can be helpful when there are often long running processes being run
+in the Horizon environment.
 
 TOKEN_TIMEOUT_MARGIN
 ~~~~~~~~~~~~~~~~~~~~
