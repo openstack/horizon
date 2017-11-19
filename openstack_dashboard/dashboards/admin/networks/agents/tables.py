@@ -19,7 +19,6 @@ from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
-from horizon import exceptions
 from horizon import tables
 from horizon.utils import filters as utils_filters
 
@@ -50,15 +49,7 @@ class DeleteDHCPAgent(tables.DeleteAction):
 
     def delete(self, request, obj_id):
         network_id = self.table.kwargs['network_id']
-        try:
-            api.neutron.remove_network_from_dhcp_agent(request, obj_id,
-                                                       network_id)
-        except Exception as e:
-            LOG.info('Failed to delete agent: %s', e)
-            msg = _('Failed to delete agent: %s') % e
-            redirect = reverse('horizon:admin:networks:detail',
-                               args=[network_id])
-            exceptions.handle(request, msg, redirect=redirect)
+        api.neutron.remove_network_from_dhcp_agent(request, obj_id, network_id)
 
 
 class AddDHCPAgent(tables.LinkAction):

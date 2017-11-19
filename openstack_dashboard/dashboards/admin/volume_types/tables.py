@@ -90,11 +90,7 @@ class DeleteVolumeType(tables.DeleteAction):
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
     def delete(self, request, obj_id):
-        try:
-            cinder.volume_type_delete(request, obj_id)
-        except exceptions.BadRequest as e:
-            redirect_url = reverse("horizon:admin:volumes:index")
-            exceptions.handle(request, e, redirect=redirect_url)
+        cinder.volume_type_delete(request, obj_id)
 
 
 class CreateVolumeTypeEncryption(tables.LinkAction):

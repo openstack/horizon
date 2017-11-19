@@ -19,7 +19,6 @@ from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
-from horizon import exceptions
 from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports \
@@ -84,11 +83,10 @@ class RemoveInterface(policy.PolicyTargetMixin, tables.DeleteAction):
         except Exception as e:
             LOG.info('Failed to delete interface %(id)s: %(exc)s',
                      {'id': obj_id, 'exc': e})
-            msg = _('Failed to delete interface %s') % obj_id
-            router_id = self.table.kwargs['router_id']
-            redirect = reverse(self.failure_url,
-                               args=[router_id])
-            exceptions.handle(request, msg, redirect=redirect)
+            # NOTE: No exception handling is required here because
+            # BatchAction.handle() does it. What we need to do is
+            # just to re-raise the exception.
+            raise
 
 
 DISPLAY_CHOICES = (
