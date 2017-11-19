@@ -33,6 +33,8 @@ from openstack_dashboard.dashboards.admin.volumes \
     import forms as volumes_forms
 from openstack_dashboard.dashboards.admin.volumes \
     import tables as volumes_tables
+from openstack_dashboard.dashboards.admin.volumes \
+    import tabs as volumes_tabs
 from openstack_dashboard.dashboards.project.volumes \
     import views as volumes_views
 
@@ -108,6 +110,8 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
 
 
 class DetailView(volumes_views.DetailView):
+    tab_group_class = volumes_tabs.VolumeDetailTabs
+
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         table = volumes_tables.VolumesTable(self.request)

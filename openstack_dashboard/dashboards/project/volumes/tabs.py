@@ -27,7 +27,14 @@ class OverviewTab(tabs.Tab):
     template_name = ("project/volumes/_detail_overview.html")
 
     def get_context_data(self, request):
-        return {"volume": self.tab_group.kwargs['volume']}
+        return {
+            'volume': self.tab_group.kwargs['volume'],
+            'detail_url': {
+                'instance': 'horizon:project:instances:detail',
+                'image': 'horizon:project:images:images:detail',
+                'encryption': 'horizon:project:volumes:encryption_detail',
+            }
+        }
 
 
 class SnapshotTab(tabs.TableTab):
