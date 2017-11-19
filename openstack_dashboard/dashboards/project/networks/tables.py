@@ -13,7 +13,6 @@
 #    under the License.
 import logging
 
-from django.core.urlresolvers import reverse_lazy
 from django import template
 from django.template import defaultfilters as filters
 from django.utils.translation import pgettext_lazy
@@ -23,6 +22,7 @@ from neutronclient.common import exceptions as neutron_exceptions
 
 from horizon import exceptions
 from horizon import tables
+from horizon.tables import actions
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.subnets import tables \
@@ -53,34 +53,24 @@ class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
 
     policy_rules = (("network", "delete_network"),)
 
+    @actions.handle_exception_with_detail_message(
+        # normal_log_message
+        'Failed to delete network %(id)s: %(exc)s',
+        # target_exception
+        neutron_exceptions.Conflict,
+        # target_log_message
+        'Unable to delete network %(id)s with 409 Conflict: %(exc)s',
+        # target_user_message
+        _('Unable to delete network %(name)s. Most possible reason is because '
+          'one or more ports still exist on the requested network.'),
+        # logger_name
+        __name__)
     def delete(self, request, network_id):
-        network_name = network_id
-        redirect_url = reverse_lazy("horizon:project:networks:index")
-        try:
-            # Retrieve the network list.
-            network = api.neutron.network_get(request, network_id,
-                                              expand_subnet=False)
-            network_name = network.name
-            LOG.debug('Network %(network_id)s has subnets: %(subnets)s',
-                      {'network_id': network_id, 'subnets': network.subnets})
-            for subnet_id in network.subnets:
-                api.neutron.subnet_delete(request, subnet_id)
-                LOG.debug('Deleted subnet %s', subnet_id)
-            api.neutron.network_delete(request, network_id)
-            LOG.debug('Deleted network %s successfully', network_id)
-        except neutron_exceptions.Conflict as e:
-            LOG.info('Failed to delete network %(id)s with 409 Conflict: '
-                     '%(exc)s', {'id': network_id, 'exc': e})
-            msg = (_('Failed to delete network %(network_name)s. '
-                     'Most possible case is that one or more ports still '
-                     'exist on the requested network.') %
-                   {"network_name": network_name, "subnet_id": subnet_id})
-            exceptions.handle(request, msg, redirect=redirect_url)
-        except Exception as e:
-            LOG.info('Failed to delete network %(id)s: %(exc)s',
-                     {'id': network_id, 'exc': e})
-            msg = _('Failed to delete network %s') % network_name
-            exceptions.handle(request, msg, redirect=redirect_url)
+        network = self.table.get_object_by_id(network_id)
+        LOG.debug('Network %(network_id)s has subnets: %(subnets)s',
+                  {'network_id': network_id, 'subnets': network.subnets})
+        api.neutron.network_delete(request, network_id)
+        LOG.debug('Deleted network %s successfully', network_id)
 
 
 class CreateNetwork(tables.LinkAction):

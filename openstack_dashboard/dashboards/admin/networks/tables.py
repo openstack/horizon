@@ -14,11 +14,9 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -30,36 +28,6 @@ from openstack_dashboard import policy
 from openstack_dashboard.usage import quotas
 
 LOG = logging.getLogger(__name__)
-
-
-class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Delete Network",
-            u"Delete Networks",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Deleted Network",
-            u"Deleted Networks",
-            count
-        )
-
-    policy_rules = (("network", "delete_network"),)
-
-    def delete(self, request, obj_id):
-        try:
-            api.neutron.network_delete(request, obj_id)
-        except Exception as e:
-            LOG.info('Failed to delete network %(id)s: %(exc)s',
-                     {'id': obj_id, 'exc': e})
-            msg = _('Failed to delete network %s') % obj_id
-            redirect = reverse('horizon:admin:networks:index')
-            exceptions.handle(request, msg, redirect=redirect)
 
 
 class CreateNetwork(tables.LinkAction):
@@ -147,9 +115,9 @@ class NetworksTable(tables.DataTable):
     class Meta(object):
         name = "networks"
         verbose_name = _("Networks")
-        table_actions = (CreateNetwork, DeleteNetwork,
+        table_actions = (CreateNetwork, project_tables.DeleteNetwork,
                          AdminNetworksFilterAction)
-        row_actions = (EditNetwork, CreateSubnet, DeleteNetwork)
+        row_actions = (EditNetwork, CreateSubnet, project_tables.DeleteNetwork)
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
         super(NetworksTable, self).__init__(

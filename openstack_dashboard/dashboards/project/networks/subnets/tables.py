@@ -14,6 +14,8 @@
 
 import logging
 
+from neutronclient.common import exceptions as neutron_exceptions
+
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -21,6 +23,7 @@ from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
+from horizon.tables import actions
 from horizon.utils import memoized
 
 from openstack_dashboard import api
@@ -73,17 +76,20 @@ class DeleteSubnet(SubnetPolicyTargetMixin, tables.DeleteAction):
 
     policy_rules = (("network", "delete_subnet"),)
 
+    @actions.handle_exception_with_detail_message(
+        # normal_log_message
+        'Failed to delete subnet %(id)s: %(exc)s',
+        # target_exception
+        neutron_exceptions.Conflict,
+        # target_log_message
+        'Unable to delete subnet %(id)s with 409 Conflict: %(exc)s',
+        # target_user_message
+        _('Unable to delete subnet %(name)s. Most possible reason is because '
+          'one or more ports have an IP allocation from this subnet.'),
+        # logger_name
+        __name__)
     def delete(self, request, obj_id):
-        try:
-            api.neutron.subnet_delete(request, obj_id)
-        except Exception as e:
-            LOG.info('Failed to delete subnet %(id)s: %(exc)s',
-                     {'id': obj_id, 'exc': e})
-            msg = _('Failed to delete subnet %s') % obj_id
-            network_id = self.table.kwargs['network_id']
-            redirect = reverse('horizon:project:networks:detail',
-                               args=[network_id])
-            exceptions.handle(request, msg, redirect=redirect)
+        api.neutron.subnet_delete(request, obj_id)
 
 
 class CreateSubnet(SubnetPolicyTargetMixin, tables.LinkAction):
