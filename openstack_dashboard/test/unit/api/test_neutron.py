@@ -886,7 +886,7 @@ class NeutronApiTests(test.APITestCase):
                   'name': 'port%s' % i,
                   'admin_state_up': True}
                  for i in range(10)]
-        port_ids = [port['id'] for port in ports]
+        port_ids = tuple([port['id'] for port in ports])
 
         neutronclient = self.stub_neutronclient()
         uri_len_exc = neutron_exc.RequestURITooLong(excess=220)
@@ -900,7 +900,7 @@ class NeutronApiTests(test.APITestCase):
             api.neutron.port_list, 'id', port_ids,
             request=self.request)
         self.assertEqual(10, len(ret_val))
-        self.assertEqual(port_ids, [p.id for p in ret_val])
+        self.assertEqual(port_ids, tuple([p.id for p in ret_val]))
 
     def test_qos_policies_list(self):
         exp_policies = self.qos_policies.list()
