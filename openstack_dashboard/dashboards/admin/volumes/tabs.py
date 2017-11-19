@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from openstack_dashboard.dashboards.admin.snapshots import tables
 from openstack_dashboard.dashboards.project.volumes import tabs as project_tabs
 
 
@@ -27,8 +28,8 @@ class OverviewTab(project_tabs.OverviewTab):
 
 
 class SnapshotTab(project_tabs.SnapshotTab):
-    pass
+    table_classes = (tables.VolumeDetailsSnapshotsTable,)
 
 
 class VolumeDetailTabs(project_tabs.VolumeDetailTabs):
-    tabs = (OverviewTab, project_tabs.SnapshotTab)
+    tabs = (OverviewTab, SnapshotTab)

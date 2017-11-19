@@ -118,6 +118,11 @@ class DetailView(volumes_views.DetailView):
         context["actions"] = table.render_row_actions(context["volume"])
         return context
 
+    def get_search_opts(self, volume):
+        search_opts = super(DetailView, self).get_search_opts(volume)
+        search_opts['all_tenants'] = True
+        return search_opts
+
     def get_redirect_url(self):
         return reverse('horizon:admin:volumes:index')
 

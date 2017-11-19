@@ -30,6 +30,7 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard.dashboards.admin.snapshots import forms
 
 
+DETAIL_URL = ('horizon:admin:volumes:detail')
 INDEX_URL = reverse('horizon:admin:volumes:index')
 
 
@@ -385,3 +386,52 @@ class VolumeTests(test.BaseAdminViewTests):
 
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
         self.assertNotContains(res, status_option)
+
+    def test_detail_view_snapshot_tab(self):
+        volume = self.cinder_volumes.first()
+        server = self.servers.first()
+        snapshots = self.cinder_volume_snapshots.list()
+        this_volume_snapshots = [snapshot for snapshot in snapshots
+                                 if snapshot.volume_id == volume.id]
+        volume.attachments = [{"server_id": server.id}]
+        volume_limits = self.cinder_limits['absolute']
+        with mock.patch.object(api.nova, 'server_get',
+                               return_value=server) as mock_server_get, \
+                mock.patch.object(
+                    cinder, 'tenant_absolute_limits',
+                    return_value=volume_limits) as mock_limits, \
+                mock.patch.object(
+                    cinder, 'volume_get',
+                    return_value=volume) as mock_volume_get, \
+                mock.patch.object(
+                    cinder, 'volume_snapshot_list',
+                    return_value=this_volume_snapshots) \
+                as mock_snapshot_list, \
+                mock.patch.object(
+                    cinder, 'message_list',
+                    return_value=[]) as mock_message_list:
+
+            url = (reverse(DETAIL_URL, args=[volume.id]) + '?' +
+                   '='.join(['tab', 'volume_details__snapshots_tab']))
+            res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertEqual(res.context['volume'].id, volume.id)
+        self.assertEqual(len(res.context['table'].data),
+                         len(this_volume_snapshots))
+        self.assertNoMessages()
+
+        mock_server_get.assert_called_once_with(test.IsHttpRequest(),
+                                                server.id)
+        mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
+                                                volume.id)
+        mock_snapshot_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            search_opts={'volume_id': volume.id, 'all_tenants': True})
+        mock_limits.assert_called_once()
+        mock_message_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            {
+                'resource_uuid': volume.id,
+                'resource_type': 'volume'
+            })
