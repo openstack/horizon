@@ -123,7 +123,7 @@ class CreateForm(forms.SelfHandlingForm):
             if 'external_network' in data and data['external_network']:
                 params['external_gateway_info'] = {'network_id':
                                                    data['external_network']}
-                if self.ext_gw_mode_supported and self.enable_snat_allowed:
+                if self.enable_snat_allowed:
                     params['external_gateway_info']['enable_snat'] = \
                         data['enable_snat']
             if 'az_hints' in data and data['az_hints']:
