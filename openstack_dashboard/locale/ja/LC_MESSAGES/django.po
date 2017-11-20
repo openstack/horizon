@@ -8,13 +8,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev91\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev93\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-17 06:13+0000\n"
+"POT-Creation-Date: 2017-11-17 16:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-16 08:07+0000\n"
+"PO-Revision-Date: 2017-11-18 12:01+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -2008,11 +2008,17 @@ msgstr "デバイス ID"
 msgid "Device ID attached to the port"
 msgstr "ポートに接続されるデバイスの ID"
 
+msgid "Device ID attached to the port."
+msgstr "ポートに接続されるデバイスの ID。"
+
 msgid "Device Name"
 msgstr "デバイス名"
 
 msgid "Device Owner"
 msgstr "デバイス所有者"
+
+msgid "Device owner attached to the port."
+msgstr "ポートに接続されるデバイスの所有者。"
 
 msgid "Device size (GB)"
 msgstr "デバイスサイズ (GB)"
@@ -3723,6 +3729,9 @@ msgstr "MAC アドレス"
 
 msgid "MAC Learning State"
 msgstr "MAC 学習状態"
+
+msgid "MAC address for the port."
+msgstr "ポートの MAC アドレス。"
 
 msgid "MB"
 msgstr "MB"
