@@ -355,7 +355,7 @@ def get_attachment_name(request, attachment):
             server = api.nova.server_get(request, server_id)
             name = server.name
         except Exception:
-            name = None
+            name = server_id
             exceptions.handle(request, _("Unable to retrieve "
                                          "attachment information."))
     try:
