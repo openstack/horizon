@@ -17,6 +17,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from openstack_dashboard import api
+from openstack_dashboard.api.rest import json_encoder
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
 from openstack_dashboard.usage import quotas
@@ -308,7 +309,7 @@ class QoSSpecs(generic.View):
 class TenantAbsoluteLimits(generic.View):
     url_regex = r'cinder/tenantabsolutelimits/$'
 
-    @rest_utils.ajax()
+    @rest_utils.ajax(json_encoder=json_encoder.NaNJSONEncoder)
     def get(self, request):
         return api.cinder.tenant_absolute_limits(request)
 
