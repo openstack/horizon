@@ -18,9 +18,8 @@ from django.core.management.base import BaseCommand
 from django.utils import translation
 import requests
 
-ZANATA_LOCALES = requests.get("https://translate.openstack.org/rest/project"
-                              "/horizon/version/master/locales").json()
-LANGUAGE_CODES = [x['localeId'] for x in ZANATA_LOCALES]
+ZANATA_LOCALES_URL = ("https://translate.openstack.org/rest/project"
+                      "/horizon/version/master/locales")
 DOMAINS = ['django', 'djangojs']
 MODULES = ['horizon', 'openstack_dashboard']
 PROJECT = 'horizon'
@@ -34,14 +33,20 @@ class Command(BaseCommand):
             "(https://translate.openstack.org) for all languages or a "
             "specified language")
 
+    def _get_language_codes(self):
+        zanata_locales = requests.get(ZANATA_LOCALES_URL).json()
+        return [x['localeId'] for x in zanata_locales]
+
     def add_arguments(self, parser):
-        parser.add_argument('-l', '--language', choices=LANGUAGE_CODES,
+        language_codes = self._get_language_codes()
+
+        parser.add_argument('-l', '--language', choices=language_codes,
                             metavar='LANG',
-                            default=LANGUAGE_CODES, nargs='+',
+                            default=language_codes, nargs='+',
                             help=("The language code(s) to pull language "
                                   "catalogs for. The default is all "
                                   "languages. Available languages are: %s"
-                                  % ', '.join(sorted(LANGUAGE_CODES))))
+                                  % ', '.join(sorted(language_codes))))
         parser.add_argument('-p', '--project', type=str, default=PROJECT,
                             help=("The name of the project to extract "
                                   "strings from e.g. 'horizon'. The default "
