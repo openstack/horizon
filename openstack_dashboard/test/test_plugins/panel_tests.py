@@ -64,8 +64,9 @@ class PanelPluginTests(test.PluginTestCase):
                          HORIZON_CONFIG['header_sections'])
 
     def test_extensible_header(self):
-        response = self.client.get('/header/')
-        self.assertIn('sample context', response.content)
+        with self.settings(ROOT_URLCONF=self.urls):
+            response = self.client.get('/header/')
+            self.assertIn('sample context', response.content.decode('utf-8'))
 
     def test_remove_panel(self):
         dashboard = horizon.get_dashboard("admin")

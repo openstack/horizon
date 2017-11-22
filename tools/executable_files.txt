@@ -1,0 +1,5 @@
+./manage.py
+./tools/abandon_old_reviews.sh
+./tools/gate/integration/post_test_hook.sh
+./tools/gate/integration/pre_test_hook.sh
+./tools/unit_tests.sh
