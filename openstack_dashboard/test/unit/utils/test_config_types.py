@@ -1,6 +1,3 @@
-# Copyright (c) 2013 OpenStack Foundation
-# All Rights Reserved.
-#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -15,31 +12,7 @@
 
 import unittest
 
-from oslo_utils import uuidutils
-
 from openstack_dashboard.utils import config_types
-from openstack_dashboard.utils import filters
-
-
-class UtilsFilterTests(unittest.TestCase):
-    def test_accept_valid_integer(self):
-        val = 100
-        ret = filters.get_int_or_uuid(val)
-        self.assertEqual(val, ret)
-
-    def test_accept_valid_integer_string(self):
-        val = '100'
-        ret = filters.get_int_or_uuid(val)
-        self.assertEqual(int(val), ret)
-
-    def test_accept_valid_uuid(self):
-        val = uuidutils.generate_uuid()
-        ret = filters.get_int_or_uuid(val)
-        self.assertEqual(val, ret)
-
-    def test_reject_random_string(self):
-        val = '55WbJTpJDf'
-        self.assertRaises(ValueError, filters.get_int_or_uuid, val)
 
 
 class ConfigTypesTest(unittest.TestCase):
