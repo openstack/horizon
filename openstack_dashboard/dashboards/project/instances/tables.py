@@ -681,12 +681,10 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
 
     def single(self, table, request, instance_id):
         try:
-            # target_id is port_id for Neutron and instance_id for Nova Network
-            # (Neutron API wrapper returns a 'portid_fixedip' string)
             targets = api.neutron.floating_ip_target_list_by_instance(
                 request, instance_id)
 
-            target_ids = [t.split('_')[0] for t in targets]
+            target_ids = [t.port_id for t in targets]
 
             fips = [fip for fip in api.neutron.tenant_floating_ip_list(request)
                     if fip.port_id in target_ids]

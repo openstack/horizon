@@ -64,7 +64,7 @@ class FloatingIpViewTests(test.TestCase):
             .AndReturn(targets)
         api.neutron.floating_ip_target_get_by_instance(
             IsA(http.HttpRequest), target.instance_id, targets) \
-            .AndReturn(target.id)
+            .AndReturn(target)
         api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
