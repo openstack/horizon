@@ -738,9 +738,9 @@ class ExtendForm(forms.SelfHandlingForm):
             usages['totalGigabytesUsed']
         if availableGB < (new_size - orig_size):
             message = _('Volume cannot be extended to %(req)iGiB as '
-                        'you only have %(avail)iGiB of your quota '
-                        'available.')
-            params = {'req': new_size, 'avail': availableGB}
+                        'the maximum size it can be extended to is '
+                        '%(max_size)iGiB.')
+            params = {'req': new_size, 'max_size': (availableGB + orig_size)}
             self._errors["new_size"] = self.error_class([message % params])
         return cleaned_data
 
