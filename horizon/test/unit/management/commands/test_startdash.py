@@ -19,7 +19,6 @@ from django.core.management import CommandError
 from django.test import TestCase
 
 from horizon.management.commands import startdash
-from horizon.management.commands import startpanel
 
 
 class CommandsTestCase(TestCase):
@@ -33,19 +32,6 @@ class CommandsTestCase(TestCase):
         handle.assert_called_with(dash_name='test_dash',
                                   extensions=["py", "tmpl", "html", "js",
                                               "css"],
-                                  files=[], no_color=False, pythonpath=None,
-                                  settings=None, skip_checks=True, target=None,
-                                  template=None, traceback=False, verbosity=1)
-
-    def test_startpanel_usage_empty(self):
-        self.assertRaises(CommandError, call_command, 'startpanel')
-
-    @mock.patch.object(startpanel.Command, 'handle', return_value='')
-    def test_startpanel_usage_correct(self, handle):
-        call_command('startpanel', 'test_dash', '--dashboard=foo.bar')
-
-        handle.assert_called_with(panel_name='test_dash', dashboard='foo.bar',
-                                  extensions=["py", "tmpl", "html"],
                                   files=[], no_color=False, pythonpath=None,
                                   settings=None, skip_checks=True, target=None,
                                   template=None, traceback=False, verbosity=1)

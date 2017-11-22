@@ -110,7 +110,8 @@ class TestStepTwo(workflows.Step):
     contributes = ("instance_id",)
     connections = {"project_id":
                    (local_callback_func,
-                    "horizon.test.tests.workflows.other_callback_func")}
+                    "horizon.test.unit.workflows.test_workflows."
+                    "other_callback_func")}
 
 
 class TestExtraStep(workflows.Step):

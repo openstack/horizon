@@ -17,7 +17,7 @@ import os
 from django.conf import settings
 
 from horizon import exceptions
-from horizon.notifications import JSONMessage
+from horizon import notifications
 from horizon.test import helpers as test
 
 
@@ -27,7 +27,7 @@ class NotificationTests(test.TestCase):
                                                  'messages'))
 
     def _test_msg(self, path, expected_level, expected_msg=''):
-        msg = JSONMessage(path)
+        msg = notifications.JSONMessage(path)
         msg.load()
 
         self.assertEqual(expected_level, msg.level_name)
@@ -47,13 +47,13 @@ class NotificationTests(test.TestCase):
         path = self.MESSAGES_PATH + '/test_invalid.json'
 
         with self.assertRaises(exceptions.MessageFailure):
-            msg = JSONMessage(path)
+            msg = notifications.JSONMessage(path)
             msg.load()
 
     def test_invalid_msg_file_fail_silently(self):
         path = self.MESSAGES_PATH + '/test_invalid.json'
 
-        msg = JSONMessage(path, fail_silently=True)
+        msg = notifications.JSONMessage(path, fail_silently=True)
         msg.load()
 
         self.assertTrue(msg.failed)
