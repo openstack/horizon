@@ -13,8 +13,10 @@
 #    under the License.
 
 from django.conf import settings
+from django.core import urlresolvers
 from django import shortcuts
 import django.views.decorators.vary
+from six.moves import urllib
 
 import horizon
 from horizon import base
@@ -59,3 +61,22 @@ def splash(request):
     if MESSAGES_PATH:
         notifications.process_message_notification(request, MESSAGES_PATH)
     return response
+
+
+def get_url_with_pagination(request, marker_name, prev_marker_name, url_string,
+                            object_id=None):
+    if object_id:
+        url = urlresolvers.reverse(url_string, args=(object_id,))
+    else:
+        url = urlresolvers.reverse(url_string)
+    marker = request.GET.get(marker_name, None)
+    if marker:
+        return "{}?{}".format(url,
+                              urllib.parse.urlencode({marker_name: marker}))
+
+    prev_marker = request.GET.get(prev_marker_name, None)
+    if prev_marker:
+        return "{}?{}".format(url,
+                              urllib.parse.urlencode({prev_marker_name:
+                                                      prev_marker}))
+    return url
