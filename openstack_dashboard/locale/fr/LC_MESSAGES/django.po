@@ -21,13 +21,13 @@
 # Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev82\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev119\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-15 05:06+0000\n"
+"POT-Creation-Date: 2017-11-22 09:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-20 02:43+0000\n"
+"PO-Revision-Date: 2017-11-22 12:40+0000\n"
 "Last-Translator: Loic Nicolle <loic.nicolle@orange.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -585,6 +585,10 @@ msgstr "Allouer l'adresse réseau à partir d'un pool"
 
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Allouer une IP flottante depuis un pool d'IP."
+
+msgctxt "Label in the limit summary"
+msgid "Allocated"
+msgstr "Alloué"
 
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
@@ -1265,6 +1269,9 @@ msgstr "Créer un Réseau (Quota dépassé)"
 
 msgid "Create Port"
 msgstr "Créer un port"
+
+msgid "Create Port (Quota exceeded)"
+msgstr "Créer un port (Quota dépassé)"
 
 msgid "Create Project"
 msgstr "Créer un projet"
@@ -2102,11 +2109,17 @@ msgstr "ID du périphérique"
 msgid "Device ID attached to the port"
 msgstr "ID du périphérique attaché au port."
 
+msgid "Device ID attached to the port."
+msgstr "ID du périphérique connecté au port."
+
 msgid "Device Name"
 msgstr "Nom du périphérique"
 
 msgid "Device Owner"
 msgstr "Propriétaire du périphérique"
+
+msgid "Device owner attached to the port."
+msgstr "Propriétaire du périphérique attaché au port."
 
 msgid "Device size (GB)"
 msgstr "Taille du périphérique (Go)"
@@ -2460,6 +2473,9 @@ msgstr "Activer des domaines"
 
 msgid "Enable HA mode"
 msgstr "Activer le mode Haute Dispo"
+
+msgid "Enable SNAT"
+msgstr "Activer le SNAT"
 
 msgid "Enable Service"
 msgid_plural "Enable Services"
@@ -3039,6 +3055,9 @@ msgstr "IP flottantes"
 msgid "Floating IP Address (optional)"
 msgstr "Adresse IP flottante (facultatif)"
 
+msgid "Floating IP Address ="
+msgstr "Adresse IP flottante ="
+
 msgid "Floating IP Details"
 msgstr "Détails de l'IP flottante"
 
@@ -3342,6 +3361,9 @@ msgstr ""
 "start_ip_address,end_ip_address (e.g. : 192.168.1.100,192.168.1.120).  Une "
 "seule entrée par ligne est permise."
 
+msgid "IP address for the new port"
+msgstr "Adresse IP pour le nouveau port"
+
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
@@ -3521,6 +3543,9 @@ msgstr "Importer une paire de clés"
 
 msgid "Import Namespace"
 msgstr "Importation de l'espace de nom"
+
+msgid "Import Public Key"
+msgstr "Importer une clé publique"
 
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
@@ -3852,6 +3877,9 @@ msgstr "Adresse MAC"
 
 msgid "MAC Learning State"
 msgstr "État de l'apprentissage des MAC"
+
+msgid "MAC address for the port."
+msgstr "Adresse MAC du port."
 
 msgid "MB"
 msgstr "Mo"
@@ -6788,6 +6816,9 @@ msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 "Cette application demande que JavaScript soit activé dans votre navigateur."
 
+msgid "This field is required."
+msgstr "Ce champ est requis."
+
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
@@ -8318,6 +8349,10 @@ msgstr ""
 msgid "Use snapshot as a source"
 msgstr "Utiliser un instantané comme source"
 
+msgctxt "Label in the limit summary"
+msgid "Used"
+msgstr "Utilisé"
+
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(used)s </span> utilisé(es) sur <span> %(available)s </span>"
@@ -8563,14 +8598,6 @@ msgstr "Type du Volume : %(volume_type_name)s"
 
 msgid "Volume Types"
 msgstr "Types de Volume"
-
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGiB as you only have %(avail)iGiB of "
-"your quota available."
-msgstr ""
-"Le volume ne peut pas être agrandi à %(req)iGio car vous avez seulement un "
-"quota disponible de %(avail)iGio."
 
 msgid "Volume consistency groups can not be deleted if they contain volumes."
 msgstr ""
@@ -8845,11 +8872,17 @@ msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "les deux"
 
+msgid "by Port"
+msgstr "par Port"
+
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
 msgid "down"
 msgstr "inactif"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "ex : Actif / Inactif / Erreur"
 
 msgid "e.g. UP / DOWN"
 msgstr "ex : Actif / Inactif"

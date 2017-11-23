@@ -1,0 +1,89 @@
+# Loic Nicolle <loic.nicolle@orange.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 13.0.0.0b2.dev119\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-11-22 09:01+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-11-22 12:34+0000\n"
+"Last-Translator: Loic Nicolle <loic.nicolle@orange.com>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+msgid "An error occurred authenticating. Please try again later."
+msgstr ""
+"Une erreur s'est produite pendant l'authentification. Veuillez réessayer "
+"ultérieurement."
+
+msgid "Authenticate using"
+msgstr "Mode d'authentification"
+
+msgid "Could not find service provider ID on Keystone."
+msgstr "Impossible de trouver l'ID du fournisseur de services sur Keystone."
+
+msgid "Domain"
+msgstr "Domaine"
+
+msgid "Invalid credentials."
+msgstr "Informations d'identification non valides."
+
+msgid "K2K Federation not setup for this session"
+msgstr "La fédération K2K n'a pas été configurée pour cette session"
+
+msgid ""
+"No authentication backend could be determined to handle the provided "
+"credentials."
+msgstr "Aucun backend d'authentification pour gérer les informations fournies."
+
+msgid "Password"
+msgstr "Mot de passe"
+
+#, python-format
+msgid "Please consider changing your password, it will expire in %s minutes"
+msgstr "Merci de changer votre mot de passe, il va expirer dans %s minutes"
+
+#, python-format
+msgid "Project switch failed for user \"%(username)s\"."
+msgstr "La bascule de projet a échoué pour l'utilisateur \"%(username)s\"."
+
+msgid "Region"
+msgstr "Région"
+
+#, python-format
+msgid "Service provider authentication failed. %s"
+msgstr "L'authentification du fournisseur de services a échoué. %s"
+
+#, python-format
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\"successful."
+msgstr ""
+"Bascule vers le fournisseur Keystone \"%(keystone_provider)s\" réussie."
+
+#, python-format
+msgid "Switch to project \"%(project_name)s\" successful."
+msgstr "Bascule vers le projet \"%(project_name)s\" réussie. "
+
+msgid "The authentication token issued by the Identity service has expired."
+msgstr ""
+"Le jeton d'authentification délivré par le service d'Identité a expiré."
+
+msgid "Unable to establish connection to keystone endpoint."
+msgstr "Impossible d'établir la connexion avec le endpoint keystone."
+
+msgid "Unable to retrieve authorized domains."
+msgstr "Impossible de récupérer les domaines autorisés."
+
+msgid "Unable to retrieve authorized projects."
+msgstr "Impossible de récupérer les projets autorisés."
+
+msgid "User Name"
+msgstr "Nom d'utilisateur"
+
+msgid "You are not authorized for any projects or domains."
+msgstr "Vous n'êtes autorisés sur aucun projet ou domaine."
+
+msgid "You are not authorized for any projects."
+msgstr "Vous n'êtes autorisés sur aucun projet."
