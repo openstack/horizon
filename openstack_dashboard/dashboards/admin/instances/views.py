@@ -17,8 +17,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import futurist
-
 from django.conf import settings
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -39,6 +37,7 @@ from openstack_dashboard.dashboards.admin.instances import tabs
 from openstack_dashboard.dashboards.project.instances import views
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
+from openstack_dashboard.utils import futurist_utils
 
 
 # re-use console from project.instances.views to make reflection work
@@ -81,14 +80,50 @@ class AdminIndexView(tables.DataTableView):
     def needs_filter_first(self, table):
         return self._needs_filter_first
 
+    def _get_tenants(self):
+        # Gather our tenants to correlate against IDs
+        try:
+            tenants, __ = api.keystone.tenant_list(self.request)
+            return dict([(t.id, t) for t in tenants])
+        except Exception:
+            msg = _('Unable to retrieve instance project information.')
+            exceptions.handle(self.request, msg)
+            return {}
+
+    def _get_images(self):
+        # Gather our images to correlate againts IDs
+        try:
+            images, __, __ = api.glance.image_list_detailed(self.request)
+            return dict([(image.id, image) for image in images])
+        except Exception:
+            msg = _("Unable to retrieve image list.")
+            exceptions.handle(self.request, msg)
+            return {}
+
+    def _get_flavors(self):
+        # Gather our flavors to correlate against IDs
+        try:
+            flavors = api.nova.flavor_list(self.request)
+            return dict([(str(flavor.id), flavor) for flavor in flavors])
+        except Exception:
+            msg = _("Unable to retrieve flavor list.")
+            exceptions.handle(self.request, msg)
+            return {}
+
+    def _get_instances(self, search_opts):
+        try:
+            instances, self._more = api.nova.server_list(
+                self.request,
+                search_opts=search_opts)
+        except Exception:
+            self._more = False
+            instances = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve instance list.'))
+        return instances
+
     def get_data(self):
         instances = []
-        tenants = []
-        tenant_dict = {}
-        images = []
-        image_map = {}
-        flavors = []
-        full_flavors = {}
 
         marker = self.request.GET.get(
             project_tables.AdminInstancesTable._meta.pagination_param, None)
@@ -102,80 +137,35 @@ class AdminIndexView(tables.DataTableView):
         # selected, then search criteria must be provided and return an empty
         # list
         filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-        if filter_first.get('admin.instances', False) and \
-                len(search_opts) == len(default_search_opts):
+        if (filter_first.get('admin.instances', False) and
+                len(search_opts) == len(default_search_opts)):
             self._needs_filter_first = True
             self._more = False
-            return instances
+            return []
 
         self._needs_filter_first = False
 
-        def _task_get_tenants():
-            # Gather our tenants to correlate against IDs
-            try:
-                tmp_tenants, __ = api.keystone.tenant_list(self.request)
-                tenants.extend(tmp_tenants)
-                tenant_dict.update([(t.id, t) for t in tenants])
-            except Exception:
-                msg = _('Unable to retrieve instance project information.')
-                exceptions.handle(self.request, msg)
-
-        def _task_get_images():
-            # Gather our images to correlate againts IDs
-            try:
-                tmp_images = api.glance.image_list_detailed(self.request)[0]
-                images.extend(tmp_images)
-                image_map.update([(image.id, image) for image in images])
-            except Exception:
-                msg = _("Unable to retrieve image list.")
-                exceptions.handle(self.request, msg)
-
-        def _task_get_flavors():
-            # Gather our flavors to correlate against IDs
-            try:
-                tmp_flavors = api.nova.flavor_list(self.request)
-                flavors.extend(tmp_flavors)
-                full_flavors.update([(str(flavor.id), flavor)
-                                     for flavor in flavors])
-            except Exception:
-                msg = _("Unable to retrieve flavor list.")
-                exceptions.handle(self.request, msg)
-
-        def _task_get_instances():
-            try:
-                tmp_instances, self._more = api.nova.server_list(
-                    self.request,
-                    search_opts=search_opts)
-                instances.extend(tmp_instances)
-            except Exception:
-                self._more = False
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve instance list.'))
-                # In case of exception when calling nova.server_list
-                # don't call api.network
-                return
-
-        with futurist.ThreadPoolExecutor(max_workers=3) as e:
-            e.submit(fn=_task_get_tenants)
-            e.submit(fn=_task_get_images)
-            e.submit(fn=_task_get_flavors)
+        results = futurist_utils.call_functions_parallel(
+            self._get_images, self._get_flavors, self._get_tenants)
+        image_dict, flavor_dict, tenant_dict = results
 
         non_api_filter_info = (
-            ('project', 'tenant_id', tenants),
-            ('image_name', 'image', images),
-            ('flavor_name', 'flavor', flavors),
+            ('project', 'tenant_id', tenant_dict.values()),
+            ('image_name', 'image', image_dict.values()),
+            ('flavor_name', 'flavor', flavor_dict.values()),
         )
         if not views.process_non_api_filters(search_opts, non_api_filter_info):
             self._more = False
             return []
 
-        _task_get_instances()
+        instances = self._get_instances(search_opts)
 
         # Loop through instances to get image, flavor and tenant info.
         for inst in instances:
             if hasattr(inst, 'image') and isinstance(inst.image, dict):
-                if inst.image.get('id') in image_map:
-                    inst.image = image_map[inst.image.get('id')]
+                image_id = inst.image.get('id')
+                if image_id in image_dict:
+                    inst.image = image_dict[image_id]
                 # In case image not found in image_map, set name to empty
                 # to avoid fallback API call to Glance in api/nova.py
                 # until the call is deprecated in api itself
@@ -184,10 +174,10 @@ class AdminIndexView(tables.DataTableView):
 
             flavor_id = inst.flavor["id"]
             try:
-                if flavor_id in full_flavors:
-                    inst.full_flavor = full_flavors[flavor_id]
+                if flavor_id in flavor_dict:
+                    inst.full_flavor = flavor_dict[flavor_id]
                 else:
-                    # If the flavor_id is not in full_flavors list,
+                    # If the flavor_id is not in flavor_dict list,
                     # gets it via nova api.
                     inst.full_flavor = api.nova.flavor_get(
                         self.request, flavor_id)
