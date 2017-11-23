@@ -181,7 +181,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(flavors)
         api.glance.image_list_detailed(IsA(http.HttpRequest)) \
-            .AndReturn(images)
+            .AndReturn((images, False, False))
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndRaise(self.exceptions.nova)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
