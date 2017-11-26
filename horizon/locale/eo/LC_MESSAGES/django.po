@@ -1,0 +1,386 @@
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 13.0.0.0b2.dev121\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-11-24 22:35+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-11-25 06:19+0000\n"
+"Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
+
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
+
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
+
+#, python-format
+msgid "%(size)d Byte"
+msgid_plural "%(size)d Bytes"
+msgstr[0] "%(size)d Bajt"
+msgstr[1] "%(size)d Bajt"
+
+#, python-format
+msgid "%(usedphrase)s <span> %(used)s </span>(No Limit)"
+msgstr "%(usedphrase)s <span> %(used)s </span>(Nenio limito)"
+
+#, python-format
+msgid "%(usedphrase)s <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr "%(usedphrase)s <span> %(used)s </span>de<span> %(available)s </span>"
+
+#, python-format
+msgid "%s EB"
+msgstr "%s EB"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, python-format
+msgid "%s PB"
+msgstr "%s PB"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, python-format
+msgid "%s YB"
+msgstr "%s YB"
+
+#, python-format
+msgid "%s ZB"
+msgstr "%s ZB"
+
+#, python-format
+msgid "%s completed successfully."
+msgstr "%s plenumita sukcese."
+
+#, python-format
+msgid "%s did not complete."
+msgstr "%s malsukcesis."
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;antaŭa"
+
+msgid "(No Limit)"
+msgstr "(Neniu Limito)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 Bajt"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "Unu %(resource)s kun la nomo  \"%(name)s\" jam eksistas."
+
+msgid "Actions"
+msgstr "Agadoj"
+
+msgid "Active Instances:"
+msgstr "Aktivaj instancoj:"
+
+msgid "Active RAM:"
+msgstr "Aktiva RAM:"
+
+msgid "Add a row"
+msgstr "Aldoni vicon"
+
+msgid "All available"
+msgstr "Ĉiujn havebla"
+
+msgid "Available"
+msgstr "Havebla"
+
+msgid "Back"
+msgstr "Reen"
+
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Stapla Elemento"
+msgstr[1] "Staplaj Elementoj"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Staplita Elemento"
+msgstr[1] "Staplitaj Elementoj"
+
+msgid "Cancel"
+msgstr "Nuligi"
+
+msgid "Connect"
+msgstr "Konektu"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "Vidiganta %(content_items)s elemento"
+msgstr[1] "Vidiganta %(content_items)s elementoj"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Vidiganta %(counter)s elemento"
+msgstr[1] "Vidiganta %(counter)s elementoj"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "Vidiganta %(nav_items)s elemento"
+msgstr[1] "Vidiganta %(nav_items)s elementoj"
+
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Malsupren Elemento"
+msgstr[1] "Malsupren Elemento"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Eraro traktadi mesaĝo json dosiero '%(path)s': %(exception)s"
+
+msgid "Error: "
+msgstr "Error: "
+
+msgid "Filter"
+msgstr "filtrilo"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid ""
+"If you are not sure which authentication method to use, contact your "
+"administrator."
+msgstr ""
+"Se vi ne estas certa pri la autentikada metodo, kontaktu vian  administranto"
+
+msgid "Incorrect format for IP address"
+msgstr "Maljusta formato por la IP adreso"
+
+msgid "Infinity"
+msgstr "Infinito"
+
+msgid "Info: "
+msgstr "Informo:"
+
+msgid "Invalid MAC Address format"
+msgstr "Maljusta MAC adresa formato"
+
+msgid "Invalid subnet mask"
+msgstr "Maljusta subreta masko"
+
+msgid "Invalid version for IP address"
+msgstr "Maljusta versio por IP adreso"
+
+msgid "Keystone Providers:"
+msgstr "Keystone Provizantoj:"
+
+msgid "Limit Summary"
+msgstr "Limitu rezumo"
+
+msgid "Log in"
+msgstr "Ensaluto"
+
+msgid "Login"
+msgstr "Ensalutu"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\">home page</a>"
+msgstr ""
+"Ensaluti kiel alia uzanto aŭ reiru al <a href=\"%(home_url)s\">home page</a>"
+
+msgid "Members"
+msgstr "Membroj"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "Message json file '%(path)s' is malformed. %(exception)s"
+
+msgid "More Actions"
+msgstr "Pli da agadoj"
+
+msgid "Navigation Item"
+msgstr "Navigada elemento"
+
+msgid "Next"
+msgstr "Sekva"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Sekva&nbsp;&raquo;"
+
+msgid "No items to display."
+msgstr "Neniu elementoj por vidigi."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "Nenio kongruo trovita por la identigilo  \"%s\"."
+
+msgid "No members."
+msgstr "Neniuj membroj."
+
+msgid "None available."
+msgstr "Neniun havebla."
+
+msgid "Other"
+msgstr "Aliaj"
+
+msgid "Password is not accepted"
+msgstr "Password is not accepted"
+
+msgid "Please confirm your selection."
+msgstr "Bonvolu konfirmu vian elekton"
+
+msgid "Please log in to continue."
+msgstr "Bonvolu ensaluti por daŭrigi."
+
+msgid "Please select a row before taking that action."
+msgstr "Bonvolu elekti tabelvicon antaŭ starti agado"
+
+msgid "Please specify a search criteria first."
+msgstr "Bonvolu entajpu  serĉan kriterion unue."
+
+msgid "Processing..."
+msgstr "Traktadi..."
+
+msgid "Save"
+msgstr "Savu"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Elektu %s por foliumi"
+
+msgid "Select a period of time to query its usage:"
+msgstr "Elektu tempo periodo por demandi ĝian uzadon"
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Vendu hundido"
+msgstr[1] "Vendu hundidoj"
+
+msgid "Sign In"
+msgstr "Ensalutu"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Vendita hundido"
+msgstr[1] "Venditaj hundidoj"
+
+msgid "Submit"
+msgstr "Sendu"
+
+msgid "Success: "
+msgstr "Sukceso:"
+
+msgid "Summary"
+msgstr "Rezumo"
+
+msgid ""
+"The current user has insufficient permission to complete the requested task."
+msgstr "La nuna uzanto havas nesufican permeson por plenumi la petitan taskon."
+
+msgid "The date should be in YYYY-MM-DD format."
+msgstr "La dato devus esti en  YYYY-MM-DD formato."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "La bitĉeno devus enhavi nur ASCII printeblaj signoj."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"La valoro de %(resource)s estas %(name)s en la ŝablono. Kiam starti  stakon "
+"de ci-tiu interfaco, la valoro devas komenci  kun\"http://\" aŭ \"https://\""
+
+msgid "This Period's GB-Hours:"
+msgstr "GB-Horoj por tiu periodo:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "RAM-Horoj por tiu periodo:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr " VCPU-horoj por tiu periodo:"
+
+msgid "This action cannot be undone."
+msgstr "Ĉi tiu agado ne povas esti malfarita"
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "Malebla fari %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Ne rajtigita. Bonvolu provi ensaluti denove"
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "Ne rajtigita: %s"
+
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Supren Elemento"
+msgstr[1] "Supren Elementoj"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Aktualigu elementon"
+msgstr[1] "Aktualigu elementojn"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Aktualigita elemento"
+msgstr[1] "Aktualigitaj elementoj"
+
+msgid "Usage Summary"
+msgstr "Uzada rezumo"
+
+msgid "Warning: "
+msgstr "Averto:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "Vi ne estas rajtigita fari %(action)s: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "Vi ne estas rajtigita por aliri %s"
+
+msgid "You are not authorized to access this page"
+msgstr "Vi ne estas rajtigita por aliri tiun paĝon"
+
+msgid "You do not have permission to access the resource:"
+msgstr "Vi ne havas la rajton aliri la risurco:"
+
+msgid "You have selected: [[selection]]. "
+msgstr "Vi elektis: [[selection]]."
+
+msgid "to"
+msgstr "al"
