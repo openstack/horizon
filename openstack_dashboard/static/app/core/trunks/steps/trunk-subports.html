@@ -8,173 +8,181 @@
     Optional.
   </p>
 
-  <transfer-table tr-model="ctrl.subportsTables" help-text="ctrl.tableHelpText" limits="ctrl.tableLimits">
-    <allocated>
-      <table st-table="ctrl.subportsTables.displayedAllocated" st-safe-src="ctrl.subportsTables.allocated"
-             hz-table class="table table-striped table-rsp table-detail">
-        <thead>
-          <tr>
-            <th class="expander"></th>
-            <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
-            <th class="rsp-p2" translate>IP</th>
-            <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
-            <th st-sort="status" class="rsp-p1" translate>Status</th>
-            <th class="rsp-p1" translate>Segmentation Type</th>
-            <th class="rsp-p1" translate>Segmentation Id</th>
-            <th class="actions_column"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-if="ctrl.subportsTables.allocated.length === 0">
-            <td colspan="7">
-              <div class="no-rows-help" translate>
-                Select items from Available items below
-              </div>
-            </td>
-          </tr>
-          <tr ng-repeat-start="item in ctrl.subportsTables.displayedAllocated track by item.id"
-              lr-drag-data="ctrl.subportsTables.displayedAllocated"
-              lr-drop-success="trCtrl.updateAllocated(e, item, collection)">
-            <td class="expander">
-              <span class="fa fa-chevron-right" hz-expand-detail
-                    title="{$ 'Click to see more details'|translate $}"></span>
-            </td>
-            <td class="rsp-p1 word-break">{$ ctrl.nameOrID(item) $}</td>
-            <td class="rsp-p2">
-              <div ng-repeat="ip in item.fixed_ips">
-                {$ ip.ip_address $} <span translate>on subnet</span>: {$ item.subnet_names[ip.ip_address] $}
-              </div>
-            </td>
-            <td class="rsp-p1">{$ item.admin_state | decode:ctrl.portAdminStates $}</td>
-            <td class="rsp-p1">{$ item.status | decode:ctrl.portStatuses $}</td>
-            <td class="rsp-p1">
-              <select id="segmentation_type_{$ $index $}"
-                ng-init="ctrl.subportsDetails[item.id]['segmentation_type'] = ctrl.segmentationTypes[0]"
-                ng-options="type for type in ctrl.segmentationTypes"
-                ng-model="ctrl.subportsDetails[item.id]['segmentation_type']">
-              </select>
-            </td>
-            <td class="rsp-p1" ng-if="ctrl.subportsDetails[item.id]['segmentation_type'] === 'inherit'" translate>
-              inherit
-            </td>
-            <td class="rsp-p1" ng-if="ctrl.subportsDetails[item.id]['segmentation_type'] !== 'inherit'">
-              <!-- NOTE(bence romsics): We could but do not reject non-integer
-              segmentation IDs. It does not seem worth to add one more
-              directive for that effect. -->
-              <input type="number"
-                id="segmentation_id_{$ $index $}"
-                min="{$ ctrl.segmentationTypesDict[ctrl.subportsDetails[item.id]['segmentation_type']][0] $}"
-                max="{$ ctrl.segmentationTypesDict[ctrl.subportsDetails[item.id]['segmentation_type']][1] $}"
-                ng-model="ctrl.subportsDetails[item.id]['segmentation_id']" required>
-            </td>
-            <td class="actions_column">
-              <action-list>
-                <action action-classes="'btn btn-default'"
-                        callback="trCtrl.deallocate" item="item">
-                  <span class="fa fa-arrow-down"></span>
-                </action>
-              </action-list>
-            </td>
-          </tr>
-          <tr ng-repeat-end class="detail-row">
-            <td colspan="7" class="detail">
-              <dl class="dl-horizontal">
-                <dt translate>ID</dt>
-                <dd>{$ item.id $}</dd>
-                <dt translate>Project ID</dt>
-                <dd>{$ item.tenant_id $}</dd>
-                <dt translate>Network ID</dt>
-                <dd>{$ item.network_id $}</dd>
-                <dt translate>Network</dt>
-                <dd>{$ item.network_name $}</dd>
-                <dt translate>MAC Address</dt>
-                <dd>{$ item.mac_address $}</dd>
-                <dt translate>VNIC type</dt>
-                <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
-                <div ng-if="item['binding:host_id']">
-                  <dt translate>Host ID</dt>
-                  <dd>{$ item['binding:host_id'] $}</dd>
-                </div>
-              </dl>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </allocated>
+  <div ng-if="!ctrl.portsLoaded">
+    <span translate class="subtitle text-info">
+      Loading ports... Please Wait
+    </span>
+  </div>
 
-    <available>
-      <table st-table="ctrl.subportsTables.displayedAvailable" st-safe-src="ctrl.subportsTables.available"
-        hz-table class="table table-striped table-rsp table-detail">
-        <thead>
-          <tr>
-            <th class="search-header" colspan="6">
-              <hz-search-bar icon-classes="fa-search"></hz-search-bar>
-            </th>
-          </tr>
-          <tr>
-            <th class="expander"></th>
-            <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
-            <th class="rsp-p2" translate>IP</th>
-            <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
-            <th st-sort="status" class="rsp-p1" translate>Status</th>
-            <th class="actions_column"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-if="trCtrl.numAvailable() === 0">
-            <td colspan="6">
-              <div class="no-rows-help" translate>
-                No available items
-              </div>
-            </td>
-          </tr>
-          <tr ng-repeat-start="item in ctrl.subportsTables.displayedAvailable track by item.id"
-              ng-if="!trCtrl.allocatedIds[item.id]">
-            <td class="expander">
-              <span class="fa fa-chevron-right" hz-expand-detail
-                    title="{$ 'Click to see more details'|translate $}"></span>
-            </td>
-            <td class="rsp-p1 word-break">{$ ctrl.nameOrID(item) $}</td>
-            <td class="rsp-p2">
-              <div ng-repeat="ip in item.fixed_ips">
-                {$ ip.ip_address $} <span translate>on subnet</span>: {$ item.subnet_names[ip.ip_address] $}
-              </div>
-            </td>
-            <td class="rsp-p1">{$ item.admin_state | decode:ctrl.portAdminStates $}</td>
-            <td class="rsp-p1">{$ item.status | decode:ctrl.portStatuses $}</td>
-            <td class="actions_column">
-              <action-list>
-                <action action-classes="'btn btn-default'"
-                        callback="trCtrl.allocate" item="item">
-                  <span class="fa fa-arrow-up"></span>
-                </action>
-              </action-list>
-            </td>
-          </tr>
-          <tr ng-repeat-end class="detail-row">
-            <td colspan="6" class="detail">
-              <dl class="dl-horizontal">
-                <dt translate>ID</dt>
-                <dd>{$ item.id $}</dd>
-                <dt translate>Project ID</dt>
-                <dd>{$ item.tenant_id $}</dd>
-                <dt translate>Network ID</dt>
-                <dd>{$ item.network_id $}</dd>
-                <dt translate>Network</dt>
-                <dd>{$ item.network_name $}</dd>
-                <dt translate>MAC Address</dt>
-                <dd>{$ item.mac_address $}</dd>
-                <dt translate>VNIC type</dt>
-                <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
-                <div ng-if="item['binding:host_id']">
-                  <dt translate>Host ID</dt>
-                  <dd>{$ item['binding:host_id'] $}</dd>
+  <div ng-if="ctrl.portsLoaded">
+    <transfer-table tr-model="ctrl.subportsTables" help-text="ctrl.tableHelpText" limits="ctrl.tableLimits">
+      <allocated>
+        <table st-table="ctrl.subportsTables.displayedAllocated" st-safe-src="ctrl.subportsTables.allocated"
+               hz-table class="table table-striped table-rsp table-detail">
+          <thead>
+            <tr>
+              <th class="expander"></th>
+              <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+              <th class="rsp-p2" translate>IP</th>
+              <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
+              <th st-sort="status" class="rsp-p1" translate>Status</th>
+              <th class="rsp-p1" translate>Segmentation Type</th>
+              <th class="rsp-p1" translate>Segmentation Id</th>
+              <th class="actions_column"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-if="ctrl.subportsTables.allocated.length === 0">
+              <td colspan="7">
+                <div class="no-rows-help" translate>
+                  Select items from Available items below
                 </div>
-              </dl>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </available>
-  </transfer-table>
+              </td>
+            </tr>
+            <tr ng-repeat-start="item in ctrl.subportsTables.displayedAllocated track by item.id"
+                lr-drag-data="ctrl.subportsTables.displayedAllocated"
+                lr-drop-success="trCtrl.updateAllocated(e, item, collection)">
+              <td class="expander">
+                <span class="fa fa-chevron-right" hz-expand-detail
+                      title="{$ 'Click to see more details'|translate $}"></span>
+              </td>
+              <td class="rsp-p1 word-break">{$ ctrl.nameOrID(item) $}</td>
+              <td class="rsp-p2">
+                <div ng-repeat="ip in item.fixed_ips">
+                  {$ ip.ip_address $} <span translate>on subnet</span>: {$ item.subnet_names[ip.ip_address] $}
+                </div>
+              </td>
+              <td class="rsp-p1">{$ item.admin_state | decode:ctrl.portAdminStates $}</td>
+              <td class="rsp-p1">{$ item.status | decode:ctrl.portStatuses $}</td>
+              <td class="rsp-p1">
+                <select id="segmentation_type_{$ $index $}"
+                  ng-init="ctrl.subportsDetails[item.id]['segmentation_type'] = ctrl.segmentationTypes[0]"
+                  ng-options="type for type in ctrl.segmentationTypes"
+                  ng-model="ctrl.subportsDetails[item.id]['segmentation_type']">
+                </select>
+              </td>
+              <td class="rsp-p1" ng-if="ctrl.subportsDetails[item.id]['segmentation_type'] === 'inherit'" translate>
+                inherit
+              </td>
+              <td class="rsp-p1" ng-if="ctrl.subportsDetails[item.id]['segmentation_type'] !== 'inherit'">
+                <!-- NOTE(bence romsics): We could but do not reject non-integer
+                segmentation IDs. It does not seem worth to add one more
+                directive for that effect. -->
+                <input type="number"
+                  id="segmentation_id_{$ $index $}"
+                  min="{$ ctrl.segmentationTypesDict[ctrl.subportsDetails[item.id]['segmentation_type']][0] $}"
+                  max="{$ ctrl.segmentationTypesDict[ctrl.subportsDetails[item.id]['segmentation_type']][1] $}"
+                  ng-model="ctrl.subportsDetails[item.id]['segmentation_id']" required>
+              </td>
+              <td class="actions_column">
+                <action-list>
+                  <action action-classes="'btn btn-default'"
+                          callback="trCtrl.deallocate" item="item">
+                    <span class="fa fa-arrow-down"></span>
+                  </action>
+                </action-list>
+              </td>
+            </tr>
+            <tr ng-repeat-end class="detail-row">
+              <td colspan="7" class="detail">
+                <dl class="dl-horizontal">
+                  <dt translate>ID</dt>
+                  <dd>{$ item.id $}</dd>
+                  <dt translate>Project ID</dt>
+                  <dd>{$ item.tenant_id $}</dd>
+                  <dt translate>Network ID</dt>
+                  <dd>{$ item.network_id $}</dd>
+                  <dt translate>Network</dt>
+                  <dd>{$ item.network_name $}</dd>
+                  <dt translate>MAC Address</dt>
+                  <dd>{$ item.mac_address $}</dd>
+                  <dt translate>VNIC type</dt>
+                  <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
+                  <div ng-if="item['binding:host_id']">
+                    <dt translate>Host ID</dt>
+                    <dd>{$ item['binding:host_id'] $}</dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </allocated>
+
+      <available>
+        <table st-table="ctrl.subportsTables.displayedAvailable" st-safe-src="ctrl.subportsTables.available"
+          hz-table class="table table-striped table-rsp table-detail">
+          <thead>
+            <tr>
+              <th class="search-header" colspan="6">
+                <hz-search-bar icon-classes="fa-search"></hz-search-bar>
+              </th>
+            </tr>
+            <tr>
+              <th class="expander"></th>
+              <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+              <th class="rsp-p2" translate>IP</th>
+              <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
+              <th st-sort="status" class="rsp-p1" translate>Status</th>
+              <th class="actions_column"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-if="trCtrl.numAvailable() === 0">
+              <td colspan="6">
+                <div class="no-rows-help" translate>
+                  No available items
+                </div>
+              </td>
+            </tr>
+            <tr ng-repeat-start="item in ctrl.subportsTables.displayedAvailable track by item.id"
+                ng-if="!trCtrl.allocatedIds[item.id]">
+              <td class="expander">
+                <span class="fa fa-chevron-right" hz-expand-detail
+                      title="{$ 'Click to see more details'|translate $}"></span>
+              </td>
+              <td class="rsp-p1 word-break">{$ ctrl.nameOrID(item) $}</td>
+              <td class="rsp-p2">
+                <div ng-repeat="ip in item.fixed_ips">
+                  {$ ip.ip_address $} <span translate>on subnet</span>: {$ item.subnet_names[ip.ip_address] $}
+                </div>
+              </td>
+              <td class="rsp-p1">{$ item.admin_state | decode:ctrl.portAdminStates $}</td>
+              <td class="rsp-p1">{$ item.status | decode:ctrl.portStatuses $}</td>
+              <td class="actions_column">
+                <action-list>
+                  <action action-classes="'btn btn-default'"
+                          callback="trCtrl.allocate" item="item">
+                    <span class="fa fa-arrow-up"></span>
+                  </action>
+                </action-list>
+              </td>
+            </tr>
+            <tr ng-repeat-end class="detail-row">
+              <td colspan="6" class="detail">
+                <dl class="dl-horizontal">
+                  <dt translate>ID</dt>
+                  <dd>{$ item.id $}</dd>
+                  <dt translate>Project ID</dt>
+                  <dd>{$ item.tenant_id $}</dd>
+                  <dt translate>Network ID</dt>
+                  <dd>{$ item.network_id $}</dd>
+                  <dt translate>Network</dt>
+                  <dd>{$ item.network_name $}</dd>
+                  <dt translate>MAC Address</dt>
+                  <dd>{$ item.mac_address $}</dd>
+                  <dt translate>VNIC type</dt>
+                  <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
+                  <div ng-if="item['binding:host_id']">
+                    <dt translate>Host ID</dt>
+                    <dd>{$ item['binding:host_id'] $}</dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </available>
+    </transfer-table>
+  </div>
 </div>

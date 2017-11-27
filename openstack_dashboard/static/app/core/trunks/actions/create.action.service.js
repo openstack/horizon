@@ -30,7 +30,6 @@
     'horizon.app.core.trunks.actions.ports-extra.service',
     'horizon.app.core.trunks.resourceType',
     'horizon.framework.util.actions.action-result.service',
-    'horizon.framework.widgets.modal-wait-spinner.service',
     // Using horizon.framework.widgets.form.ModalFormService and
     // angular-schema-form would have made many things easier, but it wasn't
     // really an option because it does not have a transfer-table widget.
@@ -52,7 +51,6 @@
     portsExtra,
     resourceType,
     actionResultService,
-    spinnerService,
     wizardModalService,
     toast
   ) {
@@ -74,65 +72,36 @@
     }
 
     function perform() {
-      // NOTE(bence romsics): Suboptimal UX. We delay opening the modal until
-      // neutron objects are loaded. But ideally the steps independent of
-      // already existing neutron objects (ie. the trunk details step) could
-      // already work while loading neutron stuff in the background.
-      spinnerService.showModalSpinner(gettext('Please Wait'));
-
-      return $q.all({
-        // TODO(bence romsics): Query filters of port and network listings
-        // should be aligned. While here it looks like we query all
-        // possible ports and all possible networks this is not really the
-        // case. A few calls down in openstack_dashboard/api/neutron.py
-        // we have a filterless port listing, but networks are listed
-        // by network_list_for_tenant() which includes some hardcoded
-        // tenant-specific filtering. Therefore here we may get back some
-        // ports whose networks we don't have. This is only a problem for
-        // admin and even then it means just missing network and subnet
-        // metadata on some ports. But anyway when we want this panel to
-        // work for admin too, we should fix this.
-        getNetworks: neutron.getNetworks(),
-        getPorts: userSession.get().then(function(session) {
-          return neutron.getPorts({project_id: session.project_id});
-        })
-      }).then(function(responses) {
-        var networks = responses.getNetworks.data.items;
-        var ports = responses.getPorts.data.items;
-        return {
-          parentPortCandidates: portsExtra.addNetworkAndSubnetInfo(
-            ports.filter(portsExtra.isParentPortCandidate),
-            networks),
-          subportCandidates: portsExtra.addNetworkAndSubnetInfo(
-            ports.filter(portsExtra.isSubportCandidate),
-            networks)
-        };
-      }).then(openModal);
-
-      function openModal(params) {
-        spinnerService.hideModalSpinner();
-
-        return wizardModalService.modal({
-          workflow: createWorkflow,
-          submit: submit,
-          data: {
-            initTrunk: {
-              admin_state_up: true,
-              description: '',
-              name: '',
-              port_id: undefined,
-              sub_ports: []
-            },
-            ports: {
-              parentPortCandidates: params.parentPortCandidates.sort(
-                portsExtra.cmpPortsByNameAndId),
-              subportCandidates: params.subportCandidates.sort(
-                portsExtra.cmpPortsByNameAndId),
-              subportsOfInitTrunk: []
-            }
-          }
-        }).result;
-      }
+      // NOTE(bence romsics): The parent and subport selector steps are shared
+      // by the create and edit workflows, therefore we have to initialize the
+      // trunk adequately in both cases. That is an empty trunk for create and
+      // the trunk to be updated for edit.
+      var trunk = {
+        admin_state_up: true,
+        description: '',
+        name: '',
+        port_id: undefined,
+        sub_ports: []
+      };
+      return wizardModalService.modal({
+        workflow: createWorkflow,
+        submit: submit,
+        data: {
+          initTrunk: trunk,
+          getTrunk: $q.when(trunk),
+          getPortsWithNets: $q.all({
+            getNetworks: neutron.getNetworks(),
+            getPorts: userSession.get().then(function(session) {
+              return neutron.getPorts({project_id: session.project_id});
+            })
+          }).then(function(responses) {
+            var networks = responses.getNetworks.data.items;
+            var ports = responses.getPorts.data.items;
+            return portsExtra.addNetworkAndSubnetInfo(
+              ports, networks).sort(portsExtra.cmpPortsByNameAndId);
+          })
+        }
+      }).result;
     }
 
     function submit(stepModels) {

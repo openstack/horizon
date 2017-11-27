@@ -21,17 +21,20 @@
     beforeEach(module('horizon.app.core.trunks'));
 
     describe('TrunkDetailsController', function() {
-      var scope, ctrl;
+      var $q, $timeout, scope, ctrl;
 
-      //beforeEach(module('horizon.app.core.trunks.actions'));
-      beforeEach(inject(function($rootScope, $injector, $controller) {
+      beforeEach(inject(function(_$q_, _$timeout_, $rootScope, $controller) {
+        $q = _$q_;
+        $timeout = _$timeout_;
         scope = $rootScope.$new();
         scope.stepModels = {};
-        scope.initTrunk = {
+        var trunk = {
           admin_state_up: true,
           description: '',
           name: 'trunk1'
         };
+        scope.initTrunk = trunk;
+        scope.getTrunk = $q.when(trunk);
 
         ctrl = $controller('TrunkDetailsController', {
           $scope: scope
@@ -45,17 +48,23 @@
       });
 
       it('has trunk property', function() {
-        expect(ctrl.trunk).toBeDefined();
-        expect(ctrl.trunk.admin_state_up).toBeDefined();
-        expect(ctrl.trunk.admin_state_up).toEqual(true);
-        expect(ctrl.trunk.description).toBeDefined();
-        expect(ctrl.trunk.name).toBeDefined();
+        scope.getTrunk.then(function() {
+          expect(ctrl.trunk).toBeDefined();
+          expect(ctrl.trunk.admin_state_up).toBeDefined();
+          expect(ctrl.trunk.admin_state_up).toEqual(true);
+          expect(ctrl.trunk.description).toBeDefined();
+          expect(ctrl.trunk.name).toBeDefined();
+        });
+        $timeout.flush();
       });
 
       it('should return with trunk', function() {
-        var trunk = scope.stepModels.trunkSlices.getDetails();
-        expect(trunk.name).toEqual('trunk1');
-        expect(trunk.admin_state_up).toBe(true);
+        scope.getTrunk.then(function() {
+          var trunk = scope.stepModels.trunkSlices.getDetails();
+          expect(trunk.name).toEqual('trunk1');
+          expect(trunk.admin_state_up).toBe(true);
+        });
+        $timeout.flush();
       });
 
     });

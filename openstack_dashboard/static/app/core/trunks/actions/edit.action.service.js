@@ -23,6 +23,7 @@
 
   editService.$inject = [
     '$q',
+    '$location',
     'horizon.app.core.openstack-service-api.neutron',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.app.core.openstack-service-api.userSession',
@@ -30,7 +31,6 @@
     'horizon.app.core.trunks.actions.ports-extra.service',
     'horizon.app.core.trunks.resourceType',
     'horizon.framework.util.actions.action-result.service',
-    'horizon.framework.widgets.modal-wait-spinner.service',
     'horizon.framework.widgets.modal.wizard-modal.service',
     'horizon.framework.widgets.toast.service'
   ];
@@ -42,6 +42,7 @@
    */
   function editService(
     $q,
+    $location,
     neutron,
     policy,
     userSession,
@@ -49,7 +50,6 @@
     portsExtra,
     resourceType,
     actionResultService,
-    spinnerService,
     wizardModalService,
     toast
   ) {
@@ -71,48 +71,37 @@
     }
 
     function perform(selected) {
-      // See also at perform() in create action.
-      spinnerService.showModalSpinner(gettext('Please Wait'));
+      var params = {};
 
-      return $q.all({
-        getNetworks: neutron.getNetworks(),
-        getPorts: userSession.get().then(function(session) {
-          return neutron.getPorts({project_id: session.project_id});
-        }),
-        getTrunk: neutron.getTrunk(selected.id)
-      }).then(function(responses) {
-        var networks = responses.getNetworks.data.items;
-        var ports = responses.getPorts.data.items;
-        var trunk = responses.getTrunk.data;
-        return {
-          subportCandidates: portsExtra.addNetworkAndSubnetInfo(
-            ports.filter(portsExtra.isSubportCandidate),
-            networks),
-          subportsOfInitTrunk: portsExtra.addNetworkAndSubnetInfo(
-            ports.filter(portsExtra.isSubportOfTrunk.bind(null, selected.id)),
-            networks),
-          trunk: trunk
-        };
-      }).then(openModal);
-
-      function openModal(params) {
-        spinnerService.hideModalSpinner();
-
-        return wizardModalService.modal({
-          workflow: editWorkflow,
-          submit: submit,
-          data: {
-            initTrunk: params.trunk,
-            ports: {
-              parentPortCandidates: [],
-              subportCandidates: params.subportCandidates.sort(
-                portsExtra.cmpPortsByNameAndId),
-              subportsOfInitTrunk: params.subportsOfInitTrunk.sort(
-                portsExtra.cmpSubportsBySegmentationTypeAndId)
-            }
-          }
-        }).result;
+      if ($location.url().indexOf('admin') === -1) {
+        params = {project_id: userSession.project_id};
       }
+
+      return wizardModalService.modal({
+        workflow: editWorkflow,
+        submit: submit,
+        data: {
+          // The step controllers can and will freshly query the trunk
+          // by using the getTrunk promise below. For all updateable
+          // attributes you should use that. But to make our lives a bit
+          // easier we also pass synchronously (and redundantly) the trunk
+          // we queried earlier. Remember to only use those attributes
+          // of it that are not allowed to be updated.
+          initTrunk: selected,
+          getTrunk: neutron.getTrunk(selected.id).then(function(response) {
+            return response.data;
+          }),
+          getPortsWithNets: $q.all({
+            getNetworks: neutron.getNetworks(params),
+            getPorts: neutron.getPorts(params)
+          }).then(function(responses) {
+            var networks = responses.getNetworks.data.items;
+            var ports = responses.getPorts.data.items;
+            return portsExtra.addNetworkAndSubnetInfo(
+              ports, networks).sort(portsExtra.cmpPortsByNameAndId);
+          })
+        }
+      }).result;
     }
 
     function submit(stepModels) {

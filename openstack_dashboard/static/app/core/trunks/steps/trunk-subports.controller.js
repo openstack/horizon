@@ -31,6 +31,7 @@
 
   TrunkSubPortsController.$inject = [
     '$scope',
+    'horizon.app.core.trunks.actions.ports-extra.service',
     'horizon.app.core.trunks.portConstants',
     'horizon.framework.widgets.action-list.button-tooltip.row-warning.service',
     'horizon.framework.widgets.transfer-table.events'
@@ -38,11 +39,13 @@
 
   function TrunkSubPortsController(
     $scope,
+    portsExtra,
     portConstants,
     tooltipService,
     ttevents
   ) {
     var ctrl = this;
+    var subportCandidates;
 
     ctrl.portStatuses = portConstants.statuses;
     ctrl.portAdminStates = portConstants.adminStates;
@@ -71,80 +74,92 @@
     ctrl.segmentationTypes = Object.keys(ctrl.segmentationTypesDict);
     ctrl.subportsDetails = {};
 
-    $scope.initTrunk.sub_ports.forEach(function(subport) {
-      ctrl.subportsDetails[subport.port_id] = {
-        segmentation_type: subport.segmentation_type,
-        segmentation_id: subport.segmentation_id
+    $scope.getTrunk.then(function(trunk) {
+      trunk.sub_ports.forEach(function(subport) {
+        ctrl.subportsDetails[subport.port_id] = {
+          segmentation_type: subport.segmentation_type,
+          segmentation_id: subport.segmentation_id
+        };
+      });
+
+      ctrl.trunkLoaded = true;
+    });
+
+    $scope.getPortsWithNets.then(function(portsWithNets) {
+      var subportsOfInitTrunk = portsWithNets.filter(
+        portsExtra.isSubportOfTrunk.bind(null, $scope.initTrunk.id));
+      subportCandidates = portsWithNets.filter(
+        portsExtra.isSubportCandidate);
+
+      ctrl.subportsTables = {
+        available: [].concat(subportsOfInitTrunk, subportCandidates),
+        allocated: [].concat(subportsOfInitTrunk),
+        displayedAvailable: [],
+        displayedAllocated: []
       };
-    });
 
-    ctrl.subportsTables = {
-      available: [].concat(
-        $scope.ports.subportsOfInitTrunk,
-        $scope.ports.subportCandidates),
-      // NOTE(bence romsics): Trunk information merged into ports and trunk
-      // information in initTrunk may occasionally be out of sync. Theoratically
-      // there's a chance to get rid of this, but that refactor will go deep.
-      allocated: $scope.ports.subportsOfInitTrunk,
-      displayedAvailable: [],
-      displayedAllocated: []
-    };
+      // See also in the details step controller.
+      $scope.stepModels.trunkSlices = $scope.stepModels.trunkSlices || {};
+      $scope.stepModels.trunkSlices.getSubports = function() {
+        var trunk = {sub_ports: []};
 
-    // See also in the details step controller.
-    $scope.stepModels.trunkSlices = $scope.stepModels.trunkSlices || {};
-    $scope.stepModels.trunkSlices.getSubports = function() {
-      var trunk = {sub_ports: []};
+        ctrl.subportsTables.allocated.forEach(function(port) {
+          // Subport information comes from two sources, one handled by
+          // transfertable, the other from outside of transfertable. We
+          // may see the two data structures in an inconsistent state. We
+          // skip the inconsistent cases by the following condition.
+          if (port.id in ctrl.subportsDetails) {
+            trunk.sub_ports.push({
+              port_id: port.id,
+              segmentation_id: ctrl.subportsDetails[port.id].segmentation_id,
+              segmentation_type: ctrl.subportsDetails[port.id].segmentation_type
+            });
+          }
+        });
 
-      ctrl.subportsTables.allocated.forEach(function(port) {
-        // Subport information comes from two sources, one handled by
-        // transfertable, the other from outside of transfertable. We
-        // may see the two data structures in an inconsistent state. We
-        // skip the inconsistent cases by the following condition.
-        if (port.id in ctrl.subportsDetails) {
-          trunk.sub_ports.push({
-            port_id: port.id,
-            segmentation_id: ctrl.subportsDetails[port.id].segmentation_id,
-            segmentation_type: ctrl.subportsDetails[port.id].segmentation_type
-          });
-        }
+        return trunk;
+      };
+
+      // We expose the allocated table directly to the parent port step
+      // controller, so it can set watchers on it and react accordingly...
+      $scope.stepModels.allocated = $scope.stepModels.allocated || {};
+      $scope.stepModels.allocated.subports = ctrl.subportsTables.allocated;
+
+      // ...and vice versa.
+      var deregisterAllocatedWatcher = $scope.$watchCollection(
+        'stepModels.allocated.parentPort', hideAllocated);
+
+      $scope.$on('$destroy', function() {
+        deregisterAllocatedWatcher();
       });
 
-      return trunk;
-    };
-
-    // We expose the allocated table directly to the parent port step
-    // controller, so it can set watchers on it and react accordingly...
-    $scope.stepModels.allocated = $scope.stepModels.allocated || {};
-    $scope.stepModels.allocated.subports = ctrl.subportsTables.allocated;
-
-    // ...and vice versa.
-    var deregisterAllocatedWatcher = $scope.$watchCollection(
-      'stepModels.allocated.parentPort', hideAllocated);
-
-    $scope.$on('$destroy', function() {
-      deregisterAllocatedWatcher();
-    });
-
-    function hideAllocated(allocatedList) {
-      var allocatedDict = {};
-      var availableList;
-
-      allocatedList.forEach(function(port) {
-        allocatedDict[port.id] = true;
-      });
-      availableList = $scope.ports.subportCandidates.filter(
-        function(port) {
-          return !(port.id in allocatedDict);
+      function hideAllocated(allocatedList) {
+        if (!ctrl.portsLoaded || !allocatedList) {
+          return;
         }
-      );
 
-      ctrl.subportsTables.available = availableList;
-      // Notify transfertable.
-      $scope.$broadcast(
-        ttevents.TABLES_CHANGED,
-        {data: {available: availableList}}
-      );
-    }
+        var allocatedDict = {};
+        var availableList;
+
+        allocatedList.forEach(function(port) {
+          allocatedDict[port.id] = true;
+        });
+        availableList = subportCandidates.filter(
+          function(port) {
+            return !(port.id in allocatedDict);
+          }
+        );
+
+        ctrl.subportsTables.available = availableList;
+        // Notify transfertable.
+        $scope.$broadcast(
+          ttevents.TABLES_CHANGED,
+          {data: {available: availableList}}
+        );
+      }
+
+      ctrl.portsLoaded = true;
+    });
 
   }
 })();

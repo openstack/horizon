@@ -7,44 +7,51 @@
   </p>
 
   <div class="content">
+    <div ng-if="!ctrl.trunkLoaded">
+      <span translate class="subtitle text-info">
+        Loading trunk... Please Wait
+      </span>
+    </div>
 
-    <div class="selected-source">
-      <div class="row form-group">
-        <div class="col-xs-8 col-sm-8">
-          <div class="form-group">
-            <label class="control-label" for="trunkForm-name">
-              <translate>Name</translate>
-            </label>
-            <input id="trunkForm-name" name="name"
-                   type="text" class="form-control"
-                   ng-model="ctrl.trunk.name">
+    <div ng-if="ctrl.trunkLoaded">
+      <div class="selected-source">
+        <div class="row form-group">
+          <div class="col-xs-8 col-sm-8">
+            <div class="form-group">
+              <label class="control-label" for="trunkForm-name">
+                <translate>Name</translate>
+              </label>
+              <input id="trunkForm-name" name="name"
+                     type="text" class="form-control"
+                     ng-model="ctrl.trunk.name">
+            </div>
           </div>
-        </div>
-        <div class="col-xs-4 col-sm-4">
-          <div class="form-group">
-            <label class="control-label">
-              <translate>Admin State</translate>
-            </label>
-            <div class="form-field">
-              <div class="btn-group">
-                <label class="btn btn-default"
-                       ng-repeat="option in ctrl.trunkAdminStateOptions"
-                       ng-model="ctrl.trunk.admin_state_up"
-                       uib-btn-radio="option.value">{$ ::option.label $}</label>
+          <div class="col-xs-4 col-sm-4">
+            <div class="form-group">
+              <label class="control-label">
+                <translate>Admin State</translate>
+              </label>
+              <div class="form-field">
+                <div class="btn-group">
+                  <label class="btn btn-default"
+                         ng-repeat="option in ctrl.trunkAdminStateOptions"
+                         ng-model="ctrl.trunk.admin_state_up"
+                         uib-btn-radio="option.value">{$ ::option.label $}</label>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row form-group">
-        <div class="col-xs-12 col-sm-12">
-          <div class="form-group">
-            <label class="control-label" for="trunkForm-description">
-              <translate>Description</translate>
-            </label>
-            <input id="trunkForm-description" name="description"
-                   type="text" class="form-control"
-                   ng-model="ctrl.trunk.description">
+        <div class="row form-group">
+          <div class="col-xs-12 col-sm-12">
+            <div class="form-group">
+              <label class="control-label" for="trunkForm-description">
+                <translate>Description</translate>
+              </label>
+              <input id="trunkForm-description" name="description"
+                     type="text" class="form-control"
+                     ng-model="ctrl.trunk.description">
+            </div>
           </div>
         </div>
       </div>

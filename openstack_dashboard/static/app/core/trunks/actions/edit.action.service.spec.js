@@ -109,22 +109,17 @@
 
     it('open the modal with the correct parameters', function() {
       spyOn(wizardModalService, 'modal').and.callThrough();
-      spyOn(modalWaitSpinnerService, 'showModalSpinner');
-      spyOn(modalWaitSpinnerService, 'hideModalSpinner');
 
       service.perform({id: 1});
-      expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalledWith('Please Wait');
-      $timeout.flush();
 
       expect(wizardModalService.modal).toHaveBeenCalled();
-      expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
-
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
       expect(modalArgs.scope).toBeUndefined();
       expect(modalArgs.workflow).toBeDefined();
       expect(modalArgs.submit).toBeDefined();
       expect(modalArgs.data.initTrunk).toBeDefined();
-      expect(modalArgs.data.ports).toBeDefined();
+      expect(modalArgs.data.getTrunk).toBeDefined();
+      expect(modalArgs.data.getPortsWithNets).toBeDefined();
     });
 
     it('should submit edit trunk request to neutron', function() {

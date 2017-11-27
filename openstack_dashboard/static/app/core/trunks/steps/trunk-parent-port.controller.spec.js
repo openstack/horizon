@@ -23,22 +23,23 @@
     beforeEach(module('horizon.app.core.trunks'));
 
     describe('TrunkParentPortController', function() {
-      var scope, ctrl, ttevents;
+      var $q, $timeout, $scope, ctrl;
 
-      beforeEach(inject(function($rootScope, $controller, $injector) {
-        scope = $rootScope.$new();
-        scope.ports = {
-          parentPortCandidates: [{id: 1}, {id: 2}]
-        };
-        scope.stepModels = {};
-        scope.initTrunk = {
+      beforeEach(inject(function(_$q_, _$timeout_, $rootScope, $controller) {
+        $q = _$q_;
+        $timeout = _$timeout_;
+        $scope = $rootScope.$new();
+        $scope.getPortsWithNets = $q.when([
+          {id: 1, admin_state_up: true, device_owner: ''},
+          {id: 2, admin_state_up: true, device_owner: ''}
+        ]);
+        $scope.stepModels = {};
+        $scope.initTrunk = {
           port_id: 1
         };
 
-        ttevents = $injector.get('horizon.framework.widgets.transfer-table.events');
-
         ctrl = $controller('TrunkParentPortController', {
-          $scope: scope
+          $scope: $scope
         });
       }));
 
@@ -78,38 +79,54 @@
       });
 
       it('uses scope to set table data', function() {
-        expect(ctrl.parentTables).toBeDefined();
-        expect(ctrl.parentTables.available).toEqual(
-          [{id: 1}, {id: 2}]);
-        expect(ctrl.parentTables.allocated).toEqual([]);
-        expect(ctrl.parentTables.displayedAllocated).toEqual([]);
-        expect(ctrl.parentTables.displayedAvailable).toEqual([]);
+        $scope.getPortsWithNets.then(function() {
+          expect(ctrl.parentTables).toBeDefined();
+          expect(ctrl.parentTables.available).toEqual([
+            {id: 1, admin_state_up: true, device_owner: ''},
+            {id: 2, admin_state_up: true, device_owner: ''}
+          ]);
+          expect(ctrl.parentTables.allocated).toEqual([]);
+          expect(ctrl.parentTables.displayedAllocated).toEqual([]);
+          expect(ctrl.parentTables.displayedAvailable).toEqual([]);
+        });
+        $timeout.flush();
       });
 
       it('should return with parent port', function() {
-        ctrl.parentTables.allocated = [{id: 3}];
-        var trunk = scope.stepModels.trunkSlices.getParentPort();
-        expect(trunk.port_id).toEqual(3);
+        $scope.getPortsWithNets.then(function() {
+          ctrl.parentTables.allocated = [{id: 3}];
+          var trunk = $scope.stepModels.trunkSlices.getParentPort();
+          expect(trunk.port_id).toEqual(3);
+        });
+        $timeout.flush();
       });
 
-      it('should throw exception if more than on port is allocated', function() {
-        ctrl.parentTables.allocated = [{id: 3}, {id: 4}];
-        expect(scope.stepModels.trunkSlices.getParentPort).toThrow();
+      it('should throw exception if more than one port is allocated', function() {
+        $scope.getPortsWithNets.then(function() {
+          ctrl.parentTables.allocated = [{id: 3}, {id: 4}];
+          expect($scope.stepModels.trunkSlices.getParentPort).toThrow();
+        });
+        $timeout.flush();
       });
 
       it('should remove port from available list if subportstable changes', function() {
-        spyOn(scope, '$broadcast').and.callThrough();
+        $scope.getPortsWithNets = $q.when([
+          {id: 1, admin_state_up: true, device_owner: ''},
+          {id: 2, admin_state_up: true, device_owner: ''},
+          {id: 3, admin_state_up: true, device_owner: ''}
+        ]);
+        $scope.stepModels.allocated = {};
+        $scope.stepModels.allocated.subports = [{id: 3}];
 
-        ctrl.parentTables.available = [{id: 1}, {id: 2}, {id: 3}];
-        scope.stepModels.allocated.subports = [{id: 3}];
+        $scope.getPortsWithNets.then(function() {
+          ctrl.portsLoaded = true;
 
-        scope.$digest();
-
-        expect(scope.$broadcast).toHaveBeenCalledWith(
-          ttevents.TABLES_CHANGED,
-          {data: {available: [{id: 1}, {id: 2}]}}
-        );
-        expect(ctrl.parentTables.available).toEqual([{id: 1}, {id: 2}]);
+          expect(ctrl.parentTables.available).toEqual([
+            {id: 1, admin_state_up: true, device_owner: ''},
+            {id: 2, admin_state_up: true, device_owner: ''}
+          ]);
+        });
+        $scope.$digest();
       });
 
     });

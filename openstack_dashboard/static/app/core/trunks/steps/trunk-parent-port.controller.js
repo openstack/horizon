@@ -32,6 +32,7 @@
 
   TrunkParentPortController.$inject = [
     '$scope',
+    'horizon.app.core.trunks.actions.ports-extra.service',
     'horizon.app.core.trunks.portConstants',
     'horizon.framework.widgets.action-list.button-tooltip.row-warning.service',
     'horizon.framework.widgets.transfer-table.events'
@@ -39,11 +40,13 @@
 
   function TrunkParentPortController(
     $scope,
+    portsExtra,
     portConstants,
     tooltipService,
     ttevents
   ) {
     var ctrl = this;
+    var parentPortCandidates;
 
     ctrl.portStatuses = portConstants.statuses;
     ctrl.portAdminStates = portConstants.adminStates;
@@ -63,61 +66,72 @@
       maxAllocation: 1
     };
 
-    ctrl.parentTables = {
-      available: $scope.ports.parentPortCandidates,
-      allocated: [],
-      displayedAvailable: [],
-      displayedAllocated: []
-    };
+    $scope.getPortsWithNets.then(function(portsWithNets) {
+      parentPortCandidates = portsWithNets.filter(
+        portsExtra.isParentPortCandidate);
 
-    // See also in the details step controller.
-    $scope.stepModels.trunkSlices = $scope.stepModels.trunkSlices || {};
-    $scope.stepModels.trunkSlices.getParentPort = function() {
-      var trunk = {port_id: $scope.initTrunk.port_id};
+      ctrl.parentTables = {
+        available: parentPortCandidates,
+        allocated: [],
+        displayedAvailable: [],
+        displayedAllocated: []
+      };
 
-      if (ctrl.parentTables.allocated.length in [0, 1]) {
-        trunk.port_id = ctrl.parentTables.allocated[0].id;
-      } else {
-        // maxAllocation is 1, so this should never happen.
-        throw new Error('Allocating multiple parent ports is meaningless.');
+      // See also in the details step controller.
+      $scope.stepModels.trunkSlices = $scope.stepModels.trunkSlices || {};
+      $scope.stepModels.trunkSlices.getParentPort = function() {
+        var trunk = {port_id: $scope.initTrunk.port_id};
+
+        if (ctrl.parentTables.allocated.length in [0, 1]) {
+          trunk.port_id = ctrl.parentTables.allocated[0].id;
+        } else {
+          // maxAllocation is 1, so this should never happen.
+          throw new Error('Allocating multiple parent ports is meaningless.');
+        }
+
+        return trunk;
+      };
+
+      // We expose the allocated table directly to the subports step
+      // controller, so it can set watchers on it and react accordingly...
+      $scope.stepModels.allocated = $scope.stepModels.allocated || {};
+      $scope.stepModels.allocated.parentPort = ctrl.parentTables.allocated;
+
+      // ...and vice versa.
+      var deregisterAllocatedWatcher = $scope.$watchCollection(
+        'stepModels.allocated.subports', hideAllocated);
+
+      $scope.$on('$destroy', function() {
+        deregisterAllocatedWatcher();
+      });
+
+      function hideAllocated(allocatedList) {
+        if (!ctrl.portsLoaded || !allocatedList) {
+          return;
+        }
+
+        var allocatedDict = {};
+        var availableList;
+
+        allocatedList.forEach(function(port) {
+          allocatedDict[port.id] = true;
+        });
+        availableList = parentPortCandidates.filter(
+          function(port) {
+            return !(port.id in allocatedDict);
+          }
+        );
+
+        ctrl.parentTables.available = availableList;
+        // Notify transfertable.
+        $scope.$broadcast(
+          ttevents.TABLES_CHANGED,
+          {data: {available: availableList}}
+        );
       }
 
-      return trunk;
-    };
-
-    // We expose the allocated table directly to the subports step
-    // controller, so it can set watchers on it and react accordingly...
-    $scope.stepModels.allocated = $scope.stepModels.allocated || {};
-    $scope.stepModels.allocated.parentPort = ctrl.parentTables.allocated;
-
-    // ...and vice versa.
-    var deregisterAllocatedWatcher = $scope.$watchCollection(
-      'stepModels.allocated.subports', hideAllocated);
-
-    $scope.$on('$destroy', function() {
-      deregisterAllocatedWatcher();
+      ctrl.portsLoaded = true;
     });
-
-    function hideAllocated(allocatedList) {
-      var allocatedDict = {};
-      var availableList;
-
-      allocatedList.forEach(function(port) {
-        allocatedDict[port.id] = true;
-      });
-      availableList = $scope.ports.parentPortCandidates.filter(
-        function(port) {
-          return !(port.id in allocatedDict);
-        }
-      );
-
-      ctrl.parentTables.available = availableList;
-      // Notify transfertable.
-      $scope.$broadcast(
-        ttevents.TABLES_CHANGED,
-        {data: {available: availableList}}
-      );
-    }
 
   }
 })();

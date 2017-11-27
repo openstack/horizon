@@ -23,22 +23,25 @@
     beforeEach(module('horizon.app.core.trunks'));
 
     describe('TrunkSubPortsController', function() {
-      var scope, ctrl, ttevents;
+      var $q, $timeout, $scope, ctrl;
 
-      beforeEach(inject(function($rootScope, $controller, $injector) {
-        scope = $rootScope.$new();
-        scope.ports = {
-          subportCandidates: [{id: 1}, {id: 2}],
-          subportsOfInitTrunk: []
-        };
-        scope.stepModels = {};
-        scope.initTrunk = {
+      beforeEach(inject(function(_$q_, _$timeout_, $rootScope, $controller) {
+        $q = _$q_;
+        $timeout = _$timeout_;
+        $scope = $rootScope.$new();
+        $scope.getPortsWithNets = $q.when([
+          {id: 1, admin_state_up: true, device_owner: ''},
+          {id: 2, admin_state_up: true, device_owner: ''}
+        ]);
+        $scope.stepModels = {};
+        var trunk = {
           sub_ports: []
         };
-        ttevents = $injector.get('horizon.framework.widgets.transfer-table.events');
+        $scope.initTrunk = trunk;
+        $scope.getTrunk = $q.when(trunk);
 
         ctrl = $controller('TrunkSubPortsController', {
-          $scope: scope
+          $scope: $scope
         });
       }));
 
@@ -78,12 +81,17 @@
       });
 
       it('uses scope to set table data', function() {
-        expect(ctrl.subportsTables).toBeDefined();
-        expect(ctrl.subportsTables.available).toEqual(
-          [{id: 1}, {id: 2}]);
-        expect(ctrl.subportsTables.allocated).toEqual([]);
-        expect(ctrl.subportsTables.displayedAllocated).toEqual([]);
-        expect(ctrl.subportsTables.displayedAvailable).toEqual([]);
+        $scope.getPortsWithNets.then(function() {
+          expect(ctrl.subportsTables).toBeDefined();
+          expect(ctrl.subportsTables.available).toEqual([
+            {id: 1, admin_state_up: true, device_owner: ''},
+            {id: 2, admin_state_up: true, device_owner: ''}
+          ]);
+          expect(ctrl.subportsTables.allocated).toEqual([]);
+          expect(ctrl.subportsTables.displayedAllocated).toEqual([]);
+          expect(ctrl.subportsTables.displayedAvailable).toEqual([]);
+        });
+        $timeout.flush();
       });
 
       it('has segmentation types dict', function() {
@@ -101,65 +109,82 @@
       });
 
       it('should return with subports', function() {
-        ctrl.subportsTables.allocated = [{id: 3}, {id: 4}, {id: 5}];
-        ctrl.subportsDetails = {
-          3: {segmentation_type: 'VLAN', segmentation_id: 100},
-          4: {segmentation_type: 'VLAN', segmentation_id: 101}
-        };
-        var subports = scope.stepModels.trunkSlices.getSubports();
-        expect(subports).toEqual({
-          sub_ports: [
-            {port_id: 3, segmentation_id: 100, segmentation_type: 'VLAN'},
-            {port_id: 4, segmentation_id: 101, segmentation_type: 'VLAN'}
-          ]
+        $scope.getPortsWithNets.then(function() {
+          ctrl.subportsTables.allocated = [{id: 3}, {id: 4}, {id: 5}];
+          ctrl.subportsDetails = {
+            3: {segmentation_type: 'VLAN', segmentation_id: 100},
+            4: {segmentation_type: 'VLAN', segmentation_id: 101}
+          };
+          var subports = $scope.stepModels.trunkSlices.getSubports();
+          expect(subports).toEqual({
+            sub_ports: [
+              {port_id: 3, segmentation_id: 100, segmentation_type: 'VLAN'},
+              {port_id: 4, segmentation_id: 101, segmentation_type: 'VLAN'}
+            ]
+          });
         });
+        $timeout.flush();
       });
 
       it('should remove port from available list if parenttable changes', function() {
-        spyOn(scope, '$broadcast').and.callThrough();
+        $scope.getPortsWithNets = $q.when([
+          {id: 1, admin_state_up: true, device_owner: ''},
+          {id: 2, admin_state_up: true, device_owner: ''},
+          {id: 3, admin_state_up: true, device_owner: ''}
+        ]);
+        $scope.stepModels.allocated = {};
+        $scope.stepModels.allocated.parentPort = [{id: 3}];
 
-        ctrl.subportsTables.available = [{id: 1}, {id: 2}, {id: 3}];
-        scope.stepModels.allocated.parentPort = [{id: 3}];
+        $scope.getPortsWithNets.then(function() {
+          ctrl.portsLoaded = true;
 
-        scope.$digest();
-
-        expect(scope.$broadcast).toHaveBeenCalledWith(
-          ttevents.TABLES_CHANGED,
-          {data: {available: [{id: 1}, {id: 2}]}}
-        );
-        expect(ctrl.subportsTables.available).toEqual([{id: 1}, {id: 2}]);
+          expect(ctrl.subportsTables.available).toEqual([
+            {id: 1, admin_state_up: true, device_owner: ''},
+            {id: 2, admin_state_up: true, device_owner: ''}
+          ]);
+        });
+        $scope.$digest();
       });
 
       it('should add to allocated list the subports of the edited trunk', function() {
         inject(function($rootScope, $controller) {
-          scope = $rootScope.$new();
-          scope.ports = {
-            subportCandidates: [{id: 1}, {id: 4}],
-            subportsOfInitTrunk: [{id: 4, segmentation_id: 2, segmentation_type: 'vlan'}]
+          $scope = $rootScope.$new();
+          $scope.getPortsWithNets = $q.when([
+            {id: 1, admin_state_up: true, device_owner: ''},
+            {id: 4, admin_state_up: true, device_owner: '', trunk_id: 1}
+          ]);
+          $scope.stepModels = {};
+          var trunk = {
+            id: 1,
+            sub_ports: [
+              {port_id: 4, segmentation_type: 'vlan', segmentation_id: 2}
+            ]
           };
-          scope.stepModels = {};
-          scope.initTrunk = {
-            sub_ports: [{port_id: 4, segmentation_type: 'vlan', segmentation_id: 2}]
-          };
+          $scope.initTrunk = trunk;
+          $scope.getTrunk = $q.when(trunk);
           ctrl = $controller('TrunkSubPortsController', {
-            $scope: scope
+            $scope: $scope
           });
         });
 
-        expect(ctrl.subportsDetails).toBeDefined();
-        expect(ctrl.subportsDetails).toEqual({
-          4: {
-            segmentation_id: 2,
-            segmentation_type: 'vlan'
-          }
+        $scope.getTrunk.then(function() {
+          expect(ctrl.subportsDetails).toBeDefined();
+          expect(ctrl.subportsDetails).toEqual({
+            4: {
+              segmentation_id: 2,
+              segmentation_type: 'vlan'
+            }
+          });
         });
-
-        var subports = scope.stepModels.trunkSlices.getSubports();
-        expect(subports).toEqual({
-          sub_ports: [
-            {port_id: 4, segmentation_id: 2, segmentation_type: 'vlan'}
-          ]
+        $scope.getPortsWithNets.then(function() {
+          var subports = $scope.stepModels.trunkSlices.getSubports();
+          expect(subports).toEqual({
+            sub_ports: [
+              {port_id: 4, segmentation_id: 2, segmentation_type: 'vlan'}
+            ]
+          });
         });
+        $timeout.flush();
       });
     });
 
