@@ -1,0 +1,487 @@
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 13.0.0.0b2.dev122\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-11-26 10:36+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-11-26 03:22+0000\n"
+"Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid "%(total)s %(type)s"
+msgstr "%(total)s %(type)s"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, python-format
+msgid "%s bytes"
+msgstr "%s bajtoj"
+
+msgid "(Modified)"
+msgstr "(Modifigita)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
+
+msgid "Active"
+msgstr "Aktiva"
+
+msgid "Add"
+msgstr "Aldonu"
+
+msgid "Added"
+msgstr "Aldonita"
+
+msgid "Additional items not allowed"
+msgstr "Aldonaj elementoj malpermesita"
+
+msgid "Additional properties not allowed"
+msgstr "Aldonaj atributoj malpermesita"
+
+msgid "Allocated"
+msgstr "Asignita"
+
+msgid "An error occurred while updating."
+msgstr "Eraro okazis dum ĝisdatigo"
+
+msgid "An error occurred. Please try again later."
+msgstr "Eraro okazis. Bonvolu provu denove poste."
+
+msgid "Array is too long ({$value.length$} items), maximum {$schema.maxItems$}"
+msgstr ""
+"Tabelo estas tro longa  ({$value.length$} items), maximumo {$schema.maxItems"
+"$}"
+
+msgid ""
+"Array is too short ({$value.length$} items), minimum {$schema.minItems$}"
+msgstr ""
+"Tabelo estas tro mallonga ({$value.length$} items), minimumo {$schema."
+"minItems$}"
+
+msgid "Array items must be unique"
+msgstr "Tabelaj elementoj devas esti unika"
+
+msgid "Available"
+msgstr "Havebla"
+
+msgid "Available Metadata"
+msgstr "Disponebla  Metadatumo"
+
+msgid "Back"
+msgstr "Reen"
+
+msgid "Cancel"
+msgstr "Nuligi"
+
+msgid "Circular $refs"
+msgstr "Circla $refs"
+
+msgid "Click each item to get its description here."
+msgstr "Kliku  ĉio ajn elemento por ricevi ghia priskribo description ĉi tien."
+
+msgid "Click here for filters."
+msgstr "Kliku ĉi-tien por filtriloj."
+
+msgid "Click here to expand the row and view the errors."
+msgstr "Kliku  ĉi tie por malkashi la vico kaj vidi la eraroj."
+
+msgid "Click to see more details"
+msgstr "Kliku por vidi pli da detajloj"
+
+msgid "Click to show or hide"
+msgstr "Kliku por vidi au kaŝi"
+
+msgid "Close"
+msgstr "Fermu"
+
+#, python-format
+msgid "Confirm %s"
+msgstr "Konfirmu %s"
+
+msgid "Confirm Delete Foobars"
+msgstr "Konfirmu forpreni Foobars"
+
+msgid "Current Usage"
+msgstr "Nuna Uzado"
+
+msgid "Custom"
+msgstr "Propra"
+
+msgid "Customization Script"
+msgstr "tajlorado  skripto"
+
+msgid "Danger"
+msgstr "Danĝero"
+
+msgid "Danger: "
+msgstr "Danĝero:"
+
+msgid "Data does not match any schemas from 'anyOf'"
+msgstr "Datumo ne kongruas kun iaj  skemoj el 'anyOf'"
+
+msgid "Data does not match any schemas from 'oneOf'"
+msgstr "Datumo ne kongruas iaj skemoj el 'oneOf'"
+
+msgid "Data is valid against more than one schema from 'oneOf'"
+msgstr "Datumo validas  kontraŭ pli ol unu skemo el 'oneOf'"
+
+msgid "Data matches schema from 'not'"
+msgstr "Datumo kongruas kontraŭ skemo el 'not'"
+
+msgid "Decimal required"
+msgstr "Decimalo bezonata"
+
+msgid "Delete"
+msgstr "Nuligu"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Nuligita : %s."
+
+msgid "Dependency failed - key must exist"
+msgstr "Dependeco malsukcesis - klava devas eksisti"
+
+msgid "Detail Information"
+msgstr "Datajla Informo"
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "Vidiganta %(count)s ol %(total)s elementoj"
+
+#, python-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Vidiganta %s elemento"
+msgstr[1] "Vidiganta %s elementoj"
+
+msgid "Duplicate keys are not allowed"
+msgstr "Duoblaj klavoj malpermesita"
+
+msgid "Error"
+msgstr "Eraro"
+
+msgid "Error: "
+msgstr "Eraro: "
+
+msgid "Example"
+msgstr "Ekzemplo"
+
+msgid "Existing Metadata"
+msgstr "Ekzistanta Metadatumo"
+
+msgid "Expand to see allocated items"
+msgstr "Malkaŝu por vidi la asignitan elementojn"
+
+msgid "Expand to see available items"
+msgstr "Malkaŝu por vidi la haveblajn elementojn"
+
+msgid "Failed to populate extensible header."
+msgstr "Malsukcesis  plenigi etendebla kapo.  "
+
+msgid "Filter"
+msgstr "Filtrilo"
+
+msgid "Finish"
+msgstr "Fini"
+
+msgid "Flavor"
+msgstr "Gusto"
+
+msgid "Format validation failed"
+msgstr "Formatvalidigo malsukcesis"
+
+msgid "Full Text Search"
+msgstr "Plenateksta Ŝerco"
+
+msgid "Info"
+msgstr "Informo"
+
+msgid "Integer required"
+msgstr "Entjero bezonata "
+
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "Nevalida tipo, supozita {$schema.type$}"
+
+msgid "Keyword failed: '{$title$}'"
+msgstr "Klavavorto malsukcesis: '{$title$}'"
+
+msgid "Load script from a file"
+msgstr "Elŝuti scripton de dosiero"
+
+msgid "Loading"
+msgstr "Ŝargi"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Max length"
+msgstr "Max longo"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Min length"
+msgstr "Min longo"
+
+msgid "Name"
+msgstr "Nomo"
+
+msgid "Next"
+msgstr "Sekva"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "No Limit"
+msgstr "Neniu limito"
+
+msgid "No available items"
+msgstr "Nenioj disponeblaj elementoj"
+
+msgid "No available metadata"
+msgstr "Ne disponebla  metadatumo"
+
+msgid "No data available."
+msgstr "Nenio datumo havebla."
+
+msgid "No enum match for: {$viewValue$}"
+msgstr "Ne enum tipo kongruas por: {$viewValue$}"
+
+msgid "No existing metadata"
+msgstr "Ne ekzistanta metadatumo"
+
+msgid "No items to display."
+msgstr "Neniu elementoj por vidigi."
+
+msgid "No roles"
+msgstr "No roloj"
+
+msgid "None"
+msgstr "Nenion"
+
+msgid "Not authorized to do this operation."
+msgstr "Ne rajtigita plenumi tiun operacion."
+
+msgid "Notice: "
+msgstr "Noto:"
+
+msgid "Passwords do not match."
+msgstr "Pasvortoj ne kongruas."
+
+msgid "Pattern mismatch"
+msgstr "ŝablona miskongruo"
+
+msgid "Please Wait"
+msgstr "Bonvolu Atendu"
+
+msgid "Prompt"
+msgstr "Invitilo"
+
+msgid "Re-order items using drag and drop"
+msgstr "Re-ordigu elementojn ŝovmetante"
+
+msgid "Remaining"
+msgstr "Postresti"
+
+msgid "Remove"
+msgstr "Forigu"
+
+msgid "Required"
+msgstr "Bezonata"
+
+msgid "Roles"
+msgstr "Roloj"
+
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Skriptgrandeco: {$ (scriptLength || 0) | bajtoj $} of {$ config."
+"MAX_SCRIPT_SIZE | bajtoj $}"
+
+msgid "Search in current results"
+msgstr "Ŝercu in nunaj resultoj"
+
+msgid "Select an item from Available items below"
+msgstr "Elektu unu elemento de la havebla elementoj malsupren"
+
+msgid "Select one"
+msgstr "Elektu unu"
+
+msgid "Server Name"
+msgstr "Servilo Nomo"
+
+msgid "Shutdown"
+msgstr "Systemfermo"
+
+msgid "Status"
+msgstr "Statuso"
+
+msgid "Submit"
+msgstr "Sendu"
+
+msgid "Success"
+msgstr "Sukceso"
+
+msgid "Success: "
+msgstr "Sukceso: "
+
+msgid "Text"
+msgstr "Teksto"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr ""
+"La ago ne estas plenumebla. La enhavoj de tiu vico entenas eraroj aŭ faltas "
+"informoj."
+
+msgid "The data in this field is invalid"
+msgstr "La datumoj en ĉi tiu datumkampo estas nevalida "
+
+msgid "The script is larger than the maximum size"
+msgstr "La skripto estas pli granda ol la maksimuma grandeco"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Estis komunikada eraro kum servilo, bonvolu provu denove"
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "Okazis eraro sendi formularo. Bonvolu provu denove."
+
+msgid "Toggle Dropdown"
+msgstr "Baskulu falmenuon"
+
+msgid "Toggle navigation"
+msgstr "Baskuli navigadon"
+
+msgid "Too few properties defined, minimum {$schema.minProperties$}"
+msgstr "Tro malmulte da atributoj definitaj, minimumo {$schema.minProperties$}"
+
+msgid "Too many properties defined, maximum {$schema.maxProperties$}"
+msgstr "Tro multe da atributoj difinita, maximumo {$schema.maxProperties$}"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Neebla nuligi: %s."
+
+msgid "Unknown property (not in schema)"
+msgstr "Nekonata atributo (ne en skemo)"
+
+msgid "Unlimited"
+msgstr "Nelimigita"
+
+msgid "Uploading image"
+msgstr "Malŝargi imagon"
+
+msgid "Warning"
+msgstr "Averto"
+
+msgid "Warning: "
+msgstr "Averto:"
+
+msgid "Working"
+msgstr "Operacii"
+
+msgid "Yes"
+msgstr "Jes"
+
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"Vi povas difini risurca metadatoj moviganta elementoj de la maldekstra al la "
+"dekstra kolumno. En la maldekstra kolumno estas metadata difinoj de la "
+"Glance Metadata katalogo. Uzu la \"tajloru\" opcio por aldoni metadata kun "
+"la klavo de via elekto "
+
+msgid "description"
+msgstr "Priskribo"
+
+msgid "m1.small"
+msgstr "m1.malgranda"
+
+msgid "m1.tiny"
+msgstr "m1.eta"
+
+msgid "pool default"
+msgstr "defaŭlta grupo "
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "elektita \"%s\""
+
+msgid "{$ column.title $}"
+msgstr "{$ column.title $}"
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ mesago || 'Nenioj elementoj por vidigi.' $}"
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} estas necesa datumkampo"
+
+msgid "{$schema.title$} is formatted incorrectly"
+msgstr "{$schema.title$} estas formatita  nekorekte"
+
+msgid ""
+"{$schema.title$} is too long ({$viewValue.length$} characters), maximum "
+"{$schema.maxLength$}"
+msgstr ""
+"{$schema.title$} estas  tro longa ({$viewValue.length$} characters), "
+"maximumo {$schema.maxLength$}"
+
+msgid ""
+"{$schema.title$} is too short ({$viewValue.length$} characters), minimum "
+"{$schema.minLength$}"
+msgstr ""
+"{$schema.title$} estas tro mallonga ({$viewValue.length$} characters), "
+"minimumo {$schema.minLength$}"
+
+msgid "{$viewValue$} is equal to the exclusive maximum {$schema.maximum$}"
+msgstr "{$viewValue$} estas egala al la exklusiva maximumo {$schema.maximum$}"
+
+msgid "{$viewValue$} is equal to the exclusive minimum {$schema.minimum$}"
+msgstr "{$viewValue$} estas egala al la eklusiva minimumo {$schema.minimum$}"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr ""
+"{$viewValue$} estas  pli granda ol la permesita maximumo de {$schema.maximum"
+"$}"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr "{$viewValue$} estas malpli ol la permesita minimumo {$schema.minimum$}"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} ne estas plioblo de {$schema.multipleOf$}"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} ne estas valida numero"
