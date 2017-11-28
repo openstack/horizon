@@ -106,13 +106,6 @@ class Navigation(object):
                                     "Containers",
                                 )
                         },
-                    "Orchestration":
-                        {
-                            ITEMS:
-                                (
-                                    "Stacks",
-                                )
-                        }
                 },
             "Admin":
                 {

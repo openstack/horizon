@@ -18,7 +18,6 @@ sizes of server instances.
    manage-containers.rst
    manage-volumes.rst
    manage-shares.rst
-   stacks.rst
    databases.rst
    manage-lbaasv2.rst
    browser_support

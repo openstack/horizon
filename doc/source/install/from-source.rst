@@ -22,7 +22,6 @@ System Requirements
 
   * `cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage
   * `glance <https://docs.openstack.org/glance/latest/>`_: Image Management
-  * `heat <https://docs.openstack.org/heat/latest/>`_: Orchestration
   * `neutron <https://docs.openstack.org/neutron/latest/>`_: Networking
   * `nova <https://docs.openstack.org/nova/latest/>`_: Compute
   * `swift <https://docs.openstack.org/swift/latest/>`_: Object Storage
