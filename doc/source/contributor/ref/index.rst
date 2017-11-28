@@ -24,9 +24,6 @@ Auth API Reference
 
 .. toctree::
    :maxdepth: 2
+   :glob:
 
-   user
-   views
-   forms
-   backend
-   utils
+   openstack_auth/*
