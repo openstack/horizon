@@ -1,9 +1,8 @@
 ---
 features:
   - |
-    [`blueprint neutron-trunk-ui <https://blueprints.launchpad.net/horizon/+spec/neutron-trunk-ui>`_]
-    Partial support for Neutron Trunks. The Project/Network/Trunks
-    panel turns on if Neutron API extension 'trunk' is available. It
-    displays information about trunks. The details page for each trunk
-    also shows information about subports of that trunk.
-    Supported actions: create, edit, delete.
+    [:blueprint:`neutron-trunk-ui`]
+    Neutron trunk feature is now supported in the project dashboard.
+    The panel will be displayed if Neutron API extension 'trunk' is available.
+    It displays information about trunks. The details page for each trunk also
+    shows information about subports of that trunk.
