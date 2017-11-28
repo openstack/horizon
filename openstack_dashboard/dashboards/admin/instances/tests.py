@@ -117,7 +117,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             server.flavor['id'] = str(uuid.UUID(int=i))
 
         api.glance.image_list_detailed(IsA(http.HttpRequest))\
-            .AndReturn(images)
+            .AndReturn((images, False, False))
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
@@ -140,9 +140,9 @@ class InstanceViewTest(test.BaseAdminViewTests):
         instances = res.context['table'].data
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         # Since error messages produced for each instance are identical,
-        # there will be only two error messages for all instances
+        # there will be only one error message for all instances
         # (messages de-duplication).
-        self.assertMessageCount(res, error=2)
+        self.assertMessageCount(res, error=1)
         self.assertItemsEqual(instances, servers)
 
     @test.create_stubs({
