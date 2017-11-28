@@ -1,0 +1,159 @@
+<div ng-controller="TrunkParentPortController as ctrl">
+
+  <h4 translate>Parent port</h4>
+
+  <p class="step-description" translate>
+    Select <em>exactly one port</em> as the parent port of the trunk to
+    be created. Mandatory.
+  </p>
+
+  <transfer-table tr-model="ctrl.parentTables" help-text="ctrl.tableHelpText" limits="ctrl.tableLimits">
+    <allocated ng-model="ctrl.parentTables.allocated.length" validate-number-min="1">
+      <table st-table="ctrl.parentTables.displayedAllocated" st-safe-src="ctrl.parentTables.allocated"
+             hz-table class="table table-striped table-rsp table-detail">
+        <thead>
+          <tr>
+            <th class="expander"></th>
+            <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+            <th class="rsp-p2" translate>IP</th>
+            <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
+            <th st-sort="status" class="rsp-p1" translate>Status</th>
+            <th class="actions_column"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-if="ctrl.parentTables.allocated.length === 0">
+            <td colspan="7">
+              <div class="no-rows-help" translate>
+                Select an item from Available items below
+              </div>
+            </td>
+          </tr>
+          <tr ng-repeat-start="item in ctrl.parentTables.displayedAllocated track by item.id"
+              lr-drag-data="ctrl.parentTables.displayedAllocated"
+              lr-drop-success="trCtrl.updateAllocated(e, item, collection)">
+            <td class="expander">
+              <span class="fa fa-chevron-right" hz-expand-detail
+                    title="{$ 'Click to see more details'|translate $}"></span>
+            </td>
+            <td class="rsp-p1 word-break">{$ ctrl.nameOrID(item) $}</td>
+            <td class="rsp-p2">
+              <div ng-repeat="ip in item.fixed_ips">
+                {$ ip.ip_address $} <span translate>on subnet</span>: {$ item.subnet_names[ip.ip_address] $}
+              </div>
+            </td>
+            <td class="rsp-p1">{$ item.admin_state | decode:ctrl.portAdminStates $}</td>
+            <td class="rsp-p1">{$ item.status | decode:ctrl.portStatuses $}</td>
+            <td class="actions_column">
+              <action-list>
+                <action action-classes="'btn btn-default'"
+                        callback="trCtrl.deallocate" item="item">
+                  <span class="fa fa-arrow-down"></span>
+                </action>
+              </action-list>
+            </td>
+          </tr>
+          <tr ng-repeat-end class="detail-row">
+            <td colspan="7" class="detail">
+              <dl class="dl-horizontal">
+                <dt translate>ID</dt>
+                <dd>{$ item.id $}</dd>
+                <dt translate>Project ID</dt>
+                <dd>{$ item.tenant_id $}</dd>
+                <dt translate>Network ID</dt>
+                <dd>{$ item.network_id $}</dd>
+                <dt translate>Network</dt>
+                <dd>{$ item.network_name $}</dd>
+                <dt translate>Device Owner</dt>
+                <dd>{$ item.device_owner $}</dd>
+                <dt translate>Device ID</dt>
+                <dd>{$ item.device_id $}</dd>
+                <dt translate>VNIC type</dt>
+                <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
+                <div ng-if="item['binding:host_id']">
+                  <dt translate>Host ID</dt>
+                  <dd>{$ item['binding:host_id'] $}</dd>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </allocated>
+
+    <available>
+      <table st-table="ctrl.parentTables.displayedAvailable" st-safe-src="ctrl.parentTables.available"
+        hz-table class="table table-striped table-rsp table-detail">
+        <thead>
+          <tr>
+            <th class="search-header" colspan="6">
+              <hz-search-bar icon-classes="fa-search"></hz-search-bar>
+            </th>
+          </tr>
+          <tr>
+            <th class="expander"></th>
+            <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+            <th class="rsp-p2" translate>IP</th>
+            <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
+            <th st-sort="status" class="rsp-p1" translate>Status</th>
+            <th class="actions_column"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-if="trCtrl.numAvailable() === 0">
+            <td colspan="6">
+              <div class="no-rows-help" translate>
+                No available items
+              </div>
+            </td>
+          </tr>
+          <tr ng-repeat-start="item in ctrl.parentTables.displayedAvailable track by item.id"
+              ng-if="!trCtrl.allocatedIds[item.id]">
+            <td class="expander">
+              <span class="fa fa-chevron-right" hz-expand-detail
+                    title="{$ 'Click to see more details'|translate $}"></span>
+            </td>
+            <td class="rsp-p1 word-break">{$ ctrl.nameOrID(item) $}</td>
+            <td class="rsp-p2">
+              <div ng-repeat="ip in item.fixed_ips">
+                {$ ip.ip_address $} <span translate>on subnet</span>: {$ item.subnet_names[ip.ip_address] $}
+              </div>
+            </td>
+            <td class="rsp-p1">{$ item.admin_state | decode:ctrl.portAdminStates $}</td>
+            <td class="rsp-p1">{$ item.status | decode:ctrl.portStatuses $}</td>
+            <td class="actions_column">
+              <action-list>
+                <action action-classes="'btn btn-default'"
+                        callback="trCtrl.allocate" item="item">
+                  <span class="fa fa-arrow-up"></span>
+                </action>
+              </action-list>
+            </td>
+          </tr>
+          <tr ng-repeat-end class="detail-row">
+            <td colspan="6" class="detail">
+              <dl class="dl-horizontal">
+                <dt translate>ID</dt>
+                <dd>{$ item.id $}</dd>
+                <dt translate>Project ID</dt>
+                <dd>{$ item.tenant_id $}</dd>
+                <dt translate>Network ID</dt>
+                <dd>{$ item.network_id $}</dd>
+                <dt translate>Network</dt>
+                <dd>{$ item.network_name $}</dd>
+                <dt translate>Device ID</dt>
+                <dd>{$ item.device_id $}</dd>
+                <dt translate>VNIC type</dt>
+                <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
+                <div ng-if="item['binding:host_id']">
+                  <dt translate>Host ID</dt>
+                  <dd>{$ item['binding:host_id'] $}</dd>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </available>
+  </transfer-table>
+</div>

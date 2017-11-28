@@ -1,0 +1,65 @@
+<dl>
+  <dt translate>Subports</dt>
+  <dd>
+
+  <p translate>An arbitrary amount (0, 1, 2, ...) of regular Neutron
+  ports with segmentation details (ie. type and ID). May be provided
+  when the trunk is created. Also may be attached or detached later
+  during the trunk's (and the instance's) life.
+
+  <p translate>Inside the instance a particular subport's network will
+  be presented as tagged frames transmitted and received on the vNIC
+  belonging to the parent port. The cloud user may control the tagging
+  by setting the <em>segmentation type</em> and <em>segmentation ID</em>
+  of the subport.</p>
+
+  <p translate>Networks of subports may become available later than the
+  moment of bootup. But they will be available after the trunk reached
+  the <em>ACTIVE</em> status.</p>
+
+  <p translate>The segmentation type and ID are decoupled (and
+  therefore independent) from Neutron's network virtualization
+  implementation. Different segmentation types will be remapped as frames
+  leave/enter the instance.</p>
+
+  <p translate>For ports on provider networks you may choose the special
+  segmentation type <em>inherit</em>. Then the subport's segmentation
+  type and ID will be automagically inherited from the provider network's
+  segmentation type and ID. This is useful when the switch is incapable of
+  remapping (tag pop-push) for example as usual for Ironic instances.</p>
+
+  <p translate>The segmentation type, ID tuples of subports must be unique
+  (in the scope of a trunk), otherwise networks of subports could not
+  be distinguished inside the instance.</p>
+
+  <p translate>Note that most guest operating systems will not
+  automatically configure and bring up the VLAN subinterfaces belonging
+  to subports. You may have to do that yourself. For example:</p>
+
+  <pre>
+  # eth0 belongs to the parent port
+  # VLAN 101 was chosen for the subport
+  sudo ip link add link eth0 \
+       name eth0.101 \
+       address "$subport_mac" \
+       type vlan id 101
+  sudo dhclient eth0.101</pre>
+
+  <p translate>This can be simplified by reusing the parent's MAC address
+  for all subports of the trunk earlier at port creation. Eg.:</p>
+
+  <pre>
+  sudo ip link add link eth0 \
+       name eth0.101 \
+       type vlan id 101
+  sudo dhclient eth0.101</pre>
+
+  <p translate>Also note that segmentation details may be mandatory
+  or optional depending on the backend. Notably Ironic may provide
+  segmentation details instead of the user.</p>
+
+  <p translate>No subport can be the parent or a subport of any other
+  trunks.</p>
+
+  </dd>
+</dl>

@@ -80,13 +80,21 @@
      * Given an id, returns a promise for the trunk data.
      */
     function getTrunkPromise(identifier) {
-      return neutron.getTrunk(identifier).then(getTrunkSuccess, getTrunkError);
-
-      function getTrunkSuccess(trunk) {
-        return trunk;
-      }
+      // NOTE(bence romsics): This promise is called from multiple places
+      // where error handling should differ. When you edit a trunk from the
+      // detail view errors of re-reading the trunk should be shown. But
+      // when you delete a trunk from the detail view and the deleted
+      // trunk is re-read (that fails of course) you don't want to see an
+      // error because of that. Ideally we wouldn't even try to re-read (ie.
+      // show) after delete from detail (re-list should be enough).
+      return neutron.getTrunk(identifier).catch(getTrunkError);
 
       function getTrunkError(trunk) {
+        // TODO(bence romsics): When you delete a trunk from the details
+        // view then it cannot be re-read (of course) and we handle that
+        // by a hard-coded redirect to the project panel. This is okay
+        // for now. But when we want this panel to work for admin too,
+        // we should not hard-code this anymore.
         $location.url('project/trunks');
         return trunk;
       }

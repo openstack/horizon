@@ -1,0 +1,25 @@
+<dl>
+  <dt translate>Parent Port</dt>
+  <dd>
+
+  <p translate>Exactly one regular Neutron port. Has to be provided when
+  the trunk is created. Cannot be changed during the trunk's life.</p>
+
+  <p translate>The parent port is the port you have to add to the instance
+  at launch. Do not try to add the trunk or any of the subports to the
+  instance directly.</p>
+
+  <p translate>Inside the instance the parent port's network will always
+  be presented as the untagged network. It will be available early from
+  the moment of bootup.</p>
+
+  <p translate>Note that some Neutron backends (notably the Open vSwitch
+  based backend) only allow trunk creation before an instance is launched
+  on the parent port.  Other backends may allow trunk creation at any
+  time during the life of a port.</p>
+
+  <p translate>Must not be the parent or a subport of any other
+  trunks.</p>
+
+  </dd>
+</dl>

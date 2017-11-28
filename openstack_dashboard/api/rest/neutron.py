@@ -129,7 +129,7 @@ class Ports(generic.View):
         """Get a list of ports for a network
 
         The listing result is an object with property "items".  Each item is
-        a subnet.
+        a port.
         """
         # see
         # https://github.com/openstack/neutron/blob/master/neutron/api/v2/attributes.py
@@ -168,6 +168,14 @@ class Trunks(generic.View):
         """
         result = api.neutron.trunk_list(request, **request.GET.dict())
         return {'items': [n.to_dict() for n in result]}
+
+    @rest_utils.ajax(data_required=True)
+    def post(self, request):
+        new_trunk = api.neutron.trunk_create(request, **request.DATA)
+        return rest_utils.CreatedResponse(
+            '/api/neutron/trunks/%s' % new_trunk.id,
+            new_trunk.to_dict()
+        )
 
 
 @urls.register

@@ -534,6 +534,20 @@ class NeutronApiTests(test.APITestCase):
         self.assertEqual(obj.name_or_id, trunk_dict['name_or_id'])
         self.assertEqual(2, trunk_dict['subport_count'])
 
+    def test_trunk_create(self):
+        trunk = {'trunk': self.api_trunks.first()}
+        params = {'name': trunk['trunk']['name'],
+                  'port_id': trunk['trunk']['port_id'],
+                  'project_id': trunk['trunk']['project_id']}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.create_trunk(body={'trunk': params}).AndReturn(trunk)
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.trunk_create(self.request, **params)
+        self.assertIsInstance(ret_val, api.neutron.Trunk)
+        self.assertEqual(api.neutron.Trunk(trunk['trunk']).id, ret_val.id)
+
     def test_trunk_delete(self):
         trunk_id = self.api_trunks.first()['id']
 

@@ -37,6 +37,7 @@
     var service = {
       createNetwork: createNetwork,
       createSubnet: createSubnet,
+      createTrunk: createTrunk,
       deleteTrunk: deleteTrunk,
       getAgents: getAgents,
       getDefaultQuotaSets: getDefaultQuotaSets,
@@ -387,17 +388,21 @@
      * @param {string} id
      * Specifies the id of the trunk to request.
      *
+     * @param {boolean} suppressError (optional)
+     * Suppress the error toast. Default to showing it.
+     *
      * @returns {Object} The result of the API call
      */
-    function getTrunk(id) {
-      return apiService.get('/api/neutron/trunks/' + id + '/')
+    function getTrunk(id, suppressError) {
+      var promise = apiService.get('/api/neutron/trunks/' + id + '/')
         .success(function(trunk) {
           convertDatesHumanReadable(trunk);
-        })
-        .error(function () {
-          var msg = gettext('Unable to retrieve the trunk with id: %(id)s');
-          toastService.add('error', interpolate(msg, { id : id }, true));
         });
+      promise = suppressError ? promise : promise.error(function () {
+        var msg = gettext('Unable to retrieve the trunk with id: %(id)s');
+        toastService.add('error', interpolate(msg, {id: id}, true));
+      });
+      return promise;
     }
 
     /**
@@ -421,19 +426,35 @@
     }
 
     /**
+     * @name createTrunk
+     * @description
+     * Create a neutron trunk.
+     */
+    function createTrunk(newTrunk) {
+      return apiService.post('/api/neutron/trunks/', newTrunk)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the trunk.'));
+        });
+    }
+
+    /**
      * @name deleteTrunk
      * @description
      * Delete a single neutron trunk.
+     *
      * @param {string} trunkId
      * UUID of a trunk to be deleted.
+     *
+     * @param {boolean} suppressError (optional)
+     * Suppress the error toast. Default to showing it.
      */
-    function deleteTrunk(trunkId) {
+    function deleteTrunk(trunkId, suppressError) {
       var promise = apiService.delete('/api/neutron/trunks/' + trunkId + '/');
-
-      return promise.error(function() {
+      promise = suppressError ? promise : promise.error(function() {
         var msg = gettext('Unable to delete trunk: %(id)s');
         toastService.add('error', interpolate(msg, { id: trunkId }, true));
       });
+      return promise;
     }
   }
 }());

@@ -34,6 +34,7 @@
       'horizon.app.core'
     ])
     .constant('horizon.app.core.trunks.resourceType', 'OS::Neutron::Trunk')
+    .constant('horizon.app.core.trunks.portConstants', portConstants())
     .run(run)
     .config(config);
 
@@ -128,12 +129,32 @@
       description: gettext('Description'),
       id: gettext('ID'),
       name: gettext('Name'),
-      name_or_id: gettext('Name'),
+      name_or_id: gettext('Name/ID'),
       port_id: gettext('Parent Port'),
       project_id: gettext('Project ID'),
       status: gettext('Status'),
       subport_count: gettext('Subport Count'),
       updated_at: gettext('Updated at')
+    };
+  }
+
+  function portConstants() {
+    return {
+      statuses: {
+        'ACTIVE': gettext('Active'),
+        'DOWN': gettext('Down')
+      },
+      adminStates: {
+        'UP': gettext('Up'),
+        'DOWN': gettext('Down')
+      },
+      vnicTypes: {
+        'normal': gettext('Normal'),
+        'direct': gettext('Direct'),
+        'direct-physical': gettext('Direct Physical'),
+        'macvtap': gettext('MacVTap'),
+        'baremetal': gettext('Bare Metal')
+      }
     };
   }
 
