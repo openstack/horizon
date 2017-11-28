@@ -69,7 +69,27 @@
 
       function getTrunksForProject(userSession) {
         params.project_id = userSession.project_id;
-        return neutron.getTrunks(params);
+        return neutron.getTrunks(params).then(addTrackBy);
+      }
+
+      // Unless we add a composite 'trackBy' field, hz-resource-table of the
+      // trunks panel will not get refreshed after editing a trunk.
+      // hz-resource-table needs to be told where to expect this information.
+      // See also the track-by attribute of hz-resource-table element in the
+      // trunks panel template.
+      function addTrackBy(response) {
+
+        return {data: {items: response.data.items.map(function(trunk) {
+          trunk.trackBy = [
+            trunk.id,
+            trunk.revision_number,
+            // It is weird but there are trunk updates when the revision number
+            // does not increase. Eg. if you only update the description of a
+            // trunk. So we also add 'updated_at' to the composite.
+            trunk.updated_at.toISOString()
+          ].join('/');
+          return trunk;
+        })}};
       }
     }
 

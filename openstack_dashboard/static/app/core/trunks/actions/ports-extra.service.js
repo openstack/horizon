@@ -33,6 +33,7 @@
     var service = {
       addNetworkAndSubnetInfo: addNetworkAndSubnetInfo,
       cmpPortsByNameAndId: cmpPortsByNameAndId,
+      cmpSubportsBySegmentationTypeAndId: cmpSubportsBySegmentationTypeAndId,
       isParentPortCandidate: isParentPortCandidate,
       isSubportCandidate: isSubportCandidate,
       isSubportOfTrunk: isSubportOfTrunk
@@ -89,6 +90,15 @@
         a.name.localeCompare(b.name) ||
         // tertiary key: id
         a.id.localeCompare(b.id)
+      );
+    }
+
+    function cmpSubportsBySegmentationTypeAndId(a, b) {
+      return (
+        // primary key: segmentation type
+        a.segmentation_type.localeCompare(b.segmentation_type) ||
+        // secondary key: segmentation id
+        (a.segmentation_id - b.segmentation_id)
       );
     }
 

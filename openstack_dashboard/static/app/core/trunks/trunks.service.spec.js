@@ -57,14 +57,15 @@
         var session = $injector.get('horizon.app.core.openstack-service-api.userSession');
         var deferred = $q.defer();
         var deferredSession = $q.defer();
+        var updatedAt = new Date('November 15, 2017');
         spyOn(neutron, 'getTrunks').and.returnValue(deferred.promise);
         spyOn(session, 'get').and.returnValue(deferredSession.promise);
         var result = service.getTrunksPromise({});
-        deferred.resolve({data: {items: [{id: 1, updated_at: 'Apr10'}]}});
+        deferred.resolve({data: {items: [{id: 1, updated_at: updatedAt}]}});
         deferredSession.resolve({project_id: '42'});
         $timeout.flush();
         expect(neutron.getTrunks).toHaveBeenCalled();
-        expect(result.$$state.value.data.items[0].updated_at).toBe('Apr10');
+        expect(result.$$state.value.data.items[0].updated_at).toBe(updatedAt);
         expect(result.$$state.value.data.items[0].id).toBe(1);
       }));
 

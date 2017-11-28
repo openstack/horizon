@@ -49,7 +49,8 @@
       getSubnets: getSubnets,
       getTrunk: getTrunk,
       getTrunks: getTrunks,
-      updateProjectQuota: updateProjectQuota
+      updateProjectQuota: updateProjectQuota,
+      updateTrunk: updateTrunk
     };
 
     return service;
@@ -456,5 +457,18 @@
       });
       return promise;
     }
+
+    /**
+     * @name updateTrunk
+     * @description
+     * Update an existing trunk.
+     */
+    function updateTrunk(oldTrunk, newTrunk) {
+      return apiService.patch('/api/neutron/trunks/' + oldTrunk.id + '/', [oldTrunk, newTrunk])
+      .error(function() {
+        toastService.add('error', gettext('Unable to update the trunk.'));
+      });
+    }
+
   }
 }());
