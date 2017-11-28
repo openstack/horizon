@@ -209,6 +209,7 @@ horizon.network_topology = {
   handleMessage:function(message) {
     var self = this;
     var deleteData = horizon.networktopologymessager.delete_data;
+    horizon.modals.spinner.modal('hide');
     if (message.type == 'success') {
       self.remove_node_on_delete(deleteData);
     }
@@ -1062,20 +1063,18 @@ horizon.network_topology = {
     _balloon.find('.delete-device').click(function() {
       var _this = angular.element(this);
       var delete_modal = horizon.datatables.confirm(_this);
-      delete_modal.find('.btn-primary').click(function () {
+      delete_modal.find('.btn.btn-danger').click(function () {
         _this.prop('disabled', true);
         d3.select('#id_' + _this.data('device-id')).classed('loading',true);
         self.delete_device(_this.data('type'),_this.data('device-id'));
-        horizon.modals.spinner.modal('hide');
       });
     });
     _balloon.find('.delete-port').click(function() {
       var _this = angular.element(this);
       var delete_modal = horizon.datatables.confirm(_this);
-      delete_modal.find('.btn-primary').click(function () {
+      delete_modal.find('.btn.btn-danger').click(function () {
         _this.prop('disabled', true);
         self.delete_port(_this.data('router-id'),_this.data('port-id'),_this.data('network-id'));
-        horizon.modals.spinner.modal('hide');
       });
     });
     self.balloonID = balloonID;
