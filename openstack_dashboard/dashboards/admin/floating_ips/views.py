@@ -75,9 +75,10 @@ class IndexView(tables.DataTableView):
         if floating_ips:
             instances = []
             try:
-                instances, has_more = api.nova.server_list(self.request,
-                                                           all_tenants=True,
-                                                           detailed=False)
+                instances, has_more = api.nova.server_list(
+                    self.request,
+                    search_opts={'all_tenants': True},
+                    detailed=False)
             except Exception:
                 exceptions.handle(
                     self.request,
