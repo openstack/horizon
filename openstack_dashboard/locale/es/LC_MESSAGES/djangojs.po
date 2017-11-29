@@ -10,9 +10,9 @@
 # Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev100\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev141\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-16 22:35+0000\n"
+"POT-Creation-Date: 2017-11-28 23:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2814,10 +2814,6 @@ msgstr "Sí"
 msgid "You are not allowed to delete images: %s"
 msgstr "No está autorizado para borrar las imágenes: %s"
 
-#, python-format
-msgid "You are not allowed to delete trunks: %s"
-msgstr "No tiene permisos para borrar el trunk: %s"
-
 msgid "You can add arbitrary metadata to your image."
 msgstr "Puede añadir metadatos arbitrarios a su imagen."
 
@@ -2846,24 +2842,9 @@ msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
 msgstr[0] "Ha seleccionado \"%s\". El Rol borrado no se puede recuperar."
 msgstr[1] "Ha seleccionado \"%s\". Los Roles borrados no se pueden recuperar."
 
-msgid "error"
-msgid_plural "errors"
-msgstr[0] "error"
-msgstr[1] "errores"
-
-msgid "message"
-msgid_plural "messages"
-msgstr[0] "mensaje"
-msgstr[1] "mensajes"
-
 #, python-format
 msgid "resource load failed: %s"
 msgstr "Ha fallado la carga de recursos: %s"
-
-msgid "title"
-msgid_plural "titles"
-msgstr[0] "título"
-msgstr[1] "títulos"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"

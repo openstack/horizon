@@ -1,20 +1,19 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Gene Kuo <gene@openstack.org>, 2016. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2017. #zanata
 # Gene Kuo <gene@openstack.org>, 2017. #zanata
 # Kyle Bai <kyle.b@inwinstack.com>, 2017. #zanata
 # Tom Fifield <tom@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev91\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev141\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-17 06:13+0000\n"
+"POT-Creation-Date: 2017-11-28 23:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-17 06:13+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2017-09-16 08:03+0000\n"
+"Last-Translator: Gene Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -3120,10 +3119,6 @@ msgstr "是"
 msgid "You are not allowed to delete images: %s"
 msgstr "不容許您刪除映像檔：%s"
 
-#, python-format
-msgid "You are not allowed to delete trunks: %s"
-msgstr "不容許您刪除中繼：%s"
-
 msgid "You can add arbitrary metadata to your image."
 msgstr "您可用為您的映像檔添加任意metadata。"
 
@@ -3178,16 +3173,8 @@ msgstr[0] "您已選取 \"%s\"。已刪除的角色將不可回復。"
 msgid "Your Form as JavaScript"
 msgstr "Javascript格式"
 
-msgid "error"
-msgid_plural "errors"
-msgstr[0] "錯誤"
-
 msgid "image"
 msgstr "映像檔"
-
-msgid "message"
-msgid_plural "messages"
-msgstr[0] "訊息"
 
 #, python-format
 msgid "resource load failed: %s"
@@ -3195,19 +3182,6 @@ msgstr "無法載入資源：%s"
 
 msgid "snapshot"
 msgstr "即時存檔"
-
-msgid "submit"
-msgid_plural "submits"
-msgstr[0] "提交"
-
-#, fuzzy
-msgid "success"
-msgid_plural "successes"
-msgstr[0] "成功"
-
-msgid "title"
-msgid_plural "titles"
-msgstr[0] "標題"
 
 msgid "volume"
 msgstr "雲硬碟"

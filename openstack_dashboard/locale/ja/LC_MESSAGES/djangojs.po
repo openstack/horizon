@@ -3,18 +3,17 @@
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
-# Mie Yamamoto <myamamot@redhat.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev91\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev141\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-17 06:13+0000\n"
+"POT-Creation-Date: 2017-11-28 23:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-17 06:13+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2017-10-10 03:49+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -3233,10 +3232,6 @@ msgstr "はい"
 msgid "You are not allowed to delete images: %s"
 msgstr "イメージの削除は許可されていません: %s"
 
-#, python-format
-msgid "You are not allowed to delete trunks: %s"
-msgstr "トランクの削除は許可されていません: %s"
-
 msgid "You can add arbitrary metadata to your image."
 msgstr "任意のメタデータをイメージに追加することができます。"
 
@@ -3293,16 +3288,8 @@ msgstr[0] "\"%s\" を選択しました。削除されたロールは元に戻�
 msgid "Your Form as JavaScript"
 msgstr "JavaScript でのフォーム"
 
-msgid "error"
-msgid_plural "errors"
-msgstr[0] "エラー"
-
 msgid "image"
 msgstr "イメージ"
-
-msgid "message"
-msgid_plural "messages"
-msgstr[0] "メッセージ"
 
 #, python-format
 msgid "resource load failed: %s"
@@ -3310,19 +3297,6 @@ msgstr "リソースをロードできませんでした: %s"
 
 msgid "snapshot"
 msgstr "スナップショット"
-
-msgid "submit"
-msgid_plural "submits"
-msgstr[0] "送信"
-
-#, fuzzy
-msgid "success"
-msgid_plural "successes"
-msgstr[0] "成功"
-
-msgid "title"
-msgid_plural "titles"
-msgstr[0] "タイトル"
 
 msgid "volume"
 msgstr "ボリューム"

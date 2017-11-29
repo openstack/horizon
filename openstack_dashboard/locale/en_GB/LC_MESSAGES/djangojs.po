@@ -5,13 +5,13 @@
 # Andi Chandler <andi@gowling.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev91\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev141\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-17 06:13+0000\n"
+"POT-Creation-Date: 2017-11-28 23:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-17 06:13+0000\n"
+"PO-Revision-Date: 2017-11-29 12:06+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -297,6 +297,15 @@ msgstr ""
 msgid "Alerts"
 msgstr "Alerts"
 
+msgid ""
+"Also note that segmentation details may be mandatory\n"
+"  or optional depending on the backend. Notably Ironic may provide\n"
+"  segmentation details instead of the user."
+msgstr ""
+"Also note that segmentation details may be mandatory\n"
+"  or optional depending on the backend. Notably Ironic may provide\n"
+"  segmentation details instead of the user."
+
 msgid "Amount of RAM in MB that is required to boot the image."
 msgstr "Amount of RAM in MB that is required to boot the image."
 
@@ -335,6 +344,35 @@ msgstr ""
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
 "b> allows you to create multiple partitions on the disk."
+
+msgid ""
+"An arbitrary amount (0, 1, 2, ...) of regular Neutron\n"
+"  ports with segmentation details (ie. type and ID). May be provided\n"
+"  when the trunk is created. Also may be attached or detached later\n"
+"  during the trunk's (and the instance's) life.\n"
+"\n"
+"  Inside the instance a particular subport's network will\n"
+"  be presented as tagged frames transmitted and received on the vNIC\n"
+"  belonging to the parent port. The cloud user may control the tagging\n"
+"  by setting the <em>segmentation type</em> and <em>segmentation ID</em>\n"
+"  of the subport."
+msgstr ""
+"An arbitrary amount (0, 1, 2, ...) of Neutron\n"
+"  ports with segmentation details (ie. type and ID). May be provided\n"
+"  when the trunk is created. Also may be attached or detached later\n"
+"  during the trunk's (and the instance's) life.\n"
+"\n"
+"  Inside the instance a particular subport's network will\n"
+"  be presented as tagged frames transmitted and received on the vNIC\n"
+"  belonging to the parent port. The cloud user may control the tagging\n"
+"  by setting the <em>segmentation type</em> and <em>segmentation ID</em>\n"
+"  of the subport."
+
+msgid "An arbitrary description for the trunk."
+msgstr "An arbitrary description for the trunk."
+
+msgid "An arbitrary name for the trunk. May not be unique."
+msgstr "An arbitrary name for the trunk. May not be unique."
 
 msgid "An external (HTTP) URL is required"
 msgstr "An external (HTTP) URL is required"
@@ -620,6 +658,9 @@ msgstr "Create Role"
 msgid "Create Subnet"
 msgstr "Create Subnet"
 
+msgid "Create Trunk"
+msgstr "Create Trunk"
+
 msgid "Create Volume"
 msgstr "Create Volume"
 
@@ -709,6 +750,12 @@ msgstr "Default button"
 
 msgid "Default input"
 msgstr "Default input"
+
+msgid "Default: Empty string"
+msgstr "Default: Empty string"
+
+msgid "Default: Enabled"
+msgstr "Default: Enabled"
 
 msgid "Definition list"
 msgstr "Definition list"
@@ -834,8 +881,14 @@ msgstr "Details"
 msgid "Details Views:"
 msgstr "Details Views:"
 
+msgid "Device ID"
+msgstr "Device ID"
+
 msgid "Device Name"
 msgstr "Device Name"
+
+msgid "Device Owner"
+msgstr "Device Owner"
 
 msgid "Dialogs"
 msgstr "Dialogues"
@@ -918,11 +971,17 @@ msgstr "Edit Image"
 msgid "Edit Role"
 msgstr "Edit Role"
 
+msgid "Edit Trunk"
+msgstr "Edit Trunk"
+
 msgid "Email"
 msgstr "Email"
 
 msgid "Emphasis classes"
 msgstr "Emphasis classes"
+
+msgid "Enable/Disable subport addition, removal and trunk delete."
+msgstr "Enable/Disable subport addition, removal and trunk delete."
 
 msgid "Enabled"
 msgstr "Enabled"
@@ -950,6 +1009,13 @@ msgstr "Error Deleting"
 
 msgid "Ether Type"
 msgstr "Ether Type"
+
+msgid ""
+"Exactly one regular Neutron port. Has to be provided when\n"
+"  the trunk is created. Cannot be changed during the trunk's life."
+msgstr ""
+"Exactly one regular Neutron port. Has to be provided when\n"
+"  the trunk is created. Cannot be changed during the trunk's life."
 
 msgid "Example body text"
 msgstr "Example body text"
@@ -1018,6 +1084,19 @@ msgstr "Folder %(name)s created."
 
 msgid "Folder Name"
 msgstr "Folder Name"
+
+msgid ""
+"For ports on provider networks you may choose the special\n"
+"  segmentation type <em>inherit</em>. Then the subport's segmentation\n"
+"  type and ID will be automagically inherited from the provider network's\n"
+"  segmentation type and ID. This is useful when the switch is incapable of\n"
+"  remapping (tag pop-push) for example as usual for Ironic instances."
+msgstr ""
+"For ports on provider networks you may choose the special\n"
+"  segmentation type <em>inherit</em>. Then the subport's segmentation\n"
+"  type and ID will be automagically inherited from the provider network's\n"
+"  segmentation type and ID. This is useful when the switch is incapable of\n"
+"  remapping (tag pop-push) for example as usual for Ironic instances."
 
 msgid "Form"
 msgstr "Form"
@@ -1239,6 +1318,15 @@ msgstr "Input success"
 
 msgid "Input warning"
 msgstr "Input warning"
+
+msgid ""
+"Inside the instance the parent port's network will always\n"
+"  be presented as the untagged network. It will be available early from\n"
+"  the moment of bootup."
+msgstr ""
+"Inside the instance the parent port's network will always\n"
+"  be presented as the untagged network. It will be available early from\n"
+"  the moment of bootup."
 
 msgid "Instance"
 msgstr "Instance"
@@ -1503,8 +1591,18 @@ msgstr "Model"
 msgid "Month"
 msgstr "Month"
 
+msgid ""
+"Must not be the parent or a subport of any other\n"
+"  trunks."
+msgstr ""
+"Must not be the parent or a subport of any other\n"
+"  trunks."
+
 msgid "Name"
 msgstr "Name"
+
+msgid "Name/ID"
+msgstr "Name/ID"
 
 msgid "Names:"
 msgstr "Names:"
@@ -1551,6 +1649,15 @@ msgstr "Network characteristics"
 msgid "Networks"
 msgstr "Networks"
 
+msgid ""
+"Networks of subports may become available later than the\n"
+"  moment of bootup. But they will be available after the trunk reached\n"
+"  the <em>ACTIVE</em> status."
+msgstr ""
+"Networks of subports may become available later than the\n"
+"  moment of bootup. But they will be available after the trunk reached\n"
+"  the <em>ACTIVE</em> status."
+
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Networks provide the communication channels for instances in the cloud."
@@ -1582,6 +1689,13 @@ msgstr "No existing scheduler hints"
 msgid "No items to display."
 msgstr "No items to display."
 
+msgid ""
+"No subport can be the parent or a subport of any other\n"
+"  trunks."
+msgstr ""
+"No subport can be the parent or a subport of any other\n"
+"  trunks."
+
 msgid "None"
 msgstr "None"
 
@@ -1593,6 +1707,26 @@ msgstr "Not Set"
 
 msgid "Not public"
 msgstr "Not public"
+
+msgid ""
+"Note that most guest operating systems will not\n"
+"  automatically configure and bring up the VLAN subinterfaces belonging\n"
+"  to subports. You may have to do that yourself. For example:"
+msgstr ""
+"Note that most guest operating systems will not\n"
+"  automatically configure and bring up the VLAN subinterfaces belonging\n"
+"  to subports. You may have to do that yourself. For example:"
+
+msgid ""
+"Note that some Neutron backends (notably the Open vSwitch\n"
+"  based backend) only allow trunk creation before an instance is launched\n"
+"  on the parent port.  Other backends may allow trunk creation at any\n"
+"  time during the life of a port."
+msgstr ""
+"Note that some Neutron backends (notably the Open vSwitch\n"
+"  based backend) only allow trunk creation before an instance is launched\n"
+"  on the parent port.  Other backends may allow trunk creation at any\n"
+"  time during the life of a port."
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1732,6 +1866,9 @@ msgstr "Panels"
 msgid "Parent Port"
 msgstr "Parent Port"
 
+msgid "Parent port"
+msgstr "Parent port"
+
 msgid "Password"
 msgstr "Password"
 
@@ -1844,6 +1981,9 @@ msgstr "Protected"
 
 msgid "Protocol"
 msgstr "Protocol"
+
+msgid "Provide basic properties of the trunk to be created. All optional."
+msgstr "Provide basic properties of the trunk to be created. All optional."
 
 msgid "Provider Network"
 msgstr "Provider Network"
@@ -2004,8 +2144,18 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "Segmentation ID"
 
+msgid "Segmentation Id"
+msgstr "Segmentation Id"
+
 msgid "Segmentation Type"
 msgstr "Segmentation Type"
+
+msgid ""
+"Select <em>exactly one port</em> as the parent port of the trunk to\n"
+"    be created. Mandatory."
+msgstr ""
+"Select <em>exactly one port</em> as the parent port of the trunk to\n"
+"    be created. Mandatory."
 
 msgid "Select Boot Source"
 msgstr "Select Boot Source"
@@ -2028,11 +2178,29 @@ msgstr "Select a server group from the available groups below."
 msgid "Select a source from those listed below."
 msgstr "Select a source from those listed below."
 
+msgid ""
+"Select an <em>arbitrary amount of ports (0, 1, 2, ...)</em> and their\n"
+"    segmentation details as the subports of the trunk to be created.\n"
+"    Optional."
+msgstr ""
+"Select an <em>arbitrary amount of ports (0, 1, 2, ...)</em> and their\n"
+"    segmentation details as the subports of the trunk to be created.\n"
+"    Optional."
+
 msgid "Select an item from Available items below"
 msgstr "Select an item from Available items below"
 
 msgid "Select at least one network"
 msgstr "Select at least one network"
+
+msgid "Select from the list of available ports below."
+msgstr "Select from the list of available ports below."
+
+msgid "Select items from Available items below"
+msgstr "Select items from Available items below"
+
+msgid "Select many"
+msgstr "Select many"
 
 msgid "Select networks from those listed below."
 msgstr "Select networks from those listed below."
@@ -2195,6 +2363,9 @@ msgstr "Subnets Associated"
 msgid "Subport Count"
 msgstr "Subport Count"
 
+msgid "Subports"
+msgstr "Subports"
+
 msgid "Success"
 msgstr "Success"
 
@@ -2340,6 +2511,35 @@ msgstr "The name of the Volume."
 msgid "The name of the image."
 msgstr "The name of the image."
 
+msgid ""
+"The parent port is the port you have to add to the instance\n"
+"  at launch. Do not try to add the trunk or any of the subports to the\n"
+"  instance directly."
+msgstr ""
+"The parent port is the port you have to add to the instance\n"
+"  at launch. Do not try to add the trunk or any of the subports to the\n"
+"  instance directly."
+
+msgid ""
+"The segmentation type and ID are decoupled (and\n"
+"  therefore independent) from Neutron's network virtualization\n"
+"  implementation. Different segmentation types will be remapped as frames\n"
+"  leave/enter the instance."
+msgstr ""
+"The segmentation type and ID are decoupled (and\n"
+"  therefore independent) from Neutron's network virtualization\n"
+"  implementation. Different segmentation types will be remapped as frames\n"
+"  leave/enter the instance."
+
+msgid ""
+"The segmentation type, ID tuples of subports must be unique\n"
+"  (in the scope of a trunk), otherwise networks of subports could not\n"
+"  be distinguished inside the instance."
+msgstr ""
+"The segmentation type, ID tuples of subports must be unique\n"
+"  (in the scope of a trunk), otherwise networks of subports could not\n"
+"  be distinguished inside the instance."
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -2420,6 +2620,13 @@ msgid ""
 msgstr ""
 "This JavaScript object contains your new form and can be used with "
 "<code>horizon.framework.widgets.form.ModalFormService</code>"
+
+msgid ""
+"This can be simplified by reusing the parent's MAC address\n"
+"  for all subports of the trunk earlier at port creation. Eg.:"
+msgstr ""
+"This can be simplified by reusing the parent's MAC address\n"
+"  for all subports of the trunk earlier at port creation. e.g.:"
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
@@ -2520,6 +2727,14 @@ msgstr "Total Volumes"
 msgid "Trunk"
 msgstr "Trunk"
 
+#, python-format
+msgid "Trunk %s was successfully created."
+msgstr "Trunk %s was successfully created."
+
+#, python-format
+msgid "Trunk %s was successfully edited."
+msgstr "Trunk %s was successfully edited."
+
 msgid "Trunks"
 msgstr "Trunks"
 
@@ -2594,6 +2809,9 @@ msgstr "Unable to create the server."
 
 msgid "Unable to create the subnet."
 msgstr "Unable to create the subnet."
+
+msgid "Unable to create the trunk."
+msgstr "Unable to create the trunk."
 
 msgid "Unable to create the user."
 msgstr "Unable to create the user."
@@ -2999,6 +3217,9 @@ msgstr "Unable to update the flavour."
 msgid "Unable to update the image."
 msgstr "Unable to update the image."
 
+msgid "Unable to update the trunk."
+msgstr "Unable to update the trunk."
+
 msgid "Unable to upload the object."
 msgstr "Unable to upload the object."
 
@@ -3278,10 +3499,6 @@ msgstr "Yes"
 msgid "You are not allowed to delete images: %s"
 msgstr "You are not allowed to delete images: %s"
 
-#, python-format
-msgid "You are not allowed to delete trunks: %s"
-msgstr "You are not allowed to delete trunks: %s"
-
 msgid "You can add arbitrary metadata to your image."
 msgstr "You can add arbitrary metadata to your image."
 
@@ -3349,18 +3566,14 @@ msgstr[1] "You have selected \"%s\". Deleted roles are not recoverable."
 msgid "Your Form as JavaScript"
 msgstr "Your Form as JavaScript"
 
-msgid "error"
-msgid_plural "errors"
-msgstr[0] "error"
-msgstr[1] "errors"
-
 msgid "image"
 msgstr "image"
 
-msgid "message"
-msgid_plural "messages"
-msgstr[0] "message"
-msgstr[1] "messages"
+msgid "inherit"
+msgstr "inherit"
+
+msgid "on subnet"
+msgstr "on subnet"
 
 #, python-format
 msgid "resource load failed: %s"
@@ -3368,22 +3581,6 @@ msgstr "resource load failed: %s"
 
 msgid "snapshot"
 msgstr "snapshot"
-
-msgid "submit"
-msgid_plural "submits"
-msgstr[0] "submit"
-msgstr[1] "submits"
-
-#, fuzzy
-msgid "success"
-msgid_plural "successes"
-msgstr[0] "success"
-msgstr[1] "successes"
-
-msgid "title"
-msgid_plural "titles"
-msgstr[0] "title"
-msgstr[1] "titles"
 
 msgid "volume"
 msgstr "volume"

@@ -12,19 +12,18 @@
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 # Valentin Chikunov <vchikunov@hystax.com>, 2016. #zanata
 # Yulia Ryndenkova <yryndenkova@hystax.com>, 2016. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2017. #zanata
 # Artem <amikhalev90@gmail.com>, 2017. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev91\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev141\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-17 06:13+0000\n"
+"POT-Creation-Date: 2017-11-28 23:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-17 06:13+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2017-01-24 02:05+0000\n"
+"Last-Translator: Artem <amikhalev90@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -2943,20 +2942,8 @@ msgstr[0] "Выбрано образов: \"%s\". Восстановить уд�
 msgstr[1] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
 msgstr[2] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
 
-msgid "error"
-msgid_plural "errors"
-msgstr[0] "ошибка"
-msgstr[1] "ошибки"
-msgstr[2] "ошибок"
-
 msgid "image"
 msgstr "изображение"
-
-msgid "message"
-msgid_plural "messages"
-msgstr[0] "сообщение"
-msgstr[1] "сообщения"
-msgstr[2] "сообщений"
 
 #, python-format
 msgid "resource load failed: %s"
@@ -2964,25 +2951,6 @@ msgstr "загрузка ресурса не удалась: %s"
 
 msgid "snapshot"
 msgstr "моментальная копия"
-
-msgid "submit"
-msgid_plural "submits"
-msgstr[0] "отправка"
-msgstr[1] "отправки"
-msgstr[2] "отправки"
-
-#, fuzzy
-msgid "success"
-msgid_plural "successes"
-msgstr[0] "успешный"
-msgstr[1] "успешные"
-msgstr[2] "успешные"
-
-msgid "title"
-msgid_plural "titles"
-msgstr[0] "заголовок"
-msgstr[1] "заголовки"
-msgstr[2] "заголовки"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"

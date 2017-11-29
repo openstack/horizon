@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev141\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-17 16:41+0000\n"
+"POT-Creation-Date: 2017-11-28 23:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-19 01:23+0000\n"
+"PO-Revision-Date: 2017-11-15 04:31+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -3288,10 +3288,6 @@ msgstr "Ya"
 msgid "You are not allowed to delete images: %s"
 msgstr "Anda tidak diizinkan untuk menghapus image: %s"
 
-#, python-format
-msgid "You are not allowed to delete trunks: %s"
-msgstr "Anda tidak diizinkan untuk menghapus trunks: %s"
-
 msgid "You can add arbitrary metadata to your image."
 msgstr "Anda dapat menambahkan metadata apapun untuk image Anda."
 
@@ -3356,16 +3352,8 @@ msgstr[0] "You have selected \"%s\". Deleted role is not recoverable."
 msgid "Your Form as JavaScript"
 msgstr "Your Form as JavaScript"
 
-msgid "error"
-msgid_plural "errors"
-msgstr[0] "error"
-
 msgid "image"
 msgstr "image"
-
-msgid "message"
-msgid_plural "messages"
-msgstr[0] "pesan"
 
 #, python-format
 msgid "resource load failed: %s"
@@ -3373,18 +3361,6 @@ msgstr "Muatan sumber daya gagal: %s"
 
 msgid "snapshot"
 msgstr "snapshot"
-
-msgid "submit"
-msgid_plural "submits"
-msgstr[0] "sampaikan"
-
-msgid "success"
-msgid_plural "successes"
-msgstr[0] "success"
-
-msgid "title"
-msgid_plural "titles"
-msgstr[0] "judul"
 
 msgid "volume"
 msgstr "volume"
