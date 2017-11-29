@@ -40,7 +40,9 @@
       init: init
     };
 
-    function init(action) {
+    function init(action, adminPassword, errorCode) {
+      var errorTemplate = typeof errorCode === "string"
+        ? errorCode.toLowerCase().replace(/_/g, "-") : "default";
       var schema = {
         type: 'object',
         properties: {
@@ -66,6 +68,10 @@
             title: gettext('Password'),
             type: 'string'
           },
+          admin_password: {
+            title: gettext('Admin Password'),
+            type: 'string'
+          },
           project: {
             title: gettext('Primary Project'),
             type: 'string'
@@ -86,6 +92,9 @@
         },
         required: ['name', 'password', 'project', 'role', 'enabled']
       };
+      if (adminPassword) {
+        schema.required.push('admin_password');
+      }
 
       var form = [
         {
@@ -98,12 +107,23 @@
               items: [
                 {
                   type: 'template',
+                  templateUrl: basePath + "actions/workflow/error." + errorTemplate + ".html",
+                  condition: errorTemplate === "default"
+                },
+                {
+                  type: 'template',
                   templateUrl: basePath + "actions/workflow/info." + action + ".help.html"
                 },
                 { key: 'domain_name' },
                 { key: 'domain_id' },
-                { key: 'name' },
-                { key: 'email' },
+                {
+                  key: 'name',
+                  readonly: action === 'password'
+                },
+                {
+                  key: 'email',
+                  condition: action === 'password'
+                },
                 {
                   key: 'password',
                   type: 'password',
@@ -117,20 +137,29 @@
                   condition: action === 'update'
                 },
                 {
+                  key: 'admin_password',
+                  type: 'password',
+                  condition: !(action === 'password' && adminPassword)
+                },
+                {
                   key: 'project',
                   type: 'select',
-                  titleMap: []
+                  titleMap: [],
+                  condition: action === 'password'
                 },
                 {
                   key: 'role',
                   type: 'select',
                   titleMap: [],
-                  condition: action === 'update'
+                  condition: action === 'update' || action === 'password'
                 },
-                { key: 'description' },
+                {
+                  key: 'description',
+                  condition: action === 'password'
+                },
                 {
                   key: 'enabled',
-                  condition: action === 'update'
+                  condition: action === 'update' || action === 'password'
                 }
               ]
             }
@@ -162,13 +191,13 @@
         return response.data;
       });
       keystone.getProjects().then(function (response) {
-        var projectField = config.form[0].items[0].items[7];
+        var projectField = config.form[0].items[0].items[8];
         projectField.titleMap = response.data.items.map(function each(item) {
           return {value: item.id, name: item.name};
         });
       });
       keystone.getRoles().then(function (response) {
-        var roleField = config.form[0].items[0].items[8];
+        var roleField = config.form[0].items[0].items[9];
         roleField.titleMap = response.data.items.map(function each(item) {
           return {value: item.id, name: item.name};
         });

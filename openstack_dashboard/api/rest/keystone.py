@@ -153,6 +153,11 @@ class User(generic.View):
         user = api.keystone.user_get(request, id)
 
         if 'password' in keys:
+            if getattr(settings, 'ENFORCE_PASSWORD_CHECK', False):
+                admin_password = request.DATA['admin_password']
+                if not api.keystone.user_verify_admin_password(request,
+                                                               admin_password):
+                    raise rest_utils.AjaxError(400, 'ADMIN_PASSWORD_INCORRECT')
             password = request.DATA['password']
             api.keystone.user_update_password(request, user, password)
 
