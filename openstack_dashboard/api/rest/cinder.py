@@ -425,3 +425,25 @@ class QuotaSets(generic.View):
             api.cinder.tenant_quota_update(request, project_id, **cinder_data)
         else:
             raise rest_utils.AjaxError(501, _('Service Cinder is disabled.'))
+
+
+@urls.register
+class AvailabilityZones(generic.View):
+    """API for cinder availability zones."""
+    url_regex = r'cinder/availzones/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of availability zones.
+
+        The following get parameters may be passed in the GET
+        request:
+
+        :param detailed: If this equals "true" then the result will
+            include more detail.
+
+        The listing result is an object with property "items".
+        """
+        detailed = request.GET.get('detailed') == 'true'
+        result = api.cinder.availability_zone_list(request, detailed)
+        return {'items': [u.to_dict() for u in result]}
