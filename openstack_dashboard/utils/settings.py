@@ -265,9 +265,16 @@ def get_xstatic_dirs(XSTATIC_MODULES, HORIZON_CONFIG):
             files = [file for file in files if file.endswith('.js')]
 
         # add to the list of files to link in the HTML
-        for file in files:
-            file = 'horizon/lib/' + module.NAME + '/' + file
-            HORIZON_CONFIG['xstatic_lib_files'].append(file)
+        try:
+            for file in files:
+                file = 'horizon/lib/' + module.NAME + '/' + file
+                HORIZON_CONFIG['xstatic_lib_files'].append(file)
+        except TypeError:
+            raise Exception(
+                '%s: Nothing to include because files to include are not '
+                'defined (i.e., None) in BASE_XSTATIC_MODULES list and '
+                'a corresponding XStatic module does not define MAIN list.'
+                % module_name)
 
     return STATICFILES_DIRS
 
