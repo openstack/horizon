@@ -106,13 +106,15 @@
                 { key: 'email' },
                 {
                   key: 'password',
-                  type: 'password'
+                  type: 'password',
+                  condition: action === 'update'
                 },
                 {
                   key: 'confirm',
                   type: 'password-confirm',
                   title: 'Confirm Password',
-                  match: 'model.password'
+                  match: 'model.password',
+                  condition: action === 'update'
                 },
                 {
                   key: 'project',
@@ -122,10 +124,14 @@
                 {
                   key: 'role',
                   type: 'select',
-                  titleMap: []
+                  titleMap: [],
+                  condition: action === 'update'
                 },
                 { key: 'description' },
-                { key: 'enabled' }
+                {
+                  key: 'enabled',
+                  condition: action === 'update'
+                }
               ]
             }
           ]
