@@ -704,6 +704,9 @@ class FloatingIpManager(object):
             is retrieved from a back-end inside the method.
         """
         if target_list is not None:
+            # We assume that target_list was returned by list_targets()
+            # so we can assume checks for subnet reachability and IP version
+            # have been done already. We skip all checks here.
             return [target for target in target_list
                     if target['instance_id'] == instance_id]
         else:
@@ -711,11 +714,16 @@ class FloatingIpManager(object):
             reachable_subnets = self._get_reachable_subnets(
                 ports, fetch_router_ports=True)
             name = self._get_server_name(instance_id)
-            # TODO(amotoki): Avoid using p.fixed_ips[0].
-            # Extract all IPv4 addresses instead
-            return [FloatingIpTarget(p, p.fixed_ips[0]['ip_address'], name)
-                    for p in ports
-                    if p.fixed_ips[0]['subnet_id'] in reachable_subnets]
+            targets = []
+            for p in ports:
+                for ip in p.fixed_ips:
+                    if ip['subnet_id'] not in reachable_subnets:
+                        continue
+                    # Floating IPs can only target IPv4 addresses.
+                    if netaddr.IPAddress(ip['ip_address']).version != 4:
+                        continue
+                    targets.append(FloatingIpTarget(p, ip['ip_address'], name))
+            return targets
 
     def _get_server_name(self, server_id):
         try:
