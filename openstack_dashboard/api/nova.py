@@ -288,25 +288,25 @@ def upgrade_api(request, client, version):
 @profiler.trace
 def server_vnc_console(request, instance_id, console_type='novnc'):
     return VNCConsole(novaclient(request).servers.get_vnc_console(
-        instance_id, console_type)['remote_console'])
+        instance_id, console_type)['console'])
 
 
 @profiler.trace
 def server_spice_console(request, instance_id, console_type='spice-html5'):
     return SPICEConsole(novaclient(request).servers.get_spice_console(
-        instance_id, console_type)['remote_console'])
+        instance_id, console_type)['console'])
 
 
 @profiler.trace
 def server_rdp_console(request, instance_id, console_type='rdp-html5'):
     return RDPConsole(novaclient(request).servers.get_rdp_console(
-        instance_id, console_type)['remote_console'])
+        instance_id, console_type)['console'])
 
 
 @profiler.trace
 def server_serial_console(request, instance_id, console_type='serial'):
     return SerialConsole(novaclient(request).servers.get_serial_console(
-        instance_id, console_type)['remote_console'])
+        instance_id, console_type)['console'])
 
 
 @profiler.trace

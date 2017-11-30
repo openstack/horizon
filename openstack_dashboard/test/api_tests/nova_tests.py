@@ -91,7 +91,7 @@ class ComputeApiTests(test.APITestCase):
     def test_server_vnc_console(self):
         server = self.servers.first()
         console = self.servers.vnc_console_data
-        console_type = console["remote_console"]["type"]
+        console_type = console["console"]["type"]
 
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
@@ -107,7 +107,7 @@ class ComputeApiTests(test.APITestCase):
     def test_server_spice_console(self):
         server = self.servers.first()
         console = self.servers.spice_console_data
-        console_type = console["remote_console"]["type"]
+        console_type = console["console"]["type"]
 
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
@@ -123,7 +123,7 @@ class ComputeApiTests(test.APITestCase):
     def test_server_rdp_console(self):
         server = self.servers.first()
         console = self.servers.rdp_console_data
-        console_type = console["remote_console"]["type"]
+        console_type = console["console"]["type"]
 
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()

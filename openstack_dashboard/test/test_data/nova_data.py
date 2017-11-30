@@ -393,7 +393,7 @@ def data(TEST):
 
     # VNC Console Data
     console = {
-        u'remote_console': {
+        u'console': {
             u'url': u'http://example.com:6080/vnc_auto.html',
             u'type': u'novnc'
         }
@@ -401,7 +401,7 @@ def data(TEST):
     TEST.servers.vnc_console_data = console
     # SPICE Console Data
     console = {
-        u'remote_console': {
+        u'console': {
             u'url': u'http://example.com:6080/spice_auto.html',
             u'type': u'spice'
         }
@@ -409,7 +409,7 @@ def data(TEST):
     TEST.servers.spice_console_data = console
     # RDP Console Data
     console = {
-        u'remote_console': {
+        u'console': {
             u'url': u'http://example.com:6080/rdp_auto.html',
             u'type': u'rdp'
         }
