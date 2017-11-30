@@ -1337,18 +1337,6 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
             self.assertEqual(exp[0], ret.id)
             self.assertEqual(exp[1], ret.name)
 
-    def test_floating_ip_target_get_by_instance(self):
-        ports = self.api_ports.list()
-        candidates = [p for p in ports if p['device_id'] == '1']
-        search_opts = {'device_id': '1'}
-        self.qclient.list_ports(**search_opts).AndReturn({'ports': candidates})
-        self.mox.ReplayAll()
-
-        ret = api.neutron.floating_ip_target_get_by_instance(self.request, '1')
-        self.assertEqual(self._get_target_id(candidates[0]), ret.id)
-        self.assertEqual(candidates[0]['id'], ret.port_id)
-        self.assertEqual('1', ret.instance_id)
-
     def test_target_floating_ip_port_by_instance(self):
         server = self.servers.first()
         ports = self.api_ports.list()
@@ -1408,14 +1396,6 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
                                   'device_id': 'id-vm2'}),
                 '10.11.12.13', 'vm3'),
         ]
-
-    def test_floating_ip_target_get_by_instance_with_preloaded_target(self):
-        target_list = self._get_preloaded_targets()
-        self.mox.ReplayAll()
-
-        ret = api.neutron.floating_ip_target_get_by_instance(
-            self.request, 'id-vm2', target_list)
-        self.assertEqual('id21', ret.port_id)
 
     def test_target_floating_ip_port_by_instance_with_preloaded_target(self):
         target_list = self._get_preloaded_targets()
