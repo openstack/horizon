@@ -198,6 +198,19 @@ def console(request, instance_id):
     return http.HttpResponse(data.encode('utf-8'), content_type='text/plain')
 
 
+def auto_console(request, instance_id):
+    console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
+    try:
+        instance = api.nova.server_get(request, instance_id)
+        console_url = project_console.get_console(request, console_type,
+                                                  instance)[1]
+        return shortcuts.redirect(console_url)
+    except Exception:
+        redirect = reverse("horizon:project:instances:index")
+        msg = _('Unable to get console for instance "%s".') % instance_id
+        exceptions.handle(request, msg, redirect=redirect)
+
+
 def vnc(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)

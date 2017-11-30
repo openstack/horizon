@@ -45,8 +45,6 @@ from openstack_dashboard.dashboards.project.network_topology \
     import tabs as topology_tabs
 from openstack_dashboard.dashboards.project.network_topology import utils
 
-from openstack_dashboard.dashboards.project.instances import\
-    console as i_console
 from openstack_dashboard.dashboards.project.instances.tables import \
     STATUS_DISPLAY_CHOICES as instance_choices
 from openstack_dashboard.dashboards.project.instances import\
@@ -251,12 +249,8 @@ class JSONView(View):
             # Avoid doing extra calls for console if the server is in
             # a invalid status for console connection
             if server.status.lower() not in console_invalid_status:
-                try:
-                    console = i_console.get_console(
-                        request, console_type, server)[0].lower()
-                    server_data['console'] = console
-                except exceptions.NotAvailable:
-                    pass
+                if console_type:
+                    server_data['console'] = 'auto_console'
 
             data.append(server_data)
         self.add_resource_url('horizon:project:instances:detail', data)
