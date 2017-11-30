@@ -7,6 +7,7 @@
       - ^releasenotes/.*$
       - ^horizon/locale/.*$
       - ^openstack_dashboard/locale/.*$
+      - ^openstack_auth/locale/.*$
 
 - job:
     name: horizon-openstack-tox-py27dj18
@@ -43,6 +44,9 @@
       - ^.*\.rst$
       - ^doc/.*$
       - ^releasenotes/.*$
+      - ^horizon/locale/.*$
+      - ^openstack_dashboard/locale/.*$
+      - ^openstack_auth/locale/.*$
     vars:
       devstack_localrc:
         TEMPEST_PLUGINS: "'{{ ansible_user_dir }}/src/git.openstack.org/openstack/tempest-horizon'"
