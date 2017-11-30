@@ -61,6 +61,11 @@ def rdp(args, **kvargs):
     return views.rdp(args, **kvargs)
 
 
+# re-use mks from project.instances.views to make reflection work
+def mks(args, **kvargs):
+    return views.mks(args, **kvargs)
+
+
 # re-use get_resource_id_by_name from project.instances.views
 def swap_filter(resources, filters, fake_field, real_field):
     return views.swap_filter(resources, filters, fake_field, real_field)

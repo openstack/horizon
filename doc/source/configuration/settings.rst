@@ -1888,11 +1888,15 @@ CONSOLE_TYPE
 
     Added the ``SERIAL`` option
 
+.. versionchanged:: 2017.11(Queens)
+
+    Added the ``MKS`` option
+
 Default:  ``"AUTO"``
 
 This setting specifies the type of in-browser console used to access the VMs.
 Valid values are  ``"AUTO"``, ``"VNC"``, ``"SPICE"``, ``"RDP"``,
-``"SERIAL"``, and ``None``.
+``"SERIAL"``, ``"MKS"``, and ``None``.
 
 ENABLE_FLAVOR_EDIT
 ~~~~~~~~~~~~~~~~~~

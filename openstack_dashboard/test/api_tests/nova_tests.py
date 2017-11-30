@@ -91,7 +91,7 @@ class ComputeApiTests(test.APITestCase):
     def test_server_vnc_console(self):
         server = self.servers.first()
         console = self.servers.vnc_console_data
-        console_type = console["console"]["type"]
+        console_type = console["remote_console"]["type"]
 
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
@@ -107,7 +107,7 @@ class ComputeApiTests(test.APITestCase):
     def test_server_spice_console(self):
         server = self.servers.first()
         console = self.servers.spice_console_data
-        console_type = console["console"]["type"]
+        console_type = console["remote_console"]["type"]
 
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
@@ -123,7 +123,7 @@ class ComputeApiTests(test.APITestCase):
     def test_server_rdp_console(self):
         server = self.servers.first()
         console = self.servers.rdp_console_data
-        console_type = console["console"]["type"]
+        console_type = console["remote_console"]["type"]
 
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
@@ -135,6 +135,25 @@ class ComputeApiTests(test.APITestCase):
                                               server.id,
                                               console_type)
         self.assertIsInstance(ret_val, api.nova.RDPConsole)
+
+    def test_server_mks_console(self):
+        server = self.servers.first()
+        console = self.servers.mks_console_data
+        console_type = console["remote_console"]["type"]
+
+        return_value = {"version": {"min_version": "2.1", "version": "2.53"}}
+        novaclient = self.stub_novaclient()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn(return_value)
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.get_mks_console(server.id,
+                                           console_type).AndReturn(console)
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.server_mks_console(self.request,
+                                              server.id,
+                                              console_type)
+        self.assertIsInstance(ret_val, api.nova.MKSConsole)
 
     def test_server_list(self):
         servers = self.servers.list()
