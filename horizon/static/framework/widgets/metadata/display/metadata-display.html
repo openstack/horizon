@@ -4,7 +4,7 @@
       <div class="selector-item"
            ng-repeat="item in ctrl.tree.flatTree | filter: ctrl.listFilter"
            ng-click="ctrl.onSelect(item)"
-           ng-class="{ active: ctrl.selected === item }">
+           ng-class="{ active: ctrl.selected === item, clickable: ctrl.count > 1 }">
         <span ng-bind="::item.label"></span>
       </div>
     </div>

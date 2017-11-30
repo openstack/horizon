@@ -76,6 +76,13 @@
           return true; // break
         }
       });
+
+      ctrl.count = 0;
+      ctrl.tree.flatTree.some(function (i) {
+        if (ctrl.listFilter(i)) {
+          ctrl.count += 1;
+        }
+      });
     }
   }
 })();
