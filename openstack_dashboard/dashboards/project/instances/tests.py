@@ -1268,7 +1268,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
             self.assertContains(res, "Unable to get log for")
 
-    def test_instance_vnc(self):
+    def test_instance_auto_console(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = '/vncserver'
         CONSOLE_TITLE = '&title=%s(%s)' % (server.name, server.id)
@@ -1281,12 +1281,12 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.mox.StubOutWithMock(console, 'get_console')
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        console.get_console(IgnoreArg(), 'VNC', server) \
+        console.get_console(IgnoreArg(), 'AUTO', server) \
             .AndReturn(('VNC', CONSOLE_URL))
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:instances:vnc',
+        url = reverse('horizon:project:instances:auto_console',
                       args=[server.id])
         res = self.client.get(url)
         redirect = CONSOLE_URL
