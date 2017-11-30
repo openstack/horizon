@@ -29,6 +29,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from neutronclient.common import exceptions as neutron_exc
 from neutronclient.v2_0 import client as neutron_client
+from novaclient import exceptions as nova_exc
 import six
 
 from horizon import exceptions
@@ -625,7 +626,7 @@ class FloatingIpManager(object):
         self.client.update_floatingip(floating_ip_id,
                                       {'floatingip': update_dict})
 
-    def _get_reachable_subnets(self, ports):
+    def _get_reachable_subnets(self, ports, fetch_router_ports=False):
         if not is_enabled_by_config('enable_fip_topology_check', True):
             # All subnets are reachable from external network
             return set(
@@ -637,10 +638,15 @@ class FloatingIpManager(object):
                       if (r.external_gateway_info and
                           r.external_gateway_info.get('network_id')
                           in ext_net_ids)]
-        reachable_subnets = set([p.fixed_ips[0]['subnet_id'] for p in ports
-                                if ((p.device_owner in
-                                     ROUTER_INTERFACE_OWNERS)
-                                    and (p.device_id in gw_routers))])
+        if fetch_router_ports:
+            router_ports = port_list(self.request,
+                                     device_owner=ROUTER_INTERFACE_OWNERS)
+        else:
+            router_ports = [p for p in ports
+                            if p.device_owner in ROUTER_INTERFACE_OWNERS]
+        reachable_subnets = set([p.fixed_ips[0]['subnet_id']
+                                 for p in router_ports
+                                 if p.device_id in gw_routers])
         # we have to include any shared subnets as well because we may not
         # have permission to see the router interface to infer connectivity
         shared = set([s.id for n in network_list(self.request, shared=True)
@@ -729,12 +735,21 @@ class FloatingIpManager(object):
                     if target['instance_id'] == instance_id]
         else:
             ports = self._target_ports_by_instance(instance_id)
+            reachable_subnets = self._get_reachable_subnets(
+                ports, fetch_router_ports=True)
+            name = self._get_server_name(instance_id)
             # TODO(amotoki): Avoid using p.fixed_ips[0].
             # Extract all IPv4 addresses instead
-            # TODO(amotoki): Replace a label with an empty string
-            # with a real server name.
-            return [FloatingIpTarget(p, p.fixed_ips[0]['ip_address'], '')
-                    for p in ports]
+            return [FloatingIpTarget(p, p.fixed_ips[0]['ip_address'], name)
+                    for p in ports
+                    if p.fixed_ips[0]['subnet_id'] in reachable_subnets]
+
+    def _get_server_name(self, server_id):
+        try:
+            server = nova.server_get(self.request, server_id)
+            return server.name
+        except nova_exc.NotFound:
+            return ''
 
     def is_simple_associate_supported(self):
         """Returns True if the default floating IP pool is enabled."""
