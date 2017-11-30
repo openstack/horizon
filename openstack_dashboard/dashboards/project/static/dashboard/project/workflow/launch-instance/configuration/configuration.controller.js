@@ -35,7 +35,7 @@
    */
   function LaunchInstanceConfigurationController() {
     var ctrl = this;
-
+    ctrl.title = gettext("Customization Script");
     ctrl.MAX_SCRIPT_SIZE = MAX_SCRIPT_SIZE;
 
     ctrl.diskConfigOptions = [

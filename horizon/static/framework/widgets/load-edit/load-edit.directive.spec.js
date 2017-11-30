@@ -37,9 +37,10 @@
       $scope = $injector.get('$rootScope').$new();
       $q = $injector.get('$q');
       $compile = $injector.get('$compile');
-      key = 'inputKey';
+      key = 'elementKey';
       element = $compile(
-        '<load-edit config="{}" user-input="{}" key="' + key + '"></load-edit>'
+        '<load-edit title="{}" model="{}" max-bytes="{}" key="' + key + '" ' +
+        'required="true" rows="8"></load-edit>'
       )($scope);
       $scope.$apply();
     }));
@@ -51,20 +52,20 @@
         textarea = element.find('textarea');
       });
 
-      it('should set scriptModified to true when textarea has content', function () {
+      it('should set textModified to true when textarea has content', function () {
         textarea.val('any value');
         textarea.trigger('propertychange');
         $scope.$apply();
 
-        expect(element.isolateScope().scriptModified).toBe(true);
+        expect(element.isolateScope().textModified).toBe(true);
       });
 
-      it('should set scriptModified to false when textarea has no content', function () {
+      it('should set textModified to false when textarea has no content', function () {
         textarea.val('');
         textarea.trigger('propertychange');
         $scope.$apply();
 
-        expect(element.isolateScope().scriptModified).toBe(false);
+        expect(element.isolateScope().textModified).toBe(false);
       });
 
       it('should set userInput to the value of the textarea', function() {
@@ -72,7 +73,7 @@
         textarea.trigger('input');
         $scope.$apply();
 
-        expect(element.isolateScope().userInput[key]).toBe('user input');
+        expect(element.isolateScope().model).toBe('user input');
       });
     });
 
