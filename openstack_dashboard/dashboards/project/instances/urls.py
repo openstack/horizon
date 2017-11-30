@@ -34,6 +34,7 @@ urlpatterns = [
     url(INSTANCES % 'serial', views.SerialConsoleView.as_view(),
         name='serial'),
     url(INSTANCES % 'console', views.console, name='console'),
+    url(INSTANCES % 'auto_console', views.auto_console, name='auto_console'),
     url(INSTANCES % 'vnc', views.vnc, name='vnc'),
     url(INSTANCES % 'spice', views.spice, name='spice'),
     url(INSTANCES % 'rdp', views.rdp, name='rdp'),
