@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.template.defaultfilters import title
 from django.utils.translation import ugettext_lazy as _
 
@@ -69,6 +70,9 @@ class DownloadOpenRCv2(tables.LinkAction):
     verbose_name_plural = _("OpenStack RC File (Identity API v2.0)")
     icon = "download"
     url = "horizon:project:api_access:openrcv2"
+
+    def allowed(self, request, datum=None):
+        return settings.SHOW_KEYSTONE_V2_RC
 
 
 class ViewCredentials(tables.LinkAction):

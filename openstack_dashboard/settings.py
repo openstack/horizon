@@ -323,6 +323,8 @@ CSRF_COOKIE_AGE = None
 
 COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
 
+SHOW_KEYSTONE_V2_RC = True
+
 # Dictionary of currently available angular features
 ANGULAR_FEATURES = {
     'images_panel': True,

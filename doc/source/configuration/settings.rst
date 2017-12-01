@@ -844,6 +844,16 @@ This SESSION_TIMEOUT is a method to supercede the token timeout with a shorter
 horizon session timeout (in seconds).  So if your token expires in 60 minutes,
 a value of 1800 will log users out after 30 minutes.
 
+SHOW_KEYSTONE_V2_RC
+--------------------
+
+.. versionadded:: 13.0.0(Queens)
+
+Default: ``True``
+
+Controls whether the keystone v2 openrc file is accessable from the user
+menu and the api access panel.
+
 THEME_COLLECTION_DIR
 --------------------
 
