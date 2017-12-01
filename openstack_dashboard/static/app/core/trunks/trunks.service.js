@@ -38,10 +38,16 @@
    * but do not need to be restricted to such use.  Each exposed function
    * is documented below.
    */
-  function trunksService(neutron, userSession, detailRoute, $location, $window) {
+  function trunksService(
+    neutron,
+    userSession,
+    detailRoute,
+    $location,
+    $window) {
 
     return {
       getDetailsPath: getDetailsPath,
+      getPortDetailsPath: getPortDetailsPath,
       getTrunksPromise: getTrunksPromise,
       getTrunkPromise: getTrunkPromise
     };
@@ -60,6 +66,27 @@
         detailsPath = detailsPath + "?nav=/admin/trunks/";
       }
       return detailsPath;
+    }
+
+    /*
+     * @ngdoc function
+     * @name getPortDetailsPath
+     * @param item {Object} - the trunk object or the relevant subport details
+     * object
+     * @description
+     * Given a trunk object, returns back url for the trunk's parent port or
+     * subport detail page, for example:
+     * /project/networks/ports/uuid/detail
+     */
+    function getPortDetailsPath(item) {
+      // Note(lajos Katona): the $location.url() can give back /projct/trunks or
+      // in case of calling from ngdetails page
+      // /ngdetails/OS::Neutron::Trunk/uuid?nav=%2Fadmin%2Ftrunks%2F
+      var isAdminFromLocation = $location.url().indexOf('admin') >= 1;
+
+      var dashboardUrl = isAdminFromLocation ? 'admin' : 'project';
+      var webRoot = $window.WEBROOT;
+      return webRoot + dashboardUrl + '/networks/ports/' + item.port_id + '/detail';
     }
 
     /*

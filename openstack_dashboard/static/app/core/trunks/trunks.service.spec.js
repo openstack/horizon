@@ -87,5 +87,38 @@
 
     });
 
+    describe('getDetailsPath', function() {
+
+      it('returns path for loading details for a given trunk', function() {
+        var trunk = {id: 1};
+        var path = service.getDetailsPath(trunk);
+        expect(path).toMatch('ngdetails');
+        expect(path).toMatch(trunk.id.toString());
+      });
+
+    });
+
+    describe('getPortDetailsPath', function() {
+
+      it('returns url to port\'s detail page for non-admin user', function() {
+        spyOn(_location_, 'url').and.returnValue('/project/trunks');
+
+        var trunk = {id: 1, port_id: 2};
+        var path = service.getPortDetailsPath(trunk);
+        expect(path).toMatch('detail');
+        expect(path).toMatch(trunk.port_id.toString());
+      });
+
+      it('returns url to port\'s detail page for admin user', function() {
+        spyOn(_location_, 'url').and.returnValue('/admin/trunks');
+
+        var trunk = {id: 1, port_id: 2};
+        var path = service.getPortDetailsPath(trunk);
+        expect(path).toMatch('detail');
+        expect(path).toMatch(trunk.port_id.toString());
+      });
+
+    });
+
   });
 })();
