@@ -4,17 +4,17 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-23 01:32+0000\n"
+"POT-Creation-Date: 2017-12-01 00:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-28 03:49+0000\n"
-"Last-Translator: Alessandra <alessandra@translated.net>\n"
+"PO-Revision-Date: 2016-04-07 07:16+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
@@ -101,9 +101,6 @@ msgstr "Utilizzo attuale"
 msgid "Custom"
 msgstr "Personalizzato"
 
-msgid "Customization Script"
-msgstr "Script di personalizzazione"
-
 msgid "Danger"
 msgstr "Pericolo"
 
@@ -171,9 +168,6 @@ msgstr "Informazioni"
 
 msgid "Integer required"
 msgstr "Numero intero richiesto"
-
-msgid "Load script from a file"
-msgstr "Carica script da un file"
 
 msgid "Loading"
 msgstr "Caricamento"
@@ -256,14 +250,6 @@ msgstr "Richiesto"
 msgid "Roles"
 msgstr "Ruoli"
 
-#. Strings between {$ and $} should be left untranslated.
-msgid ""
-"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
-msgstr ""
-"Dimensione script: {$ (scriptLength || 0) | bytes $} of {$ config."
-"MAX_SCRIPT_SIZE | bytes $}"
-
 msgid "Search in current results"
 msgstr "Cerca nei risultati correnti"
 
@@ -300,9 +286,6 @@ msgid ""
 msgstr ""
 "L'azione non può essere eseguita. Il contenuto di questa riga contiene o "
 "errori o informazioni mancanti"
-
-msgid "The script is larger than the maximum size"
-msgstr "Lo script è maggiore della dimensione massima"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Si è verificato un errore di comunicazione con il server, riprova."

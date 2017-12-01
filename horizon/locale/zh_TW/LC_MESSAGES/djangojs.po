@@ -5,9 +5,9 @@
 # Gene Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev100\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-09-16 22:35+0000\n"
+"POT-Creation-Date: 2017-12-01 00:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -134,9 +134,6 @@ msgstr "目前使用量"
 msgid "Custom"
 msgstr "自訂"
 
-msgid "Customization Script"
-msgstr "客製化腳本"
-
 msgid "Danger"
 msgstr "危險"
 
@@ -228,9 +225,6 @@ msgstr "無效的類型，預期為 {$schema.type$}"
 msgid "Keyword failed: '{$title$}'"
 msgstr "關鍵字錯誤: '{$title$}'"
 
-msgid "Load script from a file"
-msgstr "從檔案載入腳本"
-
 msgid "Loading"
 msgstr "讀取中"
 
@@ -318,14 +312,6 @@ msgstr "需要"
 msgid "Roles"
 msgstr "角色"
 
-#. Strings between {$ and $} should be left untranslated.
-msgid ""
-"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
-msgstr ""
-"Script 大小：{$ (scriptLength || 0) | bytes $}，共 {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
-
 msgid "Search in current results"
 msgstr "在目前結果中搜尋"
 
@@ -363,9 +349,6 @@ msgstr "無法執行動作。這行的內容有錯或者缺少資訊。"
 
 msgid "The data in this field is invalid"
 msgstr "此欄位的輸入無效"
-
-msgid "The script is larger than the maximum size"
-msgstr "該 Script 的大小大於大小上限"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "與伺服器間的通訊有問題，請再試一次。"

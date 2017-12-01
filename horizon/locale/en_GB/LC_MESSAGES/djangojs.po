@@ -6,13 +6,13 @@
 # Andi Chandler <andi@gowling.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev175\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-10-14 12:29+0000\n"
+"POT-Creation-Date: 2017-12-01 00:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-14 11:39+0000\n"
+"PO-Revision-Date: 2017-11-30 09:22+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -131,14 +131,17 @@ msgstr "Confirm %s"
 msgid "Confirm Delete Foobars"
 msgstr "Confirm Delete Foobars"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Content size: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+msgstr ""
+"Content size: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+
 msgid "Current Usage"
 msgstr "Current Usage"
 
 msgid "Custom"
 msgstr "Custom"
-
-msgid "Customization Script"
-msgstr "Customisation Script"
 
 msgid "Danger"
 msgstr "Danger"
@@ -235,8 +238,8 @@ msgstr "Invalid type, expected {$schema.type$}"
 msgid "Keyword failed: '{$title$}'"
 msgstr "Keyword failed: '{$title$}'"
 
-msgid "Load script from a file"
-msgstr "Load script from a file"
+msgid "Load {$ ::title $} from a file"
+msgstr "Load {$ ::title $} from a file"
 
 msgid "Loading"
 msgstr "Loading"
@@ -325,14 +328,6 @@ msgstr "Required"
 msgid "Roles"
 msgstr "Roles"
 
-#. Strings between {$ and $} should be left untranslated.
-msgid ""
-"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
-msgstr ""
-"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
-
 msgid "Search in current results"
 msgstr "Search in current results"
 
@@ -370,11 +365,11 @@ msgstr ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 
+msgid "The content is larger than the maximum byte size"
+msgstr "The content is larger than the maximum byte size"
+
 msgid "The data in this field is invalid"
 msgstr "The data in this field is invalid"
-
-msgid "The script is larger than the maximum size"
-msgstr "The script is larger than the maximum size"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "There was a problem communicating with the server, please try again."

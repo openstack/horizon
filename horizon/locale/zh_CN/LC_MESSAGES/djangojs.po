@@ -14,9 +14,9 @@
 # Tony <tfu@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev35\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-17 21:12+0000\n"
+"POT-Creation-Date: 2017-12-01 00:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -143,9 +143,6 @@ msgstr "当前用量"
 msgid "Custom"
 msgstr "定制"
 
-msgid "Customization Script"
-msgstr "自定义脚本"
-
 msgid "Danger"
 msgstr "危险"
 
@@ -237,9 +234,6 @@ msgstr "非法的类型, 应该为 {$schema.type$}"
 msgid "Keyword failed: '{$title$}'"
 msgstr "关键字失败: '{$title$}'"
 
-msgid "Load script from a file"
-msgstr "从文件载入脚本"
-
 msgid "Loading"
 msgstr "加载中"
 
@@ -327,14 +321,6 @@ msgstr "必须"
 msgid "Roles"
 msgstr "角色"
 
-#. Strings between {$ and $} should be left untranslated.
-msgid ""
-"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
-msgstr ""
-"脚本大小: {$ (scriptLength || 0) | bytes $} / {$ config.MAX_SCRIPT_SIZE | "
-"bytes $} (最大)"
-
 msgid "Search in current results"
 msgstr "在当前结果中搜索"
 
@@ -372,9 +358,6 @@ msgstr "不能执行该操作。该行的内容有错或是缺少信息。"
 
 msgid "The data in this field is invalid"
 msgstr "该域中的此数据非法"
-
-msgid "The script is larger than the maximum size"
-msgstr "脚本大小超出最大值"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "与服务器通信出现问题，请再试一次。"

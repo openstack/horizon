@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev66\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 13:30+0000\n"
+"POT-Creation-Date: 2017-12-01 00:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -134,9 +134,6 @@ msgstr "Současné využití"
 msgid "Custom"
 msgstr "Vlastní"
 
-msgid "Customization Script"
-msgstr "Přizpůsobovací skript"
-
 msgid "Danger"
 msgstr "Nebezpečí"
 
@@ -230,9 +227,6 @@ msgstr "Neplatný typ, očekáváno {$schema.type$}"
 msgid "Keyword failed: '{$title$}'"
 msgstr "Klíčové slovo selhalo: '{$title$}'"
 
-msgid "Load script from a file"
-msgstr "Načíst skript ze souboru"
-
 msgid "Loading"
 msgstr "Načítání"
 
@@ -320,14 +314,6 @@ msgstr "Vyžadováno"
 msgid "Roles"
 msgstr "Role"
 
-#. Strings between {$ and $} should be left untranslated.
-msgid ""
-"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
-msgstr ""
-"Velikost skriptu: {$ (scriptLength || 0) | bytes $} z {$ config."
-"MAX_SCRIPT_SIZE | bytes $}"
-
 msgid "Search in current results"
 msgstr "Hledat v aktuálních výsledcích"
 
@@ -365,9 +351,6 @@ msgstr "Činnost nelze provést. Řádek obsahuje chybu chybějící informace."
 
 msgid "The data in this field is invalid"
 msgstr "Data v tomto poli jsou neplatná"
-
-msgid "The script is larger than the maximum size"
-msgstr "Skript je větší než maximální velikost"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Při komunikaci se serverem nastal problém, zkuste to znovu."

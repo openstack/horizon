@@ -22,9 +22,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev8\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-29 12:07+0000\n"
+"POT-Creation-Date: 2017-12-01 00:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -157,9 +157,6 @@ msgstr "Использовано на текущий момент"
 msgid "Custom"
 msgstr "Выборочный"
 
-msgid "Customization Script"
-msgstr "Скрипт настройки"
-
 msgid "Danger"
 msgstr "Опасность"
 
@@ -253,9 +250,6 @@ msgstr "Неправильный тип, ожидается {$schema.type$}"
 msgid "Keyword failed: '{$title$}'"
 msgstr "Ошибка ключевого слова: '{$title$}'"
 
-msgid "Load script from a file"
-msgstr "Загрузить скрипт из файла"
-
 msgid "Loading"
 msgstr "Загрузка"
 
@@ -343,14 +337,6 @@ msgstr "Требуется"
 msgid "Roles"
 msgstr "Роли"
 
-#. Strings between {$ and $} should be left untranslated.
-msgid ""
-"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
-msgstr ""
-"Размер скрипта: {$ (scriptLength || 0) | bytes $} из {$ config."
-"MAX_SCRIPT_SIZE | bytes $}"
-
 msgid "Search in current results"
 msgstr "Поиск в текущих результатах"
 
@@ -390,9 +376,6 @@ msgstr ""
 
 msgid "The data in this field is invalid"
 msgstr "Данные в этом поле неверны"
-
-msgid "The script is larger than the maximum size"
-msgstr "Размер скрипта больше максимально допустимого размера"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Обнаружена проблема при соединении с сервером. Повторите попытку."

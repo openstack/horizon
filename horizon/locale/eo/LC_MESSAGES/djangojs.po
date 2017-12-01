@@ -1,9 +1,9 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev122\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-26 10:36+0000\n"
+"POT-Creation-Date: 2017-12-01 00:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -134,9 +134,6 @@ msgstr "Nuna Uzado"
 msgid "Custom"
 msgstr "Propra"
 
-msgid "Customization Script"
-msgstr "tajlorado  skripto"
-
 msgid "Danger"
 msgstr "Danĝero"
 
@@ -232,9 +229,6 @@ msgstr "Nevalida tipo, supozita {$schema.type$}"
 msgid "Keyword failed: '{$title$}'"
 msgstr "Klavavorto malsukcesis: '{$title$}'"
 
-msgid "Load script from a file"
-msgstr "Elŝuti scripton de dosiero"
-
 msgid "Loading"
 msgstr "Ŝargi"
 
@@ -319,14 +313,6 @@ msgstr "Bezonata"
 msgid "Roles"
 msgstr "Roloj"
 
-#. Strings between {$ and $} should be left untranslated.
-msgid ""
-"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
-"| bytes $}"
-msgstr ""
-"Skriptgrandeco: {$ (scriptLength || 0) | bajtoj $} of {$ config."
-"MAX_SCRIPT_SIZE | bajtoj $}"
-
 msgid "Search in current results"
 msgstr "Ŝercu in nunaj resultoj"
 
@@ -366,9 +352,6 @@ msgstr ""
 
 msgid "The data in this field is invalid"
 msgstr "La datumoj en ĉi tiu datumkampo estas nevalida "
-
-msgid "The script is larger than the maximum size"
-msgstr "La skripto estas pli granda ol la maksimuma grandeco"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Estis komunikada eraro kum servilo, bonvolu provu denove"
