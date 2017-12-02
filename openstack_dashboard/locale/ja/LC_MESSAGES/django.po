@@ -8,13 +8,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev119\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev168\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-22 09:01+0000\n"
+"POT-Creation-Date: 2017-12-02 05:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-18 12:01+0000\n"
+"PO-Revision-Date: 2017-12-01 08:31+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -717,6 +717,9 @@ msgstr "アベイラビリティーゾーン"
 
 msgid "Availability Zone ="
 msgstr "アベイラビリティーゾーン ="
+
+msgid "Availability Zone Hints"
+msgstr "アベイラビリティーゾーン ヒント"
 
 msgid "Availability Zone Name"
 msgstr "アベイラビリティーゾーン名"
@@ -2738,6 +2741,9 @@ msgstr "ホスト %s からの退避に失敗しました。"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "インスタンスの退避に失敗しました: %s"
+
+msgid "Failed to get availability zone list."
+msgstr "アベイラビリティーゾーンの一覧を取得できません。"
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -6600,6 +6606,9 @@ msgstr ""
 "このアプリケーションを使うには、ブラウザーで JavaScript を有効にする必要があ"
 "ります。"
 
+msgid "This field is required."
+msgstr "このフィールドは必須です。"
+
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
@@ -7028,6 +7037,10 @@ msgstr "デフォルトのロールが見つかりません。"
 
 msgid "Unable to get EC2 credentials"
 msgstr "EC2 認証情報を取得できません"
+
+#, python-format
+msgid "Unable to get MKS console for instance \"%s\"."
+msgstr "インスタンス \"%s\" の MKS コンソールを取得できません。"
 
 msgid "Unable to get Orchestration service list."
 msgstr "オーケストレーションサービスの一覧を取得できません。"
