@@ -27,6 +27,12 @@
       tox_envlist: py27dj110
 
 - job:
+    name: horizon-openstack-tox-py35dj20
+    parent: horizon-openstack-tox-base
+    vars:
+      tox_envlist: py35dj20
+
+- job:
     name: horizon-selenium-headless
     parent: horizon-openstack-tox-base
     vars:
@@ -60,6 +66,8 @@
         - horizon-openstack-tox-py27dj110
         - horizon-openstack-tox-py27dj19
         - horizon-openstack-tox-py27dj18
+        - horizon-openstack-tox-py35dj20:
+            voting: false
         - horizon-selenium-headless
         - horizon-dsvm-tempest-plugin
     gate:
