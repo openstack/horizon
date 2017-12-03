@@ -102,7 +102,7 @@ class RouterTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('routers', )) \
+            IsA(http.HttpRequest), targets=('router', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            "router_availability_zone")\
@@ -126,7 +126,7 @@ class RouterTests(RouterMixin, test.TestCase):
             tenant_id=self.tenant.id).MultipleTimes().AndRaise(
             self.exceptions.neutron)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('routers', )) \
+            IsA(http.HttpRequest), targets=('router', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            "router_availability_zone")\
@@ -150,7 +150,7 @@ class RouterTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).MultipleTimes().AndReturn([router])
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('routers', )) \
+            IsA(http.HttpRequest), targets=('router', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            "router_availability_zone")\
@@ -198,7 +198,7 @@ class RouterTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('routers', )) \
+            IsA(http.HttpRequest), targets=('router', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            "router_availability_zone")\
@@ -240,7 +240,7 @@ class RouterTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('routers', )) \
+            IsA(http.HttpRequest), targets=('router', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            "router_availability_zone")\
@@ -928,12 +928,12 @@ class RouterViewTests(RouterMixin, test.TestCase):
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_disabled_when_quota_exceeded(self):
         quota_data = self.neutron_quota_usages.first()
-        quota_data['routers']['available'] = 0
+        quota_data['router']['available'] = 0
         api.neutron.router_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('routers', )) \
+            IsA(http.HttpRequest), targets=('router', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            "router_availability_zone")\
@@ -959,12 +959,12 @@ class RouterViewTests(RouterMixin, test.TestCase):
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_shown_when_quota_disabled(self):
         quota_data = self.neutron_quota_usages.first()
-        quota_data['routers'].pop('available')
+        quota_data['router'].pop('available')
         api.neutron.router_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('routers', )) \
+            IsA(http.HttpRequest), targets=('router', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            "router_availability_zone")\
@@ -990,12 +990,12 @@ class RouterViewTests(RouterMixin, test.TestCase):
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_attributes(self):
         quota_data = self.neutron_quota_usages.first()
-        quota_data['routers']['available'] = 10
+        quota_data['router']['available'] = 10
         api.neutron.router_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('routers', )) \
+            IsA(http.HttpRequest), targets=('router', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            "router_availability_zone")\

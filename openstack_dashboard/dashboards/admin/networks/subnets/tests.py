@@ -436,7 +436,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(True)
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
-            targets=('subnets',)).MultipleTimes().AndReturn(quota_data)
+            targets=('subnet',)).MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
         from django.utils.http import urlunquote
         url = urlunquote(reverse('horizon:admin:networks:subnets_tab',

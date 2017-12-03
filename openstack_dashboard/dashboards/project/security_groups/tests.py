@@ -68,14 +68,14 @@ class SecurityGroupsViewTests(test.TestCase):
                         quotas: ('tenant_quota_usages',)})
     def test_index(self):
         sec_groups = self.security_groups.list()
-        quota_data = self.quota_usages.first()
-        quota_data['security_groups']['available'] = 10
+        quota_data = self.neutron_quota_usages.first()
+        quota_data['security_group']['available'] = 10
 
         api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest),
-            targets=('security_groups', )).MultipleTimes() \
+            targets=('security_group', )).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -101,15 +101,15 @@ class SecurityGroupsViewTests(test.TestCase):
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_attributes(self):
         sec_groups = self.security_groups.list()
-        quota_data = self.quota_usages.first()
-        quota_data['security_groups']['available'] = 10
+        quota_data = self.neutron_quota_usages.first()
+        quota_data['security_group']['available'] = 10
 
         api.neutron.security_group_list(
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest),
-            targets=('security_groups', )).MultipleTimes() \
+            targets=('security_group', )).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -135,15 +135,15 @@ class SecurityGroupsViewTests(test.TestCase):
     def _test_create_button_disabled_when_quota_exceeded(self,
                                                          network_enabled):
         sec_groups = self.security_groups.list()
-        quota_data = self.quota_usages.first()
-        quota_data['security_groups']['available'] = 0
+        quota_data = self.neutron_quota_usages.first()
+        quota_data['security_group']['available'] = 0
 
         api.neutron.security_group_list(
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest),
-            targets=('security_groups', )).MultipleTimes() \
+            targets=('security_group', )).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()

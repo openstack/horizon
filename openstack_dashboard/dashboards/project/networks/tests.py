@@ -127,15 +127,15 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                       'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_index(self):
-        quota_data = self.quota_usages.first()
-        quota_data['networks']['available'] = 5
-        quota_data['subnets']['available'] = 5
+        quota_data = self.neutron_quota_usages.first()
+        quota_data['network']['available'] = 5
+        quota_data['subnet']['available'] = 5
         self._stub_net_list()
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('networks', )) \
+            IsA(http.HttpRequest), targets=('network', )) \
             .MultipleTimes().AndReturn(quota_data)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('subnets', )) \
+            IsA(http.HttpRequest), targets=('subnet', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -158,7 +158,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             tenant_id=self.tenant.id,
             shared=False).MultipleTimes().AndRaise(self.exceptions.neutron)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('networks', )) \
+            IsA(http.HttpRequest), targets=('network', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -200,7 +200,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             .AndReturn(mac_learning)
 
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('subnets', )) \
+            IsA(http.HttpRequest), targets=('subnet', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -228,7 +228,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                            'mac-learning')\
             .AndReturn(mac_learning)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('subnets', )) \
+            IsA(http.HttpRequest), targets=('subnet', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -291,8 +291,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     def _test_subnets_tab_subnet_exception(self, mac_learning=False):
         network_id = self.networks.first().id
         quota_data = self.neutron_quota_usages.first()
-        quota_data['networks']['available'] = 5
-        quota_data['subnets']['available'] = 5
+        quota_data['network']['available'] = 5
+        quota_data['subnet']['available'] = 5
         api.neutron.network_get(IsA(http.HttpRequest), network_id).\
             MultipleTimes().AndReturn(self.networks.first())
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id).\
@@ -302,7 +302,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                            'mac-learning')\
             .AndReturn(mac_learning)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('subnets', )) \
+            IsA(http.HttpRequest), targets=('subnet', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -336,7 +336,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     def _test_subnets_tab_port_exception(self, mac_learning=False):
         network_id = self.networks.first().id
         quota_data = self.neutron_quota_usages.first()
-        quota_data['subnets']['available'] = 5
+        quota_data['subnet']['available'] = 5
         api.neutron.network_get(IsA(http.HttpRequest), network_id).\
             AndReturn(self.networks.first())
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id).\
@@ -345,7 +345,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                            'mac-learning')\
             .AndReturn(mac_learning)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('subnets', )) \
+            IsA(http.HttpRequest), targets=('subnet', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -1096,15 +1096,15 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         # these keys are empty dicts, its disabled
         quota_data = self.neutron_quota_usages.first()
 
-        quota_data['networks'].pop('available')
-        quota_data['subnets'].pop('available')
+        quota_data['network'].pop('available')
+        quota_data['subnet'].pop('available')
 
         self._stub_net_list()
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('networks', )) \
+            IsA(http.HttpRequest), targets=('network', )) \
             .MultipleTimes().AndReturn(quota_data)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('subnets', )) \
+            IsA(http.HttpRequest), targets=('subnet', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -1128,15 +1128,15 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
         quota_data = self.neutron_quota_usages.first()
 
-        quota_data['networks']['available'] = network_quota
-        quota_data['subnets']['available'] = subnet_quota
+        quota_data['network']['available'] = network_quota
+        quota_data['subnet']['available'] = subnet_quota
 
         self._stub_net_list()
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('networks', )) \
+            IsA(http.HttpRequest), targets=('network', )) \
             .MultipleTimes().AndReturn(quota_data)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('subnets', )) \
+            IsA(http.HttpRequest), targets=('subnet', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -1221,7 +1221,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
             IsA(http.HttpRequest), 'mac-learning')\
             .AndReturn(False)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('subnets', )) \
+            IsA(http.HttpRequest), targets=('subnet', )) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -1242,7 +1242,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
     def test_subnet_create_button_disabled_when_quota_exceeded_detail(self):
         quota_data = self.neutron_quota_usages.first()
-        quota_data['subnets']['available'] = 0
+        quota_data['subnet']['available'] = 0
         create_action = self._test_subnet_create_button(quota_data)
         self.assertIn('disabled', create_action.classes,
                       'The create button should be disabled')
@@ -1300,10 +1300,10 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
             IsA(http.HttpRequest), 'mac-learning') \
             .AndReturn(False)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('subnets', )) \
+            IsA(http.HttpRequest), targets=('subnet', )) \
             .MultipleTimes().AndReturn(quota_data)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('ports',)) \
+            IsA(http.HttpRequest), targets=('port',)) \
             .MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
@@ -1323,7 +1323,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
     def test_port_create_button_disabled_when_quota_exceeded(self):
         quota_data = self.neutron_quota_usages.first()
-        quota_data['ports']['available'] = 0
+        quota_data['port']['available'] = 0
         create_action = self._test_port_create_button(quota_data)
         self.assertIn('disabled', create_action.classes,
                       'The create button should be disabled')
@@ -1338,7 +1338,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
     def test_create_port_button_attributes(self):
         quota_data = self.neutron_quota_usages.first()
-        quota_data['ports']['available'] = 1
+        quota_data['port']['available'] = 1
         create_action = self._test_port_create_button(quota_data)
 
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))

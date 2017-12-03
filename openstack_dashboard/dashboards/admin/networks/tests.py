@@ -49,7 +49,7 @@ class NetworkTests(test.BaseAdminViewTests):
         for network in self.networks.list():
             usage.quotas.tenant_quota_usages(
                 IsA(http.HttpRequest), tenant_id=network.tenant_id,
-                targets=('subnets', )).AndReturn(quota_data)
+                targets=('subnet', )).AndReturn(quota_data)
             api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
                                                          network.id)\
                 .AndReturn(self.agents.list())
@@ -131,7 +131,7 @@ class NetworkTests(test.BaseAdminViewTests):
             'dhcp_agent_scheduler').AndReturn(True)
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
-            targets=('subnets',)).MultipleTimes().AndReturn(quota_data)
+            targets=('subnet',)).MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
         url = urlunquote(reverse('horizon:admin:networks:detail',
                                  args=[network.id]))
@@ -172,7 +172,7 @@ class NetworkTests(test.BaseAdminViewTests):
             'dhcp_agent_scheduler').AndReturn(True)
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
-            targets=('subnets',)).MultipleTimes().AndReturn(quota_data)
+            targets=('subnet',)).MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
         url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
                          args=[network.id]))
@@ -197,7 +197,7 @@ class NetworkTests(test.BaseAdminViewTests):
         quota_data = self.neutron_quota_usages.first()
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
-            targets=('ports',)).MultipleTimes().AndReturn(quota_data)
+            targets=('port',)).MultipleTimes().AndReturn(quota_data)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'network-ip-availability').AndReturn(True)
@@ -212,7 +212,7 @@ class NetworkTests(test.BaseAdminViewTests):
             'dhcp_agent_scheduler').AndReturn(True)
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
-            targets=('subnets',)).MultipleTimes().AndReturn(quota_data)
+            targets=('subnet',)).MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()
         url = reverse('horizon:admin:networks:ports_tab',
@@ -255,7 +255,7 @@ class NetworkTests(test.BaseAdminViewTests):
             'dhcp_agent_scheduler').AndReturn(True)
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
-            targets=('subnets',)).MultipleTimes().AndReturn(quota_data)
+            targets=('subnet',)).MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
         url = reverse('horizon:admin:networks:agents_tab', args=[network.id])
         res = self.client.get(urlunquote(url))
@@ -359,7 +359,7 @@ class NetworkTests(test.BaseAdminViewTests):
             'dhcp_agent_scheduler').AndReturn(True)
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
-            targets=('subnets',)).MultipleTimes().AndReturn(quota_data)
+            targets=('subnet',)).MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
         url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
                          args=[network.id]))
@@ -418,7 +418,7 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn(True)
         usage.quotas.tenant_quota_usages(
             IsA(http.HttpRequest), tenant_id=network.tenant_id,
-            targets=('subnets',)).MultipleTimes().AndReturn(quota_data)
+            targets=('subnet',)).MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
         url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
                          args=[network.id]))
