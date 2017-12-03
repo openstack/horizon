@@ -1,0 +1,9 @@
+---
+fixes:
+  - |
+    [:bug:`1337473`] The default quotas of neutron resource for a new project
+    are no longer got from the quotas of the current project.
+    Neutron did not provide a way to retrieve the default quotas and horizon
+    used the quotas of the current project as the default quotas for a new
+    project as a workaround. Neutron implemented an API to retrieve default
+    quotas since newton and horizon now consumes it.

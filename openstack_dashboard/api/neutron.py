@@ -1455,6 +1455,13 @@ def tenant_quota_detail_get(request, tenant_id=None):
 
 
 @profiler.trace
+def default_quota_get(request, tenant_id=None):
+    tenant_id = tenant_id or request.user.tenant_id
+    response = neutronclient(request).show_quota_default(tenant_id)
+    return base.QuotaSet(response['quota'])
+
+
+@profiler.trace
 def agent_list(request, **params):
     agents = neutronclient(request).list_agents(**params)
     return [Agent(a) for a in agents['agents']]
