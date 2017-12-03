@@ -2025,7 +2025,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.glance: ('image_list_detailed',),
-                           quotas: ('tenant_limit_usages',)})
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_instance_get(self,
                                  expect_password_fields=True,
                                  block_device_mapping_v2=True,
@@ -2053,7 +2053,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         ]
         self.mock_port_list_with_trunk_types.return_value = self.ports.list()
         self.mock_server_group_list.return_value = self.server_groups.list()
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
+        self.mock_tenant_quota_usages.return_value = self.quota_usages.first()
         self._mock_nova_lists()
 
         url = reverse('horizon:project:instances:launch')
@@ -2188,8 +2188,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                          self.mock_port_list_with_trunk_types.call_count)
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
+        self.mock_tenant_quota_usages.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
         self._check_nova_lists(flavor_count=2)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
@@ -2274,7 +2275,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.glance: ('image_list_detailed',),
-                           quotas: ('tenant_limit_usages',)})
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_instance_get_bootable_volumes(self,
                                                   block_device_mapping_v2=True,
                                                   only_one_network=False,
@@ -2299,7 +2300,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         ]
         self.mock_port_list_with_trunk_types.return_value = self.ports.list()
         self.mock_server_group_list.return_value = self.server_groups.list()
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
+        self.mock_tenant_quota_usages.return_value = self.quota_usages.first()
         self._mock_nova_lists()
 
         url = reverse('horizon:project:instances:launch')
@@ -2353,8 +2354,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
              for net in self.networks.list()])
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
+        self.mock_tenant_quota_usages.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
         self._check_nova_lists(flavor_count=2)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
@@ -2753,8 +2755,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                       'availability_zone_list'),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',
-                                    'tenant_limit_usages')})
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_no_images_available(self):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
@@ -2770,7 +2771,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': True,
             'ServerGroups': False,
         })
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
+        self.mock_tenant_quota_usages.return_value = self.quota_usages.first()
         self._mock_glance_image_list_detailed([])
         self._mock_neutron_network_and_port_list()
         self._mock_nova_lists()
@@ -2803,8 +2804,15 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': 1,
             'ServerGroups': 1,
         })
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
+        self.mock_tenant_quota_usages.assert_has_calls([
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', )),
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
+        ])
+        self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
         self._check_glance_image_list_detailed(count=5)
         self._check_neutron_network_and_port_list()
         self._check_nova_lists(flavor_count=3)
@@ -2817,9 +2825,15 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
-        self.mock_tenant_quota_usages.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            targets=('instances', 'cores', 'ram', 'volumes', ))
+        self.mock_tenant_quota_usages.assert_has_calls([
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', )),
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
+        ])
+        self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
 
     @helpers.create_mocks({
         api.glance: ('image_list_detailed',),
@@ -2973,11 +2987,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                    'flavor_list',
                    'keypair_list',
                    'availability_zone_list',
-                   'server_create',
-                   ('tenant_absolute_limits', 'nova_tenant_absolute_limits')),
+                   'server_create'),
         cinder: ('volume_list',
-                 'volume_snapshot_list',
-                 ('tenant_absolute_limits', 'cinder_tenant_absolute_limits')),
+                 'volume_snapshot_list'),
         quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_boot_from_snapshot_error(self):
         flavor = self.flavors.first()
@@ -2995,10 +3007,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': True,
             'ServerGroups': False,
         })
-        self.mock_nova_tenant_absolute_limits.return_value = \
-            self.limits['absolute']
-        self.mock_cinder_tenant_absolute_limits.return_value = \
-            self.cinder_limits['absolute']
 
         bad_snapshot_id = 'a-bogus-id'
 
@@ -3034,9 +3042,15 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                       filters={'status': 'active', 'visibility': 'shared'}),
         ])
 
-        self.mock_tenant_quota_usages.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            targets=('instances', 'cores', 'ram', 'volumes', ))
+        self.mock_tenant_quota_usages.assert_has_calls([
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', )),
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
+        ])
+        self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
 
         self._check_neutron_network_and_port_list()
 
@@ -3046,11 +3060,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': 1,
             'ServerGroups': 1,
         })
-
-        self.mock_nova_tenant_absolute_limits.assert_called_once_with(
-            helpers.IsHttpRequest(), reserved=True)
-        self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
-            helpers.IsHttpRequest())
 
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
@@ -3063,7 +3072,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',),
-                           quotas: ('tenant_limit_usages',)})
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_flavorlist_error(self):
         self._mock_extension_supported({
             'BlockDeviceMappingV2Boot': True,
@@ -3075,7 +3084,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_snapshot_list.return_value = []
         self._mock_glance_image_list_detailed(self.versioned_images.list())
         self._mock_neutron_network_and_port_list()
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
+        self.mock_tenant_quota_usages.return_value = self.quota_usages.first()
         self.mock_flavor_list.side_effect = self.exceptions.nova
         self.mock_keypair_list.return_value = self.keypairs.list()
         self.mock_security_group_list.return_value = \
@@ -3107,8 +3116,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self._check_glance_image_list_detailed(count=5)
         self._check_neutron_network_and_port_list()
 
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
+        self.mock_tenant_quota_usages.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 2,
             mock.call(helpers.IsHttpRequest()))
@@ -3261,8 +3271,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                       'availability_zone_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_limit_usages',
-                                    'tenant_quota_usages')})
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_form_instance_count_error(self):
         flavor = self.flavors.first()
         image = self.versioned_images.first()
@@ -3289,7 +3298,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
         self.mock_flavor_list.return_value = self.flavors.list()
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
         self.mock_tenant_quota_usages.return_value = quota_usages
 
         form_data = {'flavor': flavor.id,
@@ -3333,11 +3341,15 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 3,
             mock.call(helpers.IsHttpRequest()))
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
-        self.mock_tenant_quota_usages.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            targets=('instances', 'cores', 'ram', 'volumes', ))
+        self.mock_tenant_quota_usages.assert_has_calls([
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', )),
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
+        ])
+        self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
     def test_launch_form_instance_count_error_glance_v1(self):
@@ -3355,8 +3367,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                       'availability_zone_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',
-                                    'tenant_limit_usages')})
+                           quotas: ('tenant_quota_usages',)})
     def _test_launch_form_count_error(self, resource, avail):
         flavor = self.flavors.first()
         image = self.versioned_images.first()
@@ -3388,7 +3399,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
         self.mock_flavor_list.return_value = self.flavors.list()
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
         self.mock_tenant_quota_usages.return_value = quota_usages
 
         form_data = {'flavor': flavor.id,
@@ -3444,11 +3454,15 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 3,
             mock.call(helpers.IsHttpRequest()))
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
-        self.mock_tenant_quota_usages.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            targets=('instances', 'cores', 'ram', 'volumes', ))
+        self.mock_tenant_quota_usages.assert_has_calls([
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', )),
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
+        ])
+        self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
 
     def test_launch_form_cores_count_error_glance_v2(self):
         self._test_launch_form_count_error('cores', 1)
@@ -3474,8 +3488,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                       'availability_zone_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',
-                                    'tenant_limit_usages')})
+                           quotas: ('tenant_quota_usages',)})
     def _launch_form_instance(self, image, flavor, keypair=None):
         server = self.servers.first()
         volume = self.volumes.first()
@@ -3498,7 +3511,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
         self.mock_flavor_list.return_value = self.flavors.list()
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
         self.mock_tenant_quota_usages.return_value = quota_usages
 
         form_data = {'flavor': flavor.id,
@@ -3541,11 +3553,15 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 3,
             mock.call(helpers.IsHttpRequest()))
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
-        self.mock_tenant_quota_usages.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            targets=('instances', 'cores', 'ram', 'volumes', ))
+        self.mock_tenant_quota_usages.assert_has_calls([
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', )),
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
+        ])
+        self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
 
         return res
 
@@ -3594,8 +3610,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                       'availability_zone_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',
-                                    'tenant_limit_usages')})
+                           quotas: ('tenant_quota_usages',)})
     def _test_launch_form_instance_show_device_name(self, device_name,
                                                     widget_class,
                                                     widget_attrs):
@@ -3638,7 +3653,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
         self.mock_flavor_list.return_value = self.flavors.list()
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
         self.mock_tenant_quota_usages.return_value = quota_usages
 
         form_data = {'flavor': flavor.id,
@@ -3733,11 +3747,15 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 3,
             mock.call(helpers.IsHttpRequest()))
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
-        self.mock_tenant_quota_usages.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            targets=('instances', 'cores', 'ram', 'volumes', ))
+        self.mock_tenant_quota_usages.assert_has_calls([
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', )),
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
+        ])
+        self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
 
     @override_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': True},)
@@ -3780,8 +3798,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                       'availability_zone_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',
-                                    'tenant_limit_usages')})
+                           quotas: ('tenant_quota_usages',)})
     def _test_launch_form_instance_volume_size(self, image, volume_size, msg,
                                                avail_volumes=None):
         flavor = self.flavors.get(name='m1.massive')
@@ -3815,7 +3832,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
         self.mock_tenant_quota_usages.return_value = quota_usages
 
         form_data = {
@@ -3874,11 +3890,15 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, flavor_list_count,
             mock.call(helpers.IsHttpRequest()))
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
-        self.mock_tenant_quota_usages.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            targets=('instances', 'cores', 'ram', 'volumes', ))
+        self.mock_tenant_quota_usages.assert_has_calls([
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', )),
+            mock.call(
+                helpers.IsHttpRequest(),
+                targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
+        ])
+        self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
 
     def test_launch_form_instance_volume_size_error(self):
         image = self.versioned_images.get(name='protected_images')
@@ -3913,7 +3933,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
     def test_launch_button_attributes(self):
         servers = self.servers.list()
         limits = self.limits['absolute']
-        limits['totalInstancesUsed'] = 0
 
         self._mock_extension_supported({'AdminActions': True,
                                         'Shelve': True})
@@ -4209,7 +4228,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.glance: ('image_list_detailed',),
-                           quotas: ('tenant_limit_usages',)})
+                           quotas: ('tenant_quota_usages',)})
     def test_select_default_keypair_if_only_one(self):
         keypair = self.keypairs.first()
 
@@ -4217,7 +4236,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_volume_snapshot_list.return_value = []
         self._mock_glance_image_list_detailed(self.versioned_images.list())
         self._mock_neutron_network_and_port_list()
-        self.mock_tenant_limit_usages.return_value = self.limits['absolute']
+        self.mock_tenant_quota_usages.return_value = self.quota_usages.first()
         self._mock_extension_supported({'BlockDeviceMappingV2Boot': True,
                                         'DiskConfig': True,
                                         'ConfigDrive': True,
@@ -4242,8 +4261,9 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             helpers.IsHttpRequest(), search_opts=SNAPSHOT_SEARCH_OPTS)
         self._check_glance_image_list_detailed(count=5)
         self._check_neutron_network_and_port_list()
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            helpers.IsHttpRequest())
+        self.mock_tenant_quota_usages.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
         self._check_extension_supported({'BlockDeviceMappingV2Boot': 1,
                                          'DiskConfig': 1,
                                          'ConfigDrive': 1,

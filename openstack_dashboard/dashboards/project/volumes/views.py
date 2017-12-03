@@ -221,7 +221,8 @@ class CreateView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
         try:
-            context['usages'] = quotas.tenant_limit_usages(self.request)
+            context['usages'] = quotas.tenant_quota_usages(
+                self.request, targets=('volumes', 'gigabytes'))
             context['volume_types'] = self._get_volume_types()
         except Exception:
             exceptions.handle(self.request)
@@ -279,9 +280,9 @@ class ExtendView(forms.ModalFormView):
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         try:
-            usages = quotas.tenant_limit_usages(self.request)
-            usages['totalGigabytesUsed'] = (usages['totalGigabytesUsed'] -
-                                            context['volume'].size)
+            usages = quotas.tenant_quota_usages(self.request,
+                                                targets=('gigabytes',))
+            usages.tally('gigabytes', - context['volume'].size)
             context['usages'] = usages
         except Exception:
             exceptions.handle(self.request)
@@ -316,7 +317,8 @@ class CreateSnapshotView(forms.ModalFormView):
                                               "snapshot from an attached "
                                               "volume can result in a "
                                               "corrupted snapshot."))
-            context['usages'] = quotas.tenant_limit_usages(self.request)
+            context['usages'] = quotas.tenant_quota_usages(
+                self.request, targets=('snapshots', 'gigabytes'))
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve volume information.'))

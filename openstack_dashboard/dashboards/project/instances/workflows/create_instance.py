@@ -392,7 +392,9 @@ class SetInstanceDetailsAction(workflows.Action):
     def get_help_text(self, extra_context=None):
         extra = {} if extra_context is None else dict(extra_context)
         try:
-            extra['usages'] = quotas.tenant_limit_usages(self.request)
+            extra['usages'] = quotas.tenant_quota_usages(
+                self.request,
+                targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
             extra['usages_json'] = json.dumps(extra['usages'])
             extra['cinder_enabled'] = \
                 base.is_service_enabled(self.request, 'volume')

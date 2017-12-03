@@ -122,16 +122,12 @@ class VolumeSnapshotsViewTests(test.TestCase):
         self.assertItemsEqual(snapshots, expected_snapshots)
 
     @test.create_mocks({api.cinder: ('volume_get',),
-                        quotas: ('tenant_limit_usages',)})
+                        quotas: ('tenant_quota_usages',)})
     def test_create_snapshot_get(self):
         volume = self.cinder_volumes.first()
         self.mock_volume_get.return_value = volume
-        snapshot_used = len(self.cinder_volume_snapshots.list())
-        usage_limit = {'maxTotalVolumeGigabytes': 250,
-                       'totalGigabytesUsed': 20,
-                       'totalSnapshotsUsed': snapshot_used,
-                       'maxTotalSnapshots': 6}
-        self.mock_tenant_limit_usages.return_value = usage_limit
+        self.mock_tenant_quota_usages.return_value = \
+            self.cinder_quota_usages.first()
 
         url = reverse('horizon:project:volumes:create_snapshot',
                       args=[volume.id])
@@ -140,8 +136,9 @@ class VolumeSnapshotsViewTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/volumes/create_snapshot.html')
         self.mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
                                                      volume.id)
-        self.mock_tenant_limit_usages.assert_called_once_with(
-            test.IsHttpRequest())
+        self.mock_tenant_quota_usages.assert_called_once_with(
+            test.IsHttpRequest(),
+            targets=('snapshots', 'gigabytes'))
 
     @test.create_mocks({api.cinder: ('volume_get',
                                      'volume_snapshot_create')})

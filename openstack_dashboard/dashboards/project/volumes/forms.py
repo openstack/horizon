@@ -317,11 +317,10 @@ class CreateForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            usages = quotas.tenant_limit_usages(self.request)
-            availableGB = usages['maxTotalVolumeGigabytes'] - \
-                usages['totalGigabytesUsed']
-            availableVol = usages['maxTotalVolumes'] - \
-                usages['totalVolumesUsed']
+            usages = quotas.tenant_quota_usages(
+                self.request, targets=('volumes', 'gigabytes'))
+            availableGB = usages['gigabytes']['available']
+            availableVol = usages['volumes']['available']
 
             snapshot_id = None
             image_id = None
@@ -738,9 +737,10 @@ class ExtendForm(forms.SelfHandlingForm):
             self._errors['new_size'] = self.error_class([error_msg])
             return cleaned_data
 
-        usages = quotas.tenant_limit_usages(self.request)
-        availableGB = usages['maxTotalVolumeGigabytes'] - \
-            usages['totalGigabytesUsed']
+        usages = quotas.tenant_quota_usages(
+            self.request, targets=('gigabytes',))
+        availableGB = usages['gigabytes']['available']
+
         if availableGB < (new_size - orig_size):
             message = _('Volume cannot be extended to %(req)iGiB as '
                         'the maximum size it can be extended to is '
