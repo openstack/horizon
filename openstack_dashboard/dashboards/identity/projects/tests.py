@@ -190,11 +190,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'user_list',
                                        'group_list',
                                        'role_list'),
-                        api.base: ('is_service_enabled',),
-                        api.cinder: ('is_volume_service_enabled',),
-                        api.neutron: ('is_extension_supported',
-                                      'is_router_enabled',),
-                        quotas: ('get_default_quota_data',)})
+                        quotas: ('get_default_quota_data',
+                                 'get_disabled_quotas')})
     def test_add_project_get(self):
         quota = self.quotas.first()
         default_role = self.roles.first()
@@ -204,20 +201,11 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
 
-        # init
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
-            .MultipleTimes().AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
-            .MultipleTimes().AndReturn(True)
-        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
-            .MultipleTimes().AndReturn(True)
         api.keystone.get_default_domain(IsA(http.HttpRequest)) \
             .AndReturn(default_domain)
-        api.neutron.is_extension_supported(
-            IsA(http.HttpRequest), 'security-group').AndReturn(True)
-        api.neutron.is_router_enabled(
-            IsA(http.HttpRequest)).AndReturn(True)
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+        quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
+            .AndReturn(quotas.NEUTRON_QUOTA_FIELDS)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(default_role)
@@ -263,26 +251,17 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'group_list',
                                        'role_list',
                                        'domain_get'),
-                        api.neutron: ('is_extension_supported',
-                                      'tenant_quota_get',
-                                      'is_router_enabled',),
-                        quotas: ('get_default_quota_data',)})
-    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+                        quotas: ('get_default_quota_data',
+                                 'get_disabled_quotas')})
     def test_add_project_get_with_neutron(self):
         quota = self.quotas.first()
-        neutron_quotas = self.neutron_quotas.first()
+        quota += self.cinder_quotas.first()
+        quota += self.neutron_quotas.first()
 
         quotas.get_default_quota_data(IsA(http.HttpRequest)) \
             .AndReturn(quota)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
-            .MultipleTimes().AndReturn(True)
-        api.neutron.is_extension_supported(
-            IsA(http.HttpRequest), 'security-group').AndReturn(True)
-        api.neutron.is_router_enabled(
-            IsA(http.HttpRequest)).AndReturn(True)
-        api.neutron.tenant_quota_get(IsA(http.HttpRequest),
-                                     tenant_id=self.tenant.id) \
-            .AndReturn(neutron_quotas)
+        quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
+            .AndReturn(set())
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(self.roles.first())
         api.keystone.user_list(IsA(http.HttpRequest), domain=None) \
@@ -315,7 +294,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         step = workflow.get_step("createprojectinfoaction")
         self.assertEqual(step.action.initial['ram'], quota.get('ram').limit)
         self.assertEqual(step.action.initial['subnet'],
-                         neutron_quotas.get('subnet').limit)
+                         self.neutron_quotas.first().get('subnet').limit)
 
     @override_settings(PROJECT_TABLE_EXTRA_INFO={'phone_num': 'Phone Number'})
     @test.create_stubs({api.keystone: ('get_default_role',
@@ -415,17 +394,15 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.test_add_project_post()
 
     @test.create_stubs({api.neutron: ('is_extension_supported',
+                                      'is_quotas_extension_supported',
                                       'tenant_quota_update')})
-    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_add_project_post_with_neutron(self):
         quota_data = self.neutron_quotas.first()
         neutron_updated_quota = dict([(key, quota_data.get(key).limit)
                                       for key in quotas.NEUTRON_QUOTA_FIELDS])
 
-        api.neutron.is_extension_supported(
-            IsA(http.HttpRequest), 'security-group').AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
-            .MultipleTimes().AndReturn(True)
+        api.neutron.is_quotas_extension_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.neutron.tenant_quota_update(IsA(http.HttpRequest),
                                         self.tenant.id,
                                         **neutron_updated_quota)
@@ -1105,8 +1082,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertMessageCount(error=0, warning=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('is_extension_supported',
-                                      'tenant_quota_get',
+    @test.create_stubs({api.neutron: ('is_quotas_extension_supported',
                                       'tenant_quota_update')})
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_update_project_save_with_neutron(self):
@@ -1114,11 +1090,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         neutron_updated_quota = dict([(key, quota_data.get(key).limit)
                                       for key in quotas.NEUTRON_QUOTA_FIELDS])
 
-        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
-            .MultipleTimes().AndReturn(True)
-        api.neutron.tenant_quota_get(IsA(http.HttpRequest),
-                                     tenant_id=self.tenant.id) \
-            .AndReturn(quota_data)
+        api.neutron.is_quotas_extension_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.neutron.tenant_quota_update(IsA(http.HttpRequest),
                                         self.tenant.id,
                                         **neutron_updated_quota)
