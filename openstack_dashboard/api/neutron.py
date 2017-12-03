@@ -1446,6 +1446,13 @@ def tenant_quota_update(request, tenant_id, **kwargs):
 
 
 @profiler.trace
+def tenant_quota_detail_get(request, tenant_id=None):
+    tenant_id = tenant_id or request.user.tenant_id
+    response = neutronclient(request).get('/quotas/%s/details' % tenant_id)
+    return response['quota']
+
+
+@profiler.trace
 def agent_list(request, **params):
     agents = neutronclient(request).list_agents(**params)
     return [Agent(a) for a in agents['agents']]

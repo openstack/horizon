@@ -333,6 +333,8 @@ class FloatingIpViewTests(test.TestCase):
             .AndReturn(True)
         api.neutron.is_router_enabled(IsA(http.HttpRequest)) \
             .AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'quota_details').AndReturn(False)
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(self.neutron_quotas.first())
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
