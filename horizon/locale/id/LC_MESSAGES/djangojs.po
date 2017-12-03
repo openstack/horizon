@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
+"Project-Id-Version: horizon 13.0.0.0b2.dev169\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-01 00:01+0000\n"
+"POT-Creation-Date: 2017-12-02 13:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-15 01:25+0000\n"
+"PO-Revision-Date: 2017-12-03 04:19+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -128,6 +128,12 @@ msgstr "Memastikan %s"
 msgid "Confirm Delete Foobars"
 msgstr "Confirm Delete Foobars (konfirmasi hapus foobar)"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Content size: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+msgstr ""
+"Ukuran konten: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+
 msgid "Current Usage"
 msgstr "Penggunaan saat ini"
 
@@ -227,6 +233,9 @@ msgstr "Tipe invalid, diharapkan {$schema.type$}"
 
 msgid "Keyword failed: '{$title$}'"
 msgstr "Keyword gagal:'{$title$}'"
+
+msgid "Load {$ ::title $} from a file"
+msgstr "Load {$ ::title $} dari file"
 
 msgid "Loading"
 msgstr "Pemuatan"
@@ -351,6 +360,9 @@ msgid ""
 msgstr ""
 "Tindakan tidak dapat dilakukan. Konten baris ini memiliki kesalahan atau "
 "informasi hilang."
+
+msgid "The content is larger than the maximum byte size"
+msgstr "Konten lebih besar dari ukuran byte maksimum"
 
 msgid "The data in this field is invalid"
 msgstr "Data dalam field ini tidak valid"
