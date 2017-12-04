@@ -346,7 +346,7 @@ def get_size(volume):
     return _("%sGiB") % volume.size
 
 
-def get_attachment_name(request, attachment):
+def get_attachment_name(request, attachment, instance_detail_url=None):
     server_id = attachment.get("server_id", None)
     if "instance" in attachment and attachment['instance']:
         name = attachment["instance"].name
@@ -358,8 +358,10 @@ def get_attachment_name(request, attachment):
             name = server_id
             exceptions.handle(request, _("Unable to retrieve "
                                          "attachment information."))
+    if not instance_detail_url:
+        instance_detail_url = "horizon:project:instances:detail"
     try:
-        url = reverse("horizon:project:instances:detail", args=(server_id,))
+        url = reverse(instance_detail_url, args=(server_id,))
         instance = '<a href="%s">%s</a>' % (url, html.escape(name))
     except NoReverseMatch:
         instance = html.escape(name)
@@ -372,6 +374,9 @@ class AttachmentColumn(tables.WrappingColumn):
     So it that does complex processing on the attachments
     for a volume instance.
     """
+
+    instance_detail_url = "horizon:project:instances:detail"
+
     def get_raw_data(self, volume):
         request = self.table.request
         link = _('%(dev)s on %(instance)s')
@@ -380,7 +385,8 @@ class AttachmentColumn(tables.WrappingColumn):
         for attachment in [att for att in volume.attachments if att]:
             # When a volume is attached it may return the server_id
             # without the server name...
-            instance = get_attachment_name(request, attachment)
+            instance = get_attachment_name(request, attachment,
+                                           self.instance_detail_url)
             vals = {"instance": instance,
                     "dev": html.escape(attachment.get("device", ""))}
             attachments.append(link % vals)
