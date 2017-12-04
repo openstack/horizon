@@ -42,17 +42,31 @@ MICROVERSION_FEATURES = {
 # NOTE(robcresswell): Since each client implements their own wrapper class for
 # API objects, we'll need to allow that to be passed in. In the future this
 # should be replaced by some common handling in Oslo.
-def get_microversion_for_feature(service, feature, wrapper_class,
-                                 min_ver, max_ver):
-    """Retrieves that highest known functional microversion for a feature"""
+def get_microversion_for_features(service, features, wrapper_class,
+                                  min_ver, max_ver):
+    """Retrieves that highest known functional microversion for features"""
+    if not features:
+        return None
+    # Convert a single feature string into a list for backward compatiblity.
+    if isinstance(features, str):
+        features = [features]
     try:
         service_features = MICROVERSION_FEATURES[service]
     except KeyError:
         LOG.debug("'%s' could not be found in the MICROVERSION_FEATURES dict",
                   service)
         return None
-    feature_versions = service_features[feature]
-    for version in reversed(feature_versions):
+
+    feature_versions = set(service_features[features[0]])
+    for feature in features[1:]:
+        feature_versions &= set(service_features[feature])
+    if not feature_versions:
+        return None
+
+    # Sort version candidates from larger versins
+    feature_versions = sorted(feature_versions, reverse=True,
+                              key=lambda v: [int(i) for i in v.split('.')])
+    for version in feature_versions:
         microversion = wrapper_class(version)
         if microversion.matches(min_ver, max_ver):
             return microversion

@@ -58,15 +58,15 @@ CACERT = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
 
 
 @memoized
-def get_microversion(request, feature):
+def get_microversion(request, features):
     client = novaclient(request)
     min_ver, max_ver = api_versions._get_server_version_range(client)
-    return (microversions.get_microversion_for_feature(
-        'nova', feature, api_versions.APIVersion, min_ver, max_ver))
+    return (microversions.get_microversion_for_features(
+        'nova', features, api_versions.APIVersion, min_ver, max_ver))
 
 
-def is_feature_available(request, feature):
-    return bool(get_microversion(request, feature))
+def is_feature_available(request, features):
+    return bool(get_microversion(request, features))
 
 
 class VNCConsole(base.APIDictWrapper):

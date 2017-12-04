@@ -51,7 +51,7 @@ class Features(generic.View):
     @rest_utils.ajax()
     def get(self, request, name):
         """Check if a specified feature is supported."""
-        return api.nova.is_feature_available(request, name)
+        return api.nova.is_feature_available(request, [name])
 
 
 @urls.register
