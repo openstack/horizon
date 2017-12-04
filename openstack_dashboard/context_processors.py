@@ -86,6 +86,15 @@ def openstack(request):
     # Adding webroot access
     context['WEBROOT'] = getattr(settings, "WEBROOT", "/")
 
+    user_menu_links = getattr(settings, "USER_MENU_LINKS", [])
+
+    if not getattr(settings, "SHOW_V2_KEYSTONE_RC", True):
+        user_menu_links = [
+            link for link in user_menu_links
+            if 'horizon:project:api_access:openrcv2' != link['url']]
+
+    context['USER_MENU_LINKS'] = user_menu_links
+
     # Adding profiler support flag
     profiler_settings = getattr(settings, 'OPENSTACK_PROFILER', {})
     profiler_enabled = profiler_settings.get('enabled', False)
@@ -97,7 +106,6 @@ def openstack(request):
             hmac_keys, parent_id=index_view_id)
 
     context['JS_CATALOG'] = get_js_catalog(conf)
-    context['SHOW_KEYSTONE_V2_RC'] = settings.SHOW_KEYSTONE_V2_RC
 
     return context
 

@@ -34,20 +34,26 @@
           </a>
         </li>
       {% endif %}
-      {% if SHOW_KEYSTONE_V2_RC %}
+
+      {% for link in USER_MENU_LINKS %}
         <li>
-          <a href="{% url 'horizon:project:api_access:openrcv2' %}">
-            <span class="fa fa-download"></span>
-            {% trans "OpenStack RC File v2" %}
+          {% if link.external %}
+            <a href="{{ link.url }}">
+          {% else %}
+            <a href="{% url link.url %}">
+          {% endif %}
+
+          {% if link.icon_classes %}
+              <span class="fa {{ link.icon_classes | join:" "}}"></span>
+          {% else %}
+              <span class="fa fa-download"></span>
+          {% endif %}
+          {{ link.name }}
           </a>
+
         </li>
-      {% endif %}
-      <li>
-        <a href="{% url 'horizon:project:api_access:openrc' %}">
-          <span class="fa fa-download"></span>
-          {% trans "OpenStack RC File v3" %}
-        </a>
-      </li>
+      {% endfor %}
+
       {% themes as available_themes %}
       {% if available_themes and available_themes|length > 1 %}
         <li class="divider"></li>
