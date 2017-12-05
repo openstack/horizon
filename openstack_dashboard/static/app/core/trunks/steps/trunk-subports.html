@@ -87,6 +87,8 @@
                 <dd>{$ item.network_id $}</dd>
                 <dt translate>Network</dt>
                 <dd>{$ item.network_name $}</dd>
+                <dt translate>MAC Address</dt>
+                <dd>{$ item.mac_address $}</dd>
                 <dt translate>VNIC type</dt>
                 <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
                 <div ng-if="item['binding:host_id']">
@@ -160,6 +162,8 @@
                 <dd>{$ item.network_id $}</dd>
                 <dt translate>Network</dt>
                 <dd>{$ item.network_name $}</dd>
+                <dt translate>MAC Address</dt>
+                <dd>{$ item.mac_address $}</dd>
                 <dt translate>VNIC type</dt>
                 <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
                 <div ng-if="item['binding:host_id']">
