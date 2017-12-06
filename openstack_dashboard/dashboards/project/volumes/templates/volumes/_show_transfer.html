@@ -1,6 +1,11 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
+{% block header %}
+  <div class="modal-header">
+    <h3 class="modal-title">{% block modal-header %}{{ modal_header }}{% endblock %}</h3>
+  </div>
+{% endblock %}
 {% block modal-body-right %}
     <h3>{% trans "Description:" %}</h3>
     <p>{% trans "The Transfer ID and the Authorization Key are needed by the recipient in order to accept the transfer. Please capture both the Transfer ID and the Authorization Key and provide them to your transfer recipient." %}</p>
@@ -11,8 +16,5 @@
         <span class="fa fa-download"></span>
         {{ download_label }}
     </a>
-    <a href="{% block cancel_url %}{{ cancel_url }}{% endblock %}"
-        class="btn btn-default cancel">
-        {{ cancel_label }}
-    </a>
+    <a onClick="location.href='{{cancel_url}}'" href="{{ cancel_url }}" class="btn btn-default">{{ cancel_label }}</a>
 {% endblock %}
