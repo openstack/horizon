@@ -4,13 +4,13 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev82\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-15 05:06+0000\n"
+"POT-Creation-Date: 2017-12-07 18:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-17 02:57+0000\n"
+"PO-Revision-Date: 2017-12-05 02:24+0000\n"
 "Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -33,6 +33,14 @@ msgstr "%(name)s: %(error)s"
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d 바이트"
+
+#, python-format
+msgid "%(usedphrase)s <span> %(used)s </span>(No Limit)"
+msgstr "%(usedphrase)s <span> %(used)s </span>(제한 없음)"
+
+#, python-format
+msgid "%(usedphrase)s <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr "%(usedphrase)s <span> %(used)s </span>of<span> %(available)s </span>"
 
 #, python-format
 msgid "%s EB"

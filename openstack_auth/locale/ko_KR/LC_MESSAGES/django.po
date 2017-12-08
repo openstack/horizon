@@ -1,0 +1,85 @@
+# ByungYeol Woo <wby1089@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 13.0.0.0b3.dev2\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-12-07 18:17+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-12-05 02:33+0000\n"
+"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
+"Language-Team: Korean (South Korea)\n"
+"Language: ko-KR\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "An error occurred authenticating. Please try again later."
+msgstr "인증 도중 오류가 발생했습니다. 잠시 후 다시 시도하세요."
+
+msgid "Authenticate using"
+msgstr "인증 사용"
+
+msgid "Could not find service provider ID on Keystone."
+msgstr "키스톤에서 서비스 제공자 ID를 찾을 수 없습니다."
+
+msgid "Domain"
+msgstr "도메인"
+
+msgid "Invalid credentials."
+msgstr "올바르지 않은 자격증명."
+
+msgid "K2K Federation not setup for this session"
+msgstr "이 세션에는 K2K 페더레이션이 설정되지 않았습니다."
+
+msgid ""
+"No authentication backend could be determined to handle the provided "
+"credentials."
+msgstr "제공된 자격증명을 처리할 수 있는 인증 백엔드를 정할 수 없습니다."
+
+msgid "Password"
+msgstr "비밀번호"
+
+#, python-format
+msgid "Please consider changing your password, it will expire in %s minutes"
+msgstr "암호는 %s 분 후에 만료되므로 변경해 주시기 바랍니다."
+
+#, python-format
+msgid "Project switch failed for user \"%(username)s\"."
+msgstr "사용자 \"%(username)s\"의 프로젝트 전환이 실패했습니다."
+
+msgid "Region"
+msgstr "지역"
+
+#, python-format
+msgid "Service provider authentication failed. %s"
+msgstr "서비스 제공자 인증이 실패됨. %s"
+
+#, python-format
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\"successful."
+msgstr "키스톤 제공자 \"%(keystone_provider)s\" 로의 변경이 성공하였습니다."
+
+#, python-format
+msgid "Switch to project \"%(project_name)s\" successful."
+msgstr "프로젝트 \"%(project_name)s\" 로 전환에 성공하였습니다."
+
+msgid "The authentication token issued by the Identity service has expired."
+msgstr "Identity 서비스에서 발급한 인증 토큰이 만료되었습니다."
+
+msgid "Unable to establish connection to keystone endpoint."
+msgstr "키스톤 엔드포인트에 연결할 수 없습니다."
+
+msgid "Unable to retrieve authorized domains."
+msgstr "인가된 도메인을 가져올 수 없습니다."
+
+msgid "Unable to retrieve authorized projects."
+msgstr "인가된 프로젝트를 가져올 수 없습니다."
+
+msgid "User Name"
+msgstr "사용자 이름"
+
+msgid "You are not authorized for any projects or domains."
+msgstr "모든 프로젝트나 도메인에 대한 권한이 없습니다."
+
+msgid "You are not authorized for any projects."
+msgstr "모든 프로젝트에 대한 권한이 없습니다."
