@@ -52,6 +52,9 @@ Plugin Registry
    * - Freezer Web UI
      - https://github.com/openstack/freezer-web-ui
      - https://launchpad.net/freezer
+   * - Heat Dashboard
+     - https://github.com/openstack/heat-dashboard
+     - https://launchpad.net/heat-dashboard
    * - Ironic UI
      - https://github.com/openstack/ironic-ui
      - https://launchpad.net/ironic-ui
