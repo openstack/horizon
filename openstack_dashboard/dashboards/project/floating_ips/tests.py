@@ -339,13 +339,11 @@ class FloatingIpViewTests(test.TestCase):
                                       'is_extension_supported',
                                       'is_router_enabled',
                                       'tenant_quota_get'),
-                        api.base: ('is_service_enabled',),
-                        api.cinder: ('is_volume_service_enabled',)})
+                        api.base: ('is_service_enabled',)})
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_correct_quotas_displayed(self):
-        self.mock_is_volume_service_enabled.return_value = False
-        self.mock_is_service_enabled.side_effect = [True, True]
-        self.mock_is_extension_supported.side_effect = [True, True, False]
+        self.mock_is_service_enabled.return_value = True
+        self.mock_is_extension_supported.side_effect = [True, False]
         self.mock_is_router_enabled.return_value = True
         self.mock_tenant_quota_get.return_value = self.neutron_quotas.first()
         self.mock_tenant_floating_ip_list.return_value = \
@@ -357,16 +355,10 @@ class FloatingIpViewTests(test.TestCase):
         self.assertEqual(res.context['usages']['floatingip']['quota'],
                          self.neutron_quotas.first().get('floatingip').limit)
 
-        self.mock_is_volume_service_enabled.assert_called_once_with(
-            test.IsHttpRequest())
-        self.assertEqual(2, self.mock_is_service_enabled.call_count)
-        self.mock_is_service_enabled.assert_has_calls([
-            mock.call(test.IsHttpRequest(), 'network'),
-            mock.call(test.IsHttpRequest(), 'compute'),
-        ])
-        self.assertEqual(3, self.mock_is_extension_supported.call_count)
+        self.mock_is_service_enabled.assert_called_once_with(
+            test.IsHttpRequest(), 'network')
+        self.assertEqual(2, self.mock_is_extension_supported.call_count)
         self.mock_is_extension_supported.assert_has_calls([
-            mock.call(test.IsHttpRequest(), 'security-group'),
             mock.call(test.IsHttpRequest(), 'quotas'),
             mock.call(test.IsHttpRequest(), 'quota_details'),
         ])
