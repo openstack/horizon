@@ -634,7 +634,9 @@ def data(TEST):
         'subnet': {'used': 0, 'quota': 5},
         'port': {'used': 0, 'quota': 5},
         'router': {'used': 0, 'quota': 5},
-        'floatingip': {'used': 0, 'quota': 10},
+        'floatingip': {'used': 0, 'quota': 50},
+        'security_group': {'used': 0, 'quota': 20},
+        'security_group_rule': {'used': 0, 'quota': 100},
     }
     quota_usage = usage_quotas.QuotaUsage()
     for k, v in quota_usage_data.items():
