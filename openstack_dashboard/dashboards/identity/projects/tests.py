@@ -1529,30 +1529,11 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
 class UsageViewTests(test.BaseAdminViewTests):
     def _stub_nova_api_calls(self, nova_stu_enabled=True):
         self.mox.StubOutWithMock(api.nova, 'usage_get')
-        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         self.mox.StubOutWithMock(api.nova, 'extension_supported')
-        self.mox.StubOutWithMock(api.cinder, 'tenant_absolute_limits')
 
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
-
-    def _stub_neutron_api_calls(self, neutron_sg_enabled=True):
-        self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
-        self.mox.StubOutWithMock(api.neutron, 'floating_ip_supported')
-        self.mox.StubOutWithMock(api.neutron, 'tenant_floating_ip_list')
-        if neutron_sg_enabled:
-            self.mox.StubOutWithMock(api.neutron, 'security_group_list')
-        api.neutron.is_extension_supported(
-            IsA(http.HttpRequest),
-            'security-group').AndReturn(neutron_sg_enabled)
-        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.floating_ips.list())
-        if neutron_sg_enabled:
-            api.neutron.security_group_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.security_groups.list())
 
     def test_usage_csv(self):
         self._test_usage_csv(nova_stu_enabled=True)
@@ -1583,11 +1564,6 @@ class UsageViewTests(test.BaseAdminViewTests):
             api.nova.usage_get(IsA(http.HttpRequest),
                                self.tenant.id,
                                start, end).AndReturn(usage_obj)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True)\
-            .AndReturn(self.limits['absolute'])
-        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
-            .AndReturn(self.cinder_limits['absolute'])
-        self._stub_neutron_api_calls()
         self.mox.ReplayAll()
 
         project_id = self.tenants.first().id

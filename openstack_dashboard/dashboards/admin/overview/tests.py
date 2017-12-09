@@ -40,14 +40,8 @@ class UsageViewTests(test.BaseAdminViewTests):
 
     def _stub_api_calls(self, nova_stu_enabled):
         self.mox.StubOutWithMock(api.nova, 'usage_list')
-        self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         self.mox.StubOutWithMock(api.nova, 'extension_supported')
         self.mox.StubOutWithMock(api.keystone, 'tenant_list')
-        self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
-        self.mox.StubOutWithMock(api.neutron, 'floating_ip_supported')
-        self.mox.StubOutWithMock(api.neutron, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.neutron, 'security_group_list')
-        self.mox.StubOutWithMock(api.cinder, 'tenant_absolute_limits')
 
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
@@ -99,18 +93,6 @@ class UsageViewTests(test.BaseAdminViewTests):
                                                   now.month,
                                                   now.day, 23, 59, 59, 0)) \
                 .AndReturn(usage_list)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
-            .AndReturn(self.limits['absolute'])
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'security-group').AndReturn(True)
-        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.floating_ips.list())
-        api.neutron.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
-            .AndReturn(self.cinder_limits['absolute'])
 
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:overview:index'))
@@ -195,18 +177,6 @@ class UsageViewTests(test.BaseAdminViewTests):
                                                   now.month,
                                                   now.day, 23, 59, 59, 0)) \
                 .AndReturn(usage_obj)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True)\
-            .AndReturn(self.limits['absolute'])
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'security-group').AndReturn(True)
-        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.floating_ips.list())
-        api.neutron.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
-            .AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"

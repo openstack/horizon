@@ -48,7 +48,6 @@ class UsageView(tables.DataTableView):
                                          self.request.user.tenant_id)
             self.usage = self.usage_class(self.request, project_id)
             self.usage.summarize(*self.usage.get_date_range())
-            self.usage.get_limits()
             self.kwargs['usage'] = self.usage
             return self.usage.usage_list
         except Exception:
@@ -61,7 +60,33 @@ class UsageView(tables.DataTableView):
         context['table'].kwargs['usage'] = self.usage
         context['form'] = self.usage.form
         context['usage'] = self.usage
-        context['charts'] = []
+
+        try:
+            context['simple_tenant_usage_enabled'] = \
+                api.nova.extension_supported('SimpleTenantUsage', self.request)
+        except Exception:
+            context['simple_tenant_usage_enabled'] = True
+        return context
+
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.GET.get('format', 'html') == 'csv':
+            render_class = self.csv_response_class
+            response_kwargs.setdefault("filename", "usage.csv")
+        else:
+            render_class = self.response_class
+        context = self.render_context_with_title(context)
+        resp = render_class(request=self.request,
+                            template=self.get_template_names(),
+                            context=context,
+                            content_type=self.get_content_type(),
+                            **response_kwargs)
+        return resp
+
+
+class ProjectUsageView(UsageView):
+
+    def _get_charts_data(self):
+        charts = []
 
         # (Used key, Max key, Human Readable Name, text to display when
         # describing the quota by default it is 'Used')
@@ -85,7 +110,7 @@ class UsageView(tables.DataTableView):
                 text = pgettext_lazy('Label in the limit summary', 'Used')
                 if len(t) > 3:
                     text = t[3]
-                context['charts'].append({
+                charts.append({
                     'type': t[0],
                     'name': t[2],
                     'used': self.usage.limits[t[0]],
@@ -93,23 +118,18 @@ class UsageView(tables.DataTableView):
                     'text': text
                 })
 
-        try:
-            context['simple_tenant_usage_enabled'] = \
-                api.nova.extension_supported('SimpleTenantUsage', self.request)
-        except Exception:
-            context['simple_tenant_usage_enabled'] = True
+        return charts
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectUsageView, self).get_context_data(**kwargs)
+        context['charts'] = self._get_charts_data()
         return context
 
-    def render_to_response(self, context, **response_kwargs):
-        if self.request.GET.get('format', 'html') == 'csv':
-            render_class = self.csv_response_class
-            response_kwargs.setdefault("filename", "usage.csv")
-        else:
-            render_class = self.response_class
-        context = self.render_context_with_title(context)
-        resp = render_class(request=self.request,
-                            template=self.get_template_names(),
-                            context=context,
-                            content_type=self.get_content_type(),
-                            **response_kwargs)
-        return resp
+    def get_data(self):
+        data = super(ProjectUsageView, self).get_data()
+        try:
+            self.usage.get_limits()
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve limits information.'))
+        return data
