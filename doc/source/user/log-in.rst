@@ -50,11 +50,6 @@ The dashboard is generally installed on the controller node.
      (:ref:`dashboard-admin-tab`) and :guilabel:`Identity` tab
      (:ref:`dashboard-identity-tab`) are displayed.
 
-.. note::
-
-   Some tabs, such as :guilabel:`Orchestration` and :guilabel:`Firewalls`,
-   only appear on the dashboard if they are properly configured.
-
 .. _dashboard-project-tab:
 
 OpenStack dashboard — Project tab
@@ -143,15 +138,6 @@ Network tab
 
   * :guilabel:`Firewall Rules`: Add and manage firewall rules.
 
-Orchestration tab
------------------
-
-* :guilabel:`Stacks`: Use the REST API to orchestrate multiple composite
-  cloud applications.
-
-* :guilabel:`Resource Types`: Show a list of all the supported resource
-  types for HOT templates.
-
 Object Store tab
 ----------------
 
@@ -233,9 +219,6 @@ System tab
     services.
 
   * :guilabel:`Network Agents`: View the network agents.
-
-  * :guilabel:`Orchestration Services`: View a list of all Orchestration
-    services.
 
 * :guilabel:`Shares`: Use the following tabs to complete these tasks:
 

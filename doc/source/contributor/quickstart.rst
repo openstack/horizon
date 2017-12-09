@@ -83,7 +83,7 @@ To start the Horizon development server use the command below
 
 .. note::
 
-    The default port for runserver is 8000 which is already consumed by
+    The default port for runserver is 8000 which might be already consumed by
     heat-api-cfn in DevStack. If running in DevStack
     ``tox -e runserver -- localhost:9000`` will start the test server at
     ``http://localhost:9000``

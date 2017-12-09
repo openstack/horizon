@@ -24,7 +24,6 @@ in https://wiki.openstack.org/wiki/APIChangeGuidelines.
 from openstack_dashboard.api.rest import cinder
 from openstack_dashboard.api.rest import config
 from openstack_dashboard.api.rest import glance
-from openstack_dashboard.api.rest import heat
 from openstack_dashboard.api.rest import keystone
 from openstack_dashboard.api.rest import network
 from openstack_dashboard.api.rest import neutron
@@ -37,7 +36,6 @@ __all__ = [
     'cinder',
     'config',
     'glance',
-    'heat',
     'keystone',
     'network',
     'neutron',

@@ -30,8 +30,3 @@ As an administrative user, you can view information for OpenStack services.
    * :guilabel:`Network Agents`:
      Displays the network agents active within the cluster, such as L3 and
      DHCP agents, and the status of each agent.
-
-   * :guilabel:`Orchestration Services`:
-     Displays information specific to the Orchestration service. Name,
-     engine id, host and topic are listed for each service, as well as its
-     activation status.

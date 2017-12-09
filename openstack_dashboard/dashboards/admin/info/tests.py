@@ -29,7 +29,7 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
                         api.nova: ('service_list',),
                         api.neutron: ('agent_list', 'is_extension_supported'),
                         api.cinder: ('service_list',),
-                        api.heat: ('service_list',)})
+                        })
     def _test_base_index(self):
         api.base.is_service_enabled(IsA(http.HttpRequest), IgnoreArg()) \
                 .MultipleTimes().AndReturn(True)
@@ -48,10 +48,6 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         cinder_services = self.cinder_services.list()
         api.cinder.service_list(IsA(http.HttpRequest)).\
             AndReturn(cinder_services)
-
-        heat_services = self.heat_services.list()
-        api.heat.service_list(IsA(http.HttpRequest)).\
-            AndReturn(heat_services)
 
         self.mox.ReplayAll()
 
@@ -85,17 +81,6 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         self.assertQuerysetEqual(
             cinder_services_tab._tables['cinder_services'].data,
             [service.__repr__() for service in self.cinder_services.list()]
-        )
-
-        self.mox.VerifyAll()
-
-    def test_heat_index(self):
-        res = self._test_base_index()
-        heat_services_tab = res.context['tab_group'].\
-            get_tab('heat_services')
-        self.assertQuerysetEqual(
-            heat_services_tab._tables['heat_services'].data,
-            [service.__repr__() for service in self.heat_services.list()]
         )
 
         self.mox.VerifyAll()

@@ -804,7 +804,6 @@ Default:
         'compute': 'nova_policy.json',
         'volume': 'cinder_policy.json',
         'image': 'glance_policy.json',
-        'orchestration': 'heat_policy.json',
         'network': 'neutron_policy.json',
     }
 
@@ -1124,29 +1123,6 @@ Default:
 
 Used to customize features related to the image service, such as the list of
 supported image formats.
-
-Heat
-----
-
-OPENSTACK_HEAT_STACK
-~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 9.0.0(Mitaka)
-
-Default:
-
-.. code-block:: python
-
-    {
-        'enable_user_pass': True
-    }
-
-A dictionary of settings to use with heat stacks. Currently, the only setting
-available is "enable_user_pass", which can be used to disable the password
-field while launching the stack. Currently HEAT API needs user password to
-perform all the heat operations because in HEAT API trusts is not enabled by
-default. So, this setting can be set as "False" in-case HEAT uses trusts by
-default otherwise it needs to be set as "True".
 
 Keystone
 --------

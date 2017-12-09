@@ -69,9 +69,6 @@ see https://docs.openstack.org/devstack/latest/
     SWIFT_REPLICAS=1
     SWIFT_DATA_DIR=$DEST/data/swift
 
-    # Enable Heat
-    enable_plugin heat https://git.openstack.org/openstack/heat
-
     # Enable Neutron
     enable_plugin neutron https://git.openstack.org/openstack/neutron
 

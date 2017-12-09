@@ -37,7 +37,6 @@ from django.utils import http
 
 from cinderclient import client as cinder_client
 import glanceclient
-from heatclient import client as heat_client
 from keystoneclient.v2_0 import client as keystone_client
 import mock
 from mox3 import mox
@@ -433,7 +432,6 @@ class APITestCase(TestCase):
         self._original_novaclient = api.nova.novaclient
         self._original_neutronclient = api.neutron.neutronclient
         self._original_cinderclient = api.cinder.cinderclient
-        self._original_heatclient = api.heat.heatclient
 
         # Replace the clients with our stubs.
         api.glance.glanceclient = fake_glanceclient
@@ -441,8 +439,6 @@ class APITestCase(TestCase):
         api.nova.novaclient = fake_novaclient
         api.neutron.neutronclient = lambda request: self.stub_neutronclient()
         api.cinder.cinderclient = lambda request: self.stub_cinderclient()
-        api.heat.heatclient = (lambda request, password=None:
-                               self.stub_heatclient())
 
     def tearDown(self):
         super(APITestCase, self).tearDown()
@@ -451,7 +447,6 @@ class APITestCase(TestCase):
         api.keystone.keystoneclient = self._original_keystoneclient
         api.neutron.neutronclient = self._original_neutronclient
         api.cinder.cinderclient = self._original_cinderclient
-        api.heat.heatclient = self._original_heatclient
 
     def stub_novaclient(self):
         if not hasattr(self, "novaclient"):
@@ -517,12 +512,6 @@ class APITestCase(TestCase):
                             .AndReturn(self.swiftclient)
                 expected_calls -= 1
         return self.swiftclient
-
-    def stub_heatclient(self):
-        if not hasattr(self, "heatclient"):
-            self.mox.StubOutWithMock(heat_client, 'Client')
-            self.heatclient = self.mox.CreateMock(heat_client.Client)
-        return self.heatclient
 
 
 class APIMockTestCase(APITestCase):

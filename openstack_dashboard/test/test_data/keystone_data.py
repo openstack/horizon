@@ -103,14 +103,6 @@ SERVICE_CATALOG = [
           "adminURL": "http://admin.nova.example.com:8773/services/Admin",
           "publicURL": "http://public.nova.example.com:8773/services/Cloud",
           "internalURL": "http://int.nova.example.com:8773/services/Cloud"}]},
-    {"type": "orchestration",
-     "name": "Heat",
-     "endpoints_links": [],
-     "endpoints": [
-         {"region": "RegionOne",
-          "adminURL": "http://admin.heat.example.com:8004/v1",
-          "publicURL": "http://public.heat.example.com:8004/v1",
-          "internalURL": "http://int.heat.example.com:8004/v1"}]}
 ]
 
 

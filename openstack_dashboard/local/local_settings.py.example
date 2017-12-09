@@ -502,7 +502,6 @@ TIME_ZONE = "UTC"
 #    'compute': 'nova_policy.json',
 #    'volume': 'cinder_policy.json',
 #    'image': 'glance_policy.json',
-#    'orchestration': 'heat_policy.json',
 #    'network': 'neutron_policy.json',
 #}
 
@@ -604,11 +603,6 @@ LOGGING = {
             'propagate': False,
         },
         'neutronclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'heatclient': {
             'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': False,

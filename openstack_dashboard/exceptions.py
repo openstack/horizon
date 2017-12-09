@@ -18,7 +18,6 @@
 
 from cinderclient import exceptions as cinderclient
 from glanceclient.common import exceptions as glanceclient
-from heatclient import exc as heatclient
 from keystoneclient import exceptions as keystoneclient
 from neutronclient.common import exceptions as neutronclient
 from novaclient import exceptions as novaclient
@@ -32,7 +31,6 @@ UNAUTHORIZED = (
     novaclient.Unauthorized,
     glanceclient.Unauthorized,
     neutronclient.Unauthorized,
-    heatclient.HTTPUnauthorized,
 )
 
 
@@ -42,7 +40,6 @@ NOT_FOUND = (
     novaclient.NotFound,
     glanceclient.NotFound,
     neutronclient.NotFound,
-    heatclient.HTTPNotFound,
 )
 
 
@@ -62,7 +59,5 @@ RECOVERABLE = (
     neutronclient.Forbidden,
     neutronclient.NeutronClientException,
     swiftclient.ClientException,
-    heatclient.HTTPForbidden,
-    heatclient.HTTPException,
     requests.RequestException,
 )

@@ -116,7 +116,6 @@ You can also override existing methods with your own versions::
 
     NO = lambda *x: False
 
-    tabs.HeatServiceTab.allowed = NO
     tables.AssociateIP.allowed = NO
     tables.SimpleAssociateIP.allowed = NO
     tables.SimpleDisassociateIP.allowed = NO
