@@ -103,13 +103,18 @@ CHART_DEFS = [
     ChartDef("instances", _("Instances"), None, None),
     ChartDef("cores", _("VCPUs"), None, None),
     ChartDef("ram", _("RAM"), None, (sizeformat.mb_float_format,)),
+    ChartDef("volumes", _("Volumes"), None, None),
+    ChartDef("snapshots", _("Volume Snapshots"), None, None),
+    ChartDef("gigabytes", _("Volume Storage"), None,
+             (sizeformat.diskgbformat,)),
     ChartDef("floatingip", _("Floating IPs"),
              pgettext_lazy('Label in the limit summary', "Allocated"),
              None),
     ChartDef("security_group", _("Security Groups"), None, None),
-    ChartDef("volumes", _("Volumes"), None, None),
-    ChartDef("gigabytes", _("Volume Storage"), None,
-             (sizeformat.diskgbformat,)),
+    ChartDef("security_group_rule", _("Security Group Rules"), None, None),
+    ChartDef("network", _("Networks"), None, None),
+    ChartDef("port", _("Ports"), None, None),
+    ChartDef("router", _("Routers"), None, None),
 ]
 
 
