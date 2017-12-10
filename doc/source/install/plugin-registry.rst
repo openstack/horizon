@@ -19,9 +19,6 @@ Plugin Registry
    * - Astara Dashboard
      - https://github.com/openstack/astara-horizon
      - https://launchpad.net/astara
-   * - App Catalog UI
-     - https://github.com/openstack/app-catalog-ui
-     - https://launchpad.net/app-catalog
    * - BGPVPN Dashboard
      - https://github.com/openstack/networking-bgpvpn
      - https://launchpad.net/bgpvpn
