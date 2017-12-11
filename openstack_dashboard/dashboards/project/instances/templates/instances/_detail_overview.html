@@ -4,10 +4,8 @@
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd data-display="{{ instance.name|default:instance.id }}">{{ instance.name }}</dd>
-    {% if instance.description != None %}
     <dt>{% trans "Description" %}</dt>
-    <dd>{{ instance.description }}</dd>
-    {% endif %}
+    <dd>{{ instance.description|default:_("-") }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ instance.id }}</dd>
     <dt>{% trans "Status" %}</dt>
