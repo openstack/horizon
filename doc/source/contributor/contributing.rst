@@ -128,7 +128,7 @@ be able to use "Profile" menu, the following steps need to be completed:
    ``/etc/mongod.conf`` to ``0.0.0.0`` and invoke
    ``sudo service mongod restart``.
 #. Collect and compress static assets with
-   ``tox -e manage -- collectstatic -c`` and ``tox -e manage -- compress``
+   ``python manage.py collectstatic -c`` and ``python manage.py compress``
 #. Restart the web server.
 #. The "Profile" drop-down menu should appear in the top-right corner, you are
    ready to profile your pages!
