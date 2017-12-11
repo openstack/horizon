@@ -203,6 +203,8 @@ class AdminInstancesTable(tables.DataTable):
                        LiveMigrateInstance,
                        project_tables.SoftRebootInstance,
                        project_tables.RebootInstance,
+                       project_tables.RebuildInstance,
+                       project_tables.StopInstance,
                        project_tables.DeleteInstance)
 
 
