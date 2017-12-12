@@ -26,6 +26,7 @@
     "os_compute_api:os-assisted-volume-snapshots:delete": "rule:admin_api",
     "os_compute_api:os-assisted-volume-snapshots:discoverable": "@",
     "os_compute_api:os-attach-interfaces": "rule:admin_or_owner",
+    "os_compute_api:os-attach-interfaces:delete": "rule:admin_or_owner",
     "os_compute_api:os-attach-interfaces:discoverable": "@",
     "os_compute_api:os-availability-zone:list": "rule:admin_or_owner",
     "os_compute_api:os-availability-zone:discoverable": "@",
