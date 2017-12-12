@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core import urlresolvers
+from django import urls
 from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -88,7 +88,7 @@ class CreateLinkNG(QuotaKeypairMixin, tables.LinkAction):
     policy_rules = (("compute", "os_compute_api:os-keypairs:create"),)
 
     def get_default_attrs(self):
-        url = urlresolvers.reverse(self.url)
+        url = urls.reverse(self.url)
         ngclick = "modal.createKeyPair({ successUrl: '%s' })" % url
         self.attrs.update({
             'ng-controller': 'KeypairController as modal',

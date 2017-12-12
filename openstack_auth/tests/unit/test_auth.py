@@ -16,8 +16,8 @@ import uuid
 import django
 from django.conf import settings
 from django.contrib import auth
-from django.core.urlresolvers import reverse
 from django import test
+from django.urls import reverse
 from keystoneauth1 import exceptions as keystone_exceptions
 from keystoneauth1.identity import v2 as v2_auth
 from keystoneauth1.identity import v3 as v3_auth

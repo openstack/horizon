@@ -19,10 +19,10 @@ import six
 
 import django
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django.template.defaultfilters import slugify
 from django.test.utils import override_settings
+from django.urls import reverse
 from django.utils.http import urlunquote
 
 from openstack_dashboard import api

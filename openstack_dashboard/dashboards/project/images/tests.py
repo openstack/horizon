@@ -21,8 +21,8 @@ import os
 from socket import timeout as socket_timeout
 import unittest
 
-from django.core.urlresolvers import reverse
 from django import http
+from django.urls import reverse
 
 import mock
 from mox3.mox import IsA

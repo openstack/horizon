@@ -20,9 +20,9 @@ import logging
 import types
 
 from django.conf import settings
-from django.core import urlresolvers
 from django import shortcuts
 from django.template.loader import render_to_string
+from django import urls
 from django.utils.functional import Promise
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
@@ -406,10 +406,10 @@ class LinkAction(BaseAction):
         try:
             if datum:
                 obj_id = self.table.get_object_id(datum)
-                return urlresolvers.reverse(self.url, args=(obj_id,))
+                return urls.reverse(self.url, args=(obj_id,))
             else:
-                return urlresolvers.reverse(self.url)
-        except urlresolvers.NoReverseMatch as ex:
+                return urls.reverse(self.url)
+        except urls.NoReverseMatch as ex:
             LOG.info('No reverse found for "%(url)s": %(exception)s',
                      {'url': self.url, 'exception': ex})
             return self.url

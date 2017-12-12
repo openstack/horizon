@@ -13,8 +13,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core import urlresolvers
 from django.template.defaultfilters import title
+from django import urls
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 from keystoneclient import exceptions as keystone_exceptions
@@ -209,8 +209,8 @@ class AdminInstancesTable(tables.DataTable):
 
 
 def user_link(datum):
-    return urlresolvers.reverse("horizon:identity:users:detail",
-                                args=(datum.user_id,))
+    return urls.reverse("horizon:identity:users:detail",
+                        args=(datum.user_id,))
 
 
 class AdminAuditTable(audit_tables.AuditTable):

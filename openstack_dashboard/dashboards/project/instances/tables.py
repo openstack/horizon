@@ -16,11 +16,11 @@
 import logging
 
 from django.conf import settings
-from django.core import urlresolvers
 from django.http import HttpResponse
 from django import shortcuts
 from django import template
 from django.template.defaultfilters import title
+from django import urls
 from django.utils.http import urlencode
 from django.utils.safestring import mark_safe
 from django.utils.translation import npgettext_lazy
@@ -429,7 +429,7 @@ class LaunchLinkNG(LaunchLink):
     classes = ("btn-launch", )
 
     def get_default_attrs(self):
-        url = urlresolvers.reverse(self.url)
+        url = urls.reverse(self.url)
         ngclick = "modal.openLaunchInstanceWizard(" \
             "{ successUrl: '%s' })" % url
         self.attrs.update({
@@ -454,7 +454,7 @@ class EditInstance(policy.PolicyTargetMixin, tables.LinkAction):
         return self._get_link_url(project, 'instance_info')
 
     def _get_link_url(self, project, step_slug):
-        base_url = urlresolvers.reverse(self.url, args=[project.id])
+        base_url = urls.reverse(self.url, args=[project.id])
         next_url = self.table.get_full_url()
         params = {"step": step_slug,
                   update_instance.UpdateInstance.redirect_param_name: next_url}
@@ -542,7 +542,7 @@ class ResizeLink(policy.PolicyTargetMixin, tables.LinkAction):
         return self._get_link_url(project, 'flavor_choice')
 
     def _get_link_url(self, project, step_slug):
-        base_url = urlresolvers.reverse(self.url, args=[project.id])
+        base_url = urls.reverse(self.url, args=[project.id])
         next_url = self.table.get_full_url()
         params = {"step": step_slug,
                   resize_instance.ResizeInstance.redirect_param_name: next_url}
@@ -596,7 +596,7 @@ class RebuildInstance(policy.PolicyTargetMixin, tables.LinkAction):
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
-        return urlresolvers.reverse(self.url, args=[instance_id])
+        return urls.reverse(self.url, args=[instance_id])
 
 
 class DecryptInstancePassword(tables.LinkAction):
@@ -618,8 +618,8 @@ class DecryptInstancePassword(tables.LinkAction):
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
         keypair_name = get_keyname(datum)
-        return urlresolvers.reverse(self.url, args=[instance_id,
-                                                    keypair_name])
+        return urls.reverse(self.url, args=[instance_id,
+                                            keypair_name])
 
 
 class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
@@ -646,7 +646,7 @@ class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
         return not is_deleting(instance)
 
     def get_link_url(self, datum):
-        base_url = urlresolvers.reverse(self.url)
+        base_url = urls.reverse(self.url)
         next_url = self.table.get_full_url()
         params = {
             "instance_id": self.table.get_object_id(datum),
@@ -953,7 +953,7 @@ class AttachInterface(policy.PolicyTargetMixin, tables.LinkAction):
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
-        return urlresolvers.reverse(self.url, args=[instance_id])
+        return urls.reverse(self.url, args=[instance_id])
 
 
 class DetachInterface(policy.PolicyTargetMixin, tables.LinkAction):
@@ -979,7 +979,7 @@ class DetachInterface(policy.PolicyTargetMixin, tables.LinkAction):
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
-        return urlresolvers.reverse(self.url, args=[instance_id])
+        return urls.reverse(self.url, args=[instance_id])
 
 
 def get_ips(instance):

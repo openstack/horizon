@@ -19,10 +19,10 @@ Views for managing volumes.
 from collections import OrderedDict
 import json
 
-from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
 from django import shortcuts
 from django.template.defaultfilters import slugify
+from django.urls import reverse
+from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _

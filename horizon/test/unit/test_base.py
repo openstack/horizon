@@ -26,7 +26,7 @@ import django
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ImproperlyConfigured
-from django.core import urlresolvers
+from django import urls
 
 import horizon
 from horizon import base
@@ -125,7 +125,7 @@ class BaseHorizonTests(test.TestCase):
         Allows URLs to be re-calculated after registering new dashboards.
         Useful only for testing and should never be used on a live site.
         """
-        urlresolvers.clear_url_caches()
+        urls.clear_url_caches()
         moves.reload_module(import_module(settings.ROOT_URLCONF))
         base.Horizon._urls()
 
@@ -226,7 +226,7 @@ class HorizonTests(BaseHorizonTests):
         cats = horizon.get_dashboard("cats")
         tigers = cats.get_panel("tigers")
         tigers.index_url_name = "does_not_exist"
-        with self.assertRaises(urlresolvers.NoReverseMatch):
+        with self.assertRaises(urls.NoReverseMatch):
             tigers.get_absolute_url()
         tigers.index_url_name = "index"
         self.assertEqual("/cats/tigers/", tigers.get_absolute_url())

@@ -14,8 +14,8 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 

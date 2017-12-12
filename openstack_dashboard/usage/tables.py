@@ -10,8 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.core import urlresolvers
 from django.template.defaultfilters import floatformat
+from django import urls
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -73,7 +73,7 @@ class GlobalUsageTable(BaseUsageTable):
 def get_instance_link(datum):
     view = "horizon:project:instances:detail"
     if datum.get('instance_id', False):
-        return urlresolvers.reverse(view, args=(datum.get('instance_id'),))
+        return urls.reverse(view, args=(datum.get('instance_id'),))
     else:
         return None
 

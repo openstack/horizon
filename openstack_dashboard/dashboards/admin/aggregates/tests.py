@@ -12,8 +12,8 @@
 
 import mock
 
-from django.core.urlresolvers import reverse
 from django import http
+from django.urls import reverse
 from django.utils import html
 from mox3.mox import IsA
 

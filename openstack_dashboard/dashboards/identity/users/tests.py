@@ -19,9 +19,9 @@
 from socket import timeout as socket_timeout
 
 import django
-from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
+from django.urls import reverse
 
 from mox3.mox import IgnoreArg
 from mox3.mox import IsA

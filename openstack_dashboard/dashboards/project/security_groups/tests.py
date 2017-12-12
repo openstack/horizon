@@ -23,8 +23,8 @@ import six
 
 import django
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django import http
+from django.urls import reverse
 
 from horizon import exceptions
 from horizon import forms

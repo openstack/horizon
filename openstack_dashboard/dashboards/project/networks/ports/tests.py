@@ -15,8 +15,8 @@
 
 import copy
 
-from django.core.urlresolvers import reverse
 from django import http
+from django.urls import reverse
 
 from mox3.mox import IsA
 

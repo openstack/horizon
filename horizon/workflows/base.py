@@ -17,13 +17,13 @@ from importlib import import_module
 import inspect
 import logging
 
-from django.core import urlresolvers
 from django import forms
 from django.forms.forms import NON_FIELD_ERRORS
 from django import template
 from django.template.defaultfilters import linebreaks
 from django.template.defaultfilters import safe
 from django.template.defaultfilters import slugify
+from django import urls
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 from openstack_auth import policy
@@ -858,8 +858,8 @@ class Workflow(html.HTMLElement):
         or a standard HTTP URL.
         """
         try:
-            return urlresolvers.reverse(self.success_url)
-        except urlresolvers.NoReverseMatch:
+            return urls.reverse(self.success_url)
+        except urls.NoReverseMatch:
             return self.success_url
 
     def format_status_message(self, message):

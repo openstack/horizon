@@ -13,10 +13,10 @@
 #    under the License.
 
 from django.conf import settings
-from django.core.urlresolvers import NoReverseMatch
-from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.template import defaultfilters as filters
+from django.urls import NoReverseMatch
+from django.urls import reverse
 from django.utils import html
 from django.utils.http import urlencode
 from django.utils import safestring
