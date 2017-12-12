@@ -158,15 +158,6 @@ class AdminIndexView(tables.DataTableView):
                 # don't call api.network
                 return
 
-            try:
-                api.network.servers_update_addresses(self.request, instances,
-                                                     all_tenants=True)
-            except Exception:
-                exceptions.handle(
-                    self.request,
-                    message=_('Unable to retrieve IP addresses from Neutron.'),
-                    ignore=True)
-
         with futurist.ThreadPoolExecutor(max_workers=3) as e:
             e.submit(fn=_task_get_tenants)
             e.submit(fn=_task_get_images)

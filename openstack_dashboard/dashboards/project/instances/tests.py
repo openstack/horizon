@@ -132,7 +132,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             'servers_update_addresses',
         ),
     })
-    def _get_index(self):
+    def _get_index(self, use_servers_update_address=True):
         servers = self.servers.list()
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
@@ -148,7 +148,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        if use_servers_update_address:
+            api.network.servers_update_addresses(IsA(http.HttpRequest),
+                                                 servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
@@ -163,6 +165,16 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_index(self):
 
         res = self._get_index()
+
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        instances = res.context['instances_table'].data
+
+        self.assertItemsEqual(instances, self.servers.list())
+        self.assertNotContains(res, "Launch Instance (Quota exceeded)")
+
+    @override_settings(OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES=False)
+    def test_index_without_servers_update_addresses(self):
+        res = self._get_index(use_servers_update_address=False)
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['instances_table'].data

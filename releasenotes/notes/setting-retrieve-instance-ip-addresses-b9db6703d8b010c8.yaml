@@ -1,0 +1,10 @@
+---
+fixes:
+  - |
+    A new setting ``OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES`` was introduced
+    to control whether IP addresses of servers are retrieved from neutron in
+    the project instance table. This setting was introduces to mitigate a
+    performance issue in large deployments and setting this to ``False``
+    skips the query to neutron. Deployments without floating IP support can
+    set this setting to ``False`` for better performance.
+    For more detail, see [:bug:`1722417`].

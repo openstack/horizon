@@ -2126,6 +2126,39 @@ Setting ``enable_quotas`` to ``False`` will make Horizon treat all Nova
 quotas as disabled, thus it won't try to modify them. By default, quotas are
 enabled.
 
+OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 13.0.0(Queens)
+
+Default: ``True``
+
+This settings controls whether IP addresses of servers are retrieved from
+neutron in the project instance table. Setting this to ``False`` may mitigate
+a performance issue in the project instance table in large deployments.
+
+If your deployment has no support of floating IP like provider network
+scenario, you can set this to ``False`` in most cases. If your deployment
+supports floating IP, read the detail below and understand the under-the-hood
+before setting this to ``False``.
+
+Nova has a mechanism to cache network info but it is not fast enough
+in some cases. For example, when a user associates a floating IP or
+updates an IP address of an server port, it is not reflected to the nova
+network info cache immediately. This means an action which a user makes
+from the horizon instance table is not reflected into the table content
+just after the action. To avoid this, horizon retrieves IP address info
+from neutron when retrieving a list of servers from nova.
+
+On the other hand, this operation requires a full list of neutron ports
+and can potentially lead to a performance issue in large deployments
+(`bug 1722417 <https://bugs.launchpad.net/horizon/+bug/1722417>`__).
+This issue can be avoided by skipping querying IP addresses to neutron
+and setting this to ``False`` achieves this.
+Note that when disabling the query to neutron it takes some time until
+associated floating IPs are visible in the project instance table and
+users may reload the table to check them.
+
 OPENSTACK_NOVA_EXTENSIONS_BLACKLIST
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
