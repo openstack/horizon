@@ -25,5 +25,5 @@ urlpatterns = [
         views.AdminDetailView.as_view(),
         name='detail'),
     url(r'^$', views.AdminIndexView.as_view(), name='index'),
-    url(r'', include(compute_urls, namespace='compute')),
+    url(r'', include((compute_urls, 'compute'))),
 ]

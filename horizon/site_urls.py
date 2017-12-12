@@ -32,7 +32,7 @@ urlpatterns = [
 # Client-side i18n URLconf.
 urlpatterns.extend([
     url(r'^i18n/js/(?P<packages>\S+?)/$',
-        i18n.javascript_catalog,
+        i18n.JavaScriptCatalog.as_view(),
         name='jsi18n'),
     url(r'^i18n/setlang/$',
         i18n.set_language,

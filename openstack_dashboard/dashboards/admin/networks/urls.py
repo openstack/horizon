@@ -53,6 +53,6 @@ urlpatterns = [
     url(r'^(?P<network_id>[^/]+)/ports/(?P<port_id>[^/]+)/update$',
         port_views.UpdateView.as_view(), name='editport'),
 
-    url(r'^subnets/', include(subnet_urls, namespace='subnets')),
-    url(r'^ports/', include(port_urls, namespace='ports')),
+    url(r'^subnets/', include((subnet_urls, 'subnets'))),
+    url(r'^ports/', include((port_urls, 'ports'))),
 ]

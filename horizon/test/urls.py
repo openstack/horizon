@@ -27,11 +27,12 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 
 import horizon
+import horizon.base
 from horizon.test.jasmine import jasmine
 
 
 urlpatterns = [
-    url(r'', include(horizon.urls)),
+    url(r'', horizon.base._wrapped_include(horizon.urls)),
     url(r"auth/login/", views.login, {'template_name': "auth/login.html"},
         name='login'),
     url(r'auth/', include('django.contrib.auth.urls')),

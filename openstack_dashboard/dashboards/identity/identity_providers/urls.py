@@ -32,5 +32,5 @@ urlpatterns = [
         views.UpdateView.as_view(), name='update'),
     url(r'^register/$', views.RegisterView.as_view(), name='register'),
     url(r'(?P<identity_provider_id>[^/]+)/protocols/',
-        include(protocol_urls, namespace='protocols')),
+        include((protocol_urls, 'protocols'))),
 ]

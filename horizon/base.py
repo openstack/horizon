@@ -89,6 +89,24 @@ def access_cached(func):
     return inner
 
 
+def _wrapped_include(arg):
+    """Convert the old 3-tuple arg for include() into the new format.
+
+    The argument "arg" should be a tuple with 3 elements:
+    (pattern_list, app_namespace, instance_namespace)
+
+    Prior to Django 2.0, django.urls.conf.include() accepts 3-tuple arg
+    (urlconf, namespace, app_name), but it was droppped in Django 2.0.
+    This function is used to convert the older 3-tuple used in horizon code
+    into the new format where namespace needs to be passed as the second arg.
+
+    For more details, see
+    https://docs.djangoproject.com/en/2.0/releases/1.9/#passing-a-3-tuple-or-an-app-name-to-include
+    """
+    pattern_list, app_namespace, instance_namespace = arg
+    return include((pattern_list, app_namespace), namespace=instance_namespace)
+
+
 class NotRegistered(Exception):
     pass
 
@@ -544,12 +562,13 @@ class Dashboard(Registry, HorizonComponent):
                 continue
             url_slug = panel.slug.replace('.', '/')
             urlpatterns.append(url(r'^%s/' % url_slug,
-                                   include(panel._decorated_urls)))
+                                   _wrapped_include(panel._decorated_urls)))
         # Now the default view, which should come last
         if not default_panel:
             raise NotRegistered('The default panel "%s" is not registered.'
                                 % self.default_panel)
-        urlpatterns.append(url(r'', include(default_panel._decorated_urls)))
+        urlpatterns.append(
+            url(r'', _wrapped_include(default_panel._decorated_urls)))
 
         # Require login if not public.
         if not self.public:
@@ -867,7 +886,7 @@ class Site(Registry, HorizonComponent):
         # Compile the dynamic urlconf.
         for dash in self._registry.values():
             urlpatterns.append(url(r'^%s/' % dash.slug,
-                                   include(dash._decorated_urls)))
+                                   _wrapped_include(dash._decorated_urls)))
 
         # add URL for ngdetails
         views = import_module('horizon.browsers.views')
