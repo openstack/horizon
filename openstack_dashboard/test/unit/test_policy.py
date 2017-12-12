@@ -1,3 +1,4 @@
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -15,6 +16,20 @@ from openstack_auth import policy as policy_backend
 
 from openstack_dashboard import policy
 from openstack_dashboard.test import helpers as test
+
+
+class PolicyTestCase(test.TestCase):
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    def test_policy_check_set(self):
+        value = policy.check((("identity", "admin_required"),),
+                             request=self.request)
+        self.assertFalse(value)
+
+    @override_settings(POLICY_CHECK_FUNCTION=None)
+    def test_policy_check_not_set(self):
+        value = policy.check((("identity", "admin_required"),),
+                             request=self.request)
+        self.assertTrue(value)
 
 
 class PolicyBackendTestCase(test.TestCase):
