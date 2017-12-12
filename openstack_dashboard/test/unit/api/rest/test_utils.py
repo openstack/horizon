@@ -23,7 +23,6 @@ class RestUtilsTestCase(test.TestCase):
             return 'ok'
         request = self.mock_rest_request()
         response = f(None, request)
-        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 200)
         self.assertEqual("ok", response.json)
 
@@ -33,7 +32,6 @@ class RestUtilsTestCase(test.TestCase):
             return 'ok'
         request = self.mock_rest_request()
         response = f(None, request)
-        request.user.is_authenticated.assert_not_called()
         self.assertStatusCode(response, 200)
         self.assertEqual("ok", response.json)
 
@@ -42,10 +40,9 @@ class RestUtilsTestCase(test.TestCase):
         def f(self, request):
             return 'ok'
         request = self.mock_rest_request(**{
-            'user.is_authenticated.return_value': False
+            'user.is_authenticated': False
         })
         response = f(None, request)
-        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 401)
         self.assertEqual("not logged in", response.json)
 
@@ -111,7 +108,6 @@ class RestUtilsTestCase(test.TestCase):
             return utils.CreatedResponse('/api/spam/spam123')
         request = self.mock_rest_request()
         response = f(None, request)
-        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 201)
         self.assertEqual('/api/spam/spam123', response['location'])
         self.assertEqual(b'', response.content)
@@ -122,7 +118,6 @@ class RestUtilsTestCase(test.TestCase):
             return utils.CreatedResponse('/api/spam/spam123', 'spam!')
         request = self.mock_rest_request()
         response = f(None, request)
-        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 201)
         self.assertEqual('/api/spam/spam123', response['location'])
         self.assertEqual("spam!", response.json)
@@ -185,7 +180,6 @@ class JSONEncoderTestCase(test.TestCase):
 
         request = self.mock_rest_request()
         response = f(self, request)
-        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 200)
         self.assertEqual('application/json', response['content-type'])
         self.assertEqual(b'NaN', response.content)
@@ -197,7 +191,6 @@ class JSONEncoderTestCase(test.TestCase):
 
         request = self.mock_rest_request()
         response = f(self, request)
-        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 200)
         self.assertEqual('application/json', response['content-type'])
         self.assertEqual(b'1e+999', response.content)
@@ -209,7 +202,6 @@ class JSONEncoderTestCase(test.TestCase):
 
         request = self.mock_rest_request()
         response = f(self, request)
-        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 200)
         self.assertEqual('application/json', response['content-type'])
         self.assertEqual(b'-1e+999', response.content)

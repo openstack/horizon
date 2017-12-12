@@ -48,7 +48,7 @@ def require_auth(view_func):
 
     @functools.wraps(view_func, assigned=available_attrs(view_func))
     def dec(request, *args, **kwargs):
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return view_func(request, *args, **kwargs)
         raise NotAuthenticated(_("Please log in to continue."))
     return dec
@@ -79,7 +79,7 @@ def require_perms(view_func, required):
 
     @functools.wraps(view_func, assigned=available_attrs(view_func))
     def dec(request, *args, **kwargs):
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if request.user.has_perms(view_func._required_perms):
                 return view_func(request, *args, **kwargs)
         raise NotAuthorized(_("You are not authorized to access %s")

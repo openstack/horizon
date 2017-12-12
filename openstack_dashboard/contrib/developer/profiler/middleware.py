@@ -72,7 +72,7 @@ class ProfilerMiddleware(object):
 
     @staticmethod
     def is_authenticated(request):
-        return hasattr(request, "user") and request.user.is_authenticated()
+        return hasattr(request, "user") and request.user.is_authenticated
 
     def is_enabled(self, request):
         return self.is_authenticated(request) and settings.DEBUG

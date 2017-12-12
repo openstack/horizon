@@ -69,7 +69,7 @@ def login(request, template_name=None, extra_context=None, **kwargs):
         # dashboard straight away, unless the 'next' parameter is set as it
         # usually indicates requesting access to a page that requires different
         # permissions.
-        if (request.user.is_authenticated() and
+        if (request.user.is_authenticated and
                 auth.REDIRECT_FIELD_NAME not in request.GET and
                 auth.REDIRECT_FIELD_NAME not in request.POST):
             return shortcuts.redirect(settings.LOGIN_REDIRECT_URL)
@@ -114,7 +114,7 @@ def login(request, template_name=None, extra_context=None, **kwargs):
 
     # Set the session data here because django's session key rotation
     # will erase it if we set it earlier.
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         auth_user.set_session_from_user(request, request.user)
         regions = dict(forms.Login.get_region_choices())
         region = request.user.endpoint

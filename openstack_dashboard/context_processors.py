@@ -44,7 +44,7 @@ def openstack(request):
 
     # Auth/Keystone context
     context.setdefault('authorized_tenants', [])
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         context['authorized_tenants'] = [
             tenant for tenant in
             request.user.authorized_tenants if tenant.enabled]

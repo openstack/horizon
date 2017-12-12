@@ -105,7 +105,7 @@ def ajax(authenticated=True, data_required=False,
         @functools.wraps(function,
                          assigned=decorators.available_attrs(function))
         def _wrapped(self, request, *args, **kw):
-            if authenticated and not request.user.is_authenticated():
+            if authenticated and not request.user.is_authenticated:
                 return JSONResponse('not logged in', 401)
             if not request.is_ajax():
                 return JSONResponse('request must be AJAX', 400)

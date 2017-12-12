@@ -243,7 +243,7 @@ class KeystoneBackend(object):
 
         The permissions are returned as ``"openstack.{{ role.name }}"``.
         """
-        if user.is_anonymous() or obj is not None:
+        if user.is_anonymous or obj is not None:
             return set()
         # TODO(gabrielhurley): Integrate policy-driven RBAC
         #                      when supported by Keystone.

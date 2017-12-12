@@ -116,7 +116,7 @@ class OperationLogMiddleware(object):
         user = getattr(request, 'user', None)
         if not user:
             return
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             return
         method = request.method.upper()
         if not (method in self.target_methods):
