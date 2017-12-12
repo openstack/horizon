@@ -102,6 +102,7 @@ horizon.flat_network_topology = {
       })
       .on('click', 'a.vnc_window', function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var vnc_window = window.open($(this).attr('href'), vnc_window, 'width=760,height=560');
         self.delete_balloon();
       })
