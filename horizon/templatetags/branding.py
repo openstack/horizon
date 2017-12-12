@@ -52,7 +52,7 @@ def site_branding_link():
 
 # TODO(jeffjapan): This is just an assignment tag version of the above, replace
 #                  when the dashboard is upgraded to a django version that
-#                  supports the @assignment_tag decorator syntax instead.
+#                  supports the @simple_tag decorator syntax instead.
 class SaveBrandingNode(template.Node):
     def __init__(self, var_name):
         self.var_name = var_name

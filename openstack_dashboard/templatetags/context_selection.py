@@ -34,14 +34,14 @@ def is_multidomain_supported():
                     False))
 
 
-@register.assignment_tag(takes_context=True)
+@register.simple_tag(takes_context=True)
 def is_multi_region(context):
     if 'request' not in context:
         return False
     return is_multi_region_configured(context['request'])
 
 
-@register.assignment_tag
+@register.simple_tag
 def is_multidomain():
     return is_multidomain_supported()
 
