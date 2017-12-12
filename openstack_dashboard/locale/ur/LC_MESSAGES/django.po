@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,14 +44,6 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -97,14 +89,8 @@ msgstr "، پروجیكٹ گروپوں کو اپ ڈیٹ کریں"
 msgid "-"
 msgstr "-"
 
-msgid "A local environment to upload."
-msgstr "ایک مقامی ماحول کو اپ لوڈ کریں."
-
 msgid "A local image to upload."
 msgstr "ایک مقامی امیج اپ لوڈ کریں."
-
-msgid "A local template to upload."
-msgstr "مقامی ٹیمپلیٹ کو اپ لوڈ کریں."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -287,9 +273,6 @@ msgstr "مختص عارضی IP %(ip)s.."
 msgid "Allocation Pools"
 msgstr "الاٹمنٹ پولس"
 
-msgid "An external (HTTP) URL to load the template from."
-msgstr "بیرونی(HTTP) URL سے ٹیمپلیٹ لوڈ كریں."
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -443,12 +426,6 @@ msgstr "تبدیل كریں"
 
 msgid "Change Password"
 msgstr "پاس ورڈ تبدیل كریں"
-
-msgid "Change Stack Template"
-msgstr "اسٹاك ٹیمپلیٹ تبدیل كریں"
-
-msgid "Change Template"
-msgstr "ٹیمپلیٹ تبدیل كریں"
 
 msgid "Change Volume Type"
 msgstr "ولیوم ٹائپ تبدیل كریں"
@@ -664,9 +641,6 @@ msgstr "اسنیپ شاٹ كی تخلیق كریں"
 msgid "Create Spec"
 msgstr "تصریح تخلیق كریں"
 
-msgid "Create Stack"
-msgstr "اسٹاك كی تخلیق كریں"
-
 msgid "Create Subnet"
 msgstr "سب نیٹ كی تخلیق كریں"
 
@@ -708,9 +682,6 @@ msgstr "حجم قسم کے لئے نیا \"اضافی ونیردیشن \" کلی
 
 msgid "Create a new role."
 msgstr "نئی کرداركی تخلیق كریں"
-
-msgid "Create a new stack with the provided values."
-msgstr "فراہم اقدار کے ساتھ نئے اسٹاك كی تخلیق كریں۔"
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -796,9 +767,6 @@ msgstr "ولیوم بیك اپ \"%s\" كی تخلیق "
 msgid "Creating volume snapshot \"%s\"."
 msgstr "ولیوم اسنیپ شاٹ  \"%s\" كی تخلیق كررہا ہے۔"
 
-msgid "Creation Timeout (minutes)"
-msgstr "تخلیق ٹائم آؤٹ (منٹ)"
-
 msgid "Current Host"
 msgstr "موجودہ ہوسٹ"
 
@@ -825,9 +793,6 @@ msgstr "DHCP نمائندے"
 
 msgid "DNS Name Servers"
 msgstr "DNS نام سرورز"
-
-msgid "Date Updated"
-msgstr "تاریخ اپ ڈیٹ كریں"
 
 msgid "Decrypt Password"
 msgstr "پاس ڈكرپٹ کریں"
@@ -1098,9 +1063,6 @@ msgstr "تصریح كی ترمیم كریں"
 msgid "Edit Subnet"
 msgstr "سب نیٹ كی ترمیم كریں"
 
-msgid "Edit Template"
-msgstr "ٹیمپلیٹ كی ترمیم كریں"
-
 msgid "Edit Volume"
 msgstr "ولیوم كی ترمیم كریں"
 
@@ -1139,9 +1101,6 @@ msgstr "DHCP قابل كریں"
 msgid "Enable HA mode"
 msgstr "HA موڈ قابل كریں"
 
-msgid "Enable rollback on create/update failure."
-msgstr "اپ ڈیٹ / ناکامی تخلق پر رول بیك قابل کریں."
-
 msgid "Enabled"
 msgstr "فعال كریں"
 
@@ -1166,15 +1125,6 @@ msgstr "(-1: 255) رینج میں ICMP ٹائپ کے لئے قیمت درج كر
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 اور 65535 کے درمیان ایک انٹیگر ویلیو درج کریں."
-
-msgid "Environment Data"
-msgstr "ماحولیات ڈیٹا"
-
-msgid "Environment File"
-msgstr "ماحولیاتی فائل"
-
-msgid "Environment Source"
-msgstr "ماحولیات كا ماخذ"
 
 msgid "Ephemeral Disk"
 msgstr "عارضی ڈسک"
@@ -1239,9 +1189,6 @@ msgstr "آپریٹر کا اندازہ کریں"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "فعال ٹارگیٹ میزبان کے نیچے منتخب ہوسٹ سے سرور کو خالی کریں."
-
-msgid "Events"
-msgstr "واقعات"
 
 msgid "Extend Volume"
 msgstr "ولیوم كو وسیع كرییں"
@@ -1872,9 +1819,6 @@ msgstr "کلیدی قدر جوڑی"
 msgid "Language"
 msgstr "زبان"
 
-msgid "Last Updated"
-msgstr "آخری اپ ڈیٹ كیا "
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "آخری اپ ڈیٹ كیا "
@@ -1887,12 +1831,6 @@ msgstr "لانچ انسٹانس"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "انسٹانس لانچ کریں (کوٹہ سے زیادہ ہو گیا)"
-
-msgid "Launch Parameters"
-msgstr "لاؤنچ پیرامیٹرز"
-
-msgid "Launch Stack"
-msgstr "لاؤنچ اسٹاك "
 
 msgid "Launch as Instance"
 msgstr "انسٹانس جیسے لانچ كریں"
@@ -2027,9 +1965,6 @@ msgstr "کم از کم ڈسک (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "کم از کم RAM (GB)"
 
-msgid "Minutes"
-msgstr "منٹس"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "تبدیل شدہ ڈومین  \"%s\"."
@@ -2090,16 +2025,6 @@ msgstr "نام"
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "نام میں صرف ایک حروف، تعداد، ہائفن، اور ڈیش ہی ہو سکتے ہیں."
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"نام حرف کے ساتھ شروع ہوگا اور صرف حروف، تعداد، کی ترجمانی ہے، اس وقت "
-"انڈراسكورکی علامت ہو سکتی ہے."
-
-msgid "Name of the stack to create."
-msgstr "تخلیق کرنے کے لئے اسٹیک کا نام ہیں."
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -2175,9 +2100,6 @@ msgstr "نیا پاس ورڈ"
 
 msgid "New size must be greater than current size."
 msgstr "نئے سائز حالیہ سائز سے بڑا ہونا چاہیے۔"
-
-msgid "Next"
-msgstr "اگلا"
 
 msgid "No"
 msgstr "نہیں"
@@ -2351,9 +2273,6 @@ msgstr "متبادل طور پر، آپ کو ایک نئے ولیوم كی تخ�
 msgid "Other Protocol"
 msgstr "دیگر پروٹوكول"
 
-msgid "Outputs"
-msgstr "آؤٹ پٹس"
-
 msgid "Overview"
 msgstr "اوور ویو"
 
@@ -2362,9 +2281,6 @@ msgstr "مالك"
 
 msgid "Page Not Found"
 msgstr "صفحہ نہیں ملے"
-
-msgid "Parameters"
-msgstr "پیرامیٹرز"
 
 msgid "Password"
 msgstr "پاس ورڈ"
@@ -2375,10 +2291,6 @@ msgstr "پاس ورڈ"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "پاس ورڈ تبدیل کر دیا. جاری رکھنے کے لئے پھر سے لاگ ان کریں."
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "صارف \"%s\" كے لیے پاس ورڈ"
 
 msgid "Passwords do not match."
 msgstr "پاس ورڈ میچ نہیں کرتے."
@@ -2399,10 +2311,6 @@ msgstr "جسمانی نیٹورك :"
 
 msgid "Please note: "
 msgstr "براہ مہربانی نوٹ کریں:"
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "ماخذ طریقہ صرف ایک کا استعمال کر%s کی وضاحت کریں."
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2593,15 +2501,6 @@ msgstr "سائز تبدیل كریں"
 msgid "Resize Instance"
 msgstr "انسٹانس كو دوبارہ تبدیل كریں"
 
-msgid "Resource"
-msgstr "ماخذ"
-
-msgid "Resource ID"
-msgstr "وسائل کی ID"
-
-msgid "Resource Metadata"
-msgstr "وسائل میٹا ڈاٹا"
-
 msgid "Resources"
 msgstr "ماخذات"
 
@@ -2647,12 +2546,6 @@ msgstr "کردار کامیابی سے اپ ڈیٹ."
 
 msgid "Roles"
 msgstr "رولس"
-
-msgid "Rollback"
-msgstr "رول بیك"
-
-msgid "Rollback On Failure"
-msgstr "ناکامی پر تخفیف"
 
 msgid "Root Disk"
 msgstr "روٹ ڈسک"
@@ -2749,9 +2642,6 @@ msgstr "اسکرپٹ ماخذ منتخب کریں"
 msgid "Select Subnet"
 msgstr "سب نیٹ منتخب "
 
-msgid "Select Template"
-msgstr "ٹیمپلیٹ منتخب كریں"
-
 msgid "Select Volume"
 msgstr "ولیوم منتخب كریں"
 
@@ -2770,9 +2660,6 @@ msgstr "نئے ایجنٹ كو منتخب كریں"
 msgid "Select a new host"
 msgstr "نیا میزبانی منتخب کریں"
 
-msgid "Select a new template to re-launch a stack."
-msgstr "اساٹک کو دوبارہ شروع کرنے کے لئے نئے ٹیمپلیٹ کو منتخب کریں."
-
 msgid "Select a port"
 msgstr "پورٹ منتخب كریں"
 
@@ -2781,9 +2668,6 @@ msgstr "پروجیكٹ انتخاب کریں"
 
 msgid "Select a target host"
 msgstr "ٹارگیٹ میزبان منتخب کریں"
-
-msgid "Select a template to launch a stack."
-msgstr "ایک اسٹیک لانچ کرنے کے لئے ٹیمپلیٹ کو منتخب کریں."
 
 msgid "Select a volume to restore to."
 msgstr "ريسٹور کرنے کے لئے ولیوم کو منتخب کریں."
@@ -2942,42 +2826,6 @@ msgstr "انسٹانس شروع کرنے کے لئے تفصیلات کی وضا�
 msgid "Specs"
 msgstr "اسپیس"
 
-msgid "Stack Events"
-msgstr "اسٹاك واقعات"
-
-msgid "Stack ID"
-msgstr "اسٹاك ID"
-
-msgid "Stack Name"
-msgstr "اسٹاك نام "
-
-msgid "Stack Parameters"
-msgstr "اسٹاك پیرامیٹرز"
-
-msgid "Stack Resource"
-msgstr "اسٹاك ماخذ"
-
-msgid "Stack Resource ID"
-msgstr "اسٹاک وسائل ID"
-
-msgid "Stack Resource Type"
-msgstr "اسٹاك ماخذ ٹائپ"
-
-msgid "Stack Resources"
-msgstr "اسٹاك ماخذات"
-
-msgid "Stack creation started."
-msgstr "اسٹاك كی تخلیق شروع كردی گئی۔"
-
-msgid "Stack creation timeout in minutes."
-msgstr "منٹ میں اسٹاك ٹائم آؤٹ تخلیق."
-
-msgid "Stack update started."
-msgstr "اسٹاك اپ ڈیٹ شروع كردیا گیا۔"
-
-msgid "Stacks"
-msgstr "اسٹاكس"
-
 msgid "Start"
 msgstr "شروع كریں"
 
@@ -3004,9 +2852,6 @@ msgstr "حالت"
 
 msgid "Status ="
 msgstr "حالت ="
-
-msgid "Status Reason"
-msgstr "حالات كی وجہ"
 
 msgid "Subnet"
 msgstr "سب نیٹ"
@@ -3123,21 +2968,6 @@ msgstr "ٹارگیٹ ہوسٹ"
 
 msgid "Task"
 msgstr "کام"
-
-msgid "Template"
-msgstr "ٹیمپلیٹ "
-
-msgid "Template Data"
-msgstr "ٹیمپلیٹ ڈاٹا"
-
-msgid "Template File"
-msgstr "ٹیمپلیٹ فائل"
-
-msgid "Template Source"
-msgstr "ٹیمپلیٹ ماخذ"
-
-msgid "Template URL"
-msgstr "ٹیمپلیٹ URL"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"سے \" پورٹ نمبرغیر معتبر ہے."
@@ -3278,12 +3108,6 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "اس جعلی فولڈر کو خارج نہیں كیا جا سکتا ہے کیونکہ یہ خالی نہیں ہے."
 
-msgid "The raw contents of the environment file."
-msgstr "ماحول فائل کا خام مواد."
-
-msgid "The raw contents of the template."
-msgstr "ٹیمپلیٹ کی خام مندرجات."
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
@@ -3332,26 +3156,14 @@ msgstr ""
 "key.pub) کلید ہیں. یہاں عوامی کلید کے مواد پیسٹ كرتی ہے۔"
 
 msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr ""
-"آپریشن اسٹاك کی لائف سائیكل کے دوران کارکردگی کا مظاہرہ کیا جانا ضروری ہے"
-
-msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "یہ ولیوم اس وقت ایک انسٹانس سے منسلک ہے. بعض صورتوں میں، ایک منسلک ولیوم سے "
 "اسنیپ شاٹ كی تخلیق كرنے میں بدعنوان ترین تصویر کے نتیجے میں کر سکتے ہیں."
 
-msgid "Time Since Event"
-msgstr "واقعہ کے بعد كا وقت"
-
 msgid "Time since created"
 msgstr "وقت کے بعد سے تخلیق"
-
-msgid "Timeout"
-msgstr "ٹائم آؤٹ"
 
 msgid "Timezone"
 msgstr "ٹائم زون"
@@ -3396,9 +3208,6 @@ msgstr "پروجیکٹ کے لئے کل ڈسک استعمال (GB * استعما
 
 msgid "Type"
 msgstr "قسم"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -3550,10 +3359,6 @@ msgstr "\"%s\" انسٹانس کے لئے VNC کنسول حاصل کرنے می�
 msgid "Unable to get cinder services list."
 msgstr "سنڈر خدمات کی فہرست حاصل کرنے کے قابل نہیں."
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "اسٹاك \"%s\" کے لئے واقعات کو حاصل کرنے میں ناقابل."
-
 msgid "Unable to get flavor list"
 msgstr "فلیور فہرست حاصل کرنے کے قابل نہیں"
 
@@ -3578,10 +3383,6 @@ msgstr "openrc اسناد حاصل کرنے کے قابل نہیں"
 
 msgid "Unable to get quota info."
 msgstr "کوٹہ معلومات حاصل کرنے کے قابل نہیں."
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "اسٹاك \"%s\" کے لئے وسائل کو حاصل کرنے میں ناقابل."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -3847,9 +3648,6 @@ msgstr "حجم اسنیپ شاٹ کے فہرست کو حاصل کرنے میں �
 msgid "Unable to retrieve list of volumes."
 msgstr "ورژن کی فہرست حاصل کرنے میں ناقابل."
 
-msgid "Unable to retrieve metadata."
-msgstr "میٹا ڈاٹا حاصل کرنے میں ناقابل."
-
 msgid "Unable to retrieve network details."
 msgstr "نیٹ ورک کی معلومات حاصل کرنے میں ناقابل."
 
@@ -3882,9 +3680,6 @@ msgstr "عوامی امیج کو دوبارہ حاصل کرنے کے قابل ن
 
 msgid "Unable to retrieve quota information."
 msgstr "کوٹہ انفارمیشن پانے میں ناقابل."
-
-msgid "Unable to retrieve resource."
-msgstr "وسائل کو دوبارہ حاصل کرنے میں ناقابل."
 
 msgid "Unable to retrieve role list."
 msgstr "کردار فہرست کو حاصل کرنے کے قابل نہیں."
@@ -3921,15 +3716,6 @@ msgstr "اسنیپ شاٹ معلومات حاصل کرنے ناقابل."
 
 msgid "Unable to retrieve snapshot list."
 msgstr "اسنیپ شاٹ فہرست بازیافت کرنے میں ناقابل."
-
-msgid "Unable to retrieve stack list."
-msgstr "اسٹاك فہرست کو حاصل کرنے میں ناقابل."
-
-msgid "Unable to retrieve stack template."
-msgstr "اسٹاک ٹیمپلیٹ کو بازیافت کرنے میں ناقابل."
-
-msgid "Unable to retrieve stack."
-msgstr "اسٹاك کو دوبارہ حاصل کرنے میں ناقابل."
 
 msgid "Unable to retrieve subnet details"
 msgstr "ذیلی نیٹ تفصیلات حاصل کرنے میں ناقابل"
@@ -4126,12 +3912,6 @@ msgstr "رول كو اپ ڈیٹ كریں"
 msgid "Update Router"
 msgstr "راؤٹر كو اپ ڈیٹ كریں"
 
-msgid "Update Stack"
-msgstr "اسٹاك اپ ڈیٹ كریں"
-
-msgid "Update Stack Parameters"
-msgstr "اسٹاك پیرامیٹراپ ڈیٹ كریں"
-
 msgid "Update Status"
 msgstr "اسٹیٹس اپ ڈیٹ کریں "
 
@@ -4143,15 +3923,6 @@ msgstr "حجم اسنیپ شاٹ حیثیت کو اپ ڈیٹ کریں"
 
 msgid "Update Volume Status"
 msgstr "ویلیوم حالت کو اپ ڈیٹ کریں"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"فراہم اقدار کے ساتھ اسٹاك کو اپ ڈیٹ کریں. اس طرح کے پاس ورڈ کے طور پر کسی "
-"بھی خفیہ کردہ پیرامیٹر، آپ انہیں یہاں تبدیلی نہیں کرتے ہیں تو، ڈیفالٹ پر ری "
-"سیٹ ہو جائے گا براہ كرم نوٹ کریں."
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -4212,13 +3983,6 @@ msgstr "ویلو جیسے ماخذ كا استعمال كریں"
 
 msgid "Use image as a source"
 msgstr "امیج جیسے ماخذ كا استعمال كریں"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"اس اسٹاك كی تخلیق كرنے میں استعمال کی جانے والی ٹیمپلیٹ مخصوص دستیاب ٹیمپلیٹ "
-"كے ذریعہ اختیارات میں استعمال کریں."
 
 msgid "Use snapshot as a source"
 msgstr "اسنیپ شاٹ جیسے ماخذ استعمال كریں"
@@ -4470,9 +4234,6 @@ msgstr "آپ ایک امیج کا انتخاب کرنا چاہیے."
 msgid "You must set volume size"
 msgstr "ولیوم سائز سیٹ كرنا چاہیے"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "آپ کو دستیاب ذرائع میں سے ایک کے ذریعے ایک ٹیمپلیٹ کی وضاحت لازمی ہے."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4499,17 +4260,11 @@ msgstr "بیک-اینڈ"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-msgid "environment"
-msgstr "ماحولیات"
-
 msgid "front-end"
 msgstr "فرنٹ - اینڈ"
 
 msgid "instance"
 msgstr "انسٹانس"
-
-msgid "template"
-msgstr "ٹیمپلیٹ"
 
 msgid "undefined"
 msgstr "غیروضاحتی"

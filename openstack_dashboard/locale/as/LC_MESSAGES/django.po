@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,14 +44,6 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -103,14 +95,8 @@ msgstr ", প্ৰক্ষেপ গোটবোৰ আপডেট কৰক"
 msgid "-"
 msgstr "-"
 
-msgid "A local environment to upload."
-msgstr "আপলোড কৰিবলৈ এটা স্থানীয় পৰিৱেশ."
-
 msgid "A local image to upload."
 msgstr "আপলোড কৰিবলৈ এটা স্থানীয় ছবি."
-
-msgid "A local template to upload."
-msgstr "আপলোড কৰিবলৈ এটা স্থানীয় নমুনা."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -295,9 +281,6 @@ msgstr "নিৰ্ধাৰিত ফ্লটিং  IP %(ip)s."
 msgid "Allocation Pools"
 msgstr "নিৰ্ধাৰিত পুলবোৰ"
 
-msgid "An external (HTTP) URL to load the template from."
-msgstr "...ৰ পৰা নমুনাটো লোড কৰিবলৈ এটা বাহ্যিক (HTTP) URL."
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -480,12 +463,6 @@ msgstr "সলনি কৰক"
 
 msgid "Change Password"
 msgstr "পাছৱৰ্ড সলনি কৰক"
-
-msgid "Change Stack Template"
-msgstr "ষ্টেক নমুনা সলনি কৰক"
-
-msgid "Change Template"
-msgstr "নমুনা সলনি কৰক"
 
 msgid "Change Volume Type"
 msgstr "আয়তনৰ প্ৰকাৰ সলনি কৰক"
@@ -712,9 +689,6 @@ msgstr "স্নেপশ্বট তৈয়াৰ কৰক"
 msgid "Create Spec"
 msgstr "স্পেক তৈয়াৰ কৰক"
 
-msgid "Create Stack"
-msgstr "ষ্টেক তৈয়াৰ কৰক"
-
 msgid "Create Subnet"
 msgstr "উপনেট তৈয়াৰ কৰক"
 
@@ -756,9 +730,6 @@ msgstr "আয়তন প্ৰকাৰ এটাৰ বাবে এটা ন�
 
 msgid "Create a new role."
 msgstr "এটা নতুন ৰোল তৈয়াৰ কৰক."
-
-msgid "Create a new stack with the provided values."
-msgstr "দিয়া মানবোৰৰ সৈতে এটা নতুন ষ্টেক তৈয়াৰ কৰক."
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -844,9 +815,6 @@ msgstr "\"%s\" আয়তন বেকআপ তৈয়াৰ কৰিছে"
 msgid "Creating volume snapshot \"%s\"."
 msgstr "\"%s\" আয়তন স্নেপশ্বট তৈয়াৰ কৰিছে."
 
-msgid "Creation Timeout (minutes)"
-msgstr "তৈয়াৰৰ সময় উকলি গল (মিনিটবোৰ)"
-
 msgid "Current Host"
 msgstr "চলিত হষ্ট"
 
@@ -873,9 +841,6 @@ msgstr "DHCP এজেন্টবোৰ"
 
 msgid "DNS Name Servers"
 msgstr "DNS নাম ছাৰ্ভাৰবোৰ"
-
-msgid "Date Updated"
-msgstr "তাৰিখ আপডেট কৰা হল"
 
 msgid "Decrypt Password"
 msgstr "পাছৱৰ্ড ডিক্ৰিপ্ট কৰক"
@@ -1146,9 +1111,6 @@ msgstr "স্পেক সম্পাদনা কৰক"
 msgid "Edit Subnet"
 msgstr "উপনেট সম্পাদনা কৰক"
 
-msgid "Edit Template"
-msgstr "নমুনা সম্পাদনা কৰক"
-
 msgid "Edit Volume"
 msgstr "আয়তন সম্পাদন কৰক"
 
@@ -1187,9 +1149,6 @@ msgstr "সক্ষম DHCP"
 msgid "Enable HA mode"
 msgstr "HA ধৰণ সক্ষম কৰক"
 
-msgid "Enable rollback on create/update failure."
-msgstr "তৈয়াৰ/আপডেট ব্যৰ্থ হলে ৰোলবেক সক্ষম কৰক."
-
 msgid "Enabled"
 msgstr "সক্ষম কৰা হল"
 
@@ -1214,15 +1173,6 @@ msgstr "(-1: 255) পৰিসৰটোত ICMP প্ৰসাৰটোৰ ব�
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 আৰু 65535 ৰ মাজত অখণ্ড মান এটা ভৰাওক."
-
-msgid "Environment Data"
-msgstr "পৰিৱেশ ডাটা"
-
-msgid "Environment File"
-msgstr "পৰিৱেশ ফাইল"
-
-msgid "Environment Source"
-msgstr "পৰিৱেশ উত্স"
 
 msgid "Ephemeral Disk"
 msgstr "ইফেমেৰল ডিস্ক"
@@ -1287,9 +1237,6 @@ msgstr "হষ্ট ত্যাগ কৰক"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "নিৰ্বাচিত তলৰ হষ্টৰ পৰা এটা সক্ৰিয় লক্ষ্যৰ হষ্টলৈ ছাৰ্ভাৰবোৰ ত্যাগ কৰক."
-
-msgid "Events"
-msgstr "ঘটনাবোৰ"
 
 msgid "Extend Volume"
 msgstr "প্ৰসাৰিত আয়তন"
@@ -1946,9 +1893,6 @@ msgstr "মুখ্য-মান যোৰাবোৰ"
 msgid "Language"
 msgstr "ভাষা"
 
-msgid "Last Updated"
-msgstr "শেহতীয়া আপেডট কৰাটো"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "শেহতীয়া আপেডট কৰাটো"
@@ -1961,12 +1905,6 @@ msgstr "উদাহৰণ আৰম্ভ কৰক"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "উদাহৰণ আৰম্ভ কৰক (কোটা অতিক্ৰম কৰিছে)"
-
-msgid "Launch Parameters"
-msgstr "উপকৰণবোৰ আৰম্ভ কৰক"
-
-msgid "Launch Stack"
-msgstr "ষ্টেক আৰম্ভ কৰক"
 
 msgid "Launch as Instance"
 msgstr "উদাহৰণ হিচাপে আৰম্ভ কৰক"
@@ -2101,9 +2039,6 @@ msgstr "নূন্যতম ডিস্ক (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "নূন্যতম RAM (MB)"
 
-msgid "Minutes"
-msgstr "মিনিটবোৰ"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "\"%s\" ক্ষেত্ৰ পৰিৱৰ্তন কৰক."
@@ -2163,16 +2098,6 @@ msgstr "নাম"
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "নামটোৱে অকল আখৰ, সংখ্যা, আণ্ডাৰস্কোৰ, ব্যৱধান  আৰু হাইফেন ব্যৱহাৰ কৰিব পাৰে."
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"নামটো আখৰ এটাৰ সৈতে আৰম্ভ হোৱাটো অপৰিহাৰ্য আৰু কেৱল আখৰ, সংখ্যা, আণ্ডাৰস্কোৰ, "
-"পিৰিয়ড আৰু হাইফেন থাকিব পাৰে."
-
-msgid "Name of the stack to create."
-msgstr "তৈয়াৰ কৰিবলৈ ষ্টেকটোৰ নাম."
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -2248,9 +2173,6 @@ msgstr "নতুন পাছৱৰ্ড"
 
 msgid "New size must be greater than current size."
 msgstr "নতুন আকাৰটো চলিত আকাৰতকৈ ডাঙৰ হোৱাটো প্ৰয়োজনীয়."
-
-msgid "Next"
-msgstr "পৰৱৰ্তী"
 
 msgid "No"
 msgstr "নহয়"
@@ -2429,9 +2351,6 @@ msgstr "বৈকল্পিকভাৱে, নতুন আয়তন এট�
 msgid "Other Protocol"
 msgstr "অন্য প্ৰটকল"
 
-msgid "Outputs"
-msgstr "আউটপুটবোৰ"
-
 msgid "Overview"
 msgstr "অৱলোকন কৰক"
 
@@ -2440,9 +2359,6 @@ msgstr "গৰাকী"
 
 msgid "Page Not Found"
 msgstr "পৃষ্ঠা বিচাৰি পোৱা নগল"
-
-msgid "Parameters"
-msgstr "উপকৰণবোৰ"
 
 msgid "Password"
 msgstr "পাছৱৰ্ড"
@@ -2453,10 +2369,6 @@ msgstr "পাছৱৰ্ড"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "পাছৱৰ্ড সলনি কৰা হল. অনুগ্ৰহ কৰি অব্যাহত ৰাখিবলৈ পুনৰ ল'গ ইন কৰক."
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "\"%s\" ব্যৱহাৰকৰ্তাৰ বাবে পাছৱৰ্ড"
 
 msgid "Passwords do not match."
 msgstr "পাছৱৰ্ডবোৰ নিমিলে."
@@ -2481,10 +2393,6 @@ msgstr "ফিজিকেল নেটৱৰ্ক:"
 
 msgid "Please note: "
 msgstr "অনুগ্ৰহ কৰি মন কৰিব: "
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "অনুগ্ৰহ কৰি কেৱল এটা উত্স পদ্ধতি ব্যৱহাৰ কৰি %s এটা নিৰ্দিষ্ট কৰক."
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2739,15 +2647,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "পুনৰ আকাৰ বা প্ৰব্ৰজন কৰিছে"
 
-msgid "Resource"
-msgstr "সম্পদ"
-
-msgid "Resource ID"
-msgstr "সম্পদ ID"
-
-msgid "Resource Metadata"
-msgstr "সম্পদ মেটাডাটা"
-
 msgid "Resources"
 msgstr "সম্পদবোৰ"
 
@@ -2809,12 +2708,6 @@ msgstr "ৰোল সফলতাৰে আপডেট কৰা হল."
 
 msgid "Roles"
 msgstr "ৰোলবোৰ"
-
-msgid "Rollback"
-msgstr "ঘূৰি আহক"
-
-msgid "Rollback On Failure"
-msgstr "ব্যৰ্থতাটোত ঘূৰি যাওক"
 
 msgid "Root Disk"
 msgstr "মুখ্য ডিস্ক"
@@ -2919,9 +2812,6 @@ msgstr "স্ক্ৰিপ্ট উত্স নিৰ্বাচন কৰ
 msgid "Select Subnet"
 msgstr "উপনেট নিৰ্বাচন কৰক"
 
-msgid "Select Template"
-msgstr "নমুনা নিৰ্বাচন কৰক"
-
 msgid "Select Volume"
 msgstr "আয়তন নিৰ্বাচন কৰক"
 
@@ -2940,9 +2830,6 @@ msgstr "এটা নতুন এজেন্ট নিৰ্বাচন ক�
 msgid "Select a new host"
 msgstr "এটা নতুন হষ্ট নিৰ্বাচন কৰক"
 
-msgid "Select a new template to re-launch a stack."
-msgstr "ষ্টেক এটা পুনৰ আৰম্ভ কৰিবলৈ এটা নতুন নমুনা নিৰ্বাচন কৰক."
-
 msgid "Select a port"
 msgstr "পোৰ্ট এটা নিৰ্বাচন কৰক"
 
@@ -2951,9 +2838,6 @@ msgstr "প্ৰক্ষেপ এটা নিৰ্বাচন কৰক"
 
 msgid "Select a target host"
 msgstr "লক্ষ্য কৰা হষ্ট এটা নিৰ্বাচন কৰক"
-
-msgid "Select a template to launch a stack."
-msgstr "ষ্টেক এটা আৰম্ভ কৰিবলৈ নমুনা এটা নিৰ্বাচন কৰক."
 
 msgid "Select a volume to restore to."
 msgstr "...লৈ জমা কৰিবলৈ আয়তন বেকআপ এটা নিৰ্বাচন কৰক."
@@ -3160,42 +3044,6 @@ msgstr "উদাহৰণ এটা আৰম্ভ কৰিবৰ বাব�
 msgid "Specs"
 msgstr "স্পেকবোৰ"
 
-msgid "Stack Events"
-msgstr "ষ্টেক ঘটনাবোৰ"
-
-msgid "Stack ID"
-msgstr "ষ্টেক ID"
-
-msgid "Stack Name"
-msgstr "ষ্টেক নাম"
-
-msgid "Stack Parameters"
-msgstr "ষ্টেক উপকৰণবোৰ"
-
-msgid "Stack Resource"
-msgstr "ষ্টেক সম্পদ"
-
-msgid "Stack Resource ID"
-msgstr "ষ্টেক সম্পদ ID"
-
-msgid "Stack Resource Type"
-msgstr "ষ্টেক সম্পদ প্ৰকাৰ"
-
-msgid "Stack Resources"
-msgstr "ষ্টেক সম্পদবোৰ"
-
-msgid "Stack creation started."
-msgstr "ষ্টেক তৈয়াৰী আৰম্ভ হল."
-
-msgid "Stack creation timeout in minutes."
-msgstr "মিনিটবোৰত ষ্টেক তৈয়াৰৰ সময় উকলি গল."
-
-msgid "Stack update started."
-msgstr "ষ্টেক আপডেট আৰম্ভ কৰা হল."
-
-msgid "Stacks"
-msgstr "ষ্টেকবোৰ"
-
 msgid "Start"
 msgstr "আৰম্ভ কৰক"
 
@@ -3222,9 +3070,6 @@ msgstr "স্থিতি"
 
 msgid "Status ="
 msgstr "স্থিতি ="
-
-msgid "Status Reason"
-msgstr "স্থিতিৰ কাৰণ"
 
 msgid "Subnet"
 msgstr "উপনেট"
@@ -3343,21 +3188,6 @@ msgstr "লক্ষ্য কৰা হষ্ট"
 
 msgid "Task"
 msgstr "কাৰ্য"
-
-msgid "Template"
-msgstr "নমুনা"
-
-msgid "Template Data"
-msgstr "নমুনা ডাটা"
-
-msgid "Template File"
-msgstr "নমুনা ফাইল"
-
-msgid "Template Source"
-msgstr "নমুনাৰ উত্স"
-
-msgid "Template URL"
-msgstr "নমুনা URL"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"from\" পোৰ্ট সংখ্যাটো অবৈধ."
@@ -3495,12 +3325,6 @@ msgstr "ব্যক্তিগত কীটো কেৱল আপোনাৰ
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "ছিউড' ফল্ডাৰটো ডিলিট কৰিব পৰা নগল যিহেতু এইটো খালী নহয়."
 
-msgid "The raw contents of the environment file."
-msgstr "পৰিৱেশ ফাইলটোৰ শাৰীৰ বিষয়বস্তুবোৰ."
-
-msgid "The raw contents of the template."
-msgstr "নমুনাটোৰ শাৰীৰ বিষয়বস্তুবোৰ."
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
@@ -3550,26 +3374,14 @@ msgstr ""
 "লগাওক."
 
 msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr ""
-"ষ্টেকটোৰ জীৱনচক্ৰটোৰ সময়চোৱাত সম্পাদন কৰিবলগীয়া কাৰ্যবোৰৰ বাবে এইটো প্ৰয়োজনীয়"
-
-msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "উদাহৰণ এটালৈ এই আয়তনটো বৰ্তমান সংলগ্ন কৰা হৈছে. কিছুমান ক্ষেত্ৰত, সংলগ্ন আয়তন এটাৰ "
 "পৰা স্নেপশ্বট তৈয়াৰ কৰাটোৱে নষ্ট হোৱা স্নেপশ্বট এটাৰ দৰে ফলাফল দিব পাৰে."
 
-msgid "Time Since Event"
-msgstr "ঘটনাৰ পৰা সময়"
-
 msgid "Time since created"
 msgstr "তৈয়াৰ কৰাৰ পৰা সময়টো"
-
-msgid "Timeout"
-msgstr "সময় উকলি গল"
 
 msgid "Timezone"
 msgstr "সময়মণ্ডল"
@@ -3615,9 +3427,6 @@ msgstr "প্ৰক্ষেপটোৰ বাবে মুঠ ডিস্ক
 
 msgid "Type"
 msgstr "প্ৰকাৰ"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -3768,10 +3577,6 @@ msgstr "\"%s\" উদাহৰণটোৰ বাবে VNC কনছোল প�
 msgid "Unable to get cinder services list."
 msgstr "ছাইণ্ডাৰ সেৱাবোৰৰ তালিকা পাবলৈ অক্ষম."
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "\"%s\" ষ্টেকৰ বাবে ঘটনাবোৰ আহৰণ কৰিবলৈ অক্ষম."
-
 msgid "Unable to get flavor list"
 msgstr "ফ্লেভাৰ তালিকা পাবলৈ অক্ষম"
 
@@ -3796,10 +3601,6 @@ msgstr "মুক্তrc পৰিচয়পত্ৰবোৰ পাবলৈ �
 
 msgid "Unable to get quota info."
 msgstr "কোটা তথ্য লাভ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "\"%s\" ষ্টেকৰ বাবে সম্পদবোৰ আহৰণ কৰিবলৈ অক্ষম."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -4063,9 +3864,6 @@ msgstr "আয়তন স্নেপশ্বটবোৰৰ তালিকা 
 msgid "Unable to retrieve list of volumes."
 msgstr "আয়তনবোৰৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
-msgid "Unable to retrieve metadata."
-msgstr "মেটাডাটা উদ্ধাৰ কৰিবৰৈ অক্ষম."
-
 msgid "Unable to retrieve network details."
 msgstr "নেটৱৰ্কৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
 
@@ -4098,9 +3896,6 @@ msgstr "ৰাজহুৱা ছবিবোৰ উদ্ধাৰ কৰিব
 
 msgid "Unable to retrieve quota information."
 msgstr "কোটা তথ্য উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve resource."
-msgstr "সম্পদ উদ্ধাৰ কৰিবলৈ অক্ষম."
 
 msgid "Unable to retrieve role list."
 msgstr "ৰোল তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
@@ -4135,15 +3930,6 @@ msgstr "স্নেপশ্বটৰ পূংখানুপূংখ বি�
 
 msgid "Unable to retrieve snapshot list."
 msgstr "স্নেপ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve stack list."
-msgstr "ষ্টেক তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve stack template."
-msgstr "ষ্টেক নমুনা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve stack."
-msgstr "ষ্টেক উদ্ধাৰ কৰিবলৈ অক্ষম."
 
 msgid "Unable to retrieve subnet details"
 msgstr "উপনেটৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
@@ -4347,12 +4133,6 @@ msgstr "ৰোল আপডেট কৰক"
 msgid "Update Router"
 msgstr "ৰাউটাৰ আপডেট কৰক"
 
-msgid "Update Stack"
-msgstr "ষ্টেক আপডেট কৰক"
-
-msgid "Update Stack Parameters"
-msgstr "ষ্টেক উপকৰণবোৰ আপডেট কৰক"
-
 msgid "Update Status"
 msgstr "আপডেটৰ স্থিতি"
 
@@ -4364,15 +4144,6 @@ msgstr "আয়তন স্নেপশ্বট স্থিতি আপডে
 
 msgid "Update Volume Status"
 msgstr "আয়তন স্থিতি আপডেট কৰক"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"দিয়া মানবোৰৰ সৈতে ষ্টেক এটা আপডেট কৰক. অনুগ্ৰহ কৰি মন কৰিব যে পাছৱৰ্ডবোৰৰ দৰে "
-"যিকোনো এনক্ৰিপ্ট কৰা পেৰামিটাৰবোৰ ডিফল্ট হিচাপে পুনৰ ছেট কৰা হব যদি আপুনি সেইবোৰ "
-"ইয়াত ছেট নকৰে."
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -4437,13 +4208,6 @@ msgstr "এটা উত্স হিচাপে আয়তন ব্যৱহ�
 
 msgid "Use image as a source"
 msgstr "এটা উত্স হিচাপে ছবি ব্যৱহাৰ কৰক"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"এই ষ্টেকটো তৈয়াৰ কৰোতে ব্যৱহাৰ কৰিবলগীয়া নমুনাটো নিৰ্দিষ্ট কৰিবলৈ উপলব্ধ নমুনা উত্স "
-"বিকল্পবোৰৰ এটা ব্যৱহাৰ কৰক."
 
 msgid "Use snapshot as a source"
 msgstr "এটা উত্স হিচাপে স্নেপশ্বট ব্যৱহাৰ কৰক"
@@ -4696,9 +4460,6 @@ msgstr "আপুনি ছবি এটা নিৰ্বাচন কৰা�
 msgid "You must set volume size"
 msgstr "আপুনি আয়তন প্ৰকাৰ ছেট কৰাটো অপৰিহাৰ্য"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "উপলব্ধ উত্সবোৰৰ এটাৰ যোগেদি আপুনি নমুনা এটা নিৰ্দিষ্ট কৰাটো অপৰিহাৰ্য."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4729,17 +4490,11 @@ msgstr "উভয়ে"
 msgid "dm-crypt"
 msgstr "dm-ক্ৰিপ্ট"
 
-msgid "environment"
-msgstr "পৰিৱেশ"
-
 msgid "front-end"
 msgstr "সন্মুখফাল"
 
 msgid "instance"
 msgstr "উদাহৰণ"
-
-msgid "template"
-msgstr "নমুনা"
 
 msgid "undefined"
 msgstr "অনিৰ্ধাৰিত "

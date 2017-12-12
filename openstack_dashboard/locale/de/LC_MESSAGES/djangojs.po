@@ -6,9 +6,9 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev2\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-07 18:16+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2921,9 +2921,6 @@ msgstr "Die Varianten können nicht abgerufen werden."
 msgid "Unable to retrieve the group."
 msgstr "Die Gruppe kann nicht abgerufen werden."
 
-msgid "Unable to retrieve the heat services."
-msgstr "Die Heat-Dienste können nicht abgerufen werden."
-
 msgid "Unable to retrieve the image custom properties."
 msgstr "Die Abbildanpassungseigenschaften können nicht abgerufen werden."
 
@@ -3064,9 +3061,6 @@ msgstr "Abbild kann nicht aktualisiert werden."
 
 msgid "Unable to upload the object."
 msgstr "Das Objekt konnte nicht hochgeladen werden."
-
-msgid "Unable to validate the template."
-msgstr "Vorlage kann nicht validiert werden."
 
 msgid "Unknown"
 msgstr "Unbekannt"

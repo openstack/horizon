@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev119\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-22 09:01+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -81,14 +81,6 @@ msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
 
 #, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
-
-#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (podpůrná vrstva %(backend)s)"
 
@@ -155,17 +147,11 @@ msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr ""
 " <a href=\"%(volume_url)s\">%(volume_label)s</a> na %(volume_device)s     "
 
-msgid "A local environment to upload."
-msgstr "Lokální prostředí pro nahrání."
-
 msgid "A local image to upload."
 msgstr "Lokální obraz pro upload."
 
 msgid "A local metadata definition file to upload."
 msgstr "Lokální soubor s definicemi metadat pro upload."
-
-msgid "A local template to upload."
-msgstr "Lokální šablona pro nahrání."
 
 msgid ""
 "A port is a connection point for attaching a single device, such as the NIC "
@@ -405,18 +391,6 @@ msgstr ""
 "Poznámka správce: Použijte následující příkaz v příkazovém řádku pro import "
 "výchozích definic do Glance:"
 
-msgctxt "current status of stack"
-msgid "Adopt Complete"
-msgstr "Adoptování dokončeno"
-
-msgctxt "current status of stack"
-msgid "Adopt Failed"
-msgstr "Adoptování selhalo"
-
-msgctxt "current status of stack"
-msgid "Adopt In Progress"
-msgstr "Probíhá adoptování"
-
 msgid "Advanced Options"
 msgstr "Pokročilé možnosti"
 
@@ -499,9 +473,6 @@ msgstr "Alokována floating IP %(ip)s."
 
 msgid "Allocation Pools"
 msgstr "Přidělovací zásoby"
-
-msgid "An external (HTTP) URL to load the template from."
-msgstr "Externí (HTTP) URL z které načíst šablonu."
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Externí (HTTP/HTTPS) URL, z které nahrát obraz."
@@ -600,9 +571,6 @@ msgstr "Připojené svazky"
 
 msgid "Attribute Mappings"
 msgstr "Mapování atributů"
-
-msgid "Attributes"
-msgstr "Atributy"
 
 msgid "Authentication URL"
 msgstr "URL pro autentizaci"
@@ -787,12 +755,6 @@ msgstr "Změnit"
 msgid "Change Password"
 msgstr "Změnit heslo"
 
-msgid "Change Stack Template"
-msgstr "Změnit šablonu zásobníku"
-
-msgid "Change Template"
-msgstr "Změnit šablonu"
-
 msgid "Change Volume Type"
 msgstr "Změnit typ svazku"
 
@@ -808,36 +770,12 @@ msgstr "Změn od"
 msgid "Changing password is not supported."
 msgstr "Změna hesla není podporována."
 
-msgctxt "current status of stack"
-msgid "Check Complete"
-msgstr "Kontrola dokončena"
-
-msgctxt "current status of stack"
-msgid "Check Failed"
-msgstr "Kontrola selhala"
-
-msgctxt "current status of stack"
-msgid "Check In Progress"
-msgstr "Probíhá kontrola"
-
-msgid "Check Stack"
-msgid_plural "Check Stacks"
-msgstr[0] "Zkontrolovat stack"
-msgstr[1] "Zkontrolovat stacky"
-msgstr[2] "Zkontrolovat stacků"
-
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this consistency group."
 msgstr ""
 "Zašrktněte &quot;Smazat svazky&quot; ke smazání svazků asociovaných s touto "
 "konzistenční skupinou."
-
-msgid "Checked Stack"
-msgid_plural "Checked Stacks"
-msgstr[0] "Zásobník zkontrolován"
-msgstr[1] "Zásobníky zkontrolovány"
-msgstr[2] "Zásobníků zkontrolováno"
 
 msgid "Checksum"
 msgstr "Kontrolní součet"
@@ -1072,10 +1010,6 @@ msgstr "Vytvořit obraz"
 msgid "Create Backup"
 msgstr "Vytvořit zálohu"
 
-msgctxt "current status of stack"
-msgid "Create Complete"
-msgstr "Vytvoření dokončeno"
-
 msgid "Create Consistency Group"
 msgstr "Vytvořit konzistenční skupinu"
 
@@ -1091,10 +1025,6 @@ msgstr "Vytvořit šifrovaný typ svazku"
 msgid "Create Encryption"
 msgstr "Vytvořit šifrování"
 
-msgctxt "current status of stack"
-msgid "Create Failed"
-msgstr "Vytvoření selhalo"
-
 msgid "Create Flavor"
 msgstr "Vytvořit typ"
 
@@ -1106,10 +1036,6 @@ msgstr "Vytvořit agregát hostitelů"
 
 msgid "Create Image"
 msgstr "Vytvořit obraz"
-
-msgctxt "current status of stack"
-msgid "Create In Progress"
-msgstr "Probíhá vytváření"
 
 msgid "Create Key Pair"
 msgstr "Vytvořit klíč"
@@ -1155,9 +1081,6 @@ msgstr "Vytvořit snapshot"
 
 msgid "Create Spec"
 msgstr "Vytvořit specifikaci"
-
-msgid "Create Stack"
-msgstr "Vytvořit zásobník"
 
 msgid "Create Subnet"
 msgstr "Vytvořit podsíť"
@@ -1233,9 +1156,6 @@ msgstr ""
 
 msgid "Create a new role."
 msgstr "Vytvořit novou roli."
-
-msgid "Create a new stack with the provided values."
-msgstr "Vytvořit nový zásobník ze zadaných hodnot."
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -1358,9 +1278,6 @@ msgstr "Vytváření zálohy svazku \"%s\""
 msgid "Creating volume snapshot \"%s\"."
 msgstr "Vytváření snapshotu svazku \"%s\"."
 
-msgid "Creation Timeout (minutes)"
-msgstr "Časový limit vytvoření (v minutách)"
-
 msgid "Current Host"
 msgstr "Současný hostitel"
 
@@ -1442,9 +1359,6 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "ZAVŘEN"
 
-msgid "Date Updated"
-msgstr "Nahráno dne"
-
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "Deaktivováno"
@@ -1477,10 +1391,6 @@ msgstr[0] "Smazat"
 msgstr[1] "Smazat"
 msgstr[2] "Smazat"
 
-msgctxt "current status of stack"
-msgid "Delete Complete"
-msgstr "Smazání dokončeno"
-
 msgid "Delete Consistency Group"
 msgstr "Smazat konzistenční skupinu"
 
@@ -1508,10 +1418,6 @@ msgstr[0] "Smazat dodatečnou specifikaci"
 msgstr[1] "Smazat dodatečné specifikace"
 msgstr[2] "Smazat dodatečné specifikace"
 
-msgctxt "current status of stack"
-msgid "Delete Failed"
-msgstr "Smazání selhalo"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "Smazat typ"
@@ -1535,10 +1441,6 @@ msgid_plural "Delete Images"
 msgstr[0] "Smazat obraz"
 msgstr[1] "Smazat obrazy"
 msgstr[2] "Smazat obrazy"
-
-msgctxt "current status of stack"
-msgid "Delete In Progress"
-msgstr "Probíhá mazání"
 
 msgid "Delete Instance"
 msgid_plural "Delete Instances"
@@ -1635,12 +1537,6 @@ msgid_plural "Delete Specs"
 msgstr[0] "Smazat specifikaci"
 msgstr[1] "Smazat specifikace"
 msgstr[2] "Smazat specifikace"
-
-msgid "Delete Stack"
-msgid_plural "Delete Stacks"
-msgstr[0] "Smazat zásobník"
-msgstr[1] "Smazat zásobníky"
-msgstr[2] "Smazat zásobníky"
 
 msgid "Delete Static Route"
 msgid_plural "Delete Static Routes"
@@ -1839,12 +1735,6 @@ msgid_plural "Deleted Specs"
 msgstr[0] "Specifikace smazána"
 msgstr[1] "Specifikace smazány"
 msgstr[2] "Specifikací smazáno"
-
-msgid "Deleted Stack"
-msgid_plural "Deleted Stacks"
-msgstr[0] "Zásobník smazán"
-msgstr[1] "Zásobníky smazány"
-msgstr[2] "Zásobníků smazáno"
 
 msgid "Deleted Static Route"
 msgid_plural "Deleted Static Routes"
@@ -2257,9 +2147,6 @@ msgstr "Upravit specifikaci"
 msgid "Edit Subnet"
 msgstr "Upravit podsíť"
 
-msgid "Edit Template"
-msgstr "Upravit šablonu"
-
 msgid "Edit Volume"
 msgstr "Upravit svazek"
 
@@ -2330,9 +2217,6 @@ msgstr[0] "Povolit uživatele"
 msgstr[1] "Povolit uživatele"
 msgstr[2] "Povolit uživatele"
 
-msgid "Enable rollback on create/update failure."
-msgstr "Povolit zpětné vrácení při chybě ve vytváření/aktualizaci."
-
 msgid "Enabled"
 msgstr "Povoleno"
 
@@ -2383,9 +2267,6 @@ msgstr ""
 msgid "Endpoints"
 msgstr "API endpointy"
 
-msgid "Engine Id"
-msgstr "Id jádra"
-
 msgid "Enter Network Address manually"
 msgstr "Zadejte síťovou adresu ručně"
 
@@ -2400,15 +2281,6 @@ msgstr "Zadejte celé číslo v rozsahu od 1 do 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Zadejte celé číslo v rozsahu od 1 do 65535."
-
-msgid "Environment Data"
-msgstr "Data prostředí"
-
-msgid "Environment File"
-msgstr "Soubor prostředí"
-
-msgid "Environment Source"
-msgstr "Zdroj prostředí"
 
 msgid "Ephemeral Disk"
 msgstr "Efemérní disk"
@@ -2521,9 +2393,6 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Přesídlit servery z vybraného hostitele na aktivního cílového hostitele."
-
-msgid "Events"
-msgstr "Události"
 
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
@@ -2883,9 +2752,6 @@ msgstr "Zde můžete vytvořit snapshot svazku."
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "Zde můžete aktualizovat výchozí kvóty (max. limity)."
-
-msgid "Function"
-msgstr "Funkce"
 
 msgid "GB"
 msgstr "GB"
@@ -3293,18 +3159,6 @@ msgstr "Informace"
 msgid "Ingress"
 msgstr "Vstup"
 
-msgctxt "current status of stack"
-msgid "Init Complete"
-msgstr "Zavedení dokončeno"
-
-msgctxt "current status of stack"
-msgid "Init Failed"
-msgstr "Zavedení selhalo"
-
-msgctxt "current status of stack"
-msgid "Init In Progress"
-msgstr "Probíhá zavádění"
-
 msgid "Injected File Content (Bytes)"
 msgstr "Obsah vloženého souboru (Bajty)"
 
@@ -3469,9 +3323,6 @@ msgstr "Agent L3"
 msgid "Language"
 msgstr "Jazyk"
 
-msgid "Last Updated"
-msgstr "Naposledy aktualizováno"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Naposledy aktualizováno"
@@ -3484,12 +3335,6 @@ msgstr "Spustit instanci"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Spustit instanci (kvóta překročena)"
-
-msgid "Launch Parameters"
-msgstr "Spouštěcí parametry"
-
-msgid "Launch Stack"
-msgstr "Spustit zásobník"
 
 msgid "Launch as Instance"
 msgstr "Spustit jako instanci"
@@ -3514,9 +3359,6 @@ msgstr "Délka vložené cesty souboru"
 
 msgid "Limit"
 msgstr "Limit"
-
-msgid "Links"
-msgstr "Odkazy"
 
 msgid "Live Migrate"
 msgstr "Migrace za běhu"
@@ -3762,9 +3604,6 @@ msgstr "Minimální kapacita (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
 
-msgid "Minutes"
-msgstr "Minut"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Doména \"%s\" změněna."
@@ -3841,16 +3680,6 @@ msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr ""
 "Názvy mohou obsahovat pouze písmena, čísla, podtržítka, tečky a pomlčky."
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"Názvy musí začínat pouze písmenem a může obsahovat pouze písmena, čísla, "
-"podtržítka, tečky a pomlčky."
-
-msgid "Name of the stack to create."
-msgstr "Název zásobníku pro vytvoření."
 
 msgid "Name or other identifier for existing volume"
 msgstr "Název nebo jiný identifikátor existujícího svazku"
@@ -3984,9 +3813,6 @@ msgstr "Nové heslo"
 
 msgid "New size must be greater than current size."
 msgstr "Nová velikost musí být větší než současná."
-
-msgid "Next"
-msgstr "Další"
 
 msgid "Next Hop"
 msgstr "Další skok"
@@ -4259,15 +4085,6 @@ msgstr "Otevřené porty/Rozsah portů:"
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Můžete také zvolit vytvoření nového svazku."
 
-msgid "Orchestration"
-msgstr "Orchestrace"
-
-msgid "Orchestration Services"
-msgstr "Služby orchestrace"
-
-msgid "Orchestration service is disabled."
-msgstr "Služba Orchestrace byla zakázána"
-
 #, python-format
 msgid ""
 "Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
@@ -4281,9 +4098,6 @@ msgstr "Ostatní protokoly"
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr "Hodnoty s plovoucí čárkou mimo rozsah neodpovídají normám JSON: %r"
 
-msgid "Outputs"
-msgstr "Výstupy"
-
 msgid "Overview"
 msgstr "Přehled"
 
@@ -4292,9 +4106,6 @@ msgstr "Vlastník"
 
 msgid "Page Not Found"
 msgstr "Stránka nenalezena"
-
-msgid "Parameters"
-msgstr "Parametry"
 
 msgid "Password"
 msgstr "Heslo"
@@ -4308,10 +4119,6 @@ msgstr "Heslo bylo změněno. Pro pokračovaní se prosím znovu přihlaste."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Heslo bylo změněno. Pro pokračovaní se prosím přihlaste."
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "Heslo pro uživatele \"%s\""
 
 msgid "Passwords do not match."
 msgstr "Hesla se neshodují."
@@ -4359,10 +4166,6 @@ msgstr "Fyzická síť:"
 
 msgid "Please note: "
 msgstr "Vezměte prosím na vědomí:"
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "Zadejte prosím %s pomocí pouze jedné zdrojové metody."
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -4427,24 +4230,6 @@ msgstr "Příprava na Změnu velikosti nebo Migraci"
 
 msgid "Prevent the deletion of the image."
 msgstr "Zamezí odstranění obrazu."
-
-msgid "Preview"
-msgstr "Náhled"
-
-msgid "Preview Stack"
-msgstr "Náhled zásobníku"
-
-msgid "Preview Stack Details"
-msgstr "Podrobnosti náhledu zásobníku"
-
-msgid "Preview Stack Parameters"
-msgstr "Parametry náhledu zásobníku"
-
-msgid "Preview Template"
-msgstr "Náhled šablony"
-
-msgid "Preview a new stack with the provided values."
-msgstr "Vytvořit náhled nového zásobníku ze zadaných hodnot."
 
 msgid "Primary Project"
 msgstr "Primární projekt"
@@ -4518,9 +4303,6 @@ msgstr "Projekty"
 
 msgid "Projects:"
 msgstr "Projekty:"
-
-msgid "Properties"
-msgstr "Vlastnosti"
 
 msgid "Properties Target: "
 msgstr "Vlastnosti cíle:"
@@ -4831,15 +4613,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Změna velikosti nebo Migrace"
 
-msgid "Resource"
-msgstr "Prostředek"
-
-msgid "Resource ID"
-msgstr "ID prostředku"
-
-msgid "Resource Metadata"
-msgstr "Metadata prostředku"
-
 msgid "Resource Types"
 msgstr "Typy prostředků"
 
@@ -4886,41 +4659,17 @@ msgctxt "Action log of an instance"
 msgid "Resume"
 msgstr "Obnovit"
 
-msgctxt "current status of stack"
-msgid "Resume Complete"
-msgstr "Obnovení dokončeno"
-
-msgctxt "current status of stack"
-msgid "Resume Failed"
-msgstr "Obnovení selhalo"
-
-msgctxt "current status of stack"
-msgid "Resume In Progress"
-msgstr "Probíhá obnovení"
-
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "Obnovit instanci"
 msgstr[1] "Obnovit instance"
 msgstr[2] "Obnovit instance"
 
-msgid "Resume Stack"
-msgid_plural "Resume Stacks"
-msgstr[0] "Obnovit stack"
-msgstr[1] "Obnovit stacky"
-msgstr[2] "Obnovit stacků"
-
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
 msgstr[0] "Instance obnovena"
 msgstr[1] "Instance obnoveny"
 msgstr[2] "Instance obnoveny"
-
-msgid "Resumed Stack"
-msgid_plural "Resumed Stacks"
-msgstr[0] "Zásobník obnoven"
-msgstr[1] "Zásobníky obnoveny"
-msgstr[2] "Zásobníků obnoveno"
 
 msgctxt "Task status of an Instance"
 msgid "Resuming"
@@ -4966,24 +4715,6 @@ msgstr "Role úspěšně aktualizována."
 
 msgid "Roles"
 msgstr "Role"
-
-msgid "Rollback"
-msgstr "Vrátit zpět"
-
-msgctxt "current status of stack"
-msgid "Rollback Complete"
-msgstr "Zpětné vrácení dokončeno"
-
-msgctxt "current status of stack"
-msgid "Rollback Failed"
-msgstr "Zpětné vrácení selhalo"
-
-msgctxt "current status of stack"
-msgid "Rollback In Progress"
-msgstr "Probíhá zpětné vrácení"
-
-msgid "Rollback On Failure"
-msgstr "Zpětné vrácení při selhání"
 
 msgid "Root Disk"
 msgstr "Systémový disk"
@@ -5163,9 +4894,6 @@ msgstr "Vyberte skupinu serveru"
 msgid "Select Subnet"
 msgstr "Vyberte podsíť"
 
-msgid "Select Template"
-msgstr "Vybrat šablonu"
-
 msgid "Select Volume"
 msgstr "Vyberte svazek"
 
@@ -5193,12 +4921,6 @@ msgstr "Vyberte nového hostitele"
 msgid "Select a new status"
 msgstr "Vyberte nový stav"
 
-msgid "Select a new template to preview a stack."
-msgstr "Vyberte novou šablonu pro náhled zásobníku."
-
-msgid "Select a new template to re-launch a stack."
-msgstr "Vyberte novou šablonu pro znovu spuštění zásobníku."
-
 msgid "Select a new volume type"
 msgstr "Vyberte nový typ svazku"
 
@@ -5216,9 +4938,6 @@ msgstr "Vyberte podsíť"
 
 msgid "Select a target host"
 msgstr "Vyberte cílového hostitele"
-
-msgid "Select a template to launch a stack."
-msgstr "Vyberte šablonu pro spuštění zásobníku."
 
 msgid "Select a volume"
 msgstr "Vyberte svazek"
@@ -5465,18 +5184,6 @@ msgstr "Snapshot"
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
 msgstr "Snapshot \"%(name)s vytvořen z instance \"%(inst)s\""
 
-msgctxt "current status of stack"
-msgid "Snapshot Complete"
-msgstr "Snapshotování dokončeno"
-
-msgctxt "current status of stack"
-msgid "Snapshot Failed"
-msgstr "Snapshotování selhalo"
-
-msgctxt "current status of stack"
-msgid "Snapshot In Progress"
-msgstr "Probíhá snapshotování"
-
 msgid "Snapshot Limits"
 msgstr "Limity snapshotů"
 
@@ -5595,48 +5302,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Specifikace"
 
-msgid "Stack Events"
-msgstr "Události zásobníku"
-
-msgid "Stack ID"
-msgstr "ID zásobníku"
-
-msgid "Stack ID ="
-msgstr "ID zásobníku"
-
-msgid "Stack Name"
-msgstr "Název zásobníku"
-
-msgid "Stack Parameters"
-msgstr "Parametry zásobníku"
-
-msgid "Stack Preview"
-msgstr "Náhled zásobníku"
-
-msgid "Stack Resource"
-msgstr "Zdroj stack"
-
-msgid "Stack Resource ID"
-msgstr "ID prostředku zásobníku"
-
-msgid "Stack Resource Type"
-msgstr "Typ prostředku zásobníku"
-
-msgid "Stack Resources"
-msgstr "Zdroje stack"
-
-msgid "Stack creation started."
-msgstr "Zahájeno vytváření zásobníku."
-
-msgid "Stack creation timeout in minutes."
-msgstr "Časový limit vytvoření zásobníku v minutách."
-
-msgid "Stack update started."
-msgstr "Zahájena aktualizace zásobníku."
-
-msgid "Stacks"
-msgstr "Zásobníky"
-
 msgid "Start"
 msgstr "Začátek"
 
@@ -5685,9 +5350,6 @@ msgstr "Stav"
 
 msgid "Status ="
 msgstr "Stav ="
-
-msgid "Status Reason"
-msgstr "Důvod stavu"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
@@ -5825,29 +5487,11 @@ msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "Uspat"
 
-msgctxt "current status of stack"
-msgid "Suspend Complete"
-msgstr "Uspání dokončeno"
-
-msgctxt "current status of stack"
-msgid "Suspend Failed"
-msgstr "Uspání selhalo"
-
-msgctxt "current status of stack"
-msgid "Suspend In Progress"
-msgstr "Probíhá uspání"
-
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "Uspat instanci"
 msgstr[1] "Uspat instance"
 msgstr[2] "Uspat instance"
-
-msgid "Suspend Stack"
-msgid_plural "Suspend Stacks"
-msgstr[0] "Uspat stack"
-msgstr[1] "Uspat stacky"
-msgstr[2] "Uspat stacků"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -5862,12 +5506,6 @@ msgid_plural "Suspended Instances"
 msgstr[0] "Instance uspána"
 msgstr[1] "Instance uspány"
 msgstr[2] "Instance uspány"
-
-msgid "Suspended Stack"
-msgid_plural "Suspended Stacks"
-msgstr[0] "Zásobník uspán"
-msgstr[1] "Zásobníky uspány"
-msgstr[2] "Zásobníků uspáno"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"
@@ -5890,27 +5528,6 @@ msgstr "Cílový hostitel"
 
 msgid "Task"
 msgstr "Úloha"
-
-msgid "Template"
-msgstr "Šablona"
-
-msgid "Template Data"
-msgstr "Data šablony"
-
-msgid "Template File"
-msgstr "Soubor šablony"
-
-msgid "Template Functions"
-msgstr "Funkce šablony"
-
-msgid "Template Source"
-msgstr "Zdroj šablony"
-
-msgid "Template URL"
-msgstr "URL šablony"
-
-msgid "Template Versions"
-msgstr "Verze šablon"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -6137,12 +5754,6 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Pseudosložku nelze smazat, protože není prázdná."
 
-msgid "The raw contents of the environment file."
-msgstr "Čistý obsah souboru prostředí."
-
-msgid "The raw contents of the template."
-msgstr "Čistý obsah šablony."
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -6240,12 +5851,6 @@ msgstr ""
 "Vytvoří pár klíčů: soukromý klíč (cloud.key) a veřejný klíč (cloud.key.pub). "
 "Zde vložte obsah veřejného klíče."
 
-msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr ""
-"Toto je vyžadováno pro operace prováděné během životního cyklu zásobníku"
-
 msgid "This panel needs JavaScript support."
 msgstr "Tento panel vyžaduje podporu JavaScript."
 
@@ -6262,9 +5867,6 @@ msgstr "Tento typ svazku je používaný jiným svazkem."
 msgid "Time Since Created"
 msgstr "Doba od vytvoření"
 
-msgid "Time Since Event"
-msgstr "Doba od události"
-
 msgid "Time since created"
 msgstr "Doba od vytvoření"
 
@@ -6273,9 +5875,6 @@ msgstr "Doba od vytvoření (ve vteřinách)"
 
 msgid "Time since update"
 msgstr "Čas od aktualizace"
-
-msgid "Timeout"
-msgstr "Časový limit"
 
 msgid "Timezone"
 msgstr "Časové pásmo"
@@ -6316,9 +5915,6 @@ msgstr "Povolit sbalení sítě"
 
 msgid "Toggle navigation"
 msgstr "Přepnout navigaci"
-
-msgid "Topic"
-msgstr "Téma"
 
 msgid "Topology"
 msgstr "Topologie"
@@ -6381,9 +5977,6 @@ msgstr "Název přenosu"
 msgid "Type"
 msgstr "Typ"
 
-msgid "Type ="
-msgstr "Typ ="
-
 msgid "Type of backend device identifier provided"
 msgstr "Typ poskytnutého identifikátoru podpůrného zařízení"
 
@@ -6398,9 +5991,6 @@ msgstr "OTEVŘEN"
 msgctxt "Admin state of a Router"
 msgid "UP"
 msgstr "OTEVŘEN"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -6616,9 +6206,6 @@ msgstr "Nelze najít výchozí roli."
 msgid "Unable to get EC2 credentials"
 msgstr "Nelze získat přihlašovací údaje pro EC2."
 
-msgid "Unable to get Orchestration service list."
-msgstr "Nelze získat seznam služby Orchestrace."
-
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Nelze získat konzoli RDP pro instanci \"%s\"."
@@ -6637,16 +6224,8 @@ msgstr "Nelze získat seznam služeb cinder."
 msgid "Unable to get consistency group list"
 msgstr "Nelze získat seznam konzistenčních skupin."
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "Nelze získat události zásobníku \"%s\"."
-
 msgid "Unable to get flavor list"
 msgstr "Nelze získat seznam typů"
-
-#, python-format
-msgid "Unable to get functions for template version \"%s\"."
-msgstr "Nelze získat funkce pro verzi šablony \"%s\"."
 
 msgid "Unable to get host aggregate list"
 msgstr "Nelze získat seznam agregátů hostitelů"
@@ -6669,10 +6248,6 @@ msgstr "Nelze získat přihlašovací údaje pro openrc."
 
 msgid "Unable to get quota info."
 msgstr "Nelze získat informace o kvótě."
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "Nelze získat prostředky zásobníku \"%s\"."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -7026,9 +6601,6 @@ msgstr "Nelze získat seznam svazků."
 msgid "Unable to retrieve mapping list."
 msgstr "Nelze získat seznam mapování."
 
-msgid "Unable to retrieve metadata."
-msgstr "Nelze získat metadata."
-
 msgid "Unable to retrieve namespace contents."
 msgstr "Nelze získat obsah jmenného prostoru."
 
@@ -7077,12 +6649,6 @@ msgstr "Nelze získat veřejné obrazy."
 msgid "Unable to retrieve quota information."
 msgstr "Nelze získat informace o kvótách."
 
-msgid "Unable to retrieve resource type details."
-msgstr "Nelze získat podrobnosti typu prostředků."
-
-msgid "Unable to retrieve resource."
-msgstr "Nelze získat prostředek."
-
 msgid "Unable to retrieve role list."
 msgstr "Nelze získat seznam rolí."
 
@@ -7120,29 +6686,11 @@ msgstr "Nelze získat podrobnosti snapshotu."
 msgid "Unable to retrieve snapshot list."
 msgstr "Nelze získat podrobnosti snapshotu."
 
-msgid "Unable to retrieve stack list."
-msgstr "Nelze získat seznam zásobníků."
-
-msgid "Unable to retrieve stack resource types."
-msgstr "Nelze získat typy prostředků zásobníku."
-
-msgid "Unable to retrieve stack template."
-msgstr "Nelze získat šablonu zásobníku."
-
-msgid "Unable to retrieve stack."
-msgstr "Nelze získat zásobník."
-
 msgid "Unable to retrieve subnet details"
 msgstr "Nelze získat podrobnosti podsítě"
 
 msgid "Unable to retrieve subnet details."
 msgstr "Nelze získat podrobnosti podsítě."
-
-msgid "Unable to retrieve template functions."
-msgstr " Nelze získat funkce šablony."
-
-msgid "Unable to retrieve template versions."
-msgstr "Nelze získat verze šablon."
 
 msgid "Unable to retrieve tenant limits."
 msgstr "Nelze získat limit pro tenant."
@@ -7455,10 +7003,6 @@ msgstr "Aktualizovat"
 msgid "Update Associations"
 msgstr "Aktualizovat přidružení"
 
-msgctxt "current status of stack"
-msgid "Update Complete"
-msgstr "Aktualizace dokončena"
-
 msgid "Update Default Quotas"
 msgstr "Aktualizovat výchozí kvóty"
 
@@ -7471,19 +7015,11 @@ msgstr "Aktualizovat šifrovaný typ svazku."
 msgid "Update Encryption"
 msgstr "Aktualizovat šifrování"
 
-msgctxt "current status of stack"
-msgid "Update Failed"
-msgstr "Aktualizace selhala."
-
 msgid "Update Group"
 msgstr "Aktualizovat skupinu"
 
 msgid "Update Identity Provider"
 msgstr "Aktualizovat poskytovatele identit"
-
-msgctxt "current status of stack"
-msgid "Update In Progress"
-msgstr "Probíhá aktualizace"
 
 msgid "Update Mapping"
 msgstr "Aktualizovat mapování"
@@ -7500,12 +7036,6 @@ msgstr "Aktualizovat roli"
 msgid "Update Router"
 msgstr "Aktualizovat router"
 
-msgid "Update Stack"
-msgstr "Aktualizovat zásobník"
-
-msgid "Update Stack Parameters"
-msgstr "Aktualizovat parametry zásobníku"
-
 msgid "Update Status"
 msgstr "Aktualizovat stav"
 
@@ -7520,15 +7050,6 @@ msgstr "Aktualizovat stav svazku"
 
 msgid "Update Volume Type Encryption"
 msgstr "Aktualizovat šifrování typu svazku"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"Aktualizovat zásobník pomocí zadaných hodnot. Nezapomeňte prosím, že všechny "
-"zašifrované parametry, jako např. hesla, budou resetována na výchozí, pokud "
-"je zde nezměníte."
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -7624,20 +7145,6 @@ msgstr "Použít svazek jako zdroj"
 
 msgid "Use image as a source"
 msgstr "Použít obraz jako zdroj"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"Použijte jednu z dostupných voleb zdroje šablony pro zadání šablony použité "
-"při vytváření zásobníku."
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in previewing this stack."
-msgstr ""
-"Použijte jednu z dostupných voleb zdroje šablony pro zadání šablony použité "
-"při vytváření náhledu zásobníku."
 
 msgid "Use snapshot as a source"
 msgstr "Použít snapshot jako zdroj"
@@ -7745,9 +7252,6 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "Hodnota"
-
-msgid "Version"
-msgstr "Verze"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8084,9 +7588,6 @@ msgstr "Musíte vybrat obraz."
 msgid "You must set volume size"
 msgstr "Musíte nastavit velikost svazku"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "Musíte zadat šablonu pomocí jednoho z dostupných zdrojů."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -8123,9 +7624,6 @@ msgstr "např. Ano/Ne"
 msgid "e.g. Yes/No"
 msgstr "např. Ano/Ne"
 
-msgid "environment"
-msgstr "prostředí"
-
 msgid "front-end"
 msgstr "rozhraní"
 
@@ -8134,9 +7632,6 @@ msgstr "instance"
 
 msgid "no"
 msgstr "ne"
-
-msgid "template"
-msgstr "šablona"
 
 msgid "undefined"
 msgstr "nedefinováno"

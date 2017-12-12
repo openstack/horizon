@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,14 +44,6 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -103,14 +95,8 @@ msgstr ", परियोजना समूह क अद्यतन करू
 msgid "-"
 msgstr "-"
 
-msgid "A local environment to upload."
-msgstr "अपलोड करबाक लेल स्थानीय पर्यावरण."
-
 msgid "A local image to upload."
 msgstr "अपलोड करबाक लेल स्थानीय बिंब।"
-
-msgid "A local template to upload."
-msgstr "अपलोड करबाक लेल स्थानीय नमूना."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -294,9 +280,6 @@ msgstr "आवंटित अस्थायी आईपी %(ip)s."
 msgid "Allocation Pools"
 msgstr "आवंटन पूल"
 
-msgid "An external (HTTP) URL to load the template from."
-msgstr "बाहरी (एचटीटीपी) यूआरएल सँ नमूना लोड करबाक लेल."
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -478,12 +461,6 @@ msgstr "बदलू"
 
 msgid "Change Password"
 msgstr "गुड़किल्ली बदलू"
-
-msgid "Change Stack Template"
-msgstr " ढेर खाका बदलू"
-
-msgid "Change Template"
-msgstr "खाका बदलू"
 
 msgid "Change Volume Type"
 msgstr "वाल्यूम प्रकार बदलू"
@@ -707,9 +684,6 @@ msgstr "स्नेपशाट बनाउ"
 msgid "Create Spec"
 msgstr "Spec बनाउ"
 
-msgid "Create Stack"
-msgstr "ढेर बनाउ"
-
 msgid "Create Subnet"
 msgstr "सबनेट बनाउ"
 
@@ -751,9 +725,6 @@ msgstr "वाल्यूम प्रकार क लेल नव \"बा�
 
 msgid "Create a new role."
 msgstr "नव भूमिका बनाउ"
-
-msgid "Create a new stack with the provided values."
-msgstr "मोजुद कराएल मान क सँग नव ढेर बनाउ."
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -839,9 +810,6 @@ msgstr "वाल्यूम बैकअप \"%s\" बनाएल जाए �
 msgid "Creating volume snapshot \"%s\"."
 msgstr " \"%s\" वाल्यूम स्नैपशाट बनाए रहल अछि"
 
-msgid "Creation Timeout (minutes)"
-msgstr "निर्माण समय समाप्त (मिनट)"
-
 msgid "Current Host"
 msgstr "मोजुदा मेजबान"
 
@@ -868,9 +836,6 @@ msgstr "DHCP प्रतिनिधि"
 
 msgid "DNS Name Servers"
 msgstr "DNS नाम सर्वर"
-
-msgid "Date Updated"
-msgstr "तिथि अद्यतित"
 
 msgid "Decrypt Password"
 msgstr "गुड़किल्ली डिक्रिप्ट करू"
@@ -1140,9 +1105,6 @@ msgstr "स्पेक संपादित करू"
 msgid "Edit Subnet"
 msgstr " सबनेट संपादित करू"
 
-msgid "Edit Template"
-msgstr "नमूना क संपादन करू"
-
 msgid "Edit Volume"
 msgstr " वाल्यूम संपादित करू"
 
@@ -1181,9 +1143,6 @@ msgstr " DHCP सक्रिय करू"
 msgid "Enable HA mode"
 msgstr "HA अवस्था सक्रिय करू"
 
-msgid "Enable rollback on create/update failure."
-msgstr "अद्यतन / बिफलता बनाबै पर रोलबैक सक्षम करू."
-
 msgid "Enabled"
 msgstr "सक्रिय"
 
@@ -1208,15 +1167,6 @@ msgstr " ICMP प्रकार क लेल एकटा मूल्य द�
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 आओर 65535 क बीच एकटा पूर्णांक मान दर्ज करू."
-
-msgid "Environment Data"
-msgstr "वातावरण डाटा"
-
-msgid "Environment File"
-msgstr "वातावरण फाइल"
-
-msgid "Environment Source"
-msgstr "पर्यावरण स्रोत"
 
 msgid "Ephemeral Disk"
 msgstr "अस्थायी डिस्क "
@@ -1281,9 +1231,6 @@ msgstr "संचालक केर मूल्यांकन करू"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "सक्रिय लक्ष्य मेजबान करबाक लेल नीच्चाँ चयनित मेजबान सँ सर्वर केँ खाली करू."
-
-msgid "Events"
-msgstr "घटना"
 
 msgid "Extend Volume"
 msgstr "वाल्यूम विस्तार"
@@ -1936,9 +1883,6 @@ msgstr "कुँजीमान युग्म"
 msgid "Language"
 msgstr "भाषा"
 
-msgid "Last Updated"
-msgstr "अंतिम बेर अद्यतन"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "अंतिम बेर अद्यतन"
@@ -1951,12 +1895,6 @@ msgstr "इंस्टांस लान्च करू"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "दृष्टांत लान्च करू (कोटा सँ बेसी भ' गेल)"
-
-msgid "Launch Parameters"
-msgstr "पैरामीटर्स लान्च करू "
-
-msgid "Launch Stack"
-msgstr "ढेर लान्च करू"
 
 msgid "Launch as Instance"
 msgstr "इंस्टांस क रूपेँ लान्च करू"
@@ -2089,9 +2027,6 @@ msgstr "न्यूनतम डिस्क (जीबी)"
 msgid "Minimum RAM (MB)"
 msgstr "न्यूनतम रैम (एमबी)"
 
-msgid "Minutes"
-msgstr "मिनट"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "परिवर्धित डोमेन \"%s\""
@@ -2150,16 +2085,6 @@ msgstr "नाम"
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "नाम मे सिर्फ एकटा अक्षर, संख्या, हाइफन, आओर डैश  भ' सकैत अछि."
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"नाम एकटा पत्र क सँग शुरू हाएत आओर केवल अक्षर, संख्या, केँ रेखांकित करैत अछि, ओ समय आओर "
-"हाइफ़न भ' सकैत अछि."
-
-msgid "Name of the stack to create."
-msgstr "बनाने क लेल ढेर क नाम."
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -2235,9 +2160,6 @@ msgstr " नवगुड़किल्ली"
 
 msgid "New size must be greater than current size."
 msgstr " नवआकार वर्तमान आकार सँ पैघ होनाइ चाही."
-
-msgid "Next"
-msgstr "अगिला"
 
 msgid "No"
 msgstr "नहि"
@@ -2415,9 +2337,6 @@ msgstr "वैकल्पिक रूप सँ, अहाँ एकटा न
 msgid "Other Protocol"
 msgstr "आन प्रोटोकाल"
 
-msgid "Outputs"
-msgstr "आउटपुट"
-
 msgid "Overview"
 msgstr "सारांश"
 
@@ -2426,9 +2345,6 @@ msgstr "मालिक"
 
 msgid "Page Not Found"
 msgstr "पृष्ठ नहि भेटल"
-
-msgid "Parameters"
-msgstr "पैरामीटर्स"
 
 msgid "Password"
 msgstr "गुड़किल्ली"
@@ -2439,10 +2355,6 @@ msgstr "गुड़किल्ली"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "गुड़किल्ली बदैल गेल. जारी राखबा क लेल फिनु सँ लाग ई करू."
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "\"%s\" प्रयोक्ता कलेल गुड़किल्ली "
 
 msgid "Passwords do not match."
 msgstr "गुड़किल्ली मेल नहि खाइछ."
@@ -2467,10 +2379,6 @@ msgstr "प्रत्यक्ष संजाल:"
 
 msgid "Please note: "
 msgstr "कृपया  नोट करू:"
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "स्रोत विधि केवल एकटा क उपयोग कए %s क निर्दिष्ट करू."
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2725,15 +2633,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "आकार बदलब अथवा माइग्रेट भ' रहल अछि"
 
-msgid "Resource"
-msgstr "साधन"
-
-msgid "Resource ID"
-msgstr "संसाधन ID"
-
-msgid "Resource Metadata"
-msgstr "संसाधन मेटाडाटा"
-
 msgid "Resources"
 msgstr "संसाधन"
 
@@ -2795,12 +2694,6 @@ msgstr "भूमिका सफलतापूर्वक अद्यतन.
 
 msgid "Roles"
 msgstr "भूमिका"
-
-msgid "Rollback"
-msgstr "वापस करू"
-
-msgid "Rollback On Failure"
-msgstr "बिफलता पर रोलबैक"
 
 msgid "Root Disk"
 msgstr "रूट डिस्क"
@@ -2905,9 +2798,6 @@ msgstr "स्क्रिप्ट स्रोत क चयन करू"
 msgid "Select Subnet"
 msgstr "सबनेट चयन करू"
 
-msgid "Select Template"
-msgstr "नमूना क चयन करू"
-
 msgid "Select Volume"
 msgstr "वाल्यूम चुनू"
 
@@ -2926,9 +2816,6 @@ msgstr " नवएजेंट चयन करू"
 msgid "Select a new host"
 msgstr " नव मेजबान चयन करू"
 
-msgid "Select a new template to re-launch a stack."
-msgstr "स्टैक केँ फिनु सँ लान्च करबाक लेल एकटा नव नमूना क चयन करू."
-
 msgid "Select a port"
 msgstr "पोर्ट चुनू."
 
@@ -2937,9 +2824,6 @@ msgstr "परियोजना चुनू"
 
 msgid "Select a target host"
 msgstr "लक्ष्य मेजबान चयन करू"
-
-msgid "Select a template to launch a stack."
-msgstr "एकटा स्टैक लान्च करबाक लेल नमूना क चयन करू."
 
 msgid "Select a volume to restore to."
 msgstr "रीस्टोर करबाक लेल एकटा वाल्यूम क चयन करू."
@@ -3148,42 +3032,6 @@ msgstr "इंस्टेंस शुरू करबाक लेल वि�
 msgid "Specs"
 msgstr "विशिष्टता"
 
-msgid "Stack Events"
-msgstr "ढेर घटनाक्रम"
-
-msgid "Stack ID"
-msgstr "ढेर आईडी"
-
-msgid "Stack Name"
-msgstr " ढेर नाम"
-
-msgid "Stack Parameters"
-msgstr "ढेर पैरामीटर्स"
-
-msgid "Stack Resource"
-msgstr "ढेर संसाधन"
-
-msgid "Stack Resource ID"
-msgstr "ढेर संसाधन ID"
-
-msgid "Stack Resource Type"
-msgstr "ढेर संसाधन प्रकार"
-
-msgid "Stack Resources"
-msgstr "ढेर संसाधन"
-
-msgid "Stack creation started."
-msgstr "ढेर निर्माण शुरू कए देलक."
-
-msgid "Stack creation timeout in minutes."
-msgstr "मिनटों मे निर्माण मध्यांतर भ' चुकी अछि."
-
-msgid "Stack update started."
-msgstr "ढेर अद्यतन शुरू कए देलक."
-
-msgid "Stacks"
-msgstr "ढेर"
-
 msgid "Start"
 msgstr "प्रारंभ"
 
@@ -3210,9 +3058,6 @@ msgstr "स्थिति"
 
 msgid "Status ="
 msgstr "स्थिति ="
-
-msgid "Status Reason"
-msgstr "स्थिति क कारण"
 
 msgid "Subnet"
 msgstr "सबनेट"
@@ -3331,21 +3176,6 @@ msgstr "लक्ष्य मेजबान"
 
 msgid "Task"
 msgstr "काज"
-
-msgid "Template"
-msgstr "नमूना"
-
-msgid "Template Data"
-msgstr "नमूना डाटा"
-
-msgid "Template File"
-msgstr "नमूना फाइल"
-
-msgid "Template Source"
-msgstr "नमूना स्रोत"
-
-msgid "Template URL"
-msgstr "नमूना यूआरएल"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"सँ\" पोर्ट सँख्या अमान्य अछि."
@@ -3479,12 +3309,6 @@ msgstr "निज कुँजी अपन ब्राउजर मे इस�
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "ई छद्म फोल्डर केँ हटाएल नहि जाए सकैत अछि किएक ई खाली नहि अछि."
 
-msgid "The raw contents of the environment file."
-msgstr "वातावरण फाइल क कच्ची सामग्री."
-
-msgid "The raw contents of the template."
-msgstr "नमूना क कच्चा सामग्री."
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
@@ -3533,25 +3357,14 @@ msgstr ""
 "pub) कुँजी अछि. एतय सार्वजानिक कुँजी क सामग्री साटू "
 
 msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "आपरेशन ढेर क जीवन चक्र क दौरान प्रदर्शन कएल जाए करबाक लेल ई आवश्यक अछि"
-
-msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "ई मात्रा वर्तमान मे एकटा इंस्टेंस सँ जुड़ल भेलहुँ अछि. किछु मामला मे, एकटा संलग्न वाल्यूम सँ "
 "एकटा स्नैपशाट बनाने क एकटा भ्रष्ट स्नैपशाट मे परिणाम कए सकैत अछि."
 
-msgid "Time Since Event"
-msgstr "घटना क बाद सँ समय"
-
 msgid "Time since created"
 msgstr "निर्माण क समय सँ समय"
-
-msgid "Timeout"
-msgstr "समय समाप्ति"
 
 msgid "Timezone"
 msgstr "समयक्षेत्र"
@@ -3595,9 +3408,6 @@ msgstr "प्रोजेक्ट क लेल कुल डिस्क उ�
 
 msgid "Type"
 msgstr "प्रकार"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -3748,10 +3558,6 @@ msgstr "\"%s\" इंस्टेंस क लेल VNC कँसोल प्
 msgid "Unable to get cinder services list."
 msgstr "सिंडर सेवासभ क सूची प्राप्त करबामे असमर्थ."
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "ढेर \"%s\" क लेल घटना प्राप्त करबामे असमर्थ."
-
 msgid "Unable to get flavor list"
 msgstr "फ्लेवर सूची पाबै मे असमर्थ"
 
@@ -3776,10 +3582,6 @@ msgstr "openrc क्रेडेंशियल प्राप्त करब
 
 msgid "Unable to get quota info."
 msgstr "कोटा जानकारी प्राप्त करबामे असमर्थ."
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "ढेर \"%s\" क लेल संसाधन केँ प्राप्त करबामे असमर्थ."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -4044,9 +3846,6 @@ msgstr "वाल्यूम स्नैपशाट क सूची के�
 msgid "Unable to retrieve list of volumes."
 msgstr "संस्करण क सूची केँ प्राप्त करबामे असमर्थ."
 
-msgid "Unable to retrieve metadata."
-msgstr "मेटाडेटा प्राप्त करबामे असमर्थ."
-
 msgid "Unable to retrieve network details."
 msgstr "संजाल जानकारी प्राप्त करबामे असमर्थ."
 
@@ -4079,9 +3878,6 @@ msgstr "सार्वजनिक बिंब केँ फिनु प्�
 
 msgid "Unable to retrieve quota information."
 msgstr "कोटा सूचना पाबै मे असमर्थ."
-
-msgid "Unable to retrieve resource."
-msgstr "संसाधन केँ फिनु प्राप्त करबामे असमर्थ."
 
 msgid "Unable to retrieve role list."
 msgstr "भूमिका सूची केँ प्राप्त करबामे असमर्थ."
@@ -4116,15 +3912,6 @@ msgstr "स्नैपशाट जानकारी प्राप्त क
 
 msgid "Unable to retrieve snapshot list."
 msgstr "स्नैपशाट सूची पुनर्प्राप्त करबामे असमर्थ."
-
-msgid "Unable to retrieve stack list."
-msgstr "ढेर सूची केँ प्राप्त करबामे असमर्थ."
-
-msgid "Unable to retrieve stack template."
-msgstr "स्टैक नमूना केँ पुनर्प्राप्त करबामे असमर्थ."
-
-msgid "Unable to retrieve stack."
-msgstr "ढेर केँ फिनु प्राप्त करबामे असमर्थ."
 
 msgid "Unable to retrieve subnet details"
 msgstr "सबनेट विवरण केँ फिनु प्राप्त करबामे असमर्थ"
@@ -4328,12 +4115,6 @@ msgstr "भूमिका अद्यतन करू "
 msgid "Update Router"
 msgstr "राटर अद्यतन करू"
 
-msgid "Update Stack"
-msgstr "ढेर अद्यतन "
-
-msgid "Update Stack Parameters"
-msgstr "अद्यतन ढेर पैरामीटर्स"
-
 msgid "Update Status"
 msgstr "स्थिति अपडेट करू"
 
@@ -4345,15 +4126,6 @@ msgstr "वाल्यूम स्नैपशाट स्थिति अद
 
 msgid "Update Volume Status"
 msgstr "वाल्यूम स्थिति केँ अद्यतन करू"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"मोजुद कराएल मान क सँग ढेर केँ अद्यतन करू. एहि तरह क गुड़किल्ली क रूपेँ ककरो सेहो एन्क्रिप्टेड "
-"पैरामीटर, अहाँ ओकरा एतय परिवर्तन नहि करैत अछि, तँ पूर्वनिर्धारित पर रीसेट भ' जएताह "
-"कृप्या  ध्यान दिअ'."
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -4418,13 +4190,6 @@ msgstr "स्रोत क रूपेँ वाल्यूम क प्र�
 
 msgid "Use image as a source"
 msgstr "स्रोत क रूपेँ छवि क उपयोग करू"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"ई ढेर केँ बनाबै मे प्रयोग क जाएबला नमूना निर्दिष्ट करबाक लेल मोजुद नमूना स्रोत विकल्प मे सँ "
-"एकटा क प्रयोग करू."
 
 msgid "Use snapshot as a source"
 msgstr "स्रोत क रूपेँ स्नैपशाट क उपयोग"
@@ -4676,9 +4441,6 @@ msgstr "अहाँ एकटा बिंब क चयन कएनाइ ह
 msgid "You must set volume size"
 msgstr "अहाँ हरदम वाल्यूम आकर सेट कए सकैत अछि"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "अहाँक मोजुद स्रोतक एकसँ नमूना निर्दिष्ट कएनाइ चाही."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4708,17 +4470,11 @@ msgstr "दुनू"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-msgid "environment"
-msgstr "वातावरण"
-
 msgid "front-end"
 msgstr "फ्रंट - एंड"
 
 msgid "instance"
 msgstr "इंस्टेंस"
-
-msgid "template"
-msgstr "नमूना"
 
 msgid "undefined"
 msgstr "अपारिभाषित"

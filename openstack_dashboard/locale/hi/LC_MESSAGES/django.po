@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -86,14 +86,8 @@ msgstr ", परियोजना समूहों का अद्यतन 
 msgid "-"
 msgstr "-"
 
-msgid "A local environment to upload."
-msgstr "अपलोड करने के लिए स्थानीय पर्यावरण."
-
 msgid "A local image to upload."
 msgstr "अपलोड करने के लिए स्थानीय बिंब।"
-
-msgid "A local template to upload."
-msgstr "अपलोड करने के लिए स्थानीय टेम्पलेट."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -273,9 +267,6 @@ msgstr "आवंटित अस्थायी आईपी %(ip)s."
 msgid "Allocation Pools"
 msgstr "आवंटन पूल"
 
-msgid "An external (HTTP) URL to load the template from."
-msgstr "बाहरी (एचटीटीपी) यूआरएल से टेम्पलेट लोड करने के लिए."
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -434,12 +425,6 @@ msgstr "बदलें"
 
 msgid "Change Password"
 msgstr "कूटशब्द बदलें"
-
-msgid "Change Stack Template"
-msgstr " ढेर खाका बदले"
-
-msgid "Change Template"
-msgstr "खाका बदले"
 
 msgid "Changing password is not supported."
 msgstr "बदल रहा पासवर्ड समर्थित नहीं है."
@@ -616,9 +601,6 @@ msgstr "स्नेपशॉट बनायें"
 msgid "Create Spec"
 msgstr "Spec बनाएँ"
 
-msgid "Create Stack"
-msgstr "ढेर बनाएँ"
-
 msgid "Create Subnet"
 msgstr "सबनेट बनाएँ"
 
@@ -654,9 +636,6 @@ msgstr "वॉल्यूम प्रकार के लिए नया \"�
 
 msgid "Create a new role."
 msgstr "नई भूमिका बनाएँ"
-
-msgid "Create a new stack with the provided values."
-msgstr "उपलब्ध कराई मानों के साथ नई ढेर बनाएँ."
 
 msgid "Create a project to organize users."
 msgstr "उपयोक्ता संगठित करने के लिए परियोजना बनाएँ."
@@ -712,9 +691,6 @@ msgstr "\"%s\" वॉल्यूम बना रहा है"
 msgid "Creating volume snapshot \"%s\"."
 msgstr " \"%s\" वॉल्यूम स्नैपशॉट बना रहा है"
 
-msgid "Creation Timeout (minutes)"
-msgstr "निर्माण समय समाप्त (मिनट)"
-
 msgid "Current Host"
 msgstr "मौज़ूदा होस्ट"
 
@@ -738,9 +714,6 @@ msgstr "DHCP प्रतिनिधि"
 
 msgid "DNS Name Servers"
 msgstr "DNS नाम सर्वर"
-
-msgid "Date Updated"
-msgstr "तिथि अद्यतित"
 
 msgid "Decrypt Password"
 msgstr "पासवर्ड डिक्रिप्ट करें"
@@ -833,11 +806,6 @@ msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] "सुरक्षा समूह मिटाएँ"
 msgstr[1] "सुरक्षा समूह मिटाएँ"
-
-msgid "Delete Stack"
-msgid_plural "Delete Stacks"
-msgstr[0] "स्टैक मिटाएँ"
-msgstr[1] "स्टैक मिटाएँ"
 
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
@@ -948,11 +916,6 @@ msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
 msgstr[0] "मिटाया सुरक्षा समूह"
 msgstr[1] "मिटाया सुरक्षा समूह"
-
-msgid "Deleted Stack"
-msgid_plural "Deleted Stacks"
-msgstr[0] "मिटाए स्टैक"
-msgstr[1] "मिटाए स्टैक"
 
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
@@ -1178,9 +1141,6 @@ msgstr "स्पेक संपादित करें"
 msgid "Edit Subnet"
 msgstr " सबनेट संपादित करें"
 
-msgid "Edit Template"
-msgstr "टैम्प्लेट का संपादन करें"
-
 msgid "Edit Volume"
 msgstr " वॉल्यूम संपादित करें"
 
@@ -1221,9 +1181,6 @@ msgid_plural "Enable Users"
 msgstr[0] "उपयोक्ता सक्रिय करें"
 msgstr[1] "उपयोक्ता सक्रिय करें"
 
-msgid "Enable rollback on create/update failure."
-msgstr "अद्यतन / विफलता बनाने पर रोलबैक सक्षम करें."
-
 msgid "Enabled"
 msgstr "सक्रिय"
 
@@ -1250,15 +1207,6 @@ msgstr " ICMP प्रकार के लिए एक मूल्य दर�
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 और 65535 के बीच एक पूर्णांक मान दर्ज करें."
-
-msgid "Environment Data"
-msgstr "वातावरण डाटा"
-
-msgid "Environment File"
-msgstr "वातावरण फ़ाइल"
-
-msgid "Environment Source"
-msgstr "पर्यावरण स्रोत"
 
 msgid "Ephemeral Disk"
 msgstr "अस्थायी डिस्क "
@@ -1314,9 +1262,6 @@ msgstr "ईथर प्रकार"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "सक्रिय लक्ष्य होस्ट करने के लिए नीचे चयनित होस्ट से सर्वर को खाली करें."
-
-msgid "Events"
-msgstr "घटनाएँ"
 
 msgid "Extend Volume"
 msgstr "वॉल्यूम विस्तार"
@@ -1868,9 +1813,6 @@ msgstr "कुंजीमान युग्म"
 msgid "Language"
 msgstr "भाषा"
 
-msgid "Last Updated"
-msgstr "अंतिम बार अद्यतन"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "अंतिम बार अद्यतन"
@@ -1880,12 +1822,6 @@ msgstr "लांच करें"
 
 msgid "Launch Instance"
 msgstr "इंस्टांस लॉन्च करें"
-
-msgid "Launch Parameters"
-msgstr "पैरामीटर्स लॉन्च करें "
-
-msgid "Launch Stack"
-msgstr "ढेर लॉन्च करें"
 
 msgid "Launch as Instance"
 msgstr "इंस्टांस के रूप में लॉन्च करें"
@@ -2008,9 +1944,6 @@ msgstr "न्यूनतम डिस्क (जीबी)"
 msgid "Minimum RAM (MB)"
 msgstr "न्यूनतम रैम (एमबी)"
 
-msgid "Minutes"
-msgstr "मिनट"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "परिवर्धित डोमेन \"%s\""
@@ -2058,16 +1991,6 @@ msgstr "नाम"
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "नाम में सिर्फ एक अक्षर, संख्या, हाइफन, और डैश ही हो सकते हैं."
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"नाम एक पत्र के साथ शुरू होगा और केवल अक्षर, संख्या, को रेखांकित करता है, उस समय और "
-"हाइफ़न हो सकती है."
-
-msgid "Name of the stack to create."
-msgstr "बनाने के लिए ढेर का नाम."
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -2131,9 +2054,6 @@ msgstr "नया होस्ट"
 
 msgid "New password"
 msgstr "नया कूटशब्द"
-
-msgid "Next"
-msgstr "अगला"
 
 msgid "No"
 msgstr "नहीं"
@@ -2293,9 +2213,6 @@ msgstr "खुला हुआ पोर्ट"
 msgid "Other Protocol"
 msgstr "अन्य प्रोटोकॉल"
 
-msgid "Outputs"
-msgstr "आउटपुट"
-
 msgid "Overview"
 msgstr "सारांश"
 
@@ -2304,9 +2221,6 @@ msgstr "मालिक"
 
 msgid "Page Not Found"
 msgstr "पृष्ठ नहीं मिला"
-
-msgid "Parameters"
-msgstr "पैरामीटर्स"
 
 msgid "Password"
 msgstr "पासवर्ड"
@@ -2317,10 +2231,6 @@ msgstr "पासवर्ड"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "कूटशब्द बदल गया. जारी रखने के लिए फिर से लॉग इन करें."
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "\"%s\" उपयोक्ता के लिये शब्दकूट "
 
 msgid "Passwords do not match."
 msgstr "पासवर्ड मेल नहीं खाते."
@@ -2346,10 +2256,6 @@ msgstr "भौतिक संजाल"
 
 msgid "Please note: "
 msgstr "कृपया नोट करें:"
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "स्रोत विधि केवल एक का उपयोग कर %s की निर्दिष्ट करें."
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2570,15 +2476,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "आकार बदलना या माइग्रेट हो रहा हैं"
 
-msgid "Resource"
-msgstr "साधन"
-
-msgid "Resource ID"
-msgstr "संसाधन ID"
-
-msgid "Resource Metadata"
-msgstr "संसाधन मेटाडाटा"
-
 msgid "Resources"
 msgstr "संसाधन"
 
@@ -2638,12 +2535,6 @@ msgstr "भूमिका सफलतापूर्वक अद्यतन.
 
 msgid "Roles"
 msgstr "भूमिका"
-
-msgid "Rollback"
-msgstr "वापस करें"
-
-msgid "Rollback On Failure"
-msgstr "विफलता पर रोलबैक"
 
 msgid "Root Disk"
 msgstr "रूट डिस्क"
@@ -2745,9 +2636,6 @@ msgstr "इंस्टांस स्नैपशॉट चुनें "
 
 msgid "Select Subnet"
 msgstr "सबनेट चयन करें"
-
-msgid "Select Template"
-msgstr "टेम्पलेट का चयन करें"
 
 msgid "Select Volume"
 msgstr "वॉल्यूम चुनें"
@@ -2917,42 +2805,6 @@ msgstr "इंस्टेंस शुरू करने के लिए व�
 msgid "Specs"
 msgstr "विशिष्टताएं"
 
-msgid "Stack Events"
-msgstr "ढेर घटनाक्रम"
-
-msgid "Stack ID"
-msgstr "ढेर आईडी"
-
-msgid "Stack Name"
-msgstr " ढेर नाम"
-
-msgid "Stack Parameters"
-msgstr "ढेर पैरामीटर्स"
-
-msgid "Stack Resource"
-msgstr "ढेर संसाधन"
-
-msgid "Stack Resource ID"
-msgstr "ढेर संसाधन ID"
-
-msgid "Stack Resource Type"
-msgstr "ढेर संसाधन प्रकार"
-
-msgid "Stack Resources"
-msgstr "ढेर संसाधन"
-
-msgid "Stack creation started."
-msgstr "ढेर निर्माण शुरू कर दिया."
-
-msgid "Stack creation timeout in minutes."
-msgstr "मिनटों में निर्माण मध्यांतर हो चुकी है."
-
-msgid "Stack update started."
-msgstr "ढेर अद्यतन शुरू कर दिया."
-
-msgid "Stacks"
-msgstr "ढेर"
-
 msgid "Start"
 msgstr "प्रारंभ"
 
@@ -2979,9 +2831,6 @@ msgstr "स्थिति"
 
 msgid "Status ="
 msgstr "स्थिति ="
-
-msgid "Status Reason"
-msgstr "स्थिति का कारण"
 
 msgid "Subnet"
 msgstr "सबनेट"
@@ -3070,21 +2919,6 @@ msgstr "लक्ष्य मेजबान"
 
 msgid "Task"
 msgstr "कार्य"
-
-msgid "Template"
-msgstr "नमूना"
-
-msgid "Template Data"
-msgstr "टेम्पलेट डेटा"
-
-msgid "Template File"
-msgstr "टेम्पलेट फ़ाइल"
-
-msgid "Template Source"
-msgstr "टेम्पलेट स्रोत"
-
-msgid "Template URL"
-msgstr "टेम्पलेट यूआरएल"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"से\" पोर्ट संख्या अमान्य है."
@@ -3176,12 +3010,6 @@ msgid ""
 "the server"
 msgstr "निजी कुंजी अपने ब्राउज़र में ही इस्तेमाल किया जाएगा और सर्वर को नहीं भेजा जाएगा"
 
-msgid "The raw contents of the environment file."
-msgstr "वातावरण फ़ाइल की कच्ची सामग्री."
-
-msgid "The raw contents of the template."
-msgstr "टेम्पलेट का कच्चा सामग्री."
-
 msgid "The specified port is invalid."
 msgstr "निर्दिष्ट पोर्ट अमान्य है."
 
@@ -3218,25 +3046,14 @@ msgstr ""
 "pub) कुंजी हैं. यहाँ सार्वजानिक कुंजी की सामग्री चिपकायें "
 
 msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "आपरेशन ढेर के जीवन चक्र के दौरान प्रदर्शन किया जा करने के लिए यह आवश्यक है"
-
-msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "यह मात्रा वर्तमान में एक इंस्टेंस से जुड़ा हुआ है. कुछ मामलों में, एक संलग्न वॉल्यूम से एक स्नैपशॉट "
 "बनाने के एक भ्रष्ट स्नैपशॉट में परिणाम कर सकते हैं."
 
-msgid "Time Since Event"
-msgstr "घटना के बाद से समय"
-
 msgid "Time since created"
 msgstr "निर्माण के समय से समय"
-
-msgid "Timeout"
-msgstr "समय समाप्ति"
 
 msgid "Timezone"
 msgstr "समयक्षेत्र"
@@ -3270,9 +3087,6 @@ msgstr "वॉल्यूम और स्नैपशॉट का कुल �
 
 msgid "Type"
 msgstr "प्रकार"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "Unable to add rule to security group."
 msgstr "सुरक्षा समूह के लिए शासन को जोड़ने में असमर्थ."
@@ -3400,10 +3214,6 @@ msgstr "\"%s\" इंस्टेंस के लिए VNC कंसोल प
 msgid "Unable to get cinder services list."
 msgstr "सिंडर सेवाओं की सूची प्राप्त करने में असमर्थ."
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "ढेर \"%s\" के लिए घटनाओं प्राप्त करने में असमर्थ."
-
 msgid "Unable to get flavor list"
 msgstr "फ्लेवर सूची पाने में असमर्थ"
 
@@ -3425,10 +3235,6 @@ msgstr "नोवा सेवाओं की सूची प्राप्�
 
 msgid "Unable to get quota info."
 msgstr "कोटा जानकारी प्राप्त करने में असमर्थ."
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "ढेर \"%s\" के लिए संसाधनों को प्राप्त करने में असमर्थ."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -3652,9 +3458,6 @@ msgstr "वॉल्यूम स्नैपशॉट के सूची क�
 msgid "Unable to retrieve list of volumes."
 msgstr "संस्करणों की सूची को प्राप्त करने में असमर्थ."
 
-msgid "Unable to retrieve metadata."
-msgstr "मेटाडेटा प्राप्त करने में असमर्थ."
-
 msgid "Unable to retrieve network details."
 msgstr "नेटवर्क जानकारी प्राप्त करने में असमर्थ."
 
@@ -3688,9 +3491,6 @@ msgstr "सार्वजनिक बिंब को पुनः प्र�
 msgid "Unable to retrieve quota information."
 msgstr "कोटा सूचना पाने में असमर्थ."
 
-msgid "Unable to retrieve resource."
-msgstr "संसाधन को पुनः प्राप्त करने में असमर्थ."
-
 msgid "Unable to retrieve role list."
 msgstr "भूमिका सूची को प्राप्त करने में असमर्थ."
 
@@ -3717,12 +3517,6 @@ msgstr "सुरक्षा समूहों को पुनः प्र�
 
 msgid "Unable to retrieve snapshot details."
 msgstr "स्नैपशॉट जानकारी प्राप्त करने में असमर्थ."
-
-msgid "Unable to retrieve stack list."
-msgstr "ढेर सूची को प्राप्त करने में असमर्थ."
-
-msgid "Unable to retrieve stack."
-msgstr "ढेर को पुनः प्राप्त करने में असमर्थ."
 
 msgid "Unable to retrieve subnet details"
 msgstr "सबनेट विवरण को पुनः प्राप्त करने में असमर्थ"
@@ -3894,12 +3688,6 @@ msgstr "भूमिका अद्यतन करें "
 msgid "Update Router"
 msgstr "रॉटर अद्यतन करें"
 
-msgid "Update Stack"
-msgstr "ढेर अद्यतन "
-
-msgid "Update Stack Parameters"
-msgstr "अद्यतन ढेर पैरामीटर्स"
-
 msgid "Update Status"
 msgstr "स्थिति अपडेट करें"
 
@@ -3911,15 +3699,6 @@ msgstr "वॉल्यूम स्नैपशॉट स्थिति अद
 
 msgid "Update Volume Status"
 msgstr "वॉल्यूम स्थिति को अद्यतन करें"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"उपलब्ध कराई मानों के साथ ढेर को अद्यतन करें. इस तरह के पासवर्ड के रूप में किसी भी "
-"एन्क्रिप्टेड पैरामीटर, आप उन्हें यहाँ परिवर्तन नहीं करते हैं, तो डिफ़ॉल्ट पर रीसेट हो जाएगा "
-"कृपया ध्यान दें."
 
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
@@ -3970,13 +3749,6 @@ msgstr "स्रोत के रूप में वॉल्यूम का 
 
 msgid "Use image as a source"
 msgstr "स्रोत के रूप में छवि का उपयोग करें"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"इस ढेर को बनाने में प्रयोग की जाने वाली टेम्पलेट निर्दिष्ट करने के लिए उपलब्ध टेम्पलेट स्रोत "
-"विकल्पों में से एक का प्रयोग करें."
 
 msgid "Use snapshot as a source"
 msgstr "स्रोत के रूप में स्नैपशॉट का उपयोग"
@@ -4167,9 +3939,6 @@ msgstr "आप एक बिंब का चयन करना होगा."
 msgid "You must set volume size"
 msgstr "आप हमेशा वॉल्यूम आकर सेट कर सकते हैं"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "You must specify a template via one of the available sources."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4199,17 +3968,11 @@ msgstr "दोनों"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-msgid "environment"
-msgstr "वातावरण"
-
 msgid "front-end"
 msgstr "फ्रंट - एंड"
 
 msgid "instance"
 msgstr "इंस्टेंस"
-
-msgid "template"
-msgstr "टैम्प्लेट"
 
 msgid "undefined"
 msgstr "अपारिभाषित"

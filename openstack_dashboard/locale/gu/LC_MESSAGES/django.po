@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,14 +44,6 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -103,14 +95,8 @@ msgstr ",પ્રોજેક્ટ જૂથો અદ્યતન કરો"
 msgid "-"
 msgstr "-"
 
-msgid "A local environment to upload."
-msgstr "સ્થાનિક પર્યાવરણ અપલોડ કરવા માટે."
-
 msgid "A local image to upload."
 msgstr "અપલોડ કરવા માટે સ્થાનિક ઈમેજ."
-
-msgid "A local template to upload."
-msgstr "અપલોડ કરવા માટે સ્થાનિક ટેમ્પલેટ."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -294,9 +280,6 @@ msgstr "ફાળવવામાં આવેલ ફ્લોટિંગ IP %(i
 msgid "Allocation Pools"
 msgstr "ફાળવણી પુલ"
 
-msgid "An external (HTTP) URL to load the template from."
-msgstr "બાહ્ય (HTTP) URL માંથી ટેમ્પલેટ લોડ કરવા માટે."
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -478,12 +461,6 @@ msgstr "બદલો"
 
 msgid "Change Password"
 msgstr "પાસવર્ડ બદલો"
-
-msgid "Change Stack Template"
-msgstr "સ્ટેક ટેમ્પલેટ બદલો"
-
-msgid "Change Template"
-msgstr "ટેમ્પલેટ બદલો"
 
 msgid "Change Volume Type"
 msgstr "વોલ્યુમ પ્રકાર બદલો"
@@ -708,9 +685,6 @@ msgstr "સ્નેપશોટ બનાવો"
 msgid "Create Spec"
 msgstr "સ્પેક બનાવો"
 
-msgid "Create Stack"
-msgstr "સ્ટેક બનાવો"
-
 msgid "Create Subnet"
 msgstr "ઉપનેટ બનાવો"
 
@@ -752,9 +726,6 @@ msgstr "વોલ્યુમ પ્રકાર માટે નવી \"વધ
 
 msgid "Create a new role."
 msgstr "નવી ભૂમિકા બનાવો."
-
-msgid "Create a new stack with the provided values."
-msgstr "પૂરા પાડવામાં આવેલ મૂલ્યો સાથે નવા સ્ટેક બનાવો."
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -839,9 +810,6 @@ msgstr "વોલ્યુમ બેકઅપ  \"%s\"બનાવી રહ્�
 msgid "Creating volume snapshot \"%s\"."
 msgstr "વોલ્યુમ \"%s\" સ્નેપશોટ બનાવી રહ્યા છે."
 
-msgid "Creation Timeout (minutes)"
-msgstr "બનાવટનો સમયસમાપ્ત (મિનિટો)"
-
 msgid "Current Host"
 msgstr "હાલનો યજમાન"
 
@@ -868,9 +836,6 @@ msgstr "DHCP એજન્ટો"
 
 msgid "DNS Name Servers"
 msgstr "DNS નામ સર્વરો"
-
-msgid "Date Updated"
-msgstr "સુધારાયેલ તારીખ"
 
 msgid "Decrypt Password"
 msgstr "પાસવર્ડ ડિક્રિપ્ટ કરો"
@@ -1140,9 +1105,6 @@ msgstr "સ્પેક સંપાદિત કરો "
 msgid "Edit Subnet"
 msgstr "ઉપનેટ સંપાદિત કરો"
 
-msgid "Edit Template"
-msgstr "ટેમ્પલેટ સંપાદિત કરો"
-
 msgid "Edit Volume"
 msgstr "વોલ્યુમમા ફેરફાર કરો"
 
@@ -1180,9 +1142,6 @@ msgstr "DHCP સક્રિય કરો"
 msgid "Enable HA mode"
 msgstr "HA સ્થિતિને સક્રિય કરો"
 
-msgid "Enable rollback on create/update failure."
-msgstr "બનાવવા/સુધારવા પર નિષ્ફળતા રોલબેકને સક્રિય કરો."
-
 msgid "Enabled"
 msgstr "સક્રિય કરેલ"
 
@@ -1207,15 +1166,6 @@ msgstr "ICMP પ્રકાર માટે રેન્જમાં મૂલ�
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 અને 65535 વચ્ચેની પૂર્ણાંક કિંમત દાખલ કરો."
-
-msgid "Environment Data"
-msgstr "પર્યાવરણના ડેટા"
-
-msgid "Environment File"
-msgstr "પર્યાવરણની ફાઇલ"
-
-msgid "Environment Source"
-msgstr "પર્યાવરણના સ્રોત."
 
 msgid "Ephemeral Disk"
 msgstr "એફેમેરલ ડિસ્ક"
@@ -1280,9 +1230,6 @@ msgstr "યજમાનને બહાર કાઢો"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "સક્રિય લક્ષ્ય યજમાન કરવા માટે નીચે પસંદ કરેલ યજમાનને સર્વરો માથી બહાર કાઢવા."
-
-msgid "Events"
-msgstr "ઘટનાઓ"
 
 msgid "Extend Volume"
 msgstr "વિસ્તારેલ વોલ્યુમ"
@@ -1932,9 +1879,6 @@ msgstr "કી-મુલ્ય જોડી"
 msgid "Language"
 msgstr "ભાષા"
 
-msgid "Last Updated"
-msgstr "છેલ્લે સુધારાયેલ"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "છેલ્લે સુધારાયેલ"
@@ -1947,12 +1891,6 @@ msgstr "ઉદાહરણને લોંચ કરો"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "ઇન્સ્ટન્સ લોન્ચ કરો (ક્વોટા વધી ગયા)"
-
-msgid "Launch Parameters"
-msgstr "પરિમાણો લોન્ચ કરો"
-
-msgid "Launch Stack"
-msgstr "સ્ટેક લોન્ચ કરો"
 
 msgid "Launch as Instance"
 msgstr "ઇન્સ્ટન્સ તરીકે લોન્ચ કરો"
@@ -2085,9 +2023,6 @@ msgstr "ન્યુનત્તમ ડિસ્ક (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "ન્યુનત્તમ રેમ(RAM) (MB)"
 
-msgid "Minutes"
-msgstr "મિનિટો"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "ડોમેન \"% s \" સંશોધિત કરો."
@@ -2146,16 +2081,6 @@ msgstr "નામ"
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "નામ માત્ર અક્ષરો, નંબરો, અન્ડરસ્કોર, વિરામચિહ્ન અને હાયફન સમાવી શકે છે."
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"નામને અક્ષર સાથે શરૂ કરવા જ જોઈએ અને માત્ર અક્ષરો, નંબરો, અન્ડરસ્કોર, સમયગાળા અને "
-"હાયફનને સમાવી શકે છે."
-
-msgid "Name of the stack to create."
-msgstr "બનાવવા માટે સ્ટેકના નામ."
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -2231,9 +2156,6 @@ msgstr "નવા પાસવર્ડ"
 
 msgid "New size must be greater than current size."
 msgstr "નવા માપ હાલનાં માપ કરતા વધારે હોવા જ જોઈએ ."
-
-msgid "Next"
-msgstr "આગામી"
 
 msgid "No"
 msgstr "ના"
@@ -2411,9 +2333,6 @@ msgstr "વૈકલ્પિક રીતે, તમે નવા વોલ્�
 msgid "Other Protocol"
 msgstr "અન્ય પ્રોટોકોલ"
 
-msgid "Outputs"
-msgstr "આઉટપુટ"
-
 msgid "Overview"
 msgstr "અવલોકન"
 
@@ -2422,9 +2341,6 @@ msgstr "માલિક"
 
 msgid "Page Not Found"
 msgstr "પૃષ્ઠ મળ્યુ નથી"
-
-msgid "Parameters"
-msgstr "પરિમાણો"
 
 msgid "Password"
 msgstr "પાસવર્ડ"
@@ -2435,10 +2351,6 @@ msgstr "પાસવર્ડ"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "પાસવર્ડ બદલ્યો છે. કૃપા કરીને ચાલુ રાખવા માટે ફરીથી લૉગ ઇન કરો."
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "\"%s\" વપરાશકર્તા માટે પાસવર્ડ"
 
 msgid "Passwords do not match."
 msgstr "પાસવર્ડ્સ મેળ ખાતા નહિં."
@@ -2463,10 +2375,6 @@ msgstr "ભૌતિક નેટવર્ક:"
 
 msgid "Please note: "
 msgstr "કૃપા કરીને નોંધ કરો:"
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "કૃપા કરીને એક માત્ર સ્રોત પદ્ધતિનો ઉપયોગ કરીને % s સ્પષ્ટ કરો."
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2721,15 +2629,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "માપ બદલી અથવા સ્થળાંતર કરી રહ્યા છે"
 
-msgid "Resource"
-msgstr "સંસાધન"
-
-msgid "Resource ID"
-msgstr "સંસાધન ID"
-
-msgid "Resource Metadata"
-msgstr "સંસાધન મેટાડેટા"
-
 msgid "Resources"
 msgstr "સંસાધન"
 
@@ -2791,12 +2690,6 @@ msgstr "ભૂમિકા સફળતાપૂર્વક અદ્યતન 
 
 msgid "Roles"
 msgstr "ભૂમિકાઓ"
-
-msgid "Rollback"
-msgstr "રોલબેક"
-
-msgid "Rollback On Failure"
-msgstr "નિષ્ફળતા પર રોલબેક"
 
 msgid "Root Disk"
 msgstr "રુટ ડિસ્ક"
@@ -2901,9 +2794,6 @@ msgstr "સ્ક્રિપ્ટ સ્રોત પસંદ કરો"
 msgid "Select Subnet"
 msgstr "સબનેટ પસંદ કરો"
 
-msgid "Select Template"
-msgstr "ટેમ્પલેટ પસંદ કરો"
-
 msgid "Select Volume"
 msgstr "વોલ્યુમ પસંદ કરો"
 
@@ -2922,9 +2812,6 @@ msgstr "નવા એજન્ટ પસંદ કરો"
 msgid "Select a new host"
 msgstr "નવું યજમાન પસંદ કરો"
 
-msgid "Select a new template to re-launch a stack."
-msgstr "સ્ટેક ફરી-લોન્ચ કરવા માટે નવા ટેમ્પલેટ પસંદ કરો."
-
 msgid "Select a port"
 msgstr "પોર્ટને પસંદ કરો"
 
@@ -2933,9 +2820,6 @@ msgstr "પરિયોજના પસંદ કરો"
 
 msgid "Select a target host"
 msgstr "ટાર્ગેટ યજમાન પસંદ કરો"
-
-msgid "Select a template to launch a stack."
-msgstr "સ્ટેક લોન્ચ કરવા માટે ટેમ્પલેટ પસંદ કરો."
 
 msgid "Select a volume to restore to."
 msgstr "પર પુનઃસ્થાપિત કરવા માટે વોલ્યુમ પસંદ કરો."
@@ -3141,42 +3025,6 @@ msgstr "ઉદાહરણ લોન્ચ કરવા માટેની વ�
 msgid "Specs"
 msgstr "સ્પેક્સ"
 
-msgid "Stack Events"
-msgstr "સ્ટેક ઘટનાઓ"
-
-msgid "Stack ID"
-msgstr "સ્ટેક ID"
-
-msgid "Stack Name"
-msgstr "સ્ટેક નામ"
-
-msgid "Stack Parameters"
-msgstr "સ્ટેક પરિમાણો"
-
-msgid "Stack Resource"
-msgstr "સ્ટેક સંસાધન"
-
-msgid "Stack Resource ID"
-msgstr "સ્ટેક સંસાધન ID"
-
-msgid "Stack Resource Type"
-msgstr "સ્ટેક સંસાધન પ્રકાર"
-
-msgid "Stack Resources"
-msgstr "સ્ટેક સંસાધનો"
-
-msgid "Stack creation started."
-msgstr "સ્ટેક બનાવવાનું શરૂ કર્યું."
-
-msgid "Stack creation timeout in minutes."
-msgstr "મિનિટોમાં સ્ટેક બનાવટનો સમયસમાપ્ત."
-
-msgid "Stack update started."
-msgstr "સ્ટેક અદ્યતન કરવાનું શરૂ કર્યું."
-
-msgid "Stacks"
-msgstr "સ્ટેક્સ"
-
 msgid "Start"
 msgstr "શરૂ"
 
@@ -3203,9 +3051,6 @@ msgstr "સ્થિતિ"
 
 msgid "Status ="
 msgstr "સ્થિતિ ="
-
-msgid "Status Reason"
-msgstr "સ્ટેટ્સ કારણ"
 
 msgid "Subnet"
 msgstr "સબનેટ"
@@ -3325,21 +3170,6 @@ msgstr "ટાર્ગેટ યજમાન"
 
 msgid "Task"
 msgstr "કાર્ય"
-
-msgid "Template"
-msgstr "ટેમ્પલેટ"
-
-msgid "Template Data"
-msgstr "ટેમ્પલેટ ડેટા"
-
-msgid "Template File"
-msgstr "ટેમ્પલેટ ફાઇલ"
-
-msgid "Template Source"
-msgstr "ટેમ્પલેટ સ્રોત"
-
-msgid "Template URL"
-msgstr "ટેમ્પલેટ URL"
 
 msgid "The \"from\" port number is invalid."
 msgstr "પોર્ટ નંબર \"થી\" અમાન્ય છે."
@@ -3475,12 +3305,6 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "સ્યુડો ફોલ્ડર કાઢી શકાતી નથી કારણ કે તે ખાલી નથી."
 
-msgid "The raw contents of the environment file."
-msgstr "પર્યાવરણ ફાઈલના રો (કાચા) સમાવિષ્ટો."
-
-msgid "The raw contents of the template."
-msgstr "ટેમ્પલેટના રો (કાચા) સમાવિષ્ટો."
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
@@ -3529,25 +3353,14 @@ msgstr ""
 "જાહેર કી ફાઇલનાં સમાવિષ્ટોને પેસ્ટ કરો."
 
 msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "આ કામગીરી સ્ટેકના જીવનચક્ર દરમ્યાન કરવા માટે જરૂરી છે"
-
-msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "વોલ્યુમ હાલમાં ઇન્સ્ટન્સ સાથે જોડાયેલ છે.કેટલાક કિસ્સાઓમાં,જોડાયેલ વોલ્યુમ માંથી સ્નેપશોટ "
 "બનાવતા કરપ્ટેડ સ્નેપશોટમા પરિણમી શકે છે."
 
-msgid "Time Since Event"
-msgstr "ઘટના ત્યારથી સમય"
-
 msgid "Time since created"
 msgstr "સમય જ્યારથી બનેલું"
-
-msgid "Timeout"
-msgstr "સમયસમાપ્તિ"
 
 msgid "Timezone"
 msgstr "ટાઈમઝોન"
@@ -3591,9 +3404,6 @@ msgstr "આ પ્રોજેક્ટ માટે કુલ ડિસ્ક �
 
 msgid "Type"
 msgstr "પ્રકાર"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC (યુટીસી)"
@@ -3744,10 +3554,6 @@ msgstr "\"%s\" ઉદાહરણ માટે VNC કન્સોલ મેળ�
 msgid "Unable to get cinder services list."
 msgstr "સિન્ડર સેવાઓ યાદી મેળવવામાં અસમર્થ."
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "\"%s\" સ્ટેક માટે ઘટનાઓ મેળવવામાં અક્ષમ."
-
 msgid "Unable to get flavor list"
 msgstr "ફ્લેવર યાદી મેળવવામાં અસમર્થ"
 
@@ -3772,10 +3578,6 @@ msgstr "openrc ઓળખાણપત્ર મેળવવામાં અસમ
 
 msgid "Unable to get quota info."
 msgstr "ક્વોટાની માહિતી મેળવવા માટે અસમર્થ."
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "\"%s\" સ્ટેક માટે સંસાધનો મેળવવામાં અક્ષમ."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -4040,9 +3842,6 @@ msgstr "વોલ્યુમ સ્નેપશોટની યાદી પુ
 msgid "Unable to retrieve list of volumes."
 msgstr "વોલ્યુમોની યાદીપુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
-msgid "Unable to retrieve metadata."
-msgstr "મેટાડેટા પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
 msgid "Unable to retrieve network details."
 msgstr "નેટવર્કની વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
@@ -4075,9 +3874,6 @@ msgstr "જાહેર ઈમેજો પુનઃપ્રાપ્ત કર
 
 msgid "Unable to retrieve quota information."
 msgstr "ક્વોટા જાણકારી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-msgid "Unable to retrieve resource."
-msgstr "સંસાધન પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
 msgid "Unable to retrieve role list."
 msgstr "ભૂમિકા યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
@@ -4112,15 +3908,6 @@ msgstr "સ્નેપશોટ વિગતો પુનઃપ્રાપ્�
 
 msgid "Unable to retrieve snapshot list."
 msgstr "સ્નેપશોટની યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-msgid "Unable to retrieve stack list."
-msgstr "સ્ટેક યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-msgid "Unable to retrieve stack template."
-msgstr "સ્ટેક ટેમ્પલેટ પુનઃપ્રાપ્ત કરવામાં અક્ષમ છે."
-
-msgid "Unable to retrieve stack."
-msgstr "સ્ટેક પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
 msgid "Unable to retrieve subnet details"
 msgstr "સબનેટની વિગતો પુનઃપ્રાપ્ત કરવામાં અક્ષમ"
@@ -4324,12 +4111,6 @@ msgstr "ભૂમિકાઅદ્યતન કરો"
 msgid "Update Router"
 msgstr "રૂટરમાં સુધારો"
 
-msgid "Update Stack"
-msgstr "સ્ટેકને અદ્યતન કરો"
-
-msgid "Update Stack Parameters"
-msgstr "સ્ટેક બનાવવાનું શરૂ કર્યું."
-
 msgid "Update Status"
 msgstr "સ્થિતિ અદ્યતન કરો"
 
@@ -4341,15 +4122,6 @@ msgstr "વોલ્યુમ સ્નેપશોટ સ્થિતિમા�
 
 msgid "Update Volume Status"
 msgstr "વોલ્યુમની સ્થિતિને અદ્યતન કરો"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"પૂરા પાડવામાં આવેલ મૂલ્યો સાથે સ્ટેકને અદ્યતન કરો. કૃપા કરીને નોંધ લો કે કોઈપણ એન્ક્રિપ્ટેડ "
-"પરિમાણો, જેવા કે પાસવર્ડસ્, જો તમે અહીં તેમને બદલો નહિં તો તે મૂળભૂત રીતે ફરીથી સુયોજિત થઈ "
-"જશે."
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -4413,13 +4185,6 @@ msgstr "સ્રોત તરીકે વોલ્યુમનો ઉપયો
 
 msgid "Use image as a source"
 msgstr "સ્રોત તરીકે ઇમેજનો ઉપયોગ કરો"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"આ સ્ટેક બનાવવા માટે ઉપયોગમાં લેવાતા ટેમ્પલેટ સ્પષ્ટ કરવા માટે ઉપલબ્ધ ટેમ્પલેટ સ્ત્રોત "
-"વિકલ્પોમાંથી કોઈ એક નો ઉપયોગ કરો."
 
 msgid "Use snapshot as a source"
 msgstr "સ્ત્રોત તરીકે સ્નેપશોટનો ઉપયોગ કરો"
@@ -4670,9 +4435,6 @@ msgstr "તમારે ઈમેજ પસંદ કરવી જ પડશે.
 msgid "You must set volume size"
 msgstr "તમારે વોલ્યુમ માપ સુયોજિત કરવા જ જોઈએ"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "તમને ઉપલબ્ધ સ્ત્રોતો પૈકી એક મારફતે ટેમ્પલેટ સ્પષ્ટ કરવુ જ પડશે."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4702,17 +4464,11 @@ msgstr "બંને"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-msgid "environment"
-msgstr "પર્યાવરણ"
-
 msgid "front-end"
 msgstr "અગ્ર-ભાગ"
 
 msgid "instance"
 msgstr "ઉદાહરણ"
-
-msgid "template"
-msgstr "ટેમ્પલેટ"
 
 msgid "undefined"
 msgstr "અવ્યાખ્યાયિત"

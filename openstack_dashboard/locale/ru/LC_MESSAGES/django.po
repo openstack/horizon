@@ -30,9 +30,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev119\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-22 09:01+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -143,14 +143,6 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
-
-#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
@@ -224,17 +216,11 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> на %(device)s"
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> на %(volume_device)s"
 
-msgid "A local environment to upload."
-msgstr "Локальная среда для загрузки."
-
 msgid "A local image to upload."
 msgstr "Локальный образ для загрузки."
 
 msgid "A local metadata definition file to upload."
 msgstr "Локальный файл с определением метаданных."
-
-msgid "A local template to upload."
-msgstr "Локальный шаблон для загрузки."
 
 msgid ""
 "A mapping is a set of rules to map federation protocol attributes to "
@@ -507,18 +493,6 @@ msgstr ""
 "Для администратора: используйте следующие комманды CLI для импорта "
 "определений по умолчанию в Glance: "
 
-msgctxt "current status of stack"
-msgid "Adopt Complete"
-msgstr "Принятие завершено"
-
-msgctxt "current status of stack"
-msgid "Adopt Failed"
-msgstr "Принятие не удалось"
-
-msgctxt "current status of stack"
-msgid "Adopt In Progress"
-msgstr "Выполняется принятие"
-
 msgid "Advanced Options"
 msgstr "Расширенные настройки"
 
@@ -607,9 +581,6 @@ msgstr "Выделение пулов"
 
 msgid "Allowed Address Pairs"
 msgstr "Разрешенные пары адресов"
-
-msgid "An external (HTTP) URL to load the template from."
-msgstr "Внешний (HTTP) URL для скачивания шаблона."
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Внешняя ссылка (HTTP/HTTPS) для загрузки изображения."
@@ -712,9 +683,6 @@ msgstr "Подключения"
 
 msgid "Attribute Mappings"
 msgstr "Преобразования атрибутов"
-
-msgid "Attributes"
-msgstr "Аттрибуты"
 
 msgid "Authentication URL"
 msgstr "URL аутентификации"
@@ -901,12 +869,6 @@ msgstr "Не удалось получить консоль для инстан�
 msgid "Cannot specify both file and direct input."
 msgstr "Нельзя одновременно указать файл и прямой ввод."
 
-msgid "Case sensitive"
-msgstr "Чувствительно к регистру"
-
-msgid "Case-sensitive"
-msgstr "Чувствительно к регистру"
-
 msgid "Centralized"
 msgstr "Централизированный"
 
@@ -915,12 +877,6 @@ msgstr "Изменить"
 
 msgid "Change Password"
 msgstr "Изменить пароль"
-
-msgid "Change Stack Template"
-msgstr "Изменить шаблон стека"
-
-msgid "Change Template"
-msgstr "Изменить шаблон"
 
 msgid "Change Volume Type"
 msgstr "Изменить тип диска"
@@ -940,36 +896,12 @@ msgstr "Изменения с"
 msgid "Changing password is not supported."
 msgstr "Смена пароля не поддерживается."
 
-msgctxt "current status of stack"
-msgid "Check Complete"
-msgstr "Проверка завершена"
-
-msgctxt "current status of stack"
-msgid "Check Failed"
-msgstr "Проверка не удалась"
-
-msgctxt "current status of stack"
-msgid "Check In Progress"
-msgstr "Выполняется провека"
-
-msgid "Check Stack"
-msgid_plural "Check Stacks"
-msgstr[0] "Проверить стек"
-msgstr[1] "Проверить стеки"
-msgstr[2] "Проверить стеки"
-
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this consistency group."
 msgstr ""
 "Включите опцию &quot;Удалить диски&quot;, чтобы удалить все диски, связанные "
 "с этой группой согласованности."
-
-msgid "Checked Stack"
-msgid_plural "Checked Stacks"
-msgstr[0] "Стек проверен"
-msgstr[1] "Стеки проверены"
-msgstr[2] "Стеки проверены"
 
 msgid "Checksum"
 msgstr "Контрольная сумма"
@@ -1211,10 +1143,6 @@ msgstr "Создать образ"
 msgid "Create Backup"
 msgstr "Создать резервную копию"
 
-msgctxt "current status of stack"
-msgid "Create Complete"
-msgstr "Создание завершено"
-
 msgid "Create Consistency Group"
 msgstr "Создать группу согласования"
 
@@ -1233,10 +1161,6 @@ msgstr "Создать шифрование"
 msgid "Create Extra Spec For {{ qos_spec_name }}"
 msgstr "Создать дополнительные параметры для {{ qos_spec_name }}"
 
-msgctxt "current status of stack"
-msgid "Create Failed"
-msgstr "Создание не удалось"
-
 msgid "Create Flavor"
 msgstr "Создать тип инстансов"
 
@@ -1248,10 +1172,6 @@ msgstr "Создать агрегатор узлов"
 
 msgid "Create Image"
 msgstr "Создать образ"
-
-msgctxt "current status of stack"
-msgid "Create In Progress"
-msgstr "Выполняется создание"
 
 msgid "Create Key Pair"
 msgstr "Создать ключевую пару"
@@ -1300,9 +1220,6 @@ msgstr "Создать снимок"
 
 msgid "Create Spec"
 msgstr "Создать параметры"
-
-msgid "Create Stack"
-msgstr "Создать стек"
 
 msgid "Create Subnet"
 msgstr "Создать подсеть"
@@ -1378,9 +1295,6 @@ msgstr ""
 
 msgid "Create a new role."
 msgstr "Создать новую роль"
-
-msgid "Create a new stack with the provided values."
-msgstr "Создать новый стек с предоставленными значениями. "
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -1505,9 +1419,6 @@ msgstr "Создание резервных копий диска \"%s\""
 msgid "Creating volume snapshot \"%s\"."
 msgstr "Создается снимок диска \"%s\""
 
-msgid "Creation Timeout (minutes)"
-msgstr "Таймаут создания (в минутах)"
-
 msgid "Current Host"
 msgstr "Текущий узел"
 
@@ -1589,9 +1500,6 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgid "Date Updated"
-msgstr "Дата обновления"
-
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "Отключен"
@@ -1624,10 +1532,6 @@ msgstr[0] "Удалить"
 msgstr[1] "Удалить"
 msgstr[2] "Удалить"
 
-msgctxt "current status of stack"
-msgid "Delete Complete"
-msgstr "Удаление завершено"
-
 msgid "Delete Consistency Group"
 msgstr "Удалить группу согласования"
 
@@ -1655,10 +1559,6 @@ msgstr[0] "Удалить доп. параметр"
 msgstr[1] "Удалить доп. параметры"
 msgstr[2] "Удалить доп. параметры"
 
-msgctxt "current status of stack"
-msgid "Delete Failed"
-msgstr "Удаление не удалось"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "Удалить тип инстансов"
@@ -1682,10 +1582,6 @@ msgid_plural "Delete Images"
 msgstr[0] "Удалить образ"
 msgstr[1] "Удалить образы"
 msgstr[2] "Удалить образы"
-
-msgctxt "current status of stack"
-msgid "Delete In Progress"
-msgstr "Выполняется удаление"
 
 msgid "Delete Instance"
 msgid_plural "Delete Instances"
@@ -1782,12 +1678,6 @@ msgid_plural "Delete Specs"
 msgstr[0] "Удалить спецификацию"
 msgstr[1] "Удалить спецификации"
 msgstr[2] "Удалить спецификации"
-
-msgid "Delete Stack"
-msgid_plural "Delete Stacks"
-msgstr[0] "Удалить стек"
-msgstr[1] "Удалить стеки"
-msgstr[2] "Удалить стеки"
 
 msgid "Delete Static Route"
 msgid_plural "Delete Static Routes"
@@ -1986,12 +1876,6 @@ msgid_plural "Deleted Specs"
 msgstr[0] "Удаленная спецификация"
 msgstr[1] "Удаленные спецификации"
 msgstr[2] "Удаленные спецификации"
-
-msgid "Deleted Stack"
-msgid_plural "Deleted Stacks"
-msgstr[0] "Стек удален"
-msgstr[1] "Стеки удалены"
-msgstr[2] "Стеки удалены"
 
 msgid "Deleted Static Route"
 msgid_plural "Deleted Static Routes"
@@ -2425,9 +2309,6 @@ msgstr "Изменить параметры"
 msgid "Edit Subnet"
 msgstr "Редактировать подсеть"
 
-msgid "Edit Template"
-msgstr "Редактировать шаблон"
-
 msgid "Edit Volume"
 msgstr "Редактировать диск"
 
@@ -2514,9 +2395,6 @@ msgstr[2] "Включить пользователей"
 msgid "Enable anti-spoofing rules for the port"
 msgstr "Включить антиспуфинг правила для порта"
 
-msgid "Enable rollback on create/update failure."
-msgstr "Разрешить откат при сбое создания/обновления."
-
 msgid "Enabled"
 msgstr "Включено"
 
@@ -2567,9 +2445,6 @@ msgstr ""
 msgid "Endpoints"
 msgstr "Точки доступа"
 
-msgid "Engine Id"
-msgstr "ID движка"
-
 msgid "Enter Network Address manually"
 msgstr "Введите сетевой адрес вручную"
 
@@ -2587,15 +2462,6 @@ msgstr "Введите целое число от 0 до 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Введите целое число от 1 до 65535."
-
-msgid "Environment Data"
-msgstr "Данные среды"
-
-msgid "Environment File"
-msgstr "Файл среды"
-
-msgid "Environment Source"
-msgstr "Источник среды"
 
 msgid "Ephemeral Disk"
 msgstr "Временный диск"
@@ -2709,9 +2575,6 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Эвакуировать инстансы с выбранного недоступного узла нв активный целевой узел"
-
-msgid "Events"
-msgstr "События"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -3143,9 +3006,6 @@ msgstr ""
 "Здесь вы можете обновить значения квот по умолчанию (максимальные значения "
 "лимитов)."
 
-msgid "Function"
-msgstr "Функция"
-
 msgid "GB"
 msgstr "ГБ"
 
@@ -3562,18 +3422,6 @@ msgstr "Информация"
 msgid "Ingress"
 msgstr "Входящий трафик"
 
-msgctxt "current status of stack"
-msgid "Init Complete"
-msgstr "Инициализация завершена"
-
-msgctxt "current status of stack"
-msgid "Init Failed"
-msgstr "Инициализация не удалась"
-
-msgctxt "current status of stack"
-msgid "Init In Progress"
-msgstr "Выполняется инициализация"
-
 msgid "Injected File Content (Bytes)"
 msgstr "Объём загруженного файла (Байт)"
 
@@ -3750,9 +3598,6 @@ msgstr "Агент L3"
 msgid "Language"
 msgstr "Язык"
 
-msgid "Last Updated"
-msgstr "Обновлено"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Обновлено"
@@ -3765,12 +3610,6 @@ msgstr "Запустить инстанс"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Запустить инстанс (Превышен лимит)"
-
-msgid "Launch Parameters"
-msgstr "Параметры запуска"
-
-msgid "Launch Stack"
-msgstr "Запустить стек"
 
 msgid "Launch as Instance"
 msgstr "Запустить как инстанс"
@@ -3796,9 +3635,6 @@ msgstr "Протяженность пути загруженного файла"
 
 msgid "Limit"
 msgstr "Ограничение"
-
-msgid "Links"
-msgstr "Ссылки"
 
 msgid "Live Migrate"
 msgstr "Живая миграция"
@@ -4050,9 +3886,6 @@ msgstr "Минимальный размер диска (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Минимальная ОЗУ (МБ)"
 
-msgid "Minutes"
-msgstr "Минуты"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Домен «%s» изменён."
@@ -4135,16 +3968,6 @@ msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr ""
 "Имя может содержать только буквы, числа, знаки подчеркивания, точки и дефисы."
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"Название должно начинаться с буквы и может содержать лишь буквы, цифры, "
-"нижнее подчеркивание, точки и дефисы."
-
-msgid "Name of the stack to create."
-msgstr "Название стека для создания."
 
 msgid "Name or other identifier for existing volume"
 msgstr "Имя или другой идентификатор существующего диска"
@@ -4287,9 +4110,6 @@ msgstr "Новый пароль"
 
 msgid "New size must be greater than current size."
 msgstr "Новый размер должен быть больше текущего размера."
-
-msgid "Next"
-msgstr "Следующий"
 
 msgid "Next Hop"
 msgstr "Следующий hop"
@@ -4598,15 +4418,6 @@ msgstr "Файл OpenStack clouds.yaml"
 msgid "Optionally, you may choose to create a new volume."
 msgstr "При необходимости, вы можете выбрать создание нового диска."
 
-msgid "Orchestration"
-msgstr "Оркестрация"
-
-msgid "Orchestration Services"
-msgstr "Службы оркестрации"
-
-msgid "Orchestration service is disabled."
-msgstr "Служба оркестрации отключена."
-
 #, python-format
 msgid ""
 "Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
@@ -4620,9 +4431,6 @@ msgstr "Другой Протокол"
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr ""
 "Значения с плавающей точкой вне диапазона не совместимы с форматом JSON: %r"
-
-msgid "Outputs"
-msgstr "Вывод"
 
 msgid "Overview"
 msgstr "Обзор"
@@ -4639,9 +4447,6 @@ msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgid "Page Not Found"
 msgstr "Страница не найдена"
 
-msgid "Parameters"
-msgstr "Параметры"
-
 msgid "Password"
 msgstr "Пароль"
 
@@ -4654,10 +4459,6 @@ msgstr "Пароль изменен. Снова войдите в систему
 
 msgid "Password changed. Please log in to continue."
 msgstr "Пароль изменен. Пожалуйста войдите в систему для продолжения."
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "Пароль для пользователя \"%s\""
 
 msgid "Passwords do not match."
 msgstr "Пароли не совпадают."
@@ -4705,10 +4506,6 @@ msgstr "Физическая сеть:"
 
 msgid "Please note: "
 msgstr "Обратите внимание:"
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "Пожалуйста укажите %s, используя только один метод источника."
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -4780,24 +4577,6 @@ msgstr "Подготовка изменения типа или миграции
 
 msgid "Prevent the deletion of the image."
 msgstr "Предотвратить удаление образа."
-
-msgid "Preview"
-msgstr "Предварительный просмотр"
-
-msgid "Preview Stack"
-msgstr "Предварительный просмотр стека"
-
-msgid "Preview Stack Details"
-msgstr "Предварительный просмотр деталей стека"
-
-msgid "Preview Stack Parameters"
-msgstr "Предварительный просмотр параметров стека"
-
-msgid "Preview Template"
-msgstr "Предварительный просмотр шаблона"
-
-msgid "Preview a new stack with the provided values."
-msgstr "Предварительный просмотр стека с предоставленными значениями."
 
 msgid "Primary Project"
 msgstr "Основной проект"
@@ -4871,9 +4650,6 @@ msgstr "Проекты"
 
 msgid "Projects:"
 msgstr "Проекты:"
-
-msgid "Properties"
-msgstr "Свойства"
 
 msgid "Properties Target: "
 msgstr "Цель свойств:"
@@ -5221,15 +4997,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Изменение типа или миграция"
 
-msgid "Resource"
-msgstr "Ресурс"
-
-msgid "Resource ID"
-msgstr "ID ресурса"
-
-msgid "Resource Metadata"
-msgstr "Метаданные ресурса"
-
 msgid "Resource Types"
 msgstr "Типы ресурсов"
 
@@ -5276,41 +5043,17 @@ msgctxt "Action log of an instance"
 msgid "Resume"
 msgstr "Продолжить"
 
-msgctxt "current status of stack"
-msgid "Resume Complete"
-msgstr "Возобновление завершено"
-
-msgctxt "current status of stack"
-msgid "Resume Failed"
-msgstr "Возобновление не удалось"
-
-msgctxt "current status of stack"
-msgid "Resume In Progress"
-msgstr "Выполняется возобновление"
-
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "Возобновить инстанс"
 msgstr[1] "Возобновить инстансы"
 msgstr[2] "Возобновить инстансы"
 
-msgid "Resume Stack"
-msgid_plural "Resume Stacks"
-msgstr[0] "Возобновить стек"
-msgstr[1] "Возобновить стеки"
-msgstr[2] "Возобновить стеки"
-
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
 msgstr[0] "Возобновленный инстанс"
 msgstr[1] "Возобновленные инстансы"
 msgstr[2] "Возобновлены инстансы"
-
-msgid "Resumed Stack"
-msgid_plural "Resumed Stacks"
-msgstr[0] "Стек возобновлен"
-msgstr[1] "Стеки возобновлены"
-msgstr[2] "Стеки возобновлены"
 
 msgctxt "Task status of an Instance"
 msgid "Resuming"
@@ -5356,24 +5099,6 @@ msgstr "Роль успешно обновлена."
 
 msgid "Roles"
 msgstr "Роли"
-
-msgid "Rollback"
-msgstr "Откат"
-
-msgctxt "current status of stack"
-msgid "Rollback Complete"
-msgstr "Откат изменений завершен"
-
-msgctxt "current status of stack"
-msgid "Rollback Failed"
-msgstr "Откат изменений не удался"
-
-msgctxt "current status of stack"
-msgid "Rollback In Progress"
-msgstr "Выполняется откат изменений"
-
-msgid "Rollback On Failure"
-msgstr "Откатиться при сбое"
 
 msgid "Root Disk"
 msgstr "Корневой диск"
@@ -5562,9 +5287,6 @@ msgstr "Выберите группу серверов."
 msgid "Select Subnet"
 msgstr "Выберите подсеть"
 
-msgid "Select Template"
-msgstr "Выбрать шаблон"
-
 msgid "Select Volume"
 msgstr "Выберите диск"
 
@@ -5592,12 +5314,6 @@ msgstr "Выберите новый узел"
 msgid "Select a new status"
 msgstr "Выберите новый статус"
 
-msgid "Select a new template to preview a stack."
-msgstr "Выберите новый шаблон для предварительного просмотра стека"
-
-msgid "Select a new template to re-launch a stack."
-msgstr "Выбрать новый шаблон для перезапуска стека."
-
 msgid "Select a new volume type"
 msgstr "Выберите новый тип диска"
 
@@ -5615,9 +5331,6 @@ msgstr "Выберите подсеть"
 
 msgid "Select a target host"
 msgstr "Выбрать целевой узел"
-
-msgid "Select a template to launch a stack."
-msgstr "Выбрать шаблон для запуска стека."
 
 msgid "Select a volume"
 msgstr "Выберите диск"
@@ -5877,18 +5590,6 @@ msgstr "снимок"
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
 msgstr "Снимок \"%(name)s\" инстанса \"%(inst)s\" создан"
 
-msgctxt "current status of stack"
-msgid "Snapshot Complete"
-msgstr "Снимок создан успешно"
-
-msgctxt "current status of stack"
-msgid "Snapshot Failed"
-msgstr "Создание снимка не удалось"
-
-msgctxt "current status of stack"
-msgid "Snapshot In Progress"
-msgstr "Создается снимок"
-
 msgid "Snapshot Limits"
 msgstr "Лимиты снимков"
 
@@ -6022,51 +5723,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Specs"
 
-msgid "Stack Events"
-msgstr "События стека"
-
-msgid "Stack ID"
-msgstr "ID стека"
-
-msgid "Stack ID ="
-msgstr "ID стека ="
-
-msgid "Stack Name"
-msgstr "Название стека"
-
-msgid "Stack Name ="
-msgstr "Имя стека ="
-
-msgid "Stack Parameters"
-msgstr "Параметры стека"
-
-msgid "Stack Preview"
-msgstr "Предварительный просмотр стека"
-
-msgid "Stack Resource"
-msgstr "Ресурсы стека"
-
-msgid "Stack Resource ID"
-msgstr "ID ресурса стека"
-
-msgid "Stack Resource Type"
-msgstr "Тип ресурса стека"
-
-msgid "Stack Resources"
-msgstr "Ресурсы стека"
-
-msgid "Stack creation started."
-msgstr "Создание стека начато."
-
-msgid "Stack creation timeout in minutes."
-msgstr "Таймаут создания стека в минутах."
-
-msgid "Stack update started."
-msgstr "Началось обновление стека."
-
-msgid "Stacks"
-msgstr "Стеки"
-
 msgid "Start"
 msgstr "Начало"
 
@@ -6119,9 +5775,6 @@ msgstr "Статус"
 
 msgid "Status ="
 msgstr "Статус ="
-
-msgid "Status Reason"
-msgstr "Причина статуса"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
@@ -6262,29 +5915,11 @@ msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "Приостановить"
 
-msgctxt "current status of stack"
-msgid "Suspend Complete"
-msgstr "Остановка завершена"
-
-msgctxt "current status of stack"
-msgid "Suspend Failed"
-msgstr "Остановка не удалась"
-
-msgctxt "current status of stack"
-msgid "Suspend In Progress"
-msgstr "Выполняется остановка"
-
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "Остановить инстанс"
 msgstr[1] "Остановить инстансы"
 msgstr[2] "Остановить инстансы"
-
-msgid "Suspend Stack"
-msgid_plural "Suspend Stacks"
-msgstr[0] "Остановить стек"
-msgstr[1] "Остановить стеки"
-msgstr[2] "Остановить стеки"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -6299,12 +5934,6 @@ msgid_plural "Suspended Instances"
 msgstr[0] "Инстанс остановлен"
 msgstr[1] "Инстансы остановлены"
 msgstr[2] "Инстансы остановлены"
-
-msgid "Suspended Stack"
-msgid_plural "Suspended Stacks"
-msgstr[0] "Стек остановлен"
-msgstr[1] "Стеки остановлены"
-msgstr[2] "Стеки остановлены"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"
@@ -6327,27 +5956,6 @@ msgstr "Целевой Узел"
 
 msgid "Task"
 msgstr "Задача"
-
-msgid "Template"
-msgstr "Шаблон"
-
-msgid "Template Data"
-msgstr "Данные шаблона"
-
-msgid "Template File"
-msgstr "Файл шаблона"
-
-msgid "Template Functions"
-msgstr "Функции шаблона"
-
-msgid "Template Source"
-msgstr "Источник шаблона"
-
-msgid "Template URL"
-msgstr "URL шаблона"
-
-msgid "Template Versions"
-msgstr "Версии шаблонов"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -6611,12 +6219,6 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Нельзя удалить непустой псевдокаталог."
 
-msgid "The raw contents of the environment file."
-msgstr "raw содержание файла среды. "
-
-msgid "The raw contents of the template."
-msgstr "Содержимое шаблона."
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -6770,11 +6372,6 @@ msgstr ""
 "Это эквивалентно командам <tt>openstack volume qos associate</tt> и "
 "<tt>openstack volume qos disassociate</tt>."
 
-msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "Это необходимо для выполнения операций в жизненном цикле стека"
-
 msgid "This panel needs JavaScript support."
 msgstr "Эта панель требует поддержки JavaScript."
 
@@ -6791,9 +6388,6 @@ msgstr "Данный тип диска используется одним ил�
 msgid "Time Since Created"
 msgstr "Время с создания"
 
-msgid "Time Since Event"
-msgstr "Время после события"
-
 msgid "Time since created"
 msgstr "Время с момента создания"
 
@@ -6802,9 +6396,6 @@ msgstr "Время с создания (секунд)"
 
 msgid "Time since update"
 msgstr "Время с момента обновления"
-
-msgid "Timeout"
-msgstr "Таймаут"
 
 msgid "Timezone"
 msgstr "Часовой пояс"
@@ -6847,9 +6438,6 @@ msgstr "Свернуть сети"
 
 msgid "Toggle navigation"
 msgstr "Переключить навигацию"
-
-msgid "Topic"
-msgstr "Тема"
 
 msgid "Topology"
 msgstr "Топология"
@@ -6920,9 +6508,6 @@ msgstr "Название передачи"
 msgid "Type"
 msgstr "Тип"
 
-msgid "Type ="
-msgstr "Тип ="
-
 msgid "Type of backend device identifier provided"
 msgstr "Тип устройства предоставляемый идентфикатором"
 
@@ -6937,9 +6522,6 @@ msgstr "UP"
 msgctxt "Admin state of a Router"
 msgid "UP"
 msgstr "UP"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -7162,9 +6744,6 @@ msgstr "Не удалось найти роль по умолчанию"
 msgid "Unable to get EC2 credentials"
 msgstr "Не удалось получить учетные данные EC2"
 
-msgid "Unable to get Orchestration service list."
-msgstr "Не удалось получить список служб Оркестрации."
-
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Не удалось получить RDP консоль для инстанса \"%s\"."
@@ -7183,16 +6762,8 @@ msgstr "Не удалось получить список служб cinder"
 msgid "Unable to get consistency group list"
 msgstr "Не удалось получить список групп согласования"
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "Не удалось получить события для стека \"%s\"."
-
 msgid "Unable to get flavor list"
 msgstr "Не удалось получить список типов инстансов"
-
-#, python-format
-msgid "Unable to get functions for template version \"%s\"."
-msgstr "Не удалось получить функции шаблона версии \"%s\"."
 
 msgid "Unable to get host aggregate list"
 msgstr "Не удалось получить список агрегаторов узлов."
@@ -7215,10 +6786,6 @@ msgstr "Не удалось получить учетные данные openrc"
 
 msgid "Unable to get quota info."
 msgstr "Не удалось получить информацию о квоте."
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "Не удалось получить ресурсы для стека \"%s\"."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -7583,9 +7150,6 @@ msgstr "Не удалось получить список дисков."
 msgid "Unable to retrieve mapping list."
 msgstr "Не удалось получить список преобразований."
 
-msgid "Unable to retrieve metadata."
-msgstr "Не удалось получить метаданные."
-
 msgid "Unable to retrieve namespace contents."
 msgstr "Не удалось получить содержимое пространства имён."
 
@@ -7637,12 +7201,6 @@ msgstr "Не удалось получить публичные образы."
 msgid "Unable to retrieve quota information."
 msgstr "Не удалось получить информацию о квоте."
 
-msgid "Unable to retrieve resource type details."
-msgstr "Не удалось получить детали типа ресурса"
-
-msgid "Unable to retrieve resource."
-msgstr "Не удалось получить ресурс."
-
 msgid "Unable to retrieve role list."
 msgstr "Не удалось получить список ролей."
 
@@ -7689,29 +7247,11 @@ msgstr "Не удалось получить детали снимка."
 msgid "Unable to retrieve snapshot list."
 msgstr "Не удалось получить список снимков."
 
-msgid "Unable to retrieve stack list."
-msgstr "Не удалось получить список стеков."
-
-msgid "Unable to retrieve stack resource types."
-msgstr "Не удалось получить типы ресурсов стека"
-
-msgid "Unable to retrieve stack template."
-msgstr "Не удалось получить шаблон стека."
-
-msgid "Unable to retrieve stack."
-msgstr "Не удалось получить стек."
-
 msgid "Unable to retrieve subnet details"
 msgstr "Не удалось получить  детальную информацию о подсети"
 
 msgid "Unable to retrieve subnet details."
 msgstr "Не удалось получить детали подсети."
-
-msgid "Unable to retrieve template functions."
-msgstr "Не удалось получить функции шаблона."
-
-msgid "Unable to retrieve template versions."
-msgstr "Не удалось получить версии шаблона."
 
 msgid "Unable to retrieve tenant limits."
 msgstr "Не удалось получить ограничения проекта."
@@ -8042,10 +7582,6 @@ msgstr "Обновить"
 msgid "Update Associations"
 msgstr "Обновить Ассоциации"
 
-msgctxt "current status of stack"
-msgid "Update Complete"
-msgstr "Изменение завершено"
-
 msgid "Update Default Quotas"
 msgstr "Обновить квоты по умолчанию"
 
@@ -8058,19 +7594,11 @@ msgstr "Изменить шифруемый тип дисков"
 msgid "Update Encryption"
 msgstr "Изменение шифрования"
 
-msgctxt "current status of stack"
-msgid "Update Failed"
-msgstr "Изменение не удалось"
-
 msgid "Update Group"
 msgstr "Обновить группу"
 
 msgid "Update Identity Provider"
 msgstr "Настроить провайдера идентификации."
-
-msgctxt "current status of stack"
-msgid "Update In Progress"
-msgstr "Выполняется изменение"
 
 msgid "Update Mapping"
 msgstr "Обновить преобразование"
@@ -8086,12 +7614,6 @@ msgstr "Обновить роль"
 
 msgid "Update Router"
 msgstr "Обновить маршрутизатор"
-
-msgid "Update Stack"
-msgstr "Обновить стек"
-
-msgid "Update Stack Parameters"
-msgstr "Обновить параметры стека"
 
 msgid "Update Status"
 msgstr "Обновить статус"
@@ -8110,15 +7632,6 @@ msgstr "Изменить тип шифрование для Типа Диско�
 
 msgid "Update a Metadata Namespace"
 msgstr "Обновить метаданные пространства имён"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"Обновить стек с обеспеченными значениями. Обратите внимание, что любые "
-"зашифрованные параметры, такие как пароль, будут сброшены по умолчанию, если "
-"вы не измените их здесь."
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -8214,20 +7727,6 @@ msgstr "Использовать диск как ресурс"
 
 msgid "Use image as a source"
 msgstr "Использовать образ как источник"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"Используйте один из доступных источников шаблонов чтобы выбрать шаблон "
-"используемый при создании этого стека."
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in previewing this stack."
-msgstr ""
-"Используйте один из доступных опций шаблона источника для указания шаблона "
-"используемого в предварительном просмотре стека."
 
 msgid "Use snapshot as a source"
 msgstr "Использовать снимок как источник"
@@ -8339,9 +7838,6 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "Значение"
-
-msgid "Version"
-msgstr "Версия"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8705,9 +8201,6 @@ msgstr "Необходимо выбрать образ"
 msgid "You must set volume size"
 msgstr "Вы должны указать размер диска"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "Вы должны задать шаблон используя один из доступны способов."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -8758,9 +8251,6 @@ msgstr "т.е. Да/Нет"
 msgid "e.g. Yes/No"
 msgstr "т.е. Да/Нет"
 
-msgid "environment"
-msgstr "среда"
-
 msgid "front-end"
 msgstr "фронтэнд"
 
@@ -8769,9 +8259,6 @@ msgstr "инстанс"
 
 msgid "no"
 msgstr "нет"
-
-msgid "template"
-msgstr "шаблон"
 
 msgid "undefined"
 msgstr "Неопределенный"

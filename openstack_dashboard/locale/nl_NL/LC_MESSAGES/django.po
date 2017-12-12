@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,14 +69,8 @@ msgstr ", projectgroepen bijwerken"
 msgid "-"
 msgstr "-"
 
-msgid "A local environment to upload."
-msgstr "Een lokale omgeving om te versturen."
-
 msgid "A local image to upload."
 msgstr "Een lokale afbeelding om te uploaden."
-
-msgid "A local template to upload."
-msgstr "Een lokaal sjabloon om te uploaden."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -224,9 +218,6 @@ msgstr "Vlottend IP %(ip)s toegewezen."
 msgid "Allocation Pools"
 msgstr "Allocatiepoules"
 
-msgid "An external (HTTP) URL to load the template from."
-msgstr "Een externe (HTTP) URL om het sjabloonformulier vandaan te laden."
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -354,12 +345,6 @@ msgstr "Wijzigen"
 
 msgid "Change Password"
 msgstr "Wachtwoord wijzigen"
-
-msgid "Change Stack Template"
-msgstr "Wijzig stapelsjabloon"
-
-msgid "Change Template"
-msgstr "Wijzig sjabloon"
 
 msgid "Change your password. We highly recommend you create a strong one. "
 msgstr ""
@@ -520,9 +505,6 @@ msgstr "Creëer beveiligingsgroep"
 msgid "Create Snapshot"
 msgstr "Creëer momentopname"
 
-msgid "Create Stack"
-msgstr "Creeer stapel"
-
 msgid "Create Subnet"
 msgstr "Creëer subnet"
 
@@ -546,9 +528,6 @@ msgstr "Creëer een nieuw volume"
 
 msgid "Create a Router"
 msgstr "Creëer een router"
-
-msgid "Create a new stack with the provided values."
-msgstr "Creeer een nieuwe stapel met de ingevoerde waarden."
 
 msgid "Created"
 msgstr "Gecreëerd"
@@ -597,9 +576,6 @@ msgstr "Volume \"%s\" aan het creëren"
 msgid "Creating volume snapshot \"%s\"."
 msgstr "Bezig met aanmaken van volume momentopname \"%s\"."
 
-msgid "Creation Timeout (minutes)"
-msgstr "Verlooptijd (minuten) creatie"
-
 msgid "Current Host"
 msgstr "Huidige Host"
 
@@ -636,9 +612,6 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "OMLAAG"
 
-msgid "Date Updated"
-msgstr "Datum bijgewerkt"
-
 msgid "Decrypt Password"
 msgstr "Wachtwoord ontcijferen"
 
@@ -652,22 +625,10 @@ msgstr "Standaardquota's"
 msgid "Defaults"
 msgstr "Standaarden"
 
-msgctxt "current status of stack"
-msgid "Delete Complete"
-msgstr "Verwijdering compleet"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP Agent Verwijderen"
 msgstr[1] "DHCP Agenten Verwijderen"
-
-msgctxt "current status of stack"
-msgid "Delete Failed"
-msgstr "Verwijdering mislukt"
-
-msgctxt "current status of stack"
-msgid "Delete In Progress"
-msgstr "Bezig met verwijdering"
 
 msgid "Delete Network"
 msgid_plural "Delete Networks"
@@ -904,9 +865,6 @@ msgstr "Momentopname wijzigen"
 msgid "Edit Subnet"
 msgstr "Subnet bewerken"
 
-msgid "Edit Template"
-msgstr "Sjabloon bewerken"
-
 msgid "Edit Volume"
 msgstr "Volume bewerken"
 
@@ -926,9 +884,6 @@ msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "Service Activeren"
 msgstr[1] "Services Activeren"
-
-msgid "Enable rollback on create/update failure."
-msgstr "Terugdraaien bij fout tijdens creeren/bijwerken activeren."
 
 msgid "Enabled"
 msgstr "Geactiveerd"
@@ -953,15 +908,6 @@ msgstr "Voer een waarde in voor ICMP type in het bereik (-1: 255)"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Voor een geheel getal in tussen 1 en 65535."
-
-msgid "Environment Data"
-msgstr "Omgevingsdata"
-
-msgid "Environment File"
-msgstr "Omgevingsbestand"
-
-msgid "Environment Source"
-msgstr "Omgevingsbron"
 
 msgid "Ephemeral Disk"
 msgstr "Eigen schijf"
@@ -1010,9 +956,6 @@ msgstr "Fout bij wegschrijven van zipbestand: %(exc)s"
 
 msgid "Ether Type"
 msgstr "Ethertype"
-
-msgid "Events"
-msgstr "Gebeurtenissen"
 
 msgid "Extend Volume"
 msgstr "Volume uitbreiden"
@@ -1503,9 +1446,6 @@ msgstr "Sleutelgrootte (bits)"
 msgid "Language"
 msgstr "Taal"
 
-msgid "Last Updated"
-msgstr "Laatst bijgewerkt"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Laatst bijgewerkt"
@@ -1515,12 +1455,6 @@ msgstr "Starten"
 
 msgid "Launch Instance"
 msgstr "Start exemplaar"
-
-msgid "Launch Parameters"
-msgstr "Startparameters"
-
-msgid "Launch Stack"
-msgstr "Start stapel"
 
 msgid "Launch instance in these security groups."
 msgstr "Start exemplaar in deze beveiligingsgroep."
@@ -1624,9 +1558,6 @@ msgstr "Minimum Schijf (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Minimum werkgeheugen (MB)"
 
-msgid "Minutes"
-msgstr "Minuten"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Bewerk domein \"%s\"."
@@ -1681,16 +1612,6 @@ msgid ""
 msgstr ""
 "Naam mag enkel letters, nummers, laag liggende strepen, punten en "
 "verbindingsstrepen bevatten."
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"Naam moet beginnen met een letter en mag alleen letters, cijfers, liggende "
-"streepjes of mintekens bevatten."
-
-msgid "Name of the stack to create."
-msgstr "Naam van de te creeeren stapel."
 
 msgid "Namespace"
 msgstr "Naamplaats"
@@ -1759,9 +1680,6 @@ msgstr "Nieuwe Host"
 
 msgid "New password"
 msgstr "Nieuw wachtwoord"
-
-msgid "Next"
-msgstr "Volgende"
 
 msgid "No"
 msgstr "Nee"
@@ -1919,9 +1837,6 @@ msgstr "Open poort"
 msgid "Other Protocol"
 msgstr "Ander protocol"
 
-msgid "Outputs"
-msgstr "Uitvoeren"
-
 msgid "Overview"
 msgstr "Overzicht"
 
@@ -1940,10 +1855,6 @@ msgstr "Wachtwoord"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "Wachtwoord gewijzigd. Meldt u zich opnieuw aan om door te gaan."
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "Wachtwoord voor gebruiker \"%s\""
 
 msgid "Passwords do not match."
 msgstr "Wachtwoorden komen niet overeen."
@@ -1969,10 +1880,6 @@ msgstr "Fysiek netwerk"
 
 msgid "Please note: "
 msgstr "Let op:"
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "Specificeer alstublieft een %s met maar één bronmethode."
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2173,15 +2080,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Aan het herdimensioneren of verplaatsen"
 
-msgid "Resource"
-msgstr "Middel"
-
-msgid "Resource ID"
-msgstr "Middel ID"
-
-msgid "Resource Metadata"
-msgstr "Middel metadata"
-
 msgid "Resources"
 msgstr "Middelen"
 
@@ -2230,12 +2128,6 @@ msgstr "Rol is succesvol bijgewerkt."
 
 msgid "Roles"
 msgstr "Rollen"
-
-msgid "Rollback"
-msgstr "Terugdraaien"
-
-msgid "Rollback On Failure"
-msgstr "Terugdraaien bij mislukking"
 
 msgid "Root Disk"
 msgstr "Systeemschijf"
@@ -2308,9 +2200,6 @@ msgstr "Selecteer een exemplaar momentopname"
 
 msgid "Select Subnet"
 msgstr "Selecteer subnet"
-
-msgid "Select Template"
-msgstr "Selecteer sjabloon"
 
 msgid "Select Volume"
 msgstr "Selecteer volume"
@@ -2451,42 +2340,6 @@ msgstr "Specificeer de details voor het starten van een exemplaar."
 msgid "Specs"
 msgstr "Specificatie"
 
-msgid "Stack Events"
-msgstr "Stapelgebeurtenissen"
-
-msgid "Stack ID"
-msgstr "Stapel ID"
-
-msgid "Stack Name"
-msgstr "Stapelnaam"
-
-msgid "Stack Parameters"
-msgstr "Stapelparameters"
-
-msgid "Stack Resource"
-msgstr "Stapelmiddel"
-
-msgid "Stack Resource ID"
-msgstr "Stapelmiddel ID"
-
-msgid "Stack Resource Type"
-msgstr "Stapelmiddeltype"
-
-msgid "Stack Resources"
-msgstr "Stapelmiddelen"
-
-msgid "Stack creation started."
-msgstr "Stapelcreatie gestart."
-
-msgid "Stack creation timeout in minutes."
-msgstr "Verlooptijd in minuten voor de stapelcreatie."
-
-msgid "Stack update started."
-msgstr "Aanpassing stapel gestart."
-
-msgid "Stacks"
-msgstr "Stapels"
-
 msgid "Start"
 msgstr "Start"
 
@@ -2510,9 +2363,6 @@ msgstr "Status"
 
 msgid "Status ="
 msgstr "Statuus ="
-
-msgid "Status Reason"
-msgstr "Statusreden"
 
 msgid "Subnet"
 msgstr "Subnet"
@@ -2590,21 +2440,6 @@ msgstr "Doelhost"
 
 msgid "Task"
 msgstr "Taak"
-
-msgid "Template"
-msgstr "Sjabloon"
-
-msgid "Template Data"
-msgstr "Sjabloongegevens"
-
-msgid "Template File"
-msgstr "Sjabloonbestand"
-
-msgid "Template Source"
-msgstr "Sjabloonbron"
-
-msgid "Template URL"
-msgstr "Sjabloon URL"
 
 msgid "The \"from\" port number is invalid."
 msgstr "Het \"van\" poortnummer is ongeldig."
@@ -2702,12 +2537,6 @@ msgstr ""
 "De privésleutel zal alleen in de webbrowser gebruikt worden en niet naar de "
 "server verzonden worden."
 
-msgid "The raw contents of the environment file."
-msgstr "De onbewerkte inhoud van het omgevingsbestand."
-
-msgid "The raw contents of the template."
-msgstr "De ruwe inhoud van het sjabloon."
-
 msgid "The specified port is invalid."
 msgstr "De gespecificeerde poort is ongeldig."
 
@@ -2745,25 +2574,12 @@ msgstr ""
 "publieke sleutel hier."
 
 msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr ""
-"Dit is vereist bij het uitvoeren van handelingen gedurende de levenscyclus "
-"van de stapel"
-
-msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "Dit volume is momenteel gekoppeld aan een exemplaar. In bepaalde gevallen "
 "kan het maken van een momentopname van een gekoppeld volume resulteren in "
 "een beschadigde momentopname."
-
-msgid "Time Since Event"
-msgstr "Tijd sinds gebeurtenis"
-
-msgid "Timeout"
-msgstr "Verlooptijd"
 
 msgid "Timezone"
 msgstr "Tijdzone"
@@ -2812,9 +2628,6 @@ msgstr "OMHOOG"
 msgctxt "Admin state of a Router"
 msgid "UP"
 msgstr "OMHOOG"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -2929,10 +2742,6 @@ msgid "Unable to get VNC console for instance \"%s\"."
 msgstr ""
 "Niet in staat om het VNC beheervenster te verkrijgen voor exemplaar \"%s\"."
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "Niet in staat om de gebeurtenissen te verkrijgen voor stapel \"%s\"."
-
 msgid "Unable to get flavor list"
 msgstr "Niet in staat om de smakenlijst op te halen"
 
@@ -2951,10 +2760,6 @@ msgstr "Niet in staat om de Nova dienstenlijst te verkrijgen."
 
 msgid "Unable to get quota info."
 msgstr "Niet in staat om de quotuminformatie te verkrijgen."
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "Niet in staat om de middelen te verkrijgen voor stapel \"%s\"."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -3158,9 +2963,6 @@ msgstr "Niet in staat om de lijst met volume momentopnamen op te halen."
 msgid "Unable to retrieve list of volumes."
 msgstr "Niet in staat om de volumelijst op te halen."
 
-msgid "Unable to retrieve metadata."
-msgstr "Niet in staat om de metadata op te halen."
-
 msgid "Unable to retrieve network details."
 msgstr "Niet in staat om de netwerkdetails op te halen."
 
@@ -3194,9 +2996,6 @@ msgstr "Niet in staat om de publieke afbeeldingen op te halen."
 msgid "Unable to retrieve quota information."
 msgstr "Niet in staat om de quotainformatie op te halen."
 
-msgid "Unable to retrieve resource."
-msgstr "Niet in staat om het middel op te halen."
-
 msgid "Unable to retrieve role list."
 msgstr "Niet in staat om de rollenlijst op te halen."
 
@@ -3225,12 +3024,6 @@ msgstr "Niet in staat om de beveiligingsgroepen op te halen."
 
 msgid "Unable to retrieve snapshot details."
 msgstr "Niet in staat om de details van de momentopname op te halen."
-
-msgid "Unable to retrieve stack list."
-msgstr "Niet in staat om de stapellijst op te halen."
-
-msgid "Unable to retrieve stack."
-msgstr "Niet in staat om de stapel op te halen."
 
 msgid "Unable to retrieve subnet details"
 msgstr "Niet in staat om de subnetdetails op te halen"
@@ -3367,12 +3160,6 @@ msgstr "Rol bijwerken"
 msgid "Update Router"
 msgstr "Router Vernieuwen"
 
-msgid "Update Stack"
-msgstr "Stapel bijwerken"
-
-msgid "Update Stack Parameters"
-msgstr "Stapelparameters bijwerken"
-
 msgid "Update User"
 msgstr "Gebruiker bijwerken"
 
@@ -3407,13 +3194,6 @@ msgstr "Gebruik een volume als bron"
 
 msgid "Use image as a source"
 msgstr "Gebruik een afbeelding as bron"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"Gebruikt u een van de beschikbare sjabloonbronopties  om het sjabloon te "
-"specificeren dat gebruikt moet worden voor het creëren van deze stapel."
 
 msgid "Use snapshot as a source"
 msgstr "Gebruik een momentopname als bron"
@@ -3596,10 +3376,6 @@ msgstr "U moet een afbeelding selecteren."
 msgid "You must set volume size"
 msgstr "U moet een volumegrootte instellen"
 
-msgid "You must specify a template via one of the available sources."
-msgstr ""
-"Specificeert u alstublieft een sjabloon via een van de beschikbare bronnen."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -3627,11 +3403,5 @@ msgstr "beiden"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-msgid "environment"
-msgstr "omgeving"
-
 msgid "instance"
 msgstr "Exemplaar"
-
-msgid "template"
-msgstr "sjabloon"

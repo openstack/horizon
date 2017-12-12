@@ -26,9 +26,9 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev119\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-22 09:01+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -130,14 +130,6 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
-
-#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s 后端)"
 
@@ -213,17 +205,11 @@ msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr ""
 "<a href=\"%(volume_url)s\">%(volume_label)s</a> 位于 %(volume_device)s 上"
 
-msgid "A local environment to upload."
-msgstr "上传一个本地环境文件"
-
 msgid "A local image to upload."
 msgstr "一个待上传的本地镜像。"
 
 msgid "A local metadata definition file to upload."
 msgstr "上传本地元数据定义文件。"
-
-msgid "A local template to upload."
-msgstr "一个待上传的本地模板"
 
 msgid ""
 "A mapping is a set of rules to map federation protocol attributes to "
@@ -468,18 +454,6 @@ msgid ""
 "definitions into Glance: "
 msgstr "管理员注意：使用下面命令行来导入默认的定义到Glance:"
 
-msgctxt "current status of stack"
-msgid "Adopt Complete"
-msgstr "配置完成"
-
-msgctxt "current status of stack"
-msgid "Adopt Failed"
-msgstr "配置失败"
-
-msgctxt "current status of stack"
-msgid "Adopt In Progress"
-msgstr "正在启用配置"
-
 msgid "Advanced Options"
 msgstr "高级选项"
 
@@ -564,9 +538,6 @@ msgstr "分配地址池"
 
 msgid "Allowed Address Pairs"
 msgstr "可用地址对"
-
-msgid "An external (HTTP) URL to load the template from."
-msgstr "一个用于加载模板的外部(HTTP) URL。"
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "从外部（HTTP/HTTPS）URL加载镜像。"
@@ -664,9 +635,6 @@ msgstr "连接的设备"
 
 msgid "Attribute Mappings"
 msgstr "属性映射"
-
-msgid "Attributes"
-msgstr "属性"
 
 msgid "Authentication URL"
 msgstr "认证 URL"
@@ -851,12 +819,6 @@ msgstr "无法获取实例%s的终端。"
 msgid "Cannot specify both file and direct input."
 msgstr "不能同时指定文件上传和直接输入。"
 
-msgid "Case sensitive"
-msgstr "区分大小写"
-
-msgid "Case-sensitive"
-msgstr "区分大小写"
-
 msgid "Centralized"
 msgstr "中心化"
 
@@ -865,12 +827,6 @@ msgstr "修改"
 
 msgid "Change Password"
 msgstr "修改密码"
-
-msgid "Change Stack Template"
-msgstr "改变栈模板"
-
-msgid "Change Template"
-msgstr "更改模板"
 
 msgid "Change Volume Type"
 msgstr "修改卷类型"
@@ -894,30 +850,10 @@ msgstr "此后修改过"
 msgid "Changing password is not supported."
 msgstr "不支持修改密码。"
 
-msgctxt "current status of stack"
-msgid "Check Complete"
-msgstr "检查完成"
-
-msgctxt "current status of stack"
-msgid "Check Failed"
-msgstr "检查失败"
-
-msgctxt "current status of stack"
-msgid "Check In Progress"
-msgstr "正在检查"
-
-msgid "Check Stack"
-msgid_plural "Check Stacks"
-msgstr[0] "检查栈"
-
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this consistency group."
 msgstr "选中 &quot;删除卷&quot; 复选框也会删除与此一致性组相关联的卷。"
-
-msgid "Checked Stack"
-msgid_plural "Checked Stacks"
-msgstr[0] "已经检查过的栈"
 
 msgid "Checksum"
 msgstr "校验和"
@@ -1141,10 +1077,6 @@ msgstr "创建镜像"
 msgid "Create Backup"
 msgstr "创建备份"
 
-msgctxt "current status of stack"
-msgid "Create Complete"
-msgstr "创建完成"
-
 msgid "Create Consistency Group"
 msgstr "创建一致性组"
 
@@ -1163,10 +1095,6 @@ msgstr "创建加密"
 msgid "Create Extra Spec For {{ qos_spec_name }}"
 msgstr "为 {{ qos_spec_name }} 创建额外的规格"
 
-msgctxt "current status of stack"
-msgid "Create Failed"
-msgstr "创建失败"
-
 msgid "Create Flavor"
 msgstr "创建实例类型"
 
@@ -1178,10 +1106,6 @@ msgstr "创建主机聚合"
 
 msgid "Create Image"
 msgstr "创建镜像"
-
-msgctxt "current status of stack"
-msgid "Create In Progress"
-msgstr "正在创建"
 
 msgid "Create Key Pair"
 msgstr "创建密钥对"
@@ -1230,9 +1154,6 @@ msgstr "创建快照"
 
 msgid "Create Spec"
 msgstr "创建规格"
-
-msgid "Create Stack"
-msgstr "创建栈"
 
 msgid "Create Subnet"
 msgstr "创建子网"
@@ -1334,9 +1255,6 @@ msgstr "创建一个新的网络。额外地，网络中的子网可以在向导
 
 msgid "Create a new role."
 msgstr "创建新角色。"
-
-msgid "Create a new stack with the provided values."
-msgstr "使用提供的值创建一个新栈。"
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -1453,9 +1371,6 @@ msgstr "正在创建卷备份 \"%s\""
 msgid "Creating volume snapshot \"%s\"."
 msgstr "正在创建快照 \"%s\"。"
 
-msgid "Creation Timeout (minutes)"
-msgstr "创建超时(分钟)"
-
 msgid "Current Host"
 msgstr "当前主机"
 
@@ -1531,9 +1446,6 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgid "Date Updated"
-msgstr "日期已更新"
-
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "失效的"
@@ -1564,10 +1476,6 @@ msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "删除"
 
-msgctxt "current status of stack"
-msgid "Delete Complete"
-msgstr "删除完成"
-
 msgid "Delete Consistency Group"
 msgstr "删除一致性组"
 
@@ -1587,10 +1495,6 @@ msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] "删除扩展规格"
 
-msgctxt "current status of stack"
-msgid "Delete Failed"
-msgstr "删除失败"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "删除实例类型"
@@ -1606,10 +1510,6 @@ msgstr[0] "删除主机聚合"
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "删除镜像"
-
-msgctxt "current status of stack"
-msgid "Delete In Progress"
-msgstr "正在删除"
 
 msgid "Delete Instance"
 msgid_plural "Delete Instances"
@@ -1674,10 +1574,6 @@ msgstr[0] "删除Snapshot"
 msgid "Delete Spec"
 msgid_plural "Delete Specs"
 msgstr[0] "删除规格"
-
-msgid "Delete Stack"
-msgid_plural "Delete Stacks"
-msgstr[0] "删除堆栈"
 
 msgid "Delete Static Route"
 msgid_plural "Delete Static Routes"
@@ -1818,10 +1714,6 @@ msgstr[0] "已删除的安全组"
 msgid "Deleted Spec"
 msgid_plural "Deleted Specs"
 msgstr[0] "规格已删除"
-
-msgid "Deleted Stack"
-msgid_plural "Deleted Stacks"
-msgstr[0] "已删除堆栈"
 
 msgid "Deleted Static Route"
 msgid_plural "Deleted Static Routes"
@@ -2223,9 +2115,6 @@ msgstr "编辑规格"
 msgid "Edit Subnet"
 msgstr "编辑子网"
 
-msgid "Edit Template"
-msgstr "编辑模板"
-
 msgid "Edit Volume"
 msgstr "编辑卷"
 
@@ -2302,9 +2191,6 @@ msgstr[0] "激活用户"
 msgid "Enable anti-spoofing rules for the port"
 msgstr "对这个端口启用防欺诈策略"
 
-msgid "Enable rollback on create/update failure."
-msgstr "在创建/更新失败时允许回滚。"
-
 msgid "Enabled"
 msgstr "激活"
 
@@ -2347,9 +2233,6 @@ msgstr "卷类型正在被卷使用, 无法更新其加密信息."
 msgid "Endpoints"
 msgstr "服务地址。"
 
-msgid "Engine Id"
-msgstr "Engine Id"
-
 msgid "Enter Network Address manually"
 msgstr "手动输入网络地址"
 
@@ -2367,15 +2250,6 @@ msgstr "输入一个介于0到255之间的整数"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "输入大于1小于65535的整数"
-
-msgid "Environment Data"
-msgstr "环境数据"
-
-msgid "Environment File"
-msgstr "环境文件"
-
-msgid "Environment Source"
-msgstr "环境源"
 
 msgid "Ephemeral Disk"
 msgstr "临时磁盘"
@@ -2487,9 +2361,6 @@ msgstr "疏散主机"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "疏散实例从宕机的主机到可用的目标主机"
-
-msgid "Events"
-msgstr "事件"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2626,9 +2497,6 @@ msgstr "网络 %s 删除失败。"
 msgid "Failed to delete port %s"
 msgstr "无法删除端口 %s"
 
-msgid "Failed to delete stack."
-msgstr "删除栈失败。"
-
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "删除子网%s失败"
@@ -2707,9 +2575,6 @@ msgstr "实例 \"%s\" 执行所请求操作失败，实例处于错误状态。"
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "无法从卷类型通道中移除项目%(project)s"
 
-msgid "Failed to resume stack."
-msgstr "恢复栈失败。"
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "获取网络 %s 的子网失败"
@@ -2717,9 +2582,6 @@ msgstr "获取网络 %s 的子网失败"
 #, python-format
 msgid "Failed to set gateway: %s"
 msgstr "设置网关失败：%s"
-
-msgid "Failed to suspend stack."
-msgstr "挂起栈失败。"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -2906,9 +2768,6 @@ msgstr "为一个卷创建一个快照"
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "在这里您可以更新默认配额(上限)。"
-
-msgid "Function"
-msgstr "功能"
 
 msgid "GB"
 msgstr "GB"
@@ -3306,18 +3165,6 @@ msgstr "基本信息"
 msgid "Ingress"
 msgstr "入口"
 
-msgctxt "current status of stack"
-msgid "Init Complete"
-msgstr "初始化完成"
-
-msgctxt "current status of stack"
-msgid "Init Failed"
-msgstr "初始化失败"
-
-msgctxt "current status of stack"
-msgid "Init In Progress"
-msgstr "正在初始化"
-
 msgid "Injected File Content (Bytes)"
 msgstr "已注入文件内容(Bytes)"
 
@@ -3487,9 +3334,6 @@ msgstr "3层代理"
 msgid "Language"
 msgstr "语言"
 
-msgid "Last Updated"
-msgstr "最近更新"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "最近更新"
@@ -3502,12 +3346,6 @@ msgstr "创建实例"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "创建实例 (配额用尽)"
-
-msgid "Launch Parameters"
-msgstr "创建参数"
-
-msgid "Launch Stack"
-msgstr "创建栈"
 
 msgid "Launch as Instance"
 msgstr "创建实例"
@@ -3531,9 +3369,6 @@ msgstr "注入文件路径的长度"
 
 msgid "Limit"
 msgstr "限制"
-
-msgid "Links"
-msgstr "链接"
 
 msgid "Live Migrate"
 msgstr "热迁移"
@@ -3778,9 +3613,6 @@ msgstr "最小磁盘（GB）"
 msgid "Minimum RAM (MB)"
 msgstr "最低内存(MB)"
 
-msgid "Minutes"
-msgstr "分钟"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "已修改域 \"%s\"。"
@@ -3858,15 +3690,6 @@ msgstr "名称 ="
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "名字只能包含半角的字母、数字、下划线（_）、点号（.）和连字符（-）。"
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"名字必须以字母开始，并且只能包含字母、数字、下划线、点号（.）和连字符。"
-
-msgid "Name of the stack to create."
-msgstr "待创建栈的名称"
 
 msgid "Name or other identifier for existing volume"
 msgstr "已有卷的名称或者其他标识符"
@@ -4005,9 +3828,6 @@ msgstr "新密码"
 
 msgid "New size must be greater than current size."
 msgstr "新大小必须大于当前设置"
-
-msgid "Next"
-msgstr "下一步"
 
 msgid "Next Hop"
 msgstr "下一跳"
@@ -4307,15 +4127,6 @@ msgstr "OpenStack cloud.yaml 文件"
 msgid "Optionally, you may choose to create a new volume."
 msgstr "可供选择的，您可以选择创建一个新的卷。"
 
-msgid "Orchestration"
-msgstr "云编排"
-
-msgid "Orchestration Services"
-msgstr "编排服务"
-
-msgid "Orchestration service is disabled."
-msgstr "编排服务已关闭。"
-
 #, python-format
 msgid ""
 "Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
@@ -4329,9 +4140,6 @@ msgstr "其他协议"
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr "超出范围（Nan）的浮点值不符合JSON类型：%r"
-
-msgid "Outputs"
-msgstr "输出"
 
 msgid "Overview"
 msgstr "概况"
@@ -4368,9 +4176,6 @@ msgstr "PLOOP - Virtuozzo/并行环回磁盘"
 msgid "Page Not Found"
 msgstr "页面未找到"
 
-msgid "Parameters"
-msgstr "参数"
-
 msgid "Password"
 msgstr "密码"
 
@@ -4383,10 +4188,6 @@ msgstr "密码已更改，请重新登录。"
 
 msgid "Password changed. Please log in to continue."
 msgstr "密码已修改，请登录以继续。"
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "用户 \"%s\" 的密码"
 
 msgid "Passwords do not match."
 msgstr "密码不匹配。"
@@ -4430,10 +4231,6 @@ msgstr "物理网络:"
 
 msgid "Please note: "
 msgstr "请注意："
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "请指定%s，只用一种源方法。"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -4499,24 +4296,6 @@ msgstr "准备 调整大小/迁移"
 
 msgid "Prevent the deletion of the image."
 msgstr "防止镜像的缺失"
-
-msgid "Preview"
-msgstr "预览"
-
-msgid "Preview Stack"
-msgstr "栈预览"
-
-msgid "Preview Stack Details"
-msgstr "栈详情预览"
-
-msgid "Preview Stack Parameters"
-msgstr "预览栈参数"
-
-msgid "Preview Template"
-msgstr "预览模板"
-
-msgid "Preview a new stack with the provided values."
-msgstr "预览以指定的参数创建新的栈"
 
 msgid "Primary Project"
 msgstr "主项目"
@@ -4590,9 +4369,6 @@ msgstr "项目"
 
 msgid "Projects:"
 msgstr "项目："
-
-msgid "Properties"
-msgstr "属性"
 
 msgid "Properties Target: "
 msgstr "属性目标："
@@ -4914,15 +4690,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "正在 调整大小/迁移"
 
-msgid "Resource"
-msgstr "资源"
-
-msgid "Resource ID"
-msgstr "资源ID"
-
-msgid "Resource Metadata"
-msgstr "资源元数据"
-
 msgid "Resource Types"
 msgstr "资源类型"
 
@@ -4967,33 +4734,13 @@ msgctxt "Action log of an instance"
 msgid "Resume"
 msgstr "恢复"
 
-msgctxt "current status of stack"
-msgid "Resume Complete"
-msgstr "恢复完成"
-
-msgctxt "current status of stack"
-msgid "Resume Failed"
-msgstr "恢复失败"
-
-msgctxt "current status of stack"
-msgid "Resume In Progress"
-msgstr "正在恢复中"
-
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "恢复实例"
 
-msgid "Resume Stack"
-msgid_plural "Resume Stacks"
-msgstr[0] "恢复栈"
-
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
 msgstr[0] "已恢复的实例"
-
-msgid "Resumed Stack"
-msgid_plural "Resumed Stacks"
-msgstr[0] "已经恢复的栈"
 
 msgctxt "Task status of an Instance"
 msgid "Resuming"
@@ -5039,24 +4786,6 @@ msgstr "角色更新成功。"
 
 msgid "Roles"
 msgstr "角色"
-
-msgid "Rollback"
-msgstr "回滚"
-
-msgctxt "current status of stack"
-msgid "Rollback Complete"
-msgstr "回滚完成"
-
-msgctxt "current status of stack"
-msgid "Rollback Failed"
-msgstr "回滚失败"
-
-msgctxt "current status of stack"
-msgid "Rollback In Progress"
-msgstr "正在回滚"
-
-msgid "Rollback On Failure"
-msgstr "失败回滚"
 
 msgid "Root Disk"
 msgstr "根磁盘"
@@ -5245,9 +4974,6 @@ msgstr "选择主机组"
 msgid "Select Subnet"
 msgstr "选择子网"
 
-msgid "Select Template"
-msgstr "选择模板"
-
 msgid "Select Volume"
 msgstr "选择卷"
 
@@ -5275,12 +5001,6 @@ msgstr "选择一个新的主机"
 msgid "Select a new status"
 msgstr "选择一个新的状态"
 
-msgid "Select a new template to preview a stack."
-msgstr "重新选择模板来预览stack"
-
-msgid "Select a new template to re-launch a stack."
-msgstr "重新选择模板来创建stack"
-
 msgid "Select a new volume type"
 msgstr "选择一个新卷类型"
 
@@ -5298,9 +5018,6 @@ msgstr "选择子网"
 
 msgid "Select a target host"
 msgstr "选择一个目标主机"
-
-msgid "Select a template to launch a stack."
-msgstr "选择模板创建stack"
 
 msgid "Select a volume"
 msgstr "选择一个卷"
@@ -5547,18 +5264,6 @@ msgstr "快照"
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
 msgstr "已为实例 \"%(inst)s\" 创建快照 \"%(name)s\" "
 
-msgctxt "current status of stack"
-msgid "Snapshot Complete"
-msgstr "生成快照完成"
-
-msgctxt "current status of stack"
-msgid "Snapshot Failed"
-msgstr "生成快照失败"
-
-msgctxt "current status of stack"
-msgid "Snapshot In Progress"
-msgstr "快照进行中"
-
 msgid "Snapshot Limits"
 msgstr "快照限制"
 
@@ -5677,51 +5382,6 @@ msgstr ""
 msgid "Specs"
 msgstr "规格"
 
-msgid "Stack Events"
-msgstr "栈事件"
-
-msgid "Stack ID"
-msgstr "栈ID"
-
-msgid "Stack ID ="
-msgstr "堆栈 ID ="
-
-msgid "Stack Name"
-msgstr "栈名"
-
-msgid "Stack Name ="
-msgstr "堆栈名称="
-
-msgid "Stack Parameters"
-msgstr "栈参数"
-
-msgid "Stack Preview"
-msgstr "栈预览"
-
-msgid "Stack Resource"
-msgstr "栈资源"
-
-msgid "Stack Resource ID"
-msgstr "栈资源ID"
-
-msgid "Stack Resource Type"
-msgstr "栈资源类型"
-
-msgid "Stack Resources"
-msgstr "栈资源"
-
-msgid "Stack creation started."
-msgstr "栈创建开始。"
-
-msgid "Stack creation timeout in minutes."
-msgstr "栈创建超时，以分钟计数。"
-
-msgid "Stack update started."
-msgstr "开始更新栈。"
-
-msgid "Stacks"
-msgstr "栈"
-
 msgid "Start"
 msgstr "开始"
 
@@ -5770,9 +5430,6 @@ msgstr "状态"
 
 msgid "Status ="
 msgstr "状态 ="
-
-msgid "Status Reason"
-msgstr "状态原因"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
@@ -5911,25 +5568,9 @@ msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "挂起"
 
-msgctxt "current status of stack"
-msgid "Suspend Complete"
-msgstr "挂起完成"
-
-msgctxt "current status of stack"
-msgid "Suspend Failed"
-msgstr "挂起失败"
-
-msgctxt "current status of stack"
-msgid "Suspend In Progress"
-msgstr "正在挂起"
-
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "挂起实例"
-
-msgid "Suspend Stack"
-msgid_plural "Suspend Stacks"
-msgstr[0] "挂起栈"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -5942,10 +5583,6 @@ msgstr "已挂起"
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
 msgstr[0] "已挂起的实例"
-
-msgid "Suspended Stack"
-msgid_plural "Suspended Stacks"
-msgstr[0] "已经挂起的栈"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"
@@ -5968,27 +5605,6 @@ msgstr "目标主机"
 
 msgid "Task"
 msgstr "任务"
-
-msgid "Template"
-msgstr "模板"
-
-msgid "Template Data"
-msgstr "模板数据"
-
-msgid "Template File"
-msgstr "模板文件"
-
-msgid "Template Functions"
-msgstr "模板功能"
-
-msgid "Template Source"
-msgstr "模板源"
-
-msgid "Template URL"
-msgstr "模板URL"
-
-msgid "Template Versions"
-msgstr "模板版本"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -6221,12 +5837,6 @@ msgstr "私钥仅在您的浏览器中使用，不会被传送到服务器"
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "伪目录非空，不能删除。"
 
-msgid "The raw contents of the environment file."
-msgstr "环境变量文件的原始内容"
-
-msgid "The raw contents of the template."
-msgstr "模板的原始内容。"
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -6357,11 +5967,6 @@ msgstr ""
 "这等同于<tt>openstack volume qos associate</tt>和<tt>openstack volume qos "
 "disassociate</tt>命令。"
 
-msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "这是stack生命周期中执行的操作所必需的。"
-
 msgid "This panel needs JavaScript support."
 msgstr "该页需要JavaScript支持。"
 
@@ -6378,9 +5983,6 @@ msgstr "该卷类型还有卷在使用."
 msgid "Time Since Created"
 msgstr "创建后的时间"
 
-msgid "Time Since Event"
-msgstr "发生事件后的时间"
-
 msgid "Time since created"
 msgstr "创建后的时间"
 
@@ -6389,9 +5991,6 @@ msgstr "创建后的时间(秒)"
 
 msgid "Time since update"
 msgstr "更新后的时间"
-
-msgid "Timeout"
-msgstr "超时"
 
 msgid "Timezone"
 msgstr "时区"
@@ -6431,9 +6030,6 @@ msgstr "切换网络折叠模式"
 
 msgid "Toggle navigation"
 msgstr "切换导航"
-
-msgid "Topic"
-msgstr "主题"
 
 msgid "Topology"
 msgstr "拓扑"
@@ -6504,9 +6100,6 @@ msgstr "中继"
 msgid "Type"
 msgstr "类型"
 
-msgid "Type ="
-msgstr "类型 ="
-
 msgid "Type of backend device identifier provided"
 msgstr "提供的后端设备标识类型"
 
@@ -6521,9 +6114,6 @@ msgstr "UP"
 msgctxt "Admin state of a Router"
 msgid "UP"
 msgstr "UP"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -6741,9 +6331,6 @@ msgstr "无法获取默认角色"
 msgid "Unable to get EC2 credentials"
 msgstr "无法获取EC2凭据"
 
-msgid "Unable to get Orchestration service list."
-msgstr "无法获取编排服务列表。"
-
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "无法获得实例 \"%s\" 的RDP控制台"
@@ -6762,16 +6349,8 @@ msgstr "无法获取Cinder服务列表"
 msgid "Unable to get consistency group list"
 msgstr "无法获取一致性组列表"
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "无法获取栈 \"%s\" 的事件。"
-
 msgid "Unable to get flavor list"
 msgstr "无法获取实例类型列表。"
-
-#, python-format
-msgid "Unable to get functions for template version \"%s\"."
-msgstr "无法为模板版本 \"%s\" 获得功能。"
 
 msgid "Unable to get host aggregate list"
 msgstr "无法获取主机聚合列表"
@@ -6794,10 +6373,6 @@ msgstr "无法获取openrc凭据"
 
 msgid "Unable to get quota info."
 msgstr "无法得到配额信息。"
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "无法获取栈 \"%s\" 的资源。"
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -7152,9 +6727,6 @@ msgstr "无法获取卷列表。"
 msgid "Unable to retrieve mapping list."
 msgstr "无法获取映射列表。"
 
-msgid "Unable to retrieve metadata."
-msgstr "无法获取元数据。"
-
 msgid "Unable to retrieve namespace contents."
 msgstr "无法获取命名空间内容。"
 
@@ -7206,12 +6778,6 @@ msgstr "无法获取公共镜像。"
 msgid "Unable to retrieve quota information."
 msgstr "无法获取配额信息。"
 
-msgid "Unable to retrieve resource type details."
-msgstr "无法获取资源类型详情。"
-
-msgid "Unable to retrieve resource."
-msgstr "无法获取资源。"
-
 msgid "Unable to retrieve role list."
 msgstr "无法获取角色列表。"
 
@@ -7255,29 +6821,11 @@ msgstr "无法获取快照详情"
 msgid "Unable to retrieve snapshot list."
 msgstr "无法获取快照列表。"
 
-msgid "Unable to retrieve stack list."
-msgstr "无法获取 stack 列表。"
-
-msgid "Unable to retrieve stack resource types."
-msgstr "无法获取 stack 资源类型。"
-
-msgid "Unable to retrieve stack template."
-msgstr "无法获取 stack 模板。"
-
-msgid "Unable to retrieve stack."
-msgstr "无法获取 stack。"
-
 msgid "Unable to retrieve subnet details"
 msgstr "无法获取子网详情"
 
 msgid "Unable to retrieve subnet details."
 msgstr "无法获取子网详情"
-
-msgid "Unable to retrieve template functions."
-msgstr "无法获得模板功能。"
-
-msgid "Unable to retrieve template versions."
-msgstr "无法检索模板版本"
 
 msgid "Unable to retrieve tenant limits."
 msgstr "无法获取租户范围"
@@ -7602,10 +7150,6 @@ msgstr "更新"
 msgid "Update Associations"
 msgstr "更新关联"
 
-msgctxt "current status of stack"
-msgid "Update Complete"
-msgstr "更新完成"
-
 msgid "Update Default Quotas"
 msgstr "更新默认配额"
 
@@ -7618,19 +7162,11 @@ msgstr "更新加密的卷类型"
 msgid "Update Encryption"
 msgstr "更新加密"
 
-msgctxt "current status of stack"
-msgid "Update Failed"
-msgstr "更新失败"
-
 msgid "Update Group"
 msgstr "更新组"
 
 msgid "Update Identity Provider"
 msgstr "更新身份提供者"
-
-msgctxt "current status of stack"
-msgid "Update In Progress"
-msgstr "正在更新"
 
 msgid "Update Mapping"
 msgstr "更新映射"
@@ -7646,12 +7182,6 @@ msgstr "更新角色"
 
 msgid "Update Router"
 msgstr "更新路由"
-
-msgid "Update Stack"
-msgstr "更新栈"
-
-msgid "Update Stack Parameters"
-msgstr "更新栈参数"
 
 msgid "Update Status"
 msgstr "更新状态"
@@ -7670,14 +7200,6 @@ msgstr "更新加密卷类型"
 
 msgid "Update a Metadata Namespace"
 msgstr "更新元数据命名空间"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"用提供的值来更新堆栈。请注意任何加密参数，例如密码，如果您不在这里更改，则会"
-"被重置为缺省值。"
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -7768,16 +7290,6 @@ msgstr "将卷作为源"
 
 msgid "Use image as a source"
 msgstr "使用镜像作为源"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr "使用可用模板源选项中的一个来指定用来创建栈的模板。"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in previewing this stack."
-msgstr "使用可用模板源选项中的一个来指定用来预览栈的模板。"
 
 msgid "Use snapshot as a source"
 msgstr "使用快照作为源"
@@ -7887,9 +7399,6 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "值"
-
-msgid "Version"
-msgstr "版本"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8232,9 +7741,6 @@ msgstr "您必须选择一个镜像。"
 msgid "You must set volume size"
 msgstr "您必须设置卷的大小"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "您必须通过可用源中的一个来指定模板。"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -8275,9 +7781,6 @@ msgstr "例如，Yes / No"
 msgid "e.g. Yes/No"
 msgstr "例如，是/否"
 
-msgid "environment"
-msgstr "环境"
-
 msgid "front-end"
 msgstr "前端"
 
@@ -8286,9 +7789,6 @@ msgstr "实例"
 
 msgid "no"
 msgstr "否"
-
-msgid "template"
-msgstr "模板"
 
 msgid "undefined"
 msgstr "未定义"

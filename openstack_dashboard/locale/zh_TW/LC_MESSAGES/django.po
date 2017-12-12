@@ -7,9 +7,9 @@
 # Tom Fifield <tom@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev119\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-22 09:01+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -114,14 +114,6 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s：%(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s：%(stack_status_reason)s"
-
-#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s（%(backend)s 後端）"
 
@@ -199,17 +191,11 @@ msgstr ""
 "%(volume_device)s 上的 <a href=\"%(volume_url)s\">%(volume_label)s</a>\n"
 "            "
 
-msgid "A local environment to upload."
-msgstr "上傳本地的環境。"
-
 msgid "A local image to upload."
 msgstr "上傳本地的映像檔。"
 
 msgid "A local metadata definition file to upload."
 msgstr "上傳本地的詮釋資料定義檔。"
-
-msgid "A local template to upload."
-msgstr "上傳本地的範本。"
 
 msgid ""
 "A mapping is a set of rules to map federation protocol attributes to "
@@ -458,18 +444,6 @@ msgid ""
 "definitions into Glance: "
 msgstr "管理員請留意：使用下列的命令列指令來匯入預設定義到 Glance 裡："
 
-msgctxt "current status of stack"
-msgid "Adopt Complete"
-msgstr "選用參數完成"
-
-msgctxt "current status of stack"
-msgid "Adopt Failed"
-msgstr "選用參數失敗"
-
-msgctxt "current status of stack"
-msgid "Adopt In Progress"
-msgstr "正在選用參數"
-
 msgid "Advanced Options"
 msgstr "進階選項"
 
@@ -556,9 +530,6 @@ msgstr "分配倉庫"
 
 msgid "Allowed Address Pairs"
 msgstr "容許使用的位址配對"
-
-msgid "An external (HTTP) URL to load the template from."
-msgstr "可讀取範本的外部（HTTP）網址。"
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "用來載入映像檔的外部 (HTTP/HTTPS) URL。"
@@ -656,9 +627,6 @@ msgstr "附件"
 
 msgid "Attribute Mappings"
 msgstr "屬性對映"
-
-msgid "Attributes"
-msgstr "屬性"
 
 msgid "Authentication URL"
 msgstr "認證網址"
@@ -842,12 +810,6 @@ msgstr "無法獲得雲實例 %s 的主控臺。"
 msgid "Cannot specify both file and direct input."
 msgstr "不能指定檔案同時又直接輸入。"
 
-msgid "Case sensitive"
-msgstr "區分大小寫"
-
-msgid "Case-sensitive"
-msgstr "區分大小寫"
-
 msgid "Centralized"
 msgstr "集式式"
 
@@ -856,12 +818,6 @@ msgstr "更換"
 
 msgid "Change Password"
 msgstr "更換密碼"
-
-msgid "Change Stack Template"
-msgstr "更換機櫃範本"
-
-msgid "Change Template"
-msgstr "更換範本"
 
 msgid "Change Volume Type"
 msgstr "更換雲硬碟的類型"
@@ -886,30 +842,10 @@ msgstr "最後變更"
 msgid "Changing password is not supported."
 msgstr "不支援變更密碼。"
 
-msgctxt "current status of stack"
-msgid "Check Complete"
-msgstr "檢查完成"
-
-msgctxt "current status of stack"
-msgid "Check Failed"
-msgstr "檢查失敗"
-
-msgctxt "current status of stack"
-msgid "Check In Progress"
-msgstr "正在檢查"
-
-msgid "Check Stack"
-msgid_plural "Check Stacks"
-msgstr[0] "檢查機櫃"
-
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this consistency group."
 msgstr "勾選「刪除磁區」方框，以同時刪除與此一致性群組相關聯的雲硬碟。"
-
-msgid "Checked Stack"
-msgid_plural "Checked Stacks"
-msgstr[0] "已檢查機櫃"
 
 msgid "Checksum"
 msgstr "檢查碼"
@@ -1133,10 +1069,6 @@ msgstr "新增映像檔"
 msgid "Create Backup"
 msgstr "新增備份"
 
-msgctxt "current status of stack"
-msgid "Create Complete"
-msgstr "新增完成"
-
 msgid "Create Consistency Group"
 msgstr "新增一致性群組"
 
@@ -1155,10 +1087,6 @@ msgstr "新增加密"
 msgid "Create Extra Spec For {{ qos_spec_name }}"
 msgstr "建立給{{ qos_spec_name }}的額外規格"
 
-msgctxt "current status of stack"
-msgid "Create Failed"
-msgstr "新增失敗"
-
 msgid "Create Flavor"
 msgstr "新增虛擬硬體樣板"
 
@@ -1170,10 +1098,6 @@ msgstr "新增主機聚合"
 
 msgid "Create Image"
 msgstr "新增映像檔"
-
-msgctxt "current status of stack"
-msgid "Create In Progress"
-msgstr "正在新增"
 
 msgid "Create Key Pair"
 msgstr "新增密鑰對"
@@ -1219,9 +1143,6 @@ msgstr "新增即時存檔"
 
 msgid "Create Spec"
 msgstr "新增規格"
-
-msgid "Create Stack"
-msgstr "新增機櫃"
 
 msgid "Create Subnet"
 msgstr "新增子網路"
@@ -1325,9 +1246,6 @@ msgstr "新增新的網路。另外，可以在此精靈的後續步驟中建立
 
 msgid "Create a new role."
 msgstr "新增新的角色。"
-
-msgid "Create a new stack with the provided values."
-msgstr "以已提供的值新增新的機櫃。"
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -1444,9 +1362,6 @@ msgstr "新增雲硬碟備份「%s」"
 msgid "Creating volume snapshot \"%s\"."
 msgstr "正在新增雲硬碟即時存檔「%s」。"
 
-msgid "Creation Timeout (minutes)"
-msgstr "建立逾時（分鐘）"
-
 msgid "Current Host"
 msgstr "目前的主機"
 
@@ -1524,9 +1439,6 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "離線"
 
-msgid "Date Updated"
-msgstr "更新日期"
-
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "已取消啟動"
@@ -1557,10 +1469,6 @@ msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "刪除"
 
-msgctxt "current status of stack"
-msgid "Delete Complete"
-msgstr "刪除完成"
-
 msgid "Delete Consistency Group"
 msgstr "刪除一致性群組"
 
@@ -1580,10 +1488,6 @@ msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] "刪除額外規格"
 
-msgctxt "current status of stack"
-msgid "Delete Failed"
-msgstr "刪除失敗"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "刪除虛擬硬體樣板"
@@ -1599,10 +1503,6 @@ msgstr[0] "刪除主機聚合"
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "刪除映像檔"
-
-msgctxt "current status of stack"
-msgid "Delete In Progress"
-msgstr "正在刪除"
 
 msgid "Delete Instance"
 msgid_plural "Delete Instances"
@@ -1667,10 +1567,6 @@ msgstr[0] "刪除快照"
 msgid "Delete Spec"
 msgid_plural "Delete Specs"
 msgstr[0] "刪除規格"
-
-msgid "Delete Stack"
-msgid_plural "Delete Stacks"
-msgstr[0] "刪除機櫃"
 
 msgid "Delete Static Route"
 msgid_plural "Delete Static Routes"
@@ -1811,10 +1707,6 @@ msgstr[0] "已刪除安全性群組"
 msgid "Deleted Spec"
 msgid_plural "Deleted Specs"
 msgstr[0] "已刪除規格"
-
-msgid "Deleted Stack"
-msgid_plural "Deleted Stacks"
-msgstr[0] "已刪除機櫃"
 
 msgid "Deleted Static Route"
 msgid_plural "Deleted Static Routes"
@@ -2219,9 +2111,6 @@ msgstr "編輯規格"
 msgid "Edit Subnet"
 msgstr "編輯子網路"
 
-msgid "Edit Template"
-msgstr "編輯範本"
-
 msgid "Edit Volume"
 msgstr "編輯雲硬碟"
 
@@ -2298,9 +2187,6 @@ msgstr[0] "啟用用戶"
 msgid "Enable anti-spoofing rules for the port"
 msgstr "啟用網路埠反欺騙規則"
 
-msgid "Enable rollback on create/update failure."
-msgstr "啟用當新增/更新失敗時回退"
-
 msgid "Enabled"
 msgstr "已啟用"
 
@@ -2344,9 +2230,6 @@ msgstr ""
 msgid "Endpoints"
 msgstr "端點"
 
-msgid "Engine Id"
-msgstr "引擎識別號"
-
 msgid "Enter Network Address manually"
 msgstr "手動輸入網路位址"
 
@@ -2364,15 +2247,6 @@ msgstr "輸入 0 到 255 之間的整數。"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "輸入 1 到 65535 之間的整數。"
-
-msgid "Environment Data"
-msgstr "環境資料"
-
-msgid "Environment File"
-msgstr "環境檔案"
-
-msgid "Environment Source"
-msgstr "環境來源"
 
 msgid "Ephemeral Disk"
 msgstr "暫時性硬碟"
@@ -2484,9 +2358,6 @@ msgstr "撤離主機"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "從選擇的離線主機撤離伺服器到使用中的目標主機。"
-
-msgid "Events"
-msgstr "事件"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2897,9 +2768,6 @@ msgstr "您可以在此新增雲硬碟的即時存檔。"
 msgid "From here you can update the default quotas (max limits)."
 msgstr "您可以在此更新預設的配額（最大限制）。"
 
-msgid "Function"
-msgstr "功能"
-
 msgid "GB"
 msgstr "GB"
 
@@ -3297,18 +3165,6 @@ msgstr "資訊"
 msgid "Ingress"
 msgstr "入口"
 
-msgctxt "current status of stack"
-msgid "Init Complete"
-msgstr "初始化運算"
-
-msgctxt "current status of stack"
-msgid "Init Failed"
-msgstr "初始化失敗"
-
-msgctxt "current status of stack"
-msgid "Init In Progress"
-msgstr "正在初始化"
-
 msgid "Injected File Content (Bytes)"
 msgstr "已注入的資料內容（位元組）"
 
@@ -3475,9 +3331,6 @@ msgstr "L3代理"
 msgid "Language"
 msgstr "語系"
 
-msgid "Last Updated"
-msgstr "最近一次更新"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "最近一次更新"
@@ -3490,12 +3343,6 @@ msgstr "發動雲實例"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "發動雲實例（超過配額）"
-
-msgid "Launch Parameters"
-msgstr "發動參數"
-
-msgid "Launch Stack"
-msgstr "發動機櫃"
 
 msgid "Launch as Instance"
 msgstr "發動成雲實例"
@@ -3519,9 +3366,6 @@ msgstr "已注入的資料路徑長度"
 
 msgid "Limit"
 msgstr "限制"
-
-msgid "Links"
-msgstr "超連結"
 
 msgid "Live Migrate"
 msgstr "即時轉移"
@@ -3767,9 +3611,6 @@ msgstr "至少硬碟（GB）"
 msgid "Minimum RAM (MB)"
 msgstr "至少隨機存取記憶體（MB）"
 
-msgid "Minutes"
-msgstr "分鐘"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "已更改地域「%s」。"
@@ -3847,14 +3688,6 @@ msgstr "名稱 ＝"
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "名稱只能包含英文字母、數字、底線、句點和連字號。"
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr "名稱必須以英文字母起頭，並只能包含英文字母、數字、底線、句點和連字號。"
-
-msgid "Name of the stack to create."
-msgstr "要新增的機櫃名稱。"
 
 msgid "Name or other identifier for existing volume"
 msgstr "給已存在的雲硬碟的名稱或其他認證者"
@@ -3993,9 +3826,6 @@ msgstr "新的密碼"
 
 msgid "New size must be greater than current size."
 msgstr "新容量必須大於目前的容量。"
-
-msgid "Next"
-msgstr "下一步"
 
 msgid "Next Hop"
 msgstr "下一跳點"
@@ -4295,15 +4125,6 @@ msgstr "OpenStack clouds.yaml 檔"
 msgid "Optionally, you may choose to create a new volume."
 msgstr "另外，您也可以選擇新增新的雲硬碟。"
 
-msgid "Orchestration"
-msgstr "編配"
-
-msgid "Orchestration Services"
-msgstr "編配伺服器"
-
-msgid "Orchestration service is disabled."
-msgstr "編配伺服器已關閉。"
-
 #, python-format
 msgid ""
 "Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
@@ -4317,9 +4138,6 @@ msgstr "其他協定"
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr "超出範圍的浮點數不符合 JSON 規範：%r"
-
-msgid "Outputs"
-msgstr "輸出"
 
 msgid "Overview"
 msgstr "概觀"
@@ -4356,9 +4174,6 @@ msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgid "Page Not Found"
 msgstr "找不到"
 
-msgid "Parameters"
-msgstr "參數"
-
 msgid "Password"
 msgstr "密碼"
 
@@ -4371,10 +4186,6 @@ msgstr "密碼已更換。請再登入一次以繼續。"
 
 msgid "Password changed. Please log in to continue."
 msgstr "密碼已更換。請再登入一次以繼續。"
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "給用戶「%s」密碼"
 
 msgid "Passwords do not match."
 msgstr "密碼沒有相配。"
@@ -4418,10 +4229,6 @@ msgstr "實體網路："
 
 msgid "Please note: "
 msgstr "請留意："
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "請用只有一個來源的方法來指定 %s。"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -4489,24 +4296,6 @@ msgstr "正在準備調整容量或轉移"
 
 msgid "Prevent the deletion of the image."
 msgstr "防止映像檔被刪除"
-
-msgid "Preview"
-msgstr "預覽"
-
-msgid "Preview Stack"
-msgstr "預覽機櫃"
-
-msgid "Preview Stack Details"
-msgstr "預覽機櫃詳細資訊"
-
-msgid "Preview Stack Parameters"
-msgstr "預覽機櫃參數"
-
-msgid "Preview Template"
-msgstr "預覽範本"
-
-msgid "Preview a new stack with the provided values."
-msgstr "以已提供的值預覽新的機櫃。"
 
 msgid "Primary Project"
 msgstr "主要的專案"
@@ -4580,9 +4369,6 @@ msgstr "虛擬私人網路連線"
 
 msgid "Projects:"
 msgstr "專案："
-
-msgid "Properties"
-msgstr "自訂屬性"
 
 msgid "Properties Target: "
 msgstr "屬性目標："
@@ -4912,15 +4698,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "正在調整容量或轉移"
 
-msgid "Resource"
-msgstr "資源"
-
-msgid "Resource ID"
-msgstr "資源識別號"
-
-msgid "Resource Metadata"
-msgstr "資源詮釋資料"
-
 msgid "Resource Types"
 msgstr "資源類型"
 
@@ -4965,33 +4742,13 @@ msgctxt "Action log of an instance"
 msgid "Resume"
 msgstr "恢復"
 
-msgctxt "current status of stack"
-msgid "Resume Complete"
-msgstr "恢復完成"
-
-msgctxt "current status of stack"
-msgid "Resume Failed"
-msgstr "恢復失敗"
-
-msgctxt "current status of stack"
-msgid "Resume In Progress"
-msgstr "正在恢復"
-
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "恢復雲實例"
 
-msgid "Resume Stack"
-msgid_plural "Resume Stacks"
-msgstr[0] "恢復機櫃"
-
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
 msgstr[0] "已恢復雲實例"
-
-msgid "Resumed Stack"
-msgid_plural "Resumed Stacks"
-msgstr[0] "已恢復機櫃"
 
 msgctxt "Task status of an Instance"
 msgid "Resuming"
@@ -5037,24 +4794,6 @@ msgstr "已成功更新角色。"
 
 msgid "Roles"
 msgstr "角色"
-
-msgid "Rollback"
-msgstr "回退"
-
-msgctxt "current status of stack"
-msgid "Rollback Complete"
-msgstr "回退完成"
-
-msgctxt "current status of stack"
-msgid "Rollback Failed"
-msgstr "回退失敗"
-
-msgctxt "current status of stack"
-msgid "Rollback In Progress"
-msgstr "正在回退"
-
-msgid "Rollback On Failure"
-msgstr "當失敗時回退"
 
 msgid "Root Disk"
 msgstr "根硬碟"
@@ -5243,9 +4982,6 @@ msgstr "選擇主機群組"
 msgid "Select Subnet"
 msgstr "選擇子網路"
 
-msgid "Select Template"
-msgstr "選擇範本"
-
 msgid "Select Volume"
 msgstr "選擇雲硬碟"
 
@@ -5273,12 +5009,6 @@ msgstr "選擇新的主機"
 msgid "Select a new status"
 msgstr "選擇新的狀態"
 
-msgid "Select a new template to preview a stack."
-msgstr "選擇新的範本來預覽機櫃。"
-
-msgid "Select a new template to re-launch a stack."
-msgstr "選擇新的範本來重新發動機櫃。"
-
 msgid "Select a new volume type"
 msgstr "選擇新的雲硬碟類型"
 
@@ -5296,9 +5026,6 @@ msgstr "選取子網路"
 
 msgid "Select a target host"
 msgstr "選擇目標主機"
-
-msgid "Select a template to launch a stack."
-msgstr "選擇範本來發動機櫃。"
 
 msgid "Select a volume"
 msgstr "選擇雲硬碟"
@@ -5545,18 +5272,6 @@ msgstr "即時存檔"
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
 msgstr "已用即時存檔「%(name)s」新增雲實例「%(inst)s」"
 
-msgctxt "current status of stack"
-msgid "Snapshot Complete"
-msgstr "儲存即時存檔完成"
-
-msgctxt "current status of stack"
-msgid "Snapshot Failed"
-msgstr "儲存即時存檔失敗"
-
-msgctxt "current status of stack"
-msgid "Snapshot In Progress"
-msgstr "正在儲存即時存檔"
-
 msgid "Snapshot Limits"
 msgstr "即時存檔限制"
 
@@ -5676,51 +5391,6 @@ msgstr ""
 msgid "Specs"
 msgstr "規格"
 
-msgid "Stack Events"
-msgstr "機櫃事件"
-
-msgid "Stack ID"
-msgstr "機櫃識別號"
-
-msgid "Stack ID ="
-msgstr "堆疊 ID ="
-
-msgid "Stack Name"
-msgstr "機櫃名稱"
-
-msgid "Stack Name ="
-msgstr "堆疊名稱 ="
-
-msgid "Stack Parameters"
-msgstr "機櫃參數"
-
-msgid "Stack Preview"
-msgstr "機櫃預覽"
-
-msgid "Stack Resource"
-msgstr "機櫃資源"
-
-msgid "Stack Resource ID"
-msgstr "機櫃資源識別號"
-
-msgid "Stack Resource Type"
-msgstr "機櫃資源類型"
-
-msgid "Stack Resources"
-msgstr "機櫃資源"
-
-msgid "Stack creation started."
-msgstr "已開始建立機櫃。"
-
-msgid "Stack creation timeout in minutes."
-msgstr "機櫃建立逾時分鐘。"
-
-msgid "Stack update started."
-msgstr "已開始更新機櫃。"
-
-msgid "Stacks"
-msgstr "機櫃"
-
 msgid "Start"
 msgstr "開始"
 
@@ -5769,9 +5439,6 @@ msgstr "狀態"
 
 msgid "Status ="
 msgstr "狀態 ="
-
-msgid "Status Reason"
-msgstr "狀態原因"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
@@ -5910,25 +5577,9 @@ msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "停止"
 
-msgctxt "current status of stack"
-msgid "Suspend Complete"
-msgstr "已停止"
-
-msgctxt "current status of stack"
-msgid "Suspend Failed"
-msgstr "停止失敗"
-
-msgctxt "current status of stack"
-msgid "Suspend In Progress"
-msgstr "正在停止"
-
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "停止雲實例"
-
-msgid "Suspend Stack"
-msgid_plural "Suspend Stacks"
-msgstr[0] "停止機櫃"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -5941,10 +5592,6 @@ msgstr "已停止"
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
 msgstr[0] "已停止雲實例"
-
-msgid "Suspended Stack"
-msgid_plural "Suspended Stacks"
-msgstr[0] "已停止機櫃"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"
@@ -5967,27 +5614,6 @@ msgstr "目標主機"
 
 msgid "Task"
 msgstr "任務"
-
-msgid "Template"
-msgstr "範本"
-
-msgid "Template Data"
-msgstr "範本資料"
-
-msgid "Template File"
-msgstr "範本檔案"
-
-msgid "Template Functions"
-msgstr "範本功能"
-
-msgid "Template Source"
-msgstr "範本來源"
-
-msgid "Template URL"
-msgstr "範本網址"
-
-msgid "Template Versions"
-msgstr "範本版本"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -6227,12 +5853,6 @@ msgstr "私鑰只會在您的瀏覽器中使用而不會傳送到伺服器裡"
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "虛擬資料夾仍然不是空的，不能刪除。"
 
-msgid "The raw contents of the environment file."
-msgstr "環境檔案的直接內容"
-
-msgid "The raw contents of the template."
-msgstr "範本的直接內容。"
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -6364,11 +5984,6 @@ msgstr ""
 "這等同於 <tt>openstack volume qos associate</tt> 及 <tt>openstack volume qos "
 "disassociate</tt> 命令。"
 
-msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "這是機櫃終生履行作業所需要的"
-
 msgid "This panel needs JavaScript support."
 msgstr "此畫面需要 JavaScript 支援。"
 
@@ -6385,9 +6000,6 @@ msgstr "此雲硬碟類型由一個以上的雲硬碟使用。"
 msgid "Time Since Created"
 msgstr "壽命"
 
-msgid "Time Since Event"
-msgstr "事件已過時間"
-
 msgid "Time since created"
 msgstr "壽命"
 
@@ -6396,9 +6008,6 @@ msgstr "壽命（秒）"
 
 msgid "Time since update"
 msgstr "更新已過時間"
-
-msgid "Timeout"
-msgstr "逾期"
 
 msgid "Timezone"
 msgstr "時區"
@@ -6438,9 +6047,6 @@ msgstr "切換網路折疊"
 
 msgid "Toggle navigation"
 msgstr "切換導覽"
-
-msgid "Topic"
-msgstr "主題"
 
 msgid "Topology"
 msgstr "網路拓撲"
@@ -6511,9 +6117,6 @@ msgstr "中繼"
 msgid "Type"
 msgstr "類型"
 
-msgid "Type ="
-msgstr "類型 ="
-
 msgid "Type of backend device identifier provided"
 msgstr "提供的後端裝置認證者的類型"
 
@@ -6528,9 +6131,6 @@ msgstr "上線"
 msgctxt "Admin state of a Router"
 msgid "UP"
 msgstr "上線"
-
-msgid "URL"
-msgstr "網址"
 
 msgid "UTC"
 msgstr "UTC"
@@ -6748,9 +6348,6 @@ msgstr "找不到預設的角色。"
 msgid "Unable to get EC2 credentials"
 msgstr "無法獲得 EC2 格式的憑證"
 
-msgid "Unable to get Orchestration service list."
-msgstr "無法獲得編配伺服器列表。"
-
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "無法獲得雲實例「%s」的 RDP 主控臺。"
@@ -6769,16 +6366,8 @@ msgstr "無法獲得 Cinder 伺服器列表。"
 msgid "Unable to get consistency group list"
 msgstr "無法獲得一致性群組清單"
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "無法獲得機櫃「%s」的事件。"
-
 msgid "Unable to get flavor list"
 msgstr "無法獲得虛擬硬體樣板的列表"
-
-#, python-format
-msgid "Unable to get functions for template version \"%s\"."
-msgstr "無法取得範本 \"%s\" 的功能。"
 
 msgid "Unable to get host aggregate list"
 msgstr "無法獲得主機聚合列表"
@@ -6801,10 +6390,6 @@ msgstr "無法獲得 openrc 格式的憑證"
 
 msgid "Unable to get quota info."
 msgstr "無法獲得配額資訊。"
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "無法獲得機櫃「%s」的資源。"
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -7160,9 +6745,6 @@ msgstr "無法獲得雲硬碟列表。"
 msgid "Unable to retrieve mapping list."
 msgstr "無法獲得對映清單。"
 
-msgid "Unable to retrieve metadata."
-msgstr "無法獲得詮釋資料。"
-
 msgid "Unable to retrieve namespace contents."
 msgstr "無法獲得命名空間內容。"
 
@@ -7214,12 +6796,6 @@ msgstr "無法獲得公用的映像檔。"
 msgid "Unable to retrieve quota information."
 msgstr "無法獲得配額資訊。"
 
-msgid "Unable to retrieve resource type details."
-msgstr "無法獲得資源類型詳細資訊。"
-
-msgid "Unable to retrieve resource."
-msgstr "無法獲得資源。"
-
 msgid "Unable to retrieve role list."
 msgstr "無法獲得角色列表。"
 
@@ -7263,29 +6839,11 @@ msgstr "無法獲得即時存檔詳細資訊。"
 msgid "Unable to retrieve snapshot list."
 msgstr "無法獲得即時存檔列表。"
 
-msgid "Unable to retrieve stack list."
-msgstr "無法獲得機櫃列表。"
-
-msgid "Unable to retrieve stack resource types."
-msgstr "無法獲得資源類型。"
-
-msgid "Unable to retrieve stack template."
-msgstr "無法獲得機櫃範本。"
-
-msgid "Unable to retrieve stack."
-msgstr "無法獲得機櫃。"
-
 msgid "Unable to retrieve subnet details"
 msgstr "無法獲得子網路詳細資訊"
 
 msgid "Unable to retrieve subnet details."
 msgstr "無法獲得子網路詳細資訊。"
-
-msgid "Unable to retrieve template functions."
-msgstr "無法獲得範本功能"
-
-msgid "Unable to retrieve template versions."
-msgstr "無法獲得範本版本。"
 
 msgid "Unable to retrieve tenant limits."
 msgstr "無法獲得租用人限制。"
@@ -7610,10 +7168,6 @@ msgstr "更新"
 msgid "Update Associations"
 msgstr "更新聯結"
 
-msgctxt "current status of stack"
-msgid "Update Complete"
-msgstr "更新完成"
-
 msgid "Update Default Quotas"
 msgstr "更新預設配額"
 
@@ -7626,19 +7180,11 @@ msgstr "更新已加密的雲硬碟類型"
 msgid "Update Encryption"
 msgstr "更新加密"
 
-msgctxt "current status of stack"
-msgid "Update Failed"
-msgstr "更新失敗"
-
 msgid "Update Group"
 msgstr "更新群組"
 
 msgid "Update Identity Provider"
 msgstr "更新身分提供者"
-
-msgctxt "current status of stack"
-msgid "Update In Progress"
-msgstr "正在更新"
 
 msgid "Update Mapping"
 msgstr "更新對映"
@@ -7654,12 +7200,6 @@ msgstr "更新角色"
 
 msgid "Update Router"
 msgstr "更新路由器"
-
-msgid "Update Stack"
-msgstr "更新機櫃"
-
-msgid "Update Stack Parameters"
-msgstr "更新機櫃的參數"
 
 msgid "Update Status"
 msgstr "更新狀態"
@@ -7678,14 +7218,6 @@ msgstr "更新雲硬碟類型加密"
 
 msgid "Update a Metadata Namespace"
 msgstr "更新元資料名稱空間"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"使用提供的值來更新機櫃。請留意任何已加密的參數，像是密碼，若您沒有在此更換它"
-"將會重設為預設值。"
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -7778,16 +7310,6 @@ msgstr "以雲硬碟為來源"
 
 msgid "Use image as a source"
 msgstr "以映像檔為來源"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr "指定可用的範本來源選項來給新增這個機櫃所用。"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in previewing this stack."
-msgstr "使用可用範本來源裡的一個選項來指定用來預覽機櫃的範本。"
 
 msgid "Use snapshot as a source"
 msgstr "以即時存檔為來源"
@@ -7897,9 +7419,6 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "數值"
-
-msgid "Version"
-msgstr "版本"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8241,9 +7760,6 @@ msgstr "您必須選擇映像檔。"
 msgid "You must set volume size"
 msgstr "您必須設定雲硬碟容量"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "您必須經由一個可用的來源來指定範本。"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -8284,9 +7800,6 @@ msgstr "例如：Yes/No"
 msgid "e.g. Yes/No"
 msgstr "例如：Yes/No"
 
-msgid "environment"
-msgstr "環境"
-
 msgid "front-end"
 msgstr "前端"
 
@@ -8295,9 +7808,6 @@ msgstr "雲實例"
 
 msgid "no"
 msgstr "否"
-
-msgid "template"
-msgstr "範本"
 
 msgid "undefined"
 msgstr "未定義"

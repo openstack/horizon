@@ -6,13 +6,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev141\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-28 23:44+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-10 03:49+0000\n"
+"PO-Revision-Date: 2017-12-11 01:19+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -522,6 +522,10 @@ msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "イメージの削除の確認"
 
+msgid "Confirm Delete Key Pair"
+msgid_plural "Confirm Delete Key Pairs"
+msgstr[0] "キーペアの削除の確認"
+
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "ロールの削除の確認"
@@ -610,6 +614,9 @@ msgstr "ロールの作成"
 
 msgid "Create Subnet"
 msgstr "サブネットの作成"
+
+msgid "Create Trunk"
+msgstr "トランクの作成"
 
 msgid "Create Volume"
 msgstr "ボリュームの作成"
@@ -736,6 +743,10 @@ msgstr "インスタンスの削除"
 msgid "Delete Interface"
 msgstr "インタフェースの削除"
 
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "キーペアの削除"
+
 msgid "Delete Network"
 msgstr "ネットワークの削除"
 
@@ -776,6 +787,11 @@ msgid_plural "Deleted Images: %s."
 msgstr[0] "イメージ %s を削除しました。"
 
 #, python-format
+msgid "Deleted Key Pair: %s."
+msgid_plural "Deleted Key Pairs: %s."
+msgstr[0] "キーペア %s を削除しました"
+
+#, python-format
 msgid "Deleted Role: %s."
 msgid_plural "Deleted Roles: %s."
 msgstr[0] "ロール %s を削除しました。"
@@ -803,8 +819,14 @@ msgstr "詳細"
 msgid "Details Views:"
 msgstr "詳細ビュー:"
 
+msgid "Device ID"
+msgstr "デバイス ID"
+
 msgid "Device Name"
 msgstr "デバイス名"
+
+msgid "Device Owner"
+msgstr "デバイス所有者"
 
 msgid "Dialogs"
 msgstr "ダイアログ"
@@ -886,6 +908,9 @@ msgstr "イメージの編集"
 
 msgid "Edit Role"
 msgstr "ロールの編集"
+
+msgid "Edit Trunk"
+msgstr "トランクの編集"
 
 msgid "Email"
 msgstr "メール"
@@ -1479,6 +1504,9 @@ msgstr "月"
 
 msgid "Name"
 msgstr "名前"
+
+msgid "Name/ID"
+msgstr "名前/ID"
 
 msgid "Names:"
 msgstr "名前:"
@@ -2176,6 +2204,9 @@ msgstr "割り当てサブネット"
 msgid "Subport Count"
 msgstr "サブポート数"
 
+msgid "Subports"
+msgstr "サブポート"
+
 msgid "Success"
 msgstr "成功"
 
@@ -2510,6 +2541,14 @@ msgstr "全ボリューム数"
 msgid "Trunk"
 msgstr "トランク"
 
+#, python-format
+msgid "Trunk %s was successfully created."
+msgstr "トランク %s が正常に作成されました。"
+
+#, python-format
+msgid "Trunk %s was successfully edited."
+msgstr "トランク %s が正常に更新されました。"
+
 msgid "Trunks"
 msgstr "トランク"
 
@@ -2595,6 +2634,11 @@ msgstr[0] "フレーバーを削除できません: %s"
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "イメージを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete Key Pair: %s."
+msgid_plural "Unable to delete Key Pairs: %s."
+msgstr[0] "キーペアを削除できません: %s"
 
 #, python-format
 msgid "Unable to delete Role: %s."
@@ -2820,9 +2864,6 @@ msgstr "フレーバーを取得できません。"
 msgid "Unable to retrieve the flavors."
 msgstr "フレーバーの一覧を取得できません。"
 
-msgid "Unable to retrieve the heat services."
-msgstr "Heat のサービスを取得できません。"
-
 msgid "Unable to retrieve the image custom properties."
 msgstr "イメージのカスタム属性を取得できません。"
 
@@ -2954,9 +2995,6 @@ msgstr "イメージを更新できません。"
 
 msgid "Unable to upload the object."
 msgstr "オブジェクトをアップロードできません。"
-
-msgid "Unable to validate the template."
-msgstr "テンプレートを検証できません。"
 
 msgid "Unknown"
 msgstr "不明"
@@ -3279,6 +3317,11 @@ msgstr[0] "\"%s\" を選択しました。削除されたフレーバーは元�
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたイメージは元に戻せません。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted key pair is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたキーペアは元に戻せません。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."

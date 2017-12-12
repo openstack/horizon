@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,14 +45,6 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -98,14 +90,8 @@ msgstr "প্রোজেক্ত গ্রুপশীং অপদেত ত
 msgid "-"
 msgstr "-"
 
-msgid "A local environment to upload."
-msgstr "অপলোদ তৌনবা লোকেল ইনভাইরোনমেন্ত অমা।"
-
 msgid "A local image to upload."
 msgstr "অপলোদ তৌনবা লোকেল ইমেজ অমা।"
-
-msgid "A local template to upload."
-msgstr "অপলোদ তৌনবা লোকেল তেমপ্লেত অমা।"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -291,9 +277,6 @@ msgstr "এলোকেত তৌরবা ফ্লোতিং %(ip)s"
 msgid "Allocation Pools"
 msgstr "এলোকেসন পুলশীং"
 
-msgid "An external (HTTP) URL to load the template from."
-msgstr "তেমপ্লেত অদু লোদ তৌনবা এক্সতর্নেল (HTTP) URL অমা"
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -447,12 +430,6 @@ msgstr "হোংদোকউ"
 
 msgid "Change Password"
 msgstr "পাসৱার্দ হোংদোকউ"
-
-msgid "Change Stack Template"
-msgstr "ষ্টেক তেমপ্লেত হোংদোকউ"
-
-msgid "Change Template"
-msgstr "তেমপ্লেত হোংদোকউ"
 
 msgid "Change Volume Type"
 msgstr "ভোল্যুম তাইপ হোংদোকউ"
@@ -668,9 +645,6 @@ msgstr "স্নেপশোত শেম্মু"
 msgid "Create Spec"
 msgstr "স্পেক শেম্মু"
 
-msgid "Create Stack"
-msgstr "ষ্টেক শেম্মু"
-
 msgid "Create Subnet"
 msgstr "সবনেত শেম্মু"
 
@@ -712,9 +686,6 @@ msgstr "ভোল্যুম তাইপ অমগীদমক অনৌবা
 
 msgid "Create a new role."
 msgstr "অনৌবা রোল অমা শেম্মু।"
-
-msgid "Create a new stack with the provided values."
-msgstr "পীরিবা ভেল্যুশীংদুনা অনৌবা ষ্টেক অমা শেম্মু।"
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -800,9 +771,6 @@ msgstr "ভোল্যুম বেকঅপ \"%s\" শেম্লি"
 msgid "Creating volume snapshot \"%s\"."
 msgstr "ভোল্যুম স্নেপশোত \"%s\" শেম্লি।"
 
-msgid "Creation Timeout (minutes)"
-msgstr "ক্রিএসন তাইমআউত (মিনিত)"
-
 msgid "Current Host"
 msgstr "হৌজিক্কী হোষ্ট"
 
@@ -829,9 +797,6 @@ msgstr "DHCP এজেন্তশীং"
 
 msgid "DNS Name Servers"
 msgstr "DNS নেম সর্ভরশীং"
-
-msgid "Date Updated"
-msgstr "তারিখ অপদেত তৌরে"
 
 msgid "Decrypt Password"
 msgstr "দিক্রিপ্ত পাসৱার্দ"
@@ -1102,9 +1067,6 @@ msgstr "স্পেক এদিত তৌ"
 msgid "Edit Subnet"
 msgstr "সবনেত এদিত তৌ"
 
-msgid "Edit Template"
-msgstr "তেমপ্লেত এদিত তৌ"
-
 msgid "Edit Volume"
 msgstr "ভোল্যুম এদিত তৌ"
 
@@ -1143,9 +1105,6 @@ msgstr "DHCP এনেবল ওইহল্লু"
 msgid "Enable HA mode"
 msgstr "HA মোদ এনেবল তৌ"
 
-msgid "Enable rollback on create/update failure."
-msgstr "শেম্বা/অপদেত তৌবা মায় পাক্তবদা রোলবেক তৌবা এনেবল তৌ।"
-
 msgid "Enabled"
 msgstr "এনেবল তৌরে"
 
@@ -1170,15 +1129,6 @@ msgstr "ICMP তাইপকীদমক রেঞ্জ (-1: 255)গী ওই�
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 অমসুং 65535 গী মরক্তা লৈবা ইন্তিজর ভেল্যু অমা এন্তর তৌ।"
-
-msgid "Environment Data"
-msgstr "ইনভাইরোনমেন্ত দেতা"
-
-msgid "Environment File"
-msgstr "ইনভাইরোনমেন্ত ফাইল"
-
-msgid "Environment Source"
-msgstr "ইনভাইরোনমেন্ত সোর্স"
 
 msgid "Ephemeral Disk"
 msgstr "ইফেমেরল দিস্ক"
@@ -1243,9 +1193,6 @@ msgstr "হোষ্ট হাংহল্লু"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "সর্ভরশীং অদু খল্লবা দাউন হোষ্ট অদুদগী এক্তিভ তার্গেত হোষ্ট অমদা হোংদোকউ।"
-
-msgid "Events"
-msgstr "ইভেন্তশীং"
 
 msgid "Extend Volume"
 msgstr "ভোল্যুম এক্সতেন্দ তৌ"
@@ -1871,9 +1818,6 @@ msgstr "কী-ভেল্যু পেয়রশীং"
 msgid "Language"
 msgstr "লোল"
 
-msgid "Last Updated"
-msgstr "অরোয়বা অপদেত তৌখিবা"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "অরোয়বা অপদেত তৌখিবা"
@@ -1886,12 +1830,6 @@ msgstr "ইন্সতেন্স শেমগৎলু"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "ইন্সতেন্স শেমগৎলু (ক্যুওতা হেল্লে)"
-
-msgid "Launch Parameters"
-msgstr "পেরামিতরশীং শেমগৎলু"
-
-msgid "Launch Stack"
-msgstr "ষ্টেক শেমগৎলু"
 
 msgid "Launch as Instance"
 msgstr "ইন্সতেন্সকুম্না শেমগৎলু"
@@ -2025,9 +1963,6 @@ msgstr "মিনিমম দিস্ক (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "মিনিমম RAM (MB)"
 
-msgid "Minutes"
-msgstr "মিনিত"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "দোমেইন \"%s\" শেমদোক-শেমজিন তৌখ্রে।"
@@ -2090,16 +2025,6 @@ msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr ""
 "মীংদা ময়েকশীং, মশীংশীং, অন্দরস্কোরশীং, পেরিওদশীং অমসুং হাইফেনশীংখক্তা য়াউবা য়াই।"
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"মমীং অদু ময়েক অমনা হৌগদবনি অমসুং ময়েক, নম্বর, অন্দরস্কোর, পেরিওদ অমসুং হায়ফেনখক্তমক "
-"য়াউবা য়াই।"
-
-msgid "Name of the stack to create."
-msgstr "শেম্নবা ষ্টেক অদুগী মমীং।"
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -2176,9 +2101,6 @@ msgstr "অনৌবা পাসৱার্দ"
 
 msgid "New size must be greater than current size."
 msgstr "অনৌবা সাইজ অদুনা হৌজিক্কী সাইজ অসিদগী হেন্না চাউগদবনি।"
-
-msgid "Next"
-msgstr "মথংদা চৎলু"
 
 msgid "No"
 msgstr "নো"
@@ -2352,9 +2274,6 @@ msgstr "ওপস্নেল ওইনা, নহাক্না অনৌব�
 msgid "Other Protocol"
 msgstr "অতোপ্পা প্রোতোকোল"
 
-msgid "Outputs"
-msgstr "আউতপুতশীং"
-
 msgid "Overview"
 msgstr "ওভরভ্যু"
 
@@ -2363,9 +2282,6 @@ msgstr "ওনর"
 
 msgid "Page Not Found"
 msgstr "পেজ ফংদে"
-
-msgid "Parameters"
-msgstr "পেরামিতরশীং"
 
 msgid "Password"
 msgstr "পাসৱার্দ"
@@ -2376,10 +2292,6 @@ msgstr "পাসৱার্দ"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "পাসৱার্দ হোংখ্রে। চানবীদুনা মখা চত্থনবা অমুক হন্না লোগ তৌবীয়ু।"
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "য়ুজর \"%s\"গী পাসৱার্দ"
 
 msgid "Passwords do not match."
 msgstr "পাসৱার্দশীং চান্নদে।"
@@ -2400,10 +2312,6 @@ msgstr "ফিজিকেল নেতৱার্ক:"
 
 msgid "Please note: "
 msgstr "চানবীদুনা খংজিনবীয়ু:"
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "চানবীদুনা সোর্স মেথদ অমখক শীজিন্নদুনা %s অমা তাকপীয়ু।"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2598,15 +2506,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "রিসাইজ তৌরি নত্ত্রগা মাইগ্রেত তৌরি"
 
-msgid "Resource"
-msgstr "রিসোর্স"
-
-msgid "Resource ID"
-msgstr "রিসোর্স ID"
-
-msgid "Resource Metadata"
-msgstr "রিসোর্স মেতাদেতা"
-
 msgid "Resources"
 msgstr "রিসোর্সশীং"
 
@@ -2652,12 +2551,6 @@ msgstr "রোল মায় পাক্না অপদেত তৌরে।"
 
 msgid "Roles"
 msgstr "রোলশীং"
-
-msgid "Rollback"
-msgstr "রোলবেক"
-
-msgid "Rollback On Failure"
-msgstr "মায় পাক্তবদা রোলবেক তৌবা"
 
 msgid "Root Disk"
 msgstr "রুত দিস্ক"
@@ -2754,9 +2647,6 @@ msgstr "স্ক্রিপ্ত সোর্স খল্লু"
 msgid "Select Subnet"
 msgstr "সবনেত খল্লু"
 
-msgid "Select Template"
-msgstr "তেমপ্লেত খল্লু"
-
 msgid "Select Volume"
 msgstr "ভোল্যুম খল্লু"
 
@@ -2775,9 +2665,6 @@ msgstr "অনৌবা এজেন্ত অমা খল্লু"
 msgid "Select a new host"
 msgstr "অনৌবা হোষ্ট অমা খল্লু"
 
-msgid "Select a new template to re-launch a stack."
-msgstr "ষ্টেক অমা অমুক হন্না শেমগৎনবা অনৌবা তেমপ্লেত অমা খল্লু।"
-
 msgid "Select a port"
 msgstr "পোর্ত অমা খল্লু"
 
@@ -2786,9 +2673,6 @@ msgstr "প্রোজেক্ত অমা খল্লু"
 
 msgid "Select a target host"
 msgstr "তার্গেতকী হোষ্ট অমা খল্লু"
-
-msgid "Select a template to launch a stack."
-msgstr "ষ্টেক অমা শেমগৎনবা তেমপ্লেত অমা খল্লু।"
 
 msgid "Select a volume to restore to."
 msgstr "রেষ্টোর তৌনবা ভোল্যুম অমা খল্লু।"
@@ -2942,42 +2826,6 @@ msgstr "ইন্সতেন্স অমা শেমগৎনবগী অক
 msgid "Specs"
 msgstr "স্পেকশীং"
 
-msgid "Stack Events"
-msgstr "ষ্টেক ইভেন্তশীং"
-
-msgid "Stack ID"
-msgstr "ষ্টেক ID"
-
-msgid "Stack Name"
-msgstr "ষ্টেক মমীং"
-
-msgid "Stack Parameters"
-msgstr "ষ্টেক পেরামিতরশীং"
-
-msgid "Stack Resource"
-msgstr "ষ্টেক রিসোর্স"
-
-msgid "Stack Resource ID"
-msgstr "ষ্টেক রিসোর্স ID"
-
-msgid "Stack Resource Type"
-msgstr "ষ্টেক রিসোর্স তাইপ"
-
-msgid "Stack Resources"
-msgstr "ষ্টেক রিসোর্সশীং"
-
-msgid "Stack creation started."
-msgstr "ষ্টেক শেম্বা হৌরে।"
-
-msgid "Stack creation timeout in minutes."
-msgstr "মিনিত্তা ওইবা ষ্টেক ক্রিএসন তাইমআউত"
-
-msgid "Stack update started."
-msgstr "ষ্টেক অপদেত তৌরে।"
-
-msgid "Stacks"
-msgstr "ষ্টেকশীং"
-
 msgid "Start"
 msgstr "ষ্টার্ত"
 
@@ -3004,9 +2852,6 @@ msgstr "ষ্টেতস"
 
 msgid "Status ="
 msgstr "ষ্টেতস ="
-
-msgid "Status Reason"
-msgstr "ষ্টেতস মরম"
 
 msgid "Subnet"
 msgstr "সবনেত"
@@ -3122,21 +2967,6 @@ msgstr "তার্গেতকী হোষ্ট"
 
 msgid "Task"
 msgstr "তাস্ক"
-
-msgid "Template"
-msgstr "তেমপ্লেত"
-
-msgid "Template Data"
-msgstr "তেমপ্লেত দেতা"
-
-msgid "Template File"
-msgstr "তেমপ্লেত ফাইল"
-
-msgid "Template Source"
-msgstr "তেমপ্লেত সোর্স"
-
-msgid "Template URL"
-msgstr "তেমপ্লেত URL"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"from\" পোর্ত নম্বর অদু চৎনবা য়াদে।"
@@ -3275,12 +3105,6 @@ msgstr "প্রাইভেত কী অদু নহাক্কী ব্�
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "শেংদবা ফোলদর অদু হাংদবনা মরম ওইদুনা দিলিত তৌবা য়াদ্রে।"
 
-msgid "The raw contents of the environment file."
-msgstr "ইনভাইরোনমেন্ত ফাইল অদুগী রো ওইবা কন্তেন্তশীং।"
-
-msgid "The raw contents of the template."
-msgstr "তেমপ্লেত অদুগী রো ওইবা কন্তেন্তশীং"
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
@@ -3332,25 +3156,14 @@ msgstr ""
 "তৌ।"
 
 msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "ষ্টেক অদুগী লাইফসাইকল মনুংদা পাংথোক্কদবা ওপরেসনশীংগীদমক মসি মথৌ তাই "
-
-msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "ভোল্যুম অসি হৌজিক্কী ওইনা ইন্সতেন্স অমদা এতেচ তৌই। থৌওং খরদদি, এতেচ তৌরবা ভোল্যুম "
 "অমদগী স্নেপশোত অমা শেম্বনা করপ্ত ওইরবা স্নেপশোত অমা ফংহল্লকপা য়াই।"
 
-msgid "Time Since Event"
-msgstr "ইভেন্ততগী হৌবা মতম"
-
 msgid "Time since created"
 msgstr "শেম্বদগী হৌবা মতম"
-
-msgid "Timeout"
-msgstr "তাইমআউত"
 
 msgid "Timezone"
 msgstr "তাইমজোন"
@@ -3395,9 +3208,6 @@ msgstr "প্রোজেক্ত অদুগী অপুনবা দিস
 
 msgid "Type"
 msgstr "মখল "
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -3548,10 +3358,6 @@ msgstr "ইন্সতেন্স \"%s\"গী VNC কন্সোল ফং�
 msgid "Unable to get cinder services list."
 msgstr "সিন্দর সর্ভিসশীংগী লিষ্ট ফংবা ঙমদে।"
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "ষ্টেক \"%s\"গী ইভেন্তশীং ফংবা ঙমদে।"
-
 msgid "Unable to get flavor list"
 msgstr "ফ্লেবর লিষ্ট ফংবা ঙমদে"
 
@@ -3576,10 +3382,6 @@ msgstr "ওপনrc ক্রিদেন্সিএলশীং ফংবা �
 
 msgid "Unable to get quota info."
 msgstr "ক্যুওতাগী ইনফো ফংবা ঙমদে।"
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "ষ্টেক \"%s\"গী রিসোর্সশীং ফংবা ঙমদে।"
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -3843,9 +3645,6 @@ msgstr "ভোল্যুম স্নেপশোতকী লিষ্ট র
 msgid "Unable to retrieve list of volumes."
 msgstr "ভোল্যুমশীংগী লিষ্ট রিত্রিভ তৌবা ঙমদে।"
 
-msgid "Unable to retrieve metadata."
-msgstr "মেতাদেতা রিত্রিভ তৌবা ঙমদে।"
-
 msgid "Unable to retrieve network details."
 msgstr "নেতৱার্ক্কী অকুপ্পা মরোলশীং রিত্রিভ তৌবা ঙমদে।"
 
@@ -3878,9 +3677,6 @@ msgstr "পব্লিক ইমেজশীং রিত্রিভ তৌব
 
 msgid "Unable to retrieve quota information."
 msgstr "ক্যুওতা ইনফোর্মেসন রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve resource."
-msgstr "রিসোর্স রিত্রিভ তৌবা ঙমদে।"
 
 msgid "Unable to retrieve role list."
 msgstr "রোল লিষ্ট রিত্রিভ তৌবা ঙমদে।"
@@ -3915,15 +3711,6 @@ msgstr "স্নেপশোতকী অকুপ্পা মরোলশী�
 
 msgid "Unable to retrieve snapshot list."
 msgstr "স্নেপশোত লিষ্ট রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve stack list."
-msgstr "ষ্টেক লিষ্ট রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve stack template."
-msgstr "ষ্টেক তেমপ্লেত রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve stack."
-msgstr "ষ্টেক রিত্রিভ তৌবা ঙমদে।"
 
 msgid "Unable to retrieve subnet details"
 msgstr "সবনেতকী অকুপ্পা মরোলশীং রিত্রিভ তৌবা ঙমদে"
@@ -4119,12 +3906,6 @@ msgstr "রোল অপদেত তৌ"
 msgid "Update Router"
 msgstr "রাউতর অপদেত তৌ"
 
-msgid "Update Stack"
-msgstr "ষ্টেক অপদেত তৌ"
-
-msgid "Update Stack Parameters"
-msgstr "ষ্টেক পেরামিতরশীং অপদেত তৌ"
-
 msgid "Update Status"
 msgstr "ষ্টেতস অপদেত তৌ"
 
@@ -4136,15 +3917,6 @@ msgstr "ভোল্যুম স্নেপশোত ষ্টেতস অপ
 
 msgid "Update Volume Status"
 msgstr "ভোল্যুম ষ্টেতস অপদেত তৌ"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"ষ্টেক অমা পীরিবা ভেল্যুশীংদুগা লোয়ননা অপদেত তৌ। চানবীদুনা খংবীগদবদি এনক্রিপ্ত তৌরবা "
-"পেরামিতর অমহেক্তা, হায়বদি পাসৱার্দকুম্বসি, করিগুম্বা নহাক্না মখোয় অসি মফম অসিদা "
-"হোংদোক্ত্রবদি, দিফোল্টতা রিসেত তৌগনি।"
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -4205,13 +3977,6 @@ msgstr "ভোল্যুম অমা সোর্স অমগুম্না
 
 msgid "Use image as a source"
 msgstr "ইমেজ সোর্স অমগুম্না শীজিন্নৌ"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"ষ্টেক অসি শেম্বদা শীজিন্ননবা তেমপ্লেত অদু তাক্নবা অফংবা তেমপ্লেত সোর্স ওপসনশীংদগী "
-"অমা শীজিন্নৌ।"
 
 msgid "Use snapshot as a source"
 msgstr "স্নেপশোত সোর্স অমগুম্না শীজিন্নৌ"
@@ -4468,9 +4233,6 @@ msgstr "নহাক্না ইমেজ অমা খনগদবনি।"
 msgid "You must set volume size"
 msgstr "নহাক্না ভোল্যুম সাইজ সেত তৌগদবনি"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "নহাক্না অফংবা সোর্সশীংদগী অমগী মতেংনা তেমপ্লেত অমা তাক্কদবনি।"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4496,17 +4258,11 @@ msgstr "বেক-এন্দ"
 msgid "dm-crypt"
 msgstr "dm-ক্রিপ্ত"
 
-msgid "environment"
-msgstr "ইনভাইরোনমেন্ত"
-
 msgid "front-end"
 msgstr "ফ্রন্ত-এন্দ"
 
 msgid "instance"
 msgstr "ইন্সতেন্স"
-
-msgid "template"
-msgstr "তেমপ্লেত"
 
 msgid "undefined"
 msgstr "শেংনা তাক্তে"

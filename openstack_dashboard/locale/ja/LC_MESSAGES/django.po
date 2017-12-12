@@ -1,6 +1,5 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
@@ -8,9 +7,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev168\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-02 05:07+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,14 +117,6 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
-
-#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s バックエンド)"
 
@@ -199,17 +190,11 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> の %(device)s"
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "%(volume_device)s (<a href=\"%(volume_url)s\">%(volume_label)s</a>)"
 
-msgid "A local environment to upload."
-msgstr "アップロードする必要のあるローカルの環境設定データ"
-
 msgid "A local image to upload."
 msgstr "アップロードするローカルのイメージ"
 
 msgid "A local metadata definition file to upload."
 msgstr "ローカルにあるメタデータ定義ファイルをアップロードします。"
-
-msgid "A local template to upload."
-msgstr "アップロードする必要のあるローカルのテンプレート"
 
 msgid ""
 "A mapping is a set of rules to map federation protocol attributes to "
@@ -479,18 +464,6 @@ msgstr ""
 "管理者向けの注記: Glance にデフォルトの定義をインポートするには以下の CLI コ"
 "マンドを使ってください。"
 
-msgctxt "current status of stack"
-msgid "Adopt Complete"
-msgstr "導入完了"
-
-msgctxt "current status of stack"
-msgid "Adopt Failed"
-msgstr "導入に失敗"
-
-msgctxt "current status of stack"
-msgid "Adopt In Progress"
-msgstr "導入中"
-
 msgid "Advanced Options"
 msgstr "高度な設定"
 
@@ -583,9 +556,6 @@ msgstr "IP アドレス割り当てプール"
 
 msgid "Allowed Address Pairs"
 msgstr "許可するアドレスペア"
-
-msgid "An external (HTTP) URL to load the template from."
-msgstr "テンプレートを読み込む外部 (HTTP) URL"
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "イメージを読み込む外部 (HTTP/HTTPS) URL。"
@@ -689,9 +659,6 @@ msgstr "接続状況"
 
 msgid "Attribute Mappings"
 msgstr "属性のマッピング"
-
-msgid "Attributes"
-msgstr "属性"
 
 msgid "Authentication URL"
 msgstr "認証 URL"
@@ -881,12 +848,6 @@ msgstr "インスタンス %s のコンソールを取得できません。"
 msgid "Cannot specify both file and direct input."
 msgstr "ファイルと直接入力の両方を指定することはできません。"
 
-msgid "Case sensitive"
-msgstr "大文字小文字を区別"
-
-msgid "Case-sensitive"
-msgstr "大文字小文字を区別"
-
 msgid "Centralized"
 msgstr "集中ルーター"
 
@@ -895,12 +856,6 @@ msgstr "変更"
 
 msgid "Change Password"
 msgstr "パスワードの変更"
-
-msgid "Change Stack Template"
-msgstr "スタックテンプレートの変更"
-
-msgid "Change Template"
-msgstr "テンプレートの変更"
 
 msgid "Change Volume Type"
 msgstr "ボリューム種別の変更"
@@ -926,32 +881,12 @@ msgstr "指定時刻以降に更新"
 msgid "Changing password is not supported."
 msgstr "パスワードの変更はサポートされていません。"
 
-msgctxt "current status of stack"
-msgid "Check Complete"
-msgstr "チェック完了"
-
-msgctxt "current status of stack"
-msgid "Check Failed"
-msgstr "チェックに失敗"
-
-msgctxt "current status of stack"
-msgid "Check In Progress"
-msgstr "チェック中"
-
-msgid "Check Stack"
-msgid_plural "Check Stacks"
-msgstr[0] "スタックのチェック"
-
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this consistency group."
 msgstr ""
 "この整合性グループに関連付けられているボリュームも削除するには、&quot;ボ"
 "リュームの削除&quot; のボックスにチェックを付けてください。"
-
-msgid "Checked Stack"
-msgid_plural "Checked Stacks"
-msgstr[0] "チェック済みのスタック"
 
 msgid "Checksum"
 msgstr "チェックサム"
@@ -1186,10 +1121,6 @@ msgstr "イメージの作成"
 msgid "Create Backup"
 msgstr "バックアップの作成"
 
-msgctxt "current status of stack"
-msgid "Create Complete"
-msgstr "作成完了"
-
 msgid "Create Consistency Group"
 msgstr "整合性グループの作成"
 
@@ -1208,10 +1139,6 @@ msgstr "暗号化設定の作成"
 msgid "Create Extra Spec For {{ qos_spec_name }}"
 msgstr "{{ qos_spec_name }} の追加スペックの作成"
 
-msgctxt "current status of stack"
-msgid "Create Failed"
-msgstr "作成に失敗"
-
 msgid "Create Flavor"
 msgstr "フレーバーの作成"
 
@@ -1223,10 +1150,6 @@ msgstr "ホストアグリゲートの作成"
 
 msgid "Create Image"
 msgstr "イメージの作成"
-
-msgctxt "current status of stack"
-msgid "Create In Progress"
-msgstr "作成中"
 
 msgid "Create Key Pair"
 msgstr "キーペアの作成"
@@ -1275,9 +1198,6 @@ msgstr "スナップショットの作成"
 
 msgid "Create Spec"
 msgstr "スペックの作成"
-
-msgid "Create Stack"
-msgstr "スタックの作成"
 
 msgid "Create Subnet"
 msgstr "サブネットの作成"
@@ -1384,9 +1304,6 @@ msgstr ""
 
 msgid "Create a new role."
 msgstr "新しいロールを作成します。"
-
-msgid "Create a new stack with the provided values."
-msgstr "指定された値を用いて新しいスタックを作成します。"
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -1509,9 +1426,6 @@ msgstr "ボリュームバックアップ \"%s\" を作成中"
 msgid "Creating volume snapshot \"%s\"."
 msgstr "ボリュームスナップショット \"%s\" を作成しています。"
 
-msgid "Creation Timeout (minutes)"
-msgstr "作成タイムアウト時間 (分単位)"
-
 msgid "Current Host"
 msgstr "現在のホスト"
 
@@ -1593,9 +1507,6 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgid "Date Updated"
-msgstr "更新日"
-
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "非アクティブ"
@@ -1626,10 +1537,6 @@ msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "削除"
 
-msgctxt "current status of stack"
-msgid "Delete Complete"
-msgstr "削除完了"
-
 msgid "Delete Consistency Group"
 msgstr "整合性グループの削除"
 
@@ -1649,10 +1556,6 @@ msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] "追加スペックの削除"
 
-msgctxt "current status of stack"
-msgid "Delete Failed"
-msgstr "削除に失敗"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "フレーバーの削除"
@@ -1668,10 +1571,6 @@ msgstr[0] "ホストアグリゲートの削除"
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "イメージの削除"
-
-msgctxt "current status of stack"
-msgid "Delete In Progress"
-msgstr "削除中"
 
 msgid "Delete Instance"
 msgid_plural "Delete Instances"
@@ -1736,10 +1635,6 @@ msgstr[0] "スナップショットの削除"
 msgid "Delete Spec"
 msgid_plural "Delete Specs"
 msgstr[0] "スペックの削除"
-
-msgid "Delete Stack"
-msgid_plural "Delete Stacks"
-msgstr[0] "スタックの削除"
 
 msgid "Delete Static Route"
 msgid_plural "Delete Static Routes"
@@ -1881,10 +1776,6 @@ msgstr[0] "セキュリティーグループを削除しました"
 msgid "Deleted Spec"
 msgid_plural "Deleted Specs"
 msgstr[0] "スペックを削除しました"
-
-msgid "Deleted Stack"
-msgid_plural "Deleted Stacks"
-msgstr[0] "スタックを削除しました"
 
 msgid "Deleted Static Route"
 msgid_plural "Deleted Static Routes"
@@ -2300,9 +2191,6 @@ msgstr "スペックの編集"
 msgid "Edit Subnet"
 msgstr "サブネットの編集"
 
-msgid "Edit Template"
-msgstr "テンプレートの編集"
-
 msgid "Edit Volume"
 msgstr "ボリュームの編集"
 
@@ -2380,9 +2268,6 @@ msgstr[0] "ユーザーの有効化"
 msgid "Enable anti-spoofing rules for the port"
 msgstr "このポートの詐称防止ルールを有効にします"
 
-msgid "Enable rollback on create/update failure."
-msgstr "作成/更新失敗時のロールバックを有効にします。"
-
 msgid "Enabled"
 msgstr "有効"
 
@@ -2427,9 +2312,6 @@ msgstr ""
 msgid "Endpoints"
 msgstr "エンドポイント"
 
-msgid "Engine Id"
-msgstr "エンジン ID"
-
 msgid "Enter Network Address manually"
 msgstr "ネットワークアドレスを直接指定"
 
@@ -2449,15 +2331,6 @@ msgstr "0 から 255 までの整数値を入力してください。"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 から 65535 までの整数値を入力してください。"
-
-msgid "Environment Data"
-msgstr "環境設定データ"
-
-msgid "Environment File"
-msgstr "環境設定ファイル"
-
-msgid "Environment Source"
-msgstr "環境設定の指定方法"
 
 msgid "Ephemeral Disk"
 msgstr "一時ディスク"
@@ -2570,9 +2443,6 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "サーバーを選択したダウン中のホストから稼働中の移動先ホストに退避します。"
-
-msgid "Events"
-msgstr "イベント"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2723,9 +2593,6 @@ msgstr "ネットワーク %s の削除に失敗しました"
 msgid "Failed to delete port %s"
 msgstr "ポート %s の削除に失敗しました。"
 
-msgid "Failed to delete stack."
-msgstr "スタックを削除できませんでした。"
-
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "サブネット %s の削除に失敗しました"
@@ -2817,9 +2684,6 @@ msgstr ""
 "ボリューム種別のアクセス権からプロジェクト %(project)s を削除できませんでし"
 "た。"
 
-msgid "Failed to resume stack."
-msgstr "スタックを再開できませんでした。"
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "サブネットのネットワーク %s の取得に失敗しました"
@@ -2827,9 +2691,6 @@ msgstr "サブネットのネットワーク %s の取得に失敗しました"
 #, python-format
 msgid "Failed to set gateway: %s"
 msgstr "ゲートウェイの設定に失敗しました: %s"
-
-msgid "Failed to suspend stack."
-msgstr "スタックを休止できませんでした。"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3025,9 +2886,6 @@ msgstr "ここから、ボリュームスナップショットを作成できま
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "ここから標準のクォータ (上限) を更新できます。"
-
-msgid "Function"
-msgstr "関数"
 
 msgid "GB"
 msgstr "GB"
@@ -3447,18 +3305,6 @@ msgstr "情報"
 msgid "Ingress"
 msgstr "受信"
 
-msgctxt "current status of stack"
-msgid "Init Complete"
-msgstr "init 完了"
-
-msgctxt "current status of stack"
-msgid "Init Failed"
-msgstr "init に失敗"
-
-msgctxt "current status of stack"
-msgid "Init In Progress"
-msgstr "init 実行中"
-
 msgid "Injected File Content (Bytes)"
 msgstr "注入ファイル (バイト)"
 
@@ -3631,9 +3477,6 @@ msgstr "L3 エージェント"
 msgid "Language"
 msgstr "言語"
 
-msgid "Last Updated"
-msgstr "最終更新"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "最終更新"
@@ -3646,12 +3489,6 @@ msgstr "インスタンスの起動"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "インスタンスの起動 (クォータを超過しました)"
-
-msgid "Launch Parameters"
-msgstr "起動パラメーター"
-
-msgid "Launch Stack"
-msgstr "スタックの起動"
 
 msgid "Launch as Instance"
 msgstr "インスタンスとして起動"
@@ -3677,9 +3514,6 @@ msgstr "注入ファイルのパス長"
 
 msgid "Limit"
 msgstr "上限値"
-
-msgid "Links"
-msgstr "リンク"
 
 msgid "Live Migrate"
 msgstr "ライブマイグレーション"
@@ -3934,9 +3768,6 @@ msgstr "最小ディスク (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "最小メモリー (MB)"
 
-msgid "Minutes"
-msgstr "分"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "ドメイン \"%s\" を変更しました。"
@@ -4017,16 +3848,6 @@ msgstr "名前 = "
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "名前は、英数字、アンダースコア、ピリオド、ハイフンだけが使用できます。"
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"名前の 1 文字目にはアルファベットを指定する必要があります。また、名前に使用で"
-"きるのは、英数字、アンダースコア、ピリオド、ハイフンのみです。"
-
-msgid "Name of the stack to create."
-msgstr "作成するスタックの名前。"
 
 msgid "Name or other identifier for existing volume"
 msgstr "既存のボリュームの名前またはその他の識別子"
@@ -4169,9 +3990,6 @@ msgstr "新しいパスワード"
 
 msgid "New size must be greater than current size."
 msgstr "変更後のサイズは現在のサイズより大きくなければいけません。"
-
-msgid "Next"
-msgstr "次へ"
 
 msgid "Next Hop"
 msgstr "ネクストホップ"
@@ -4479,15 +4297,6 @@ msgstr "OpenStack clouds.yaml ファイル"
 msgid "Optionally, you may choose to create a new volume."
 msgstr "新規のボリュームを作成することもできます。"
 
-msgid "Orchestration"
-msgstr "オーケストレーション"
-
-msgid "Orchestration Services"
-msgstr "オーケストレーションサービス"
-
-msgid "Orchestration service is disabled."
-msgstr "オーケストレーションサービスは無効です。"
-
 #, python-format
 msgid ""
 "Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
@@ -4501,9 +4310,6 @@ msgstr "その他のプロトコル"
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr "範囲外の Float 値は JSON に準拠しません: %r"
-
-msgid "Outputs"
-msgstr "出力"
 
 msgid "Overview"
 msgstr "概要"
@@ -4542,9 +4348,6 @@ msgstr "PLOOP - Virtuozzo/Parallels ループバックディスク"
 msgid "Page Not Found"
 msgstr "ページが見つかりませんでした"
 
-msgid "Parameters"
-msgstr "パラメーター"
-
 msgid "Password"
 msgstr "パスワード"
 
@@ -4557,10 +4360,6 @@ msgstr "パスワードが変更されました。続行するには、再度ロ
 
 msgid "Password changed. Please log in to continue."
 msgstr "パスワードが変更されました。続行するには、ログインしてください。"
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "ユーザー \"%s\" のパスワード"
 
 msgid "Passwords do not match."
 msgstr "パスワードが一致しません。"
@@ -4604,10 +4403,6 @@ msgstr "物理ネットワーク:"
 
 msgid "Please note: "
 msgstr "注意: "
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "ソースメソッドが 1 つだけの %s を指定してください。"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -4678,24 +4473,6 @@ msgstr "リサイズ/マイグレーションの準備中"
 
 msgid "Prevent the deletion of the image."
 msgstr "イメージの削除を禁止します。"
-
-msgid "Preview"
-msgstr "プレビュー"
-
-msgid "Preview Stack"
-msgstr "スタックのプレビュー"
-
-msgid "Preview Stack Details"
-msgstr "プレビューしたスタックの詳細"
-
-msgid "Preview Stack Parameters"
-msgstr "プレビューするスタックのパラメーター"
-
-msgid "Preview Template"
-msgstr "テンプレートのプレビュー"
-
-msgid "Preview a new stack with the provided values."
-msgstr "指定された値を用いて新しいスタックをプレビューします。"
 
 msgid "Primary Project"
 msgstr "主プロジェクト"
@@ -4769,9 +4546,6 @@ msgstr "プロジェクト"
 
 msgid "Projects:"
 msgstr "プロジェクト:"
-
-msgid "Properties"
-msgstr "プロパティー"
 
 msgid "Properties Target: "
 msgstr "属性ターゲット: "
@@ -5111,15 +4885,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "リサイズ/マイグレーションの実行中"
 
-msgid "Resource"
-msgstr "リソース"
-
-msgid "Resource ID"
-msgstr "リソース ID"
-
-msgid "Resource Metadata"
-msgstr "リソースのメタデータ"
-
 msgid "Resource Types"
 msgstr "リソース種別"
 
@@ -5166,33 +4931,13 @@ msgctxt "Action log of an instance"
 msgid "Resume"
 msgstr "再開"
 
-msgctxt "current status of stack"
-msgid "Resume Complete"
-msgstr "再開完了"
-
-msgctxt "current status of stack"
-msgid "Resume Failed"
-msgstr "再開に失敗"
-
-msgctxt "current status of stack"
-msgid "Resume In Progress"
-msgstr "再開中"
-
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "インスタンスの再開"
 
-msgid "Resume Stack"
-msgid_plural "Resume Stacks"
-msgstr[0] "スタックの再開"
-
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
 msgstr[0] "インスタンスを再開しました"
-
-msgid "Resumed Stack"
-msgid_plural "Resumed Stacks"
-msgstr[0] "スタックを再開しました。"
 
 msgctxt "Task status of an Instance"
 msgid "Resuming"
@@ -5238,24 +4983,6 @@ msgstr "ロールが正常に更新されました。"
 
 msgid "Roles"
 msgstr "ロール"
-
-msgid "Rollback"
-msgstr "ロールバック"
-
-msgctxt "current status of stack"
-msgid "Rollback Complete"
-msgstr "ロールバック完了"
-
-msgctxt "current status of stack"
-msgid "Rollback Failed"
-msgstr "ロールバックに失敗"
-
-msgctxt "current status of stack"
-msgid "Rollback In Progress"
-msgstr "ロールバック中"
-
-msgid "Rollback On Failure"
-msgstr "失敗時のロールバック"
 
 msgid "Root Disk"
 msgstr "ルートディスク"
@@ -5449,9 +5176,6 @@ msgstr "サーバーグループを選択してください"
 msgid "Select Subnet"
 msgstr "サブネットの選択"
 
-msgid "Select Template"
-msgstr "テンプレートの選択"
-
 msgid "Select Volume"
 msgstr "ボリュームの選択"
 
@@ -5479,12 +5203,6 @@ msgstr "新しいホストを選択してください"
 msgid "Select a new status"
 msgstr "新しいステータスを選択してください"
 
-msgid "Select a new template to preview a stack."
-msgstr "プレビューするスタックのテンプレートを選択してください。"
-
-msgid "Select a new template to re-launch a stack."
-msgstr "スタックの再起動に使うテンプレートを選択してください"
-
 msgid "Select a new volume type"
 msgstr "新しいボリューム種別を選択してください"
 
@@ -5502,9 +5220,6 @@ msgstr "サブネットを選択してください"
 
 msgid "Select a target host"
 msgstr "移動先ホストを選択してください"
-
-msgid "Select a template to launch a stack."
-msgstr "スタックの起動に使うテンプレートを選択してください"
 
 msgid "Select a volume"
 msgstr "ボリュームを選択してください"
@@ -5758,18 +5473,6 @@ msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
 msgstr ""
 "インスタンス \"%(inst)s\" のスナップショット \"%(name)s\" が作成されました"
 
-msgctxt "current status of stack"
-msgid "Snapshot Complete"
-msgstr "スナップショット作成完了"
-
-msgctxt "current status of stack"
-msgid "Snapshot Failed"
-msgstr "スナップショットの作成に失敗"
-
-msgctxt "current status of stack"
-msgid "Snapshot In Progress"
-msgstr "スナップショット作成中"
-
 msgid "Snapshot Limits"
 msgstr "スナップショットの上限"
 
@@ -5902,51 +5605,6 @@ msgstr ""
 msgid "Specs"
 msgstr "スペック"
 
-msgid "Stack Events"
-msgstr "スタックイベント"
-
-msgid "Stack ID"
-msgstr "スタック ID"
-
-msgid "Stack ID ="
-msgstr "スタック ID ="
-
-msgid "Stack Name"
-msgstr "スタック名"
-
-msgid "Stack Name ="
-msgstr "スタック名 ="
-
-msgid "Stack Parameters"
-msgstr "スタックのパラメーター"
-
-msgid "Stack Preview"
-msgstr "スタックのプレビュー"
-
-msgid "Stack Resource"
-msgstr "スタックリソース"
-
-msgid "Stack Resource ID"
-msgstr "スタックリソース ID"
-
-msgid "Stack Resource Type"
-msgstr "スタックリソース種別"
-
-msgid "Stack Resources"
-msgstr "スタックリソース"
-
-msgid "Stack creation started."
-msgstr "スタックの作成を開始しました。"
-
-msgid "Stack creation timeout in minutes."
-msgstr "スタック作成のタイムアウト時間 (分単位)。"
-
-msgid "Stack update started."
-msgstr "スタックの更新を開始しました。"
-
-msgid "Stacks"
-msgstr "スタック"
-
 msgid "Start"
 msgstr "開始"
 
@@ -5995,9 +5653,6 @@ msgstr "ステータス"
 
 msgid "Status ="
 msgstr "ステータス ="
-
-msgid "Status Reason"
-msgstr "ステータスの理由"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
@@ -6138,25 +5793,9 @@ msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "休止"
 
-msgctxt "current status of stack"
-msgid "Suspend Complete"
-msgstr "休止完了"
-
-msgctxt "current status of stack"
-msgid "Suspend Failed"
-msgstr "休止に失敗"
-
-msgctxt "current status of stack"
-msgid "Suspend In Progress"
-msgstr "休止中"
-
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "インスタンスの休止"
-
-msgid "Suspend Stack"
-msgid_plural "Suspend Stacks"
-msgstr[0] "スタックの休止"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -6169,10 +5808,6 @@ msgstr "休止"
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
 msgstr[0] "インスタンスを休止しました"
-
-msgid "Suspended Stack"
-msgid_plural "Suspended Stacks"
-msgstr[0] "スタックを休止しました"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"
@@ -6195,27 +5830,6 @@ msgstr "移動先ホスト"
 
 msgid "Task"
 msgstr "タスク"
-
-msgid "Template"
-msgstr "テンプレート"
-
-msgid "Template Data"
-msgstr "テンプレートデータ"
-
-msgid "Template File"
-msgstr "テンプレートファイル"
-
-msgid "Template Functions"
-msgstr "テンプレート関数"
-
-msgid "Template Source"
-msgstr "テンプレートの指定方法"
-
-msgid "Template URL"
-msgstr "テンプレート URL"
-
-msgid "Template Versions"
-msgstr "テンプレートのバージョン"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -6476,12 +6090,6 @@ msgstr "秘密鍵はブラウザー内でのみ使用され、サーバーには
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "擬似フォルダーが空ではないため、削除できません。"
 
-msgid "The raw contents of the environment file."
-msgstr "環境設定ファイルの RAW データ"
-
-msgid "The raw contents of the template."
-msgstr "テンプレートの RAW データ。"
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -6635,11 +6243,6 @@ msgstr ""
 "これは <tt>openstack volume qos associate</tt> および <tt>openstack volume "
 "qos disassociate</tt> のコマンドに相当します。"
 
-msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "スタックの生存期間全体を通して、各種操作の実行に必要です。"
-
 msgid "This panel needs JavaScript support."
 msgstr "JavaScript が有効になっている必要があります。"
 
@@ -6657,9 +6260,6 @@ msgstr "このボリューム種別は１つ以上のボリュームで使用さ
 msgid "Time Since Created"
 msgstr "作成後経過時間"
 
-msgid "Time Since Event"
-msgstr "イベントからの経過時間"
-
 msgid "Time since created"
 msgstr "作成後経過時間"
 
@@ -6668,9 +6268,6 @@ msgstr "作成後経過時間 (秒)"
 
 msgid "Time since update"
 msgstr "更新後経過時間"
-
-msgid "Timeout"
-msgstr "タイムアウト"
 
 msgid "Timezone"
 msgstr "タイムゾーン"
@@ -6718,9 +6315,6 @@ msgstr "ネットワーク詳細表示の切り替え"
 
 msgid "Toggle navigation"
 msgstr "ナビゲーションの切り替え"
-
-msgid "Topic"
-msgstr "トピック"
 
 msgid "Topology"
 msgstr "トポロジー"
@@ -6792,9 +6386,6 @@ msgstr "トランク"
 msgid "Type"
 msgstr "種別"
 
-msgid "Type ="
-msgstr "種別 ="
-
 msgid "Type of backend device identifier provided"
 msgstr "指定するバックエンドデバイスの識別子の種別"
 
@@ -6809,9 +6400,6 @@ msgstr "UP"
 msgctxt "Admin state of a Router"
 msgid "UP"
 msgstr "UP"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -7042,9 +6630,6 @@ msgstr "EC2 認証情報を取得できません"
 msgid "Unable to get MKS console for instance \"%s\"."
 msgstr "インスタンス \"%s\" の MKS コンソールを取得できません。"
 
-msgid "Unable to get Orchestration service list."
-msgstr "オーケストレーションサービスの一覧を取得できません。"
-
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "インスタンス \"%s\" の RDP コンソールを取得できません。"
@@ -7063,16 +6648,8 @@ msgstr "Cinder のサービス一覧を取得できません。"
 msgid "Unable to get consistency group list"
 msgstr "整合性グループの一覧を取得できません"
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "スタック \"%s\" のイベントを取得できません。"
-
 msgid "Unable to get flavor list"
 msgstr "フレーバーの一覧を取得できません"
-
-#, python-format
-msgid "Unable to get functions for template version \"%s\"."
-msgstr "テンプレートバージョン「%s」の関数を取得できません。"
 
 msgid "Unable to get host aggregate list"
 msgstr "ホストアグリゲート一覧を取得できません。"
@@ -7095,10 +6672,6 @@ msgstr "openrc 認証情報を取得できません"
 
 msgid "Unable to get quota info."
 msgstr "クォータ情報を取得できません。"
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "スタック \"%s\" のリソースを取得できません。"
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -7461,9 +7034,6 @@ msgstr "ボリュームの一覧を取得できません。"
 msgid "Unable to retrieve mapping list."
 msgstr "マッピング一覧を取得できません。"
 
-msgid "Unable to retrieve metadata."
-msgstr "メタデータを取得できません。"
-
 msgid "Unable to retrieve namespace contents."
 msgstr "名前空間の内容を取得できません。"
 
@@ -7515,12 +7085,6 @@ msgstr "公開イメージの一覧を取得できません。"
 msgid "Unable to retrieve quota information."
 msgstr "クォータ情報を取得できません。"
 
-msgid "Unable to retrieve resource type details."
-msgstr "リソース種別の詳細を取得できません。"
-
-msgid "Unable to retrieve resource."
-msgstr "リソースを取得できません。"
-
 msgid "Unable to retrieve role list."
 msgstr "ロール一覧を取得できません。"
 
@@ -7566,29 +7130,11 @@ msgstr "スナップショットの詳細を取得できません。"
 msgid "Unable to retrieve snapshot list."
 msgstr "スナップショット一覧を取得できません。"
 
-msgid "Unable to retrieve stack list."
-msgstr "スタック一覧を取得できません。"
-
-msgid "Unable to retrieve stack resource types."
-msgstr "スタックのリソース種別の一覧を取得できません。"
-
-msgid "Unable to retrieve stack template."
-msgstr "スタックテンプレートを取得できません"
-
-msgid "Unable to retrieve stack."
-msgstr "スタックを取得できません。"
-
 msgid "Unable to retrieve subnet details"
 msgstr "サブネットの詳細を取得できません。"
 
 msgid "Unable to retrieve subnet details."
 msgstr "サブネットの詳細を取得できません。"
-
-msgid "Unable to retrieve template functions."
-msgstr "テンプレートの関数一覧を取得できません。"
-
-msgid "Unable to retrieve template versions."
-msgstr "テンプレートのバージョン一覧を取得できません。"
 
 msgid "Unable to retrieve tenant limits."
 msgstr "プロジェクトのリソース上限を取得できません。"
@@ -7918,10 +7464,6 @@ msgstr "更新"
 msgid "Update Associations"
 msgstr "関連付けの更新"
 
-msgctxt "current status of stack"
-msgid "Update Complete"
-msgstr "更新完了"
-
 msgid "Update Default Quotas"
 msgstr "標準のクォータの更新"
 
@@ -7934,19 +7476,11 @@ msgstr "ボリューム種別の暗号化設定の更新"
 msgid "Update Encryption"
 msgstr "暗号化設定の更新"
 
-msgctxt "current status of stack"
-msgid "Update Failed"
-msgstr "更新に失敗"
-
 msgid "Update Group"
 msgstr "グループの更新"
 
 msgid "Update Identity Provider"
 msgstr "認証プロバイダーの更新"
-
-msgctxt "current status of stack"
-msgid "Update In Progress"
-msgstr "更新中"
 
 msgid "Update Mapping"
 msgstr "マッピングの更新"
@@ -7962,12 +7496,6 @@ msgstr "ロールの更新"
 
 msgid "Update Router"
 msgstr "ルーターの編集"
-
-msgid "Update Stack"
-msgstr "スタックの更新"
-
-msgid "Update Stack Parameters"
-msgstr "スタックのパラメーターの更新"
 
 msgid "Update Status"
 msgstr "ステータスの変更"
@@ -7986,15 +7514,6 @@ msgstr "ボリューム種別の暗号化設定の更新"
 
 msgid "Update a Metadata Namespace"
 msgstr "メタデータ名前空間の更新"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"スタックを指定した値で更新します。パスワードなどの、暗号化されるパラメーター"
-"は、ここで指定しなかった場合、デフォルト値にリセットされる点には注意してくだ"
-"さい。"
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -8090,20 +7609,6 @@ msgstr "ボリュームをソースとして使用する"
 
 msgid "Use image as a source"
 msgstr "イメージをソースとして使用する"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"利用可能なテンプレートの指定方法のオプションから、このスタックの作成に使用す"
-"るテンプレートの指定方法を選択してください。"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in previewing this stack."
-msgstr ""
-"利用可能なテンプレートの指定方法のオプションから、このスタックのプレビューに"
-"使用するテンプレートの指定方法を選択してください。"
 
 msgid "Use snapshot as a source"
 msgstr "スナップショットをソースとして使用する"
@@ -8217,9 +7722,6 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "値"
-
-msgid "Version"
-msgstr "バージョン"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8589,9 +8091,6 @@ msgstr "イメージを選択しなければいけません。"
 msgid "You must set volume size"
 msgstr "ボリュームサイズを指定しなければいけません。"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "いずれかの方法でテンプレートを指定する必要があります。"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -8634,9 +8133,6 @@ msgstr "例: Yes / No"
 msgid "e.g. Yes/No"
 msgstr "例: Yes/No"
 
-msgid "environment"
-msgstr "環境設定"
-
 msgid "front-end"
 msgstr "フロントエンド"
 
@@ -8645,9 +8141,6 @@ msgstr "インスタンス"
 
 msgid "no"
 msgstr "いいえ"
-
-msgid "template"
-msgstr "テンプレート"
 
 msgid "undefined"
 msgstr "未定義"
