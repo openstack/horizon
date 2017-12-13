@@ -773,22 +773,24 @@ POLICY_DIRS
 
 .. versionadded:: 13.0.0(Queens)
 
-Default: ``{}``
+Default:
+
+.. code-block:: python
+
+    {
+        'volume': ['cinder_policy.d'],
+    }
 
 Specifies a list of policy directories per service types. The directories
 are relative to `POLICY_FILES_PATH`_. Services whose additional policies
 are defined here must be defined in `POLICY_FILES`_ too. Otherwise,
 additional policies specified in ``POLICY_DIRS`` are not loaded.
 
-Example:
+.. note::
 
-.. code-block:: python
-
-    {
-        'identity': ['keystone_policy.d'],
-        'compute': ['nova_policy.d'],
-        'network': ['neutron_policy.d'],
-    }
+   ``cinder_policy.d`` is registered by default
+   to maintain policies which have ben dropped from nova and cinder
+   but horizon still uses. We recommend not to drop them.
 
 POLICY_FILES
 ------------
@@ -800,11 +802,11 @@ Default:
 .. code-block:: python
 
     {
-        'identity': 'keystone_policy.json',
         'compute': 'nova_policy.json',
-        'volume': 'cinder_policy.json',
+        'identity': 'keystone_policy.json',
         'image': 'glance_policy.json',
         'network': 'neutron_policy.json',
+        'volume': 'cinder_policy.json',
     }
 
 This should essentially be the mapping of the contents of `POLICY_FILES_PATH`_

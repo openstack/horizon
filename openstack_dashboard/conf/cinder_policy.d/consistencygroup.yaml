@@ -1,0 +1,10 @@
+# extra policies for consistency group
+"consistencygroup:create" : ""
+"consistencygroup:create_cgsnapshot" : ""
+"consistencygroup:delete": ""
+"consistencygroup:delete_cgsnapshot": ""
+"consistencygroup:get": ""
+"consistencygroup:get_all": ""
+"consistencygroup:get_all_cgsnapshots": ""
+"consistencygroup:get_cgsnapshot": ""
+"consistencygroup:update": ""
