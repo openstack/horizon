@@ -58,9 +58,9 @@ class PolicyBackendTestCase(test.TestCase):
         policy_backend.reset()
         value = policy.check((("identity", "i_dont_exist"),),
                              request=self.request)
-        # this should fail because the default check for
-        # identity is admin_required
-        self.assertFalse(value)
+        # this should succeed because the default check does not exist and
+        # if the default check does not exist the policy check should succeed.
+        self.assertTrue(value)
 
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_check_nova_context_is_admin_false(self):
@@ -98,17 +98,33 @@ class PolicyBackendTestCaseAdmin(test.BaseAdminViewTests):
         policy_backend.reset()
         value = policy.check((("identity", "i_dont_exist"),),
                              request=self.request)
-        # this should succeed because the default check for
-        # identity is admin_required
+        # This assume the identity policy file does not contain the default
+        # check. If both a specified rule and the default rule do not exist,
+        # the check should succeed.
         self.assertTrue(value)
 
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_compound_check_true(self):
         policy_backend.reset()
-        value = policy.check((("identity", "admin_required"),
-                              ("identity", "identity:default"),),
-                             request=self.request)
-        self.assertTrue(value)
+
+        # Check a single rule works expectly
+        self.assertTrue(policy.check((("identity", "admin_required"),),
+                                     request=self.request))
+        self.assertTrue(policy.check((("identity", "owner"),),
+                                     request=self.request,
+                                     target={'user_id': 1}))
+        self.assertFalse(policy.check((("identity", "owner"),),
+                                      request=self.request,
+                                      target={'user_id': 2}))
+
+        self.assertTrue(
+            policy.check((("identity", "admin_required"),
+                          ("identity", "owner"),),
+                         request=self.request, target={'user_id': 1}))
+        self.assertFalse(
+            policy.check((("identity", "admin_required"),
+                          ("identity", "owner"),),
+                         request=self.request, target={'user_id': 2}))
 
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_check_nova_context_is_admin_true(self):
