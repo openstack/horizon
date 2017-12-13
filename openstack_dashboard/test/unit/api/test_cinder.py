@@ -458,12 +458,16 @@ class CinderApiVersionTests(test.TestCase):
         # versions.
         api.cinder.VERSIONS._active = None
 
-    def test_default_client_is_v2(self):
+    def test_default_client_is_v3(self):
         client = api.cinder.cinderclient(self.request)
-        self.assertIsInstance(client, cinder_client.v2.client.Client)
+        self.assertIsInstance(client, cinder_client.v3.client.Client)
 
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
     def test_v2_setting_returns_v2_client(self):
+        # FIXME(e0ne): this is a temporary workaround to bypass
+        # @memoized_with_request decorator caching. We have to find a better
+        # solution instead this hack.
+        self.request.user.username = 'test_user_cinder_v2'
         client = api.cinder.cinderclient(self.request)
         self.assertIsInstance(client, cinder_client.v2.client.Client)
 

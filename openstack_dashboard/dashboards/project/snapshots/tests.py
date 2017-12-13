@@ -41,9 +41,9 @@ class VolumeSnapshotsViewTests(test.TestCase):
                         api.base: ('is_service_enabled',)})
     def _test_snapshots_index_paginated(self, marker, sort_dir, snapshots, url,
                                         has_more, has_prev):
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volumev2') \
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'volumev3') \
             .AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'volumev3') \
             .AndReturn(True)
         api.cinder.volume_snapshot_list_paged(
             IsA(http.HttpRequest), marker=marker, sort_dir=sort_dir,

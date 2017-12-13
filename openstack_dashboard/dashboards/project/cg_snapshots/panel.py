@@ -21,6 +21,7 @@ class CGSnapshots(horizon.Panel):
     name = _("Consistency Group Snapshots")
     slug = 'cg_snapshots'
     permissions = (
-        ('openstack.services.volume', 'openstack.services.volumev2'),
+        ('openstack.services.volume', 'openstack.services.volumev2',
+         'openstack.services.volumev3'),
     )
     policy_rules = (("volume", "consistencygroup:get_all_cgsnapshots"),)

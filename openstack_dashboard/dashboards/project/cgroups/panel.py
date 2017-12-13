@@ -21,6 +21,7 @@ class CGroups(horizon.Panel):
     name = _("Consistency Groups")
     slug = 'cgroups'
     permissions = (
-        ('openstack.services.volume', 'openstack.services.volumev2'),
+        ('openstack.services.volume', 'openstack.services.volumev2',
+         'openstack.services.volumev3'),
     )
     policy_rules = (("volume", "consistencygroup:get_all"),)
