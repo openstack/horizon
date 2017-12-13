@@ -956,13 +956,12 @@ class AttachInterface(policy.PolicyTargetMixin, tables.LinkAction):
         return urlresolvers.reverse(self.url, args=[instance_id])
 
 
-# TODO(lyj): the policy for detach interface not exists in nova.json,
-#            once it's added, it should be added here.
 class DetachInterface(policy.PolicyTargetMixin, tables.LinkAction):
     name = "detach_interface"
     verbose_name = _("Detach Interface")
     classes = ("btn-confirm", "ajax-modal")
     url = "horizon:project:instances:detach_interface"
+    policy_rules = (("compute", "os_compute_api:os-attach-interfaces:delete"),)
 
     def allowed(self, request, instance):
         if not api.base.is_service_enabled(request, 'network'):
