@@ -10,6 +10,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import json
+
 from django.test.utils import override_settings
 
 from openstack_dashboard.api.rest import policy
@@ -17,55 +19,59 @@ from openstack_dashboard.test import helpers as test
 
 
 class PolicyRestTestCase(test.TestCase):
+
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
-    def test_policy(self, body='{"rules": []}'):
+    def _test_policy(self, body, expected=True):
         request = self.mock_rest_request(body=body)
         response = policy.Policy().post(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual({"allowed": True}, response.json)
+        self.assertEqual({"allowed": expected}, response.json)
 
-    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    def test_policy(self):
+        body = json.dumps({"rules": []})
+        self._test_policy(body)
+
     def test_rule_alone(self):
-        body = '{"rules": [["compute", \
-                            "os_compute_api:index:get_all_tenants"]]}'
-        self.test_policy(body)
+        body = json.dumps({"rules":
+                           [["compute", "os_compute_api:servers:index"]]})
+        self._test_policy(body)
 
-    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_multiple_rule(self):
-        body = '{"rules": [["compute", "os_compute_api:stop"],' \
-               '           ["compute", "os_compute_api:start"]]}'
-        self.test_policy(body)
+        body = json.dumps(
+            {"rules": [["compute", "os_compute_api:servers:stop"],
+                       ["compute", "os_compute_api:servers:start"]]})
+        self._test_policy(body)
 
-    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_rule_with_empty_target(self):
-        body = '{"rules": [["compute", "os_compute_api:stop"],' \
-               '           ["compute", "os_compute_api:start"]],' \
-               ' "target": {}}'
-        self.test_policy(body)
+        body = json.dumps(
+            {"rules": [["compute", "os_compute_api:servers:stop"],
+                       ["compute", "os_compute_api:servers:start"]],
+             "target": {}})
+        self._test_policy(body)
 
-    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_rule_with_target(self):
-        body = '{"rules": [["compute", "os_compute_api:stop"],' \
-               '           ["compute", "os_compute_api:start"]],' \
-               ' "target": {"project_id": "1"}}'
-        self.test_policy(body)
+        body = json.dumps(
+            {"rules": [["compute", "os_compute_api:servers:stop"],
+                       ["compute", "os_compute_api:servers:start"]],
+             "target": {"project_id": "1"}})
+        self._test_policy(body)
 
-    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_policy_fail(self):
         # admin only rule, default test case user should fail
-        request = self.mock_rest_request(
-            body=('{"rules": ['
-                  '["compute",'
-                  '"os_compute_api:servers:index:get_all_tenants"]]}'))
-        response = policy.Policy().post(request)
-        self.assertStatusCode(response, 200)
-        self.assertEqual({"allowed": False}, response.json)
+        body = json.dumps(
+            {"rules": [["compute",
+                        "os_compute_api:servers:index:get_all_tenants"]]})
+        self._test_policy(body, expected=False)
+
+    def test_policy_fail_with_nonexisting(self):
+        body = json.dumps(
+            {"rules": [["compute", "non-existing"]]})
+        self._test_policy(body, expected=True)
 
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_policy_error(self):
-        # admin only rule, default test case user should fail
         request = self.mock_rest_request(
-            body='''{"bad": "compute"}''')
+            body=json.dumps({"bad": "compute"}))
         response = policy.Policy().post(request)
         self.assertStatusCode(response, 400)
 
@@ -73,8 +79,9 @@ class PolicyRestTestCase(test.TestCase):
 class AdminPolicyRestTestCase(test.BaseAdminViewTests):
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_rule_with_target(self):
-        body = '{"rules": [["compute", \
-                            "os_compute_api:index:get_all_tenants"]]}'
+        body = json.dumps(
+            {"rules": [["compute",
+                        "os_compute_api:servers:index:get_all_tenants"]]})
         request = self.mock_rest_request(body=body)
         response = policy.Policy().post(request)
         self.assertStatusCode(response, 200)

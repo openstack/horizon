@@ -788,6 +788,7 @@ Default:
 .. code-block:: python
 
     {
+        'compute': ['nova_policy.d'],
         'volume': ['cinder_policy.d'],
     }
 
@@ -798,7 +799,7 @@ additional policies specified in ``POLICY_DIRS`` are not loaded.
 
 .. note::
 
-   ``cinder_policy.d`` is registered by default
+   ``cinder_policy.d`` and ``nova_policy.d`` are registered by default
    to maintain policies which have ben dropped from nova and cinder
    but horizon still uses. We recommend not to drop them.
 

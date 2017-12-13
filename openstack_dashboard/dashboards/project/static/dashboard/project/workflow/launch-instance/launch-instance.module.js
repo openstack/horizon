@@ -45,6 +45,11 @@
      * @description Policies for displaying steps in the workflow.
      */
     .constant('horizon.dashboard.project.workflow.launch-instance.step-policy', {
+      // TODO(future): Nova API exntension has gone, so 'discoverable' policy are no longer
+      // needed. API extension availability depends on Nova API micro version, so the migration
+      // needs to be done carefully. It might be better to be moved to the server side and
+      // be merged into 'features' from horizon microversion support.
+
       // This policy determines if the scheduler hints extension is discoverable when listing
       // available extensions. It's possible the extension is installed but not discoverable.
       schedulerHints: { rules: [['compute', 'os_compute_api:os-scheduler-hints:discoverable']] },

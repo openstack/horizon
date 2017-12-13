@@ -1,0 +1,3 @@
+# extra policies for retired nova API extensions
+"os_compute_api:os-scheduler-hints:discoverable": "@"
+"os_compute_api:os-server-groups:discoverable": "@"
