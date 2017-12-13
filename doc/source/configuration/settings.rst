@@ -768,6 +768,16 @@ will be from the beginning of the current month until the current date. The
 legacy behaviour is not recommended for large deployments as Horizon suffers
 significant lag in this case.
 
+POLICY_CHECK_FUNCTION
+---------------------
+
+.. versionadded:: 2013.2(Havana)
+
+Default:: ``openstack_auth.policy.check``
+
+This value should not be changed, although removing it or setting it to
+``None`` would be a means to bypass all policy checks.
+
 POLICY_DIRS
 -----------
 
