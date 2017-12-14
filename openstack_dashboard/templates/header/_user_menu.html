@@ -34,12 +34,14 @@
           </a>
         </li>
       {% endif %}
-      <li>
-        <a href="{% url 'horizon:project:api_access:openrcv2' %}">
-          <span class="fa fa-download"></span>
-          {% trans "OpenStack RC File v2" %}
-        </a>
-      </li>
+      {% if SHOW_KEYSTONE_V2_RC %}
+        <li>
+          <a href="{% url 'horizon:project:api_access:openrcv2' %}">
+            <span class="fa fa-download"></span>
+            {% trans "OpenStack RC File v2" %}
+          </a>
+        </li>
+      {% endif %}
       <li>
         <a href="{% url 'horizon:project:api_access:openrc' %}">
           <span class="fa fa-download"></span>
@@ -66,4 +68,3 @@
 {% else %}
   </li>
 {% endif %}
-

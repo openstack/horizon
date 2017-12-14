@@ -97,6 +97,7 @@ def openstack(request):
             hmac_keys, parent_id=index_view_id)
 
     context['JS_CATALOG'] = get_js_catalog(conf)
+    context['SHOW_KEYSTONE_V2_RC'] = settings.SHOW_KEYSTONE_V2_RC
 
     return context
 
