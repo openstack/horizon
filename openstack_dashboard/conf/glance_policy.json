@@ -8,6 +8,7 @@
     "get_images": "",
     "modify_image": "",
     "publicize_image": "role:admin",
+    "communitize_image": "",
     "copy_from": "",
 
     "download_image": "",
@@ -25,10 +26,11 @@
 
     "manage_image_cache": "role:admin",
 
-    "get_task": "role:admin",
-    "get_tasks": "role:admin",
-    "add_task": "role:admin",
-    "modify_task": "role:admin",
+    "get_task": "",
+    "get_tasks": "",
+    "add_task": "",
+    "modify_task": "",
+    "tasks_api_access": "role:admin",
 
     "deactivate": "",
     "reactivate": "",
