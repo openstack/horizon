@@ -19,6 +19,7 @@
 import logging
 
 from oslo_utils import units
+from six.moves import builtins
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
@@ -123,7 +124,8 @@ class IndexView(tables.DataTableView):
                 invalid_msg = ('API query is not valid and is ignored: '
                                '%(field)s=%(string)s')
                 try:
-                    filter_string = long(float(filter_string) * (units.Mi))
+                    filter_string = builtins.int(float(filter_string)
+                                                 * (units.Mi))
                     if filter_string >= 0:
                         filters[filter_field] = filter_string
                     else:
