@@ -5,9 +5,9 @@
 # yasemin demiral <yasemin.demiral@tubitak.gov.tr>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev141\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-28 23:44+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2801,9 +2801,6 @@ msgstr "Şablon alınamadı."
 msgid "Unable to retrieve the flavors."
 msgstr "Şablonlar alınamadı."
 
-msgid "Unable to retrieve the heat services."
-msgstr "Heat servisleri alınamıyor."
-
 msgid "Unable to retrieve the image custom properties."
 msgstr "İmaj özel özellikleri alınamıyor."
 
@@ -2935,9 +2932,6 @@ msgstr "İmaj güncellenemiyor."
 
 msgid "Unable to upload the object."
 msgstr "Nesne yüklenemiyor."
-
-msgid "Unable to validate the template."
-msgstr "Şablon doğrulanamıyor."
 
 msgid "Unknown"
 msgstr "Bilinmeyen"

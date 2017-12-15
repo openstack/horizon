@@ -8,9 +8,9 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev2\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-07 18:16+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -117,14 +117,6 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
-
-#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s Backend)"
 
@@ -198,17 +190,11 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> auf %(device)s"
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> auf %(volume_device)s"
 
-msgid "A local environment to upload."
-msgstr "Eine lokale Umgebung zum Hochladen."
-
 msgid "A local image to upload."
 msgstr "Lokales Abbild hochladen."
 
 msgid "A local metadata definition file to upload."
 msgstr "Eine lokale Metadaten-Definitionsdatei zum Hochladen."
-
-msgid "A local template to upload."
-msgstr "Eine lokale Vorlage zum Hochladen."
 
 msgid ""
 "A mapping is a set of rules to map federation protocol attributes to "
@@ -485,18 +471,6 @@ msgstr ""
 "Administratorennotiz: benutzen Sie die folgenden CLI Kommandos zum Import "
 "der Standarddefinitionen in Glance:"
 
-msgctxt "current status of stack"
-msgid "Adopt Complete"
-msgstr "Übernahme abgeschlossen"
-
-msgctxt "current status of stack"
-msgid "Adopt Failed"
-msgstr "Übernahme fehlgeschlagen"
-
-msgctxt "current status of stack"
-msgid "Adopt In Progress"
-msgstr "Übernahme im Gang"
-
 msgid "Advanced Options"
 msgstr "Weitergehende Optionen"
 
@@ -589,9 +563,6 @@ msgstr "Bereitstellung von Pools"
 
 msgid "Allowed Address Pairs"
 msgstr "Erlaubte Adressenpaare"
-
-msgid "An external (HTTP) URL to load the template from."
-msgstr "Eine externe (HTTP) URL, von der die Vorlage geladen wird."
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Externe URL (HTTP/HTTPS), von der das Abbild geladen werden soll."
@@ -695,9 +666,6 @@ msgstr "Anhänge"
 
 msgid "Attribute Mappings"
 msgstr "Attributzuordnungen"
-
-msgid "Attributes"
-msgstr "Attribute"
 
 msgid "Authentication URL"
 msgstr "Authentifizierungs-URL"
@@ -901,12 +869,6 @@ msgstr "Konsole für Instanz %s kann nicht aufgerufen werden."
 msgid "Cannot specify both file and direct input."
 msgstr "Gleichzeitige Angabe von Datei und direkte Eingabe ist nicht möglich."
 
-msgid "Case sensitive"
-msgstr "Groß- und Kleinschreibung beachten"
-
-msgid "Case-sensitive"
-msgstr "Groß- und Kleinschreibung beachten"
-
 msgid "Centralized"
 msgstr "Zentralisiert"
 
@@ -915,12 +877,6 @@ msgstr "Änderung"
 
 msgid "Change Password"
 msgstr "Passwort ändern"
-
-msgid "Change Stack Template"
-msgstr "Ändern der Stack-Vorlage"
-
-msgid "Change Template"
-msgstr "Vorlage wechseln"
 
 msgid "Change Volume Type"
 msgstr "Datenträgertyp ändern"
@@ -948,34 +904,12 @@ msgstr "Änderungen bisher"
 msgid "Changing password is not supported."
 msgstr "Änderung des Passworts wird nicht unterstützt."
 
-msgctxt "current status of stack"
-msgid "Check Complete"
-msgstr "Überprüfung abgeschlossen"
-
-msgctxt "current status of stack"
-msgid "Check Failed"
-msgstr "Überprüfung fehlgeschlagen"
-
-msgctxt "current status of stack"
-msgid "Check In Progress"
-msgstr "Überprüfung im Gang"
-
-msgid "Check Stack"
-msgid_plural "Check Stacks"
-msgstr[0] "Stack überprüfen"
-msgstr[1] "Stacks überprüfen"
-
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this consistency group."
 msgstr ""
 "Wählen Sie &quot;Lösche Datenträger&quot; um auch alle mit dieser "
 "Konsistenzgruppe verbundenen Datenträger zu löschen."
-
-msgid "Checked Stack"
-msgid_plural "Checked Stacks"
-msgstr[0] "Geprüfter Stack"
-msgstr[1] "Geprüfte Stacks"
 
 msgid "Checksum"
 msgstr "Prüfsumme"
@@ -1217,10 +1151,6 @@ msgstr "Abbild erstellen"
 msgid "Create Backup"
 msgstr "Sicherungskopie erstellen"
 
-msgctxt "current status of stack"
-msgid "Create Complete"
-msgstr "Erstellen abgeschlossen"
-
 msgid "Create Consistency Group"
 msgstr "Konsistenzgruppe erstellen"
 
@@ -1239,10 +1169,6 @@ msgstr "Verschlüsselung erstellen"
 msgid "Create Extra Spec For {{ qos_spec_name }}"
 msgstr "Erzeuge Extra Spezifikationen für {{ qos_spec_name }}"
 
-msgctxt "current status of stack"
-msgid "Create Failed"
-msgstr "Erstellen fehlgeschlagen"
-
 msgid "Create Flavor"
 msgstr "Variante erstellen"
 
@@ -1254,10 +1180,6 @@ msgstr "Hostaggregat erstellen"
 
 msgid "Create Image"
 msgstr "Abbild erstellen"
-
-msgctxt "current status of stack"
-msgid "Create In Progress"
-msgstr "Erstellung im Gang"
 
 msgid "Create Key Pair"
 msgstr "Schlüsselpaar erzeugen"
@@ -1306,9 +1228,6 @@ msgstr "Schattenkopie erstellen"
 
 msgid "Create Spec"
 msgstr "Spezifikation erzeugen"
-
-msgid "Create Stack"
-msgstr "Erzeuge Stack"
 
 msgid "Create Subnet"
 msgstr "Subnetz erstellen"
@@ -1417,9 +1336,6 @@ msgstr ""
 
 msgid "Create a new role."
 msgstr "Neue Rolle erstellen."
-
-msgid "Create a new stack with the provided values."
-msgstr "Erzeuge einen neuen Stack mit den eingegebenen Werten."
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -1547,9 +1463,6 @@ msgstr "Erzeuge Datenträger-Sicherung \"%s\""
 msgid "Creating volume snapshot \"%s\"."
 msgstr "Erzeuge Schattenkopie \"%s\"."
 
-msgid "Creation Timeout (minutes)"
-msgstr "Zeitüberschreitung bei der Erzeugung (Minuten)"
-
 msgid "Current Host"
 msgstr "Aktueller Host"
 
@@ -1630,9 +1543,6 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "INAKTIV"
 
-msgid "Date Updated"
-msgstr "Datum aktualisiert"
-
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "Inaktiv"
@@ -1664,10 +1574,6 @@ msgid_plural "Delete"
 msgstr[0] "Löschen"
 msgstr[1] "Löschen"
 
-msgctxt "current status of stack"
-msgid "Delete Complete"
-msgstr "Löschen abgeschlossen"
-
 msgid "Delete Consistency Group"
 msgstr "Konsistenzgruppe löschen"
 
@@ -1691,10 +1597,6 @@ msgid_plural "Delete Extra Specs"
 msgstr[0] "Extra-Spezifikation löschen"
 msgstr[1] "Extra-Spezifikationen löschen"
 
-msgctxt "current status of stack"
-msgid "Delete Failed"
-msgstr "Löschvorgang fehlgeschlagen"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "Variante löschen"
@@ -1714,10 +1616,6 @@ msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "Abbild löschen"
 msgstr[1] "Abbilder löschen"
-
-msgctxt "current status of stack"
-msgid "Delete In Progress"
-msgstr "Löschen im Gang"
 
 msgid "Delete Instance"
 msgid_plural "Delete Instances"
@@ -1798,11 +1696,6 @@ msgid "Delete Spec"
 msgid_plural "Delete Specs"
 msgstr[0] "Spezifikation löschen"
 msgstr[1] "Spezifikationen löschen"
-
-msgid "Delete Stack"
-msgid_plural "Delete Stacks"
-msgstr[0] "Stack löschen"
-msgstr[1] "Stacks löschen"
 
 msgid "Delete Static Route"
 msgid_plural "Delete Static Routes"
@@ -1973,11 +1866,6 @@ msgid "Deleted Spec"
 msgid_plural "Deleted Specs"
 msgstr[0] "Gelöschte Spezifikation"
 msgstr[1] "Gelöschte Spezifikationen"
-
-msgid "Deleted Stack"
-msgid_plural "Deleted Stacks"
-msgstr[0] "Stack gelöscht"
-msgstr[1] "Stacks gelöscht"
 
 msgid "Deleted Static Route"
 msgid_plural "Deleted Static Routes"
@@ -2409,9 +2297,6 @@ msgstr "Spezifikation bearbeiten"
 msgid "Edit Subnet"
 msgstr "Subnetz bearbeiten"
 
-msgid "Edit Template"
-msgstr "Vorlage editieren"
-
 msgid "Edit Volume"
 msgstr "Datenträger bearbeiten"
 
@@ -2500,10 +2385,6 @@ msgstr[1] "Benutzer aktivieren"
 msgid "Enable anti-spoofing rules for the port"
 msgstr "Anti-Spoofing-Regeln für den Port aktivieren"
 
-msgid "Enable rollback on create/update failure."
-msgstr ""
-"Ermögliche ein Zurückrollen nach einem Erzeugungs/Aktualisierungs-Fehler."
-
 msgid "Enabled"
 msgstr "Aktiviert"
 
@@ -2552,9 +2433,6 @@ msgstr ""
 msgid "Endpoints"
 msgstr "Endpunkte"
 
-msgid "Engine Id"
-msgstr "Engine ID"
-
 msgid "Enter Network Address manually"
 msgstr "Geben Sie die Netzwerkadresse manuell ein"
 
@@ -2573,15 +2451,6 @@ msgstr "Geben Sie eine ganze Zahl zwischen 0 und 255 ein."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Eine ganze Zahl zwischen 1 und 65535 eingeben."
-
-msgid "Environment Data"
-msgstr "Umgebungsdaten"
-
-msgid "Environment File"
-msgstr "Umgebungsdatei"
-
-msgid "Environment Source"
-msgstr "Umgebungsquelle"
 
 msgid "Ephemeral Disk"
 msgstr "Flüchtige Festplatte"
@@ -2695,9 +2564,6 @@ msgid ""
 msgstr ""
 "Evakuiere die Server vom ausgewählten gestoppten Host auf einen aktiven "
 "Zielhost."
-
-msgid "Events"
-msgstr "Ereignisse"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2848,9 +2714,6 @@ msgstr "Das Netzwerk %s konnte nicht gelöscht werden."
 msgid "Failed to delete port %s"
 msgstr "Fehler beim Löschen des Ports %s"
 
-msgid "Failed to delete stack."
-msgstr "Fehler beim löschen des Stacks."
-
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Das Subnetz %s konnte nicht gelöscht werden."
@@ -2942,9 +2805,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr ""
 "Fehler beim Entfernen des Projekts %(project)s vom Datenträgertyp-Zugriff."
 
-msgid "Failed to resume stack."
-msgstr "Stack konnte nicht wiederaufgenommen werden."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Das Netzwerk %s für ein Subnetz konnte nicht abgerufen werden."
@@ -2952,9 +2812,6 @@ msgstr "Das Netzwerk %s für ein Subnetz konnte nicht abgerufen werden."
 #, python-format
 msgid "Failed to set gateway: %s"
 msgstr "Gateway konnte nicht gesetzt werden: %s"
-
-msgid "Failed to suspend stack."
-msgstr "Stack konnte nicht ausgesetzt werden."
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3150,9 +3007,6 @@ msgstr "Hier kann eine Schattenkopie eines Datenträger erstellt werden."
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "Hier können Sie die Standard-Kontingente (Maximalwerte) aktualisieren."
-
-msgid "Function"
-msgstr "Funktion"
 
 msgid "GB"
 msgstr "GB"
@@ -3582,18 +3436,6 @@ msgstr "Information"
 msgid "Ingress"
 msgstr "Eintritt"
 
-msgctxt "current status of stack"
-msgid "Init Complete"
-msgstr "Initialisierung abgeschlossen"
-
-msgctxt "current status of stack"
-msgid "Init Failed"
-msgstr " Initialisierung fehlgeschlagen"
-
-msgctxt "current status of stack"
-msgid "Init In Progress"
-msgstr "Initialisierung im Gang"
-
 msgid "Injected File Content (Bytes)"
 msgstr "Anzahl Bytes der injizierten Dateien"
 
@@ -3778,9 +3620,6 @@ msgstr "L3 Agent"
 msgid "Language"
 msgstr "Sprache"
 
-msgid "Last Updated"
-msgstr "Letzte Aktualisierung"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Letzte Aktualisierung"
@@ -3793,12 +3632,6 @@ msgstr "Instanz starten"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Instanz starten (Kontingent überschritten)"
-
-msgid "Launch Parameters"
-msgstr "Startparameter"
-
-msgid "Launch Stack"
-msgstr "Stack starten"
 
 msgid "Launch as Instance"
 msgstr "Starten als Instanz"
@@ -3824,9 +3657,6 @@ msgstr "Länge des injizierten Dateipfades"
 
 msgid "Limit"
 msgstr "Limit"
-
-msgid "Links"
-msgstr "Links"
 
 msgid "Live Migrate"
 msgstr "Live Migrieren"
@@ -4082,9 +3912,6 @@ msgstr "Minimum Festplatte (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
 
-msgid "Minutes"
-msgstr "Minuten"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domäne \"%s\" geändert."
@@ -4174,16 +4001,6 @@ msgid ""
 msgstr ""
 "Der Name darf nur Buchstaben, Zahlen, Unterstriche, Punkte und Bindestriche "
 "enthalten."
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"Der Name muss mit einem Buchstaben beginnen und darf nur Buchstaben, "
-"Nummern, Unterstriche, Punkte und Bindestriche enthalten."
-
-msgid "Name of the stack to create."
-msgstr "Name des Stacks, der erzeugt werden soll."
 
 msgid "Name or other identifier for existing volume"
 msgstr "Name oder anderer Bezeichner für einen vorhandenen Datenträger"
@@ -4326,9 +4143,6 @@ msgstr "Neues Passwort"
 
 msgid "New size must be greater than current size."
 msgstr "Neue Größe muss größer als aktuelle Größe sein."
-
-msgid "Next"
-msgstr "Weiter"
 
 msgid "Next Hop"
 msgstr "Nächster Hop"
@@ -4636,15 +4450,6 @@ msgstr "OpenStack clouds.yaml-Datei"
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Optional können Sie wählen einen neuen Datenträger zu erstellen."
 
-msgid "Orchestration"
-msgstr "Orchestrierung"
-
-msgid "Orchestration Services"
-msgstr "Orchestrierungsdienste"
-
-msgid "Orchestration service is disabled."
-msgstr "Orchestrierungsdienst ist deaktiviert"
-
 #, python-format
 msgid ""
 "Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
@@ -4657,9 +4462,6 @@ msgstr "Anderes Protokoll"
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr "Fließkommawerte außerhalb des Bereiches sind nicht JSON-konform: %r"
-
-msgid "Outputs"
-msgstr "Ausgaben"
 
 msgid "Overview"
 msgstr "Übersicht"
@@ -4698,9 +4500,6 @@ msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgid "Page Not Found"
 msgstr "Seite nicht gefunden"
 
-msgid "Parameters"
-msgstr "Parameter"
-
 msgid "Password"
 msgstr "Passwort"
 
@@ -4713,10 +4512,6 @@ msgstr "Passwort geändert. Bitte melden Sie sich erneut an um fortzufahren."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Passwort geändert. Bitte loggen Sie sich ein, um fortzufahren."
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "Passwort für Benutzer \"%s\""
 
 msgid "Passwords do not match."
 msgstr "Die Passwörter stimmen nicht überein."
@@ -4762,11 +4557,6 @@ msgstr "Physisches Netzwerk:"
 
 msgid "Please note: "
 msgstr "Bitte beachten:"
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr ""
-"Bitte spezifizieren Sie ein %s, indem Sie nur eine Quell-Methode benutzen."
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -4842,24 +4632,6 @@ msgstr "Vorbereitung von Größenänderung oder Migration"
 msgid "Prevent the deletion of the image."
 msgstr "Löschen des Abbildes verhindern."
 
-msgid "Preview"
-msgstr "Vorschau"
-
-msgid "Preview Stack"
-msgstr "Stack Vorschau"
-
-msgid "Preview Stack Details"
-msgstr "Vorschau Stack Details"
-
-msgid "Preview Stack Parameters"
-msgstr "Stack Parameter Vorschau"
-
-msgid "Preview Template"
-msgstr "Vorschau Vorlage"
-
-msgid "Preview a new stack with the provided values."
-msgstr "Vorschau eines neuen Stacks mit den angegebenen Werten."
-
 msgid "Primary Project"
 msgstr "Primäres Projekt"
 
@@ -4932,9 +4704,6 @@ msgstr "Projekte"
 
 msgid "Projects:"
 msgstr "Projekte:"
-
-msgid "Properties"
-msgstr "Eigenschaften"
 
 msgid "Properties Target: "
 msgstr "Eigenschaftsziel: "
@@ -5283,15 +5052,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Größenänderung oder Migration wird ausgeführt"
 
-msgid "Resource"
-msgstr "Ressource"
-
-msgid "Resource ID"
-msgstr "Ressourcenkennung"
-
-msgid "Resource Metadata"
-msgstr "Ressource Metadaten"
-
 msgid "Resource Types"
 msgstr "Ressourcentypen"
 
@@ -5338,37 +5098,15 @@ msgctxt "Action log of an instance"
 msgid "Resume"
 msgstr "Fortsetzen"
 
-msgctxt "current status of stack"
-msgid "Resume Complete"
-msgstr "Wiederaufnahme abgeschlossen"
-
-msgctxt "current status of stack"
-msgid "Resume Failed"
-msgstr "Wiederaufnahme fehlgeschlagen"
-
-msgctxt "current status of stack"
-msgid "Resume In Progress"
-msgstr "Wiederaufnehmen im Gang"
-
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "Instanz fortsetzen"
 msgstr[1] "Instanzen fortsetzen"
 
-msgid "Resume Stack"
-msgid_plural "Resume Stacks"
-msgstr[0] "Stack wiederaufnehmen"
-msgstr[1] "Stacks wiederaufnehmen"
-
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
 msgstr[0] "Fortgesetzte Instanz"
 msgstr[1] "Fortgesetzte Instanzen"
-
-msgid "Resumed Stack"
-msgid_plural "Resumed Stacks"
-msgstr[0] "Wiederaufgenommener Stack"
-msgstr[1] "Wiederaufgenommene Stacks"
 
 msgctxt "Task status of an Instance"
 msgid "Resuming"
@@ -5414,24 +5152,6 @@ msgstr "Rolle erfolgreich aktualisiert."
 
 msgid "Roles"
 msgstr "Rollen"
-
-msgid "Rollback"
-msgstr "Rollback"
-
-msgctxt "current status of stack"
-msgid "Rollback Complete"
-msgstr "Wiederholen abgeschlossen"
-
-msgctxt "current status of stack"
-msgid "Rollback Failed"
-msgstr "Wiederholen fehlgeschlagen"
-
-msgctxt "current status of stack"
-msgid "Rollback In Progress"
-msgstr "Wiederholung im Gang"
-
-msgid "Rollback On Failure"
-msgstr "Zurückrollen nach einem Fehler"
 
 msgid "Root Disk"
 msgstr "Root-Festplatte"
@@ -5632,9 +5352,6 @@ msgstr "Servergruppe auswählen"
 msgid "Select Subnet"
 msgstr "Subnetz auswählen"
 
-msgid "Select Template"
-msgstr "Vorlage auswählen"
-
 msgid "Select Volume"
 msgstr "Datenträger auswählen"
 
@@ -5662,12 +5379,6 @@ msgstr "Wählen Sie einen neuen Host"
 msgid "Select a new status"
 msgstr "Wählen Sie einen neuen Status aus"
 
-msgid "Select a new template to preview a stack."
-msgstr "Wählen Sie eine neue Vorlage für die Stackvorschau."
-
-msgid "Select a new template to re-launch a stack."
-msgstr "Eine neue Vorlage auswählen, um einen Stack erneut zu starten."
-
 msgid "Select a new volume type"
 msgstr "Wählen Sie einen neuen Datenträgertyp aus"
 
@@ -5685,9 +5396,6 @@ msgstr "Wählen Sie ein Subnetz"
 
 msgid "Select a target host"
 msgstr "Einen Zielhost auswählen"
-
-msgid "Select a template to launch a stack."
-msgstr "Vorlage auswählen, um einen Stack zu starten."
 
 msgid "Select a volume"
 msgstr "Wählen Sie einen Datenträger"
@@ -5947,18 +5655,6 @@ msgstr "Schattenkopie"
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
 msgstr "Schattenkopie \"%(name)s\" für Instanz \"%(inst)s\" angelegt"
 
-msgctxt "current status of stack"
-msgid "Snapshot Complete"
-msgstr "Schattenkopie abgeschlossen"
-
-msgctxt "current status of stack"
-msgid "Snapshot Failed"
-msgstr "Schattenkopie fehlgeschlagen"
-
-msgctxt "current status of stack"
-msgid "Snapshot In Progress"
-msgstr "Schattenkopie im Gang"
-
 msgid "Snapshot Limits"
 msgstr "Einschränkungen für Schattenkopie"
 
@@ -6094,51 +5790,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Spezifikationen"
 
-msgid "Stack Events"
-msgstr "Stackereignisse"
-
-msgid "Stack ID"
-msgstr "Stack-ID"
-
-msgid "Stack ID ="
-msgstr "Stack ID ="
-
-msgid "Stack Name"
-msgstr "Stack Name"
-
-msgid "Stack Name ="
-msgstr "Stack Name ="
-
-msgid "Stack Parameters"
-msgstr "Stack Parameter"
-
-msgid "Stack Preview"
-msgstr "Stack Vorschau"
-
-msgid "Stack Resource"
-msgstr "Stackressource"
-
-msgid "Stack Resource ID"
-msgstr "Stack Resouce ID"
-
-msgid "Stack Resource Type"
-msgstr "Stack-Ressourcentyp"
-
-msgid "Stack Resources"
-msgstr "Stackressourcen"
-
-msgid "Stack creation started."
-msgstr "Erzeugung des Stacks gestartet."
-
-msgid "Stack creation timeout in minutes."
-msgstr "Zeitüberschreitung bei der Erzeugung in Minuten."
-
-msgid "Stack update started."
-msgstr "Stack-Aktualisierung gestartet."
-
-msgid "Stacks"
-msgstr "Stacks"
-
 msgid "Start"
 msgstr "Starten"
 
@@ -6189,9 +5840,6 @@ msgstr "Status"
 
 msgid "Status ="
 msgstr "Status ="
-
-msgid "Status Reason"
-msgstr "Status Grund"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
@@ -6335,27 +5983,10 @@ msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "Unterbrechen"
 
-msgctxt "current status of stack"
-msgid "Suspend Complete"
-msgstr "Aussetzen abgeschlossen"
-
-msgctxt "current status of stack"
-msgid "Suspend Failed"
-msgstr "Aussetzen fehlgeschlagen"
-
-msgctxt "current status of stack"
-msgid "Suspend In Progress"
-msgstr "Aussetzen läuft"
-
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "Instanz aussetzen"
 msgstr[1] "Instanzen aussetzen"
-
-msgid "Suspend Stack"
-msgid_plural "Suspend Stacks"
-msgstr[0] "Stack aussetzen"
-msgstr[1] "Stacks aussetzen"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -6369,11 +6000,6 @@ msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
 msgstr[0] "Ausgesetzte Instanz"
 msgstr[1] "Ausgesetzte Instanzen"
-
-msgid "Suspended Stack"
-msgid_plural "Suspended Stacks"
-msgstr[0] "Ausgesetzter Stack"
-msgstr[1] "Ausgesetzte Stacks"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"
@@ -6396,27 +6022,6 @@ msgstr "Zielhost"
 
 msgid "Task"
 msgstr "Aufgabe"
-
-msgid "Template"
-msgstr "Vorlage"
-
-msgid "Template Data"
-msgstr "Vorlage Daten"
-
-msgid "Template File"
-msgstr "Vorlagendatei"
-
-msgid "Template Functions"
-msgstr "Vorlagenfunktionen"
-
-msgid "Template Source"
-msgstr "Vorlagenquelle"
-
-msgid "Template URL"
-msgstr "Vorlage URL"
-
-msgid "Template Versions"
-msgstr "Vorlagenversionen"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -6693,12 +6298,6 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Der Pseudoordner kann nicht gelöscht werden, denn er ist nicht leer."
 
-msgid "The raw contents of the environment file."
-msgstr "Der rohe Inhalt der Umgebungsdatei."
-
-msgid "The raw contents of the template."
-msgstr "Der rohe Inhalt der Vorlage"
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -6864,13 +6463,6 @@ msgstr ""
 "Dies ist gleichbedeutend mit den <tt>openstack volume qos associate</tt> und "
 "<tt>openstack volume qos disassociate</tt> Kommandos."
 
-msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr ""
-"Dies wird zur Ausführung von Operationen während des Lebenszykluses des "
-"Stacks benötigt."
-
 msgid "This panel needs JavaScript support."
 msgstr "Dieses Panel benötigt JavaScript Unterstützung."
 
@@ -6889,9 +6481,6 @@ msgstr ""
 msgid "Time Since Created"
 msgstr "Zeit seit Erzeugung"
 
-msgid "Time Since Event"
-msgstr "Zeit seit Ereignis"
-
 msgid "Time since created"
 msgstr "Zeit seit Erzeugung"
 
@@ -6900,9 +6489,6 @@ msgstr "Zeit seit Erzeugung (Sekunden)"
 
 msgid "Time since update"
 msgstr "Zeit seit Update"
-
-msgid "Timeout"
-msgstr "Zeitüberschreitung"
 
 msgid "Timezone"
 msgstr "Zeitzone"
@@ -6948,9 +6534,6 @@ msgstr "Netzwerk einklappen umschalten"
 
 msgid "Toggle navigation"
 msgstr "Navigation umschalten"
-
-msgid "Topic"
-msgstr "Thema"
 
 msgid "Topology"
 msgstr "Topologie"
@@ -7024,9 +6607,6 @@ msgstr "Trunks"
 msgid "Type"
 msgstr "Typ"
 
-msgid "Type ="
-msgstr "Typ ="
-
 msgid "Type of backend device identifier provided"
 msgstr "Typ des angegebenen Backend-Geräte-Bezeichners"
 
@@ -7041,9 +6621,6 @@ msgstr "AKTIV"
 msgctxt "Admin state of a Router"
 msgid "UP"
 msgstr "AKTIV"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -7294,9 +6871,6 @@ msgstr "EC2-Zugangsdaten können nicht abgerufen werden"
 msgid "Unable to get MKS console for instance \"%s\"."
 msgstr "MKS-Konsole für die Instanz \"%s\" konnte nicht aufgerufen werden."
 
-msgid "Unable to get Orchestration service list."
-msgstr "Orchestrierungsdienstliste kann nicht abgerufen werden."
-
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "RDP-Konsole für Instanz \"%s\" kann nicht aufgerufen werden."
@@ -7315,17 +6889,8 @@ msgstr "Cinder-Dienstliste kann nicht abgerufen werden."
 msgid "Unable to get consistency group list"
 msgstr "Liste der Konsistenzgruppen kann nicht abgerufen werden"
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "Außerstande Ereignisse für Stack \"%s\" zu bekommen."
-
 msgid "Unable to get flavor list"
 msgstr "Liste der Varianten kann nicht abgerufen werden"
-
-#, python-format
-msgid "Unable to get functions for template version \"%s\"."
-msgstr ""
-"Funktionen für die Vorlagenversion \"%s\" können nicht abgerufen werden."
 
 msgid "Unable to get host aggregate list"
 msgstr "Hostaggregat-Liste kann nicht abgerufen werden"
@@ -7348,10 +6913,6 @@ msgstr "openrc-Anmeldedaten können nicht abgerufen werden"
 
 msgid "Unable to get quota info."
 msgstr "Kontingentinformationen können nicht abgerufen werden."
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "Außerstande Ressourcen für Stack \"%s\" zu bekommen."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -7731,9 +7292,6 @@ msgstr "Liste der Datenträger kann nicht abgerufen werden."
 msgid "Unable to retrieve mapping list."
 msgstr "Zuordnungsliste kann nicht abgerufen werden."
 
-msgid "Unable to retrieve metadata."
-msgstr "Metadaten können nicht abgerufen werden."
-
 msgid "Unable to retrieve namespace contents."
 msgstr "Inhalt des Namensraumes kann nicht abgerufen werden."
 
@@ -7785,12 +7343,6 @@ msgstr "Öffentliche Abbilder können nicht abgerufen werden."
 msgid "Unable to retrieve quota information."
 msgstr "Kontingent Informationen können nicht abgerufen werden."
 
-msgid "Unable to retrieve resource type details."
-msgstr "Ressourcentyp-Details können nicht abgerufen werden."
-
-msgid "Unable to retrieve resource."
-msgstr "Ressource kann nicht abgerufen werden."
-
 msgid "Unable to retrieve role list."
 msgstr "Rollenliste kann nicht abgerufen werden."
 
@@ -7838,29 +7390,11 @@ msgstr "Details zur Schattenkopie können nicht abgerufen werden."
 msgid "Unable to retrieve snapshot list."
 msgstr "Liste der Schattenkopien kann nicht abgerufen werden."
 
-msgid "Unable to retrieve stack list."
-msgstr "Stackliste kann nicht abgerufen werden."
-
-msgid "Unable to retrieve stack resource types."
-msgstr "Stack-Ressourcetypen können nicht abgerufen werden."
-
-msgid "Unable to retrieve stack template."
-msgstr "Stackvorlage kann nicht abgerufen werden."
-
-msgid "Unable to retrieve stack."
-msgstr "Stack kann nicht abgerufen werden."
-
 msgid "Unable to retrieve subnet details"
 msgstr "Subnetz-Details konnten nicht abgerufen werden"
 
 msgid "Unable to retrieve subnet details."
 msgstr "Subnetz-Details konnten nicht abgerufen werden."
-
-msgid "Unable to retrieve template functions."
-msgstr "Vorlagenfunktionen können nicht abgerufen werden."
-
-msgid "Unable to retrieve template versions."
-msgstr "Vorlagenversionen können nicht abgerufen werden."
 
 msgid "Unable to retrieve tenant limits."
 msgstr "Mandantenlimits können nicht abgerufen werden."
@@ -8207,10 +7741,6 @@ msgstr "Aktualisieren"
 msgid "Update Associations"
 msgstr "Zuweisungen aktualisieren"
 
-msgctxt "current status of stack"
-msgid "Update Complete"
-msgstr "Aktualisierung abgeschlossen"
-
 msgid "Update Default Quotas"
 msgstr "Standard-Kontingent aktualisieren"
 
@@ -8223,19 +7753,11 @@ msgstr "Verschlüsselte Datenträgertypen aktualisieren"
 msgid "Update Encryption"
 msgstr "Aktualisiere Verschlüsselung"
 
-msgctxt "current status of stack"
-msgid "Update Failed"
-msgstr "Aktualisierung fehlgeschlagen"
-
 msgid "Update Group"
 msgstr "Gruppe aktualisieren"
 
 msgid "Update Identity Provider"
 msgstr "Identitätsanbieter aktualisieren"
-
-msgctxt "current status of stack"
-msgid "Update In Progress"
-msgstr "Aktualisierung im Gang"
 
 msgid "Update Mapping"
 msgstr "Zuordnung aktualisieren"
@@ -8251,12 +7773,6 @@ msgstr "Rolle aktualisieren"
 
 msgid "Update Router"
 msgstr "Router Aktualisieren"
-
-msgid "Update Stack"
-msgstr "Stack aktualisieren"
-
-msgid "Update Stack Parameters"
-msgstr "Stack-Parameter aktualisieren"
 
 msgid "Update Status"
 msgstr "Status aktualisieren"
@@ -8275,15 +7791,6 @@ msgstr "Datenträgertypverschlüsselung aktualisieren"
 
 msgid "Update a Metadata Namespace"
 msgstr "Metadaten-Namensraum aktualisieren"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"Stack mit den angegebenen Werten aktualisieren. Bitte beachten Sie, dass "
-"sämtliche verschlüsselten Parameter, wie z.B. Passwörter, auf ihre "
-"Standardwerte zurückgesetzt werden, wenn Sie sie hier nicht ändern."
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -8379,20 +7886,6 @@ msgstr "Datenträger als Quelle nutzen"
 
 msgid "Use image as a source"
 msgstr "Benutze Abbild als Quelle"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"Nutzen Sie eine der verfügbaren Vorlagenquellenoptionen, um die Vorlage zur "
-"Erzeugung dieses Stacks anzugeben."
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in previewing this stack."
-msgstr ""
-"Verwenden Sie eine der verfügbaren Vorlagenquellenoptionen, um die Vorlage "
-"zur Vorschau des Stacks anzugeben,"
 
 msgid "Use snapshot as a source"
 msgstr "Benutze Schattenkopie als Quelle"
@@ -8507,9 +8000,6 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "Wert"
-
-msgid "Version"
-msgstr "Version"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8891,9 +8381,6 @@ msgstr "Sie müssen ein Abbild auswählen."
 msgid "You must set volume size"
 msgstr "Sie müssen die Datenträger Größe angeben."
 
-msgid "You must specify a template via one of the available sources."
-msgstr "Sie müssen eine Vorlage aus den vorhandenen Quellen angeben."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -8946,9 +8433,6 @@ msgstr "z.B. Ja / Nein"
 msgid "e.g. Yes/No"
 msgstr "z.B. Ja/Nein"
 
-msgid "environment"
-msgstr "Umgebung"
-
 msgid "front-end"
 msgstr "Frontend"
 
@@ -8957,9 +8441,6 @@ msgstr "Instanz"
 
 msgid "no"
 msgstr "nein"
-
-msgid "template"
-msgstr "Vorlage"
 
 msgid "undefined"
 msgstr "undefiniert"

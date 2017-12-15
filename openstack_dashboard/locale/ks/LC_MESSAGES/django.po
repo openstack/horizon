@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,14 +44,6 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -97,14 +89,8 @@ msgstr "اَپڈیٹ پروجیکٹ گروپ"
 msgid "-"
 msgstr "-"
 
-msgid "A local environment to upload."
-msgstr "اَکھ لوکل ماحول اَپلوڈ کئرنہٕ خآطرہ"
-
 msgid "A local image to upload."
 msgstr "لوکل شکل اَپلوڈ کرنہ خبببآطرہ"
-
-msgid "A local template to upload."
-msgstr " اَکھ لوکل ٹیمپلیٹ  اَپلوڈ کئرنہٕ خآطرہ"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -284,9 +270,6 @@ msgstr "اِنتِخآب نہ  کریتھ فلوٹینگ IP %(ip)s"
 msgid "Allocation Pools"
 msgstr "ایلوکئشن پولز"
 
-msgid "An external (HTTP) URL to load the template from."
-msgstr "اَکھ نیبرِم  (HTTP) URL لوڈ کئرنہٕ خآطرہ ٹیپلیٹ پئٹھ "
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -440,12 +423,6 @@ msgstr "تَبدیل"
 
 msgid "Change Password"
 msgstr "تَبدیل کئریو  پآس وئرڈ"
-
-msgid "Change Stack Template"
-msgstr "تٴبدیل کئریو سِٹیک ٹیمپلیٹ"
-
-msgid "Change Template"
-msgstr "بئدلایئو ٹیمپلیٹ"
 
 msgid "Change Volume Type"
 msgstr "تَبدیل کئریو والیوم قِسم"
@@ -659,9 +636,6 @@ msgstr "بَنآیئو سِنیپ شٲٹس"
 msgid "Create Spec"
 msgstr "بَنایئو سِپیک"
 
-msgid "Create Stack"
-msgstr "سِٹیک بَنایئو"
-
 msgid "Create Subnet"
 msgstr "بَنایئو سب نیٹ"
 
@@ -703,9 +677,6 @@ msgstr "بَنایئو اَکھ نئوہ  \"extra spec\"کئی ویلیو جور
 
 msgid "Create a new role."
 msgstr "بَنایئو اَکھ نئوہ کئردار"
-
-msgid "Create a new stack with the provided values."
-msgstr "بَنایئواَکھ سِٹیک دِتمِت ویلیوز سیتھ ۔ "
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -791,9 +762,6 @@ msgstr "بَناوان  اَکھ  والیوم بیک اَپ  \"%s\""
 msgid "Creating volume snapshot \"%s\"."
 msgstr " بَناوان والیوم سِنیپ شآٹس \"%s\"."
 
-msgid "Creation Timeout (minutes)"
-msgstr " کئریشن وَقت مئکلیئو (مِنٹس)"
-
 msgid "Current Host"
 msgstr "حآلی ہوسٹ"
 
@@ -820,9 +788,6 @@ msgstr "DHCP ایجینٹ"
 
 msgid "DNS Name Servers"
 msgstr "DNS سَرور نٲو"
-
-msgid "Date Updated"
-msgstr "تآریخ أپڈیٹ"
 
 msgid "Decrypt Password"
 msgstr "ڈیکریپٹ پآسوئرڈ"
@@ -1098,9 +1063,6 @@ msgstr "شیریئو سِپیک "
 msgid "Edit Subnet"
 msgstr "شیریئو  سب نیٹ"
 
-msgid "Edit Template"
-msgstr "شیریئو ٹیمپلیٹ"
-
 msgid "Edit Volume"
 msgstr "شیرئو والیوم"
 
@@ -1138,9 +1100,6 @@ msgstr "لاگو   DHCP"
 msgid "Enable HA mode"
 msgstr "لاگو HAموڈ"
 
-msgid "Enable rollback on create/update failure."
-msgstr "قابِل کئریو رول بئک بَنایئو/ اَپڈیٹ ناقامیابی مَنز"
-
 msgid "Enabled"
 msgstr "چآلو"
 
@@ -1165,15 +1124,6 @@ msgstr "داخل کریو ICMP رینج یَتھ رینج مَنز  (-1: 255)"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "داخل کریو اَکھ اینٹیجر  ویلیو ۱ تہ ۶۵۵۳۵ مَنز"
-
-msgid "Environment Data"
-msgstr "مٲحول  ڈیٹا"
-
-msgid "Environment File"
-msgstr "ماحول فآئل"
-
-msgid "Environment Source"
-msgstr "ماحول ضریعہٖ"
 
 msgid "Ephemeral Disk"
 msgstr "ایپحیمئرل ڈِسک"
@@ -1238,9 +1188,6 @@ msgstr "خآلی کئریو ہوسٹ"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "خآلی کئریو سئرور ژارمِت داون ہوسٹ پئٹھ ایکٹیو ٹآرگیٹ ہوسٹ تٲن"
-
-msgid "Events"
-msgstr "ایوینٹس"
 
 msgid "Extend Volume"
 msgstr "والیوم بئڈراویتھ"
@@ -1860,9 +1807,6 @@ msgstr "کئی -ویلیو جورہ"
 msgid "Language"
 msgstr "زَبان"
 
-msgid "Last Updated"
-msgstr "آخری اَپڈیٹِڈ"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "آخری اَپڈیٹِڈ"
@@ -1875,12 +1819,6 @@ msgstr "لانچ اِنسٹنس"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "لانچ کئریو اِنسٹئنسِز (کئوٹا گئو زیادہ)"
-
-msgid "Launch Parameters"
-msgstr "پیرامیٹر کئریو لانچ"
-
-msgid "Launch Stack"
-msgstr "لانچ کئریو سِٹیک"
 
 msgid "Launch as Instance"
 msgstr "لانچ کئریو اِنسٹئنس"
@@ -2013,9 +1951,6 @@ msgstr "کم از کم ڈِسک (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "کم از کمRAM (MB) "
 
-msgid "Minutes"
-msgstr "مِنٹس"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "شیریتھ ڈومین \"%s\""
@@ -2074,16 +2009,6 @@ msgstr "نٲو"
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "نآو مَنز گئژہ آسون صِرف حَرف، نمبر، انڈر سِکئورز، پیرڈس، تہٖ  ہیفِن"
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"نآو گئژہ شُروع  گئژہون اَکھ حَرُف سیتھ تہٕ ہیکئس آسیتھ صِرف حَرف، نیمبر، انڈر "
-"سِکئور، پیرڈس تہٕ ہیفِنز"
-
-msgid "Name of the stack to create."
-msgstr "تعداد سِٹیک بَناونُک"
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -2159,9 +2084,6 @@ msgstr " نئوہ  پآس وئرڈ "
 
 msgid "New size must be greater than current size."
 msgstr "نئوہ سآئز گئژہ آسون بوڈہ حآلی سآئز خوتہٕ "
-
-msgid "Next"
-msgstr "بیاکھ "
 
 msgid "No"
 msgstr "نہِ"
@@ -2335,9 +2257,6 @@ msgstr "آپشنلئی، توہیہٕ ہیکئو ژاریتھ بَناونہٕ �
 msgid "Other Protocol"
 msgstr "بآقی پروٹوکال"
 
-msgid "Outputs"
-msgstr "آوٹ پُٹ"
-
 msgid "Overview"
 msgstr "اوور ویو"
 
@@ -2346,9 +2265,6 @@ msgstr "مآلِک"
 
 msgid "Page Not Found"
 msgstr "پیج آو نہٕ لَبنہٕ "
-
-msgid "Parameters"
-msgstr "پیرامیٹر"
 
 msgid "Password"
 msgstr "پآس وئرڈ"
@@ -2359,10 +2275,6 @@ msgstr "پآس وئرڈ"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "پآسوئرڈ  بئدلائو۔ مہربآنی کئریتھ  دوبارہ کئریو لاگِن"
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "پآس وئرڈ یوزر خآطرہ  \"%s\""
 
 msgid "Passwords do not match."
 msgstr "پآس ورڈ چُھنہ رلان"
@@ -2383,10 +2295,6 @@ msgstr "فیزیکل نیٹوئرک"
 
 msgid "Please note: "
 msgstr "مہربآنی کئریتھ نوٹ کئریو: "
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr " مہربآنی کئریتھ  وَضاحت کئرُیو%s اِستعمال کئریتھ اَکھ  ضریعہٕ طریقہٕ"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2577,15 +2485,6 @@ msgstr "ریسآئز"
 msgid "Resize Instance"
 msgstr "دوبآرہ کریو سآئز اِنسٹنسِز"
 
-msgid "Resource"
-msgstr "زخیرزہ"
-
-msgid "Resource ID"
-msgstr "ریسوئرس ID"
-
-msgid "Resource Metadata"
-msgstr "ریسوئرس  میٹا ڈیٹا"
-
 msgid "Resources"
 msgstr "زخیرزہ"
 
@@ -2631,12 +2530,6 @@ msgstr "کامیابی سٲن کِٔرداراَپڈیٹ"
 
 msgid "Roles"
 msgstr "کردار"
-
-msgid "Rollback"
-msgstr "رول بیک"
-
-msgid "Rollback On Failure"
-msgstr "رول بئک  ناقامیابی مَنز"
 
 msgid "Root Disk"
 msgstr "روٹ ڈِسک"
@@ -2733,9 +2626,6 @@ msgstr "ژاریئو سِکریپٹ سورس"
 msgid "Select Subnet"
 msgstr "ژاریئو سب نیٹ"
 
-msgid "Select Template"
-msgstr "ژاریئو ٹیمپلیٹ"
-
 msgid "Select Volume"
 msgstr "ژاریئو والیوم "
 
@@ -2754,9 +2644,6 @@ msgstr "ژاریئو اَکھ نئوہ ایجینٹ "
 msgid "Select a new host"
 msgstr "ژاریئو اَکھ نئوہ ہوسٹ"
 
-msgid "Select a new template to re-launch a stack."
-msgstr "ژاریئو أکھ نئوہ ٹیمپلیٹ سِٹیک   ریلانچ کئرنہٕ خآطرہ"
-
 msgid "Select a port"
 msgstr "ژاریو اَکھ پورٹ"
 
@@ -2765,9 +2652,6 @@ msgstr "ژاریئو اَکھ پروجیکٹ"
 
 msgid "Select a target host"
 msgstr "ژاریئو اَکھ نِشآن دِہ ہوسٹ"
-
-msgid "Select a template to launch a stack."
-msgstr "ژاریئو اَکھ  ٹیمپلیٹ  لانچ کئرنہ خآطرہ اَکھ سِٹیک"
 
 msgid "Select a volume to restore to."
 msgstr "ژاریئو اَکھ والیوم واپس کئرنہٕ خآطرہ"
@@ -2921,42 +2805,6 @@ msgstr "وَضاحت کئریو تَفصیل اِنسٹنس لانچ خآطرہ"
 msgid "Specs"
 msgstr "سِپیکس"
 
-msgid "Stack Events"
-msgstr "سِٹیک ایوینٹس"
-
-msgid "Stack ID"
-msgstr "سِٹیک ID"
-
-msgid "Stack Name"
-msgstr "سِٹیک نٲو"
-
-msgid "Stack Parameters"
-msgstr "سِٹیک پیرامیٹر"
-
-msgid "Stack Resource"
-msgstr " سِٹیک زخیرزہ"
-
-msgid "Stack Resource ID"
-msgstr "سِٹیک ریسوئرس  ID"
-
-msgid "Stack Resource Type"
-msgstr " سِٹیک زخیرزہ قِسم"
-
-msgid "Stack Resources"
-msgstr " سِٹیک زخیرزہ"
-
-msgid "Stack creation started."
-msgstr " سِٹیک کئریشن شُروع"
-
-msgid "Stack creation timeout in minutes."
-msgstr " سِٹیک کئریشن وَقت مئکلیئو"
-
-msgid "Stack update started."
-msgstr " سِٹیک اَپڈیٹ شُروع کئورمُت"
-
-msgid "Stacks"
-msgstr " سِٹیکس"
-
 msgid "Start"
 msgstr "شروع"
 
@@ -2983,9 +2831,6 @@ msgstr "سِٹیٹس"
 
 msgid "Status ="
 msgstr "سِٹیٹس="
-
-msgid "Status Reason"
-msgstr "سِٹیٹس وَجہٕ"
 
 msgid "Subnet"
 msgstr "سب  نیٹ"
@@ -3102,21 +2947,6 @@ msgstr "نِشآن دہ ہوسٹ"
 
 msgid "Task"
 msgstr "کئم"
-
-msgid "Template"
-msgstr " ٹیمپلیٹ"
-
-msgid "Template Data"
-msgstr "ٹیمپلیٹ ڈیٹا"
-
-msgid "Template File"
-msgstr "ٹیمپلیٹ فآئل"
-
-msgid "Template Source"
-msgstr "ٹیمپلیٹ ضریعہٕ"
-
-msgid "Template URL"
-msgstr "ٹیمپلیٹ URL"
 
 msgid "The \"from\" port number is invalid."
 msgstr "پورٹ نمبر  چُھ نہ واجِب  \"from\" "
@@ -3251,12 +3081,6 @@ msgstr "زاتی کی یہ اِستعمال کرنہ تُہندِس براوزر
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "سیوڈو فولڈر  ہیکئو نہٖ خآلی کئریتھ کیازکہٕ یہٕ چُھنہٖ خٲلی"
 
-msgid "The raw contents of the environment file."
-msgstr "را کئنٹینٹ مٲحول فآئل ہِند"
-
-msgid "The raw contents of the template."
-msgstr "را کئنٹینٹ ٹیمپلیٹ ہِند"
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
@@ -3305,25 +3129,14 @@ msgstr ""
 "(cloud.key.pub)۔ پیسٹ کریو کنٹینٹ   عام کیفآیل یَتینس"
 
 msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "یہٕ چُھ ضروری اپریشن خآطرہ یُس کئرنہٕ یئہٕ   سِٹیک کئس لائف سآئکل مَنز"
-
-msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "یہٕ والیوم چُھ حآلی مَنز جوڈیتھ اَکس اِنسٹئنسِز سیتھ ۔ کونہٕ حآلس مَنز ، بَناوُن اَکہٕ "
 "سِنیپ شآٹس اَکہٕ جوڈمیت والیم سیتھ ہیکہٕ نَتیجہٕ کئریتھ  کئریپٹِڈ سِنیپ شآٹس مِنز"
 
-msgid "Time Since Event"
-msgstr "وَقت ایوینٹ گئژہنہٕ پَتہٕ "
-
 msgid "Time since created"
 msgstr "وَقت یئنہٕ بَناومُت"
-
-msgid "Timeout"
-msgstr "ٹآئم آوٹ"
 
 msgid "Timezone"
 msgstr "ٹآئم زون"
@@ -3366,9 +3179,6 @@ msgstr "سئوری ڈیسک اِستعمال(GB * گھنٹہٕ  اِستعمال
 
 msgid "Type"
 msgstr "قِسم"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -3519,10 +3329,6 @@ msgstr "نا قابِلVNC  کئنسول  اِنسٹئنس خآطرہ  اَنہ�
 msgid "Unable to get cinder services list."
 msgstr "نا قابِل واپس اَنہٕ خآطرہ سئنڈر سئوِس لِسٹ"
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "نا قابِل یَتھ ایوینٹ خآطرہ   سِٹیک  اَنہٕ ٕ خآطرہ  \"%s\""
-
 msgid "Unable to get flavor list"
 msgstr "نا قابِل فلوئر لِسٹ واپس  انہٕ خآطرہ"
 
@@ -3547,10 +3353,6 @@ msgstr "نا قابِل عئوپِن ٲر سی کئریڈینشل واپس اَ�
 
 msgid "Unable to get quota info."
 msgstr "نا قابِل  کئوٹا اِنفو انہٕ خآطرہ"
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "نا قابِل یَتھ  سِٹیک خآطرہ ضریعہٕ     اَنہٕ ٕ خآطرہ \"%s\""
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -3814,9 +3616,6 @@ msgstr "نا قابِل والیوم سِنیپ شآٹس واپس اَنہٕ  خ
 msgid "Unable to retrieve list of volumes."
 msgstr "نا قابِل والیوم لِسٹ واپس اَنہٕ  خآطرہ "
 
-msgid "Unable to retrieve metadata."
-msgstr "نا قابِل میٹا ڈیٹا واپس     اَنہٕ ٕ خآطرہ"
-
 msgid "Unable to retrieve network details."
 msgstr "نا قابِل نیٹ وئرک تٔفصیل واپس اَنہٕ خآطرہ۔ "
 
@@ -3849,9 +3648,6 @@ msgstr "نا قابِل عام شَکل واپس اَنہٕ خآطرہ"
 
 msgid "Unable to retrieve quota information."
 msgstr "نا قابِل کئوٹا اِطلاع واپس  اَنہٕ  خآطرہ "
-
-msgid "Unable to retrieve resource."
-msgstr "نا قابِل ضریعہٕ واپس اَنہٕ خآطرہ"
 
 msgid "Unable to retrieve role list."
 msgstr "ا قابِل واپس اَنہٕ ٕ خآطرہ  کئردار  لِسٹ"
@@ -3887,15 +3683,6 @@ msgstr "نا قابِل  سِنیپ شآٹس تَفصیل واپس اَنہٕ خ
 
 msgid "Unable to retrieve snapshot list."
 msgstr "نا قابِل سِنیپ شآٹس لِسٹ واپس     اَنہٕ ٕ خآطرہ"
-
-msgid "Unable to retrieve stack list."
-msgstr "نا قابِل سِٹیک لِسٹ    اَنہٕ ٕ خآطرہ"
-
-msgid "Unable to retrieve stack template."
-msgstr "نا قابِل سِٹیک ٹیمپلیٹ    اَنہٕ ٕ خآطرہ"
-
-msgid "Unable to retrieve stack."
-msgstr "نا قابِل سِٹیک    اَنہٕ ٕ خآطرہ"
 
 msgid "Unable to retrieve subnet details"
 msgstr "نا قابِل سب نیٹ تٔفصیل واپس اَنہٕ خآطرہ۔ "
@@ -4092,12 +3879,6 @@ msgstr "اِپڈیٹ کِٔردار"
 msgid "Update Router"
 msgstr "اَپڈیٹ کئریو راوٹر"
 
-msgid "Update Stack"
-msgstr "اَپڈیٹ سِٹیک"
-
-msgid "Update Stack Parameters"
-msgstr " اَپڈیٹ  سِٹیک پیرامیٹر"
-
 msgid "Update Status"
 msgstr " اَپڈیٹ کئریو سِٹیٹس"
 
@@ -4109,15 +3890,6 @@ msgstr "اَپڈیٹ والیوم  سِنیپ شآٹس"
 
 msgid "Update Volume Status"
 msgstr "اٗپڈیٹ کئریو والیوم سِٹیٹس"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"اَپڈیٹ اَکھ سِٹیک دِتمِت ویلیوز سیتھ ۔ مہربآنی کئریتھ نوٹ کئریو کہہ کاہ  "
-"اینکئریپٹ پیرامیٹر، مِثال پآسوئرڈ، یئہٕ ریسیٹ کئرنہٖ ڈیفالٹ سیتھ  اگر توہیہٕ تِم "
-"کئریو نہٕ تَبدیل یَتینس"
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -4178,13 +3950,6 @@ msgstr "اِستعمال کئریو والیوم ضریعہٕ پئٹٰھ"
 
 msgid "Use image as a source"
 msgstr "اِستعمال کئریو شکل ضریعہٕ پئٹٰھ"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"اِستعمال کئریو أکھ دَستِیاب  ٹیمپلیٹ ضریعہٖ آپشنس وَضاحت کئرنہٕ خآطرہ  ٹیمپلیٹ یُس "
-"اِستعمال یئہٕ کئرنہٕ سِٹیک بَناونہِ خآطرہ"
 
 msgid "Use snapshot as a source"
 msgstr "اِستعمال کئریو  اَکھ سِنیپ شآئٹس ضریعہٕ پئٹٰھ"
@@ -4437,9 +4202,6 @@ msgstr "توہیہٕ پئزیئو ژارُن اَکھ شکل"
 msgid "You must set volume size"
 msgstr "توہیہٕ پئزیئو  والیوم سآئز سیٹ کئرون"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "توہیہٕ پئزیو وَضاحت کئرُن اَکھ ٹیمپلیٹ اَکہٕ دَستِیاب ضریعہٕ سیتھ"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4465,17 +4227,11 @@ msgstr "پَتئُم -عند"
 msgid "dm-crypt"
 msgstr "ڈی ایم ـ کئریپٹ"
 
-msgid "environment"
-msgstr "ماحول"
-
 msgid "front-end"
 msgstr "بئتھُم -عند"
 
 msgid "instance"
 msgstr " اِنسٹنس"
-
-msgid "template"
-msgstr "ٹیمپلیٹ"
 
 msgid "undefined"
 msgstr "وَضاحت کئریتھ نہٖ"

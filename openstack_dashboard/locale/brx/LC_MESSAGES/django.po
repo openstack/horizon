@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-09 16:57+0000\n"
+"POT-Creation-Date: 2017-12-12 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,14 +44,6 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -103,14 +95,8 @@ msgstr ", प्रजेक्ट हानजाखौ आपडेट खा�
 msgid "-"
 msgstr "-"
 
-msgid "A local environment to upload."
-msgstr "आपल'ड खालामनो जायगानि आबहावा"
-
 msgid "A local image to upload."
 msgstr "आपल'ड खालामनो मोनसे जायगानि मुसुखा"
-
-msgid "A local template to upload."
-msgstr "आपल'ड खालामनो जायगानि टेमप्लेट"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -295,9 +281,6 @@ msgstr "रानना होखानाय फ्ल'टिं IP %(ip)s"
 msgid "Allocation Pools"
 msgstr "रानना होनाय पुल"
 
-msgid "An external (HTTP) URL to load the template from."
-msgstr "निफ्राय टेमप्लेटखौ ल'ड खालामनो बाइजोनि (HTTP) URL"
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -477,12 +460,6 @@ msgstr "सोलाय"
 
 msgid "Change Password"
 msgstr "पासवार्ड सोलाय"
-
-msgid "Change Stack Template"
-msgstr "स्टेक टेमप्लेटखौ सोलाय"
-
-msgid "Change Template"
-msgstr "टेमप्लेटखौ सोलाय"
 
 msgid "Change Volume Type"
 msgstr "भलिउम रोखोमखौ सोलाय"
@@ -709,9 +686,6 @@ msgstr "स्नेपसट सोरजि"
 msgid "Create Spec"
 msgstr "Spec खौ सोरजि"
 
-msgid "Create Stack"
-msgstr "स्टेकखौ सोरजि"
-
 msgid "Create Subnet"
 msgstr "साबनेट सोरजि"
 
@@ -753,9 +727,6 @@ msgstr "भलिउम रोखोमनि थाखाय \"बांद्�
 
 msgid "Create a new role."
 msgstr "गोदान बिफाव सोरजि"
-
-msgid "Create a new stack with the provided values."
-msgstr "होखानाय बेसेनजों गोदान स्टेक सोरजि"
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -841,9 +812,6 @@ msgstr "भलिउम बेकआप \"%s\" खौ सोरजिगास�
 msgid "Creating volume snapshot \"%s\"."
 msgstr "भलिउम स्नेपसट \"%s\" खौ सोरजिगासिनो दं।"
 
-msgid "Creation Timeout (minutes)"
-msgstr "सोरजिनाय सम-जोबनाय (मिनिट)"
-
 msgid "Current Host"
 msgstr "दानि हस्ट"
 
@@ -870,9 +838,6 @@ msgstr "DHCP थान्दै"
 
 msgid "DNS Name Servers"
 msgstr "DNS मुं सार्भार"
-
-msgid "Date Updated"
-msgstr "आपडेट खालामनाय अक्ट'"
 
 msgid "Decrypt Password"
 msgstr "पासवार्डखौ डिक्राइप्ट खालाम"
@@ -1140,9 +1105,6 @@ msgstr "Spec खौ सुजु"
 msgid "Edit Subnet"
 msgstr "साबनेट सुजु"
 
-msgid "Edit Template"
-msgstr "टेमप्लेट सुजु"
-
 msgid "Edit Volume"
 msgstr "भलिउमखौ सुजु"
 
@@ -1180,9 +1142,6 @@ msgstr "DHCP खौ हाहोनाय खालाम"
 msgid "Enable HA mode"
 msgstr "HA म'डखौ हाहोनाय खालाम"
 
-msgid "Enable rollback on create/update failure."
-msgstr "सोरजिनाय/आपडेट फेलेंआव रलबेकखौ हाहोनाय खालाम"
-
 msgid "Enabled"
 msgstr "हाहोनाय खालामबाय"
 
@@ -1207,15 +1166,6 @@ msgstr "ICMP रोखोमनि थाखाय बेसेनखौ सि�
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 आरो 65535 नि गेजेराव आबुं अनजिमा बेसेनखौ हाबहो"
-
-msgid "Environment Data"
-msgstr "आबहावा डाटा"
-
-msgid "Environment File"
-msgstr "आबहावा फाइल"
-
-msgid "Environment Source"
-msgstr "आबहावा फुंखा"
 
 msgid "Ephemeral Disk"
 msgstr "सानसेनि डिस्क"
@@ -1280,9 +1230,6 @@ msgstr "हस्टखौ लांदां खालाम"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "सायखखानाय गाहायनि हस्ट निफ्राय मावथि थांखि हस्ट सिम सार्भारखौ लांदां खालाम।"
-
-msgid "Events"
-msgstr "जाथाय"
 
 msgid "Extend Volume"
 msgstr "भलिउमखौ फेहेर"
@@ -1936,9 +1883,6 @@ msgstr "साबि-बेसेन जरा"
 msgid "Language"
 msgstr "राव"
 
-msgid "Last Updated"
-msgstr "जोबथा आपडेट"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "जोबथा आपडेट"
@@ -1951,12 +1895,6 @@ msgstr "बिदिन्थिखौ जागाय"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "बिदिन्थिखौ जागाय (क'टा बारबाय)"
-
-msgid "Launch Parameters"
-msgstr "पेरामिटारखौ जागाय"
-
-msgid "Launch Stack"
-msgstr "स्टेकखौ जागाय"
 
 msgid "Launch as Instance"
 msgstr "बिदिन्थि महरै जागाय"
@@ -2090,9 +2028,6 @@ msgstr "खमसिन डिस्क (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "खमसिन RAM (MB)"
 
-msgid "Minutes"
-msgstr "मिनिट"
-
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "डमेइन \"%s\" खौ सुद्रायबाय।"
@@ -2151,16 +2086,6 @@ msgstr "मुं"
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "मुंआव खालि हांखो, अनजिमा, आन्डारस्कर, समफारि आरो हाइफेन दं।"
-
-msgid ""
-"Name must start with a letter and may only contain letters, numbers, "
-"underscores, periods and hyphens."
-msgstr ""
-"मुंआ हांखोजों जागायनांगो आरो बेयाव खालि हांखो, अनजिमा, आन्डारस्कर, समफारि आरो हाइफेनल' "
-"दं।"
-
-msgid "Name of the stack to create."
-msgstr "सोरजिनो थाखाय स्टेकनि मुं"
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -2236,9 +2161,6 @@ msgstr "गोदान पासवार्ड"
 
 msgid "New size must be greater than current size."
 msgstr "गोदान महरआ दानि महर निख्रुइ गेदेरसिन जाथारनांगोन।"
-
-msgid "Next"
-msgstr "उननि"
 
 msgid "No"
 msgstr "नङा"
@@ -2416,9 +2338,6 @@ msgstr "गावनि गोसो बादियै, नोंथाङा �
 msgid "Other Protocol"
 msgstr "गुबुन प्र'ट'कल"
 
-msgid "Outputs"
-msgstr "आउटपुट"
-
 msgid "Overview"
 msgstr "अभारभिउ"
 
@@ -2427,9 +2346,6 @@ msgstr "बिगोमा"
 
 msgid "Page Not Found"
 msgstr "बिलाइखौ मोनाखै"
-
-msgid "Parameters"
-msgstr "पेरामिटार"
 
 msgid "Password"
 msgstr "पासवार्ड"
@@ -2440,10 +2356,6 @@ msgstr "पासवार्ड"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "पासवार्डआ सोलायबाय। सालाय लांबाय थानो आरोबाव लग-इन खालाम।"
-
-#, python-format
-msgid "Password for user \"%s\""
-msgstr "बाहायग्रा \"%s\" नि थाखाय पासवार्ड"
 
 msgid "Passwords do not match."
 msgstr "पासवार्डआ गोरोबा"
@@ -2468,10 +2380,6 @@ msgstr "फिजिकेल नेटवार्क:"
 
 msgid "Please note: "
 msgstr "नायनो गोनांदि: "
-
-#, python-format
-msgid "Please specify a %s using only one source method."
-msgstr "मोनसेल' फुंखा खान्थिनि हेफाजाबजों मोनसे %s खौ थिक खालाम।"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2726,15 +2634,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "फिन महर एबा माइग्रेट खालामगासिनो दं"
 
-msgid "Resource"
-msgstr "सम्पद"
-
-msgid "Resource ID"
-msgstr "सम्पद ID"
-
-msgid "Resource Metadata"
-msgstr "सम्पद मेटाडाटा"
-
 msgid "Resources"
 msgstr "सम्पद"
 
@@ -2796,12 +2695,6 @@ msgstr "बिफावखौ जाफुंसारै आपडेट खा
 
 msgid "Roles"
 msgstr "बिफाव"
-
-msgid "Rollback"
-msgstr "रलबेक"
-
-msgid "Rollback On Failure"
-msgstr "फेलेंआव रलबेक"
 
 msgid "Root Disk"
 msgstr "रुट डिस्क"
@@ -2906,9 +2799,6 @@ msgstr "स्क्रिप्ट फुंखा सायख"
 msgid "Select Subnet"
 msgstr "साबनेटखौ सायख"
 
-msgid "Select Template"
-msgstr "टेमप्लेटखौ सायख"
-
 msgid "Select Volume"
 msgstr "भलिउम सायख"
 
@@ -2927,9 +2817,6 @@ msgstr "गोदान थान्दै सायख"
 msgid "Select a new host"
 msgstr "गोदान हस्ट सायख"
 
-msgid "Select a new template to re-launch a stack."
-msgstr "स्टेकखौ फिन-जागायनो गोदान टेमप्लेटखौ सायख"
-
 msgid "Select a port"
 msgstr "मोनसे पर्टखौ सायख"
 
@@ -2938,9 +2825,6 @@ msgstr "मोनसे प्रजेक्ट सायख"
 
 msgid "Select a target host"
 msgstr "थांखि हस्टखौ सायख"
-
-msgid "Select a template to launch a stack."
-msgstr "स्टेकखौ जागायनो टेमप्लेटखौ सायख"
 
 msgid "Select a volume to restore to."
 msgstr "लाबोफिननो भलिउमखौ सायख।"
@@ -3146,42 +3030,6 @@ msgstr "बिदिन्थि जागायनायनि थाखाय 
 msgid "Specs"
 msgstr "स्पेस"
 
-msgid "Stack Events"
-msgstr "स्टेक जाथाय"
-
-msgid "Stack ID"
-msgstr "स्टेक ID"
-
-msgid "Stack Name"
-msgstr "स्टेक मुं"
-
-msgid "Stack Parameters"
-msgstr "स्टेक पेरामिटार"
-
-msgid "Stack Resource"
-msgstr "स्टेक सम्पद"
-
-msgid "Stack Resource ID"
-msgstr "स्टेक सम्पद ID"
-
-msgid "Stack Resource Type"
-msgstr "स्टेक सम्पद रोखोम"
-
-msgid "Stack Resources"
-msgstr "स्टेक सम्पद"
-
-msgid "Stack creation started."
-msgstr "स्टेक सोरजिनाया जागायबाय"
-
-msgid "Stack creation timeout in minutes."
-msgstr "मिनिटआव स्टेक सोरजिनाय सम-जोबनाय"
-
-msgid "Stack update started."
-msgstr "स्टेक आपडेटआ जागायबाय"
-
-msgid "Stacks"
-msgstr "स्टेक"
-
 msgid "Start"
 msgstr "जागाय"
 
@@ -3208,9 +3056,6 @@ msgstr "थाथाइ"
 
 msgid "Status ="
 msgstr "थाथाइ ="
-
-msgid "Status Reason"
-msgstr "थाथाइ जाहोन"
 
 msgid "Subnet"
 msgstr "साबनेट"
@@ -3331,21 +3176,6 @@ msgstr "थांखि हस्ट"
 
 msgid "Task"
 msgstr "टास्क"
-
-msgid "Template"
-msgstr "टेमप्लेट"
-
-msgid "Template Data"
-msgstr "टेमप्लेट डाटा"
-
-msgid "Template File"
-msgstr "टेमप्लेट फाइल"
-
-msgid "Template Source"
-msgstr "टेमप्लेट फुंखा"
-
-msgid "Template URL"
-msgstr "टेमप्लेट URL"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"निफ्राय\" पर्ट अनजिमाया बाहायजायै।"
@@ -3479,12 +3309,6 @@ msgstr "प्राइभेट साबिखौल' नोंथांनि
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "नंखाय फल्डारखौ खोमोरनो हाया मानोना बेयो लांदां नङा।"
 
-msgid "The raw contents of the environment file."
-msgstr "आबहावा फाइलनि गोथां आयदा"
-
-msgid "The raw contents of the template."
-msgstr "टेमप्लेटनि थाखाय गोथां आयदा"
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
@@ -3532,25 +3356,14 @@ msgstr ""
 "दोनो (cloud.key.pub). बेयाव राइजो-राजा साबि फाइलनि आयदाखौ फोनांजाब हो।"
 
 msgid ""
-"This is required for operations to be performed throughout the lifecycle of "
-"the stack"
-msgstr "स्टेकनि जीउ-जारिमिननि गेजेरजों मावफुंनो गोनां अपारेसननि थाखाय बेखौ नांगौ"
-
-msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "बे भलिउमखौ दासान्दि मोनसे बिदिन्थिजों नांजाबहोबाय। माखासे बुब्लिआव, नांजाब होखानाय "
 "भलिउम निफ्राय स्नेपसटखौ सोरजियोब्ला बेयो गाज्रि जानो हागौ।"
 
-msgid "Time Since Event"
-msgstr "जाथाय निफ्राय सम"
-
 msgid "Time since created"
 msgstr "सोरजिनाय निफ्राय दासिम सम"
-
-msgid "Timeout"
-msgstr "समजोबनाय"
 
 msgid "Timezone"
 msgstr "सम-ओनसोल"
@@ -3596,9 +3409,6 @@ msgstr "प्रजेक्टनि थाखाय गासै डिस्
 
 msgid "Type"
 msgstr "रोखोम"
-
-msgid "URL"
-msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
@@ -3749,10 +3559,6 @@ msgstr "बिदिन्थि \"%s\" नि थाखाय VNC कनस'ल
 msgid "Unable to get cinder services list."
 msgstr "सिन्डार सिबिथाय लिस्टखौ मोननो हायाखै।"
 
-#, python-format
-msgid "Unable to get events for stack \"%s\"."
-msgstr "स्टेक \"%s\" नि थाखाय जाथायखौ मोननो हायाखै।"
-
 msgid "Unable to get flavor list"
 msgstr "फ्लेभार लिस्टखौ मोननो हायाखै"
 
@@ -3777,10 +3583,6 @@ msgstr "openrc फोथायथावखौ मोननो हायाखै
 
 msgid "Unable to get quota info."
 msgstr "क'टा फोरमायथिहोग्रा मोननो हायाखै।"
-
-#, python-format
-msgid "Unable to get resources for stack \"%s\"."
-msgstr "स्टेक \"%s\" नि थाखाय सम्पदखौ मोननो हायाखै।"
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -4045,9 +3847,6 @@ msgstr "भलिउम स्नेपसटनि लिस्टखौ मो
 msgid "Unable to retrieve list of volumes."
 msgstr "भलिउमनि लिस्टखौ मोनफिननो हायाखै"
 
-msgid "Unable to retrieve metadata."
-msgstr "मेटाडाटाखौ मोनफिननो हायाखै।"
-
 msgid "Unable to retrieve network details."
 msgstr "नेटवार्क गुवारैखौ मोनफिननो हायाखै।"
 
@@ -4080,9 +3879,6 @@ msgstr "राइजो-राजा मुसुखाखौ मोनफिन
 
 msgid "Unable to retrieve quota information."
 msgstr "क'टा फोरमायथिहोग्राखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve resource."
-msgstr "सम्पदखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve role list."
 msgstr "बिफाव लिस्टखौ मोनफिननो हायाखै।"
@@ -4117,15 +3913,6 @@ msgstr "स्नेपसट गुवारैखौ मोनफिननो 
 
 msgid "Unable to retrieve snapshot list."
 msgstr "स्नेपसट लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve stack list."
-msgstr "स्टेक लिस्टखौ मोननो हायाखै।"
-
-msgid "Unable to retrieve stack template."
-msgstr "स्टेक टेमप्लेटखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve stack."
-msgstr "स्टेकखौ मोननो हायाखै।"
 
 msgid "Unable to retrieve subnet details"
 msgstr "साबनेट गुवारैखौ मोनफिननो हायाखै"
@@ -4329,12 +4116,6 @@ msgstr "बिफावखौ आपडेट खालाम"
 msgid "Update Router"
 msgstr "रुटारखौ आपडेट खालाम"
 
-msgid "Update Stack"
-msgstr "स्टेकखौ आपडेट खालाम"
-
-msgid "Update Stack Parameters"
-msgstr "स्टेक पेरामिटारखौ आपडेट खालाम"
-
 msgid "Update Status"
 msgstr "थाथाइखौ आपडेट खालाम"
 
@@ -4346,15 +4127,6 @@ msgstr "भलिउम स्नेपसट थाथाइखौ आपडे
 
 msgid "Update Volume Status"
 msgstr "भलिउम थाथाइखौ आपडेट खालाम"
-
-msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"होखानाय बेसेनजों स्टेकखौ आपडेट खालाम। नायनो गोनांदि पासवार्ड बादि जायखि जाया "
-"एनक्राइप्ट खालामखानाय पेरामिटारखौ डिफल्टआव फिन फजगोन जदि बेयाव नोंथाङा बेफोरखौ "
-"सोलायो।"
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -4419,13 +4191,6 @@ msgstr "भलिउमखौ फुंखा महरै बाहाय"
 
 msgid "Use image as a source"
 msgstr "मुसुखाखौ फुंखा महरै बाहाय"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"बे स्टेकखौ सोरजिनायाव बाहायनो गोनां टेमप्लेटखौ थिक खालामनो थाखाय मोननो हाथाव मोनसे "
-"टेमप्लेट फुंखा उफ्राखौ बाहाय"
 
 msgid "Use snapshot as a source"
 msgstr "स्नेपसटखौ फुंखा महरै बाहाय"
@@ -4677,9 +4442,6 @@ msgstr "नोंथाङा मोनसे मुसुखाखौ साय
 msgid "You must set volume size"
 msgstr "नोंथाङा भलिउम महरखौ सायखथारनांगोन"
 
-msgid "You must specify a template via one of the available sources."
-msgstr "मोनसे मोननो फुंखानि गेजेरजों नोंथाङा मोनसे टेमप्लेटखौ थिक खालामथारनांगोन।"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4709,17 +4471,11 @@ msgstr "मोननैबो"
 msgid "dm-crypt"
 msgstr "dm-क्राइप्ट"
 
-msgid "environment"
-msgstr "आबहावा"
-
 msgid "front-end"
 msgstr "फ्रन्ट-एन्ड"
 
 msgid "instance"
 msgstr "बिदिन्थि"
-
-msgid "template"
-msgstr "टेमप्लेट"
 
 msgid "undefined"
 msgstr "थि खालामै"
