@@ -327,7 +327,7 @@ SHOW_KEYSTONE_V2_RC = True
 # Dictionary of currently available angular features
 ANGULAR_FEATURES = {
     'images_panel': True,
-    'key_pairs_panel': False,
+    'key_pairs_panel': True,
     'flavors_panel': False,
     'domains_panel': False,
     'users_panel': False,

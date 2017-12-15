@@ -1,0 +1,9 @@
+<div ng-controller="horizon.app.core.keypairs.actions.ImportPublicKeyController as ctrl">
+  <load-edit title="{$ ctrl.title $}"
+             model="ctrl.public_key"
+             max-bytes="{$ 16 * 1024 $}"
+             key="public-key"
+             rows=8 required="true"
+             on-textarea-change="ctrl.onPublicKeyChange(textContent)">
+  </load-edit>
+</div>
