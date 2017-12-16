@@ -12,14 +12,14 @@
 # Tony <tfu@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev31\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-12 05:47+0000\n"
+"POT-Creation-Date: 2017-12-15 19:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-18 01:59+0000\n"
-"Last-Translator: Tony <tfu@redhat.com>\n"
+"PO-Revision-Date: 2017-12-15 03:18+0000\n"
+"Last-Translator: TigerFang <tigerfun@126.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -495,6 +495,10 @@ msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "确认删除镜像"
 
+msgid "Confirm Delete Key Pair"
+msgid_plural "Confirm Delete Key Pairs"
+msgstr[0] "确认删除密钥对"
+
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "确认删除角色"
@@ -616,6 +620,9 @@ msgstr ""
 "操作系统内安装<samp>cloud-init</samp>，您可以使用自定义脚本获取一个公钥并把它"
 "添加到用户账户中。"
 
+msgid "Customization Script"
+msgstr "定制化脚本"
+
 msgid "DNS Domain"
 msgstr "DNS 域"
 
@@ -708,6 +715,13 @@ msgstr "删除实例"
 msgid "Delete Interface"
 msgstr "删除接口"
 
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "删除密钥对"
+
+msgid "Delete Key Pairs"
+msgstr "删除密钥对"
+
 msgid "Delete Network"
 msgstr "删除网络"
 
@@ -746,6 +760,11 @@ msgstr[0] "删除 flavor： %s."
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "已删除的镜像： %s"
+
+#, python-format
+msgid "Deleted Key Pair: %s."
+msgid_plural "Deleted Key Pairs: %s."
+msgstr[0] "已删除密钥对：%s。"
 
 #, python-format
 msgid "Deleted Role: %s."
@@ -1136,6 +1155,9 @@ msgstr "影响您的配额"
 msgid "Import Key Pair"
 msgstr "导入秘钥对"
 
+msgid "Import Public Key"
+msgstr "导入公钥"
+
 msgid "Indicators"
 msgstr "标志"
 
@@ -1250,6 +1272,31 @@ msgstr ""
 "密钥对是您在实例创建后登陆进去的一种方式。\n"
 "选择一个您易于识别的密钥对名字，\n"
 "名字只能由半角的字母、数字、空格、减号组成。"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize and paste your SSH public key "
+"into the\n"
+"  space provided."
+msgstr ""
+"在您启动了实例后使用密钥对进行登录。\n"
+"选择一个容易辨识的密钥对名称并将您的SSH公钥粘贴到空白处。"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"在您启动了实例后使用密钥对登录。\n"
+"选择一个容易辨识的密钥对名称。\n"
+"名称中只能包含字母，空格或者破折号。"
+
+#, python-format
+msgid "Key pair %(name)s was successfully created."
+msgstr "成功创建了密钥对%(name)s。"
+
+msgid "Key pair already exists."
+msgstr "密钥对已存在。"
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr "密钥对已经存在或者名称包含不安全的字符。"
@@ -1436,6 +1483,9 @@ msgstr "月"
 
 msgid "Name"
 msgstr "名称"
+
+msgid "Name/ID"
+msgstr "名称/ID"
 
 msgid "Names:"
 msgstr "名称："
@@ -2303,6 +2353,11 @@ msgid "There are no Availability Zones."
 msgstr "没有可用域。"
 
 msgid ""
+"There are no allowed boot\n"
+"      sources. If you think this is wrong please contact your administrator."
+msgstr "没有被允许的引导资源。如果您有疑问请联系管理员。"
+
+msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
@@ -2436,6 +2491,9 @@ msgstr "无法绑定浮动IP地址。"
 msgid "Unable to change the container access."
 msgstr "无法更改容器访问类型。"
 
+msgid "Unable to check the Nova service feature."
+msgstr "无法检测Nova各服务状态。"
+
 msgid "Unable to copy the object."
 msgstr "无法复制对象。"
 
@@ -2450,6 +2508,9 @@ msgstr "无法创建实例类型。"
 
 msgid "Unable to create the folder."
 msgstr "无法创建文件夹。"
+
+msgid "Unable to create the group."
+msgstr "无法创建分组。"
 
 msgid "Unable to create the image."
 msgstr "无法创建镜像。"
@@ -2475,6 +2536,9 @@ msgstr "无法创建服务器。"
 msgid "Unable to create the subnet."
 msgstr "无法创建子网。"
 
+msgid "Unable to create the trunk."
+msgstr "无法创建trunk。"
+
 msgid "Unable to create the user."
 msgstr "无法创建用户。"
 
@@ -2490,6 +2554,11 @@ msgstr[0] "无法删除 flavor：%s。"
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "无法删除镜像： %s 。"
+
+#, python-format
+msgid "Unable to delete Key Pair: %s."
+msgid_plural "Unable to delete Key Pairs: %s."
+msgstr[0] "无法删除密钥对：%s。"
 
 #, python-format
 msgid "Unable to delete Role: %s."
@@ -2517,9 +2586,19 @@ msgstr "无法删除 ID 为 %(id)s 的实例类型"
 msgid "Unable to delete the folder because it is not empty."
 msgstr "无法删除文件夹，因为它非空。"
 
+msgid "Unable to delete the group."
+msgstr "无法删除分组。"
+
+msgid "Unable to delete the groups."
+msgstr "无法删除这些分组。"
+
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "无法删除 ID 为 %(id)s 的镜像"
+
+#, python-format
+msgid "Unable to delete the keypair with name: %(name)s"
+msgstr "无法删除名为%(name)s的密钥对"
 
 msgid "Unable to delete the object."
 msgstr "无法删除对象。"
@@ -2567,6 +2646,9 @@ msgstr "无法编辑域。"
 
 msgid "Unable to edit the flavor extra specs."
 msgstr "无法编辑类型额外的规格。"
+
+msgid "Unable to edit the group."
+msgstr "无法编辑分组。"
 
 msgid "Unable to edit the image custom properties."
 msgstr "无法编辑镜像的定制属性。"
@@ -2715,6 +2797,9 @@ msgstr "无法获取类型。"
 msgid "Unable to retrieve the flavors."
 msgstr "无法获取类型。"
 
+msgid "Unable to retrieve the group."
+msgstr "无法获取分组。"
+
 msgid "Unable to retrieve the image custom properties."
 msgstr "无法获得镜像的定制属性。"
 
@@ -2723,6 +2808,9 @@ msgstr "无法获取镜像。"
 
 msgid "Unable to retrieve the images."
 msgstr "无法获取镜像。"
+
+msgid "Unable to retrieve the keypair."
+msgstr "无法获取到密钥对。"
 
 msgid "Unable to retrieve the keypairs."
 msgstr "无法获取密钥对。"
@@ -2788,6 +2876,9 @@ msgstr "无法获取用户。"
 msgid "Unable to retrieve the users."
 msgstr "无法获取用户。"
 
+msgid "Unable to retrieve the volume availability zones."
+msgstr "无法获取卷可用域。"
+
 msgid "Unable to retrieve the volume metadata."
 msgstr "无法获得卷元数据。"
 
@@ -2843,6 +2934,9 @@ msgstr "无法更新实例类型。"
 
 msgid "Unable to update the image."
 msgstr "无法删除镜像。"
+
+msgid "Unable to update the trunk."
+msgstr "无法更新trunk。"
 
 msgid "Unable to upload the object."
 msgstr "无法上传对象。"
@@ -3156,6 +3250,11 @@ msgstr[0] "已选择 \"%s\"。删除 flavor 不可恢复。"
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "您选择了“%s”。删除的镜像均无法恢复。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted key pair is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
+msgstr[0] "您选择了“%s”。密钥对删除后无法恢复。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."

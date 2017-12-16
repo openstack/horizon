@@ -1,16 +1,17 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
+"Project-Id-Version: horizon 13.0.0.0b3.dev31\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-01 00:01+0000\n"
+"POT-Creation-Date: 2017-12-15 19:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-03 06:03+0000\n"
+"PO-Revision-Date: 2017-12-14 12:59+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -131,6 +132,12 @@ msgstr "%s를 확인하세요."
 msgid "Confirm Delete Foobars"
 msgstr "Foobar 삭제 확인"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Content size: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+msgstr ""
+"콘텐츠 크기: {$ ::maxBytes | bytes $} 중 {$ (textBytes || 0) | bytes $}"
+
 msgid "Current Usage"
 msgstr "현재 사용량"
 
@@ -227,6 +234,9 @@ msgstr "잘못된 유형, 예상값 {$schema.type$}"
 
 msgid "Keyword failed: '{$title$}'"
 msgstr "키워드 실패: '{$title$}'"
+
+msgid "Load {$ ::title $} from a file"
+msgstr "파일에서 {$ ::title $} 읽어오기"
 
 msgid "Loading"
 msgstr "불러오는 중"
@@ -350,6 +360,9 @@ msgid ""
 "missing information."
 msgstr ""
 "작업을 진행할 수 없습니다. 이 행 내용에 오류가 있거나 정보가 누락되었습니다."
+
+msgid "The content is larger than the maximum byte size"
+msgstr "콘텐츠가 최대 바이트 크기보다 큽니다"
 
 msgid "The data in this field is invalid"
 msgstr "해당 필드의 데이터에 오류가 있습니다."

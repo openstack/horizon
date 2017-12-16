@@ -1,0 +1,85 @@
+# TigerFang <tigerfun@126.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 13.0.0.0b3.dev31\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-12-15 19:34+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-12-12 02:10+0000\n"
+"Last-Translator: TigerFang <tigerfun@126.com>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh-CN\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "An error occurred authenticating. Please try again later."
+msgstr "验证过程中发生错误。请稍后重试。"
+
+msgid "Authenticate using"
+msgstr "用于认证"
+
+msgid "Could not find service provider ID on Keystone."
+msgstr "Keystone中无法找到服务提供者。"
+
+msgid "Domain"
+msgstr "域"
+
+msgid "Invalid credentials."
+msgstr "证书不可用。"
+
+msgid "K2K Federation not setup for this session"
+msgstr "当前会话中没有设置K2K联盟。"
+
+msgid ""
+"No authentication backend could be determined to handle the provided "
+"credentials."
+msgstr "对于提供的证书，无法找到对应的认证后端来进行处理。"
+
+msgid "Password"
+msgstr "密码"
+
+#, python-format
+msgid "Please consider changing your password, it will expire in %s minutes"
+msgstr "您的密码将于%s后过期，请及时修改"
+
+#, python-format
+msgid "Project switch failed for user \"%(username)s\"."
+msgstr "用户\"%(username)s\"切换项目失败。"
+
+msgid "Region"
+msgstr "区域"
+
+#, python-format
+msgid "Service provider authentication failed. %s"
+msgstr "服务提供者验证失败。 %s"
+
+#, python-format
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\"successful."
+msgstr "成功切换至Keystone提供者\"%(keystone_provider)s\"。"
+
+#, python-format
+msgid "Switch to project \"%(project_name)s\" successful."
+msgstr "成功切换到\"%(project_name)s\"项目。"
+
+msgid "The authentication token issued by the Identity service has expired."
+msgstr "认证服务中使用的验证令牌已经过期。"
+
+msgid "Unable to establish connection to keystone endpoint."
+msgstr "无法与keystone服务终端建立连接。"
+
+msgid "Unable to retrieve authorized domains."
+msgstr "无法获取授权的域。"
+
+msgid "Unable to retrieve authorized projects."
+msgstr "无法获取授权的项目。"
+
+msgid "User Name"
+msgstr "用户名"
+
+msgid "You are not authorized for any projects or domains."
+msgstr "您没有任何授权的项目或者域。"
+
+msgid "You are not authorized for any projects."
+msgstr "您没有任何授权的项目。"
