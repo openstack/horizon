@@ -224,6 +224,14 @@ LOGGING['loggers'].update(
             'handlers': ['test'],
             'propagate': False,
         },
+        'oslo_policy': {
+            'handlers': ['test'],
+            'propagate': False,
+        },
+        'stevedore': {
+            'handlers': ['test'],
+            'propagate': False,
+        },
         'iso8601': {
             'handlers': ['null'],
             'propagate': False,
