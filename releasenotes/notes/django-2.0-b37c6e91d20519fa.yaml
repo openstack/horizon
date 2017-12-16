@@ -1,0 +1,6 @@
+---
+upgrade:
+  - |
+    Django 2.0 support is added as experimental.
+    Support for Django 1.10 or older releases is dropped.
+    Django 1.11 (LTS) is still the primary supported Django version.

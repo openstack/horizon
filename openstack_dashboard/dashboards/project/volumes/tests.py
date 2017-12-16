@@ -17,7 +17,6 @@ import copy
 import mock
 import six
 
-import django
 from django.conf import settings
 from django.forms import widgets
 from django.template.defaultfilters import slugify
@@ -616,12 +615,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertFormError(res, 'form', None,
                              "The volume size cannot be less than the "
                              "snapshot size (40GiB)")
-        if django.VERSION >= (1, 9):
-            self.assertEqual(3, self.mock_volume_type_list.call_count)
-            self.assertEqual(2, self.mock_volume_type_default.call_count)
-        else:
-            self.assertEqual(2, self.mock_volume_type_list.call_count)
-            self.assertEqual(1, self.mock_volume_type_default.call_count)
+        self.assertEqual(3, self.mock_volume_type_list.call_count)
+        self.assertEqual(2, self.mock_volume_type_default.call_count)
 
         self.mock_volume_snapshot_get.assert_called_with(test.IsHttpRequest(),
                                                          str(snapshot.id))
@@ -788,12 +783,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.assertFormError(res, 'form', None, msg)
 
-        if django.VERSION >= (1, 9):
-            self.assertEqual(3, self.mock_volume_type_list.call_count)
-            self.assertEqual(2, self.mock_volume_type_default.call_count)
-        else:
-            self.assertEqual(2, self.mock_volume_type_list.call_count)
-            self.assertEqual(1, self.mock_volume_type_default.call_count)
+        self.assertEqual(3, self.mock_volume_type_list.call_count)
+        self.assertEqual(2, self.mock_volume_type_default.call_count)
 
         self.assertEqual(2, self.mock_tenant_limit_usages.call_count)
         self.mock_image_get.assert_called_with(test.IsHttpRequest(),
@@ -835,14 +826,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertFormError(res, 'form', None,
                              "The volume size cannot be less than the "
                              "image minimum disk size (30GiB)")
-        if django.VERSION >= (1, 9):
-            self.assertEqual(3, self.mock_volume_type_list.call_count)
-            self.assertEqual(2, self.mock_volume_type_default.call_count)
-            self.assertEqual(2, self.mock_availability_zone_list.call_count)
-        else:
-            self.assertEqual(2, self.mock_volume_type_list.call_count)
-            self.assertEqual(1, self.mock_volume_type_default.call_count)
-            self.assertEqual(1, self.mock_availability_zone_list.call_count)
+        self.assertEqual(3, self.mock_volume_type_list.call_count)
+        self.assertEqual(2, self.mock_volume_type_default.call_count)
+        self.assertEqual(2, self.mock_availability_zone_list.call_count)
 
         self.mock_image_get.assert_called_with(test.IsHttpRequest(),
                                                str(image.id))
@@ -904,16 +890,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                           ' have 20GiB of your quota available.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
-        if django.VERSION >= (1, 9):
-            self.assertEqual(3, self.mock_volume_type_list.call_count)
-            self.assertEqual(2, self.mock_volume_type_default.call_count)
-            self.assertEqual(2, self.mock_volume_list.call_count)
-            self.assertEqual(2, self.mock_availability_zone_list.call_count)
-        else:
-            self.assertEqual(2, self.mock_volume_type_list.call_count)
-            self.assertEqual(1, self.mock_volume_type_default.call_count)
-            self.assertEqual(1, self.mock_volume_list.call_count)
-            self.assertEqual(1, self.mock_availability_zone_list.call_count)
+        self.assertEqual(3, self.mock_volume_type_list.call_count)
+        self.assertEqual(2, self.mock_volume_type_default.call_count)
+        self.assertEqual(2, self.mock_volume_list.call_count)
+        self.assertEqual(2, self.mock_availability_zone_list.call_count)
 
         self.assertEqual(2, self.mock_tenant_limit_usages.call_count)
         self.mock_volume_snapshot_list.assert_called_with(
@@ -963,14 +943,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                           ' volumes.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
-        if django.VERSION >= (1, 9):
-            self.assertEqual(3, self.mock_volume_type_list.call_count)
-            self.assertEqual(2, self.mock_volume_type_default.call_count)
-            self.assertEqual(2, self.mock_availability_zone_list.call_count)
-        else:
-            self.assertEqual(2, self.mock_volume_type_list.call_count)
-            self.assertEqual(1, self.mock_volume_type_default.call_count)
-            self.assertEqual(1, self.mock_availability_zone_list.call_count)
+        self.assertEqual(3, self.mock_volume_type_list.call_count)
+        self.assertEqual(2, self.mock_volume_type_default.call_count)
+        self.assertEqual(2, self.mock_availability_zone_list.call_count)
 
         self.mock_volume_snapshot_list.assert_called_with(
             test.IsHttpRequest(), search_opts=SEARCH_OPTS)

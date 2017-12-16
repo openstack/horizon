@@ -22,7 +22,6 @@ from importlib import import_module
 import six
 from six import moves
 
-import django
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ImproperlyConfigured
@@ -310,10 +309,7 @@ class HorizonTests(BaseHorizonTests):
 
         self.client.logout()
         resp = self.client.get(url)
-        if django.VERSION >= (1, 9):
-            self.assertRedirects(resp, settings.TESTSERVER + redirect_url)
-        else:
-            self.assertRedirects(resp, redirect_url)
+        self.assertRedirects(resp, settings.TESTSERVER + redirect_url)
 
         # Set SSL settings for test server
         settings.SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL',

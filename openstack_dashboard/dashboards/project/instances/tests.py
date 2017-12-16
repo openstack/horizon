@@ -1783,18 +1783,11 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         # NOTE(adriant): Django 1.11 changes the checked syntax to use html5
         # "checked" rather than XHTML's "checked='checked'".
-        if django.VERSION >= (1, 11):
-            checked_box = (
-                '<input type="checkbox" name="network" '
-                'value="82288d84-e0a5-42ac-95be-e6af08727e42" '
-                'id="id_network_0" checked />'
-            )
-        else:
-            checked_box = (
-                '<input type="checkbox" name="network" '
-                'value="82288d84-e0a5-42ac-95be-e6af08727e42" '
-                'id="id_network_0" checked="checked" />'
-            )
+        checked_box = (
+            '<input type="checkbox" name="network" '
+            'value="82288d84-e0a5-42ac-95be-e6af08727e42" '
+            'id="id_network_0" checked />'
+        )
         if only_one_network:
             self.assertContains(res, checked_box, html=True)
         else:

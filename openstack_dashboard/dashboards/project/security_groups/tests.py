@@ -21,7 +21,6 @@ import cgi
 from mox3.mox import IsA
 import six
 
-import django
 from django.conf import settings
 from django import http
 from django.urls import reverse
@@ -478,9 +477,7 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.neutron.security_group_list(
-            IsA(http.HttpRequest)).AndReturn(sec_group_list)
-        if django.VERSION >= (1, 9):
+        for i in range(2):
             api.neutron.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
 
@@ -503,13 +500,9 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        for i in range(3):
+        for i in range(6):
             api.neutron.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
-        if django.VERSION >= (1, 9):
-            for i in range(3):
-                api.neutron.security_group_list(
-                    IsA(http.HttpRequest)).AndReturn(sec_group_list)
 
         self.mox.ReplayAll()
 
@@ -559,10 +552,7 @@ class SecurityGroupsViewTests(test.TestCase):
         icmp_rule = self.security_group_rules.list()[1]
 
         # Call POST 5 times (*2 if Django >= 1.9)
-        call_post = 5
-        if django.VERSION >= (1, 9):
-            call_post *= 2
-
+        call_post = 5 * 2
         for i in range(call_post):
             api.neutron.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
@@ -921,9 +911,7 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.neutron.security_group_list(
-            IsA(http.HttpRequest)).AndReturn(sec_group_list)
-        if django.VERSION >= (1, 9):
+        for i in range(2):
             api.neutron.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
 

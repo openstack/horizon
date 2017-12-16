@@ -25,7 +25,6 @@ import os
 import traceback
 import unittest
 
-import django
 from django.conf import settings
 from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
@@ -330,14 +329,10 @@ class TestCase(horizon_helpers.TestCase):
         Asserts that the given response issued a 302 redirect without
         processing the view which is redirected to.
         """
-        if django.VERSION >= (1, 9):
-            loc = six.text_type(response._headers.get('location', None)[1])
-            loc = http.urlunquote(loc)
-            expected_url = http.urlunquote(expected_url)
-            self.assertEqual(loc, expected_url)
-        else:
-            self.assertEqual(response._headers.get('location', None),
-                             ('Location', settings.TESTSERVER + expected_url))
+        loc = six.text_type(response._headers.get('location', None)[1])
+        loc = http.urlunquote(loc)
+        expected_url = http.urlunquote(expected_url)
+        self.assertEqual(loc, expected_url)
         self.assertEqual(response.status_code, 302)
 
     def assertNoFormErrors(self, response, context_name="form"):

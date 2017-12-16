@@ -17,7 +17,6 @@ import logging
 import os
 import unittest
 
-import django
 from django import http
 from django.test.utils import override_settings
 from django.urls import reverse
@@ -277,14 +276,9 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.get(reverse('horizon:identity:projects:create'))
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
-        if django.VERSION >= (1, 10):
-            pattern = ('<input autocomplete="off" class="form-control" '
-                       'id="id_subnet" min="-1" '
-                       'name="subnet" type="number" value="10" required/>')
-        else:
-            pattern = ('<input autocomplete="off" class="form-control" '
-                       'id="id_subnet" min="-1" '
-                       'name="subnet" type="number" value="10"/>')
+        pattern = ('<input autocomplete="off" class="form-control" '
+                   'id="id_subnet" min="-1" '
+                   'name="subnet" type="number" value="10" required/>')
         self.assertContains(res, pattern, html=True)
 
         workflow = res.context['workflow']
