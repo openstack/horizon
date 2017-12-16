@@ -14,26 +14,19 @@
 Wrapper for loading templates from "templates" directories in panel modules.
 """
 
-import io
 import os
 
-import django
-from django.conf import settings
-from django.template.engine import Engine
-from django.template.loaders.base import Loader as tLoaderCls
+from django.core.exceptions import SuspiciousFileOperation
+from django.template.loaders import filesystem as filesystem_loader
+from django.template import Origin
 from django.utils._os import safe_join
 
-if django.VERSION >= (1, 9):
-    from django.template.exceptions import TemplateDoesNotExist
-else:
-    from django.template.base import TemplateDoesNotExist
 
 # Set up a cache of the panel directories to search.
 panel_template_dirs = {}
 
 
-class TemplateLoader(tLoaderCls):
-    is_usable = True
+class TemplateLoader(filesystem_loader.Loader):
 
     def get_template_sources(self, template_name):
         bits = template_name.split('/', 2)
@@ -43,23 +36,14 @@ class TemplateLoader(tLoaderCls):
             if key in panel_template_dirs:
                 template_dir = panel_template_dirs[key]
                 try:
-                    yield safe_join(template_dir, panel_name, remainder)
+                    name = safe_join(template_dir, panel_name, remainder)
+                    yield Origin(name=name,
+                                 template_name=template_name,
+                                 loader=self)
                 except UnicodeDecodeError:
                     # The template dir name wasn't valid UTF-8.
                     raise
-                except ValueError:
-                    # The joined path was located outside of template_dir.
+                except SuspiciousFileOperation:
+                    # The joined path was located outside of this template_dir
+                    # (it might be inside another one, so this isn't fatal).
                     pass
-
-    def load_template_source(self, template_name, template_dirs=None):
-        for path in self.get_template_sources(template_name):
-            try:
-                with io.open(path, encoding=settings.FILE_CHARSET) as file:
-                    return (file.read(), path)
-            except IOError:
-                pass
-        raise TemplateDoesNotExist(template_name)
-
-
-e = Engine()
-_loader = TemplateLoader(e)
