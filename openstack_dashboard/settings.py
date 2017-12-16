@@ -114,7 +114,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'horizon.middleware.OperationLogMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'horizon.middleware.HorizonMiddleware',
     'horizon.themes.ThemeMiddleware',
     'django.middleware.locale.LocaleMiddleware',
