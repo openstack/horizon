@@ -1,0 +1,415 @@
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
+# Yasir Mohammed Elsharif Elgaylani Elsharif <yasir.elsharif@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 12.0.2.dev10\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-12-14 03:56+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-12-15 04:51+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=6; plural= n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#, python-format
+msgid ""
+"\n"
+"            Displaying %(counter)s item"
+msgid_plural ""
+"\n"
+"            Displaying %(counter)s items"
+msgstr[0] ""
+"\n"
+"            عرض %(counter)s عنصر"
+msgstr[1] ""
+"\n"
+"            عرض %(counter)s عنصر"
+msgstr[2] ""
+"\n"
+"            عرض %(counter)s عنصر"
+msgstr[3] ""
+"\n"
+"            عرض %(counter)s عنصر"
+msgstr[4] ""
+"\n"
+"            عرض %(counter)s عنصر"
+msgstr[5] ""
+"\n"
+"            عرض %(counter)s عنصر"
+
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
+
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
+
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
+
+#, python-format
+msgid "%(size)d Byte"
+msgid_plural "%(size)d Bytes"
+msgstr[0] "%(size)d بايت"
+msgstr[1] "%(size)d بايت"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#, python-format
+msgid "%s EB"
+msgstr "%s إكسابايت"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s قيقابايت"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s كيلوبايت"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s ميقابايت"
+
+#, python-format
+msgid "%s PB"
+msgstr "%s بيتابايت"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s تيرابايت"
+
+#, python-format
+msgid "%s YB"
+msgstr "%s يوتابايت"
+
+#, python-format
+msgid "%s ZB"
+msgstr "%s زيتابايت"
+
+#, python-format
+msgid "%s completed successfully."
+msgstr "إكتملت %s بنجاح"
+
+#, python-format
+msgid "%s did not complete."
+msgstr "لم تكتمل %s "
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;قبله"
+
+msgid "(No Limit)"
+msgstr "(بدون حدود)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 بايت"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "%(resource)s بإسم \"%(name)s\" موجود\\ة مسبقاً"
+
+msgid "Actions"
+msgstr "الإجراءات"
+
+msgid "Active Instances:"
+msgstr "المخدمات السحابية النشطة:"
+
+msgid "Active RAM:"
+msgstr "ذاكرة الوصول العشوائي النشطة"
+
+msgid "Add a row"
+msgstr "أضف صف"
+
+msgid "All available"
+msgstr "الكل متاح"
+
+msgid "Available"
+msgstr "متوفر"
+
+msgid "Back"
+msgstr "إلى الخلف"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Connect"
+msgstr "إتصل"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "عرض %(content_items)s عنصر"
+msgstr[1] "عرض %(content_items)s عناصر"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "عرض  %(nav_items)s عنصر"
+msgstr[1] "عرض  %(nav_items)s عناصر"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "خطأ في معالجة ملف جسون الرسالة '%(path)s': %(exception)s"
+
+msgid "Error: "
+msgstr "خطأ :"
+
+msgid "Fake"
+msgstr "مزور"
+
+msgid "Filter"
+msgstr "انتقاء"
+
+msgid "Horizon"
+msgstr "هوريزون"
+
+msgid ""
+"If you are not sure which authentication method to use, contact your "
+"administrator."
+msgstr "إذا لم تكن متأكدا من أسلوب المصادقة المطلوب استخدامه، فاتصل بالمسؤول."
+
+msgid "Incorrect format for IP address"
+msgstr "صيغة العنوان IP غير صحيحة."
+
+msgid "Infinity"
+msgstr "هوية"
+
+msgid "Info: "
+msgstr "معلومات :"
+
+msgid "Invalid MAC Address format"
+msgstr "صيغة عنوان الماك غير صحيحة"
+
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr ""
+"إدخال البيانات الوصفية غير صالح. استخدم أزواج المفتاح = قيمة مفصولة بفواصل"
+
+msgid "Invalid subnet mask"
+msgstr "قناع الشبكة الفرعية غير صحيح"
+
+msgid "Invalid version for IP address"
+msgstr "نموذج العنوان IP الذي تم اختياره غير صحيح."
+
+msgid "Keystone Providers:"
+msgstr "موفري خدمة Keystone "
+
+msgid "Limit Summary"
+msgstr "ملخص الحد"
+
+msgid "Log in"
+msgstr "تسجيل الدخول"
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\">home page</a>"
+msgstr ""
+"سجل الدخول كمستخدم مختلف أو عد إلى <a href=\"%(home_url)s\">الصفحة الرئيسية</"
+"a>"
+
+msgid "Members"
+msgstr "الأعضاء"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "رسالة ملف جيسون '%(path)s' غير صحيحة. %(exception)s"
+
+msgid "More Actions"
+msgstr "المزيد من الإجراءات"
+
+msgid "Navigation Item"
+msgstr "عنصرتصفح"
+
+msgid "Never"
+msgstr "لا"
+
+msgid "Next"
+msgstr "إلى الأمام"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "بعده&nbsp;&raquo;"
+
+msgid "No items to display."
+msgstr "لا توجد عناصر للإظهار."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "لم يتم عرض أي تطابق للمعرف \"%s\"."
+
+msgid "No members."
+msgstr "لايوجد أي عضو."
+
+msgid "None available."
+msgstr "لاشيء متوفر."
+
+msgid "Not a valid ICMP code"
+msgstr "رمز ICMP غير صحيح"
+
+msgid "Not a valid ICMP type"
+msgstr "نوع ICMP غير صحيح"
+
+msgid "Not a valid IP protocol number"
+msgstr "بروتوكول IP  غير صحيح"
+
+msgid "Not a valid port number"
+msgstr "رقم منفذ غير صحيح"
+
+msgid "One colon allowed in port range"
+msgstr "مسموح بفاصلة واحدة في مجال المنفذ"
+
+msgid "Other"
+msgstr "غيره"
+
+msgid "Password is not accepted"
+msgstr "لم يتم قبول كلمة المرور"
+
+msgid "Please confirm your selection."
+msgstr "الرجاء تأكيد الإختيار"
+
+msgid "Please log in to continue."
+msgstr "الرجاء تسجيل الدخول للمتابعة."
+
+msgid "Please select a row before taking that action."
+msgstr "يرجى تحديد عنصر قبل اتخاذ هذا الإجراء."
+
+msgid "Please specify a search criteria first."
+msgstr "يرجى تحديد معايير البحث أولاً."
+
+msgid "Processing..."
+msgstr "تجهيز ..."
+
+msgid "Save"
+msgstr "حفظ"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "المرجو تحديد العنصر %s  لتصفحه."
+
+msgid "Select a period of time to query its usage:"
+msgstr "حدد فترة زمنية للاستعلام عن الاستخدام فيها:"
+
+msgid "Sign In"
+msgstr "تسجيل الدخول"
+
+msgid "Submit"
+msgstr "نفذ"
+
+msgid "Success: "
+msgstr "تم الإجراء بنجاح :"
+
+msgid "Summary"
+msgstr "ملخص"
+
+msgid ""
+"The current user has insufficient permission to complete the requested task."
+msgstr "المستخدم الحالي ليس لديه صلاحية كافية لإكمال المهمة المطلوبة."
+
+msgid "The date should be in YYYY-MM-DD format."
+msgstr "يجب أن يكون التاريخ بصيغة YYYY-MM-DD."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "يجب أن تحتوي السلسلة على أحرف ASCII القابلة للطباعة فقط."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"إن قيمة %(resource)s في القالب هي %(name)s.  يجب أن تبدأ القيمة ب \"http://"
+"\" أو \"https://\" عند بدء ستاك من هذه الواجهة"
+
+msgid "This Period's GB-Hours:"
+msgstr "عدد قيقابايت\\ساعة في هذه الفترة"
+
+msgid "This Period's RAM-Hours:"
+msgstr "عدد إستخدام ذاكرة الوصول العشوائي\\ساعة في هذه الفترة"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "عدد استخدام المعالج\\ساعة  في هذه الفترة:"
+
+msgid "This action cannot be undone."
+msgstr "لا يمكن التراجع عن هذا الإجراء."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "لايمكن اتمام   %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "ير مرخص، الرجاء إعادة تسجيل الدخول."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "غير مرخص: %s"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "تحديث عنصر"
+msgstr[1] "تحديث عناصر"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "تحديث عنصر"
+msgstr[1] "تحديث عناصر"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "Usage Summary"
+msgstr "ملخص الإستخدام"
+
+#, python-format
+msgid "Used <span> %(used)s </span>(No Limit)"
+msgstr "<span> %(used)s </span>(No Limit) تم إستخدام "
+
+#, python-format
+msgid "Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr "تم إستخدام <span> %(used)s </span> من <span> %(available)s </span>"
+
+msgid "Warning: "
+msgstr "إنذار:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "غير مصرح لك ب%(action)s: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "لايوجد لديك تصريح لولوج %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "ليس لديك صلاحيات للدخول الى المصدر:"
+
+msgid "You have selected: [[selection]]. "
+msgstr "لقد قمت باختيار: [[الإختيار]]. "
+
+msgid "to"
+msgstr "إلى"
