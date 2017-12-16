@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from json import loads as to_json
+import uuid
 
 from django.conf import settings
 import mock
@@ -319,6 +320,7 @@ class NovaRestTestCase(test.TestCase):
             ''')
         new = nc.server_create.return_value
         new.to_dict.return_value = {'name': ' Ni! '.strip()}
+        new.id = str(uuid.uuid4())
         response = nova.Servers().post(request)
         self.assertStatusCode(response, 201)
         self.assertEqual({"name": "Ni!"}, response.json)
