@@ -135,8 +135,12 @@ class TestCase(django_test.TestCase):
         self._setup_factory()
         self._setup_user()
         self._setup_request()
-        middleware.HorizonMiddleware().process_request(self.request)
-        AuthenticationMiddleware().process_request(self.request)
+        # A dummy get_response function (which is not callable) is passed
+        # because middlewares below are used only to populate request attrs.
+        middleware.HorizonMiddleware('dummy_get_response') \
+            .process_request(self.request)
+        AuthenticationMiddleware('dummy_get_response') \
+            .process_request(self.request)
         os.environ["HORIZON_TEST_RUN"] = "True"
 
     def _setup_test_data(self):

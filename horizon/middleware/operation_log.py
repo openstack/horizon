@@ -52,9 +52,11 @@ class OperationLogMiddleware(object):
         # In order to allow to access from mock in test cases.
         return self._logger
 
-    def __init__(self):
+    def __init__(self, get_response):
         if not getattr(settings, "OPERATION_LOG_ENABLED", False):
             raise MiddlewareNotUsed
+
+        self.get_response = get_response
 
         # set configurations
         _log_option = getattr(settings, "OPERATION_LOG_OPTIONS", {})
@@ -76,6 +78,11 @@ class OperationLogMiddleware(object):
 
         ignored_urls = _log_option.get("ignore_urls", _default_ignored_urls)
         self._ignored_urls = [re.compile(url) for url in ignored_urls]
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        response = self.process_response(request, response)
+        return response
 
     def process_response(self, request, response):
         """Log user operation."""

@@ -335,7 +335,7 @@ class TabExceptionTests(test.TestCase):
         TabWithTableView.tab_group_class.tabs.append(RedirectExceptionTab)
         view = TabWithTableView.as_view()
         req = self.factory.get("/")
-        mw = middleware.HorizonMiddleware()
+        mw = middleware.HorizonMiddleware('dummy_get_response')
         try:
             resp = view(req)
         except Exception as e:
