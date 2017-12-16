@@ -133,14 +133,13 @@ class IndexView(tables.DataTableView):
             e.submit(fn=_task_get_flavors)
             e.submit(fn=_task_get_images)
 
-        if 'image_name' in search_opts and \
-                not swap_filter(images, search_opts, 'image_name', 'image'):
+        non_api_filter_info = (
+            ('image_name', 'image', images),
+            ('flavor_name', 'flavor', flavors),
+        )
+        if not process_non_api_filters(search_opts, non_api_filter_info):
             self._more = False
-            return instances
-        elif 'flavor_name' in search_opts and \
-                not swap_filter(flavors, search_opts, 'flavor_name', 'flavor'):
-            self._more = False
-            return instances
+            return []
 
         _task_get_instances()
 
@@ -170,14 +169,39 @@ class IndexView(tables.DataTableView):
         return instances
 
 
-def swap_filter(resources, filters, fake_field, real_field):
-    if fake_field in filters:
-        filter_string = filters[fake_field]
-        for resource in resources:
-            if resource.name.lower() == filter_string.lower():
-                filters[real_field] = resource.id
-                del filters[fake_field]
-                return True
+def process_non_api_filters(search_opts, non_api_filter_info):
+    """Process filters by non-API fields
+
+    There are cases where it is useful to provide a filter field
+    which does not exist in a resource in a backend service.
+    For example, nova server list provides 'image' field with image ID
+    but 'image name' is more useful for GUI users.
+    This function replaces fake fields into corresponding real fields.
+
+    The format of non_api_filter_info is a tuple/list of
+    (fake_field, real_field, resources).
+
+    This returns True if further lookup is required.
+    It returns False if there are no matching resources,
+    for example, if no corresponding real field exists.
+    """
+    for fake_field, real_field, resources in non_api_filter_info:
+        if not _swap_filter(resources, search_opts, fake_field, real_field):
+            return False
+    return True
+
+
+def _swap_filter(resources, search_opts, fake_field, real_field):
+    if fake_field not in search_opts:
+        return True
+    filter_string = search_opts[fake_field]
+    matched = [resource for resource in resources
+               if resource.name.lower() == filter_string.lower()]
+    if not matched:
+        return False
+    search_opts[real_field] = matched[0].id
+    del search_opts[fake_field]
+    return True
 
 
 class LaunchInstanceView(workflows.WorkflowView):

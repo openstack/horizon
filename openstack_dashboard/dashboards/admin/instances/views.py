@@ -66,11 +66,6 @@ def mks(args, **kvargs):
     return views.mks(args, **kvargs)
 
 
-# re-use get_resource_id_by_name from project.instances.views
-def swap_filter(resources, filters, fake_field, real_field):
-    return views.swap_filter(resources, filters, fake_field, real_field)
-
-
 class AdminUpdateView(views.UpdateView):
     workflow_class = update_instance.AdminUpdateInstance
     success_url = reverse_lazy("horizon:admin:instances:index")
@@ -163,18 +158,14 @@ class AdminIndexView(tables.DataTableView):
             e.submit(fn=_task_get_images)
             e.submit(fn=_task_get_flavors)
 
-        if 'project' in search_opts and \
-                not swap_filter(tenants, search_opts, 'project', 'tenant_id'):
-                self._more = False
-                return instances
-        elif 'image_name' in search_opts and \
-                not swap_filter(images, search_opts, 'image_name', 'image'):
-                self._more = False
-                return instances
-        elif "flavor_name" in search_opts and \
-                not swap_filter(flavors, search_opts, 'flavor_name', 'flavor'):
-                self._more = False
-                return instances
+        non_api_filter_info = (
+            ('project', 'tenant_id', tenants),
+            ('image_name', 'image', images),
+            ('flavor_name', 'flavor', flavors),
+        )
+        if not views.process_non_api_filters(search_opts, non_api_filter_info):
+            self._more = False
+            return []
 
         _task_get_instances()
 
