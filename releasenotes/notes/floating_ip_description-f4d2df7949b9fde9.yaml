@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Floating IP addresses have a description field that is now exposed in the
+    dashboard.  It is also possible to set the description when allocating a
+    floating IP.
