@@ -1,0 +1,11 @@
+---
+features:
+  - |
+    The policy framework in horizon now supports policy directories per
+    service. This corresponds to ``policy_dirs`` configuration option
+    from "oslo.policy" library. The new setting ``POLICY_DIRS`` was
+    introduced. The setting allows to define multiple policy directories
+    per service. For example, it is useful for a case where multiple
+    projects provide policy files like neutron stadium projects.
+    For detail, see `the horizon Setting Reference
+    <https://docs.openstack.org/horizon/latest/configuration/settings.html#policy-dirs>`__.
