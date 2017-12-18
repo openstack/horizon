@@ -21,6 +21,7 @@ class Snapshots(horizon.Panel):
     name = _("Snapshots")
     slug = 'snapshots'
     permissions = (
-        ('openstack.services.volume', 'openstack.services.volumev2'),
+        ('openstack.services.volume', 'openstack.services.volumev2',
+         'openstack.services.volumev3'),
     )
     policy_rules = (("volume", "volume:get_all_snapshots"),)

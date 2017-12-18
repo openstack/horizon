@@ -113,5 +113,6 @@ class CGSnapshotsTable(tables.DataTable):
         row_class = UpdateRow
         status_columns = ("status",)
         permissions = [
-            ('openstack.services.volume', 'openstack.services.volumev2')
+            ('openstack.services.volume', 'openstack.services.volumev2',
+             'openstack.services.volumev3')
         ]

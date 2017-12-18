@@ -55,12 +55,15 @@ CONSUMER_CHOICES = (
     ('both', pgettext_lazy('Both of front-end and back-end', u'both')),
 )
 
-VERSIONS = base.APIVersionManager("volume", preferred_version='2')
+VERSIONS = base.APIVersionManager("volume", preferred_version='3')
 
 try:
     from cinderclient.v2 import client as cinder_client_v2
     VERSIONS.load_supported_version('2', {"client": cinder_client_v2,
                                           "version": '2'})
+    from cinderclient.v3 import client as cinder_client_v3
+    VERSIONS.load_supported_version('3', {"client": cinder_client_v3,
+                                          "version": '3'})
 except ImportError:
     pass
 
@@ -1071,9 +1074,9 @@ def message_list(request, search_opts=None):
 
 def is_volume_service_enabled(request):
     return bool(
-        base.is_service_enabled(request, 'volume') or
+        base.is_service_enabled(request, 'volumev3') or
         base.is_service_enabled(request, 'volumev2') or
-        base.is_service_enabled(request, 'volumev3')
+        base.is_service_enabled(request, 'volume')
     )
 
 

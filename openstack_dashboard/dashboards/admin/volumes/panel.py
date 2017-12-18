@@ -19,6 +19,7 @@ class Volumes(horizon.Panel):
     name = _("Volumes")
     slug = "volumes"
     permissions = (
-        ('openstack.services.volume', 'openstack.services.volumev2'),
+        ('openstack.services.volume', 'openstack.services.volumev2',
+         'openstack.services.volumev3'),
     )
     policy_rules = (("volume", "context_is_admin"),)

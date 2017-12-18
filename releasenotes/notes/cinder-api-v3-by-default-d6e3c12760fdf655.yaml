@@ -1,0 +1,11 @@
+---
+features:
+  - |
+    Cinder API v3 is used by default now. It was introduced in Mitaka release
+    and has all features from API v2.
+upgrade:
+  - |
+    If your deployment doesn't have Cinder API v3 endpoint like ``volumev3``
+    you should create new endpoint or use Cinder API v2 via setting
+    OPENSTACK_API_VERSIONS['volume'] = 2 in your OpenStack Dashboard (Horizon)
+    configuration file.

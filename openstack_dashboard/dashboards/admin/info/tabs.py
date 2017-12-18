@@ -78,7 +78,8 @@ class CinderServicesTab(tabs.TableTab):
     slug = tables.CinderServicesTable.Meta.name
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
     permissions = (
-        ('openstack.services.volume', 'openstack.services.volumev2'),
+        ('openstack.services.volume', 'openstack.services.volumev2',
+         'openstack.services.volumev3'),
     )
 
     def get_cinder_services_data(self):

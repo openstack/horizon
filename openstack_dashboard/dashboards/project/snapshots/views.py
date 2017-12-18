@@ -21,7 +21,7 @@ from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
 
-from openstack_dashboard import api
+from openstack_dashboard.api import cinder
 
 from openstack_dashboard.dashboards.project.snapshots \
     import forms as vol_snapshot_forms
@@ -38,14 +38,14 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
     def get_data(self):
         snapshots = []
         volumes = {}
-        if api.base.is_service_enabled(self.request, 'volumev2'):
+        if cinder.is_volume_service_enabled(self.request):
             try:
                 marker, sort_dir = self._get_marker()
                 snapshots, self._has_more_data, self._has_prev_data = \
-                    api.cinder.volume_snapshot_list_paged(
+                    cinder.volume_snapshot_list_paged(
                         self.request, paginate=True, marker=marker,
                         sort_dir=sort_dir)
-                volumes = api.cinder.volume_list(self.request)
+                volumes = cinder.volume_list(self.request)
                 volumes = dict((v.id, v) for v in volumes)
             except Exception:
                 exceptions.handle(self.request, _("Unable to retrieve "
@@ -71,8 +71,8 @@ class UpdateView(forms.ModalFormView):
     def get_object(self):
         snap_id = self.kwargs['snapshot_id']
         try:
-            self._object = api.cinder.volume_snapshot_get(self.request,
-                                                          snap_id)
+            self._object = cinder.volume_snapshot_get(self.request,
+                                                      snap_id)
         except Exception:
             msg = _('Unable to retrieve volume snapshot.')
             url = reverse('horizon:project:snapshots:index')
@@ -123,10 +123,10 @@ class DetailView(tabs.TabView):
     def get_data(self):
         try:
             snapshot_id = self.kwargs['snapshot_id']
-            snapshot = api.cinder.volume_snapshot_get(self.request,
-                                                      snapshot_id)
-            snapshot._volume = api.cinder.volume_get(self.request,
-                                                     snapshot.volume_id)
+            snapshot = cinder.volume_snapshot_get(self.request,
+                                                  snapshot_id)
+            snapshot._volume = cinder.volume_get(self.request,
+                                                 snapshot.volume_id)
         except Exception:
             redirect = self.get_redirect_url()
             exceptions.handle(self.request,
