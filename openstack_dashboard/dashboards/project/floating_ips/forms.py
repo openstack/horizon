@@ -29,6 +29,9 @@ from openstack_dashboard.usage import quotas
 
 class FloatingIpAllocate(forms.SelfHandlingForm):
     pool = forms.ThemableChoiceField(label=_("Pool"))
+    description = forms.CharField(max_length=255,
+                                  label=_("Description"),
+                                  required=False)
 
     def __init__(self, *args, **kwargs):
         super(FloatingIpAllocate, self).__init__(*args, **kwargs)
@@ -46,8 +49,13 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
                 self.api_error(error_message)
                 return False
 
-            fip = api.neutron.tenant_floating_ip_allocate(request,
-                                                          pool=data['pool'])
+            param = {}
+            if data['description']:
+                param['description'] = data['description']
+            fip = api.neutron.tenant_floating_ip_allocate(
+                request,
+                pool=data['pool'],
+                **param)
             messages.success(request,
                              _('Allocated Floating IP %(ip)s.')
                              % {"ip": fip.ip})

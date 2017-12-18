@@ -591,6 +591,8 @@ class FloatingIpManager(object):
             create_dict['subnet_id'] = params['subnet_id']
         if 'floating_ip_address' in params:
             create_dict['floating_ip_address'] = params['floating_ip_address']
+        if 'description' in params:
+            create_dict['description'] = params['description']
         fip = self.client.create_floatingip(
             {'floatingip': create_dict}).get('floatingip')
         self._set_instance_info(fip)

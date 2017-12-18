@@ -34,6 +34,9 @@ class AdminFloatingIpAllocate(forms.SelfHandlingForm):
                     "You need to specify an explicit address which is under "
                     "the public network CIDR (e.g. 202.2.3.0/24)."),
         mask=False)
+    description = forms.CharField(max_length=255,
+                                  label=_("Description"),
+                                  required=False)
 
     def __init__(self, *args, **kwargs):
         super(AdminFloatingIpAllocate, self).__init__(*args, **kwargs)
@@ -48,6 +51,8 @@ class AdminFloatingIpAllocate(forms.SelfHandlingForm):
             param = {}
             if data['floating_ip_address']:
                 param['floating_ip_address'] = data['floating_ip_address']
+            if data['description']:
+                param['description'] = data['description']
             subnet = api.neutron.subnet_get(request, data['pool'])
             param['subnet_id'] = subnet.id
             fip = api.neutron.tenant_floating_ip_allocate(
