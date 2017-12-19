@@ -78,3 +78,8 @@ class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
         status_columns = ("status",)
         columns = ('tenant', 'host', 'name', 'description', 'size', 'status',
                    'volume_name',)
+
+
+class VolumeDetailsSnapshotsTable(VolumeSnapshotsTable):
+    class Meta(VolumeSnapshotsTable.Meta):
+        columns = ('name', 'description', 'size', 'status', 'volume_name',)

@@ -1423,8 +1423,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                          len(this_volume_snapshots))
         self.assertNoMessages()
 
-        mock_get.assert_called_with(test.IsHttpRequest(), volume.id)
-        mock_snapshot_list.assert_called_with(
+        mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
+        mock_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts={'volume_id': volume.id})
         mock_limits.assert_called_once()
         mock_message.assert_called_once_with(

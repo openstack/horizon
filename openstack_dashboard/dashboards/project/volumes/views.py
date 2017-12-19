@@ -147,7 +147,7 @@ class DetailView(tabs.TabbedTableView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        volume = self.get_data()
+        volume, snapshots = self.get_data()
         table = volume_tables.VolumesTable(self.request)
         context["volume"] = volume
         context["url"] = self.get_redirect_url()
@@ -156,13 +156,17 @@ class DetailView(tabs.TabbedTableView):
         volume.status_label = filters.get_display_label(choices, volume.status)
         return context
 
+    def get_search_opts(self, volume):
+        return {'volume_id': volume.id}
+
     @memoized.memoized_method
     def get_data(self):
         try:
             volume_id = self.kwargs['volume_id']
             volume = cinder.volume_get(self.request, volume_id)
+            search_opts = self.get_search_opts(volume)
             snapshots = cinder.volume_snapshot_list(
-                self.request, search_opts={'volume_id': volume.id})
+                self.request, search_opts=search_opts)
             if snapshots:
                 setattr(volume, 'has_snapshot', True)
             for att in volume.attachments:
@@ -185,14 +189,15 @@ class DetailView(tabs.TabbedTableView):
                 _('Unable to retrieve volume messages.'),
                 ignore=True,
             )
-        return volume
+        return volume, snapshots
 
     def get_redirect_url(self):
         return reverse('horizon:project:volumes:index')
 
     def get_tabs(self, request, *args, **kwargs):
-        volume = self.get_data()
-        return self.tab_group_class(request, volume=volume, **kwargs)
+        volume, snapshots = self.get_data()
+        return self.tab_group_class(
+            request, volume=volume, snapshots=snapshots, **kwargs)
 
 
 class CreateView(forms.ModalFormView):
