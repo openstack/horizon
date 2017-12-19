@@ -263,6 +263,7 @@ POLICY_FILES = {
     'image': 'glance_policy.json',
     'network': 'neutron_policy.json',
 }
+POLICY_DIRS = {}
 
 SECRET_KEY = None
 LOCAL_PATH = None
