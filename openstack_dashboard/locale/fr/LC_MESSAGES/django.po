@@ -21,9 +21,9 @@
 # Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-12 05:47+0000\n"
+"POT-Creation-Date: 2017-12-19 03:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7413,10 +7413,6 @@ msgstr ""
 msgid "Unable to retrieve volume consistency groups."
 msgstr "Impossible d'extraire les groupes de cohérence de volume."
 
-#, python-format
-msgid "Unable to retrieve volume details for volume %s."
-msgstr "Impossible de récupérer les détails du volume %s."
-
 msgid "Unable to retrieve volume details."
 msgstr "Impossible de récupérer les détails du volume."
 
@@ -7450,10 +7446,6 @@ msgstr "Impossible de récupérer les informations du projet associé au volume.
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Impossible de récupérer l'instantané du volume."
-
-#, python-format
-msgid "Unable to retrieve volume snapshots for volume %s."
-msgstr "Impossible de récupérer les instantanés du volume %s."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Impossible de récupérer les instantanés du volume."

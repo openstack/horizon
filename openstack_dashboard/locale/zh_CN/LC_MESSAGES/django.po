@@ -26,9 +26,9 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev31\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-15 19:34+0000\n"
+"POT-Creation-Date: 2017-12-19 03:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6981,10 +6981,6 @@ msgstr "无法检索一致性组卷快照"
 msgid "Unable to retrieve volume consistency groups."
 msgstr "无法获取卷一致性组。"
 
-#, python-format
-msgid "Unable to retrieve volume details for volume %s."
-msgstr "无法获取卷%s的详情。"
-
 msgid "Unable to retrieve volume details."
 msgstr "无法获取卷详情。"
 
@@ -7016,10 +7012,6 @@ msgstr "无法获取卷项目信息。"
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "无法获取卷快照"
-
-#, python-format
-msgid "Unable to retrieve volume snapshots for volume %s."
-msgstr "无法获取卷%s的快照。"
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "无法获取卷快照。"

@@ -7,9 +7,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-12 05:47+0000\n"
+"POT-Creation-Date: 2017-12-19 03:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7187,10 +7187,6 @@ msgstr "整合性グループのスナップショットの一覧を取得でき
 msgid "Unable to retrieve volume consistency groups."
 msgstr "ボリュームの整合性グループを取得できません。"
 
-#, python-format
-msgid "Unable to retrieve volume details for volume %s."
-msgstr "ボリューム %s のボリューム詳細を取得できません。"
-
 msgid "Unable to retrieve volume details."
 msgstr "ボリュームの詳細を取得できません。"
 
@@ -7223,10 +7219,6 @@ msgstr "ボリュームのプロジェクト情報を取得できません。"
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "ボリュームスナップショットの詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve volume snapshots for volume %s."
-msgstr "ボリューム %s のボリュームスナップショット一覧を取得できません。"
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "ボリュームスナップショットの一覧を取得できません。"
