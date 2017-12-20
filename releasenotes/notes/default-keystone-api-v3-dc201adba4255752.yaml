@@ -1,0 +1,9 @@
+---
+features:
+  - The keystone v3 API now becomes the default keystone API version.
+upgrade:
+  - |
+    The default keystone API vesion is switch to ``v3``.
+    If you still use the keystone v2.0 API by default, you need to configure
+    ``OPENSTACK_API_VERSIONS`` and ``OPENSTACK_KEYSTONE_URL``
+    to point to the keystone v2.0 API.

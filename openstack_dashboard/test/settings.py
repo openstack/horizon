@@ -142,8 +142,8 @@ settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
 HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
 
 AVAILABLE_REGIONS = [
-    ('http://localhost:5000/v2.0', 'local'),
-    ('http://remote:5000/v2.0', 'remote'),
+    ('http://localhost:5000/v3', 'local'),
+    ('http://remote:5000/v3', 'remote'),
 ]
 
 OPENSTACK_API_VERSIONS = {
@@ -151,7 +151,7 @@ OPENSTACK_API_VERSIONS = {
     "image": 2
 }
 
-OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0"
+OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v3"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
