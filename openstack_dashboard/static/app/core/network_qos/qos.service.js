@@ -19,7 +19,6 @@
     .factory('horizon.app.core.network_qos.service', qosService);
 
   qosService.$inject = [
-    '$filter',
     'horizon.app.core.openstack-service-api.neutron',
     'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.detailRoute'
@@ -35,8 +34,7 @@
   * but do not need to be restricted to such use.  Each exposed function
   * is documented below.
   */
-  function qosService($filter,
-                      neutron,
+  function qosService(neutron,
                       userSession,
                       detailRoute) {
     var version;
