@@ -254,7 +254,7 @@
       container_format: { label: gettext('Container Format'), filters: ['uppercase'] },
       disk_format: { label: gettext('Disk Format'), filters: ['noValue', 'uppercase'] },
       is_public: { label: gettext('Is Public'), filters: ['yesno'] },
-      type: { label: gettext('Type'), filters: [imagesService.imageType] },
+      type: { label: gettext('Type')},
       'protected': { label: gettext('Protected'), filters: ['yesno'] },
       size: { label: gettext('Size'), filters: ['bytes'] },
       status: { label: gettext('Status'), values: statuses }

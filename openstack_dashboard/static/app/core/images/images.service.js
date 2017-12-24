@@ -81,7 +81,8 @@
       if (null !== item &&
         angular.isDefined(item) &&
         angular.isDefined(item.properties) &&
-        item.properties.image_type === 'snapshot') {
+        (item.properties.image_type === 'snapshot' ||
+          angular.isDefined(item.properties.block_device_mapping))) {
         return gettext('Snapshot');
       } else {
         return gettext('Image');
@@ -131,6 +132,7 @@
           image.apiVersion = version;
           image.visibility = $filter('imageVisibility')(image, projectId);
           image.name = image.name || image.id;
+          image.type = imageType(image);
           return image;
         }
       }
