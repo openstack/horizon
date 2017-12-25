@@ -2,18 +2,19 @@
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2017. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2017. #zanata
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-12 05:47+0000\n"
+"POT-Creation-Date: 2017-12-24 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-08 01:58+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2017-12-24 08:47+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -1230,6 +1231,9 @@ msgstr "Auswirkung auf Ihr Kontingent"
 msgid "Import Key Pair"
 msgstr "Schlüsselpaar importieren"
 
+msgid "Import Public Key"
+msgstr "Öffentlichen Schlüssel importieren"
+
 msgid "Indicators"
 msgstr "Indikator"
 
@@ -1354,6 +1358,35 @@ msgstr ""
 "      Wählen Sie einen wiedererkennbaren Schlüsselpaarnamen aus.\n"
 "      Die Namen dürfen nur alphanumerische Zeichen, Leerzeichen und "
 "Bindestriche enthalten."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize and paste your SSH public key "
+"into the\n"
+"  space provided."
+msgstr ""
+"Verwenden Sie Schlüsselpaare zum Einloggen nachdem eine Instanz gestartet "
+"wurde.\n"
+" Wählen Sie einen wiedererkennbaren Schlüsselpaarnamen und fügen Sie Ihren "
+"öffentlichen SSH-Schlüssel im vorgegebenen Feld ein."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"Mit Schlüsselpaaren erhalten Sie Zugriff auf Ihre Instanz, nachdem sie "
+"gestartet wurde.\n"
+" Wählen Sie einen wiedererkennbaren Schlüsselpaarnamen aus.\n"
+"Die Namen dürfen nur alphanumerische Zeichen, Leerzeichen und Bindestriche "
+"enthalten."
+
+#, python-format
+msgid "Key pair %(name)s was successfully created."
+msgstr "Schlüsselpaar %(name)s wurde erfolgreich erstellt."
+
+msgid "Key pair already exists."
+msgstr "Schlüsselpaar bereits vorhanden."
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr ""
@@ -1774,6 +1807,9 @@ msgstr "Fenster"
 msgid "Parent Port"
 msgstr "Eltern-Port"
 
+msgid "Parent port"
+msgstr "Eltern-Port"
+
 msgid "Password"
 msgstr "Passwort"
 
@@ -2051,6 +2087,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "Segmentierungskennung"
+
+msgid "Segmentation Id"
+msgstr "Segmentierungs-ID"
 
 msgid "Segmentation Type"
 msgstr "Segmentierungs-Typ"
@@ -2680,6 +2719,12 @@ msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "Das folgende Abbild kann nicht gelöscht werden: %s."
 msgstr[1] "Die folgenden Abbilder konnten nicht gelöscht werden: %s."
+
+#, python-format
+msgid "Unable to delete Key Pair: %s."
+msgid_plural "Unable to delete Key Pairs: %s."
+msgstr[0] "Schlüsselpaar kann nicht gelöscht werden: %s"
+msgstr[1] "Schlüsselpaare können nicht gelöscht werden: %s"
 
 #, python-format
 msgid "Unable to delete Role: %s."

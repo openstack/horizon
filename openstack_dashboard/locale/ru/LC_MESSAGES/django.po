@@ -30,9 +30,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-12 05:47+0000\n"
+"POT-Creation-Date: 2017-12-24 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3963,11 +3963,6 @@ msgstr "Имя"
 
 msgid "Name ="
 msgstr "Имя = "
-
-msgid ""
-"Name may only contain letters, numbers, underscores, periods and hyphens."
-msgstr ""
-"Имя может содержать только буквы, числа, знаки подчеркивания, точки и дефисы."
 
 msgid "Name or other identifier for existing volume"
 msgstr "Имя или другой идентификатор существующего диска"

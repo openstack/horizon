@@ -2,17 +2,18 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2017. #zanata
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev161\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-01 00:01+0000\n"
+"POT-Creation-Date: 2017-12-24 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-17 03:37+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2017-12-24 08:49+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -130,6 +131,12 @@ msgstr "%s bestätigen"
 msgid "Confirm Delete Foobars"
 msgstr "Löschen von Foobars bestätigen"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Content size: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+msgstr ""
+"Größe des Inhalts: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+
 msgid "Current Usage"
 msgstr "Aktuelle Verwendung"
 
@@ -230,6 +237,9 @@ msgstr "Ungültiger Typ, erwartet wird {$schema.type$}"
 
 msgid "Keyword failed: '{$title$}'"
 msgstr "Schlüsselwort fehlgeschlagen: '{$title$}'"
+
+msgid "Load {$ ::title $} from a file"
+msgstr "Lade {$ ::title $} aus einer Datei"
 
 msgid "Loading"
 msgstr "Ladevorgang"
@@ -354,6 +364,9 @@ msgid ""
 msgstr ""
 "Die Aktion kann nicht ausgeführt werden. Der Inhalt dieser Spalte enthält "
 "Fehler oder es fehlen Informationen."
+
+msgid "The content is larger than the maximum byte size"
+msgstr "Der Inhalt ist größer als die maximal zulässige Größe in Bytes"
 
 msgid "The data in this field is invalid"
 msgstr "Die Daten in diesem Feld sind ungültig"
