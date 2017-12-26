@@ -355,6 +355,29 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
     if not enabled_quotas:
         return
 
+    if neutron.is_extension_supported(request, 'quota_details'):
+        details = neutron.tenant_quota_detail_get(request, tenant_id)
+        for name, neutron_name in (
+                ('floating_ips', 'floatingip'),
+                ('security_groups', 'security_group'),
+                ('security_group_rules', 'security_group_rule'),
+                ('networks', 'network'),
+                ('subnets', 'subnet'),
+                ('ports', 'port'),
+                ('routers', 'router')):
+            if neutron_name in disabled_quotas:
+                continue
+            detail = details[neutron_name]
+            usages.add_quota(base.Quota(name, detail['limit']))
+            usages.tally(name, detail['used'] + detail['reserved'])
+    else:
+        _get_tenant_network_usages_legacy(
+            request, usages, disabled_quotas, tenant_id)
+
+
+def _get_tenant_network_usages_legacy(request, usages, disabled_quotas,
+                                      tenant_id):
+    enabled_quotas = NEUTRON_QUOTA_FIELDS - disabled_quotas
     qs = base.QuotaSet()
     _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id)
     for quota in qs:

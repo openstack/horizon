@@ -472,6 +472,8 @@ class QuotaTests(test.APITestCase):
         api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
             .MultipleTimes().AndReturn(True)
 
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'quota_details').AndReturn(False)
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.neutron_quotas.first())
         if 'networks' in targets:
