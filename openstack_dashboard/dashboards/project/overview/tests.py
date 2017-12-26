@@ -337,9 +337,9 @@ class UsageViewTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/overview/usage.html')
         self.assertIsInstance(usages, usage.ProjectUsage)
         if cinder_enabled:
-            self.assertEqual(usages.limits['totalVolumesUsed'], 1)
-            self.assertEqual(usages.limits['maxTotalVolumes'], 10)
-            self.assertEqual(usages.limits['totalGigabytesUsed'], 5)
+            self.assertEqual(usages.limits['totalVolumesUsed'], 4)
+            self.assertEqual(usages.limits['maxTotalVolumes'], 20)
+            self.assertEqual(usages.limits['totalGigabytesUsed'], 400)
             self.assertEqual(usages.limits['maxTotalVolumeGigabytes'], 1000)
         else:
             self.assertNotIn('totalVolumesUsed', usages.limits)

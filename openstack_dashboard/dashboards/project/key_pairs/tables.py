@@ -52,8 +52,8 @@ class DeleteKeyPairs(tables.DeleteAction):
 class QuotaKeypairMixin(object):
     def allowed(self, request, datum=None):
         usages = quotas.tenant_quota_usages(request, targets=('key_pairs', ))
-        count = len(self.table.data)
-        if (usages.get('key_pairs') and usages['key_pairs']['quota'] <= count):
+        usages.tally('key_pairs', len(self.table.data))
+        if usages['key_pairs']['available'] <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ['disabled']
                 self.verbose_name = string_concat(self.verbose_name, ' ',

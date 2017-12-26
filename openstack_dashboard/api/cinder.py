@@ -970,8 +970,8 @@ def qos_specs_list(request):
 
 @profiler.trace
 @memoized
-def tenant_absolute_limits(request):
-    limits = cinderclient(request).limits.get().absolute
+def tenant_absolute_limits(request, tenant_id=None):
+    limits = cinderclient(request).limits.get(tenant_id=tenant_id).absolute
     limits_dict = {}
     for limit in limits:
         if limit.value < 0:

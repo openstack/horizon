@@ -340,10 +340,10 @@ def data(TEST):
                            "maxTotalInstances": 10,
                            "maxTotalKeypairs": 100,
                            "maxTotalRAMSize": 10000,
-                           "totalCoresUsed": 0,
-                           "totalInstancesUsed": 0,
+                           "totalCoresUsed": 2,
+                           "totalInstancesUsed": 2,
                            "totalKeyPairsUsed": 0,
-                           "totalRAMUsed": 0,
+                           "totalRAMUsed": 1024,
                            "totalSecurityGroupsUsed": 0}}
     TEST.limits = limits
 
