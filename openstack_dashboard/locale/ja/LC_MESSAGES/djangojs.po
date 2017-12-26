@@ -6,13 +6,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-12 05:47+0000\n"
+"POT-Creation-Date: 2017-12-25 07:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-11 01:19+0000\n"
+"PO-Revision-Date: 2017-12-25 06:34+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -746,6 +746,9 @@ msgstr "インタフェースの削除"
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
 msgstr[0] "キーペアの削除"
+
+msgid "Delete Key Pairs"
+msgstr "キーペアの削除"
 
 msgid "Delete Network"
 msgstr "ネットワークの削除"
@@ -2619,6 +2622,9 @@ msgstr "サーバーを作成できません。"
 msgid "Unable to create the subnet."
 msgstr "サブネットを作成できません。"
 
+msgid "Unable to create the trunk."
+msgstr "トランクを作成できません。"
+
 msgid "Unable to create the user."
 msgstr "ユーザーを作成できません。"
 
@@ -2873,6 +2879,9 @@ msgstr "イメージ情報を取得できません。"
 msgid "Unable to retrieve the images."
 msgstr "イメージ一覧を取得できません。"
 
+msgid "Unable to retrieve the keypair."
+msgstr "キーペアを取得できません。"
+
 msgid "Unable to retrieve the keypairs."
 msgstr "キーペアの一覧を取得できません。"
 
@@ -2992,6 +3001,9 @@ msgstr "フレーバーを更新できません。"
 
 msgid "Unable to update the image."
 msgstr "イメージを更新できません。"
+
+msgid "Unable to update the trunk."
+msgstr "トランクを更新できません。"
 
 msgid "Unable to upload the object."
 msgstr "オブジェクトをアップロードできません。"
