@@ -235,33 +235,10 @@ def _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id):
     tenant_id = tenant_id or request.user.tenant_id
     neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
 
-    if 'floatingip' not in disabled_quotas:
-        # Rename floatingip to floating_ips since that's how it's
-        # expected in some places (e.g. Security & Access' Floating IPs)
-        fips_quota = neutron_quotas.get('floatingip').limit
-        qs.add(base.QuotaSet({'floating_ips': fips_quota}))
-
-    if 'security_group' not in disabled_quotas:
-        # Rename security_group to security_groups since that's how it's
-        # expected in some places (e.g. Security & Access' Security Groups)
-        sec_quota = neutron_quotas.get('security_group').limit
-        qs.add(base.QuotaSet({'security_groups': sec_quota}))
-
-    if 'network' not in disabled_quotas:
-        net_quota = neutron_quotas.get('network').limit
-        qs.add(base.QuotaSet({'networks': net_quota}))
-
-    if 'subnet' not in disabled_quotas:
-        net_quota = neutron_quotas.get('subnet').limit
-        qs.add(base.QuotaSet({'subnets': net_quota}))
-
-    if 'port' not in disabled_quotas:
-        net_quota = neutron_quotas.get('port').limit
-        qs.add(base.QuotaSet({'ports': net_quota}))
-
-    if 'router' not in disabled_quotas:
-        router_quota = neutron_quotas.get('router').limit
-        qs.add(base.QuotaSet({'routers': router_quota}))
+    for quota_name in NEUTRON_QUOTA_FIELDS:
+        if quota_name not in disabled_quotas:
+            quota_data = neutron_quotas.get(quota_name).limit
+            qs.add(base.QuotaSet({quota_name: quota_data}))
 
     return qs
 
@@ -357,19 +334,12 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
 
     if neutron.is_extension_supported(request, 'quota_details'):
         details = neutron.tenant_quota_detail_get(request, tenant_id)
-        for name, neutron_name in (
-                ('floating_ips', 'floatingip'),
-                ('security_groups', 'security_group'),
-                ('security_group_rules', 'security_group_rule'),
-                ('networks', 'network'),
-                ('subnets', 'subnet'),
-                ('ports', 'port'),
-                ('routers', 'router')):
-            if neutron_name in disabled_quotas:
+        for quota_name in NEUTRON_QUOTA_FIELDS:
+            if quota_name in disabled_quotas:
                 continue
-            detail = details[neutron_name]
-            usages.add_quota(base.Quota(name, detail['limit']))
-            usages.tally(name, detail['used'] + detail['reserved'])
+            detail = details[quota_name]
+            usages.add_quota(base.Quota(quota_name, detail['limit']))
+            usages.tally(quota_name, detail['used'] + detail['reserved'])
     else:
         _get_tenant_network_usages_legacy(
             request, usages, disabled_quotas, tenant_id)
@@ -377,43 +347,30 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
 
 def _get_tenant_network_usages_legacy(request, usages, disabled_quotas,
                                       tenant_id):
-    enabled_quotas = NEUTRON_QUOTA_FIELDS - disabled_quotas
     qs = base.QuotaSet()
     _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id)
     for quota in qs:
         usages.add_quota(quota)
 
-    # NOTE(amotoki): floatingip is Neutron quota and floating_ips is
-    # Nova quota. We need to check both.
-    if {'floatingip', 'floating_ips'} & enabled_quotas:
-        floating_ips = []
-        try:
-            if neutron.floating_ip_supported(request):
-                floating_ips = neutron.tenant_floating_ip_list(request)
-        except Exception:
-            pass
-        usages.tally('floating_ips', len(floating_ips))
+    # TODO(amotoki): Add security_group_rule?
+    resource_lister = {
+        'network': (neutron.network_list, {'tenant_id': tenant_id}),
+        'subnet': (neutron.subnet_list, {'tenant_id': tenant_id}),
+        'port': (neutron.port_list, {'tenant_id': tenant_id}),
+        'router': (neutron.router_list, {'tenant_id': tenant_id}),
+        'floatingip': (neutron.tenant_floating_ip_list, {}),
+        'security_group': (neutron.security_group_list, {}),
+    }
 
-    if 'security_group' not in disabled_quotas:
-        security_groups = []
-        security_groups = neutron.security_group_list(request)
-        usages.tally('security_groups', len(security_groups))
-
-    if 'network' not in disabled_quotas:
-        networks = neutron.network_list(request, tenant_id=tenant_id)
-        usages.tally('networks', len(networks))
-
-    if 'subnet' not in disabled_quotas:
-        subnets = neutron.subnet_list(request, tenant_id=tenant_id)
-        usages.tally('subnets', len(subnets))
-
-    if 'port' not in disabled_quotas:
-        ports = neutron.port_list(request, tenant_id=tenant_id)
-        usages.tally('ports', len(ports))
-
-    if 'router' not in disabled_quotas:
-        routers = neutron.router_list(request, tenant_id=tenant_id)
-        usages.tally('routers', len(routers))
+    for quota_name, lister_info in resource_lister.items():
+        if quota_name not in disabled_quotas:
+            lister = lister_info[0]
+            kwargs = lister_info[1]
+            try:
+                resources = lister(request, **kwargs)
+            except Exception:
+                resources = []
+            usages.tally(quota_name, len(resources))
 
 
 @profiler.trace
@@ -433,34 +390,6 @@ def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
                              limits[limit_keys['limit']],
                              limits[limit_keys['usage']],
                              disabled_quotas)
-
-
-# Singular form key is used as quota field in the Neutron API.
-# We convert it explicitly here.
-# NOTE(amotoki): It is better to be converted in the horizon API wrapper
-# layer. Ideally the REST APIs of back-end services are consistent.
-NETWORK_QUOTA_API_KEY_MAP = {
-    'floating_ips': ['floatingip'],
-    'networks': ['network'],
-    'ports': ['port'],
-    'routers': ['router'],
-    'security_group_rules': ['security_group_rule'],
-    'security_groups': ['security_group'],
-    'subnets': ['subnet'],
-}
-
-
-def _convert_targets_to_quota_keys(targets):
-    quota_keys = set()
-    for target in targets:
-        if target in NETWORK_QUOTA_API_KEY_MAP:
-            quota_keys.update(NETWORK_QUOTA_API_KEY_MAP[target])
-            continue
-        if target in QUOTA_FIELDS:
-            quota_keys.add(target)
-            continue
-        raise ValueError('"%s" is not a valid quota field name.' % target)
-    return quota_keys
 
 
 # TODO(amotoki): Merge tenant_quota_usages and tenant_limit_usages.
@@ -483,8 +412,11 @@ def tenant_quota_usages(request, tenant_id=None, targets=None):
     usages = QuotaUsage()
 
     if targets:
+        if set(targets) - QUOTA_FIELDS:
+            raise ValueError('Unknown quota field names are included: %s'
+                             % set(targets) - QUOTA_FIELDS)
         enabled_quotas = set(QUOTA_FIELDS) - disabled_quotas
-        enabled_quotas &= _convert_targets_to_quota_keys(targets)
+        enabled_quotas &= set(targets)
         disabled_quotas = set(QUOTA_FIELDS) - enabled_quotas
 
     _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id)

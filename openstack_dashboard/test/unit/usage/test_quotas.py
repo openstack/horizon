@@ -437,15 +437,15 @@ class QuotaTests(test.APITestCase):
 
     def test_tenant_quota_usages_neutron_with_target_network_resources(self):
         self._test_tenant_quota_usages_neutron_with_target(
-            targets=('networks', 'subnets', 'routers', ))
+            targets=('network', 'subnet', 'router', ))
 
     def test_tenant_quota_usages_neutron_with_target_security_groups(self):
         self._test_tenant_quota_usages_neutron_with_target(
-            targets=('security_groups', ))
+            targets=('security_group', ))
 
     def test_tenant_quota_usages_neutron_with_target_floating_ips(self):
         self._test_tenant_quota_usages_neutron_with_target(
-            targets=('floating_ips', ))
+            targets=('floatingip', ))
 
     @test.create_stubs({api.base: ('is_service_enabled',),
                         api.neutron: ('floating_ip_supported',
@@ -476,24 +476,22 @@ class QuotaTests(test.APITestCase):
                                            'quota_details').AndReturn(False)
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.neutron_quotas.first())
-        if 'networks' in targets:
+        if 'network' in targets:
             api.neutron.network_list(IsA(http.HttpRequest),
                                      tenant_id=self.request.user.tenant_id) \
                 .AndReturn(self.networks.list())
-        if 'subnets' in targets:
+        if 'subnet' in targets:
             api.neutron.subnet_list(IsA(http.HttpRequest),
                                     tenant_id=self.request.user.tenant_id) \
                 .AndReturn(self.subnets.list())
-        if 'routers' in targets:
+        if 'router' in targets:
             api.neutron.router_list(IsA(http.HttpRequest),
                                     tenant_id=self.request.user.tenant_id) \
                 .AndReturn(self.routers.list())
-        if 'floating_ips' in targets:
-            api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
-                .AndReturn(True)
+        if 'floatingip' in targets:
             api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
-        if 'security_groups' in targets:
+        if 'security_group' in targets:
             api.neutron.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
 
@@ -508,16 +506,16 @@ class QuotaTests(test.APITestCase):
         fip_used = len(self.floating_ips.list())
         sg_used = len(self.security_groups.list())
         expected = {
-            'networks': {'used': network_used, 'quota': 10,
-                         'available': 10 - network_used},
-            'subnets': {'used': subnet_used, 'quota': 10,
-                        'available': 10 - subnet_used},
-            'routers': {'used': router_used, 'quota': 10,
-                        'available': 10 - router_used},
-            'security_groups': {'used': sg_used, 'quota': 20,
-                                'available': 20 - sg_used},
-            'floating_ips': {'used': fip_used, 'quota': 50,
-                             'available': 50 - fip_used},
+            'network': {'used': network_used, 'quota': 10,
+                        'available': 10 - network_used},
+            'subnet': {'used': subnet_used, 'quota': 10,
+                       'available': 10 - subnet_used},
+            'router': {'used': router_used, 'quota': 10,
+                       'available': 10 - router_used},
+            'security_group': {'used': sg_used, 'quota': 20,
+                               'available': 20 - sg_used},
+            'floatingip': {'used': fip_used, 'quota': 50,
+                           'available': 50 - fip_used},
         }
         expected = dict((k, v) for k, v in expected.items() if k in targets)
 

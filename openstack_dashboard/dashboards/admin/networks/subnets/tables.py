@@ -80,11 +80,11 @@ class CreateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, datum=None):
         network = self.table._get_network()
         usages = quotas.tenant_quota_usages(
-            request, tenant_id=network.tenant_id, targets=('subnets', ))
+            request, tenant_id=network.tenant_id, targets=('subnet', ))
 
         # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
-        # usages["subnets'] is empty
-        if usages.get('subnets', {}).get('available', 1) <= 0:
+        # usages["subnet'] is empty
+        if usages.get('subnet', {}).get('available', 1) <= 0:
             if 'disabled' not in self.classes:
                 self.classes = [c for c in self.classes] + ['disabled']
                 self.verbose_name = _('Create Subnet (Quota exceeded)')

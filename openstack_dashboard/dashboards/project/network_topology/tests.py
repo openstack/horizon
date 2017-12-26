@@ -193,18 +193,18 @@ class NetworkTopologyCreateTests(test.TestCase):
             self, expected_string, networks_quota=10,
             routers_quota=10, instances_quota=10):
         quota_data = self.quota_usages.first()
-        quota_data['networks']['available'] = networks_quota
-        quota_data['routers']['available'] = routers_quota
+        quota_data['network']['available'] = networks_quota
+        quota_data['router']['available'] = routers_quota
         quota_data['instances']['available'] = instances_quota
 
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest), targets=('instances', )
         ).MultipleTimes().AndReturn(quota_data)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('networks', )
+            IsA(http.HttpRequest), targets=('network', )
         ).MultipleTimes().AndReturn(quota_data)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=('routers', )
+            IsA(http.HttpRequest), targets=('router', )
         ).MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()

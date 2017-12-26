@@ -618,11 +618,13 @@ def data(TEST):
     TEST.neutron_quotas.add(base.QuotaSet(quota_data))
 
     # Quota Usages
-    quota_usage_data = {'networks': {'used': 0, 'quota': 5},
-                        'subnets': {'used': 0, 'quota': 5},
-                        'ports': {'used': 0, 'quota': 5},
-                        'routers': {'used': 0, 'quota': 5},
-                        }
+    quota_usage_data = {
+        'network': {'used': 0, 'quota': 5},
+        'subnet': {'used': 0, 'quota': 5},
+        'port': {'used': 0, 'quota': 5},
+        'router': {'used': 0, 'quota': 5},
+        'floatingip': {'used': 0, 'quota': 10},
+    }
     quota_usage = usage_quotas.QuotaUsage()
     for k, v in quota_usage_data.items():
         quota_usage.add_quota(base.Quota(k, v['quota']))

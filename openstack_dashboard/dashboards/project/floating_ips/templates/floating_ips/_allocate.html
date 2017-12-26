@@ -12,15 +12,15 @@
       <strong>{% trans "Floating IP" %}</strong>
     </div>
     <span class="pull-right">
-        {% blocktrans with used=usages.floating_ips.used quota=usages.floating_ips.quota|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+        {% blocktrans with used=usages.floatingip.used quota=usages.floatingip.quota|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
     </span>
   </div>
   <div id="floating_ip_progress"
        class="quota_bar"
-       data-quota-used="{{ usages.floating_ips.used }}"
-       data-quota-limit="{{ usages.floating_ips.quota }}">
-  {% widthratio usages.floating_ips.used usages.floating_ips.quota 100 as ip_percent %}
-  {% widthratio 100 usages.floating_ips.quota 1 as single_step %}
+       data-quota-used="{{ usages.floatingip.used }}"
+       data-quota-limit="{{ usages.floatingip.quota }}">
+  {% widthratio usages.floatingip.used usages.floatingip.quota 100 as ip_percent %}
+  {% widthratio 100 usages.floatingip.quota 1 as single_step %}
   {% bs_progress_bar ip_percent single_step %}
   </div>
 </div>

@@ -35,11 +35,11 @@ def get_context(request, context=None):
     context['instance_quota_exceeded'] = _quota_exceeded(request, 'instances')
     context['create_network_allowed'] = policy.check(
         (("network", "create_network"),), request)
-    context['network_quota_exceeded'] = _quota_exceeded(request, 'networks')
+    context['network_quota_exceeded'] = _quota_exceeded(request, 'network')
     context['create_router_allowed'] = (
         network_config.get('enable_router', True) and
         policy.check((("network", "create_router"),), request))
-    context['router_quota_exceeded'] = _quota_exceeded(request, 'routers')
+    context['router_quota_exceeded'] = _quota_exceeded(request, 'router')
     context['console_type'] = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
     context['show_ng_launch'] = (
         base.is_service_enabled(request, 'compute') and

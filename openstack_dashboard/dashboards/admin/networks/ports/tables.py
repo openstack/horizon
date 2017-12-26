@@ -38,8 +38,8 @@ class CreatePort(project_tables.CreatePort):
         network = self.table._get_network()
         tenant_id = network.tenant_id
         usages = quotas.tenant_quota_usages(
-            request, tenant_id=tenant_id, targets=('ports', ))
-        if usages.get('ports', {}).get('available', 1) <= 0:
+            request, tenant_id=tenant_id, targets=('port', ))
+        if usages.get('port', {}).get('available', 1) <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ["disabled"]
                 self.verbose_name = _("Create Port (Quota exceeded)")

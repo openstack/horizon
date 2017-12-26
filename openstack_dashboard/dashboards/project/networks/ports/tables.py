@@ -88,10 +88,10 @@ class CreatePort(tables.LinkAction):
         return reverse(self.url, args=(network_id,))
 
     def allowed(self, request, datum=None):
-        usages = quotas.tenant_quota_usages(request, targets=('ports', ))
+        usages = quotas.tenant_quota_usages(request, targets=('port', ))
         # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
-        # usages["ports"] is empty
-        if usages.get('ports', {}).get('available', 1) <= 0:
+        # usages["port"] is empty
+        if usages.get('port', {}).get('available', 1) <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ["disabled"]
                 self.verbose_name = _("Create Port (Quota exceeded)")

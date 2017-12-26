@@ -92,10 +92,10 @@ class CreateNetwork(tables.LinkAction):
     policy_rules = (("network", "create_network"),)
 
     def allowed(self, request, datum=None):
-        usages = quotas.tenant_quota_usages(request, targets=('networks', ))
+        usages = quotas.tenant_quota_usages(request, targets=('network', ))
         # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
-        # usages["networks"] is empty
-        if usages.get('networks', {}).get('available', 1) <= 0:
+        # usages["network"] is empty
+        if usages.get('network', {}).get('available', 1) <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ["disabled"]
                 self.verbose_name = _("Create Network (Quota exceeded)")
@@ -127,10 +127,10 @@ class CreateSubnet(subnet_tables.SubnetPolicyTargetMixin, tables.LinkAction):
                            ("network:project_id", "tenant_id"),)
 
     def allowed(self, request, datum=None):
-        usages = quotas.tenant_quota_usages(request, targets=('subnets', ))
+        usages = quotas.tenant_quota_usages(request, targets=('subnet', ))
         # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
-        # usages["subnets'] is empty
-        if usages.get('subnets', {}).get('available', 1) <= 0:
+        # usages["subnet'] is empty
+        if usages.get('subnet', {}).get('available', 1) <= 0:
             if 'disabled' not in self.classes:
                 self.classes = [c for c in self.classes] + ['disabled']
                 self.verbose_name = _('Create Subnet (Quota exceeded)')
