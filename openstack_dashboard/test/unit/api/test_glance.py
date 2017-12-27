@@ -18,13 +18,14 @@
 
 from django.conf import settings
 from django.test.utils import override_settings
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.api import base
 from openstack_dashboard.test import helpers as test
 
 
-class GlanceApiTests(test.APITestCase):
+class GlanceApiTests(test.APIMockTestCase):
     def setUp(self):
         super(GlanceApiTests, self).setUp()
         api.glance.VERSIONS.clear_active_cache()
@@ -38,18 +39,17 @@ class GlanceApiTests(test.APITestCase):
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        glanceclient.images.list(page_size=limit,
-                                 limit=limit,
-                                 filters=filters,
-                                 sort_dir='desc',
-                                 sort_key='created_at',) \
-            .AndReturn(iter(api_images))
-        self.mox.ReplayAll()
+        mock_images_list = glanceclient.images.list
+        mock_images_list.return_value = iter(api_images)
 
         images, has_more, has_prev = api.glance.image_list_detailed(
             self.request)
 
+        mock_images_list.assert_called_once_with(page_size=limit,
+                                                 limit=limit,
+                                                 filters=filters,
+                                                 sort_dir='desc',
+                                                 sort_key='created_at')
         self.assertListEqual(images, expected_images)
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
@@ -65,19 +65,19 @@ class GlanceApiTests(test.APITestCase):
         sort_key = 'min_disk'
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        glanceclient.images.list(page_size=limit,
-                                 limit=limit,
-                                 filters=filters,
-                                 sort_dir=sort_dir,
-                                 sort_key=sort_key) \
-                           .AndReturn(iter(api_images))
-        self.mox.ReplayAll()
+        mock_images_list = glanceclient.images.list
+        mock_images_list.return_value = iter(api_images)
 
         images, has_more, has_prev = api.glance.image_list_detailed(
             self.request,
             sort_dir=sort_dir,
             sort_key=sort_key)
+
+        mock_images_list.assert_called_once_with(page_size=limit,
+                                                 limit=limit,
+                                                 filters=filters,
+                                                 sort_dir=sort_dir,
+                                                 sort_key=sort_key)
         self.assertListEqual(images, expected_images)
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
@@ -95,21 +95,23 @@ class GlanceApiTests(test.APITestCase):
         images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        # Pass back all images, ignoring filters
-        glanceclient.images.list(limit=limit,
-                                 page_size=page_size + 1,
-                                 filters=filters,
-                                 sort_dir='desc',
-                                 sort_key='created_at',).AndReturn(images_iter)
-        self.mox.ReplayAll()
+        mock_images_list = glanceclient.images.list
+        mock_images_list.return_value = images_iter
 
+        # Pass back all images, ignoring filters
         images, has_more, has_prev = api.glance.image_list_detailed(
             self.request,
             marker=None,
             filters=filters,
             paginate=True)
+
         expected_images = expected_images[:page_size]
+
+        mock_images_list.assert_called_once_with(limit=limit,
+                                                 page_size=page_size + 1,
+                                                 filters=filters,
+                                                 sort_dir='desc',
+                                                 sort_key='created_at')
         self.assertListEqual(images, expected_images)
         self.assertTrue(has_more)
         self.assertFalse(has_prev)
@@ -128,23 +130,24 @@ class GlanceApiTests(test.APITestCase):
 
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
-        images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        # Pass back all images, ignoring filters
-        glanceclient.images.list(limit=limit,
-                                 page_size=page_size + 1,
-                                 filters=filters,
-                                 sort_dir='desc',
-                                 sort_key='created_at',).AndReturn(images_iter)
-        self.mox.ReplayAll()
+        mock_images_list = glanceclient.images.list
+        mock_images_list.return_value = iter(api_images)
 
+        # Pass back all images, ignoring filters
         images, has_more, has_prev = api.glance.image_list_detailed(
             self.request,
             filters=filters,
             paginate=True)
+
         expected_images = expected_images[:page_size]
+
+        mock_images_list.assert_called_once_with(limit=limit,
+                                                 page_size=page_size + 1,
+                                                 filters=filters,
+                                                 sort_dir='desc',
+                                                 sort_key='created_at')
         self.assertListEqual(images, expected_images)
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
@@ -159,22 +162,23 @@ class GlanceApiTests(test.APITestCase):
 
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
-        images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        glanceclient.images.list(limit=limit,
-                                 page_size=page_size + 1,
-                                 filters=filters,
-                                 sort_dir='desc',
-                                 sort_key='created_at',).AndReturn(images_iter)
-        self.mox.ReplayAll()
+        mock_images_list = glanceclient.images.list
+        mock_images_list.return_value = iter(api_images)
 
         images, has_more, has_prev = api.glance.image_list_detailed(
             self.request,
             filters=filters,
             paginate=True)
+
         expected_images = expected_images[:page_size]
+
+        mock_images_list.assert_called_once_with(limit=limit,
+                                                 page_size=page_size + 1,
+                                                 filters=filters,
+                                                 sort_dir='desc',
+                                                 sort_key='created_at')
         self.assertListEqual(images, expected_images)
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
@@ -193,23 +197,24 @@ class GlanceApiTests(test.APITestCase):
         images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        # Pass back all images, ignoring filters
-        glanceclient.images.list(limit=limit,
-                                 page_size=page_size + 1,
-                                 filters=filters,
-                                 marker=marker,
-                                 sort_dir='desc',
-                                 sort_key='created_at',) \
-            .AndReturn(images_iter)
-        self.mox.ReplayAll()
+        mock_images_list = glanceclient.images.list
+        mock_images_list.return_value = images_iter
 
+        # Pass back all images, ignoring filters
         images, has_more, has_prev = api.glance.image_list_detailed(
             self.request,
             marker=marker,
             filters=filters,
             paginate=True)
+
         expected_images = expected_images[:page_size]
+
+        mock_images_list.assert_called_once_with(limit=limit,
+                                                 page_size=page_size + 1,
+                                                 filters=filters,
+                                                 marker=marker,
+                                                 sort_dir='desc',
+                                                 sort_key='created_at')
         self.assertListEqual(images, expected_images)
         self.assertTrue(has_more)
         self.assertTrue(has_prev)
@@ -229,24 +234,25 @@ class GlanceApiTests(test.APITestCase):
         images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        # Pass back all images, ignoring filters
-        glanceclient.images.list(limit=limit,
-                                 page_size=page_size + 1,
-                                 marker=marker,
-                                 filters=filters,
-                                 sort_dir='asc',
-                                 sort_key='created_at',) \
-            .AndReturn(images_iter)
-        self.mox.ReplayAll()
+        mock_images_list = glanceclient.images.list
+        mock_images_list.return_value = images_iter
 
+        # Pass back all images, ignoring filters
         images, has_more, has_prev = api.glance.image_list_detailed(
             self.request,
             marker=marker,
             filters=filters,
             sort_dir='asc',
             paginate=True)
+
         expected_images = expected_images[:page_size]
+
+        mock_images_list.assert_called_once_with(limit=limit,
+                                                 page_size=page_size + 1,
+                                                 marker=marker,
+                                                 filters=filters,
+                                                 sort_dir='asc',
+                                                 sort_key='created_at')
         self.assertListEqual(images, expected_images)
         self.assertTrue(has_more)
         self.assertTrue(has_prev)
@@ -255,10 +261,12 @@ class GlanceApiTests(test.APITestCase):
 
     def test_get_image_empty_name(self):
         glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        glanceclient.images.get('empty').AndReturn(self.empty_name_image)
-        self.mox.ReplayAll()
+        mock_images_get = glanceclient.images.get
+        mock_images_get.return_value = self.empty_name_image
+
         image = api.glance.image_get(self.request, 'empty')
+
+        mock_images_get.assert_called_once_with('empty')
         self.assertIsNone(image.name)
 
     def test_metadefs_namespace_list(self):
@@ -266,17 +274,16 @@ class GlanceApiTests(test.APITestCase):
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.metadefs_namespace = self.mox.CreateMockAnything()
-        glanceclient.metadefs_namespace.list(page_size=limit,
-                                             limit=limit,
-                                             filters={},
-                                             sort_dir='asc',
-                                             sort_key='namespace',) \
-            .AndReturn(metadata_defs)
-
-        self.mox.ReplayAll()
+        mock_metadefs_list = glanceclient.metadefs_namespace.list
+        mock_metadefs_list.return_value = metadata_defs
 
         defs, more, prev = api.glance.metadefs_namespace_list(self.request)
+
+        mock_metadefs_list.assert_called_once_with(page_size=limit,
+                                                   limit=limit,
+                                                   filters={},
+                                                   sort_dir='asc',
+                                                   sort_key='namespace')
         self.assertEqual(len(metadata_defs), len(defs))
         for i in range(len(metadata_defs)):
             self.assertEqual(metadata_defs[i].namespace, defs[i].namespace)
@@ -290,38 +297,29 @@ class GlanceApiTests(test.APITestCase):
                    'properties_target': 'user'}
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.metadefs_namespace = self.mox.CreateMockAnything()
-        glanceclient.metadefs_namespace.list(page_size=limit,
-                                             limit=limit,
-                                             filters=filters,
-                                             sort_dir='asc',
-                                             sort_key='namespace', ) \
-            .AndReturn(metadata_defs)
-
-        self.mox.ReplayAll()
+        mock_metadefs_list = glanceclient.metadefs_namespace.list
+        mock_metadefs_list.return_value = metadata_defs
 
         defs = api.glance.metadefs_namespace_list(self.request,
                                                   filters=filters)[0]
+
+        mock_metadefs_list.assert_called_once_with(page_size=limit,
+                                                   limit=limit,
+                                                   filters=filters,
+                                                   sort_dir='asc',
+                                                   sort_key='namespace')
         self.assertEqual(1, len(defs))
         self.assertEqual('namespace_4', defs[0].namespace)
 
-    @test.create_stubs({api.glance: ('get_version',)})
-    def test_metadefs_namespace_list_v1(self):
-        api.glance.get_version().AndReturn(1)
-
-        self.mox.ReplayAll()
-
+    @mock.patch.object(api.glance, 'get_version', return_value=1)
+    def test_metadefs_namespace_list_v1(self, mock_version):
         defs, more, prev = api.glance.metadefs_namespace_list(self.request)
         self.assertItemsEqual(defs, [])
         self.assertFalse(more)
         self.assertFalse(prev)
 
-    @test.create_stubs({api.glance: ('get_version',)})
-    def test_metadefs_resource_types_list_v1(self):
-        api.glance.get_version().AndReturn(1)
-
-        self.mox.ReplayAll()
-
+    @mock.patch.object(api.glance, 'get_version', return_value=1)
+    def test_metadefs_resource_types_list_v1(self, mock_version):
         res_types = api.glance.metadefs_resource_types_list(self.request)
         self.assertItemsEqual(res_types, [])
 
@@ -336,11 +334,12 @@ class GlanceApiTests(test.APITestCase):
         upload_url = url_template % (base_url, expected_image.id)
 
         glanceclient = self.stub_glanceclient()
-        glanceclient.images = self.mox.CreateMockAnything()
-        glanceclient.images.create().AndReturn(expected_image)
-        self.mox.ReplayAll()
+        mock_image_create = glanceclient.images.create
+        mock_image_create.return_value = expected_image
 
         actual_image = api.glance.image_create(self.request, data='sample.iso')
+
+        mock_image_create.assert_called_once()
         self.assertEqual(upload_url, actual_image.upload_url)
         self.assertEqual(self.request.user.token.id, actual_image.token_id)
 

@@ -485,6 +485,9 @@ class APITestCase(TestCase):
         return self.keystoneclient
 
     def stub_glanceclient(self):
+        LOG.warning("APITestCase has been deprecated for Glance-related "
+                    "tests and will be removerd in 'S' release. Please "
+                    "convert  your to use APIMockTestCase instead.")
         if not hasattr(self, "glanceclient"):
             self.mox.StubOutWithMock(glanceclient, 'Client')
             self.glanceclient = self.mox.CreateMock(glanceclient.Client)
@@ -519,6 +522,11 @@ class APIMockTestCase(APITestCase):
         if not hasattr(self, "cinderclient"):
             self.cinderclient = mock.Mock()
         return self.cinderclient
+
+    def stub_glanceclient(self):
+        if not hasattr(self, "glanceclient"):
+            self.glanceclient = mock.Mock()
+        return self.glanceclient
 
 
 # Need this to test both Glance API V1 and V2 versions
