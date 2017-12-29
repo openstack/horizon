@@ -22,10 +22,10 @@ from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.urlresolvers import reverse
 from django.forms.widgets import HiddenInput
-from django import http
 from django.test.utils import override_settings
 
-from mox3.mox import IsA
+import mock
+import six
 
 from horizon import tables as horizon_tables
 from openstack_dashboard import api
@@ -39,17 +39,18 @@ IMAGES_INDEX_URL = reverse('horizon:project:images:index')
 
 
 class CreateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
-    def test_no_location_or_file(self):
-        filters = {'disk_format': 'aki'}
-        api.glance.image_list_detailed(
-            IsA({}), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        filters = {'disk_format': 'ari'}
-        api.glance.image_list_detailed(
-            IsA({}), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        self.mox.ReplayAll()
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def test_no_location_or_file(self, mock_image_list):
+        mock_image_list.side_effect = [
+            [self.images.list(), False, False],
+            [self.images.list(), False, False]
+        ]
+
+        image_calls = [
+            mock.call(test.IsA(dict), filters={'disk_format': 'aki'}),
+            mock.call(test.IsA(dict), filters={'disk_format': 'ari'})
+        ]
+
         post = {
             'name': u'Ubuntu 11.10',
             'source_type': u'file',
@@ -61,26 +62,31 @@ class CreateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
             'is_public': 1}
         files = {}
         form = forms.CreateImageForm(post, files)
+
         self.assertFalse(form.is_valid())
+        mock_image_list.assert_has_calls(image_calls)
 
     @override_settings(HORIZON_IMAGES_ALLOW_UPLOAD=False)
     @override_settings(IMAGES_ALLOW_LOCATION=True)
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
-    def test_image_upload_disabled(self):
-        filters = {'disk_format': 'aki'}
-        api.glance.image_list_detailed(
-            IsA({}), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        filters = {'disk_format': 'ari'}
-        api.glance.image_list_detailed(
-            IsA({}), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        self.mox.ReplayAll()
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def test_image_upload_disabled(self, mock_image_list):
+        mock_image_list.side_effect = [
+            [self.images.list(), False, False],
+            [self.images.list(), False, False]
+        ]
+
+        image_calls = [
+            mock.call(test.IsA(dict), filters={'disk_format': 'aki'}),
+            mock.call(test.IsA(dict), filters={'disk_format': 'ari'})
+        ]
+
         form = forms.CreateImageForm({})
+
         self.assertEqual(
             isinstance(form.fields['image_file'].widget, HiddenInput), True)
         source_type_dict = dict(form.fields['source_type'].choices)
         self.assertNotIn('file', source_type_dict)
+        mock_image_list.assert_has_calls(image_calls)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
     def test_create_image_metadata_docker_v1(self):
@@ -136,23 +142,25 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
         disk_format = form.fields['disk_format']
         self.assertFalse(disk_format.widget.attrs.get('readonly', False))
 
-    @test.create_stubs({api.glance: ('image_get',)})
-    def test_image_update(self):
+    @mock.patch.object(api.glance, 'image_get')
+    def test_image_update(self, mock_image_get):
         image = self.images.first()
-        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-           .AndReturn(image)
-        self.mox.ReplayAll()
+        mock_image_get.return_value = image
 
         url = reverse('horizon:project:images:images:update',
                       args=[image.id])
         res = self.client.get(url)
+
         self.assertNoFormErrors(res)
         self.assertEqual(res.context['image'].disk_format,
                          image.disk_format)
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
+                                               image.id)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    @test.create_stubs({api.glance: ('image_update', 'image_get')})
-    def test_image_update_post_v1(self):
+    @mock.patch.object(api.glance, 'image_get')
+    @mock.patch.object(api.glance, 'image_update')
+    def test_image_update_post_v1(self, mock_image_update, mock_image_get):
         image = self.images.first()
         data = {
             'name': u'Ubuntu 11.10',
@@ -169,30 +177,35 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
             'is_public': False,
             'protected': False,
             'method': 'UpdateImageForm'}
-        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-           .AndReturn(image)
-        api.glance.image_update(IsA(http.HttpRequest),
-                                image.id,
-                                is_public=data['is_public'],
-                                protected=data['protected'],
-                                disk_format=data['disk_format'],
-                                container_format="bare",
-                                name=data['name'],
-                                min_ram=data['minimum_ram'],
-                                min_disk=data['minimum_disk'],
-                                properties={
-                                    'description': data['description'],
-                                    'architecture':
-                                    data['architecture']}).AndReturn(image)
-        self.mox.ReplayAll()
-        url = reverse('horizon:project:images:images:update',
-                      args=[image.id])
-        res = self.client.post(url, data)
-        self.assertNoFormErrors(res)
-        self.assertEqual(res.status_code, 302)
 
-    @test.create_stubs({api.glance: ('image_update', 'image_get')})
-    def test_image_update_post_v2(self):
+        mock_image_get.return_value = image
+        mock_image_update.return_value = image
+
+        url = reverse('horizon:project:images:images:update',
+                      args=[image.id])
+        res = self.client.post(url, data)
+
+        self.assertNoFormErrors(res)
+        self.assertEqual(res.status_code, 302)
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
+                                               str(image.id))
+        mock_image_update.assert_called_once_with(
+            test.IsHttpRequest(),
+            image.id,
+            is_public=data['is_public'],
+            protected=data['protected'],
+            disk_format=data['disk_format'],
+            container_format="bare",
+            name=data['name'],
+            min_ram=data['minimum_ram'],
+            min_disk=data['minimum_disk'],
+            properties={
+                'description': data['description'],
+                'architecture': data['architecture']})
+
+    @mock.patch.object(api.glance, 'image_get')
+    @mock.patch.object(api.glance, 'image_update')
+    def test_image_update_post_v2(self, mock_image_update, mock_image_get):
         image = self.images.first()
         data = {
             'name': u'Ubuntu 11.10',
@@ -209,48 +222,51 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
             'is_public': False,
             'protected': False,
             'method': 'UpdateImageForm'}
-        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-            .AndReturn(image)
-        api.glance.image_update(IsA(http.HttpRequest),
-                                image.id,
-                                visibility='private',
-                                protected=data['protected'],
-                                disk_format=data['disk_format'],
-                                container_format="bare",
-                                name=data['name'],
-                                min_ram=data['minimum_ram'],
-                                min_disk=data['minimum_disk'],
-                                description=data['description'],
-                                architecture=data['architecture']).\
-            AndReturn(image)
-        self.mox.ReplayAll()
+
+        mock_image_get.return_value = image
+        mock_image_update.return_value = image
+
         url = reverse('horizon:project:images:images:update',
                       args=[image.id])
         res = self.client.post(url, data)
+
         self.assertNoFormErrors(res)
         self.assertEqual(res.status_code, 302)
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
+                                               str(image.id))
+        mock_image_update.assert_called_once_with(
+            test.IsHttpRequest(),
+            image.id,
+            visibility='private',
+            protected=data['protected'],
+            disk_format=data['disk_format'],
+            container_format="bare",
+            name=data['name'],
+            min_ram=data['minimum_ram'],
+            min_disk=data['minimum_disk'],
+            description=data['description'],
+            architecture=data['architecture'])
 
 
 class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
-    def test_image_create_get(self):
-        filters = {'disk_format': 'aki'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        filters = {'disk_format': 'ari'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        self.mox.ReplayAll()
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def test_image_create_get(self, mock_image_list):
+        mock_image_list.side_effect = [
+            [self.images.list(), False, False],
+            [self.images.list(), False, False]
+        ]
+        image_calls = [
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'aki'}),
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'})
+        ]
 
         url = reverse('horizon:project:images:images:create')
         res = self.client.get(url)
-        self.assertTemplateUsed(res,
-                                'project/images/images/create.html')
+
+        self.assertTemplateUsed(res, 'project/images/images/create.html')
+        mock_image_list.assert_has_calls(image_calls)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_copy_from_v1(self):
         data = {
             'source_type': u'url',
@@ -263,7 +279,6 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self._test_image_create(data, api_data)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_location_v1(self):
         data = {
             'source_type': u'url',
@@ -276,7 +291,6 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self._test_image_create(data, api_data)
 
     @override_settings(IMAGES_ALLOW_LOCATION=True)
-    @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_location_v2(self):
         data = {
             'source_type': u'url',
@@ -288,7 +302,6 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self._test_image_create(data, api_data)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_upload_v1(self):
         temp_file = tempfile.NamedTemporaryFile()
         temp_file.write(b'123')
@@ -298,10 +311,9 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         data = {'source_type': u'file',
                 'image_file': temp_file}
 
-        api_data = {'data': IsA(InMemoryUploadedFile)}
+        api_data = {'data': test.IsA(InMemoryUploadedFile)}
         self._test_image_create(data, api_data)
 
-    @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_upload_v2(self):
         temp_file = tempfile.NamedTemporaryFile()
         temp_file.write(b'123')
@@ -311,11 +323,10 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         data = {'source_type': u'file',
                 'image_file': temp_file}
 
-        api_data = {'data': IsA(InMemoryUploadedFile)}
+        api_data = {'data': test.IsA(InMemoryUploadedFile)}
         self._test_image_create(data, api_data)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_with_kernel_ramdisk_v1(self):
         temp_file = tempfile.NamedTemporaryFile()
         temp_file.write(b'123')
@@ -329,10 +340,9 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             'ramdisk_id': '007e7d55-fe1e-4c5c-bf08-44b4a496482a'
         }
 
-        api_data = {'data': IsA(InMemoryUploadedFile)}
+        api_data = {'data': test.IsA(InMemoryUploadedFile)}
         self._test_image_create(data, api_data)
 
-    @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_with_kernel_ramdisk_v2(self):
         temp_file = tempfile.NamedTemporaryFile()
         temp_file.write(b'123')
@@ -346,11 +356,13 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             'ramdisk_id': '007e7d55-fe1e-4c5c-bf08-44b4a496482a'
         }
 
-        api_data = {'data': IsA(InMemoryUploadedFile)}
+        api_data = {'data': test.IsA(InMemoryUploadedFile)}
         self._test_image_create(data, api_data)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
-    def _test_image_create(self, extra_form_data, extra_api_data):
+    @mock.patch.object(api.glance, 'image_create')
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def _test_image_create(self, extra_form_data, extra_api_data,
+                           mock_image_list, mock_image_create):
         data = {
             'name': u'Ubuntu 11.10',
             'description': u'Login with admin/admin',
@@ -383,19 +395,16 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         api_data.update(extra_api_data)
 
-        filters = {'disk_format': 'aki'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        filters = {'disk_format': 'ari'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
+        mock_image_list.side_effect = [
+            [self.images.list(), False, False],
+            [self.images.list(), False, False]
+        ]
+        image_list_calls = [
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'aki'}),
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'})
+        ]
 
-        api.glance.image_create(
-            IsA(http.HttpRequest),
-            **api_data).AndReturn(self.images.first())
-        self.mox.ReplayAll()
+        mock_image_create.return_value = self.images.first()
 
         url = reverse('horizon:project:images:images:create')
         res = self.client.post(url, data)
@@ -403,10 +412,13 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertNoFormErrors(res)
         self.assertEqual(res.status_code, 302)
 
-    def _test_image_detail_get(self, image):
-        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-            .AndReturn(image)
-        self.mox.ReplayAll()
+        mock_image_list.assert_has_calls(image_list_calls)
+        mock_image_create.assert_called_once_with(test.IsHttpRequest(),
+                                                  **api_data)
+
+    @mock.patch.object(api.glance, 'image_get')
+    def _test_image_detail_get(self, image, mock_image_get):
+        mock_image_get.return_value = image
 
         res = self.client.get(reverse('horizon:project:images:images:detail',
                                       args=[image.id]))
@@ -415,24 +427,23 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                 'horizon/common/_detail.html')
         self.assertEqual(res.context['image'].name, image.name)
         self.assertEqual(res.context['image'].protected, image.protected)
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
+                                               six.text_type(image.id))
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    @test.create_stubs({api.glance: ('image_get',)})
     def test_image_detail_get_v1(self):
         image = self.images.first()
 
         self._test_image_detail_get(image)
 
-    @test.create_stubs({api.glance: ('image_get',)})
     def test_image_detail_get_v2(self):
         image = self.imagesV2.first()
 
         self._test_image_detail_get(image)
 
-    def _test_image_detail_custom_props_get(self, image):
-        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-            .AndReturn(image)
-        self.mox.ReplayAll()
+    @mock.patch.object(api.glance, 'image_get')
+    def _test_image_detail_custom_props_get(self, image, mock_image_get):
+        mock_image_get.return_value = image
 
         res = self.client.get(reverse('horizon:project:images:images:detail',
                                       args=[image.id]))
@@ -453,23 +464,23 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertContains(res, '<dt title="foo">foo</dt>')
         self.assertContains(res, '<dd>foo val</dd>')
 
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
+                                               six.text_type(image.id))
+
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    @test.create_stubs({api.glance: ('image_get',)})
     def test_image_detail_custom_props_get_v1(self):
         image = self.images.list()[8]
 
         self._test_image_detail_custom_props_get(image)
 
-    @test.create_stubs({api.glance: ('image_get',)})
     def test_image_detail_custom_props_get_v2(self):
         image = self.imagesV2.list()[2]
 
         self._test_image_detail_custom_props_get(image)
 
-    def _test_protected_image_detail_get(self, image):
-        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-            .AndReturn(image)
-        self.mox.ReplayAll()
+    @mock.patch.object(api.glance, 'image_get')
+    def _test_protected_image_detail_get(self, image, mock_image_get):
+        mock_image_get.return_value = image
 
         res = self.client.get(
             reverse('horizon:project:images:images:detail',
@@ -478,39 +489,37 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                 'horizon/common/_detail.html')
         self.assertEqual(res.context['image'].protected, image.protected)
 
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
+                                               six.text_type(image.id))
+
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    @test.create_stubs({api.glance: ('image_get',)})
     def test_protected_image_detail_get_v1(self):
         image = self.images.list()[2]
 
         self._test_protected_image_detail_get(image)
 
-    @test.create_stubs({api.glance: ('image_get',)})
     def test_protected_image_detail_get_v2(self):
         image = self.imagesV2.list()[1]
 
         self._test_protected_image_detail_get(image)
 
-    @test.create_stubs({api.glance: ('image_get',)})
-    def test_image_detail_get_with_exception(self):
+    @mock.patch.object(api.glance, 'image_get')
+    def test_image_detail_get_with_exception(self, mock_image_get):
         image = self.images.first()
 
-        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-            .AndRaise(self.exceptions.glance)
-        self.mox.ReplayAll()
+        mock_image_get.side_effect = self.exceptions.glance
 
         url = reverse('horizon:project:images:images:detail',
                       args=[image.id])
         res = self.client.get(url)
         self.assertRedirectsNoFollow(res, IMAGES_INDEX_URL)
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
+                                               six.text_type(image.id))
 
-    @test.create_stubs({api.glance: ('image_get',)})
-    def test_image_update_get(self):
+    @mock.patch.object(api.glance, 'image_get')
+    def test_image_update_get(self, mock_image_get):
         image = self.images.filter(is_public=True)[0]
-
-        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-           .AndReturn(image)
-        self.mox.ReplayAll()
+        mock_image_get.return_value = image
 
         res = self.client.get(
             reverse('horizon:project:images:images:update',
@@ -524,19 +533,20 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                  " name='public' checked='checked'>",
                             html=True,
                             msg_prefix="The is_public checkbox is not checked")
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
+                                               six.text_type(image.id))
 
 
 class OwnerFilterTests(test.TestCase):
     def setUp(self):
         super(OwnerFilterTests, self).setUp()
-        self.table = self.mox.CreateMock(horizon_tables.DataTable)
+        self.table = mock.Mock(sppec=horizon_tables.DataTable)
         self.table.request = self.request
 
     @override_settings(IMAGES_LIST_FILTER_TENANTS=[{'name': 'Official',
                                                     'tenant': 'officialtenant',
                                                     'icon': 'fa-check'}])
     def test_filter(self):
-        self.mox.ReplayAll()
         all_images = self.images.list()
         table = self.table
         self.filter_tenants = settings.IMAGES_LIST_FILTER_TENANTS

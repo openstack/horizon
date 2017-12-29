@@ -693,7 +693,16 @@ def mock_factory(r):
     return mocked
 
 
-class IsHttpRequest(object):
-    """Class to compare param is django.http.HttpRequest."""
+class IsA(object):
+    """Class to compare param is a specified class."""
+    def __init__(self, cls):
+        self.cls = cls
+
     def __eq__(self, other):
-        return isinstance(other, http_request.HttpRequest)
+        return isinstance(other, self.cls)
+
+
+class IsHttpRequest(IsA):
+    """Class to compare param is django.http.HttpRequest."""
+    def __init__(self):
+        super(IsHttpRequest, self).__init__(http_request.HttpRequest)

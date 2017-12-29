@@ -24,13 +24,11 @@ import unittest
 from django.core.urlresolvers import reverse
 from django import http
 
-from glanceclient.common import exceptions as glance_exec
-
+import mock
 from mox3.mox import IsA
 import six
 
 from horizon import exceptions
-from horizon import messages
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.images import utils
@@ -42,16 +40,17 @@ INDEX_URL = reverse('horizon:project:images:index')
 CREATE_URL = reverse('horizon:project:images:images:create')
 
 
-class ImagesAndSnapshotsTests(test.TestCase):
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
+class BaseImagesTestCase(test.TestCase):
+    def setUp(self):
+        super(BaseImagesTestCase, self).setUp()
+        self.patcher = mock.patch.object(api.glance, 'image_list_detailed')
+        self.mock_image_list = self.patcher.start()
+
+
+class ImagesAndSnapshotsTests(BaseImagesTestCase):
     def test_index(self):
         images = self.images.list()
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=None, paginate=True,
-                                       sort_dir='asc', sort_key='name',
-                                       reversed_order=False) \
-            .AndReturn([images, False, False])
-        self.mox.ReplayAll()
+        self.mock_image_list.return_value = [images, False, False]
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
@@ -71,40 +70,43 @@ class ImagesAndSnapshotsTests(test.TestCase):
         row_actions = images_table.get_row_actions(images[2])
         self.assertEqual(len(row_actions), 4)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
+        self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     marker=None,
+                                                     paginate=True,
+                                                     sort_dir='asc',
+                                                     sort_key='name',
+                                                     reversed_order=False)
+
     def test_index_no_images(self):
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=None, paginate=True,
-                                       sort_dir='asc', sort_key='name',
-                                       reversed_order=False) \
-            .AndReturn([(), False, False])
-        self.mox.ReplayAll()
+        self.mock_image_list.return_value = [(), False, False]
 
         res = self.client.get(INDEX_URL)
+
+        self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     marker=None,
+                                                     paginate=True,
+                                                     sort_dir='asc',
+                                                     sort_key='name',
+                                                     reversed_order=False)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertContains(res, 'No items to display')
 
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_index_error(self):
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=None, paginate=True,
-                                       sort_dir='asc', sort_key='name',
-                                       reversed_order=False) \
-            .AndRaise(self.exceptions.glance)
-        self.mox.ReplayAll()
+        self.mock_image_list.side_effect = self.exceptions.glance
 
         res = self.client.get(INDEX_URL)
+
+        self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     marker=None,
+                                                     paginate=True,
+                                                     sort_dir='asc',
+                                                     sort_key='name',
+                                                     reversed_order=False)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_snapshot_actions(self):
         snapshots = self.snapshots.list()
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=None, paginate=True,
-                                       sort_dir='asc', sort_key='name',
-                                       reversed_order=False) \
-            .AndReturn([snapshots, False, False])
-        self.mox.ReplayAll()
+        self.mock_image_list.return_value = [snapshots, False, False]
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
@@ -136,10 +138,15 @@ class ImagesAndSnapshotsTests(test.TestCase):
                          u"Delete Image")
         self.assertEqual(str(row_actions[0]), "<DeleteImage: delete>")
 
+        self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     marker=None,
+                                                     paginate=True,
+                                                     sort_dir='asc',
+                                                     sort_key='name',
+                                                     reversed_order=False)
 
-class ImagesAndSnapshotsUtilsTests(test.TestCase):
 
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
+class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
     def test_list_image(self):
         public_images = [image for image in self.images.list()
                          if image.status == 'active' and image.is_public]
@@ -149,30 +156,31 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         shared_images = [image for image in self.imagesV2.list()
                          if (image.status == 'active' and
                              image.visibility == 'shared')]
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([public_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([private_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'visibility': 'shared', 'status': 'active'}) \
-            .AndReturn([shared_images, False, False])
+        self.mock_image_list.side_effect = [
+            [public_images, False, False],
+            [private_images, False, False],
+            [shared_images, False, False]
+        ]
 
-        self.mox.ReplayAll()
+        image_calls = [
+            mock.call(test.IsHttpRequest(),
+                      filters={'is_public': True, 'status': 'active'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'property-owner_id': self.tenant.id,
+                               'status': 'active'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'visibility': 'shared', 'status': 'active'})
+        ]
 
         ret = utils.get_available_images(self.request, self.tenant.id)
 
         expected_images = [image for image in self.images.list()
                            if (image.status == 'active' and
                                image.container_format not in ('ami', 'aki'))]
+
+        self.mock_image_list.assert_has_calls(image_calls)
         self.assertEqual(len(expected_images), len(ret))
 
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_list_image_using_cache(self):
         public_images = [image for image in self.images.list()
                          if image.status == 'active' and image.is_public]
@@ -182,26 +190,26 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         shared_images = [image for image in self.imagesV2.list()
                          if (image.status == 'active' and
                              image.visibility == 'shared')]
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([public_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([private_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'visibility': 'shared', 'status': 'active'}) \
-            .AndReturn([shared_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': 'other-tenant',
-                     'status': 'active'}) \
-            .AndReturn([private_images, False, False])
 
-        self.mox.ReplayAll()
+        self.mock_image_list.side_effect = [
+            [public_images, False, False],
+            [private_images, False, False],
+            [shared_images, False, False],
+            [private_images, False, False]
+        ]
+
+        image_calls = [
+            mock.call(test.IsHttpRequest(),
+                      filters={'is_public': True, 'status': 'active'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'property-owner_id': self.tenant.id,
+                               'status': 'active'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'visibility': 'shared', 'status': 'active'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'property-owner_id': 'other-tenant',
+                               'status': 'active'})
+        ]
 
         expected_images = [image for image in self.images.list()
                            if (image.status == 'active' and
@@ -238,42 +246,40 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
             len(private_images),
             len(images_cache['images_by_project']['other-tenant']))
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
-                        exceptions: ('handle',)})
-    def test_list_image_error_public_image_list(self):
-        public_images = [image for image in self.images.list()
-                         if image.status == 'active' and image.is_public]
+        self.mock_image_list.assert_has_calls(image_calls)
+
+    @mock.patch.object(exceptions, 'handle')
+    def test_list_image_error_public_image_list(self, mock_exception_handle):
         private_images = [image for image in self.images.list()
                           if (image.status == 'active' and
                               not image.is_public)]
         shared_images = [image for image in self.imagesV2.list()
                          if (image.status == 'active' and
                              image.visibility == 'shared')]
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndRaise(self.exceptions.glance)
-        exceptions.handle(IsA(http.HttpRequest),
-                          "Unable to retrieve public images.")
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([private_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'visibility': 'shared', 'status': 'active'}) \
-            .AndReturn([shared_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([public_images, False, False])
 
-        self.mox.ReplayAll()
+        self.mock_image_list.side_effect = [
+            self.exceptions.glance,
+            [private_images, False, False],
+            [shared_images, False, False],
+            ]
 
         images_cache = {}
         ret = utils.get_available_images(self.request, self.tenant.id,
                                          images_cache)
+        image_calls = [
+            mock.call(test.IsHttpRequest(),
+                      filters={'is_public': True, 'status': 'active'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'status': 'active', 'property-owner_id': '1'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'visibility': 'shared', 'status': 'active'})
+        ]
+        self.mock_image_list.assert_has_calls(image_calls)
+        handle_calls = [
+            mock.call(test.IsHttpRequest(),
+                      "Unable to retrieve public images."),
+        ]
+        mock_exception_handle.assert_has_calls(handle_calls)
 
         expected_images = [image for image in private_images
                            if image.container_format not in ('ami', 'aki')]
@@ -287,26 +293,8 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
             len(shared_images),
             len(images_cache['shared_images']))
 
-        ret = utils.get_available_images(self.request, self.tenant.id,
-                                         images_cache)
-
-        expected_images = [image for image in self.images.list()
-                           if image.container_format not in ('ami', 'aki')]
-        self.assertEqual(len(expected_images), len(ret))
-        self.assertEqual(
-            len(public_images),
-            len(images_cache['public_images']))
-        self.assertEqual(1, len(images_cache['images_by_project']))
-        self.assertEqual(
-            len(private_images),
-            len(images_cache['images_by_project'][self.tenant.id]))
-        self.assertEqual(
-            len(shared_images),
-            len(images_cache['shared_images']))
-
-    @test.create_stubs({api.glance: ('image_list_detailed',),
-                        messages: ('error',)})
-    def test_list_image_communication_error_public_image_list(self):
+    @mock.patch.object(exceptions, 'handle')
+    def test_list_image_error_private_image_list(self, mock_exception_handle):
         public_images = [image for image in self.images.list()
                          if image.status == 'active' and image.is_public]
         private_images = [image for image in self.images.list()
@@ -315,102 +303,16 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         shared_images = [image for image in self.imagesV2.list()
                          if (image.status == 'active' and
                              image.visibility == 'shared')]
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndRaise(glance_exec.CommunicationError)
-        # Make sure the exception is handled with the correct
-        # error message. If the exception cannot be handled,
-        # the error message will be different.
-        messages.error(IsA(http.HttpRequest),
-                       "Unable to retrieve public images.")
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([private_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'visibility': 'shared', 'status': 'active'}) \
-            .AndReturn([shared_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([public_images, False, False])
 
-        self.mox.ReplayAll()
-
+        self.mock_image_list.side_effect = [
+            [public_images, False, False],
+            self.exceptions.glance,
+            [shared_images, False, False],
+            [private_images, False, False]
+            ]
         images_cache = {}
         ret = utils.get_available_images(self.request, self.tenant.id,
                                          images_cache)
-
-        expected_images = [image for image in private_images
-                           if image.container_format not in ('ami', 'aki')]
-        self.assertEqual(len(expected_images), len(ret))
-        self.assertNotIn('public_images', images_cache)
-        self.assertEqual(1, len(images_cache['images_by_project']))
-        self.assertEqual(
-            len(private_images),
-            len(images_cache['images_by_project'][self.tenant.id]))
-        self.assertEqual(
-            len(shared_images),
-            len(images_cache['shared_images']))
-
-        ret = utils.get_available_images(self.request, self.tenant.id,
-                                         images_cache)
-
-        expected_images = [image for image in self.images.list()
-                           if image.container_format not in ('ami', 'aki')]
-        self.assertEqual(len(expected_images), len(ret))
-        self.assertEqual(
-            len(public_images),
-            len(images_cache['public_images']))
-        self.assertEqual(1, len(images_cache['images_by_project']))
-        self.assertEqual(
-            len(private_images),
-            len(images_cache['images_by_project'][self.tenant.id]))
-        self.assertEqual(
-            len(shared_images),
-            len(images_cache['shared_images']))
-
-    @test.create_stubs({api.glance: ('image_list_detailed',),
-                        exceptions: ('handle',)})
-    def test_list_image_error_private_image_list(self):
-        public_images = [image for image in self.images.list()
-                         if image.status == 'active' and image.is_public]
-        private_images = [image for image in self.images.list()
-                          if (image.status == 'active' and
-                              not image.is_public)]
-        shared_images = [image for image in self.imagesV2.list()
-                         if (image.status == 'active' and
-                             image.visibility == 'shared')]
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([public_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndRaise(self.exceptions.glance)
-        exceptions.handle(IsA(http.HttpRequest),
-                          "Unable to retrieve images for the current project.")
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'visibility': 'shared', 'status': 'active'}) \
-            .AndReturn([shared_images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([private_images, False, False])
-
-        self.mox.ReplayAll()
-
-        images_cache = {}
-        ret = utils.get_available_images(self.request, self.tenant.id,
-                                         images_cache)
-
         expected_images = [image for image in public_images
                            if image.container_format not in ('ami', 'aki')]
         self.assertEqual(len(expected_images), len(ret))
@@ -438,6 +340,23 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         self.assertEqual(
             len(shared_images),
             len(images_cache['shared_images']))
+
+        image_calls = [
+            mock.call(test.IsHttpRequest(),
+                      filters={'status': 'active', 'is_public': True}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'status': 'active', 'property-owner_id': '1'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'status': 'active', 'visibility': 'shared'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'status': 'active', 'property-owner_id': '1'})
+        ]
+        self.mock_image_list.assert_has_calls(image_calls)
+        handle_calls = [
+            mock.call(test.IsHttpRequest(),
+                      "Unable to retrieve images for the current project."),
+        ]
+        mock_exception_handle.assert_has_calls(handle_calls)
 
 
 class SeleniumTests(test.SeleniumTestCase):
