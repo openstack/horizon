@@ -17,6 +17,7 @@ import mock
 
 from openstack_auth import policy
 from openstack_auth import user
+from openstack_auth import utils
 
 
 class PolicyLoaderTestCase(test.TestCase):
@@ -81,6 +82,66 @@ class PolicyTestCaseNonAdmin(PolicyTestCase):
         value = policy.check((("dummy", "default"),),
                              request=self.request)
         self.assertTrue(value)
+
+
+class PolicyTestCheckCredentials(PolicyTestCase):
+    _roles = [{'id': '1', 'name': 'member'}]
+
+    def setUp(self):
+        policy_files = {
+            'no_default': 'no_default_policy.json',
+            'with_default': 'with_default_policy.json',
+        }
+
+        override = self.settings(POLICY_FILES=policy_files)
+        override.enable()
+        self.addCleanup(override.disable)
+
+        mock_user = user.User(id=1, roles=self._roles,
+                              user_domain_id='admin_domain_id')
+        patcher = mock.patch('openstack_auth.utils.get_user',
+                             return_value=mock_user)
+        self.MockClass = patcher.start()
+        self.addCleanup(patcher.stop)
+        self.request = http.HttpRequest()
+
+    def test_check_credentials(self):
+        policy.reset()
+        enforcer = policy._get_enforcer()
+        scope = enforcer['no_default']
+        user = utils.get_user()
+        credentials = policy._user_to_credentials(user)
+        target = {
+            'project_id': user.project_id,
+            'tenant_id': user.project_id,
+            'user_id': user.id,
+            'domain_id': user.user_domain_id,
+            'user.domain_id': user.user_domain_id,
+            'group.domain_id': user.user_domain_id,
+            'project.domain_id': user.user_domain_id,
+        }
+        is_valid = policy._check_credentials(scope, 'action', target,
+                                             credentials)
+        self.assertTrue(is_valid)
+
+    def test_check_credentials_default(self):
+        policy.reset()
+        enforcer = policy._get_enforcer()
+        scope = enforcer['with_default']
+        user = utils.get_user()
+        credentials = policy._user_to_credentials(user)
+        target = {
+            'project_id': user.project_id,
+            'tenant_id': user.project_id,
+            'user_id': user.id,
+            'domain_id': user.user_domain_id,
+            'user.domain_id': user.user_domain_id,
+            'group.domain_id': user.user_domain_id,
+            'project.domain_id': user.user_domain_id,
+        }
+        is_valid = policy._check_credentials(scope, 'action', target,
+                                             credentials)
+        self.assertFalse(is_valid)
 
 
 class PolicyTestCaseAdmin(PolicyTestCase):

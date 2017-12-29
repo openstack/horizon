@@ -188,7 +188,8 @@ def _check_credentials(enforcer_scope, action, target, credentials):
         # enforce loads the rules
         if action not in enforcer_scope.rules:
             if not enforcer_scope.enforce('default', target, credentials):
-                is_valid = False
+                if 'default' in enforcer_scope.rules:
+                    is_valid = False
         else:
             is_valid = False
     return is_valid
