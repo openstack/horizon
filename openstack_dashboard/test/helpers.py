@@ -524,6 +524,7 @@ class APITestCase(TestCase):
         )
 
     def stub_novaclient(self):
+        self._warn_client('nova', 'S')
         if not hasattr(self, "novaclient"):
             self.mox.StubOutWithMock(nova_client, 'Client')
             # mock the api_version since MockObject.__init__ ignores it.
@@ -591,6 +592,11 @@ class APITestCase(TestCase):
 class APIMockTestCase(APITestCase):
 
     use_mox = False
+
+    def stub_novaclient(self):
+        if not hasattr(self, "novaclient"):
+            self.novaclient = mock.Mock()
+        return self.novaclient
 
     def stub_cinderclient(self):
         if not hasattr(self, "cinderclient"):

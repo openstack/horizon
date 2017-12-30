@@ -24,6 +24,9 @@ from openstack_dashboard.usage import quotas
 
 
 class NovaRestTestCase(test.TestCase):
+
+    use_mox = False
+
     #
     # Snapshots
     #
@@ -766,52 +769,49 @@ class NovaRestTestCase(test.TestCase):
     # Services
     #
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @mock.patch.object(api.base, 'is_service_enabled')
     @mock.patch.object(nova.api, 'nova')
-    def test_services_get(self, nc):
+    def test_services_get(self, nc, mock_is_service_enabled):
         request = self.mock_rest_request(GET={})
         nc.service_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'id': '2'}})
         ]
-        api.base.is_service_enabled(request, 'compute').AndReturn(True)
-
-        self.mox.ReplayAll()
+        mock_is_service_enabled.return_value = True
 
         response = nova.Services().get(request)
+
         self.assertStatusCode(response, 200)
         self.assertEqual('{"items": [{"id": "1"}, {"id": "2"}]}',
                          response.content.decode('utf-8'))
         nc.service_list.assert_called_once_with(request)
+        mock_is_service_enabled.assert_called_once_with(request, 'compute')
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
-    def test_services_get_disabled(self):
+    @mock.patch.object(api.base, 'is_service_enabled')
+    def test_services_get_disabled(self, mock_is_service_enabled):
         request = self.mock_rest_request(GET={})
-
-        api.base.is_service_enabled(request, 'compute').AndReturn(False)
-
-        self.mox.ReplayAll()
+        mock_is_service_enabled.return_value = False
 
         response = nova.Services().get(request)
-        self.assertStatusCode(response, 501)
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
-    @test.create_stubs({quotas: ('get_disabled_quotas',)})
+        self.assertStatusCode(response, 501)
+        mock_is_service_enabled.assert_called_once_with(request, 'compute')
+
+    @mock.patch.object(api.base, 'is_service_enabled')
+    @mock.patch.object(quotas, 'get_disabled_quotas')
     @mock.patch.object(nova.api, 'nova')
-    def test_quota_sets_defaults_get(self, nc):
+    def test_quota_sets_defaults_get(self, nc, mock_get_disabled_quotas,
+                                     mock_is_service_enabled):
         filters = {'user': {'tenant_id': 'tenant'}}
         request = self.mock_rest_request(**{'GET': dict(filters)})
 
-        api.base.is_service_enabled(request, 'compute').AndReturn(True)
-        quotas.get_disabled_quotas(request).AndReturn(['floating_ips'])
-
+        mock_is_service_enabled.return_value = True
+        mock_get_disabled_quotas.return_value = ['floating_ips']
         nc.default_quota_get.return_value = [
             Quota('metadata_items', 100),
             Quota('floating_ips', 1),
             Quota('q2', 101)
         ]
-
-        self.mox.ReplayAll()
 
         response = nova.DefaultQuotaSets().get(request)
         self.assertStatusCode(response, 200)
@@ -825,30 +825,32 @@ class NovaRestTestCase(test.TestCase):
                               "name": "q2"}
                          ]})
 
+        mock_is_service_enabled.assert_called_once_with(request, 'compute')
+        mock_get_disabled_quotas.assert_called_once_with(request)
         nc.default_quota_get.assert_called_once_with(request,
                                                      request.user.tenant_id)
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @mock.patch.object(api.base, 'is_service_enabled')
     @mock.patch.object(nova.api, 'nova')
-    def test_quota_sets_defaults_get_when_service_is_disabled(self, nc):
+    def test_quota_sets_defaults_get_when_service_is_disabled(
+            self, nc, mock_is_service_enabled):
         filters = {'user': {'tenant_id': 'tenant'}}
         request = self.mock_rest_request(**{'GET': dict(filters)})
-
-        api.base.is_service_enabled(request, 'compute').AndReturn(False)
-
-        self.mox.ReplayAll()
+        mock_is_service_enabled.return_value = False
 
         response = nova.DefaultQuotaSets().get(request)
+
         self.assertStatusCode(response, 501)
         self.assertEqual(response.content.decode('utf-8'),
                          '"Service Nova is disabled."')
-
         nc.default_quota_get.assert_not_called()
+        mock_is_service_enabled.assert_called_once_with(request, 'compute')
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
-    @test.create_stubs({quotas: ('get_disabled_quotas',)})
+    @mock.patch.object(api.base, 'is_service_enabled')
+    @mock.patch.object(quotas, 'get_disabled_quotas')
     @mock.patch.object(nova.api, 'nova')
-    def test_quota_sets_defaults_patch(self, nc):
+    def test_quota_sets_defaults_patch(self, nc, mock_get_disabled_quotas,
+                                       mock_is_service_enabled):
         request = self.mock_rest_request(body='''
             {"key_pairs": "15", "metadata_items": "5000",
             "cores": "10", "instances": "20", "floating_ips": 10,
@@ -857,16 +859,16 @@ class NovaRestTestCase(test.TestCase):
             "injected_files": "5", "ram": "10", "gigabytes": "5"}
         ''')
 
-        api.base.is_service_enabled(request, 'compute').AndReturn(True)
-        quotas.get_disabled_quotas(request).AndReturn(['floating_ips'])
-
-        self.mox.ReplayAll()
+        mock_is_service_enabled.return_value = True
+        mock_get_disabled_quotas.return_value = ['floating_ips']
 
         response = nova.DefaultQuotaSets().patch(request)
 
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content.decode('utf-8'), '')
 
+        mock_is_service_enabled.assert_called_once_with(request, 'compute')
+        mock_get_disabled_quotas.assert_called_once_with(request)
         nc.default_quota_update.assert_called_once_with(
             request, key_pairs='15',
             metadata_items='5000', cores='10',
@@ -874,9 +876,10 @@ class NovaRestTestCase(test.TestCase):
             injected_file_path_bytes='5000',
             injected_files='5', ram='10')
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @mock.patch.object(api.base, 'is_service_enabled')
     @mock.patch.object(nova.api, 'nova')
-    def test_quota_sets_defaults_patch_when_service_is_disabled(self, nc):
+    def test_quota_sets_defaults_patch_when_service_is_disabled(
+            self, nc, mock_is_service_enabled):
         request = self.mock_rest_request(body='''
             {"key_pairs": "15", "metadata_items": "5000",
             "cores": "10", "instances": "20", "floating_ips": 10,
@@ -885,9 +888,7 @@ class NovaRestTestCase(test.TestCase):
             "injected_files": "5", "ram": "10", "gigabytes": "5"}
         ''')
 
-        api.base.is_service_enabled(request, 'compute').AndReturn(False)
-
-        self.mox.ReplayAll()
+        mock_is_service_enabled.return_value = False
 
         response = nova.DefaultQuotaSets().patch(request)
 
@@ -896,6 +897,7 @@ class NovaRestTestCase(test.TestCase):
                          '"Service Nova is disabled."')
 
         nc.default_quota_update.assert_not_called()
+        mock_is_service_enabled.assert_called_once_with(request, 'compute')
 
     @mock.patch.object(nova, 'quotas')
     @mock.patch.object(nova.api, 'nova')

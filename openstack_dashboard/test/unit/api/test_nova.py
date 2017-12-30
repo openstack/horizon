@@ -20,10 +20,9 @@
 from __future__ import absolute_import
 
 from django.conf import settings
-from django import http
 from django.test.utils import override_settings
 
-from mox3.mox import IsA
+import mock
 from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import flavor_access as nova_flavor_access
@@ -36,57 +35,69 @@ from openstack_dashboard.test import helpers as test
 
 class ServerWrapperTests(test.TestCase):
 
+    use_mox = False
+
     def test_get_base_attribute(self):
         server = api.nova.Server(self.servers.first(), self.request)
         self.assertEqual(self.servers.first().id, server.id)
 
-    def test_image_name(self):
+    @mock.patch.object(api.glance, 'image_get')
+    def test_image_name(self, mock_image_get):
         image = self.images.first()
-        self.mox.StubOutWithMock(api.glance, 'image_get')
-        api.glance.image_get(IsA(http.HttpRequest),
-                             image.id).AndReturn(image)
-        self.mox.ReplayAll()
+        mock_image_get.return_value = image
 
         server = api.nova.Server(self.servers.first(), self.request)
         self.assertEqual(image.name, server.image_name)
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(), image.id)
 
-    def test_image_name_no_glance_service(self):
+    @mock.patch.object(api.glance, 'image_get')
+    def test_image_name_no_glance_service(self, mock_image_get):
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.glance, 'image_get')
-        api.glance.image_get(IsA(http.HttpRequest),
-                             server.image['id']).AndRaise(
-            horizon_exceptions.ServiceCatalogException('image'))
-        self.mox.ReplayAll()
+        exc_catalog = horizon_exceptions.ServiceCatalogException('image')
+        mock_image_get.side_effect = exc_catalog
 
         server = api.nova.Server(server, self.request)
         self.assertIsNone(server.image_name)
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
+                                               server.image['id'])
 
 
-class ComputeApiTests(test.APITestCase):
+class ComputeApiTests(test.APIMockTestCase):
+
+    def _mock_current_version(self, mock_novaclient, version,
+                              min_version=None):
+        ver = mock.Mock()
+        ver.min_version = min_version or '2.1'
+        ver.version = version
+        mock_novaclient.versions.get_current.return_value = ver
+        # To handle upgrade_api
+        self.novaclient.api_version = api_versions.APIVersion(version)
 
     def test_server_reboot(self):
         server = self.servers.first()
         HARDNESS = servers.REBOOT_HARD
 
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.reboot(server.id, HARDNESS)
-        self.mox.ReplayAll()
+        novaclient.servers.reboot.return_value = None
 
         ret_val = api.nova.server_reboot(self.request, server.id)
+
         self.assertIsNone(ret_val)
+        novaclient.servers.reboot.assert_called_once_with(
+            server.id, HARDNESS)
 
     def test_server_soft_reboot(self):
         server = self.servers.first()
         HARDNESS = servers.REBOOT_SOFT
 
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.reboot(server.id, HARDNESS)
-        self.mox.ReplayAll()
+        novaclient.servers.reboot.return_value = None
 
         ret_val = api.nova.server_reboot(self.request, server.id, HARDNESS)
+
         self.assertIsNone(ret_val)
+        novaclient.servers.reboot.assert_called_once_with(
+            server.id, HARDNESS)
 
     def test_server_vnc_console(self):
         server = self.servers.first()
@@ -94,15 +105,15 @@ class ComputeApiTests(test.APITestCase):
         console_type = console["console"]["type"]
 
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.get_vnc_console(server.id,
-                                           console_type).AndReturn(console)
-        self.mox.ReplayAll()
+        novaclient.servers.get_vnc_console.return_value = console
 
         ret_val = api.nova.server_vnc_console(self.request,
                                               server.id,
                                               console_type)
+
         self.assertIsInstance(ret_val, api.nova.VNCConsole)
+        novaclient.servers.get_vnc_console.assert_called_once_with(
+            server.id, console_type)
 
     def test_server_spice_console(self):
         server = self.servers.first()
@@ -110,15 +121,14 @@ class ComputeApiTests(test.APITestCase):
         console_type = console["console"]["type"]
 
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.get_spice_console(server.id,
-                                             console_type).AndReturn(console)
-        self.mox.ReplayAll()
+        novaclient.servers.get_spice_console.return_value = console
 
         ret_val = api.nova.server_spice_console(self.request,
                                                 server.id,
                                                 console_type)
         self.assertIsInstance(ret_val, api.nova.SPICEConsole)
+        novaclient.servers.get_spice_console.assert_called_once_with(
+            server.id, console_type)
 
     def test_server_rdp_console(self):
         server = self.servers.first()
@@ -126,63 +136,54 @@ class ComputeApiTests(test.APITestCase):
         console_type = console["console"]["type"]
 
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.get_rdp_console(server.id,
-                                           console_type).AndReturn(console)
-        self.mox.ReplayAll()
+        novaclient.servers.get_rdp_console.return_value = console
 
         ret_val = api.nova.server_rdp_console(self.request,
                                               server.id,
                                               console_type)
         self.assertIsInstance(ret_val, api.nova.RDPConsole)
+        novaclient.servers.get_rdp_console.assert_called_once_with(
+            server.id, console_type)
 
     def test_server_mks_console(self):
         server = self.servers.first()
         console = self.servers.mks_console_data
         console_type = console["remote_console"]["type"]
 
-        return_value = {"version": {"min_version": "2.1", "version": "2.53"}}
         novaclient = self.stub_novaclient()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn(return_value)
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.get_mks_console(server.id,
-                                           console_type).AndReturn(console)
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.53')
+        novaclient.servers.get_mks_console.return_value = console
 
         ret_val = api.nova.server_mks_console(self.request,
                                               server.id,
                                               console_type)
         self.assertIsInstance(ret_val, api.nova.MKSConsole)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.servers.get_mks_console.assert_called_once_with(
+            server.id, console_type)
 
     def test_server_list(self):
         servers = self.servers.list()
 
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn("2.45")
-        novaclient.servers.list(True, {'all_tenants': True}).AndReturn(servers)
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.40')
+        novaclient.servers.list.return_value = servers
 
         ret_val, has_more = api.nova.server_list(
             self.request,
             search_opts={'all_tenants': True})
         for server in ret_val:
             self.assertIsInstance(server, api.nova.Server)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.servers.list.assert_called_once_with(
+            True, {'all_tenants': True})
 
     def test_server_list_pagination(self):
         page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
         servers = self.servers.list()
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn("2.45")
-        novaclient.servers.list(True,
-                                {'all_tenants': True,
-                                 'marker': None,
-                                 'limit': page_size + 1}).AndReturn(servers)
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.45')
+        novaclient.servers.list.return_value = servers
 
         ret_val, has_more = api.nova.server_list(self.request,
                                                  {'marker': None,
@@ -191,163 +192,161 @@ class ComputeApiTests(test.APITestCase):
         for server in ret_val:
             self.assertIsInstance(server, api.nova.Server)
         self.assertFalse(has_more)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.servers.list.assert_called_once_with(
+            True,
+            {'all_tenants': True,
+             'marker': None,
+             'limit': page_size + 1})
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_server_list_pagination_more(self):
         page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
         servers = self.servers.list()
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn("2.45")
-        novaclient.servers.list(True,
-                                {'all_tenants': True,
-                                 'marker': None,
-                                 'limit': page_size + 1}) \
-            .AndReturn(servers[:page_size + 1])
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.45')
+        novaclient.servers.list.return_value = servers[:page_size + 1]
 
         ret_val, has_more = api.nova.server_list(self.request,
                                                  {'marker': None,
                                                   'paginate': True,
                                                   'all_tenants': True})
+
         for server in ret_val:
             self.assertIsInstance(server, api.nova.Server)
         self.assertEqual(page_size, len(ret_val))
         self.assertTrue(has_more)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.servers.list.assert_called_once_with(
+            True,
+            {'all_tenants': True,
+             'marker': None,
+             'limit': page_size + 1})
 
     def test_usage_get(self):
         novaclient = self.stub_novaclient()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn(
-            api_versions.APIVersion('2.1'))
-        novaclient.usage = self.mox.CreateMockAnything()
-        novaclient.usage.get(self.tenant.id,
-                             'start',
-                             'end').AndReturn(self.usages.first())
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.1')
+        novaclient.usages.get.return_value = self.usages.first()
 
         ret_val = api.nova.usage_get(self.request, self.tenant.id,
                                      'start', 'end')
+
         self.assertIsInstance(ret_val, api.nova.NovaUsage)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.usage.get.assert_called_once_with(
+            self.tenant.id, 'start', 'end')
 
     def test_usage_get_paginated(self):
         novaclient = self.stub_novaclient()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn(
-            api_versions.APIVersion('2.40'))
-        novaclient.api_version = api_versions.APIVersion('2.40')
-        novaclient.usage = self.mox.CreateMockAnything()
-        novaclient.usage.get(self.tenant.id, 'start', 'end')\
-            .AndReturn(self.usages.first())
-        novaclient.usage.get(
-            self.tenant.id,
-            'start',
-            'end',
-            marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93',
-        ).AndReturn({})
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.40')
+        novaclient.usage.get.side_effect = [
+            self.usages.first(),
+            {},
+        ]
 
         ret_val = api.nova.usage_get(self.request, self.tenant.id,
                                      'start', 'end')
+
         self.assertIsInstance(ret_val, api.nova.NovaUsage)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.usage.get.assert_has_calls([
+            mock.call(self.tenant.id, 'start', 'end'),
+            mock.call(self.tenant.id, 'start', 'end',
+                      marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93'),
+        ])
 
     def test_usage_list(self):
         usages = self.usages.list()
 
         novaclient = self.stub_novaclient()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn(
-            api_versions.APIVersion('2.1'))
-        novaclient.usage = self.mox.CreateMockAnything()
-        novaclient.usage.list('start', 'end', True).AndReturn(usages)
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.1')
+        novaclient.usage.list.return_value = usages
 
         ret_val = api.nova.usage_list(self.request, 'start', 'end')
+
         for usage in ret_val:
             self.assertIsInstance(usage, api.nova.NovaUsage)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.usage.list.assert_called_once_with('start', 'end', True)
 
     def test_usage_list_paginated(self):
         usages = self.usages.list()
 
         novaclient = self.stub_novaclient()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn(
-            api_versions.APIVersion('2.40'))
-        novaclient.api_version = api_versions.APIVersion('2.40')
-        novaclient.usage = self.mox.CreateMockAnything()
-        novaclient.usage.list('start', 'end', True).AndReturn(usages)
-        novaclient.usage.list(
-            'start',
-            'end',
-            True,
-            marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93',
-        ).AndReturn({})
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.40')
+        novaclient.usage.list.side_effect = [
+            usages,
+            {},
+        ]
 
         ret_val = api.nova.usage_list(self.request, 'start', 'end')
+
         for usage in ret_val:
             self.assertIsInstance(usage, api.nova.NovaUsage)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.usage.list.assert_has_calls([
+            mock.call('start', 'end', True),
+            mock.call('start', 'end', True,
+                      marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93'),
+        ])
 
     def test_server_get(self):
         server = self.servers.first()
 
         novaclient = self.stub_novaclient()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn("2.45")
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.get(server.id).AndReturn(server)
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.45')
+        novaclient.servers.get.return_value = server
 
         ret_val = api.nova.server_get(self.request, server.id)
         self.assertIsInstance(ret_val, api.nova.Server)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.servers.get.assert_called_once_with(server.id)
 
     def test_server_metadata_update(self):
         server = self.servers.first()
         metadata = {'foo': 'bar'}
 
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.set_meta(server.id, metadata)
-        self.mox.ReplayAll()
+        novaclient.servers.set_meta.return_value = None
 
         ret_val = api.nova.server_metadata_update(self.request,
                                                   server.id,
                                                   metadata)
         self.assertIsNone(ret_val)
+        novaclient.servers.set_meta.assert_called_once_with(server.id,
+                                                            metadata)
 
     def test_server_metadata_delete(self):
         server = self.servers.first()
         keys = ['a', 'b']
 
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.delete_meta(server.id, keys)
-        self.mox.ReplayAll()
+        novaclient.servers.delete_meta.return_value = None
 
         ret_val = api.nova.server_metadata_delete(self.request,
                                                   server.id,
                                                   keys)
         self.assertIsNone(ret_val)
+        novaclient.servers.delete_meta.assert_called_once_with(server.id, keys)
 
     def _test_absolute_limits(self, values, expected_results):
-        limits = self.mox.CreateMockAnything()
+        limits = mock.Mock()
         limits.absolute = []
         for key, val in values.items():
-            limit = self.mox.CreateMockAnything()
+            limit = mock.Mock()
             limit.name = key
             limit.value = val
             limits.absolute.append(limit)
 
         novaclient = self.stub_novaclient()
-        novaclient.limits = self.mox.CreateMockAnything()
-        novaclient.limits.get(reserved=True,
-                              tenant_id=None).AndReturn(limits)
-        self.mox.ReplayAll()
+        novaclient.limits.get.return_value = limits
 
         ret_val = api.nova.tenant_absolute_limits(self.request, reserved=True)
+
         for key in expected_results.keys():
             self.assertEqual(expected_results[key], ret_val[key])
+        novaclient.limits.get.assert_called_once_with(reserved=True,
+                                                      tenant_id=None)
 
     def test_absolute_limits_handle_unlimited(self):
         values = {"maxTotalCores": -1, "maxTotalInstances": 10}
@@ -377,36 +376,28 @@ class ComputeApiTests(test.APITestCase):
     def test_cold_migrate_host_succeed(self):
         hypervisor = self.hypervisors.first()
         novaclient = self.stub_novaclient()
-
-        novaclient.hypervisors = self.mox.CreateMockAnything()
-        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
-
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.migrate("test_uuid")
-
-        self.mox.ReplayAll()
+        novaclient.hypervisors.search.return_value = [hypervisor]
+        novaclient.servers.migrate.return_value = None
 
         ret_val = api.nova.migrate_host(self.request, "host", False, True,
                                         True)
 
         self.assertTrue(ret_val)
+        novaclient.hypervisors.search.assert_called_once_with('host', True)
+        novaclient.servers.migrate.assert_called_once_with('test_uuid')
 
     def test_cold_migrate_host_fails(self):
         hypervisor = self.hypervisors.first()
         novaclient = self.stub_novaclient()
-
-        novaclient.hypervisors = self.mox.CreateMockAnything()
-        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
-
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.migrate("test_uuid").AndRaise(
-            nova_exceptions.ClientException(404))
-
-        self.mox.ReplayAll()
+        novaclient.hypervisors.search.return_value = [hypervisor]
+        novaclient.servers.migrate.side_effect = \
+            nova_exceptions.ClientException(404)
 
         self.assertRaises(nova_exceptions.ClientException,
                           api.nova.migrate_host,
                           self.request, "host", False, True, True)
+        novaclient.hypervisors.search.assert_called_once_with('host', True)
+        novaclient.servers.migrate.assert_called_once_with('test_uuid')
 
     def test_live_migrate_host_with_active_vm(self):
         hypervisor = self.hypervisors.first()
@@ -414,21 +405,20 @@ class ComputeApiTests(test.APITestCase):
         novaclient = self.stub_novaclient()
         server_uuid = hypervisor.servers[0]["uuid"]
 
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn("2.45")
-        novaclient.hypervisors = self.mox.CreateMockAnything()
-        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
-
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.get(server_uuid).AndReturn(server)
-        novaclient.servers.live_migrate(server_uuid, None, True, True)
-
-        self.mox.ReplayAll()
+        self._mock_current_version(novaclient, '2.45')
+        novaclient.hypervisors.search.return_value = [hypervisor]
+        novaclient.servers.get.return_value = server
+        novaclient.servers.live_migrate.return_value = None
 
         ret_val = api.nova.migrate_host(self.request, "host", True, True,
                                         True)
 
         self.assertTrue(ret_val)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.hypervisors.search.assert_called_once_with('host', True)
+        novaclient.servers.get.assert_called_once_with(server_uuid)
+        novaclient.servers.live_migrate.assert_called_once_with(
+            server_uuid, None, True, True)
 
     def test_live_migrate_host_with_paused_vm(self):
         hypervisor = self.hypervisors.first()
@@ -436,21 +426,19 @@ class ComputeApiTests(test.APITestCase):
         novaclient = self.stub_novaclient()
         server_uuid = hypervisor.servers[0]["uuid"]
 
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn("2.45")
-        novaclient.hypervisors = self.mox.CreateMockAnything()
-        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
+        self._mock_current_version(novaclient, '2.45')
+        novaclient.hypervisors.search.return_value = [hypervisor]
+        novaclient.servers.get.return_value = server
+        novaclient.servers.live_migrate.return_value = None
 
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.get(server_uuid).AndReturn(server)
-        novaclient.servers.live_migrate(server_uuid, None, True, True)
-
-        self.mox.ReplayAll()
-
-        ret_val = api.nova.migrate_host(self.request, "host", True, True,
-                                        True)
+        ret_val = api.nova.migrate_host(self.request, "host", True, True, True)
 
         self.assertTrue(ret_val)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.hypervisors.search.assert_called_once_with('host', True)
+        novaclient.servers.get.assert_called_once_with(server_uuid)
+        novaclient.servers.live_migrate.assert_called_once_with(
+            server_uuid, None, True, True)
 
     def test_live_migrate_host_without_running_vm(self):
         hypervisor = self.hypervisors.first()
@@ -458,72 +446,63 @@ class ComputeApiTests(test.APITestCase):
         novaclient = self.stub_novaclient()
         server_uuid = hypervisor.servers[0]["uuid"]
 
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn("2.45")
-        novaclient.hypervisors = self.mox.CreateMockAnything()
-        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
+        self._mock_current_version(novaclient, '2.45')
+        novaclient.hypervisors.search.return_value = [hypervisor]
+        novaclient.servers.get.return_value = server
+        novaclient.servers.migrate.return_value = None
 
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.servers.get(server_uuid).AndReturn(server)
-        novaclient.servers.migrate(server_uuid)
+        ret_val = api.nova.migrate_host(self.request, "host", True, True, True)
 
-        self.mox.ReplayAll()
-
-        ret_val = api.nova.migrate_host(self.request, "host", True, True,
-                                        True)
         self.assertTrue(ret_val)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.hypervisors.search.assert_called_once_with('host', True)
+        novaclient.servers.get.assert_called_once_with(server_uuid)
+        novaclient.servers.migrate.assert_called_once_with(server_uuid)
 
     """Flavor Tests"""
 
     def test_flavor_list_no_extras(self):
         flavors = self.flavors.list()
         novaclient = self.stub_novaclient()
+        novaclient.flavors.list.return_value = flavors
 
-        novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavors.list(is_public=True).AndReturn(flavors)
-        self.mox.ReplayAll()
         api_flavors = api.nova.flavor_list(self.request)
+
         self.assertEqual(len(flavors), len(api_flavors))
+        novaclient.flavors.list.assert_called_once_with(is_public=True)
 
     def test_flavor_get_no_extras(self):
         flavor = self.flavors.list()[1]
         novaclient = self.stub_novaclient()
+        novaclient.flavors.get.return_value = flavor
 
-        novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavors.get(flavor.id).AndReturn(flavor)
-
-        self.mox.ReplayAll()
         api_flavor = api.nova.flavor_get(self.request, flavor.id)
+
         self.assertEqual(api_flavor.id, flavor.id)
+        novaclient.flavors.get.assert_called_once_with(flavor.id)
 
     def _test_flavor_list_paged(self, reversed_order=False, paginate=True):
         page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
         flavors = self.flavors.list()
         order = 'asc' if reversed_order else 'desc'
         novaclient = self.stub_novaclient()
-        novaclient.flavors = self.mox.CreateMockAnything()
-        if paginate:
-            novaclient.flavors.list(is_public=True,
-                                    marker=None,
-                                    limit=page_size + 1,
-                                    sort_key='name',
-                                    sort_dir=order).AndReturn(flavors)
-        else:
-            novaclient.flavors.list(is_public=True).AndReturn(flavors)
+        novaclient.flavors.list.return_value = flavors
 
-        self.mox.ReplayAll()
-        api_flavors, has_more, has_prev = api.nova\
-                                             .flavor_list_paged(
-                                                 self.request,
-                                                 True,
-                                                 False,
-                                                 None,
-                                                 paginate=paginate,
-                                                 reversed_order=reversed_order)
+        api_flavors, has_more, has_prev = api.nova.flavor_list_paged(
+            self.request, True, False, None, paginate=paginate,
+            reversed_order=reversed_order)
+
         for flavor in api_flavors:
             self.assertIsInstance(flavor, type(flavors[0]))
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
+        if paginate:
+            novaclient.flavors.list.assert_called_once_with(
+                is_public=True, marker=None, limit=page_size + 1,
+                sort_key='name', sort_dir=order)
+        else:
+            novaclient.flavors.list.assert_called_once_with(
+                is_public=True)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_flavor_list_pagination_more_and_prev(self):
@@ -531,15 +510,8 @@ class ComputeApiTests(test.APITestCase):
         flavors = self.flavors.list()
         marker = flavors[0].id
         novaclient = self.stub_novaclient()
-        novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavors.list(is_public=True,
-                                marker=marker,
-                                limit=page_size + 1,
-                                sort_key='name',
-                                sort_dir='desc')\
-            .AndReturn(flavors[1:page_size + 2])
+        novaclient.flavors.list.return_value = flavors[1:page_size + 2]
 
-        self.mox.ReplayAll()
         api_flavors, has_more, has_prev = api.nova\
                                              .flavor_list_paged(
                                                  self.request,
@@ -547,11 +519,15 @@ class ComputeApiTests(test.APITestCase):
                                                  False,
                                                  marker,
                                                  paginate=True)
+
         for flavor in api_flavors:
             self.assertIsInstance(flavor, type(flavors[0]))
         self.assertEqual(page_size, len(api_flavors))
         self.assertTrue(has_more)
         self.assertTrue(has_prev)
+        novaclient.flavors.list.assert_called_once_with(
+            is_public=True, marker=marker, limit=page_size + 1,
+            sort_key='name', sort_dir='desc')
 
     def test_flavor_list_paged_default_order(self):
         self._test_flavor_list_paged()
@@ -566,16 +542,7 @@ class ComputeApiTests(test.APITestCase):
         flavor = self.flavors.first()
 
         novaclient = self.stub_novaclient()
-        novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavors.create(flavor.name, flavor.ram,
-                                  flavor.vcpus, flavor.disk,
-                                  flavorid='auto',
-                                  ephemeral=0,
-                                  swap=0,
-                                  is_public=True,
-                                  rxtx_factor=1).AndReturn(flavor)
-
-        self.mox.ReplayAll()
+        novaclient.flavors.create.return_value = flavor
 
         api_flavor = api.nova.flavor_create(self.request,
                                             flavor.name,
@@ -593,33 +560,36 @@ class ComputeApiTests(test.APITestCase):
         self.assertTrue(api_flavor.is_public)
         self.assertEqual(1, api_flavor.rxtx_factor)
 
+        novaclient.flavors.create.assert_called_once_with(
+            flavor.name, flavor.ram, flavor.vcpus, flavor.disk,
+            flavorid='auto', ephemeral=0, swap=0, is_public=True,
+            rxtx_factor=1)
+
     def test_flavor_delete(self):
         flavor = self.flavors.first()
         novaclient = self.stub_novaclient()
-        novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavors.delete(flavor.id)
-
-        self.mox.ReplayAll()
+        novaclient.flavors.delete.return_value = None
 
         api_val = api.nova.flavor_delete(self.request, flavor.id)
 
         self.assertIsNone(api_val)
+        novaclient.flavors.delete.assert_called_once_with(flavor.id)
 
-    @test.create_stubs({api.nova: ('flavor_access_list',)})
     def test_flavor_access_list(self):
         flavor_access = self.flavor_access.list()
         flavor = [f for f in self.flavors.list() if f.id ==
                   flavor_access[0].flavor_id][0]
 
-        api.nova.flavor_access_list(self.request, flavor)\
-            .AndReturn(flavor_access)
+        novaclient = self.stub_novaclient()
+        novaclient.flavor_access.list.return_value = flavor_access
 
-        self.mox.ReplayAll()
         api_flavor_access = api.nova.flavor_access_list(self.request, flavor)
+
         self.assertEqual(len(flavor_access), len(api_flavor_access))
         for access in api_flavor_access:
             self.assertIsInstance(access, nova_flavor_access.FlavorAccess)
             self.assertEqual(access.flavor_id, flavor.id)
+        novaclient.flavor_access.list.assert_called_once_with(flavor=flavor)
 
     def test_add_tenant_to_flavor(self):
         flavor_access = [self.flavor_access.first()]
@@ -628,15 +598,8 @@ class ComputeApiTests(test.APITestCase):
         tenant = [t for t in self.tenants.list() if t.id ==
                   flavor_access[0].tenant_id][0]
         novaclient = self.stub_novaclient()
-        novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavor_access = self.mox.CreateMockAnything()
+        novaclient.flavor_access.add_tenant_access.return_value = flavor_access
 
-        novaclient.flavor_access\
-                  .add_tenant_access(flavor=flavor,
-                                     tenant=tenant)\
-                  .AndReturn(flavor_access)
-
-        self.mox.ReplayAll()
         api_flavor_access = api.nova.add_tenant_to_flavor(self.request,
                                                           flavor,
                                                           tenant)
@@ -647,6 +610,9 @@ class ComputeApiTests(test.APITestCase):
             self.assertEqual(access.flavor_id, flavor.id)
             self.assertEqual(access.tenant_id, tenant.id)
 
+        novaclient.flavor_access.add_tenant_access.assert_called_once_with(
+            flavor=flavor, tenant=tenant)
+
     def test_remove_tenant_from_flavor(self):
         flavor_access = [self.flavor_access.first()]
         flavor = [f for f in self.flavors.list() if f.id ==
@@ -655,29 +621,25 @@ class ComputeApiTests(test.APITestCase):
                   flavor_access[0].tenant_id][0]
 
         novaclient = self.stub_novaclient()
-        novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavor_access = self.mox.CreateMockAnything()
+        novaclient.flavor_access.remove_tenant_access.return_value = []
 
-        novaclient.flavor_access\
-                  .remove_tenant_access(flavor=flavor,
-                                        tenant=tenant)\
-                  .AndReturn([])
-
-        self.mox.ReplayAll()
         api_val = api.nova.remove_tenant_from_flavor(self.request,
                                                      flavor,
                                                      tenant)
+
         self.assertEqual(len(api_val), len([]))
         self.assertIsInstance(api_val, list)
+        novaclient.flavor_access.remove_tenant_access.assert_called_once_with(
+            flavor=flavor, tenant=tenant)
 
     def test_server_group_list(self):
         server_groups = self.server_groups.list()
 
         novaclient = self.stub_novaclient()
-        novaclient.server_groups = self.mox.CreateMockAnything()
-        novaclient.server_groups.list().AndReturn(server_groups)
-        self.mox.ReplayAll()
+        novaclient.server_groups.list.return_value = server_groups
 
         ret_val = api.nova.server_group_list(self.request)
+
         self.assertIsInstance(ret_val, list)
         self.assertEqual(len(ret_val), len(server_groups))
+        novaclient.server_groups.list.assert_called_once_with()
