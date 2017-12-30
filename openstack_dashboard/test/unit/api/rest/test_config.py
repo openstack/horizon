@@ -17,6 +17,9 @@ from openstack_dashboard.test import helpers as test
 
 
 class ConfigRestTestCase(test.TestCase):
+
+    use_mox = False
+
     def test_settings_config_get(self):
         request = self.mock_rest_request()
         response = config.Settings().get(request)

@@ -17,6 +17,9 @@ from openstack_dashboard.test import helpers as test
 
 
 class RestUtilsTestCase(test.TestCase):
+
+    use_mox = False
+
     def test_api_success(self):
         @utils.ajax()
         def f(self, request):
@@ -169,6 +172,9 @@ class RestUtilsTestCase(test.TestCase):
 
 
 class JSONEncoderTestCase(test.TestCase):
+
+    use_mox = False
+
     # NOTE(tsufiev): NaN numeric is "conventional" in a sense that the custom
     # NaNJSONEncoder encoder translates it to the same token that the standard
     # JSONEncoder encoder does
