@@ -572,6 +572,7 @@ class APITestCase(TestCase):
         return self.neutronclient
 
     def stub_swiftclient(self, expected_calls=1):
+        self._warn_client('swift', 'S')
         if not hasattr(self, "swiftclient"):
             self.mox.StubOutWithMock(swift_client, 'Connection')
             self.swiftclient = self.mox.CreateMock(swift_client.Connection)
@@ -607,6 +608,10 @@ class APIMockTestCase(APITestCase):
         if not hasattr(self, "glanceclient"):
             self.glanceclient = mock.Mock()
         return self.glanceclient
+
+    def stub_swiftclient(self):
+        # This method should not be called.
+        raise NotImplementedError
 
 
 # Need this to test both Glance API V1 and V2 versions

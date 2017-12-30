@@ -23,6 +23,9 @@ TEST = TestData(swift_data.data)
 
 
 class SwiftRestTestCase(test.TestCase):
+
+    use_mox = False
+
     def setUp(self):
         super(SwiftRestTestCase, self).setUp()
         self._containers = TEST.containers.list()
