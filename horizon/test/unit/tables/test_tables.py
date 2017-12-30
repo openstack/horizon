@@ -27,7 +27,6 @@ from django.urls import reverse
 from django.utils.translation import ungettext_lazy
 
 import mock
-from mox3.mox import IsA
 import six
 
 from horizon import exceptions
@@ -390,9 +389,6 @@ class DisabledActionsTable(tables.DataTable):
 
 
 class DataTableTests(test.TestCase):
-
-    use_mox = True
-
     def test_table_instantiation(self):
         """Tests everything that happens when the table is instantiated."""
         self.table = MyTable(self.request, TEST_DATA)
@@ -1334,17 +1330,21 @@ class DataTableTests(test.TestCase):
         req = self.factory.post('/my_url/', {'action': action_string})
         self.table = MyTable(req, TEST_DATA)
 
-        self.mox.StubOutWithMock(self.table, 'get_object_display')
-        self.table.get_object_display(IsA(FakeObject)).AndReturn(None)
-        self.mox.ReplayAll()
+        with mock.patch.object(
+                self.table,
+                'get_object_display',
+                return_value=None) as mock_get_object_display:
 
-        self.assertEqual(('my_table', 'toggle', '1'),
-                         self.table.parse_action(action_string))
-        handled = self.table.maybe_handle()
+            self.assertEqual(('my_table', 'toggle', '1'),
+                             self.table.parse_action(action_string))
+            handled = self.table.maybe_handle()
+
         self.assertEqual(302, handled.status_code)
         self.assertEqual("/my_url/", handled["location"])
         self.assertEqual(u"Downed Item: 1",
                          list(req._messages)[0].message)
+        mock_get_object_display.assert_called_once_with(
+            test.IsA(FakeObject))
 
     def test_table_column_can_be_selected(self):
         self.table = MyTableSelectable(self.request, TEST_DATA_6)
