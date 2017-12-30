@@ -226,6 +226,7 @@ class TestCase(horizon_helpers.TestCase):
       :class:`~openstack_dashboard.test.test_data.utils.TestData`
       for more information.
     * The ``mox`` mocking framework via ``self.mox``.
+      if ``use_mox`` attribute is set to True.
     * A set of request context data via ``self.context``.
     * A ``RequestFactory`` class which supports Django's ``contrib.messages``
       framework via ``self.factory``.
@@ -237,6 +238,11 @@ class TestCase(horizon_helpers.TestCase):
     # To force test failures when unmocked API calls are attempted, provide
     # boolean variable to store failures
     missing_mocks = False
+
+    # Most openstack_dashbaord tests depends on mox,
+    # we mark use_mox to True by default.
+    # Eventually we can drop this when mock migration has good progress.
+    use_mox = True
 
     def fake_conn_request(self):
         # print a stacktrace to illustrate where the unmocked API call
@@ -509,6 +515,14 @@ class APITestCase(TestCase):
         api.neutron.neutronclient = self._original_neutronclient
         api.cinder.cinderclient = self._original_cinderclient
 
+    def _warn_client(self, service, removal_version):
+        LOG.warning(
+            "APITestCase has been deprecated for %(service)s-related "
+            "tests and will be removerd in '%(removal_version)s' release. "
+            "Please convert your to use APIMockTestCase instead.",
+            {'service': service, 'removal_version': removal_version}
+        )
+
     def stub_novaclient(self):
         if not hasattr(self, "novaclient"):
             self.mox.StubOutWithMock(nova_client, 'Client')
@@ -524,9 +538,7 @@ class APITestCase(TestCase):
         return self.novaclient
 
     def stub_cinderclient(self):
-        LOG.warning("APITestCase has been deprecated for Cinder-related "
-                    "tests and will be removerd in 'S' release. Please "
-                    "convert  your to use APIMockTestCase instead.")
+        self._warn_client('cinder', 'S')
         if not hasattr(self, "cinderclient"):
             self.mox.StubOutWithMock(cinder_client, 'Client')
             self.cinderclient = self.mox.CreateMock(cinder_client.Client)
@@ -546,9 +558,7 @@ class APITestCase(TestCase):
         return self.keystoneclient
 
     def stub_glanceclient(self):
-        LOG.warning("APITestCase has been deprecated for Glance-related "
-                    "tests and will be removerd in 'S' release. Please "
-                    "convert  your to use APIMockTestCase instead.")
+        self._warn_client('glance', 'S')
         if not hasattr(self, "glanceclient"):
             self.mox.StubOutWithMock(glanceclient, 'Client')
             self.glanceclient = self.mox.CreateMock(glanceclient.Client)
@@ -579,6 +589,9 @@ class APITestCase(TestCase):
 
 
 class APIMockTestCase(APITestCase):
+
+    use_mox = False
+
     def stub_cinderclient(self):
         if not hasattr(self, "cinderclient"):
             self.cinderclient = mock.Mock()

@@ -390,6 +390,9 @@ class DisabledActionsTable(tables.DataTable):
 
 
 class DataTableTests(test.TestCase):
+
+    use_mox = True
+
     def test_table_instantiation(self):
         """Tests everything that happens when the table is instantiated."""
         self.table = MyTable(self.request, TEST_DATA)
