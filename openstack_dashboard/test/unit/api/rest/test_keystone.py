@@ -22,6 +22,9 @@ from openstack_dashboard.test import helpers as test
 
 
 class KeystoneRestTestCase(test.TestCase):
+
+    use_mox = False
+
     #
     # Version
     #
