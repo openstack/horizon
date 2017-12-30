@@ -14,6 +14,7 @@
 
 import collections
 
+import mock
 import netaddr
 
 from django.test.utils import override_settings
@@ -22,13 +23,10 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
-class NetworkApiNeutronTestBase(test.APITestCase):
+class NetworkApiNeutronTests(test.APIMockTestCase):
     def setUp(self):
-        super(NetworkApiNeutronTestBase, self).setUp()
+        super(NetworkApiNeutronTests, self).setUp()
         self.qclient = self.stub_neutronclient()
-
-
-class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
 
     def _get_expected_addresses(self, server, no_fip_expected=True):
         server_ports = self.ports.filter(device_id=server.id)
@@ -80,19 +78,15 @@ class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
         server_networks = [net for net in self.api_networks.list()
                            if net['id'] in server_network_ids]
 
-        self.qclient.list_ports(device_id=server_ids) \
-            .AndReturn({'ports': server_ports})
+        list_ports_retvals = [{'ports': server_ports}]
+        self.qclient.list_ports.side_effect = list_ports_retvals
         if router_enabled:
-            self.qclient.list_floatingips(tenant_id=tenant_id,
-                                          port_id=server_port_ids) \
-                .AndReturn({'floatingips': assoc_fips})
-            self.qclient.list_ports(tenant_id=tenant_id) \
-                .AndReturn({'ports': self.api_ports.list()})
-        self.qclient.list_networks(id=frozenset(server_network_ids)) \
-            .AndReturn({'networks': server_networks})
-        self.qclient.list_subnets() \
-            .AndReturn({'subnets': self.api_subnets.list()})
-        self.mox.ReplayAll()
+            self.qclient.list_floatingips.return_value = {'floatingips':
+                                                          assoc_fips}
+            list_ports_retvals.append({'ports': self.api_ports.list()})
+        self.qclient.list_networks.return_value = {'networks': server_networks}
+        self.qclient.list_subnets.return_value = {'subnets':
+                                                  self.api_subnets.list()}
 
         api.network.servers_update_addresses(self.request, servers)
 
@@ -127,6 +121,18 @@ class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
         # server[2] has no corresponding ports in neutron_data,
         # so it should be an empty dict.
         self.assertFalse(servers[2].addresses)
+
+        expected_list_ports = [mock.call(device_id=server_ids)]
+        if router_enabled:
+            self.qclient.list_floatingips.assert_called_once_with(
+                tenant_id=tenant_id, port_id=server_port_ids)
+            expected_list_ports.append(mock.call(tenant_id=tenant_id))
+        else:
+            self.assertEqual(0, self.qclient.list_floatingips.call_count)
+        self.qclient.list_ports.assert_has_calls(expected_list_ports)
+        self.qclient.list_networks.assert_called_once_with(
+            id=frozenset(server_network_ids))
+        self.qclient.list_subnets.assert_called_once_with()
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_router': True})
     def test_servers_update_addresses(self):

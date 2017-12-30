@@ -27,6 +27,9 @@ TEST = TestData(neutron_data.data)
 
 
 class NeutronNetworksTestCase(test.TestCase):
+
+    use_mox = False
+
     def setUp(self):
         super(NeutronNetworksTestCase, self).setUp()
         self._networks = [test.mock_factory(n)
@@ -72,43 +75,45 @@ class NeutronNetworksTestCase(test.TestCase):
     # Services
     #
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
-    @test.create_stubs({api.neutron: ('is_extension_supported',)})
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_services_get(self, client):
+    @mock.patch.object(api.base, 'is_service_enabled')
+    @mock.patch.object(api, 'neutron')
+    def test_services_get(self, client, mock_is_service_enabled):
         params = django_request.QueryDict('network_id=the_network')
         request = self.mock_rest_request(GET=params)
 
-        api.base.is_service_enabled(request, 'network').AndReturn(True)
-        api.neutron.is_extension_supported(request, 'agent').AndReturn(True)
+        mock_is_service_enabled.return_value = True
+        client.is_extension_supported.return_value = True
 
         client.agent_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'id': '2'}})
         ]
-        self.mox.ReplayAll()
 
         response = neutron.Services().get(request)
         self.assertStatusCode(response, 200)
+        mock_is_service_enabled.assert_called_once_with(request, 'network')
+        client.is_extension_supported.assert_called_once_with(request, 'agent')
         client.agent_list.assert_called_once_with(
             request, network_id='the_network')
         self.assertEqual(response.content.decode('utf-8'),
                          '{"items": [{"id": "1"}, {"id": "2"}]}')
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
-    def test_services_get_disabled(self):
+    @mock.patch.object(api.base, 'is_service_enabled')
+    def test_services_get_disabled(self, mock_is_service_enabled):
         request = self.mock_rest_request(
             GET={"network_id": self._networks[0].id})
 
-        api.base.is_service_enabled(request, 'network').AndReturn(False)
-
-        self.mox.ReplayAll()
+        mock_is_service_enabled.return_value = False
 
         response = neutron.Services().get(request)
         self.assertStatusCode(response, 501)
+        mock_is_service_enabled.assert_called_once_with(request, 'network')
 
 
 class NeutronSubnetsTestCase(test.TestCase):
+
+    use_mox = False
+
     def setUp(self):
         super(NeutronSubnetsTestCase, self).setUp()
         self._networks = [test.mock_factory(n)
@@ -143,6 +148,9 @@ class NeutronSubnetsTestCase(test.TestCase):
 
 
 class NeutronPortsTestCase(test.TestCase):
+
+    use_mox = False
+
     def setUp(self):
         super(NeutronPortsTestCase, self).setUp()
         self._networks = [test.mock_factory(n)
@@ -163,6 +171,8 @@ class NeutronPortsTestCase(test.TestCase):
 
 
 class NeutronTrunkTestCase(test.TestCase):
+
+    use_mox = False
 
     @mock.patch.object(neutron.api, 'neutron')
     def test_trunk_delete(self, client):
@@ -194,6 +204,9 @@ class NeutronTrunkTestCase(test.TestCase):
 
 
 class NeutronTrunksTestCase(test.TestCase):
+
+    use_mox = False
+
     def setUp(self):
         super(NeutronTrunksTestCase, self).setUp()
         self._trunks = [test.mock_factory(n)
@@ -222,6 +235,9 @@ class NeutronTrunksTestCase(test.TestCase):
 
 
 class NeutronExtensionsTestCase(test.TestCase):
+
+    use_mox = False
+
     def setUp(self):
         super(NeutronExtensionsTestCase, self).setUp()
 
@@ -238,19 +254,20 @@ class NeutronExtensionsTestCase(test.TestCase):
 
 
 class NeutronDefaultQuotasTestCase(test.TestCase):
-    @test.create_stubs({base: ('is_service_enabled',)})
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_quotas_sets_defaults_get_when_service_is_enabled(self, client):
+
+    use_mox = False
+
+    @mock.patch.object(api.base, 'is_service_enabled')
+    @mock.patch.object(api, 'neutron')
+    def test_quotas_sets_defaults_get_when_service_is_enabled(
+            self, client, mock_is_service_enabled):
         filters = {'user': {'tenant_id': 'tenant'}}
         request = self.mock_rest_request(**{'GET': dict(filters)})
 
-        base.is_service_enabled(request, 'network').AndReturn(True)
-
+        mock_is_service_enabled.return_value = True
         client.tenant_quota_get.return_value = [
             base.Quota("network", 100),
             base.Quota("q2", 101)]
-
-        self.mox.ReplayAll()
 
         response = neutron.DefaultQuotaSets().get(request)
         self.assertStatusCode(response, 200)
@@ -258,29 +275,32 @@ class NeutronDefaultQuotasTestCase(test.TestCase):
             {'limit': 100, 'display_name': 'Networks', 'name': 'network'},
             {'limit': 101, 'display_name': 'Q2', 'name': 'q2'}])
 
+        mock_is_service_enabled.assert_called_once_with(request, 'network')
         client.tenant_quota_get.assert_called_once_with(
             request,
             request.user.tenant_id)
 
-    @test.create_stubs({neutron.api.base: ('is_service_enabled',)})
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_quota_sets_defaults_get_when_service_is_disabled(self, client):
+    @mock.patch.object(api.base, 'is_service_enabled')
+    @mock.patch.object(api, 'neutron')
+    def test_quota_sets_defaults_get_when_service_is_disabled(
+            self, client, mock_is_service_enabled):
         filters = {'user': {'tenant_id': 'tenant'}}
         request = self.mock_rest_request(**{'GET': dict(filters)})
-
-        base.is_service_enabled(request, 'network').AndReturn(False)
-
-        self.mox.ReplayAll()
+        mock_is_service_enabled.return_value = False
 
         response = neutron.DefaultQuotaSets().get(request)
         self.assertStatusCode(response, 501)
         self.assertEqual(response.content.decode('utf-8'),
                          '"Service Neutron is disabled."')
 
+        mock_is_service_enabled.assert_called_once_with(request, 'network')
         client.tenant_quota_get.assert_not_called()
 
 
 class NeutronQuotaSetsTestCase(test.TestCase):
+
+    use_mox = False
+
     def setUp(self):
         super(NeutronQuotaSetsTestCase, self).setUp()
 
