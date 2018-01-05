@@ -68,7 +68,8 @@ class QuotaTests(test.APITestCase):
         return usages
 
     def get_usages_from_limits(self, with_volume=True, with_compute=True,
-                               nova_quotas_enabled=True):
+                               nova_quotas_enabled=True,
+                               unlimited_items=None):
         usages = {}
         if with_compute and nova_quotas_enabled:
             usages.update({
@@ -83,6 +84,10 @@ class QuotaTests(test.APITestCase):
                 'gigabytes': {'available': 600, 'used': 400, 'quota': 1000},
                 'snapshots': {'available': 7, 'used': 3, 'quota': 10},
             })
+        if unlimited_items:
+            for item in unlimited_items:
+                usages[item]['available'] = float('inf')
+                usages[item]['quota'] = float('inf')
         return usages
 
     def assertAvailableQuotasEqual(self, expected_usages, actual_usages):
@@ -130,7 +135,8 @@ class QuotaTests(test.APITestCase):
                         cinder: ('tenant_absolute_limits',
                                  'is_volume_service_enabled')})
     def _test_tenant_quota_usages(self, nova_quotas_enabled=True,
-                                  with_compute=True, with_volume=True):
+                                  with_compute=True, with_volume=True,
+                                  unlimited_items=None):
         tenant_id = '1'
         cinder.is_volume_service_enabled(IsA(http.HttpRequest)).AndReturn(
             with_volume)
@@ -157,7 +163,8 @@ class QuotaTests(test.APITestCase):
         expected_output = self.get_usages_from_limits(
             nova_quotas_enabled=nova_quotas_enabled,
             with_volume=with_volume,
-            with_compute=with_compute)
+            with_compute=with_compute,
+            unlimited_items=unlimited_items)
 
         # Compare internal structure of usages to expected.
         self.assertItemsEqual(expected_output, quota_usages.usages)
@@ -172,6 +179,10 @@ class QuotaTests(test.APITestCase):
         self._test_tenant_quota_usages(nova_quotas_enabled=False,
                                        with_compute=True,
                                        with_volume=False)
+
+    def test_tenant_quota_usages_with_unlimited(self):
+        self.limits['absolute']['maxTotalInstances'] = float('inf')
+        self._test_tenant_quota_usages(unlimited_items=['instances'])
 
     @override_settings(OPENSTACK_HYPERVISOR_FEATURES={'enable_quotas': False})
     @test.create_stubs({api.base: ('is_service_enabled',),
