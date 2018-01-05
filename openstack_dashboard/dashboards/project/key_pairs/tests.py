@@ -16,9 +16,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
 from django.urls import reverse
-from mox3.mox import IsA
+import mock
 import six
 
 from openstack_dashboard import api
@@ -32,61 +31,63 @@ INDEX_URL = reverse('horizon:project:key_pairs:index')
 
 
 class KeyPairTests(test.TestCase):
-    @test.create_stubs({
-        api.nova: ('keypair_list',),
-        quotas: ('tenant_quota_usages',),
-    })
+    @test.create_mocks({api.nova: ('keypair_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_index(self):
         keypairs = self.keypairs.list()
         quota_data = self.quota_usages.first()
 
-        quotas.tenant_quota_usages(IsA(http.HttpRequest),
-                                   targets=('key_pairs', )).MultipleTimes() \
-            .AndReturn(quota_data)
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(keypairs)
+        self.mock_tenant_quota_usages.return_value = quota_data
+        self.mock_keypair_list.return_value = keypairs
 
-        self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         self.assertItemsEqual(res.context['keypairs_table'].data, keypairs)
 
-    @test.create_stubs({api.nova: ('keypair_list', 'keypair_delete')})
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 4,
+            mock.call(test.IsHttpRequest(), targets=('key_pairs', )))
+        self.mock_keypair_list.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({api.nova: ('keypair_list',
+                                   'keypair_delete')})
     def test_delete_keypair(self):
         keypair = self.keypairs.first()
 
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name)
-        self.mox.ReplayAll()
+        self.mock_keypair_list.return_value = self.keypairs.list()
+        self.mock_keypair_delete.return_value = None
 
         formData = {'action': 'keypairs__delete__%s' % keypair.name}
         res = self.client.post(INDEX_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('keypair_list', 'keypair_delete')})
+        self.mock_keypair_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_keypair_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                         keypair.name)
+
+    @test.create_mocks({api.nova: ('keypair_list',
+                                   'keypair_delete')})
     def test_delete_keypair_exception(self):
         keypair = self.keypairs.first()
 
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name) \
-            .AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
+        self.mock_keypair_list.return_value = self.keypairs.list()
+        self.mock_keypair_delete.side_effect = self.exceptions.nova
 
         formData = {'action': 'keypairs__delete__%s' % keypair.name}
         res = self.client.post(INDEX_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('keypair_get',)})
+        self.mock_keypair_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_keypair_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                         keypair.name)
+
+    @test.create_mocks({api.nova: ('keypair_get',)})
     def test_keypair_detail_get(self):
         keypair = self.keypairs.first()
         keypair.private_key = "secret"
 
-        api.nova.keypair_get(IsA(http.HttpRequest),
-                             keypair.name).AndReturn(keypair)
-        self.mox.ReplayAll()
+        self.mock_keypair_get.return_value = keypair
 
         context = {'keypair_name': keypair.name}
         url = reverse('horizon:project:key_pairs:detail',
@@ -94,15 +95,16 @@ class KeyPairTests(test.TestCase):
         res = self.client.get(url, context)
         self.assertContains(res, "<dd>%s</dd>" % keypair.name, 1, 200)
 
-    @test.create_stubs({api.nova: ("keypair_import",)})
+        self.mock_keypair_get.assert_called_once_with(test.IsHttpRequest(),
+                                                      keypair.name)
+
+    @test.create_mocks({api.nova: ('keypair_import',)})
     def test_import_keypair(self):
         key1_name = "new_key_pair"
         public_key = "ssh-rsa ABCDEFGHIJKLMNOPQR\r\n" \
                      "STUVWXYZ1234567890\r" \
                      "XXYYZZ user@computer\n\n"
-        api.nova.keypair_import(IsA(http.HttpRequest), key1_name,
-                                public_key.replace("\r", "").replace("\n", ""))
-        self.mox.ReplayAll()
+        self.mock_keypair_import.return_value = None
 
         formData = {'method': 'ImportKeypair',
                     'name': key1_name,
@@ -111,14 +113,16 @@ class KeyPairTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertMessageCount(res, success=1)
 
-    @test.create_stubs({api.nova: ("keypair_import",)})
+        self.mock_keypair_import.assert_called_once_with(
+            test.IsHttpRequest(), key1_name,
+            public_key.replace("\r", "").replace("\n", ""))
+
+    @test.create_mocks({api.nova: ('keypair_import',)})
     def test_import_keypair_invalid_key(self):
         key_name = "new_key_pair"
         public_key = "ABCDEF"
 
-        api.nova.keypair_import(IsA(http.HttpRequest), key_name, public_key) \
-            .AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
+        self.mock_keypair_import.side_effect = self.exceptions.nova
 
         formData = {'method': 'ImportKeypair',
                     'name': key_name,
@@ -128,6 +132,9 @@ class KeyPairTests(test.TestCase):
         self.assertEqual(res.redirect_chain, [])
         msg = 'Unable to import key pair.'
         self.assertFormErrors(res, count=1, message=msg)
+
+        self.mock_keypair_import.assert_called_once_with(
+            test.IsHttpRequest(), key_name, public_key)
 
     def test_import_keypair_invalid_key_name(self):
         key_name = "invalid#key?name=!"
@@ -155,15 +162,13 @@ class KeyPairTests(test.TestCase):
         msg = six.text_type(KEYPAIR_ERROR_MESSAGES['invalid'])
         self.assertFormErrors(res, count=1, message=msg)
 
-    @test.create_stubs({api.nova: ("keypair_import",)})
+    @test.create_mocks({api.nova: ('keypair_import',)})
     def test_import_keypair_with_regex_defined_name(self):
         key1_name = "new-key-pair with_regex"
         public_key = "ssh-rsa ABCDEFGHIJKLMNOPQR\r\n" \
                      "STUVWXYZ1234567890\r" \
                      "XXYYZZ user@computer\n\n"
-        api.nova.keypair_import(IsA(http.HttpRequest), key1_name,
-                                public_key.replace("\r", "").replace("\n", ""))
-        self.mox.ReplayAll()
+        self.mock_keypair_import.return_value = None
 
         formData = {'method': 'ImportKeypair',
                     'name': key1_name,
@@ -171,3 +176,7 @@ class KeyPairTests(test.TestCase):
         url = reverse('horizon:project:key_pairs:import')
         res = self.client.post(url, formData)
         self.assertMessageCount(res, success=1)
+
+        self.mock_keypair_import.assert_called_once_with(
+            test.IsHttpRequest(), key1_name,
+            public_key.replace("\r", "").replace("\n", ""))
