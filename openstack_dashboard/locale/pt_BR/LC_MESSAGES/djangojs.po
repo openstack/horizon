@@ -9,15 +9,16 @@
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2017. #zanata
 # José Mello <jose.eduardo.jr@gmail.com>, 2017. #zanata
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
+# Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev14\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-12 05:47+0000\n"
+"POT-Creation-Date: 2018-01-05 23:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-06 07:12+0000\n"
+"PO-Revision-Date: 2018-01-05 05:45+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -532,6 +533,11 @@ msgid_plural "Confirm Delete Images"
 msgstr[0] "Confirmar Exclusão de Imagem"
 msgstr[1] "Confirmar Exclusão de Imagens"
 
+msgid "Confirm Delete Key Pair"
+msgid_plural "Confirm Delete Key Pairs"
+msgstr[0] "Confirmar Exclusão de Par de Chaves"
+msgstr[1] "Confirmar Exclusão de Pares de Chaves"
+
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "Confirmar Exclusão de Função"
@@ -623,6 +629,9 @@ msgstr "Criar Função"
 msgid "Create Subnet"
 msgstr "Criar Subrede"
 
+msgid "Create Trunk"
+msgstr "Criar Trunk"
+
 msgid "Create Volume"
 msgstr "Criar Volume"
 
@@ -656,6 +665,9 @@ msgstr ""
 "conseguir instalar <samp>cloud-init</samp> dentro de um sistema operacional "
 "convidado, você pode usar um script personalizado para obter uma chave "
 "pública e adicioná-lo à conta de usuário."
+
+msgid "Customization Script"
+msgstr "Script de Customização"
 
 msgid "DNS Domain"
 msgstr "Domínio de DNS"
@@ -751,6 +763,14 @@ msgstr "Excluir Instância"
 msgid "Delete Interface"
 msgstr "Excluir Interface"
 
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "Excluir Par de Chaves"
+msgstr[1] "Excluir Pares de Chaves"
+
+msgid "Delete Key Pairs"
+msgstr "Excluir Pares de Chaves"
+
 msgid "Delete Network"
 msgstr "Excluir Rede"
 
@@ -793,6 +813,12 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Imagem Excluída: %s."
 msgstr[1] "Imagens Excluídas: %s."
+
+#, python-format
+msgid "Deleted Key Pair: %s."
+msgid_plural "Deleted Key Pairs: %s."
+msgstr[0] "Excluir Par de Chaves: %s."
+msgstr[1] "Excluir Pares de Chaves: %s."
 
 #, python-format
 msgid "Deleted Role: %s."
@@ -907,6 +933,9 @@ msgstr "Editar Imagem"
 
 msgid "Edit Role"
 msgstr "Editar Função"
+
+msgid "Edit Trunk"
+msgstr "Editar Trunk"
 
 msgid "Email"
 msgstr "Email"
@@ -1197,6 +1226,9 @@ msgstr "Impacto na sua cota"
 msgid "Import Key Pair"
 msgstr "Importar par de chaves"
 
+msgid "Import Public Key"
+msgstr "Importar Chave Pública"
+
 msgid "Indicators"
 msgstr "Indicadores"
 
@@ -1317,6 +1349,13 @@ msgstr ""
 "      Escolha um nome de par de chaves que você reconhecerá.\n"
 "      Os nomes podem incluir somente caracteres alfanuméricos, espaços ou "
 "traços."
+
+#, python-format
+msgid "Key pair %(name)s was successfully created."
+msgstr "Par de chaves %(name)s foi criado com sucesso."
+
+msgid "Key pair already exists."
+msgstr "Par de chaves já existe."
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr "O par de chaves já existe ou o nome contém caracteres inválidos"
@@ -1505,6 +1544,9 @@ msgstr "Mês"
 
 msgid "Name"
 msgstr "Nome"
+
+msgid "Name/ID"
+msgstr "Nome/ID"
 
 msgid "Names:"
 msgstr "Nomes:"
@@ -2198,6 +2240,9 @@ msgstr "Sub-redes Associadas"
 msgid "Subport Count"
 msgstr "Contagem de Versão"
 
+msgid "Subports"
+msgstr "Subportas"
+
 msgid "Success"
 msgstr "Sucesso"
 
@@ -2609,6 +2654,9 @@ msgstr "Não foi possível criar o servidor."
 msgid "Unable to create the subnet."
 msgstr "Não foi possível criar sub-rede"
 
+msgid "Unable to create the trunk."
+msgstr "Não é possível criar o trunk."
+
 msgid "Unable to create the user."
 msgstr "Não foi possível criar o usuário."
 
@@ -2626,6 +2674,12 @@ msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "Não é possível excluir a Imagem: %s."
 msgstr[1] "Não é possível excluir as Imagens: %s."
+
+#, python-format
+msgid "Unable to delete Key Pair: %s."
+msgid_plural "Unable to delete Key Pairs: %s."
+msgstr[0] "Impossível excluir o Par de Chaves: %s."
+msgstr[1] "Impossível excluir os Pares de Chaves: %s."
 
 #, python-format
 msgid "Unable to delete Role: %s."
@@ -2999,6 +3053,9 @@ msgstr "Não foi possível atualizar o flavor."
 
 msgid "Unable to update the image."
 msgstr "Não foi possível atualizar a imagem."
+
+msgid "Unable to update the trunk."
+msgstr "Não é possível atualizar o trunk."
 
 msgid "Unable to upload the object."
 msgstr "Não é possível enviar objeto."

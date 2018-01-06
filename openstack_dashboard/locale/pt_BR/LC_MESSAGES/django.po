@@ -9,15 +9,16 @@
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2017. #zanata
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
+# Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-24 20:31+0000\n"
+"POT-Creation-Date: 2018-01-05 23:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-20 08:46+0000\n"
+"PO-Revision-Date: 2018-01-05 05:39+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -2413,6 +2414,18 @@ msgid_plural "Enabled Users"
 msgstr[0] "Usuário Habilitado"
 msgstr[1] "Usuários Habilitados"
 
+msgid ""
+"Enables anti-spoofing rules for the port if enabled. In addition, if port "
+"security is disabled, security groups on the port will be automatically "
+"cleared. When you enable port security of the port, you may want to "
+"associate some security groups on the port."
+msgstr ""
+"Habilita regras de anti-spoofing para a porta, se habilitada. "
+"Adicionalmente, se a segurança da porta estiver desativada, os grupos de "
+"segurança na porta serão automaticamente apagados. Quando você habilita a "
+"segurança de porta em uma porta, você pode querer associar alguns grupos de "
+"segurança na porta."
+
 msgid "Encrypted"
 msgstr "Encriptado"
 
@@ -3555,6 +3568,9 @@ msgid ""
 msgstr ""
 "Período de tempo inválido. Você está requisitando dados do futuro que podem "
 "não existir."
+
+msgid "It specified the VNIC type bound to the networking port."
+msgstr "Especificou o tipo VNIC vinculado à porta de rede."
 
 msgid "Items Per Page"
 msgstr "Ítens por página"
@@ -6834,6 +6850,10 @@ msgid "Unable to get EC2 credentials"
 msgstr "Não foi possível obter credenciais EC2"
 
 #, python-format
+msgid "Unable to get MKS console for instance \"%s\"."
+msgstr "Não é possível obter o console MKS para a instância \"%s\"."
+
+#, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Não foi possível obter console RDP para a instância \"%s\"."
 
@@ -6850,6 +6870,10 @@ msgstr "Não foi possível ler a lista de serviços do Cinder"
 
 msgid "Unable to get consistency group list"
 msgstr "Não foi possível obter a lista de grupos de consistência"
+
+#, python-format
+msgid "Unable to get console for instance \"%s\"."
+msgstr "Não é possível obter o console para a instância \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Não foi possível buscar a lista de sabores"
@@ -8076,6 +8100,14 @@ msgstr "Tipo de Volume: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "Tipos de Volume"
 
+#, python-format
+msgid ""
+"Volume cannot be extended to %(req)iGiB as the maximum size it can be "
+"extended to is %(max_size)iGiB."
+msgstr ""
+"O Volume não pode ser estendido para %(req)iGiB uma vez que que o tamanho "
+"máximo para o qual ele pode ser estendido é %(max_size)iGiB."
+
 msgid "Volume consistency groups can not be deleted if they contain volumes."
 msgstr ""
 "Grupos de volume de consistência não podem ser deletados se contiverem "
@@ -8196,6 +8228,14 @@ msgstr ""
 "<br><br>Isto é equivalente ao comando <tt>cinder unmanage</tt>."
 
 msgid ""
+"When the admin state of the port is enabled, the networking service forward "
+"packets on the port. Otherwise, it does not forward any packets on the port."
+msgstr ""
+"Quando o status administrativo da porta está habilitado, o serviço de rede "
+"encaminha pacotes na porta. Do contrário, ele não encaminha qualquer pacote "
+"na porta."
+
+msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
 "volume to an image."
 msgstr ""
@@ -8214,6 +8254,13 @@ msgstr "Você já está usando todos os seus volumes disponíveis."
 #, python-format
 msgid "You are not allowed to create a port for network %s."
 msgstr "Você não tem permissão para criar uma porta para a rede %s."
+
+msgid ""
+"You can add or remove security groups associated with the port in the next "
+"tab (if the port security is enabled for the port)."
+msgstr ""
+"Você pode adicionar ou remover grupos de segurança associados com a porta na "
+"próxima aba (se a segurança de porta estiver habilitada na porta)."
 
 msgid ""
 "You can connect a specified external network to the router. The external "
