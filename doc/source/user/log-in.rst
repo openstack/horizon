@@ -145,17 +145,13 @@ manage instances, volumes, flavors, images, networks, and so on.
 From the :guilabel:`Admin` tab, you can access the following category
 to complete these tasks:
 
-System tab
-----------
+Overview tab
+------------
 
 * :guilabel:`Overview`: View basic reports.
 
-* :guilabel:`Resource Usage`: Use the following tabs to view the following
-  usages:
-
-  * :guilabel:`Usage Report`: View the usage report.
-
-  * :guilabel:`Stats`: View the statistics of all resources.
+Compute tab
+-----------
 
 * :guilabel:`Hypervisors`: View the hypervisor summary.
 
@@ -167,24 +163,33 @@ System tab
   all, projects. Also, view the log for an instance or access an instance
   through VNC.
 
-* :guilabel:`Volumes`: Use the following tabs to complete these tasks:
-
-  * :guilabel:`Volumes`: View, create, manage, and delete volumes.
-
-  * :guilabel:`Volume Types`: View, create, manage, and delete volume types.
-
-  * :guilabel:`Volume Snapshots`: View, manage, and delete volume snapshots.
-
 * :guilabel:`Flavors`: View, create, edit, view extra specifications for,
   and delete flavors. A flavor is the size of an instance.
 
 * :guilabel:`Images`: View, create, edit properties for, and delete custom
   images.
 
+Volume tab
+----------
+
+* :guilabel:`Volumes`: View, create, manage, and delete volumes.
+
+* :guilabel:`Snapshots`: View, manage, and delete volume snapshots.
+
+* :guilabel:`Volume Types`: View, create, manage, and delete volume types.
+
+Network tab
+-----------
+
 * :guilabel:`Networks`: View, create, edit properties for, and delete
   networks.
 
 * :guilabel:`Routers`: View, create, edit properties for, and delete routers.
+
+* :guilabel:`Floating IPs`: Allocate an IP address for a project or release it.
+
+System tab
+----------
 
 * :guilabel:`Defaults`: View default quota values. Quotas are hard-coded in
   OpenStack Compute and define the maximum allowable size and number of
