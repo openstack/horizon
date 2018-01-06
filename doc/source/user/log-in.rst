@@ -79,29 +79,11 @@ Compute tab
 * :guilabel:`Instances`: View, launch, create a snapshot from, stop, pause,
   or reboot instances, or connect to them through VNC.
 
-* :guilabel:`Volumes`: Use the following tabs to complete these tasks:
-
-  * :guilabel:`Volumes`: View, create, edit, and delete volumes.
-
-  * :guilabel:`Volume Snapshots`: View, create, edit, and delete volume
-    snapshots.
-
 * :guilabel:`Images`: View images and instance snapshots created by project
   users, plus any images that are publicly available. Create, edit, and
   delete images, and launch instances from images and snapshots.
 
-* :guilabel:`Access & Security`: Use the following tabs to complete these
-  tasks:
-
-  * :guilabel:`Security Groups`: View, create, edit, and delete security
-    groups and security group rules.
-
-  * :guilabel:`Key Pairs`: View, create, edit, import, and delete key pairs.
-
-  * :guilabel:`Floating IPs`: Allocate an IP address to or release it from a
-    project.
-
-  * :guilabel:`API Access`: View API endpoints.
+* :guilabel:`Key Pairs`: View, create, edit, import, and delete key pairs.
 
 * :guilabel:`Shares`: Use the following tabs to complete these tasks:
 
@@ -111,7 +93,20 @@ Compute tab
 
   * :guilabel:`Share Networks`: View, manage, and delete share networks.
 
-  * :guilabel:`Security Services`: View, manage, and delete security services.
+Volume tab
+-----------
+
+* :guilabel:`Volumes`: View, create, edit, and delete volumes.
+
+* :guilabel:`Backups`: View, create, edit, and delete backups.
+
+* :guilabel:`Snapshots`: View, create, edit, and delete volume snapshots.
+
+* :guilabel:`Consistency Groups`: View, create, edit, and delete
+  consistency groups.
+
+* :guilabel:`Consistency Group Snapshots`: View, create, edit, and
+  delete consistency group snapshots.
 
 Network tab
 -----------
@@ -122,21 +117,10 @@ Network tab
 
 * :guilabel:`Routers`: Create and manage routers.
 
-* :guilabel:`Load Balancers`: Create and manage load balancers.
+* :guilabel:`Security Groups`: View, create, edit, and delete security
+  groups and security group rules..
 
-  * :guilabel:`Pools`: Add and manage pools.
-
-  * :guilabel:`Members`: Add and manage members.
-
-  * :guilabel:`Monitors`: Add and manage monitors.
-
-* :guilabel:`Firewalls`: Create and manage firewalls.
-
-  * :guilabel:`Firewalls`: Create and manage firewalls.
-
-  * :guilabel:`Firewall Policies`: Add and manage firewall policies.
-
-  * :guilabel:`Firewall Rules`: Add and manage firewall rules.
+* :guilabel:`Floating IPs`: Allocate an IP address to or release it from a project.
 
 Object Store tab
 ----------------
