@@ -15,7 +15,7 @@ Create a volume
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
+#. On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and
    click :guilabel:`Volumes` category.
 
 #. Click :guilabel:`Create Volume`.
@@ -69,7 +69,7 @@ You can attach a volume to one instance at a time.
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
+#. On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and
    click :guilabel:`Volumes` category.
 
 #. Select the volume to add to an instance and click
@@ -102,7 +102,7 @@ Detach a volume from an instance
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
+#. On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and
    click the :guilabel:`Volumes` category.
 
 #. Select the volume and click :guilabel:`Manage Attachments`.
@@ -118,7 +118,7 @@ Create a snapshot from a volume
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
+#. On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and
    click :guilabel:`Volumes` category.
 
 #. Select a volume from which to create a snapshot.
@@ -139,7 +139,7 @@ Edit a volume
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
+#. On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and
    click :guilabel:`Volumes` category.
 
 #. Select the volume that you want to edit.
@@ -167,7 +167,7 @@ deleted.
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
+#. On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and
    click :guilabel:`Volumes` category.
 
 #. Select the check boxes for the volumes that you want to delete.
