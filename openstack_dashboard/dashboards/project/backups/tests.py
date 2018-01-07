@@ -11,12 +11,10 @@
 # under the License.
 
 from django.conf import settings
-from django import http
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.http import urlencode
 from django.utils.http import urlunquote
-from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.backups \
@@ -29,24 +27,23 @@ INDEX_URL = reverse('horizon:project:backups:index')
 
 class VolumeBackupsViewTests(test.TestCase):
 
-    @test.create_stubs({api.cinder: ('tenant_absolute_limits',
-                                     'volume_backup_list_paged',
-                                     'volume_list'),
-                        api.nova: ('server_list',)})
+    @test.create_mocks({api.cinder: ('volume_list',
+                                     'volume_backup_list_paged')})
     def _test_backups_index_paginated(self, marker, sort_dir, backups, url,
                                       has_more, has_prev):
-        api.cinder.volume_backup_list_paged(
-            IsA(http.HttpRequest), marker=marker, sort_dir=sort_dir,
-            paginate=True).AndReturn([backups, has_more, has_prev])
-        api.cinder.volume_list(IsA(http.HttpRequest)).AndReturn(
-            self.cinder_volumes.list())
-        self.mox.ReplayAll()
+        self.mock_volume_backup_list_paged.return_value = [backups,
+                                                           has_more, has_prev]
+        self.mock_volume_list.return_value = self.cinder_volumes.list()
 
         res = self.client.get(urlunquote(url))
+
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
+        self.mock_volume_backup_list_paged.assert_called_once_with(
+            test.IsHttpRequest(), marker=marker, sort_dir=sort_dir,
+            paginate=True)
+        self.mock_volume_list.assert_called_once_with(test.IsHttpRequest())
 
-        self.mox.UnsetStubs()
         return res
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
@@ -112,21 +109,14 @@ class VolumeBackupsViewTests(test.TestCase):
         backups = res.context['volume_backups_table'].data
         self.assertItemsEqual(backups, expected_backups)
 
-    @test.create_stubs({api.cinder: ('volume_backup_create', 'volume_get')})
+    @test.create_mocks({api.cinder: ('volume_backup_create',
+                                     'volume_get')})
     def test_create_backup_available(self):
         volume = self.volumes.first()
         backup = self.cinder_volume_backups.first()
 
-        api.cinder.volume_get(IsA(http.HttpRequest), volume.id). \
-            AndReturn(volume)
-        api.cinder.volume_backup_create(IsA(http.HttpRequest),
-                                        volume.id,
-                                        backup.container_name,
-                                        backup.name,
-                                        backup.description,
-                                        force=False) \
-            .AndReturn(backup)
-        self.mox.ReplayAll()
+        self.mock_volume_get.return_value = volume
+        self.mock_volume_backup_create.return_value = backup
 
         formData = {'method': 'CreateBackupForm',
                     'tenant_id': self.tenant.id,
@@ -142,22 +132,25 @@ class VolumeBackupsViewTests(test.TestCase):
         self.assertMessageCount(error=0, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.cinder: ('volume_backup_create', 'volume_get')})
+        self.mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     volume.id)
+        self.mock_volume_backup_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            volume.id,
+            backup.container_name,
+            backup.name,
+            backup.description,
+            force=False)
+
+    @test.create_mocks({api.cinder: ('volume_backup_create',
+                                     'volume_get')})
     def test_create_backup_in_use(self):
         # The second volume in the cinder test volume data is in-use
         volume = self.volumes.list()[1]
         backup = self.cinder_volume_backups.first()
 
-        api.cinder.volume_get(IsA(http.HttpRequest), volume.id). \
-            AndReturn(volume)
-        api.cinder.volume_backup_create(IsA(http.HttpRequest),
-                                        volume.id,
-                                        backup.container_name,
-                                        backup.name,
-                                        backup.description,
-                                        force=True) \
-            .AndReturn(backup)
-        self.mox.ReplayAll()
+        self.mock_volume_get.return_value = volume
+        self.mock_volume_backup_create.return_value = backup
 
         formData = {'method': 'CreateBackupForm',
                     'tenant_id': self.tenant.id,
@@ -172,8 +165,17 @@ class VolumeBackupsViewTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=0, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     volume.id)
+        self.mock_volume_backup_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            volume.id,
+            backup.container_name,
+            backup.name,
+            backup.description,
+            force=True)
 
-    @test.create_stubs({api.cinder: ('volume_list',
+    @test.create_mocks({api.cinder: ('volume_list',
                                      'volume_backup_list_paged',
                                      'volume_backup_delete')})
     def test_delete_volume_backup(self):
@@ -181,14 +183,10 @@ class VolumeBackupsViewTests(test.TestCase):
         volumes = self.cinder_volumes.list()
         backup = self.cinder_volume_backups.first()
 
-        api.cinder.volume_backup_list_paged(
-            IsA(http.HttpRequest), marker=None, sort_dir='desc',
-            paginate=True).AndReturn([vol_backups, False, False])
-        api.cinder.volume_list(IsA(http.HttpRequest)). \
-            AndReturn(volumes)
-        api.cinder.volume_backup_delete(IsA(http.HttpRequest), backup.id)
-
-        self.mox.ReplayAll()
+        self.mock_volume_backup_list_paged.return_value = [vol_backups,
+                                                           False, False]
+        self.mock_volume_list.return_value = volumes
+        self.mock_volume_backup_delete.return_value = None
 
         formData = {'action':
                     'volume_backups__delete__%s' % backup.id}
@@ -196,17 +194,21 @@ class VolumeBackupsViewTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
         self.assertMessageCount(success=1)
+        self.mock_volume_backup_list_paged.assert_called_once_with(
+            test.IsHttpRequest(), marker=None, sort_dir='desc',
+            paginate=True)
+        self.mock_volume_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_volume_backup_delete.assert_called_once_with(
+            test.IsHttpRequest(), backup.id)
 
-    @test.create_stubs({api.cinder: ('volume_backup_get', 'volume_get')})
+    @test.create_mocks({api.cinder: ('volume_backup_get',
+                                     'volume_get')})
     def test_volume_backup_detail_get(self):
         backup = self.cinder_volume_backups.first()
         volume = self.cinder_volumes.get(id=backup.volume_id)
 
-        api.cinder.volume_backup_get(IsA(http.HttpRequest), backup.id). \
-            AndReturn(backup)
-        api.cinder.volume_get(IsA(http.HttpRequest), backup.volume_id). \
-            AndReturn(volume)
-        self.mox.ReplayAll()
+        self.mock_volume_backup_get.return_value = backup
+        self.mock_volume_get.return_value = volume
 
         url = reverse('horizon:project:backups:detail',
                       args=[backup.id])
@@ -214,15 +216,17 @@ class VolumeBackupsViewTests(test.TestCase):
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertEqual(res.context['backup'].id, backup.id)
+        self.mock_volume_backup_get.assert_called_once_with(
+            test.IsHttpRequest(), backup.id)
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), backup.volume_id)
 
-    @test.create_stubs({api.cinder: ('volume_backup_get',)})
+    @test.create_mocks({api.cinder: ('volume_backup_get',)})
     def test_volume_backup_detail_get_with_exception(self):
         # Test to verify redirect if get volume backup fails
         backup = self.cinder_volume_backups.first()
 
-        api.cinder.volume_backup_get(IsA(http.HttpRequest), backup.id).\
-            AndRaise(self.exceptions.cinder)
-        self.mox.ReplayAll()
+        self.mock_volume_backup_get.side_effect = self.exceptions.cinder
 
         url = reverse('horizon:project:backups:detail',
                       args=[backup.id])
@@ -231,17 +235,17 @@ class VolumeBackupsViewTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.mock_volume_backup_get.assert_called_once_with(
+            test.IsHttpRequest(), backup.id)
 
-    @test.create_stubs({api.cinder: ('volume_backup_get', 'volume_get')})
+    @test.create_mocks({api.cinder: ('volume_backup_get',
+                                     'volume_get')})
     def test_volume_backup_detail_with_missing_volume(self):
         # Test to check page still loads even if volume is deleted
         backup = self.cinder_volume_backups.first()
 
-        api.cinder.volume_backup_get(IsA(http.HttpRequest), backup.id). \
-            AndReturn(backup)
-        api.cinder.volume_get(IsA(http.HttpRequest), backup.volume_id). \
-            AndRaise(self.exceptions.cinder)
-        self.mox.ReplayAll()
+        self.mock_volume_backup_get.return_value = backup
+        self.mock_volume_get.side_effect = self.exceptions.cinder
 
         url = reverse('horizon:project:backups:detail',
                       args=[backup.id])
@@ -249,20 +253,19 @@ class VolumeBackupsViewTests(test.TestCase):
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertEqual(res.context['backup'].id, backup.id)
+        self.mock_volume_backup_get.assert_called_once_with(
+            test.IsHttpRequest(), backup.id)
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), backup.volume_id)
 
-    @test.create_stubs({api.cinder: ('volume_list',
-                                     'volume_backup_restore',)})
+    @test.create_mocks({api.cinder: ('volume_list',
+                                     'volume_backup_restore')})
     def test_restore_backup(self):
         backup = self.cinder_volume_backups.first()
         volumes = self.cinder_volumes.list()
 
-        api.cinder.volume_list(IsA(http.HttpRequest)). \
-            AndReturn(volumes)
-        api.cinder.volume_backup_restore(IsA(http.HttpRequest),
-                                         backup.id,
-                                         backup.volume_id). \
-            AndReturn(backup)
-        self.mox.ReplayAll()
+        self.mock_volume_list.return_value = volumes
+        self.mock_volume_backup_restore.return_value = backup
 
         formData = {'method': 'RestoreBackupForm',
                     'backup_id': backup.id,
@@ -278,3 +281,6 @@ class VolumeBackupsViewTests(test.TestCase):
         self.assertMessageCount(info=1)
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:project:volumes:index'))
+        self.mock_volume_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_volume_backup_restore.assert_called_once_with(
+            test.IsHttpRequest(), backup.id, backup.volume_id)
