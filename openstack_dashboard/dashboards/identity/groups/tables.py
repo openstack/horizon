@@ -76,7 +76,6 @@ class DeleteGroupsAction(policy.PolicyTargetMixin, tables.DeleteAction):
             count
         )
 
-    name = "delete"
     policy_rules = (("identity", "identity:delete_group"),)
 
     def allowed(self, request, datum):

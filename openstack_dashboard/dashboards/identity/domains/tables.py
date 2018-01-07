@@ -105,7 +105,6 @@ class DeleteDomainsAction(tables.DeleteAction):
             count
         )
 
-    name = "delete"
     policy_rules = (('identity', 'identity:delete_domain'),)
 
     def allowed(self, request, datum):
