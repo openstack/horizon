@@ -120,7 +120,8 @@ Network tab
 * :guilabel:`Security Groups`: View, create, edit, and delete security
   groups and security group rules..
 
-* :guilabel:`Floating IPs`: Allocate an IP address to or release it from a project.
+* :guilabel:`Floating IPs`: Allocate an IP address to or release it
+  from a project.
 
 Object Store tab
 ----------------
