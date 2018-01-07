@@ -261,7 +261,7 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
             self.exceptions.glance,
             [private_images, False, False],
             [shared_images, False, False],
-            ]
+        ]
 
         images_cache = {}
         ret = utils.get_available_images(self.request, self.tenant.id,
@@ -275,11 +275,9 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
                       filters={'visibility': 'shared', 'status': 'active'})
         ]
         self.mock_image_list.assert_has_calls(image_calls)
-        handle_calls = [
-            mock.call(test.IsHttpRequest(),
-                      "Unable to retrieve public images."),
-        ]
-        mock_exception_handle.assert_has_calls(handle_calls)
+        mock_exception_handle.assert_called_once_with(
+            test.IsHttpRequest(),
+            "Unable to retrieve public images.")
 
         expected_images = [image for image in private_images
                            if image.container_format not in ('ami', 'aki')]
@@ -352,11 +350,9 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
                       filters={'status': 'active', 'property-owner_id': '1'})
         ]
         self.mock_image_list.assert_has_calls(image_calls)
-        handle_calls = [
-            mock.call(test.IsHttpRequest(),
-                      "Unable to retrieve images for the current project."),
-        ]
-        mock_exception_handle.assert_has_calls(handle_calls)
+        mock_exception_handle.assert_called_once_with(
+            test.IsHttpRequest(),
+            "Unable to retrieve images for the current project.")
 
 
 class SeleniumTests(test.SeleniumTestCase):

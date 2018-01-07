@@ -540,7 +540,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 class OwnerFilterTests(test.TestCase):
     def setUp(self):
         super(OwnerFilterTests, self).setUp()
-        self.table = mock.Mock(sppec=horizon_tables.DataTable)
+        self.table = mock.Mock(spec=horizon_tables.DataTable)
         self.table.request = self.request
 
     @override_settings(IMAGES_LIST_FILTER_TENANTS=[{'name': 'Official',
