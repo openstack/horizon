@@ -424,7 +424,7 @@ def data(TEST):
         {'id': u'1',
          'name': u'cg_1',
          'description': 'cg 1 description',
-         'volume_types': u'1',
+         'volume_types': ['1'],
          'volume_type_names': []})
 
     cgroup_2 = consistencygroups.Consistencygroup(
@@ -432,7 +432,7 @@ def data(TEST):
         {'id': u'2',
          'name': u'cg_2',
          'description': 'cg 2 description',
-         'volume_types': u'1',
+         'volume_types': ['1'],
          'volume_type_names': []})
 
     TEST.cinder_consistencygroups.add(cgroup_1)
@@ -446,7 +446,7 @@ def data(TEST):
          'display_name': 'Volume name',
          'display_description': 'Volume description',
          'created_at': '2014-01-27 10:30:00',
-         'volume_type': None,
+         'volume_type': 'vol_type_1',
          'attachments': [],
          'consistencygroup_id': u'1'})
     TEST.cinder_cgroup_volumes.add(api.cinder.Volume(
