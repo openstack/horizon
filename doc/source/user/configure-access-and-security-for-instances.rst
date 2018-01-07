@@ -56,8 +56,7 @@ group rules to a project, if your cloud requires them.
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
-   click :guilabel:`Access & Security` category. The
+#. On the :guilabel:`Project` tab, open the :guilabel:`Network` tab. The
    :guilabel:`Security Groups` tab shows the security groups that are
    available for this project.
 
@@ -107,8 +106,7 @@ Create at least one key pair for each project.
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
-   click :guilabel:`Access & Security` category.
+#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab.
 
 #. Click the :guilabel:`Key Pairs` tab, which shows the key pairs that
    are available for this project.
@@ -129,8 +127,7 @@ Import a key pair
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
-   click :guilabel:`Access & Security` category.
+#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab.
 
 #. Click the :guilabel:`Key Pairs` tab, which shows the key pairs that
    are available for this project.
@@ -165,7 +162,7 @@ Import a key pair
 
 The Compute database registers the public key of the key pair.
 
-The Dashboard lists the key pair on the :guilabel:`Access & Security` tab.
+The Dashboard lists the key pair on the :guilabel:`Key Pairs` tab.
 
 Allocate a floating IP address to an instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -187,8 +184,7 @@ and the association of that address with a specific instance.
 
 #. Select the appropriate project from the drop down menu at the top left.
 
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and
-   click :guilabel:`Access & Security` category.
+#. On the :guilabel:`Project` tab, open the :guilabel:`Network` tab.
 
 #. Click the :guilabel:`Floating IPs` tab, which shows the floating IP
    addresses allocated to instances.
