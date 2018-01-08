@@ -1,0 +1,9 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <div class="quota-dynamic">
+    <p>{% blocktrans %}Create a Group that will contain newly created volumes cloned from each of the snapshots in the source Group Snapshot.{% endblocktrans %}</p>
+    {% include "project/volumes/_volume_limits.html" with usages=usages %}
+  </div>
+{% endblock %}

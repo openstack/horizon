@@ -280,9 +280,24 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.aggregates.panel.Aggregates.can_access'),
         'return_value': True,
     },
+    'cgroups': {
+        'method': ('openstack_dashboard.dashboards.project'
+                   '.cgroups.panel.CGroups.allowed'),
+        'return_value': True,
+    },
+    'cg_snapshots': {
+        'method': ('openstack_dashboard.dashboards.project'
+                   '.cg_snapshots.panel.CGSnapshots.allowed'),
+        'return_value': True,
+    },
     'domains': {
         'method': ('openstack_dashboard.dashboards.identity'
                    '.domains.panel.Domains.can_access'),
+        'return_value': True,
+    },
+    'qos': {
+        'method': ('openstack_dashboard.dashboards.project'
+                   '.network_qos.panel.NetworkQoS.can_access'),
         'return_value': True,
     },
     'server_groups': {
@@ -300,9 +315,14 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.trunks.panel.Trunks.can_access'),
         'return_value': True,
     },
-    'qos': {
+    'volume_groups': {
         'method': ('openstack_dashboard.dashboards.project'
-                   '.network_qos.panel.NetworkQoS.can_access'),
+                   '.volume_groups.panel.VolumeGroups.allowed'),
+        'return_value': True,
+    },
+    'vg_snapshots': {
+        'method': ('openstack_dashboard.dashboards.project'
+                   '.vg_snapshots.panel.GroupSnapshots.allowed'),
         'return_value': True,
     },
     'application_credentials': {

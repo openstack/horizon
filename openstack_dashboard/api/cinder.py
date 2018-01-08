@@ -87,7 +87,7 @@ class Volume(BaseCinderAPIResourceWrapper):
     _attrs = ['id', 'name', 'description', 'size', 'status', 'created_at',
               'volume_type', 'availability_zone', 'imageRef', 'bootable',
               'snapshot_id', 'source_volid', 'attachments', 'tenant_name',
-              'consistencygroup_id', 'os-vol-host-attr:host',
+              'group_id', 'consistencygroup_id', 'os-vol-host-attr:host',
               'os-vol-tenant-attr:tenant_id', 'metadata',
               'volume_image_metadata', 'encrypted', 'transfer',
               'multiattach']
@@ -172,6 +172,21 @@ class VolumePool(base.APIResourceWrapper):
               'storage_protocol', 'extra_specs']
 
 
+class Group(base.APIResourceWrapper):
+    _attrs = ['id', 'status', 'availability_zone', 'created_at', 'name',
+              'description', 'group_type', 'volume_types',
+              'group_snapshot_id', 'source_group_id', 'replication_status']
+
+
+class GroupSnapshot(base.APIResourceWrapper):
+    _attrs = ['id', 'name', 'description', 'status', 'created_at',
+              'group_id', 'group_type_id']
+
+
+class GroupType(base.APIResourceWrapper):
+    _attrs = ['id', 'name', 'description', 'is_public', 'group_specs']
+
+
 def get_auth_params_from_request(request):
     auth_url = base.url_for(request, 'identity')
     cinder_urls = []
@@ -248,6 +263,13 @@ def get_microversion(request, features):
         'cinder', features, api_versions.APIVersion, min_ver, max_ver))
 
 
+def _cinderclient_with_generic_groups(request):
+    version = get_microversion(request, 'groups')
+    if version is not None:
+        version = version.get_string()
+    return cinderclient(request, version=version)
+
+
 def version_get():
     api_version = VERSIONS.get_active_version()
     return api_version['version']
@@ -289,7 +311,8 @@ def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
     has_prev_data = False
     volumes = []
 
-    c_client = cinderclient(request)
+    # To support filtering with group_id, we need to use the microversion.
+    c_client = _cinderclient_with_generic_groups(request)
     if c_client is None:
         return volumes, has_more_data, has_prev_data
 
@@ -1079,3 +1102,162 @@ def volume_type_add_project_access(request, volume_type, project_id):
 def volume_type_remove_project_access(request, volume_type, project_id):
     return cinderclient(request).volume_type_access.remove_project_access(
         volume_type, project_id)
+
+
+@profiler.trace
+def group_type_list(request):
+    client = _cinderclient_with_generic_groups(request)
+    return [GroupType(t) for t in client.group_types.list()]
+
+
+@profiler.trace
+def group_type_get(request, group_type_id):
+    client = _cinderclient_with_generic_groups(request)
+    return GroupType(client.group_types.get(group_type_id))
+
+
+@profiler.trace
+def group_type_create(request, name, description=None, is_public=None):
+    client = _cinderclient_with_generic_groups(request)
+    params = {'name': name}
+    if description is not None:
+        params['description'] = description
+    if is_public is not None:
+        params['is_public'] = is_public
+    return GroupType(client.group_types.create(**params))
+
+
+@profiler.trace
+def group_type_update(request, group_type_id, data):
+    client = _cinderclient_with_generic_groups(request)
+    return GroupType(client.group_types.update(group_type_id, **data))
+
+
+@profiler.trace
+def group_type_delete(request, group_type_id):
+    client = _cinderclient_with_generic_groups(request)
+    client.group_types.delete(group_type_id)
+
+
+@profiler.trace
+def group_type_spec_set(request, group_type_id, metadata):
+    client = _cinderclient_with_generic_groups(request)
+    client.group_types.set_keys(metadata)
+
+
+@profiler.trace
+def group_type_spec_unset(request, group_type_id, keys):
+    client = _cinderclient_with_generic_groups(request)
+    client.group_types.unset_keys(keys)
+
+
+@profiler.trace
+def group_list(request, search_opts=None):
+    client = _cinderclient_with_generic_groups(request)
+    return [Group(g) for g in client.groups.list(search_opts=search_opts)]
+
+
+@profiler.trace
+def group_list_with_vol_type_names(request, search_opts=None):
+    groups = group_list(request, search_opts)
+    vol_types = volume_type_list(request)
+    for group in groups:
+        group.volume_type_names = []
+        for vol_type_id in group.volume_types:
+            for vol_type in vol_types:
+                if vol_type.id == vol_type_id:
+                    group.volume_type_names.append(vol_type.name)
+                    break
+
+    return groups
+
+
+@profiler.trace
+def group_get(request, group_id):
+    client = _cinderclient_with_generic_groups(request)
+    group = client.groups.get(group_id)
+    return Group(group)
+
+
+@profiler.trace
+def group_get_with_vol_type_names(request, group_id):
+    group = group_get(request, group_id)
+    vol_types = volume_type_list(request)
+    group.volume_type_names = []
+    for vol_type_id in group.volume_types:
+        for vol_type in vol_types:
+            if vol_type.id == vol_type_id:
+                group.volume_type_names.append(vol_type.name)
+                break
+    return group
+
+
+@profiler.trace
+def group_create(request, name, group_type, volume_types,
+                 description=None, availability_zone=None):
+    client = _cinderclient_with_generic_groups(request)
+    params = {'name': name,
+              'group_type': group_type,
+              # cinderclient expects a comma-separated list of volume types.
+              'volume_types': ','.join(volume_types)}
+    if description is not None:
+        params['description'] = description
+    if availability_zone is not None:
+        params['availability_zone'] = availability_zone
+    return Group(client.groups.create(**params))
+
+
+@profiler.trace
+def group_create_from_source(request, name, group_snapshot_id=None,
+                             source_group_id=None, description=None,
+                             user_id=None, project_id=None):
+    client = _cinderclient_with_generic_groups(request)
+    return Group(client.groups.create_from_src(
+        group_snapshot_id, source_group_id, name, description,
+        user_id, project_id))
+
+
+@profiler.trace
+def group_delete(request, group_id, delete_volumes=False):
+    client = _cinderclient_with_generic_groups(request)
+    client.groups.delete(group_id, delete_volumes)
+
+
+@profiler.trace
+def group_update(request, group_id, name=None, description=None,
+                 add_volumes=None, remove_volumes=None):
+    data = {}
+    if name is not None:
+        data['name'] = name
+    if description is not None:
+        data['description'] = description
+    if add_volumes:
+        # cinderclient expects a comma-separated list of volume types.
+        data['add_volumes'] = ','.join(add_volumes)
+    if remove_volumes:
+        # cinderclient expects a comma-separated list of volume types.
+        data['remove_volumes'] = ','.join(remove_volumes)
+    client = _cinderclient_with_generic_groups(request)
+    return client.groups.update(group_id, **data)
+
+
+def group_snapshot_create(request, group_id, name, description=None):
+    client = _cinderclient_with_generic_groups(request)
+    return GroupSnapshot(client.group_snapshots.create(group_id, name,
+                                                       description))
+
+
+def group_snapshot_get(request, group_snapshot_id):
+    client = _cinderclient_with_generic_groups(request)
+    return GroupSnapshot(client.group_snapshots.get(group_snapshot_id))
+
+
+def group_snapshot_list(request, search_opts=None):
+    client = _cinderclient_with_generic_groups(request)
+    return [GroupSnapshot(s) for s
+            in client.group_snapshots.list(search_opts=search_opts)]
+
+
+def group_snapshot_delete(request, group_snapshot_id):
+    client = _cinderclient_with_generic_groups(request)
+    client.group_snapshots.delete(group_snapshot_id)

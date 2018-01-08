@@ -1,4 +1,4 @@
-# Copyright 2017 Rackspace, Inc.
+# Copyright 2017 NEC Corporation
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -24,28 +24,25 @@ from openstack_dashboard import policy
 LOG = logging.getLogger(__name__)
 
 
-class CGroups(horizon.Panel):
-    name = _("Consistency Groups")
-    slug = 'cgroups'
+class VolumeGroups(horizon.Panel):
+    name = _("Groups")
+    slug = 'volume_groups'
     permissions = (
-        ('openstack.services.volume', 'openstack.services.volumev2',
-         'openstack.services.volumev3'),
+        ('openstack.services.volume', 'openstack.services.volumev3'),
     )
-    policy_rules = (("volume", "consistencygroup:get_all"),)
+    policy_rules = (("volume", "group:get_all"),)
 
     def allowed(self, context):
         request = context['request']
         try:
             return (
-                super(CGroups, self).allowed(context) and
+                super(VolumeGroups, self).allowed(context) and
                 request.user.has_perms(self.permissions) and
                 policy.check(self.policy_rules, request) and
-                api.cinder.get_microversion(request, 'consistency_groups') and
-                not api.cinder.get_microversion(request, 'groups')
+                api.cinder.get_microversion(request, 'groups')
             )
         except Exception:
             LOG.error("Call to list enabled services failed. This is likely "
                       "due to a problem communicating with the Cinder "
-                      "endpoint. Consistency Group panel will not be "
-                      "displayed.")
+                      "endpoint. Volume Group panel will not be displayed.")
             return False
