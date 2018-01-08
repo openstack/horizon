@@ -21,8 +21,7 @@ Create a volume type
 #. Log in to the dashboard and select the :guilabel:`admin`
    project from the drop-down list.
 
-#. On the :guilabel:`Admin` tab, open the :guilabel:`System` tab
-   and click the :guilabel:`Volumes` category.
+#. On the :guilabel:`Admin` tab, open the :guilabel:`Volume` tab.
 
 #. Click the :guilabel:`Volume Types` tab, and click
    :guilabel:`Create Volume Type` button. In the
@@ -129,8 +128,7 @@ When you delete a volume type, volumes of that type are not deleted.
 #. Log in to the dashboard and select the :guilabel:`admin` project from
    the drop-down list.
 
-#. On the :guilabel:`Admin` tab, open the :guilabel:`System` tab
-   and click the :guilabel:`Volumes` category.
+#. On the :guilabel:`Admin` tab, open the :guilabel:`Volume` tab.
 
 #. Click the :guilabel:`Volume Types` tab, select the volume type
    or types that you want to delete.
@@ -153,10 +151,10 @@ destroyed.
 #. Log in to the dashboard and select the :guilabel:`admin` project
    from the drop-down list.
 
-#. On the :guilabel:`Admin` tab, open the :guilabel:`System` tab
-   and click the :guilabel:`Volumes` category.
+#. On the :guilabel:`Admin` tab, open the :guilabel:`Volume` tab.
 
-#. Select the volume or volumes that you want to delete.
+#. Click the :guilabel:`Volumes` tab, Select the volume or volumes
+   that you want to delete.
 
 #. Click :guilabel:`Delete Volumes` button.
 
