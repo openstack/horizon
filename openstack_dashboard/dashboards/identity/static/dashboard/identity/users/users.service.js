@@ -57,7 +57,17 @@
      * Returns a promise for the users data.
      */
     function getUsersPromise(params) {
-      return keystone.getUsers(params);
+      return keystone.getUsers(params).then(modifyResponse);
+
+      function modifyResponse(response) {
+        return {data: {items: response.data.items.map(modifyItem)}};
+
+        function modifyItem(item) {
+          item.trackBy = item.id + item.name + item.email + item.project +
+            item.description + item.enabled;
+          return item;
+        }
+      }
     }
 
     /*

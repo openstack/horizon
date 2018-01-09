@@ -71,20 +71,22 @@ class Users(generic.View):
 
         Create a user using the parameters supplied in the POST
         application/json object. The base parameters are name (string), email
-        (string, optional), password (string, optional), project_id (string,
-        optional), enabled (boolean, defaults to true). The user will be
-        created in the default domain.
+        (string, optional), password (string), project (string,
+        optional), enabled (boolean, defaults to true), description
+        (string, optional). The user will be created in the default domain.
 
         This action returns the new user object on success.
         """
         domain = api.keystone.get_default_domain(request)
+
         new_user = api.keystone.user_create(
             request,
             name=request.DATA['name'],
             email=request.DATA.get('email') or None,
             password=request.DATA.get('password'),
-            project=request.DATA.get('project_id') or None,
-            enabled=True,
+            project=request.DATA.get('project') or None,
+            enabled=request.DATA.get('enabled', True),
+            description=request.DATA.get('description') or None,
             domain=domain.id
         )
 
@@ -258,6 +260,17 @@ class Role(generic.View):
         This method returns HTTP 204 (no content) on success.
         """
         api.keystone.role_update(request, id, request.DATA['name'])
+
+
+@urls.register
+class DefaultDomain(generic.View):
+    """API for default domain of the user."""
+    url_regex = r'keystone/default_domain/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a default domain of the user."""
+        return api.keystone.get_default_domain(request).to_dict()
 
 
 @urls.register

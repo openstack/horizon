@@ -29,9 +29,11 @@
   angular
     .module('horizon.dashboard.identity.users', [
       'ngRoute',
-      'horizon.dashboard.identity.users.details'
+      'horizon.dashboard.identity.users.details',
+      'horizon.dashboard.identity.users.actions'
     ])
     .constant('horizon.dashboard.identity.users.resourceType', 'OS::Keystone::User')
+    .constant('horizon.dashboard.identity.users.validationRules', validationRules())
     .run(run)
     .config(config);
 
@@ -118,6 +120,19 @@
         project_name: {label: gettext('Primary Project Name'), filters: ['noValue']}
       };
     }
+  }
+
+  /**
+   * @ngdoc constant
+   * @name horizon.dashboard.identity.users.events.validationRules
+   * @description constants for use in validation fields
+   */
+  function validationRules() {
+    return {
+      integer: /^[0-9]+$/,
+      validatePassword: /.*/,
+      fieldMaxLength: 255
+    };
   }
 
   config.$inject = [

@@ -23,7 +23,7 @@
     var markup =
       '<form>' +
         '<input type="password" ng-model="user.password" id="password" name="password">' +
-        '<input type="password" ng-model="user.cpassword" hz-password-match="password">' +
+        '<input type="password" ng-model="user.cpassword" hz-password-match="user.password">' +
       '</form>';
 
     beforeEach(module('horizon.framework.widgets'));

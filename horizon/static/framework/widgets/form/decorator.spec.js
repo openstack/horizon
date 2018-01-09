@@ -49,7 +49,7 @@
         '__name', 'textarea', 'fieldset', 'array', 'tabarray', 'tabs', 'section',
         'conditional', 'select', 'checkbox', 'checkboxes', 'number',
         'password', 'submit', 'button', 'radios', 'radios-inline', 'radiobuttons',
-        'help', 'default'
+        'password-confirm', 'help', 'default'
       ];
       expect(fields).toEqual(expectedFields);
     });

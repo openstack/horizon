@@ -117,6 +117,10 @@
         template: base + 'radio-buttons.html',
         builder: defaults
       },
+      'password-confirm': {
+        template: base + 'password-confirm.html',
+        builder: defaults
+      },
       help: {
         template: base + 'help.html',
         builder: defaults

@@ -31,49 +31,42 @@
    * @restrict A
    *
    * @scope
-   * hzPasswordMatch - id of element to validate against
+   * hzPasswordMatch - model value to validate against
    *
    * @example:
    * <form name="form">
    *  <input type='password' id="psw" ng-model="user.psw" name="psw">
-   *  <input type='password' ng-model="user.cnf" hz-password-match="psw">
+   *  <input type='password' ng-model="user.cnf" hz-password-match="user.psw">
    * </form>
-   *
-   * Note that id and name are required for the password input.
-   * This directive uses the form model and id for validation check.
    */
   angular
     .module('horizon.framework.util.validators')
     .directive('hzPasswordMatch', hzPasswordMatch);
 
   function hzPasswordMatch() {
-    var directive = {
+    return {
       restrict: 'A',
       require: 'ngModel',
       link: link
     };
 
-    return directive;
-
     ///////////
 
-    function link(scope, element, attr, ctrl) {
-
+    function link(scope, element, attr, ngModelCtrl) {
       /**
        * this ensures that typing in either input
        * will trigger the password match
        */
-      var pwElement = angular.element('#' + attr.hzPasswordMatch);
-      pwElement.on('keyup change', passwordCheck);
-      element.on('keyup change', passwordCheck);
+      scope.$watch(attr.hzPasswordMatch, function(value) {
+        scope.passwordConfirm = value;
+        ngModelCtrl.$validate();
+      });
 
       // helper function to check that password matches
-      function passwordCheck() {
-        scope.$apply(function () {
-          var match = ctrl.$modelValue === pwElement.val();
-          ctrl.$setValidity('match', match);
-        });
-      }
+      ngModelCtrl.$validators.check = function (modelValue, viewValue) {
+        var value = modelValue || viewValue;
+        return value === scope.passwordConfirm;
+      };
     } // end of link
   } // end of directive
 })();
