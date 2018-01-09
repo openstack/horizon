@@ -17,7 +17,7 @@ from django.core.urlresolvers import reverse
 from django import http
 from django.utils.six.moves.urllib.parse import urlsplit
 
-from mox3.mox import IsA
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -28,12 +28,9 @@ INDEX_URL = reverse('horizon:settings:password:index')
 
 class ChangePasswordTests(test.TestCase):
 
-    @test.create_stubs({api.keystone: ('user_update_own_password', )})
-    def test_change_password(self):
-        api.keystone.user_update_own_password(IsA(http.HttpRequest),
-                                              'oldpwd',
-                                              'normalpwd',).AndReturn(None)
-        self.mox.ReplayAll()
+    @mock.patch.object(api.keystone, 'user_update_own_password')
+    def test_change_password(self, mock_user_update_own_password):
+        mock_user_update_own_password.return_value = None
 
         formData = {'method': 'PasswordForm',
                     'current_password': 'oldpwd',
@@ -42,6 +39,8 @@ class ChangePasswordTests(test.TestCase):
         res = self.client.post(INDEX_URL, formData)
 
         self.assertNoFormErrors(res)
+        mock_user_update_own_password.assert_called_once_with(
+            test.IsHttpRequest(), 'oldpwd', 'normalpwd')
 
     def test_change_validation_passwords_not_matching(self):
         formData = {'method': 'PasswordForm',
@@ -52,12 +51,10 @@ class ChangePasswordTests(test.TestCase):
 
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
 
-    @test.create_stubs({api.keystone: ('user_update_own_password', )})
-    def test_change_password_sets_logout_reason(self):
-        api.keystone.user_update_own_password(IsA(http.HttpRequest),
-                                              'oldpwd',
-                                              'normalpwd').AndReturn(None)
-        self.mox.ReplayAll()
+    @mock.patch.object(api.keystone, 'user_update_own_password')
+    def test_change_password_sets_logout_reason(self,
+                                                mock_user_update_own_password):
+        mock_user_update_own_password.return_value = None
 
         formData = {'method': 'PasswordForm',
                     'current_password': 'oldpwd',
@@ -74,3 +71,6 @@ class ChangePasswordTests(test.TestCase):
         scheme, netloc, path, query, fragment = urlsplit(res.url)
         redirect_response = res.client.get(path, http.QueryDict(query))
         self.assertRedirectsNoFollow(redirect_response, settings.LOGIN_URL)
+
+        mock_user_update_own_password.assert_called_once_with(
+            test.IsHttpRequest(), 'oldpwd', 'normalpwd')
