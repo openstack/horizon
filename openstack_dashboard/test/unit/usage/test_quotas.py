@@ -19,10 +19,11 @@
 
 from __future__ import absolute_import
 
-from django import http
+import collections
+
 from django.test.utils import override_settings
 from django.utils.translation import ugettext_lazy as _
-from mox3.mox import IsA
+import mock
 
 from horizon import exceptions
 from openstack_dashboard import api
@@ -32,6 +33,28 @@ from openstack_dashboard.usage import quotas
 
 
 class QuotaTests(test.APITestCase):
+
+    use_mox = False
+
+    def _mock_service_enabled(self, compute_enabled=True,
+                              network_enabled=False, volume_enabled=True):
+        services = {'network': network_enabled,
+                    'compute': compute_enabled}
+        self._service_call_count = collections.defaultdict(int)
+
+        def fake_service_enabled(request, service):
+            self._service_call_count[service] += 1
+            return services[service]
+
+        self.mock_is_service_enabled.side_effect = fake_service_enabled
+        self.mock_is_volume_service_enabled.return_value = volume_enabled
+
+    def _check_service_enabled(self, expected_count):
+        self.mock_is_volume_service_enabled.assert_called_once_with(
+            test.IsHttpRequest())
+        self.assertEqual(expected_count, self._service_call_count)
+        total_count = sum(expected_count.values())
+        self.assertEqual(total_count, self.mock_is_service_enabled.call_count)
 
     def get_usages(self, with_volume=True, with_compute=True,
                    nova_quotas_enabled=True, tenant_id=None):
@@ -97,28 +120,19 @@ class QuotaTests(test.APITestCase):
                             actual_usages.items() if 'available' in value}
         self.assertEqual(expected_available, actual_available)
 
-    @test.create_stubs({api.nova: ('tenant_absolute_limits',),
-                        api.base: ('is_service_enabled',),
-                        cinder: ('tenant_absolute_limits',
-                                 'is_volume_service_enabled')})
+    @test.create_mocks({
+        api.nova: (('tenant_absolute_limits', 'nova_tenant_absolute_limits'),),
+        api.base: ('is_service_enabled',),
+        cinder: (('tenant_absolute_limits', 'cinder_tenant_absolute_limits'),
+                 'is_volume_service_enabled')})
     def test_tenant_quota_usages_with_id(self):
         tenant_id = 3
-        cinder.is_volume_service_enabled(IsA(http.HttpRequest)).AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
-            .MultipleTimes().AndReturn(True)
 
-        api.nova.tenant_absolute_limits(
-            IsA(http.HttpRequest),
-            reserved=True,
-            tenant_id=tenant_id).AndReturn(self.limits['absolute'])
-
-        api.cinder.tenant_absolute_limits(
-            IsA(http.HttpRequest),
-            tenant_id).AndReturn(self.cinder_limits['absolute'])
-
-        self.mox.ReplayAll()
+        self._mock_service_enabled()
+        self.mock_nova_tenant_absolute_limits.return_value = \
+            self.limits['absolute']
+        self.mock_cinder_tenant_absolute_limits.return_value = \
+            self.cinder_limits['absolute']
 
         quota_usages = quotas.tenant_quota_usages(self.request,
                                                   tenant_id=tenant_id)
@@ -130,34 +144,31 @@ class QuotaTests(test.APITestCase):
         # Compare available resources
         self.assertAvailableQuotasEqual(expected_output, quota_usages.usages)
 
-    @test.create_stubs({api.nova: ('tenant_absolute_limits',),
-                        api.base: ('is_service_enabled',),
-                        cinder: ('tenant_absolute_limits',
-                                 'is_volume_service_enabled')})
-    def _test_tenant_quota_usages(self, nova_quotas_enabled=True,
+        self._check_service_enabled({'compute': 2, 'network': 1})
+        self.mock_nova_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
+        self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id)
+
+    @test.create_mocks({
+        api.nova: (('tenant_absolute_limits', 'nova_tenant_absolute_limits'),),
+        api.base: ('is_service_enabled',),
+        cinder: (('tenant_absolute_limits', 'cinder_tenant_absolute_limits'),
+                 'is_volume_service_enabled')})
+    def _test_tenant_quota_usages(self,
+                                  nova_quotas_enabled=True,
                                   with_compute=True, with_volume=True,
                                   unlimited_items=None):
         tenant_id = '1'
-        cinder.is_volume_service_enabled(IsA(http.HttpRequest)).AndReturn(
-            with_volume)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').AndReturn(False)
-        api.base.is_service_enabled(
-            IsA(http.HttpRequest), 'compute'
-        ).MultipleTimes().AndReturn(with_compute)
-        if with_compute:
-            if nova_quotas_enabled:
-                api.nova.tenant_absolute_limits(
-                    IsA(http.HttpRequest),
-                    reserved=True,
-                    tenant_id=tenant_id).AndReturn(self.limits['absolute'])
 
+        self._mock_service_enabled(compute_enabled=with_compute,
+                                   volume_enabled=with_volume)
+        if with_compute and nova_quotas_enabled:
+            self.mock_nova_tenant_absolute_limits.return_value = \
+                self.limits['absolute']
         if with_volume:
-            api.cinder.tenant_absolute_limits(
-                IsA(http.HttpRequest),
-                tenant_id).AndReturn(self.cinder_limits['absolute'])
-
-        self.mox.ReplayAll()
+            self.mock_cinder_tenant_absolute_limits.return_value = \
+                self.cinder_limits['absolute']
 
         quota_usages = quotas.tenant_quota_usages(self.request)
         expected_output = self.get_usages_from_limits(
@@ -170,6 +181,19 @@ class QuotaTests(test.APITestCase):
         self.assertItemsEqual(expected_output, quota_usages.usages)
         # Compare available resources
         self.assertAvailableQuotasEqual(expected_output, quota_usages.usages)
+
+        if with_compute and nova_quotas_enabled:
+            self._check_service_enabled({'compute': 2, 'network': 1})
+            self.mock_nova_tenant_absolute_limits.assert_called_once_with(
+                test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
+        else:
+            self._check_service_enabled({'compute': 1, 'network': 1})
+            self.mock_nova_tenant_absolute_limits.assert_not_called()
+        if with_volume:
+            self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
+                test.IsHttpRequest(), tenant_id)
+        else:
+            self.mock_cinder_tenant_absolute_limits.assert_not_called()
 
     def test_tenant_quota_usages(self):
         self._test_tenant_quota_usages()
@@ -185,17 +209,10 @@ class QuotaTests(test.APITestCase):
         self._test_tenant_quota_usages(unlimited_items=['instances'])
 
     @override_settings(OPENSTACK_HYPERVISOR_FEATURES={'enable_quotas': False})
-    @test.create_stubs({api.base: ('is_service_enabled',),
+    @test.create_mocks({api.base: ('is_service_enabled',),
                         cinder: ('is_volume_service_enabled',)})
     def test_get_all_disabled_quotas(self):
-        cinder.is_volume_service_enabled(IsA(http.HttpRequest)).AndReturn(
-            False)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').AndReturn(False)
-        # Nova enabled but quotas disabled
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'compute').AndReturn(True)
-        self.mox.ReplayAll()
+        self._mock_service_enabled(volume_enabled=False)
 
         result_quotas = quotas.get_disabled_quotas(self.request)
         expected_quotas = (quotas.CINDER_QUOTA_FIELDS |
@@ -203,25 +220,16 @@ class QuotaTests(test.APITestCase):
                            quotas.NOVA_QUOTA_FIELDS)
         self.assertItemsEqual(result_quotas, expected_quotas)
 
-    @test.create_stubs({api.nova: ('tenant_absolute_limits',),
+        self._check_service_enabled({'compute': 1, 'network': 1})
+
+    @test.create_mocks({api.nova: ('tenant_absolute_limits',),
                         api.base: ('is_service_enabled',),
-                        api.cinder: ('is_volume_service_enabled',)})
+                        cinder: ('is_volume_service_enabled',)})
     def test_tenant_quota_usages_without_volume(self):
         tenant_id = self.request.user.tenant_id
 
-        api.cinder.is_volume_service_enabled(
-            IsA(http.HttpRequest)
-        ).AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'compute').MultipleTimes().AndReturn(True)
-        api.nova.tenant_absolute_limits(
-            IsA(http.HttpRequest),
-            reserved=True,
-            tenant_id=tenant_id).AndReturn(self.limits['absolute'])
-
-        self.mox.ReplayAll()
+        self._mock_service_enabled(volume_enabled=False)
+        self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
 
         quota_usages = quotas.tenant_quota_usages(self.request)
         expected_output = self.get_usages_from_limits(with_volume=False)
@@ -234,23 +242,16 @@ class QuotaTests(test.APITestCase):
         self.assertIn('ram', quota_usages)
         self.assertIsNotNone(quota_usages.get('ram'))
 
-    @test.create_stubs({api.nova: ('tenant_absolute_limits',),
-                        api.base: ('is_service_enabled',),
-                        api.cinder: ('is_volume_service_enabled',)})
-    def test_tenant_quota_usages_no_instances_running(self):
-        api.cinder.is_volume_service_enabled(
-            IsA(http.HttpRequest)
-        ).AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'compute').MultipleTimes().AndReturn(True)
-        api.nova.tenant_absolute_limits(
-            IsA(http.HttpRequest),
-            reserved=True,
-            tenant_id='1').AndReturn(self.limits['absolute'])
+        self._check_service_enabled({'compute': 2, 'network': 1})
+        self.mock_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
 
-        self.mox.ReplayAll()
+    @test.create_mocks({api.nova: ('tenant_absolute_limits',),
+                        api.base: ('is_service_enabled',),
+                        cinder: ('is_volume_service_enabled',)})
+    def test_tenant_quota_usages_no_instances_running(self):
+        self._mock_service_enabled(volume_enabled=False)
+        self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
 
         quota_usages = quotas.tenant_quota_usages(self.request)
         expected_output = self.get_usages_from_limits(with_volume=False)
@@ -263,32 +264,25 @@ class QuotaTests(test.APITestCase):
         # Compare internal structure of usages to expected.
         self.assertItemsEqual(expected_output, quota_usages.usages)
 
-    @test.create_stubs({api.nova: ('tenant_absolute_limits',),
-                        api.base: ('is_service_enabled',),
-                        cinder: ('tenant_absolute_limits',
-                                 'is_volume_service_enabled')})
+        self._check_service_enabled({'compute': 2, 'network': 1})
+        self.mock_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest(), reserved=True, tenant_id='1')
+
+    @test.create_mocks({
+        api.nova: (('tenant_absolute_limits', 'nova_tenant_absolute_limits'),),
+        api.base: ('is_service_enabled',),
+        cinder: (('tenant_absolute_limits', 'cinder_tenant_absolute_limits'),
+                 'is_volume_service_enabled')})
     def test_tenant_quota_usages_unlimited_quota(self):
         tenant_id = '1'
         inf_quota = self.quotas.first()
         inf_quota['ram'] = -1
 
-        cinder.is_volume_service_enabled(
-            IsA(http.HttpRequest)
-        ).AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'compute').MultipleTimes().AndReturn(True)
-
-        api.nova.tenant_absolute_limits(
-            IsA(http.HttpRequest),
-            reserved=True,
-            tenant_id=tenant_id).AndReturn(self.limits['absolute'])
-        api.cinder.tenant_absolute_limits(
-            IsA(http.HttpRequest),
-            tenant_id).AndReturn(self.cinder_limits['absolute'])
-
-        self.mox.ReplayAll()
+        self._mock_service_enabled()
+        self.mock_nova_tenant_absolute_limits.return_value = \
+            self.limits['absolute']
+        self.mock_cinder_tenant_absolute_limits.return_value = \
+            self.cinder_limits['absolute']
 
         quota_usages = quotas.tenant_quota_usages(self.request)
         expected_output = self.get_usages_from_limits()
@@ -299,28 +293,25 @@ class QuotaTests(test.APITestCase):
         # Compare internal structure of usages to expected.
         self.assertItemsEqual(expected_output, quota_usages.usages)
 
-    @test.create_stubs({api.nova: ('tenant_absolute_limits',),
-                        api.base: ('is_service_enabled',),
-                        cinder: ('tenant_absolute_limits',
-                                 'is_volume_service_enabled')})
+        self._check_service_enabled({'compute': 2, 'network': 1})
+        self.mock_nova_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
+        self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id)
+
+    @test.create_mocks({
+        api.nova: (('tenant_absolute_limits', 'nova_tenant_absolute_limits'),),
+        api.base: ('is_service_enabled',),
+        cinder: (('tenant_absolute_limits', 'cinder_tenant_absolute_limits'),
+                 'is_volume_service_enabled')})
     def test_tenant_quota_usages_neutron_fip_disabled(self):
         tenant_id = '1'
-        cinder.is_volume_service_enabled(
-            IsA(http.HttpRequest)
-        ).AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'compute').MultipleTimes().AndReturn(True)
-        api.nova.tenant_absolute_limits(
-            IsA(http.HttpRequest),
-            reserved=True,
-            tenant_id=tenant_id).AndReturn(self.limits['absolute'])
-        api.cinder.tenant_absolute_limits(
-            IsA(http.HttpRequest),
-            tenant_id).AndReturn(self.cinder_limits['absolute'])
 
-        self.mox.ReplayAll()
+        self._mock_service_enabled()
+        self.mock_nova_tenant_absolute_limits.return_value = \
+            self.limits['absolute']
+        self.mock_cinder_tenant_absolute_limits.return_value = \
+            self.cinder_limits['absolute']
 
         quota_usages = quotas.tenant_quota_usages(self.request)
         expected_output = self.get_usages_from_limits()
@@ -328,67 +319,78 @@ class QuotaTests(test.APITestCase):
         # Compare internal structure of usages to expected.
         self.assertItemsEqual(expected_output, quota_usages.usages)
 
-    @test.create_stubs({api.base: ('is_service_enabled',),
-                        api.cinder: ('tenant_quota_get',
-                                     'is_volume_service_enabled'),
+        self._check_service_enabled({'compute': 2, 'network': 1})
+        self.mock_nova_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
+        self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id)
+
+    @test.create_mocks({api.base: ('is_service_enabled',),
+                        cinder: ('tenant_quota_get',
+                                 'is_volume_service_enabled'),
                         exceptions: ('handle',)})
     def test_get_quota_data_cinder_exception(self):
-        api.cinder.is_volume_service_enabled(
-            IsA(http.HttpRequest)
-        ).AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'compute').AndReturn(False)
-        api.cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
-            .AndRaise(cinder.cinder_exception.ClientException('test'))
-        exceptions.handle(IsA(http.HttpRequest),
-                          _("Unable to retrieve volume limit information."))
-        self.mox.ReplayAll()
+        self._mock_service_enabled(compute_enabled=False)
+        self.mock_tenant_quota_get.side_effect = \
+            cinder.cinder_exception.ClientException('test')
 
         quotas.get_tenant_quota_data(self.request)
 
-    @test.create_stubs({api.base: ('is_service_enabled',),
-                        api.cinder: ('tenant_absolute_limits',
-                                     'is_volume_service_enabled'),
+        self._check_service_enabled({'compute': 1, 'network': 1})
+        self.mock_tenant_quota_get.assert_called_once_with(
+            test.IsHttpRequest(), '1')
+        self.mock_handle.assert_called_once_with(
+            test.IsHttpRequest(),
+            _("Unable to retrieve volume limit information."))
+
+    @test.create_mocks({api.base: ('is_service_enabled',),
+                        cinder: ('tenant_absolute_limits',
+                                 'is_volume_service_enabled'),
                         exceptions: ('handle',)})
     def test_tenant_limit_usages_cinder_exception(self):
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'compute').AndReturn(False)
-        api.cinder.is_volume_service_enabled(
-            IsA(http.HttpRequest)
-        ).AndReturn(True)
-        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
-            .AndRaise(cinder.cinder_exception.ClientException('test'))
-        exceptions.handle(IsA(http.HttpRequest),
-                          _("Unable to retrieve volume limit information."))
-        self.mox.ReplayAll()
+        self.mock_is_service_enabled.retrieve = False
+        self.mock_is_volume_service_enabled.return_value = True
+        self.mock_tenant_absolute_limits.side_effect = \
+            cinder.cinder_exception.ClientException('test')
+
         quotas.tenant_limit_usages(self.request)
 
-    @test.create_stubs({api.neutron: ('is_router_enabled',
+        self.mock_is_service_enabled.assert_called_once_with(
+            test.IsHttpRequest(), 'compute')
+        self.mock_is_volume_service_enabled.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_handle.assert_has_calls([
+            mock.call(test.IsHttpRequest(),
+                      _("Unable to retrieve compute limit information.")),
+            mock.call(test.IsHttpRequest(),
+                      _("Unable to retrieve volume limit information.")),
+        ])
+        self.assertEqual(2, self.mock_handle.call_count)
+
+    @test.create_mocks({api.neutron: ('is_router_enabled',
                                       'is_extension_supported',
                                       'is_quotas_extension_supported',),
                         api.cinder: ('is_volume_service_enabled',),
                         api.base: ('is_service_enabled',)})
     def test_get_disabled_quotas_router_disabled(self):
-        api.cinder.is_volume_service_enabled(
-            IsA(http.HttpRequest)
-        ).AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'security-group').AndReturn(True)
-        api.neutron.is_router_enabled(IsA(http.HttpRequest)).AndReturn(False)
-        api.neutron.is_quotas_extension_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'compute').AndReturn(True)
-
-        self.mox.ReplayAll()
+        self._mock_service_enabled(network_enabled=True)
+        self.mock_is_extension_supported.return_value = True
+        self.mock_is_router_enabled.return_value = False
+        self.mock_is_quotas_extension_supported.return_value = True
 
         disabled_quotas = quotas.get_disabled_quotas(self.request)
         expected = set(['router', 'floatingip'])
         self.assertEqual(expected, disabled_quotas)
+
+        self._check_service_enabled({'compute': 1, 'network': 1})
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'security-group')
+        self.mock_is_router_enabled.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_is_quotas_extension_supported.assert_called_once_with(
+            test.IsHttpRequest())
 
     def test_tenant_quota_usages_with_target_instances(self):
         self._test_tenant_quota_usages_with_target(targets=('instances', ))
@@ -407,33 +409,24 @@ class QuotaTests(test.APITestCase):
             targets=('instances', 'cores', 'ram', 'volumes', ),
             use_flavor_list=True, use_cinder_call=True)
 
-    @test.create_stubs({api.nova: ('tenant_absolute_limits',),
-                        api.base: ('is_service_enabled',),
-                        cinder: ('tenant_absolute_limits',
-                                 'is_volume_service_enabled')})
+    @test.create_mocks({
+        api.nova: (('tenant_absolute_limits', 'nova_tenant_absolute_limits'),),
+        api.base: ('is_service_enabled',),
+        cinder: (('tenant_absolute_limits', 'cinder_tenant_absolute_limits'),
+                 'is_volume_service_enabled')})
     def _test_tenant_quota_usages_with_target(
-            self, targets,
-            use_compute_call=True,
+            self, targets, use_compute_call=True,
             use_flavor_list=False, use_cinder_call=False):
+
         tenant_id = self.request.user.tenant_id
-        cinder.is_volume_service_enabled(IsA(http.HttpRequest)).AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
-            .AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
-            .MultipleTimes().AndReturn(True)
 
+        self._mock_service_enabled()
         if use_compute_call:
-            api.nova.tenant_absolute_limits(
-                IsA(http.HttpRequest),
-                reserved=True,
-                tenant_id=tenant_id).AndReturn(self.limits['absolute'])
-
+            self.mock_nova_tenant_absolute_limits.return_value = \
+                self.limits['absolute']
         if use_cinder_call:
-            api.cinder.tenant_absolute_limits(
-                IsA(http.HttpRequest),
-                tenant_id).AndReturn(self.cinder_limits['absolute'])
-
-        self.mox.ReplayAll()
+            self.mock_cinder_tenant_absolute_limits.return_value = \
+                self.cinder_limits['absolute']
 
         quota_usages = quotas.tenant_quota_usages(self.request,
                                                   targets=targets)
@@ -445,6 +438,19 @@ class QuotaTests(test.APITestCase):
         self.assertItemsEqual(expected, quota_usages.usages)
         # Compare available resources
         self.assertAvailableQuotasEqual(expected, quota_usages.usages)
+
+        if use_compute_call:
+            self._check_service_enabled({'compute': 2, 'network': 1})
+            self.mock_nova_tenant_absolute_limits.assert_called_once_with(
+                test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
+        else:
+            self._check_service_enabled({'compute': 1, 'network': 1})
+            self.mock_nova_tenant_absolute_limits.assert_not_called()
+        if use_cinder_call:
+            self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
+                test.IsHttpRequest(), tenant_id)
+        else:
+            self.mock_cinder_tenant_absolute_limits.assert_not_called()
 
     def test_tenant_quota_usages_neutron_with_target_network_resources(self):
         self._test_tenant_quota_usages_neutron_with_target(
@@ -458,7 +464,8 @@ class QuotaTests(test.APITestCase):
         self._test_tenant_quota_usages_neutron_with_target(
             targets=('floatingip', ))
 
-    @test.create_stubs({api.base: ('is_service_enabled',),
+    @test.create_mocks({api.base: ('is_service_enabled',),
+                        cinder: ('is_volume_service_enabled',),
                         api.neutron: ('floating_ip_supported',
                                       'tenant_floating_ip_list',
                                       'security_group_list',
@@ -468,45 +475,29 @@ class QuotaTests(test.APITestCase):
                                       'tenant_quota_get',
                                       'network_list',
                                       'subnet_list',
-                                      'router_list'),
-                        cinder: ('is_volume_service_enabled',)})
-    def _test_tenant_quota_usages_neutron_with_target(
-            self, targets):
-        cinder.is_volume_service_enabled(IsA(http.HttpRequest)).AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
-            .AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'security-group').AndReturn(True)
-        api.neutron.is_router_enabled(IsA(http.HttpRequest)).AndReturn(True)
-        api.neutron.is_quotas_extension_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
-            .MultipleTimes().AndReturn(True)
+                                      'router_list')})
+    def _test_tenant_quota_usages_neutron_with_target(self, targets):
+        self._mock_service_enabled(network_enabled=True)
+        self.mock_is_extension_supported.side_effect = [
+            True,  # security-group
+            False,  # quota_details
+        ]
+        self.mock_is_router_enabled.return_value = True
+        self.mock_is_quotas_extension_supported.return_value = True
+        self.mock_tenant_quota_get.return_value = self.neutron_quotas.first()
 
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'quota_details').AndReturn(False)
-        api.neutron.tenant_quota_get(IsA(http.HttpRequest), '1') \
-            .AndReturn(self.neutron_quotas.first())
         if 'network' in targets:
-            api.neutron.network_list(IsA(http.HttpRequest),
-                                     tenant_id=self.request.user.tenant_id) \
-                .AndReturn(self.networks.list())
+            self.mock_network_list.return_value = self.networks.list()
         if 'subnet' in targets:
-            api.neutron.subnet_list(IsA(http.HttpRequest),
-                                    tenant_id=self.request.user.tenant_id) \
-                .AndReturn(self.subnets.list())
+            self.mock_subnet_list.return_value = self.subnets.list()
         if 'router' in targets:
-            api.neutron.router_list(IsA(http.HttpRequest),
-                                    tenant_id=self.request.user.tenant_id) \
-                .AndReturn(self.routers.list())
+            self.mock_router_list.return_value = self.routers.list()
         if 'floatingip' in targets:
-            api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.floating_ips.list())
+            self.mock_tenant_floating_ip_list.return_value = \
+                self.floating_ips.list()
         if 'security_group' in targets:
-            api.neutron.security_group_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.security_groups.list())
-
-        self.mox.ReplayAll()
+            self.mock_security_group_list.return_value = \
+                self.security_groups.list()
 
         quota_usages = quotas.tenant_quota_usages(self.request,
                                                   targets=targets)
@@ -534,3 +525,44 @@ class QuotaTests(test.APITestCase):
         self.assertEqual(expected, quota_usages.usages)
         # Compare available resources
         self.assertAvailableQuotasEqual(expected, quota_usages.usages)
+
+        self._check_service_enabled({'compute': 1, 'network': 1})
+        self.mock_is_extension_supported.assert_has_calls([
+            mock.call(test.IsHttpRequest(), 'security-group'),
+            mock.call(test.IsHttpRequest(), 'quota_details'),
+        ])
+        self.assertEqual(2, self.mock_is_extension_supported.call_count)
+        self.mock_is_router_enabled.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_is_quotas_extension_supported.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_tenant_quota_get.assert_called_once_with(
+            test.IsHttpRequest(), '1')
+        if 'network' in targets:
+            self.mock_network_list.assert_called_once_with(
+                test.IsHttpRequest(),
+                tenant_id=self.request.user.tenant_id)
+        else:
+            self.mock_network_list.assert_not_called()
+        if 'subnet' in targets:
+            self.mock_subnet_list.assert_called_once_with(
+                test.IsHttpRequest(),
+                tenant_id=self.request.user.tenant_id)
+        else:
+            self.mock_subnet_list.assert_not_called()
+        if 'router' in targets:
+            self.mock_router_list.assert_called_once_with(
+                test.IsHttpRequest(),
+                tenant_id=self.request.user.tenant_id)
+        else:
+            self.mock_router_list.assert_not_called()
+        if 'floatingip' in targets:
+            self.mock_tenant_floating_ip_list.assert_called_once_with(
+                test.IsHttpRequest())
+        else:
+            self.mock_tenant_floating_ip_list.assert_not_called()
+        if 'security_group' in targets:
+            self.mock_security_group_list.assert_called_once_with(
+                test.IsHttpRequest())
+        else:
+            self.mock_security_group_list.assert_not_called()
