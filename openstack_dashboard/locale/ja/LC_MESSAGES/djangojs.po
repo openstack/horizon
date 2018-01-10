@@ -4,15 +4,16 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-09 10:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-25 06:34+0000\n"
+"PO-Revision-Date: 2018-01-09 08:31+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -618,6 +619,9 @@ msgstr "サブネットの作成"
 msgid "Create Trunk"
 msgstr "トランクの作成"
 
+msgid "Create User"
+msgstr "ユーザーの作成"
+
 msgid "Create Volume"
 msgstr "ボリュームの作成"
 
@@ -650,6 +654,9 @@ msgstr ""
 "に、インスタンスにアタッチします。例えば、ゲストオペレーティングシステム内"
 "で  <samp>cloud-init</samp> をインストールできない場合には、カスタムスクリプ"
 "トを使用して公開鍵を取得し、ユーザーアカウントに追加することができます。"
+
+msgid "Customization Script"
+msgstr "カスタマイズスクリプト"
 
 msgid "DNS Domain"
 msgstr "DNS ドメイン"
@@ -868,6 +875,9 @@ msgid "Domain"
 msgstr "ドメイン"
 
 msgid "Domain ID"
+msgstr "ドメイン ID"
+
+msgid "Domain Id"
 msgstr "ドメイン ID"
 
 msgid "Domain Name"
@@ -1202,6 +1212,9 @@ msgstr "クォータへの影響"
 msgid "Import Key Pair"
 msgstr "キーペアのインポート"
 
+msgid "Import Public Key"
+msgstr "公開鍵のインポート"
+
 msgid "Indicators"
 msgstr "インジケーター"
 
@@ -1322,6 +1335,13 @@ msgstr ""
 "自分で認識できるキーペア名を付けてください。\n"
 "名前に使用できるのは、英数字、空白文字、ダッシュのみです。"
 
+#, python-format
+msgid "Key pair %(name)s was successfully created."
+msgstr "キーペア %(name)s が正常に作成されました。"
+
+msgid "Key pair already exists."
+msgstr "キーペアがすでに存在します。"
+
 msgid "Keypair already exists or name contains bad characters."
 msgstr "キーペアがすでに存在するか、名前に使用できない文字が含まれています。"
 
@@ -1402,6 +1422,9 @@ msgstr "見て、私は小さいウェルの中にいるよ！"
 
 msgid "Look, I'm in a well!"
 msgstr "見て、私はウェルの中にいるよ！"
+
+msgid "MAC Address"
+msgstr "MAC アドレス"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -1736,6 +1759,9 @@ msgstr "パネル"
 msgid "Parent Port"
 msgstr "親ポート"
 
+msgid "Parent port"
+msgstr "親ポート"
+
 msgid "Password"
 msgstr "パスワード"
 
@@ -1806,6 +1832,9 @@ msgstr "基本のアンカー"
 
 msgid "Primary Button"
 msgstr "基本のボタン"
+
+msgid "Primary Project"
+msgstr "主プロジェクト"
 
 msgid "Primary Project ID"
 msgstr "主プロジェクト ID"
@@ -2011,6 +2040,9 @@ msgstr ""
 "b>をクリックします。"
 
 msgid "Segmentation ID"
+msgstr "セグメント ID"
+
+msgid "Segmentation Id"
 msgstr "セグメント ID"
 
 msgid "Segmentation Type"
@@ -2598,6 +2630,9 @@ msgstr "フレーバーを作成できません。"
 msgid "Unable to create the folder."
 msgstr "フォルダーを作成できません。"
 
+msgid "Unable to create the group."
+msgstr "グループを作成できません。"
+
 msgid "Unable to create the image."
 msgstr "イメージを作成できません。"
 
@@ -2672,9 +2707,19 @@ msgstr "ID %(id)s のフレーバーを削除できません。"
 msgid "Unable to delete the folder because it is not empty."
 msgstr "フォルダーは空ではないため削除できません。"
 
+msgid "Unable to delete the group."
+msgstr "グループを削除できません。"
+
+msgid "Unable to delete the groups."
+msgstr "グループを削除できません。"
+
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "ID %(id)s のイメージを削除できません。"
+
+#, python-format
+msgid "Unable to delete the keypair with name: %(name)s"
+msgstr "名前 %(name)s のキーペアを削除できません。"
 
 msgid "Unable to delete the object."
 msgstr "オブジェクトを削除できません。"
@@ -2722,6 +2767,9 @@ msgstr "ドメインを編集できません。"
 
 msgid "Unable to edit the flavor extra specs."
 msgstr "フレーバーの追加スペックを編集できません。"
+
+msgid "Unable to edit the group."
+msgstr "グループを編集できません。"
 
 msgid "Unable to edit the image custom properties."
 msgstr "イメージのカスタム属性を編集できません。"
@@ -2843,6 +2891,9 @@ msgstr "Cinder のサービスを取得できません。"
 msgid "Unable to retrieve the current user session."
 msgstr "現在のユーザーセッションを取得できません。"
 
+msgid "Unable to retrieve the default domain."
+msgstr "デフォルトドメインを取得できません。"
+
 msgid "Unable to retrieve the default quotas."
 msgstr "デフォルトのクォータを取得できません。"
 
@@ -2869,6 +2920,9 @@ msgstr "フレーバーを取得できません。"
 
 msgid "Unable to retrieve the flavors."
 msgstr "フレーバーの一覧を取得できません。"
+
+msgid "Unable to retrieve the group."
+msgstr "グループを取得できません。"
 
 msgid "Unable to retrieve the image custom properties."
 msgstr "イメージのカスタム属性を取得できません。"
@@ -2945,6 +2999,9 @@ msgstr "ユーザーを取得できません。"
 
 msgid "Unable to retrieve the users."
 msgstr "ユーザーを取得できません。"
+
+msgid "Unable to retrieve the volume availability zones."
+msgstr "ボリュームのアベイラビリティーゾーンを取得できません。"
 
 msgid "Unable to retrieve the volume metadata."
 msgstr "ボリュームのメタデータを取得できません。"
@@ -3099,6 +3156,10 @@ msgstr ""
 
 msgid "User"
 msgstr "ユーザー"
+
+#, python-format
+msgid "User %s was successfully created."
+msgstr "ユーザー %s を作成しました。"
 
 msgid "User ID"
 msgstr "ユーザー ID"

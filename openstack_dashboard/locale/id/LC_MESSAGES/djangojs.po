@@ -1,15 +1,16 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-09 10:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-27 03:55+0000\n"
+"PO-Revision-Date: 2018-01-09 05:01+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -656,8 +657,17 @@ msgstr "Create Subnet (buat subnet)"
 msgid "Create Trunk"
 msgstr "Buat Trunk"
 
+msgid "Create User"
+msgstr "Membuat User"
+
 msgid "Create Volume"
 msgstr "Create volume"
+
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr ""
+"Buat user baru dan atur properti terkait termasuk Primary Project dan Role."
 
 msgid "Created"
 msgstr "Created (dibuat)"
@@ -917,6 +927,9 @@ msgstr "Domain"
 
 msgid "Domain ID"
 msgstr "ID domain"
+
+msgid "Domain Id"
+msgstr "Domain Id"
 
 msgid "Domain Name"
 msgstr "Domain Name"
@@ -1983,6 +1996,9 @@ msgstr "Primary Anchor (jangkar utama)"
 
 msgid "Primary Button"
 msgstr "Primary Button (tombol utama)"
+
+msgid "Primary Project"
+msgstr "Primary Project"
 
 msgid "Primary Project ID"
 msgstr "Primary Project ID"
@@ -3107,6 +3123,9 @@ msgstr "Tidak dapat mengambil layanan cinder."
 msgid "Unable to retrieve the current user session."
 msgstr "Tidak dapat mengambil sesi pengguna saat ini."
 
+msgid "Unable to retrieve the default domain."
+msgstr "Tidak dapat mengambil domain default."
+
 msgid "Unable to retrieve the default quotas."
 msgstr "Tidak dapat mengambil kuota default."
 
@@ -3369,6 +3388,10 @@ msgstr ""
 
 msgid "User"
 msgstr "User (pengguna)"
+
+#, python-format
+msgid "User %s was successfully created."
+msgstr "User %s berhasil dibuat."
 
 msgid "User ID"
 msgstr "ID pengguna"

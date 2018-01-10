@@ -24,11 +24,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-09 10:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-07 03:14+0000\n"
+"PO-Revision-Date: 2018-01-09 09:51+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -393,6 +393,13 @@ msgstr ""
 "Ajouter des hôtes à cet agrégat. Les hôtes peuvent appartenir à plusieurs "
 "agrégats."
 
+msgid ""
+"Add or remove security groups to this port from the list of available "
+"security groups."
+msgstr ""
+"Ajoutez ou retirez des groupes de sécurité à ce port à partir de la liste "
+"des groupes de sécurité disponibles."
+
 msgid "Add static route to the router."
 msgstr "Ajouter une route statique au routeur."
 
@@ -702,8 +709,22 @@ msgstr "Nom de la zone de disponibilité"
 msgid "Availability Zones"
 msgstr "Zones de disponibilité"
 
+msgid ""
+"Availability Zones where the router may be scheduled. Leaving this unset is "
+"equivalent to selecting all Availability Zones"
+msgstr ""
+"Zone de Disponibilités où le routeur peut être instancié. Ne pas en choisir "
+"revient à les sélectionner toutes."
+
 msgid "Availability zone"
 msgstr "Zone de disponibilité"
+
+msgid ""
+"Availability zones where the DHCP agents may be scheduled. Leaving this "
+"unset is equivalent to selecting all availability zones"
+msgstr ""
+"Zones de disponibilités où les agents DHCP peuvent être instanciés. Ne pas "
+"en choisir revient à toutes les sélectionner."
 
 msgid "Available"
 msgstr "disponible(s)"
@@ -2393,6 +2414,17 @@ msgid_plural "Enabled Users"
 msgstr[0] "Utilisateur activé"
 msgstr[1] "Utilisateurs activés"
 
+msgid ""
+"Enables anti-spoofing rules for the port if enabled. In addition, if port "
+"security is disabled, security groups on the port will be automatically "
+"cleared. When you enable port security of the port, you may want to "
+"associate some security groups on the port."
+msgstr ""
+"Active les règles d'anti-spoofing sur le port. De plus, si la sécurité de "
+"port est désactivée, les groupes de sécurité du port seront automatiquement "
+"effacés. Quand vous activez la sécurité sur le port, vous pouvez lui "
+"associer des groupes de sécurité."
+
 msgid "Encrypted"
 msgstr "Chiffré"
 
@@ -2691,6 +2723,14 @@ msgid "Failed to delete network \"%s\""
 msgstr "Échec lors de la suppression du réseau \"%s\""
 
 #, python-format
+msgid ""
+"Failed to delete network %(network_name)s. Most possible case is that one or "
+"more ports still exist on the requested network."
+msgstr ""
+"Echec lors de la suppression du réseau %(network_name)s. Un ou plusieurs "
+"ports sont probablement encore présents sur ce réseau."
+
+#, python-format
 msgid "Failed to delete network %s"
 msgstr "Échec lors de la suppression du réseau %s"
 
@@ -2704,7 +2744,7 @@ msgstr "Échec lors de la suppression du sous-réseau %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr "Impossible de désactiver le service compute pour l'hôte : %s."
+msgstr "Échec lors de la désactivation du service compute pour l'hôte : %s."
 
 #, python-format
 msgid "Failed to evacuate host: %s."
@@ -2713,6 +2753,9 @@ msgstr "Échec lors de l'évacuation de  l'hôte : %s."
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Échec lors de l'évacuation des instances %s"
+
+msgid "Failed to get availability zone list."
+msgstr "Echec lors de la récupération de la liste des zones de disponibilité."
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -2741,7 +2784,7 @@ msgstr "Échec lors de la migration de l'hôte \"%s\"."
 
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "Échec de migration des instances: %s"
+msgstr "Échec de migration des instances : %s"
 
 msgid "Failed to migrate volume."
 msgstr "Échec de la migration du volume."
@@ -3313,7 +3356,7 @@ msgid ""
 "a different address which belongs to the selected subnet."
 msgstr ""
 "Si aucune adresse IP n'est spécifiée ici, l'adresse IP de la passerelle du "
-"sous-réseau sera utilisée pour la nouvelle interface crée dans le routeur. "
+"sous-réseau sera utilisée pour la nouvelle interface créée dans le routeur. "
 "Si l'IP de la passerelle est déjà utilisée, vous devez spécifier une adresse "
 "différente qui appartient au sous-réseau sélectionné. "
 
@@ -4575,6 +4618,9 @@ msgstr "Sécurité de port"
 
 msgid "Port Security Enabled"
 msgstr "Sécurité de port activée"
+
+msgid "Port Security Groups"
+msgstr "Groupes de sécurité de port"
 
 msgid "Port list can not be retrieved."
 msgstr "Impossible de récupérer la liste des ports."
@@ -6639,6 +6685,16 @@ msgstr ""
 "Impossible de vérifier la prise en charge de l'extension Neutron DHCP agent "
 "scheduler"
 
+msgid "Unable to check if network availability zone extension is supported"
+msgstr ""
+"Impossible de vérifier si l'extension de zone disponibilité de réseau est "
+"supportée."
+
+msgid "Unable to check if router availability zone extension is supported"
+msgstr ""
+"Impossible de vérifier si l'extension de zone de disponibilité du routeur "
+"est supportée."
+
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr ""
@@ -6828,22 +6884,30 @@ msgid "Unable to get EC2 credentials"
 msgstr "Impossible d'obtenir les identifiants du compte EC2"
 
 #, python-format
+msgid "Unable to get MKS console for instance \"%s\"."
+msgstr "Impossible d'ouvrir une console MKS pour l'instance \"%s\"."
+
+#, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
-msgstr "Impossible d'obtenir la console RDP pour l'instance \"%s\"."
+msgstr "Impossible d'ouvrir une console RDP pour l'instance \"%s\"."
 
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
-msgstr "Impossible d'obtenir la console SPICE pour l'instance \"%s\"."
+msgstr "Impossible d'ouvrir une console SPICE pour l'instance \"%s\"."
 
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
-msgstr "Impossible d'obtenir la console VNC pour l'instance \"%s\"."
+msgstr "Impossible d'ouvrir une console VNC pour l'instance \"%s\"."
 
 msgid "Unable to get cinder services list."
 msgstr "Impossible d'obtenir la liste des services Cinder."
 
 msgid "Unable to get consistency group list"
 msgstr "Impossible d'obtenir la liste de groupes de cohérence"
+
+#, python-format
+msgid "Unable to get console for instance \"%s\"."
+msgstr "Impossible d'ouvrir une console pour l'instance \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Impossible d'obtenir la liste des gabarits"
@@ -8073,6 +8137,14 @@ msgstr "Type du Volume : %(volume_type_name)s"
 msgid "Volume Types"
 msgstr "Types de Volume"
 
+#, python-format
+msgid ""
+"Volume cannot be extended to %(req)iGiB as the maximum size it can be "
+"extended to is %(max_size)iGiB."
+msgstr ""
+"Le volume ne peut pas être étendu à %(req)iGo car sa taille maximale est "
+"fixée à %(max_size)iGo."
+
 msgid "Volume consistency groups can not be deleted if they contain volumes."
 msgstr ""
 "Les groupes de cohérence de volumes ne peuvent pas être supprimés si ils "
@@ -8194,6 +8266,13 @@ msgstr ""
 "Equivalent de la commande <tt>cinder unmanage</tt>."
 
 msgid ""
+"When the admin state of the port is enabled, the networking service forward "
+"packets on the port. Otherwise, it does not forward any packets on the port."
+msgstr ""
+"Quand l'etat admin du port est activé, le service réseau transfère les "
+"paquets sur le port. Dans le cas contraire,  il n'en transfère aucun."
+
+msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
 "volume to an image."
 msgstr ""
@@ -8212,6 +8291,13 @@ msgstr "Vous utilisez déjà tous vos volumes disponibles."
 #, python-format
 msgid "You are not allowed to create a port for network %s."
 msgstr "Vous n'êtes pas autorisé à créer un port pour le réseau %s."
+
+msgid ""
+"You can add or remove security groups associated with the port in the next "
+"tab (if the port security is enabled for the port)."
+msgstr ""
+"Vous pouvez ajouter ou retirer des groupes de sécurité à ce port à l'aide de "
+"l'onglet suivant (si la sécurité de port est activée sur le port)."
 
 msgid ""
 "You can connect a specified external network to the router. The external "
@@ -8238,6 +8324,9 @@ msgid ""
 msgstr ""
 "Vous pouvez personnaliser votre instance après l'avoir démarrée en utilisant "
 "les options disponibles ici."
+
+msgid "You can edit the properties of your port here."
+msgstr "Vous pouvez éditer ici les propriétés de votre port."
 
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "
@@ -8302,7 +8391,7 @@ msgstr ""
 
 msgid "You may update the editable properties of your router here."
 msgstr ""
-"Ici, vous pouvez mettre à jour les propriétés modifiables de votre routeur."
+"Vous pouvez mettre à jour ici les propriétés modifiables de votre routeur."
 
 msgid "You must select a snapshot."
 msgstr "Vous devez sélectionner un instantané."
@@ -8342,6 +8431,9 @@ msgstr "back-end"
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "les deux"
+
+msgid "by Network (and IP address)"
+msgstr "par réseau (et adresse IP)"
 
 msgid "by Port"
 msgstr "par Port"

@@ -1,14 +1,15 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-28 01:59+0000\n"
+"POT-Creation-Date: 2018-01-09 10:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-27 04:02+0000\n"
+"PO-Revision-Date: 2018-01-09 05:06+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -76,6 +77,9 @@ msgstr "13.0.0.0b1"
 
 msgid "13.0.0.0b2"
 msgstr "13.0.0.0b2"
+
+msgid "13.0.0.0b2-77"
+msgstr "13.0.0.0b2-77"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -3640,6 +3644,17 @@ msgstr ""
 "ini yang membingungkan pengguna."
 
 msgid ""
+"The default keystone API vesion is switch to ``v3``. If you still use the "
+"keystone v2.0 API by default, you need to configure "
+"``OPENSTACK_API_VERSIONS`` and ``OPENSTACK_KEYSTONE_URL`` to point to the "
+"keystone v2.0 API."
+msgstr ""
+"Versi API keystone default beralih ke ``v3``. Jika Anda masih menggunakan "
+"API keystone v2.0 secara default, Anda perlu mengkonfigurasi "
+"``OPENSTACK_API_VERSIONS`` dan `` OPENSTACK_KEYSTONE_URL`` untuk menunjuk "
+"ke  API keystone v2.0."
+
+msgid ""
 "The deprecated ``OPENSTACK_QUANTUM_NETWORK`` configuration option has been "
 "removed. If you still use it, you need to replace it with "
 "``OPENSTACK_NEUTRON_NETWORK``."
@@ -3746,6 +3761,9 @@ msgstr ""
 "disamping ada argumen item pertama.  Parameter \"scope\" dengan metode "
 "WizardModalService modal () juga telah menjadi usang, dan akan diabaikan di "
 "rilis Horizon masa mendatang."
+
+msgid "The keystone v3 API now becomes the default keystone API version."
+msgstr "API keystone v3 sekarang menjadi versi API keystone default."
 
 msgid ""
 "The logos in Horizon (previously logo-splash.png and logo.png) now load SVG "

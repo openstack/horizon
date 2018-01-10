@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-09 10:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-05 05:45+0000\n"
+"PO-Revision-Date: 2018-01-09 08:26+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -632,8 +632,18 @@ msgstr "Criar Subrede"
 msgid "Create Trunk"
 msgstr "Criar Trunk"
 
+msgid "Create User"
+msgstr "Criar Usuário"
+
 msgid "Create Volume"
 msgstr "Criar Volume"
+
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr ""
+"Criar um novo usuário e configurar as propriedades relacionadas, incluindo o "
+"Projeto Primário e  Função."
 
 msgid "Created"
 msgstr "Criado"
@@ -891,6 +901,9 @@ msgstr "Domínio"
 
 msgid "Domain ID"
 msgstr "ID do Domínio"
+
+msgid "Domain Id"
+msgstr "Id de Domínio"
 
 msgid "Domain Name"
 msgstr "Nome do Domínio"
@@ -1844,6 +1857,9 @@ msgstr "Marcador Primário"
 msgid "Primary Button"
 msgstr "Botão Primário"
 
+msgid "Primary Project"
+msgstr "Projeto Primário"
+
 msgid "Primary Project ID"
 msgstr "ID do Projeto Primário"
 
@@ -2579,6 +2595,14 @@ msgstr "Volumes Totais"
 msgid "Trunk"
 msgstr "Código base"
 
+#, python-format
+msgid "Trunk %s was successfully created."
+msgstr "Trunk %s foi criado com sucesso."
+
+#, python-format
+msgid "Trunk %s was successfully edited."
+msgstr "Trunk %s foi editado com sucesso."
+
 msgid "Trunks"
 msgstr "Códigos base"
 
@@ -2718,6 +2742,10 @@ msgstr "Não é possível excluir os grupos."
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "Não foi possível apagar a imagem com id:%(id)s"
+
+#, python-format
+msgid "Unable to delete the keypair with name: %(name)s"
+msgstr "Não é possível excluir o par de chaves com nome: %(name)s"
 
 msgid "Unable to delete the object."
 msgstr "Não é possível apagar o objeto."
@@ -2888,6 +2916,9 @@ msgstr "Não foi possível recuperar os serviços do Cinder."
 
 msgid "Unable to retrieve the current user session."
 msgstr "Não é possível recuperar a sessão atual do usuário."
+
+msgid "Unable to retrieve the default domain."
+msgstr "Não é possível recuperar o domínio padrão."
 
 msgid "Unable to retrieve the default quotas."
 msgstr "Não é possível recuperar as quotas padrão."
@@ -3153,6 +3184,10 @@ msgstr ""
 msgid "User"
 msgstr "Usuário"
 
+#, python-format
+msgid "User %s was successfully created."
+msgstr "Usuário %s foi criado com sucesso."
+
 msgid "User ID"
 msgstr "ID de Usuário"
 
@@ -3395,6 +3430,13 @@ msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "Você selecionou \"%s\". Imagem excluída não é recuperável."
 msgstr[1] "Você selecionou \"%s\". Imagens excluídas não  são recuperáveis."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted key pair is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
+msgstr[0] "Você selecionou \"%s\". Par de chaves excluídos não é recuperável."
+msgstr[1] ""
+"Você selecionou \"%s\". Pares de chaves excluídos não são recuperáveis."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."

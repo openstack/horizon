@@ -5,15 +5,16 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-09 10:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-01 08:31+0000\n"
+"PO-Revision-Date: 2018-01-09 08:24+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -373,6 +374,13 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "このアグリゲートにホストを追加します。ホストは複数のアグリゲートに所属させる"
 "ことができます。"
+
+msgid ""
+"Add or remove security groups to this port from the list of available "
+"security groups."
+msgstr ""
+"利用可能なセキュリティーグループのリストから、このポートのセキュリティーグ"
+"ループを追加したり削除したりできます。"
 
 msgid "Add static route to the router."
 msgstr "静的ルートをルーターに追加します。"
@@ -2575,6 +2583,14 @@ msgid "Failed to delete network \"%s\""
 msgstr "ネットワーク \"%s\" の削除に失敗しました"
 
 #, python-format
+msgid ""
+"Failed to delete network %(network_name)s. Most possible case is that one or "
+"more ports still exist on the requested network."
+msgstr ""
+"ネットワーク %(network_name)s を削除できません。よくあるのは、このネットワー"
+"ク上にポートが 1 つ以上存在する場合です。"
+
+#, python-format
 msgid "Failed to delete network %s"
 msgstr "ネットワーク %s の削除に失敗しました"
 
@@ -3091,6 +3107,9 @@ msgstr ""
 "IP アドレス割り当てプール。start_ip_address,end_ip_address (例: "
 "192.168.1.100,192.168.1.120) 形式で、各項目を 1 行につき 1 項目記入します。"
 
+msgid "IP address for the new port"
+msgstr "新規ポートの IP アドレス"
+
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "このサブネットの DNS サーバーの IP アドレス一覧。1 行につき 1 項目。"
@@ -3265,6 +3284,9 @@ msgstr "キーペアのインポート"
 
 msgid "Import Namespace"
 msgstr "名前空間のインポート"
+
+msgid "Import Public Key"
+msgstr "公開鍵のインポート"
 
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
@@ -4418,6 +4440,9 @@ msgstr "ポートセキュリティー"
 
 msgid "Port Security Enabled"
 msgstr "ポートセキュリティー有効"
+
+msgid "Port Security Groups"
+msgstr "ポートのセキュリティグループ"
 
 msgid "Port list can not be retrieved."
 msgstr "ポート一覧を取得できません。"
@@ -6153,6 +6178,9 @@ msgstr "ボリュームサイズはスナップショットサイズ (%sGiB) 未
 msgid "The volume size cannot be less than the source volume size (%sGiB)"
 msgstr "ボリュームサイズは元のボリュームサイズ (%sGiB) 未満にはできません。"
 
+msgid "The way to specify an interface"
+msgstr "インターフェースの指定方法"
+
 msgid "Theme Preview"
 msgstr "テーマのプレビュー"
 
@@ -6220,6 +6248,9 @@ msgstr ""
 
 msgid "This instance is unlocked."
 msgstr "このインスタンスはロックされていません。"
+
+msgid "This is a test: "
+msgstr "This is a test: "
 
 msgid ""
 "This is equivalent to the <tt>openstack volume qos associate</tt> and "
@@ -6428,6 +6459,13 @@ msgstr "ボリューム \"%s\" のボリューム種別を変更できません�
 msgid "Unable to check if DHCP agent scheduler extension is supported"
 msgstr "DHCP エージェントスケジューラー拡張機能に対応しているか確認できません"
 
+msgid "Unable to check if network availability zone extension is supported"
+msgstr ""
+"ネットワークアベイラビリティーゾーン拡張機能に対応しているか確認できません"
+
+msgid "Unable to check if router availability zone extension is supported"
+msgstr "ルーターアベイラビリティーゾーン拡張機能に対応しているか確認できません"
+
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "ルーター \"%(name)s\" のゲートウェイを削除できません: \"%(msg)s\""
@@ -6632,6 +6670,10 @@ msgstr "Cinder のサービス一覧を取得できません。"
 
 msgid "Unable to get consistency group list"
 msgstr "整合性グループの一覧を取得できません"
+
+#, python-format
+msgid "Unable to get console for instance \"%s\"."
+msgstr "インスタンス \"%s\" のコンソールを取得できません。"
 
 msgid "Unable to get flavor list"
 msgstr "フレーバーの一覧を取得できません"
@@ -7837,6 +7879,14 @@ msgstr "ボリューム種別: %(volume_type_name)s"
 msgid "Volume Types"
 msgstr "ボリューム種別"
 
+#, python-format
+msgid ""
+"Volume cannot be extended to %(req)iGiB as the maximum size it can be "
+"extended to is %(max_size)iGiB."
+msgstr ""
+"ボリュームを %(req)iGiB に拡張できません。拡張できる最大サイズは "
+"%(max_size)iGiB です。"
+
 msgid "Volume consistency groups can not be deleted if they contain volumes."
 msgstr ""
 "ボリュームが含まれている場合には、ボリュームの整合性グループは削除できませ"
@@ -7996,6 +8046,9 @@ msgstr ""
 "ここにあるオプションを使って、インスタンス起動後にインスタンスをカスタマイズ"
 "することができます。"
 
+msgid "You can edit the properties of your port here."
+msgstr "ポートの属性をここから編集できます。"
+
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
@@ -8094,6 +8147,12 @@ msgstr "バックエンド"
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "両方"
+
+msgid "by Network (and IP address)"
+msgstr "ネットワーク (と IP アドレス) を指定"
+
+msgid "by Port"
+msgstr "ポートを指定"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
