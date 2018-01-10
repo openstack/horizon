@@ -22,7 +22,11 @@
       'horizon.framework.widgets'
     ])
     .config(config)
-    .run(run);
+    .run(run)
+    .factory('horizon.framework.redirect', httpRedirectLogin)
+    .constant('horizon.framework.events', {
+      FORCE_LOGOUT: 'FORCE_LOGOUT'
+    });
 
   config.$inject = [
     '$injector',
@@ -70,22 +74,8 @@
     // Global http error handler
     // if user is not authorized, log user out
     // this can happen when session expires
-    $httpProvider.interceptors.push(redirect);
+    $httpProvider.interceptors.push(httpRedirectLogin);
     $httpProvider.interceptors.push(stripAjaxHeaderForCORS);
-
-    redirect.$inject = ['$q'];
-
-    function redirect($q) {
-      return {
-        responseError: function (error) {
-          if (error.status === 401) {
-            var $window = $windowProvider.$get();
-            $window.location.replace($window.WEBROOT + 'auth/logout');
-          }
-          return $q.reject(error);
-        }
-      };
-    }
 
     stripAjaxHeaderForCORS.$inject = [];
     // Standard CORS middleware used in OpenStack services doesn't expect
@@ -123,6 +113,40 @@
       explicit.$inject = ['$compile'];
       $element.injector().invoke(explicit);
     }
+  }
+
+  httpRedirectLogin.$inject = [
+    '$q',
+    '$rootScope',
+    '$window',
+    'horizon.framework.events',
+    'horizon.framework.widgets.toast.service'
+  ];
+
+  function httpRedirectLogin($q, $rootScope, $window, frameworkEvents, toastService) {
+    return {
+      responseError: function (error) {
+        if (error.status === 401) {
+          var msg = gettext('Unauthorized. Redirecting to login');
+          handleRedirectMessage(msg, $rootScope, $window, frameworkEvents, toastService);
+        }
+        if (error.status === 403) {
+          var msg2 = gettext('Forbidden. Redirecting to login');
+          handleRedirectMessage(msg2, $rootScope, $window, frameworkEvents, toastService);
+        }
+        return $q.reject(error);
+      }
+    };
+  }
+
+  function handleRedirectMessage(msg, $rootScope, $window, frameworkEvents, toastService) {
+    var toast = toastService.find('error', msg);
+    //Suppress the multiple duplicate redirect toast messages.
+    if (!toast) {
+      toastService.add('error', msg);
+      $rootScope.$broadcast(frameworkEvents.FORCE_LOGOUT, msg);
+    }
+    $window.location.replace($window.WEBROOT + 'auth/logout');
   }
 
 })();

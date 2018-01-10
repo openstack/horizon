@@ -67,6 +67,18 @@
       expect(service.get()[0].type).toBe('danger');
     });
 
+    it('should find the added toast message', function() {
+      service.add('error', dangerMsg);
+      var toast = service.find('error', dangerMsg);
+      expect(toast.type).toBe('danger');
+      expect(toast.msg).toBe(dangerMsg);
+
+      service.add('success', successMsg);
+      toast = service.find('success', successMsg);
+      expect(toast.type).toBe('success');
+      expect(toast.msg).toBe(successMsg);
+    });
+
     it('should provide a function to clear all toasts', function() {
       service.add('success', successMsg);
       service.add('success', successMsg);
