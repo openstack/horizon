@@ -20,7 +20,6 @@ from mox3.mox import IsA
 from oslo_serialization import jsonutils
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.instances import console
 from openstack_dashboard.dashboards.project.network_topology.views import \
     TranslationHelper
 from openstack_dashboard.test import helpers as test
@@ -37,8 +36,7 @@ class NetworkTopologyTests(test.TestCase):
                         api.neutron: ('network_list_for_tenant',
                                       'network_list',
                                       'router_list',
-                                      'port_list',),
-                        console: ('get_console',)})
+                                      'port_list')})
     def test_json_view(self):
         self._test_json_view()
 
@@ -46,12 +44,20 @@ class NetworkTopologyTests(test.TestCase):
         OPENSTACK_NEUTRON_NETWORK={'enable_router': False})
     @test.create_stubs({api.nova: ('server_list',),
                         api.neutron: ('network_list_for_tenant',
-                                      'port_list'),
-                        console: ('get_console',)})
+                                      'port_list')})
     def test_json_view_router_disabled(self):
         self._test_json_view(router_enable=False)
 
-    def _test_json_view(self, router_enable=True):
+    @django.test.utils.override_settings(CONSOLE_TYPE=None)
+    @test.create_stubs({api.nova: ('server_list',),
+                        api.neutron: ('network_list_for_tenant',
+                                      'network_list',
+                                      'router_list',
+                                      'port_list')})
+    def test_json_view_console_disabled(self):
+        self._test_json_view(with_console=False)
+
+    def _test_json_view(self, router_enable=True, with_console=True):
         api.nova.server_list(
             IsA(http.HttpRequest)).AndReturn([self.servers.list(), False])
 
@@ -62,17 +68,6 @@ class NetworkTopologyTests(test.TestCase):
         api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest),
             self.tenant.id).AndReturn(tenant_networks)
-
-        for server in self.servers.list():
-            if server.status != u'BUILD':
-                CONSOLE_OUTPUT = '/vncserver'
-                CONSOLE_TITLE = '&title=%s' % server.id
-                CONSOLE_URL = CONSOLE_OUTPUT + CONSOLE_TITLE
-
-                console_mock = self.mox.CreateMock(api.nova.VNCConsole)
-                console_mock.url = CONSOLE_OUTPUT
-                console.get_console(IsA(http.HttpRequest), 'AUTO', server) \
-                    .AndReturn(('VNC', CONSOLE_URL))
 
         # router1 : gateway port not in the port list
         # router2 : no gateway port
@@ -109,8 +104,8 @@ class NetworkTopologyTests(test.TestCase):
                 'task': None,
                 'url': '/project/instances/%s/' % server.id
             }
-            if server.status != 'BUILD':
-                expect_server['console'] = 'vnc'
+            if server.status != 'BUILD' and with_console:
+                expect_server['console'] = 'auto_console'
             expect_server_urls.append(expect_server)
         self.assertEqual(expect_server_urls, data['servers'])
 
