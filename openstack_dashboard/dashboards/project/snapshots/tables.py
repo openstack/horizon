@@ -96,6 +96,13 @@ class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
     def delete(self, request, obj_id):
         api.cinder.volume_snapshot_delete(request, obj_id)
 
+    def allowed(self, request, datum=None):
+        if datum:
+            # Can't delete snapshot if part of group snapshot
+            if datum.group_snapshot:
+                return False
+        return True
+
 
 class EditVolumeSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
     name = "edit"
@@ -159,6 +166,11 @@ class UpdateRow(tables.Row):
     def get_data(self, request, snapshot_id):
         snapshot = cinder.volume_snapshot_get(request, snapshot_id)
         snapshot._volume = cinder.volume_get(request, snapshot.volume_id)
+        if getattr(snapshot, 'group_snapshot_id', None):
+            snapshot.group_snapshot = cinder.group_snapshot_get(
+                request, snapshot.group_snapshot_id)
+        else:
+            snapshot.group_snapshot = None
         return snapshot
 
 
@@ -174,6 +186,17 @@ class SnapshotVolumeNameColumn(tables.WrappingColumn):
             return reverse(self.link, args=(volume_id,))
 
 
+class GroupSnapshotNameColumn(tables.WrappingColumn):
+    def get_raw_data(self, snapshot):
+        group_snapshot = snapshot.group_snapshot
+        return group_snapshot.name_or_id if group_snapshot else _("-")
+
+    def get_link_url(self, snapshot):
+        group_snapshot = snapshot.group_snapshot
+        if group_snapshot:
+            return reverse(self.link, args=(group_snapshot.id,))
+
+
 class VolumeSnapshotsFilterAction(tables.FilterAction):
 
     def filter(self, table, snapshots, filter_string):
@@ -184,6 +207,10 @@ class VolumeSnapshotsFilterAction(tables.FilterAction):
 
 
 class VolumeDetailsSnapshotsTable(volume_tables.VolumesTableBase):
+    group_snapshot = GroupSnapshotNameColumn(
+        "name",
+        verbose_name=_("Group Snapshot"),
+        link="horizon:project:vg_snapshots:detail")
     name = tables.WrappingColumn(
         "name",
         verbose_name=_("Name"),

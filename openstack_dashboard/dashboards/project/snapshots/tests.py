@@ -34,15 +34,18 @@ INDEX_URL = reverse('horizon:project:snapshots:index')
 
 class VolumeSnapshotsViewTests(test.TestCase):
     @test.create_mocks({api.cinder: ('volume_snapshot_list_paged',
-                                     'volume_list'),
+                                     'volume_list',
+                                     'group_snapshot_list'),
                         api.base: ('is_service_enabled',)})
     def _test_snapshots_index_paginated(self, marker, sort_dir, snapshots, url,
-                                        has_more, has_prev):
+                                        has_more, has_prev, with_groups=False):
         self.mock_is_service_enabled.return_value = True
         self.mock_volume_snapshot_list_paged.return_value = [snapshots,
                                                              has_more,
                                                              has_prev]
         self.mock_volume_list.return_value = self.cinder_volumes.list()
+        self.mock_group_snapshot_list.return_value = \
+            self.cinder_volume_snapshots_with_groups.list()
 
         res = self.client.get(urlunquote(url))
         self.assertEqual(res.status_code, 200)
@@ -56,17 +59,21 @@ class VolumeSnapshotsViewTests(test.TestCase):
             paginate=True)
         self.mock_volume_list.assert_called_once_with(test.IsHttpRequest())
 
+        if with_groups:
+            self.mock_group_snapshot_list.assert_called_once_with(
+                test.IsHttpRequest())
+
         return res
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_snapshots_index_paginated(self):
-        mox_snapshots = self.cinder_volume_snapshots.list()
+        mock_snapshots = self.cinder_volume_snapshots.list()
         size = settings.API_RESULT_PAGE_SIZE
         base_url = INDEX_URL
         next = snapshot_tables.VolumeSnapshotsTable._meta.pagination_param
 
         # get first page
-        expected_snapshots = mox_snapshots[:size]
+        expected_snapshots = mock_snapshots[:size]
         res = self._test_snapshots_index_paginated(
             marker=None, sort_dir="desc", snapshots=expected_snapshots,
             url=base_url, has_more=True, has_prev=False)
@@ -74,7 +81,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
         self.assertItemsEqual(snapshots, expected_snapshots)
 
         # get second page
-        expected_snapshots = mox_snapshots[size:2 * size]
+        expected_snapshots = mock_snapshots[size:2 * size]
         marker = expected_snapshots[0].id
 
         url = base_url + "?%s=%s" % (next, marker)
@@ -85,7 +92,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
         self.assertItemsEqual(snapshots, expected_snapshots)
 
         # get last page
-        expected_snapshots = mox_snapshots[-size:]
+        expected_snapshots = mock_snapshots[-size:]
         marker = expected_snapshots[0].id
         url = base_url + "?%s=%s" % (next, marker)
         res = self._test_snapshots_index_paginated(
@@ -95,14 +102,28 @@ class VolumeSnapshotsViewTests(test.TestCase):
         self.assertItemsEqual(snapshots, expected_snapshots)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_snapshots_index_with_group(self):
+        mock_snapshots = self.cinder_volume_snapshots_with_groups.list()
+        size = settings.API_RESULT_PAGE_SIZE
+        base_url = INDEX_URL
+
+        # get first page
+        expected_snapshots = mock_snapshots[:size]
+        res = self._test_snapshots_index_paginated(
+            marker=None, sort_dir="desc", snapshots=expected_snapshots,
+            url=base_url, has_more=False, has_prev=False, with_groups=True)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, mock_snapshots)
+
+    @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_snapshots_index_paginated_prev_page(self):
-        mox_snapshots = self.cinder_volume_snapshots.list()
+        mock_snapshots = self.cinder_volume_snapshots.list()
         size = settings.API_RESULT_PAGE_SIZE
         base_url = INDEX_URL
         prev = snapshot_tables.VolumeSnapshotsTable._meta.prev_pagination_param
 
         # prev from some page
-        expected_snapshots = mox_snapshots[size:2 * size]
+        expected_snapshots = mock_snapshots[size:2 * size]
         marker = expected_snapshots[0].id
         url = base_url + "?%s=%s" % (prev, marker)
         res = self._test_snapshots_index_paginated(
@@ -112,7 +133,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
         self.assertItemsEqual(snapshots, expected_snapshots)
 
         # back to first page
-        expected_snapshots = mox_snapshots[:size]
+        expected_snapshots = mock_snapshots[:size]
         marker = expected_snapshots[0].id
         url = base_url + "?%s=%s" % (prev, marker)
         res = self._test_snapshots_index_paginated(

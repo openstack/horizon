@@ -119,7 +119,9 @@ class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
             # Can't delete volume if part of consistency group
             if getattr(volume, 'consistencygroup_id', None):
                 return False
-
+            # Can't delete volume if part of volume group
+            if volume.group:
+                return False
             return (volume.status in DELETABLE_STATES and
                     not getattr(volume, 'has_snapshot', False))
         return True
@@ -339,6 +341,14 @@ class UpdateRow(tables.Row):
 
     def get_data(self, request, volume_id):
         volume = cinder.volume_get(request, volume_id)
+        if volume and getattr(volume, 'group_id', None):
+            try:
+                volume.group = cinder.group_get(request, volume.group_id)
+            except Exception:
+                exceptions.handle(request, _("Unable to retrieve group."))
+                volume.group = None
+        else:
+            volume.group = None
         return volume
 
 
@@ -391,6 +401,17 @@ class AttachmentColumn(tables.WrappingColumn):
                     "dev": html.escape(attachment.get("device", ""))}
             attachments.append(link % vals)
         return safestring.mark_safe(", ".join(attachments))
+
+
+class GroupNameColumn(tables.WrappingColumn):
+    def get_raw_data(self, volume):
+        group = volume.group
+        return group.name_or_id if group else _("-")
+
+    def get_link_url(self, volume):
+        group = volume.group
+        if group:
+            return reverse(self.link, args=(group.id,))
 
 
 def get_volume_type(volume):
@@ -500,6 +521,10 @@ class VolumesTable(VolumesTableBase):
     name = tables.WrappingColumn("name",
                                  verbose_name=_("Name"),
                                  link="horizon:project:volumes:detail")
+    group = GroupNameColumn(
+        "name",
+        verbose_name=_("Group"),
+        link="horizon:project:volume_groups:detail")
     volume_type = tables.Column(get_volume_type,
                                 verbose_name=_("Type"))
     attachments = AttachmentColumn("attachments",

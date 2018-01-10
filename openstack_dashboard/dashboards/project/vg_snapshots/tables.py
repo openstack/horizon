@@ -61,21 +61,21 @@ class UpdateRow(tables.Row):
         vg_snapshot = cinder.group_snapshot_get(request, vg_snapshot_id)
         if getattr(vg_snapshot, 'group_id', None):
             try:
-                vg_snapshot._group = cinder.group_get(request,
-                                                      vg_snapshot.group_id)
+                vg_snapshot.group = cinder.group_get(request,
+                                                     vg_snapshot.group_id)
             except Exception:
                 exceptions.handle(request, _("Unable to retrieve group"))
-                vg_snapshot._group = None
+                vg_snapshot.group = None
         return vg_snapshot
 
 
 class GroupNameColumn(tables.WrappingColumn):
     def get_raw_data(self, snapshot):
-        group = snapshot._group
+        group = snapshot.group
         return group.name_or_id if group else _("-")
 
     def get_link_url(self, snapshot):
-        group = snapshot._group
+        group = snapshot.group
         if group:
             return reverse(self.link, args=(group.id,))
 

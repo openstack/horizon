@@ -296,11 +296,15 @@ class CinderApiTests(test.APIMockTestCase):
         self.assertTrue(more_data)
         self.assertFalse(prev_data)
 
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_volume_snapshot_list(self, mock_cinderclient):
+    @test.create_mocks({
+        api.cinder: [
+            ('_cinderclient_with_generic_groups', 'cinderclient_groups'),
+        ]
+    })
+    def test_volume_snapshot_list(self):
         search_opts = {'all_tenants': 1}
         volume_snapshots = self.cinder_volume_snapshots.list()
-        cinderclient = mock_cinderclient.return_value
+        cinderclient = self.mock_cinderclient_groups.return_value
 
         snapshots_mock = cinderclient.volume_snapshots.list
         snapshots_mock.return_value = volume_snapshots
@@ -308,9 +312,12 @@ class CinderApiTests(test.APIMockTestCase):
         api.cinder.volume_snapshot_list(self.request, search_opts=search_opts)
         snapshots_mock.assert_called_once_with(search_opts=search_opts)
 
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_volume_snapshot_list_no_volume_configured(self,
-                                                       mock_cinderclient):
+    @test.create_mocks({
+        api.cinder: [
+            ('_cinderclient_with_generic_groups', 'cinderclient_groups'),
+        ]
+    })
+    def test_volume_snapshot_list_no_volume_configured(self):
         # remove volume from service catalog
         catalog = self.service_catalog
         for service in catalog:
@@ -319,7 +326,7 @@ class CinderApiTests(test.APIMockTestCase):
         search_opts = {'all_tenants': 1}
         volume_snapshots = self.cinder_volume_snapshots.list()
 
-        cinderclient = mock_cinderclient.return_value
+        cinderclient = self.mock_cinderclient_groups.return_value
 
         snapshots_mock = cinderclient.volume_snapshots.list
         snapshots_mock.return_value = volume_snapshots

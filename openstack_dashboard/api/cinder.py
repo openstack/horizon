@@ -100,7 +100,7 @@ class Volume(BaseCinderAPIResourceWrapper):
 class VolumeSnapshot(BaseCinderAPIResourceWrapper):
 
     _attrs = ['id', 'name', 'description', 'size', 'status',
-              'created_at', 'volume_id',
+              'created_at', 'volume_id', 'group_snapshot_id',
               'os-extended-snapshot-attributes:project_id',
               'metadata']
 
@@ -344,7 +344,8 @@ def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
 
 @profiler.trace
 def volume_get(request, volume_id):
-    volume_data = cinderclient(request).volumes.get(volume_id)
+    client = _cinderclient_with_generic_groups(request)
+    volume_data = client.volumes.get(volume_id)
 
     for attachment in volume_data.attachments:
         if "server_id" in attachment:
@@ -455,7 +456,8 @@ def volume_migrate(request, volume_id, host, force_host_copy=False,
 
 @profiler.trace
 def volume_snapshot_get(request, snapshot_id):
-    snapshot = cinderclient(request).volume_snapshots.get(snapshot_id)
+    client = _cinderclient_with_generic_groups(request)
+    snapshot = client.volume_snapshots.get(snapshot_id)
     return VolumeSnapshot(snapshot)
 
 
@@ -473,7 +475,7 @@ def volume_snapshot_list_paged(request, search_opts=None, marker=None,
     has_more_data = False
     has_prev_data = False
     snapshots = []
-    c_client = cinderclient(request)
+    c_client = _cinderclient_with_generic_groups(request)
     if c_client is None:
         return snapshots, has_more_data, has_more_data
 

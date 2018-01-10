@@ -14,8 +14,10 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tabs
 
+from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.project.snapshots import tables
 
 
@@ -25,8 +27,10 @@ class OverviewTab(tabs.Tab):
     template_name = ("project/volumes/_detail_overview.html")
 
     def get_context_data(self, request):
+        volume = self.tab_group.kwargs['volume']
         return {
-            'volume': self.tab_group.kwargs['volume'],
+            'volume': volume,
+            'group': volume.group,
             'detail_url': {
                 'instance': 'horizon:project:instances:detail',
                 'image': 'horizon:project:images:images:detail',
@@ -47,9 +51,28 @@ class SnapshotTab(tabs.TableTab):
         snapshots = self.tab_group.kwargs['snapshots']
         volume = self.tab_group.kwargs['volume']
 
-        if volume is not None:
-            for snapshot in snapshots:
-                snapshot._volume = volume
+        if volume is None:
+            return snapshots
+
+        needs_gs = any(getattr(snapshot, 'group_snapshot_id', None)
+                       for snapshot in snapshots)
+        if needs_gs:
+            try:
+                group_snapshots_list = cinder.group_snapshot_list(self.request)
+                group_snapshots = dict((gs.id, gs) for gs
+                                       in group_snapshots_list)
+            except Exception:
+                group_snapshots = {}
+                exceptions.handle(self.request,
+                                  _("Unable to retrieve group snapshots."))
+
+        for snapshot in snapshots:
+            snapshot._volume = volume
+            if needs_gs:
+                gs_id = snapshot.group_snapshot_id
+                snapshot.group_snapshot = group_snapshots.get(gs_id)
+            else:
+                snapshot.group_snapshot = None
 
         return snapshots
 

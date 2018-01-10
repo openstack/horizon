@@ -62,6 +62,7 @@ def data(TEST):
     TEST.cinder_group_types = utils.TestDataContainer()
     TEST.cinder_group_snapshots = utils.TestDataContainer()
     TEST.cinder_group_volumes = utils.TestDataContainer()
+    TEST.cinder_volume_snapshots_with_groups = utils.TestDataContainer()
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {
@@ -566,3 +567,17 @@ def data(TEST):
          'attachments': []})
     TEST.cinder_group_volumes.add(group_volume_1)
     TEST.cinder_group_volumes.add(group_volume_2)
+
+    snapshot5 = vol_snaps.Snapshot(
+        vol_snaps.SnapshotManager(None),
+        {'id': 'cd6be1eb-82ca-4587-8036-13c37c00c2b1',
+         'name': '',
+         'description': 'v2 volume snapshot with metadata description',
+         'size': 80,
+         'status': 'available',
+         'volume_id': '7e4efa56-9ca1-45ff-b83c-2efb2383930d',
+         'metadata': {'snapshot_meta_key': 'snapshot_meta_value'},
+         'group_snapshot_id': group_snapshot_1.id})
+
+    TEST.cinder_volume_snapshots_with_groups.add(
+        api.cinder.VolumeSnapshot(snapshot5))
