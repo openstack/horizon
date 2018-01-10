@@ -14,6 +14,7 @@
 
 import logging
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -76,6 +77,19 @@ class CreatePort(forms.SelfHandlingForm):
         label=_("MAC Address"),
         required=False,
         help_text=_("Specify the MAC address for the new port"))
+    mac_state = forms.BooleanField(
+        label=_("MAC Learning State"), initial=False,
+        required=False)
+    port_security_enabled = forms.BooleanField(
+        label=_("Port Security"),
+        help_text=_("Enable anti-spoofing rules for the port"),
+        initial=True,
+        required=False)
+    binding__vnic_type = forms.ThemableChoiceField(
+        label=_("VNIC Type"),
+        help_text=_("The VNIC type that is bound to the network port"),
+        required=False)
+
     failure_url = 'horizon:project:networks:detail'
 
     def __init__(self, request, *args, **kwargs):
@@ -91,20 +105,51 @@ class CreatePort(forms.SelfHandlingForm):
             self.fields['subnet_id'].widget = forms.HiddenInput()
             self.fields['fixed_ip'].widget = forms.HiddenInput()
 
-        if api.neutron.is_extension_supported(request, 'mac-learning'):
-            self.fields['mac_state'] = forms.BooleanField(
-                label=_("MAC Learning State"), initial=False, required=False)
+        self._hide_field_if_not_supported(
+            request, 'mac_state', 'mac-learning',
+            _("Unable to retrieve MAC learning state"))
+        self._hide_field_if_not_supported(
+            request, 'port_security_enabled', 'port-security',
+            _("Unable to retrieve port security state"))
 
+        self._populate_vnic_type_choices(request)
+
+    def _hide_field_if_not_supported(self, request, field, extension_alias,
+                                     failure_message):
+        is_supproted = False
         try:
-            if api.neutron.is_extension_supported(request, 'port-security'):
-                self.fields['port_security_enabled'] = forms.BooleanField(
-                    label=_("Port Security"),
-                    help_text=_("Enable anti-spoofing rules for the port"),
-                    initial=True,
-                    required=False)
+            is_supproted = api.neutron.is_extension_supported(
+                request, extension_alias)
         except Exception:
-            msg = _("Unable to retrieve port security state")
-            exceptions.handle(self.request, msg)
+            exceptions.handle(self.request, failure_message)
+        if not is_supproted:
+            del self.fields[field]
+        return is_supproted
+
+    def _populate_vnic_type_choices(self, request):
+        neutron_settings = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+        supported_vnic_types = neutron_settings.get('supported_vnic_types',
+                                                    ['*'])
+        # When a list of VNIC types is empty, hide the corresponding field.
+        if not supported_vnic_types:
+            del self.fields['binding__vnic_type']
+            return
+
+        binding_supported = self._hide_field_if_not_supported(
+            request, 'binding__vnic_type', 'binding',
+            _("Unable to verify the VNIC types extension in Neutron"))
+        if not binding_supported:
+            # binding__vnic_type field is already deleted, so return here
+            return
+
+        if supported_vnic_types == ['*']:
+            vnic_type_choices = api.neutron.VNIC_TYPES
+        else:
+            vnic_type_choices = [
+                vnic_type for vnic_type in api.neutron.VNIC_TYPES
+                if vnic_type[0] in supported_vnic_types
+            ]
+        self.fields['binding__vnic_type'].choices = vnic_type_choices
 
     def _get_subnet_choices(self, kwargs):
         try:
