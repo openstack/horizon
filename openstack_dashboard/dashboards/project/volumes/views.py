@@ -21,7 +21,7 @@ import json
 
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
-from django import http
+from django import shortcuts
 from django.template.defaultfilters import slugify
 from django.utils.decorators import method_decorator
 from django.utils import encoding
@@ -644,15 +644,14 @@ class DownloadTransferCreds(generic.View):
             transfer = cinder.transfer_get(self.request, transfer_id)
         except Exception:
             transfer = None
-        response = http.HttpResponse(content_type='application/text')
-        response['Content-Disposition'] = \
-            'attachment; filename=%s.txt' % slugify(transfer_id)
-        response.write('%s: %s\n%s: %s\n%s: %s' % (
-            _("Transfer name"),
-            getattr(transfer, 'name', ''),
-            _("Transfer ID"),
-            transfer_id,
-            _("Authorization Key"),
-            auth_key))
-        response['Content-Length'] = str(len(response.content))
+        context = {'transfer': {
+            'name': getattr(transfer, 'name', ''),
+            'id': transfer_id,
+            'auth_key': auth_key,
+        }}
+        response = shortcuts.render_to_response(
+            'project/volumes/download_transfer_creds.html',
+            context, content_type='application/text')
+        response['Content-Disposition'] = (
+            'attachment; filename=%s.txt' % slugify(transfer_id))
         return response
