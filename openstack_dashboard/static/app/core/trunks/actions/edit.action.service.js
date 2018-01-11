@@ -109,11 +109,7 @@
                 portsExtra.cmpPortsByNameAndId),
               subportsOfInitTrunk: params.subportsOfInitTrunk.sort(
                 portsExtra.cmpSubportsBySegmentationTypeAndId)
-            },
-            // There's no point of cross-hiding ports between the parent port
-            // and subports steps since the edit workflow cannot have a parent
-            // port step.
-            crossHide: false
+            }
           }
         }).result;
       }

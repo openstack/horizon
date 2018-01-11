@@ -27,7 +27,6 @@
 
       beforeEach(inject(function($rootScope, $controller, $injector) {
         scope = $rootScope.$new();
-        scope.crossHide = true;
         scope.ports = {
           subportCandidates: [{id: 1}, {id: 2}],
           subportsOfInitTrunk: []
@@ -134,7 +133,6 @@
       it('should add to allocated list the subports of the edited trunk', function() {
         inject(function($rootScope, $controller) {
           scope = $rootScope.$new();
-          scope.crossHide = true;
           scope.ports = {
             subportCandidates: [{id: 1}, {id: 4}],
             subportsOfInitTrunk: [{id: 4, segmentation_id: 2, segmentation_type: 'vlan'}]
