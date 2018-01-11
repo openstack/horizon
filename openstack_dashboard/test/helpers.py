@@ -119,6 +119,67 @@ def create_stubs(stubs_to_create=None):
     return inner_stub_out
 
 
+def create_mocks(target, methods):
+    """decorator to simplify setting up multiple mocks at once
+
+    :param target: target object whose attribute(s) are patched.
+    :param methods: a list of methods to be patched using mock.
+
+    Each element of methods argument can be a string or a tuple
+    consisting of two strings.
+
+    A string specifies a method name of "target" object to be mocked.
+    The decorator create a mock object for the method and the started mock
+    can be accessed via 'mock_<method-name>' of the test class.
+    For example, in case of::
+
+        @create_mocks(api.nova, ['server_list'])
+
+    you can access the mocked method via "self.mock_server_list"
+    inside a test class.
+
+    The tuple version is useful when there are multiple methods with
+    a same name are mocked in a single test.
+    The format of the tuple is::
+
+        ("<method-name-to-be-mocked>", "<attr-name>")
+
+    The decorator create a mock object for "<method-name-to-be-mocked>"
+    and the started mock can be accessed via 'mock_<attr-name>' of
+    the test class.
+
+    Example::
+
+        @create_mocks(
+            api.nova,
+            ['usage_get',
+             ('tenant_absolute_limits', 'nova_tenant_absolute_limits'),
+             'extension_supported'])
+        def test_example(self):
+            ...
+            self.mock_usage_get.return_value = ...
+            self.mock_nova_tenant_absolute_limits.return_value = ...
+            ...
+            self.mock_extension_supported.assert_has_calls(....)
+
+    """
+    def wrapper(function):
+        @wraps(function)
+        def wrapped(inst, *args, **kwargs):
+            for method in methods:
+                if isinstance(method, str):
+                    method_mocked = method
+                    attr_name = method
+                else:
+                    method_mocked = method[0]
+                    attr_name = method[1]
+                m = mock.patch.object(target, method_mocked)
+                setattr(inst, 'mock_%s' % attr_name, m.start())
+            return function(inst, *args, **kwargs)
+        return wrapped
+    return wrapper
+
+
 def _apply_panel_mocks(patchers=None):
     """Global mocks on panels that get called on all views."""
     if patchers is None:
