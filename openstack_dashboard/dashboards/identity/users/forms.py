@@ -78,7 +78,7 @@ class BaseUserForm(forms.SelfHandlingForm):
                 projects, has_more = api.keystone.tenant_list(
                     request, user=user_id)
 
-            for project in projects:
+            for project in sorted(projects, key=lambda p: p.name.lower()):
                 if project.enabled:
                     project_choices.append((project.id, project.name))
             if not project_choices:
@@ -144,7 +144,10 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
         self.add_extra_fields(ordering)
         self.fields = collections.OrderedDict(
             (key, self.fields[key]) for key in ordering)
-        role_choices = [(role.id, role.name) for role in roles]
+        role_choices = [
+            (role.id, role.name) for role in
+            sorted(roles, key=lambda r: r.name.lower())
+        ]
         self.fields['role_id'].choices = role_choices
 
         # For keystone V3, display the two fields in read-only
