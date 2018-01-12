@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 10:25+0000\n"
+"POT-Creation-Date: 2018-01-10 17:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-09 08:26+0000\n"
+"PO-Revision-Date: 2018-01-11 02:14+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -344,6 +344,12 @@ msgstr ""
 "Selecionar <b>Automático</b> redimensiona o disco e o configura com uma "
 "única partição. Selecionar <b>Manual</b> permite criar múltiplas partições "
 "no disco."
+
+msgid "An arbitrary description for the trunk."
+msgstr "Uma descrição arbitrária para o trunk."
+
+msgid "An arbitrary name for the trunk. May not be unique."
+msgstr "Um nome arbitrário para o trunk. Pode não ser único."
 
 msgid "An external (HTTP) URL is required"
 msgstr "Uma URL (HTTP) externa é necessária"
@@ -736,6 +742,12 @@ msgstr "Botão Padrão"
 msgid "Default input"
 msgstr "Entrada padrão"
 
+msgid "Default: Empty string"
+msgstr "Padrão: String vazia"
+
+msgid "Default: Enabled"
+msgstr "Padrão: Ativado"
+
 msgid "Definition list"
 msgstr "Lista de definições"
 
@@ -860,8 +872,14 @@ msgstr "Detalhes"
 msgid "Details Views:"
 msgstr "Visualizações de Detalhes:"
 
+msgid "Device ID"
+msgstr "ID do Dispositivo"
+
 msgid "Device Name"
 msgstr "Nome do Dispositivo"
+
+msgid "Device Owner"
+msgstr "Proprietário do Dispositivo"
 
 msgid "Dialogs"
 msgstr "Diálogos"
@@ -955,6 +973,9 @@ msgstr "Email"
 
 msgid "Emphasis classes"
 msgstr "Classes de ênfase"
+
+msgid "Enable/Disable subport addition, removal and trunk delete."
+msgstr "Ativar/Desativar adição de sub-porta, remoção e exclusão de trunk."
 
 msgid "Enabled"
 msgstr "Habilitado"
@@ -1451,6 +1472,9 @@ msgstr "Olha, eu estou em um poço pequeno!"
 msgid "Look, I'm in a well!"
 msgstr "Olha, eu estou em um poço!"
 
+msgid "MAC Address"
+msgstr "Endereço MAC"
+
 msgid "MacVTap"
 msgstr "MacVTap"
 
@@ -1786,6 +1810,9 @@ msgstr "Painéis"
 msgid "Parent Port"
 msgstr "Código Pai"
 
+msgid "Parent port"
+msgstr "Porta Pai"
+
 msgid "Password"
 msgstr "Senha"
 
@@ -1902,6 +1929,9 @@ msgstr "Protegido"
 
 msgid "Protocol"
 msgstr "Protocolo"
+
+msgid "Provide basic properties of the trunk to be created. All optional."
+msgstr "Fornece propriedades básicas do trunk para ser criado. Tudo opcional."
 
 msgid "Provider Network"
 msgstr "Rede do Provedor"
@@ -2064,8 +2094,18 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "ID de Segmentação"
 
+msgid "Segmentation Id"
+msgstr "Id da Segmentação"
+
 msgid "Segmentation Type"
 msgstr "Tipo de Segmentação"
+
+msgid ""
+"Select <em>exactly one port</em> as the parent port of the trunk to\n"
+"    be created. Mandatory."
+msgstr ""
+"Selecione <em>exatamente uma porta</em> como porta pai do trunk a\n"
+"    ser criado. Obrigatório."
 
 msgid "Select Boot Source"
 msgstr "Selecionar origem da Inicialização da Instância"
@@ -2093,6 +2133,15 @@ msgstr "Selecione um item dentre os disponíveis abaixo"
 
 msgid "Select at least one network"
 msgstr "Selecione ao menos uma rede"
+
+msgid "Select from the list of available ports below."
+msgstr "Selecione a partir da lista de portas disponíveis abaixo."
+
+msgid "Select items from Available items below"
+msgstr "Selecione itens a partir dos itens Disponíveis abaixo"
+
+msgid "Select many"
+msgstr "Selecionar vários"
 
 msgid "Select networks from those listed below."
 msgstr "Selecione redes dentre as disponíveis abaixo"
@@ -3449,6 +3498,12 @@ msgstr "Seu Formulário como JavaScript"
 
 msgid "image"
 msgstr "imagem"
+
+msgid "inherit"
+msgstr "herdar"
+
+msgid "on subnet"
+msgstr "na sub-rede"
 
 #, python-format
 msgid "resource load failed: %s"
