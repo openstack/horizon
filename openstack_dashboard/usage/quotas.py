@@ -163,83 +163,69 @@ class QuotaUsage(dict):
         self.usages[name]['available'] = available
 
 
-def _get_quota_data(request, tenant_mode=True, disabled_quotas=None,
-                    tenant_id=None):
+@profiler.trace
+def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
     quotasets = []
     if not tenant_id:
         tenant_id = request.user.tenant_id
     if disabled_quotas is None:
         disabled_quotas = get_disabled_quotas(request)
 
-    qs = base.QuotaSet()
-
     if NOVA_QUOTA_FIELDS - disabled_quotas:
-        if tenant_mode:
-            quotasets.append(nova.tenant_quota_get(request, tenant_id))
-        else:
-            quotasets.append(nova.default_quota_get(request, tenant_id))
+        quotasets.append(nova.default_quota_get(request, tenant_id))
 
     if CINDER_QUOTA_FIELDS - disabled_quotas:
         try:
-            if tenant_mode:
-                quotasets.append(cinder.tenant_quota_get(request, tenant_id))
-            else:
-                quotasets.append(cinder.default_quota_get(request, tenant_id))
+            quotasets.append(cinder.default_quota_get(request, tenant_id))
         except cinder.cinder_exception.ClientException:
             disabled_quotas.update(CINDER_QUOTA_FIELDS)
-            msg = _("Unable to retrieve volume limit information.")
+            msg = _("Unable to retrieve volume quota information.")
             exceptions.handle(request, msg)
 
+    if NEUTRON_QUOTA_FIELDS - disabled_quotas:
+        # TODO(jpichon): There is no API to access the Neutron default quotas
+        # (LP#1204956). For now, use the values from the current project.
+        try:
+            quotasets.append(neutron.tenant_quota_get(request,
+                                                      tenant_id=tenant_id))
+        except Exception:
+            disabled_quotas.update(NEUTRON_QUOTA_FIELDS)
+            msg = _('Unable to retrieve Neutron quota information.')
+            exceptions.handle(request, msg)
+
+    qs = base.QuotaSet()
     for quota in itertools.chain(*quotasets):
-        if quota.name not in disabled_quotas:
+        if quota.name not in disabled_quotas and quota.name in QUOTA_FIELDS:
             qs[quota.name] = quota.limit
     return qs
 
 
 @profiler.trace
-def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
-    return _get_quota_data(request,
-                           tenant_mode=False,
-                           disabled_quotas=disabled_quotas,
-                           tenant_id=tenant_id)
-
-
-@profiler.trace
 def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
-    qs = _get_quota_data(request,
-                         tenant_mode=True,
-                         disabled_quotas=disabled_quotas,
-                         tenant_id=tenant_id)
+    quotasets = []
+    if not tenant_id:
+        tenant_id = request.user.tenant_id
+    if disabled_quotas is None:
+        disabled_quotas = get_disabled_quotas(request)
 
-    # TODO(jpichon): There is no API to get the default system quotas
-    # in Neutron (cf. LP#1204956), so for now handle tenant quotas here.
-    # This should be handled in _get_quota_data() eventually.
+    if NOVA_QUOTA_FIELDS - disabled_quotas:
+        quotasets.append(nova.tenant_quota_get(request, tenant_id))
 
-    # TODO(amotoki): Purge this tricky usage.
-    # openstack_dashboard/dashboards/identity/projects/views.py
-    # calls get_tenant_quota_data directly and it expects
-    # neutron data is not returned.
-    if not disabled_quotas:
-        return qs
+    if CINDER_QUOTA_FIELDS - disabled_quotas:
+        try:
+            quotasets.append(cinder.tenant_quota_get(request, tenant_id))
+        except cinder.cinder_exception.ClientException:
+            disabled_quotas.update(CINDER_QUOTA_FIELDS)
+            msg = _("Unable to retrieve volume limit information.")
+            exceptions.handle(request, msg)
 
-    # Check if neutron is enabled by looking for network
-    if not (NEUTRON_QUOTA_FIELDS - disabled_quotas):
-        return qs
+    if NEUTRON_QUOTA_FIELDS - disabled_quotas:
+        quotasets.append(neutron.tenant_quota_get(request, tenant_id))
 
-    _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id)
-
-    return qs
-
-
-def _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id):
-    tenant_id = tenant_id or request.user.tenant_id
-    neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
-
-    for quota_name in NEUTRON_QUOTA_FIELDS:
-        if quota_name not in disabled_quotas:
-            quota_data = neutron_quotas.get(quota_name).limit
-            qs.add(base.QuotaSet({quota_name: quota_data}))
-
+    qs = base.QuotaSet()
+    for quota in itertools.chain(*quotasets):
+        if quota.name not in disabled_quotas and quota.name in QUOTA_FIELDS:
+            qs[quota.name] = quota.limit
     return qs
 
 
@@ -343,6 +329,18 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
     else:
         _get_tenant_network_usages_legacy(
             request, usages, disabled_quotas, tenant_id)
+
+
+def _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id):
+    tenant_id = tenant_id or request.user.tenant_id
+    neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
+
+    for quota_name in NEUTRON_QUOTA_FIELDS:
+        if quota_name not in disabled_quotas:
+            quota_data = neutron_quotas.get(quota_name).limit
+            qs.add(base.QuotaSet({quota_name: quota_data}))
+
+    return qs
 
 
 def _get_tenant_network_usages_legacy(request, usages, disabled_quotas,

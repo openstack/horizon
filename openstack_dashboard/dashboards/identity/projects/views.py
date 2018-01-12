@@ -170,27 +170,8 @@ class CreateProjectView(workflows.WorkflowView):
         if api.keystone.is_cloud_admin(self.request):
             try:
                 quota_defaults = quotas.get_default_quota_data(self.request)
-
-                try:
-                    if api.base.is_service_enabled(
-                            self.request, 'network') and \
-                            api.neutron.is_quotas_extension_supported(
-                                self.request):
-                        # TODO(jpichon): There is no API to access the Neutron
-                        # default quotas (LP#1204956). For now, use the values
-                        # from the current project.
-                        project_id = self.request.user.project_id
-                        quota_defaults += api.neutron.tenant_quota_get(
-                            self.request,
-                            tenant_id=project_id)
-                except Exception:
-                    error_msg = _('Unable to retrieve default Neutron quota '
-                                  'values.')
-                    self.add_error_to_step(error_msg, 'create_quotas')
-
                 for field in quotas.QUOTA_FIELDS:
                     initial[field] = quota_defaults.get(field).limit
-
             except Exception:
                 error_msg = _('Unable to retrieve default quota values.')
                 self.add_error_to_step(error_msg, 'create_quotas')
@@ -246,11 +227,6 @@ class UpdateProjectView(workflows.WorkflowView):
             if keystone.is_cloud_admin(self.request):
                 quota_data = quotas.get_tenant_quota_data(self.request,
                                                           tenant_id=project_id)
-                if api.base.is_service_enabled(self.request, 'network') and \
-                        api.neutron.is_quotas_extension_supported(
-                            self.request):
-                    quota_data += api.neutron.tenant_quota_get(
-                        self.request, tenant_id=project_id)
                 for field in quotas.QUOTA_FIELDS:
                     initial[field] = quota_data.get(field).limit
         except Exception:

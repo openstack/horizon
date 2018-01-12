@@ -346,7 +346,7 @@ class QuotaTests(test.APITestCase):
                           _("Unable to retrieve volume limit information."))
         self.mox.ReplayAll()
 
-        quotas._get_quota_data(self.request, tenant_mode=True)
+        quotas.get_tenant_quota_data(self.request)
 
     @test.create_stubs({api.base: ('is_service_enabled',),
                         api.cinder: ('tenant_absolute_limits',
