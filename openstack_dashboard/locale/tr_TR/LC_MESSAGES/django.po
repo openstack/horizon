@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-12 18:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6005,9 +6005,6 @@ msgstr ""
 "için gereklidir. Lütfen Transfer ID ve Yetkilendirme Anahtarını alın ve "
 "aktarım alıcınıza ulaştırın."
 
-msgid "The VNIC type that is bound to the neutron port"
-msgstr "Neutron bağlantı noktasına bağlanmış VNIC türü"
-
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -6408,9 +6405,6 @@ msgstr "Aktarım ID'si"
 
 msgid "Transfer Name"
 msgstr "Aktarım Adı"
-
-msgid "Transfer name"
-msgstr "Aktarım ismi"
 
 msgid "Trunks"
 msgstr "Trunks"
@@ -6887,9 +6881,6 @@ msgstr "Tutarlılık grubu bilgisi alınamadı."
 
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "Tutarlılık grubu anlık görüntü ayrıntıları alınamadı."
-
-msgid "Unable to retrieve default Neutron quota values."
-msgstr "Varsayılan Neutron kota değerleri alınamıyor."
 
 msgid "Unable to retrieve default quota values."
 msgstr "Varsayılan kota değerleri alınamıyor."

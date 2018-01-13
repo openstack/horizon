@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-12 18:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6075,9 +6075,6 @@ msgstr ""
 "Для принятия передачи проекту необходимы ID передачи и Ключ Авторизации. "
 "Пожалуйста сохраните ID и ключ и передайте их принимающей стороны. "
 
-msgid "The VNIC type that is bound to the neutron port"
-msgstr "Тип VNIC привязанный к порту Neutron."
-
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -6484,9 +6481,6 @@ msgid "Transfer ID"
 msgstr "ID передачи"
 
 msgid "Transfer Name"
-msgstr "Название передачи"
-
-msgid "Transfer name"
 msgstr "Название передачи"
 
 msgid "Type"
@@ -6958,9 +6952,6 @@ msgstr "Не удалось получить информацию о групп�
 
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "Не удалось получить сведения о снимке группы согласования."
-
-msgid "Unable to retrieve default Neutron quota values."
-msgstr "Не удалось получить значения стандартных квот Neutron."
 
 msgid "Unable to retrieve default quota values."
 msgstr "Не удалось получить значение стандартных квот."

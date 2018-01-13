@@ -4,15 +4,16 @@
 # Andi Chandler <andi@gowling.com>, 2016. #zanata
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 # Andi Chandler <andi@gowling.com>, 2017. #zanata
+# Andi Chandler <andi@gowling.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-12 18:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-18 11:56+0000\n"
+"PO-Revision-Date: 2018-01-13 12:10+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -6077,8 +6078,8 @@ msgstr ""
 "order to accept the transfer. Please capture both the Transfer ID and the "
 "Authorisation Key and provide them to your transfer recipient."
 
-msgid "The VNIC type that is bound to the neutron port"
-msgstr "The VNIC type that is bound to the neutron port"
+msgid "The VNIC type that is bound to the network port"
+msgstr "The VNIC type that is bound to the network port"
 
 #, python-format
 msgid ""
@@ -6488,9 +6489,6 @@ msgstr "Transfer ID"
 
 msgid "Transfer Name"
 msgstr "Transfer Name"
-
-msgid "Transfer name"
-msgstr "Transfer name"
 
 msgid "Trunks"
 msgstr "Trunks"
@@ -6909,6 +6907,9 @@ msgstr "Unable to retrieve MAC learning state"
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "Unable to retrieve Network information for instance \"%s\"."
 
+msgid "Unable to retrieve Neutron quota information."
+msgstr "Unable to retrieve Neutron quota information."
+
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Unable to retrieve Nova availability zones."
 
@@ -6970,9 +6971,6 @@ msgstr "Unable to retrieve consistency group information."
 
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "Unable to retrieve consistency group snapshot details."
-
-msgid "Unable to retrieve default Neutron quota values."
-msgstr "Unable to retrieve default Neutron quota values."
 
 msgid "Unable to retrieve default quota values."
 msgstr "Unable to retrieve default quota values."
@@ -7324,6 +7322,9 @@ msgstr "Unable to retrieve volume messages."
 
 msgid "Unable to retrieve volume project information."
 msgstr "Unable to retrieve volume project information."
+
+msgid "Unable to retrieve volume quota information."
+msgstr "Unable to retrieve volume quota information."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Unable to retrieve volume snapshot."
