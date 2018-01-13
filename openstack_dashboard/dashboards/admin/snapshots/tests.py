@@ -11,11 +11,10 @@
 # under the License.
 
 from django.conf import settings
-from django import http
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.http import urlunquote
-from mox3.mox import IsA
+import mock
 
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
@@ -28,21 +27,16 @@ INDEX_URL = 'horizon:admin:snapshots:index'
 
 
 class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
-    @test.create_stubs({cinder: ('volume_list',
+    @test.create_mocks({cinder: ('volume_list',
                                  'volume_snapshot_list_paged',),
                         keystone: ('tenant_list',)})
     def test_snapshots_tab(self):
-        cinder.volume_snapshot_list_paged(
-            IsA(http.HttpRequest), paginate=True, marker=None, sort_dir='desc',
-            search_opts={'all_tenants': True},).AndReturn(
-            [self.cinder_volume_snapshots.list(), False, False])
-        cinder.volume_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}).\
-            AndReturn(self.cinder_volumes.list())
-        keystone.tenant_list(IsA(http.HttpRequest)). \
-            AndReturn([self.tenants.list(), False])
+        self.mock_volume_snapshot_list_paged.return_value = (
+            self.cinder_volume_snapshots.list(), False, False
+        )
+        self.mock_volume_list.return_value = self.cinder_volumes.list()
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
-        self.mox.ReplayAll()
         url = reverse(INDEX_URL)
         res = self.client.get(urlunquote(url))
 
@@ -51,29 +45,36 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         snapshots = res.context['volume_snapshots_table'].data
         self.assertItemsEqual(snapshots, self.cinder_volume_snapshots.list())
 
-    @test.create_stubs({cinder: ('volume_list',
+        self.mock_volume_snapshot_list_paged.assert_called_once_with(
+            test.IsHttpRequest(), paginate=True, marker=None, sort_dir='desc',
+            search_opts={'all_tenants': True},)
+        self.mock_volume_list.assert_called_once_with(
+            test.IsHttpRequest(), search_opts={'all_tenants': True})
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({cinder: ('volume_list',
                                  'volume_snapshot_list_paged',),
                         keystone: ('tenant_list',)})
     def _test_snapshots_index_paginated(self, marker, sort_dir, snapshots, url,
                                         has_more, has_prev):
-        cinder.volume_snapshot_list_paged(
-            IsA(http.HttpRequest), paginate=True, marker=marker,
-            sort_dir=sort_dir, search_opts={'all_tenants': True}) \
-            .AndReturn([snapshots, has_more, has_prev])
-        cinder.volume_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}).\
-            AndReturn(self.cinder_volumes.list())
-        keystone.tenant_list(IsA(http.HttpRequest)) \
-            .AndReturn([self.tenants.list(), False])
-
-        self.mox.ReplayAll()
+        self.mock_volume_snapshot_list_paged.return_value = (
+            snapshots, has_more, has_prev
+        )
+        self.mock_volume_list.return_value = self.cinder_volumes.list()
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
         res = self.client.get(urlunquote(url))
 
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         self.assertEqual(res.status_code, 200)
 
-        self.mox.UnsetStubs()
+        self.mock_volume_snapshot_list_paged.assert_called_once_with(
+            test.IsHttpRequest(), paginate=True, marker=marker,
+            sort_dir=sort_dir, search_opts={'all_tenants': True})
+        self.mock_volume_list.assert_called_once_with(
+            test.IsHttpRequest(), search_opts={'all_tenants': True})
+        self.mock_tenant_list(test.IsHttpRequest())
+
         return res
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
@@ -138,18 +139,14 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         snapshots = res.context['volume_snapshots_table'].data
         self.assertItemsEqual(snapshots, expected_snapshots)
 
-    @test.create_stubs({cinder: ('volume_snapshot_reset_state',
+    @test.create_mocks({cinder: ('volume_snapshot_reset_state',
                                  'volume_snapshot_get')})
     def test_update_snapshot_status(self):
         snapshot = self.cinder_volume_snapshots.first()
         state = 'error'
 
-        cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id) \
-            .AndReturn(snapshot)
-        cinder.volume_snapshot_reset_state(IsA(http.HttpRequest),
-                                           snapshot.id,
-                                           state)
-        self.mox.ReplayAll()
+        self.mock_volume_snapshot_get.return_value = snapshot
+        self.mock_volume_snapshot_reset_state.return_value = None
 
         formData = {'status': state}
         url = reverse('horizon:admin:snapshots:update_status',
@@ -157,20 +154,19 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({cinder: ('volume_snapshot_get',
+        self.mock_volume_snapshot_get.assert_called_once_with(
+            test.IsHttpRequest(), snapshot.id)
+        self.mock_volume_snapshot_reset_state.assert_called_once_with(
+            test.IsHttpRequest(), snapshot.id, state)
+
+    @test.create_mocks({cinder: ('volume_snapshot_get',
                                  'volume_get')})
     def test_get_volume_snapshot_details(self):
         volume = self.cinder_volumes.first()
         snapshot = self.cinder_volume_snapshots.first()
 
-        cinder.volume_get(IsA(http.HttpRequest), volume.id). \
-            AndReturn(volume)
-        cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id). \
-            AndReturn(snapshot)
-        cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id). \
-            AndReturn(volume)
-
-        self.mox.ReplayAll()
+        self.mock_volume_get.side_effect = [volume, volume]
+        self.mock_volume_snapshot_get.return_value = snapshot
 
         url = reverse('horizon:admin:snapshots:detail',
                       args=[snapshot.id])
@@ -179,16 +175,19 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertEqual(res.context['snapshot'].id, snapshot.id)
 
-    @test.create_stubs({cinder: ('volume_snapshot_get',
-                                 'volume_get')})
+        self.mock_volume_get.assert_has_calls([
+            mock.call(test.IsHttpRequest(), volume.id),
+            mock.call(test.IsHttpRequest(), snapshot.volume_id),
+        ])
+        self.assertEqual(2, self.mock_volume_get.call_count)
+        self.mock_volume_snapshot_get(test.IsHttpRequest(), snapshot.id)
+
+    @test.create_mocks({cinder: ('volume_snapshot_get',)})
     def test_get_volume_snapshot_details_with_snapshot_exception(self):
         # Test to verify redirect if get volume snapshot fails
         snapshot = self.cinder_volume_snapshots.first()
 
-        cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id).\
-            AndRaise(self.exceptions.cinder)
-
-        self.mox.ReplayAll()
+        self.mock_volume_snapshot_get.side_effect = self.exceptions.cinder
 
         url = reverse('horizon:admin:snapshots:detail',
                       args=[snapshot.id])
@@ -198,19 +197,18 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, reverse(INDEX_URL))
 
-    @test.create_stubs({cinder: ('volume_snapshot_get',
+        self.mock_volume_snapshot_get.assert_called_once_with(
+            test.IsHttpRequest(), snapshot.id)
+
+    @test.create_mocks({cinder: ('volume_snapshot_get',
                                  'volume_get')})
     def test_get_volume_snapshot_details_with_volume_exception(self):
         # Test to verify redirect if get volume fails
         volume = self.cinder_volumes.first()
         snapshot = self.cinder_volume_snapshots.first()
 
-        cinder.volume_get(IsA(http.HttpRequest), volume.id). \
-            AndRaise(self.exceptions.cinder)
-        cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id). \
-            AndReturn(snapshot)
-
-        self.mox.ReplayAll()
+        self.mock_volume_get.side_effect = self.exceptions.cinder
+        self.mock_volume_snapshot_get.return_value = snapshot
 
         url = reverse('horizon:admin:snapshots:detail',
                       args=[snapshot.id])
@@ -219,6 +217,11 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, reverse(INDEX_URL))
+
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), volume.id)
+        self.mock_volume_snapshot_get.assert_called_once_with(
+            test.IsHttpRequest(), snapshot.id)
 
     def test_get_snapshot_status_choices_without_current(self):
         current_status = 'available'
@@ -228,16 +231,16 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         self.assertNotIn(current_status,
                          [status[0] for status in status_choices])
 
-    @test.create_stubs({cinder: ('volume_snapshot_get',)})
+    @test.create_mocks({cinder: ('volume_snapshot_get',)})
     def test_update_volume_status_get(self):
         snapshot = self.cinder_volume_snapshots.first()
-        cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id). \
-            AndReturn(snapshot)
-
-        self.mox.ReplayAll()
+        self.mock_volume_snapshot_get.return_value = snapshot
 
         url = reverse('horizon:admin:snapshots:update_status',
                       args=[snapshot.id])
         res = self.client.get(url)
         status_option = "<option value=\"%s\"></option>" % snapshot.status
         self.assertNotContains(res, status_option)
+
+        self.mock_volume_snapshot_get.assert_called_once_with(
+            test.IsHttpRequest(), snapshot.id)
