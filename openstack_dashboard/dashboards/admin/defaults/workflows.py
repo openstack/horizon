@@ -27,47 +27,71 @@ from openstack_dashboard.usage import quotas
 LOG = logging.getLogger(__name__)
 
 
-class UpdateDefaultQuotasAction(workflows.Action):
-    ifcb_label = _("Injected File Content Bytes")
-    ifpb_label = _("Length of Injected File Path")
-    injected_file_content_bytes = forms.IntegerField(min_value=-1,
-                                                     label=ifcb_label)
+class UpdateDefaultComputeQuotasAction(workflows.Action):
+    instances = forms.IntegerField(min_value=-1, label=_("Instances"))
+    cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
+    ram = forms.IntegerField(min_value=-1, label=_("RAM (MB)"))
     metadata_items = forms.IntegerField(min_value=-1,
                                         label=_("Metadata Items"))
-    ram = forms.IntegerField(min_value=-1, label=_("RAM (MB)"))
     key_pairs = forms.IntegerField(min_value=-1, label=_("Key Pairs"))
-    injected_file_path_bytes = forms.IntegerField(min_value=-1,
-                                                  label=ifpb_label)
-    instances = forms.IntegerField(min_value=-1, label=_("Instances"))
     injected_files = forms.IntegerField(min_value=-1,
                                         label=_("Injected Files"))
-    cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
-    gigabytes = forms.IntegerField(
+    injected_file_content_bytes = forms.IntegerField(
         min_value=-1,
-        label=_("Total Size of Volumes and Snapshots (GiB)"))
-    snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
-    volumes = forms.IntegerField(min_value=-1, label=_("Volumes"))
+        label=_("Injected File Content Bytes"))
+    injected_file_path_bytes = forms.IntegerField(
+        min_value=-1,
+        label=_("Length of Injected File Path"))
 
-    def __init__(self, request, *args, **kwargs):
-        super(UpdateDefaultQuotasAction, self).__init__(request,
-                                                        *args,
-                                                        **kwargs)
-        disabled_quotas = quotas.get_disabled_quotas(request)
+    def __init__(self, request, context, *args, **kwargs):
+        super(UpdateDefaultComputeQuotasAction, self).__init__(
+            request, context, *args, **kwargs)
+        disabled_quotas = context['disabled_quotas']
         for field in disabled_quotas:
             if field in self.fields:
                 self.fields[field].required = False
                 self.fields[field].widget = forms.HiddenInput()
 
     class Meta(object):
-        name = _("Default Quotas")
-        slug = 'update_default_quotas'
-        help_text = _("From here you can update the default quotas "
+        name = _("Compute")
+        slug = 'update_default_compute_quotas'
+        help_text = _("From here you can update the default compute quotas "
                       "(max limits).")
 
 
-class UpdateDefaultQuotasStep(workflows.Step):
-    action_class = UpdateDefaultQuotasAction
-    contributes = quotas.QUOTA_FIELDS
+class UpdateDefaultComputeQuotasStep(workflows.Step):
+    action_class = UpdateDefaultComputeQuotasAction
+    contributes = quotas.NOVA_QUOTA_FIELDS
+    depends_on = ('disabled_quotas',)
+
+
+class UpdateDefaultVolumeQuotasAction(workflows.Action):
+    volumes = forms.IntegerField(min_value=-1, label=_("Volumes"))
+    gigabytes = forms.IntegerField(
+        min_value=-1,
+        label=_("Total Size of Volumes and Snapshots (GiB)"))
+    snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
+
+    def __init__(self, request, context, *args, **kwargs):
+        super(UpdateDefaultVolumeQuotasAction, self).__init__(
+            request, context, *args, **kwargs)
+        disabled_quotas = context['disabled_quotas']
+        for field in disabled_quotas:
+            if field in self.fields:
+                self.fields[field].required = False
+                self.fields[field].widget = forms.HiddenInput()
+
+    class Meta(object):
+        name = _("Volume")
+        slug = 'update_default_volume_quotas'
+        help_text = _("From here you can update the default volume quotas "
+                      "(max limits).")
+
+
+class UpdateDefaultVolumeQuotasStep(workflows.Step):
+    action_class = UpdateDefaultVolumeQuotasAction
+    contributes = quotas.CINDER_QUOTA_FIELDS
+    depends_on = ('disabled_quotas',)
 
 
 class UpdateDefaultQuotas(workflows.Workflow):
@@ -77,7 +101,8 @@ class UpdateDefaultQuotas(workflows.Workflow):
     success_message = _('Default quotas updated.')
     failure_message = _('Unable to update default quotas.')
     success_url = "horizon:admin:defaults:index"
-    default_steps = (UpdateDefaultQuotasStep,)
+    default_steps = (UpdateDefaultComputeQuotasStep,
+                     UpdateDefaultVolumeQuotasStep)
 
     def handle(self, request, data):
         # Update the default quotas.

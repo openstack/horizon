@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.urls import reverse
+from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -37,6 +39,13 @@ class UpdateDefaultQuotas(tables.LinkAction):
     url = "horizon:admin:defaults:update_defaults"
     classes = ("ajax-modal",)
     icon = "pencil"
+    step = None
+
+    def get_link_url(self, datum=None):
+        url = [reverse(self.url)]
+        if self.step:
+            url.append(urlencode({'step': self.step}))
+        return '?'.join(url)
 
     def allowed(self, request, _=None):
         return quotas.enabled_quotas(request)
@@ -119,7 +128,7 @@ class VolumeQuotasTable(tables.DataTable):
     class Meta(object):
         name = "volume_quotas"
         verbose_name = _("Volume Quotas")
-        table_actions = (QuotaFilterAction, UpdateDefaultQuotas)
+        table_actions = (QuotaFilterAction, UpdateDefaultVolumeQuotas)
         multi_select = False
 
 
