@@ -183,11 +183,9 @@ def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
             exceptions.handle(request, msg)
 
     if NEUTRON_QUOTA_FIELDS - disabled_quotas:
-        # TODO(jpichon): There is no API to access the Neutron default quotas
-        # (LP#1204956). For now, use the values from the current project.
         try:
-            quotasets.append(neutron.tenant_quota_get(request,
-                                                      tenant_id=tenant_id))
+            quotasets.append(neutron.default_quota_get(request,
+                                                       tenant_id=tenant_id))
         except Exception:
             disabled_quotas.update(NEUTRON_QUOTA_FIELDS)
             msg = _('Unable to retrieve Neutron quota information.')
