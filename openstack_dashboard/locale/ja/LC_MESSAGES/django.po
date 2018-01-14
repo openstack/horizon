@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-12 18:12+0000\n"
+"POT-Creation-Date: 2018-01-14 04:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-09 08:24+0000\n"
+"PO-Revision-Date: 2018-01-13 02:39+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -2253,6 +2253,13 @@ msgstr "ドメインの有効化"
 
 msgid "Enable HA mode"
 msgstr "HA モード有効"
+
+msgid "Enable SNAT"
+msgstr "SNAT 有効"
+
+msgid "Enable SNAT will only have an effect if an external network is set."
+msgstr ""
+"SNAT 有効が適用されるのは、外部ネットワークが設定されている場合のみです。"
 
 msgid "Enable Service"
 msgid_plural "Enable Services"
@@ -5974,6 +5981,9 @@ msgstr ""
 "譲渡を受理するには、譲渡 ID と認証キーが譲渡先で必要です。譲渡 ID と認証キー"
 "を記録し、譲渡を受ける人に伝えてください。"
 
+msgid "The VNIC type that is bound to the network port"
+msgstr "このネットワークポートにバインドする仮想 NIC の種別"
+
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -6819,6 +6829,9 @@ msgstr "MAC 学習状態を取得できません"
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "インスタンス \"%s\" のネットワーク情報を取得できません。"
 
+msgid "Unable to retrieve Neutron quota information."
+msgstr "Neutron のクォータ情報を取得できません。"
+
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Nova のアベイラビリティーゾーンを取得できません。"
 
@@ -7234,6 +7247,9 @@ msgstr "ボリュームのメッセージを取得できません。"
 
 msgid "Unable to retrieve volume project information."
 msgstr "ボリュームのプロジェクト情報を取得できません。"
+
+msgid "Unable to retrieve volume quota information."
+msgstr "ボリュームのクォータ情報を取得できません。"
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "ボリュームスナップショットの詳細を取得できません。"
