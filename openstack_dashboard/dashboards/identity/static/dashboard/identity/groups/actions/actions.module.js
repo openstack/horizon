@@ -34,6 +34,7 @@
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.dashboard.identity.groups.actions.create.service',
     'horizon.dashboard.identity.groups.actions.delete.service',
+    'horizon.dashboard.identity.groups.actions.edit.service',
     'horizon.dashboard.identity.groups.resourceType'
   ];
 
@@ -41,11 +42,19 @@
     registry,
     createService,
     deleteService,
+    editService,
     groupResourceTypeCode
   ) {
     var groupResourceType = registry.getResourceType(groupResourceTypeCode);
 
     groupResourceType.itemActions
+      .append({
+        id: 'editAction',
+        service: editService,
+        template: {
+          text: gettext('Edit Group')
+        }
+      })
       .append({
         id: 'deleteAction',
         service: deleteService,
