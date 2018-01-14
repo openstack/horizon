@@ -26,6 +26,7 @@ import mock
 from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import flavor_access as nova_flavor_access
+from novaclient.v2 import quotas
 from novaclient.v2 import servers
 
 from horizon import exceptions as horizon_exceptions
@@ -715,3 +716,38 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertEqual(ret_val.id, servergroup.id)
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.server_groups.get.assert_called_once_with(servergroup.id)
+
+    @mock.patch.object(api.nova, 'novaclient')
+    def test_tenant_quota_get(self, mock_novaclient):
+        tenant_id = '10'
+        quota_data = {
+            'cores': 20,
+            'injected_file_content_bytes': 10240,
+            'injected_file_path_bytes': 255,
+            'injected_files': 5,
+            'instances': 10,
+            'key_pairs': 100,
+            'metadata_items': 128,
+            'ram': 51200,
+            'server_group_members': 10,
+            'server_groups': 10,
+            'fixed_ips': -1,
+            'floating_ips': 10,
+            'security_groups': 10,
+            'security_group_rules': 20,
+        }
+        nova_qs = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
+
+        novaclient = mock_novaclient.return_value
+        novaclient.quotas.get.return_value = nova_qs
+
+        ret_val = api.nova.tenant_quota_get(self.request, tenant_id)
+        ret_keys = [q.name for q in ret_val]
+        ignore_keys = {'fixed_ips', 'floating_ips',
+                       'security_groups', 'security_group_rules'}
+        expected_keys = set(quota_data.keys()) - ignore_keys
+        # Check ignore_keys are not included
+        self.assertEqual(expected_keys, set(ret_keys))
+        for key in expected_keys:
+            self.assertEqual(quota_data[key], ret_val.get(key).limit)
+        novaclient.quotas.get.assert_called_once_with(tenant_id)

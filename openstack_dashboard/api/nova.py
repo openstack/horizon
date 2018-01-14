@@ -246,12 +246,6 @@ class QuotaSet(base.QuotaSet):
         "security_group_rules",
     }
 
-    def __init__(self, apiresource=None):
-        super(QuotaSet, self).__init__(apiresource)
-        for name in self.ignore_quotas:
-            if name in self.items:
-                del self.items[name]
-
 
 def get_auth_params_from_request(request):
     """Extracts properties needed by novaclient call from the request object.
