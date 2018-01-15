@@ -20,6 +20,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import workflows
 
+from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
@@ -52,6 +53,19 @@ class UpdateDefaultComputeQuotasAction(workflows.Action):
                 self.fields[field].required = False
                 self.fields[field].widget = forms.HiddenInput()
 
+    def handle(self, request, context):
+        nova_data = {
+            key: value for key, value in context.items()
+            if key in quotas.NOVA_QUOTA_FIELDS
+        }
+        try:
+            nova.default_quota_update(request, **nova_data)
+            return True
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to update default compute quotas.'))
+            return False
+
     class Meta(object):
         name = _("Compute")
         slug = 'update_default_compute_quotas'
@@ -63,6 +77,20 @@ class UpdateDefaultComputeQuotasStep(workflows.Step):
     action_class = UpdateDefaultComputeQuotasAction
     contributes = quotas.NOVA_QUOTA_FIELDS
     depends_on = ('disabled_quotas',)
+
+    def prepare_action_context(self, request, context):
+        try:
+            quota_defaults = nova.default_quota_get(request,
+                                                    request.user.tenant_id)
+            for field in quotas.NOVA_QUOTA_FIELDS:
+                context[field] = quota_defaults.get(field).limit
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to retrieve default compute quotas.'))
+        return context
+
+    def allowed(self, request):
+        return base.is_service_enabled(request, 'compute')
 
 
 class UpdateDefaultVolumeQuotasAction(workflows.Action):
@@ -81,6 +109,19 @@ class UpdateDefaultVolumeQuotasAction(workflows.Action):
                 self.fields[field].required = False
                 self.fields[field].widget = forms.HiddenInput()
 
+    def handle(self, request, context):
+        cinder_data = {
+            key: value for key, value in context.items()
+            if key in quotas.CINDER_QUOTA_FIELDS
+        }
+        try:
+            cinder.default_quota_update(request, **cinder_data)
+            return True
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to update default volume quotas.'))
+            return False
+
     class Meta(object):
         name = _("Volume")
         slug = 'update_default_volume_quotas'
@@ -93,6 +134,20 @@ class UpdateDefaultVolumeQuotasStep(workflows.Step):
     contributes = quotas.CINDER_QUOTA_FIELDS
     depends_on = ('disabled_quotas',)
 
+    def prepare_action_context(self, request, context):
+        try:
+            quota_defaults = cinder.default_quota_get(request,
+                                                      request.user.tenant_id)
+            for field in quotas.CINDER_QUOTA_FIELDS:
+                context[field] = quota_defaults.get(field).limit
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to retrieve default volume quotas.'))
+        return context
+
+    def allowed(self, request):
+        return cinder.is_volume_service_enabled(request)
+
 
 class UpdateDefaultQuotas(workflows.Workflow):
     slug = "update_default_quotas"
@@ -103,52 +158,3 @@ class UpdateDefaultQuotas(workflows.Workflow):
     success_url = "horizon:admin:defaults:index"
     default_steps = (UpdateDefaultComputeQuotasStep,
                      UpdateDefaultVolumeQuotasStep)
-
-    def handle(self, request, data):
-        # Update the default quotas.
-        nova_data = {
-            key: value for key, value in data.items()
-            if key in quotas.NOVA_QUOTA_FIELDS
-        }
-        is_error_nova = False
-        is_error_cinder = False
-        is_volume_service_enabled = cinder.is_volume_service_enabled(request)
-
-        # Update the default quotas for nova.
-        try:
-            nova.default_quota_update(request, **nova_data)
-        except Exception:
-            is_error_nova = True
-
-        # Update the default quotas for cinder.
-        if is_volume_service_enabled:
-            cinder_data = {
-                key: value for key, value in data.items()
-                if key in quotas.CINDER_QUOTA_FIELDS
-            }
-            try:
-                cinder.default_quota_update(request, **cinder_data)
-            except Exception:
-                is_error_cinder = True
-        else:
-            LOG.debug('Unable to update Cinder default quotas'
-                      ' because the Cinder volume service is disabled.')
-
-        # Analyze errors (if any) to determine what success and error messages
-        # to display to the user.
-        if is_error_nova and not is_error_cinder:
-            if is_volume_service_enabled:
-                self.success_message = _('Default quotas updated for Cinder.')
-                exceptions.handle(request,
-                                  _('Unable to update default quotas'
-                                    ' for Nova.'))
-            else:
-                return False
-        elif is_error_cinder and not is_error_nova:
-            self.success_message = _('Default quotas updated for Nova.')
-            exceptions.handle(request,
-                              _('Unable to update default quotas for Cinder.'))
-        elif is_error_nova and is_error_cinder:
-            return False
-
-        return True
