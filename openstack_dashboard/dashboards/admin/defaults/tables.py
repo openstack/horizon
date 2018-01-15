@@ -64,6 +64,14 @@ def get_quota_name(quota):
         'per_volume_gigabytes': _('Per Volume Size (GiB)'),
         'groups': _('Volume Groups'),
         'dm-crypt': _('dm-crypt'),
+        # Neutron
+        'network': _('Networks'),
+        'subnet': _('Subnets'),
+        'port': _('Ports'),
+        'router': _('Routers'),
+        'floatingip': _('Floating IPs'),
+        'security_group': _('Security Groups'),
+        'security_group_rule': _('Security Group Rules'),
     }
 
     QUOTA_DYNAMIC_NAMES = {
