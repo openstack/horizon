@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-10 17:59+0000\n"
+"POT-Creation-Date: 2018-01-15 16:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-11 02:14+0000\n"
+"PO-Revision-Date: 2018-01-15 04:40+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -554,6 +554,11 @@ msgid_plural "Confirm Delete Trunks"
 msgstr[0] "Confirmar Excluir Trunk"
 msgstr[1] "Confirmar Excluir Trunks"
 
+msgid "Confirm Delete User"
+msgid_plural "Confirm Delete Users"
+msgstr[0] "Confirmar Exclusão de Usuário"
+msgstr[1] "Confirmar Exclusão de Usuários"
+
 msgid "Connecting"
 msgstr "Conectando"
 
@@ -818,6 +823,14 @@ msgstr[1] "Excluir Trunks"
 msgid "Delete Trunks"
 msgstr "Excluir Trunks"
 
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "Excluir Usuário"
+msgstr[1] "Excluir Usuários"
+
+msgid "Delete Users"
+msgstr "Excluir Usuários"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Excluir Volume na Exclusão da Instância"
 
@@ -853,6 +866,12 @@ msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
 msgstr[0] "Trunk Excluído: %s."
 msgstr[1] "Trunks Excluídos: %s."
+
+#, python-format
+msgid "Deleted User: %s."
+msgid_plural "Deleted Users: %s."
+msgstr[0] "Usuário Excluído: %s."
+msgstr[1] "Usuários Excluídos:%s."
 
 msgid "Deleting"
 msgstr "Deletando"
@@ -2766,6 +2785,12 @@ msgid_plural "Unable to delete Trunks: %s."
 msgstr[0] "Impossível excluir Trunk: %s"
 msgstr[1] "Impossível excluir Trunks: %s"
 
+#, python-format
+msgid "Unable to delete User: %s."
+msgid_plural "Unable to delete Users: %s."
+msgstr[0] "Não é possível excluir Usuário: %s."
+msgstr[1] "Não é possível excluir usuários: %s."
+
 msgid "Unable to delete the container."
 msgstr "Não é possível apagar o container."
 
@@ -3492,6 +3517,12 @@ msgid "You have selected \"%s\". Deleted role is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
 msgstr[0] "Você selecionou \"%s\". Uma função excluída não é recuperável."
 msgstr[1] "Você selecionou \"%s\". Funções excluídas não são recuperáveis."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted user is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted users are not recoverable."
+msgstr[0] "Você selecionou \"%s\". A exclusão de usuário não é recuperável."
+msgstr[1] "Você selecionou \"%s\". A exclusão de usuários não é recuperável."
 
 msgid "Your Form as JavaScript"
 msgstr "Seu Formulário como JavaScript"
