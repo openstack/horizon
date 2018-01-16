@@ -419,8 +419,12 @@ class SecurityGroupManager(object):
                  'remote_group_id': group_id}}
         try:
             rule = self.client.create_security_group_rule(body)
+        except neutron_exc.OverQuotaClient:
+            raise exceptions.Conflict(
+                _('Security group rule quotas exceed.'))
         except neutron_exc.Conflict:
-            raise exceptions.Conflict(_('Security group rule already exists.'))
+            raise exceptions.Conflict(
+                _('Security group rule already exists.'))
         rule = rule.get('security_group_rule')
         sg_dict = self._sg_name_dict(parent_group_id, [rule])
         return SecurityGroupRule(rule, sg_dict)
