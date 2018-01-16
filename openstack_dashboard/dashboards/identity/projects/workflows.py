@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import abc
 import logging
 
 from django.conf import settings
@@ -48,51 +49,23 @@ PROJECT_GROUP_MEMBER_SLUG = "update_group_members"
 COMMON_HORIZONTAL_TEMPLATE = "identity/projects/_common_horizontal_form.html"
 
 
-class ProjectQuotaAction(workflows.Action):
-    metadata_items = forms.IntegerField(min_value=-1,
-                                        label=_("Metadata Items"))
-    cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
-    instances = forms.IntegerField(min_value=-1, label=_("Instances"))
-    injected_files = forms.IntegerField(min_value=-1,
-                                        label=_("Injected Files"))
-    injected_file_content_bytes = forms.IntegerField(
-        min_value=-1,
-        label=_("Injected File Content (Bytes)"))
-    key_pairs = forms.IntegerField(min_value=-1, label=_("Key Pairs"))
-    injected_file_path_bytes = forms.IntegerField(
-        min_value=-1,
-        label=_("Length of Injected File Path"))
-    volumes = forms.IntegerField(min_value=-1, label=_("Volumes"))
-    snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
-    gigabytes = forms.IntegerField(
-        min_value=-1, label=_("Total Size of Volumes and Snapshots (GiB)"))
-    ram = forms.IntegerField(min_value=-1, label=_("RAM (MB)"))
+class CommonQuotaAction(workflows.Action):
 
-    # Neutron
-    security_group = forms.IntegerField(min_value=-1,
-                                        label=_("Security Groups"))
-    security_group_rule = forms.IntegerField(min_value=-1,
-                                             label=_("Security Group Rules"))
-    floatingip = forms.IntegerField(min_value=-1, label=_("Floating IPs"))
-    network = forms.IntegerField(min_value=-1, label=_("Networks"))
-    port = forms.IntegerField(min_value=-1, label=_("Ports"))
-    router = forms.IntegerField(min_value=-1, label=_("Routers"))
-    subnet = forms.IntegerField(min_value=-1, label=_("Subnets"))
+    _quota_fields = None
 
     def __init__(self, request, *args, **kwargs):
-        super(ProjectQuotaAction, self).__init__(request,
-                                                 *args,
-                                                 **kwargs)
-        disabled_quotas = quotas.get_disabled_quotas(request)
+        super(CommonQuotaAction, self).__init__(request, *args, **kwargs)
+        disabled_quotas = self.initial['disabled_quotas']
         for field in disabled_quotas:
             if field in self.fields:
                 self.fields[field].required = False
                 self.fields[field].widget = forms.HiddenInput()
 
     def clean(self):
-        cleaned_data = super(ProjectQuotaAction, self).clean()
+        cleaned_data = super(CommonQuotaAction, self).clean()
         usages = quotas.tenant_quota_usages(
-            self.request, tenant_id=self.initial['project_id'])
+            self.request, tenant_id=self.initial['project_id'],
+            targets=tuple(self._quota_fields))
         # Validate the quota values before updating quotas.
         bad_values = []
         for key, value in cleaned_data.items():
@@ -109,18 +82,129 @@ class ProjectQuotaAction(workflows.Action):
             raise forms.ValidationError(msg)
         return cleaned_data
 
+    def handle(self, request, context):
+        project_id = context['project_id']
+        disabled_quotas = context['disabled_quotas']
+        data = {key: context[key] for key in
+                self._quota_fields - disabled_quotas}
+        if data:
+            self._tenant_quota_update(request, project_id, data)
+
+    @abc.abstractmethod
+    def _tenant_quota_update(self, request, project_id, data):
+        pass
+
+
+class ComputeQuotaAction(CommonQuotaAction):
+    instances = forms.IntegerField(min_value=-1, label=_("Instances"))
+    cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
+    ram = forms.IntegerField(min_value=-1, label=_("RAM (MB)"))
+    metadata_items = forms.IntegerField(min_value=-1,
+                                        label=_("Metadata Items"))
+    key_pairs = forms.IntegerField(min_value=-1, label=_("Key Pairs"))
+    injected_files = forms.IntegerField(min_value=-1,
+                                        label=_("Injected Files"))
+    injected_file_content_bytes = forms.IntegerField(
+        min_value=-1,
+        label=_("Injected File Content (Bytes)"))
+    injected_file_path_bytes = forms.IntegerField(
+        min_value=-1,
+        label=_("Length of Injected File Path"))
+
+    _quota_fields = quotas.NOVA_QUOTA_FIELDS
+
+    def _tenant_quota_update(self, request, project_id, data):
+        nova.tenant_quota_update(request, project_id, **data)
+
     class Meta(object):
-        name = _("Quotas")
-        slug = 'update_quotas'
+        name = _("Compute")
+        slug = 'update_compute_quotas'
         help_text = _("Set maximum quotas for the project.")
         permissions = ('openstack.roles.admin', 'openstack.services.compute')
 
 
-class UpdateProjectQuota(workflows.Step):
-    action_class = ProjectQuotaAction
+class VolumeQuotaAction(CommonQuotaAction):
+    volumes = forms.IntegerField(min_value=-1, label=_("Volumes"))
+    snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
+    gigabytes = forms.IntegerField(
+        min_value=-1, label=_("Total Size of Volumes and Snapshots (GiB)"))
+
+    _quota_fields = quotas.CINDER_QUOTA_FIELDS
+
+    def _tenant_quota_update(self, request, project_id, data):
+        cinder.tenant_quota_update(request, project_id, **data)
+
+    class Meta(object):
+        name = _("Volume")
+        slug = 'update_volume_quotas'
+        help_text = _("Set maximum quotas for the project.")
+        permissions = ('openstack.roles.admin', 'openstack.services.compute')
+
+
+class NetworkQuotaAction(CommonQuotaAction):
+    network = forms.IntegerField(min_value=-1, label=_("Networks"))
+    subnet = forms.IntegerField(min_value=-1, label=_("Subnets"))
+    port = forms.IntegerField(min_value=-1, label=_("Ports"))
+    router = forms.IntegerField(min_value=-1, label=_("Routers"))
+    floatingip = forms.IntegerField(min_value=-1, label=_("Floating IPs"))
+    security_group = forms.IntegerField(min_value=-1,
+                                        label=_("Security Groups"))
+    security_group_rule = forms.IntegerField(min_value=-1,
+                                             label=_("Security Group Rules"))
+
+    _quota_fields = quotas.NEUTRON_QUOTA_FIELDS
+
+    def _tenant_quota_update(self, request, project_id, data):
+        api.neutron.tenant_quota_update(request, project_id, **data)
+
+    class Meta(object):
+        name = _("Network")
+        slug = 'update_network_quotas'
+        help_text = _("Set maximum quotas for the project.")
+        permissions = ('openstack.roles.admin', 'openstack.services.compute')
+
+
+class UpdateComputeQuota(workflows.Step):
+    action_class = ComputeQuotaAction
     template_name = COMMON_HORIZONTAL_TEMPLATE
-    depends_on = ("project_id",)
-    contributes = quotas.QUOTA_FIELDS
+    depends_on = ("project_id", "disabled_quotas")
+    contributes = quotas.NOVA_QUOTA_FIELDS
+
+    def allowed(self, request):
+        return api.base.is_service_enabled(request, 'compute')
+
+
+class UpdateVolumeQuota(workflows.Step):
+    action_class = VolumeQuotaAction
+    template_name = COMMON_HORIZONTAL_TEMPLATE
+    depends_on = ("project_id", "disabled_quotas")
+    contributes = quotas.CINDER_QUOTA_FIELDS
+
+    def allowed(self, request):
+        return cinder.is_volume_service_enabled(request)
+
+
+class UpdateNetworkQuota(workflows.Step):
+    action_class = NetworkQuotaAction
+    template_name = COMMON_HORIZONTAL_TEMPLATE
+    depends_on = ("project_id", "disabled_quotas")
+    contributes = quotas.NEUTRON_QUOTA_FIELDS
+
+    def allowed(self, request):
+        return (api.base.is_service_enabled(request, 'network') and
+                api.neutron.is_quotas_extension_supported(request))
+
+
+class UpdateQuota(workflows.Workflow):
+    slug = "update_quotas"
+    name = _("Edit Quotas")
+    finalize_button_name = _("Save")
+    success_message = _('Modified quotas of project')
+    failure_message = _('Unable to modify quotas of project')
+    success_url = "horizon:identity:projects:index"
+    default_steps = (UpdateComputeQuota,
+                     UpdateVolumeQuota,
+                     UpdateNetworkQuota)
 
 
 class CreateProjectInfoAction(workflows.Action):
@@ -857,56 +941,3 @@ class UpdateProject(workflows.Workflow):
                 return False
 
         return True
-
-
-class UpdateQuota(workflows.Workflow):
-    slug = "update_quotas"
-    name = _("Edit Quotas")
-    finalize_button_name = _("Save")
-    success_message = _('Modified quotas of project "%s".')
-    failure_message = _('Unable to modify quotas of project "%s".')
-    success_url = "horizon:identity:projects:index"
-    default_steps = (UpdateProjectQuota,)
-
-    def format_status_message(self, message):
-        if "%s" in message:
-            return message % self.context.get('name', 'unknown project')
-        else:
-            return message
-
-    def _update_project_quota(self, request, data, project_id):
-        disabled_quotas = quotas.get_disabled_quotas(request)
-
-        if api.base.is_service_enabled(request, 'compute'):
-            nova_data = {key: data[key] for key in
-                         quotas.NOVA_QUOTA_FIELDS - disabled_quotas}
-            if nova_data:
-                nova.tenant_quota_update(request, project_id, **nova_data)
-
-        if cinder.is_volume_service_enabled(request):
-            cinder_data = {key: data[key] for key in
-                           quotas.CINDER_QUOTA_FIELDS - disabled_quotas}
-            if cinder_data:
-                cinder.tenant_quota_update(request, project_id, **cinder_data)
-
-        if (api.base.is_service_enabled(request, 'network') and
-                api.neutron.is_quotas_extension_supported(request)):
-            neutron_data = {key: data[key] for key in
-                            quotas.NEUTRON_QUOTA_FIELDS - disabled_quotas}
-            if neutron_data:
-                api.neutron.tenant_quota_update(request, project_id,
-                                                **neutron_data)
-
-    def handle(self, request, data):
-        project_id = data['project_id']
-        if not api.keystone.is_cloud_admin(request):
-            return True
-        try:
-            self._update_project_quota(request, data, project_id)
-            return True
-        except Exception:
-            exceptions.handle(request,
-                              _('Modified project information and '
-                                'members, but unable to modify '
-                                'project quotas.'))
-            return False
