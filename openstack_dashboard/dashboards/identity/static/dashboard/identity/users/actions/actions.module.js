@@ -34,6 +34,7 @@
   registerUserActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.dashboard.identity.users.actions.create.service',
+    'horizon.dashboard.identity.users.actions.update.service',
     'horizon.dashboard.identity.users.actions.delete.service',
     'horizon.dashboard.identity.users.resourceType'
   ];
@@ -41,12 +42,21 @@
   function registerUserActions(
     registry,
     createService,
+    updateService,
     deleteService,
     userResourceTypeCode
   ) {
     var userResourceType = registry.getResourceType(userResourceTypeCode);
 
     userResourceType.itemActions
+      .append({
+        id: 'updateAction',
+        service: updateService,
+        template: {
+          text: gettext('Edit User'),
+          type: 'row'
+        }
+      })
       .append({
         id: 'deleteAction',
         service: deleteService,
