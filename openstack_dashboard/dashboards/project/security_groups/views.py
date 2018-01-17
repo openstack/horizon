@@ -168,8 +168,11 @@ class CreateView(forms.ModalFormView):
     submit_label = _("Create Security Group")
     submit_url = reverse_lazy(
         "horizon:project:security_groups:create")
-    success_url = reverse_lazy('horizon:project:security_groups:index')
     page_title = _("Create Security Group")
+
+    def get_success_url_from_handled(self, handled):
+        return reverse('horizon:project:security_groups:detail',
+                       args=[handled.id])
 
 
 class IndexView(tables.DataTableView):

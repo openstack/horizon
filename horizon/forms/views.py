@@ -197,7 +197,11 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
             elif isinstance(handled, http.HttpResponse):
                 return handled
             else:
-                success_url = self.get_success_url()
+                try:
+                    success_url = self.get_success_url_from_handled(handled)
+                except AttributeError:
+                    success_url = self.get_success_url()
+
                 response = http.HttpResponseRedirect(success_url)
                 if hasattr(handled, 'to_dict'):
                     obj_dict = handled.to_dict()

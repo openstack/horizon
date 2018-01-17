@@ -263,7 +263,7 @@ class SecurityGroupsViewTests(test.TestCase):
                      'name': sec_group.name,
                      'description': sec_group.description}
         res = self.client.post(SG_CREATE_URL, form_data)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertRedirectsNoFollow(res, self.detail_url)
         self.mock_security_group_create.assert_called_once_with(
             test.IsHttpRequest(),
             sec_group.name,
