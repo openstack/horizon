@@ -1,0 +1,6296 @@
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2018-01-17 05:44+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-01-16 08:41+0000\n"
+"Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s GiB Used\n"
+"      "
+msgstr ""
+"\n"
+"      %(used)s of %(quota)s GiB Uzita\n"
+"      "
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s Used\n"
+"      "
+msgstr ""
+"\n"
+"      %(used)s of %(quota)s Uzita\n"
+"      "
+
+msgid ""
+" A protocol entry contains information that dictates which mapping rules to "
+"use for a given incoming request. An Identity Provider may have multiple "
+"supported protocols."
+msgstr ""
+"Protokolo enigo enhavas informon kiu diktas kiujn mapigajn regulojn estas "
+"uzonta por iun alvenintan peton. Identeco Provizanto eblus havi diversajn "
+"subtenitajn protokolojn."
+
+msgid ""
+"\"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"\"Agordado Skripto\" estas simila al \"Uzanto Datumo\" en aliaj sistemoj"
+
+msgid ""
+"\"Manage\" an existing volume from a Cinder host. This will make the volume "
+"visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
+"manage</tt> command."
+msgstr ""
+"\"Mastrumi\" ekzistantan volumon de Cinder gastiganto. Tiu faros la volumon "
+"videbla ene de OpenStack. <br> <br> Tiu estas ekvivalenta al <tt>cinder "
+"mastrumi</tt> komando."
+
+msgid ""
+"\"None\" indicates that no QoS Spec is currently associated. Conversely, "
+"setting the QoS Spec to \"None\" will remove the current association."
+msgstr ""
+"\"Nenio\" indikas ke neniu QoS Specifo estas nuntempe asociigita. Kontraŭe, "
+"agordante la QoS Specifon al \"None\" forigos la nuntempa asocion."
+
+#, python-format
+msgid "%(instance_name)s %(fixed_ip)s"
+msgstr "%(instance_name)s %(fixed_ip)s"
+
+#, python-format
+msgid "%(name)s - %(size)s GB (%(label)s)"
+msgstr "%(name)s - %(size)s GB (%(label)s)"
+
+#, python-format
+msgid "%(pool_name)s %(cidr)s"
+msgstr "%(pool_name)s %(cidr)s"
+
+#, python-format
+msgid "%(type)s (%(backend)s backend)"
+msgstr "%(type)s (%(backend)s backend)"
+
+#, python-format
+msgid "%(used)s %(key)s used"
+msgstr "%(used)s %(key)s uzita"
+
+#, python-format
+msgid "%(used)s of %(quota)s MB Used"
+msgstr "%(used)s of %(quota)s MB Uzita"
+
+#, python-format
+msgid "%(used)s of %(quota)s Used"
+msgstr "%(used)s of %(quota)s Uzita"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, python-format
+msgid "%s instances"
+msgstr "%s aperojn"
+
+#, python-format
+msgid "%sGB"
+msgstr "%sGB"
+
+#, python-format
+msgid "%sMB"
+msgstr "%sMB"
+
+msgid "(Quota exceeded)"
+msgstr "(Kvoto transpasita)"
+
+msgid ", add project groups"
+msgstr ", aldonu projekto grupojn"
+
+msgid ", update project groups"
+msgstr ", ĝisdatigu projekto grupojn  "
+
+msgid "-"
+msgstr "-"
+
+#, python-format
+msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+
+msgid "A local image to upload."
+msgstr "Lokala bildo por alŝuti."
+
+msgid "A local metadata definition file to upload."
+msgstr "Loka metadatuma difino dosiero por alŝuto."
+
+msgid ""
+"A mapping is a set of rules to map federation protocol attributes to "
+"Identity API objects. An identity provider can have a single mapping "
+"specified per protocol. A mapping is simply a list of rules. The only "
+"Identity API objects that will support mapping are: user and group."
+msgstr ""
+"Mapigo estas aro da reguloj por mapigi federo protokolo atributojn al "
+"Identeco API objektoj. Identeco provizanto povas havi singula mapigon  "
+"specifigita pere protokolo. Mapigo simple estas listo de reguloj. La nuraj "
+"Identeco API objektoj kiu subtenos mapigon estas: uzanto kaj grupo."
+
+msgid ""
+"A port is a connection point for attaching a single device, such as the NIC "
+"of a virtual server, to a virtual network."
+msgstr ""
+"Pordo estas konekto punkto por kunligi unuopan funkciilon, kiel la NIC de "
+"virtuala servilo, al virtuala reto."
+
+msgid ""
+"A rule contains a remote attribute description and the destination local "
+"attribute."
+msgstr ""
+"Regulo enhavas foran atributo priskribon kaj la destino lokan atributon."
+
+msgid ""
+"A script or set of commands to be executed after the instance has been built "
+"(max 16kb)."
+msgstr ""
+"Skripto aŭ aro da komandoj rulonta post la apero estas kreiita (max 16kb)."
+
+msgid ""
+"A snapshot is an image which preserves the disk state of a running instance."
+msgstr ""
+"Savkopio estas bildo kiu konservas la disko staton de funkcianta aperon."
+
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon Kerna Imago"
+
+#, python-format
+msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+msgstr "PERMESU %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon Maŝina Imago"
+
+msgid "API Access"
+msgstr "API Aliro"
+
+msgid "API Endpoints"
+msgstr "API Finpuntoj"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdiska Imago"
+
+msgid "Access & Security"
+msgstr "Aliro & Secureco"
+
+msgid "Action"
+msgstr "Ago"
+
+msgid "Action Log"
+msgstr "Ago Protokolo"
+
+msgctxt "Current status of a Floating IP"
+msgid "Active"
+msgstr "Aktiva"
+
+msgctxt "Current status of a Network"
+msgid "Active"
+msgstr "Aktiva"
+
+msgctxt "Current status of an Image"
+msgid "Active"
+msgstr "Akitiva"
+
+msgctxt "Current status of an Instance"
+msgid "Active"
+msgstr "Aktiva"
+
+msgid "Active Instances:"
+msgstr "Aktivaj Aperoj:"
+
+msgid ""
+"Actual device name may differ due to hypervisor settings. If not specified, "
+"then hypervisor will select a device name."
+msgstr ""
+"Nuna funkciilo nomo povus diferenci pro virtuala maŝinmonitoro agordoj. Se "
+"ne difinita, la virtuala maŝinmonitoro  elektos funkciilo nomo."
+
+msgid "Add DHCP Agent"
+msgstr "Aldonu DHCP Agenton"
+
+msgid "Add Group Assignment"
+msgstr "Aldonu Grupo Atribuon"
+
+msgid "Add Protocol"
+msgstr "Aldonu Protokolon"
+
+msgid "Add User"
+msgid_plural "Add Users"
+msgstr[0] "Aldonu Uzanton"
+msgstr[1] "Aldonu Uzantojn"
+
+msgid "Add User to Group"
+msgstr "Aldonu Uzanto al la Grupo"
+
+msgid "Add Users"
+msgstr "Aldonu Uzantojn"
+
+msgid ""
+"Add and remove security groups to this instance from the list of available "
+"security groups."
+msgstr ""
+"Aldonu kaj forigu securecaj grupoj je tiu apero de la listo de disponeblaj "
+"securecaj grupoj."
+
+msgid ""
+"Add hosts to this aggregate or remove hosts from it. Hosts can be in "
+"multiple aggregates."
+msgstr ""
+"Aldoni servilojn al tiu agregato aŭ forigi servilojn de ĝi. Serviloj povas "
+"esti en plurajn agregatojn."
+
+msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
+msgstr ""
+"Aldoni servilojn al tiu agregato. Serviloj povas esti en multiplaj agregatoj."
+
+msgid ""
+"Add volume types to this consistency group. Multiple volume types can be "
+"added to the same consistency group only if they are associated with same "
+"back end."
+msgstr ""
+"Aldonu volumo tipon al tiu kohereco grupo. Multaj volumo tipoj  povas esti "
+"aldonata al la sama kohereco grupo nur se ili estas atribuita kun la sama "
+"internaĵilo"
+
+msgid "Add, modify or remove the QoS Spec associated with this volume type."
+msgstr ""
+"Aldonu, modifu aŭ forigu la QoS Specifon asociigita kun tiu volumo tipo."
+
+msgid "Add/Remove Consistency Group Volumes"
+msgstr "Aldonu/Forigu kohereco grupo volumojn"
+
+msgid "Add/Remove Hosts to Aggregate"
+msgstr "Aldonu/Forigu Gastigojn al al to Agregato"
+
+msgid ""
+"Add/remove volumes to/from this consistency group. Only volumes associated "
+"with the volume type(s) assigned to this consistency group will be available "
+"for selection."
+msgstr ""
+"Aldonu/Forigu volumojn al/de tiu koherenco grupo. Nur volumoj asociita kun "
+"la volumo tipo(j) atribuita al tiu koherenco grupo estos disponebla por "
+"selekti."
+
+msgid "Added User"
+msgid_plural "Added Users"
+msgstr[0] "Aldonita Uzanto"
+msgstr[1] "Aldonitaj Uzantoj"
+
+msgid ""
+"Additionally, some resource types may require a prefix to be used when "
+"applying the metadata. In certain cases, the prefix may differ between the "
+"resource type (for example, flavor vs image)."
+msgstr ""
+"Aldone, iujn risurco tipojn eble nepras prefikson kiam aplikante la "
+"metadatumo. En ian ajn kazojn, la prefikso eble malsamas inter la risurco "
+"tipo (ekz, gusto kontraŭ bildigo) "
+
+msgid "Address pool"
+msgstr "Adreso komunaĵo"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Admin Password"
+msgstr "Administranto Pasvorto"
+
+msgid "Admin State"
+msgstr "Admin Stato"
+
+msgid "Admin State ="
+msgstr "Admin Stato ="
+
+msgid "Admin:"
+msgstr "Admin:"
+
+msgid ""
+"Administrator Note: Use the following CLI command to import the default "
+"definitions into Glance: "
+msgstr ""
+"Administratora Noto: Uzu la sekvantajn CLI komandojn por importi la "
+"defaultajn difinojn en Glance:"
+
+msgid "Advanced Options"
+msgstr "Specialaj Opcioj"
+
+msgid ""
+"After launching an instance, you login using the private key (the username "
+"might be different depending on the image you launched):"
+msgstr ""
+"Post lanĉi aperon, vi ensalutas uzante privatan ŝlosilon (la uzanto nomo "
+"povas esti alia dependa de la bildo kiun vi lanĉis):"
+
+#, python-format
+msgid "Agent %s was successfully added."
+msgstr "Agento %s sukcese aldonita."
+
+msgid "All Available Hosts"
+msgstr "Ĉiuj disponeblaj serviloj"
+
+msgid "All Groups"
+msgstr "Ĉiuj Grupoj"
+
+msgid "All Hypervisors"
+msgstr "Ĉiuj Virtuala-maŝinmonitoroj"
+
+msgid "All ICMP"
+msgstr "Ĉiuj ICMP"
+
+msgid "All Projects"
+msgstr "Ĉiuj Projektoj"
+
+msgid "All Security Groups"
+msgstr "Ĉiuj Secureco Grupoj"
+
+msgid "All TCP"
+msgstr "Ĉiuj TCP"
+
+msgid "All UDP"
+msgstr "Ĉiuj UDP"
+
+msgid "All Users"
+msgstr "Ĉiuj Uzantoj"
+
+msgid "All available hosts"
+msgstr " Ĉiuj disponeblaj serviloj"
+
+msgid "All available volume types"
+msgstr "Ĉiuj disponeblaj volumo tipoj"
+
+msgid "All available volumes"
+msgstr "Ĉiuj disponeblaj volumoj"
+
+msgid ""
+"All selected volume types must be associated with the same volume backend "
+"name."
+msgstr ""
+"Ĉiuj elektitaj volumo tipoj devas esti asociita kun la sama volumo "
+"internaĵilo nomo."
+
+msgid "Allocate Floating IP"
+msgstr "Asignu glidanta IP"
+
+msgid "Allocate IP"
+msgstr "Asigni IP-on"
+
+msgid "Allocate IP To Project"
+msgstr "Asigni IP-on al Projekton"
+
+msgid "Allocate Network Address from a pool"
+msgstr "Asignu Retadreson de komunaĵo"
+
+msgid "Allocate a floating IP from a given floating IP pool."
+msgstr "Asignu glitan IP-on el ekzistanta glita IP komunaĵo. "
+
+#, python-format
+msgid "Allocated Floating IP %(ip)s."
+msgstr "Asignitaj Glitaj IP %(ip)s."
+
+#, python-format
+msgid "Allocated floating IP %(ip)s."
+msgstr "Asignita glidanta IP %(ip)s."
+
+msgid "An external (HTTP/HTTPS) URL to load the image from."
+msgstr "Ekstera (HTTP/HTTPS) URL por elŝuti la bildon."
+
+msgid "An image file or an external location must be specified."
+msgstr "Bildo dosiero aŭ ekstera loko devas esti difinita."
+
+msgid ""
+"An instance can be launched with varying types of attached storage. You may "
+"select from those options here."
+msgstr ""
+"Apero povas esti lanĉita kun diversaj tipoj de kunligita memorilo. Vi eble "
+"elektas de tiuj opcioj ĉi tie."
+
+msgid "Any Availability Zone"
+msgstr "Iu Disponebla  Zono"
+
+msgid "Architecture"
+msgstr "Arkitekturo"
+
+msgid "Associate"
+msgstr "Asociigu"
+
+msgid "Associate Floating IP"
+msgstr "Asociigu Glitan IP-on"
+
+msgid "Associate QoS Spec"
+msgstr "Asociigu QoS Specifon"
+
+msgid "Associate QoS Spec with Volume Type"
+msgstr "Asociigu QoS Spec kun Volumo Tipo"
+
+msgid "Associated QoS Spec"
+msgstr "Asociigita QoS Spec"
+
+msgid "Associated Resource Types"
+msgstr "Asociigitaj Risurco Tipoj"
+
+msgid "At least one network must be specified."
+msgstr "Almenaŭ unu reto devas esti difinita. "
+
+msgid "At least one volume type must be assigned to a consistency group."
+msgstr "Minimume unu volumo tipo devas esti atribuita je kohereco grupo. "
+
+msgid "Attach Interface"
+msgstr "Ligu Interfaco"
+
+msgid "Attach Volume"
+msgstr "Ligu Volumon"
+
+msgid "Attach Volume to Running Instance."
+msgstr "Alligu Volumon al kuranta Apero."
+
+msgid "Attach a Volume"
+msgstr "Kunligu Volumon"
+
+msgid "Attached To"
+msgstr "Ligita Al"
+
+#, python-format
+msgid "Attaching interface for instance %s."
+msgstr "Ligi interfaco por apero %s."
+
+#, python-format
+msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
+msgstr "Ligi volumon %(vol)s al aperon  %(inst)s je %(dev)s."
+
+msgid "Attribute Mappings"
+msgstr "Atribuu Mapigojn"
+
+msgid "Authentication URL"
+msgstr "Aŭthentigo URL"
+
+msgid "Automatic"
+msgstr "Automate"
+
+msgid ""
+"Automatic: The entire disk is a single partition and automatically resizes. "
+"Manual: Results in faster build times but requires manual partitioning."
+msgstr ""
+"Aŭtomata: La tuta disko estas unuopa subdisko kaj aŭtomate regrandiĝas. "
+"Manuale: Rezultas en pli rapida konstruo tempoj sed bezonas manualan "
+"dispartigon."
+
+msgid "Automatically schedule new host."
+msgstr "Aŭtomate envicigi freŝan gastiganton."
+
+msgid "Availability Zone"
+msgstr "Disponebla  Zono"
+
+msgid "Availability Zone ="
+msgstr "Disponebleca Zono ="
+
+msgid "Availability Zone Hints"
+msgstr "Disponebleca Zono Indikaĵoj"
+
+msgid "Availability Zone Name"
+msgstr "Disponebla  Zono Nomo"
+
+msgid "Availability Zones"
+msgstr "Disponeblaj Zonoj"
+
+msgid "Availability zone"
+msgstr "Disponebleca zono"
+
+msgid ""
+"Availability zones where the DHCP agents may be scheduled. Leaving this "
+"unset is equivalent to selecting all availability zones"
+msgstr ""
+"Disponeblecaj Zonoj kie la DHCP agentoj devus esti viciligita. Lasi tiujn "
+"neselektita estas same kiel selekti ĉiujn Disponeblecajn Zonojn"
+
+msgid "Available"
+msgstr "Disponebla"
+
+msgctxt "Current status of Consistency Group"
+msgid "Available"
+msgstr "Havebla"
+
+msgctxt "Current status of Consistency Group Snapshot"
+msgid "Available"
+msgstr "Havebla"
+
+msgctxt "Current status of a Volume Backup"
+msgid "Available"
+msgstr "Havebla"
+
+msgid "Available Types"
+msgstr "Disponeblaj Tipoj"
+
+msgid "Available networks"
+msgstr "Disponeblaj retoj"
+
+msgid "Backup Name"
+msgstr "Sekurkopio Nomo"
+
+msgid "Backup Size (GiB)"
+msgstr "Sekurkopio Grando (GiB)"
+
+msgid "Backups"
+msgstr "Sekurkopiojn"
+
+msgid "Bare Metal"
+msgstr "fizika komputilo"
+
+msgid "Binding: Host"
+msgstr "Bindaĵo : Gastiganto"
+
+msgid "Binding: VNIC Type"
+msgstr "Bindaĵo: VNIC Tipo   "
+
+msgctxt "Task status of an Instance"
+msgid "Block Device Mapping"
+msgstr "Blok Funkciilo Mapigon"
+
+msgid "Block Migration"
+msgstr "Bloka transmeto"
+
+msgid "Block Storage Services"
+msgstr "Blokmemorilo Servoj"
+
+msgctxt "Power state of an Instance"
+msgid "Blocked"
+msgstr "Blokita"
+
+msgid "Boot from image"
+msgstr "Praŝargu de bildo"
+
+msgid "Boot from image (creates a new volume)"
+msgstr "Praŝargu de bildo (kreas novan volumon)"
+
+msgid "Boot from snapshot"
+msgstr "Praŝargu de savkopio"
+
+msgid "Boot from volume"
+msgstr "Praŝargu de volumo"
+
+msgid "Boot from volume snapshot (creates a new volume)"
+msgstr "Praŝargu de volumo savkopio (kreas novan volumon)"
+
+msgid "Bootable"
+msgstr "Praŝargebla"
+
+msgid "Bootable ="
+msgstr "Praŝargebla  ="
+
+msgid "Bootstrap Theme Preview"
+msgstr "Praŝarga Tema Antaŭrigardo  "
+
+msgctxt "Current status of a Network"
+msgid "Build"
+msgstr "Konstruita"
+
+msgctxt "Current status of an Instance"
+msgid "Build"
+msgstr "Konstruanta"
+
+msgctxt "Current status of an Instance"
+msgid "Building"
+msgstr "Konstruanta"
+
+msgctxt "Power state of an Instance"
+msgid "Building"
+msgstr "Konstruanta"
+
+msgid ""
+"By default, volume type is created as public. To create a private volume "
+"type, uncheck this field."
+msgstr ""
+"Defaŭlte, volumo tipo estas kreita kiel publike. Por krei privatan voluman "
+"tipon, malŝaltiu tiun kampon."
+
+msgid "CIDR"
+msgstr "CIDR"
+
+msgid "CPU architecture of the image."
+msgstr "CPU arkitekturo de la bildo."
+
+msgid "Cancel"
+msgstr "Malfaru"
+
+#, python-format
+msgid "Cannot find instance %s."
+msgstr "Neeblas trovi apero %s."
+
+#, python-format
+msgid "Cannot get console for instance %s."
+msgstr "Neeblas ricevi konzolon por apero %s."
+
+msgid "Cannot specify both file and direct input."
+msgstr "Neeblas specifi ambaŭ dosiero kaj rekta enigo."
+
+msgid "Change Password"
+msgstr "Ŝanĝu pasvorto   "
+
+msgid "Change user's password. We highly recommend you create a strong one."
+msgstr "Ŝanĝu uzanto pasvorto. Ni ege rekomendas vi kreu unan fortan.   "
+
+msgid "Changes Since"
+msgstr "Ŝanĝojn Depost"
+
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this consistency group."
+msgstr ""
+"Kontrolu la &quot;Forigu Volumoj&quot; skatolo por ke ankaŭ forigi iujn "
+"volumojn asociita kun tiu  kohereco grupo."
+
+msgid "Checksum"
+msgstr "Kontrolsumo"
+
+msgid "Choose Your Boot Source Type."
+msgstr "Elektu vian Praŝargfonto Tipon."
+
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"Elektu Gastiganton je kiu evakuii servilojn. Kiam ne selektita, la vicigilo "
+"autoselektas celgastiganto."
+
+msgid "Choose a Host to migrate to."
+msgstr "Elektu Gastiganton por transmeti al."
+
+msgid ""
+"Choose a key pair name you will recognise and paste your SSH public key into "
+"the space provided."
+msgstr ""
+"Elektu ŝlosilparo nomo kiun vi renkonos kaj alglui vian SSH publikan "
+"ŝlosilon en la spaco provizota."
+
+msgid "Choose an DHCP Agent to attach to."
+msgstr "Elektu DHCP Agento alkroĉonta."
+
+msgid "Choose an image"
+msgstr "Elektu bildon"
+
+msgid "Choose associated QoS Spec."
+msgstr "Elektu asociigita QoS Specifon."
+
+msgid "Choose consumer for this QoS Spec."
+msgstr "Elektu konsumanto por tiu QoS Spec."
+
+msgid ""
+"Choose network from Available networks to Selected networks by push button "
+"or drag and drop, you may change NIC order by drag and drop as well. "
+msgstr ""
+"Elektu reton de Disponeblaj retoj al Selektitaj retoj per prem butono aŭ "
+"ŝovmeti, vi eble ankaŭ ŝanĝas NIC vicordo per ŝovmeti. "
+
+msgid "Choose the flavor to launch."
+msgstr "Elektu la variaĵon lanĉonta "
+
+msgid ""
+"Cinder host on which the existing volume resides; takes the form: "
+"host@backend-name#pool"
+msgstr ""
+"Cinder gastiganto en kiu la ekzistanta volumo troviĝas; estigas la formon: "
+"host@backend-name#pool "
+
+msgid "Cipher"
+msgstr "Ĉifro  "
+
+msgid "Clear Domain Context"
+msgstr "Vakigi Domajno Kunteksto"
+
+msgid "Click here to show only console"
+msgstr "Kliku ĉi tie por nur vidigi konzolon"
+
+msgid "Clone Consistency Group"
+msgstr "Klonu Kohereco Groupon"
+
+msgid ""
+"Clone each of the volumes in the source Consistency Group, and then add them "
+"to a newly created Consistency Group."
+msgstr ""
+"Klonu ĉiu de la volumoj en la fonto kohereco grupo, tiam aldonu ilin al nove "
+"kreita kohereco grupo."
+
+msgid "Close"
+msgstr "Fermu"
+
+msgid "Code"
+msgstr "Kodo"
+
+msgid "Cold Migrate"
+msgstr "Malvarma  transmeto"
+
+msgid "Comma-delimited list of valid remote IDs from the identity provider."
+msgstr ""
+"Koma-disigita listo de vadidaj deforaj ID-oj de la identeco provizanto."
+
+msgid "Comma-separated key=value pairs"
+msgstr "Koma-divita klavo=valoro paroj"
+
+msgid "Compute Host"
+msgstr "Komputo Gastiganto"
+
+msgid "Compute Services"
+msgstr "Komputaj Servoj"
+
+msgid "Configuration Drive"
+msgstr "Konfigura Diskingo "
+
+msgid ""
+"Configure OpenStack to write metadata to a special configuration drive that "
+"attaches to the instance when it boots."
+msgstr ""
+"Konfiguru Openstack por skribi metadatumo al speciala konfigura diskingo kiu "
+"ligas al apero kiam ĝi praŝargas. "
+
+msgid "Confirm Admin Password"
+msgstr "Konfirmu Admin Pasvorton"
+
+msgid "Confirm Password"
+msgstr "Konfirmu Pasvorton"
+
+msgid "Confirm Rebuild Password"
+msgstr "Konfirmu Refari Pasvorton"
+
+msgctxt "Action log of an instance"
+msgid "Confirm Resize"
+msgstr "Konfirmu Regrandigo"
+
+msgid "Confirm Resize/Migrate"
+msgstr "Konfirmu Regrandigo/Migrado"
+
+msgctxt "Current status of an Instance"
+msgid "Confirm or Revert Resize/Migrate"
+msgstr "Konfirmu aŭ Malfaru Regrandigon/Migradon"
+
+msgctxt "Task status of an Instance"
+msgid "Confirming Resize or Migrate"
+msgstr "Konfirmi Regrandigon aŭ Migradon"
+
+msgid "Consistency Group"
+msgstr "Kohereco Grupo"
+
+msgid "Consistency Group Information"
+msgstr "Kohereco Grupo Informo"
+
+msgid "Consistency Group Name"
+msgstr "Kohereco Grupo Nomo"
+
+msgid "Consistency Group Snapshots"
+msgstr "Kohereco Grupo Savkopiojn"
+
+msgid "Consistency Groups"
+msgstr "Koherecoj Grupoj"
+
+msgid "Console"
+msgstr "Konsolo"
+
+msgid "Console is currently unavailable."
+msgstr "Konzolo nuntempe nehavebla."
+
+#, python-format
+msgid "Console type \"%s\" not supported."
+msgstr "Konzola tipo \"%s\" ne subtenata."
+
+msgid "Consumer"
+msgstr "Konsumanto"
+
+msgid "Container Format"
+msgstr "Entenilo Formato"
+
+msgid "Container Name"
+msgstr "Entenilo Nomo"
+
+msgid "Containers"
+msgstr "Enteniloj"
+
+msgid "Contents"
+msgstr "Enhavo"
+
+msgid "Control Location"
+msgstr "Kontrolo Loko"
+
+msgid ""
+"Control access to your instance via key pairs, security groups, and other "
+"mechanisms."
+msgstr ""
+"Kontrolu aliron al vian aperon per ŝlosilaj paroj, secureca grupoj, kaj "
+"aliaj mekanismoj."
+
+msgid "Copy Data"
+msgstr "Kopiu Datumo"
+
+#, python-format
+msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
+msgstr "Kernoj(Haveblaj: %(avail)s, Petitaj: %(req)s)"
+
+#, python-format
+msgid "Could not find default role \"%s\" in Keystone"
+msgstr "Neeblas trovi defaŭltan rolon \"%s\" en Keystone"
+
+msgctxt "Power state of an Instance"
+msgid "Crashed"
+msgstr "Kraŝita  "
+
+msgid "Create"
+msgstr "Kreu"
+
+msgctxt "Action log of an instance"
+msgid "Create"
+msgstr "Kreu"
+
+msgid "Create An Image"
+msgstr "Kreu Bildigon"
+
+msgid "Create Consistency Group"
+msgstr "Kreu Kohereco Grupo"
+
+msgid "Create Consistency Group Snapshot"
+msgstr "Kreu Kohereco Grupo Savkopio"
+
+msgid "Create Domain"
+msgstr "Kreu Domajnojn"
+
+msgid "Create Encrypted Volume Type"
+msgstr "Kreu ĉifraditan Volumo Tipon"
+
+msgid "Create Encryption"
+msgstr "Kreu ĉifradon"
+
+msgid "Create Extra Spec For {{ qos_spec_name }}"
+msgstr "Kreu Ekstra Specifon por {{ qos_spec_name }}"
+
+msgid "Create Flavor"
+msgstr "Kreu Varianto"
+
+msgid "Create Group"
+msgstr "Kreu Grupo"
+
+msgid "Create Host Aggregate"
+msgstr "Kreu Servilo Agregato"
+
+msgid "Create Image"
+msgstr "Kreu Bildon"
+
+msgid "Create Key Pair"
+msgstr "Kreu Ŝlosilparon"
+
+msgid "Create Mapping"
+msgstr "Kreu Mapigon"
+
+msgid "Create Network"
+msgstr "Kreu Reton"
+
+msgid "Create Network (Quota exceeded)"
+msgstr "Kreu Reton (Kvoto transpasita)"
+
+msgid "Create Port"
+msgstr "Krei Pordon"
+
+msgid "Create Port (Quota exceeded)"
+msgstr "Krei Pordon (Kvota transpasita)"
+
+msgid "Create Project"
+msgstr "Kreu Projekton"
+
+msgid "Create Protocol"
+msgstr "Kreu Protokolo"
+
+msgid "Create QoS Spec"
+msgstr "Kreu QoS Spec"
+
+msgid "Create Role"
+msgstr "Kreu Rolon"
+
+msgid "Create Router"
+msgstr "Kreu Enkursigilon"
+
+msgid "Create Router (Quota exceeded)"
+msgstr "Kreu Enkursigilon (Kvoto transpasita)"
+
+msgid "Create Snapshot"
+msgstr "Kreu Savkopion"
+
+msgid "Create Spec"
+msgstr "Kreu Spec-on"
+
+msgid "Create Subnet"
+msgstr "Kreu Subreton"
+
+msgid "Create Subnet (Quota exceeded)"
+msgstr "Kreu Sunreton (Kvota transpasita)"
+
+msgid "Create User"
+msgstr "Kreu Uzantojn"
+
+msgid "Create Volume"
+msgstr "Kreu Volumon"
+
+msgid "Create Volume Backup"
+msgstr "Kreu Volumo Sekurkopio"
+
+msgid "Create Volume Consistency Group"
+msgstr "Kreu Volumo Kohereco Grupo"
+
+msgid "Create Volume Type"
+msgstr "Kreu Volumo Tipon"
+
+msgid "Create Volume Type Encryption"
+msgstr "Kreu Volumo Tipo ĉifradon"
+
+msgid "Create Volume Type Extra Spec"
+msgstr "Kreu Volumo Tipo Ekstra Specifo"
+
+msgid ""
+"Create a Consistency Group that will contain newly created volumes cloned "
+"from each of the snapshots in the source Consistency Group Snapshot."
+msgstr ""
+"Kreu kohereco grupo kiu enhavas novajn kreitajn volumojn klonitaj de ĉiu el "
+"la savkopiojn en la fonta Kohereco Grupo Savkopio."
+
+msgid "Create a Metadata Namespace"
+msgstr "Kreu Metadatuma Nomspaco"
+
+msgid "Create a New Volume"
+msgstr "Kreu novan Volumon."
+
+msgid "Create a Router"
+msgstr "Kreu Enkursigilon"
+
+msgid "Create a identity provider protocol."
+msgstr "Kreu identeco provizanto protokolo."
+
+msgid "Create a mapping."
+msgstr "Kreu mapigon."
+
+msgid "Create a new \"extra spec\" key-value pair for a volume type."
+msgstr "Kreu novan \"ekstra spec\" klavo-valoro paro por volumo tipo."
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\".\n"
+"      Valid key names are expected in the QoS specs. The acceptable values "
+"for key are\n"
+"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
+"  <br>\n"
+"  <br>\n"
+"  Example:\n"
+"  <br>\n"
+"  Key: minIOPS and Value:20 (number value less than maxIOPS)\n"
+"  <br>\n"
+"  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  <br>\n"
+"  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  "
+msgstr ""
+"Kreu novan \"spec\" klavo-valoro paro por QoS Spec \"%(qos_spec_name)s\".\n"
+"      Validaj klavo nomoj estas ekspektita en la QoS spec-oj. La akceptindaj "
+"valoroj por klavo estas\n"
+"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
+"  <br>\n"
+"  <br>\n"
+"  Ekzemple:\n"
+"  <br>\n"
+"  Klavo: minIOPS kaj Valoro:20 (nombro valoro malpli granda ol maxIOPS)\n"
+"  <br>\n"
+"  Klavo: maxIOPS kaj Valoro:5000 (nombro valoro pli granda ol minIOPS)\n"
+"  <br>\n"
+"  Klavo: burstIOPS kaj Valoro:5000 (nombro valoro pli granda ol minIOPS)\n"
+"  "
+
+msgid ""
+"Create a new network. In addition, a subnet associated with the network can "
+"be created in the following steps of this wizard."
+msgstr ""
+"Kreu novan reton. Aldone, subreto asociita kun reto povas esti kreita en la "
+"sekvantaj paŝoj de tiu asistanto."
+
+msgid "Create a new role."
+msgstr "Kreu novan rolon."
+
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr ""
+"Kreu novan uzanton kaj agordi rilatajn ecojn inkludante la  Ĉefa Projekto "
+"kaj Rolo. "
+
+msgid "Create a project to organize users."
+msgstr "Kreu projekton por organizi uzantojn."
+
+msgid "Create a snapshot for each volume contained in the Consistency Group."
+msgstr "Kreu savkopion por ĉiu volumo entenita en la Kohereco Grupo."
+
+msgid ""
+"Create a subnet associated with the network. Advanced configuration is "
+"available by clicking on the \"Subnet Details\" tab."
+msgstr ""
+"Kreu subreton asociigita kun la reto.  Altnivela agordo estas havebla "
+"klikante sur la \"Subretaj detajloj\" klavo. "
+
+msgid "Create an Encrypted Volume Type"
+msgstr "Kreu ĉifraditan Volumo Tipon"
+
+msgid "Created"
+msgstr "Kreita"
+
+#, python-format
+msgid "Created extra spec \"%s\"."
+msgstr "Kreita ekstra specifo \"%s\"."
+
+#, python-format
+msgid "Created new domain \"%s\"."
+msgstr "Estis kreita nova domajno \"%s\"."
+
+#, python-format
+msgid "Created new flavor \"%s\"."
+msgstr "Kreita nova variaĵo \"%s\"."
+
+#, python-format
+msgid "Created new host aggregate \"%s\"."
+msgstr "Nova servilo agregato kreita \"%s\"."
+
+#, python-format
+msgid "Created new project \"%s\"."
+msgstr "Estis kreita nova projekto \"%s\"."
+
+msgid "Created new volume consistency group"
+msgstr "Estas kreita nova volumo kohereco grupon"
+
+#, python-format
+msgid "Created spec \"%s\"."
+msgstr "Kreita specifo \"%s\"."
+
+msgctxt "Current status of a Volume Backup"
+msgid "Creating"
+msgstr "Estas kreanta"
+
+#, python-format
+msgid "Creating consistency group \"%s\"."
+msgstr "Kreantas Kohereco Grupo \"%s\"."
+
+#, python-format
+msgid "Creating consistency group snapshot \"%s\"."
+msgstr "Krei kohereco grupo savkopio \"%s\"."
+
+msgid ""
+"Creating encryption for a volume type causes all volumes with that volume "
+"type to be encrypted.  Encryption information cannot be added to a volume "
+"type if volumes are currently in use with that volume type."
+msgstr ""
+"Kreante ĉifradon por tiu volumo tipo kaŭzas ke ĉiuj volumoj kun tiu volumo "
+"tipo estas ĉifradita. Ĉifradan informon ne povas esti aldonita al volumo "
+"tipo kiam volumoj estas aktuale uzita kun tiu volumo tipo."
+
+#, python-format
+msgid "Creating volume backup \"%s\""
+msgstr "Kreanta volumo sekurkopion \"%s\""
+
+msgid "Current Host"
+msgstr "Aktuala Gastiganto"
+
+msgid "Current consumer"
+msgstr "Aktuala konsumanto"
+
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service."
+msgstr ""
+"Ĉi-momente nur bildigoj havebla per HTTP/HTTPS URL estas subtenata. La "
+"bildigo loko devas esti atingebla por la Bildigo servo."
+
+msgid ""
+"Currently only images uploaded from your local file system are supported."
+msgstr ""
+"Ĉi-momente nur bildoj alŝutita de via lokala dosiersistemo estas subtenata. "
+
+msgctxt "Custom style theme"
+msgid "Custom"
+msgstr "Propra"
+
+msgid "Custom Properties"
+msgstr "Propraj Ecoj"
+
+msgid "Customization Script Source"
+msgstr "Tajlorado Skripto fonto"
+
+msgid "DHCP Agents"
+msgstr "DHCP Agentoj"
+
+msgctxt "Admin state of a Network"
+msgid "DOWN"
+msgstr "MALSUPREN"
+
+msgctxt "Current status of an Image"
+msgid "Deactivated"
+msgstr "Malaktivigita"
+
+msgid "Decrypt Password"
+msgstr "Malĉifru Pasvorton"
+
+msgctxt "Default style theme"
+msgid "Default"
+msgstr "Defaŭlto"
+
+msgid "Default Quotas"
+msgstr "Defaŭltaj Kvotoj"
+
+msgid "Default quotas updated for Cinder."
+msgstr "Defaŭlt Kvotojn ĝisdatigita por Cinder."
+
+msgid "Default quotas updated for Nova."
+msgstr "Defaŭlt Kvotojn ĝisdatigita por Nova."
+
+msgid "Default quotas updated."
+msgstr "Defaŭlt Kvotojn ĝisdatigita."
+
+msgid "Defaults"
+msgstr "Defaŭltojn"
+
+msgid "Delete Consistency Group"
+msgstr "Forigu Kohereco Grupon"
+
+msgid "Delete DHCP Agent"
+msgid_plural "Delete DHCP Agents"
+msgstr[0] "Forigu DHCP Agenton"
+msgstr[1] "Forigu DHCP Agentojn"
+
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "Forigu Domajnon"
+msgstr[1] "Forigu Domajnojn"
+
+msgid "Delete Encryption"
+msgid_plural "Delete Encryptions"
+msgstr[0] "Forigu ĉifradon"
+msgstr[1] "Forigu ĉifradojn"
+
+msgid "Delete Extra Spec"
+msgid_plural "Delete Extra Specs"
+msgstr[0] "Forigu Ekstra Specifon"
+msgstr[1] "Forigu Ekstra Specifojn"
+
+msgid "Delete Flavor"
+msgid_plural "Delete Flavors"
+msgstr[0] "Forigu Variaĵo"
+msgstr[1] "Forigu Variaĵojn"
+
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "Forigu Grupon"
+msgstr[1] "Forigu Grupojn"
+
+msgid "Delete Host Aggregate"
+msgid_plural "Delete Host Aggregates"
+msgstr[0] "Forigi Servilo Agregato"
+msgstr[1] "Forigi Serviloj Agregatoj"
+
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] "Forigu Bildon"
+msgstr[1] "Forigu Bildojn"
+
+msgid "Delete Instance"
+msgid_plural "Delete Instances"
+msgstr[0] "Forigu Aperon"
+msgstr[1] "Forigu Aperojn"
+
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "Forigu Ŝlosilparon"
+msgstr[1] "Forigu Ŝlosilparojn"
+
+msgid "Delete Mapping"
+msgid_plural "Delete Mappings"
+msgstr[0] "Forigu Mapigon"
+msgstr[1] "Forigu Mapigojn"
+
+msgid "Delete Namespace"
+msgid_plural "Delete Namespaces"
+msgstr[0] "Forigu Nomspacon"
+msgstr[1] "Forigu Nomspacojn"
+
+msgid "Delete Network"
+msgid_plural "Delete Networks"
+msgstr[0] "Forigu Reto"
+msgstr[1] "Forigu Retoj"
+
+msgid "Delete Project"
+msgid_plural "Delete Projects"
+msgstr[0] "Forigu Projekton"
+msgstr[1] "Forigu Projektojn"
+
+msgid "Delete Protocol"
+msgid_plural "Delete Protocols"
+msgstr[0] "Forigu Protokolon"
+msgstr[1] "Forigu Protokolojn"
+
+msgid "Delete QoS Spec"
+msgid_plural "Delete QoS Specs"
+msgstr[0] "Forigu QoS Specifo"
+msgstr[1] "Forigu QoS Specifojn"
+
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "Forigu Rolon"
+msgstr[1] "Forigu Rolojn"
+
+msgid "Delete Snapshot"
+msgid_plural "Delete Snapshots"
+msgstr[0] "Forigu Savkopion"
+msgstr[1] "Forigu Savkopiojn"
+
+msgid "Delete Spec"
+msgid_plural "Delete Specs"
+msgstr[0] "Forigu Specifon"
+msgstr[1] "Forigu Specifojn"
+
+msgid "Delete Subnet"
+msgid_plural "Delete Subnets"
+msgstr[0] "Forigu SubReto"
+msgstr[1] "Forigu SubRetoj"
+
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "Forigu Uzanton"
+msgstr[1] "Forigu Uzantojn"
+
+msgid "Delete Volume Backup"
+msgid_plural "Delete Volume Backups"
+msgstr[0] "Forigu Volumo Sekurkopion"
+msgstr[1] "Forigu Volumo Sekurkopiojn"
+
+msgid "Delete Volume Type"
+msgid_plural "Delete Volume Types"
+msgstr[0] "Forigu Volumo Tipon"
+msgstr[1] "Forigu Volumojn Tipojn"
+
+msgid "Delete Volume on Instance Delete"
+msgstr "Forigu Volumon kun Forigo de Apero"
+
+msgid "Delete Volumes"
+msgstr "Forigu Volumojn"
+
+msgid "Delete volume when the instance is deleted"
+msgstr "Forigu volumon kiam la apero estas forigita"
+
+msgid "Deleted"
+msgstr "Forigita"
+
+msgctxt "Current status of an Image"
+msgid "Deleted"
+msgstr "Forigita"
+
+msgctxt "Current status of an Instance"
+msgid "Deleted"
+msgstr "Forigita"
+
+msgid "Deleted DHCP Agent"
+msgid_plural "Deleted DHCP Agents"
+msgstr[0] "Forigita DHCP Agento"
+msgstr[1] "Forigitaj DHCP Agentoj"
+
+msgid "Deleted Domain"
+msgid_plural "Deleted Domains"
+msgstr[0] "Forigita Domajno"
+msgstr[1] "Forigitaj Domajnoj"
+
+msgid "Deleted Encryption"
+msgid_plural "Deleted Encryptions"
+msgstr[0] "Forigita ĉifrado"
+msgstr[1] "Forigitajn ĉifradojn"
+
+msgid "Deleted Extra Spec"
+msgid_plural "Deleted Extra Specs"
+msgstr[0] "Forigita Ekstra Specifo"
+msgstr[1] "Forigita Ekstra Specifoj"
+
+msgid "Deleted Flavor"
+msgid_plural "Deleted Flavors"
+msgstr[0] "Forigita Variaĵo"
+msgstr[1] "Forigitaj Variaĵoj"
+
+msgid "Deleted Group"
+msgid_plural "Deleted Groups"
+msgstr[0] "Forigita Grupo"
+msgstr[1] "Forigitaj Grupoj"
+
+msgid "Deleted Host Aggregate"
+msgid_plural "Deleted Host Aggregates"
+msgstr[0] "Forigigita Servilo Agregato"
+msgstr[1] "Forigigitaj Serviloj Agregatoj"
+
+msgid "Deleted Image"
+msgid_plural "Deleted Images"
+msgstr[0] "Forigita Bildo"
+msgstr[1] "Forigitaj Bildoj"
+
+msgid "Deleted Key Pair"
+msgid_plural "Deleted Key Pairs"
+msgstr[0] "Forigita Ŝlosilparo"
+msgstr[1] "Forigitaj Ŝlosilparoj"
+
+msgid "Deleted Mapping"
+msgid_plural "Deleted Mappings"
+msgstr[0] "Forigita Mapigo"
+msgstr[1] "Forigitaj Mapigoj"
+
+msgid "Deleted Namespace"
+msgid_plural "Deleted Namespaces"
+msgstr[0] "Forigita Nomspaco"
+msgstr[1] "Forigitaj Nomspacoj"
+
+msgid "Deleted Network"
+msgid_plural "Deleted Networks"
+msgstr[0] "Forigita Reto"
+msgstr[1] "Forigitaj Retoj"
+
+msgid "Deleted Project"
+msgid_plural "Deleted Projects"
+msgstr[0] "Forigita Projekto"
+msgstr[1] "Forigitaj Projektoj"
+
+msgid "Deleted Protocol"
+msgid_plural "Deleted Protocols"
+msgstr[0] "Forigita Protokolo"
+msgstr[1] "Forigitaj Protokoloj"
+
+msgid "Deleted QoS Spec"
+msgid_plural "Deleted QoS Specs"
+msgstr[0] "Forigita QoS Specifon"
+msgstr[1] "Forigitaj QoS Specifojn"
+
+msgid "Deleted Role"
+msgid_plural "Deleted Roles"
+msgstr[0] "Forigita Rolo"
+msgstr[1] "Forigitaj Roloj"
+
+msgid "Deleted Spec"
+msgid_plural "Deleted Specs"
+msgstr[0] "Forigita Specifo"
+msgstr[1] "Forigitaj Specifoj"
+
+msgid "Deleted Subnet"
+msgid_plural "Deleted Subnets"
+msgstr[0] "Forigita SubReto"
+msgstr[1] "Forigitaj SubRetoj"
+
+msgid "Deleted User"
+msgid_plural "Deleted Users"
+msgstr[0] "Forigita Uzanto"
+msgstr[1] "Forigitaj Uzantoj"
+
+msgid "Deleted Volume Type"
+msgid_plural "Deleted Volume Types"
+msgstr[0] "Forigita Volumo Tipo"
+msgstr[1] "Forigita Volumoj Tipoj"
+
+msgid "Deleted images are not recoverable."
+msgstr "Forigitaj bildoj ne estas nerestaŭrebla."
+
+msgid "Deleted instances are not recoverable."
+msgstr "Forigitaj interfacoj ne estas nerestaŭrebla."
+
+msgid "Deleted volume backups are not recoverable."
+msgstr "Forigita volumo sekurkopiojn ne estas restaŭrigebla."
+
+msgctxt "Current status of a Volume Backup"
+msgid "Deleting"
+msgstr "Esti Foriganta"
+
+msgctxt "Task status of an Instance"
+msgid "Deleting"
+msgstr "Foriganta"
+
+#, python-format
+msgid "Deleting volume consistency group \"%s\""
+msgstr "Forigas volume koherenco grupo \"%s\""
+
+msgid "Description"
+msgstr "Priskribo"
+
+msgid "Description is required."
+msgstr "Priskribo nepras."
+
+msgid "Description:"
+msgstr "Priskripo:"
+
+msgid "Destination Host"
+msgstr "Celo Gastiganto"
+
+msgid "Detach Interface"
+msgstr "Malligu Interfacon"
+
+msgid "Detach Volume"
+msgstr "Malligu Volumon"
+
+msgid "Detach Volume from Running Instance."
+msgstr "Malligu Volumon de kuranta Apero."
+
+msgid "Detach a Volume"
+msgstr "Malligu Volumon"
+
+#, python-format
+msgid "Detached interface %(port)s for instance %(instance)s."
+msgstr "Malligita interfaco %(port)s por apero %(instance)s."
+
+#, python-format
+msgid "Detaching volume %(vol)s from instance %(inst)s."
+msgstr "Malligi volumon %(vol)s de apero %(inst)s."
+
+msgid "Details"
+msgstr "Detajloj"
+
+msgid "Developer"
+msgstr "Programisto"
+
+msgid "Device ID"
+msgstr "Uzaĵo ID"
+
+msgid "Device ID attached to the port."
+msgstr "Uzaĵo ID alkroĉita al la pordo. "
+
+msgid "Device Name"
+msgstr "Funkciilo Nomo"
+
+msgid "Device Owner"
+msgstr "Uzaĵo Posedanto"
+
+msgid "Device owner attached to the port."
+msgstr "Uzaĵo Posedanto alkroĉita al la pordo."
+
+msgid "Device size (GB)"
+msgstr "Funkciilo grando (GB)"
+
+msgid "Direct"
+msgstr "Direkta"
+
+msgid "Direct Input"
+msgstr "Rekta Enigo "
+
+msgid "Direct Physical"
+msgstr "Direkta fisika"
+
+msgid "Disable Domain"
+msgid_plural "Disable Domains"
+msgstr[0] "Malebligu Domajnon"
+msgstr[1] "Malebligu Domajnojn"
+
+msgid "Disable Domains"
+msgstr "Malebligu Domajnon"
+
+msgid "Disable Gateway"
+msgstr "Malebligu Kluzon"
+
+msgid "Disable Service"
+msgstr "Malvalidigu Servo  "
+
+msgid "Disable User"
+msgid_plural "Disable Users"
+msgstr[0] "Malebligu Uzanton"
+msgstr[1] "Malebligu Uzantojn"
+
+msgid "Disable the compute service."
+msgstr "Malvalidigu la komputa servo. "
+
+msgid "Disabled"
+msgstr "Malvalidigita"
+
+msgctxt "Current status of a Hypervisor"
+msgid "Disabled"
+msgstr "Malvalidigita"
+
+msgid "Disabled Domain"
+msgid_plural "Disabled Domains"
+msgstr[0] "Malebligita Domajno"
+msgstr[1] "Malebligita Domajnoj"
+
+msgid "Disabled User"
+msgid_plural "Disabled Users"
+msgstr[0] "Malebligita Uzanto"
+msgstr[1] "Malebligitaj Uzantoj"
+
+#, python-format
+msgid "Disabled compute service for host: %s."
+msgstr "Malvalidigita komputa servo por gastiganto: %s."
+
+msgid "Disassociate"
+msgstr "Malasocigu"
+
+msgid "Disassociate Floating IP"
+msgstr "Malasociigu Glitan IP-on"
+
+msgid "Disk"
+msgstr "Disko"
+
+msgid "Disk (GB)"
+msgstr "Disko (GB)"
+
+msgid "Disk Format"
+msgstr "Disko Formato"
+
+msgid "Disk Over Commit"
+msgstr "Disko Plusa Debito"
+
+msgid "Disk Partition"
+msgstr "Subdisko  "
+
+msgid "Display Name"
+msgstr "Ekrano Nomo"
+
+msgid ""
+"Do not use a colon ':' with OS::Glance::Images. This resource type does not "
+"support the use of colons."
+msgstr ""
+"Ne uzu dupunkto':' kun OS::Glance::Images. Tiu risurco tipo ne subtenas la "
+"uzado de dupunktoj."
+
+msgid "Docker"
+msgstr "Docker"
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "Docker"
+
+#, python-format
+msgid "Domain \"%s\" must be disabled before it can be deleted."
+msgstr "Domajno \"%s\" devas esti malebligita antaŭ ĝi povas esti forigita."
+
+msgid "Domain Context cleared."
+msgstr "Domajno Kunteksto vakigita."
+
+#, python-format
+msgid "Domain Context updated to Domain %s."
+msgstr "Domajno Kuntektso ĝisdatigita al Domajno %s."
+
+msgid "Domain Groups"
+msgstr "Domajno Grupoj"
+
+msgid "Domain ID"
+msgstr "Domajno ID-on"
+
+msgid "Domain Information"
+msgstr "Domajno Informo"
+
+msgid "Domain Members"
+msgstr "Domajno Membroj"
+
+msgid "Domain Name"
+msgstr "Domajno Nomo"
+
+msgid "Domains"
+msgstr "Domajno"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr ""
+"Domajnoj provizas apartigon inter uzantoj kaj infrastrukturo uzita de aliaj "
+"organisacioj."
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations. Edit the domain details to add or remove groups in "
+"the domain."
+msgstr ""
+"Domajnoj provizas apartigon inter uzantoj kaj infrastrukturo uzita de aliaj "
+"organisacioj. Redaktu la domajno detajlon por aldoni aŭ forigi grupojn en la "
+"domajno."
+
+msgid "Down"
+msgstr "Malaktiva"
+
+msgctxt "Current state of a Hypervisor"
+msgid "Down"
+msgstr "Malaktiva"
+
+msgctxt "Current status of a Floating IP"
+msgid "Down"
+msgstr "Malsupren"
+
+msgctxt "Current status of a Network"
+msgid "Down"
+msgstr "Malŝaltita"
+
+msgid "Download OpenStack RC File"
+msgstr "Elŝuti OpenStack RC Dosiero"
+
+msgid "EC2 Access Key"
+msgstr "EC2 Aliro Klavo"
+
+msgid "EC2 Credentials"
+msgstr "EC2 legitimaĵojn"
+
+msgid "EC2 Secret Key"
+msgstr "EC2 Sekreto Klavo"
+
+msgid "EC2 URL"
+msgstr "EC2 URL"
+
+msgid ""
+"Each QoS Specs entity will have a \"Consumer\" value which indicates where "
+"the administrator would like the QoS policy to be enforced. This value can "
+"be \"front-end\" (Nova Compute), \"back-end\" (Cinder back-end), or \"both\"."
+msgstr ""
+"Ĉiu QoS Specifo ento havos \"Konsumanto\" valoro kiu indikas kie la "
+"administratoro volus la QoS regularo efikigita. Tiu valoro povas esti "
+"\"fasada\" (Nova Compute), \"interna\" (Cinder back-end), or \"ambaŭ\"."
+
+msgid "Edit"
+msgstr "Redakti"
+
+msgid "Edit Access"
+msgstr "Redakti Aliro"
+
+msgid "Edit Consistency Group"
+msgstr "Redaktu Kohereco Group"
+
+msgid "Edit Consumer"
+msgstr "Redaktu Konsumanto"
+
+msgid "Edit Domain"
+msgstr "Redaktu Domajno"
+
+#, python-format
+msgid "Edit Extra Spec Value: %s"
+msgstr "Redaktu Ekstra Specifo Valoro: %s"
+
+msgid "Edit Flavor"
+msgstr "Redaktu Variaĵo"
+
+msgid "Edit Group"
+msgstr "Redaktu Grupo"
+
+msgid "Edit Host Aggregate"
+msgstr "Redaktu Servilo Agregato"
+
+msgid "Edit Image"
+msgstr "Redaktu Bildigon"
+
+msgid "Edit Instance"
+msgstr "Redaktu Aperon"
+
+msgid "Edit Metadata Namespace"
+msgstr "Redaktu Metadatuma Nomspaco"
+
+msgid "Edit Namespace"
+msgstr "Redaktu Nomspacon"
+
+msgid "Edit Namespace Attributes"
+msgstr "Reduktu Nomspaco atributoj"
+
+msgid "Edit Network"
+msgstr "Redakti Reton"
+
+msgid "Edit Project"
+msgstr "Redaktu Projekton"
+
+msgid "Edit Public/Protected attributes for the namespace."
+msgstr "Redaktu Puplikajn/Protektitajn atributojn por la Nomspaco."
+
+msgid "Edit QoS Spec Consumer"
+msgstr "Redaktu QoS Spec Konsumanto"
+
+msgid "Edit Security Groups"
+msgstr "Redaktu Sekureco Grupojn"
+
+msgid "Edit Spec"
+msgstr "Redakti Spec-on"
+
+msgid "Edit Subnet"
+msgstr "Redakti Subreton"
+
+msgid "Edit Volume Type"
+msgstr "Redaktu Volumo Tipon"
+
+msgid "Edit Volume Type Access"
+msgstr "Redaktu Volumo Tipo aliron"
+
+msgid "Edit Volume Type Extra Spec"
+msgstr "Redaktu Volumo Tipo Ekstra Specifo"
+
+msgid ""
+"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
+"cores, and other resources. Flavors are selected when users deploy instances."
+msgstr ""
+"Redaktu la variaĵo   detajloj. Variaĵoj difinas la grandoj por RAM, diskojn, "
+"nombro de kernoj, kaj aliaj risurcoj.    "
+
+msgid "Edit the identity provider's details."
+msgstr "Redaktu la identeco provizanto detajlojn."
+
+msgid "Edit the image details."
+msgstr "Redaktu bildiga detajlojn."
+
+msgid "Edit the instance details."
+msgstr "Redaktu apero detajlojn."
+
+msgid "Edit the mapping's details."
+msgstr "Redaktu la detajloj de la mapigo"
+
+msgid "Edit the project details."
+msgstr "Redaktu projekto detajlojn."
+
+msgid "Edit the role's details."
+msgstr "Redaktu rolo detajlojn."
+
+msgid "Edit the user's details, including the Primary Project."
+msgstr "Redaktu la uzanto detajloj, inkludante la Ĉefan Projekton."
+
+msgid "Edit {{ qos_spec_name }} Spec Value"
+msgstr "Redaktu {{ qos_spec_name }} Specifo Valoro"
+
+msgid "Email"
+msgstr "Retpoŝtadreso"
+
+msgid "Enable Admin State"
+msgstr "Ebligi Admin Statuson"
+
+msgid "Enable Domain"
+msgid_plural "Enable Domains"
+msgstr[0] "Ebligu Domajnon"
+msgstr[1] "Ebligu Domajnojn"
+
+msgid "Enable Domains"
+msgstr "Ebligu Domajnojn"
+
+msgid "Enable Service"
+msgid_plural "Enable Services"
+msgstr[0] "Validigu Servon"
+msgstr[1] "Validigu Servojn"
+
+msgid "Enable User"
+msgid_plural "Enable Users"
+msgstr[0] "Ebligu Uzanto"
+msgstr[1] "Ebligu Uzantoj"
+
+msgid "Enable anti-spoofing rules for the port"
+msgstr "Ebligi kontraŭ-mistifikadaj ruloj por la pordo"
+
+msgid "Enabled"
+msgstr "Validigita"
+
+msgctxt "Current status of a Hypervisor"
+msgid "Enabled"
+msgstr "Validigita"
+
+msgid "Enabled ="
+msgstr "Ebligita ="
+
+msgid "Enabled Domain"
+msgid_plural "Enabled Domains"
+msgstr[0] "Ebligita Domajno"
+msgstr[1] "Ebligita Domajnoj"
+
+msgid "Enabled Service"
+msgid_plural "Enabled Services"
+msgstr[0] "Validigita Servo"
+msgstr[1] "Validigitaj Servoj"
+
+msgid "Enabled User"
+msgid_plural "Enabled Users"
+msgstr[0] "Ebligita Uzanto"
+msgstr[1] "Ebligitaj Uzantoj"
+
+msgid "Encrypted ="
+msgstr "Ĉifrita ="
+
+msgid "Encrypted Password"
+msgstr "Ĉifrita Pasvorto"
+
+msgid "Encryption"
+msgstr "Ĉifradon"
+
+msgid ""
+"Encryption information cannot be updated for a volume type if volumes are "
+"currently in use with the volume type."
+msgstr ""
+"Ĉifrado informo  ne povas esti ĝisdatigita por volumo tipo kiam volumojn "
+"estas dum tio uzita kun volumo tipo."
+
+msgid "Endpoints"
+msgstr "Finpunktoj"
+
+msgid "Enter Network Address manually"
+msgstr "Entajpi RetAdreson manuale"
+
+msgid "Ephemeral Disk"
+msgstr "Provizora Disko"
+
+msgid "Ephemeral Disk (GB)"
+msgstr "Provizora Disko (GB)"
+
+msgctxt "Current status of Consistency Group"
+msgid "Error"
+msgstr "Eraro"
+
+msgctxt "Current status of Consistency Group Snapshot"
+msgid "Error"
+msgstr "Eraro"
+
+msgctxt "Current status of a Floating IP"
+msgid "Error"
+msgstr "Eraro"
+
+msgctxt "Current status of a Network"
+msgid "Error"
+msgstr "Eraro"
+
+msgctxt "Current status of a Volume Backup"
+msgid "Error"
+msgstr "Eraro"
+
+msgctxt "Current status of an Instance"
+msgid "Error"
+msgstr "Eraro"
+
+#, python-format
+msgid "Error Downloading RC File: %s"
+msgstr "Eraro Elŝutante RC File: %s"
+
+msgctxt "Current status of a Volume Backup"
+msgid "Error Restoring"
+msgstr "Eraro Restaŭriganta"
+
+msgid "Error adding Hosts to the aggregate."
+msgstr "Eraro aldoni Gastigoj al la agregato."
+
+msgid "Error editing QoS Spec consumer."
+msgstr "Eraro redakti QoS Spec konsumanto."
+
+msgid "Error getting metadata definitions."
+msgstr "Erara ricevi metadatumajn difinojn."
+
+msgid "Error getting resource type associations."
+msgstr "Eraro ricevi risurco tipo asociojn."
+
+msgid "Error updating QoS Spec association."
+msgstr "Eraron ĝisdatigi QoS Spec asocion."
+
+msgid "Error updating attributes for namespace."
+msgstr "Eraro ĝisdatigi atributoj por nomspaco."
+
+#, python-format
+msgid "Error updating resource types for namespace %s."
+msgstr "Eraro ĝisdatigi risurco tipojnpor nomspaco %s."
+
+msgid "Error when adding or removing hosts."
+msgstr "Eraro kiam aldoni au forigi Gastigojn."
+
+#, python-format
+msgid "Error writing zipfile: %(exc)s"
+msgstr "Eraro skribi zipdosiero: %(exc)s"
+
+msgid "Errors occurred in deleting consistency group."
+msgstr "Eraroj okazis forigante koherenco grupo."
+
+msgid "Errors occurred in removing volumes from consistency group."
+msgstr "Eraroj okazis dum forigante volumojn de koherenco grupo."
+
+msgid "Evacuate Host"
+msgstr "Evakuiu gastiganto"
+
+msgid ""
+"Evacuate the servers from the selected down host to an active target host."
+msgstr ""
+"Evakuiu la servilojn de la selektita malvalidigita gastiganto al aktiva "
+"celgastiganto."
+
+msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
+"For <tt>mod_auth_mellon</tt>, this could be <tt>MELLON_IDP</tt>."
+msgstr ""
+"Ekzemple: Por <tt>mod_shib</tt> tiu estus <tt>Shib-Identity-Provider</tt>, "
+"por <tt>mod_auth_openidc</tt>, tiu povus esti <tt>HTTP_OIDC_ISS</tt>. Por "
+"<tt>mod_auth_mellon</tt>, tiu povus esti <tt>MELLON_IDP</tt>."
+
+msgid ""
+"Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
+"Topology namespace so that the properties will be prefixed with 'hw:' when "
+"applied to flavors."
+msgstr ""
+"Ekzemple: La prefikso'hw:' estas aldonita al OS::Nova::Flavor por la "
+"Virtuala CPU Topologio nomspaco por ke la ecoj estos prefiksita kun 'hw:' "
+"kiam aplikata al gustojn."
+
+msgid "External"
+msgstr "Ekstera"
+
+msgid "External ="
+msgstr "Ekstera ="
+
+msgid "External Network"
+msgstr "Eksterna reto"
+
+msgid "Extra Specs"
+msgstr "Ekstra Specifojn"
+
+msgctxt "Power state of an Instance"
+msgid "Failed"
+msgstr "Malsukcesita"
+
+#, python-format
+msgid ""
+"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
+"quotas."
+msgstr ""
+"Malsukcesis aldoni %(users_to_add)s projekto membrojn %(group_msg)s kaj "
+"agordi projekto kvotojn."
+
+#, python-format
+msgid "Failed to add %s project groups and update project quotas."
+msgstr "Malsukcesis aldoni %s projekto grupojn kaj ĝisdatigi projekto kvotojn."
+
+#, python-format
+msgid "Failed to add agent %(agent_name)s for network %(network)s."
+msgstr "Malsukcesis aldoni agenton %(agent_name)s pro reto %(network)s."
+
+#, python-format
+msgid "Failed to add project %(project)s to volume type access."
+msgstr "Malsukcesis aldoni projekton %(project)s al volumo tipo aliro."
+
+msgid "Failed to check if network-ip-availability extension is supported."
+msgstr "Neeblas validi se reto-ip-disponeblon etendaĵo estas subtenita."
+
+#, python-format
+msgid "Failed to create a port for network %s"
+msgstr "Malsukcesis krei pordon por la reto %s"
+
+#, python-format
+msgid "Failed to create network %s"
+msgstr "Malsukcesis krei  reto %s"
+
+#, python-format
+msgid "Failed to delete agent: %s"
+msgstr "Malsukcesis forigi agenton: %s"
+
+#, python-format
+msgid ""
+"Failed to delete network %(network_name)s. Most possible case is that one or "
+"more ports still exist on the requested network."
+msgstr ""
+"Malsukcesis forigi reto %(network_name)s. Pli verŝaina kazo estas ke unu aŭ "
+"plida pordoj ankoraŭ ekzistas je la petita reto."
+
+#, python-format
+msgid "Failed to delete network %s"
+msgstr "Malsukcesis forigi reto %s"
+
+#, python-format
+msgid "Failed to delete subnet %s"
+msgstr "Malsukcesis forigi subreto %s"
+
+#, python-format
+msgid "Failed to disable compute service for host: %s."
+msgstr "Malsukceso malvalidigi komputa servo por gastiganto: %s. "
+
+#, python-format
+msgid "Failed to evacuate host: %s."
+msgstr "Malsukcesis  evakuii gastiganton: %s."
+
+#, python-format
+msgid "Failed to evacuate instances: %s"
+msgstr "Malsukcesis to evakui instancojn: %s"
+
+msgid "Failed to get availability zone list."
+msgstr "Malsukcesis trovi disponebleca zono listo."
+
+#, python-format
+msgid "Failed to get mapping list %s"
+msgstr "Malsukcesis recevi mapiga listo %s"
+
+msgid "Failed to get network list {0}"
+msgstr "Neeblas ricevi reto listo {0}"
+
+msgid "Failed to live migrate instance to a new host."
+msgstr "Malsukcesis tuja transmeto de la apero al freŝa gastiganto."
+
+#, python-format
+msgid "Failed to live migrate instance to host \"%s\"."
+msgstr "Malsukcesis tuja transmeto de la apero al gastiganto: \"%s\"."
+
+#, python-format
+msgid "Failed to migrate host \"%s\"."
+msgstr "Malsukcesis migradi gastiganto: \"%s\"."
+
+#, python-format
+msgid "Failed to migrate instances: %s"
+msgstr "Malsukcesis migradi instancojn: %s"
+
+msgid "Failed to migrate volume."
+msgstr "Malsukcesis migri volumon."
+
+#, python-format
+msgid ""
+"Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
+"project quotas."
+msgstr ""
+"Malsukcesis modifi %(users_to_modify)s projekto membrojn%(group_msg)s kaj "
+"ĝisdatigi projekto kvotojn."
+
+#, python-format
+msgid "Failed to modify %s domain groups."
+msgstr "Malsukcesis modifi %s domajno grupojn."
+
+#, python-format
+msgid "Failed to modify %s project members and update domain groups."
+msgstr "Malsukcesis modifi %s projekto membrojn kaj ĝisdatigi domajno grupojn."
+
+#, python-format
+msgid ""
+"Failed to modify %s project members, update project groups and update "
+"project quotas."
+msgstr ""
+"Malsukcesis modifi %s projekto membrojn,  ĝisdatigi projekto grupojn kaj "
+"ĝisdatigi \n"
+" projekto kvotojn."
+
+#, python-format
+msgid ""
+"Failed to perform requested operation on instance \"%s\", the instance has "
+"an error status"
+msgstr ""
+"Malsukcesis plenumi petitan operacion al la apero \"%s\", la apero havas "
+"erara stato"
+
+#, python-format
+msgid "Failed to remove project %(project)s from volume type access."
+msgstr "Malsukcesis forigi projekton %(project)s de volumo tipo aliro."
+
+#, python-format
+msgid "Failed to retrieve network %s for a subnet"
+msgstr "Malsukcesis ricevi reton %s por la subreto"
+
+#, python-format
+msgid "Failed to update network %s"
+msgstr "Malsukcesis ĝisdatigi reto %s"
+
+msgid "False"
+msgstr "Malprava"
+
+msgid "Fault"
+msgstr "Eraro"
+
+msgid "File"
+msgstr "Dosiero"
+
+msgid "File exceeds maximum size (16kb)"
+msgstr "Dosiero transpasas maximuman grandon (16kb)"
+
+msgid "Filter"
+msgstr "Filtrilo"
+
+msgid "Filter by an ISO 8061 formatted time, e.g. 2016-06-14T06:27:59Z"
+msgstr "Filtrilo de ISO 8061 formatita tempo, ekz. 2016-06-14T06:27:59Z"
+
+msgid "Fingerprint"
+msgstr "Fingrospuro"
+
+msgctxt "Task status of an Instance"
+msgid "Finishing Resize or Migrate"
+msgstr "Ĉesigi Regrandigon aŭ Migradon"
+
+msgid "Fixed IP Address"
+msgstr "Fiksita IP Adreso"
+
+msgid "Fixed IPs"
+msgstr "Fiksitaj IP-oj"
+
+msgid "Flat"
+msgstr "Plata"
+
+msgid "Flavor"
+msgstr "Variaĵo"
+
+msgid "Flavor Access"
+msgstr "Variaĵo Aliro"
+
+msgid "Flavor Choice"
+msgstr "Variaĵo Elekto   "
+
+msgid "Flavor Details"
+msgstr "Variaĵo Detajloj"
+
+#, python-format
+msgid "Flavor Details: %(name)s\">%(name)s"
+msgstr "Variaĵo Detajloj: %(name)s\">%(name)s"
+
+msgid "Flavor ID"
+msgstr "Variaĵo ID"
+
+msgid "Flavor ID ="
+msgstr "Variaĵo ID ="
+
+msgid ""
+"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
+"to set a random UUID4."
+msgstr ""
+"Variaĵo ID devus esti UUID4 aŭ entjero. Lasu tiun kampon malplena  blank aŭ "
+"uzu 'auto' por apliki  hazarda UUID4."
+
+msgid "Flavor Information"
+msgstr "Variaĵo Informo"
+
+msgid "Flavor Name"
+msgstr "Variaĵo Nomo"
+
+msgid "Flavor Name ="
+msgstr "Variaĵo Nomo ="
+
+msgid "Flavor name cannot be empty."
+msgstr "Variaĵo Nomo ne povas esti malplena."
+
+msgid "Flavors"
+msgstr "Variaĵoj"
+
+msgid ""
+"Flavors define the sizes for RAM, disk, number of cores, and other resources "
+"and can be selected when users deploy instances."
+msgstr ""
+"Variaĵoj difinas la grandojn por RAM, diskoj, nombro de kernoj, kaj aliaj "
+"risurcoj kaj povas esti elektitaj kiam uzantoj disponigas ekzemplerojn."
+
+msgid "Floating IP"
+msgstr "Glita IP"
+
+msgid "Floating IP Address (optional)"
+msgstr "glidanta IP Adreso (nedeviga)"
+
+msgid "Floating IP Address ="
+msgstr "Glita IP Adreso ="
+
+msgid "Floating IP Details"
+msgstr "Glidanta IP detajloj"
+
+msgid "Floating IP address"
+msgstr "glidanta IP Adreso"
+
+msgid "Floating IPs"
+msgstr "Glitantaj IP-oj"
+
+msgid "Floating IPs:"
+msgstr "Glitaj IPoj:"
+
+#, python-format
+msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
+msgstr "Por %(type)s retoj, validaj ID-oj estas %(min)s al %(max)s."
+
+#, python-format
+msgid ""
+"For a %(network_type)s network, valid segmentation IDs are %(min)s through "
+"%(max)s."
+msgstr ""
+"Por  %(network_type)s network, valida segmentado ID-oj estas %(min)s ĝis "
+"%(max)s."
+
+msgid "Force Host Copy"
+msgstr "Devigu Gastiganto Kopion"
+
+msgid "Form Builder"
+msgstr "Forma Konstruilo"
+
+msgid "Format"
+msgstr "Formato"
+
+msgid "Format ="
+msgstr "Formato ="
+
+msgid "Free IPs"
+msgstr "Liberaj IP-oj"
+
+msgid "From here you can add a DHCP agent for the network."
+msgstr "De ĉi tie vi povas aldoni DHCP agenton por la reto."
+
+msgid "From here you can allocate a floating IP to a specific project."
+msgstr "De ĉi tie vi povas asigni glidanta IP al specifa projekto."
+
+msgid "From here you can create a snapshot of a volume."
+msgstr "De ĉi tie vi povas krei savkopion de unu volumo."
+
+msgid "From here you can update the default quotas (max limits)."
+msgstr "De ĉi-tie vi povas ĝisdatigi  la defaŭltajn kvotojn (max limoj)."
+
+msgid "GB"
+msgstr "GB"
+
+msgid "GRE"
+msgstr "GRE"
+
+msgid "Gateway IP"
+msgstr "Kluzo IP"
+
+msgid "Geneve"
+msgstr "Geneve"
+
+msgid "Go"
+msgstr "Iru"
+
+msgid "Graph"
+msgstr "Diagramo"
+
+#, python-format
+msgid "Group \"%s\" was successfully created."
+msgstr "Grupo \"%s\" sukcese kreita."
+
+msgid "Group ID"
+msgstr "Grupo ID-o"
+
+msgid "Group ID ="
+msgstr "Grupo ID-o ="
+
+msgid "Group Management"
+msgstr "Grupo Mastrumado"
+
+msgid "Group Management: {{ group.name }}"
+msgstr "Grupo Mastrumado: {{ group.name }}"
+
+msgid "Group Members"
+msgstr "Grupo Membroj"
+
+msgid "Group Name ="
+msgstr "Grupo Nomo ="
+
+msgid "Group has been updated successfully."
+msgstr "Grupo sukcese ĝisdatigita."
+
+msgid "Groups"
+msgstr "Grupoj"
+
+msgid ""
+"Groups are used to manage access and assign roles to multiple users at once. "
+"After creating the group, edit the group to add users."
+msgstr ""
+"Grupoj estas uzita por mastrumi aliron kaj atribui rolojn al pluropajn "
+"uzantojn tujmomente. Post kreinta la grupon, redaktu la grupo por aldoni "
+"uzantojn"
+
+msgid ""
+"Groups are used to manage access and assign roles to multiple users at once. "
+"Edit the group's name and description."
+msgstr ""
+"Grupoj estas uzita por mastrumi aliron kaj atribui rolojn al pluropajn "
+"uzantojn tujmomente. Redaktu la grupo nomo and priskribon."
+
+msgctxt "Current status of an Instance"
+msgid "Hard Reboot"
+msgstr "Malvarma restarto"
+
+msgid "Hard Reboot Instance"
+msgid_plural "Hard Reboot Instances"
+msgstr[0] "Malvarme Restarti Aperon"
+msgstr[1] "Malvarme Restarti Aperojn"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Pending"
+msgstr "Malvarma Restartigo Pritraktota"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Started"
+msgstr "Malvarma Restartigo Ekkomencita "
+
+msgid "Hard Rebooted Instance"
+msgid_plural "Hard Rebooted Instances"
+msgstr[0] "Malvarme restartigita apero"
+msgstr[1] "Malvarme restartigita aperoj"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Rebooting"
+msgstr "Malvarma Restartigo"
+
+msgid "Host"
+msgstr "Gastiganto"
+
+msgid "Host ="
+msgstr "Gastiganto ="
+
+msgid "Host Aggregate Information"
+msgstr "Servilo Agregato Informo"
+
+msgid "Host Aggregates"
+msgstr "Serviloj Agregatoj"
+
+msgid "Host Name ="
+msgstr "Gastiganto Nomo  ="
+
+msgid ""
+"Host aggregates divide an availability zone into logical units by grouping "
+"together hosts. Create a host aggregate then select the hosts contained in "
+"it."
+msgstr ""
+"Servilo agregatoj dividas disponeblan zonon en  abstraktajn unuojn per "
+"grupigi  servilojn. Kreu servilo agregato kaj poste elektu  la servilojn  "
+"entenata enen."
+
+msgid ""
+"Host aggregates divide an availability zone into logical units by grouping "
+"together hosts. Edit the aggregate host to select hosts contained in it."
+msgstr ""
+"Gastigo agregatoj dividas disponeblan zonon en abstraktajn unuojn per "
+"grupigi  servilojn. Redaktu gastigo agregato por elekti la gastigojn  "
+"entenata."
+
+msgid "Hostname"
+msgstr "Servilonomo"
+
+msgid "Hosts"
+msgstr "Serviloj"
+
+msgid "Hypervisor"
+msgstr "Virtuala-maŝinmonitoro"
+
+msgid "Hypervisor Instances"
+msgstr "Virtuala-maŝinmonitoro  Aperoj"
+
+msgid "Hypervisor Servers"
+msgstr "Virtuala-maŝinmonitoraj  Serviloj"
+
+msgid "Hypervisor Summary"
+msgstr "Virtuala-maŝinmonitoraj  Rezumo"
+
+msgid "Hypervisors"
+msgstr "Virtualaj maŝinmonitoroj"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP Address"
+msgstr "IP Adreso"
+
+msgid "IP Addresses"
+msgstr "IP Adreso"
+
+msgid "IP Version"
+msgstr "IP Versio"
+
+#, python-format
+msgid "IP address %s associated."
+msgstr "IP adreso %s asociigita."
+
+msgid "IP address for the new port"
+msgstr "IP adreso por la nova pordo"
+
+msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
+"of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
+"2001:DB8::/48). If you use the default, leave blank. If you do not want to "
+"use a gateway, check 'Disable Gateway' below."
+msgstr ""
+"IP adreso de kluzo  (e.g. 192.168.0.254) La defaŭlta valoro estas la unuopa "
+"IP de la retadreso (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
+"2001:DB8::/48). Se vi uzas la defaŭlto, lasi malplena. Se vi ne volas uzi "
+"kluzon, agordu  'Disable Gateway' sube."
+
+msgid "IPv4 Address ="
+msgstr "IPv4 Adreso ="
+
+msgid "IPv6 Address ="
+msgstr "IPv6 Adreso ="
+
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - Lumdisko Imago"
+
+msgid "Identifier"
+msgstr "Identigilo"
+
+msgid "Identifier Type"
+msgstr "Identigilo Tipo"
+
+msgid "Identity"
+msgstr "Identeco"
+
+msgid "Identity Provider ID"
+msgstr "Identeco Provizanto ID-o"
+
+msgid "Identity Providers"
+msgstr "Identeco Provizantoj."
+
+msgid "Identity provider protocol created successfully."
+msgstr "Identeco provizanto protokolo sukcese kreita. "
+
+msgid "Identity provider registered successfully."
+msgstr "Identco provizanto sukcese registrita."
+
+msgid "Identity provider updated successfully."
+msgstr "Identeco provizanto sukcese ĝisdatigita. "
+
+msgid "Identity service does not allow editing user data."
+msgstr "Identeca servo malpermesas redakti uzanto datumon."
+
+msgid "Identity service does not allow editing user password."
+msgstr "Identeca servo malpermesas redakti uzanto pasvorto."
+
+msgid ""
+"If console is not responding to keyboard input: click the grey status bar "
+"below."
+msgstr ""
+"Se Konzolo ne respondas al klavaro enigon: kliku la grizan stato trabon "
+"suben."
+
+msgid ""
+"If no container name is provided, a default container named volumebackups "
+"will be provisioned for you. Backups will be the same size as the volume "
+"they originate from."
+msgstr ""
+"Se neniu entenilo nomo estas provizita, defaŭlta entenilo nomita "
+"volumosekurkopio estos provizita por vi. Sekurkopioj havas saman frandon "
+"kiel la volumo de ili devenas."
+
+msgid ""
+"If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
+"be a valid and direct URL to the image binary; it must also be accessible to "
+"the Image Service. URLs that redirect or serve error pages will result in "
+"unusable images."
+msgstr ""
+"Se vi elektas bildon per HTTP/HTTPS URL, la Bildo Loko Kampo DEVAS esti "
+"valida kaj rekta URL al la bildo binaro; ĝi ankaŭ devas esti alirebla al la "
+"bildo servo. URL-oj  kiuj alidirektas aŭ servas eraro paĝojn rezultas en "
+"neuzeblajn bildojn.  "
+
+msgid "Image"
+msgstr "Bildo"
+
+msgctxt "Type of an image"
+msgid "Image"
+msgstr "Bildo"
+
+msgctxt "Task status of an Instance"
+msgid "Image Backup"
+msgstr "Bildo Sekurkopio"
+
+msgid "Image File"
+msgstr "Bildo Dosiero"
+
+msgid "Image ID"
+msgstr "Bildo ID"
+
+msgid "Image ID ="
+msgstr "Bildo ID ="
+
+msgid "Image Name"
+msgstr "Bildiga Nomo"
+
+msgid "Image Name ="
+msgstr "Bildiga Nomo ="
+
+msgctxt "Task status of an Instance"
+msgid "Image Pending Upload"
+msgstr "Bildo  Alŝuto Pritraktanta"
+
+msgctxt "Task status of an Instance"
+msgid "Image Snapshot Pending"
+msgstr "Bildo Savkopio Pritraktanta "
+
+msgid "Image Source"
+msgstr "Bildo Fonto"
+
+msgctxt "Task status of an Instance"
+msgid "Image Uploading"
+msgstr "Bildo Alŝutanta"
+
+msgid "Image was successfully updated."
+msgstr "Bildo estis sukcese ĝisdatigita."
+
+msgid "Images"
+msgstr "Bildigojn"
+
+msgid ""
+"Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
+"file system."
+msgstr ""
+"Bildoj  povas esti provizita per HTTP/HTTPS URL aŭ povas esti alŝutita de "
+"via lokala dosiersistemo."
+
+msgid "Import Key Pair"
+msgstr "Importu Ŝlosilparo"
+
+msgid "Import Namespace"
+msgstr "Importu Nomspacon"
+
+msgid "Import Public Key"
+msgstr "Importu Publikan Ŝlosilon"
+
+msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr "Esti-uzita"
+
+msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "Nune uzata"
+
+msgid ""
+"Indicates whether this identity provider should accept federated "
+"authentication requests."
+msgstr "Indikas ĉu la identeco provizanto devus akcepti federiitajn petojn."
+
+msgid "Info"
+msgstr "Informo"
+
+msgid "Information"
+msgstr "Informo"
+
+msgid "Injected File Content (Bytes)"
+msgstr "Injektita Dosiero Enhavo (Bajtoj)"
+
+msgid "Injected File Content Bytes"
+msgstr "Injektitita Dosiero bajtenhavo"
+
+msgid "Injected Files"
+msgstr "Injektitaj Dosieroj"
+
+msgid "Instance"
+msgstr "Apero"
+
+msgid "Instance Action List"
+msgstr "Apero Ago Listo"
+
+msgid "Instance Admin Password"
+msgstr "Apero Admin Pasvorto"
+
+msgid "Instance Boot Source"
+msgstr "Apero Praŝargfonto"
+
+msgid "Instance Console"
+msgstr "Apero Konzolo"
+
+msgid "Instance Console Log"
+msgstr "Apero Konzolprotokolo"
+
+msgid "Instance ID"
+msgstr "Apero ID"
+
+msgid "Instance ID ="
+msgstr "Apero ID ="
+
+msgid "Instance Name"
+msgstr "Apero Nomo"
+
+msgid "Instance Name ="
+msgstr "Apero Nomo ="
+
+msgid "Instance Password is not set or is not yet available"
+msgstr "Apero Pasvorto ne estas agordita aŭ ankoraŭ ne estas disponebla "
+
+msgid "Instance Security Groups"
+msgstr "Apero Secureco Grupoj"
+
+msgid "Instance Snapshot"
+msgstr "Apero Savkopio"
+
+msgid "Instances"
+msgstr "Instancoj"
+
+msgid "Insufficient privilege level to retrieve image list."
+msgstr "Nesufiĉa privilegia nivelo por ricevi bildigo listo."
+
+msgid "Insufficient privilege level to retrieve key pair list."
+msgstr "Nesufiĉa privilegia nivelo por ricevi  ŝlosilparo listo."
+
+msgid "Insufficient privilege level to view domain information."
+msgstr "Nesufiĉa privilegio nivelo por vidi domajno informo.  "
+
+msgid "Insufficient privilege level to view group information."
+msgstr "Nesufiĉan privilegio nivelon por vidi grupan informon.  "
+
+msgid "Insufficient privilege level to view identity provider information."
+msgstr "Nesufiĉa privilegio nivelo por vidi grupan informon.  "
+
+msgid "Insufficient privilege level to view mapping information."
+msgstr "Nesufiĉan privilegio nivelon por vidi mapigo informon.  "
+
+msgid "Insufficient privilege level to view project information."
+msgstr "Nesufiĉan privilegio nivelon por vidi projekto informon.  "
+
+msgid "Insufficient privilege level to view role information."
+msgstr "Nesufiĉan privilegio nivelon por vidi rolo informon.  "
+
+msgid "Insufficient privilege level to view user information."
+msgstr "Nesufiĉa privilegio nivelo por vidi uzanto informon. "
+
+msgid "Interfaces"
+msgstr "Interfacoj"
+
+msgid "Internal:"
+msgstr "Interna:"
+
+msgid "Kernel"
+msgstr "kerno"
+
+msgid "Kernel ID"
+msgstr "Kerno ID"
+
+msgid "Key"
+msgstr "Klavo"
+
+msgid "Key Name"
+msgstr "Klavo Nomo"
+
+msgid "Key Pair"
+msgstr "Klavo Paro"
+
+msgid "Key Pair Details"
+msgstr "Ŝlosilparo Detajlojn"
+
+msgid "Key Pair Name"
+msgstr "Klavo Paro Nomo"
+
+msgid "Key Pair Name ="
+msgstr "Klavo Paro Nomo ="
+
+msgid "Key Pairs"
+msgstr "Klavo Paroj"
+
+msgid "Key Pairs are how you login to your instance after it is launched."
+msgstr ""
+"Ŝlosilparoj estas kiel vi ensalutas al via apero post kiam ĝi estas lanĉita."
+
+msgid "Key Size (bits)"
+msgstr "Ŝlosilo Grando (bitoj)"
+
+msgid ""
+"Key pair name may only contain letters, numbers, underscores, spaces, and "
+"hyphens and may not be white space."
+msgstr ""
+"Ŝlosilparo nomo devas nur enhavi literoj, nombroj, substrekojn, spacetojn, "
+"kaj streketojn kaj ne devas esti blankspaco  .   "
+
+msgid "Key pair to use for authentication."
+msgstr "Ŝlosila paro uzonta por aŭtentigon."
+
+msgid "Key-Value Pairs"
+msgstr "Klavo-Valoro Paroj"
+
+msgctxt "Current status of an Image"
+msgid "Killed"
+msgstr "Ĉesigita  "
+
+msgctxt "Time since the last update"
+msgid "Last Updated"
+msgstr "Lastfoje ĝisdatigita "
+
+msgid "Launch"
+msgstr "Startu"
+
+msgid "Launch Instance"
+msgstr "Startu Aperon"
+
+msgid "Launch Instance (Quota exceeded)"
+msgstr "Lanĉu Aperon (Kvoto transpasita)"
+
+msgid "Launch instance in these security groups."
+msgstr "Lanĉu aperon en tiu secureca grupo."
+
+msgid "Launch instance with these networks"
+msgstr "Lanĉu aperon kun tiujn retojn"
+
+msgid "Launch instance with these ports"
+msgstr "Lanĉu aperon kun tiuj pordoj"
+
+msgid ""
+"Launching multiple instances is only supported for images and instance "
+"snapshots."
+msgstr ""
+"Lanĉi plurajn aperojn nur estas subtenita por bildoj kaj aperaj savkopiojn."
+
+msgid "Length of Injected File Path"
+msgstr "Longeco de Injektita dosierindiko"
+
+msgid "Limit"
+msgstr "Limo"
+
+msgid "Live Migrate"
+msgstr "Tuja transmeto"
+
+msgid "Live Migrate Instance"
+msgstr "Tujtuje Transmeti Aperon"
+
+msgid "Live migrate an instance to a specific host."
+msgstr "Tuja transmeto  de apero al specifa gastiganto."
+
+#, python-format
+msgid "Load Balancer VIP %s"
+msgstr "Ŝarĝodistribuilo  VIP %s "
+
+msgid "Local"
+msgstr "Lokala"
+
+msgid "Local Disk Usage"
+msgstr "Loka Disko Uzado"
+
+msgid "Local Storage (total)"
+msgstr "Loka memorilo  (sume)"
+
+msgid "Local Storage (used)"
+msgstr "Loka memorilo  (uzita)"
+
+msgid "Lock Instance"
+msgid_plural "Lock Instances"
+msgstr[0] "Ŝlosu  Aperon"
+msgstr[1] "Ŝlosu  Aperojn"
+
+msgctxt "Locked status of an instance"
+msgid "Locked"
+msgstr "Ŝlosita"
+
+msgid "Locked Instance"
+msgid_plural "Locked Instances"
+msgstr[0] "Ŝlosita  Apero"
+msgstr[1] "Ŝlositaj  Aperoj"
+
+msgid "Log"
+msgstr "Protokol"
+
+msgid "Log Length"
+msgstr "Protokol Longo"
+
+msgid "Log length must be a nonnegative integer."
+msgstr "Protokol longo devas esti ne-negativa entjero"
+
+msgid "MAC Address"
+msgstr "MAC Adreso"
+
+msgid "MAC Learning State"
+msgstr "MAC Lernado Stato"
+
+msgid "MAC address for the port."
+msgstr "MAC Adreso por la pordo."
+
+msgid "MB"
+msgstr "MB"
+
+msgid "MacVTap"
+msgstr "MacVTap"
+
+msgid "Make the image visible across projects."
+msgstr "Vidigu la bildon super projektoj."
+
+msgid "Manage"
+msgstr "Mastrumu"
+
+msgid "Manage Floating IP Associations"
+msgstr "Mastrumu Glitaj IP Asociigojn"
+
+msgid "Manage Hosts"
+msgstr "Mastrumi  Servilojn"
+
+msgid "Manage Hosts Aggregate"
+msgstr "Mastrumi  Servilo Agregaton"
+
+msgid "Manage Hosts within Aggregate"
+msgstr "Mastrumu Servilojn kun agregato"
+
+msgid "Manage Members"
+msgstr "Mastrumu Membrojn"
+
+msgid "Manage Protocols"
+msgstr "Mastrumu Protokojn"
+
+msgid "Manage QoS Spec Association"
+msgstr "Mastrumu QoS Spec Asocion"
+
+msgid "Manage Specs"
+msgstr "Mastrumu Specs"
+
+msgid "Manage Volume"
+msgstr "Mastrumu Volumon"
+
+msgid "Manage Volume Types"
+msgstr "Mastrumu Volumo Tipojn"
+
+msgid "Manage Volumes"
+msgstr "Mastrumu Volumojn"
+
+msgid "Manual"
+msgstr "Permane"
+
+msgid "Mapped Fixed IP Address"
+msgstr "Mapita fiksita IP Adreso"
+
+msgid "Mapped IP Address"
+msgstr "Mapigita  IP Adreso"
+
+msgid "Mapping ID"
+msgstr "Mapiga ID-o"
+
+#, python-format
+msgid "Mapping ID \"%s\" is already used."
+msgstr "Mapigi ID-o \"%s\" jam estas uzata."
+
+msgid "Mapping created successfully."
+msgstr "Mapigon sukcese kreita."
+
+msgid "Mapping updated successfully."
+msgstr "Mapigon sukcese ĝisdatigita."
+
+msgid "Mappings"
+msgstr "Mapigojn"
+
+msgctxt "Google's Material Design style theme"
+msgid "Material"
+msgstr "Materialo"
+
+msgid "Max. Size (MB) ="
+msgstr "Max. Grando (MB) ="
+
+msgid "Memory Usage"
+msgstr "Memor Uzado"
+
+msgid "Message"
+msgstr "Mesaĝo"
+
+msgid "Metadata"
+msgstr "Metadatumo"
+
+msgid "Metadata Definition File"
+msgstr "Metadatumo Difino Dosiero"
+
+msgid "Metadata Definitions"
+msgstr "Metadatumaj Difinoj"
+
+msgid "Metadata Items"
+msgstr "Metadatuma Elementoj"
+
+msgid "MidoNet"
+msgstr "MidoNet"
+
+msgid "MidoNet Uplink"
+msgstr "MidoNet Uplink"
+
+msgid "Migrate"
+msgstr "Migru"
+
+msgid "Migrate Host"
+msgstr "Transmetu Gastiganto"
+
+msgid "Migrate Instance"
+msgid_plural "Migrate Instances"
+msgstr[0] "Transmetu Aperon"
+msgstr[1] "Transmetu Aperojn"
+
+msgid "Migrate Volume"
+msgstr "Migru Volumon"
+
+msgid ""
+"Migrate a volume to a specific host. <br> <br> Force Host Copy: Enables or "
+"disables generic host-based force-migration, which bypasses driver "
+"optimizations."
+msgstr ""
+"Migri volumon al specifa gastiganto. <br> <br> Devigu Gastiganto Kopio: "
+"Ebligas au malebligas genera gastiganto-bazita devigo-migradon, kiu "
+"preterpasas pelilo optimadojn."
+
+msgid ""
+"Migrate all instances from a host with disabled nova-compute service. "
+"Optionally you can choose type of migration. All running instances of the "
+"host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on "
+"each instance of migrated host."
+msgstr ""
+"Transmetu ĉiujn aperojn de gastiganto kun malvalidigita Nova-komputa servo. "
+"Nedeviga vi povas elekti tipon de transmeto.   Ĉiujn funkciigantajn aperojn "
+"de la gastiganto povas esti Tuje transmetita. Malvarma transmeto elprovas "
+"uzi 'nova migrate' je ĉiu apero de la transmetita gastiganto."
+
+msgctxt "Current status of an Instance"
+msgid "Migrating"
+msgstr "Migranta"
+
+msgctxt "Task status of an Instance"
+msgid "Migrating"
+msgstr "Migradanta"
+
+msgid "Migrating instances may cause some unrecoverable results."
+msgstr "Transmeti aperojn povus kaŭzi iajn nekorekteblajn rezultojn."
+
+msgid "Min Disk"
+msgstr "Min Disko"
+
+msgid "Min RAM"
+msgstr "Min RAM"
+
+msgid "Min. Size (MB) ="
+msgstr "Min. Grando (MB) ="
+
+msgid "Minimum Disk (GB)"
+msgstr "Minimuma Disko (GB)"
+
+msgid "Minimum RAM (MB)"
+msgstr "Minimuma RAM (MB)"
+
+#, python-format
+msgid "Modified domain \"%s\"."
+msgstr "Modifkita domajno \"%s\"."
+
+#, python-format
+msgid "Modified flavor \"%s\"."
+msgstr "Modifita variaĵo   \"%s\"."
+
+msgid "Modified flavor information, but unable to modify flavor access."
+msgstr "Modifita variaĵo   informo, sed neeblas modifi variaĵo aliro."
+
+#, python-format
+msgid "Modified instance \"%s\"."
+msgstr "Modifigita aperoo \"%s\"."
+
+#, python-format
+msgid "Modified project \"%s\"."
+msgstr "Modifigita projekto \"%s\"."
+
+msgid ""
+"Modified project information and members, but unable to modify project "
+"quotas."
+msgstr ""
+"Modifita projekto informo kaj membroj, sed neeblas modifi projekto kvotojn."
+
+#, python-format
+msgid "Modified volume type access: %s"
+msgstr "Modifikita volumo tipo aliro: %s"
+
+msgid "Modify Access"
+msgstr "Modifu Aliro"
+
+msgid "Modify Consumer"
+msgstr "Modifu Konsumanto"
+
+msgid "Modify Groups"
+msgstr "Modifi Grupojn"
+
+msgid "Modify Quotas"
+msgstr "Modifu Kvotojn"
+
+msgid "Modify the name and description of a volume consistency group snapshot."
+msgstr "Modifu la nomojn kaj priskribojn de volumo kohereco grupo savkopio."
+
+msgid "Modify the name and description of a volume consistency group."
+msgstr "Modifu la nomojn kaj priskribojn de volumo kohereco grupo."
+
+msgid "Modify volume type name, description, and public status."
+msgstr "Modifu volumo tipo nomo, priskriobo, kaj publika stato."
+
+msgid "Monitoring:"
+msgstr "Monitorado:  "
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Name"
+msgstr "Nomo"
+
+msgid "Name ="
+msgstr "Nomo ="
+
+msgid "Name or other identifier for existing volume"
+msgstr "Nomo aŭ alia identigilo por ekzistanta volumo"
+
+#, python-format
+msgid "Name: %(name)s ID: %(uuid)s"
+msgstr "Nomo: %(name)s ID-on: %(uuid)s"
+
+msgid "Namespace"
+msgstr "Nomspaco"
+
+#, python-format
+msgid "Namespace %s has been created."
+msgstr "Nomspaco %s estis kreita."
+
+msgid "Namespace Definition Source"
+msgstr "Nomspaco Difino Fonto "
+
+msgid "Namespace JSON"
+msgstr "Nomspaco JSON"
+
+msgid "Namespace Overview"
+msgstr "Nomspaca superrigardo"
+
+msgid "Namespace Resource Type Associations"
+msgstr "Nomspaco Risurco Tipo Asocioj"
+
+msgid "Namespace successfully updated."
+msgstr "Nomspaco sukcese ĝisdatigita."
+
+msgid "Namespaces"
+msgstr "Nomspacoj"
+
+msgid ""
+"Namespaces can be associated to different resource types. This makes the "
+"properties in the namespace visible in the 'Update Metadata' action for that "
+"type of resource."
+msgstr ""
+"Nomspacoj povas esti asociigitaj al diversaj risurco tipoj. Tio faras la "
+"ecojn en la nomspaco videbla en la 'Ĝisdatigu Metadatumo' ago por tio "
+"risurco tipo.  "
+
+msgid "Network"
+msgstr "Reto"
+
+#, python-format
+msgid "Network %s was successfully updated."
+msgstr "Reto %s  sukcese ĝisdatigita."
+
+msgid "Network Address"
+msgstr "Retadreso"
+
+msgid "Network Address Source"
+msgstr "RetAdreso Fonto"
+
+msgid "Network Agents"
+msgstr "Retaj Agentoj"
+
+msgid "Network ID ="
+msgstr "Reto ID ="
+
+msgid "Network Mask"
+msgstr "Reto Masko"
+
+msgid "Network Name"
+msgstr "Reto Nomo"
+
+msgid "Network Ports"
+msgstr "Retaj pordoj"
+
+msgid "Network QoS"
+msgstr "Reto QoS"
+
+msgid "Network QoS Policies"
+msgstr "Reto QoS Regularo"
+
+msgid "Network Topology"
+msgstr "Reto Topologio"
+
+msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
+msgstr "Retadreso en CIDR formato  (e.g. 192.168.0.0/24, 2001:DB8::/48)"
+
+msgid "Network list can not be retrieved."
+msgstr "Neeblas ricevi Reto listo."
+
+msgid "Networking"
+msgstr "Retumilanta"
+
+msgctxt "Task status of an Instance"
+msgid "Networking"
+msgstr "Retkonektadanta"
+
+msgid "Networks"
+msgstr "Retoj"
+
+msgid "Never updated"
+msgstr "Neniam ĝisdatigita"
+
+msgid "New DHCP Agent"
+msgstr "Nova DHCP Agento"
+
+msgid "New Flavor"
+msgstr "Nova Variaĵo "
+
+msgid "New Host"
+msgstr "Freŝa Gastiganto"
+
+msgid "New QoS Spec Consumer"
+msgstr "Nova QoS Spec Konsumanto"
+
+msgid "New name cannot be empty."
+msgstr "Nova nomo ne povas esti malplena."
+
+msgid "New name conflicts with another volume type."
+msgstr "Nova nomo konfliktas kun alia volumo tipo."
+
+msgid "No Host selected."
+msgstr "Neniu Servilo selektita."
+
+msgid "No Hosts found."
+msgstr "Neniu Servilo trovita"
+
+msgid "No Ports available"
+msgstr "Neniuj Pordoj havebla"
+
+msgctxt "Power state of an Instance"
+msgid "No State"
+msgstr "Neniu Stato"
+
+msgid "No assigned volumes"
+msgstr "Ne atribuitaj volumoj"
+
+msgid "No associated fixed IP"
+msgstr "Neniu asignita fiksita IP"
+
+msgid "No associations defined."
+msgstr "Neniuj asocioj difinita"
+
+msgid "No availability zones found"
+msgstr "Neniujn disponeblo zonojn trovita"
+
+msgid "No available console found."
+msgstr "Ne eblas trovi disponeblan konzolon."
+
+msgid "No available projects"
+msgstr "Neniuj haveblaj Projektoj"
+
+msgid "No flavors available"
+msgstr "Neniuj variaĵoj havebla"
+
+msgid "No flavors meet minimum criteria for selected boot source."
+msgstr ""
+"Neniuj variaĵo  plenumas minimalan kriterion por selektita praŝargfonto."
+
+msgid "No floating IP addresses allocated"
+msgstr "Neniuj glitaj IP adresoj asignitaj"
+
+msgid "No floating IP pools available"
+msgstr "Neniuj glitaj IP Komunaĵoj disponeblaj"
+
+msgid "No floating IP pools with IPv4 subnet available"
+msgstr "Neniu glidanta IP Komunaĵoj kun IPv4 subreto disponebla"
+
+msgid "No floating IPs to disassociate."
+msgstr "Neniuj glitaj IP-oj por malasociigi. "
+
+msgid "No groups found."
+msgstr "Neniuj grupoj trovitaj."
+
+msgid "No groups."
+msgstr "Neniuj grupoj."
+
+msgid "No host selected."
+msgstr "Neniu servilo selektita."
+
+msgid "No hosts found."
+msgstr "Neniujn servilojn trovita."
+
+msgid "No images available"
+msgstr "Neniuj bildoj havebla"
+
+msgid "No input was provided for the namespace content."
+msgstr "Neniu enigo estis provizita por la nomspaca enhavo."
+
+msgid "No key pairs available"
+msgstr "Neniuj klavo paroj havebla"
+
+msgid "No mappings available"
+msgstr "Neniujn mapigojn havebla"
+
+msgid "No networks available"
+msgstr "Neniuj retoj disponeblaj."
+
+msgid "No new QoS spec available"
+msgstr "Neniu nova QoS spec havebla"
+
+msgid "No other agents available."
+msgstr "Neniuj aliaj agentoj haveblaj."
+
+msgid "No other hosts available"
+msgstr "Neniuj aliaj gastigantoj havebla."
+
+msgid "No other hosts available."
+msgstr "Neniuj aliaj gastigantoj havebla."
+
+msgid "No ports available"
+msgstr "Neniuj pordoj disponebla"
+
+msgid "No project available"
+msgstr "Neniu projekto disponebla"
+
+msgid "No projects found."
+msgstr "Neniuj projektoj trovita."
+
+msgid "No projects selected. All projects can use the flavor."
+msgstr "Neniuj projektoj selektitaj. Ĉiuj projektoj povus uzi la variaĵo."
+
+msgid "No router"
+msgstr "Neniu enkursigilo   "
+
+msgid "No rules defined."
+msgstr "Neniuj reguloj definitaj.  "
+
+msgid "No security groups enabled."
+msgstr "Neniuj secureco grupoj ebilgita."
+
+msgid "No security groups found."
+msgstr "Neniuj secureco grupoj trovitaj."
+
+msgid "No server groups available"
+msgstr "Neniuj servilo grupoj haveblaj"
+
+msgid "No snapshots available"
+msgstr "Neniuj savkopioj disponeblaj."
+
+msgid "No users found."
+msgstr "Neniuj uzantoj trovita."
+
+msgid "No users."
+msgstr "Neniuj uzantoj."
+
+msgid "No volume snapshots available"
+msgstr "Neniuj volumo savkopiojn disponeblaj."
+
+msgid "No volume type"
+msgstr "Neniu volumo tipo"
+
+msgid "No volume types found."
+msgstr "Neniuj volumo tipoj trovita."
+
+msgid "No volume types selected."
+msgstr "Neniuj volumo tipoj elektitaj."
+
+msgid "No volumes attached"
+msgstr "Neniuj volumoj ligita"
+
+msgid "No volumes attached."
+msgstr "Neniuj volumoj kunligitaj."
+
+msgid "No volumes available"
+msgstr "Neniuj volumoj disponeblaj."
+
+msgid "No volumes found."
+msgstr "Neniuj volumoj trovita."
+
+msgid "No volumes selected."
+msgstr "Neniuj volumoj elektitaj."
+
+msgid "Non admin users are not allowed to make images public."
+msgstr "Neadministraj uzantoj ne estas permesita fari bildojn publika."
+
+msgid "Non-Members"
+msgstr "Ne-Membroj"
+
+msgid "Non-Public from Other Projects"
+msgstr "Ne-Publika de aliaj Projektoj"
+
+msgid "None"
+msgstr "Nenion"
+
+msgctxt "Task status of an Instance"
+msgid "None"
+msgstr "Nenion"
+
+msgid "None (removes spec)"
+msgstr "Neniun (forigas spec)"
+
+msgid "Normal"
+msgstr "Normala"
+
+msgid "Not available"
+msgstr "Ne havebla"
+
+msgid ""
+"Note that a volume can not be deleted if it is &quot;attached&quot; or has "
+"any dependent snapshots."
+msgstr ""
+"Notu ke volumo ne povas esti forigita kiam ĝi estas &quot;ligita&quot; aŭ "
+"havas iujn dependantajn savkopiojn."
+
+msgid "Note: "
+msgstr "Komento:"
+
+msgid "Number of Instances"
+msgstr "Kvanto de Aperoj"
+
+msgid "Number of Snapshots"
+msgstr "Kvanto de Savkopioj"
+
+msgid "Number of VCPUs"
+msgstr "Kvanto de VCPUs"
+
+msgid "Number of Volumes"
+msgstr "Kvanto de Volumoj"
+
+msgid "OR Copy/Paste your Private Key"
+msgstr "OR Kopii/Alglui vian Privatan Klavon"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Nefermita Virtuala Aplikaĵo "
+
+msgid "Object Store"
+msgstr "Objekto Memorilo"
+
+msgid "Old Flavor"
+msgstr "Malnova Variaĵo "
+
+msgid ""
+"Once a floating IP is released, there is no guarantee the same IP can be "
+"allocated again."
+msgstr ""
+"Kiam glita IP-o estas liberigita, tiam ne estas garantio ke la sama IP-o "
+"povas esti asignita denove."
+
+msgid "Only definitions in raw JSON format are supported."
+msgstr "Nur difinoj en kruda JSON formato estas subtenata."
+
+msgid "OpenStack Profiler"
+msgstr "OpenStack Profililo   "
+
+msgid "OpenStack RC File (Identity API v2.0)"
+msgstr "OpenStack RC Dosiero (Identeco API v2.0)"
+
+msgid "OpenStack RC File (Identity API v3)"
+msgstr "OpenStack RC Dosiero (IdentecoAPI v3)"
+
+msgid "OpenStack clouds.yaml File"
+msgstr "OpenStack clouds.yaml Dosiero"
+
+msgid "Optionally, you may choose to create a new volume."
+msgstr "Nedeviga, vi eble volus krei novan volumon."
+
+#, python-format
+msgid "Out of range float values are not JSON compliant: %r"
+msgstr "Ekstervarieja glitkoma valoroj ne estas JSON konformema: %r"
+
+msgid "Overview"
+msgstr "Superrigardo"
+
+msgid "Owner"
+msgstr "Posedanto"
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Inverscicla Disko"
+
+msgid "Password"
+msgstr "Pasvorto"
+
+msgctxt "Current status of an Instance"
+msgid "Password"
+msgstr "Pasvorto"
+
+msgid "Password changed. Please log in to continue."
+msgstr "Pasvorto estas ŝanĝita. Bonvolu ensaluti por daŭrigi."
+
+msgid "Passwords do not match."
+msgstr "Pasvortoj ne kongruas."
+
+msgctxt "Action log of an instance"
+msgid "Pause"
+msgstr "Paŭzigu"
+
+msgid "Pause Instance"
+msgid_plural "Pause Instances"
+msgstr[0] "Paŭzigu Aperon"
+msgstr[1] "Paŭzigu Aperojn"
+
+msgctxt "Current status of an Instance"
+msgid "Paused"
+msgstr "Paŭzigita "
+
+msgctxt "Power state of an Instance"
+msgid "Paused"
+msgstr "Paŭzigita "
+
+msgid "Paused Instance"
+msgid_plural "Paused Instances"
+msgstr[0] "Paŭzigita Apero"
+msgstr[1] "Paŭzigitaj Aperoj"
+
+msgctxt "Task status of an Instance"
+msgid "Pausing"
+msgstr "Paŭziganta "
+
+msgctxt "Current status of an Image"
+msgid "Pending Delete"
+msgstr "Pritraktota Forigo"
+
+msgid "Per Volume Size (GiB)"
+msgstr "Per Volumo Grando (GiB)"
+
+msgid "Physical Network"
+msgstr "Fisika reto"
+
+msgid "Please note: "
+msgstr "Bonvolu notu:"
+
+#, python-format
+msgid "Please try again later [Error: %s]."
+msgstr "Bonvolu provu denove pli poste [Error: %s]."
+
+msgid "Pool"
+msgstr "Komunaĵo "
+
+msgid "Port"
+msgstr "Pordo"
+
+#, python-format
+msgid "Port %s was successfully created."
+msgstr "Pordo %s estis sukcese kreita."
+
+msgid "Port ID ="
+msgstr "Pordo ID ="
+
+msgid "Port Security"
+msgstr "Pordo Sekureco"
+
+msgid "Port to be associated"
+msgstr "Pordo asociigonta"
+
+msgid "Ports"
+msgstr "Pordoj"
+
+msgid ""
+"Ports are optional and can be used with networks to add extra IP addresses "
+"to your instances or select specific types of ports."
+msgstr ""
+"Pordoj estas nedevigaj kaj povas esti uzitaj kun retoj por aldoni ekstrajn "
+"IP adresojn al viaj aperoj aŭ por elekti difinajn tipojn de pordoj."
+
+msgid "Power State"
+msgstr "Povo   Stato"
+
+msgctxt "Task status of an Instance"
+msgid "Powering Off"
+msgstr "Malŝalti Kurenton "
+
+msgctxt "Task status of an Instance"
+msgid "Powering On"
+msgstr "Ŝalti Kurenton"
+
+msgid "Prefix: "
+msgstr "Prefikso: "
+
+msgctxt "Task status of an Instance"
+msgid "Preparing Resize or Migrate"
+msgstr "Prepari Regrandigo aŭ Migradon"
+
+msgid "Prevent the deletion of the image."
+msgstr "Preventu la forigon de la bildo."
+
+msgid "Primary Project"
+msgstr "Unua Projekto"
+
+msgid "Primary Project ID"
+msgstr "Ĉefa Projekto ID-o"
+
+msgid "Primary Project Name"
+msgstr "Ĉefa Projekto Nomo"
+
+msgid "Private Key File"
+msgstr "Privata Klavo Dosiero"
+
+msgid "Project"
+msgstr "Projekto"
+
+msgid "Project & User"
+msgstr "Projekto & Uzanto"
+
+msgid "Project ="
+msgstr "Projekto ="
+
+msgid "Project Details"
+msgstr "Projekto Detajlojn"
+
+msgid "Project Groups"
+msgstr "Projekto Grupojn"
+
+msgid "Project ID"
+msgstr "Projekto ID"
+
+msgid "Project ID ="
+msgstr "Projekto ID-on ="
+
+msgid "Project Information"
+msgstr "Projekto Informo"
+
+msgid "Project Limits"
+msgstr "Projekto Limoj"
+
+msgid "Project Members"
+msgstr "Projekto Membrojn"
+
+msgid "Project Name"
+msgstr "Projekto Nomo"
+
+msgid "Project Name ="
+msgstr "Projekto Nomo ="
+
+msgid "Project Quotas"
+msgstr "Projekto Kvotoj"
+
+msgid "Project Usage"
+msgstr "Projekto Uzaĵo"
+
+msgid "Project Usage Overview"
+msgstr "Projekto Uzado Superrigardo"
+
+#, python-format
+msgid "Project name \"%s\" is already used."
+msgstr "Projekto nomo \"%s\" jam estas uzita."
+
+msgid "Projects"
+msgstr "Projekto"
+
+msgid "Properties Target: "
+msgstr "Eco-Celo:"
+
+msgid "Protected"
+msgstr "Protektita"
+
+msgid "Protocol ID"
+msgstr "Protokolo ID-o"
+
+#, python-format
+msgid "Protocol ID \"%s\" is already used."
+msgstr "Protokolo ID-o \"%s\" jam estas uzata."
+
+msgid "Protocols"
+msgstr "Protokolojn"
+
+msgid "Provider"
+msgstr "Provizanto"
+
+msgid "Provider Network Type"
+msgstr "Provizanto Reto Tipo"
+
+msgid "Public"
+msgstr "Publika"
+
+msgid "Public Key"
+msgstr "Publika Ŝlosilo"
+
+msgid "Public:"
+msgstr "Publika:"
+
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU Imitilo"
+
+#, python-format
+msgid "QoS Spec name \"%s\" already exists."
+msgstr "QoS Specifo Nomo \"%s\" jam ekzistas."
+
+msgid "QoS Spec to be associated"
+msgstr "QoS Spec asociigonta"
+
+msgid "QoS Spec: "
+msgstr "QoS Spec-o:"
+
+msgid "QoS Spec: {{ qos_spec_name }}"
+msgstr "QoS Specifo: {{ qos_spec_name }}"
+
+msgid "QoS Specs"
+msgstr "QoS Specifoj"
+
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>openstack volume qos create</tt> command. Once the QoS "
+"Spec gets created, click the \"Manage Specs\" button to manage the key-value "
+"specs for the QoS Spec. <br> <br> Each QoS Spec entity has a \"Consumer\" "
+"value which indicates where the administrator would like the QoS policy to "
+"be enforced. This value can be \"front-end\" (Compute back-end), \"back-end"
+"\" (Block Storage back-end), or \"both\"."
+msgstr ""
+"QoS Specifoj povas esti asociigita kun volumo tipoj. Estas uzita por mapigi "
+"al aro de qos kapabloj petita de la volumo posedanto. Tiu estas ekvivalenta "
+"al al <tt>openstack volumo qos kreu</tt> komando. Kiam la QoS Specifo estas "
+"kreita, kliku je la \"Mastrumi Specifojn\" klavon por mastrumi la klavo-"
+"valoro specifojn por la QoS Specifo. <br><br> Ĉiu QoS Specifo ento havas "
+"\"Konsumanto\" valoro kiu indikas kie la administranto volas la QoS "
+"regularon efikigita. Tiu valoro povas esti \"front-end\" (Komputila back-"
+"end), \"back-end\" (BlokMemoro), or \"ambaŭ\"."
+
+msgctxt "Current status of an Image"
+msgid "Queued"
+msgstr "Envicigita"
+
+msgid "Quota Name"
+msgstr "Kvota Nomo"
+
+#, python-format
+msgid "Quota value(s) cannot be less than the current usage value(s): %s."
+msgstr ""
+"Kvota valoro(j) ne devas esti mapli granda ol la nuna uzo valoro(j): %s."
+
+msgid "Quotas"
+msgstr "Kvotoj"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "RAM (MB)"
+msgstr "RAM (MB)"
+
+msgid "RAM (total)"
+msgstr "RAM (sume)"
+
+msgid "RAM (used)"
+msgstr "RAM (uzita)"
+
+#, python-format
+msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
+msgstr "RAM(Havebla: %(avail)s, Petita: %(req)s)"
+
+msgid "RX/TX Factor"
+msgstr "RX/TX Faktoro"
+
+msgid "RX/TX factor"
+msgstr "RX/TX faktoro"
+
+msgid "Ramdisk"
+msgstr "RAM-disko"
+
+msgid "Ramdisk ID"
+msgstr "Ram-disko ID"
+
+msgid "Raw"
+msgstr "Kruda"
+
+msgctxt "Image format for display in table"
+msgid "Raw"
+msgstr "Kruda"
+
+msgid "Reason"
+msgstr "Kialo"
+
+#, python-format
+msgid "Reason: %(disabled_reason)s"
+msgstr "Kialo: %(disabled_reason)s"
+
+msgctxt "Action log of an instance"
+msgid "Reboot"
+msgstr "Restartigu"
+
+msgctxt "Current status of an Instance"
+msgid "Reboot"
+msgstr "Restartigu"
+
+msgctxt "Task status of an Instance"
+msgid "Reboot Pending"
+msgstr "Restartigo Pritraktota"
+
+msgctxt "Task status of an Instance"
+msgid "Reboot Started"
+msgstr "Restartigo Ekkomencita "
+
+msgctxt "Task status of an Instance"
+msgid "Rebooting"
+msgstr "Restartiganta"
+
+msgctxt "Action log of an instance"
+msgid "Rebuild"
+msgstr "Rekonstrui "
+
+msgctxt "Current status of an Instance"
+msgid "Rebuild"
+msgstr "Rekonstruanta"
+
+msgctxt "Task status of an Instance"
+msgid "Rebuild Block Device Mapping"
+msgstr "Rekonstrui Blok Funkciilo Mapigon"
+
+msgid "Rebuild Instance"
+msgstr "Rekonstruu Aperon"
+
+msgid "Rebuild Password"
+msgstr "Refaru Pasvorton"
+
+msgctxt "Task status of an Instance"
+msgid "Rebuild Spawning"
+msgstr "Rekonstrui  Spawning"
+
+msgctxt "Task status of an Instance"
+msgid "Rebuilding"
+msgstr "Rekonstruanta"
+
+#, python-format
+msgid "Rebuilding instance %s."
+msgstr "Rekonstrui apero %s."
+
+msgid "Recreate EC2 Credentials"
+msgstr "Rekrei EC2 legitimaĵojn"
+
+#, python-format
+msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
+msgstr "Regeneru kaj elŝutu ŝlosilparon &quot;%(keypair_name)s&quot;"
+
+msgid "Region"
+msgstr "Regiono"
+
+msgid "Register Identity Provider"
+msgstr "Registru Identeco Provizanto"
+
+msgid ""
+"Register a identity provider that is trusted by the Identity API to "
+"authenticate identities."
+msgstr ""
+"Registriĝu identeco provizanton kiu estas fidita de la Identeco API por "
+"aŭtentigi identecojn."
+
+msgid "Release Floating IP"
+msgid_plural "Release Floating IPs"
+msgstr[0] "Liberigu Glitan IP-on"
+msgstr[1] "Liberigu Glitajn IP-ojn     "
+
+msgid "Released Floating IP"
+msgid_plural "Released Floating IPs"
+msgstr[0] "Liberigita Glita IP-o"
+msgstr[1] "Liberigitaj Glitaj IP-oj"
+
+msgid "Remote IDs"
+msgstr "Defora ID-oj"
+
+msgid ""
+"Remote IDs are associated with the identity provider and are globally "
+"unique. This indicates the header attributes to use for mapping federation "
+"protocol attributes to Identity API objects. If no value is provided, the "
+"list will be set to empty."
+msgstr ""
+"Defora ID-ojn estas asociigita kun la identeco provizanto kaj estas ĉiea "
+"unuopa. Tiu indikas la kapaj atributoj  uzonta por mapigi federo protokolo "
+"atributojn al Identeco API objektoj. Se ne estas provizita valoro, la listo "
+"estos agordita malplene. "
+
+msgid "Remove User"
+msgid_plural "Remove Users"
+msgstr[0] "Forigu Uzanton"
+msgstr[1] "Forigu Uzantojn"
+
+msgid "Remove Volumes from Consistency Group"
+msgstr "Forigu Volumojn de Kohereco Group"
+
+msgid "Removed User"
+msgid_plural "Removed Users"
+msgstr[0] "Forigita Uzanto"
+msgstr[1] "Forigitaj Uzantoj"
+
+msgid ""
+"Removing a key pair can leave OpenStack resources orphaned. You should not "
+"remove a key pair unless you are certain it is not being used anywhere."
+msgstr ""
+"Forigu ŝlosilo paron povas lasi OpenStack risurcoj orfiniĝitaj. Vi ne devus "
+"forigu ŝlosilo paron krom vi estas certa ke ĝi ne estas ankoraŭ  uzita ie."
+
+#, python-format
+msgid "Removing volumes from volume consistency group \"%s\""
+msgstr "Forigante volumojn de volumo koherenco grup \"%s\""
+
+msgid "Request ID"
+msgstr "Peto ID"
+
+#, python-format
+msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
+msgstr "Peto por lanĉi %(count)s nomita(j) \"%(name)s\" estas sendita."
+
+#, python-format
+msgid "Request for resizing of instance \"%s\" has been submitted."
+msgstr "Peto por regrandiĝi de apero \"%s\" estas sendita."
+
+#, python-format
+msgid ""
+"Request for restoring backup %(backup_name)s to volume with id: "
+"%(volume_id)s has been submitted."
+msgstr ""
+"Peto por restaŭri sekurkopion %(backup_name)s al volumo kun id: "
+"%(volume_id)s estis sendita."
+
+msgid "Requested snapshot would exceed the allowed quota."
+msgstr "Petita savkopio transpasus la permesita kvota."
+
+msgctxt "Current status of an Instance"
+msgid "Rescue"
+msgstr "Savadita"
+
+msgctxt "Current status of an Instance"
+msgid "Rescued"
+msgstr "Savadita"
+
+msgctxt "Task status of an Instance"
+msgid "Rescuing"
+msgstr "Savidanta"
+
+msgid "Resize"
+msgstr "Regrandiĝu"
+
+msgctxt "Action log of an instance"
+msgid "Resize"
+msgstr "Regrandigu"
+
+msgid "Resize Instance"
+msgstr "Regrandigu Aperon"
+
+msgid ""
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology. Pan around the canvas by clicking and dragging the space behind "
+"the topology."
+msgstr ""
+"Regrandigu la desegna areaĵo rulumante kun via muso/tuŝplato sur la "
+"topologio. Tiri ĉirkaŭe la desegna areaĵo per kliki kaj ŝovi la spacon post "
+"la topologio."
+
+msgctxt "Current status of an Instance"
+msgid "Resize/Migrate"
+msgstr "Regrandigu/Migradu"
+
+msgctxt "Current status of an Instance"
+msgid "Resized"
+msgstr "Regrandigita"
+
+msgctxt "Task status of an Instance"
+msgid "Resized or Migrated"
+msgstr "Regrandigita aŭ Migradita"
+
+msgctxt "Task status of an Instance"
+msgid "Resizing or Migrating"
+msgstr "Regrandigi aŭ Migradi"
+
+msgid "Resource Types"
+msgstr "Risurco Tipoj"
+
+msgid "Resource Types ="
+msgstr "Risurco Tipoj ="
+
+#, python-format
+msgid "Resource types updated for namespace %s."
+msgstr "Risurco tipoj ĝisdatigita por nomspaco %s."
+
+msgid "Resources"
+msgstr "Risurcoj"
+
+msgid "Restarted instances will lose any data not saved in persistent storage."
+msgstr ""
+"Restartigitaj aperoj perdos iu ajn datumon ne konservita en persistanta "
+"memorilo."
+
+msgid "Restore Backup"
+msgstr "Restaŭru Sekurkopion"
+
+msgid "Restore Backup to Volume"
+msgstr "Restaŭru Sekurkopio al Volumo"
+
+msgid "Restore Backup:"
+msgstr "Restaŭru Sekurkopion:"
+
+msgid "Restore Volume Backup"
+msgstr "Restaŭru Volumo Sekurkopion"
+
+msgctxt "Current status of a Volume Backup"
+msgid "Restoring"
+msgstr "Esti Restaŭriganta"
+
+msgctxt "Task status of an Instance"
+msgid "Restoring"
+msgstr "Restaŭriganta"
+
+msgctxt "Action log of an instance"
+msgid "Resume"
+msgstr "Reaktivigu"
+
+msgid "Resume Instance"
+msgid_plural "Resume Instances"
+msgstr[0] "Daŭrigi Aperon"
+msgstr[1] "Daŭrigi Aperojn"
+
+msgid "Resumed Instance"
+msgid_plural "Resumed Instances"
+msgstr[0] "Daŭrigita Apero"
+msgstr[1] "Daŭrigitaj Aperoj"
+
+msgctxt "Task status of an Instance"
+msgid "Resuming"
+msgstr "Daŭriganta"
+
+msgid "Retrieve Instance Password"
+msgstr "Ricevu Apero Pavorton"
+
+msgid "Retrieve Password"
+msgstr "Retrovu Pasvorton"
+
+msgid "Revert Resize/Migrate"
+msgstr "Malfaru Regrandigo/Migrado"
+
+msgctxt "Current status of an Instance"
+msgid "Revert Resize/Migrate"
+msgstr "Malfaru Regrandigon/Migradon"
+
+msgctxt "Task status of an Instance"
+msgid "Reverting Resize or Migrate"
+msgstr "Malfari Regrandigon aŭ Migradon"
+
+msgid "Role"
+msgstr "Rolo"
+
+msgid "Role ID"
+msgstr "Rolo ID"
+
+msgid "Role ID ="
+msgstr "Rolo ID-o ="
+
+msgid "Role Name"
+msgstr "Rolo Nomo"
+
+msgid "Role Name ="
+msgstr "Rolo Nomo ="
+
+msgid "Role created successfully."
+msgstr "Rolon sukcese kreita."
+
+msgid "Role updated successfully."
+msgstr "Rolon sukcese ĝisdatigita."
+
+msgid "Roles"
+msgstr "Roloj"
+
+msgid "Root Disk"
+msgstr "Radika Disko"
+
+msgid "Root Disk (GB)"
+msgstr "Radika Disko (GB)"
+
+msgid "Router"
+msgstr "Enkursigilo   "
+
+msgid "Router ID ="
+msgstr "Enkursigilo ID ="
+
+msgid "Routers"
+msgstr "Enkursigiloj"
+
+#, python-format
+msgid "Routers on %(host)s"
+msgstr "Enkursigiloj je  %(host)s"
+
+msgid "Rules"
+msgstr "Regulojn"
+
+msgctxt "Power state of an Instance"
+msgid "Running"
+msgstr "Funkcianta"
+
+msgid "Running Instance Migration Type"
+msgstr "Funkcianta apero transmeta tipo    "
+
+msgid "S3 URL"
+msgstr "S3 URL"
+
+msgid "SSH key pairs can be generated with the ssh-keygen command:"
+msgstr "SSH ŝlosilparoj povas esti generata kun la ssh-keygen komando:"
+
+msgid "Save"
+msgstr "Savu"
+
+msgid "Save Changes"
+msgstr "Savu ŝanĝojn   "
+
+#, python-format
+msgid "Saved extra spec \"%s\"."
+msgstr "Estas konservita ekstra specifo \"%s\"."
+
+#, python-format
+msgid "Saved spec \"%s\"."
+msgstr "Estas konservita specifo \"%s\"."
+
+msgctxt "Current status of an Image"
+msgid "Saving"
+msgstr "Konservi"
+
+msgid "Scheduled deletion of Instance"
+msgid_plural "Scheduled deletion of Instances"
+msgstr[0] "Vicigilita forigu de Apero"
+msgstr[1] "Vicigilita forigu de Aperoj"
+
+msgid "Scheduled deletion of Snapshot"
+msgid_plural "Scheduled deletion of Snapshots"
+msgstr[0] "Vicigilita forigu de Savkopio"
+msgstr[1] "Vicigilita forigu de Savkopioj"
+
+msgid "Scheduled deletion of Volume Backup"
+msgid_plural "Scheduled deletion of Volume Backups"
+msgstr[0] "Vicigilita forigon de Volumo Sekurkopion  "
+msgstr[1] "Vicigilita forigon de Volumo Sekurkopiojn  "
+
+msgid "Scheduled migration (pending confirmation) of Instance"
+msgid_plural "Scheduled migration (pending confirmation) of Instances"
+msgstr[0] "Envicigu transmeton (pritraktotan  konfirmon) de la Apero"
+msgstr[1] "Envicigu transmeton (pritraktotan  konfirmon) de la Aperoj"
+
+msgctxt "Task status of an Instance"
+msgid "Scheduling"
+msgstr "Enviciganta"
+
+msgid "Script Data"
+msgstr "Skripto Datumo"
+
+msgid "Script File"
+msgstr "Skripto Dosiero"
+
+msgid "Security Group Rules"
+msgstr "Secureco Grupo Reguloj"
+
+msgid "Security Groups"
+msgstr "Secureco Grupoj"
+
+msgid "Security group rule already exists."
+msgstr "Sekuriga grupa rolo jam ekzistas."
+
+msgid "Segmentation ID"
+msgstr "Segmento ID"
+
+msgid "Select Flavor"
+msgstr "Elektu variaĵon."
+
+msgid "Select Image"
+msgstr "Elekti Bildo"
+
+msgid "Select Instance Snapshot"
+msgstr "Elektu Apero Savkopio"
+
+msgid "Select Mapping"
+msgstr "Elektu Magigon"
+
+msgid "Select Network"
+msgstr "Elektu Reton"
+
+msgid "Select Port"
+msgstr "Elektu Pordon"
+
+msgid "Select Script Source"
+msgstr "Elektu scripto fonton"
+
+msgid "Select Server Group"
+msgstr "Elektu Servilo Grupo"
+
+msgid "Select Volume"
+msgstr "Elektu Volumon"
+
+msgid "Select Volume Snapshot"
+msgstr "Elektu Volumo Savkopion"
+
+msgid "Select a New Flavor"
+msgstr "Elektu novan variaĵon"
+
+msgid "Select a key pair"
+msgstr "Elektu klavo paron"
+
+msgid "Select a new QoS spec"
+msgstr "Elektu novan QoS spec"
+
+msgid "Select a new agent"
+msgstr "Elektu novan agenton"
+
+msgid "Select a new consumer"
+msgstr "Elektu novan konsumanton"
+
+msgid "Select a new host"
+msgstr "Elektu novan gastiganton"
+
+msgid "Select a new status"
+msgstr "Elektu novan staton"
+
+msgid "Select a port"
+msgstr "Elektu pordon"
+
+msgid "Select a project"
+msgstr "Elektu projekton"
+
+msgid "Select a target host"
+msgstr "Elektu celgastiganto"
+
+msgid "Select a volume"
+msgstr "Elektu volumon"
+
+msgid "Select a volume to attach to this instance."
+msgstr "Elektu volumon por ligi al tiu apero"
+
+msgid "Select a volume to detach from this instance."
+msgstr "Elektu volumon por malligi de tiu apero."
+
+msgid "Select a volume to restore to."
+msgstr "Elektu Volumon por restaŭrigi. "
+
+msgid "Select an IP address"
+msgstr "Elektu IP adreson"
+
+msgid "Select format"
+msgstr "Elektu formaton"
+
+msgid "Select networks for your instance."
+msgstr "Elektu retojn por via apero."
+
+msgid "Select source"
+msgstr "Elektu fonto"
+
+msgid ""
+"Select the IP address you wish to associate with the selected instance or "
+"port."
+msgstr ""
+"Elektu la IP adreson kiun vi volas asociigi kun la selektita instanco aŭ "
+"pordo."
+
+msgid "Select the image to rebuild your instance."
+msgstr "Elektu la bildo por rekonstrui vian aperon."
+
+msgid "Select the network for interface attaching."
+msgstr "Elektu reton por alligi al interfaco."
+
+msgid "Select the port to detach."
+msgstr "Elektu pordon por malligi."
+
+msgid ""
+"Select the projects where the flavors will be used. If no projects are "
+"selected, then the flavor will be available in all projects."
+msgstr ""
+"Elektu la projektojn kie la variantoj estas uzota. Kiam neniu projekto estas "
+"selektita, la varianto estas havebla en ĉiujn projektojn."
+
+msgid ""
+"Select the projects where the volume types will be used. If no projects are "
+"selected, then volume type will be only visible by users with the admin role."
+msgstr ""
+"Elektu la projektojn kie la volumo tipoj estos uzita. Kiam neniuj projektoj "
+"estas selektitaj, tiam la volumo tipo estos videbla nur je uzantoj kun "
+"administrata rolo."
+
+msgid "Selected Hosts"
+msgstr "Selektitaj Serviloj"
+
+msgid "Selected Projects"
+msgstr "Selektitaj Projektoj"
+
+msgid "Selected hosts"
+msgstr "Elektitaj serviloj"
+
+msgid "Selected networks"
+msgstr "Elektitaj retoj"
+
+msgid "Selected volume types"
+msgstr "Selektitaj volumo tipoj"
+
+msgid "Selected volumes"
+msgstr "Elektitaj volumoj"
+
+msgid "Server Group"
+msgstr "Servilo Grupo"
+
+msgid "Server Group Members"
+msgstr "Servilogrupo Membroj"
+
+msgid "Server Groups"
+msgstr "Servilo Grupoj"
+
+msgid "Server group to associate with this instance."
+msgstr "Servilo Grupo asociigonta kun tiu apero."
+
+msgid "Servers"
+msgstr "Serviloj"
+
+msgid "Service"
+msgstr "Servo"
+
+msgid "Service Cinder is disabled."
+msgstr "Servo Cinder estas malvalidigita."
+
+msgid "Service Endpoint"
+msgstr "Servo Finpunkto"
+
+msgid "Service Neutron is disabled or quotas extension not available."
+msgstr "Servo Neutron estas malvalidigita aŭ quotaj etendaĵo ne havebla."
+
+msgid "Service Neutron is disabled."
+msgstr "Servo Neutron estas malvalidigita."
+
+msgid "Service Nova is disabled."
+msgstr "Servo Nova malvalidigita."
+
+msgid "Services"
+msgstr "Servoj"
+
+msgid "Services Down"
+msgstr "Servoj malŝaltita   "
+
+msgid "Services Up"
+msgstr "Servoj  Up aktiva kaj funkcianta  "
+
+msgid "Set Domain Context"
+msgstr "Agordu Domajno Kunteksto"
+
+msgid "Set as Active Project"
+msgstr "Agordu kiel Aktiva Projekto"
+
+msgid "Set maximum quotas for the project."
+msgstr "Agordi maksimumajn kvotojn por la projekto."
+
+msgid ""
+"Set of rules to map federation protocol attributes to Identity API objects."
+msgstr ""
+"Aro da reguloj por mapigi federo protokolo atributojn al Identeco API "
+"objektoj. "
+
+msgid "Shared"
+msgstr "Kunhavigita"
+
+msgid "Shared ="
+msgstr "Opuza ="
+
+msgid "Shared Storage"
+msgstr "Kunhavigita   Memorilo"
+
+msgid "Shared with Project"
+msgstr "Opuza kun Projekto"
+
+msgid "Shelve Instance"
+msgid_plural "Shelve Instances"
+msgstr[0] "Reservu Aperon"
+msgstr[1] "Reservu Aperojn"
+
+msgctxt "Current status of an Instance"
+msgid "Shelved"
+msgstr "Reservita"
+
+msgid "Shelved Instance"
+msgid_plural "Shelved Instances"
+msgstr[0] "Reservita Apero"
+msgstr[1] "Reservitaj Aperoj"
+
+msgctxt "Current status of an Instance"
+msgid "Shelved Offloaded"
+msgstr "Reservita Deponita"
+
+msgctxt "Task status of an Instance"
+msgid "Shelving"
+msgstr "Deponiganta"
+
+msgctxt "Task status of an Instance"
+msgid "Shelving Image Pending Upload"
+msgstr "Depoti Bildo Pritraktotan Alŝuton"
+
+msgctxt "Task status of an Instance"
+msgid "Shelving Image Uploading"
+msgstr "Depoti Bildo Alŝuton"
+
+msgctxt "Task status of an Instance"
+msgid "Shelving Offloading"
+msgstr "Depoti Forŝuton"
+
+msgctxt "Power state of an Instance"
+msgid "Shut Down"
+msgstr "Malfermu sistemon"
+
+msgctxt "Power state of an Instance"
+msgid "Shut Off"
+msgstr "Sistemfermo"
+
+msgctxt "Action to perform (the instance is currently running)"
+msgid "Shut Off Instance"
+msgid_plural "Shut Off Instances"
+msgstr[0] "Malŝaltu Aperon "
+msgstr[1] "Malŝaltu Aperojn"
+
+msgctxt "Past action (the instance is currently already Shut Off)"
+msgid "Shut Off Instance"
+msgid_plural "Shut Off Instances"
+msgstr[0] "Malŝaltu Aperon "
+msgstr[1] "Malŝaltu Aperojn"
+
+msgctxt "Current status of an Instance"
+msgid "Shutoff"
+msgstr "Malŝaltu"
+
+msgid "Size"
+msgstr "Grando"
+
+msgid "Size of image to launch."
+msgstr "Grando de apero lanĉota."
+
+msgid "Size(GiB) ="
+msgstr "Grando (GiB) ="
+
+msgid "Slash is not allowed at the beginning or end of your string."
+msgstr ""
+"Suprenstreko ne estas permesita je la komenco aŭ fino de via tekstoĉeno."
+
+msgid "Slash is not an allowed character."
+msgstr "Suprenstreko ne estas permesita litero."
+
+msgid "Small"
+msgstr "Malgranda"
+
+msgid "Snapshot"
+msgstr "Savkopio"
+
+msgctxt "Type of an image"
+msgid "Snapshot"
+msgstr "Savkopio"
+
+#, python-format
+msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
+msgstr "Savkopio \"%(name)s\" kreita por apero \"%(inst)s\""
+
+msgid "Snapshot Limits"
+msgstr "Savkopio Limojn"
+
+msgid "Snapshot Name"
+msgstr "Savkopio Nomo"
+
+msgid "Snapshot Volume Types"
+msgstr "Savkopio Volumo Tipoj"
+
+msgid "Snapshot Volumes"
+msgstr "Savkopio Volumoj"
+
+msgid "Snapshots"
+msgstr "Savkopion"
+
+msgid ""
+"Snapshots can only be created for Consistency Groups that contain volumes."
+msgstr ""
+"Savkopion nur povas esti kreita por Kohereco grupoj kiuj enhavas volumojn."
+
+msgctxt "Task status of an Instance"
+msgid "Snapshotting"
+msgstr "Savkopianta"
+
+msgctxt "Current status of an Instance"
+msgid "Soft Deleted"
+msgstr "Softa Forigo"
+
+msgctxt "Task status of an Instance"
+msgid "Soft Deleting"
+msgstr "Softa Forigo"
+
+msgid "Soft Reboot Instance"
+msgid_plural "Soft Reboot Instances"
+msgstr[0] "Varme Restarti Aperon"
+msgstr[1] "Varme Restarti Aperojn"
+
+msgid "Soft Rebooted Instance"
+msgid_plural "Soft Rebooted Instances"
+msgstr[0] "Varme Restartigita Apero"
+msgstr[1] "Varme Restartigita Aperoj"
+
+msgid ""
+"Some flavors not meeting minimum boot source requirements have been disabled."
+msgstr ""
+"Kelkaj variaĵo kiuj ne plenumas minimalajn praŝargfontajn necesojn estis "
+"malaktivigitaj.    "
+
+msgctxt "Task status of an Instance"
+msgid "Spawning"
+msgstr "Generanta"
+
+msgid "Specifies that the newly created volume should be marked as bootable"
+msgstr ""
+"Specifu ke la nova kreita volumo devus estas markita kiel praŝargebla  "
+
+msgid "Specify a metadata definition namespace to import."
+msgstr "Specifu metadatuma difino nomspaco por importi."
+
+msgid "Specify advanced options to use when launching an instance."
+msgstr "Difinu specialaj opcioj uzonta kiam lanĉi aperon."
+
+msgid "Specify an image to upload to the Image Service."
+msgstr "Specifu bildigon por alŝargi al Bildigo Servo."
+
+msgid "Specify the details for launching an instance."
+msgstr "Difini la detajlojn por lanĉi aperon."
+
+msgid ""
+"Specify this option to copy image data to the image service. If unspecified, "
+"image data will be used in its current location."
+msgstr ""
+"Specifu tiun opcion por kopii bildo datumon al bildo servo. Se nedifinita, "
+"bildo datumo estos uzata en ĝia nuna loko."
+
+msgid "Specs"
+msgstr "Specifoj"
+
+msgctxt "Action log of an instance"
+msgid "Start"
+msgstr "Startu"
+
+msgid "Start Instance"
+msgid_plural "Start Instances"
+msgstr[0] "Startu Aperon"
+msgstr[1] "Startu Aperojn"
+
+msgid "Start Time"
+msgstr "Startotempo"
+
+msgid "Started Instance"
+msgid_plural "Started Instances"
+msgstr[0] "Startigita Apero"
+msgstr[1] "Startigitaj Aperoj"
+
+#, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "Ekevakuanti gastiganton: %s."
+
+#, python-format
+msgid "Starting to migrate host: %(current)s"
+msgstr "Ektransmeti gastiganto: %(current)s"
+
+msgid "State"
+msgstr "Stato"
+
+msgid "Static Routes"
+msgstr "Statikaj Enkursigiloj "
+
+msgid "Status"
+msgstr "Statuso"
+
+msgid "Status ="
+msgstr "Statuso ="
+
+msgctxt "Action log of an instance"
+msgid "Stop"
+msgstr "Stopu"
+
+msgctxt "Current status of an Instance"
+msgid "Stopped"
+msgstr "Haltigita"
+
+msgid "Submit"
+msgstr "Sendu"
+
+msgid "Subnet"
+msgstr "Subreto"
+
+msgid "Subnet Name"
+msgstr "Subreta Nomo"
+
+msgid "Subnets"
+msgstr "Subretoj"
+
+msgid "Subnets Associated"
+msgstr "Subretoj asociigitaj"
+
+#, python-format
+msgid "Successfully created QoS Spec: %s"
+msgstr "Sukcese kreita QoS Specifon : %s   "
+
+#, python-format
+msgid "Successfully created encryption for volume type: %s"
+msgstr "Sukcese kreita ĉifradon por volumo tipo: %s"
+
+#, python-format
+msgid "Successfully created volume type: %s"
+msgstr "Sukcese kreita volumo tipo: %s   "
+
+#, python-format
+msgid "Successfully disassociated Floating IP: %s"
+msgstr "Sukcese malasociigita glidanta IP: %s   "
+
+#, python-format
+msgid "Successfully disassociated floating IP: %s"
+msgstr "Sukcese malasociigita glitan IP-on: %s"
+
+#, python-format
+msgid "Successfully imported public key: %s"
+msgstr "Sukcese importita publikan ŝlosilon : %s"
+
+msgid "Successfully modified QoS Spec consumer."
+msgstr "Sukcese modikita QoS Spec konsumanto."
+
+msgid "Successfully recreated ec2 credentials."
+msgstr "Sukcese rekreita  ec2 legitimaĵojn."
+
+#, python-format
+msgid "Successfully sent the request to manage volume: %s"
+msgstr "Sukcese sendita la peton por mastrumi volumo: %s"
+
+#, python-format
+msgid "Successfully sent the request to migrate volume: %s"
+msgstr "Sukcese sendita peton por migri volumon: %s"
+
+#, python-format
+msgid "Successfully sent the request to unmanage volume: %s"
+msgstr "Sukcese sendita la peton por malmasttrumi volumon: %s"
+
+msgid "Successfully updated QoS Spec association."
+msgstr "Sukcese ĝisdatigita QoS Spec asocion."
+
+#, python-format
+msgid "Successfully updated aggregate: \"%s.\""
+msgstr "Sucese ĝisdatigita agregato: \"%s.\""
+
+#, python-format
+msgid "Successfully updated encryption for volume type: %s"
+msgstr "Sukcese ĝisdatigita ĉifradon por volumo tipo: %s"
+
+#, python-format
+msgid "Successfully updated volume snapshot status: \"%s\"."
+msgstr "Sucese ĝisdatigita volumo savkopion : \"%s.\""
+
+#, python-format
+msgid "Successfully updated volume status to \"%s\"."
+msgstr "Sukcese ĝisdatigita volumo sto al \"%s\"."
+
+msgid "Successfully updated volume type."
+msgstr "Sukcese ĝisdatigita volumo tipo."
+
+msgctxt "Action log of an instance"
+msgid "Suspend"
+msgstr "Prokrastu"
+
+msgid "Suspend Instance"
+msgid_plural "Suspend Instances"
+msgstr[0] "Prokrastu Aperon"
+msgstr[1] "Prokrastu Aperojn"
+
+msgctxt "Current status of an Instance"
+msgid "Suspended"
+msgstr "Prokrastita "
+
+msgctxt "Power state of an Instance"
+msgid "Suspended"
+msgstr "Prokrastita"
+
+msgid "Suspended Instance"
+msgid_plural "Suspended Instances"
+msgstr[0] "Prokrastita Apero"
+msgstr[1] "Prokrastitaj Aperoj"
+
+msgctxt "Task status of an Instance"
+msgid "Suspending"
+msgstr "Prokrastanta "
+
+msgid "Swap Disk"
+msgstr "Permuto Disko"
+
+msgid "Swap Disk (MB)"
+msgstr "Permuto Disko (MB)"
+
+msgid "System Information"
+msgstr "Sistema Informo"
+
+msgid "Target Host"
+msgstr "Celo Gastiganto"
+
+msgid "Task"
+msgstr "Tasko"
+
+msgid ""
+"The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
+"aes-xts-plain64). If the field is left empty, the provider default will be "
+"used."
+msgstr ""
+"La <strong>Ĉifro</strong> estas ĉifrada algoritmo/modo uzata (ekz., aes-xts-"
+"plain64). Se la kampo ne estas plenigita, la provizanto defaulto estas uzata."
+
+msgid ""
+"The <strong>Control Location</strong> is the notional service where "
+"encryption is performed (e.g., front-end=Nova). The default value is 'front-"
+"end.'"
+msgstr ""
+"La <strong>Kontrola Loko</strong> estas la nocia servo kie ĉifradon estas "
+"efektivigita (e.g., front-end=Nova). La defaulta valoro estas 'front-end.'"
+
+msgid ""
+"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
+"g., 128, 256). If the field is left empty, the provider default will be used."
+msgstr ""
+"La <strong>Ŝlosilo Grando</strong> estas la grando de la ĉifrada ŝlosilo, en "
+"bitoj (ekz., 128, 256). Se la kampo ne estas plenigita, la provizanto "
+"defaulto estas uzata."
+
+msgid ""
+"The <strong>Provider</strong> is the class providing encryption support (e."
+"g. LuksEncryptor)."
+msgstr ""
+"La <strong>Provizanto</strong> estas la klaso provizante ĉifradan subtenon "
+"(ekz. LuksEncryptor)."
+
+msgid ""
+"The <strong>Provider</strong> is the class providing encryption support (e."
+"g., LuksEncryptor)."
+msgstr ""
+"La <strong>Provizanto</strong> estas la klaso provizante ĉifradan subtenon "
+"(e.g., LuksEncryptor)."
+
+msgid "The Aggregate was updated."
+msgstr "La Agregato estis ĝisdatigita.  "
+
+#, python-format
+msgid "The ID \"%s\" is already used by another flavor."
+msgstr "La ID-on \"%s\" jam estas uzita de alia variaĵo."
+
+msgid ""
+"The ID of the host where the port is allocated. In some cases, different "
+"implementations can run on different hosts."
+msgstr ""
+"La ID-on de la gastiganto kie la pordo estas asignita. Kelkfoje, malsamaj "
+"realigoj povus ruli je malsamaj gastigantoj."
+
+msgid ""
+"The IP address of the new floating IP (e.g. 202.2.3.4). You need to specify "
+"an explicit address which is under the public network CIDR (e.g. "
+"202.2.3.0/24)."
+msgstr ""
+"La IP adreso de la nova glidanta IP (ekz. 202.2.3.4). Vi devas specifi "
+"eksplicitan adreson kiu estas el la publika reto CIDR (.ekz. "
+"202.2.3.0/24).   "
+
+msgid ""
+"The Image Location field MUST be a valid and direct URL to the image binary. "
+"URLs that redirect or serve error pages will result in unusable images."
+msgstr "La Bildigo lokeco kampo DEVAS esti valida kaj direkta URL al la "
+
+msgid "The JSON formatted contents of a namespace."
+msgstr "JSON formatita enhavo de la nomspaco."
+
+msgid "The Key Pair name that was associated with the instance"
+msgstr "La Klavo Paro nomo kiu estis asociita kun la apero"
+
+msgid "The L3 agent information could not be located."
+msgstr "La L3 agento informo ne estis trovigita."
+
+#, python-format
+msgid ""
+"The Volume size is too small for the '%(image_name)s' image and has to be "
+"greater than or equal to '%(smallest_size)d' GB."
+msgstr ""
+"La Volumo grando estas tro malgranda por la '%(image_name)s' bildo kaj devas "
+"esti pli granda aŭ samgranda  ol  '%(smallest_size)d' GB."
+
+msgid "The admin password is incorrect."
+msgstr "La admin pasvorto estas malĝusta."
+
+msgid ""
+"The chart below shows the resources used by this project in relation to the "
+"project's quotas."
+msgstr ""
+"La diagramo malsupren vidigas la rizurcoj uzita de tiu projekto rilatitaj al "
+"la kvotoj de la projekto."
+
+msgid "The container cannot be deleted since it is not empty."
+msgstr "Neeblas forigi la kontenero ĉar ĝi estas ne malplena."
+
+msgid ""
+"The current Horizon settings indicate no valid image creation methods are "
+"available. Providing an image location and/or uploading from the local file "
+"system must be allowed to support image creation."
+msgstr ""
+"La nuna Horizon adordon indikas ke neniu valida bildo kreado metodo estas "
+"disponebla. Provizi bildo lokon kaj/aŭ alŝuti de loka dosiersistemo devas "
+"estis permesita por subteni bildo kreadon."
+
+#, python-format
+msgid ""
+"The flavor '%(flavor)s' is too small for requested image.\n"
+"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
+msgstr ""
+"La variaĵo '%(flavor)s' estas tro malgranda por la bildo petita. Minimuma "
+"postuloj: %(min_ram)s MB de RAM kaj %(min_disk)s GB de Radika Disko."
+
+msgid "The instance is preparing the live migration to a new host."
+msgstr "La apero estas preparanta la tujan transmeton al freŝa gastiganto."
+
+msgid "The instance password encrypted with your public key."
+msgstr "La apero pasvorto ĉifrita kun via publika klavo."
+
+msgid "The instance(s) will be shut off."
+msgstr "La apero(j) estas malŝaltota.   "
+
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the button below."
+msgstr ""
+"La ŝlosilparon &quot;%(keypair_name)s&quot; devus elŝuti aŭtomate. Se ne, "
+"uzu butonon malsupren."
+
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"La minimuma disko grando necesa por startigi la bildon. Se nedifinita, tiu "
+"valoro defaŭltas al 0 (neniu minimumo) "
+
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+"La minimuma memoro grando necesa por startigi la bildon. Se nedifinita, tiu "
+"valoro defaŭltas al 0 (neniu minimumo) "
+
+#, python-format
+msgid "The name \"%s\" is already used by another consistency group."
+msgstr "La nomo \"%s\" jam estas uzita de alia kohereco grupo."
+
+#, python-format
+msgid "The name \"%s\" is already used by another flavor."
+msgstr "La nomo \"%s\" jam estas uzita de alia variaĵo."
+
+#, python-format
+msgid "The name \"%s\" is already used by another host aggregate."
+msgstr "La nomo \"%s\" jam estas uzita de alia servilo agretato."
+
+msgid ""
+"The name of the physical network over which the virtual network is "
+"implemented."
+msgstr "La nomo de la fisika reto super kiu la virtuala reto estas realigita."
+
+msgid ""
+"The name of the physical network over which the virtual network is "
+"implemented. Specify one of the physical networks defined in your neutron "
+"deployment."
+msgstr ""
+"La nomo de la fiskia reto tra kiu la virtuala reto estas realigita. Specifu "
+"unu el la fisikaj  retoj definita en vian Neutron disponigon ."
+
+msgid "The physical mechanism by which the virtual network is implemented."
+msgstr "La fisika mekanismo helpe de la virtuala reto estas realigita."
+
+msgid ""
+"The port also describes the associated network configuration, such as the "
+"MAC and IP addresses to be used on that port."
+msgstr ""
+"La pordo ankaŭ priskribas la asociitan retan agordon, kiel la MAC kaj la IP "
+"adreso uzata je tiu pordo."
+
+msgid ""
+"The private key will be only used in your browser and will not be sent to "
+"the server"
+msgstr ""
+"La privata klavo nur estos uzata en via retumilo kaj ne estos sendita al la "
+"servilo  "
+
+msgid "The pseudo folder cannot be deleted since it is not empty."
+msgstr "Neeblas forigi la pseŭdodosiero ĉar ĝi estas ne malplena."
+
+#, python-format
+msgid ""
+"The requested instance cannot be launched. Requested volume exceeds quota: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"La petita apero ne povas esti lanĉita. Petita volumo transpasas kvoton: "
+"Havebla: %(avail)s, Petita: %(req)s."
+
+#, python-format
+msgid ""
+"The requested instance cannot be launched. The following requested "
+"resource(s) exceed quota(s): %s."
+msgstr ""
+"La petita apero ne povas esti lanĉita. La sekvantaj petitaj rizurco(j) "
+"transpasas kvoto(j)n: Havebla: %s."
+
+msgid ""
+"The requested instance port is already associated with another floating IP."
+msgstr "La petita apero pordo jam estas asociita kun alia glita IP. "
+
+#, python-format
+msgid ""
+"The requested instance(s) cannot be launched as your quota will be exceeded: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"La petita apero(j) ne povas esti lanĉita ĉar via kvoto estos transpasita: "
+"Havebla: %(avail)s, Petita: %(req)s."
+
+msgid "The state to start the network in."
+msgstr "La stato por starti la reton en."
+
+msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>openstack volume set --state</tt> "
+"command."
+msgstr ""
+"La stato de ia volumo normale estas mastrumita automate. Sub iajn "
+"cirkumstancojn administratoro devus eksplicite  ĝisdatigi la stato valoron. "
+"Tiu estas ekvivalenta al la  <tt>openstack volumo agordi --staton</tt> "
+"komando."
+
+msgid ""
+"The status of a volume snapshot is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
+"tt> command."
+msgstr ""
+"La stato de la volumo savkopio estas normale mastrumita automate. En kelkajn "
+"cirkonstancojn mastrumanto devus eksplicite ĝisdatigi la statan valoron. Tiu "
+"estas ekvivalenta al <tt>openstack volume snapshot set --state</tt> komando."
+
+msgid "The way to specify an interface"
+msgstr "La vojo por difini interfacon."
+
+msgid "Theme Preview"
+msgstr "Tema Antaŭrigardo "
+
+msgid "There are no networks, routers, or connected instances to display."
+msgstr "Ne estas retoj, enkursigiloj, aŭ konektitaj aperoj por vidigi."
+
+msgid ""
+"There is not enough capacity for this flavor in the selected availability "
+"zone. Try again later or select a different availability zone."
+msgstr ""
+"Ne estas sufice da kapacito  por tiu variaĵo en la selektita disponebla "
+"zono. Bonvolu provu denove pli poste aŭ elektu alia disponebla zono."
+
+#, python-format
+msgid "There was a problem loading the namespace: %s."
+msgstr "Estis Problemo elŝuti la nospaco: %s. "
+
+#, python-format
+msgid "There was a problem parsing the %(prefix)s: %(error)s"
+msgstr "Estis problemo sintakse analizi la %(prefix)s: %(error)s"
+
+msgid "This action cannot be undone."
+msgstr "Tiu ago ne povas esti malfarita."
+
+msgid ""
+"This action cannot be undone. Current EC2 credentials will be deleted and "
+"not recoverable."
+msgstr ""
+"Ĉi tiu agado ne povas esti malfarita. Nunaj EC2 legitimaĵoj estos forigita "
+"kaj nerestaŭrebla   "
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"consistency group."
+msgstr ""
+"Tiu ago malasociigos ĉiujn volumojn kiuj estas ĉi-momente entenita en la "
+"kohereco grupo."
+
+msgid "This field is required."
+msgstr "Tiu kampo nepras."
+
+msgid ""
+"This generates a pair of keys: a key you keep private (cloud.key) and a "
+"public key (cloud.key.pub). Paste the contents of the public key file here."
+msgstr ""
+"Tiu generos ŝlosilparon: unu ŝlosilo vi tenas private (cloud.key) kaj alia "
+"estas publika ŝlosilo (cloud.key.pub). Algluu la enhavo de la publika "
+"ŝlosilo ĉi tie."
+
+msgid ""
+"This instance is currently locked. To enable more actions on it, please "
+"unlock it by selecting Unlock Instance from the actions menu."
+msgstr ""
+"La apero estas nun ŝlosita. Por ebligi pli da agoj, bonvolu malŝlosi ĝin "
+"pere selekto de Malŝlosi Aperon de la ago menuo."
+
+msgid "This instance is unlocked."
+msgstr "La apero estas malŝlosita."
+
+msgid ""
+"This is equivalent to the <tt>openstack volume qos associate</tt> and "
+"<tt>openstack volume qos disassociate</tt> commands."
+msgstr ""
+"Tiu estas ekvivalento al la <tt>openstack volumo qos associigu</tt> kaj "
+"<tt>openstack volumo qos disasociigu</tt> komandoj."
+
+msgid "This panel needs JavaScript support."
+msgstr "Tiu panelo  bezonas JavaScript subtenon."
+
+msgid "This volume type is used by one or more volumes."
+msgstr "Ĉi tiu voluma tipo estas uzita de unu aŭ pli da volumoj."
+
+msgid "Time Since Created"
+msgstr "Tempo ekde Kreado "
+
+msgid "Time since created"
+msgstr "Tempo ekde kreita"
+
+msgid "Time since update"
+msgstr "Tempo ekde ĝisdatigo"
+
+msgid ""
+"To decrypt your password you will need the private key of your key pair for "
+"this instance. Select the private key file, or copy and paste the content of "
+"your private key file into the text area below, then click Decrypt Password."
+msgstr ""
+"Por malĉifradi vian pasvorton vi bezonas privatan klavon de via klava paro "
+"por tiu apero. Selektu la privata klavo dosiero, aŭ kopii kaj alglui  la "
+"enhavo de via privata klavo dosiero en la tekstareo suben, post tio kliku "
+"MalĉifruPasvorton."
+
+msgid "To exit the fullscreen mode, click the browser's back button."
+msgstr ""
+"Por eliri la plenekranan reĝimon; kliku la reen butonon de la retumilo."
+
+msgid "To make volume type private, uncheck this field."
+msgstr "Por fari volumo tipo privatan, malselektu tiun kampon."
+
+msgid "Toggle Labels"
+msgstr "Baskuligu Etikedon "
+
+msgid "Toggle Network Collapse"
+msgstr "Baskuligu Reto Kolapson "
+
+msgid "Topology"
+msgstr "Topologio"
+
+msgid "Total Active RAM (MB):"
+msgstr "Totala Aktiva RAM (MB):"
+
+msgid "Total Disk"
+msgstr "Totala Disko"
+
+msgid "Total Disk Size (GB):"
+msgstr "Totala Disko Grando (GB):"
+
+msgid "Total Disk Usage (Hours):"
+msgstr "Totala Disko Uzado (Horoj):"
+
+msgid "Total Memory Usage (Hours):"
+msgstr "Totala Memoro Uzado (Horoj):"
+
+msgid "Total RAM"
+msgstr "Totala RAM"
+
+msgid "Total Size of Volumes and Snapshots (GiB)"
+msgstr "Totala Grando de Volumoj kaj Savkopioj (GiB)"
+
+#, python-format
+msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
+msgstr "Totala Grando de Volumoj kaj Savkopioj (GiB) de Tipo %(type)s"
+
+msgid "Total VCPU Usage (Hours):"
+msgstr "Totala VCPU Uzado (Horoj):"
+
+msgid "Total Volume Storage"
+msgstr "Totala Volumo Memorilo"
+
+#, python-format
+msgid "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
+msgstr "Spursekvi kun id-oj %(id)s. Iru al <a href=\"%(url)s\">paĝo</a>"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Type of backend device identifier provided"
+msgstr "Tipo de interna uzaĵo identigilo provizita"
+
+msgctxt "Admin state of a Network"
+msgid "UP"
+msgstr "SUPREN"
+
+msgid "Unable to add user to primary project."
+msgstr "Neeblas aldoni uzantoj al unua projekto."
+
+msgid "Unable to allocate Floating IP."
+msgstr "Neeblas asigni Glitan IP-on."
+
+msgid "Unable to allocate floating IP."
+msgstr "Neeblas asigni glidanta IP."
+
+#, python-format
+msgid "Unable to associate IP address %s."
+msgstr "Neebla asociigi IP adreso %s."
+
+msgid "Unable to attach interface."
+msgstr "Neeblas ligi interfacon."
+
+msgid "Unable to attach volume."
+msgstr "Neeblas ligi volumon."
+
+msgid "Unable to check if DHCP agent scheduler extension is supported"
+msgstr "Neeblas validi se DHCP agento vicigilo etendaĵo estas subtenita"
+
+msgid "Unable to check if network availability zone extension is supported"
+msgstr "Neeblas validi se reto disponebleco zono etendaĵo estas subtenita"
+
+msgid "Unable to clone consistency group."
+msgstr "Neeblas kloni kohereco grupon."
+
+msgid "Unable to clone empty consistency group."
+msgstr "Neeblas kloni kohereco grupon."
+
+msgid "Unable to connect to Neutron."
+msgstr "Neebla konektadi al Neutron."
+
+msgid "Unable to create QoS Spec."
+msgstr "Neeblas krei QoS Specifon."
+
+#, python-format
+msgid "Unable to create consistency group \"%s\" from snapshot."
+msgstr "Neeblas krei kohereco grupon \"%s\" de savkopio."
+
+msgid "Unable to create consistency group due to exceeding volume quota limit."
+msgstr "Neeblas krei kohereco grupon pro transpasita volumo kvota limito."
+
+msgid "Unable to create consistency group snapshot."
+msgstr "Neeblas krei kohereco grupo savkopio."
+
+msgid "Unable to create consistency group."
+msgstr "Neeblas krei kohereco grupon."
+
+#, python-format
+msgid "Unable to create domain \"%s\"."
+msgstr "Neeblas krei domajnon \"%s\"."
+
+msgid "Unable to create encrypted volume type."
+msgstr "Neeblas krei ĉifrita volumo tipo."
+
+#, python-format
+msgid "Unable to create flavor \"%s\"."
+msgstr "Neeblas krei variaĵo \"%s\"."
+
+msgid "Unable to create flavor."
+msgstr "Neeblas krei variaĵo."
+
+msgid "Unable to create group."
+msgstr "Neeblas krei grupo."
+
+#, python-format
+msgid "Unable to create host aggregate \"%s\"."
+msgstr "Neeblas krei  servilo agregato\"%s\"."
+
+msgid "Unable to create host aggregate."
+msgstr "Neebla krei gastigo agregato"
+
+msgid "Unable to create identity provider protocol."
+msgstr "Neeblas  krei identeco provizanto protokolon."
+
+msgid "Unable to create mapping."
+msgstr "Neeblas krei mapigon."
+
+msgid "Unable to create mapping. Rules has malformed JSON data."
+msgstr "Neeblas krei mapigon. Regulo havas malformitan JSON datumon."
+
+msgid "Unable to create new image"
+msgstr "Neeblas krei novan bildon."
+
+msgid "Unable to create new image: Image name too long."
+msgstr "Neeblas krei novan bildon. Bildo nomo estas tro longa."
+
+#, python-format
+msgid "Unable to create new image: Invalid disk format %s for image."
+msgstr "Neeblas krei novan bildon: Nevalida disko formato %s por bildo."
+
+msgid "Unable to create new image: URL scheme not supported."
+msgstr "Neeblas krei novan bildon: URL skemo ne estas subtenata."
+
+#, python-format
+msgid "Unable to create new namespace. %s"
+msgstr "Nekababla krei novan nomspacon. %s"
+
+#, python-format
+msgid "Unable to create project \"%s\"."
+msgstr "Neeblas krei projekton \"%s\"."
+
+msgid "Unable to create role."
+msgstr "Neeblas krei rolon."
+
+msgid "Unable to create snapshot."
+msgstr "Neeblas krei savkopion."
+
+msgid "Unable to create snapshot. Consistency group must contain volumes."
+msgstr "Neeblas krei savkopion. Kohereco grupo devas enhavi volumojn,"
+
+msgid "Unable to create snapshots due to exceeding snapshot quota limit."
+msgstr "Neeblas krei savkopiojn pro transpasita savkopio kvota limito."
+
+msgid "Unable to create spec."
+msgstr "Neeblas krei specifon."
+
+msgid "Unable to create user."
+msgstr "Neeblas krei uzanton."
+
+msgid "Unable to create volume backup."
+msgstr "Neeblas krei volumo sekurkopion."
+
+msgid "Unable to create volume type extra spec."
+msgstr "Neeblas krei volumo tipo ekstra specifon."
+
+msgid "Unable to create volume type."
+msgstr "Neeblas krei volumo tipo."
+
+msgid "Unable to detach interface."
+msgstr "Neeblas malligi interfacon."
+
+msgid "Unable to detach volume."
+msgstr "Neeblas malligi volumon."
+
+msgid "Unable to determine if availability zones extension is supported."
+msgstr "Neeblas determini  se disponeblo zonoj etendo estas subtenata."
+
+msgid "Unable to determine if volume type encryption is supported."
+msgstr "Neeblas determini  se volumo tipo ĉifradon estas subtenata."
+
+msgid "Unable to disassociate floating IP."
+msgstr "Neeblas malasocii glidanta IP.   "
+
+msgid "Unable to display consistency group."
+msgstr "Neeblas vidigi kohereco grupon."
+
+msgid "Unable to edit spec."
+msgstr "Neeblas redakti specifon."
+
+msgid "Unable to edit volume type extra spec."
+msgstr "Neeblas redakti volumo tipo ekstra specifon."
+
+msgid "Unable to fetch EC2 credentials."
+msgstr "Neeblas venigi EC2 legitimaĵojn."
+
+msgid "Unable to find default role."
+msgstr "Neeblas trovi defaŭltan rolon."
+
+msgid "Unable to get EC2 credentials"
+msgstr "Neeblas ricevi EC2 legitimaĵojn"
+
+#, python-format
+msgid "Unable to get MKS console for instance \"%s\"."
+msgstr "Neeblas ricevi MKS konzolon por apero \"%s\"."
+
+#, python-format
+msgid "Unable to get RDP console for instance \"%s\"."
+msgstr "Neeblas ricevi RDP konzolon por apero \"%s\"."
+
+#, python-format
+msgid "Unable to get SPICE console for instance \"%s\"."
+msgstr "Neeblas ricevi SPICE konzolon por apero \"%s\"."
+
+#, python-format
+msgid "Unable to get VNC console for instance \"%s\"."
+msgstr "Neeblas ricevi VNC konzolon por apero \"%s\"."
+
+msgid "Unable to get cinder services list."
+msgstr "Neeblas ricevi Cinder servo listo."
+
+msgid "Unable to get consistency group list"
+msgstr "Neeblas ricevi kohereco grupo liston."
+
+#, python-format
+msgid "Unable to get console for instance \"%s\"."
+msgstr "Neeblas ricevi konzolon por apero \"%s\"."
+
+msgid "Unable to get flavor list"
+msgstr "Neeblas ricevi variaĵo listo."
+
+msgid "Unable to get host aggregate list"
+msgstr "Neebla ricevi servilo agregato listo."
+
+#, python-format
+msgid "Unable to get log for instance \"%s\"."
+msgstr "Neeblas ricevi protokolon por apero \"%s\"."
+
+msgid "Unable to get network agents info."
+msgstr "Neeblas ricevi  retagenta informo."
+
+msgid "Unable to get network agents list."
+msgstr "Neeblas ricevi retagento listo."
+
+msgid "Unable to get nova services list."
+msgstr "Neeblas ricevi Nova servo listo."
+
+msgid "Unable to get openrc credentials"
+msgstr "Neeblas ricevi openrc legitimaĵojn"
+
+msgid "Unable to get quota info."
+msgstr "Neeblas ricevi  kvota informo."
+
+msgid "Unable to get the available hosts"
+msgstr "Neeblas ricevi la disponeblajn servilojn"
+
+msgid "Unable to get the available volume types"
+msgstr "Neeblas ricevi la haveblaj volumo tipojn."
+
+msgid "Unable to get the available volumes"
+msgstr "Neeblas ricevi la disponeblajn volumojn"
+
+msgid "Unable to get volume type list"
+msgstr "Neeblas ricevi volumo tipo liston."
+
+msgid "Unable to import key pair."
+msgstr "Neeblas importi ŝlosilo paron."
+
+#, python-format
+msgid "Unable to launch %(count)s named \"%(name)s\"."
+msgstr "Neeblas lanĉi %(count)s nomita(j) \"%(name)s\"."
+
+msgid "Unable to list dhcp agents hosting network."
+msgstr "Neeblas listigi dhcp agentoj gastiganto reto."
+
+msgid "Unable to load console. Please reload page to try again."
+msgstr "Neeblas ŝargi konzolon. Bonvolu reŝargu paĝon por provi denove."
+
+msgid "Unable to load the specified consistency group."
+msgstr "Neeblas ŝuti la specifita kohereco grupo."
+
+msgid "Unable to load the specified snapshot."
+msgstr "Neeblas ŝuti la difinitan savkopion."
+
+msgid "Unable to lookup volume or backup information."
+msgstr "Neeblas  priserĉi volumo aŭ sekurkopio informon."
+
+msgid "Unable to manage volume."
+msgstr "Neebals mastrumi volumon."
+
+#, python-format
+msgid "Unable to modify domain \"%s\"."
+msgstr "Neeblas modifi domajnon \"%s\"."
+
+#, python-format
+msgid "Unable to modify flavor \"%s\"."
+msgstr "Neeblas modifi variaĵo   \"%s\"."
+
+msgid "Unable to modify flavor access."
+msgstr "Neeblas modifi variaĵo aliro."
+
+#, python-format
+msgid "Unable to modify instance \"%s\"."
+msgstr "Neeblas modifi aperon \"%s\"."
+
+#, python-format
+msgid "Unable to modify project \"%s\"."
+msgstr "Neeblas modifi projekton \"%s\"."
+
+#, python-format
+msgid "Unable to parse IP address %s."
+msgstr "Neebla sintakse analizi IP adreso %s."
+
+msgid "Unable to rebuild instance."
+msgstr "Neeblas rekonstrui aperon."
+
+msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
+msgstr "Neeblas rekrei ec2 legitimaĵojn. Malsukcesis krei ec2 legitimaĵojn."
+
+msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
+msgstr "Neeblas rekrei ec2 legitimaĵojn. Malsukcesis forigi ec2 legitimaĵojn,"
+
+msgid "Unable to register identity provider."
+msgstr "Neeblas registri identeco provizanto."
+
+msgid ""
+"Unable to register identity provider. Please check that the Identity "
+"Provider ID and Remote IDs provided are not already in use."
+msgstr ""
+"Neeblas registri identeco provizanto. Bonvolu kontrolu ke la Identeco "
+"Provizanto ID-o kaj Defora ID-oj provizita ne jam estas uzata. "
+
+#, python-format
+msgid "Unable to resize instance \"%s\"."
+msgstr "Neeblas regrandiĝi aperon \"%s\"."
+
+msgid "Unable to restore backup."
+msgstr "Neeblas restaŭri sekurkopion."
+
+#, python-format
+msgid ""
+"Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
+"\" (%(id)s)."
+msgstr "Neeblas ricevi IP adresojn de Neutron por apero \"%(name)s\" (%(id)s)."
+
+msgid "Unable to retrieve IP addresses from Neutron."
+msgstr "Neeblas ricevi IP adresojn de Neutron."
+
+msgid "Unable to retrieve IP availability."
+msgstr "Neeblas ricevi IP disponeblon ."
+
+msgid "Unable to retrieve MAC learning state"
+msgstr "Neeblas ricevi MAC lernado stato"
+
+#, python-format
+msgid "Unable to retrieve Network information for instance \"%s\"."
+msgstr "Neeblas ricevi reto informon por apero \"%s\"."
+
+msgid "Unable to retrieve Nova availability zones."
+msgstr "Neebla ricevi Nova disponeblo zonojn."
+
+msgid "Unable to retrieve Nova server groups."
+msgstr "Neeblas ricevi Nova servilo grupojn."
+
+msgid "Unable to retrieve QoS Spec association."
+msgstr "Neeblas ricevi QoS Spec asociigon."
+
+msgid "Unable to retrieve QoS Spec details."
+msgstr "Neeblas ricevi QoS Spec detajlojn."
+
+msgid "Unable to retrieve QoS Specs."
+msgstr "Neeblas ricevi QoS Specifojn."
+
+msgid "Unable to retrieve QoS spec details."
+msgstr "Neeblas ricevi QoS Specifo detajlojn."
+
+msgid "Unable to retrieve QoS spec list."
+msgstr "Neeblas ricevi QoS specifo liston."
+
+msgid "Unable to retrieve QoS specs"
+msgstr "Neeblas ricevi QoS specifojn."
+
+msgid "Unable to retrieve agent list."
+msgstr "Neeblas ricevi agento listo."
+
+msgid "Unable to retrieve availability zone list."
+msgstr "Neebla trovi disponebla zono listo."
+
+msgid "Unable to retrieve availability zones."
+msgstr "Neebla ricevi disponeblo zonojn."
+
+msgid "Unable to retrieve backup details."
+msgstr "Neeblas ricevi sekurkopio detajlojn"
+
+msgid "Unable to retrieve compute host information."
+msgstr "Neeblas ricevi komputa gastiganto informojn."
+
+msgid "Unable to retrieve consistency group details."
+msgstr "Neeblas ricevi kohereco grupo detajlojn."
+
+msgid "Unable to retrieve consistency group information."
+msgstr "Neeblas ricevi kohereco grupo informojn."
+
+msgid "Unable to retrieve consistency group snapshot details."
+msgstr "Neeblas ricevi kohereco grupo savkopio detajlojn."
+
+msgid "Unable to retrieve default quota values."
+msgstr "Neeblas ricevi defaŭlt kvota valorojn. "
+
+#, python-format
+msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
+msgstr "Neeblas ricevi detajlojn por %(resource)s \"%(resource_id)s\"."
+
+#, python-format
+msgid "Unable to retrieve details for instance \"%s\"."
+msgstr "Neeblas ricevi detajlojn por apero \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for keypair \"%s\"."
+msgstr "Neeblas ricevi detajlojn por  ŝlosilparo \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for network \"%s\"."
+msgstr "Neeblas ricevi detajlojn por  reto \"%s\"."
+
+msgid "Unable to retrieve domain details."
+msgstr "Neeblas ricevi domajno detajlojn."
+
+msgid "Unable to retrieve domain information."
+msgstr "Neeblas ricevi domajno informon."
+
+msgid "Unable to retrieve domain list."
+msgstr "Neeblas ricevi domajno listo."
+
+msgid "Unable to retrieve encryption type."
+msgstr "Neeblas ricevi  ĉifradan tipon."
+
+msgid "Unable to retrieve extensions information"
+msgstr "Neeblas ricevi etendoj informon."
+
+msgid "Unable to retrieve extensions information."
+msgstr "Neeblas ricevi etendoj informon."
+
+msgid "Unable to retrieve extra spec list."
+msgstr "Neeblas ricevi ekstra specifo liston."
+
+msgid "Unable to retrieve flavor access list. Please try again later."
+msgstr "Neeblas ricevi variaĵo aliro listo. Bonvolu provu denove poste."
+
+msgid "Unable to retrieve flavor details."
+msgstr "Neeblas ricevi variaĵo detajloj."
+
+#, python-format
+msgid ""
+"Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
+msgstr "Neeblas ricevi variaĵo informon por apero \"%(name)s\" (%(id)s)."
+
+#, python-format
+msgid "Unable to retrieve flavor information for instance \"%s\"."
+msgstr "Neeblas ricevi variaĵo informon por apero \"%s\"."
+
+msgid "Unable to retrieve flavor list."
+msgstr "Neeblas ricevi Variaĵo listo."
+
+msgid "Unable to retrieve flavors."
+msgstr "Neeblas ricevi variaĵon."
+
+msgid "Unable to retrieve floating IP addresses."
+msgstr "Neeblas ricevi glitaj IP adresoj ."
+
+msgid "Unable to retrieve floating IP list."
+msgstr "Neeblas ricevi glidanta IP listo."
+
+msgid "Unable to retrieve floating IP pools."
+msgstr "Neeblas trovi glidanta IP komunaĵoj ."
+
+msgid "Unable to retrieve group list."
+msgstr "Neeblas ricevi grupo liston."
+
+msgid "Unable to retrieve group list. Please try again later."
+msgstr "Neeblas ricevi grupo listo. Bonvolu provu denove poste."
+
+msgid "Unable to retrieve group users."
+msgstr "Neeblas ricevi grupo uzantoj."
+
+msgid "Unable to retrieve host aggregates list."
+msgstr "Neebla trovi servilo agregato listo."
+
+msgid "Unable to retrieve host information."
+msgstr "Nekapabla ricevi gastiganto informojn."
+
+msgid "Unable to retrieve hypervisor information."
+msgstr "Neeblas ricevi Virtuala-maŝinmonitoro informojn."
+
+msgid "Unable to retrieve hypervisor instances list."
+msgstr "Neeblas ricevi  Virtuala-maŝinmonitoroj listo."
+
+msgid "Unable to retrieve hypervisor statistics."
+msgstr "Neeblas ricevi Virtuala-maŝinmonitoro statikoj."
+
+msgid "Unable to retrieve identity provider information."
+msgstr "Neeblas recevi identeco provizanto informon."
+
+msgid "Unable to retrieve identity provider list."
+msgstr "Neeblas recevi identeco provizanto liston."
+
+msgid "Unable to retrieve image details."
+msgstr "Neeblas ricevi bildo detajlojn"
+
+msgid "Unable to retrieve image list."
+msgstr "Neeblas ricevi bildigo listo."
+
+msgid "Unable to retrieve image."
+msgstr "Neeblas ricevi bildon."
+
+msgid "Unable to retrieve images"
+msgstr "Neeblas ricevi bildojn."
+
+msgid "Unable to retrieve images for the current project."
+msgstr "Neeblas ricevi bildigioj por la aktuala projekto."
+
+msgid "Unable to retrieve images."
+msgstr "Neeblas ricevi bildojn."
+
+msgid "Unable to retrieve information about the networks' projects."
+msgstr "Neeblas trovi informojn pri la networks' projektoj."
+
+msgid "Unable to retrieve instance action list."
+msgstr "Neeblas recevi apero ago liston."
+
+msgid "Unable to retrieve instance details."
+msgstr "Nekapabla ricevi apero detajlojn."
+
+msgid "Unable to retrieve instance flavors."
+msgstr "Neeblas recevi apero variaĵon."
+
+msgid "Unable to retrieve instance list."
+msgstr "Neeblas recevi apero listo"
+
+msgid "Unable to retrieve instance password."
+msgstr "Neeblas recevi apero pasvorto listo"
+
+msgid "Unable to retrieve instance project information."
+msgstr "Neeblas ricevi apero projekto informon."
+
+msgid "Unable to retrieve instance size information."
+msgstr "Neeblas ricevi apero grandeco informojn."
+
+msgid "Unable to retrieve instances."
+msgstr "Neeblas ricevi aperojn."
+
+msgid "Unable to retrieve key pair list."
+msgstr "Neeblas ricevi ŝlosilparo listo."
+
+msgid "Unable to retrieve key pairs."
+msgstr "Neeblas ricevi klavo parojn."
+
+msgid "Unable to retrieve list of security groups"
+msgstr "Neeblas ricevi listo de secureca grupoj."
+
+msgid "Unable to retrieve list of volume snapshots."
+msgstr "Neeblas ricevi listo de volumo savkopiojn."
+
+msgid "Unable to retrieve list of volumes."
+msgstr "Neeblas ricevi listo de volumojn."
+
+msgid "Unable to retrieve mapping list."
+msgstr "Neeblas ricevi mapigo listo."
+
+msgid "Unable to retrieve namespace contents."
+msgstr "Nekababla ricevi nomspacan enhavon."
+
+msgid "Unable to retrieve namespace details."
+msgstr "Nekababla ricevi nomspacajn detajlojn."
+
+msgid "Unable to retrieve network details."
+msgstr "Neeblas ricevi reto detajlojn."
+
+msgid "Unable to retrieve network."
+msgstr "Neeblas ricevi reton."
+
+msgid "Unable to retrieve pools information."
+msgstr "Neeblas ricevi komunaĵo informojn."
+
+msgid "Unable to retrieve port security state"
+msgstr "Neeblas ricevi pordo sekureca stato"
+
+msgid "Unable to retrieve ports information."
+msgstr "Neeblas ricevi pordo informon."
+
+msgid "Unable to retrieve project details."
+msgstr "Neeblas ricevi projekto detajlojn."
+
+msgid "Unable to retrieve project domain."
+msgstr "Neeblas ricevi projekto domajnon."
+
+msgid "Unable to retrieve project information."
+msgstr "Neeblas ricevi projekto informojn."
+
+msgid "Unable to retrieve project list."
+msgstr "Neeblas ricevi projekto listo."
+
+msgid "Unable to retrieve protocol list."
+msgstr "Neeblas ricevi protokolo listo."
+
+msgid "Unable to retrieve public images."
+msgstr "Neeblas ricevi publikaj bildigoj."
+
+msgid "Unable to retrieve quota information."
+msgstr "Neeblas ricevi kvota informon."
+
+msgid "Unable to retrieve role list."
+msgstr "Neeblas ricevi rolo listo."
+
+msgid "Unable to retrieve roles list."
+msgstr "Neeblas ricevi rolo listo."
+
+msgid "Unable to retrieve router list."
+msgstr "Neeblas ricevi enkursigilo listo."
+
+msgid "Unable to retrieve security group list. Please try again later."
+msgstr "Neeblas ricevi securaco grupo liston. Bonvolu provu denove poste."
+
+#, python-format
+msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
+msgstr "Neeblas ricevi sekureco grupon por apero \"%(name)s\" (%(id)s)."
+
+msgid "Unable to retrieve shared images."
+msgstr "Neeblas ricevi kunhavigitajn bildojn."
+
+msgid "Unable to retrieve snapshot data."
+msgstr "Neeblas ricevi sav-kopio datumon."
+
+msgid "Unable to retrieve the aggregate to be updated"
+msgstr "Neebla trovi agregato ĝisdatiĝinda."
+
+msgid "Unable to retrieve the instance."
+msgstr "Neeblas ricevi la aperon."
+
+msgid "Unable to retrieve the project information of the image."
+msgstr "Neeblas ricevi projekto informojn de bildigo."
+
+msgid "Unable to retrieve user details."
+msgstr "Neeblas ricevi uzanto detajlojn"
+
+msgid "Unable to retrieve user domain role assignments."
+msgstr "Neeblas ricevi uzanto domajno rol-atribuojn."
+
+msgid "Unable to retrieve user information."
+msgstr "Neeblas ricevi uzanto informon."
+
+msgid "Unable to retrieve user list."
+msgstr "Neeblas ricevi uzanto listo."
+
+msgid "Unable to retrieve user list. Please try again later."
+msgstr "Neeblas ricevi uzanto listo. Bonvolu provu denove poste."
+
+msgid "Unable to retrieve user roles."
+msgstr "Neeblas ricevi uzanto rolojn."
+
+msgid "Unable to retrieve users."
+msgstr "Neeblas ricevi uzantojn."
+
+msgid "Unable to retrieve version information."
+msgstr "Neeblas ricevi versio informojn."
+
+msgid "Unable to retrieve volume backups."
+msgstr "Neeblas ricevi volumo sekurkopiojn."
+
+msgid "Unable to retrieve volume consistency group snapshots."
+msgstr "Neeblas ricevi volumo kohereco grupo savkopiojn."
+
+msgid "Unable to retrieve volume consistency groups."
+msgstr "Neeblas ricevi volumo kohereco grupojn."
+
+msgid "Unable to retrieve volume details."
+msgstr "Neeblas ricevi volumo detajlojn"
+
+msgid "Unable to retrieve volume information."
+msgstr "Neeblas ricevi volumo informon."
+
+#, python-format
+msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
+msgstr "Neeblas ricevi volumo liston por apero \"%(name)s\" (%(id)s)."
+
+msgid "Unable to retrieve volume project information."
+msgstr "Neeblas ricevi volumo projekto informon."
+
+msgid "Unable to retrieve volume snapshot."
+msgstr "Neeblas ricevi volumo savkopion."
+
+msgid "Unable to retrieve volume snapshots."
+msgstr "Neeblas ricevi volumo savkopiojn."
+
+msgid "Unable to retrieve volume type access list."
+msgstr "Neeblas ricevi volumo tipo aliro liston."
+
+msgid "Unable to retrieve volume type details."
+msgstr "Neeblas ricevi volumo tipo detajlojn."
+
+msgid "Unable to retrieve volume type encryption details."
+msgstr "Neeblas ricevi volumo tipo ĉifrado detajlojn."
+
+msgid "Unable to retrieve volume type encryption information."
+msgstr "Neeblas ricevi volumo tipo ĉifrado informon."
+
+msgid "Unable to retrieve volume type extra spec details."
+msgstr "Neeblas ricevi volumo tipo ekstra specifo detajlojn."
+
+#, python-format
+msgid "Unable to retrieve volume type for: \"%s\""
+msgstr "Neeblas ricevi volumo tipo por: \"%s\""
+
+msgid "Unable to retrieve volume type name."
+msgstr "Neeblas ricevi volumo tipo nomon."
+
+msgid "Unable to retrieve volume type qos."
+msgstr "Neeblas ricevi volumo tipo qos-on."
+
+msgid "Unable to retrieve volume types"
+msgstr "Neeblas ricevi volumo tipojn."
+
+msgid "Unable to set Domain Context."
+msgstr "Neeblas agordi Domajno Kuntekston."
+
+#, python-format
+msgid "Unable to set flavor access for project %s."
+msgstr "Neeblas apliki variaĵa aliro por la projekto %s."
+
+msgid "Unable to set project quotas."
+msgstr "Neeblas agordi projekto kvotojn."
+
+msgid "Unable to sort instance flavors."
+msgstr "Neeblas sorti apero variaĵon."
+
+msgid "Unable to unmanage volume."
+msgstr "Neeblas malmastrumo volumon."
+
+msgid "Unable to update default quotas for Cinder."
+msgstr "Neeblas ĝisdatigi defaŭlt kvotojn por Cinder."
+
+msgid "Unable to update default quotas for Nova."
+msgstr "Neeblas ĝisdatigi defaŭlt kvotojn por Nova."
+
+msgid "Unable to update default quotas."
+msgstr "Neeblas ĝisdatigi defaŭlt Kvotojn."
+
+msgid "Unable to update encrypted volume type."
+msgstr "Neeblas ĝisdatigi  ĉifrita volumo tipo."
+
+msgid "Unable to update group."
+msgstr "Neeblas ĝisdatigi grupon."
+
+msgid "Unable to update identity provider."
+msgstr "Neeblas ĝisdatigi identeco provizanto."
+
+msgid ""
+"Unable to update identity provider. Please check that the Remote IDs "
+"provided are not already in use."
+msgstr ""
+"Neeblas ĝisdatigi identeco provizanto. Bonvolu kontrolu ke la Defora ID-oj "
+"provizitaj ne jam estas uzata. "
+
+#, python-format
+msgid "Unable to update image \"%s\"."
+msgstr "Neeblas ĝisdatigi bildo \"%s\"."
+
+msgid "Unable to update mapping."
+msgstr "Neeblas ĝisdatigi mapigon."
+
+msgid "Unable to update mapping. Rules has malformed JSON data."
+msgstr "Neeblas ĝisdatigi mapigon. Regulo havas malformitan JSON datumon."
+
+msgid "Unable to update role."
+msgstr "Neeblas ĝisdatigi rolon."
+
+msgid "Unable to update subnets with availability."
+msgstr "Neebla ĝisdatigi subretoj kun disponeblon."
+
+msgid "Unable to update the aggregate."
+msgstr "Neebla ĝisdatigi aggregaton."
+
+msgid "Unable to update the group."
+msgstr "Neeblas ĝisdatigi grupon."
+
+msgid "Unable to update the user password."
+msgstr "Neeblas ĝisdatigi uzanto pasvorto."
+
+msgid "Unable to update the user."
+msgstr "Neeblas ĝisdatigi uzanton."
+
+msgid "Unable to update volume consistency group."
+msgstr "Neeblas ĝisdatigi volumo koherenco grupo."
+
+msgid "Unable to update volume snapshot status."
+msgstr "Neeblas ĝisdatigi volumo savkopio staton."
+
+#, python-format
+msgid "Unable to update volume status to \"%s\"."
+msgstr "Neeblas ĝisdatigi volumo stato al \"%s\"."
+
+msgid "Unable to update volume type."
+msgstr "Neeblas ĝisdatigi volumo tipo."
+
+msgid "Unable to update volumes for consistency group"
+msgstr "Neeblas ĝisdatigi volumoj por koherenco grupo"
+
+msgid "Unable to verify Neutron service providers"
+msgstr "Malkapabla kontroli Neutron servon provizantoj"
+
+msgid "Unable to verify the VNIC types extension in Neutron"
+msgstr "Nekapabla validi la VNIC tipo etendo  en Neutron"
+
+msgid "Unknown"
+msgstr "Nekonata"
+
+msgid "Unknown instance"
+msgstr "Nekonata ekzemplero"
+
+msgid "Unknown resource type for detail API."
+msgstr "Nekonata risurco tipe por detajla API."
+
+msgid "Unknown volume (None)"
+msgstr "Nekonata volumo (Nenio)"
+
+msgid "Unlock Instance"
+msgid_plural "Unlock Instances"
+msgstr[0] "Malŝlosu  Aperon"
+msgstr[1] "Malŝlosu  Aperojn"
+
+msgid "Unlocked Instance"
+msgid_plural "Unlocked Instances"
+msgstr[0] "Malŝlosita  Apero"
+msgstr[1] "Malŝlositaj  Aperoj"
+
+msgid "Unmanage"
+msgstr "Malmastrumu"
+
+msgid "Unmanage Volume"
+msgstr "Malmastrumu Volumon"
+
+msgctxt "Action log of an instance"
+msgid "Unpause"
+msgstr "Malpaŭzigu  "
+
+msgid "Unregister Identity Provider"
+msgid_plural "Unregister Identity Providers"
+msgstr[0] "Malregistru Identeco Provizanton"
+msgstr[1] "Malregistru Identeco Provizantojn"
+
+msgid "Unregistered Identity Provider"
+msgid_plural "Unregistered Identity Providers"
+msgstr[0] "Malregistrita Identeco Provizanto"
+msgstr[1] "Malregistrita Identeco Provizantoj"
+
+msgctxt "Task status of an Instance"
+msgid "Unrescuing"
+msgstr "Malsavidanta"
+
+msgid "Unshelve Instance"
+msgid_plural "Unshelve Instances"
+msgstr[0] "Malreservu Aperon"
+msgstr[1] "Malreservu Aperojn"
+
+msgid "Unshelved Instance"
+msgid_plural "Unshelved Instances"
+msgstr[0] "Malreservita Apero"
+msgstr[1] "Malreservitaj Aperoj"
+
+msgctxt "Task status of an Instance"
+msgid "Unshelving"
+msgstr "Maldepoti"
+
+msgid "Up"
+msgstr "Aktiva"
+
+msgctxt "Current state of a Hypervisor"
+msgid "Up"
+msgstr "Aktiva"
+
+msgid "Update Associations"
+msgstr "Ĝisdatigu   asociigojn  "
+
+msgid "Update Default Quotas"
+msgstr "Ĝisdatigu Defaŭlt Kvotoj"
+
+msgid "Update Defaults"
+msgstr "Ĝisdatigu Defaŭltojn"
+
+msgid "Update Encrypted Volume Type"
+msgstr "Ĝisdatigu ĉifraditan Volumo Tipon"
+
+msgid "Update Encryption"
+msgstr "Ĝisdatigu ĉifradon "
+
+msgid "Update Group"
+msgstr "Ĝisdatigu Grupon"
+
+msgid "Update Identity Provider"
+msgstr "Ĝisdatigu Identeco Provizanto"
+
+msgid "Update Mapping"
+msgstr "Ĝisdatigu Mapigon"
+
+msgid "Update Metadata"
+msgstr "Ĝisdatigu Metadatumo"
+
+msgid "Update Network"
+msgstr "Ĝisdatigu Reton"
+
+msgid "Update Role"
+msgstr "Ĝisdatigu Rolon"
+
+msgid "Update Router"
+msgstr "Ĝisdatigu Enkursigilon"
+
+msgid "Update Status"
+msgstr "Ĝisdatigu Staton"
+
+msgid "Update User"
+msgstr "Ĝisdatigu Uzanton"
+
+msgid "Update Volume Snapshot Status"
+msgstr "Ĝisdatigu Volumo Savkopio Staton."
+
+msgid "Update Volume Status"
+msgstr "Ĝisdatigu Volumo Staton"
+
+msgid "Update Volume Type Encryption"
+msgstr "Ĝisdatigu Volumo Tipo  ĉifradon"
+
+msgid "Update a Metadata Namespace"
+msgstr "Ĝisdatigu la metadatuma nomspaco"
+
+msgid ""
+"Update a subnet associated with the network. Advanced configuration are "
+"available at \"Subnet Details\" tab."
+msgstr ""
+"Ĝisdatigu subreton asociigita kun la reto.  Altnivela agordo estas havebla "
+"je la \"Subretaj detajloj\" klavo. "
+
+msgid "Update an Encrypted Volume Type"
+msgstr "Ĝisdatigu ĉifraditan Volumo Tipon"
+
+#, python-format
+msgid "Update the \"extra spec\" value for \"%(key)s\""
+msgstr "Ĝisdatigu la \"ekstra spec\" valoro por \"%(key)s\""
+
+#, python-format
+msgid "Update the spec value for \"%(key)s\""
+msgstr "Ĝisdatigu la spec valoro por \"%(key)s\""
+
+msgid "Updated"
+msgstr "Ĝisdatigita"
+
+msgid "Updated At"
+msgstr "Ĝisdatigita  Je"
+
+#, python-format
+msgid "Updated volumes for consistency group \"%s\"."
+msgstr "Ĝisdatigitaj volumoj por  kohereco grupo \"%s\"."
+
+msgctxt "Task status of an Instance"
+msgid "Updating Password"
+msgstr "Ĝisdatigi Pasvorto"
+
+msgid ""
+"Updating encryption is not implemented.  Unable to update  encrypted volume "
+"type."
+msgstr ""
+"Ĝisdatigi  ĉifradon ne estas realigita. Neeblas ĝisdatigi ĉifrita volumo "
+"tipo."
+
+#, python-format
+msgid "Updating volume consistency group \"%s\""
+msgstr "Ĝisdatigante volume koherenco grup \"%s\""
+
+msgid "Usage (Hours)"
+msgstr "Uzado (Horoj)"
+
+msgid "Usage Overview"
+msgstr "Uzado Superrigardo"
+
+msgid "Usage Report For Period:"
+msgstr "Uzado Reporto por Periodo:"
+
+msgid "Use a consistency group as source"
+msgstr "Uzu kohereco grupo kiel fonto"
+
+msgid "Use snapshot as a source"
+msgstr "Uzu savkopion kiel fonto"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Uzita <span> %(used)s </span> de <span> %(available)s </span>"
+
+msgid "Used IPs"
+msgstr "Uzitaj IP-oj"
+
+msgid "User"
+msgstr "Uzanto"
+
+#, python-format
+msgid "User \"%s\" was successfully created."
+msgstr "Uzanto \"%s\" sukcese kreita."
+
+#, python-format
+msgid "User %s has no role defined for that project."
+msgstr "Uzanto %s ne havas  difinitan rolon por tiu projekto."
+
+msgid "User Credentials Details"
+msgstr "Uzanto legitimaĵo Detajlojn"
+
+msgid "User Details"
+msgstr "Uzanto Detajloj"
+
+msgid "User ID"
+msgstr "Uzanto ID-on"
+
+msgid "User ID ="
+msgstr "Uzanto ID-o ="
+
+msgid "User Name"
+msgstr "Uzanto Nomo"
+
+msgid "User Name ="
+msgstr "Uzanto Nomo ="
+
+msgid "User has been updated successfully."
+msgstr "Uzanto sukcese ĝisdatigita."
+
+#, python-format
+msgid "User name \"%s\" is already used."
+msgstr "Uzanto nomo \"%s\" jam estas uzita."
+
+msgid "User password has been updated successfully."
+msgstr "Uzanto pasvorto sukcese ĝisdatigita."
+
+msgid "User-defined unique id to identify the identity provider."
+msgstr "Uzanto-difinita unuopa id-on por identigi la identeco provizanto."
+
+msgid "User-defined unique id to identify the mapping."
+msgstr "Uzanto-difinita unuopa id-on por identigi la mapigon."
+
+msgid "Users"
+msgstr "Uzantoj"
+
+msgid "VCPU"
+msgstr "VCPU"
+
+msgid "VCPU Usage"
+msgstr "VCPU Uzado"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "VCPUs (total)"
+msgstr "VCPUs (sume)"
+
+msgid "VCPUs (used)"
+msgstr "VCPUs (uzita)"
+
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Virtuala Disko imago"
+
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtuala Dura Disko"
+
+msgid "VHDX - Large Virtual Hard Disk"
+msgstr "VHDX - Granda Virtuala Dura Disko"
+
+msgid "VLAN"
+msgstr "VLAN"
+
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Virtuala Maŝina Disko"
+
+msgid "VXLAN"
+msgstr "VXLAN"
+
+msgid "Value"
+msgstr "Valoro"
+
+#, python-format
+msgid "Version: %(version_info)s"
+msgstr "Versio: %(version_info)s"
+
+msgid "View Credentials"
+msgstr "Vidu Legitimaĵojn"
+
+msgid "View Extra Specs"
+msgstr "Vidu Ekstrajn Specifojn"
+
+msgid "View Full Log"
+msgstr "Vidu plenan Protokolon"
+
+msgid "View Log"
+msgstr "Vidu Protokolon  "
+
+msgid "View Routers"
+msgstr "Vidu enkursigilojn"
+
+msgid "View Usage"
+msgstr "Vidu Uzaĵon"
+
+msgid "Virtio Forwarder"
+msgstr "Virtio plusenda servilo"
+
+msgid "Virtual Size"
+msgstr "Virtuala Grando"
+
+msgid "Volume"
+msgstr "Volumo"
+
+msgid "Volume Backup:"
+msgstr "Volumo Sekurkopion:"
+
+msgid "Volume Backups"
+msgstr "Volumo Sekurkopiojn"
+
+msgid ""
+"Volume Backups are stored using the Object Storage service. You must have "
+"this service activated in order to create a backup."
+msgstr ""
+"Volumo Sekurkopion estas konservita uzante la ObjektKonservo servo. Vi devas "
+"havi tiun servon ebligita por krei sekurkopion."
+
+msgid "Volume Consistency Groups"
+msgstr "Volumo Koherecoj Grupoj"
+
+msgid "Volume Groups"
+msgstr "Volumaj Grupoj"
+
+msgid "Volume ID"
+msgstr "Volumo ID"
+
+msgid "Volume Name"
+msgstr "Volumo Nomo"
+
+msgid "Volume Name ="
+msgstr "Volumo Nomo ="
+
+msgid "Volume Snapshot"
+msgstr "Volumo Savkopio"
+
+msgid "Volume Snapshots"
+msgstr "Volumaj Savkopiojn"
+
+#, python-format
+msgid "Volume Snapshots of Type %(type)s"
+msgstr "Volumaj savkopioj de Tipo %(type)s"
+
+msgid "Volume Type"
+msgstr "Volumo Tipo"
+
+msgid "Volume Type Encryption Details"
+msgstr "Volumo Tipo ĉifrado  detajloj"
+
+msgid "Volume Type Encryption Overview"
+msgstr "Volumo Tipo Ĉifrado Superrigardo"
+
+msgid "Volume Type Extra Specs"
+msgstr "Volumo Tipo Ekstra Spec-oj"
+
+msgid "Volume Type is Unencrypted."
+msgstr "Volumo Tipo ne estas ĉifradita. "
+
+msgid "Volume Type(s)"
+msgstr "Volumo Tipo(j)"
+
+#, python-format
+msgid "Volume Type: %(volume_type_name)s"
+msgstr "Volumo Tipo: %(volume_type_name)s "
+
+#, python-format
+msgid "Volume Type: %(volume_type_name)s "
+msgstr "Volumo Tipo: %(volume_type_name)s"
+
+msgid "Volume Types"
+msgstr "Volumoj Tipoj"
+
+msgid "Volume consistency groups can not be deleted if they contain volumes."
+msgstr ""
+"Volumo Koherecoj Grupoj ne povas esti forigita se ili enhavas volumojn."
+
+msgid ""
+"Volume consistency groups provide a mechanism for creating snapshots of "
+"multiple volumes at the same point-in-time to ensure data consistency\n"
+"\n"
+"A consistency group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"Volumo kohereco grupoj provizas mekanismo por krei savkopiojn de multaj "
+"volumoj je la sama punkto-en-tempo por garantii datuma kohereco.\n"
+"\n"
+"Kohereco grupo povas subteni pli ol unu volumo tipon, sed ĝi povas enhavi "
+"nur volumoj gastigita de la sama internaĵilo."
+
+msgid ""
+"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
+"to let the system choose a device name for you."
+msgstr ""
+"Volumo muntopunkto  (ekz. 'vda' muntoj je '/dev/vda'). Lasu tiun kampon "
+"malplena por lasi la sistemon elekti la funkciilo nomo por vi."
+
+msgid "Volume name to be assigned"
+msgstr "Volumo nomo asociigonta"
+
+msgid "Volume size in gigabytes (integer value)."
+msgstr "Volumo grando en gigabajto (entjera valoro)."
+
+msgid "Volume size must be greater than 0"
+msgstr "Volumo grando devas esti pli granda ol 0"
+
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>openstack volume type create</"
+"tt> command. Once the volume type gets created, click the \"View Extra Specs"
+"\" button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"Volumo tipo estas tipo aŭ etikedo kiu povas esti selektita je volumo kreanta "
+"tempo en OpenStack. Ĝi kutime mapigas al aro de kapabloj de la memoro back-"
+"end pelilo uzonta por tiun volumon. Ekzemploj: \"Rendimento\", \"SSD\", "
+"\"Sekurkopio\", ktp. Tiu estas ekvivalenta al <tt>openstack volumo tipo "
+"kreu</tt> komando. Kiam la volumo tipo estas kreita, kliku la \"Vidu Ekstra "
+"Specifojn\" klavon por agordi ekstra specifojn klava-valoro paro(j)n por tiu "
+"volumo tipo."
+
+#, python-format
+msgid "Volume type name \"%s\" already exists."
+msgstr "Volumo tipo nomo \"%s\" jam ekzistas."
+
+msgid "Volume type name can not be empty."
+msgstr "Volumo tipo nomo ne povas esti malplena."
+
+msgid "Volumes"
+msgstr "Volumoj"
+
+msgid "Volumes Attached"
+msgstr "Volumoj kunligitaj"
+
+#, python-format
+msgid "Volumes of Type %(type)s"
+msgstr "Volumoj de Tipo %(type)s"
+
+msgid ""
+"When a volume is \"unmanaged\", the volume will no longer be visible within "
+"OpenStack. Note that the volume will not be deleted from the Cinder host. "
+"<br> <br> This is equivalent to the <tt>cinder unmanage</tt> command."
+msgstr ""
+"Kiam volumo estas \"malmastrumita\", la volumo ne estos pli longe videbla en "
+"OpenStack. Notu ke la volumo ne estos forigita de la Cinder gastiganto. <br> "
+"<br> Tiu estas ekvivalenta al <tt>cinder malmastrumu</tt> komando."
+
+msgid "You are already using all of your available floating IPs."
+msgstr "Vi jam estas uzanta ĉiuj de viaj disponeblaj glitaj IP-oj."
+
+msgid ""
+"You can create a port for the network. If you specify device ID to be "
+"attached, the device specified will be attached to the port created."
+msgstr ""
+"Vi povas krei pordon por la reto. Se vi difinas uzaĵo ID alkroĉonta, la "
+"uzaĵo difinita estos alkroĉata al la pordo kreita."
+
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here."
+msgstr ""
+"Vi povas agordi vian aperon post lanĉado uzante la opciojn havebla ĉi tie."
+
+msgid "You cannot disable your current project"
+msgstr "Vi ne povas malebligi vian nunan projekton."
+
+msgid ""
+"You cannot revoke your administrative privileges from the domain you are "
+"currently logged into. Please switch to another domain with administrative "
+"privileges or remove the administrative role manually via the CLI."
+msgstr ""
+"Vi ne povas senvalidigi viajn administrativan privilegion de la domajno vi "
+"estas ĉi-momente  ensalutata. Bonvolu ŝanĝu al alia domajno kun "
+"administrativaj privilegioj aŭ forigu la administrativa rolo permane per la "
+"CLI."
+
+msgid ""
+"You cannot revoke your administrative privileges from the project you are "
+"currently logged into. Please switch to another project with administrative "
+"privileges or remove the administrative role manually via the CLI."
+msgstr ""
+"Vi ne povas senvalidigi viajn administrativan privilegion de la projekto vi "
+"ĉi-momente estas ensalutata. Bonvolu ŝanĝu al alia projekto kun "
+"administrativaj privilegioj aŭ forigu la administrativa rolo permane per la "
+"CLI."
+
+msgid "You may optionally set a password on the rebuilt instance."
+msgstr "Vi eble nedeviga volas krei pasvorton je la rekonstruita apero."
+
+msgid "You may update the editable properties of your network here."
+msgstr "Vi povus ĝisdatigi la redaktiblaj ecoj de via reto ĉi tie."
+
+msgid "You must select a snapshot."
+msgstr "Vi devas elekti savkopion."
+
+msgid "You must select a volume."
+msgstr "Vi devas elekti volumon."
+
+msgid "You must select an image."
+msgstr "Vi devas elekti bildon."
+
+msgid "You must set volume size"
+msgstr "Vi devas agordi volumo grando"
+
+#, python-format
+msgid "Your image %s has been queued for creation."
+msgstr "Via bildo %s estis envicigita por kreado."
+
+msgid "Zone"
+msgstr "Zono"
+
+msgid "back-end"
+msgstr "Interna"
+
+msgctxt "Both of front-end and back-end"
+msgid "both"
+msgstr "ambaŭ"
+
+msgid "by Network (and IP address)"
+msgstr "per Reto (kaj IP Adreso)"
+
+msgid "by Port"
+msgstr "per pordo"
+
+msgid "dm-crypt"
+msgstr "dm-crypt"
+
+msgid "down"
+msgstr "malsupren"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "ekz. AKTIVA / MALŜALTITA / ERARO  "
+
+msgid "e.g. UP / DOWN"
+msgstr "ekz. SUPREN / SUBEN"
+
+msgid "e.g. Yes / No"
+msgstr "ekz. Jes / Ne"
+
+msgid "e.g. Yes/No"
+msgstr "ekz. Jes/Ne"
+
+msgid "front-end"
+msgstr "fasada"
+
+msgid "instance"
+msgstr "apero"
+
+msgid "no"
+msgstr "ne"
+
+msgid "undefined"
+msgstr "nedifinita"
+
+msgid "unknown IP address"
+msgstr "nekonata IP adreso"
+
+msgid "up"
+msgstr "supren"
+
+msgid "vCPUs ="
+msgstr "vCPUs ="
+
+msgid "yes"
+msgstr "jes"

@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-14 04:53+0000\n"
+"POT-Creation-Date: 2018-01-17 05:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-13 02:39+0000\n"
+"PO-Revision-Date: 2018-01-16 07:31+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -6371,7 +6371,7 @@ msgstr "ボリュームとスナップショットの合計サイズ (GiB)"
 
 #, python-format
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
-msgstr "%(type)s 種別のボリュームとスナップショットの合計サイズ (GiB)"
+msgstr "ボリュームとスナップショットの合計サイズ (GiB) (タイプ %(type)s)"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "合計仮想 CPU 使用量 (時間):"
@@ -7837,7 +7837,7 @@ msgstr "ボリュームスナップショット"
 
 #, python-format
 msgid "Volume Snapshots of Type %(type)s"
-msgstr "%(type)s 種別のボリュームスナップショット"
+msgstr "ボリュームスナップショット (タイプ %(type)s)"
 
 msgid "Volume Source"
 msgstr "ボリュームソース"
@@ -7993,7 +7993,7 @@ msgstr "ボリュームは、インスタンスに接続できるブロックデ
 
 #, python-format
 msgid "Volumes of Type %(type)s"
-msgstr "%(type)s 種別のボリューム"
+msgstr "ボリューム (タイプ %(type)s)"
 
 msgid "Warning: "
 msgstr "警告: "
