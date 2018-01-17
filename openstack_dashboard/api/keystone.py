@@ -537,7 +537,7 @@ def user_verify_admin_password(request, admin_password):
     # verify if it's correct.
     client = keystone_client_v2 if VERSIONS.active < 3 else keystone_client_v3
     try:
-        endpoint = _get_endpoint_url(request, 'internalURL')
+        endpoint = _get_endpoint_url(request, 'publicURL')
         insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
         cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
         client.Client(

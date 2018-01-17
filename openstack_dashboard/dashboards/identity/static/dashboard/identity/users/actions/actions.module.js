@@ -35,6 +35,7 @@
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.dashboard.identity.users.actions.create.service',
     'horizon.dashboard.identity.users.actions.update.service',
+    'horizon.dashboard.identity.users.actions.password.service',
     'horizon.dashboard.identity.users.actions.delete.service',
     'horizon.dashboard.identity.users.resourceType'
   ];
@@ -43,6 +44,7 @@
     registry,
     createService,
     updateService,
+    passwordService,
     deleteService,
     userResourceTypeCode
   ) {
@@ -54,6 +56,14 @@
         service: updateService,
         template: {
           text: gettext('Edit User'),
+          type: 'row'
+        }
+      })
+      .append({
+        id: 'passwordAction',
+        service: passwordService,
+        template: {
+          text: gettext('Change Password'),
           type: 'row'
         }
       })
