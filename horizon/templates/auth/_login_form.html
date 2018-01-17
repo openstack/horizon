@@ -59,6 +59,11 @@
               <p>{{ request.COOKIES.logout_reason }}</p>
             </div>
         {% endif %}
+        {% if csrf_failure %}
+            <div class="form-group clearfix error help-block alert alert-danger" id="logout_reason">
+              <p>{{ csrf_failure }}</p>
+            </div>
+        {% endif %}
         {% if next %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ next }}" />
         {% endif %}
