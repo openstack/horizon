@@ -36,6 +36,8 @@
     'horizon.dashboard.identity.users.actions.create.service',
     'horizon.dashboard.identity.users.actions.update.service',
     'horizon.dashboard.identity.users.actions.password.service',
+    'horizon.dashboard.identity.users.actions.enable.service',
+    'horizon.dashboard.identity.users.actions.disable.service',
     'horizon.dashboard.identity.users.actions.delete.service',
     'horizon.dashboard.identity.users.resourceType'
   ];
@@ -45,6 +47,8 @@
     createService,
     updateService,
     passwordService,
+    enableService,
+    disableService,
     deleteService,
     userResourceTypeCode
   ) {
@@ -64,6 +68,22 @@
         service: passwordService,
         template: {
           text: gettext('Change Password'),
+          type: 'row'
+        }
+      })
+      .append({
+        id: 'enableAction',
+        service: enableService,
+        template: {
+          text: gettext('Enable User'),
+          type: 'row'
+        }
+      })
+      .append({
+        id: 'disableAction',
+        service: disableService,
+        template: {
+          text: gettext('Disable User'),
           type: 'row'
         }
       })
