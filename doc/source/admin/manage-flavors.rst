@@ -24,7 +24,7 @@ Create flavors
 
 #. Log in to the Dashboard and select the :guilabel:`admin` project
    from the drop-down list.
-#. In the :guilabel:`Admin` tab, open the :guilabel:`System`
+#. In the :guilabel:`Admin` tab, open the :guilabel:`Compute`
    tab and click the :guilabel:`Flavors` category.
 #. Click :guilabel:`Create Flavor`.
 #. In the :guilabel:`Create Flavor` window, enter or select the
@@ -82,7 +82,7 @@ Update flavors
 
 #. Log in to the Dashboard and select the :guilabel:`admin` project
    from the drop-down list.
-#. In the :guilabel:`Admin` tab, open the :guilabel:`System` tab
+#. In the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab
    and click the :guilabel:`Flavors` category.
 #. Select the flavor that you want to edit. Click :guilabel:`Edit
    Flavor`.
@@ -95,7 +95,7 @@ Update Metadata
 
 #. Log in to the Dashboard and select the :guilabel:`admin` project
    from the drop-down list.
-#. In the :guilabel:`Admin` tab, open the :guilabel:`System` tab
+#. In the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab
    and click the :guilabel:`Flavors` category.
 #. Select the flavor that you want to update. In the drop-down
    list, click :guilabel:`Update Metadata` or click :guilabel:`No` or
@@ -158,7 +158,7 @@ Delete flavors
 
 #. Log in to the Dashboard and select the :guilabel:`admin` project
    from the drop-down list.
-#. In the :guilabel:`Admin` tab, open the :guilabel:`System` tab
+#. In the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab
    and click the :guilabel:`Flavors` category.
 #. Select the flavors that you want to delete.
 #. Click :guilabel:`Delete Flavors`.

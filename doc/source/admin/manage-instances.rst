@@ -16,7 +16,7 @@ Create instance snapshots
 #. Log in to the Dashboard and select the :guilabel:`admin` project from the
    drop-down list.
 
-#. On the :guilabel:`Admin` tab, open the :guilabel:`System` tab
+#. On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab
    and click the :guilabel:`Instances` category.
 
 #. Select an instance to create a snapshot from it. From the
@@ -38,7 +38,7 @@ Control the state of an instance
 #. Log in to the Dashboard and select the :guilabel:`admin` project from the
    drop-down list.
 
-#. On the :guilabel:`Admin` tab, open the :guilabel:`System` tab
+#. On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab
    and click the :guilabel:`Instances` category.
 
 #. Select the instance for which you want to change the state.
@@ -68,8 +68,7 @@ disks, RAM, and uptime of all your instances.
 #. Log in to the Dashboard and select the :guilabel:`admin` project from the
    drop-down list.
 
-#. On the :guilabel:`Admin` tab, open the :guilabel:`System` tab
-   and click the :guilabel:`Overview` category.
+#. On the :guilabel:`Admin` tab, click the :guilabel:`Overview` category.
 
 #. Select a month and click :guilabel:`Submit` to query the instance usage for
    that month.
