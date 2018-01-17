@@ -73,14 +73,16 @@
 
     function submit(context) {
       return keystone.createUser(context.model).then(success);
-    }
 
-    function success(response) {
-      var user = response.data;
-      toast.add('success', interpolate(message.success, [user.name]));
-      return actionResultService.getActionResult()
-        .created(resourceType, user.id)
-        .result;
+      function success(response) {
+        var user = response.data;
+        toast.add('success', interpolate(message.success, [user.name]));
+        // Assign project role for the new user.
+        keystone.grantRole(user.default_project_id, context.model.role, user.id);
+        return actionResultService.getActionResult()
+          .created(resourceType, user.id)
+          .result;
+      }
     }
   }
 })();
