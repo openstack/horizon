@@ -113,19 +113,16 @@ from the :guilabel:`Network Topology` tab.
 Create a port
 ~~~~~~~~~~~~~
 
-.. warning::
-
-  Creating and managing ports requires administrator privileges.
-  Contact an administrator before adding or changing ports.
-
 #. Log in to the dashboard.
 
 #. Select the appropriate project from the drop-down menu at the top left.
 
-#. On the :guilabel:`Admin` tab, click :guilabel:`Networks` category.
+#. On the :guilabel:`Project` tab, click :guilabel:`Networks` category.
 
 #. Click on the :guilabel:`Network Name` of the network in which the port
    has to be created.
+
+#. Go to the :guilabel:`Ports` tab and click :guilabel:`Create Port`.
 
 #. In the :guilabel:`Create Port` dialog box, specify the following values.
 
