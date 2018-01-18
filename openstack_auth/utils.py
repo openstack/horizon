@@ -210,14 +210,14 @@ def get_websso_url(request, auth_url, websso_auth):
 
     The value in WEBSSO_IDP_MAPPING is expected to be a tuple formatted as
     (<idp_id>, <protocol_id>). Using the values found, a IdP/protocol
-    specific URL will be constructed:
+    specific URL will be constructed::
 
         /auth/OS-FEDERATION/identity_providers/<idp_id>
         /protocols/<protocol_id>/websso
 
     If no value is found from the WEBSSO_IDP_MAPPING dictionary, it will
     treat the value as the global WebSSO protocol <protocol_id> and
-    construct the WebSSO URL by:
+    construct the WebSSO URL by::
 
         /auth/OS-FEDERATION/websso/<protocol_id>
 

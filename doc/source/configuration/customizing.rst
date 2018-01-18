@@ -302,7 +302,9 @@ instructions on how to use icons in the code.
 
 To add icon to Table Action, use icon property. Example:
 
-    class CreateSnapshot(tables.LinkAction):
+.. code-block:: python
+
+   class CreateSnapshot(tables.LinkAction):
        name = "snapshot"
        verbose_name = _("Create Snapshot")
        icon = "camera"

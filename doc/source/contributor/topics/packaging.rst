@@ -215,4 +215,4 @@ This is the `recommended way`_ for Django applications.
 Depending on configuration, it might be required to ``manage.py compress``
 during package build, too.
 
- .. _`recommended way`: https://docs.djangoproject.com/en/dev/howto/static-files/deployment/
+.. _`recommended way`: https://docs.djangoproject.com/en/dev/howto/static-files/deployment/

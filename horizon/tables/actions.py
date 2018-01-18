@@ -228,8 +228,10 @@ class Action(BaseAction):
         list of scope and rule tuples to do policy checks on, the
         composition of which is (scope, rule)
 
-            scope: service type managing the policy for action
-            rule: string representing the action to be checked
+        * scope: service type managing the policy for action
+        * rule: string representing the action to be checked
+
+        .. code-block:: python
 
             for a policy that requires a single rule check:
                 policy_rules should look like

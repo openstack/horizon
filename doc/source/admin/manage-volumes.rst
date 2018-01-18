@@ -113,12 +113,12 @@ volumes.
 
 `*` Source `NIST SP 800-38E <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38e.pdf>`_
 
-   .. note::
+.. note::
 
-      To see further information and CLI instructions, see
-      `Create an encrypted volume type
-      <https://docs.openstack.org/cinder/latest/configuration/block-storage/volume-encryption.html>`__
-      in the OpenStack Configuration Reference.
+   To see further information and CLI instructions, see
+   `Create an encrypted volume type
+   <https://docs.openstack.org/cinder/latest/configuration/block-storage/volume-encryption.html>`__
+   in the OpenStack Configuration Reference.
 
 Delete volume types
 ~~~~~~~~~~~~~~~~~~~
