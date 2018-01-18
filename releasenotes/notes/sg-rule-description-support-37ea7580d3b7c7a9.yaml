@@ -1,0 +1,4 @@
+---
+features:
+  - |
+    [:bug:`1742332`] Description for security group rule is supported.

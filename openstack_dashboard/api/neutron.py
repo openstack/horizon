@@ -248,6 +248,7 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
             'ip_protocol': sgr['protocol'],
             'from_port': sgr['port_range_min'],
             'to_port': sgr['port_range_max'],
+            'description': sgr.get('description', '')
         }
         cidr = sgr['remote_ip_prefix']
         rule['ip_range'] = {'cidr': cidr} if cidr else {}
@@ -387,7 +388,7 @@ class SecurityGroupManager(object):
     def rule_create(self, parent_group_id,
                     direction=None, ethertype=None,
                     ip_protocol=None, from_port=None, to_port=None,
-                    cidr=None, group_id=None):
+                    cidr=None, group_id=None, description=None):
         """Create a new security group rule.
 
         :param parent_group_id: security group id a rule is created to
@@ -409,15 +410,17 @@ class SecurityGroupManager(object):
         if isinstance(ip_protocol, int) and ip_protocol < 0:
             ip_protocol = None
 
-        body = {'security_group_rule':
-                {'security_group_id': parent_group_id,
-                 'direction': direction,
-                 'ethertype': ethertype,
-                 'protocol': ip_protocol,
-                 'port_range_min': from_port,
-                 'port_range_max': to_port,
-                 'remote_ip_prefix': cidr,
-                 'remote_group_id': group_id}}
+        params = {'security_group_id': parent_group_id,
+                  'direction': direction,
+                  'ethertype': ethertype,
+                  'protocol': ip_protocol,
+                  'port_range_min': from_port,
+                  'port_range_max': to_port,
+                  'remote_ip_prefix': cidr,
+                  'remote_group_id': group_id}
+        if description is not None:
+            params['description'] = description
+        body = {'security_group_rule': params}
         try:
             rule = self.client.create_security_group_rule(body)
         except neutron_exc.OverQuotaClient:
@@ -1590,10 +1593,10 @@ def security_group_update(request, sg_id, name, desc):
 def security_group_rule_create(request, parent_group_id,
                                direction, ethertype,
                                ip_protocol, from_port, to_port,
-                               cidr, group_id):
+                               cidr, group_id, description=None):
     return SecurityGroupManager(request).rule_create(
         parent_group_id, direction, ethertype, ip_protocol,
-        from_port, to_port, cidr, group_id)
+        from_port, to_port, cidr, group_id, description)
 
 
 def security_group_rule_delete(request, sgr_id):

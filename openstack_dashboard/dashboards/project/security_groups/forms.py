@@ -102,6 +102,12 @@ class AddRule(forms.SelfHandlingForm):
                                   widget=forms.ThemableSelectWidget(attrs={
                                       'class': 'switchable',
                                       'data-slug': 'rule_menu'}))
+    description = forms.CharField(
+        label=_('Description'),
+        required=False, max_length=255,
+        widget=forms.Textarea(attrs={'rows': 2}),
+        help_text=_('A brief description of the security group rule '
+                    'you are adding'))
 
     # "direction" field is enabled only when custom mode.
     # It is because most common rules in local_settings.py is meaningful
@@ -296,6 +302,17 @@ class AddRule(forms.SelfHandlingForm):
                 attrs={'readonly': 'readonly'})
             self.fields['ethertype'].initial = 'IPv4'
 
+        try:
+            is_desc_supported = api.neutron.is_extension_supported(
+                self.request, 'standard-attr-description')
+        except Exception:
+            exceptions.handle(
+                self.request,
+                _('Failed to check if description field is supported.'))
+            is_desc_supported = False
+        if not is_desc_supported:
+            del self.fields['description']
+
     def _update_and_pop_error(self, cleaned_data, key, value):
         cleaned_data[key] = value
         self.errors.pop(key, None)
@@ -419,6 +436,9 @@ class AddRule(forms.SelfHandlingForm):
     def handle(self, request, data):
         redirect = reverse("horizon:project:security_groups:detail",
                            args=[data['id']])
+        params = {}
+        if 'description' in data:
+            params['description'] = data['description']
         try:
             rule = api.neutron.security_group_rule_create(
                 request,
@@ -429,7 +449,8 @@ class AddRule(forms.SelfHandlingForm):
                 data['from_port'],
                 data['to_port'],
                 data['cidr'],
-                data['security_group'])
+                data['security_group'],
+                **params)
             messages.success(request,
                              _('Successfully added rule: %s')
                              % six.text_type(rule))

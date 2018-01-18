@@ -12,12 +12,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import functools
+
 from django.conf import settings
+from django.template import defaultfilters
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 import six
 
+from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
@@ -228,6 +232,25 @@ class RulesTable(tables.DataTable):
     remote_security_group = tables.Column(get_remote_security_group,
                                           verbose_name=_("Remote Security"
                                                          " Group"))
+    description = tables.Column(
+        "description",
+        verbose_name=("Description"),
+        # 'default' filter is to hide the difference between empty string
+        # and None (null) in description. Both will be displayed as '-'.
+        filters=(functools.partial(defaultfilters.default, arg=_("-")),))
+
+    def __init__(self, request, *args, **kwargs):
+        super(RulesTable, self).__init__(request, *args, **kwargs)
+        try:
+            is_desc_supported = api.neutron.is_extension_supported(
+                self.request, 'standard-attr-description')
+        except Exception:
+            exceptions.handle(
+                self.request,
+                _('Failed to check if description field is supported.'))
+            is_desc_supported = False
+        if not is_desc_supported:
+            del self.columns['description']
 
     def sanitize_id(self, obj_id):
         return filters.get_int_or_uuid(obj_id)

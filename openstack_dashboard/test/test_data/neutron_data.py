@@ -505,7 +505,9 @@ def data(TEST):
             'protocol': None, 'remote_group_id': None,
             'remote_ip_prefix': None,
             'security_group_id': secgroup['id'],
-            'tenant_id': secgroup['tenant_id']}
+            'tenant_id': secgroup['tenant_id'],
+            'description': "Egrress IPv4 rule",
+        }
         rule_egress_ipv6 = {
             'id': uuidutils.generate_uuid(),
             'direction': u'egress', 'ethertype': u'IPv6',
@@ -513,8 +515,9 @@ def data(TEST):
             'protocol': None, 'remote_group_id': None,
             'remote_ip_prefix': None,
             'security_group_id': secgroup['id'],
-            'tenant_id': secgroup['tenant_id']}
-
+            'tenant_id': secgroup['tenant_id'],
+            'description': 'Egress IPv6 rule',
+        }
         rule_tcp_80 = {
             'id': uuidutils.generate_uuid(),
             'direction': u'ingress', 'ethertype': u'IPv4',
@@ -522,7 +525,9 @@ def data(TEST):
             'protocol': u'tcp', 'remote_group_id': None,
             'remote_ip_prefix': u'0.0.0.0/0',
             'security_group_id': secgroup['id'],
-            'tenant_id': secgroup['tenant_id']}
+            'tenant_id': secgroup['tenant_id'],
+            'description': 'Ingress HTTP',
+        }
         rule_icmp = {
             'id': uuidutils.generate_uuid(),
             'direction': u'ingress', 'ethertype': u'IPv4',
@@ -530,7 +535,9 @@ def data(TEST):
             'protocol': u'icmp', 'remote_group_id': None,
             'remote_ip_prefix': u'0.0.0.0/0',
             'security_group_id': secgroup['id'],
-            'tenant_id': secgroup['tenant_id']}
+            'tenant_id': secgroup['tenant_id'],
+            'description': 'Ingress IPv4 ICMP',
+        }
         rule_group = {
             'id': uuidutils.generate_uuid(),
             'direction': u'ingress', 'ethertype': u'IPv4',
@@ -538,7 +545,9 @@ def data(TEST):
             'protocol': u'tcp', 'remote_group_id': sec_group_1['id'],
             'remote_ip_prefix': None,
             'security_group_id': secgroup['id'],
-            'tenant_id': secgroup['tenant_id']}
+            'tenant_id': secgroup['tenant_id'],
+            'description': 'Ingress HTTP from SG #1',
+        }
         rule_all_tcp = {
             'id': uuidutils.generate_uuid(),
             'direction': u'egress', 'ethertype': u'IPv4',
@@ -546,7 +555,9 @@ def data(TEST):
             'protocol': u'tcp', 'remote_group_id': None,
             'remote_ip_prefix': u'0.0.0.0/24',
             'security_group_id': secgroup['id'],
-            'tenant_id': secgroup['tenant_id']}
+            'tenant_id': secgroup['tenant_id'],
+            'description': 'Egress all TCP',
+        }
 
         rules = []
         if not default_only:
