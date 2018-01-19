@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-17 05:44+0000\n"
+"POT-Creation-Date: 2018-01-19 06:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-16 05:19+0000\n"
+"PO-Revision-Date: 2018-01-18 06:24+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -281,6 +281,9 @@ msgstr "Adicionar Interface"
 msgid "Add Ons, Required and Feedback"
 msgstr "Add Ons, Obrigatório e Feedback"
 
+msgid "Admin Password"
+msgstr "Senha do Administrador"
+
 msgid "Admin State"
 msgstr "Estado de Admin"
 
@@ -353,6 +356,31 @@ msgstr ""
 "Selecionar <b>Automático</b> redimensiona o disco e o configura com uma "
 "única partição. Selecionar <b>Manual</b> permite criar múltiplas partições "
 "no disco."
+
+msgid ""
+"An arbitrary amount (0, 1, 2, ...) of regular Neutron\n"
+"  ports with segmentation details (ie. type and ID). May be provided\n"
+"  when the trunk is created. Also may be attached or detached later\n"
+"  during the trunk's (and the instance's) life.\n"
+"\n"
+"  Inside the instance a particular subport's network will\n"
+"  be presented as tagged frames transmitted and received on the vNIC\n"
+"  belonging to the parent port. The cloud user may control the tagging\n"
+"  by setting the <em>segmentation type</em> and <em>segmentation ID</em>\n"
+"  of the subport."
+msgstr ""
+"Uma quantidade arbitrária (0, 1, 2, ...) de portas regulares do Neutron\n"
+"  com detalhes de segmentação (ie. tipo e ID) pode ser fornecida\n"
+" quando o trunk é criado. Também pode ser anexado ou desanexado "
+"posteriormente\n"
+"  durante a vida do trunk (e da instância).\n"
+"\n"
+"  Dentro da instância, a  sub-porta de uma rede particular será\n"
+"  mostrada como frames tagueados transmitidos e recebidos na vNIC\n"
+"  pertencente à porta pai. O usuário da nuvem pode controlar o tagueamento\n"
+"  através da configuração do <em>tipo de segmentação</em> e do <em>ID de "
+"segmentação</em>\n"
+"  da sub-porta."
 
 msgid "An arbitrary description for the trunk."
 msgstr "Uma descrição arbitrária para o trunk."
@@ -477,6 +505,13 @@ msgstr "Não é possível obter o catálogo de serviços a partir do keystone."
 
 msgid "Cannot get the extension list."
 msgstr "Não foi possível obter lista de extensão."
+
+msgid "Change Password"
+msgstr "Alterar Senha"
+
+msgid "Change user's password. We highly recommend you create a strong one."
+msgstr ""
+"Alterar a senha do usuário. Recomendamos muito que crie uma senha forte."
 
 msgid "Charts"
 msgstr "Gráficos"
@@ -921,6 +956,9 @@ msgstr "Físico Direto"
 msgid "Direction"
 msgstr "Direção"
 
+msgid "Disable User"
+msgstr "Desativar Usuário"
+
 msgid "Disabled"
 msgstr "Desativado"
 
@@ -996,11 +1034,20 @@ msgstr "Editar Função"
 msgid "Edit Trunk"
 msgstr "Editar Trunk"
 
+msgid "Edit User"
+msgstr "Editar Usuário"
+
+msgid "Edit the user's details, including the Primary Project."
+msgstr "Editar detalhes do usuário, incluindo o Projeto Principal."
+
 msgid "Email"
 msgstr "Email"
 
 msgid "Emphasis classes"
 msgstr "Classes de ênfase"
+
+msgid "Enable User"
+msgstr "Ativar Usuário"
 
 msgid "Enable/Disable subport addition, removal and trunk delete."
 msgstr "Ativar/Desativar adição de sub-porta, remoção e exclusão de trunk."
@@ -1106,6 +1153,20 @@ msgstr "Pasta %(name)s criada."
 
 msgid "Folder Name"
 msgstr "Nome da Pasta"
+
+msgid ""
+"For ports on provider networks you may choose the special\n"
+"  segmentation type <em>inherit</em>. Then the subport's segmentation\n"
+"  type and ID will be automagically inherited from the provider network's\n"
+"  segmentation type and ID. This is useful when the switch is incapable of\n"
+"  remapping (tag pop-push) for example as usual for Ironic instances."
+msgstr ""
+"Para portas nas redes de provedores você pode escolher o tipo especial\n"
+"  de segmentação <em>herdado</em>. Então o tipo e ID de segmentação\n"
+"  serão automaticamente herdados do tipo e ID da rede\n"
+"  do provedor. Isto é útil quando o switch é incapaz de\n"
+"  fazer remapeamento (tag pop-push) por exemplo como é usual para instâncias "
+"do Ironic."
 
 msgid "Form"
 msgstr "Formulário"
@@ -1704,6 +1765,16 @@ msgstr "Características de rede"
 msgid "Networks"
 msgstr "Redes"
 
+msgid ""
+"Networks of subports may become available later than the\n"
+"  moment of bootup. But they will be available after the trunk reached\n"
+"  the <em>ACTIVE</em> status."
+msgstr ""
+"Redes das sub-portas podem se tornar disponíveis posteriormente ao\n"
+"  momento da inicialização. Mas elas estarão disponíveis depois que o trunk "
+"alcançar\n"
+"  o estado <em>ATIVO</em>."
+
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "As redes fornecem os canais de comunicação para instâncias na nuvem."
 
@@ -1752,6 +1823,15 @@ msgstr "Não Definido"
 
 msgid "Not public"
 msgstr "Não público"
+
+msgid ""
+"Note that most guest operating systems will not\n"
+"  automatically configure and bring up the VLAN subinterfaces belonging\n"
+"  to subports. You may have to do that yourself. For example:"
+msgstr ""
+"Observe que a maioria dos sistemas operacionais guest não irão configurar\n"
+"  automaticamente e trazer as sub-interfaces de VLAN pertencentes às\n"
+"  sub-portas. Você pode ter que fazer isso por contra própria. por exemplo:"
 
 msgid ""
 "Note that some Neutron backends (notably the Open vSwitch\n"
@@ -2363,6 +2443,9 @@ msgstr "Alguém famoso no"
 msgid "Something else here"
 msgstr "Digite algo aqui"
 
+msgid "Something wrong to change password."
+msgstr "Algo errado ao alterar a senha."
+
 msgid "Source"
 msgstr "Origem"
 
@@ -2473,6 +2556,9 @@ msgstr "Área de texto"
 msgid "The access permission for the image."
 msgstr "A permissão de acesso para a imagem."
 
+msgid "The admin password is incorrect."
+msgstr "A senha do administrador está incorreta."
+
 msgid "The architecture of the image."
 msgstr "A arquitetura da imagem."
 
@@ -2571,6 +2657,27 @@ msgstr ""
 "  no lançamento. Não tente adicionar o trunk ou qualquer das sub-portas à\n"
 "  instância diretamente."
 
+msgid ""
+"The segmentation type and ID are decoupled (and\n"
+"  therefore independent) from Neutron's network virtualization\n"
+"  implementation. Different segmentation types will be remapped as frames\n"
+"  leave/enter the instance."
+msgstr ""
+"O tipo e o ID de segmentação são desacoplados (e,\n"
+"  portanto, independentes) da implementação da virtualização de rede do\n"
+"  Neutron. Tipos diferentes de segmentação serão remapeados como frames\n"
+"  deixando/entrando na instância."
+
+msgid ""
+"The segmentation type, ID tuples of subports must be unique\n"
+"  (in the scope of a trunk), otherwise networks of subports could not\n"
+"  be distinguished inside the instance."
+msgstr ""
+"O tipo de segmentação, tuplas de ID das sub-portas devem ser únicos\n"
+"  (no escopo de um trunk), do contrário, redes de sub-portas não poderão "
+"ser\n"
+"  distinguidas dentro da instância."
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -2653,6 +2760,13 @@ msgid ""
 msgstr ""
 "Este objeto JavaScript contém seu novo formulário e pode ser utilizado com "
 "<code>horizon.framework.widgets.form.ModalFormService</code>"
+
+msgid ""
+"This can be simplified by reusing the parent's MAC address\n"
+"  for all subports of the trunk earlier at port creation. Eg.:"
+msgstr ""
+"Isto pode ser simplificado através da reutilização do endereço MAC do pai\n"
+"  para todas as sub-portas do trunk anteriormente na criação da porta. Ex.:"
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
@@ -3356,11 +3470,26 @@ msgstr "Usuário"
 msgid "User %s was successfully created."
 msgstr "Usuário %s foi criado com sucesso."
 
+#, python-format
+msgid "User %s was successfully disabled."
+msgstr "Usuário %s foi desativado com sucesso."
+
+#, python-format
+msgid "User %s was successfully enabled."
+msgstr "Usuário %s foi ativado com sucesso."
+
+#, python-format
+msgid "User %s was successfully updated."
+msgstr "Usuário %s foi atualizado com sucesso."
+
 msgid "User ID"
 msgstr "ID de Usuário"
 
 msgid "User Name"
 msgstr "Nome do Usuário"
+
+msgid "User password has been updated successfully."
+msgstr "A senha do usuário foi atualizada com sucesso."
 
 msgid "Users"
 msgstr "Usuários"

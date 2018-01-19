@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-14 15:32+0000\n"
+"POT-Creation-Date: 2018-01-19 06:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-14 11:26+0000\n"
+"PO-Revision-Date: 2018-01-18 04:59+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -274,6 +274,9 @@ msgstr "Add Interface"
 msgid "Add Ons, Required and Feedback"
 msgstr "Add Ons, Required and Feedback"
 
+msgid "Admin Password"
+msgstr "Admin Password"
+
 msgid "Admin State"
 msgstr "Admin State"
 
@@ -492,6 +495,12 @@ msgstr "Cannot get service catalog from keystone."
 
 msgid "Cannot get the extension list."
 msgstr "Cannot get the extension list."
+
+msgid "Change Password"
+msgstr "Change Password"
+
+msgid "Change user's password. We highly recommend you create a strong one."
+msgstr "Change user's password. We highly recommend you create a strong one."
 
 msgid "Charts"
 msgstr "Charts"
@@ -935,6 +944,9 @@ msgstr "Direct Physical"
 msgid "Direction"
 msgstr "Direction"
 
+msgid "Disable User"
+msgstr "Disable User"
+
 msgid "Disabled"
 msgstr "Disabled"
 
@@ -1010,11 +1022,20 @@ msgstr "Edit Role"
 msgid "Edit Trunk"
 msgstr "Edit Trunk"
 
+msgid "Edit User"
+msgstr "Edit User"
+
+msgid "Edit the user's details, including the Primary Project."
+msgstr "Edit the user's details, including the Primary Project."
+
 msgid "Email"
 msgstr "Email"
 
 msgid "Emphasis classes"
 msgstr "Emphasis classes"
+
+msgid "Enable User"
+msgstr "Enable User"
 
 msgid "Enable/Disable subport addition, removal and trunk delete."
 msgstr "Enable/Disable subport addition, removal and trunk delete."
@@ -2389,6 +2410,9 @@ msgstr "Someone famous in"
 msgid "Something else here"
 msgstr "Something else here"
 
+msgid "Something wrong to change password."
+msgstr "Something wrong to change password."
+
 msgid "Source"
 msgstr "Source"
 
@@ -2498,6 +2522,9 @@ msgstr "Textarea"
 
 msgid "The access permission for the image."
 msgstr "The access permission for the image."
+
+msgid "The admin password is incorrect."
+msgstr "The admin password is incorrect."
 
 msgid "The architecture of the image."
 msgstr "The architecture of the image."
@@ -3397,11 +3424,26 @@ msgstr "User"
 msgid "User %s was successfully created."
 msgstr "User %s was successfully created."
 
+#, python-format
+msgid "User %s was successfully disabled."
+msgstr "User %s was successfully disabled."
+
+#, python-format
+msgid "User %s was successfully enabled."
+msgstr "User %s was successfully enabled."
+
+#, python-format
+msgid "User %s was successfully updated."
+msgstr "User %s was successfully updated."
+
 msgid "User ID"
 msgstr "User ID"
 
 msgid "User Name"
 msgstr "User Name"
+
+msgid "User password has been updated successfully."
+msgstr "User password has been updated successfully."
 
 msgid "Users"
 msgstr "Users"
