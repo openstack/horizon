@@ -8,16 +8,17 @@
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 # José Mello <jose.eduardo.jr@gmail.com>, 2017. #zanata
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
+# Rodrigo Loures <rmoraesloures@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.1.dev36\n"
+"Project-Id-Version: horizon 11.0.5.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-10 11:58+0000\n"
+"POT-Creation-Date: 2017-11-21 22:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-10 07:42+0000\n"
-"Last-Translator: Marcio <marciofoz@gmail.com>\n"
+"PO-Revision-Date: 2018-01-18 10:08+0000\n"
+"Last-Translator: Rodrigo Loures <rmoraesloures@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -461,6 +462,9 @@ msgstr "Registros de DNS"
 msgid "Danger"
 msgstr "Perigo"
 
+msgid "Danger Anchor"
+msgstr "Âncora de perigo"
+
 msgid "Danger Button"
 msgstr "Botão de Perigo"
 
@@ -481,6 +485,9 @@ msgstr "Desativado"
 
 msgid "Default"
 msgstr "Padrão"
+
+msgid "Default Anchor"
+msgstr "Âncora padrão"
 
 msgid "Default Button"
 msgstr "Botão Padrão"
@@ -540,6 +547,9 @@ msgstr "Descrição"
 
 msgid "Details"
 msgstr "Detalhes"
+
+msgid "Details Views:"
+msgstr "Visualizações dos detalhes:"
 
 msgid "Device Name"
 msgstr "Nome do Dispositivo"
@@ -896,6 +906,9 @@ msgstr "Instâncias"
 msgid "Interfaces"
 msgstr "Interfaces"
 
+msgid "Item Actions:"
+msgstr "Ações do item:"
+
 msgid "Jumbotron"
 msgstr "Jumbotron"
 
@@ -994,6 +1007,9 @@ msgstr "Membros do Conjunto de Balanceadores de Carga"
 
 msgid "Load Balancer Pools"
 msgstr "Conjuntos de Balanceadores de Carga"
+
+msgid "Load Function:"
+msgstr "Função de carga:"
 
 msgid "Loading"
 msgstr "Carregando"
@@ -1411,6 +1427,9 @@ msgstr "Tipos de Recursos Registrados"
 msgid "Remote"
 msgstr "Remoto"
 
+msgid "Resource ID(s)"
+msgstr "ID(s) de recursos"
+
 msgid "Right"
 msgstr "Direita"
 
@@ -1577,6 +1596,9 @@ msgstr "Sucesso"
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Par de chaves %(name)s importados com sucesso."
+
+msgid "Supports Details View:"
+msgstr "Visualização dos detalhes de suporte"
 
 msgid "Swap Disk"
 msgstr "Disco de Swap"
@@ -1753,6 +1775,15 @@ msgstr "Hora"
 
 msgid "Timestamp"
 msgstr "Registro de Data e Hora"
+
+msgid ""
+"To view source code, hover over a section, then click the <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
+"right of that section."
+msgstr ""
+"Para visualizar o código fonte, passe o mouse sobre uma seção e clique no <a "
+"class=\"btn btn-primary btn-xs\"><span class=\"fa fa-code\"></span></a> "
+"botão no lado superior direito dessa seção."
 
 msgid "Tooltips"
 msgstr "Dicas de ferramentas"
@@ -2261,6 +2292,9 @@ msgstr ""
 
 msgid "Warning"
 msgstr "Aviso"
+
+msgid "Warning Anchor"
+msgstr "Âncora de aviso"
 
 msgid "Warning Button"
 msgstr "Botão de Aviso"

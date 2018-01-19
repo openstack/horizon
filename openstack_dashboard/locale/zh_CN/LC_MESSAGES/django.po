@@ -22,16 +22,17 @@
 # Bin <liubin@glab.cn>, 2017. #zanata
 # Tony <tfu@redhat.com>, 2017. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2017. #zanata
+# Eric Lei <1165970798@qq.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.4.dev14\n"
+"Project-Id-Version: horizon 11.0.5.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-20 14:16+0000\n"
+"POT-Creation-Date: 2017-11-21 22:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-23 04:45+0000\n"
-"Last-Translator: Bin <liubin@glab.cn>\n"
+"PO-Revision-Date: 2018-01-18 01:32+0000\n"
+"Last-Translator: Eric Lei <1165970798@qq.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -5051,8 +5052,9 @@ msgstr "等待更新"
 msgid "Per Volume Size (GiB)"
 msgstr "每个卷的大小 (GiB)"
 
+#, fuzzy
 msgid "Perfect Forward Secrecy"
-msgstr "完善前向保密（FPS，Perfect Forward Secrecy）"
+msgstr "完全正向保密（PFS，Perfect Forward Secrecy）"
 
 msgid "Physical Network"
 msgstr "物理网络"
