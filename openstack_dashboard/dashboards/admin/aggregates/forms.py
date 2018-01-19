@@ -31,11 +31,18 @@ class UpdateAggregateForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         id = self.initial['id']
+        old_availability_zone = self.initial['availability_zone']
         name = data['name']
         availability_zone = data['availability_zone']
         aggregate = {'name': name}
-        if availability_zone:
-            aggregate['availability_zone'] = availability_zone
+        try:
+            if availability_zone:
+                aggregate['availability_zone'] = availability_zone
+            elif old_availability_zone:
+                raise ValueError
+        except Exception:
+            exceptions.handle(request,
+                              _('The new availability zone can\'t be empty'))
         try:
             api.nova.aggregate_update(request, id, aggregate)
             message = (_('Successfully updated aggregate: "%s."')
