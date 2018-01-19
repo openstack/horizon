@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 10:25+0000\n"
+"POT-Creation-Date: 2018-01-19 06:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-09 05:01+0000\n"
+"PO-Revision-Date: 2018-01-18 01:18+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -275,6 +275,9 @@ msgstr "Add Interface (tambahkan antarmuka)"
 msgid "Add Ons, Required and Feedback"
 msgstr "Add Ons, Required and Feedback"
 
+msgid "Admin Password"
+msgstr "Password Admin"
+
 msgid "Admin State"
 msgstr "Admin State"
 
@@ -493,6 +496,13 @@ msgstr "Tidak bisa mendapatkan katalog layanan dari keystone."
 msgid "Cannot get the extension list."
 msgstr "Tidak bisa mendapatkan daftar ekstensi."
 
+msgid "Change Password"
+msgstr "Ganti Kata Sandi"
+
+msgid "Change user's password. We highly recommend you create a strong one."
+msgstr ""
+"Ubah kata sandi pengguna. Kami sangat menyarankan Anda membuat yang kuat."
+
 msgid "Charts"
 msgstr "Charts (grafik)"
 
@@ -572,6 +582,10 @@ msgstr[0] "Confirm Delete Role"
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
 msgstr[0] "Confirm Delete Trunk"
+
+msgid "Confirm Delete User"
+msgid_plural "Confirm Delete Users"
+msgstr[0] "Confirm Delete User"
 
 msgid "Connecting"
 msgstr "Connecting (sedang koneksi)"
@@ -831,6 +845,13 @@ msgstr[0] "Delete Trunk"
 msgid "Delete Trunks"
 msgstr "Delete Trunks"
 
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "Delete User"
+
+msgid "Delete Users"
+msgstr "Hapus Pengguna"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Delete Volume on Instance Delete"
 
@@ -861,6 +882,11 @@ msgstr[0] "Deleted Role: %s."
 msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
 msgstr[0] "Deleted Trunk: %s."
+
+#, python-format
+msgid "Deleted User: %s."
+msgid_plural "Deleted Users: %s."
+msgstr[0] "Deleted User: %s."
 
 msgid "Deleting"
 msgstr "Deleting (menghapus)"
@@ -900,6 +926,9 @@ msgstr "Direct Physical"
 
 msgid "Direction"
 msgstr "Direction (arah)"
+
+msgid "Disable User"
+msgstr "Nonaktifkan Pengguna"
 
 msgid "Disabled"
 msgstr "Disabled (tidak aktif)"
@@ -976,11 +1005,20 @@ msgstr "Edit Role"
 msgid "Edit Trunk"
 msgstr "Edit Trunk"
 
+msgid "Edit User"
+msgstr "Edit Pengguna"
+
+msgid "Edit the user's details, including the Primary Project."
+msgstr "Edit rincian pengguna, termasuk Proyek Utama."
+
 msgid "Email"
 msgstr "Surat elektronik"
 
 msgid "Emphasis classes"
 msgstr "Kelas penekanan"
+
+msgid "Enable User"
+msgstr "Aktifkan Pengguna"
 
 msgid "Enable/Disable subport addition, removal and trunk delete."
 msgstr "Enable/Disable tambahan subport, penghilangan dan penghapusan trunk."
@@ -2382,6 +2420,9 @@ msgstr "Seseorang yang terkenal dalam"
 msgid "Something else here"
 msgstr "Something else here (sesuatu lain disini)"
 
+msgid "Something wrong to change password."
+msgstr "Ada yang salah untuk mengganti password."
+
 msgid "Source"
 msgstr "Sumber"
 
@@ -2491,6 +2532,9 @@ msgstr "Textarea"
 
 msgid "The access permission for the image."
 msgstr "Izin akses untuk image."
+
+msgid "The admin password is incorrect."
+msgstr "Kata sandi admin salah"
 
 msgid "The architecture of the image."
 msgstr "Arsitektur image."
@@ -2922,6 +2966,11 @@ msgstr[0] "Unable to delete Role: %s."
 msgid "Unable to delete Trunk: %s."
 msgid_plural "Unable to delete Trunks: %s."
 msgstr[0] "Unable to delete Trunk: %s."
+
+#, python-format
+msgid "Unable to delete User: %s."
+msgid_plural "Unable to delete Users: %s."
+msgstr[0] "Unable to delete User: %s."
 
 msgid "Unable to delete the container."
 msgstr "Tidak dapat menghapus kontainer."
@@ -3393,11 +3442,26 @@ msgstr "User (pengguna)"
 msgid "User %s was successfully created."
 msgstr "User %s berhasil dibuat."
 
+#, python-format
+msgid "User %s was successfully disabled."
+msgstr "Pengguna %s berhasil dinonaktifkan"
+
+#, python-format
+msgid "User %s was successfully enabled."
+msgstr "User %s berhasil diaktifkan."
+
+#, python-format
+msgid "User %s was successfully updated."
+msgstr "Pengguna %s berhasil diperbarui."
+
 msgid "User ID"
 msgstr "ID pengguna"
 
 msgid "User Name"
 msgstr "Nama pengguna"
+
+msgid "User password has been updated successfully."
+msgstr "Kata sandi pengguna telah berhasil diupdate."
 
 msgid "Users"
 msgstr "Users (pengguna)"
@@ -3638,6 +3702,11 @@ msgstr[0] "You have selected \"%s\". Deleted key pair is not recoverable."
 msgid "You have selected \"%s\". Deleted role is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
 msgstr[0] "You have selected \"%s\". Deleted role is not recoverable."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted user is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted users are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted user is not recoverable."
 
 msgid "Your Form as JavaScript"
 msgstr "Your Form as JavaScript"

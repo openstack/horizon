@@ -1,15 +1,16 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev169\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-02 13:46+0000\n"
+"POT-Creation-Date: 2018-01-19 06:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-03 04:19+0000\n"
+"PO-Revision-Date: 2018-01-18 01:06+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -216,6 +217,9 @@ msgstr "Finish (selesai)"
 msgid "Flavor"
 msgstr "Flavor"
 
+msgid "Forbidden. Redirecting to login"
+msgstr "Terlarang. Mengalihkan untuk login"
+
 msgid "Format validation failed"
 msgstr "Format validasi gagal"
 
@@ -389,6 +393,9 @@ msgstr "Terlalu banyak sifat didefinisikan, maksimum {$schema.maxProperties$}"
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "Unable to delete: %s."
+
+msgid "Unauthorized. Redirecting to login"
+msgstr "Tidak sah. Mengalihkan untuk login"
 
 msgid "Unknown property (not in schema)"
 msgstr "Properti yang tidak diketahui (tidak dalam skema)"
