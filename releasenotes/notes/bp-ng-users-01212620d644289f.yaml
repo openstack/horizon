@@ -1,0 +1,19 @@
+---
+features:
+  - |
+    [`blueprint ng-users <https://blueprints.launchpad.net/horizon/+spec/ng-users>`_]
+    AngularJS-based Users panel is added. The features in the legacy
+    panel are almost implemented. The Users panel now may be configured
+    to use either the legacy or AngularJS-based codes.
+    The ANGULAR_FEATURES setting now allows for a `users_panel`.
+    If set to True, then the AngularJS-Based Users panel will be used,
+    while the Django version will be used if set to False.
+    Default value for users_panel is False, due to lack of extensional
+    buttons, i.e. for showing password and adding project, see also
+    [`bug/1733271 <https://bugs.launchpad.net/horizon/1744271>`_].
+issues:
+  - |
+    [`bug/1733271 <https://bugs.launchpad.net/horizon/1744271>`_] Users panel
+    has Angularized, but buttons showing passwords is not implemented, i.e.
+    for Password, Confirm Password and Admin password. Also, button adding
+    project for selection of Primary Project is not implemented.
