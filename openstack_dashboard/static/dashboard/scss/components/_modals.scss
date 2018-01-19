@@ -5,10 +5,6 @@
     width: calc(100% - (#{$padding-xs-horizontal} * 2 + #{$font-size-h3}) + #{$modal-inner-padding});
   }
 
-  @media (max-width: $screen-sm-min) {
-    max-height: calc(100vh - #{$bs-modal-height-small-screen});
-  }
-
   textarea {
     resize: vertical;
   }
