@@ -897,6 +897,45 @@ Default: ``"theme"``
 This setting tells Horizon in which cookie key to store the currently
 set theme.  The cookie expiration is currently set to a year.
 
+USER_MENU_LINKS
+-----------------
+
+.. versionadded:: 13.0.0(Queens)
+
+Default::
+
+  [
+    {'name': _('OpenStack RC File v2'),
+     'icon_classes': ['fa-download', ],
+     'url': 'horizon:project:api_access:openrcv2',
+     'external': False,
+     },
+    {'name': _('OpenStack RC File v3'),
+     'icon_classes': ['fa-download', ],
+     'url': 'horizon:project:api_access:openrc',
+     'external': False,
+     }
+  ]
+
+This setting controls the additional links on the user drop down menu.
+A list of dictionaries defining all of the links should be provided. This
+defaults to the standard OpenStack RC files.
+
+Each dictionary should contain these values:
+
+name
+    The name of the link
+
+url
+    Either the reversible Django url name or an absolute url
+
+external
+    True for absolute URLs, False for django urls.
+
+icon_classes
+    A list of classes for the icon next to the link. If 'None' or
+    an empty list is provided a download icon will show
+
 WEBROOT
 -------
 

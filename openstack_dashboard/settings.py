@@ -291,6 +291,17 @@ SECURITY_GROUP_RULES = {
 
 ADD_INSTALLED_APPS = []
 
+USER_MENU_LINKS = [
+    {'name': _('OpenStack RC File v2'),
+     'icon_classes': ['fa-download', ],
+     'url': 'horizon:project:api_access:openrcv2'
+     },
+    {'name': _('OpenStack RC File v3'),
+     'icon_classes': ['fa-download', ],
+     'url': 'horizon:project:api_access:openrc'
+     }
+]
+
 # Deprecated Theme Settings
 CUSTOM_THEME_PATH = None
 DEFAULT_THEME_PATH = None
