@@ -134,9 +134,9 @@ class Server(base.APIResourceWrapper):
 
         if not self.image:
             return None
-        if hasattr(self.image, 'name'):
+        elif hasattr(self.image, 'name'):
             return self.image.name
-        if 'name' in self.image:
+        elif 'name' in self.image:
             return self.image['name']
         else:
             try:
