@@ -129,11 +129,7 @@
               subportCandidates: params.subportCandidates.sort(
                 portsExtra.cmpPortsByNameAndId),
               subportsOfInitTrunk: []
-            },
-            // When both the parent port and subports steps show mostly the
-            // same ports available, then a port allocated in one step should
-            // become unavailable in the other.
-            crossHide: true
+            }
           }
         }).result;
       }

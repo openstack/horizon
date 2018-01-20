@@ -27,7 +27,6 @@
 
       beforeEach(inject(function($rootScope, $controller, $injector) {
         scope = $rootScope.$new();
-        scope.crossHide = true;
         scope.ports = {
           parentPortCandidates: [{id: 1}, {id: 2}]
         };

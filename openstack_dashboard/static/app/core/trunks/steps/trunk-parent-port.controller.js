@@ -85,20 +85,18 @@
       return trunk;
     };
 
-    if ($scope.crossHide) {
-      // We expose the allocated table directly to the subports step
-      // controller, so it can set watchers on it and react accordingly...
-      $scope.stepModels.allocated = $scope.stepModels.allocated || {};
-      $scope.stepModels.allocated.parentPort = ctrl.parentTables.allocated;
+    // We expose the allocated table directly to the subports step
+    // controller, so it can set watchers on it and react accordingly...
+    $scope.stepModels.allocated = $scope.stepModels.allocated || {};
+    $scope.stepModels.allocated.parentPort = ctrl.parentTables.allocated;
 
-      // ...and vice versa.
-      var deregisterAllocatedWatcher = $scope.$watchCollection(
-        'stepModels.allocated.subports', hideAllocated);
+    // ...and vice versa.
+    var deregisterAllocatedWatcher = $scope.$watchCollection(
+      'stepModels.allocated.subports', hideAllocated);
 
-      $scope.$on('$destroy', function() {
-        deregisterAllocatedWatcher();
-      });
-    }
+    $scope.$on('$destroy', function() {
+      deregisterAllocatedWatcher();
+    });
 
     function hideAllocated(allocatedList) {
       var allocatedDict = {};
