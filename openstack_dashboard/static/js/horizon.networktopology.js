@@ -145,6 +145,12 @@ horizon.network_topology = {
     // set up loader first thing
     self.$loading_template.show();
 
+    if (self.data.networks.length === undefined) {
+      $('.loader-inline').remove();
+      $(self.svg_container).addClass('noinfo');
+      return;
+    }
+
     self.create_vis();
     self.force_direction(0.05,70,-700);
     if(horizon.networktopologyloader.model !== null) {
