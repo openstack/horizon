@@ -4,15 +4,16 @@
 # Pablo Caruana <pcaruana@redhat.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev82\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-15 05:06+0000\n"
+"POT-Creation-Date: 2018-01-19 08:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-16 08:02+0000\n"
+"PO-Revision-Date: 2018-01-19 07:47+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -36,6 +37,14 @@ msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d Byte"
 msgstr[1] "%(size)d Bytes"
+
+#, python-format
+msgid "%(usedphrase)s <span> %(used)s </span>(No Limit)"
+msgstr "%(usedphrase)s <span> %(used)s </span>(Sin límite)"
+
+#, python-format
+msgid "%(usedphrase)s <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr "%(usedphrase)s <span> %(used)s </span>de<span> %(available)s </span>"
 
 #, python-format
 msgid "%s EB"
@@ -410,6 +419,9 @@ msgstr "No le está permitido %(action)s: %(objs)s"
 #, python-format
 msgid "You are not authorized to access %s"
 msgstr "No está autorizado para acceder a %s"
+
+msgid "You are not authorized to access this page"
+msgstr "No está autorizado a acceder a esta página"
 
 msgid "You do not have permission to access the resource:"
 msgstr "No tiene permisos para acceder al recurso:"

@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-19 06:38+0000\n"
+"POT-Creation-Date: 2018-01-19 08:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-18 07:38+0000\n"
+"PO-Revision-Date: 2018-01-19 09:30+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -34,6 +34,12 @@ msgstr ""
 "\n"
 "      %(used)s of %(quota)s Uzita\n"
 "      "
+
+msgid " - End"
+msgstr "- Fino"
+
+msgid " : Next hop"
+msgstr ": Sevanta staciono"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -105,6 +111,12 @@ msgstr "%(used)s of %(quota)s Uzita"
 msgid "%s (Default)"
 msgstr "%s (Defaŭlto)"
 
+#. Translators: The usage is "<UUID of ext_net> (Not Found)"
+#, python-format
+msgctxt "External network not found"
+msgid "%s (Not Found)"
+msgstr "%s (Ne Trovita)"
+
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
@@ -173,10 +185,16 @@ msgid ""
 msgstr ""
 "Skripto aŭ aro da komandoj rulonta post la apero estas kreiita (max 16kb)."
 
+msgid "A single IP Address or CIDR"
+msgstr "Unuopa IP Adreso aŭ CIDR"
+
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr ""
 "Savkopio estas bildo kiu konservas la disko staton de funkcianta aperon."
+
+msgid "A valid MAC Address"
+msgstr "Valida MAC Adreso"
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kerna Imago"
@@ -222,6 +240,14 @@ msgctxt "Current status of an Instance"
 msgid "Active"
 msgstr "Aktiva"
 
+msgctxt "current status of port"
+msgid "Active"
+msgstr "Aktiva"
+
+msgctxt "current status of router"
+msgid "Active"
+msgstr "Aktiva"
+
 msgctxt "status of a network port"
 msgid "Active"
 msgstr "Aktiva"
@@ -236,14 +262,26 @@ msgstr ""
 "Nuna funkciilo nomo povus diferenci pro virtuala maŝinmonitoro agordoj. Se "
 "ne difinita, la virtuala maŝinmonitoro  elektos funkciilo nomo."
 
+msgid "Add Allowed Address Pair"
+msgstr "Aldonu Permesita Adreso Paro"
+
 msgid "Add DHCP Agent"
 msgstr "Aldonu DHCP Agenton"
 
 msgid "Add Group Assignment"
 msgstr "Aldonu Grupo Atribuon"
 
+msgid "Add Interface"
+msgstr "Aldonu Interfacon"
+
 msgid "Add Protocol"
 msgstr "Aldonu Protokolon"
+
+msgid "Add Router Route"
+msgstr "Aldonu Enkursigila Kurson"
+
+msgid "Add Static Route"
+msgstr "Aldonu Statikan Kurson"
 
 msgid "Add User"
 msgid_plural "Add Users"
@@ -255,6 +293,16 @@ msgstr "Aldonu Uzanto al la Grupo"
 
 msgid "Add Users"
 msgstr "Aldonu Uzantojn"
+
+msgid "Add allowed address pair"
+msgstr "Aldonu permesita adreso paro."
+
+msgid ""
+"Add an allowed address pair for this port. This will allow multiple MAC/IP "
+"address (range) pairs to pass through this port."
+msgstr ""
+"Aldonu permesitan adresparon por tiun pordon. Tiu permesas multaj MAC/IP "
+"adresoj (amplekso) paroj pasi tra tiu pordo."
 
 msgid ""
 "Add and remove security groups to this instance from the list of available "
@@ -280,6 +328,9 @@ msgid ""
 msgstr ""
 "Aldonu aŭ forigu securecaj grupoj al tiu pordo de la listo de disponeblaj "
 "securecaj grupoj."
+
+msgid "Add static route to the router."
+msgstr "Aldonu statikan kurson al la enkursigilo."
 
 msgid ""
 "Add volume types to this consistency group. Multiple volume types can be "
@@ -313,6 +364,9 @@ msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "Aldonita Uzanto"
 msgstr[1] "Aldonitaj Uzantoj"
+
+msgid "Additional Routes"
+msgstr "Aldonaj Kursoj"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -439,6 +493,9 @@ msgstr "Asignita glidanta IP %(ip)s."
 msgid "Allocation Pools"
 msgstr "Asigno Komunaĵoj"
 
+msgid "Allowed Address Pairs"
+msgstr "Permesita Adreso Paroj"
+
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Ekstera (HTTP/HTTPS) URL por elŝuti la bildon."
 
@@ -546,6 +603,13 @@ msgstr "Disponebla  Zono Nomo"
 msgid "Availability Zones"
 msgstr "Disponeblaj Zonoj"
 
+msgid ""
+"Availability Zones where the router may be scheduled. Leaving this unset is "
+"equivalent to selecting all Availability Zones"
+msgstr ""
+"Disponeblo Zonoj kie la enkursigilo eble estos planita. Lasi tiun neagordita "
+"estas same al selekti ĉiujn Disponeblo Zonojn"
+
 msgid "Availability zone"
 msgstr "Disponebleca zono"
 
@@ -588,6 +652,9 @@ msgstr "Sekurkopiojn"
 
 msgid "Bare Metal"
 msgstr "fizika komputilo"
+
+msgid "Binding"
+msgstr "Ligado"
 
 msgid "Binding: Host"
 msgstr "Bindaĵo : Gastiganto"
@@ -641,6 +708,10 @@ msgctxt "Current status of an Instance"
 msgid "Build"
 msgstr "Konstruanta"
 
+msgctxt "current status of port"
+msgid "Build"
+msgstr "Konstruita"
+
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "Konstruo"
@@ -683,6 +754,9 @@ msgstr "Neeblas ricevi konzolon por apero %s."
 
 msgid "Cannot specify both file and direct input."
 msgstr "Neeblas specifi ambaŭ dosiero kaj rekta enigo."
+
+msgid "Centralized"
+msgstr "Centralizita"
 
 msgid "Change Password"
 msgstr "Ŝanĝu pasvorto   "
@@ -755,8 +829,22 @@ msgstr ""
 msgid "Cipher"
 msgstr "Ĉifro  "
 
+msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
+msgstr ""
+"Senklasa Inter-Domajna enkursigon  (e.g. 192.168.0.0/24, or 2001:db8::/128)"
+
 msgid "Clear Domain Context"
 msgstr "Vakigi Domajno Kunteksto"
+
+msgid "Clear Gateway"
+msgid_plural "Clear Gateways"
+msgstr[0] "Vakigu Kluzon"
+msgstr[1] "Vakigu Kluzojn"
+
+msgid "Cleared Gateway"
+msgid_plural "Cleared Gateways"
+msgstr[0] "Vakigita Kluzo"
+msgstr[1] "Vakigitaj Kluzoj"
 
 msgid "Click here to show only console"
 msgstr "Kliku ĉi tie por nur vidigi konzolon"
@@ -1125,6 +1213,13 @@ msgstr "Estas kreita nova volumo kohereco grupon"
 msgid "Created spec \"%s\"."
 msgstr "Kreita specifo \"%s\"."
 
+#, python-format
+msgid "Created subnet \"%s\"."
+msgstr "Estas kreita subreto \"%s\"."
+
+msgid "Creates a router with specified parameters."
+msgstr "Kreas enkursigilon kun difinitaj parametroj."
+
 msgid ""
 "Creates a subnet associated with the network. You need to enter a valid "
 "\"Network Address\" and \"Gateway IP\". If you did not enter the \"Gateway IP"
@@ -1185,14 +1280,42 @@ msgctxt "Custom style theme"
 msgid "Custom"
 msgstr "Propra"
 
+msgid "Custom ICMP Rule"
+msgstr "Propra ICMP Regulo"
+
 msgid "Custom Properties"
 msgstr "Propraj Ecoj"
+
+msgid "Custom TCP Rule"
+msgstr " Propra TCP Regulo"
+
+msgid "Custom UDP Rule"
+msgstr "Propra UDP Regulo"
 
 msgid "Customization Script Source"
 msgstr "Tajlorado Skripto fonto"
 
 msgid "DHCP Agents"
 msgstr "DHCP Agentoj"
+
+msgid "DHCP Enabled"
+msgstr "DHCP Ebligita"
+
+msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
+msgstr "DHCPv6 statoplena: Adreso malkovrita de OpenStack DHCP"
+
+msgid ""
+"DHCPv6 stateless: Address discovered from OpenStack Router and additional "
+"information from OpenStack DHCP"
+msgstr ""
+"DHCPv6 malstatoplena: Adreso malkovrita de OpenStack Enkursigilo kaj aldona "
+"informo de OpenStack DHCP"
+
+msgid "DNS Assignment"
+msgstr "DNS Atribuo"
+
+msgid "DNS Name"
+msgstr "DNS Nomo"
 
 msgid "DNS Name Servers"
 msgstr "DNS Nomo Serviloj"
@@ -1202,6 +1325,10 @@ msgid "DOWN"
 msgstr "MALSUPREN"
 
 msgctxt "Admin state of a Port"
+msgid "DOWN"
+msgstr "SUBEN"
+
+msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "SUBEN"
 
@@ -1230,6 +1357,11 @@ msgstr "Defaŭlt Kvotojn ĝisdatigita."
 
 msgid "Defaults"
 msgstr "Defaŭltojn"
+
+msgid "Delete"
+msgid_plural "Delete"
+msgstr[0] "Forigu"
+msgstr[1] "Forigu"
 
 msgid "Delete Consistency Group"
 msgstr "Forigu Kohereco Grupon"
@@ -1279,6 +1411,11 @@ msgid_plural "Delete Instances"
 msgstr[0] "Forigu Aperon"
 msgstr[1] "Forigu Aperojn"
 
+msgid "Delete Interface"
+msgid_plural "Delete Interfaces"
+msgstr[0] "Forigu Interfacon"
+msgstr[1] "Forigu Interfacojn"
+
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
 msgstr[0] "Forigu Ŝlosilparon"
@@ -1324,6 +1461,11 @@ msgid_plural "Delete Roles"
 msgstr[0] "Forigu Rolon"
 msgstr[1] "Forigu Rolojn"
 
+msgid "Delete Router"
+msgid_plural "Delete Routers"
+msgstr[0] "Forigu Enkursigilon"
+msgstr[1] "Forigu Enkursigilojn"
+
 msgid "Delete Snapshot"
 msgid_plural "Delete Snapshots"
 msgstr[0] "Forigu Savkopion"
@@ -1333,6 +1475,11 @@ msgid "Delete Spec"
 msgid_plural "Delete Specs"
 msgstr[0] "Forigu Specifon"
 msgstr[1] "Forigu Specifojn"
+
+msgid "Delete Static Route"
+msgid_plural "Delete Static Routes"
+msgstr[0] "Forigu Statikan Kurson"
+msgstr[1] "Forigu Statikajn Kursojn"
 
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
@@ -1418,6 +1565,11 @@ msgid_plural "Deleted Images"
 msgstr[0] "Forigita Bildo"
 msgstr[1] "Forigitaj Bildoj"
 
+msgid "Deleted Interface"
+msgid_plural "Deleted Interfaces"
+msgstr[0] "Forigita Interfaco"
+msgstr[1] "Forigitaj Interfacoj"
+
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
 msgstr[0] "Forigita Ŝlosilparo"
@@ -1463,10 +1615,20 @@ msgid_plural "Deleted Roles"
 msgstr[0] "Forigita Rolo"
 msgstr[1] "Forigitaj Roloj"
 
+msgid "Deleted Router"
+msgid_plural "Deleted Routers"
+msgstr[0] "Forigita Enkursigilo"
+msgstr[1] "Forigitaj Enkursigiloj"
+
 msgid "Deleted Spec"
 msgid_plural "Deleted Specs"
 msgstr[0] "Forigita Specifo"
 msgstr[1] "Forigitaj Specifoj"
+
+msgid "Deleted Static Route"
+msgid_plural "Deleted Static Routes"
+msgstr[0] "Forigita Statika Kurso"
+msgstr[1] "Forigitaj Statikaj Kursoj"
 
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
@@ -1482,6 +1644,11 @@ msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "Forigita Volumo Tipo"
 msgstr[1] "Forigita Volumoj Tipoj"
+
+msgid "Deleted address pair"
+msgid_plural "Deleted address pairs"
+msgstr[0] "Forigita Adreso paro"
+msgstr[1] "Forigitaj Adreso paroj"
 
 msgid "Deleted images are not recoverable."
 msgstr "Forigitaj bildoj ne estas nerestaŭrebla."
@@ -1512,6 +1679,12 @@ msgstr "Priskribo nepras."
 
 msgid "Description:"
 msgstr "Priskripo:"
+
+msgid "Destination"
+msgstr "Celo"
+
+msgid "Destination CIDR"
+msgstr "Celo CIDR"
 
 msgid "Destination Host"
 msgstr "Celo Gastiganto"
@@ -1575,6 +1748,9 @@ msgstr "Rekta Enigo "
 msgid "Direct Physical"
 msgstr "Direkta fisika"
 
+msgid "Direction"
+msgstr "Direkto"
+
 msgid "Disable Domain"
 msgid_plural "Disable Domains"
 msgstr[0] "Malebligu Domajnon"
@@ -1585,6 +1761,9 @@ msgstr "Malebligu Domajnon"
 
 msgid "Disable Gateway"
 msgstr "Malebligu Kluzon"
+
+msgid "Disable HA mode"
+msgstr "Malebligu HA reĝimo"
 
 msgid "Disable Service"
 msgstr "Malvalidigu Servo  "
@@ -1641,6 +1820,9 @@ msgstr "Subdisko  "
 
 msgid "Display Name"
 msgstr "Ekrano Nomo"
+
+msgid "Distributed"
+msgstr "Distribuita"
 
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
@@ -1715,6 +1897,10 @@ msgstr "Malsupren"
 msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Malŝaltita"
+
+msgctxt "current status of port"
+msgid "Down"
+msgstr "Malsupren"
 
 msgctxt "status of a network port"
 msgid "Down"
@@ -1802,6 +1988,9 @@ msgstr "Redaktu Puplikajn/Protektitajn atributojn por la Nomspaco."
 msgid "Edit QoS Spec Consumer"
 msgstr "Redaktu QoS Spec Konsumanto"
 
+msgid "Edit Router"
+msgstr "Redaktu Enkursigilon"
+
 msgid "Edit Security Groups"
 msgstr "Redaktu Sekureco Grupojn"
 
@@ -1851,6 +2040,9 @@ msgstr "Redaktu la uzanto detajloj, inkludante la Ĉefan Projekton."
 msgid "Edit {{ qos_spec_name }} Spec Value"
 msgstr "Redaktu {{ qos_spec_name }} Specifo Valoro"
 
+msgid "Egress"
+msgstr "Malŝargi datumojn"
+
 msgid "Email"
 msgstr "Retpoŝtadreso"
 
@@ -1867,6 +2059,15 @@ msgstr[1] "Ebligu Domajnojn"
 
 msgid "Enable Domains"
 msgstr "Ebligu Domajnojn"
+
+msgid "Enable HA mode"
+msgstr "Ebligu HA reĝimo"
+
+msgid "Enable SNAT"
+msgstr "Ebligu SNAT"
+
+msgid "Enable SNAT will only have an effect if an external network is set."
+msgstr "Ebligi SNAT nur efikas se ekstera reto estas agordita."
 
 msgid "Enable Service"
 msgid_plural "Enable Services"
@@ -1906,6 +2107,17 @@ msgid_plural "Enabled Users"
 msgstr[0] "Ebligita Uzanto"
 msgstr[1] "Ebligitaj Uzantoj"
 
+msgid ""
+"Enables anti-spoofing rules for the port if enabled. In addition, if port "
+"security is disabled, security groups on the port will be automatically "
+"cleared. When you enable port security of the port, you may want to "
+"associate some security groups on the port."
+msgstr ""
+"Ebligas mal-mistifikado regulojn por la pordo se ebligita. Aldone. se la "
+"pordo sekureco estas malebligita, sekureco grupoj je la pordo estos automate "
+"vakigita. Se vi ebligas pordo sekureco de la pordo, vi eble volas asociigi "
+"iujn sekureco grupojn je la pordo."
+
 msgid "Encrypted ="
 msgstr "Ĉifrita ="
 
@@ -1927,6 +2139,18 @@ msgstr "Finpunktoj"
 
 msgid "Enter Network Address manually"
 msgstr "Entajpi RetAdreson manuale"
+
+msgid "Enter a value for ICMP code in the range (-1: 255)"
+msgstr "Enigu valoron por ICMP kodo en la intervalo (-1:255)"
+
+msgid "Enter a value for ICMP type in the range (-1: 255)"
+msgstr "Enigu valoron por ICMP tipo en la intervalo (-1:255)"
+
+msgid "Enter an integer value between 0 and 255."
+msgstr "Enigu entjeran valoron inter 0 kaj 255."
+
+msgid "Enter an integer value between 1 and 65535."
+msgstr "Enigu entjero valoro inter 1 kaj 65535."
 
 msgid "Ephemeral Disk"
 msgstr "Provizora Disko"
@@ -1955,6 +2179,14 @@ msgid "Error"
 msgstr "Eraro"
 
 msgctxt "Current status of an Instance"
+msgid "Error"
+msgstr "Eraro"
+
+msgctxt "current status of port"
+msgid "Error"
+msgstr "Eraro"
+
+msgctxt "current status of router"
 msgid "Error"
 msgstr "Eraro"
 
@@ -2005,6 +2237,9 @@ msgstr "Eraroj okazis forigante koherenco grupo."
 msgid "Errors occurred in removing volumes from consistency group."
 msgstr "Eraroj okazis dum forigante volumojn de koherenco grupo."
 
+msgid "Ether Type"
+msgstr "Ether Tipo"
+
 msgid "Evacuate Host"
 msgstr "Evakuiu gastiganto"
 
@@ -2038,11 +2273,28 @@ msgstr "Ekstera"
 msgid "External ="
 msgstr "Ekstera ="
 
+msgid "External Fixed IPs"
+msgstr "Eksteraj Fiksitaj IPs"
+
+msgid "External Gateway"
+msgstr "Ekstera Kluzo"
+
 msgid "External Network"
 msgstr "Eksterna reto"
 
+#, python-format
+msgid ""
+"External network \"%(ext_net_id)s\" expected but not found for router "
+"\"%(router_id)s\"."
+msgstr ""
+"Ekstera reto \"%(ext_net_id)s\" ekspektita sed ne trovita por enkursigilo "
+"\"%(router_id)s\"."
+
 msgid "Extra Specs"
 msgstr "Ekstra Specifojn"
+
+msgid "FQDN"
+msgstr "FQDN"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -2065,8 +2317,16 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Malsukcesis aldoni agenton %(agent_name)s pro reto %(network)s."
 
 #, python-format
+msgid "Failed to add interface: %s"
+msgstr "Malsukcesis aldoni interfacon: %s"
+
+#, python-format
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "Malsukcesis aldoni projekton %(project)s al volumo tipo aliro."
+
+#, python-format
+msgid "Failed to add route: %s"
+msgstr "Malsukcesis aldoni kurson: %s"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Neeblas validi se reto-ip-disponeblon etendaĵo estas subtenita."
@@ -2084,6 +2344,10 @@ msgid "Failed to create network %s"
 msgstr "Malsukcesis krei  reto %s"
 
 #, python-format
+msgid "Failed to create router \"%s\"."
+msgstr "Malsukcesis krei enkursigilo \"%s\"."
+
+#, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
 msgstr ""
 "Malsukcesis krei  subreton \"%(sub)s\" por reto \"%(net)s\": %(reason)s"
@@ -2095,6 +2359,10 @@ msgstr "Malsukcesis krei  subreton \"%(sub)s\": %(reason)s"
 #, python-format
 msgid "Failed to delete agent: %s"
 msgstr "Malsukcesis forigi agenton: %s"
+
+#, python-format
+msgid "Failed to delete interface %s"
+msgstr "Malsukcesis forigi interfacon %s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2141,6 +2409,13 @@ msgstr "Malsukcesis recevi mapiga listo %s"
 
 msgid "Failed to get network list {0}"
 msgstr "Neeblas ricevi reto listo {0}"
+
+msgid "Failed to get network list."
+msgstr "Malsukcesis ricevi reto listo."
+
+#, python-format
+msgid "Failed to get network list: %s"
+msgstr "Malsukcesis ricevi reto liston: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "Malsukcesis tuja transmeto de la apero al freŝa gastiganto."
@@ -2202,8 +2477,28 @@ msgid "Failed to retrieve network %s for a subnet"
 msgstr "Malsukcesis ricevi reton %s por la subreto"
 
 #, python-format
+msgid "Failed to set gateway: %s"
+msgstr "Malsukcesis agordi kluzon: %s"
+
+#, python-format
 msgid "Failed to update network %s"
 msgstr "Malsukcesis ĝisdatigi reto %s"
+
+#, python-format
+msgid "Failed to update port \"%s\"."
+msgstr "Malsukcesis ĝisdatigi pordo \"%s\"."
+
+#, python-format
+msgid "Failed to update port %s"
+msgstr "Malsukcesis ĝisdatigi pordon %s"
+
+#, python-format
+msgid "Failed to update router %s"
+msgstr "Malsukcesis ĝisdatigi enkursigilon %s"
+
+#, python-format
+msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
+msgstr "Malsukcesis ĝisdatigi subreton \"%(sub)s\": %(reason)s"
 
 msgid "False"
 msgstr "Malprava"
@@ -2338,6 +2633,9 @@ msgstr "Formato ="
 msgid "Free IPs"
 msgstr "Liberaj IP-oj"
 
+msgid "From Port"
+msgstr "De Pordo"
+
 msgid "From here you can add a DHCP agent for the network."
 msgstr "De ĉi tie vi povas aldoni DHCP agenton por la reto."
 
@@ -2361,6 +2659,9 @@ msgstr "Kluzo IP"
 
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "Kluzo IP kaj IP versio estas malkongruanta."
+
+msgid "Gateway interface is added"
+msgstr "Kluzo interfaco estas aldonita"
 
 msgid "Geneve"
 msgstr "Geneve"
@@ -2414,6 +2715,10 @@ msgstr ""
 "Grupoj estas uzita por mastrumi aliron kaj atribui rolojn al pluropajn "
 "uzantojn tujmomente. Redaktu la grupo nomo and priskribon."
 
+#. Translators: High Availability mode of Neutron router
+msgid "HA mode"
+msgstr "HA reĝimo"
+
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Malvarma restarto"
@@ -2439,6 +2744,12 @@ msgstr[1] "Malvarme restartigita aperoj"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Malvarma Restartigo"
+
+msgid "High Availability Mode"
+msgstr "Trea Disponeblo Reĝimo"
+
+msgid "High Availability Status"
+msgstr "Trea Disponeblo Stato"
 
 msgid "Host"
 msgstr "Gastiganto"
@@ -2510,8 +2821,20 @@ msgstr "ID"
 msgid "IP Address"
 msgstr "IP Adreso"
 
+msgid "IP Address (optional)"
+msgstr "IP Adreso (nedeviga)"
+
+msgid "IP Address or CIDR"
+msgstr "IP Adreso aŭ CIDR"
+
 msgid "IP Addresses"
 msgstr "IP Adreso"
+
+msgid "IP Allocation Pools"
+msgstr "IP Asigno Komunaĵoj"
+
+msgid "IP Protocol"
+msgstr "IP Protokolo"
 
 msgid "IP Version"
 msgstr "IP Versio"
@@ -2546,8 +2869,14 @@ msgstr ""
 "2001:DB8::/48). Se vi uzas la defaŭlto, lasi malplena. Se vi ne volas uzi "
 "kluzon, agordu  'Disable Gateway' sube."
 
+msgid "IPv4"
+msgstr "IPv4"
+
 msgid "IPv4 Address ="
 msgstr "IPv4 Adreso ="
+
+msgid "IPv6"
+msgstr "IPv6"
 
 msgid "IPv6 Address ="
 msgstr "IPv6 Adreso ="
@@ -2603,6 +2932,17 @@ msgstr ""
 "Se neniu entenilo nomo estas provizita, defaŭlta entenilo nomita "
 "volumosekurkopio estos provizita por vi. Sekurkopioj havas saman frandon "
 "kiel la volumo de ili devenas."
+
+msgid ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
+msgstr ""
+"Se vi ne difinas IP adreso ĉi tie, la IP adreso de la kluzo de la selektita "
+"subreto estos uzita kiel IP adreso de la novkreita interfaco de la "
+"enkursigilo. Se la IP adreso de la kluzo estas jam uzita, vi devas uzi alia "
+"adreso kiu apartenas al la selektita subreto."
 
 msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
@@ -2697,6 +3037,9 @@ msgstr "Informo"
 msgid "Information"
 msgstr "Informo"
 
+msgid "Ingress"
+msgstr "Ŝargi datumojn"
+
 msgid "Injected File Content (Bytes)"
 msgstr "Injektita Dosiero Enhavo (Bajtoj)"
 
@@ -2735,6 +3078,9 @@ msgstr "Apero Nomo"
 
 msgid "Instance Name ="
 msgstr "Apero Nomo ="
+
+msgid "Instance Overview"
+msgstr "Apero Superrigardo"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "Apero Pasvorto ne estas agordita aŭ ankoraŭ ne estas disponebla "
@@ -2775,11 +3121,24 @@ msgstr "Nesufiĉan privilegio nivelon por vidi rolo informon.  "
 msgid "Insufficient privilege level to view user information."
 msgstr "Nesufiĉa privilegio nivelo por vidi uzanto informon. "
 
+msgid "Interface added"
+msgstr "Interfaco aldonita"
+
 msgid "Interfaces"
 msgstr "Interfacoj"
 
+msgid "Internal Interface"
+msgstr "Interna Interfaco"
+
 msgid "Internal:"
 msgstr "Interna:"
+
+#, python-format
+msgid "Invalid format for routes: %s"
+msgstr "Nevalida formato por enkursigiloj: %s"
+
+msgid "It specified the VNIC type bound to the networking port."
+msgstr "Ĝi  difinis la VNIC tipo ligita al al retpordo."
 
 msgid "Kernel"
 msgstr "kerno"
@@ -2831,6 +3190,9 @@ msgstr "Klavo-Valoro Paroj"
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Ĉesigita  "
+
+msgid "L3 Agent"
+msgstr "L3 Agento"
 
 msgctxt "Time since the last update"
 msgid "Last Updated"
@@ -2925,6 +3287,9 @@ msgstr "MAC Adreso por la pordo."
 
 msgid "MB"
 msgstr "MB"
+
+msgid "MTU"
+msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -3140,6 +3505,10 @@ msgstr "Monitorado:  "
 msgid "N/A"
 msgstr "N/A"
 
+msgctxt "current status of port"
+msgid "N/A"
+msgstr "N/A"
+
 msgid "Name"
 msgstr "Nomo"
 
@@ -3206,6 +3575,12 @@ msgstr "Retadreso kaj IP versio estas malkongruanta."
 msgid "Network Agents"
 msgstr "Retaj Agentoj"
 
+msgid "Network Details"
+msgstr "Reto Detajloj"
+
+msgid "Network ID"
+msgstr "Reto ID"
+
 msgid "Network ID ="
 msgstr "Reto ID ="
 
@@ -3226,6 +3601,12 @@ msgstr "Reto QoS Regularo"
 
 msgid "Network Topology"
 msgstr "Reto Topologio"
+
+msgid "Network Type:"
+msgstr "Reto Tipo:"
+
+msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
+msgstr "Retadreso en CIDR formato  (e.g. 192.168.0.0/24)"
 
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Retadreso en CIDR formato  (e.g. 192.168.0.0/24, 2001:DB8::/48)"
@@ -3264,6 +3645,16 @@ msgstr "Nova nomo ne povas esti malplena."
 msgid "New name conflicts with another volume type."
 msgstr "Nova nomo konfliktas kun alia volumo tipo."
 
+msgid "Next Hop"
+msgstr "Sekvanta Stacio"
+
+msgid ""
+"Next Hop IP must be a part of one of the subnets to which the router "
+"interfaces are connected."
+msgstr ""
+"Sekvanta Stacio IP devas esti parto de unu el la subretoj al kiu la "
+"enkursigilaj interfacoj estas konektita."
+
 msgid "No Host selected."
 msgstr "Neniu Servilo selektita."
 
@@ -3285,6 +3676,9 @@ msgstr "Neniu asignita fiksita IP"
 
 msgid "No associations defined."
 msgstr "Neniuj asocioj difinita"
+
+msgid "No attached device"
+msgstr "Neniu alligita funkciilo"
 
 msgid "No availability zones found"
 msgstr "Neniujn disponeblo zonojn trovita"
@@ -3344,6 +3738,9 @@ msgstr "Neniuj retoj disponeblaj."
 msgid "No new QoS spec available"
 msgstr "Neniu nova QoS spec havebla"
 
+msgid "No options specified"
+msgstr "Neniujn opciojn difinitaj"
+
 msgid "No other agents available."
 msgstr "Neniuj aliaj agentoj haveblaj."
 
@@ -3371,6 +3768,12 @@ msgstr "Neniu enkursigilo   "
 msgid "No rules defined."
 msgstr "Neniuj reguloj definitaj.  "
 
+msgid "No security group is associated"
+msgstr "Neniu sekureco grupo estas asociita"
+
+msgid "No security groups available"
+msgstr "Neniuj secureco grupoj disponebla"
+
 msgid "No security groups enabled."
 msgstr "Neniuj secureco grupoj ebilgita."
 
@@ -3382,6 +3785,9 @@ msgstr "Neniuj servilo grupoj haveblaj"
 
 msgid "No snapshots available"
 msgstr "Neniuj savkopioj disponeblaj."
+
+msgid "No subnets available"
+msgstr "Neniuj subretoj disponeblaj."
 
 msgid "No users found."
 msgstr "Neniuj uzantoj trovita."
@@ -3485,6 +3891,9 @@ msgstr ""
 msgid "Only definitions in raw JSON format are supported."
 msgstr "Nur difinoj en kruda JSON formato estas subtenata."
 
+msgid "Open Port"
+msgstr "Malfermita Pordo"
+
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profililo   "
 
@@ -3499,6 +3908,15 @@ msgstr "OpenStack clouds.yaml Dosiero"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Nedeviga, vi eble volus krei novan volumon."
+
+#, python-format
+msgid ""
+"Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+msgstr ""
+"Aliaj IPv6 reĝimoj: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+
+msgid "Other Protocol"
+msgstr "Alia Protokol"
 
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
@@ -3565,6 +3983,9 @@ msgstr "Per Volumo Grando (GiB)"
 msgid "Physical Network"
 msgstr "Fisika reto"
 
+msgid "Physical Network:"
+msgstr "Fisika Reto:"
+
 msgid "Please note: "
 msgstr "Bonvolu notu:"
 
@@ -3589,8 +4010,14 @@ msgstr "Pordo %s estis sukcese ĝisdatigita."
 msgid "Port ID ="
 msgstr "Pordo ID ="
 
+msgid "Port Range"
+msgstr "Pordo Intervalo"
+
 msgid "Port Security"
 msgstr "Pordo Sekureco"
+
+msgid "Port Security Enabled"
+msgstr "Pordo Sekureco Ebligita"
 
 msgid "Port Security Groups"
 msgstr "Pordo Secureco Grupoj"
@@ -3644,6 +4071,9 @@ msgstr "Ĉefa Projekto Nomo"
 msgid "Private Key File"
 msgstr "Privata Klavo Dosiero"
 
+msgid "Profile"
+msgstr "Profilo"
+
 msgid "Project"
 msgstr "Projekto"
 
@@ -3664,6 +4094,9 @@ msgstr "Projekto ID"
 
 msgid "Project ID ="
 msgstr "Projekto ID-on ="
+
+msgid "Project ID:"
+msgstr "Projekto ID:"
 
 msgid "Project Information"
 msgstr "Projekto Informo"
@@ -3715,6 +4148,9 @@ msgstr "Protokolojn"
 msgid "Provider"
 msgstr "Provizanto"
 
+msgid "Provider Network"
+msgstr "Provizanto Reto"
+
 msgid "Provider Network Type"
 msgstr "Provizanto Reto Tipo"
 
@@ -3729,6 +4165,9 @@ msgstr "Publika:"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Imitilo"
+
+msgid "QOS Policy ID"
+msgstr "QOS Regularo ID"
 
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
@@ -3771,6 +4210,9 @@ msgstr "Envicigita"
 
 msgid "Quota Name"
 msgstr "Kvota Nomo"
+
+msgid "Quota exceeded for resource router."
+msgstr "Kvota transpasita por risurco enkursigilo. "
 
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
@@ -3901,6 +4343,9 @@ msgid "Released Floating IP"
 msgid_plural "Released Floating IPs"
 msgstr[0] "Liberigita Glita IP-o"
 msgstr[1] "Liberigitaj Glitaj IP-oj"
+
+msgid "Remote"
+msgstr "Defora"
 
 msgid "Remote IDs"
 msgstr "Defora ID-oj"
@@ -4115,8 +4560,25 @@ msgstr "Radika Disko (GB)"
 msgid "Router"
 msgstr "Enkursigilo   "
 
+#, python-format
+msgid "Router %s was successfully created."
+msgstr "Enkursigilo %s estis sukcese kreita."
+
+#, python-format
+msgid "Router %s was successfully updated."
+msgstr "Enkursigilo %s estis sukcese ĝisdatigita."
+
 msgid "Router ID ="
 msgstr "Enkursigilo ID ="
+
+msgid "Router Name"
+msgstr "Enkursigilo Nomo"
+
+msgid "Router Name ="
+msgstr "Enkursigilo Nomo ="
+
+msgid "Router Type"
+msgstr "Enkursigilo Tipo"
 
 msgid "Routers"
 msgstr "Enkursigiloj"
@@ -4124,6 +4586,9 @@ msgstr "Enkursigiloj"
 #, python-format
 msgid "Routers on %(host)s"
 msgstr "Enkursigiloj je  %(host)s"
+
+msgid "Rule"
+msgstr "Regulo"
 
 msgid "Rules"
 msgstr "Regulojn"
@@ -4137,6 +4602,15 @@ msgstr "Funkcianta apero transmeta tipo    "
 
 msgid "S3 URL"
 msgstr "S3 URL"
+
+msgid "SLAAC: Address discovered from OpenStack Router"
+msgstr "SLAAC: Adreso malkovrita de OpenStack Enkursigilo"
+
+msgid "SLAAC: Address discovered from an external router"
+msgstr "SLAAC: Adreso malkovrita de ekstera Enkursigilo"
+
+msgid "SNAT"
+msgstr "SNAT"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH ŝlosilparoj povas esti generata kun la ssh-keygen komando:"
@@ -4189,6 +4663,9 @@ msgstr "Skripto Datumo"
 msgid "Script File"
 msgstr "Skripto Dosiero"
 
+msgid "Security Group"
+msgstr "Secureco Grupo"
+
 msgid "Security Group Rules"
 msgstr "Secureco Grupo Reguloj"
 
@@ -4200,6 +4677,9 @@ msgstr "Sekuriga grupa rolo jam ekzistas."
 
 msgid "Segmentation ID"
 msgstr "Segmento ID"
+
+msgid "Segmentation ID:"
+msgstr "Segmento ID:"
 
 msgid "Select Flavor"
 msgstr "Elektu variaĵon."
@@ -4224,6 +4704,9 @@ msgstr "Elektu scripto fonton"
 
 msgid "Select Server Group"
 msgstr "Elektu Servilo Grupo"
+
+msgid "Select Subnet"
+msgstr "Elektu subreton"
 
 msgid "Select Volume"
 msgstr "Elektu Volumon"
@@ -4284,6 +4767,9 @@ msgstr "Elektu IP adreson"
 
 msgid "Select format"
 msgstr "Elektu formaton"
+
+msgid "Select network"
+msgstr "Elektu reton"
 
 msgid "Select networks for your instance."
 msgstr "Elektu retojn por via apero."
@@ -4384,6 +4870,9 @@ msgstr "Servoj  Up aktiva kaj funkcianta  "
 
 msgid "Set Domain Context"
 msgstr "Agordu Domajno Kunteksto"
+
+msgid "Set Gateway"
+msgstr "Agordu Kluzon"
 
 msgid "Set as Active Project"
 msgstr "Agordu kiel Aktiva Projekto"
@@ -4592,6 +5081,9 @@ msgstr "Difinu aldonaj atribuoj por la subreto."
 msgid "Specify advanced options to use when launching an instance."
 msgstr "Difinu specialaj opcioj uzonta kiam lanĉi aperon."
 
+msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
+msgstr "Difinu IP adreson por la interfaco kreita (e.g. 192.168.0.254)."
+
 msgid "Specify an image to upload to the Image Service."
 msgstr "Specifu bildigon por alŝargi al Bildigo Servo."
 
@@ -4613,6 +5105,9 @@ msgstr ""
 
 msgid "Specs"
 msgstr "Specifoj"
+
+msgid "Start"
+msgstr "Komenco"
 
 msgctxt "Action log of an instance"
 msgid "Start"
@@ -4653,6 +5148,9 @@ msgstr "Stato"
 msgid "Static Routes"
 msgstr "Statikaj Enkursigiloj "
 
+msgid "Static route added"
+msgstr "Statikan kurson aldonita"
+
 msgid "Status"
 msgstr "Statuso"
 
@@ -4676,8 +5174,17 @@ msgstr "Subreto"
 msgid "Subnet Details"
 msgstr "Subretaj Detajloj"
 
+msgid "Subnet ID"
+msgstr "Subreto ID"
+
 msgid "Subnet Name"
 msgstr "Subreta Nomo"
+
+msgid "Subnet Pool"
+msgstr "Subreta Komunaĵo"
+
+msgid "Subnet list can not be retrieved."
+msgstr "Subreta listo ne ricevebla."
 
 msgid "Subnets"
 msgstr "Subretoj"
@@ -4692,6 +5199,10 @@ msgstr "Sukcese kreita QoS Specifon : %s   "
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
 msgstr "Sukcese kreita ĉifradon por volumo tipo: %s"
+
+#, python-format
+msgid "Successfully created security group: %s"
+msgstr "Sukcese kreita sekureco grupo: %s   "
 
 #, python-format
 msgid "Successfully created volume type: %s"
@@ -4737,6 +5248,10 @@ msgstr "Sucese ĝisdatigita agregato: \"%s.\""
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Sukcese ĝisdatigita ĉifradon por volumo tipo: %s"
+
+#, python-format
+msgid "Successfully updated security group: %s"
+msgstr "Sukcese ĝisdatigita sekurecan grupon: %s"
 
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
@@ -5119,8 +5634,14 @@ msgstr "Tempo ekde Kreado "
 msgid "Time since created"
 msgstr "Tempo ekde kreita"
 
+msgid "Time since created (Seconds)"
+msgstr "Tempo ekde kreado (Sekundoj)"
+
 msgid "Time since update"
 msgstr "Tempo ekde ĝisdatigo"
+
+msgid "To Port"
+msgstr "al Pordo"
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -5141,6 +5662,14 @@ msgstr "Por fari volumo tipo privatan, malselektu tiun kampon."
 
 msgid "To specify a subnet or a fixed IP, select any options."
 msgstr "Por difini subreton aŭ fiksita IP, elektu iuj opcioj."
+
+msgid ""
+"To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
+"from all members of another security group select &quot;Security Group&quot;."
+msgstr ""
+"Por difini permesitan IP intervalon, elektu &quot;CIDR&quot;. Por permesi "
+"aliron de ĉiuj anoj de alia secureca grupo selektu &quot;Security "
+"Group&quot;."
 
 msgid "Toggle Labels"
 msgstr "Baskuligu Etikedon "
@@ -5200,6 +5729,10 @@ msgctxt "Admin state of a Port"
 msgid "UP"
 msgstr "SUPREN"
 
+msgctxt "Admin state of a Router"
+msgid "UP"
+msgstr "SUPREN"
+
 msgid "Unable to add user to primary project."
 msgstr "Neeblas aldoni uzantoj al unua projekto."
 
@@ -5224,6 +5757,13 @@ msgstr "Neeblas validi se DHCP agento vicigilo etendaĵo estas subtenita"
 
 msgid "Unable to check if network availability zone extension is supported"
 msgstr "Neeblas validi se reto disponebleco zono etendaĵo estas subtenita"
+
+msgid "Unable to check if router availability zone extension is supported"
+msgstr "Neeblas validi se enkursigilo disponeblo zono etendaĵo estas subtenita"
+
+#, python-format
+msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
+msgstr "Neeblas vakigi kluzo por enkursigilo \"%(name)s\": \"%(msg)s\"."
 
 msgid "Unable to clone consistency group."
 msgstr "Neeblas kloni kohereco grupon."
@@ -5311,6 +5851,10 @@ msgstr "Neeblas krei projekton \"%s\"."
 msgid "Unable to create role."
 msgstr "Neeblas krei rolon."
 
+#, python-format
+msgid "Unable to create security group: %s"
+msgstr "Nekapablas krei sekurecan grupon: %s"
+
 msgid "Unable to create snapshot."
 msgstr "Neeblas krei savkopion."
 
@@ -5323,6 +5867,10 @@ msgstr "Neeblas krei savkopiojn pro transpasita savkopio kvota limito."
 msgid "Unable to create spec."
 msgstr "Neeblas krei specifon."
 
+#, python-format
+msgid "Unable to create subnet \"%s\"."
+msgstr "Neeblas krei subreton \"%s\"."
+
 msgid "Unable to create user."
 msgstr "Neeblas krei uzanton."
 
@@ -5334,6 +5882,10 @@ msgstr "Neeblas krei volumo tipo ekstra specifon."
 
 msgid "Unable to create volume type."
 msgstr "Neeblas krei volumo tipo."
+
+#, python-format
+msgid "Unable to delete router \"%s\""
+msgstr "Malsukcesis forigi enkursigilo \"%s\""
 
 msgid "Unable to detach interface."
 msgstr "Neeblas malligi interfacon."
@@ -5418,6 +5970,10 @@ msgstr "Neeblas ricevi openrc legitimaĵojn"
 
 msgid "Unable to get quota info."
 msgstr "Neeblas ricevi  kvota informo."
+
+#, python-format
+msgid "Unable to get subnet \"%s\""
+msgstr "Neeblas ricevi subreton \"%s\""
 
 msgid "Unable to get the available hosts"
 msgstr "Neeblas ricevi la disponeblajn servilojn"
@@ -5551,8 +6107,16 @@ msgstr "Neeblas ricevi QoS specifo liston."
 msgid "Unable to retrieve QoS specs"
 msgstr "Neeblas ricevi QoS specifojn."
 
+#, python-format
+msgid "Unable to retrieve a list of external networks \"%s\"."
+msgstr "Neeblas ricevi liston de eksteraj retoj \"%s\"."
+
 msgid "Unable to retrieve agent list."
 msgstr "Neeblas ricevi agento listo."
+
+#, python-format
+msgid "Unable to retrieve an external network \"%s\"."
+msgstr "Neeblas ricevi eksteran reton \"%s\"."
 
 msgid "Unable to retrieve availability zone list."
 msgstr "Neebla trovi disponebla zono listo."
@@ -5593,6 +6157,10 @@ msgstr "Neeblas ricevi detajlojn por  ŝlosilparo \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Neeblas ricevi detajlojn por  reto \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for router \"%s\"."
+msgstr "Neeblas ricevi detajlojn por enkursigilo \"%s\"."
 
 msgid "Unable to retrieve domain details."
 msgstr "Neeblas ricevi domajno detajlojn."
@@ -5792,8 +6360,14 @@ msgstr "Neeblas ricevi rolo listo."
 msgid "Unable to retrieve roles list."
 msgstr "Neeblas ricevi rolo listo."
 
+msgid "Unable to retrieve router details."
+msgstr "Neeblas ricevi enkursigilo detajlojn"
+
 msgid "Unable to retrieve router list."
 msgstr "Neeblas ricevi enkursigilo listo."
+
+msgid "Unable to retrieve router."
+msgstr "Neeblas ricevi enkursigilon."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "Neeblas ricevi securaco grupo liston. Bonvolu provu denove poste."
@@ -5810,6 +6384,12 @@ msgstr "Neeblas ricevi kunhavigitajn bildojn."
 
 msgid "Unable to retrieve snapshot data."
 msgstr "Neeblas ricevi sav-kopio datumon."
+
+msgid "Unable to retrieve subnet details"
+msgstr "Neeblas ricevi subretaj detajlojn"
+
+msgid "Unable to retrieve subnet details."
+msgstr "Neeblas ricevi subretaj detajlojn."
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Neebla trovi agregato ĝisdatiĝinda."
@@ -5907,6 +6487,9 @@ msgstr "Neeblas agordi Domajno Kuntekston."
 msgid "Unable to set flavor access for project %s."
 msgstr "Neeblas apliki variaĵa aliro por la projekto %s."
 
+msgid "Unable to set gateway."
+msgstr "Neeblas agordi kluzon."
+
 msgid "Unable to set project quotas."
 msgstr "Neeblas agordi projekto kvotojn."
 
@@ -5953,6 +6536,14 @@ msgstr "Neeblas ĝisdatigi mapigon. Regulo havas malformitan JSON datumon."
 
 msgid "Unable to update role."
 msgstr "Neeblas ĝisdatigi rolon."
+
+#, python-format
+msgid "Unable to update security group: %s"
+msgstr "Neeblas ĝisdatigi sekurecan grupon: %s"
+
+#, python-format
+msgid "Unable to update subnet \"%s\"."
+msgstr "Neeblas ĝisdatigi subreto \"%s\"."
 
 msgid "Unable to update subnets with availability."
 msgstr "Neebla ĝisdatigi subretoj kun disponeblon."
@@ -6143,6 +6734,10 @@ msgid "Updated At"
 msgstr "Ĝisdatigita  Je"
 
 #, python-format
+msgid "Updated subnet \"%s\"."
+msgstr "Ĝisdatigita subreto \"%s\"."
+
+#, python-format
 msgid "Updated volumes for consistency group \"%s\"."
 msgstr "Ĝisdatigitaj volumoj por  kohereco grupo \"%s\"."
 
@@ -6169,6 +6764,9 @@ msgstr "Uzado Superrigardo"
 
 msgid "Usage Report For Period:"
 msgstr "Uzado Reporto por Periodo:"
+
+msgid "Use Server Default"
+msgstr "Uzu Servilo Defaŭlto"
 
 msgid "Use a consistency group as source"
 msgstr "Uzu kohereco grupo kiel fonto"
@@ -6254,6 +6852,12 @@ msgstr "VHD - Virtuala Dura Disko"
 
 msgid "VHDX - Large Virtual Hard Disk"
 msgstr "VHDX - Granda Virtuala Dura Disko"
+
+msgid "VIF Details"
+msgstr "VIF Detajloj"
+
+msgid "VIF Type"
+msgstr "VIF Tipo"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -6443,12 +7047,38 @@ msgstr ""
 "OpenStack. Notu ke la volumo ne estos forigita de la Cinder gastiganto. <br> "
 "<br> Tiu estas ekvivalenta al <tt>cinder malmastrumu</tt> komando."
 
+msgid ""
+"When the admin state of the port is enabled, the networking service forward "
+"packets on the port. Otherwise, it does not forward any packets on the port."
+msgstr ""
+"Se la admin stato de la pordo estas ebligita, la reta servo plusendas "
+"paketojn al la pordo. Alikaze, ĝi  ne plusendas iujn paketojn al la pordo."
+
 msgid "You are already using all of your available floating IPs."
 msgstr "Vi jam estas uzanta ĉiuj de viaj disponeblaj glitaj IP-oj."
 
 #, python-format
 msgid "You are not allowed to create a port for network %s."
 msgstr "Vi ne estas permesita krei pordon por reto %s."
+
+msgid ""
+"You can add or remove security groups associated with the port in the next "
+"tab (if the port security is enabled for the port)."
+msgstr ""
+"Vi povas aldoni aŭ forigi sekureco grupojn asociita kun la pordo en la "
+"sekvanta tabelo (kiam la pordo sekureco estas ebligita por tiu pordo)."
+
+msgid ""
+"You can connect a specified external network to the router. The external "
+"network is regarded as a default route of the router and the router acts as "
+"a gateway for external connectivity."
+msgstr ""
+"Vi povas konekti  difinitan eksteran reton al lal enkursigilo. La ekstera "
+"reto estas pritraktata kiel defaŭlta kurso de la enkursigilo kaj la "
+"enkursigilo agas kiel kluzo por la ekstera konekteco. "
+
+msgid "You can connect a specified subnet to the router."
+msgstr "Vi povas konekti difinitan subreton al la enkursigilo. "
 
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
@@ -6462,6 +7092,9 @@ msgid ""
 "available here."
 msgstr ""
 "Vi povas agordi vian aperon post lanĉado uzante la opciojn havebla ĉi tie."
+
+msgid "You can edit the properties of your port here."
+msgstr "Vi povas redakti la redakteblaj ecoj de via pordo ĉi tie."
 
 msgid "You cannot disable your current project"
 msgstr "Vi ne povas malebligi vian nunan projekton."
@@ -6489,8 +7122,18 @@ msgstr ""
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "Vi eble nedeviga volas krei pasvorton je la rekonstruita apero."
 
+msgid ""
+"You may reset the gateway later by using the set gateway action, but the "
+"gateway IP may change."
+msgstr ""
+"Vi eble restarigus la kluzon poste uzonta la agordu kluzo agon, sed la kluzo "
+"IP eble ŝanĝigas."
+
 msgid "You may update the editable properties of your network here."
 msgstr "Vi povus ĝisdatigi la redaktiblaj ecoj de via reto ĉi tie."
+
+msgid "You may update the editable properties of your router here."
+msgstr "Vi povus ĝisdatigi la redaktiblaj ecoj de via enkursigilo ĉi tie."
 
 msgid "You must select a snapshot."
 msgstr "Vi devas elekti savkopion."
