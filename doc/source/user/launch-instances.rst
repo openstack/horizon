@@ -35,11 +35,6 @@ Launch an instance
    Instance Name
       Assign a name to the virtual machine.
 
-   Availability Zone
-      By default, this value is set to the availability zone given by the
-      cloud provider (for example, ``us-west`` or ``apac-south``). For some
-      cases, it could be ``nova``.
-
       .. note::
 
          The name you assign here becomes the initial host name of the server.
@@ -52,6 +47,14 @@ Launch an instance
 
          Server names are not guaranteed to be unique when created so you
          could have two instances with the same host name.
+
+   Description
+      You can assign a brief description of the virtual machine.
+
+   Availability Zone
+      By default, this value is set to the availability zone given by the
+      cloud provider (for example, ``us-west`` or ``apac-south``). For some
+      cases, it could be ``nova``.
 
    Count
       To launch multiple instances, enter a value greater than ``1``. The
