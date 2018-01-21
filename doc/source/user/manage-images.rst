@@ -117,8 +117,13 @@ Follow this procedure to update an existing image.
    actions. For example:
 
    *  Change the name of the image.
-   *  Select the :guilabel:`Public` check box to make the image public.
-   *  Clear the :guilabel:`Public` check box to make the image private.
+   *  Change the description of the image.
+   *  Change the format of the image.
+   *  Change the minimum disk of the image.
+   *  Change the minimum RAM  of the image.
+   *  Select the :guilabel:`Public` button to make the image public.
+   *  Clear the :guilabel:`Private` button to make the image private.
+   *  Change the metadata of the image.
 
 #. Click :guilabel:`Edit Image`.
 
