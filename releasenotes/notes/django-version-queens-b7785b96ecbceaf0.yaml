@@ -1,0 +1,5 @@
+---
+other:
+  - |
+    The Queens release of horizon depends on Django 1.8 to 1.11, but
+    Django 1.8 to 1.10 support will be dropped in the next release (Rocky).
