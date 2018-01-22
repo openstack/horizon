@@ -139,6 +139,9 @@ class OperationLogMiddleware(object):
                 referer_url = referer_url.decode('utf-8')
         except Exception:
             pass
+        request_url = urlparse.unquote(request.path)
+        if request.META['QUERY_STRING']:
+            request_url += '?' + request.META['QUERY_STRING']
         return {
             'client_ip': request.META.get('REMOTE_ADDR', None),
             'domain_name': getattr(user, 'domain_name', None),
@@ -149,7 +152,7 @@ class OperationLogMiddleware(object):
             'user_id': request.session.get('user_id', None),
             'request_scheme': request.scheme,
             'referer_url': referer_url,
-            'request_url': urlparse.unquote(request.path),
+            'request_url': request_url,
             'method': request.method if not exception else None,
             'param': self._get_request_param(request),
         }
