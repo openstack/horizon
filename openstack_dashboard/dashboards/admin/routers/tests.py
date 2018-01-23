@@ -227,6 +227,24 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         routers = res.context['table'].data
         self.assertItemsEqual(routers, [])
 
+    @test.create_stubs({api.keystone: ('tenant_list',),
+                        api.neutron: ('is_extension_supported',)})
+    def test_routers_list_with_non_exist_tenant_filter(self):
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .MultipleTimes().AndReturn(True)
+        api.keystone.tenant_list(IsA(http.HttpRequest))\
+            .AndReturn([self.tenants.list(), False])
+        self.mox.ReplayAll()
+        self.client.post(
+            self.INDEX_URL,
+            data={'routers__filter_admin_routers__q_field': 'project',
+                  'routers__filter_admin_routers__q': 'non_exist_tenant'})
+        res = self.client.get(self.INDEX_URL)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        routers = res.context['table'].data
+        self.assertItemsEqual(routers, [])
+
 
 class RouterTestsNoL3Agent(RouterTests):
     def _get_detail(self, router, extraroute=True):

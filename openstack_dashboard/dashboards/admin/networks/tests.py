@@ -936,6 +936,27 @@ class NetworkTests(test.BaseAdminViewTests):
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, [])
 
+    @test.create_stubs({api.keystone: ('tenant_list',),
+                        api.neutron: ('is_extension_supported',)})
+    def test_networks_list_with_non_exist_tenant_filter(self):
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network_availability_zone').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
+        api.keystone.tenant_list(IsA(http.HttpRequest))\
+            .AndReturn([self.tenants.list(), False])
+        self.mox.ReplayAll()
+        self.client.post(
+            reverse('horizon:admin:networks:index'),
+            data={'networks__filter_admin_networks__q_field': 'project',
+                  'networks__filter_admin_networks__q': 'non_exist_tenant'})
+        res = self.client.get(reverse('horizon:admin:networks:index'))
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        networks = res.context['networks_table'].data
+        self.assertItemsEqual(networks, [])
+
     @test.create_stubs({api.neutron: ('is_extension_supported',),
                         api.keystone: ('tenant_list',)})
     def test_network_create_without_physical_networks(self):
