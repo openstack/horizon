@@ -75,7 +75,7 @@ class K2KAuthPlugin(base.BasePlugin):
             idp_exception = idp_excp
 
         if not scoped_idp_auth or idp_exception:
-            msg = 'Identity provider authentication Failed.'
+            msg = _('Identity provider authentication Failed.')
             raise exceptions.KeystoneAuthException(msg)
 
         session = utils.get_session()
