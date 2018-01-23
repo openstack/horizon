@@ -16,6 +16,14 @@ in environments with stand-alone services such as Object Storage.
    of the Identity service using the Apache HTTP server and Memcached
    service.
 
+System Requirements
+===================
+
+.. toctree::
+   :maxdepth: 1
+
+   system-requirements
+
 Installing from Packages
 ========================
 
@@ -31,7 +39,7 @@ Installing from Source
 ======================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    from-source.rst
 
