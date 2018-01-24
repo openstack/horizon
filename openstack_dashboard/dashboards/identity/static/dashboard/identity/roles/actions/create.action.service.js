@@ -68,7 +68,8 @@
         title: gettext('Create Role'),
         schema: schema,
         form: ['*'],
-        model: model
+        model: model,
+        size: 'sm'
       };
       return modalFormService.open(config).then(submit);
     }
