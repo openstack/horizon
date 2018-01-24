@@ -38,18 +38,12 @@ RECREATE_CREDS_URL = reverse(API_URL + ":recreate_credentials")
 class APIAccessTests(test.TestCase):
     def test_ec2_download_view(self):
         creds = self.ec2.first()
-        cert = self.certs.first()
 
         self.mox.StubOutWithMock(api.keystone, "list_ec2_credentials")
-        self.mox.StubOutWithMock(api.nova, "get_x509_credentials")
-        self.mox.StubOutWithMock(api.nova, "get_x509_root_certificate")
         self.mox.StubOutWithMock(api.keystone, "create_ec2_credentials")
 
         api.keystone.list_ec2_credentials(IsA(HttpRequest), self.user.id) \
                     .AndReturn([])
-        api.nova.get_x509_credentials(IsA(HttpRequest)).AndReturn(cert)
-        api.nova.get_x509_root_certificate(IsA(HttpRequest)) \
-                .AndReturn(cert)
         api.keystone.create_ec2_credentials(IsA(HttpRequest),
                                             self.user.id,
                                             self.tenant.id).AndReturn(creds)

@@ -788,16 +788,6 @@ def usage_list(request, start, end):
 
 
 @profiler.trace
-def get_x509_credentials(request):
-    return novaclient(request).certs.create()
-
-
-@profiler.trace
-def get_x509_root_certificate(request):
-    return novaclient(request).certs.get()
-
-
-@profiler.trace
 def get_password(request, instance_id, private_key=None):
     return novaclient(request).servers.get_password(instance_id, private_key)
 

@@ -90,8 +90,6 @@ def download_ec2_bundle(request):
 
     # Gather or create our EC2 credentials
     try:
-        credentials = api.nova.get_x509_credentials(request)
-        cacert = api.nova.get_x509_root_certificate(request)
         context = _get_ec2_credentials(request)
     except Exception:
         exceptions.handle(request,
@@ -103,9 +101,6 @@ def download_ec2_bundle(request):
     try:
         temp_zip = tempfile.NamedTemporaryFile(delete=True)
         with closing(zipfile.ZipFile(temp_zip.name, mode='w')) as archive:
-            archive.writestr('pk.pem', credentials.private_key)
-            archive.writestr('cert.pem', credentials.data)
-            archive.writestr('cacert.pem', cacert.data)
             archive.writestr('ec2rc.sh', render_to_string(template, context))
     except Exception:
         exceptions.handle(request,
