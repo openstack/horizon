@@ -17,7 +17,6 @@ import logging
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -31,38 +30,6 @@ from openstack_dashboard.dashboards.project.networks.subnets.tabs \
 from openstack_dashboard.usage import quotas
 
 LOG = logging.getLogger(__name__)
-
-
-class DeleteSubnet(proj_tables.SubnetPolicyTargetMixin, tables.DeleteAction):
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Delete Subnet",
-            u"Delete Subnets",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Deleted Subnet",
-            u"Deleted Subnets",
-            count
-        )
-
-    policy_rules = (("network", "delete_subnet"),)
-
-    def delete(self, request, obj_id):
-        try:
-            api.neutron.subnet_delete(request, obj_id)
-        except Exception as e:
-            LOG.info('Failed to delete subnet %(id)s: %(exc)s',
-                     {'id': obj_id, 'exc': e})
-            msg = _('Failed to delete subnet %s') % obj_id
-            network_id = self.table.kwargs['network_id']
-            redirect = reverse('horizon:admin:networks:detail',
-                               args=[network_id])
-            exceptions.handle(request, msg, redirect=redirect)
 
 
 class CreateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
@@ -149,8 +116,9 @@ class SubnetsTable(tables.DataTable):
     class Meta(object):
         name = "subnets"
         verbose_name = _("Subnets")
-        table_actions = (CreateSubnet, DeleteSubnet, tables.FilterAction,)
-        row_actions = (UpdateSubnet, DeleteSubnet,)
+        table_actions = (CreateSubnet, proj_tables.DeleteSubnet,
+                         tables.FilterAction,)
+        row_actions = (UpdateSubnet, proj_tables.DeleteSubnet,)
         hidden_title = False
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):

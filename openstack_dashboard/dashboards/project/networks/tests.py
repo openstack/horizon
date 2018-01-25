@@ -1011,10 +1011,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     def test_delete_network_no_subnet(self):
         network = self.networks.first()
         network.subnets = []
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id,
-                                expand_subnet=False)\
-            .AndReturn(network)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
             .MultipleTimes().AndReturn(True)
@@ -1030,23 +1026,13 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     @test.create_stubs({api.neutron: ('network_get',
                                       'network_list',
                                       'network_delete',
-                                      'subnet_delete',
                                       'is_extension_supported')})
     def test_delete_network_with_subnet(self):
         network = self.networks.first()
-        network.subnets = [subnet.id for subnet in network.subnets]
-        subnet_id = network.subnets[0]
-        subnetv6_id = network.subnets[1]
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id,
-                                expand_subnet=False)\
-            .AndReturn(network)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
             .MultipleTimes().AndReturn(True)
         self._stub_net_list()
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnetv6_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)
 
         self.mox.ReplayAll()
@@ -1059,23 +1045,13 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     @test.create_stubs({api.neutron: ('network_get',
                                       'network_list',
                                       'network_delete',
-                                      'subnet_delete',
                                       'is_extension_supported')})
     def test_delete_network_exception(self):
         network = self.networks.first()
-        network.subnets = [subnet.id for subnet in network.subnets]
-        subnet_id = network.subnets[0]
-        subnetv6_id = network.subnets[1]
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id,
-                                expand_subnet=False)\
-            .AndReturn(network)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'network_availability_zone')\
             .MultipleTimes().AndReturn(True)
         self._stub_net_list()
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnetv6_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)\
             .AndRaise(self.exceptions.neutron)
 
