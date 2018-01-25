@@ -179,10 +179,6 @@ be used in any Django project.
 The ``openstack_dashboard`` directory contains a reference Django project that
 uses ``horizon``.
 
-For development, both pieces share an environment which (by default) is
-built with the ``tools/install_venv.py`` script. That script creates a
-virtualenv and installs all the necessary packages.
-
 If dependencies are added to either ``horizon`` or ``openstack_dashboard``,
 they should be added to ``requirements.txt``.
 
