@@ -13,12 +13,8 @@ Services in OpenStack use the oslo policy engine to define policy rules
 to limit access to APIs based primarily on role grants and resource
 ownership.
 
-The Keystone v3 API provides an interface for creating/reading/updating
-policy files in the keystone database. However, at this time services
-do not load the policy files into Keystone. Thus, the implementation in
-Horizon is based on copies of policy.json files found in the service's
-source code. The long-term goal is to read/utilize/update these policy
-files in Horizon.
+The implementation in Horizon is based on copies of policy files
+found in the service's source code.
 
 The service rules files are loaded into the policy engine to determine
 access rights to actions and service APIs.
@@ -29,48 +25,12 @@ Horizon Settings
 There are a few settings that must be in place for the Horizon policy
 engine to work.
 
-``POLICY_FILES_PATH``
----------------------
+* ``POLICY_CHECK_FUNCTION``
+* ``POLICY_DIRS``
+* ``POLICY_FILES_PATH``
+* ``POLICY_FILES``
 
-Default:  ``os.path.join(ROOT_PATH, "conf")``
-
-Specifies where service based policy files are located.  These are used to
-define the policy rules actions are verified against.  This value must contain
-the files listed in ``POLICY_FILES`` or all policy checks will pass.
-
-.. note::
-
-    The path to deployment specific policy files can be specified in
-    ``local_settings.py`` to override the default location.
-
-
-``POLICY_FILES``
-----------------
-
-Default: ``{'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}``
-
-This should essentially be the mapping of the contents of ``POLICY_FILES_PATH``
-to service types.  When policy.json files are added to the directory
-``POLICY_FILES_PATH``, they should be included here too. Without this mapping,
-there is no way to map service types with policy rules, thus two policy.json
-files containing a "default" rule would be ambiguous.
-
-.. note::
-
-    Deployment specific policy files can be specified in ``local_settings.py``
-    to override the default policy files. It is imperative that these policy
-    files match those deployed in the target OpenStack installation. Otherwise,
-    the displayed actions and the allowed action will not match.
-
-``POLICY_CHECK_FUNCTION``
--------------------------
-
-Default: ``policy.check``
-
-This value should not be changed, although removing it would be a means to
-bypass all policy checks. Set it to ``None`` in ``local_settings.py`` to
-do this.
-
+For more detail, see :doc:`/configuration/settings`.
 
 How user's roles are determined
 ===============================
@@ -85,6 +45,9 @@ like a project, the target must be specified. See the section
 
 How to Utilize RBAC
 ===================
+
+Django: Table action
+--------------------
 
 The primary way to add role based access control checks to panels is in the
 definition of table actions. When implementing a derived action class,
@@ -108,6 +71,9 @@ x tuples can be added to enforce x rules.
     If a rule specified is not found in the policy file, the policy check
     will return False and the action will not be allowed.
 
+Django: policy check function
+-----------------------------
+
 The secondary way to add a role based check is to directly use the
 :meth:`~openstack_dashboard.policy.check` method.  The method takes a list
 of actions, same format as the :attr:`~horizon.tables.Action.policy_rules`
@@ -129,6 +95,9 @@ utilizes.  Examples look like::
     call, the result is the logical `and` of each rule check. So, if any
     rule fails verification, the result is `False`.
 
+Angular: ifAllowed method
+-------------------------
+
 The third way to add a role based check is in javascript files. Use the method
 'ifAllowed()' in file 'openstack_dashboard.static.app.core.policy.service.js'.
 The method takes a list of actions, similar format with the
@@ -147,6 +116,9 @@ An Example looks like::
       var rules = [['identity', 'identity:list_users']];
       policy.ifAllowed({ rules: rules }).then(policySuccess, policyFailed);
     }
+
+Angular: hz-if-policies
+-----------------------
 
 The fourth way to add a role based check is in html files. Use angular
 directive 'hz-if-policies' in file
@@ -181,3 +153,52 @@ a policy check is desired for a particular target, the implementer should
 override the :meth:`horizon.tables.Action.get_policy_target` method. This
 allows a programmatic way to specify the target based on the current datum. The
 value returned should be the target dictionary.
+
+Policy file maintenance
+=======================
+
+The policy implementation uses the copies of policies defined in
+back-end services.
+
+As of Queens, the OpenStack community are in the process of
+`policy-in-code <https://governance.openstack.org/tc/goals/queens/policy-in-code.html>`__.
+Some projects already define their policies in the code,
+and some still have their policies in ``policy.json`` files.
+
+For project with the legacy ``policy.json`` files,
+what we need to do is just to copy ``policy.json`` into the horizon tree.
+
+For projects with "policy-in-code", all policies are defined as python codes,
+so we first need to generate policy files with its default rules.
+To do this, run the following command after install a corresponding project.
+
+.. code-block:: console
+
+   oslopolicy-sample-generator --namespace $PROJECT --format json \
+       --output-file $HORIZON_REPO/openstack_dashboard/conf/$PROJECT_policy.json
+
+After syncing policies from back-end services, you need to check what are
+changed. If a policy referred by horizon has been changed, you need to check
+and modify the horizon code base accordingly.
+To summarize which policies are removed or added, a convenient tool is
+provided:
+
+.. code-block:: console
+
+   $ cd openstack_dashboard/conf/
+   $ python ../../tools/policy-diff.py --help
+   usage: policy-diff.py [-h] --old OLD --new NEW [--mode {add,remove}]
+
+   optional arguments:
+   -h, --help           show this help message and exit
+   --old OLD            Current policy file
+   --new NEW            New policy file
+   --mode {add,remove}  Diffs to be shown
+
+   # Show removed policies
+   # The default is "--mode remove". You can omit --mode option.
+   $ python ../../tools/policy-diff.py \
+       --old keystone_policy.json --new keystone_policy.json.new --mode remove
+   default
+   identity:change_password
+   identity:get_identity_providers
