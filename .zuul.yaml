@@ -70,7 +70,6 @@
       tox_envlist: all
 
 - project:
-    name: openstack/horizon
     check:
       jobs:
         - horizon-openstack-tox-py27dj110
