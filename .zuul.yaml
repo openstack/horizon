@@ -27,7 +27,6 @@
       tox_envlist: selenium-headless
 
 - project:
-    name: openstack/horizon
     check:
       jobs:
         - horizon-openstack-tox-py27dj110
