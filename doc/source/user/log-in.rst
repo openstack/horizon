@@ -85,14 +85,6 @@ Compute tab
 
 * :guilabel:`Key Pairs`: View, create, edit, import, and delete key pairs.
 
-* :guilabel:`Shares`: Use the following tabs to complete these tasks:
-
-  * :guilabel:`Shares`: View, create, manage, and delete shares.
-
-  * :guilabel:`Snapshots`: View, manage, and delete volume snapshots.
-
-  * :guilabel:`Share Networks`: View, manage, and delete share networks.
-
 Volume tab
 -----------
 
@@ -209,20 +201,6 @@ System tab
     services.
 
   * :guilabel:`Network Agents`: View the network agents.
-
-* :guilabel:`Shares`: Use the following tabs to complete these tasks:
-
-  * :guilabel:`Shares`: View, create, manage, and delete shares.
-
-  * :guilabel:`Snapshots`: View, manage, and delete volume snapshots.
-
-  * :guilabel:`Share Networks`: View, manage, and delete share networks.
-
-  * :guilabel:`Security Services`: View, manage, and delete security services.
-
-  * :guilabel:`Share Types`: View, create, manage, and delete share types.
-
-  * :guilabel:`Share Servers`: View, manage, and delete share servers.
 
 .. _dashboard-identity-tab:
 

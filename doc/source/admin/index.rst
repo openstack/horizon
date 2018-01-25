@@ -19,7 +19,6 @@ Dashboard, see the :doc:`/install/index` for your operating system.
    manage-instances.rst
    manage-flavors.rst
    manage-volumes.rst
-   manage-shares.rst
    set-quotas.rst
    manage-services.rst
    manage-host-aggregates.rst
