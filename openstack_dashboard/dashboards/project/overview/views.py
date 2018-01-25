@@ -53,7 +53,7 @@ class ProjectUsageCsvRenderer(csvbase.BaseCsvResponse):
                    capfirst(state_label))
 
 
-class ProjectOverview(usage.UsageView):
+class ProjectOverview(usage.ProjectUsageView):
     table_class = usage.ProjectUsageTable
     usage_class = usage.ProjectUsage
     template_name = 'project/overview/usage.html'
