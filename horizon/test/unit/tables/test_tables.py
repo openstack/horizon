@@ -15,6 +15,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import unittest
+import uuid
+
 from django.core.urlresolvers import reverse
 from django import forms
 from django import http
@@ -23,10 +26,13 @@ from django.template import defaultfilters
 from django.test.utils import override_settings
 from django.utils.translation import ungettext_lazy
 
+import mock
 from mox3.mox import IsA
 import six
 
+from horizon import exceptions
 from horizon import tables
+from horizon.tables import actions
 from horizon.tables import formset as table_formset
 from horizon.tables import views as table_views
 from horizon.test import helpers as test
@@ -1603,3 +1609,81 @@ class FormsetTableTests(test.TestCase):
         form_data = form.initial
         self.assertEqual('object_1', form_data['name'])
         self.assertEqual(2, form_data['value'])
+
+
+class MyException(Exception):
+    pass
+
+
+class OtherException(Exception):
+    pass
+
+
+class BatchActionDecoratorTests(unittest.TestCase):
+
+    def setUp(self):
+        obj = uuid.uuid4()
+        self.obj_id = 'id-%s' % str(obj)
+        self.obj_name = 'name-%s' % str(obj)
+        table = mock.Mock()
+        table.get_object_by_id.return_value = obj
+        table.get_object_display.return_value = self.obj_name
+
+        # getLogger is called insdie handle_exception_with_detail_message
+        # decorator, so this needs to be mocked before using the decorator.
+        self.logger = mock.Mock()
+        with mock.patch('logging.getLogger',
+                        return_value=self.logger) as mock_getlogger:
+            class MyAction(object):
+                def __init__(self, table):
+                    self.table = table
+
+                @actions.handle_exception_with_detail_message(
+                    'normal log message %(id)s %(exc)s',
+                    MyException,
+                    'target log message %(id)s %(exc)s',
+                    'target user message %(name)s %(exc)s',
+                    'mylogger')
+                def action(self, request, obj_id):
+                    self._to_be_mocked()
+
+                # This is required because if mock.patch replaces
+                # a decorated method. We are testing a decorated method
+                # so we need a separate method to mock,
+                def _to_be_mocked(self):
+                    pass
+
+        self.action = MyAction(table)
+        self.mock_getlogger = mock_getlogger
+
+    def test_normal_exception(self):
+        myexc = OtherException()
+        with mock.patch.object(self.action, '_to_be_mocked',
+                               side_effect=myexc):
+            self.assertRaises(OtherException,
+                              self.action.action,
+                              mock.sentinel.request, self.obj_id)
+        self.mock_getlogger.assert_called_once_with('mylogger')
+        self.logger.info.assert_called_once_with(
+            'normal log message %(id)s %(exc)s',
+            {'id': self.obj_id, 'exc': myexc})
+
+    def test_target_exception(self):
+        myexc = MyException()
+        handled = exceptions.HandledException(myexc)
+        with mock.patch.object(self.action, '_to_be_mocked',
+                               side_effect=myexc), \
+                mock.patch.object(exceptions, 'handle',
+                                  side_effect=handled) as mocked_handle:
+            self.assertRaises(exceptions.HandledException,
+                              self.action.action,
+                              mock.sentinel.request, self.obj_id)
+        self.mock_getlogger.assert_called_once_with('mylogger')
+        self.logger.info.assert_called_once_with(
+            'target log message %(id)s %(exc)s',
+            {'id': self.obj_id, 'exc': myexc})
+        mocked_handle.assert_called_once_with(
+            mock.sentinel.request,
+            'target user message %(name)s %(exc)s' %
+            {'name': self.obj_name, 'exc': myexc},
+            escalate=True)
