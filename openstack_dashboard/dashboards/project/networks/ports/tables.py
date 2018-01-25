@@ -21,7 +21,6 @@ from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
-from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
@@ -125,17 +124,15 @@ class DeletePort(policy.PolicyTargetMixin, tables.DeleteAction):
     policy_rules = (("network", "delete_port"),)
 
     def delete(self, request, port_id):
-        failure_url = "horizon:project:networks:detail"
         try:
             api.neutron.port_delete(request, port_id)
         except Exception as e:
             LOG.info('Failed to delete port %(id)s: %(exc)s',
                      {'id': port_id, 'exc': e})
-            msg = _('Failed to delete port %s') % port_id
-            network_id = self.table.kwargs['network_id']
-            redirect = reverse(failure_url,
-                               args=[network_id])
-            exceptions.handle(request, msg, redirect=redirect)
+            # NOTE: No exception handling is required here because
+            # BatchAction.handle() does it. What we need to do is
+            # just to re-raise the exception.
+            raise
 
 
 class PortsTable(tables.DataTable):
