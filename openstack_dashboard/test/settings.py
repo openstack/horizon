@@ -297,8 +297,13 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.aggregates.panel.Aggregates.can_access'),
         'return_value': True,
     },
-    'trunk': {
+    'trunk-project': {
         'method': ('openstack_dashboard.dashboards.project'
+                   '.trunks.panel.Trunks.can_access'),
+        'return_value': True,
+    },
+    'trunk-admin': {
+        'method': ('openstack_dashboard.dashboards.admin'
                    '.trunks.panel.Trunks.can_access'),
         'return_value': True,
     },

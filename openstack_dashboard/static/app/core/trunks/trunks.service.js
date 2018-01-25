@@ -24,7 +24,8 @@
     'horizon.app.core.openstack-service-api.neutron',
     'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.detailRoute',
-    '$location'
+    '$location',
+    '$window'
   ];
 
   /*
@@ -37,7 +38,7 @@
    * but do not need to be restricted to such use.  Each exposed function
    * is documented below.
    */
-  function trunksService(neutron, userSession, detailRoute, $location) {
+  function trunksService(neutron, userSession, detailRoute, $location, $window) {
 
     return {
       getDetailsPath: getDetailsPath,
@@ -68,7 +69,17 @@
       return userSession.get().then(getTrunksForProject);
 
       function getTrunksForProject(userSession) {
-        params.project_id = userSession.project_id;
+        var locationURLNotAdmin = ($location.url().indexOf('admin') === -1);
+        // Note(lajoskatona): To list all trunks in case of
+        // the listing is for the Admin panel, check here the
+        // location.url.
+        // there should be a better way to check for admin or project panel??
+        if (locationURLNotAdmin) {
+          params.project_id = userSession.project_id;
+        } else {
+          delete params.project_id;
+        }
+
         return neutron.getTrunks(params).then(addTrackBy);
       }
 
@@ -112,10 +123,10 @@
       function getTrunkError(trunk) {
         // TODO(bence romsics): When you delete a trunk from the details
         // view then it cannot be re-read (of course) and we handle that
-        // by a hard-coded redirect to the project panel. This is okay
-        // for now. But when we want this panel to work for admin too,
-        // we should not hard-code this anymore.
-        $location.url('project/trunks');
+        // by window.histoy.back(). This is a workaround and must be deleted
+        // as soon as there is a final solution for the promels with ngDetails
+        // pages.
+        $window.history.back();
         return trunk;
       }
     }

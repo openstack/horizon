@@ -18,19 +18,20 @@
   'use strict';
 
   describe('trunks service', function() {
-    var service, _location_;
+    var service, neutron, session, _location_;
 
     beforeEach(module('horizon.framework.util'));
     beforeEach(module('horizon.framework.conf'));
     beforeEach(module('horizon.app.core.trunks'));
     beforeEach(inject(function($injector, $location) {
       service = $injector.get('horizon.app.core.trunks.service');
+      neutron = $injector.get('horizon.app.core.openstack-service-api.neutron');
+      session = $injector.get('horizon.app.core.openstack-service-api.userSession');
       _location_ = $location;
     }));
 
     describe('getTrunkPromise', function() {
-      it('provides a promise', inject(function($q, $injector, $timeout) {
-        var neutron = $injector.get('horizon.app.core.openstack-service-api.neutron');
+      it('provides a promise', inject(function($q, $timeout) {
         var deferred = $q.defer();
         spyOn(neutron, 'getTrunk').and.returnValue(deferred.promise);
         var result = service.getTrunkPromise({});
@@ -40,21 +41,7 @@
         expect(result.$$state.value.data.updated_at).toBe('May29');
       }));
 
-      it('redirects back to panel on failure', inject(function($q, $injector, $timeout) {
-        var neutron = $injector.get('horizon.app.core.openstack-service-api.neutron');
-        var deferred = $q.defer();
-        spyOn(neutron, 'getTrunk').and.returnValue(deferred.promise);
-        spyOn(_location_, 'url');
-        service.getTrunkPromise({});
-        deferred.reject();
-        $timeout.flush();
-        expect(neutron.getTrunk).toHaveBeenCalled();
-        expect(_location_.url).toHaveBeenCalledWith('project/trunks');
-      }));
-
-      it('provides a promise that gets translated', inject(function($q, $injector, $timeout) {
-        var neutron = $injector.get('horizon.app.core.openstack-service-api.neutron');
-        var session = $injector.get('horizon.app.core.openstack-service-api.userSession');
+      it('provides a promise that gets translated', inject(function($q, $timeout) {
         var deferred = $q.defer();
         var deferredSession = $q.defer();
         var updatedAt = new Date('November 15, 2017');
@@ -64,7 +51,24 @@
         deferred.resolve({data: {items: [{id: 1, updated_at: updatedAt}]}});
         deferredSession.resolve({project_id: '42'});
         $timeout.flush();
-        expect(neutron.getTrunks).toHaveBeenCalled();
+        expect(neutron.getTrunks).toHaveBeenCalledWith({project_id: '42'});
+        expect(result.$$state.value.data.items[0].updated_at).toBe(updatedAt);
+        expect(result.$$state.value.data.items[0].id).toBe(1);
+      }));
+
+      it('removes project_id in case of calling from admin panel',
+      inject(function($q, $timeout) {
+        var deferred = $q.defer();
+        var deferredSession = $q.defer();
+        var updatedAt = new Date('November 15, 2017');
+        spyOn(neutron, 'getTrunks').and.returnValue(deferred.promise);
+        spyOn(session, 'get').and.returnValue(deferredSession.promise);
+        spyOn(_location_, 'url').and.returnValue('/admin/trunks');
+        var result = service.getTrunksPromise({project_id: '43'});
+        deferred.resolve({data: {items: [{id: 1, updated_at: updatedAt}]}});
+        deferredSession.resolve({project_id: '42'});
+        $timeout.flush();
+        expect(neutron.getTrunks).toHaveBeenCalledWith({});
         expect(result.$$state.value.data.items[0].updated_at).toBe(updatedAt);
         expect(result.$$state.value.data.items[0].id).toBe(1);
       }));

@@ -2,7 +2,8 @@
 features:
   - |
     [:blueprint:`neutron-trunk-ui`]
-    Neutron trunk feature is now supported in the project dashboard.
+    Neutron trunk feature is now supported. It is supported in both the
+    project and admin dashboards.
     The panel will be displayed if Neutron API extension 'trunk' is available.
     It displays information about trunks. The details page for each trunk also
     shows information about subports of that trunk.

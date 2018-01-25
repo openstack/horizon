@@ -90,6 +90,26 @@
       });
     });
 
+    it('can suppress errors in case of deleting trunks', function() {
+      spyOn(apiService, 'delete').and.callFake(function() {
+        return {
+          success: function(c) {
+            c();
+            return this;
+          },
+          error: function(c) {
+            c();
+            return this;
+          }
+        };
+      });
+      spyOn(toastService, 'add').and.callThrough();
+
+      service.deleteTrunk('42', true).error(function() {
+        expect(toastService.add).not.toHaveBeenCalled();
+      });
+    });
+
     var tests = [
 
       {

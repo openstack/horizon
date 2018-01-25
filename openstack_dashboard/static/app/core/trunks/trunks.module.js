@@ -184,6 +184,14 @@
       redirectTo: goToAngularDetails
     });
 
+    $routeProvider.when('/admin/trunks', {
+      templateUrl: path + 'panel.html'
+    });
+
+    $routeProvider.when('/admin/trunk/:id/detail', {
+      redirectTo: goToAngularDetails
+    });
+
     function goToAngularDetails(params) {
       return detailRoute + 'OS::Neutron::Trunk/' + params.id;
     }

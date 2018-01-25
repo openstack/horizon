@@ -32,7 +32,8 @@
     'horizon.app.core.trunks.resourceType',
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.widgets.modal.wizard-modal.service',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.widgets.toast.service',
+    '$rootScope'
   ];
 
   /**
@@ -51,8 +52,17 @@
     resourceType,
     actionResultService,
     wizardModalService,
-    toast
+    toast,
+    $rootScope
   ) {
+    // Note(lajos katona): To have a workaround for the fact that on the details
+    // page there is no way to find out if we are in the project or the admin
+    // dashboard, try to fetch the previous url by catching the locationChangesucces
+    // event.
+    var urlFromLocationChangeNonAdmin = true;
+    $rootScope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl) {
+      urlFromLocationChangeNonAdmin = (oldUrl.indexOf('admin') === -1);
+    });
     var service = {
       perform: perform,
       allowed: allowed
@@ -62,18 +72,31 @@
     ////////////
 
     function allowed() {
-      return policy.ifAllowed(
+      // NOTE(lajos katona): in case of admin let's disable edit action.
+      // TODO(lajos katona): make possible to create/edit from admin panel
+      var fromNonAdminUrl = ($location.url().indexOf('admin') === -1);
+      var deferred = $q.defer();
+
+      policy.ifAllowed(
         {rules: [
           ['network', 'add_subports'],
           ['network', 'remove_subports']
         ]}
-      );
+      ).then(function(result) {
+        if (fromNonAdminUrl && urlFromLocationChangeNonAdmin) {
+          deferred.resolve(result);
+        } else {
+          deferred.reject();
+        }
+      });
+
+      return deferred.promise;
     }
 
     function perform(selected) {
       var params = {};
 
-      if ($location.url().indexOf('admin') === -1) {
+      if (($location.url().indexOf('admin') === -1) && urlFromLocationChangeNonAdmin) {
         params = {project_id: userSession.project_id};
       }
 
