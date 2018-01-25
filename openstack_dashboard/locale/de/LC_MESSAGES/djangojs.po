@@ -5,16 +5,17 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2017. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2017. #zanata
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
+# Robert Simai <robert.simai@suse.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-25 05:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-24 08:47+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2018-01-24 10:36+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -283,6 +284,9 @@ msgstr "Schnittstelle hinzufügen"
 msgid "Add Ons, Required and Feedback"
 msgstr "Zusätze, Erfordernisse und Rückmeldung"
 
+msgid "Admin Password"
+msgstr "Administratorpasswort"
+
 msgid "Admin State"
 msgstr "Admin-Status"
 
@@ -350,6 +354,12 @@ msgstr ""
 "Festplattenpartitionierung. <b>Automatisch</b> passt die Größe der "
 "Festplatte an und legt eine einzelne Partition an. Mit der Option "
 "<b>Manuell</b> können Sie mehrere Partitionen auf der Festplatte erstellen."
+
+msgid "An arbitrary description for the trunk."
+msgstr "Eine beliebige Beschreibung für den Trunk."
+
+msgid "An arbitrary name for the trunk. May not be unique."
+msgstr "Ein beliebiger Name für den Trunk. Muss nicht einmalig sein."
 
 msgid "An external (HTTP) URL is required"
 msgstr "Eine externe (HTTP) URL ist erforderlich"
@@ -469,6 +479,14 @@ msgstr "Dienstkatalog kann nicht von Keystone abgerufen werden."
 msgid "Cannot get the extension list."
 msgstr "List der Erweiterungen kann nicht abgerufen werden."
 
+msgid "Change Password"
+msgstr "Passwort ändern"
+
+msgid "Change user's password. We highly recommend you create a strong one."
+msgstr ""
+"Benutzerpasswort ändern. Es wird empfohlen, ein starkes Passwort zu "
+"verwenden."
+
 msgid "Charts"
 msgstr "Diagramme"
 
@@ -555,6 +573,11 @@ msgid_plural "Confirm Delete Trunks"
 msgstr[0] "Trunk löschen bestätigen"
 msgstr[1] "Trunks löschen bestätigen"
 
+msgid "Confirm Delete User"
+msgid_plural "Confirm Delete Users"
+msgstr[0] "Benutzer löschen bestätigen"
+msgstr[1] "Benutzer löschen bestätigen"
+
 msgid "Connecting"
 msgstr "Verbindungsaufbau"
 
@@ -639,8 +662,18 @@ msgstr "Subnetz erstellen"
 msgid "Create Trunk"
 msgstr "Trunk erstellen"
 
+msgid "Create User"
+msgstr "Benutzer erstellen"
+
 msgid "Create Volume"
 msgstr "Datenträger erstellen"
+
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr ""
+"Erzeugen Sie einen neuen Benutzer und setzen Sie die entsprechenden "
+"Eigenschaften, einschließlich primäres Projekt und primäre Rolle."
 
 msgid "Created"
 msgstr "Erstellt"
@@ -733,6 +766,12 @@ msgstr "Standardschaltfläche"
 msgid "Default input"
 msgstr "Standardeingabe"
 
+msgid "Default: Empty string"
+msgstr "Standard: leere Zeichenkette"
+
+msgid "Default: Enabled"
+msgstr "Standard: aktiviert"
+
 msgid "Definition list"
 msgstr "Definitionsliste"
 
@@ -803,6 +842,14 @@ msgstr[1] "Trunks löschen"
 msgid "Delete Trunks"
 msgstr "Trunks löschen"
 
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "Benutzer löschen"
+msgstr[1] "Benutzer löschen"
+
+msgid "Delete Users"
+msgstr "Benutzer löschen"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Lösche Datenträger beim Löschen der Instanz"
 
@@ -839,6 +886,12 @@ msgid_plural "Deleted Trunks: %s."
 msgstr[0] "Gelöschter Trunk: %s"
 msgstr[1] "Gelöschte Trunks: %s"
 
+#, python-format
+msgid "Deleted User: %s."
+msgid_plural "Deleted Users: %s."
+msgstr[0] "Gelöschter Benutzer: %s"
+msgstr[1] "Gelöschte Benutzer: %s"
+
 msgid "Deleting"
 msgstr "Wird gelöscht"
 
@@ -857,8 +910,14 @@ msgstr "Details"
 msgid "Details Views:"
 msgstr "Detailansichten:"
 
+msgid "Device ID"
+msgstr "Geräte-ID"
+
 msgid "Device Name"
 msgstr "Gerätename"
+
+msgid "Device Owner"
+msgstr "Gerätebesitzer"
 
 msgid "Dialogs"
 msgstr "Dialogfelder"
@@ -871,6 +930,9 @@ msgstr "Direkt Physisch"
 
 msgid "Direction"
 msgstr "Richtung"
+
+msgid "Disable User"
+msgstr "Benutzer deaktivieren"
 
 msgid "Disabled"
 msgstr "Inaktiviert"
@@ -897,6 +959,9 @@ msgid "Domain"
 msgstr "Domäne"
 
 msgid "Domain ID"
+msgstr "Domänen-ID"
+
+msgid "Domain Id"
 msgstr "Domänen-ID"
 
 msgid "Domain Name"
@@ -944,11 +1009,20 @@ msgstr "Rolle bearbeiten"
 msgid "Edit Trunk"
 msgstr "Trunk bearbeiten"
 
+msgid "Edit User"
+msgstr "Benutzer bearbeiten"
+
+msgid "Edit the user's details, including the Primary Project."
+msgstr "Bearbeiten der Benutzerdetails, einschließlich des Primären Projektes."
+
 msgid "Email"
 msgstr "E-Mail"
 
 msgid "Emphasis classes"
 msgstr "Attributklassen"
+
+msgid "Enable User"
+msgstr "Benutzer aktivieren"
 
 msgid "Enabled"
 msgstr "Aktiviert"
@@ -1471,6 +1545,9 @@ msgstr "Dies ist ein kleiner Container!"
 msgid "Look, I'm in a well!"
 msgstr "Dies ist ein Container!"
 
+msgid "MAC Address"
+msgstr "MAC-Adresse"
+
 msgid "MacVTap"
 msgstr "MacVTap"
 
@@ -1882,6 +1959,9 @@ msgstr "Primärer Anker"
 msgid "Primary Button"
 msgstr "Primäre Schaltfläche"
 
+msgid "Primary Project"
+msgstr "Primäres Projekt"
+
 msgid "Primary Project ID"
 msgstr "Primäre Projekt-ID"
 
@@ -1924,6 +2004,11 @@ msgstr "Geschützt"
 
 msgid "Protocol"
 msgstr "Protokoll"
+
+msgid "Provide basic properties of the trunk to be created. All optional."
+msgstr ""
+"Geben Sie sie Basiseigenschaften des zu erstellenden Trunks an. Alle Angaben "
+"sind optional."
 
 msgid "Provider Network"
 msgstr "Anbieternetzwerk"
@@ -2121,6 +2206,12 @@ msgstr "Wählen Sie einen Eintrag aus den verfügbaren Positionen aus"
 msgid "Select at least one network"
 msgstr "Wählen Sie mindestens ein Netzwerk aus"
 
+msgid "Select from the list of available ports below."
+msgstr "Wählen Sie aus den unten stehenden verfügbaren Ports aus."
+
+msgid "Select many"
+msgstr "Mehrere auswählen"
+
 msgid "Select networks from those listed below."
 msgstr "Wählen Sie aus den unten stehenden Netzwerken aus."
 
@@ -2242,6 +2333,9 @@ msgstr "Eine bekannte Person aus"
 msgid "Something else here"
 msgstr "Etwas anderes hier"
 
+msgid "Something wrong to change password."
+msgstr "Es war nicht möglich das Passwort zu ändern."
+
 msgid "Source"
 msgstr "Quelle"
 
@@ -2351,6 +2445,9 @@ msgstr "Textbereich"
 
 msgid "The access permission for the image."
 msgstr "Zugriffsberechtigungen für das Abbild."
+
+msgid "The admin password is incorrect."
+msgstr "Das Administratorpasswort ist nicht richtig"
 
 msgid "The architecture of the image."
 msgstr "Die Architektur des Abbildes."
@@ -2627,6 +2724,10 @@ msgstr "Trunk"
 msgid "Trunk %s was successfully created."
 msgstr "Trunk %s wurde erfolgreich erstellt."
 
+#, python-format
+msgid "Trunk %s was successfully edited."
+msgstr "Trunk %s wurde erfolgreich bearbeitet."
+
 msgid "Trunks"
 msgstr "Trunks"
 
@@ -2738,6 +2839,12 @@ msgid_plural "Unable to delete Trunks: %s."
 msgstr[0] "Trunk kann nicht gelöscht werden: %s"
 msgstr[1] "Trunks können nicht gelöscht werden: %s"
 
+#, python-format
+msgid "Unable to delete User: %s."
+msgid_plural "Unable to delete Users: %s."
+msgstr[0] "Benutzer kann nicht gelöscht werden: %s"
+msgstr[1] "Benutzer können nicht gelöscht werden: %s"
+
 msgid "Unable to delete the container."
 msgstr "Der Container konnte nicht gelöscht werden."
 
@@ -2763,6 +2870,10 @@ msgstr "Die Gruppen können nicht gelöscht werden."
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "Das Abbild mit der folgenden ID kann nicht gelöscht werden:  %(id)s"
+
+#, python-format
+msgid "Unable to delete the keypair with name: %(name)s"
+msgstr "Das folgende Schlüsselpaar kann nicht abgerufen werden: %(name)s"
 
 msgid "Unable to delete the object."
 msgstr "Das Objekt konnte nicht gelöscht werden."
@@ -2936,6 +3047,9 @@ msgstr "Die Cinder-Dienste können nicht abgerufen werden."
 msgid "Unable to retrieve the current user session."
 msgstr "Die aktuelle Benutzersitzung kann nicht abgerufen werden."
 
+msgid "Unable to retrieve the default domain."
+msgstr "Die Standard-Domäne kann nicht abgerufen werden."
+
 msgid "Unable to retrieve the default quotas."
 msgstr "Standard-Kontingente können nicht abgerufen werden."
 
@@ -3104,6 +3218,9 @@ msgstr "Die Variante kann nicht aktualisiert werden."
 msgid "Unable to update the image."
 msgstr "Abbild kann nicht aktualisiert werden."
 
+msgid "Unable to update the trunk."
+msgstr "Trunk kann nicht aktualisiert werden."
+
 msgid "Unable to upload the object."
 msgstr "Das Objekt konnte nicht hochgeladen werden."
 
@@ -3200,11 +3317,30 @@ msgstr ""
 msgid "User"
 msgstr "Benutzer"
 
+#, python-format
+msgid "User %s was successfully created."
+msgstr "Der Benutzer \"%s\" wurde erfolgreich erstellt."
+
+#, python-format
+msgid "User %s was successfully disabled."
+msgstr "Der Benutzer %s wurde erfolgreich deaktiviert."
+
+#, python-format
+msgid "User %s was successfully enabled."
+msgstr "Der Benutzer %s wurde erfolgreich aktiviert."
+
+#, python-format
+msgid "User %s was successfully updated."
+msgstr "Benutzer %s wurde erfolgreich aktualisiert."
+
 msgid "User ID"
 msgstr "Benutzerkennung"
 
 msgid "User Name"
 msgstr "Benutzername"
+
+msgid "User password has been updated successfully."
+msgstr "Das Passwort wurde erfolgreich aktualisiert."
 
 msgid "Users"
 msgstr "Benutzer"
@@ -3456,6 +3592,16 @@ msgstr[1] ""
 "wiederhergestellt werden."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted key pair is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
+msgstr[0] ""
+"Sie haben \"%s\" ausgewählt. Ein gelöschtes Schlüsselpaar kann nicht "
+"wiederhergestellt werden."
+msgstr[1] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Schlüsselpaare können nicht "
+"wiederhergestellt werden."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
 msgstr[0] ""
@@ -3465,11 +3611,24 @@ msgstr[1] ""
 "Sie haben \"%s\" ausgewählt. Die gelöschten Rollen können nicht "
 "wiederhergestellt werden."
 
+#, python-format
+msgid "You have selected \"%s\". Deleted user is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted users are not recoverable."
+msgstr[0] ""
+"Sie haben \"%s\" ausgewählt. Ein gelöschter Benutzer kann nicht "
+"wiederhergestellt werden."
+msgstr[1] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Benutzer können nicht "
+"wiederhergestellt werden."
+
 msgid "Your Form as JavaScript"
 msgstr "Ihr Formular als JavaScript"
 
 msgid "image"
 msgstr "Abbild"
+
+msgid "inherit"
+msgstr "vererben"
 
 #, python-format
 msgid "resource load failed: %s"
