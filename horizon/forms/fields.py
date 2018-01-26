@@ -236,7 +236,7 @@ class SelectWidget(widgets.Widget):
         return mark_safe('\n'.join(output))
 
     def build_attrs(self, extra_attrs=None, **kwargs):
-        "Helper function for building an attribute dictionary."
+        """Helper function for building an attribute dictionary."""
         attrs = dict(self.attrs, **kwargs)
         if extra_attrs:
             attrs.update(extra_attrs)
