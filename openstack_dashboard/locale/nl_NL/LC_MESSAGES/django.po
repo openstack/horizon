@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1012,28 +1012,12 @@ msgid "Failed to create router \"%s\"."
 msgstr "Creëren van router \"%s\" mislukt."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "Mislukt om agent te verwijderen: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "Verwijderen van aansluiting %s mislukt"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Verwijderen van netwerk \"%s\" mislukt"
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "Verwijderen van netwerk \"%s\" is mislukt"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "Verwijderen van poort %s mislukt"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "Verwijderen van subnet %s mislukt"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
@@ -1066,10 +1050,6 @@ msgstr "Ophalen van netwerk %s voor een subnet is mislukt"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Bijwerken van netwerk %s is mislukt"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "Bijwerken van poort %s mislukt"
 
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
@@ -2642,11 +2622,6 @@ msgstr "Niet in staat om het volume aan te koppelen."
 msgid "Unable to change password."
 msgstr "Niet in staat om het wachtwoord te wijzigen."
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr ""
-"Niet in staat om de gateway te wissen voor router \"%(name)s\": \"%(msg)s\""
-
 msgid "Unable to connect to Neutron."
 msgstr "Niet in staat om te verbinden met Neutron."
 
@@ -2700,10 +2675,6 @@ msgstr "Niet in staat om het volumetype te creëren."
 
 msgid "Unable to create volume."
 msgstr "Niet in staat om het volume te creëren."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "Niet in staat om router \"%s\" te verwijderen"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""

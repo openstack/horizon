@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2487,28 +2487,12 @@ msgid "Failed to create router \"%s\"."
 msgstr "Nelze vytvořit router \"%s\"."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "Nelze smazat agenta: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "Nelze smazat rozhraní %s"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Nelze smazat síť \"%s\""
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "Nelze smazat síť %s"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "Nelze smazat port %s"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "Nelze smazat podsíť %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -2590,10 +2574,6 @@ msgstr "Aktualizace sítě %s selhala"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "Aktualizace portu \"%s\" selhala."
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "Aktualizace portu %s selhala"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -6017,10 +5997,6 @@ msgstr "Nelze změnit heslo"
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Nelze změnit typ svazku \"%s\""
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "Nelze vyčistit bránu routeru \"%(name)s\": \"%(msg)s\""
-
 msgid "Unable to clone consistency group."
 msgstr "Nelze klonovat konzistenční skupinu"
 
@@ -6148,10 +6124,6 @@ msgstr "Nelze vytvořit typ svazku."
 
 msgid "Unable to create volume."
 msgstr "Nelze vytvořit svazek."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "Nelze smazat router \"%s\""
 
 msgid "Unable to delete volume transfer."
 msgstr "Nelze smazat přenos svazku."

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-22 07:57+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2687,36 +2687,12 @@ msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
 msgstr "Falha ao criar subrede \"%(sub)s\": %(reason)s"
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "Falha ao excluir agente: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "Falha ao excluir interface %s"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Falha ao excluir rede \"%s\""
 
 #, python-format
-msgid ""
-"Failed to delete network %(network_name)s. Most possible case is that one or "
-"more ports still exist on the requested network."
-msgstr ""
-"Falha ao excluir rede %(network_name)s. A causa mais provável é que uma ou "
-"mais portas ainda existam na rede requisitada."
-
-#, python-format
-msgid "Failed to delete network %s"
-msgstr "Falha ao excluir rede %s"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "Falha ao excluir porta %s"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "Falha ao excluir sub-rede %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -2817,10 +2793,6 @@ msgstr "Falha ao atualizar rede %s"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "Falha ao atualizar a porta \"%s\"."
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "Falha ao atualizar porta %s"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -6654,11 +6626,6 @@ msgstr ""
 "Não é possível verificar se a extensão de zona de disponibilidade do "
 "roteador é suportada."
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr ""
-"Não é possível limpar o gateway para o roteador \"%(name)s\": \"%(msg)s\""
-
 msgid "Unable to clone consistency group."
 msgstr "Impossível clonar o grupo de consistência."
 
@@ -6792,10 +6759,6 @@ msgstr "Incapaz de criar tipo de volume."
 
 msgid "Unable to create volume."
 msgstr "Incapaz de criar volume."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "Não é possível excluir roteador \"%s\"."
 
 msgid "Unable to delete volume transfer."
 msgstr "Não é possível excluir a transferência de volume."

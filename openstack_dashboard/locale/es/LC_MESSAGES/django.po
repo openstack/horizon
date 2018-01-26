@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2426,28 +2426,12 @@ msgid "Failed to create router \"%s\"."
 msgstr "Ha ocurrido un fallo al crear el router \"%s\"."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "Fallo al borrar el agente: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "Ha ocurrido un fallo al borrar la interfaz %s"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Ha ocurrido un fallo al borrar la red \"%s\""
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "Ha habido un fallo al eliminar red %s"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "Ha ocurrido un fallo al eliminar el puerto %s"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "Ha habido un fallo al borrar la subred %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -2544,10 +2528,6 @@ msgstr "Ha habido un fallo al actualizar la red %s"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "No ha sido posible actualizar el puerto \"%s\"."
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "Ha habido un fallo al actualizar el puerto %s"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -6152,12 +6132,6 @@ msgstr ""
 "No se puede comprobar si se admite la extensión del  planificador de agente "
 "DHCP"
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr ""
-"No ha sido posible borrar la puerta de enlace del router \"%(name)s\": "
-"\"%(msg)s\""
-
 msgid "Unable to connect to Neutron."
 msgstr "No ha sido posible conectar con Neutron."
 
@@ -6266,10 +6240,6 @@ msgstr "No ha sido posible crear el tipo de volumen."
 
 msgid "Unable to create volume."
 msgstr "No ha sido posible crear el volumen."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "No ha sido posible borrar el router \"%s\""
 
 msgid "Unable to delete volume transfer."
 msgstr "No es posible eliminar volumen de transferencia."

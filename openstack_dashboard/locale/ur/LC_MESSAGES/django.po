@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1251,28 +1251,12 @@ msgid "Failed to create router \"%s\"."
 msgstr " \"%s\" روٹركی تخلیق كرنے میں ناکام."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "Failed to delete agent: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "%s کو انٹرفیس خارج کرنے میں ناکام"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "\"%s\" نیٹ ورک کو خارج كرنے میں ناکام"
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "%s نیٹ ورک کو مٹا پانے میں ناکام"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "پورٹ %s  كو خارج كرنے میں ناکام"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "%s کو سب نیٹ خارج کرنے میں ناکام"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -1323,10 +1307,6 @@ msgstr "سب نیٹ کے لئے نیٹ ورک %s کو پانے میں ناکام
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s نیٹ ورک کو اپ ڈیٹ کرنے میں ناکام"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "%s پورٹ اپ ڈیٹ میں ناکام"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3232,10 +3212,6 @@ msgstr "پاس ورڈ تبدیل كرنے میں ناقابل۔"
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "ولیوم کے لئے ولیوم ٹائپ تبدیل كرنا ناقابل : \"%s\""
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "روٹر کے لئے گیٹ وے کو صاف کرنے میں قابل \"%(name)s\": \"%(msg)s\""
-
 msgid "Unable to connect to Neutron."
 msgstr "نیوٹران سے جڑ نہیں سکا."
 
@@ -3304,10 +3280,6 @@ msgstr "حجم قسم بنانے کے قابل نہیں."
 
 msgid "Unable to create volume."
 msgstr "ولیوم كی تخلیق كرنے میں ناقابل"
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "روٹر  \"%s\" کو خارج کرنے میں ناقابل ہے"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""

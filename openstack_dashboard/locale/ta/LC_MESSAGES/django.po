@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1308,28 +1308,12 @@ msgid "Failed to create router \"%s\"."
 msgstr "திசைவி \"%s\"-ஐ உருவாக்குவதில் தோல்வி."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "முகவரி : %s -ஐ நீக்குவதில் தோல்வி"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "இடைமுகம்: %s-ஐ நீக்குவதில் தோல்வி"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "பிணையம் \"%s\" -ஐ நீக்குவதில் தோல்வி"
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "பிணையம் %s -ஐ நீக்குவதில் தோல்வி"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "துறை%s -ஐ நீக்குவதில் தோல்வி"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "உபவலை %s -ஐ நீக்குவதில் தோல்வி"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -1379,10 +1363,6 @@ msgstr "ஒரு உபவலைக்கு பிணையம் \"%s\" -ஐ 
 #, python-format
 msgid "Failed to update network %s"
 msgstr "பிணையம் %s -ஐ புதுப்பிப்பதில் தோல்வி"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "துறை %s -ஐ புதுப்பிப்பதில் தோல்வி"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3478,10 +3458,6 @@ msgstr "கடவுச்சொல்லை மாற்ற முடிய�
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "தொகுதி: \"%s\"-ற்கு தொகுதி வகையை மாற்ற முடியவில்லை."
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "திசைவி \"%(name)s\" -இன் நுழைவாயிலை துப்புரவாக்க முடியவில்லை: \"%(msg)s\" "
-
 msgid "Unable to connect to Neutron."
 msgstr "நியூட்ரானுடன் இணைக்க முடியவில்லை."
 
@@ -3550,10 +3526,6 @@ msgstr "தொகுதி வகையை உருவாக்க முடி
 
 msgid "Unable to create volume."
 msgstr "தொகுதியை உருவாக்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "திசை \"%s\"-ஐ நீக்க முடியவில்லை."
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""

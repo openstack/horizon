@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1294,28 +1294,12 @@ msgid "Failed to create router \"%s\"."
 msgstr "\"%s\" રૂટર બનાવવામાં નિષ્ફળ."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "એજન્ટ કાઢી નાખવામા નિષ્ફળ:% s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr " %s ઈન્ટરફેસ કાઢી નાખવામા નિષ્ફળ"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr " \"%s\" નેટવર્ક કાઢી નાખવા નિષ્ફળ"
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "%s નેટવર્ક કાઢી નાખવા માટે નિષ્ફળ"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "%s પોર્ટ કાઢી નાખવામા નિષ્ફળ"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "%s સબનેટ કાઢી નાખવામા નિષ્ફળ"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -1363,10 +1347,6 @@ msgstr "સબનેટ માટે નેટવર્ક %s પુનઃપ્
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s નેટવર્કને અદ્યતન કરવામાં નિષ્ફળ"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "%s પોર્ટ અદ્યતન કરવામાં નિષ્ફળ રહ્યા"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3428,10 +3408,6 @@ msgstr "પાસવર્ડ બદલવાનું અક્ષમ"
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "વોલ્યુમ માટે વોલ્યુમ પ્રકાર બદલવામાં અક્ષમ: \"%s\""
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr " \"%(name)s\" રૂટર માટે ગેટવે સ્પષ્ટ કરવામા અસમર્થ: \"%(msg)s\""
-
 msgid "Unable to connect to Neutron."
 msgstr "ન્યુટ્રોન પર જોડાવા માટે અસમર્થ."
 
@@ -3500,10 +3476,6 @@ msgstr "વોલ્યુમ પ્રકાર બનાવવામાં અ
 
 msgid "Unable to create volume."
 msgstr "વોલ્યુમ બનાવવામાં અસક્ષમ."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "\"%s\" રૂટર કાઢી નાખવામાં અક્ષમ"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "જો ઉપલબ્ધતા ઝોન વિસ્તરણ આધારભૂત છે તો નક્કી કરવા માટે અસમર્થ છે."
