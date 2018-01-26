@@ -268,7 +268,7 @@ The standard installation uses a non-encrypted HTTP channel.
               'handlers': {
                   'null': {
                       'level': 'DEBUG',
-                      'class': 'django.utils.log.NullHandler',
+                      'class': 'logging.NullHandler',
                       },
                   'console': {
                       # Set the level to "DEBUG" for verbose output logging.
