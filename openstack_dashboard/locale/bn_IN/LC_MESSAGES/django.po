@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1252,28 +1252,12 @@ msgid "Failed to create router \"%s\"."
 msgstr "রাউটার \"%s\" তৈরি করতে ব্যর্থ."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "এজেন্ট মুছে ফেলতে ব্যর্থ: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "%s ইন্টারফেস মুছে ফেলতে ব্যর্থ"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "নেটওয়ার্ক \"%s\" মুছে ফেলতে ব্যর্থ"
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "নেটওয়ার্ক %s মুছে ফেলতে ব্যর্থ"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "পোর্ট %s মুছে ফেলতে ব্যর্থ"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "সাবনেট %s মুছে ফেলতে ব্যর্থ"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -1321,10 +1305,6 @@ msgstr "একটি সাবনেটের জন্য  %s নেটওয়�
 #, python-format
 msgid "Failed to update network %s"
 msgstr "নেটওয়ার্ক %s আপডেট করতে ব্যর্থ"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "%s পোর্ট আপডেট করতে ব্যর্থ"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3205,10 +3185,6 @@ msgstr "পাসওয়ার্ড বদলাতে অসমর্থ."
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "ভলিয়্যুমের জন্য ভলিয়্যুম প্রকার বদল করতে অসমর্থ: \"%s\""
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "\"%(name)s\" রাউটারের জন্য গেটওয়ে পরিষ্কার করতে অসমর্থ: \"%(msg)s\""
-
 msgid "Unable to connect to Neutron."
 msgstr "নিউট্রনে সংযোগ করতে অসমর্থ."
 
@@ -3277,10 +3253,6 @@ msgstr "ভলিয়্যুম প্রকার তৈরি করতে �
 
 msgid "Unable to create volume."
 msgstr "ভলিয়্যুম তৈরি করতে অসমর্থ."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "রাউটার \"%s\" মুছে ফেলতে অসমর্থ"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "লভ্যতা অঞ্চল বিস্তারণ সমর্থন থাকলে নির্ধারণ করতে অসমর্থ."

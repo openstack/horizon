@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2464,28 +2464,12 @@ msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
 msgstr "無法建立子網路 \"%(sub)s\"：%(reason)s"
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "刪除媒介時時失敗：%s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "刪除網路卡 %s 時失敗"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "刪除網路「%s」時失敗"
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "刪除網路 %s 時失敗"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "刪除接口 %s 時失敗"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "刪除子網路 %s 時失敗"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -2575,10 +2559,6 @@ msgstr "更新網路 %s 時失敗"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
-msgstr "更新接口 %s 時失敗"
-
-#, python-format
-msgid "Failed to update port %s"
 msgstr "更新接口 %s 時失敗"
 
 #, python-format
@@ -6150,10 +6130,6 @@ msgstr "無法為雲硬碟更換雲硬碟類型：「%s」"
 msgid "Unable to check if DHCP agent scheduler extension is supported"
 msgstr "無法檢查 DHCP agent scheduler 擴充套件是否支援"
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "無法清除路由器「%(name)s」的閘道：「%(msg)s」"
-
 msgid "Unable to clone consistency group."
 msgstr "無法複製一致性群組"
 
@@ -6280,10 +6256,6 @@ msgstr "無法新增雲硬碟類型。"
 
 msgid "Unable to create volume."
 msgstr "無法新增雲硬碟。"
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "無法刪除路由器「%s」"
 
 msgid "Unable to delete volume transfer."
 msgstr "無法刪除雲硬碟轉移。"

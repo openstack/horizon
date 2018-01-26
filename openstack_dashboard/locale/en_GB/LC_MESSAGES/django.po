@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-21 21:58+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-21 08:09+0000\n"
+"PO-Revision-Date: 2018-01-25 10:44+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -2659,36 +2659,12 @@ msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
 msgstr "Failed to create subnet \"%(sub)s\": %(reason)s"
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "Failed to delete agent: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "Failed to delete interface %s"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Failed to delete network \"%s\""
 
 #, python-format
-msgid ""
-"Failed to delete network %(network_name)s. Most possible case is that one or "
-"more ports still exist on the requested network."
-msgstr ""
-"Failed to delete network %(network_name)s. Most possible case is that one or "
-"more ports still exist on the requested network."
-
-#, python-format
-msgid "Failed to delete network %s"
-msgstr "Failed to delete network %s"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "Failed to delete port %s"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "Failed to delete subnet %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -2788,10 +2764,6 @@ msgstr "Failed to update network %s"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "Failed to update port \"%s\"."
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "Failed to update port %s"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -6563,8 +6535,12 @@ msgid "Unable to check if router availability zone extension is supported"
 msgstr "Unable to check if router availability zone extension is supported"
 
 #, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
+msgid ""
+"Unable to clear gateway for router %(name)s. Most possible reason is because "
+"the gateway is required by one or more floating IPs"
+msgstr ""
+"Unable to clear gateway for router %(name)s. Most probable reason is because "
+"the gateway is required by one or more Floating IPs"
 
 msgid "Unable to clone consistency group."
 msgstr "Unable to clone consistency group."
@@ -6695,8 +6671,24 @@ msgid "Unable to create volume."
 msgstr "Unable to create volume."
 
 #, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "Unable to delete router \"%s\""
+msgid ""
+"Unable to delete network %(name)s. Most possible reason is because one or "
+"more ports still exist on the requested network."
+msgstr ""
+"Unable to delete network %(name)s. Most probable reason is because one or "
+"more ports still exist on the requested network."
+
+#, python-format
+msgid "Unable to delete router %(name)s: %(exc)s"
+msgstr "Unable to delete router %(name)s: %(exc)s"
+
+#, python-format
+msgid ""
+"Unable to delete subnet %(name)s. Most possible reason is because one or "
+"more ports have an IP allocation from this subnet."
+msgstr ""
+"Unable to delete subnet %(name)s. Most probable reason is because one or "
+"more ports have an IP allocation from this subnet."
 
 msgid "Unable to delete volume transfer."
 msgstr "Unable to delete volume transfer."

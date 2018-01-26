@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1323,28 +1323,12 @@ msgid "Failed to create router \"%s\"."
 msgstr "\"%s\" ರೌಟರ್‌ ಅನ್ನು ರಚಿಸಲು ವಿಫಲಗೊಂಡಿದೆ."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "ಮಧ್ಯವರ್ತಿಯನ್ನು ಅಳಿಸಲು ವಿಫಲಗೊಂಡಿದೆ: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "%s ಇಂಟರ್ಫೇಸ್ ಅನ್ನು ಅಳಿಸುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "\"%s\" ಜಾಲಬಂಧವನ್ನು ಅಳಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "%s ಜಾಲಬಂಧವನ್ನು ಅಳಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "%s ಪೋರ್ಟ್‌ ಅನ್ನು ಅಳಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "%s ಸಬ್‌ನೆಟ್‌ ಅನ್ನು ಅಳಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -1393,10 +1377,6 @@ msgstr "ಒಂದು ಸಬ್‌ನೆಟ್‌ಗಾಗಿ %s ಜಾಲಬಂ�
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s ಜಾಲಬಂಧವನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "%s ಪೋರ್ಟ್‌ ಅನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3494,10 +3474,6 @@ msgstr "ಗುಪ್ತಪದವನ್ನು ಬದಲಾಯಿಸಲು ಸಾ�
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "ಈ ಪರಿಮಾಣಕ್ಕಾಗಿ ಪರಿಮಾಣದ ಬಗೆಯನ್ನು ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: \"%s\""
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "\"%(name)s\" ರೌಟರ್‌ಗಾಗಿ ಗೇಟ್‌ವೇ ಅನ್ನು ಅಳಿಸಲಾಗಿಲ್ಲ: \"%(msg)s\""
-
 msgid "Unable to connect to Neutron."
 msgstr "ನ್ಯೂಟ್ರಾನ್‌ಗೆ ಸಂಪರ್ಕ ಹೊಂದಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -3566,10 +3542,6 @@ msgstr "ಪರಿಮಾಣದ ಬಗೆಯನ್ನು ರಚಿಸಲಾಗಿ�
 
 msgid "Unable to create volume."
 msgstr "ಪರಿಮಾಣವನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "\"%s\" ರೌಟರ್‌ ಅನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""

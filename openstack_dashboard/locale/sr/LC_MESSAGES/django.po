@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -928,24 +928,12 @@ msgid "Failed to create router \"%s\"."
 msgstr "Neuspešno kreiran ruter \"%s\"."
 
 #, python-format
-msgid "Failed to delete interface %s"
-msgstr "Neuspešno brisanje interface-a %s"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Neuspelo brisanje mreže \"%s\""
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "Neuspešno brisanje mreže %s"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "Neuspelo brisanje port-a %s"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "Neuspelo brisanje subnet-a %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -990,10 +978,6 @@ msgstr "Neuspešno dobijanje podataka mreže %s za podmrežu"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Neuspešno ažuriranje mreže %s"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "Neuspešno ažuriranje porta %s"
 
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
@@ -2517,10 +2501,6 @@ msgstr "Nemoguće priključiti volume."
 msgid "Unable to change password."
 msgstr "Nemoguće je promeniti lozinku."
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "Nemoguće je obrisati gateway za ruter \"%(name)s\": \"%(msg)s\""
-
 msgid "Unable to connect to Neutron."
 msgstr "Nije moguće povezati se sa Neutronom."
 
@@ -2574,10 +2554,6 @@ msgstr "Nemoguće je kreirati tip volume-a."
 
 msgid "Unable to create volume."
 msgstr "Ne može se kreirati Volume."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "Nemoguće je obrisati ruter \"%s\""
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Nemoguće je zaključiti da li je podržano proširenja zona dostupnosti."

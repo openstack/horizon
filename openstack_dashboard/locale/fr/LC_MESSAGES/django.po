@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2711,36 +2711,12 @@ msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
 msgstr "La création du sous-réseau \"%(sub)s\" a échoué : %(reason)s."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "Échec lors de la suppression de l'agent: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "Échec de la suppression de l'interface %s"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Échec lors de la suppression du réseau \"%s\""
 
 #, python-format
-msgid ""
-"Failed to delete network %(network_name)s. Most possible case is that one or "
-"more ports still exist on the requested network."
-msgstr ""
-"Echec lors de la suppression du réseau %(network_name)s. Un ou plusieurs "
-"ports sont probablement encore présents sur ce réseau."
-
-#, python-format
-msgid "Failed to delete network %s"
-msgstr "Échec lors de la suppression du réseau %s"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "Échec lors de la suppression du port %s"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "Échec lors de la suppression du sous-réseau %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -2842,10 +2818,6 @@ msgstr "Échec lors de la mise à jour du réseau %s"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "Échec de mise à jour du port \"%s\""
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "Échec lors de la mise à jour du port %s"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -6686,12 +6658,6 @@ msgstr ""
 "Impossible de vérifier si l'extension de zone de disponibilité du routeur "
 "est supportée."
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr ""
-"Impossible de supprimer la passerelle pour le routeur \"%(name)s\" : "
-"\"%(msg)s\""
-
 msgid "Unable to clone consistency group."
 msgstr "Impossible de cloner le groupe de consistence."
 
@@ -6825,10 +6791,6 @@ msgstr "Impossible de créer le type de volume."
 
 msgid "Unable to create volume."
 msgstr "Impossible de créer le volume."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "Impossible de supprimer le routeur \"%s\""
 
 msgid "Unable to delete volume transfer."
 msgstr "Impossible de supprimer un transfert de volume."

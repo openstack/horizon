@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1302,28 +1302,12 @@ msgid "Failed to create router \"%s\"."
 msgstr "\"%s\" ৰাউটাৰ তৈয়াৰ কৰিবলৈ ব্যৰ্থ হল."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "এজেন্ট ডিলিট কৰিবলৈ ব্যৰ্থ হল: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "%s ইন্টাৰফেছ ডিলিট কৰিবলৈ ব্যৰ্থ হল"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "\"%s\" নেটৱৰ্ক ডিলিট কৰিবলৈ ব্যৰ্থ হল"
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "%s নেটৱৰ্ক ডিলিট কৰিবলৈ ব্যৰ্থ হল"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "%s পোৰ্ট ডিলিট কৰিবলৈ ব্যৰ্থ হল"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "%s উপনেট ডিলিট কৰিবলৈ ব্যৰ্থ হল"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -1372,10 +1356,6 @@ msgstr "উপনেট এটাৰ বাবে %s নেটৱৰ্ক উ�
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s নেটৱৰ্ক আপডেট কৰিবলৈ ব্যৰ্থ হল"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "%s পোৰ্ট আপডেট কৰিবলৈ ব্যৰ্থ হল"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3451,10 +3431,6 @@ msgstr "পাছৱৰ্ড সলনি কৰিবলৈ অক্ষম."
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "আয়তনৰ বাবে আয়তন প্ৰকাৰ সলনি কৰিবলৈ অক্ষম: \"%s\""
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "\"%(name)s\" ৰাউটাৰৰ বাবে গেটৱে সম্পন্ন কৰিবলৈ অক্ষম: \"%(msg)s\""
-
 msgid "Unable to connect to Neutron."
 msgstr "নিউট্ৰনলৈ সংযোগ কৰিবলৈ অক্ষম."
 
@@ -3523,10 +3499,6 @@ msgstr "আয়তন প্ৰকাৰ তৈয়াৰ কৰিবলৈ অ�
 
 msgid "Unable to create volume."
 msgstr "আয়তন তৈয়াৰ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "\"%s\" ৰাউটাৰ ডিলিট কৰিবলৈ অক্ষম"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "নিৰ্ধাৰণ কৰিবলৈ অক্ষম যদি উপলব্ধতাৰ মণ্ডলবোৰৰ সম্প্ৰসাৰণটো সমৰ্থন কৰে."

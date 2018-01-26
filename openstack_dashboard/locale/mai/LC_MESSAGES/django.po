@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-20 20:50+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1296,28 +1296,12 @@ msgid "Failed to create router \"%s\"."
 msgstr " \"%s\" रूटर बनाबै मे बिफल."
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "एजेंट मिटाबै मे असमर्थ: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr " %s अंतरफलक हटाएब मे बिफल"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "\"%s\" सँजाल केँ मेटाय पाबै मे बिफल"
 
 #, python-format
-msgid "Failed to delete network %s"
-msgstr "%s सँजाल केँ मेटाय पाबै मे बिफल"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "पोर्ट केँ मेटाय नहि पाएल: %s"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "%s सबनेट हटाएब मे बिफल"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -1366,10 +1350,6 @@ msgstr "सबनेट क लेल सँजाल  %s केँ पाबै
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s सँजाल अद्यतन करबामे बिफल"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "पोर्ट %s केँ अद्यतन करबामे बिफल"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3432,10 +3412,6 @@ msgstr "गुड़किल्ली केँ बदलब मे असम�
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "वाल्यूम क लेल वाल्यूम प्रकार बदलब मे असमर्थ: \"%s\""
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr " \"%(name)s\" रूटर क लेल प्रवेश द्वार साफ करबामे असमर्थ: \"%(msg)s\""
-
 msgid "Unable to connect to Neutron."
 msgstr "न्यूट्रान सँ जुड़ नहि सकल."
 
@@ -3504,10 +3480,6 @@ msgstr "वाल्यूम प्रकार बनाबै मे अस�
 
 msgid "Unable to create volume."
 msgstr "वाल्यूम बनाबै मे असमर्थ."
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "रूटर \"%s\" मिटाबै मे असमर्थ"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "उपलब्धता क्षेत्र क विस्तार क समर्थन कएल अछि, तँ ई निर्धारित करबामे असमर्थ."

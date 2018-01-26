@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-21 21:58+0000\n"
+"POT-Creation-Date: 2018-01-26 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2578,36 +2578,12 @@ msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
 msgstr "サブネット \"%(sub)s\" の作成に失敗しました:  %(reason)s"
 
 #, python-format
-msgid "Failed to delete agent: %s"
-msgstr "エージェントを削除できませんでした: %s"
-
-#, python-format
-msgid "Failed to delete interface %s"
-msgstr "インタフェースの削除に失敗しました: %s"
-
-#, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "ネットワーク \"%s\" の削除に失敗しました"
 
 #, python-format
-msgid ""
-"Failed to delete network %(network_name)s. Most possible case is that one or "
-"more ports still exist on the requested network."
-msgstr ""
-"ネットワーク %(network_name)s を削除できません。よくあるのは、このネットワー"
-"ク上にポートが 1 つ以上存在する場合です。"
-
-#, python-format
-msgid "Failed to delete network %s"
-msgstr "ネットワーク %s の削除に失敗しました"
-
-#, python-format
 msgid "Failed to delete port %s"
 msgstr "ポート %s の削除に失敗しました。"
-
-#, python-format
-msgid "Failed to delete subnet %s"
-msgstr "サブネット %s の削除に失敗しました"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -2711,10 +2687,6 @@ msgstr "ネットワーク %s の更新に失敗しました"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "ポート「%s」の更新に失敗しました。"
-
-#, python-format
-msgid "Failed to update port %s"
-msgstr "ポート %s の更新に失敗しました"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -6473,10 +6445,6 @@ msgstr ""
 msgid "Unable to check if router availability zone extension is supported"
 msgstr "ルーターアベイラビリティーゾーン拡張機能に対応しているか確認できません"
 
-#, python-format
-msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "ルーター \"%(name)s\" のゲートウェイを削除できません: \"%(msg)s\""
-
 msgid "Unable to clone consistency group."
 msgstr "整合性グループのクローンを作成できません。"
 
@@ -6611,10 +6579,6 @@ msgstr "ボリューム種別を作成できません。"
 
 msgid "Unable to create volume."
 msgstr "ボリュームを作成できません。"
-
-#, python-format
-msgid "Unable to delete router \"%s\""
-msgstr "ルーター \"%s\" を更新できません。"
 
 msgid "Unable to delete volume transfer."
 msgstr "ボリュームの譲渡を削除できません。"
