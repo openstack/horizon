@@ -263,7 +263,11 @@ POLICY_FILES = {
     'image': 'glance_policy.json',
     'network': 'neutron_policy.json',
 }
-POLICY_DIRS = {}
+# Services for which horizon has extra policies are defined
+# in POLICY_DIRS by default.
+POLICY_DIRS = {
+    'volume': ['cinder_policy.d'],
+}
 
 SECRET_KEY = None
 LOCAL_PATH = None
