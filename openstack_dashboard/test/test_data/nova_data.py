@@ -16,7 +16,6 @@ import json
 
 from novaclient.v2 import aggregates
 from novaclient.v2 import availability_zones
-from novaclient.v2 import certs
 from novaclient.v2 import flavor_access
 from novaclient.v2 import flavors
 from novaclient.v2 import hosts
@@ -164,7 +163,6 @@ def data(TEST):
     TEST.quotas = utils.TestDataContainer()
     TEST.quota_usages = utils.TestDataContainer()
     TEST.usages = utils.TestDataContainer()
-    TEST.certs = utils.TestDataContainer()
     TEST.availability_zones = utils.TestDataContainer()
     TEST.hypervisors = utils.TestDataContainer()
     TEST.services = utils.TestDataContainer()
@@ -432,11 +430,6 @@ def data(TEST):
     usage_obj_2 = usage.Usage(usage.UsageManager(None),
                               json.loads(USAGE_DATA % usage_2_vals))
     TEST.usages.add(usage_obj_2)
-
-    cert_data = {'private_key': 'private',
-                 'data': 'certificate_data'}
-    certificate = certs.Certificate(certs.CertificateManager(None), cert_data)
-    TEST.certs.add(certificate)
 
     # Availability Zones
     TEST.availability_zones.add(availability_zones.AvailabilityZone(
