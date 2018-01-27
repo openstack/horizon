@@ -215,7 +215,9 @@ class LiveMigrateView(forms.ModalFormView):
     @memoized.memoized_method
     def get_hosts(self, *args, **kwargs):
         try:
-            return api.nova.host_list(self.request)
+            services = api.nova.service_list(self.request,
+                                             binary='nova-compute')
+            return [s.host for s in services]
         except Exception:
             redirect = reverse("horizon:admin:instances:index")
             msg = _('Unable to retrieve host information.')

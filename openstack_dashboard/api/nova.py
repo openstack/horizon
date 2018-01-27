@@ -995,11 +995,6 @@ def aggregate_set_metadata(request, aggregate_id, metadata):
 
 
 @profiler.trace
-def host_list(request):
-    return novaclient(request).hosts.list()
-
-
-@profiler.trace
 def add_host_to_aggregate(request, aggregate_id, host):
     return novaclient(request).aggregates.add_host(aggregate_id, host)
 

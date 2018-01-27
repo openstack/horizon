@@ -48,11 +48,7 @@ class LiveMigrateForm(forms.SelfHandlingForm):
     def populate_host_choices(self, request, initial):
         hosts = initial.get('hosts')
         current_host = initial.get('current_host')
-        host_list = [(host.host_name,
-                      host.host_name)
-                     for host in hosts
-                     if (host.service.startswith('compute') and
-                         host.host_name != current_host)]
+        host_list = [(host, host) for host in hosts if host != current_host]
         if host_list:
             host_list.insert(0, ("AUTO_SCHEDULE",
                                  _("Automatically schedule new host.")))
