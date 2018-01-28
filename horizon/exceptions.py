@@ -107,7 +107,7 @@ class ServiceCatalogException(HorizonException):
     ``ServiceCatalog`` is fetched from Keystone.
     """
     def __init__(self, service_name):
-        message = _('Invalid service catalog service: %s') % service_name
+        message = _('Invalid service catalog: %s') % service_name
         super(ServiceCatalogException, self).__init__(message)
 
 

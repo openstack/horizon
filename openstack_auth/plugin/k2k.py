@@ -75,13 +75,13 @@ class K2KAuthPlugin(base.BasePlugin):
             idp_exception = idp_excp
 
         if not scoped_idp_auth or idp_exception:
-            msg = _('Identity provider authentication Failed.')
+            msg = _('Identity provider authentication failed.')
             raise exceptions.KeystoneAuthException(msg)
 
         session = utils.get_session()
 
         if scoped_idp_auth.get_sp_auth_url(session, service_provider) is None:
-            msg = _('Could not find service provider ID on Keystone.')
+            msg = _('Could not find service provider ID on keystone.')
             raise exceptions.KeystoneAuthException(msg)
 
         unscoped_auth = v3_auth.Keystone2Keystone(
