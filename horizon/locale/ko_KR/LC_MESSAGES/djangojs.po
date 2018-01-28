@@ -3,15 +3,16 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev31\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-15 19:34+0000\n"
+"POT-Creation-Date: 2018-01-27 09:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-14 12:59+0000\n"
+"PO-Revision-Date: 2018-01-27 09:23+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -208,6 +209,9 @@ msgstr "할당된 항목을 볼 수 있도록 확장"
 msgid "Expand to see available items"
 msgstr "사용 가능한 항목을 볼 수 있도록 확장"
 
+msgid "Failed to populate extensible header."
+msgstr "확장 헤더를 채울 수 없습니다."
+
 msgid "Filter"
 msgstr "필터"
 
@@ -216,6 +220,9 @@ msgstr "완료"
 
 msgid "Flavor"
 msgstr "Flavor"
+
+msgid "Forbidden. Redirecting to login"
+msgstr "접근 금지입니다. 로그인으로 리다이렉팅합니다"
 
 msgid "Format validation failed"
 msgstr "포맷 검증을 실패했습니다"
@@ -390,6 +397,9 @@ msgstr ""
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "삭제할 수 없습니다: %s."
+
+msgid "Unauthorized. Redirecting to login"
+msgstr "인증되지 않았습니다. 로그인으로 리다이렉팅합니다"
 
 msgid "Unknown property (not in schema)"
 msgstr "알 수 없는 속성 (스키마가 아닙니다)"

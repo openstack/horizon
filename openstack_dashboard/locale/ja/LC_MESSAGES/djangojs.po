@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-26 06:40+0000\n"
+"POT-Creation-Date: 2018-01-27 09:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-26 12:41+0000\n"
+"PO-Revision-Date: 2018-01-27 06:47+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -339,6 +339,12 @@ msgstr ""
 "</b>を選択すると、ディスクがリサイズされ、単一のパーティションに設定されま"
 "す。<b>手動</b>を選択すると、ディスクに複数のパーティションを作成することがで"
 "きます。"
+
+msgid "An arbitrary description for the trunk."
+msgstr "トランクの任意の説明。"
+
+msgid "An arbitrary name for the trunk. May not be unique."
+msgstr "トランクの任意の名前。固有である必要はありません。"
 
 msgid "An external (HTTP) URL is required"
 msgstr "外部 (HTTP) URL が必要です"
@@ -736,6 +742,12 @@ msgstr "デフォルトのボタン"
 msgid "Default input"
 msgstr "デフォルトの入力項目"
 
+msgid "Default: Empty string"
+msgstr "デフォルト: 空文字列"
+
+msgid "Default: Enabled"
+msgstr "デフォルト: 有効"
+
 msgid "Definition list"
 msgstr "定義リスト"
 
@@ -975,6 +987,9 @@ msgstr "強調クラス"
 
 msgid "Enable User"
 msgstr "ユーザーの有効化"
+
+msgid "Enable/Disable subport addition, removal and trunk delete."
+msgstr "サブポートの追加、削除やトランクの削除ができるかを指定します。"
 
 msgid "Enabled"
 msgstr "有効"
@@ -1477,6 +1492,9 @@ msgstr "ロード関数:"
 msgid "Loading"
 msgstr "読み込み中"
 
+msgid "Loading trunk... Please Wait"
+msgstr "トランクのロード中... お待ちください"
+
 msgid "Location"
 msgstr "場所"
 
@@ -1946,6 +1964,9 @@ msgstr "保護"
 msgid "Protocol"
 msgstr "プロトコル"
 
+msgid "Provide basic properties of the trunk to be created. All optional."
+msgstr "作成するトランクの基本情報を指定します。どの項目も任意です。"
+
 msgid "Provider Network"
 msgstr "プロバイダーネットワーク"
 
@@ -2114,6 +2135,13 @@ msgstr "セグメント ID"
 msgid "Segmentation Type"
 msgstr "セグメント種別"
 
+msgid ""
+"Select <em>exactly one port</em> as the parent port of the trunk to\n"
+"    be created. Mandatory."
+msgstr ""
+"作成するトランクの親ポートとするポートを <em>1 つだけ</em>選択してください。"
+"必須。"
+
 msgid "Select Boot Source"
 msgstr "ブートソースを選択してください"
 
@@ -2140,6 +2168,9 @@ msgstr "以下の利用可能なアイテムから 1 つ選択してください
 
 msgid "Select at least one network"
 msgstr "ネットワークを少なくとも 1 つ選択してください"
+
+msgid "Select from the list of available ports below."
+msgstr "以下の利用可能なポートからポートを選択してください。"
 
 msgid "Select networks from those listed below."
 msgstr "以下のリストからネットワークを選択してください。"

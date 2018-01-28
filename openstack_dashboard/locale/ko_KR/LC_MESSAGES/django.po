@@ -16,16 +16,17 @@
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # bryan tak <neos346@gmail.com>, 2017. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-26 06:40+0000\n"
+"POT-Creation-Date: 2018-01-27 09:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-27 02:44+0000\n"
-"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
+"PO-Revision-Date: 2018-01-27 09:22+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -5089,6 +5090,9 @@ msgstr "보안 그룹"
 msgid "Security group rule already exists."
 msgstr "보안 그룹 규칙이 이미 존재합니다."
 
+msgid "Security group rule quotas exceed."
+msgstr "보안 그룹 규칙 쿼터를 초과하였습니다."
+
 msgid ""
 "Security groups are sets of IP filter rules that are applied to network "
 "interfaces of a VM. After the security group is created, you can add rules "
@@ -5480,6 +5484,9 @@ msgstr ""
 
 msgid "Something went wrong!"
 msgstr "어딘가 이상이 있습니다!"
+
+msgid "Sorry, the page you were looking for does not exist"
+msgstr "죄송합니다, 찾고 있는 페이지는 존재하지 않습니다"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -5914,6 +5921,9 @@ msgid ""
 msgstr ""
 "볼륨을 이전받기 위해서는 볼륨 이전 ID와 인증키가 필요합니다. 볼륨 이전 ID 와 "
 "인증키를 모두 복사해서 볼륨을 이전 받을 사람에게 알려주세요."
+
+msgid "The VNIC type that is bound to the network port"
+msgstr "네트워크 포트에 바인딩된 VNIC 유형"
 
 #, python-format
 msgid ""
@@ -6378,6 +6388,14 @@ msgstr "네트워크 가용 구역 확장이 지원되는지 확인할 수 없�
 msgid "Unable to check if router availability zone extension is supported"
 msgstr "라우터 가용성 영역 확장이 지원되는지 확인할 수 없습니다."
 
+#, python-format
+msgid ""
+"Unable to clear gateway for router %(name)s. Most possible reason is because "
+"the gateway is required by one or more floating IPs"
+msgstr ""
+"라우터 %(name)s 에 대한 게이트웨이를 초기화할 수 없습니다. 가장 유력한 이유"
+"는 하나 이상의 플로팅 IP에서 해당 게이트웨이를 필요로 하고 있기 때문입니다."
+
 msgid "Unable to clone consistency group."
 msgstr "일관성 그룹을 복제할 수 없습니다."
 
@@ -6504,6 +6522,26 @@ msgstr "불륨 타입을 생성할 수 없습니다."
 
 msgid "Unable to create volume."
 msgstr "볼륨을 생성할 수 없습니다."
+
+#, python-format
+msgid ""
+"Unable to delete network %(name)s. Most possible reason is because one or "
+"more ports still exist on the requested network."
+msgstr ""
+"네트워크 %(name)s 를 삭제할 수 없습니다. 가장 유력한 이유는 요청한 네트워크"
+"에 여전히 하나 이상의 포트가 존재하고 있기 때문입니다."
+
+#, python-format
+msgid "Unable to delete router %(name)s: %(exc)s"
+msgstr "라우터 %(name)s 를 삭제할 수 없습니다: %(exc)s"
+
+#, python-format
+msgid ""
+"Unable to delete subnet %(name)s. Most possible reason is because one or "
+"more ports have an IP allocation from this subnet."
+msgstr ""
+"서브넷 %(name)s 를 삭제할 수 없습니다. 가장 유력한 이유는 해당 서브넷에서 하"
+"나 이상의 포트가 IP 할당이 되어 있기 때문입니다."
 
 msgid "Unable to delete volume transfer."
 msgstr "볼륨 이전을 삭제할 수 없습니다."
@@ -6717,6 +6755,9 @@ msgstr "MAC 러닝 상태를 가져올 수 없습니다"
 #, python-format
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "인스턴스 \"%s\"에 대한 네트워크 정보 조회 실패"
+
+msgid "Unable to retrieve Neutron quota information."
+msgstr "Neutron 쿼터 정보를 가져올 수 없습니다."
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Nova에서 가용성 존을 찾을 수 없습니다."
@@ -6940,6 +6981,9 @@ msgstr "키 페어를 찾지 못 했습니다."
 msgid "Unable to retrieve limit information."
 msgstr "최대 사용량 정보를 찾지 못 했습니다."
 
+msgid "Unable to retrieve limits information."
+msgstr "제한 정보를 가져올 수 없습니다."
+
 msgid "Unable to retrieve list of security groups"
 msgstr "보안 그룹 목록을 찾지 못 했습니다."
 
@@ -7133,6 +7177,9 @@ msgstr "볼륨 메시지를 검색할 수 없습니다."
 
 msgid "Unable to retrieve volume project information."
 msgstr "볼륨 프로젝트 정보를 찾지 못 했습니다."
+
+msgid "Unable to retrieve volume quota information."
+msgstr "볼륨 쿼터 정보를 가져올 수 없습니다."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "볼륨 스냅샷을 찾지 못했습니다."

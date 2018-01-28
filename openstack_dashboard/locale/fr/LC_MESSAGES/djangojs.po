@@ -15,16 +15,17 @@
 # Loic Nicolle <loic.nicolle@orange.com>, 2017. #zanata
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 # Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
+# JF Taltavull <jftalta@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2018-01-27 09:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-20 02:45+0000\n"
-"Last-Translator: Loic Nicolle <loic.nicolle@orange.com>\n"
+"PO-Revision-Date: 2018-01-27 05:01+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -544,6 +545,11 @@ msgid_plural "Confirm Delete Images"
 msgstr[0] "Confirmer la suppression de l'image"
 msgstr[1] "Confirmer la suppression des images"
 
+msgid "Confirm Delete Key Pair"
+msgid_plural "Confirm Delete Key Pairs"
+msgstr[0] "Confirmez la suppression de la paire de clés"
+msgstr[1] "Confirmez la suppression des paires de clés"
+
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "Confirmation de la suppression du rôle"
@@ -763,6 +769,11 @@ msgstr "Supprimer l'instance"
 msgid "Delete Interface"
 msgstr "Supprimer l'interface"
 
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "Supprimer la paire de clés"
+msgstr[1] "Supprimer les paires de clés"
+
 msgid "Delete Network"
 msgstr "Supprimer le réseau"
 
@@ -805,6 +816,12 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Image supprimée : %s."
 msgstr[1] "Images supprimées : %s."
+
+#, python-format
+msgid "Deleted Key Pair: %s."
+msgid_plural "Deleted Key Pairs: %s."
+msgstr[0] "Paire de clés supprimée : %s."
+msgstr[1] "Paires de clés supprimées : %s."
 
 #, python-format
 msgid "Deleted Role: %s."
@@ -1332,6 +1349,13 @@ msgstr ""
 "      Choisissez un nom de paire de clés que vous reconnaîtrez.\n"
 "      Les noms peuvent uniquement inclure des caractères alphanumériques, "
 "des espaces ou des tirets."
+
+#, python-format
+msgid "Key pair %(name)s was successfully created."
+msgstr "La paire de clés %(name)s a été créée avec succès."
+
+msgid "Key pair already exists."
+msgstr "La paire de clés existe déjà."
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr ""
@@ -2645,6 +2669,12 @@ msgstr[0] "Impossible de supprimer l'image : %s."
 msgstr[1] "Impossible de supprimer les images : %s."
 
 #, python-format
+msgid "Unable to delete Key Pair: %s."
+msgid_plural "Unable to delete Key Pairs: %s."
+msgstr[0] "Impossible de supprimer la paire de clés : %s."
+msgstr[1] "Impossible de supprimer les paires de clés : %s."
+
+#, python-format
 msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "Impossible de supprimer le rôle : %s"
@@ -2681,6 +2711,10 @@ msgstr "Impossible de supprimer les groupes."
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "Impossible de supprimer l'image avec l'id : %(id)s"
+
+#, python-format
+msgid "Unable to delete the keypair with name: %(name)s"
+msgstr "Impossible de supprimer la paire de clés portant le nom : %(name)s"
 
 msgid "Unable to delete the object."
 msgstr "Impossible de supprimer l'objet."
@@ -3114,11 +3148,30 @@ msgstr ""
 msgid "User"
 msgstr "Utilisateur"
 
+#, python-format
+msgid "User %s was successfully created."
+msgstr "L'utilisateur %s a été créé avec succès."
+
+#, python-format
+msgid "User %s was successfully disabled."
+msgstr "L'utilisateur %s a été désactivé avec succès."
+
+#, python-format
+msgid "User %s was successfully enabled."
+msgstr "L'utilisateur %s a été activé avec succès."
+
+#, python-format
+msgid "User %s was successfully updated."
+msgstr "L'utilisateur %s a été mis à jour avec succès."
+
 msgid "User ID"
 msgstr "ID Utilisateur"
 
 msgid "User Name"
 msgstr "Nom d'utilisateur"
+
+msgid "User password has been updated successfully."
+msgstr "Le mot de passe utilisateur a été mis à jour avec succès."
 
 msgid "Users"
 msgstr "Utilisateurs"
@@ -3366,6 +3419,15 @@ msgstr[0] ""
 msgstr[1] ""
 "Vous avez sélectionné \"%s\". Les images supprimées ne seront pas "
 "récupérables."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted key pair is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
+msgstr[0] ""
+"Vous avez sélectionné \"%s\". Une paire de clé supprimée est irrécupérable."
+msgstr[1] ""
+"Vous avez sélectionné \"%s\". Les paires de clés supprimées sont "
+"irrécupérables."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."
