@@ -17,7 +17,9 @@ import logging
 
 from django.conf import settings
 from django.core import urlresolvers
+from django import http
 from django import shortcuts
+from django.utils.translation import ugettext as _
 import django.views.decorators.vary
 from django.views.generic import TemplateView
 from six.moves import urllib
@@ -118,3 +120,14 @@ class ExtensibleHeaderView(TemplateView):
 
         context['header_sections'] = header_sections
         return context
+
+
+def csrf_failure(request, reason=""):
+    if reason:
+        reason += " "
+    reason += _("Cookies may be turned off. "
+                "Make sure cookies are enabled and try again.")
+
+    url = settings.LOGIN_URL + "?csrf_failure=%s" % urllib.parse.quote(reason)
+    response = http.HttpResponseRedirect(url)
+    return response

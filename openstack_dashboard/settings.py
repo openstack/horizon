@@ -214,6 +214,8 @@ SESSION_COOKIE_MAX_SIZE = 4093
 #                https://bugs.launchpad.net/horizon/+bug/1349463
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
+CSRF_FAILURE_VIEW = 'openstack_dashboard.views.csrf_failure'
+
 LANGUAGES = (
     ('cs', 'Czech'),
     ('de', 'German'),

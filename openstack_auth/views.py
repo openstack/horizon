@@ -90,6 +90,8 @@ def login(request, template_name=None, extra_context=None, **kwargs):
     if extra_context is None:
         extra_context = {'redirect_field_name': auth.REDIRECT_FIELD_NAME}
 
+    extra_context['csrf_failure'] = request.GET.get('csrf_failure')
+
     if not template_name:
         if request.is_ajax():
             template_name = 'auth/_login.html'
