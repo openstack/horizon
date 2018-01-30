@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-26 06:40+0000\n"
+"POT-Creation-Date: 2018-01-30 02:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-22 05:37+0000\n"
+"PO-Revision-Date: 2018-01-29 01:47+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -6470,6 +6470,14 @@ msgid "Unable to check if router availability zone extension is supported"
 msgstr ""
 "Tidak dapat memeriksa apakah ekstensi zona ketersediaan router didukung"
 
+#, python-format
+msgid ""
+"Unable to clear gateway for router %(name)s. Most possible reason is because "
+"the gateway is required by one or more floating IPs"
+msgstr ""
+"Tidak dapat menghapus gateway untuk %(name)s router. Alasan yang paling "
+"mungkin adalah karena gateway dibutuhkan oleh satu atau beberapa IP apung"
+
 msgid "Unable to clone consistency group."
 msgstr "Tidak dapat mengkloning grup konsistensi."
 
@@ -6598,6 +6606,26 @@ msgstr "Tidak dapat membuat tipe volume."
 
 msgid "Unable to create volume."
 msgstr "Tidak dapat membuat volume."
+
+#, python-format
+msgid ""
+"Unable to delete network %(name)s. Most possible reason is because one or "
+"more ports still exist on the requested network."
+msgstr ""
+"Tidak dapat menghapus %(name)s jaringan. Alasan yang paling mungkin adalah "
+"karena satu atau beberapa port masih ada pada jaringan yang diminta."
+
+#, python-format
+msgid "Unable to delete router %(name)s: %(exc)s"
+msgstr "Tidak dapat menghapus %(name)s router: %(exc)s"
+
+#, python-format
+msgid ""
+"Unable to delete subnet %(name)s. Most possible reason is because one or "
+"more ports have an IP allocation from this subnet."
+msgstr ""
+"Tidak dapat menghapus %(name)s subnet. Alasan yang paling mungkin adalah "
+"karena satu atau lebih port memiliki alokasi IP dari subnet ini."
 
 msgid "Unable to delete volume transfer."
 msgstr "Tidak dapat menghapus mentransfer volume."
@@ -7036,6 +7064,9 @@ msgid "Unable to retrieve key pairs."
 msgstr "Tidak dapat mengambil pasangan kunci."
 
 msgid "Unable to retrieve limit information."
+msgstr "Tidak dapat mengambil informasi batas."
+
+msgid "Unable to retrieve limits information."
 msgstr "Tidak dapat mengambil informasi batas."
 
 msgid "Unable to retrieve list of security groups"

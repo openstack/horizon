@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-26 06:40+0000\n"
+"POT-Creation-Date: 2018-01-30 02:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-21 09:37+0000\n"
+"PO-Revision-Date: 2018-01-30 04:08+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -691,8 +691,22 @@ msgstr "アベイラビリティーゾーン名"
 msgid "Availability Zones"
 msgstr "アベイラビリティーゾーン"
 
+msgid ""
+"Availability Zones where the router may be scheduled. Leaving this unset is "
+"equivalent to selecting all Availability Zones"
+msgstr ""
+"ルーターを配置できるアベイラビリティーゾーン。指定しなかった場合は、全アベイ"
+"ラビリティーゾーンを選択したのと同じになります。"
+
 msgid "Availability zone"
 msgstr "アベイラビリティーゾーン"
+
+msgid ""
+"Availability zones where the DHCP agents may be scheduled. Leaving this "
+"unset is equivalent to selecting all availability zones"
+msgstr ""
+"このネットワークの DHCP エージェントを配置できるアベイラビリティーゾーン。指"
+"定しなかった場合は、全アベイラビリティーゾーンを選択したのと同じになります。"
 
 msgid "Available"
 msgstr "利用可能"
@@ -1089,6 +1103,11 @@ msgid ""
 msgstr ""
 "キーペア、セキュリティーグループやその他の仕組みを使用して、インスタンスへの"
 "アクセスを制御します。"
+
+msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
+msgstr ""
+"クッキーが無効になっている可能性があります。クッキーを有効にしてから再度お試"
+"しください。"
 
 msgid "Copy Data"
 msgstr "データのコピー"
@@ -2294,6 +2313,18 @@ msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "ユーザーを有効にしました"
 
+msgid ""
+"Enables anti-spoofing rules for the port if enabled. In addition, if port "
+"security is disabled, security groups on the port will be automatically "
+"cleared. When you enable port security of the port, you may want to "
+"associate some security groups on the port."
+msgstr ""
+"ポートセキュリティーを有効にすると、このポートに対して詐称防止のルールが有効"
+"になります。また、ポートセキュリティーを無効にすると、このポートのセキュリ"
+"ティーグループは自動的にクリアされます。ポートのポートセキュリティーを有効に"
+"する際には、このポートのセキュリティーグループも設定する必要があるかもしれま"
+"せん。"
+
 msgid "Encrypted"
 msgstr "暗号化"
 
@@ -3406,6 +3437,9 @@ msgid ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
 msgstr "無効な期間指定です。存在しない未来のデータを要求しています。"
+
+msgid "It specified the VNIC type bound to the networking port."
+msgstr "このネットワークポートに割り当てる VNIC 種別を指定します。"
 
 msgid "Items Per Page"
 msgstr "ページあたりの項目数"
@@ -6445,6 +6479,14 @@ msgstr ""
 msgid "Unable to check if router availability zone extension is supported"
 msgstr "ルーターアベイラビリティーゾーン拡張機能に対応しているか確認できません"
 
+#, python-format
+msgid ""
+"Unable to clear gateway for router %(name)s. Most possible reason is because "
+"the gateway is required by one or more floating IPs"
+msgstr ""
+"ルーター \"%(name)s\" のゲートウェイを削除できません。よくある原因は、この"
+"ゲートウェイを使用している Floating IP が存在することです。"
+
 msgid "Unable to clone consistency group."
 msgstr "整合性グループのクローンを作成できません。"
 
@@ -6579,6 +6621,26 @@ msgstr "ボリューム種別を作成できません。"
 
 msgid "Unable to create volume."
 msgstr "ボリュームを作成できません。"
+
+#, python-format
+msgid ""
+"Unable to delete network %(name)s. Most possible reason is because one or "
+"more ports still exist on the requested network."
+msgstr ""
+"ネットワーク %(name)s を削除できません。よくあるのは、このネットワーク上に"
+"ポートが 1 つ以上存在する場合です。"
+
+#, python-format
+msgid "Unable to delete router %(name)s: %(exc)s"
+msgstr "ルーター %(name)s を削除できません: %(exc)s"
+
+#, python-format
+msgid ""
+"Unable to delete subnet %(name)s. Most possible reason is because one or "
+"more ports have an IP allocation from this subnet."
+msgstr ""
+"サブネット %(name)s を削除できません。よくあるのは、このサブネットから IP ア"
+"ドレスを割り当てているポートが 1 つ以上存在する場合です。"
 
 msgid "Unable to delete volume transfer."
 msgstr "ボリュームの譲渡を削除できません。"
@@ -7019,6 +7081,9 @@ msgstr "キーペアの一覧を取得できません。"
 
 msgid "Unable to retrieve limit information."
 msgstr "リソース上限情報を取得できません。"
+
+msgid "Unable to retrieve limits information."
+msgstr "上限情報を取得できません。"
 
 msgid "Unable to retrieve list of security groups"
 msgstr "セキュリティーグループの一覧を取得できません"
@@ -7975,6 +8040,13 @@ msgstr ""
 "さい。<br><br>この操作は <tt>cinder unmanage</tt> コマンドに相当します。"
 
 msgid ""
+"When the admin state of the port is enabled, the networking service forward "
+"packets on the port. Otherwise, it does not forward any packets on the port."
+msgstr ""
+"ポートの管理状態が有効の場合、ネットワークサービスはこのポートでパケットを転"
+"送します。無効の場合、このポートではパケットは転送されません。"
+
+msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
 "volume to an image."
 msgstr ""
@@ -7993,6 +8065,13 @@ msgstr "すでに利用可能なボリューム数を使い切っています。
 #, python-format
 msgid "You are not allowed to create a port for network %s."
 msgstr "ネットワーク %s のポートの作成は許可されていません。"
+
+msgid ""
+"You can add or remove security groups associated with the port in the next "
+"tab (if the port security is enabled for the port)."
+msgstr ""
+"次のタブで、このポートの関連付けるセキュリティーグループの追加、削除を行えま"
+"す (このポートでポートセキュリティーが有効になっている場合)。"
 
 msgid ""
 "You can connect a specified external network to the router. The external "
@@ -8133,6 +8212,9 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "down"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "例: 稼働中 / 停止中 / エラー"
 
 msgid "e.g. UP / DOWN"
 msgstr "例: UP / DOWN"

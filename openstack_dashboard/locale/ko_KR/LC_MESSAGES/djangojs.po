@@ -12,16 +12,17 @@
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Jaewook Oh <jwoh95@dcn.ssu.ac.kr>, 2018. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-27 09:04+0000\n"
+"POT-Creation-Date: 2018-01-30 02:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-27 09:29+0000\n"
+"PO-Revision-Date: 2018-01-29 12:22+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -142,7 +143,7 @@ msgstr ""
 "          성공적으로 읽었습니다."
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
-msgstr "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>이 줄의 글자는 작은 글자로 출력됩니다.</small>"
 
 msgid "A Confirmation Dialog"
 msgstr "확인 대화 상자"
@@ -477,7 +478,7 @@ msgstr ""
 "에 붙어 메타데이터를 액세스합니다."
 
 msgid "Checkbox"
-msgstr "체크박스"
+msgstr "Checkbox"
 
 msgid "Checking if this name is used..."
 msgstr "이름이 이미 사용중인지 검사합니다."
@@ -694,10 +695,10 @@ msgid "Danger"
 msgstr "Danger"
 
 msgid "Danger Anchor"
-msgstr "위험 앵커"
+msgstr "Danger Anchor"
 
 msgid "Danger Button"
-msgstr "위험 버튼"
+msgstr "Danger Button"
 
 msgid "Data"
 msgstr "Data"
@@ -709,7 +710,7 @@ msgid "Date Created"
 msgstr "생성된 날짜"
 
 msgid "Datepicker"
-msgstr "날짜 선택기"
+msgstr "Datepicker"
 
 msgid "Datetime"
 msgstr "Datetime"
@@ -721,10 +722,10 @@ msgid "Default"
 msgstr "Default"
 
 msgid "Default Anchor"
-msgstr "디폴트 앵커"
+msgstr "Default Anchor"
 
 msgid "Default Button"
-msgstr "디폴트 버튼"
+msgstr "Default Button"
 
 msgid "Default button"
 msgstr "Default button"
@@ -735,8 +736,11 @@ msgstr "기본 입력"
 msgid "Default: Empty string"
 msgstr "디폴트: 빈 문자열"
 
+msgid "Default: Enabled"
+msgstr "기본: 활성화됨"
+
 msgid "Definition list"
-msgstr "정의 목록"
+msgstr "Definition list"
 
 msgid "Degraded"
 msgstr "감소됨"
@@ -853,7 +857,7 @@ msgid "Description"
 msgstr "설명"
 
 msgid "Description lists"
-msgstr "설명 목록"
+msgstr "Description lists"
 
 msgid "Details"
 msgstr "세부 정보"
@@ -861,8 +865,14 @@ msgstr "세부 정보"
 msgid "Details Views:"
 msgstr "세부사항 뷰:"
 
+msgid "Device ID"
+msgstr "장치 ID"
+
 msgid "Device Name"
 msgstr "장치 이름"
+
+msgid "Device Owner"
+msgstr "장치 소유자"
 
 msgid "Dialogs"
 msgstr "Dialogs"
@@ -901,7 +911,7 @@ msgid "Docker"
 msgstr "Docker"
 
 msgid "Domain"
-msgstr "도메인"
+msgstr "도매인"
 
 msgid "Domain ID"
 msgstr "도메인 ID"
@@ -925,7 +935,7 @@ msgid "Download"
 msgstr "다운로드"
 
 msgid "Dropdown"
-msgstr "드롭다운"
+msgstr "Dropdown"
 
 msgid "Dropdown header"
 msgstr "Dropdown header"
@@ -934,7 +944,7 @@ msgid "Dropdown link"
 msgstr "Dropdown link"
 
 msgid "Dropup"
-msgstr "드롭업"
+msgstr "Dropup"
 
 msgid "Edit"
 msgstr "편집"
@@ -969,6 +979,9 @@ msgstr "Emphasis classes"
 msgid "Enable User"
 msgstr "사용자 활성화"
 
+msgid "Enable/Disable subport addition, removal and trunk delete."
+msgstr "Subport 추가, 삭제와 trunk 삭제 활성화/비활성화"
+
 msgid "Enabled"
 msgstr "활성화"
 
@@ -995,6 +1008,13 @@ msgstr "삭제 중 에러"
 
 msgid "Ether Type"
 msgstr "Ether 유형"
+
+msgid ""
+"Exactly one regular Neutron port. Has to be provided when\n"
+"  the trunk is created. Cannot be changed during the trunk's life."
+msgstr ""
+"정확한 정규 Neutron 포트 하나. Trunk 생성시 제공되어야합니다.\n"
+"  trunk가 살아있는 동안 변경할 수 없습니다."
 
 msgid "Example body text"
 msgstr "Example body text"
@@ -1125,7 +1145,7 @@ msgid "Home"
 msgstr "Home"
 
 msgid "Horizontal Definition List"
-msgstr "가로(Horizontal) 표시 정의 목록"
+msgstr "Horizontal Definition List"
 
 msgid "Host ID"
 msgstr "호스트 ID"
@@ -1257,16 +1277,16 @@ msgid "Info"
 msgstr "Info"
 
 msgid "Info Anchor"
-msgstr "정보 앵커"
+msgstr "Info Anchor"
 
 msgid "Info Button"
-msgstr "정보 버튼"
+msgstr "Info Button"
 
 msgid "Inline"
-msgstr "인라인"
+msgstr "Inline"
 
 msgid "Inline Form"
-msgstr "인라인 Form"
+msgstr "Inline Form"
 
 msgid "Input Sizes"
 msgstr "입력 크기"
@@ -1399,7 +1419,7 @@ msgid "Killed"
 msgstr "Killed"
 
 msgid "Large Modal"
-msgstr "큰 Modal"
+msgstr "Large Modal"
 
 msgid "Large button"
 msgstr "Large button"
@@ -1459,7 +1479,13 @@ msgid "Load Function:"
 msgstr "기능 로드:"
 
 msgid "Loading"
-msgstr "불러 오는 중"
+msgstr "Loading"
+
+msgid "Loading ports... Please Wait"
+msgstr "포트를 불러오는 중...잠시만 기다려주세요"
+
+msgid "Loading trunk... Please Wait"
+msgstr "Trunk 불러오는중... 잠시만 기다려주세요."
 
 msgid "Location"
 msgstr "위치"
@@ -1472,6 +1498,9 @@ msgstr "Look, I'm in a small well!"
 
 msgid "Look, I'm in a well!"
 msgstr "Look, I'm in a well!"
+
+msgid "MAC Address"
+msgstr "MAC 주소"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -1577,6 +1606,9 @@ msgstr "Month"
 
 msgid "Name"
 msgstr "이름"
+
+msgid "Name/ID"
+msgstr "이름/ID"
 
 msgid "Names:"
 msgstr "이름:"
@@ -1695,7 +1727,7 @@ msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - 오픈 가상 어플라이언스 (Open Virtual Appliance)"
 
 msgid "Object"
-msgstr "오브젝트"
+msgstr "Object"
 
 msgid "Object Count"
 msgstr "오브젝트 카운트"
@@ -1704,7 +1736,7 @@ msgid "Object Details"
 msgstr "오브젝트 세부 정보"
 
 msgid "Objects"
-msgstr "오브젝트들"
+msgstr "Objects"
 
 msgid "Ok"
 msgstr "Ok"
@@ -1713,22 +1745,22 @@ msgid "Older"
 msgstr "Older"
 
 msgid "One fine body…"
-msgstr "일반 body…"
+msgstr "One fine body…"
 
 msgid "One large body…"
-msgstr "큰 body…"
+msgstr "One large body…"
 
 msgid "One more separated link"
 msgstr "One more separated link"
 
 msgid "One small body…"
-msgstr "작은 body…"
+msgstr "One small body…"
 
 msgid "One super large body…"
-msgstr "매우 큰 body…"
+msgstr "One super large body…"
 
 msgid "One tiny body…"
-msgstr "매우 작은 body…"
+msgstr "One tiny body…"
 
 msgid "Open"
 msgstr "열림"
@@ -1743,13 +1775,13 @@ msgid "Option two can be something else"
 msgstr "옵션 2는 다른 것을 할 수 있습니다"
 
 msgid "Ordered"
-msgstr "정렬됨"
+msgstr "Ordered"
 
 msgid "Other Input Types"
 msgstr "Other Input Types"
 
 msgid "Other lists"
-msgstr "다른 목록"
+msgstr "Other lists"
 
 msgid "Overview"
 msgstr "개요"
@@ -1866,10 +1898,10 @@ msgid "Primary"
 msgstr "Primary"
 
 msgid "Primary Anchor"
-msgstr "주 앵커"
+msgstr "Primary Anchor"
 
 msgid "Primary Button"
-msgstr "주 버튼"
+msgstr "Primary Button"
 
 msgid "Primary Project"
 msgstr "주요  프로젝트"
@@ -1916,6 +1948,9 @@ msgstr "보호됨"
 
 msgid "Protocol"
 msgstr "프로토콜"
+
+msgid "Provide basic properties of the trunk to be created. All optional."
+msgstr "생성될 trunk 기본 속성을 제공합니다. 모두 선택가능합니다."
 
 msgid "Provider Network"
 msgstr "프로바이더 네트워크"
@@ -2074,6 +2109,9 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "구분 ID"
 
+msgid "Segmentation Id"
+msgstr "구분 Id"
+
 msgid "Segmentation Type"
 msgstr "구분 유형"
 
@@ -2084,7 +2122,7 @@ msgid "Select Example"
 msgstr "예제 선택"
 
 msgid "Select Title"
-msgstr "제목 선택"
+msgstr "Select Title"
 
 msgid "Select a container to browse."
 msgstr "보여줄 컨테이너를 선택합니다."
@@ -2103,6 +2141,12 @@ msgstr "아래에서 사용 가능한 항목에서 선택"
 
 msgid "Select at least one network"
 msgstr "적어도 하나 이상 네트워크를 선택합니다."
+
+msgid "Select from the list of available ports below."
+msgstr "아래 사용 가능한 포트에서 선택하세요."
+
+msgid "Select items from Available items below"
+msgstr "아래에서 사용 가능한 항목에서 선택"
 
 msgid "Select networks from those listed below."
 msgstr "아래의 목록에서 네트워크를 선택합니다."
@@ -2199,7 +2243,7 @@ msgid "Size (GiB)"
 msgstr "크기 (GiB)"
 
 msgid "Small Modal"
-msgstr "작은 Modal"
+msgstr "Small Modal"
 
 msgid "Small button"
 msgstr "Small button"
@@ -2211,7 +2255,7 @@ msgid "Snapshot"
 msgstr "스냅샷"
 
 msgid "Someone famous in"
-msgstr "어떤 것으로 유명한"
+msgstr "Someone famous in"
 
 msgid "Something else here"
 msgstr "Something else here"
@@ -2226,7 +2270,7 @@ msgid "Source Code"
 msgstr "Source Code"
 
 msgid "Source Title"
-msgstr "소스 제목"
+msgstr "Source Title"
 
 msgid "Source Type"
 msgstr "소스 유형"
@@ -2238,7 +2282,7 @@ msgid "Stacked"
 msgstr "Stacked"
 
 msgid "Standard Modal"
-msgstr "일반 Modal"
+msgstr "Standard Modal"
 
 msgid "Standard Table"
 msgstr "Standard Table"
@@ -2366,12 +2410,11 @@ msgstr ""
 "우, <b>Available</b> 테이블에 노란색 경고 아이콘이 생성됩니다."
 
 msgid "The following snippet of text is <em>rendered as italicized text</em>."
-msgstr "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "이 글자 조각은 <em>기울인 글자로 렌더링 됩니다</em>."
 
 msgid ""
 "The following snippet of text is <strong>rendered as bold text</strong>."
-msgstr ""
-"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr "이 글자 조각은 <strong>굵은 글자로 렌더링 됩니다</strong>."
 
 #, python-format
 msgid ""
@@ -2414,6 +2457,14 @@ msgstr "볼륨 이름입니다."
 
 msgid "The name of the image."
 msgstr "이미지 이름"
+
+msgid ""
+"The parent port is the port you have to add to the instance\n"
+"  at launch. Do not try to add the trunk or any of the subports to the\n"
+"  instance directly."
+msgstr ""
+"상위 포트는 인스턴스 실행시 추가되어야하는 포트입니다.\n"
+"  Trunk나 하위 포트를 인스턴스에 직접 추가하지 마십시오."
 
 #, python-format
 msgid ""
@@ -2458,19 +2509,19 @@ msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "볼륨 크기는 최소 %(minVolumeSize)s GB여야 합니다."
 
 msgid "Themable Checkbox"
-msgstr "테마 가능한 체크박스"
+msgstr "Themable Checkbox"
 
 msgid "Themable Option 1"
-msgstr "테마 가능한 옵션1 "
+msgstr "Themable Option 1"
 
 msgid "Themable Option 2"
-msgstr "테마 가능한 옵션2"
+msgstr "Themable Option 2"
 
 msgid "Themable Radios"
-msgstr "테마 가능한 라디오"
+msgstr "Themable Radios"
 
 msgid "Themable Selects"
-msgstr "테마 가능한 선택"
+msgstr "Themable Selects"
 
 msgid "There are no Availability Zones."
 msgstr "가용 구역이 없습니다."
@@ -3096,10 +3147,10 @@ msgid "Unknown"
 msgstr "알 수 없음"
 
 msgid "Unordered"
-msgstr "정렬되지 않음"
+msgstr "Unordered"
 
 msgid "Unstyled"
-msgstr "스타일되어있지 않음"
+msgstr "Unstyled"
 
 msgid "Up"
 msgstr "Up"
@@ -3320,10 +3371,10 @@ msgid "Warning"
 msgstr "Warning"
 
 msgid "Warning Anchor"
-msgstr "경고 앵커"
+msgstr "Warning Anchor"
 
 msgid "Warning Button"
-msgstr "경고 버튼"
+msgstr "Warning Button"
 
 msgid "Warning!"
 msgstr "Warning!"
@@ -3451,6 +3502,12 @@ msgstr "자바 스크립트로 양식 작성"
 
 msgid "image"
 msgstr "image"
+
+msgid "inherit"
+msgstr "상속"
+
+msgid "on subnet"
+msgstr "서브넷 상"
 
 #, python-format
 msgid "resource load failed: %s"

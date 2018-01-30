@@ -1,7 +1,5 @@
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
-# suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
-# suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
@@ -10,12 +8,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-29 01:48+0000\n"
-"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
-"Language-Team: Indonesian\n"
-"Language: id\n"
+"PO-Revision-Date: 2018-01-28 11:54+0000\n"
+"Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo\n"
 "X-Generator: Zanata 3.9.6\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "#"
 msgstr "#"
@@ -23,7 +21,8 @@ msgstr "#"
 #, python-format
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
-msgstr[0] "%s instance diluncurkan."
+msgstr[0] "%s apero lanĉita."
+msgstr[1] "%s aperoj lanĉita."
 
 msgid "1"
 msgstr "1"
@@ -58,29 +57,28 @@ msgid ""
 "can specify volume size and whether to delete the volume on deletion of the "
 "instance."
 msgstr ""
-"<b>Image (with Create New Volume checked)</b>: Pilihan ini menggunakan image "
-"untuk boot instance, dan menciptakan volume baru untuk bertahan data "
-"instance. Anda dapat menentukan ukuran volume dan apakah untuk menghapus "
-"volume pada penghapusan instance."
+"<b>Bildo (kun Kreu novan Volumon markita)</b>: Tiu opcio uzas bildon por "
+"praŝargi la aperon, kaj kreas novan volumon por persisti apero datumon. Vi "
+"povas difini volumo grando kaj se forigi la volumon dum forigon de la apero."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
-msgstr "<b>Image</b>: Opsi ini menggunakan image untuk boot instance."
+msgstr "<b>Bildo</b>: Tiu opcio uzas bildon por praŝargi la aperon."
 
 msgid ""
 "<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
 "instance."
 msgstr ""
-"<b>Instance Snapshot</b>: Opsi ini menggunakan sebuah instance snapshot "
-"untuk boot instance."
+"<b>Apero Savkopio</b>: Tiu opcio uzas apero savkopion por praŝargi la aperon."
 
 msgid ""
 "<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
 "instance, and creates a new volume to persist instance data. You can choose "
 "to delete the volume on deletion of the instance."
 msgstr ""
-"<b>Volume Snapshot</b>: Opsi ini menggunakan snapshot volume untuk booting "
-"instance, dan menciptakan volume baru untuk bertahan data instance. Anda "
-"dapat memilih untuk menghapus volume pada penghapusan instance."
+"<b>Volumo Savkopio</b>: tiu opcio uzas volumo savkopion por praŝargi la "
+"aperon, kaj kreas novan volumon\n"
+" por persisti apero datumon. Vi povas elekti forigi la volumon dum forigo de "
+"la apero."
 
 msgid ""
 "<b>Volume</b>: This option uses a volume that already exists. It does not "
@@ -88,10 +86,9 @@ msgid ""
 "instance. <em>Note: when selecting Volume, you can only launch one instance."
 "</em>"
 msgstr ""
-"<b>Volume</b>: Opsi ini menggunakan volume yang sudah ada. Itu tidak membuat "
-"volume baru. Anda dapat memilih untuk menghapus volume pada penghapusan "
-"instance. <em>Catatan: ketika memilih Volume, Anda hanya dapat memulai satu "
-"instance.</em>"
+"<b>Volumo</b>: Tiu opcio uzas volumkiu jm ekzistas. Ĝi  ne kreas novan "
+"volumon. Vi povas elekti forigi la volumon dum forigo de la apero.<em>Notu: "
+"kiam selekti Volumon, vi nur povas lanĉi unu aperon.</em>"
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -102,11 +99,11 @@ msgid ""
 "           but it's not super important."
 msgstr ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
-"          <strong>Perhatian!</strong>\n"
-"           Ini\n"
-"          <a href=\"#\" class=\"alert-link\">peringatan membutuhkan "
-"perhatian Anda</a>,\n"
-"          tetapi tidak super penting."
+"          <strong>Atentu!</strong>\n"
+"           Tiu\n"
+"          <a href=\"#\" class=\"alert-link\">alarmo bezonas vian atenton</"
+"a>,\n"
+"           but it's not super important."
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -115,9 +112,9 @@ msgid ""
 "          and try submitting again."
 msgstr ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
-"          <strong>Oh sekejap!</strong>\n"
-"          <a href=\"#\" class=\"alert-link\">Ubahlah beberapa hal</a>\n"
-"         dan coba kirimkan lagi."
+"          <strong>Ho fek!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Ŝanĝu iujn aferojn</a>\n"
+"          kaj provu sendi denove."
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -127,25 +124,24 @@ msgid ""
 "a>."
 msgstr ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
-"          <strong>Bagus sekali!</strong>\n"
-"         Anda berhasil membaca\n"
-"          <a href=\"#\" class=\"alert-link\">ini pesan peringatan penting</"
-"a>."
+"          <strong>Bonege!</strong>\n"
+"          Vi sukcese legis\n"
+"          <a href=\"#\" class=\"alert-link\">tiun gravan alarmo mesaghon</a>."
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr ""
-"<small>Baris ini dari teks dimaksudkan untuk diperlakukan sebagai baik cetak."
-"</small>"
+"<small> Tiu linio de teksto devus esti pritraktita kiel fajna printaĵo.</"
+"small>"
 
 msgid "A Confirmation Dialog"
-msgstr "A Confirmation Dialog"
+msgstr "Konfirma Dialogo"
 
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
 "your objects in the container."
 msgstr ""
-"Public Container akan mengizinkan orang dengan Public URL  untuk mendapatkan "
-"akses ke objek Anda dalam container."
+"Publika Entenilo permesas iu ajn kun Publika URL ricevi aliron al al "
+"objektoj en la entenilo. "
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for\n"
@@ -159,29 +155,27 @@ msgid ""
 "least\n"
 "    one container defined in your account prior to uploading data."
 msgstr ""
-"Container adalah kompartemen penyimpanan untuk data dan menyediakan cara "
-"untuk\n"
-"    Anda untuk mengatur data Anda. Anda dapat menganggap sebuah container "
-"sebagai folder di\n"
-"    Windows® atau direktori di UNIX. Perbedaan utama antara\n"
-"    container dan konsep sistem file lain adalah container tidak bisa\n"
-"    bersarang.  Akan tetapi, Anda bisa membuat jumlah yang tidak terbatas "
-"dari container dalam\n"
-"    akun Anda. Data harus disimpan dalam container sehingga Anda harus "
-"memiliki minimal\n"
-"    satu container didefinisikan dalam akun Anda sebelum meng-upload data.."
+"Entenilo estas memorilo kabino por via datumo kaj provizas vojon por\n"
+"    vi organizi viajn datumojn. Vi povas imagi entenilon kiel dosierujo  en\n"
+"    Windows® au dosierujo en UNIX®. La ĉefa diferenco inter entenilo kaj "
+"tiuj\n"
+"    aliaj dosiera sistemaj konceptoj estas ke la entenilo ne povas esti "
+"ingita.\n"
+"    Vi povas, tamen, krei sennombra nombro da enteniloj kune kun via konto.\n"
+"    Datumo devas esti savita en entenilo do vi bezonas mimume unu entenilo\n"
+"    difinita en via konto antaŭ alŝuti datumon."
 
 msgid "A container with that name exists."
-msgstr "Container dengan nama yang ada."
+msgstr "Entenilo kun tiu nomo ne ekzistas."
 
 msgid "A description list is perfect for defining terms."
-msgstr "Sebuah daftar deskripsi sempurna untuk mendefinisikan istilah."
+msgstr "Priskribo listo estas perfekta por difini terminojn."
 
 msgid "A description of the Volume."
-msgstr "Sebuah deskripsi Volume."
+msgstr "Priskribon de la Volumon"
 
 msgid "A description of the image."
-msgstr "Sebuah deskripsi image."
+msgstr "Priskribon de la bildo."
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -193,93 +187,92 @@ msgid ""
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
 msgstr ""
-"Sebuah IP mengambang memungkinkan instance menjadi addressable (dialamati) "
-"dari jaringan eksternal.\n"
-"IP mengambang  tidak dialokasikan untuk instances pada waktu pembuatan dan "
-"mungkin ditugaskan\n"
-"     setelah instance dibuat. Untuk menghubungkan IP mengambang, pergi ke "
-"view <b>Instances</b>\n"
-"    dan klik menu <b>Actions</b> di sebelah kanan sebuah instance.\n"
-"    Kemudaian, pilih opsi <b>Associate Floating IP</b> dan masukkan rincian "
-"yang diperlukan."
+"Glidanta IP permesas aperojn esti adresebla de ekstera reto.\n"
+" Glidantaj IPs ne estas asignita al aperoj je kreado tempo kaj povus esti "
+"asignita\n"
+" post la apero estas kreita. Por alligi glidanta IP, iru al al <b>Aperoj</b> "
+"vido\n"
+" kaj kliku la <b>Agoj</b> menuo dekstren de la apero.\n"
+" Tiam, elektu la <b>Asociigu Glidanta IP</b> opcion kaj entajpu la "
+"bezonitajn detajlojn."
 
 msgid ""
 "A key pair allows you to SSH into your newly created instance.\n"
 "    You may select an existing key pair, import a key pair, or generate a "
 "new key pair."
 msgstr ""
-"Sepasang kunci memungkinkan Anda untuk SSH ke instance yang baru dibuat.\n"
-"     Anda dapat memilih pasangan kunci yang ada, mengimpor sepasang kunci, "
-"atau menghasilkan sepasang kunci baru."
+"Ŝlosilparo permesas al vi uzi SSH por eniri en via freŝkreita apero.\n"
+" Vi povus elekti ekzistantan ŝlosilparon, importi ŝlosilparon, aŭ generi "
+"novan ŝlosilparon."
 
 msgid "A local file should be selected."
-msgstr "Sebuah file lokal harus dipilih."
+msgstr "Lokalan dosieron devus esti selektita."
 
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
 msgstr ""
-"Sebuah blok panjang teks bantuan yang memecah pada baris baru dan dapat "
-"lebih dari satu baris."
+"Pli longa bloko da helpo teksto kiu linisaltas al nova linio kaj povus "
+"etendi super unu linio."
 
 msgid "A name is required for your instance."
-msgstr "Sebuah nama diperlukan untuk instance Anda."
+msgstr "Nomo estas postulita por via apero."
 
 msgid "A port represents a virtual switch port on a logical network switch."
-msgstr "Sebuah port merupakan port switch virtual pada switch jaringan logis."
+msgstr "Pordo reprezentas virtualan ŝaltilo pordon je logika reta  ŝaltilo."
 
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
 msgstr ""
-"Deskripsi volume kurang dari {$createVolumeCtrl.validationRules."
-"fieldMaxLength + 1$} karakter diperlukan"
+"Volumo priskribon malpli granda ol {$createVolumeCtrl.validationRules."
+"fieldMaxLength + 1$} signoj estas bezonata."
 
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
 msgstr ""
-"Sebuah nama volume kurang dari {$createVolumeCtrl.validationRules."
-"fieldMaxLength + 1$} karakter diperlukan"
+"Volumo nomo malpli granda ol {$createVolumeCtrl.validationRules."
+"fieldMaxLength + 1$} signoj estas bezonata."
 
 msgid "AKI"
 msgstr "AKI"
 
 msgid "AKI - Amazon Kernel Image"
-msgstr "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon Kerna Imago"
 
 msgid "AMI"
 msgstr "AMI"
 
 msgid "AMI - Amazon Machine Image"
-msgstr "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon Maŝina Imago"
 
 msgid "ARI"
 msgstr "ARI"
 
 msgid "ARI - Amazon Ramdisk Image"
-msgstr "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdiska Imago"
 
 msgid "Action"
-msgstr "Action (tindakan)"
+msgstr "Ago"
 
 msgid "Actions"
-msgstr "Actions (tindakan)"
+msgstr "Agoj"
 
 msgid "Active"
-msgstr "Active (aktif)"
+msgstr "Aktiva"
 
 msgid "Add Interface"
-msgstr "Add Interface (tambahkan antarmuka)"
+msgstr "Aldonu Interfacon"
 
 msgid "Add Ons, Required and Feedback"
-msgstr "Add Ons, Required and Feedback"
+msgstr "Aldonoj, Postulataj kaj Prisondo    "
 
 msgid "Admin Password"
-msgstr "Password Admin"
+msgstr "Admin Pasvorto"
 
 msgid "Admin State"
-msgstr "Admin State"
+msgstr "Admin Stato"
 
 msgid ""
 "Administrators are responsible for creating and managing flavors. A custom "
@@ -287,35 +280,35 @@ msgid ""
 "with the users assigned to that project. If you need a custom flavor, "
 "contact your administrator."
 msgstr ""
-"Administrator bertanggung jawab untuk menciptakan dan mengelola flavor. "
-"Flavor kustom dapat dibuat untuk Anda atau untuk proyek spesifik dimana ia "
-"bersama dengan pengguna ditugaskan untuk proyek itu. Jika Anda membutuhkan "
-"flavor kustom, hubungi administrator Anda."
+"Administrumantoj estas responsa por krei kaj mastrumi variaĵojn. Propra "
+"variaĵo povas esti kreita por vi aŭ por difina projekto kie ĝi estas opuzita "
+"kun uzantoj asignita al tiu projekto. Se vi bezonas propran variaĵon, "
+"kontaktigi vian administrumanton."
 
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
 msgstr ""
-"Administrator mengatur kolam IP mengambang yang tersedia untuk melampirkan "
-"instance."
+"Administrantoj agordas komunaĵon de glidantaj IPs kiuj estas disponebla por "
+"alligi al aperojn."
 
 msgid "Alerts"
-msgstr "Alerts"
+msgstr "Alarmoj "
 
 msgid ""
 "Also note that segmentation details may be mandatory\n"
 "  or optional depending on the backend. Notably Ironic may provide\n"
 "  segmentation details instead of the user."
 msgstr ""
-"Perhatikan juga bahwa detail segmentasi mungkin wajib\n"
-"   atau pilihan tergantung pada backend. Terutama Ironic dapat memberikan "
-"rincian segmentasi dan bukan pengguna."
+"Ankaŭ notu ke la segmento detajlojn povus esti deviga aŭ nedeviga \n"
+" depende de la internaĵejo. Emfaze Ironic povus provizi segmento detajlojn\n"
+" anstataŭ de la uzanto."
 
 msgid "Amount of RAM in MB that is required to boot the image."
-msgstr "Jumlah RAM dalam MB yang diperlukan untuk boot image."
+msgstr "Kvanto da RAM en MB kiu estas bezonta por praŝargi la bildon."
 
 msgid "Amount of disk space in GB that is required to boot the image."
-msgstr "Jumlah ruang disk dalam GB yang diperlukan untuk boot image."
+msgstr "Kvanto da disko spaco en GB kiu estas bezonta por praŝargi la bildon."
 
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
@@ -325,18 +318,18 @@ msgid ""
 "    You can use the <b>Network Topology</b> view to connect the router to "
 "the two networks."
 msgstr ""
-"Jaringan <b>External</b> diatur oleh administrator.\n"
-"     Jika Anda ingin instance berkomunikasi di luar pusat data,\n"
-"    kemudian hubungkan router antara jaringan Anda <b>Project</b> dan "
-"jaringan <b>External</b>.\n"
-"    Anda data menggunakan <b>Network Topology</b> melihat untuk "
-"menghubungkan router ke dua jaringan."
+"<b>Ekstera</b> reto estas kreata pere de administranto.\n"
+" Se vi volas ke apero komunikas eksteren de la datumejo,\n"
+" tiam alligu enkursigilo inter la <b>Projekto</b> reto kaj la <b>Ekstera</b> "
+"reto.\n"
+" Vi povas uzi la <b>Reto Topologio</b> vidon por konekti la enkursigilon al "
+"la du retoj."
 
 msgid ""
 "An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
 "abbr>."
 msgstr ""
-"Singkatan dari kata atribut adalah <abbr title = \"atribut\"> attr </ abbr>."
+"Mallongigo de la vorto atributo estas <abbr title=\"attribute\">attr</abbr>."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -344,10 +337,10 @@ msgid ""
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
 "b> allows you to create multiple partitions on the disk."
 msgstr ""
-"Opsi lanjut yang tersedia ketika meluncurkan sebuah instance  adalah partisi "
-"disk. Ada dua pilihan partisi disk. Pilihan  <b>Automatic</b> mengubah "
-"ukuran disk dan set ke partisi tunggal. Pilihan <b> Manual </ b> "
-"memungkinkan Anda untuk membuat beberapa partisi pada disk."
+"Speciala opcio disponita kiam lanĉi aperon estas fari subdiskojn. Ekzistas "
+"du opcioj fari subdiskojn. Elekti <b>Automatic</b> regrandiĝas la disko kaj "
+"agordas ĝin al unuopa subdisko. Elekti <b>Manual</b> permesas al vi krei "
+"multajn subdiskojn sur la disko."
 
 msgid ""
 "An arbitrary amount (0, 1, 2, ...) of regular Neutron\n"
@@ -361,346 +354,353 @@ msgid ""
 "  by setting the <em>segmentation type</em> and <em>segmentation ID</em>\n"
 "  of the subport."
 msgstr ""
-"Jumlah yang sembarangan (0, 1, 2, ...) dari port Neutron biasa\n"
-"   dengan rincian segmentasi (yaitu tipe dan ID). Mungkin disediakan\n"
-"   saat trunk dibuat. Juga bisa ditempelkan atau dilepas nanti\n"
-"   selama ada trunk (dan instance).\n"
+"Abritra kvanto (0,1,2, ...) da regulaj Neutron\n"
+" pordoj kun segmento detajlojn (i.a tipon kaj ID). Povus esti provizata\n"
+" kiam la trunko estas kreata. Ankaŭ povus esti kunligata aŭ malligata poste\n"
+" dum la vivo de la trunko (kaj de la apero).\n"
 "\n"
-" Di dalam instance jaringan subport tertentu akan\n"
-"   disajikan sebagai frame ditandai ditransmisikan dan diterima di vNIC\n"
-"   milik port induk. Pengguna awan dapat mengontrol pemberian tag\n"
-"   dengan menetapkan <em>tipe segmentasi</ em> dan <em>ID segmentasi</ em>\n"
-"   dari subport."
+" Ene de la apero speciala subporda reto estos prezentita\n"
+" kiel markitaj kadroj transmetita kaj ricevita je la vNIC\n"
+" apartenante al la patra pordo. La nubo uzanto povus kontroli la markadon\n"
+" pere agordo de la <em>segmento tipo</em> kaj <em>segmento ID</em>\n"
+" de la subpordo.\n"
+" "
 
 msgid "An arbitrary description for the trunk."
-msgstr "Deskripsi sembarangan untuk trunk."
+msgstr "Arbitra priskribon por la trunko."
 
 msgid "An arbitrary name for the trunk. May not be unique."
-msgstr "Nama sembarangan untuk trunk. Mungkin tidak unik."
+msgstr "Abritra nomo por la trunko. Povus esti ne unuopa."
 
 msgid "An external (HTTP) URL is required"
-msgstr "URL eksternal (HTTP) diperlukan"
+msgstr "Ekstera (HTTP) URL estas bezonita."
 
 msgid "An external (HTTP) URL to load the image from"
-msgstr "An (HTTP) URL eksternal untuk memuat image dari"
+msgstr "Ekstera (HTTP) URL de kie elŝuti la bildon."
 
 msgid "An image description less than 256 characters is required."
-msgstr "Deskripsi image kurang dari 256 karakter diperlukan."
+msgstr "Bildo priskribon malpli granda ol 256 signoj estas postulata."
 
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
 msgstr ""
-"Deskripsi image kurang dari karakter {$ctrl.validationRules.fieldMaxLength + "
-"1$} diperlukan."
+"Bildo priskribon malpli granda ol {$ctrl.validationRules.fieldMaxLength + "
+"1$} karakteroj estas postulata."
 
 msgid "An image name less than 256 characters is required."
-msgstr "Nama image kurang dari 256 karakter diperlukan."
+msgstr "Bildo nomo malpli granda ol signoj estas postulata."
 
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
 msgstr ""
-"Nama gambar kurang dari karakter {$ctrl.validationRules.fieldMaxLength + 1$} "
-"diperlukan."
+"Bildo nomo malpli granda ol  {$ctrl.validationRules.fieldMaxLength + 1$} "
+"karakteroj estas postulata."
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
 msgstr ""
-"Nama instance diperlukan dan digunakan untuk membantu Anda mengidentifikasi "
-"secara unik instance Anda di dashboard."
+"Apero nomo estas postulita kaj uzita helpi vin unuope identfi vian aperon en "
+"la stirpanelo."
 
 msgid "Animated"
-msgstr "Animated (animasi)"
+msgstr "Movbildigita"
 
 msgid "Another action"
-msgstr "Another action (tindakan lain)"
+msgstr "Alia ago"
 
 msgid "Any Availability Zone"
-msgstr "Setiap Availability Zone"
+msgstr "Iu Disponebla  Zono"
 
 msgid "Architecture"
-msgstr "Arsitektur"
+msgstr "Arkitekturo"
 
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
-msgstr "Apakah Anda yakin ingin menghapus kontainer %(name)s?"
+msgstr "Se vi ne estas certa forigi entenilo %(name)s?"
 
 msgid "Array"
-msgstr "Array"
+msgstr "Tabelo"
 
 msgid "Automatic"
-msgstr "Otomatis"
+msgstr "Automate"
 
 msgid "Availability Zone"
-msgstr "Zona ketersediaan"
+msgstr "Disponebla  Zono"
 
 msgid "Available"
-msgstr "Available (tersedia)"
+msgstr "Disponebla"
 
 msgid "Available Scheduler Hints"
-msgstr "Available Scheduler Hints (petunjuk scheduler yang tersedia)"
+msgstr "Disponeblaj Vicigilo Aludoj"
 
 msgid "Badges"
-msgstr "Badges (lencana)"
+msgstr "Insignoj"
 
 msgid "Bare Metal"
-msgstr "Bare Metal"
+msgstr "Fizika Komputilo"
 
 msgid "Basic"
-msgstr "Basic (dasar)"
+msgstr "Baza"
 
 msgid "Basic panel"
-msgstr "Basic panel (panel dasar)"
+msgstr "Baza panelo"
 
 msgid "Batch Actions:"
-msgstr "Batch Actions: (tindakan batch)"
+msgstr "Staplaj Agoj:   "
 
 msgid "Block level button"
-msgstr "Block level button (tombol tingkat blok)"
+msgstr "Bloknivela butono"
 
 msgid "Blockquotes"
-msgstr "Blockquotes"
+msgstr "Blokkvotoj"
 
 msgid "Bordered Table"
-msgstr "Bordered Table"
+msgstr "Borderita Tabelo"
 
 msgid "Bottom"
-msgstr "Bawah"
+msgstr "Malsupro"
 
 msgid "Brand"
-msgstr "Brand (merek)"
+msgstr "Marko"
 
 msgid "Breadcrumbs"
-msgstr "Breadcrumbs"
+msgstr "Paneroj"
 
 msgid "Browse..."
-msgstr "Browse..."
+msgstr "Retumi ..."
 
 msgid "Build"
-msgstr "Build"
+msgstr "Konstruita"
 
 msgid "Button"
-msgstr "Button (tombol)"
+msgstr "Butono"
 
 msgid "Buttons"
-msgstr "Buttons (tombot)"
+msgstr "Butonoj"
 
 msgid "Cancel"
-msgstr "Cancel  (membatalkan)"
+msgstr "Malfari"
 
 msgid "Cannot get service catalog from keystone."
-msgstr "Tidak bisa mendapatkan katalog layanan dari keystone."
+msgstr "Neeblas ricevi servo katalogo de Keystone."
 
 msgid "Cannot get the extension list."
-msgstr "Tidak bisa mendapatkan daftar ekstensi."
+msgstr "Malsukcesis ricevi etendo listo."
 
 msgid "Change Password"
-msgstr "Ganti Kata Sandi"
+msgstr "Ŝanĝu Pasvorton   "
 
 msgid "Change user's password. We highly recommend you create a strong one."
-msgstr ""
-"Ubah kata sandi pengguna. Kami sangat menyarankan Anda membuat yang kuat."
+msgstr "Ŝanĝu uzanto pasvorto. Ni ege rekomendas al vi kreu fortan.   "
 
 msgid "Charts"
-msgstr "Charts (grafik)"
+msgstr "Diagramoj"
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
-"Cek kotak ini <b>Configuration Drive</b> jika Anda ingin menulis metadata "
-"untuk konfigurasi drive khusus. Ketika instance melakukan boot, itu "
-"menghubungkan pada <b>Configuration Drive</b> dan mengakses metadata."
+"Marku la <b>Configuration Drive</b> markobutonon se vi volas skribi "
+"metadumon al speciala tajlorada diskilo. Kiam la apero praŝargas, ĝi alligas "
+"al <b>Configuration Drive</b>  kaj aliras la metadatumon."
 
 msgid "Checkbox"
-msgstr "Checkbox"
+msgstr "Markobutono"
 
 msgid "Checking if this name is used..."
-msgstr "Memeriksa apakah nama ini digunakan ..."
+msgstr "Kontrolu se la nomo estas uzita..."
 
 msgid "Checksum"
-msgstr "Checksum"
+msgstr "Kontrolsumo"
 
 msgid "Choose an image"
-msgstr "Memilih image"
+msgstr "Elektu bildon"
 
 msgid "Click to see more details"
-msgstr "Klik untuk melihat lebih detail"
+msgstr "Kliku por vidi pli da detajloj"
 
 msgid "Close"
-msgstr "Tutup"
+msgstr "Fermo"
 
 msgid "Closed"
-msgstr "Closed (tutup)"
+msgstr "Fermita"
 
 msgid "Closing"
-msgstr "Closing (tutup)"
+msgstr "Fermi"
 
 msgid "Collecting information for deletion:"
-msgstr "Mengumpulkan informasi untuk penghapusan:"
+msgstr "Kolekti informon por forigo:"
 
 msgid "Color"
-msgstr "Color (warna)"
+msgstr "Koloro"
 
 msgid "Column content"
-msgstr "Column konten"
+msgstr "Kolumno enhavo"
 
 msgid "Column heading"
-msgstr "Column heading"
+msgstr "Kolumno titolo"
 
 msgid "Community"
-msgstr "Komunitas"
+msgstr "Komunumo"
 
 msgid "Configuration"
-msgstr "Konfigurasi "
+msgstr "Konfiguron "
 
 msgid "Configuration Drive"
-msgstr "Drive konfigurasi"
+msgstr "Konfigura Diskilo "
 
 msgid "Confirm Delete"
-msgstr "Konfirmasi penghapuskan"
+msgstr "Konfirmu Forigon"
 
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
-msgstr[0] "Confirm Delete Flavor"
+msgstr[0] "Konfirmu Forigu Variaĵo"
+msgstr[1] "Konfirmu Forigu Variaĵojn"
 
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
-msgstr[0] "Konfirmasi hapus image"
+msgstr[0] "Konfirmu Forigu Bildon"
+msgstr[1] "Konfirmu Forigu Bildojn"
 
 msgid "Confirm Delete Key Pair"
 msgid_plural "Confirm Delete Key Pairs"
-msgstr[0] "Confirm Delete Key Pair"
+msgstr[0] "Konfirmu Forigu Ŝlosilparon"
+msgstr[1] "Konfirmu Forigu Ŝlosilparojn"
 
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
-msgstr[0] "Confirm Delete Role"
+msgstr[0] "Konfirmu Forigu Rolon"
+msgstr[1] "Konfirmu Forigu Rolojn"
 
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
-msgstr[0] "Confirm Delete Trunk"
+msgstr[0] "Konfirmu Forigu Trunkon"
+msgstr[1] "Konfirmu Forigu Trunkojn"
 
 msgid "Confirm Delete User"
 msgid_plural "Confirm Delete Users"
-msgstr[0] "Confirm Delete User"
+msgstr[0] "Konfirmu Forigu Uzanton"
+msgstr[1] "Konfirmu Forigu Uzantojn"
 
 msgid "Connecting"
-msgstr "Connecting (sedang koneksi)"
+msgstr "Konekti"
 
 msgid "Container"
-msgstr "Kontainer"
+msgstr "Entenilo"
 
 #, python-format
 msgid "Container %(name)s created."
-msgstr "Kontainer %(name)s dibuat."
+msgstr "Entenilo %(name)s kreita."
 
 #, python-format
 msgid "Container %(name)s deleted."
-msgstr "Kontainer %(name)s dihapus."
+msgstr "Entenilo %(name)s forigita."
 
 #, python-format
 msgid "Container %(name)s is now %(access)s."
-msgstr "Kontainer %(name)s sekarang %(access)s."
+msgstr "Entenilo %(name)s estas nun %(access)s."
 
 msgid "Container Access"
-msgstr "Akses kontainer"
+msgstr "Entenilo Aliro"
 
 msgid "Container Format"
-msgstr "Format kontainer"
+msgstr "Entenilo Formato"
 
 msgid "Container Name"
-msgstr "Nama kontainer"
+msgstr "Entenilo Nomo"
 
 msgid "Container name must not contain \"/\"."
-msgstr "Nama kontainer tidak boleh mengandung \"/\"."
+msgstr "Entenilo Nomo ne devas enhavi \"/\"."
 
 msgid "Containers"
-msgstr "Containers (kontainer)"
+msgstr "Enteniloj"
 
 msgid "Content Type"
-msgstr "Tipe konten"
+msgstr "Enhavo Tipo"
 
 msgid "Contextual alternatives"
-msgstr "Contextual alternatives (alternatif kontekstual)"
+msgstr "Kuntekstaj alternatovoj"
 
 msgid "Copy Data"
-msgstr "Copy Data"
+msgstr "Kopii Datumon"
 
 msgid "Copy Private Key to Clipboard"
-msgstr "Salin Private Key ke Clipboard"
+msgstr "Kopiu Privata Ŝlosilo al Tondujo"
 
 msgid "Could not decrypt the password"
-msgstr "Tidak bisa mendekripsi password"
+msgstr "Neeblas malĉifri la pasvorton"
 
 msgid "Could not read the file"
-msgstr "Tidak bisa membaca file"
+msgstr "Neeblas legi dosieron"
 
 msgid "Count"
-msgstr "Jumlah"
+msgstr "Nombro"
 
 msgid "Create Container"
-msgstr "Buat kontainer"
+msgstr "Kreu Entenilon"
 
 msgid "Create Folder"
-msgstr "Buat folder"
+msgstr "Kreu Dosiero"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
-msgstr "Buat Folder Dalam: {$ ctrl.model.container.name $}"
+msgstr "Kreu Dosiero En: {$ ctrl.model.container.name $}"
 
 msgid "Create Image"
-msgstr "Buat image"
+msgstr "Kreu Bildon"
 
 msgid "Create Key Pair"
-msgstr "Buat keypair"
+msgstr "Kreu Ŝlosilparon"
 
 msgid "Create Keypair"
-msgstr "Buat keypair"
+msgstr "Kreu Ŝlosilparo"
 
 msgid "Create New Volume"
-msgstr "Create New Volume"
+msgstr "Kreu novan Volumon."
 
 msgid "Create Role"
-msgstr "Create Role"
+msgstr "Kreu Rolon"
 
 msgid "Create Subnet"
-msgstr "Create Subnet (buat subnet)"
+msgstr "Kreu Subreton"
 
 msgid "Create Trunk"
-msgstr "Buat Trunk"
+msgstr "Kreu Trunkon"
 
 msgid "Create User"
-msgstr "Membuat User"
+msgstr "Kreu Uzanton"
 
 msgid "Create Volume"
-msgstr "Create volume"
+msgstr "Kreu Volumon"
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
 "and Role."
 msgstr ""
-"Buat user baru dan atur properti terkait termasuk Primary Project dan Role."
+"Kreu novan uzanton kaj agordi rilatajn ecojn inkludante la  Ĉefa Projekto "
+"kaj Rolo. "
 
 msgid "Created"
-msgstr "Created (dibuat)"
+msgstr "Kreita"
 
 msgid "Created At"
-msgstr "Created At"
+msgstr "Kreita Je"
 
 msgid "Created at"
-msgstr "Created at"
+msgstr "Kreita je"
 
 #, python-format
 msgid "Created keypair: %s"
-msgstr "Pasangan kunci dibuat : %s"
+msgstr "Kreita ŝlosilparo: %s"
 
 msgid "Creating"
-msgstr "Creating (membuat)"
+msgstr "Krei"
 
 msgid "Custom Properties"
-msgstr "Custom Properties (properti kustom)"
+msgstr "Propraj Ecoj"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -708,422 +708,434 @@ msgid ""
 "<samp>cloud-init</samp> inside a guest operating system, you can use a "
 "custom script to get a public key and add it to the user account."
 msgstr ""
-"Skrip kustom terhubung pada instance untuk melakukan tindakan spesific "
-"ketika instance itu diluncurkan. Misalnya, jika Anda tidak dapat menginstal "
-"<samp>cloud-init</samp> dalam sistem operasi tamu (guest), Anda dapat "
-"menggunakan script khusus untuk mendapatkan kunci publik (public key) dan "
-"menambahkannya ke akun pengguna."
+"Proprajn skriptojn estas alligita al aperoj por efektivigi difinajn agojn "
+"kiam la apero estas lanĉita. Ekzemple,\n"
+"se neeblas instali <samp>cloud-init</samp>  en la gasta operaciuma sistemo, "
+"vi povas uzi proprajn skripton\n"
+"por ricevi publikan ŝlosilon kaj aldoni ĝin al la uzanto konto."
 
 msgid "Customization Script"
-msgstr "Customization Script"
+msgstr "Tajlorado Skripto"
 
 msgid "DNS Domain"
-msgstr "Domain DNS"
+msgstr "DNS Domajno"
 
 msgid "DNS Domains"
-msgstr "Domains DNS"
+msgstr "DNS Domajnoj"
 
 msgid "DNS Record"
-msgstr "Record DNS"
+msgstr "DNS Datumo"
 
 msgid "DNS Records"
-msgstr "Record DNS (plural)"
+msgstr "DNS Datumoj"
 
 msgid "DSCP Mark"
-msgstr "DSCP Mark"
+msgstr "DSCP Marko"
 
 msgid "Danger"
-msgstr "Danger (bahaya)"
+msgstr "Danĝero"
 
 msgid "Danger Anchor"
-msgstr "Danger Anchor (bahaya jangkar)"
+msgstr "Danĝera Ankro"
 
 msgid "Danger Button"
-msgstr "Danger Button (bahaya tombol)"
+msgstr "Danĝera Butono"
 
 msgid "Data"
-msgstr "Data"
+msgstr "Datumo"
 
 msgid "Date"
-msgstr "Date (tanggal)"
+msgstr "Dato"
 
 msgid "Date Created"
-msgstr "Tanggal dibuat"
+msgstr "Dato Kreita"
 
 msgid "Datepicker"
-msgstr "Datepicker"
+msgstr "Dato selekto"
 
 msgid "Datetime"
-msgstr "Datetime (tanggal waktu)"
+msgstr "Datotempo"
 
 msgid "Deactivated"
-msgstr "Deactivated"
+msgstr "Malaktivigita"
 
 msgid "Default"
-msgstr "Default (bawaan)"
+msgstr "Defaŭlta"
 
 msgid "Default Anchor"
-msgstr "Default Anchor (jangkar bawaan)"
+msgstr "Defaŭlta Ankro"
 
 msgid "Default Button"
-msgstr "Default Button (tombol bawaan)"
+msgstr "Defaŭlta Butono"
 
 msgid "Default button"
-msgstr "Default button (tombol bawaan)"
+msgstr "Defaŭlta butono"
 
 msgid "Default input"
-msgstr "input default"
+msgstr "Defaŭlta enigo"
 
 msgid "Default: Empty string"
-msgstr "Default: String kosong"
+msgstr "Defaŭlto: Malplena tekstoĉeno"
 
 msgid "Default: Enabled"
-msgstr "Default: Enabled"
+msgstr "Defaŭlt: Ebligita"
 
 msgid "Definition list"
-msgstr "Daftar definisi"
+msgstr "Difino listo"
 
 msgid "Degraded"
-msgstr "Degraded"
+msgstr "Degradita"
 
 msgid "Delete"
-msgstr "Hapus"
+msgstr "Forigu"
 
 msgid "Delete Container"
-msgstr "Hapus Kontainer"
+msgstr "Forigu Entenilon"
 
 msgid "Delete Files in {$ ctrl.model.container.name $}"
-msgstr "Hapus File di {$ ctrl.model.container.name $}"
+msgstr "Forigu Dosieroj en {$ ctrl.model.container.name $}"
 
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] "Delete Flavor"
+msgstr[0] "Forigu Variaĵo"
+msgstr[1] "Forigu Variaĵojn"
 
 msgid "Delete Flavors"
-msgstr "Delete Flavors"
+msgstr "Forigu Variaĵojn"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
-msgstr[0] "Hapus image"
+msgstr[0] "Forigu Bildon"
+msgstr[1] "Forigu Bildojn"
 
 msgid "Delete Images"
-msgstr "Hapus Image"
+msgstr "Forigu Bildojn"
 
 msgid "Delete Instance"
-msgstr "Delete Instance (hapus instance)"
+msgstr "Forigu Aperon"
 
 msgid "Delete Interface"
-msgstr "Delete Interface (hapus antarmuka)"
+msgstr "Forigu Interfacon"
 
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
-msgstr[0] "Delete Key Pair"
+msgstr[0] "Forigu Ŝlosilparon"
+msgstr[1] "Forigu Ŝlosilparojn"
 
 msgid "Delete Key Pairs"
-msgstr "Delete Key Pairs"
+msgstr "Forigu Ŝlosilo Paroj"
 
 msgid "Delete Network"
-msgstr "Delete Network (hapus jaringan)"
+msgstr "Forigu reton"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
-msgstr[0] "Delete Role"
+msgstr[0] "Forigu Rolon"
+msgstr[1] "Forigu Rolojn"
 
 msgid "Delete Roles"
-msgstr "Delete Roles"
+msgstr "Forigu Rolon"
 
 msgid "Delete Router"
-msgstr "Delete Router (hapus router)"
+msgstr "Forigu Enkursigilon   "
 
 msgid "Delete Subnet"
-msgstr "Delete Subnet (hapus subnet)"
+msgstr "Forigu Subreton"
 
 msgid "Delete Trunk"
 msgid_plural "Delete Trunks"
-msgstr[0] "Delete Trunk"
+msgstr[0] "Forigu Trunko"
+msgstr[1] "Forigu Trunkojn"
 
 msgid "Delete Trunks"
-msgstr "Delete Trunks"
+msgstr "Forigu Trunkojn"
 
 msgid "Delete User"
 msgid_plural "Delete Users"
-msgstr[0] "Delete User"
+msgstr[0] "Forigu Uzanton"
+msgstr[1] "Forigu Uzantojn"
 
 msgid "Delete Users"
-msgstr "Hapus Pengguna"
+msgstr "Forigu Uzantojn"
 
 msgid "Delete Volume on Instance Delete"
-msgstr "Delete Volume on Instance Delete"
+msgstr "Forigu volumon kiam Apero estas forigita"
 
 msgid "Deleted"
-msgstr "Deleted"
+msgstr "Forigita"
 
 #, python-format
 msgid "Deleted Flavor: %s."
 msgid_plural "Deleted Flavors: %s."
-msgstr[0] "Deleted Flavor: %s."
+msgstr[0] "Forigita Variaĵo: %s."
+msgstr[1] "Forigitaj Variaĵoj: %s."
 
 #, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
-msgstr[0] "Image terhapus: %s."
+msgstr[0] "Forigita Bildo: %s."
+msgstr[1] "Forigitaj Bildoj: %s."
 
 #, python-format
 msgid "Deleted Key Pair: %s."
 msgid_plural "Deleted Key Pairs: %s."
-msgstr[0] "Deleted Key Pair: %s."
+msgstr[0] "Forigita Ŝlosilparo: %s."
+msgstr[1] "Forigitaj Ŝlosilparoj: %s."
 
 #, python-format
 msgid "Deleted Role: %s."
 msgid_plural "Deleted Roles: %s."
-msgstr[0] "Deleted Role: %s."
+msgstr[0] "Forigita Rolo: %s."
+msgstr[1] "Forigitaj Roloj: %s."
 
 #, python-format
 msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
-msgstr[0] "Deleted Trunk: %s."
+msgstr[0] "Forigita Trunko: %s."
+msgstr[1] "Forigitaj Trunkoj: %s."
 
 #, python-format
 msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
-msgstr[0] "Deleted User: %s."
+msgstr[0] "Forigita Uzanto: %s."
+msgstr[1] "Forigitaj Uzantoj: %s."
 
 msgid "Deleting"
-msgstr "Deleting (menghapus)"
+msgstr "Forigi"
 
 msgid "Deleting:"
-msgstr "Penghapusan"
+msgstr "Forigi:"
 
 msgid "Description"
-msgstr "Deskripsi"
+msgstr "Priskribo"
 
 msgid "Description lists"
-msgstr "Daftar deskripsi"
+msgstr "Priskribo listo"
 
 msgid "Details"
-msgstr "Rincian"
+msgstr "Detajloj"
 
 msgid "Details Views:"
-msgstr "Details Views: (penampilan detail)"
+msgstr "Detajlo Vidoj:"
 
 msgid "Device ID"
-msgstr "Device ID"
+msgstr "Funkciilo ID"
 
 msgid "Device Name"
-msgstr "Device Name"
+msgstr "Funkciilo Nomo"
 
 msgid "Device Owner"
-msgstr "Device Owner"
+msgstr "Funkciilo Posedanto"
 
 msgid "Dialogs"
-msgstr "Dialogs (dialog)"
+msgstr "Dialogoj"
 
 msgid "Direct"
-msgstr "Direct"
+msgstr "Direkta"
 
 msgid "Direct Physical"
-msgstr "Direct Physical"
+msgstr "Direkte Fisika"
 
 msgid "Direction"
-msgstr "Direction (arah)"
+msgstr "Direkto"
 
 msgid "Disable User"
-msgstr "Nonaktifkan Pengguna"
+msgstr "Malebligu Uzanton"
 
 msgid "Disabled"
-msgstr "Disabled (tidak aktif)"
+msgstr "Malebligita"
 
 msgid "Disabled input"
-msgstr "masukan dinonaktifkan"
+msgstr "Maebligita enigo"
 
 msgid "Disabled input here..."
-msgstr "masukan dinonaktifkan di sini ..."
+msgstr "Malebligita enigo ĉi tie ..."
 
 msgid "Disk Format"
-msgstr "Format Disk"
+msgstr "Disko Formato"
 
 msgid "Disk Partition"
-msgstr "Partisi disk"
+msgstr "Subdisko  "
 
 msgid "Distribution Charts"
-msgstr "Distribution Charts (diagram distribusi)"
+msgstr "Distribuo Diagramoj"
 
 msgid "Docker"
 msgstr "Docker"
 
 msgid "Domain"
-msgstr "Domain"
+msgstr "Domajno"
 
 msgid "Domain ID"
-msgstr "ID domain"
+msgstr "Domajno ID"
 
 msgid "Domain Id"
-msgstr "Domain Id"
+msgstr "Domajno ID"
 
 msgid "Domain Name"
-msgstr "Domain Name"
+msgstr "Domajno Nomo"
 
 msgid "Domains"
-msgstr "Domains"
+msgstr "Domajnoj"
 
 msgid "Done"
-msgstr "Done"
+msgstr "Finita"
 
 msgid "Down"
-msgstr "Down (turun)"
+msgstr "Malsupren"
 
 msgid "Download"
-msgstr "Download"
+msgstr "Elŝuto"
 
 msgid "Dropdown"
-msgstr "Dropdown"
+msgstr "Kurtena"
 
 msgid "Dropdown header"
-msgstr "Dropdown header (header dropdown)"
+msgstr "Kurtena kapo"
 
 msgid "Dropdown link"
-msgstr "Dropdown link (tautan dropdown)"
+msgstr "Kurteno ligo"
 
 msgid "Dropup"
-msgstr "Dropup"
+msgstr "Degreso (Dropup)"
 
 msgid "Edit"
-msgstr "Edit"
+msgstr "Redakti"
 
 msgid "Edit File"
-msgstr "Edit File"
+msgstr "Redaktu Dosieron"
 
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
-msgstr "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "Reduktu Dosieron : {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
 msgid "Edit Image"
-msgstr "Edit image"
+msgstr "Redaktu Bildon"
 
 msgid "Edit Role"
-msgstr "Edit Role"
+msgstr "Redaktu Rolon"
 
 msgid "Edit Trunk"
-msgstr "Edit Trunk"
+msgstr "Redaktu Trunkon"
 
 msgid "Edit User"
-msgstr "Edit Pengguna"
+msgstr "Redaktu Uzanton"
 
 msgid "Edit the user's details, including the Primary Project."
-msgstr "Edit rincian pengguna, termasuk Proyek Utama."
+msgstr "Redaktu la uzanto detajlojn, inkludante la Ĉefan Projekton."
 
 msgid "Email"
-msgstr "Surat elektronik"
+msgstr "Retmesaĝo"
 
 msgid "Emphasis classes"
-msgstr "Kelas penekanan"
+msgstr "Emfazo klasoj"
 
 msgid "Enable User"
-msgstr "Aktifkan Pengguna"
+msgstr "Ebligu Uzanto"
 
 msgid "Enable/Disable subport addition, removal and trunk delete."
-msgstr "Enable/Disable tambahan subport, penghilangan dan penghapusan trunk."
+msgstr "Ebligu/Malebligu subpordo aldono, forigon kaj trunko forigon."
 
 msgid "Enabled"
-msgstr "Diaktifkan"
+msgstr "Ebligita"
 
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
-msgstr "Dijumpai kegagalan  {$ ctrl.model.deleted.failures $}."
+msgstr "Kaptis {$ ctrl.model.deleted.failures $} failures."
 
 msgid "Encrypted"
-msgstr "Encrypted (terenkripsi)"
+msgstr "Ĉifrita"
 
 msgid "Enter an Image Description"
-msgstr "Masukkan Image Description"
+msgstr "Entajpu Bildo Priskribon"
 
 msgid "Enter an Image name"
-msgstr "Masukkan nama Image"
+msgstr "Entajpu Bildo Nomo"
 
 msgid "Ephemeral Disk"
-msgstr "Disk bersifat sementara"
+msgstr "Provizora Disko"
 
 msgid "Error"
-msgstr "Error (kesalahan)"
+msgstr "Eraro"
 
 msgid "Error Deleting"
-msgstr "Error Deleting (kesalahan menghapus)"
+msgstr "Eraro forigi"
 
 msgid "Ether Type"
-msgstr "Ether Type"
+msgstr "Ether Tipo"
 
 msgid ""
 "Exactly one regular Neutron port. Has to be provided when\n"
 "  the trunk is created. Cannot be changed during the trunk's life."
 msgstr ""
-"Tepatnya satu port Neutron biasa. Harus disediakan kapan\n"
-"   batang dibuat. Tidak bisa diubah selama ada trunk."
+"Precise unu regula Neutron pordo. Devas esti provizita kiam\n"
+" la trunko estas kreata. Ne eblas ŝanĝi ĝin dum la trunko estas viva."
 
 msgid "Example body text"
-msgstr "Example body text (teks contoh tubuh)"
+msgstr "Ekzemplo teksta korpo  "
 
 msgid "Existing Scheduler Hints"
-msgstr "Existing Scheduler Hints ((petunjuk scheduler yang ada)"
+msgstr "Ekzistantaj Vicigilo Aludoj"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
-msgstr "Ekstensi tidak diaktifkan: %(extension)s."
+msgstr "Etendo ne estas ebligita %(extension)s."
 
 msgid "External Network"
-msgstr "External Network (jaringan eksternal)"
+msgstr "Ekstera reto"
 
 msgid "File"
-msgstr "File"
+msgstr "Dosiero"
 
 #, python-format
 msgid "File %(name)s uploaded."
-msgstr "File %(name)s diupload."
+msgstr "Dosiero %(name)s alŝutita."
 
 #, python-format
 msgid "File %(path)s uploaded."
-msgstr "File %(path)s diupload."
+msgstr "Dosiero %(path)s alŝutita."
 
 msgid "File Name"
-msgstr "Nama file"
+msgstr "Dosiero Nomo"
 
 msgid "Filename"
-msgstr "Filename (nama file)"
+msgstr "Dosiernomo"
 
 msgid "Fingerprint"
-msgstr "Fingerprint (sidik jari)"
+msgstr "Fingrospuro"
 
 msgid "Flavor"
-msgstr "Flavor"
+msgstr "Variaĵo"
 
 msgid "Flavor Name"
-msgstr "Nama flavor"
+msgstr "Variaĵo Nomo"
 
 msgid "Flavors"
-msgstr "Flavors"
+msgstr "Variaĵoj"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 msgstr ""
-"Flavor mengelola ukuran untuk komputasi, memori dan kapasitas penyimpanan "
-"dari instance."
+"Variaĵoj mastrumas la amplekson por la komputa, memora kaj memorila kapacito "
+"de la apero."
 
 msgid "Floating IP"
-msgstr "IP mengambang"
+msgstr "Glita IP"
 
 msgid "Floating IPs"
-msgstr "IP mengambang (plural)"
+msgstr "Glitaj IPs"
 
 msgid "Focused input"
-msgstr "masukan terfokus"
+msgstr "Fokusita Enigo"
 
 msgid "Folder"
-msgstr "Folder"
+msgstr "Dosierujo"
 
 #, python-format
 msgid "Folder %(name)s created."
-msgstr "Folder %(name)s dibuat."
+msgstr "Dosierujo %(name)s kreita."
 
 msgid "Folder Name"
-msgstr "Nama Folder"
+msgstr "Dosiero Nomo"
 
 msgid ""
 "For ports on provider networks you may choose the special\n"
@@ -1132,26 +1144,23 @@ msgid ""
 "  segmentation type and ID. This is useful when the switch is incapable of\n"
 "  remapping (tag pop-push) for example as usual for Ironic instances."
 msgstr ""
-"Untuk port pada jaringan penyedia anda bisa memilih \n"
-"   tipe segmentasi yang spesial <em>inherit</em>. Kemudian tipe segmentasi "
-"subport\n"
-"   dan ID akan diturunkan secara otomatis dari \n"
-"   tipe segmentasi dan ID jaringan penyedia. Ini berguna saat switch tidak "
-"mampu\n"
-"   pemetaan ulang (tag pop-push) misalnya seperti biasa untuk  Ironic "
-"instance."
+"Por pordoj je la provizanto retoj vi povus selekti la specialan\n"
+" segmento tipon <em>heredi </em>. Tiam la subpordo segmento\n"
+" tipo kaj ID estos automate heredita de la provizanto reto segmento \n"
+" tipo kaj ID. Tiu estas oportuna kiam la ŝaltilo malkapablas\n"
+" remapigi (marko pop-push) ekzemple kiel kutime por Ironic aperojn.  "
 
 msgid "Form"
-msgstr "Form"
+msgstr "Formo"
 
 msgid "Form Output"
-msgstr "Form Output"
+msgstr "Formo Eligo"
 
 msgid "Format"
-msgstr "Format"
+msgstr "Formato"
 
 msgid "Forms"
-msgstr "Forms (form)"
+msgstr "Formoj"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -1160,60 +1169,60 @@ msgid ""
 "authorized_keys</samp>\n"
 "  file."
 msgstr ""
-"Dari sistem Windows, Anda dapat menggunakan PuTTYgen untuk membuat kunci "
-"private / publik.\n"
-"   Gunakan Putty Key Generator untuk membuat dan menyimpan kunci, lalu copy\n"
-"   kunci publik dalam kotak merah yang disorot untuk file Anda  <samp>.ssh/"
-"authorized_keys</samp> .\n"
-" ."
+"De Vindozo sistemo, vi povas uzi PUTTGen por krei privataj/publikaj "
+"ŝlosiloj.\n"
+" Uzu la PuTTY Ŝlosilo Generilo por krei kaj savi la ŝlosiloj,  tiam kopiu\n"
+" la publika ŝlosilo en la ruĝa emfazita fenestro al via <samp>.ssh/"
+"authorized_keys</samp>\n"
+" dosiero."
 
 msgid "Generic Table View:"
-msgstr "Generic Table View: (penampilan tabel generik)"
+msgstr "Genera Tabelo Vido:"
 
 msgid "Global Actions:"
-msgstr "Global Actions: (tindakan global)"
+msgstr "Ĝeneralaj Agoj:"
 
 msgid "Group"
-msgstr "Group (kelompok)"
+msgstr "Grupo"
 
 msgid "Groups"
-msgstr "Groups (kelompok)"
+msgstr "Grupoj"
 
 msgid "Hash"
-msgstr "Hash"
+msgstr "Haketaĵo"
 
 msgid "Heading 1"
-msgstr "Heading 1"
+msgstr "Titolo 1"
 
 msgid "Heading 2"
-msgstr "Heading 2"
+msgstr "Titolo 2"
 
 msgid "Heading 3"
-msgstr "Heading 3"
+msgstr "Titolo 3"
 
 msgid "Heading 4"
-msgstr "Heading 4"
+msgstr "Titolo 4"
 
 msgid "Heading 5"
-msgstr "Heading 5"
+msgstr "Titolo 5"
 
 msgid "Heading 6"
-msgstr "Heading 6"
+msgstr "Titolo 6"
 
 msgid "Home"
-msgstr "Home (rumah)"
+msgstr "Hejmo"
 
 msgid "Horizontal Definition List"
-msgstr "Daftar definisi horisontal"
+msgstr "Horizontala Difino Listo"
 
 msgid "Host ID"
-msgstr "Host ID"
+msgstr "Gastiganto ID"
 
 msgid "Hypervisor"
-msgstr "Hypervisor"
+msgstr "Virtuala-maŝinmonitoro"
 
 msgid "Hypervisors"
-msgstr "Hypervisors"
+msgstr "Virtualaj maŝinmonitoroj"
 
 msgid "ID"
 msgstr "ID"
@@ -1222,39 +1231,38 @@ msgid "IP"
 msgstr "IP"
 
 msgid "IP Addresses"
-msgstr "IP Addresses (alamat IP)"
+msgstr "IP Adresoj"
 
 msgid "ISO"
 msgstr "ISO"
 
 msgid "ISO - Optical Disk Image"
-msgstr "ISO - Optical Disk Image"
+msgstr "ISO - Lumdisko Imago"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
 msgstr ""
-"Jika jaringan terbagi, maka semua pengguna dalam proyek dapat mengakses "
-"jaringan."
+"Se la subreto estas opuzita, tiam ĉiuj uzantoj en la projekto povas aliri la "
+"reton."
 
 msgid ""
 "If a security group is not associated with an instance before it is "
 "launched, then you will have very limited access to the instance after it is "
 "deployed. You will only be able to access the instance from a VNC console."
 msgstr ""
-"Jika kelompok keamanan tidak terkait dengan sebuah instance sebelum "
-"diluncurkan, maka Anda akan memiliki akses yang sangat terbatas untuk "
-"instance setelah digunakan. Anda hanya akan dapat mengakses instance dari "
-"konsol VNC."
+"Se sekureco grupo ne estas asociita kun aperon antaŭ ĝi estas lanĉita, tiam "
+"via havas ege limitan aliron al la apero post ĝi estas disponigita. Vi tiam "
+"nur povos aliri la aperon de VNC konzolo."
 
 msgid "If set to 'Yes' then the image cannot be deleted."
-msgstr "Jika diatur ke 'Yes' maka image tidak dapat dihapus."
+msgstr "Se agordtita al 'Jes' tiam la bildo ne povas esti forigita."
 
 msgid ""
 "If uploading the image via a HTTP URL the image location must be accessible "
 "to the Image Service and be a URL direct to the image binary."
 msgstr ""
-"Jika meng-upload image melalui URL HTTP lokasi image harus dapat diakses "
-"oleh Layanan Image dan menjadi URL langsung ke biner image."
+"Se alŝuti la bildon via HTTP URL la bildo loko devas esti alirebla al la "
+"Bildo Servo kaj esti URL direkte al la bilda dosiero.  "
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -1262,133 +1270,131 @@ msgid ""
 "for the instance is the same availability zone where your bootable volume "
 "resides."
 msgstr ""
-"Jika Anda memilih zona ketersediaan dan berencana untuk menggunakan opsi "
-"'boot from volume' di Source step, pastikan bahwa zona ketersediaan Anda "
-"pilih instance adalah zona ketersediaan yang sama dimana volume yang "
-"bootable Anda berada."
+"Se via elektas disponebla zonon kaj planas uzi la 'praŝargu de volumo' "
+"opcion en a Fonto paŝo, ebligu ke la disponebla zono vi selektis por la "
+"aperon estas la sama disponebla zono kie viaj praŝargebla volumoj lokiĝas."
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
 msgstr ""
-"Jika Anda ingin membuat sebuah instance yang menggunakan penyimpanan fana, "
-"yang berarti data instance hilang ketika instance dihapus, lalu pilih salah "
-"satu sumber boot berikut:"
+"Se vi volas krei aperon kie uzas sindetrua memorilon, supozi ke la apero "
+"datumo estas nuligita kiam la apero estas forigita, tiam elekti unu el la "
+"sekvantaj praŝargo fontojn:"
 
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
 "instance data is saved when the instance is deleted, then select one of the "
 "following boot options:"
 msgstr ""
-"Jika Anda ingin membuat sebuah instance yang menggunakan penyimpanan "
-"persisten, artinya data instance disimpan ketika instance dihapus, kemudian "
-"pilih salah satu opsi boot berikut:"
+"Se vi volas krei aperon kie uzas persistan memorilon, supozi ke la apero "
+"datumo estas savita kiam la apero estas forigita, tiam elektu unu el la "
+"sekvantaj praŝargo fontojn:"
 
 msgid "Image"
-msgstr "Image"
+msgstr "Bildo"
 
 #, python-format
 msgid "Image %s was successfully created."
-msgstr "Image %s telah berhasil dibuat."
+msgstr "Bildo %s estis sukcese kreita."
 
 #, python-format
 msgid "Image %s was successfully updated."
-msgstr "Image %s telah berhasil diperbarui."
+msgstr "Bildo %s sukcese ĝisdatigita."
 
 msgid "Image Description"
-msgstr "Image Description"
+msgstr "Bildo Priskribon"
 
 msgid "Image Detail"
-msgstr "Detail image"
+msgstr "Bildo Detajlo"
 
 msgid "Image Details"
-msgstr "Detail image"
+msgstr "Bildo Detajlojn"
 
 msgid "Image Name"
-msgstr "Nama image."
+msgstr "Bildo Nomo"
 
 msgid "Image Requirements"
-msgstr "Persyaratan image"
+msgstr "Bildo Postuloj"
 
 msgid "Image Sharing"
-msgstr "Image Sharing"
+msgstr "Bildo Opuzi"
 
 msgid "Image Source"
-msgstr "Sumber Image"
+msgstr "Bildo Fonto"
 
 msgid "Image from Other Project - Non-Public"
-msgstr "Image dari Other Project - Non-Public"
+msgstr "Bildo de alia Projekto - Ne-Publika"
 
 msgid "Images"
-msgstr "Images"
+msgstr "Bildoj"
 
 msgid "Impact on your quota"
-msgstr "Dampak terhadap kuota"
+msgstr "Efekto je via kvoto."
 
 msgid "Import Key Pair"
-msgstr "Impor Key Pair (pasangan kunci)"
+msgstr "Importu Ŝlosilparon"
 
 msgid "Import Public Key"
-msgstr "Impor Public Key"
+msgstr "Importu Publikan Ŝlosilon"
 
 msgid "Indicators"
-msgstr "Indicators (indikator)"
+msgstr "Indikatoroj"
 
 msgid "Info"
-msgstr "Info"
+msgstr "Informo"
 
 msgid "Info Anchor"
-msgstr "Info Anchor (info jangkar)"
+msgstr "Informa Ankro"
 
 msgid "Info Button"
-msgstr "Info Button (Info tombol)"
+msgstr "Informa Butono"
 
 msgid "Inline"
-msgstr "Inline"
+msgstr "Enteksto"
 
 msgid "Inline Form"
-msgstr "Inline Form (form inline)"
+msgstr "Enteksta Formo"
 
 msgid "Input Sizes"
-msgstr "Input Sizes (masukan ukuran)"
+msgstr "Enigo Grandoj"
 
 msgid "Input States"
-msgstr "Input States (masukan kondisi)"
+msgstr "Enigo Statoj"
 
 msgid "Input addons"
-msgstr "masukan addons"
+msgstr "Enigo Aldonoj"
 
 msgid "Input error"
-msgstr "kesalahan input"
+msgstr "Enigo eraro"
 
 msgid "Input success"
-msgstr "keberhasilan masukan"
+msgstr "Enigo sukceso"
 
 msgid "Input warning"
-msgstr "masukan peringatan"
+msgstr "Enigo Avero"
 
 msgid ""
 "Inside the instance the parent port's network will always\n"
 "  be presented as the untagged network. It will be available early from\n"
 "  the moment of bootup."
 msgstr ""
-"Di dalam instance jaringan port induk akan selalu ada\n"
-"   disajikan sebagai jaringan untagged. Ini akan tersedia sejak awal\n"
-"   saat bootup"
+"Ene la aperon la reto de la patra pordo ĉiam\n"
+" estas prezentita kiel la nemarkita reto. Ĝi estos disponebla frue de la\n"
+" momento de praŝargo."
 
 msgid "Instance"
-msgstr "Instance"
+msgstr "Apero"
 
 msgid "Instance Name"
-msgstr "Nama instance"
+msgstr "Apero Nomo"
 
 msgid "Instance Snapshot"
-msgstr "Snapshot instance"
+msgstr "Apero Savkopio"
 
 msgid "Instance count is required and must be an integer of at least 1"
-msgstr ""
-"Instance count (jumlah instance) diperlukan dan harus integer minimal 1"
+msgstr "Apero nombrado estas postulita kaj devas esti entjero de minimume 1 "
 
 msgid ""
 "Instance source is the template used to create an instance.\n"
@@ -1396,50 +1402,47 @@ msgid ""
 "    a volume or a volume snapshot (if enabled).\n"
 "    You can also choose to use persistent storage by creating a new volume."
 msgstr ""
-"Sumber instance adalah template yang digunakan untuk membuat sebuah "
-"instance.\n"
-"     Anda dapat menggunakan image, snapshot dari sebuah instance (image "
-"snapshot),\n"
-"     volume atau snapshot volume (jika diaktifkan).\n"
-"     Anda juga dapat memilih untuk menggunakan penyimpanan persisten dengan "
-"menciptakan volume baru."
+"Apero fonto estas ŝablono uzita por krei aperon.\n"
+" Vi povas uzi bildon, savkopion de apero (bildo savkopio),\n"
+" volumo aŭ volumo savkopio (se ebligita).\n"
+" Vi ankaŭ povas elekti uzi persistan memorilon per krei novan volumon."
 
 msgid "Instances"
-msgstr "Instances"
+msgstr "Aperoj"
 
 msgid "Interfaces"
-msgstr "Interfaces (antaramuka)"
+msgstr "Interfacoj"
 
 msgid "Is Public"
-msgstr "Is Public"
+msgstr "Estas Publika"
 
 msgid "Item Actions:"
-msgstr "Item Actions: (tindakan item)"
+msgstr "Eraj Agoj:"
 
 msgid "Jumbotron"
-msgstr "Jumbotron"
+msgstr "Ekranego"
 
 msgid "Kernel"
-msgstr "Kernel"
+msgstr "Kerno"
 
 msgid "Kernel ID"
-msgstr "ID Kernel"
+msgstr "Kerno ID"
 
 msgid "Key Pair"
-msgstr "Pasangan kunci"
+msgstr "Ŝlosilo Paro"
 
 msgid "Key Pair Name"
-msgstr "Key Pair Name"
+msgstr "Ŝlosilparo Nomo"
 
 msgid ""
 "Key Pair Name\n"
 "        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 msgstr ""
-"Key Pair Name\n"
+"Ŝlosilparo Nomo\n"
 "        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Key Pairs"
-msgstr "Key Pairs"
+msgstr "Ŝlosilo Paroj"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1447,21 +1450,21 @@ msgid ""
 "key into the\n"
 "      space provided."
 msgstr ""
-"Pasangan kunci (key pair) bagaimana Anda login ke instance Anda setelah "
-"diluncurkan.\n"
-"       Pilih nama pasangan kunci Anda akan mengenali dan pastekunci publik "
-"SSH  Anda ke dalam\n"
-"       ruang yang disediakan."
+"Ŝlosilparoj estas kiel vi ensalutas al vian aperon post kiam ĝi estas "
+"lanĉita.\n"
+"      Elektu ŝlosilparo nomon kiun vi rekonos kaj alglui vian SSH publika "
+"ŝlosilo en la \n"
+"      spaco provizita."
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
 "      Choose a key pair name you will recognize.\n"
 "      Names may only include alphanumeric characters, spaces, or dashes."
 msgstr ""
-"Pasangan kunci bagaimana Anda login ke instance Anda setelah diluncurkan.\n"
-"       Pilih nama pasangan kunci dimana Anda akan mengenali.\n"
-"       Nama hanya dapat mencakup karakter alfanumerik, spasi, atau dashes "
-"(tanda hubun)g (-)"
+"Ŝlosilparoj estas kiel vi ensalutas al vian aperon post kiam ĝi estas "
+"lanĉita.\n"
+"      Elektu ŝlosilparo nomon kiun vi rekonos.\n"
+"      Nomoj inkludus nur alfanumera literoj, spacetoj, aŭ streketoj."
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1469,125 +1472,124 @@ msgid ""
 "into the\n"
 "  space provided."
 msgstr ""
-"Key Pairs (pasangan kunci) adalah bagaimana Anda login ke instance Anda "
-"setelah diluncurkan.\n"
-"   Pilih nama pasangan kunci yang akan Anda kenali dan tempel kunci publik "
-"SSH Anda ke dalam\n"
-"   ruang yang disediakan."
+"Ŝlosilparoj estas kiel vi ensalutas al vian aperon post kiam ĝi estas "
+"lanĉita.\n"
+" Elektu ŝlosilparo nomon kiun vi rekonos kaj alglui vian SSH publikan "
+"ŝlosilon en la \n"
+"      spaco provizita."
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
 "  Choose a key pair name you will recognize.\n"
 "  Names may only include alphanumeric characters, spaces, or dashes."
 msgstr ""
-"Key Pairs (pasangan kunci) adalah bagaimana Anda login ke instance Anda "
-"setelah diluncurkan.\n"
-"   Pilih nama pasangan kunci yang akan Anda kenali.\n"
-"   Nama mungkin hanya menyertakan karakter alfanumerik, spasi, atau tanda "
-"hubung."
+"Ŝlosilparoj estas kiel vi ensalutas al vian aperon post kiam ĝi estas "
+"lanĉita.\n"
+"Elektu ŝlosilparo nomon kiun vi rekonos.\n"
+" Nomoj inkludus nur alfanumera literoj, spacetoj, aŭ streketoj."
 
 #, python-format
 msgid "Key pair %(name)s was successfully created."
-msgstr "Key pair %(name)s berhasil dibuat."
+msgstr "Ŝlosilparo %(name)s estis sukcese kreita."
 
 msgid "Key pair already exists."
-msgstr "Key Pairs (pasangan kunci) sudah ada."
+msgstr "Ŝlosilparo jam ekzistas."
 
 msgid "Keypair already exists or name contains bad characters."
-msgstr "Keypair sudah ada atau nama berisi karakter buruk."
+msgstr "Ŝlosilparo jam ekzistas aŭ nomo enhavas mulĝustajn literojn"
 
 msgid "Killed"
-msgstr "Killed"
+msgstr "Ĉesigita  "
 
 msgid "Large Modal"
-msgstr "Model besar"
+msgstr "Granda Modal"
 
 msgid "Large button"
-msgstr "Large button (tombol besar)"
+msgstr "Granda butono"
 
 msgid "Large input"
-msgstr "masukan yang besar"
+msgstr "Granda enigo"
 
 msgid "Launch"
-msgstr "Meluncurkan"
+msgstr "Startu"
 
 msgid "Launch Instance"
-msgstr "Luncurkan instance"
+msgstr "Startu Aperon"
 
 msgid "Learn more"
-msgstr "Learn more (belajarlah lebih dalam)"
+msgstr "Lernu pli"
 
 msgid "Left"
-msgstr "Left (kiri)"
+msgstr "Maldekstra"
 
 msgid "Legend"
-msgstr "Legend"
+msgstr "Klarigeto"
 
 msgid "Library"
-msgstr "Library (perpustakaan)"
+msgstr "Biblioteko"
 
 msgid "Line Charts"
-msgstr "Line Charts (grafik garis)"
+msgstr "Linio Diagramoj"
 
 msgid "Link"
-msgstr "Link (tautan)"
+msgstr "Ligo"
 
 msgid "List Function:"
-msgstr "List Function: (fungsi daftar)"
+msgstr "Listo Funkcio:"
 
 msgid "List group item heading"
-msgstr "Daftar kelompok heading item"
+msgstr "Listigu grupoero titolo"
 
 msgid "List groups"
-msgstr "List groups (daftar kelompok)"
+msgstr "Listigu grupojn"
 
 msgid "Live Edit Schema Form Examples"
-msgstr "Live Edit Schema Form Examples"
+msgstr "Tuja RedaktSkemo FormularEkzemploj"
 
 msgid "Load Balancer Pool"
-msgstr "Pool load balancer"
+msgstr "Ŝarĝodistribuilo Komunaĵo"
 
 msgid "Load Balancer Pool Member"
-msgstr "Anggota pool load balancer"
+msgstr "Ŝarĝodistribuilo Komunaĵo Membro"
 
 msgid "Load Balancer Pool Members"
-msgstr "Anggota pool load balancer (plural)"
+msgstr "Ŝarĝodistribuilo  Komunaĵo Membroj"
 
 msgid "Load Balancer Pools"
-msgstr "Pool load balancer (plural)"
+msgstr "Ŝarĝodistribuilo Komunaĵoj"
 
 msgid "Load Function:"
-msgstr "Load Function: (fungsi must)"
+msgstr "Ŝarĝu Funkcion:"
 
 msgid "Loading"
-msgstr "Loading (pemuatan)"
+msgstr "Ŝargi"
 
 msgid "Loading ports... Please Wait"
-msgstr "Loading ports... Please Wait"
+msgstr "Ŝargi pordojn... Bonvolu Atendu"
 
 msgid "Loading trunk... Please Wait"
-msgstr "Loading trunk... Please Wait"
+msgstr "Ŝargi trunkon... Bonvolu Atendu"
 
 msgid "Location"
-msgstr "Lokasi"
+msgstr "Loko"
 
 msgid "Look, I'm in a large well!"
-msgstr "Dengar, aku di sebuah well besar!"
+msgstr "Vidu, mi estas en granda puto!"
 
 msgid "Look, I'm in a small well!"
-msgstr "Dengar, aku di sebuah well kecil!"
+msgstr "Vidu, mi estas en eta puto!"
 
 msgid "Look, I'm in a well!"
-msgstr "Dengar, aku di sebuah well!"
+msgstr "Vidu, mi estas en puto!"
 
 msgid "MAC Address"
-msgstr "MAC Address"
+msgstr "MAC Adreso"
 
 msgid "MacVTap"
 msgstr "MacVTap"
 
 msgid "Manual"
-msgstr "Panduan"
+msgstr "Permane"
 
 msgid "Max Burst Kbits"
 msgstr "Max Burst Kbits"
@@ -1596,34 +1598,34 @@ msgid "Max Kbps"
 msgstr "Max Kbps"
 
 msgid "Max Port"
-msgstr "Max Port"
+msgstr "Max Pordo"
 
 msgid "Max. Size (bytes)"
-msgstr "Max. Size (bytes)"
+msgstr "Max. Grando (bajtoj)"
 
 msgid "Members"
-msgstr "Anggota"
+msgstr "Membroj"
 
 msgid "Messages"
-msgstr "Messages (pesan)"
+msgstr "Mesaĝoj"
 
 msgid "Metadata"
-msgstr "Metadata"
+msgstr "Metadatumo"
 
 msgid "Metadata Definition"
-msgstr "Metadata Definition"
+msgstr "Metadatumo Difino"
 
 msgid "Metadata Definitions"
-msgstr "Metadata Definitions"
+msgstr "Metadatumaj Difinoj"
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
 "    The maximum length for each metadata key and value is 255 characters."
 msgstr ""
-"Metadata adalah kumpulan pasangan key-value yang terkait dengan sebuah "
-"instance.\n"
-"     Panjang maksimum untuk setiap key metadata dan nilai adalah 255 "
-"karakter."
+"Metadaumo estas aro da ŝlosilo-valoro paroj asociita kun apero.\n"
+" La maksimuma longo por ĉiuj metadatuma ŝlosilo kaj valoro estas 255 "
+"signoj.\n"
+" "
 
 msgid ""
 "Metadata is used to provide additional information about the\n"
@@ -1631,190 +1633,186 @@ msgid ""
 "    In some installations this information may affect how the instance is\n"
 "    deployed or behaves."
 msgstr ""
-"Metadata digunakan untuk memberikan informasi tambahan tentang\n"
-"     image. Kadang-kadang informasi ini hanya digunakan untuk menyortir dan "
-"melihat.\n"
-"     Dalam beberapa instalasi informasi ini dapat mempengaruhi bagaimana "
-"instance adalah\n"
-"     dikerahkan atau berperilaku."
+"Metadaumo estas uzita por provizi adonan informon pri la\n"
+" bildo. Kelkfoje tiu informo estas nur uzota por ordigi kaj vidi.\n"
+" En kelkaj instalojn tiu informo eble efektus kiel la apero estas\n"
+" disponigita aŭ kondutas."
 
 msgid "Metadata was successfully updated."
-msgstr "Metadata telah berhasil diperbarui."
+msgstr "Metadatumo estis sukcese ĝisdatigita."
 
 msgid "Middle"
-msgstr "Middle (tengah)"
+msgstr "Meza"
 
 msgid "Min Disk (GB)"
-msgstr "Min Disk (GB)"
+msgstr "Min Disko (GB)"
 
 msgid "Min Kbps"
 msgstr "Min Kbps"
 
 msgid "Min Port"
-msgstr "Min Port"
+msgstr "Min Pordo"
 
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
 
 msgid "Min. Disk"
-msgstr "Min. Disk"
+msgstr "Min. Disko"
 
 msgid "Min. RAM"
 msgstr "Min. RAM"
 
 msgid "Min. Size (bytes)"
-msgstr "Min. Size (bytes)"
+msgstr "Min. Grando (bajtoj)"
 
 msgid "Mini button"
-msgstr "Mini button (tombol mini)"
+msgstr "Minimuma butono"
 
 msgid "Minimum Disk"
-msgstr "Minimum Disk"
+msgstr "Minimuma Disko"
 
 msgid "Minimum Disk (GB)"
-msgstr "Minimum Disk (GB)"
+msgstr "Minimuma Disko (GB)"
 
 msgid "Minimum RAM"
-msgstr "Minimum RAM"
+msgstr "Minimuma RAM"
 
 msgid "Minimum RAM (MB)"
-msgstr "Minimum RAM (MB)"
+msgstr "Minimuma RAM (MB)"
 
 msgid "Modals"
-msgstr "Model"
+msgstr "Modals"
 
 msgid "Model"
-msgstr "Model"
+msgstr "Modelo"
 
 msgid "Month"
-msgstr "Month"
+msgstr "Monato"
 
 msgid ""
 "Must not be the parent or a subport of any other\n"
 "  trunks."
 msgstr ""
-"Tidak boleh menjadi induk atau subport dari trun yang lain.\n"
-"   "
+"Ne devas esti la patro aŭ subpordo de iu ajn aliaj\n"
+" trunkoj."
 
 msgid "Name"
-msgstr "Name (nama)"
+msgstr "Nomo"
 
 msgid "Name/ID"
-msgstr "Name/ID"
+msgstr "Nomo/ID"
 
 msgid "Names:"
-msgstr "Names: (nama)"
+msgstr "Nomoj:"
 
 msgid "Navbar"
-msgstr "Navbar"
+msgstr "NavTabo"
 
 msgid "Navs"
-msgstr "Navs"
+msgstr "Nav-oj"
 
 msgid "Network"
-msgstr "Network (jaringan)"
+msgstr "Reto"
 
 msgid "Network Health Monitor"
-msgstr "Monitor kesehatan jaringan"
+msgstr "Reto Sano Monitoro"
 
 msgid "Network Health Monitors"
-msgstr "Monitor kesehatan jaringan (plural)"
+msgstr "Reto Sano Monitoroj"
 
 msgid "Network ID"
-msgstr "Network ID"
+msgstr "Reto ID"
 
 msgid "Network Port"
-msgstr "Port jaringan"
+msgstr "Retpordo"
 
 msgid "Network Ports"
-msgstr "Port jaringan"
+msgstr "Retaj Pordoj"
 
 msgid "Network Router"
-msgstr "Router jaringan"
+msgstr "Reto Enkursigilo"
 
 msgid "Network Routers"
-msgstr "Router jaringan (plural)"
+msgstr "Reto Enkursigiloj"
 
 msgid "Network Subnet"
-msgstr "Subnet jaringan"
+msgstr "Reto Subreto"
 
 msgid "Network Subnets"
-msgstr "Subnet jaringan (plural)"
+msgstr "Reto Subretoj"
 
 msgid "Network characteristics"
-msgstr "Karakteristik jaringan"
+msgstr "Reto karaktero:"
 
 msgid "Networks"
-msgstr "Jaringan"
+msgstr "Retoj"
 
 msgid ""
 "Networks of subports may become available later than the\n"
 "  moment of bootup. But they will be available after the trunk reached\n"
 "  the <em>ACTIVE</em> status."
 msgstr ""
-"Jaringan subport mungkin tersedia lebih lambat dari pada\n"
-"   saat bootup. Tapi mereka akan tersedia setelah trunk tercapai\n"
-"   status <em>ACTIVE</ em>."
+"Retoj de subpordoj povus iĝi disponebla post la \n"
+" momento de praŝargo. Sed ili estos disponebla post la trunko atingis\n"
+" la <em>AKTIVA</em> statuson."
 
 msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "Jaringan menyediakan saluran komunikasi untuk instance di cloud."
+msgstr "Retoj provizas la komunikadajn kanalojn por aperoj en la nubo."
 
 msgid "New File Contents"
-msgstr "Konten file baru"
+msgstr "Nova Dosiero Enhavo"
 
 msgid "Newer"
-msgstr "Newer"
+msgstr "Plinova"
 
 msgid "Next"
-msgstr "Next (berikutnya)"
+msgstr "Sekva"
 
 msgid "No"
-msgstr "Tidak"
+msgstr "Ne"
 
 msgid "No available items"
-msgstr "Tidak ada item yang tersedia"
+msgstr "Nenioj disponeblaj elementoj"
 
 msgid "No available scheduler hints"
-msgstr "Petunjuk scheduler yang tidal tersedia"
+msgstr "Neniuj disponeblaj vicigilo aludoj"
 
 msgid "No description available."
-msgstr "Deskripsi tidak tersedia."
+msgstr "Neniu priskribon havebla."
 
 msgid "No existing scheduler hints"
-msgstr "Tidak ada petunjuk scheduler yang ada"
+msgstr "Neniuj ekzistantaj vicigilo aludoj"
 
 msgid "No items to display."
-msgstr "Tidak ada item untuk ditampilkan."
+msgstr "Neniuj elementoj por vidigi."
 
 msgid ""
 "No subport can be the parent or a subport of any other\n"
 "  trunks."
 msgstr ""
-"Tidak ada subport yang bisa menjadi induk atau subport dari trunk yang "
-"lain.\n"
-"   "
+"Neniu subpordo povas esti la patro aŭ subpordo de iu ajn aliaj\n"
+" trunkoj."
 
 msgid "None"
-msgstr "None (tak ada)"
+msgstr "Nenion"
 
 msgid "Normal"
-msgstr "Normal"
+msgstr "Normala"
 
 msgid "Not Set"
-msgstr "Not Set (tanpa pengaturan)"
+msgstr "Ne Agordita"
 
 msgid "Not public"
-msgstr "Not public"
+msgstr "Ne Publika"
 
 msgid ""
 "Note that most guest operating systems will not\n"
 "  automatically configure and bring up the VLAN subinterfaces belonging\n"
 "  to subports. You may have to do that yourself. For example:"
 msgstr ""
-"Perhatikan bahwa sebagian besar sistem operasi guest tidak\n"
-"   secara otomatis mengkonfigurasi dan memunculkan subinterface VLAN yang "
-"memiliki\n"
-"   subport. Anda mungkin harus melakukannya sendiri. Sebagai contoh:"
+"Notu ke plej da gastiganto operaciumaj sistemoj ne automate\n"
+" konfiguras kaj funkciigas la VLAN subinterfacojn apartenante al\n"
+" la subpordoj. Vi devus fari tiun memstare. Ekzemple:"
 
 msgid ""
 "Note that some Neutron backends (notably the Open vSwitch\n"
@@ -1822,12 +1820,10 @@ msgid ""
 "  on the parent port.  Other backends may allow trunk creation at any\n"
 "  time during the life of a port."
 msgstr ""
-"Perhatikan bahwa beberapa backend Neutron (terutama Open vSwitch\n"
-"   based backend) hanya mengizinkan pembuatan trunk sebelum instance "
-"diluncurkan\n"
-"   pada port induk. Backends lainnya memungkinkan pembuatan trunk pada "
-"setiap\n"
-"   waktu selama ada port."
+"Notu ke kelkaj Neutron internaĵejoj (emfaze la Open vSwitch\n"
+" bazita internaĵejoj) nur permesas trunko kreadon antaŭ apero estas lanĉita\n"
+" je la patra pordo. Aliaj internaĵejoj permesus trunko kreadon iam ajn\n"
+" dum la vivo de la pordo."
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1835,20 +1831,20 @@ msgid ""
 "created\n"
 "          when the file is uploaded (to any depth of folders)."
 msgstr ""
-"Catatan: Delimiters ('{$ ctrl.model.DELIMETER $}') diperbolehkan dalam\n"
-"           nama file untuk menempatkan file baru ke dalam folder yang akan "
-"dibuat\n"
-"           ketika file diupload (untuk setiap kedalaman folder)."
+"Notu: Disigiloj ('{$ ctrl.model.DELIMETER $}') estas permesita en la\n"
+"          dosiero nomo por meti la novan dosieron en la dosierujo kiu estis "
+"kreita\n"
+"          kiam la dosiero estas alŝutata (al iu ajn profundo de dosierujoj)."
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
 msgstr ""
-"Catatan: Delimiters ('{$ ctrl.model.DELIMETER $}') diperbolehkan dalam\n"
-"           nama folder untuk membuat folder dalam (deep folder)"
+"Notu: Disigilo ('{$ ctrl.model.DELIMETER $}') ne estas permesita en la\n"
+"          dosiero nomo por krei profundajn dosierojn."
 
 msgid "Number"
-msgstr "Number (angka)"
+msgstr "Numero"
 
 msgid "OK"
 msgstr "OK"
@@ -1857,272 +1853,271 @@ msgid "OVA"
 msgstr "OVA"
 
 msgid "OVA - Open Virtual Appliance"
-msgstr "OVA - Open Virtual Appliance"
+msgstr "OVA - Nefermita Virtuala Aplikaĵo "
 
 msgid "Object"
-msgstr "Objek"
+msgstr "Objekto"
 
 msgid "Object Count"
-msgstr "Object Count (hitung objek)"
+msgstr "Objekto Nombro"
 
 msgid "Object Details"
-msgstr "Detail objek"
+msgstr "Objekto Detajloj"
 
 msgid "Objects"
-msgstr "Objek (plural)"
+msgstr "Objektoj"
 
 msgid "Ok"
 msgstr "Ok"
 
 msgid "Older"
-msgstr "Older"
+msgstr "Pliaĝa"
 
 msgid "One fine body…"
-msgstr "Satu tubuh baik saja ..."
+msgstr "Unu fajna korpo ..."
 
 msgid "One large body…"
-msgstr "Satu tubuh besar ..."
+msgstr "Unu granda korpo ..."
 
 msgid "One more separated link"
-msgstr "One more separated link (satu lagi tautan terpisah)"
+msgstr "Unu pli apartita ligo"
 
 msgid "One small body…"
-msgstr "Satu tubuh kecil ..."
+msgstr "Unu malgranda korpo ..."
 
 msgid "One super large body…"
-msgstr "Satu tubuh super besar ..."
+msgstr "Unu supergranda korpo ..."
 
 msgid "One tiny body…"
-msgstr "Satu tubuh kecil ..."
+msgstr "Unu eta korpo..."
 
 msgid "Open"
-msgstr "Open (buka)"
+msgstr "Malferma"
 
 msgid "Open Console"
-msgstr "Open Console (buka konsol)"
+msgstr "Malferma Konzolo"
 
 msgid "Option one is this"
-msgstr "Opsi satu adalah ini"
+msgstr "Opcio unu estas tiu"
 
 msgid "Option two can be something else"
-msgstr "Opsi dua dapat menjadi sesuatu yang lain"
+msgstr "Opcio du povas esti iu alia"
 
 msgid "Ordered"
-msgstr "Urutan"
+msgstr "Numerita"
 
 msgid "Other Input Types"
-msgstr "Other Input Types (tipe masukan lain)"
+msgstr "Aliaj Enigo Tipoj"
 
 msgid "Other lists"
-msgstr "Daftar lain"
+msgstr "Aliaj listoj"
 
 msgid "Overview"
-msgstr "Overview (Ikhtisar)"
+msgstr "Superrigardo"
 
 msgid "Owner"
-msgstr "Pemilik"
+msgstr "Posedanto"
 
 msgid "Ownership"
-msgstr "Ownership"
+msgstr "Propraĵo"
 
 msgid "PLOOP"
 msgstr "PLOOP"
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
-msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Inverscicla Disko"
 
 msgid "Pager"
-msgstr "Pager"
+msgstr "Tabulpaĝilo"
 
 msgid "Pagination"
-msgstr "Pagination (nomor halaman)"
+msgstr "Paĝonumerado"
 
 msgid "Panel content"
-msgstr "Panel content (panel konten)"
+msgstr "Panelo enhavo"
 
 msgid "Panel danger"
-msgstr "Panel danger (panel bahaya)"
+msgstr "Panelo danĝero"
 
 msgid "Panel footer"
-msgstr "Panel footer (panel footer)"
+msgstr "Panelo paĝopiedo"
 
 msgid "Panel heading"
-msgstr "Panel heading (panel judul)"
+msgstr "Panelo titolo"
 
 msgid "Panel info"
-msgstr "Panel info (panel info)"
+msgstr "Panelo info"
 
 msgid "Panel primary"
-msgstr "Panel primary (panel utama)"
+msgstr "Panelo unuaranga"
 
 msgid "Panel success"
-msgstr "Panel success (panel susses)"
+msgstr "Panelo sukeso"
 
 msgid "Panel warning"
-msgstr "Panel warning (panel peringatan)"
+msgstr "Panelo averto"
 
 msgid "Panels"
-msgstr "Panels (panel)"
+msgstr "Paneloj"
 
 msgid "Parent Port"
-msgstr "Parent Port"
+msgstr "Patra Pordo"
 
 msgid "Parent port"
-msgstr "Port induk"
+msgstr "Patra Pordo"
 
 msgid "Password"
-msgstr "Password"
+msgstr "Pasvorto"
 
 msgid "Pending Delete"
-msgstr "Pending Delete"
+msgstr "Pritraktota Forigo"
 
 msgid "Physical Network"
-msgstr "Physical Network (jaringan fisik)"
+msgstr "Fisika Reto"
 
 msgid "Pills"
-msgstr "Pills"
+msgstr "Piloloj"
 
 msgid "Please Wait"
-msgstr "Please Wait"
+msgstr "Bonvolu Atendu"
 
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
 "    Increase the Count to create multiple instances with the same settings."
 msgstr ""
-"Harap berikan hostname awal instance, zona ketersediaan dimana ia akan "
-"dikerahkan, dan jumlah instance.\n"
-"     Meningkatkan jumlah untuk menjadi beberapa instance dengan pengaturan "
-"yang sama."
+"Bonvolu provizu la komencan servilonomon por la apero, la disponeblo zono "
+"kie ĝi estos disponigita, kaj la apero nombro.\n"
+" Pligrandigu la Nombron por krei mulajn aperojn kun la samaj agordoj."
 
 msgid "Policy"
-msgstr "Kebijakan"
+msgstr "Regularo"
 
 msgid "Policy Details"
-msgstr "Policy Details"
+msgstr "Regularo Detajloj"
 
 msgid "Policy ID"
-msgstr "Policy ID"
+msgstr "Regularo ID"
 
 msgid "Policy Name"
-msgstr "Policy Name"
+msgstr "Regularo Nomo"
 
 msgid "Policy check failed."
-msgstr "Cek kebijakan gagal."
+msgstr "Regularo kontrolo malsukcesis."
 
 msgid "Popovers"
 msgstr "Popovers"
 
 msgid "Port ID"
-msgstr "Port ID"
+msgstr "Pordo ID"
 
 msgid "Ports can be created under a network by administrators."
-msgstr "Port dapat dibuat di bawah jaringan oleh administrator."
+msgstr "Pordoj povas esti kreita sub reto pere de administrantoj."
 
 msgid ""
 "Ports provide extra communication channels to your instances. You can select "
 "ports instead of networks or a mix of both."
 msgstr ""
-"Port menyediakan saluran komunikasi tambahan untuk instance Anda. Anda dapat "
-"memilih port daripada jaringan atau campuran keduanya."
+"Pordoj provizas ekstrajn komunikado kanalojn al viaj aperoj. Vi povas elekti "
+"pordojn anstataŭ de retoj aŭ miksaĵo de ambaŭ."
 
 msgid "Prefix"
-msgstr "Prefix"
+msgstr "Prefikso"
 
 msgid "Previous"
-msgstr "Previous (sebelumnya)"
+msgstr "Antaŭa"
 
 msgid "Primary"
-msgstr "Primary (utama)"
+msgstr "Unua"
 
 msgid "Primary Anchor"
-msgstr "Primary Anchor (jangkar utama)"
+msgstr "Unuaranga Ankro"
 
 msgid "Primary Button"
-msgstr "Primary Button (tombol utama)"
+msgstr "Unuaranga Butono"
 
 msgid "Primary Project"
-msgstr "Primary Project"
+msgstr "Ĉefa Projekto"
 
 msgid "Primary Project ID"
-msgstr "Primary Project ID"
+msgstr "Ĉefa Projekto ID"
 
 msgid "Primary Project Name"
-msgstr "Primary Project Name (nama proyek utama)"
+msgstr "Ĉefa Projekto Nomo"
 
 msgid "Private"
-msgstr "Private (pribadi)"
+msgstr "Privata"
 
 msgid "Private Key"
-msgstr "Private Key"
+msgstr "Privata Ŝlosilo"
 
 msgid "Profile"
-msgstr "Profile (profil)"
+msgstr "Profilo"
 
 msgid "Progress bars"
-msgstr "Progress bars (bar progres)"
+msgstr "Plenumskaloj"
 
 msgid "Project"
-msgstr "Project (proyek)"
+msgstr "Projekto"
 
 msgid "Project ID"
-msgstr "ID proyek"
+msgstr "Projekto ID"
 
 msgid ""
 "Project networks are created by users.\n"
 "    These networks are fully isolated and are project-specific."
 msgstr ""
-"Jaringan proyek yang dibuat oleh pengguna.\n"
-"     Jaringan ini sepenuhnya terisolasi dan project-specific"
+"Projekto retoj estas kreita pere de uzantoj.\n"
+" Tiuj retoj estas tute izolita kaj estas projekto-specifa."
 
 msgid "Projects"
-msgstr "Projects (proyek)"
+msgstr "Projektoj"
 
 msgid "Properties:"
-msgstr "Properties: (properti)"
+msgstr "Ecoj:"
 
 msgid "Protected"
-msgstr "Dilindungi"
+msgstr "Protektita"
 
 msgid "Protocol"
-msgstr " Protocol (protokol)"
+msgstr "Protokolo"
 
 msgid "Provide basic properties of the trunk to be created. All optional."
-msgstr "Berikan sifat dasar dari batang yang akan dibuat. Semua opsional"
+msgstr "Provizu bazajn ecojn el la trunko kreonta. Ĉiuj nedeviga."
 
 msgid "Provider Network"
-msgstr "Provider Network (provider jaringan)"
+msgstr "Provizanto Reto"
 
 msgid ""
 "Provider networks are created by administrators.\n"
 "    These networks map to an existing physical network in the data center."
 msgstr ""
-"Jaringan penyedia diciptakan oleh administrator.\n"
-"     Jaringan ini memetakan ke jaringan fisik yang ada di pusat data."
+"Provizanto retoj estas kreita pere de administrantoj.\n"
+" Tiuj retoj mapigas al ekzista fisika reto en la datumejo."
 
 msgid "Public"
-msgstr "Publik"
+msgstr "Publika"
 
 msgid "Public Access"
-msgstr "Akses publik"
+msgstr "Publika Aliro"
 
 msgid "Public Key"
-msgstr "Public Key (kunci publik)"
+msgstr "Publika Ŝlosilo"
 
 msgid "QCOW2"
 msgstr "QCOW2"
 
 msgid "QCOW2 - QEMU Emulator"
-msgstr "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU Imitilo"
 
 msgid "QoS Policies"
-msgstr "QoS Policies"
+msgstr "QoS Regularoj"
 
 msgid "QoS Policy"
-msgstr "QoS Policy"
+msgstr "QOS Regularo"
 
 msgid "Queued"
-msgstr "Queued"
+msgstr "Envicigita"
 
 msgid "RAM"
 msgstr "RAM"
@@ -2131,107 +2126,108 @@ msgid "RAW"
 msgstr "RAW"
 
 msgid "RX/TX Factor"
-msgstr "RX/TX Factor"
+msgstr "RX/TX Faktoro"
 
 msgid "Radios"
-msgstr "Radios (radios)"
+msgstr "Radioj"
 
 msgid "Radios, Checkboxes and Select"
-msgstr "Radios, Checkboxes and Select"
+msgstr "Radiobutonoj, Markobutonoj kaj Elekto"
 
 msgid "Ramdisk"
-msgstr "Ramdisk"
+msgstr "RAM-disko"
 
 msgid "Ramdisk ID"
-msgstr "ID Ramdisk"
+msgstr "Ram-disko ID"
 
 msgid "Raw"
-msgstr "Raw"
+msgstr "Kruda"
 
 msgid "Re-order items using drag and drop"
-msgstr "Menyusun ulang item menggunakan drag dan drop"
+msgstr "Re-ordigu elementojn ŝovmetante"
 
 msgid "Registered Resource Types"
-msgstr "Registered Resource Types (tipe sumber daya teregistrasi)"
+msgstr "Registritaj Risurco Tipoj"
 
 msgid "Remote"
-msgstr "Remote (jauh)"
+msgstr "Defora"
 
 msgid "Resource ID(s)"
-msgstr "Resource ID(s) (ID sumber daya)"
+msgstr "Risurco ID(j)"
 
 msgid "Revision Number"
-msgstr "Revision Number"
+msgstr "Revizio Numero"
 
 msgid "Right"
-msgstr "Right (kanan)"
+msgstr "Dekstra"
 
 msgid "Role"
-msgstr "Role (peran)"
+msgstr "Rolo"
 
 #, python-format
 msgid "Role %s was successfully created."
-msgstr "Role %s berhasil dibuat."
+msgstr "Rolo %s estis sukcese kreita."
 
 msgid "Role updated successfully."
-msgstr "Role berhasil diperbarui."
+msgstr "Rolon sukcese ĝisdatigita."
 
 msgid "Roles"
-msgstr "Roles (peran)"
+msgstr "Roloj"
 
 msgid "Root Disk"
-msgstr "Disk root"
+msgstr "Radika Disko"
 
 msgid "Rule ID"
-msgstr "Rule ID"
+msgstr "Regulo ID"
 
 msgid "Rules"
-msgstr "Rules"
+msgstr "Reguloj"
 
 msgid "STATUS"
-msgstr "STATUS"
+msgstr "STATUSO"
 
 msgid "Save"
-msgstr "Simpan"
+msgstr "Savu"
 
 msgid "Save changes"
-msgstr "Simpan perubahan"
+msgstr "Savu ŝanĝojn "
 
 msgid "Saving"
-msgstr "Saving"
+msgstr "Konservi"
 
 msgid "Scheduler Hints"
-msgstr "Petunjuk penjadwalan"
+msgstr "Planilo  Aludoj"
 
 msgid ""
 "Scheduler hints allow you to pass additional placement related information "
 "to the compute scheduler."
 msgstr ""
-"Petunjuk scheduler memungkinkan Anda untuk menyampaikan informasi terkait "
-"penempatan tambahan untuk scheduler komputasi."
+"Vicigilo aludoj permesas al vi pasu aldonajn lokadorilatan informon al la "
+"komputa vicigilo. "
 
 msgid "Schema"
-msgstr "Schema"
+msgstr "Skemo"
 
 msgid "Search"
-msgstr "Search (pencarian)"
+msgstr "Serĉu"
 
 msgid "Sections and Fieldsets"
-msgstr "Sections and Fieldsets"
+msgstr "Sekcioj kaj kampoaroj"
 
 msgid "Security"
-msgstr "Security (keamanan)"
+msgstr "Secureco"
 
 msgid "Security Group"
-msgstr "Kelompok keamanan"
+msgstr "Secureco Grupo"
 
 msgid "Security Groups"
-msgstr "Kelompok keamanan"
+msgstr "Secureco Grupoj"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
 msgstr ""
-"Kelompok keamanan project-specific dan tidak bisa dibagi di seluruh proyek."
+"Secureco Grupoj estas projekt-specifa kaj ne povas esti opuzita super "
+"projektoj."
 
 msgid ""
 "Security groups define a set of IP filter rules that determine how network "
@@ -2240,136 +2236,132 @@ msgid ""
 "instance. To create additional rules, go to the <b>Network | Security "
 "Groups</b> view, then find the security group and click <b>Manage Rules</b>."
 msgstr ""
-"Kelompok keamanan mendefinisikan seperangkat aturan filter IP yang "
-"menentukan bagaimana lalu lintas jaringan mengalir ke dan dari sebuah "
-"instance. Pengguna dapat menambahkan aturan tambahan ke grup keamanan yang "
-"ada untuk selanjutnya menentukan pilihan akses untuk sebuah instance. Untuk "
-"membuat aturan tambahan, pergi ke tampilan <b>Network | Security Groups</"
-"b>,  kemudian temukan grup keamanan dan klik <b>Manage Rules </b>."
+"Sekureco grupoj difinas aroj de IP filtrilo reguloj kiuj difinas kiel reto "
+"traiko fluas al kaj de la apero. Uzantoj povas aldoni kromajn regulojn al "
+"ekzistanta secureco grupo por pli precise difini la aliro opciojn por "
+"aperon. Por krei aldonajn regulojn, iru al la <b>Reto | Secureco Grupoj</b> "
+"vido, tiam trovu la sekureco grupo kaj kliku <b>Mastrumi Regulojn</b>."
 
 msgid "Segmentation ID"
-msgstr "Segmentation ID (ID segmentasi)"
+msgstr "Segmento ID"
 
 msgid "Segmentation Id"
-msgstr "Id Segmentasi"
+msgstr "Segmento ID"
 
 msgid "Segmentation Type"
-msgstr "Segmentation Type"
+msgstr "Segmento Tipo:"
 
 msgid ""
 "Select <em>exactly one port</em> as the parent port of the trunk to\n"
 "    be created. Mandatory."
 msgstr ""
-"Pilih <em>exactly one port</em> sebagai port induk dari trunk yang\n"
-"     diciptakan. Wajib."
+"Elektu <em> ekzakte unu pordo</em> kiel la patra pordo de la trunko\n"
+" kreonta. Deviga."
 
 msgid "Select Boot Source"
-msgstr "Select Boot Source"
+msgstr "Elektu Praŝargfonton."
 
 msgid "Select Example"
-msgstr "Select Example"
+msgstr "Elektu Ekzemplon"
 
 msgid "Select Title"
-msgstr "Select Title (pilih title)"
+msgstr "Elektu Titolo"
 
 msgid "Select a container to browse."
-msgstr "Pilih kontainer untuk browsing."
+msgstr "Elektuentenilo por foliumi."
 
 msgid "Select a key pair from the available key pairs below."
-msgstr "Pilih sepasang kunci dari pasangan kunci yang tersedia di bawah ini."
+msgstr "Elektu ŝlosilparon de la disponeblaj ŝlosilparoj suben. "
 
 msgid "Select a server group from the available groups below."
-msgstr "Pilih grup server dari kelompok yang tersedia di bawah ini."
+msgstr "Elektu servilo grupon de la haveblaj grupojn suben."
 
 msgid "Select a source from those listed below."
-msgstr "Pilih sumber dari yang tercantum di bawah ini."
+msgstr "Elektu fonton de tiuj listigita suben."
 
 msgid ""
 "Select an <em>arbitrary amount of ports (0, 1, 2, ...)</em> and their\n"
 "    segmentation details as the subports of the trunk to be created.\n"
 "    Optional."
 msgstr ""
-"Pilih <em>arbitrary amount of ports (0, 1, 2, ...)</em> dan detail "
-"segmentasinya\n"
-"      sebagai subport dari trunk yang akan dibuat.\n"
-"     Pilihan."
+" Elektu <em>arbitra kvanto da pordoj (0,1,2, ...)</em> kaj ilian\n"
+" segmento detajlojn kiel subpordoj de la trunko kreonta.\n"
+" Nedeviga."
 
 msgid "Select an item from Available items below"
-msgstr "Pilih item dari item tersedia bawah"
+msgstr "Elektu unu elemento de la haveblaj elementoj malsupren"
 
 msgid "Select at least one network"
-msgstr "Pilih setidaknya satu jaringan"
+msgstr "Elektu minimume unu reton"
 
 msgid "Select from the list of available ports below."
-msgstr "Pilih dari daftar port yang tersedia di bawah ini."
+msgstr "Elektu el al listo de haveblaj pordoj suben."
 
 msgid "Select items from Available items below"
-msgstr "Pilih item dari item yang tersedia di bawah ini"
+msgstr "Elektu elementojn de Haveblaj elementoj suben"
 
 msgid "Select many"
-msgstr "Pilih beberapa"
+msgstr "Elektu multajn"
 
 msgid "Select networks from those listed below."
-msgstr "Pilih jaringan dari yang tercantum di bawah ini."
+msgstr "Elektu retojn de tiuj listigita suben."
 
 msgid "Select one"
-msgstr "Pilih satu"
+msgstr "Elektu unu"
 
 msgid "Select one or more"
-msgstr "Pilih satu atau lebih"
+msgstr "Elektu unu aŭ pli"
 
 msgid "Select one or more security groups from the available groups below."
-msgstr ""
-"Pilih satu atau lebih kelompok keamanan dari kelompok yang tersedia di bawah "
-"ini."
+msgstr "Elektu unu aŭ pli da secureco grupojn de la haveblaj grupojn suben."
 
 msgid "Select ports from those listed below."
-msgstr "Pilih ports dari yang tercantum di bawah ini."
+msgstr "Elektu pordojn de tiuj listigita suben."
 
 msgid "Select the Ramdisk from the drop down menu."
-msgstr "Pilih Ramdisk dari menu drop down."
+msgstr "Elektu la Ram-disko el la kurtena menuo. "
 
 msgid "Select the availability zone from the drop down menu."
-msgstr "Pilih zona ketersediaan dari menu drop down."
+msgstr "Elektu la disponeblo zono el la kurtena menuo. "
 
 msgid "Select the format of the disk from the drop down menu."
-msgstr "Pilih format disk dari menu drop down."
+msgstr "Elektu la formaton de la disko el la kurtena menuo. "
 
 msgid "Select the kernel to run from the drop down menu."
-msgstr "Pilih kernel untuk menjalankan dari menu drop down."
+msgstr "Elektu la kernon por lanĉi el la kurtena menuo. "
 
 msgid "Select the security groups to launch the instance in."
-msgstr "Pilih kelompok keamanan untuk meluncurkan instance."
+msgstr "Elektu la secureco grupojn en kiu vi volas lanĉi la aperon."
 
 msgid "Select the server group to launch the instance in."
-msgstr "Pilih kelompok server untuk memulai instance."
+msgstr "Elektu la servilo grupo en kiu vi volas lanĉi la aperon."
 
 msgid ""
 "Select the volume type from the drop down menu. In an environment with "
 "multiple-storage back ends, the scheduler determines where to send the "
 "volume based on the volume type."
 msgstr ""
-"Pilih tipe volume dari menu drop down. Di lingkungan dengan backends "
-"beberapa penyimpanan, scheduler menentukan dimana untuk mengirim volume "
-"berdasarkan tipe volume."
+"Elektu la volumon tipon el  la kurtena menuo. En metio kun multaj-memorilo "
+"internaĵejoj, la vicigilo decidas kie sendi la volumon depende de la volumo "
+"tipo."
 
 msgid "Selects"
-msgstr "Selects (memilih)"
+msgstr "Selektoj"
 
 msgid "Send invitation"
-msgstr "Kirim undangan"
+msgstr "Sendu inviton"
 
 msgid "Separated link"
-msgstr "Separated link (tautan terpisah)"
+msgstr "Apartita Ligo"
 
 msgid "Server Groups"
-msgstr "Kelompok server"
+msgstr "Servilo Grupoj"
 
 msgid ""
 "Server groups are project-specific and cannot be shared across projects."
 msgstr ""
-"Kelompok server adalah project-specific dan tidak bisa dibagi di seluruh "
-"proyek."
+"Servilo grupoj estas projekto-specifa kaj ne povas esti opuzita inter "
+"projektoj."
 
 msgid ""
 "Server groups define collections of VM's so that the entire\n"
@@ -2379,171 +2371,170 @@ msgid ""
 "on\n"
 "    the same physical hardware due to availability requirements."
 msgstr ""
-"Kelompok Server mendefinisikan koleksi dari VM sehingga seluruh\n"
-"     koleksi dapat diberikan properti spesific. Misalnya, kebijakan dari\n"
-"     kelompok server dapat menentukan bahwa VM dalam kelompok ini tidak "
-"harus ditempatkan pada\n"
-"     hardware fisik yang sama karena persyaratan ketersediaan."
+"Servilo grupoj difinas aro da VM's tiel ke oni povas doni \n"
+" la tutan aron specifajn ecojn. Ekzemple, la regularo de\n"
+" serviloo grupo povus defini ke VM's en la grupo ne devus esti\n"
+" lokitaj je la sama fisika hardvaro pro disponeblaj necesoj."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr "Tipe layanan tidak diaktifkan: %(desiredType)s"
+msgstr "Servo Tipo ne estas ebligita %(desiredType)s."
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
-msgstr "Pengaturan tidak diaktifkan: %(setting)s"
+msgstr "Agordo ne estas ebligita %(setting)s."
 
 msgid "Shared"
-msgstr "Shared (bersama)"
+msgstr "Opuzata"
 
 msgid "Shared With Project"
-msgstr "Shared With Project"
+msgstr "Opuzita kun Projekto"
 
 msgid "Shared with Project"
-msgstr "Shared with Project (bersama dengan projek)"
+msgstr "Opuza kun Projekto"
 
 msgid "Size"
-msgstr "Ukuran"
+msgstr "Grando"
 
 msgid "Size (GiB)"
-msgstr "Ukuran (GiB)"
+msgstr "Grando (GiB)"
 
 msgid "Small Modal"
-msgstr "Model kecil"
+msgstr "Malgranda Modal"
 
 msgid "Small button"
-msgstr "Small button (tombol kecil)"
+msgstr "Malgranda butono"
 
 msgid "Small input"
-msgstr "masukan kecil"
+msgstr "Malgranda enigo"
 
 msgid "Snapshot"
-msgstr "Snapshot"
+msgstr "Savkopio"
 
 msgid "Someone famous in"
-msgstr "Seseorang yang terkenal dalam"
+msgstr "Iu konata en"
 
 msgid "Something else here"
-msgstr "Something else here (sesuatu lain disini)"
+msgstr "Io alia ĉi tie"
 
 msgid "Something wrong to change password."
-msgstr "Ada yang salah untuk mengganti password."
+msgstr "Io misfunkciis kiam ŝanĝi pasvorton!"
 
 msgid "Source"
-msgstr "Sumber"
+msgstr "Fonto"
 
 msgid "Source Code"
-msgstr "Kode sumber"
+msgstr "Fonto Kodo"
 
 msgid "Source Title"
-msgstr "Source Title"
+msgstr "Fonto Titolo"
 
 msgid "Source Type"
-msgstr "Source Type"
+msgstr "Fonto Tipo"
 
 msgid "Specify an image to upload to the Image Service."
-msgstr "Tentukan secara rinci image untuk meng-upload ke Layanan Image."
+msgstr "Specifu bildon por alŝargi al la Bildo Servo."
 
 msgid "Stacked"
-msgstr "Stacked (ditumpuk)"
+msgstr "Stakita"
 
 msgid "Standard Modal"
-msgstr "Model standar"
+msgstr "Defaŭlta Modal"
 
 msgid "Standard Table"
-msgstr "Standard Tabel"
+msgstr "Laŭnorma Tabelo"
 
 msgid "Status"
-msgstr "Status (status)"
+msgstr "Statuso"
 
 #, python-format
 msgid "Status: %s"
-msgstr "Status: %s"
+msgstr "Statuso: %s"
 
 msgid "Striped"
-msgstr "Striped (bergaris)"
+msgstr "Striita"
 
 msgid "Submit"
-msgstr "Submit (menyampaikan)"
+msgstr "Sendu"
 
 msgid "Subnets"
-msgstr "Subnets"
+msgstr "Subretoj"
 
 msgid "Subnets Associated"
-msgstr "Subnets Associated (subnet terkait)"
+msgstr "Subretoj Asociigitaj"
 
 msgid "Subport Count"
-msgstr "Subport Count"
+msgstr "Subpordo Nombro"
 
 msgid "Subports"
-msgstr "Subports"
+msgstr "Subpordoj"
 
 msgid "Success"
-msgstr "Success (sukses)"
+msgstr "Sukceso"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
-msgstr "Berhasil diimpor pasangan kunci  %(name)s."
+msgstr "Sukcese importita ŝlosilparo %(name)s."
 
 msgid "Summary Template URL:"
-msgstr "Summary Template URL: (ringkasan templet URL)"
+msgstr "Resumo Ŝablono URL:"
 
 msgid "Supports Details View:"
-msgstr "Supports Details View: (penampilan detail dukungan)"
+msgstr "Subteno Detajlo Vido:  "
 
 msgid "Swap Disk"
-msgstr "Swap Disk (disk swap)"
+msgstr "Permuto Disko"
 
 msgid "Swift Account"
-msgstr "Swift Account"
+msgstr "Swift Konto"
 
 msgid "Swift Accounts"
-msgstr "Swift Accounts"
+msgstr "Swift Kontoj"
 
 msgid "Swift Container"
-msgstr "Swift Container"
+msgstr "Swift Entenilo"
 
 msgid "Swift Containers"
-msgstr "Swift Containers"
+msgstr "Swift Enteniloj"
 
 msgid "Tab Array"
-msgstr "Tab Array"
+msgstr "Tabo Tabelo"
 
 msgid "Table Columns:"
-msgstr "Table Columns: (kolom tabel)"
+msgstr "Tabelo Kolumnoj:"
 
 msgid "Tables"
-msgstr "Tables (tabel)"
+msgstr "Tabeloj"
 
 msgid "Tabs"
-msgstr "Tabs"
+msgstr "Taboj"
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "Markoj"
 
 msgid "Tel"
 msgstr "Tel"
 
 msgid "Tenant ID"
-msgstr "Tenant ID"
+msgstr "Tenanto ID"
 
 msgid "Text"
-msgstr "Text (teks)"
+msgstr "Teksto"
 
 msgid "Text Inputs"
-msgstr "Text Inputs"
+msgstr "Teksto Enigoj"
 
 msgid "Textarea"
-msgstr "Textarea"
+msgstr "Tekstoareo"
 
 msgid "The access permission for the image."
-msgstr "Izin akses untuk image."
+msgstr "La aliro permeson por la bildo"
 
 msgid "The admin password is incorrect."
-msgstr "Kata sandi admin salah"
+msgstr "La admin pasvorto estas malĝusta."
 
 msgid "The architecture of the image."
-msgstr "Arsitektur image."
+msgstr "La arkitekturo de la bildo."
 
 msgid ""
 "The current Horizon settings indicate no valid\n"
@@ -2552,20 +2543,18 @@ msgid ""
 "                       local file system must be allowed to support\n"
 "                       image creation."
 msgstr ""
-"Pengaturan Horizon saat ini menunjukkan tidak ada yang valid\n"
-"                        metode pembuatan image yang tersedia. Menyediakan\n"
-"                        lokasi image dan / atau upload dari\n"
-"                        sistem file lokal harus diperbolehkan untuk "
-"mendukung\n"
-"                        pembuatan image."
+"La nuntempaj Horizon agordoj indikas ne validaj\n"
+"                       bildp lreado metodoj estas havebla. Provizante\n"
+"                       bildo loko kaj/aŭ alŝuti de la\n"
+"                       lokala dosier sistemo devas estas permesita\n"
+"                       por subteni bildo kreadon."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
-"Flavor dimana Anda pilih untuk instance menentukan jumlah komputasi, "
-"penyimpanan dan sumber daya memori yang akan tergali (carved out) untuk "
-"instance."
+"La variaĵo vi elektis por la apero difinas la aro da komputaj, memorilaj kaj "
+"memoraj risurcoj kie estos rezervita por la apero. "
 
 msgid ""
 "The flavor you select must have enough resources allocated to support the "
@@ -2573,20 +2562,19 @@ msgid ""
 "enough resources for your instance are identified on the <b>Available</b> "
 "table with a yellow warning icon."
 msgstr ""
-"Rasa dimana Anda pilih harus memiliki sumber daya yang cukup dialokasikan "
-"untuk mendukung jenis instance dimana Anda mencoba untuk membuat. Rasa yang "
-"tidak memberikan cukup sumber daya instance Anda diidentifikasi pada tabel "
-"<b>Available</b> dengan ikon peringatan kuning."
+"La variaĵon vi elektas devas havi sufice da risurcojn asignitajn por subteni "
+"la apero tipon vi klopodas krei. Variaĵoj kiu ne provizas sufice da "
+"risurcojn por via apero estas identigita sur la <b>Available</b>  tabulo kun "
+"flava averto piktogramo."
 
 msgid "The following snippet of text is <em>rendered as italicized text</em>."
 msgstr ""
-"Berikut cuplikan teks adalah <em> diberikan sebagai teks dicetak miring </ "
-"em>."
+"La sekvanta kodaĵo de teksto estas <em>bildigita kiel kursiva teksto</em>."
 
 msgid ""
 "The following snippet of text is <strong>rendered as bold text</strong>."
 msgstr ""
-"Berikut cuplikan teks adalah <strong> diterjemahkan sebagai teks tebal </ "
+"La sekvanta kodaĵo de teksto estas <strong>bildigita kiel grasa teksto</"
 "strong>."
 
 #, python-format
@@ -2594,52 +2582,51 @@ msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
 msgstr ""
-"Jumlah instance tidak boleh melebihi kuota yang tersedia dari "
-"%(maxInstanceCount)s instance"
+"La apero nombro ne devas transpasi vian kvoton havebla de "
+"%(maxInstanceCount)s aperoj"
 
 msgid ""
 "The logical port also defines the MAC address and the IP address(es) to be "
 "assigned to the interfaces plugged into them."
 msgstr ""
-"Port logis juga mendefinisikan alamat MAC dan alamat IP  yang akan "
-"ditugaskan untuk antarmuka terhubung (plugged) ke mereka."
+"La logika pordo ankaŭ difinas la MAC adreson kaj la IP adreso(j)n asignota "
+"al la interfacoj ŝtopita en ilin."
 
 msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
-"Jumlah maksimum pasangan kunci-nilai yang dapat diberikan per instance "
-"ditentukan oleh penyedia komputasi."
+"La maksimuma nombro de ŝlosilparoj kiu povas esti liverita per apero estas "
+"difinita de la komputa provizanto."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
-"Ukuran disk minimum yang diperlukan untuk boot image. Jika tidak ditentukan, "
-"nilai ini default ke 0 (tidak ada minimum)."
+"La minimuma disko grando necesa por praŝargi la bildon. Se nespecifita, tiu "
+"valoro defaŭltas al 0 (neniu minimumo)."
 
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr ""
-"Ukuran memori minimum yang diperlukan untuk boot image. Jika tidak "
-"ditentukan, nilai ini default ke 0 (tidak ada minimum)."
+"La minimuma memoro grando necesa por praŝargi la bildon. Se nedifinita, tiu "
+"valoro defaŭltas al 0 (neniu minimumo) "
 
 msgid "The name of the Volume."
-msgstr "Nama Volume"
+msgstr "La nomo de la Volumo."
 
 msgid "The name of the image."
-msgstr "Nama image."
+msgstr "La nomo de la bildo."
 
 msgid ""
 "The parent port is the port you have to add to the instance\n"
 "  at launch. Do not try to add the trunk or any of the subports to the\n"
 "  instance directly."
 msgstr ""
-"Port induk adalah port yang harus Anda tambahkan ke instance\n"
-"   saat peluncuran. Jangan mencoba menambahkan trunk atau salah satu subport "
-"ke\n"
-"   instance langsung"
+"La patra pordo estas la pordo vi devas aldoni al la apero\n"
+" dum lanĉo. Ne provu aldoni la trunkon aŭ iuj ajn el la subpordoj\n"
+" al la apero direkte."
 
 msgid ""
 "The segmentation type and ID are decoupled (and\n"
@@ -2647,20 +2634,19 @@ msgid ""
 "  implementation. Different segmentation types will be remapped as frames\n"
 "  leave/enter the instance."
 msgstr ""
-"Tipe segmentasi dan ID dipisahkan (dan\n"
-"   oleh karena itu independen) dari penerapan virtualisasi jaringan "
-"Neutron.\n"
-"   Jenis segmentasi yang berbeda akan dipetakan ulang sebagai bingkai\n"
-"   meninggalkan/memasukkan instance"
+"La segmento tipo ka ID estas malkuplita (kaj \n"
+" por tio independa) de la Neutron retvirtualiga realigo.\n"
+" Diversaj segmento tipoj estos remapigita kiel kadroj\n"
+" forlasi/eniri la aperon. "
 
 msgid ""
 "The segmentation type, ID tuples of subports must be unique\n"
 "  (in the scope of a trunk), otherwise networks of subports could not\n"
 "  be distinguished inside the instance."
 msgstr ""
-"Tipe segmentasi, ID tuples dari subports harus unik\n"
-"   (dalam lingkup trunk), jika tidak maka jaringan subport tidak bisa\n"
-"   dibedakan dalam instance."
+"La segmento tipo, ID opoj de subpordoj devas esti unuopa\n"
+" (en la amplekso de trunko), alikaze retoj de subpordoj ne povas esti\n"
+" distingita ene la apero."
 
 #, python-format
 msgid ""
@@ -2668,9 +2654,9 @@ msgid ""
 "%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
 "a different %(sourceType)s source."
 msgstr ""
-"The selected %(sourceType)s source requires a flavor with at least "
-"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
-"a different %(sourceType)s source."
+"Tiu selektita  %(sourceType)s fonto bezonas variaĵon kun minimume "
+"%(minDisk)s GB de radika disko. Elektu variaĵon  kun pli granda radika disko "
+"aŭ  uzu alian  %(sourceType)s fonto."
 
 #, python-format
 msgid ""
@@ -2678,119 +2664,118 @@ msgid ""
 "%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
 "%(sourceType)s source."
 msgstr ""
-"Sumber yang dipilih %(sourceType)s membutuhkan flavor dengan setidaknya "
-"%(minRam)s MB  RAM. Pilih flavor dengan RAM lebih atau gunakan sumber yang "
-"berbeda %(sourceType)s."
+"Tiu selektita  %(sourceType)s fonto bezonas variaĵon kun minimume %(minRam)s "
+"MB de RAM. Elektu variaĵon kun pli granda RAM aŭ  uzu alian  %(sourceType)s "
+"fonton."
 
 msgid "The size of the volume, in gibibytes (GiB)."
-msgstr "Ukuran volume, dalam gibibytes (GIB)."
+msgstr "La grando de la volumo, en gigibajtoj (GiB)"
 
 msgid "The status indicates whether the network has an active connection."
-msgstr "Status menunjukkan apakah jaringan memiliki sambungan aktif."
+msgstr "La stauso indikas se la reto havas aktivan konekton."
 
 msgid "The status indicates whether the port has an active connection."
-msgstr "Status menunjukkan apakah port memiliki sambungan aktif."
+msgstr "La statuso indikas se la pordo havas aktivan konekton."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
 "CIDR format.\n"
 "    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
 msgstr ""
-"Subnet mengidentifikasi sub-bagian dari jaringan. Sebuah subnet ditentukan "
-"dalam format CIDR.\n"
-"     Sebuah format CIDR tipikal terlihat seperti <samp>192.xxx.x.x/24</samp>."
+"La subreto identigas sub-sekcion de reto. Subreto estas difinita en CIDR "
+"formato.\n"
+" Tipika CIDR formato aperas kiel <samp>192.xxx.x.x/24</samp>."
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
-msgstr "Ukuran volume minimal harus %(minVolumeSize)s GB"
+msgstr "Volumo grando devas esti mimimune %(minVolumeSize)s GB"
 
 msgid "Themable Checkbox"
-msgstr "Themable Checkbox"
+msgstr "Temara Markobutono"
 
 msgid "Themable Option 1"
-msgstr "Themable Option 1"
+msgstr "Temebla Opcio 1"
 
 msgid "Themable Option 2"
-msgstr "Themable Option 2"
+msgstr "Temebla Opcio 2"
 
 msgid "Themable Radios"
-msgstr "Themable Radios (radios bertema)"
+msgstr "Temeblaj Radioj"
 
 msgid "Themable Selects"
-msgstr "Themable Selects (pilihan bertema)"
+msgstr "Temeblaj Selektoj"
 
 msgid "There are no Availability Zones."
-msgstr "Tidak ada zona ketersediaan."
+msgstr "Ne ekzistas disponeblaj zonoj."
 
 msgid ""
 "There are no allowed boot\n"
 "      sources. If you think this is wrong please contact your administrator."
 msgstr ""
-"Tidak ada boot yang diizinkan\n"
-"       sumber. Jika menurut Anda ini salah silahkan hubungi administrator "
-"anda."
+"Ne ekzistas permesitaj praŝargo fontojn.\n"
+" Se vi pensas tiu estas eraro bonvolu kontaktu vian administratoron."
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
-"Ada dua cara untuk menghasilkan sepasang kunci. Dari sistem Linux,\n"
-"   menghasilkan pasangan kunci dengan perintahh <samp>ssh-keygen</samp>:"
+"Ekzistas du vojoj por generi ŝlosilparon. De Linukso sistemo, \n"
+" konstruu la ŝlosilparon kun la <samp>ssh-keygen</samp> koomando:"
 
 msgid ""
 "This JavaScript object contains your new form and can be used with "
 "<code>horizon.framework.widgets.form.ModalFormService</code>"
 msgstr ""
-"Objek JavaScript ini berisi formulir baru Anda dan dapat digunakan dengan "
+"La JavaScript objekto enhavas vian novan formularon kaj povas esti uzita kun "
 "<code>horizon.framework.widgets.form.ModalFormService</code>"
 
 msgid ""
 "This can be simplified by reusing the parent's MAC address\n"
 "  for all subports of the trunk earlier at port creation. Eg.:"
 msgstr ""
-"Hal ini dapat disederhanakan dengan menggunakan kembali alamat MAC induknya\n"
-"   untuk semua subport trunk pada awal pembuatan port. Misalnya.:"
+"Tiu povas esti faciligita reuzante la patra MAC adreso\n"
+" por  ĉiuj subpordoj de la trunko pli frue je pordo kreadon. Ekz.:"
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
-"Perintah ini menghasilkan sepasang kunci: kunci private (cloud.key)\n"
-"dan kunci publik (cloud.key.pub)."
+"Tiu komando generas ŝlosilparon: privata ŝlosilo  (cloud.key)\n"
+" kaj publika ŝlosilo (cloud.key.pub)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Flavor ini membutuhkan RAM lebih dari kuota Anda. Silakan pilih flavor yang "
-"lebih kecil atau mengurangi jumlah instance."
+"Tiu variaĵo bezonas pli RAM ol via kvoto permeszas. Bonvolu selektu pli "
+"malgrandan variaĵon aŭ malkresku la apero nombro."
 
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Flavor ini membutuhkan lebih VCPUs dari kuota Anda. Silakan pilih rasa yang "
-"lebih kecil atau mengurangi jumlah instance."
+"Tiu variaĵo bezonas pli VCPUs ol via kvoto permeszas. Bonvolu selektu pli "
+"malgrandan variaĵon aŭ malkresku la apero nombro."
 
 msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
-"Ini adalah simple hero unit (unit pahlawan sederhana), komponen jumbotron-"
-"style sederhana permintaan perhatian ekstra untuk menampilkan konten atau "
-"informasi."
+"Tiu estas simpla heroo unuo, simpla ekraneego-tipo komponento por voki "
+"ekstran atenton al trajta enhavo aŭ informo."
 
 msgid "This is focused..."
-msgstr "Ini difokuskan ..."
+msgstr "Tiu estas fokusita ..."
 
 msgid "This limit is currently not set."
-msgstr "Batas ini saat ini tidak diatur."
+msgstr "Tiu limo nuntempe ne estas agordita."
 
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
-msgstr "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+msgstr ""
+"Tiu limo nuntempe estas agordita al  {$ model.novaLimits.maxServerMeta $}."
 
 msgid "This name already exists."
-msgstr "Nama ini sudah ada."
+msgstr "Tiu nomo jam ekzistas."
 
 msgid ""
 "This page contains examples of the different fields provided by Schema Form "
@@ -2798,628 +2783,630 @@ msgid ""
 "be edited inline to customise the form output. For further documentation on "
 "Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
 msgstr ""
-"Halaman ini berisi contoh dari bidang yang berbeda yang disediakan oleh "
-"Schema Form di Horizon. Bagian <code>Schema</code> dan <code>Form</code> di "
-"bawah ini dapat diedit inline untuk menyesuaikan bentuk output. Untuk "
-"dokumentasi lebih lanjut tentang Schema Form, lihat <a href=\"http://"
-"schemaform.io/\">http://schemaform.io/</a>."
+"Tiu paĝo enhavas ekzemplojn el la diversaj kampoj provizantaj de SkemoFormo "
+"en Horizon.  La <code>Skemo</code> kaj <code>Formo</code> sekcioj suben "
+"povas esti redaktita entekste por adaptigi la formo eligon. Por pliaj "
+"informoj pri SkemoFormo, vidu  <a href=\"http://schemaform.io/\">http://"
+"schemaform.io/</a>."
 
 msgid "This step allows you to add Metadata items to your instance."
-msgstr ""
-"Langkah ini memungkinkan Anda untuk menambahkan item Metadata untuk instance "
-"Anda."
+msgstr "Tiu paŝo permesas al vi aldoni Metadatumaj elementoj al via apero."
 
 msgid "This step allows you to add scheduler hints to your instance."
-msgstr ""
-"Langkah ini memungkinkan Anda untuk menambahkan petunjuk scheduler untuk "
-"instance Anda."
+msgstr "Tiu paŝo permesas al vi aldoni vicigilo aludojn al via apero."
 
 msgid "Time"
-msgstr "Time (waktu)"
+msgstr "Tempo"
 
 msgid "Timestamp"
-msgstr "Timestamp"
+msgstr "Tempindiko"
 
 msgid ""
 "To view source code, hover over a section, then click the <a class=\"btn btn-"
 "primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
 "right of that section."
 msgstr ""
-"Untuk melihat kode sumber, arahkan kursor bagian, kemudian klik tombol <a "
-"class=\"btn btn-primary btn-xs\"><span class=\"fa fa-code\"></span></a> di "
-"kanan atas bagian tersebut."
+"Por vidi fonto kodon, musumi super sektiono, tiam kliku la <a class=\"btn "
+"btn-primary btn-xs\"><span class=\"fa fa-code\"></span></a> butonon en la "
+"supra dekstra parto de la sekciono."
 
 msgid "Tooltips"
-msgstr "Tooltips"
+msgstr "Konsiloj por iloj"
 
 msgid "Top"
-msgstr "Atas"
+msgstr "Supro"
 
 msgid "Total Disk"
-msgstr "Total Disk"
+msgstr "Totala Disko"
 
 msgid "Total Instances"
-msgstr "Total instance"
+msgstr "Tutaj Aperoj"
 
 msgid "Total RAM"
-msgstr "Total RAM"
+msgstr "Totala RAM"
 
 msgid "Total VCPUs"
-msgstr "Total VCPUs"
+msgstr "Totala VCPUs"
 
 msgid "Total Volume Storage"
-msgstr "Total Volume Storage"
+msgstr "Totala Volumo Memorilo"
 
 msgid "Total Volumes"
-msgstr "Total Volumes"
+msgstr "Totalaj Volumoj"
 
 msgid "Trunk"
-msgstr "Trunk"
+msgstr "Trunko"
 
 #, python-format
 msgid "Trunk %s was successfully created."
-msgstr "Trunk %s berhasil dibuat."
+msgstr "Trunko %s estis sukcese kreita."
 
 #, python-format
 msgid "Trunk %s was successfully edited."
-msgstr "Trunk %s berhasil diedit"
+msgstr "Trunko %s estis sukcese redaktita."
 
 msgid "Trunks"
-msgstr "Trunks"
+msgstr "Trunkoj"
 
 msgid "Type"
-msgstr "Type (tipe)"
+msgstr "Tipo"
 
 msgid ""
 "Type your script directly into the Customization Script field. If your "
 "browser supports the HTML5 File API, you may choose to load your script from "
 "a file. The size of your script should not exceed 16 Kb."
 msgstr ""
-"Ketik skrip Anda langsung ke filed Customization Script. Jika browser Anda "
-"mendukung HTML5 File API, Anda dapat memilih untuk memuat skrip Anda dari "
-"sebuah file. Ukuran skrip Anda tidak boleh melebihi 16 Kb."
+"Tajpu vian skripton rekte en la Tajlorado Skriptkampo. Se via retumilo "
+"subtenas la HTML5 Dosiero API, vi povus selekti ŝargi vian skripton de "
+"dosiero. La grando de via skripto ne devus transpasi 16 Kb."
 
 msgid "Typography"
-msgstr "Typography (tipografi)"
+msgstr "Tipografio"
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Unable to allocate new floating IP address."
-msgstr "Tidak dapat mengalokasikan alamat IP mengambang baru."
+msgstr "Neeblas asigni novan glitan IP adreson."
 
 msgid "Unable to associate floating IP address."
-msgstr "Tidak dapat mengaitkan alamat IP mengambang"
+msgstr "Neeblas asocii glitan IP adreson."
 
 msgid "Unable to change the container access."
-msgstr "Tidak dapat mengubah akses kontainer."
+msgstr "Neeblas modifi la entenilo aliron."
 
 msgid "Unable to check the Nova service feature."
-msgstr "Tidak dapat memeriksa fitur layanan Nova."
+msgstr "Neeblas kontroli la Nova servo ebleco."
 
 msgid "Unable to copy the object."
-msgstr "Tidak dapat menyalin objek."
+msgstr "Neeables kopii la objekton."
 
 msgid "Unable to create the container."
-msgstr "Tidak dapat membuat kontainer."
+msgstr "Neeblas krei entenilon."
 
 msgid "Unable to create the domain."
-msgstr "Tidak dapat membuat domain."
+msgstr "Neeblas krei la domajnon."
 
 msgid "Unable to create the flavor."
-msgstr "Tidak dapat membuat flavor."
+msgstr "Neeblas krei la variaĵon."
 
 msgid "Unable to create the folder."
-msgstr "Tidak dapat membuat folder."
+msgstr "Neeblas krei la dosierujon."
 
 msgid "Unable to create the group."
-msgstr "Tidak dapat membuat grup."
+msgstr "Neeblas krei la grupon."
 
 msgid "Unable to create the image."
-msgstr "Tidak dapat membuat image."
+msgstr "Neeblas krei la bildon."
 
 msgid "Unable to create the keypair."
-msgstr "Tidak dapat membuat sepasang kunci."
+msgstr "Neeblas krei la ŝlosilparon."
 
 msgid "Unable to create the network."
-msgstr "Tidak dapat membuat jaringan."
+msgstr "Neeblas krei reton."
 
 msgid "Unable to create the project."
-msgstr "Tidak dapat membuat proyek."
+msgstr "Neeblas krei la projekton."
 
 msgid "Unable to create the role."
-msgstr "Tidak dapat membuat peran."
+msgstr "Neeblas krei la rolon."
 
 msgid "Unable to create the server snapshot."
-msgstr "Tidak dapat membuat snapshot Server."
+msgstr "Neeblas krei la servilo savkopion."
 
 msgid "Unable to create the server."
-msgstr "Tidak dapat membuat server."
+msgstr "Neeblas krei la servilon."
 
 msgid "Unable to create the subnet."
-msgstr "Tidak dapat membuat subnet."
+msgstr "Neeblas krei la subreton."
 
 msgid "Unable to create the trunk."
-msgstr "Tidak dapat membuat trunk."
+msgstr "Neeblas krei la trankon."
 
 msgid "Unable to create the user."
-msgstr "Tidak dapat membuat pengguna."
+msgstr "Neeblas krei la uzanton."
 
 msgid "Unable to create the volume."
-msgstr "Tidak dapat membuat volume."
+msgstr "Neeblas krei la volumon."
 
 #, python-format
 msgid "Unable to delete Flavor: %s."
 msgid_plural "Unable to delete Flavors: %s."
-msgstr[0] "Unable to delete Flavor: %s."
+msgstr[0] "Neeblas forigi Variaĵon: %s."
+msgstr[1] "Neeblas forigi Variaĵojn: %s."
 
 #, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
-msgstr[0] "Tidak data menghapus image: %s."
+msgstr[0] "Neeblas forigi Bildon: %s."
+msgstr[1] "Neeblas forigi Bildojn: %s."
 
 #, python-format
 msgid "Unable to delete Key Pair: %s."
 msgid_plural "Unable to delete Key Pairs: %s."
-msgstr[0] "Unable to delete Key Pair: %s."
+msgstr[0] "Neeblas forigi Ŝlosilparon: %s."
+msgstr[1] "Neeblas forigi Ŝlosilparojn: %s."
 
 #, python-format
 msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
-msgstr[0] "Unable to delete Role: %s."
+msgstr[0] "Neeblas nuligi Rolon: %s."
+msgstr[1] "Neeblas nuligi Rolojn: %s."
 
 #, python-format
 msgid "Unable to delete Trunk: %s."
 msgid_plural "Unable to delete Trunks: %s."
-msgstr[0] "Unable to delete Trunk: %s."
+msgstr[0] "Neeblas forigi Trunkon: %s."
+msgstr[1] "Neeblas forigi Trunkojn: %s."
 
 #, python-format
 msgid "Unable to delete User: %s."
 msgid_plural "Unable to delete Users: %s."
-msgstr[0] "Unable to delete User: %s."
+msgstr[0] "Neeblas forigi Uzanton: %s."
+msgstr[1] "Neeblas forigi Uzantojn: %s."
 
 msgid "Unable to delete the container."
-msgstr "Tidak dapat menghapus kontainer."
+msgstr "Neeblas forigi la entenilon."
 
 msgid "Unable to delete the domain."
-msgstr "Tidak dapat menghapus domain."
+msgstr "Neeblas forigi la domajnon."
 
 msgid "Unable to delete the domains."
-msgstr "Tidak dapat menghapus domain."
+msgstr "Neeblas forigi la domajnojn."
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
-msgstr "Tidak dapat menghapus flavor dengan id: %(id)s"
+msgstr "Neeblas forigi la variaĵon kun id: %(id)s"
 
 msgid "Unable to delete the folder because it is not empty."
-msgstr "Tidak dapat menghapus folder karena tidak kosong."
+msgstr "Neeblas forigi la dosierujon ĉar ĝi estas ne malplena."
 
 msgid "Unable to delete the group."
-msgstr "Tidak dapat menghapus grup."
+msgstr "Neeblas forigi la grupon."
 
 msgid "Unable to delete the groups."
-msgstr "Tidak dapat menghapus grup."
+msgstr "Neeblas forigi la grupojn."
 
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
-msgstr "Tidak dapat menghapus image dengan id: %(id)s"
+msgstr "Neeblas forigi la bildon kun id: %(id)s"
 
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
-msgstr "Tidak dapat menghapus keypair dengan nama: %(name)s"
+msgstr "Neeblas forigi la ŝlosilparon la  kun id: %(name)s"
 
 msgid "Unable to delete the object."
-msgstr "Tidak dapat menghapus objek."
+msgstr "Neeblas forigi la objekton."
 
 msgid "Unable to delete the project."
-msgstr "Tidak dapat menghapus proyek."
+msgstr "Neeblas forigi la projekton."
 
 msgid "Unable to delete the projects."
-msgstr "Tidak dapat menghapus proyek."
+msgstr "Neeblas forigi la projektojn."
 
 msgid "Unable to delete the role."
-msgstr "Tidak dapat menghapus peran."
+msgstr "Neeblas forigi la rolon."
 
 msgid "Unable to delete the roles."
-msgstr "Tidak dapat menghapus peran."
+msgstr "Neeblas forigi la rolojn."
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
-msgstr "Tidak dapat menghapus server dengan id: %(id)s"
+msgstr "Neeblas forigi la servilo kun id: %(id)s"
 
 msgid "Unable to delete the user."
-msgstr "Tidak dapat menghapus pengguna."
+msgstr "Neeblas forigi la uzanton."
 
 msgid "Unable to delete the users."
-msgstr "Tidak dapat menghapus pengguna."
+msgstr "Neeblas forigi la uzantojn."
 
 #, python-format
 msgid "Unable to delete trunk: %(id)s"
-msgstr "Tidak dapat menghapus trunk: %(id)s"
+msgstr "Neeblas forigi la trunko kun id: %(id)s"
 
 msgid "Unable to disassociate floating IP address."
-msgstr "Tidak dapat memisahkan alamat IP mengambang."
+msgstr "Neeblas malasocii glitan IP adreson.   "
 
 msgid "Unable to edit instance metadata."
-msgstr "Tidak dapat mengedit instance metadata."
+msgstr "Neeblas redakti la apero metadatumon."
 
 msgid "Unable to edit snapshot metadata."
-msgstr "Tidak dapat mengedit metadata snapshot."
+msgstr "Neeblas redakti savkopio metadatumon."
 
 msgid "Unable to edit the aggregate extra specs."
-msgstr "Tidak dapat mengedit agregat spesifikasi tambahan."
+msgstr "Neeblas redkati la agregato ekstra specifojn."
 
 msgid "Unable to edit the domain."
-msgstr "Tidak dapat mengedit domain."
+msgstr "Neeblas redakti la domajnon."
 
 msgid "Unable to edit the flavor extra specs."
-msgstr "Tidak dapat mengedit flavor spesifikasi tambahan."
+msgstr "Neeblas redakti la variaĵo ekstra specifojn."
 
 msgid "Unable to edit the group."
-msgstr "Tidak dapat mengedit grup"
+msgstr "Neeblas redakti la grupon."
 
 msgid "Unable to edit the image custom properties."
-msgstr "Tidak dapat mengedit properti image kustom."
+msgstr "Neeblas redakti la bildo proprajn ecojn."
 
 msgid "Unable to edit the project."
-msgstr "Tidak dapat mengedit proyek."
+msgstr "Neeblas redakti la projekton."
 
 msgid "Unable to edit the role."
-msgstr "Tidak dapat mengedit peran."
+msgstr "Neeblas redakti la rolojn."
 
 msgid "Unable to edit the user."
-msgstr "Tidak dapat mengedit pengguna."
+msgstr "Neeblas redakti la uzanton."
 
 msgid "Unable to edit volume metadata."
-msgstr "Tidak dapat mengedit metadata volume."
+msgstr "Neeblas redakti volumo metadatumon."
 
 msgid "Unable to edit volume type metadata."
-msgstr "Tidak dapat mengedit metadata tipe volume."
+msgstr "Neeblas redakti volumo tipo metadatumon."
 
 msgid "Unable to fetch the groups."
-msgstr "Tidak dapat mengambil kelompok."
+msgstr "Neeblas venigi la grupojn."
 
 msgid "Unable to fetch the service catalog."
-msgstr "Tidak dapat mengambil katalog layanan."
+msgstr "Neeblas venigi la servo katalogon."
 
 msgid "Unable to fetch the services."
-msgstr "Tidak dapat mengambil layanan."
+msgstr "Neeblas venigi la servojn."
 
 msgid "Unable to get details of the object."
-msgstr "Tidak dapat mendapatkan rincian objek."
+msgstr "Neeblas ricevi la detajlojn de la objekto."
 
 msgid "Unable to get the Glance service version."
-msgstr "Tidak dapat mendapatkan versi layanan Glance."
+msgstr "Neeblas ricevi la Glance servo version."
 
 msgid "Unable to get the Keystone service version."
-msgstr "Tidak dapat mendapatkan versi layanan Keystone."
+msgstr "Neeblas ricevi la Keystone servo version."
 
 msgid "Unable to get the Swift container listing."
-msgstr "Tidak dapat mendapatkan daftar kontainer Swift."
+msgstr "Neeblas ricevi la Swift entenilo liston."
 
 msgid "Unable to get the Swift service info."
-msgstr "Tidak dapat mendapatkan info layanan Swift."
+msgstr "Neeblas ricevi la Swift servo informon."
 
 msgid "Unable to get the container details."
-msgstr "Tidak dapat mendapatkan rincian kontainer."
+msgstr "Neeblas ricevi la entenilo detajlojn."
 
 msgid "Unable to get the objects in container."
-msgstr "Tidak dapat mendapatkan objek dalam kontainer."
+msgstr "Neeblas ricevi la objektojn en entenilo."
 
 msgid "Unable to grant the role."
-msgstr "Tidak dapat memberikan peran."
+msgstr "Neeblas koncedi la rolon."
 
 #, python-format
 msgid "Unable to hard-reboot the server with id: %(id)s"
-msgstr "Tidak dapat hard-reboot server dengan id: %(id)s"
+msgstr "Neeblas malvarm-restartigi la servilo kun id: %(id)s"
 
 msgid "Unable to import the keypair."
-msgstr "Tidak dapat mengimpor pasangan kunci."
+msgstr "Neeblas importi la ŝlosilparon."
 
 msgid "Unable to load the server actions."
-msgstr "Tidak dapat memuat aksi Server."
+msgstr "Neeblas ŝargi la servilo agojn."
 
 msgid "Unable to load the server console info."
-msgstr "Tidak dapat memuat info konsol server."
+msgstr "Neeblas ŝargi la servilo konzolo informon."
 
 msgid "Unable to load the server console log."
-msgstr "Tidak dapat memuat log konsol server"
+msgstr "Neeblas ŝargi la servilo konzolo protokolon."
 
 msgid "Unable to load the server security groups."
-msgstr "Tidak dapat memuat kelompok keamanan server."
+msgstr "Neeblas ŝargila  servilo secureco grupojn."
 
 msgid "Unable to load the server volumes."
-msgstr "Tidak dapat memuat volume server."
+msgstr "Neeblas ŝargi la servilo volumojn."
 
 #, python-format
 msgid "Unable to pause the server with id: %(id)s"
-msgstr "Tidak dapat menghentikan server dengan id: %(id)s"
+msgstr "Neeblas paŭzigi la servilo kun id: %(id)s"
 
 #, python-format
 msgid "Unable to resume the server with id: %(id)s"
-msgstr "Tidak dapat melanjutkan server dengan id: %(id)s"
+msgstr "Neeblas daŭrigi la servilo kun id: %(id)s"
 
 msgid "Unable to retrieve floating IP pools."
-msgstr "Tidak dapat mengambil kolam IP mengambang."
+msgstr "Neeblas ricevi glitajn IP komunaĵojn."
 
 msgid "Unable to retrieve floating IPs."
-msgstr "Tidak dapat mengambil IP mengambang."
+msgstr "Neeblas ricevi glitajn IPs."
 
 msgid "Unable to retrieve instance metadata."
-msgstr "Tidak dapat mengambil contoh metadata."
+msgstr "Neeblas ricevi la apero metadatumon."
 
 msgid "Unable to retrieve instances."
-msgstr "Tidak dapat mengambil instance."
+msgstr "Neeblas ricevi la aperojn."
 
 msgid "Unable to retrieve server groups."
-msgstr "Tidak dapat mengambil kelompok server."
+msgstr "Neeblas ricevi servilo grupojn."
 
 msgid "Unable to retrieve settings."
-msgstr "Tidak dapat mengambil pengaturan."
+msgstr "Neeblas ricevi agordojn."
 
 msgid "Unable to retrieve the Absolute Limits."
-msgstr "Tidak dapat mengambil Absolute Limits."
+msgstr "Neeblas ricevi la Absolutajn Limojn."
 
 msgid "Unable to retrieve the QoS Specs."
-msgstr "Tidak dapat mengambil QoS Specs."
+msgstr "Neeblas ricevi la QoS Specifojn."
 
 msgid "Unable to retrieve the agents."
-msgstr "Tidak dapat mengambil agen."
+msgstr "Neeblas ricevi la agentojn."
 
 msgid "Unable to retrieve the aggregate extra specs."
-msgstr "Tidak dapat mengambil agregat spesifikasi tambahan."
+msgstr "Neeblas ricevi la agregato ekstra specifojn."
 
 msgid "Unable to retrieve the availability zones."
-msgstr "Tidak dapat mengambil zona ketersediaan."
+msgstr "Neebla ricevi la disponeblo zonojn."
 
 msgid "Unable to retrieve the cinder services."
-msgstr "Tidak dapat mengambil layanan cinder."
+msgstr "Neeblas ricevi la cinder servojn."
 
 msgid "Unable to retrieve the current user session."
-msgstr "Tidak dapat mengambil sesi pengguna saat ini."
+msgstr "Neeblas ricevi la nuntempa uzanta seancon."
 
 msgid "Unable to retrieve the default domain."
-msgstr "Tidak dapat mengambil domain default."
+msgstr "Neeblas ricevi la defaŭltan domajnon."
 
 msgid "Unable to retrieve the default quotas."
-msgstr "Tidak dapat mengambil kuota default."
+msgstr "Neeblas ricevi la defaŭltajn kvotojn."
 
 msgid "Unable to retrieve the default volume type."
-msgstr "Tidak dapat mengambil tipe volume default."
+msgstr "Neeblas ricevi defaŭltan volumo tipon."
 
 msgid "Unable to retrieve the domain."
-msgstr "Tidak dapat mengambil domain."
+msgstr "Neeblas ricevi la domajnon."
 
 msgid "Unable to retrieve the domains."
-msgstr "Tidak dapat mengambil domain."
+msgstr "Neeblas ricevi la domajnojn."
 
 msgid "Unable to retrieve the editable quotas."
-msgstr "Tidak dapat mengambil kuota dapat diedit."
+msgstr "Neeblas ricevi la redakteblajn kvotojn."
 
 msgid "Unable to retrieve the extensions."
-msgstr "Tidak dapat mengambil ekstensi."
+msgstr "Neeblas ricevi la etendojn."
 
 msgid "Unable to retrieve the flavor extra specs."
-msgstr "Tidak dapat mengambil flavor spesifikasi tambahan."
+msgstr "Neeblas ricevi la variaĵo ekstra specifojn."
 
 msgid "Unable to retrieve the flavor."
-msgstr "Tidak dapat mengambil flavor."
+msgstr "Neeblas ricevi la variaĵon."
 
 msgid "Unable to retrieve the flavors."
-msgstr "Tidak dapat mengambil flavor."
+msgstr "Neeblas ricevi la variaĵojn."
 
 msgid "Unable to retrieve the group."
-msgstr "Tidak dapat mengambil grup."
+msgstr "Neeblas ricevi la grupon."
 
 msgid "Unable to retrieve the image custom properties."
-msgstr "Tidak dapat mengambil properti image kustom."
+msgstr "Neeblas ricevi la bildo proprajn ecojn."
 
 msgid "Unable to retrieve the image."
-msgstr "Tidak dapat mengambil image."
+msgstr "Neeblas ricevi la bildon."
 
 msgid "Unable to retrieve the images."
-msgstr "Tidak dapat mengambil image."
+msgstr "Neeblas ricevi la bildojn."
 
 msgid "Unable to retrieve the keypair."
-msgstr "Tidak dapat mengambil keypair."
+msgstr "Neeblas ricevi la ŝlosilparon."
 
 msgid "Unable to retrieve the keypairs."
-msgstr "Tidak dapat mengambil pasangan kunci."
+msgstr "Neeblas ricevi la ŝlosilparojn ."
 
 msgid "Unable to retrieve the limits."
-msgstr "Tidak dapat mengambil batas."
+msgstr "Neeblas ricevi la limojn."
 
 msgid "Unable to retrieve the namespaces."
-msgstr "Tidak dapat mengambil namespaces."
+msgstr "Neeblas ricevi la nomspacojn."
 
 msgid "Unable to retrieve the networks."
-msgstr "Tidak dapat mengambil jaringan."
+msgstr "Neeblas ricevi la retojn."
 
 msgid "Unable to retrieve the nova services."
-msgstr "Tidak dapat mengambil layanan nova."
+msgstr "Neeblas ricevi la nova servojn."
 
 msgid "Unable to retrieve the ports."
-msgstr "Tidak dapat mengambil port."
+msgstr "Neeblas ricevi la pordojn."
 
 msgid "Unable to retrieve the project."
-msgstr "Tidak dapat mengambil proyek."
+msgstr "Neeblas ricevi la projekton."
 
 msgid "Unable to retrieve the projects."
-msgstr "Tidak dapat mengambil proyek."
+msgstr "Neeblas ricevi la projektojn."
 
 msgid "Unable to retrieve the qos policies."
-msgstr "Tidak dapat mengambil kembali qos policy."
+msgstr "Neeblas ricevi la qos regularojn."
 
 msgid "Unable to retrieve the qos policy."
-msgstr "Tidak dapat mengambil kebijakan qos."
+msgstr "Neeblas ricevi la qos regularo."
 
 msgid "Unable to retrieve the resource types."
-msgstr "Tidak dapat mengambil tipe sumber daya."
+msgstr "Neeblas ricevi la risurco tipojn."
 
 msgid "Unable to retrieve the role."
-msgstr "Tidak dapat mengambil peran."
+msgstr "Neeblas ricevi la rolojn."
 
 msgid "Unable to retrieve the roles."
-msgstr "Tidak dapat mengambil peran."
+msgstr "Neeblas ricevi la rolojn."
 
 msgid "Unable to retrieve the security groups."
-msgstr "Tidak dapat mengambil kelompok keamanan."
+msgstr "Neeblas ricevi la secureco grupojn."
 
 msgid "Unable to retrieve the server."
-msgstr "Tidak dapat mengambil server."
+msgstr "Neeblas ricevi la servilon."
 
 msgid "Unable to retrieve the snapshot metadata."
-msgstr "Tidak dapat mengambil metadata snapshot."
+msgstr "Neeblas ricevi savkopio metadatumon."
 
 msgid "Unable to retrieve the subnets."
-msgstr "Tidak dapat mengambil subnet."
+msgstr "Neeblas ricevi la subretojn."
 
 #, python-format
 msgid "Unable to retrieve the trunk with id: %(id)s"
-msgstr "Tidak dapat mengambil bagasi dengan id: %(id)s"
+msgstr "Neeblas ricevi la trunko kun id: %(id)s"
 
 msgid "Unable to retrieve the trunks."
-msgstr "Tidak dapat mengambil trunk."
+msgstr "Neeblas ricevi la trunkojn."
 
 msgid "Unable to retrieve the user."
-msgstr "Tidak dapat mengambil pengguna."
+msgstr "Neeblas ricevi la uzanton."
 
 msgid "Unable to retrieve the users."
-msgstr "Tidak dapat mengambil pengguna."
+msgstr "Neeblas ricevi la uzantojn."
 
 msgid "Unable to retrieve the volume availability zones."
-msgstr "Tidak dapat mengambil zona ketersediaan volume."
+msgstr "Neebla ricevi la volumo disponeblaj zonojn."
 
 msgid "Unable to retrieve the volume metadata."
-msgstr "Tidak dapat mengambil metadata volume."
+msgstr "Neeblas ricevi la volumo metadatumon."
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "Tidak dapat mengambil snapshot volume."
+msgstr "Neeblas ricevi la volumo savkopiojn."
 
 msgid "Unable to retrieve the volume type metadata."
-msgstr "Tidak dapat mengambil metadata tipe volume."
+msgstr "Neeblas ricevi volumo tipo metadatumon."
 
 msgid "Unable to retrieve the volume type."
-msgstr "Tidak dapat mengambil tipe volume."
+msgstr "Neeblas ricevi volumo tipon."
 
 msgid "Unable to retrieve the volume types."
-msgstr "Tidak dapat mengambil tipe volume."
+msgstr "Neeblas ricevi la volumo tipojn."
 
 msgid "Unable to retrieve the volume."
-msgstr "Tidak dapat mengambil volume."
+msgstr "Neeblas ricevi la volumon."
 
 msgid "Unable to retrieve the volumes."
-msgstr "Tidak dapat mengambil volume."
+msgstr "Neeblas ricevi la volumojn."
 
 msgid "Unable to set the default quotas."
-msgstr "Tidak dapat mengatur kuota default."
+msgstr "Neeblas agordi la defaŭltajn kvotojn."
 
 #, python-format
 msgid "Unable to soft-reboot the server with id: %(id)s"
-msgstr "Tidak dapat soft-reboot server dengan id: %(id)s"
+msgstr "Neeblas varm-restartigi la servilo kun id: %(id)s"
 
 #, python-format
 msgid "Unable to start the server with id: %(id)s"
-msgstr "Tidak dapat memulai server dengan id: %(id)s"
+msgstr "Neeblas lanĉi  la servilo kun id: %(id)s"
 
 #, python-format
 msgid "Unable to stop the server with id: %(id)s"
-msgstr "Mampu menghentikan server dengan id: %(id)s"
+msgstr "Neeblas haltigi la servilo kun id: %(id)s"
 
 #, python-format
 msgid "Unable to suspend the server with id: %(id)s"
-msgstr "Tidak dapat menangguhkan server dengan id: %(id)s"
+msgstr "Neeblas halteti la servilo kun id: %(id)s"
 
 #, python-format
 msgid "Unable to unpause the server with id: %(id)s"
-msgstr "Unable to unpause the server with id: %(id)s"
+msgstr "Neeblas malpaŭzigi la servilo kun id: %(id)s"
 
 msgid "Unable to update metadata."
-msgstr "Tidak dapat memperbarui metadata."
+msgstr "Neeblas ĝisdatigi metadatumon."
 
 msgid "Unable to update project quota data."
-msgstr "Tidak dapat memperbarui data kuota proyek."
+msgstr "Neeblas ĝisdatigi  projekto kvota datumon."
 
 msgid "Unable to update the flavor."
-msgstr "Tidak dapat memperbarui flavor."
+msgstr "Neeblas ĝisdatigi la variaĵon."
 
 msgid "Unable to update the image."
-msgstr "Tidak dapat memperbarui image."
+msgstr "Neeblas ĝisdatigi la bildon."
 
 msgid "Unable to update the trunk."
-msgstr "Tidak dapat memperbarui trunk."
+msgstr "Neeblas ĝisdatigi la trunkon."
 
 msgid "Unable to upload the object."
-msgstr "Tidak dapat meng-upload objek."
+msgstr "Neeables alŝuti la objekton."
 
 msgid "Unknown"
-msgstr "Unknown"
+msgstr "Nekonata"
 
 msgid "Unordered"
-msgstr "Tanpa urutan "
+msgstr "Nenumerita"
 
 msgid "Unstyled"
-msgstr "Tanpa style"
+msgstr "Nestilita"
 
 msgid "Up"
-msgstr "Up (naik)"
+msgstr "Supren"
 
 msgid "Update Aggregate Metadata"
-msgstr "Perbaharui Kelompok Metadata"
+msgstr "Ĝisdatigu Agregato Metadatumon"
 
 msgid "Update Flavor Metadata"
-msgstr "Memperbarui metadata Flavor"
+msgstr "Ĝisdatigu Variaĵo Metadatumo"
 
 msgid "Update Image"
-msgstr "Update Image"
+msgstr "Ĝisdatigu Bildon"
 
 msgid "Update Image Metadata"
-msgstr "Memperbarui metadata image"
+msgstr "Ĝisdatigu Bildo Metadatumon"
 
 msgid "Update Instance Metadata"
-msgstr "Memperbarui metadata image"
+msgstr "Ĝisdatigu Apero Metadatumon"
 
 msgid "Update Metadata"
-msgstr "Update metadata"
+msgstr "Ĝisdatigu Metadatumo"
 
 msgid "Update Volume Metadata"
-msgstr "Perbarui Volume Metadata"
+msgstr "Ĝisdatigu Volumo Metadatumon"
 
 msgid "Update Volume Snapshot Metadata"
-msgstr "Perbarui Volume Snapshot Metadata"
+msgstr "Ĝisdatigu Volumo Savkopio Metadatumon"
 
 msgid "Update Volume Type Metadata"
-msgstr "Update Volume Type Metadata"
+msgstr "Ĝisdatigu Volumo Tipo  Metadatumon"
 
 msgid "Updated"
-msgstr "Updated"
+msgstr "Ĝisdatigita"
 
 msgid "Updated At"
-msgstr "Updated At"
+msgstr "Ĝisdatigita  Je"
 
 msgid "Updated at"
-msgstr "Updated at"
+msgstr "Ĝisdatigita  je"
 
 msgid "Upload File"
-msgstr "Upload File"
+msgstr "Alŝuti Dosieron"
 
 msgid "Upload File To: {$ ctrl.model.container.name $}"
-msgstr "Upload file ke: {$ ctrl.model.container.name $}"
+msgstr "Alŝutu Dosieron Al: {$ ctrl.model.container.name $}"
 
 msgid "Uploading"
-msgstr "Uploade"
+msgstr "Alŝuti"
 
 msgid "Uploading the image from a local file or from a specified URL."
-msgstr "Meng-upload image dari file lokal atau dari URL spesifik."
+msgstr "Alŝuti la bildon de lokala dosiero aŭ de specifita URL. "
 
 msgid "Url"
 msgstr "Url"
 
 msgid "Usage Charts"
-msgstr "Usage Charts (bagan penggunaan)"
+msgstr "Uzo Diagramoj"
 
 msgid "Use image as a source"
-msgstr "Gunakan image sebagai sumber"
+msgstr "Uzu bildon kiel fonto"
 
 msgid ""
 "Use the form to set titles, descriptions and choose specific UI element "
@@ -3427,53 +3414,53 @@ msgid ""
 "you can use JavaScript in production code, such as <code>gettext</code> for "
 "translation."
 msgstr ""
-"Gunakan formulir untuk mengatur judul, deskripsi dan memilih jenis elemen UI "
-"tertentu untuk setiap item skema. Dalam pembangun form, form harus JSON, "
-"tetapi Anda dapat menggunakan JavaScript dalam kode produksi, seperti <code> "
-"gettext </ code> untuk terjemahan."
+"Uzu la formon por agordi titolojn, priskribojn kaj elektu difinitaj UI "
+"elemento tipoj por ĉiu skemo ero. En la formkonstruilo, la formtipo devas "
+"esti JSON, sed vi povas uzi JavaScript en produkto kodo, kiel <code>gettext</"
+"code> por traduko."
 
 msgid ""
 "Use the schema to describe the data model and valid input patterns. A schema "
 "is always JSON. NOTE: A schema element is not needed for items that have no "
 "data model, like sections and fieldsets."
 msgstr ""
-"Gunakan skema untuk menggambarkan model data dan pola input yang valid. "
-"Skema selalu JSON. NOTE: Sebuah elemen skema tidak diperlukan untuk item "
-"yang tidak memiliki model data, seperti bagian dan fieldsets."
+"Uzu la skemo por priskribi la datuma modelo kaj enigo ŝablonoj. Skemo ĉiam "
+"estas JSON. KOMENTO: Skemo elemento ne estas bezonita por eroj kiu ne havas "
+"datuma modelo, kiel sekcioj kaj kampoaroj."
 
 msgid "User"
-msgstr "User (pengguna)"
+msgstr "Uzanto"
 
 #, python-format
 msgid "User %s was successfully created."
-msgstr "User %s berhasil dibuat."
+msgstr "Uzanto %s estis sukcese kreita."
 
 #, python-format
 msgid "User %s was successfully disabled."
-msgstr "Pengguna %s berhasil dinonaktifkan"
+msgstr "Uzanto %s sukcese malebligita."
 
 #, python-format
 msgid "User %s was successfully enabled."
-msgstr "User %s berhasil diaktifkan."
+msgstr "Uzanto %s sukcese ebligita."
 
 #, python-format
 msgid "User %s was successfully updated."
-msgstr "Pengguna %s berhasil diperbarui."
+msgstr "Uzanto %s sukcese ĝisdatigita."
 
 msgid "User ID"
-msgstr "ID pengguna"
+msgstr "Uzanto ID"
 
 msgid "User Name"
-msgstr "Nama pengguna"
+msgstr "Uzanto Nomo"
 
 msgid "User password has been updated successfully."
-msgstr "Kata sandi pengguna telah berhasil diupdate."
+msgstr "Uzanto pasvorto sukcese ĝisdatigita."
 
 msgid "Users"
-msgstr "Users (pengguna)"
+msgstr "Uzantoj"
 
 msgid "VCPUS"
-msgstr "VCPUS"
+msgstr "VCPUs"
 
 msgid "VCPUs"
 msgstr "VCPUs"
@@ -3482,134 +3469,133 @@ msgid "VDI"
 msgstr "VDI"
 
 msgid "VDI - Virtual Disk Image"
-msgstr "VDI - Virtual Disk Image"
+msgstr "VDI - Virtuala Disko imago"
 
 msgid "VHD"
 msgstr "VHD"
 
 msgid "VHD - Virtual Hard Disk"
-msgstr "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtuala Dura Disko"
 
 msgid "VMDK"
 msgstr "VMDK"
 
 msgid "VMDK - Virtual Machine Disk"
-msgstr "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Virtuala Maŝina Disko"
 
 msgid "VNIC type"
-msgstr "VNIC type"
+msgstr "VNIC Tipo"
 
 msgid "View As Modal"
-msgstr "View As Modal"
+msgstr "Vidu kiel Modala"
 
 msgid "View Details"
-msgstr "Melihat rincian"
+msgstr "Vidu Detajlojn"
 
 msgid "View Form JSON"
-msgstr "View Form JSON"
+msgstr "Vido Formo JSON"
 
 msgid "View Instance Details"
-msgstr "View Instance Details (lihat rincian instance)"
+msgstr "Vidu Apero Detajlojn"
 
 msgid "View Router Details"
-msgstr "View Router Details (Lihat rincian router)"
+msgstr "Vidu Enkursigilo Detajlojn"
 
 msgid "Virtio Forwarder"
-msgstr "Virtio Forwarder"
+msgstr "Virtio plusenda servilo"
 
 msgid "Virtual Size"
-msgstr "Virtual Size"
+msgstr "Virtuala Grando"
 
 msgid "Virtual instances attach their interfaces to ports."
-msgstr "Instances virtual menghubungkan interface mereka ke port."
+msgstr "Virtualaj aperoj kunligas iliajn interfacojn al pordoj."
 
 msgid "Visibility"
-msgstr "Visibility (keterlihatan)"
+msgstr "Videbleco"
 
 msgid "Volume"
-msgstr "Volume"
+msgstr "Volumo"
 
 #, python-format
 msgid "Volume %s was successfully created."
-msgstr "Volume %s telah berhasil dibuat."
+msgstr "Volumo %s estis sukcese kreita."
 
 msgid "Volume Backup"
-msgstr "Backup volume"
+msgstr "Volumo Sekurkopio"
 
 msgid "Volume Backups"
-msgstr "Backup volume (plural)"
+msgstr "Volumo Sekurkopioj"
 
 msgid "Volume Details"
-msgstr "Volume Details (detail volume)"
+msgstr "Volumo Detajlojn"
 
 msgid "Volume Quota"
-msgstr "Quota volume"
+msgstr "Volumo Kvoto"
 
 msgid "Volume Size (GB)"
-msgstr "Volume Size (GB)"
+msgstr "Volumo Grando (GB)"
 
 msgid "Volume Snapshot"
-msgstr "Snapshot volume"
+msgstr "Volumo Savkopio"
 
 msgid "Volume Snapshots"
-msgstr "Snapshot volume"
+msgstr "Volumo Savkopio"
 
 msgid "Volume Type Description:"
-msgstr "Volume type deskripsi:"
+msgstr "Volumo Tipo Priskribon:"
 
 msgid "Volume and Snapshot Quota (GiB)"
-msgstr "Volume dan Snapshot Quota (GiB)"
+msgstr "Volumo kaj Savkopia Kvoto (GiB)"
 
 msgid "Volume size is required and must be an integer"
-msgstr "Ukuran volume diperlukan dan harus integer"
+msgstr "Volumo grando estas bezonata kaj devas esti entjero"
 
 msgid "Volumes"
-msgstr "Volume"
+msgstr "Volumoj"
 
 msgid "Volumes are block devices that can be attached to instances."
-msgstr "Volume adalah perangkat blok yang dapat dihubungkan ke instance."
+msgstr "Volumoj estas blokaj funkciiloj kiuj povas esti alligita al aperoj."
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
 msgstr ""
-"Volume hanya dapat menghubungkan 1 instance aktif pada suatu waktu. Silahkan "
-"baik mengatur jumlah instance Anda sampai 1 ataupun memilih jenis sumber "
-"yang berbeda."
+"Volumoj nur povas esti kunligita al 1 aktiva apero samtempe. Bonvolu aŭ "
+"agordi vian apero nombro al 1 aŭ elektu alian fonto tipon."
 
 msgid "Warning"
-msgstr "Warning (peringatan)"
+msgstr "Averto"
 
 msgid "Warning Anchor"
-msgstr "Warning Anchor (jangkar peringatan)"
+msgstr "Averta Ankro"
 
 msgid "Warning Button"
-msgstr "Warning Button (tombol peringatan)"
+msgstr "Averta Butono"
 
 msgid "Warning!"
-msgstr "Warning!"
+msgstr "Averto!"
 
 msgid "Week"
-msgstr "Week (minggu)"
+msgstr "Semajno"
 
 msgid "Wells"
-msgstr "Wells (well)"
+msgstr "Putoj"
 
 msgid ""
 "When IP addresses are associated to a port, this also implies the port is "
 "associated with a subnet, as the IP address was taken from the allocation "
 "pool for a specific subnet."
 msgstr ""
-"Ketika alamat IP yang terkait dengan port, ini juga menyiratkan port "
-"dikaitkan dengan subnet, sebagai alamat IP diambil dari kolam alokasi "
-"(allocation pool) untuk subnet tertentu."
+"Kiam IP adresoj estas asociitaj al pordo, tiu ankaŭ signifas ke la pordo "
+"estas asociita kun subreto, ĉar la IP adreso estis prenita de la asigno "
+"komunaĵo por difina subreto."
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
-"Ketika memilih Volume sebagai sumber boot, pastikan zona ketersediaan "
-"instance kompatibel dengan zona ketersediaan volume yang Anda."
+"Kiam elekti volumon kiel praŝargo fonto, bonvolu certigi ke la apero "
+"disponbeblo zono estas kongrua kun via volumo disponeblo zono."
 
 msgid ""
 "When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
@@ -3617,10 +3603,10 @@ msgid ""
 "b> to <b>Down</b>\n"
 "    if you are not ready for other users to access the network."
 msgstr ""
-"Ketika <b>Admin State</b> untuk jaringan diatur ke <b>Up</b>,\n"
-"  kemudian jaringan tersedia untuk digunakan. Anda dapat mengatur <b>Admin "
-"State</b> ke <b>Down</b>\n"
-"   jika Anda tidak siap untuk pengguna lain untuk mengakses jaringan."
+"Kiam la <b> Admin Stato</b> por reto estas agordita al <b>Supren</b>,\n"
+" tiam la reto estas disponebla por uzo. Vi povas agordi la <b> Admin Stato</"
+"b> al <b>Suben</b>\n"
+" se vi ne estas preparita por lasi aliajn uzantoj aliri la reton."
 
 msgid ""
 "When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
@@ -3629,11 +3615,11 @@ msgid ""
 "to <b>Down</b>\n"
 "    if you are not ready for other users to use the port."
 msgstr ""
-"Ketika <b>Admin State</b> port di set ke <b>Up</b> dan tidak memiliki "
-"<b>Device Owner</b>,\n"
-"    maka port yang tersedia akan digunakan. Anda dapat mengatur <b>Admin "
-"State</b> ke <b>Down</b>\n"
-"jika Anda tidak siap untuk pengguna lain menggunakan port."
+"Kiam la <b> Admin Stato</b> por pordo estas agordita al <b>Supren</b> kaj ĝi "
+"havas neniun \n"
+" <b>Funkciilo Propriulo</b>, tiam la pordo estas disponebla por uzo. Vi "
+"povas agordi la <b> Admin Stato</b> al \n"
+" <b>Suben</b>  se vi ne estas preta por lasi aliajn uzantoj aliri la reton."
 
 msgid "XL Modal"
 msgstr "XL Modal"
@@ -3642,14 +3628,14 @@ msgid "XS"
 msgstr "XS"
 
 msgid "Yes"
-msgstr "Ya"
+msgstr "Jes"
 
 #, python-format
 msgid "You are not allowed to delete images: %s"
-msgstr "Anda tidak diizinkan untuk menghapus image: %s"
+msgstr "Vi ne estas rajtigita forigi bildojn: %s"
 
 msgid "You can add arbitrary metadata to your image."
-msgstr "Anda dapat menambahkan metadata apapun untuk image Anda."
+msgstr "Vi povas aldoni arbitran metadatumon al via bildo."
 
 msgid ""
 "You can add arbitrary metadata to your instance so that you can more easily "
@@ -3657,21 +3643,19 @@ msgid ""
 "value pairs associated with an instance. The maximum length for each "
 "metadata key and value is 255 characters."
 msgstr ""
-"Anda dapat menambahkan metadata apapun untuk instance Anda sehingga Anda "
-"dapat lebih mudah mengidentifikasi di antara instance berjalan lainnya. "
-"Metadata adalah kumpulan pasangan kunci-nilai yang terkait dengan sebuah "
-"instance. Panjang maksimum untuk setiap tombol metadata dan nilai adalah 255 "
-"karakter."
+"Vi povas aldoni arbitran metadatumon en via apero por ke vi povas pli facile "
+"identifi ĝin inter aliaj funkciantaj aperojn. Metadatumo estas aro da "
+"ŝlosilparoj asociitaj kun apero. La maksimuma longo por ĉiu metadatuma "
+"ŝlosilo kaj valoro estas 255 litoroj."
 
 msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
-"Anda dapat menyesuaikan instance Anda setelah itu telah meluncur  "
-"menggunakan pilihan yang tersedia di sini.\n"
-"    \"Customization Script\" merupakan analog dengan \"User Data\" di sistem "
-"lain."
+"Vi povas tajlori vian aperon post ĝi estas lanĉita uzante la opciojn "
+"disponebla ĉi tie.\n"
+" \"Customization Script\" estas analoga al \"User Data\" en aliaj sistemoj."
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "
@@ -3679,66 +3663,72 @@ msgid ""
 "the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
 "hints with the key of your choice."
 msgstr ""
-"Anda dapat menentukan petunjuk scheduler dengan memindahkan item dari kolom "
-"kiri ke kolom kanan. Di kolom kiri ada definisi petunjuk scheduler dari "
-"Glance Metadata Catalog. Gunakan opsi \"Custom\" untuk menambahkan petunjuk "
-"scheduler dengan kunci pilihan Anda."
+"Vi povas difini vicigilo aludoj moviganta elementoj de la maldekstra al la "
+"dekstra kolumno. En la maldekstra kolumno estas vicigilo aludo difinoj de la "
+"Glance Metadatuma katalogo. Uzu la \"Tajloru\" opcion por aldoni vicigilo "
+"aludoj kun la klavo de via elekto."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted Trunk is not recoverable."
+msgstr[0] "Vi selektis \"%s\". Forigita Trunko ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj Trunkoj ne estas restaŭreblaj."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted flavor is not recoverable."
+msgstr[0] "Vi selektis \"%s\". Forigita variaĵo ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj variaĵoj ne estas restaŭreblaj."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
-msgstr[0] "Anda telah memilih \"%s\". Image terhapus tidak dapat dipulihkan."
+msgstr[0] "Vi selektis \"%s\". Forigita bildo ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj bildoj ne estas restaŭreblaj."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted key pair is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted key pair is not recoverable."
+msgstr[0] "Vi selektis \"%s\". Forigita Ŝlosilparo ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj Ŝlosilparoj ne estas restaŭreblaj."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted role is not recoverable."
+msgstr[0] "Vi selektis \"%s\". Forigita rolo ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj roloj ne estas restaŭrebla."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted user is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted users are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted user is not recoverable."
+msgstr[0] "Vi selektis \"%s\". Forigita uzanto ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj uzantoj ne estas restaŭreblaj."
 
 msgid "Your Form as JavaScript"
-msgstr "Your Form as JavaScript"
+msgstr "Vian datumformularon kiel JavaScript  "
 
 msgid "image"
-msgstr "image"
+msgstr "bildo"
 
 msgid "inherit"
-msgstr "mewarisi"
+msgstr "heredi"
 
 msgid "on subnet"
-msgstr "di subnet"
+msgstr "je subreto"
 
 #, python-format
 msgid "resource load failed: %s"
-msgstr "Muatan sumber daya gagal: %s"
+msgstr "risurco ŝarĝo  malsukcesis: %s"
 
 msgid "snapshot"
-msgstr "snapshot"
+msgstr "savkopio"
 
 msgid "volume"
-msgstr "volume"
+msgstr "volumo"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."
 msgstr ""
-"File {$ ctrl.model.counted.files $} dalam folder\n"
-"      {$ ctrl.model.counted.folders $} ."
+"{$ ctrl.model.counted.files $} dosieroj en\n"
+"      {$ ctrl.model.counted.folders $} dosierujoj."

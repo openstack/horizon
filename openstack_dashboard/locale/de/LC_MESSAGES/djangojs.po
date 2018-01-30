@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-25 05:26+0000\n"
+"POT-Creation-Date: 2018-01-30 02:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-24 10:36+0000\n"
+"PO-Revision-Date: 2018-01-29 04:07+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -1533,6 +1533,9 @@ msgstr "Ladefunktion:"
 msgid "Loading"
 msgstr "Wird geladen"
 
+msgid "Loading trunk... Please Wait"
+msgstr "Lade Trunk. Bitte warten ..."
+
 msgid "Location"
 msgstr "Ort"
 
@@ -2802,6 +2805,9 @@ msgstr "Der Server kann nicht erstellt werden."
 
 msgid "Unable to create the subnet."
 msgstr "Das Subnetz kann nicht erstellt werden."
+
+msgid "Unable to create the trunk."
+msgstr "Trunk kann nicht erstellt werden."
 
 msgid "Unable to create the user."
 msgstr "Der Benutzer kann nicht erstellt werden."
