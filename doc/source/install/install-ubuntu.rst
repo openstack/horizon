@@ -21,9 +21,6 @@ Install and configure components
 
 .. include:: note_configuration_vary_by_distribution.txt
 
-
-
-
 1. Install the packages:
 
    .. code-block:: console
@@ -31,11 +28,6 @@ Install and configure components
       # apt install openstack-dashboard
 
    .. end
-
-
-
-
-
 
 2. Edit the
    ``/etc/openstack-dashboard/local_settings.py``
@@ -177,6 +169,12 @@ Install and configure components
      For more information, see the `list of time zones
      <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>`__.
 
+3. Add the following line to
+   ``/etc/apache2/conf-available/openstack-dashboard.conf`` if not included.
+
+   .. code-block:: none
+
+      WSGIApplicationGroup %{GLOBAL}
 
 Finalize installation
 ---------------------
