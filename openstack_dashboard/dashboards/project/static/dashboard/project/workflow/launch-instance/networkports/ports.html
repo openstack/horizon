@@ -40,7 +40,11 @@
             <td class="rsp-p1 word-break">{$ ctrl.nameOrID(item) $}</td>
             <td class="rsp-p2">
               <div ng-repeat="ip in item.fixed_ips">
-                {$ ip.ip_address $} on subnet: {$ item.subnet_names[ip.ip_address] $}
+                  <span translate
+                        translate-params-address="ip.ip_address"
+                        translate-params-subnet="item.subnet_names[ip.ip_address]">
+                  {$ address $} on subnet {$ subnet $}
+                  </span>
               </div>
             </td>
             <td class="rsp-p1">{$ item.admin_state | decode:ctrl.portAdminStates $}</td>
