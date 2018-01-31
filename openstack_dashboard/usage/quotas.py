@@ -310,9 +310,11 @@ def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
     if not base.is_service_enabled(request, 'compute'):
         return
 
-    if tenant_id:
+    if tenant_id and tenant_id != request.user.project_id:
+        # all_tenants is required when querying about any project the user is
+        # not currently scoped to
         instances, has_more = nova.server_list(
-            request, search_opts={'tenant_id': tenant_id})
+            request, search_opts={'tenant_id': tenant_id, 'all_tenants': True})
     else:
         instances, has_more = nova.server_list(request)
 
