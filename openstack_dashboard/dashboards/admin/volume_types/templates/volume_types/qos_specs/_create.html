@@ -3,17 +3,18 @@
 
 {% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
-  <p>{% blocktrans with key=qos_spec_name %}Create a new "spec" key-value pair for QoS Spec "{{ qos_spec_name }}".
-      Valid key names are expected in the QoS specs. The acceptable values for key are
-  <tt>"minIOPS", "maxIOPS" and "burstIOPS"</tt>. 
-  <br>
-  <br>
-  Example:
-  <br>
-  Key: minIOPS and Value:20 (number value less than maxIOPS)
-  <br>
-  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)
-  <br>
-  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)
-  {% endblocktrans %}</p>
+  <p>{% blocktrans trimmed %}
+    Create a new "spec" key-value pair for QoS Spec "{{ qos_spec_name }}".
+    Valid key names are expected in the QoS specs. The acceptable values for key are
+    <tt>"minIOPS", "maxIOPS" and "burstIOPS"</tt>.
+    {% endblocktrans %}
+  </p>
+  <p>
+    {% trans "Example:" %}
+    <ul>
+      <li>{% trans "Key: minIOPS and Value:20 (number value less than maxIOPS)" %}</li>
+      <li>{% trans "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)" %}</li>
+      <li>{% trans "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)" %}</li>
+    </ul>
+  </p>
 {% endblock %}
