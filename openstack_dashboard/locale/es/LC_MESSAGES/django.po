@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-26 06:40+0000\n"
+"POT-Creation-Date: 2018-02-01 07:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-19 07:53+0000\n"
+"PO-Revision-Date: 2018-01-31 07:40+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -478,6 +478,13 @@ msgstr "Todos los hosts disponibles"
 msgid "All available volumes"
 msgstr "Todos los volúmenes disponibles"
 
+msgid ""
+"All selected volume types must be associated with the same volume backend "
+"name."
+msgstr ""
+"Todos los tipos de volumen seleccionados deben asociarse al mismo nombre de "
+"backend de volumen."
+
 msgid "Allocate Floating IP"
 msgstr "Asignar IP flotante"
 
@@ -564,7 +571,7 @@ msgid "Attach Volume"
 msgstr "Asociar volumen"
 
 msgid "Attach Volume to Running Instance."
-msgstr "Adjuntar volumen a una instancia iniciada."
+msgstr "Asociar volumen a una instancia iniciada."
 
 msgid "Attach a Volume"
 msgstr "Asociar volumen"
@@ -930,7 +937,7 @@ msgid ""
 "attaches to the instance when it boots."
 msgstr ""
 "Configura OpenStack para escribir metadatos en un disco de configuración que "
-"se anexa a la instancia en el arranque."
+"se asociar a la instancia en el arranque."
 
 msgid "Confirm Admin Password"
 msgstr "Confirme la Contraseña de Administrador"
@@ -958,6 +965,9 @@ msgstr "Confirmar o revertir redimensionar/migrar"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Confirmando redimensionar o migrar"
+
+msgid "Consistency Group"
+msgstr "Grupo consistente"
 
 msgid "Console"
 msgstr "Consola"
@@ -1279,6 +1289,12 @@ msgstr ""
 "Actualmente sólo es posible obtener imágenes a través de URLs HTTP/HTTPS. La "
 "ubicación de la imagen debe ser accesible para el Servicio de Imágenes."
 
+msgid ""
+"Currently only images uploaded from your local file system are supported."
+msgstr ""
+"Actualmente sólo están soportadas las imágenes cargadas desde un fichero "
+"local."
+
 msgctxt "Custom style theme"
 msgid "Custom"
 msgstr "Personalizado"
@@ -1514,8 +1530,8 @@ msgstr[1] "Borrar copias de seguridad de volumen"
 
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
-msgstr[0] "Eliminar el vaciado del Volumen"
-msgstr[1] "Eliminar los vaciados del Volumen"
+msgstr[0] "Eliminar instantánea de volumen"
+msgstr[1] "Eliminar instantáneas de volumen"
 
 msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
@@ -1708,6 +1724,10 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Borrando"
 
+#, python-format
+msgid "Deleting volume consistency group \"%s\""
+msgstr "Eliminando el grupo consistente de volumen \"%s\""
+
 msgid "Description"
 msgstr "Descripción "
 
@@ -1739,10 +1759,10 @@ msgstr[0] "Desasociar volumen"
 msgstr[1] "Desasociar volúmenes"
 
 msgid "Detach Volume from Running Instance."
-msgstr "Desconectar volumen a una instancia iniciada."
+msgstr "Desasociar volumen a una instancia iniciada."
 
 msgid "Detach a Volume"
-msgstr "Desconectar volumen"
+msgstr "Desasociar volumen"
 
 msgid "Detached"
 msgstr "Desasociado"
@@ -1763,7 +1783,7 @@ msgstr[1] "Desasociando volúmenes"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
-msgstr "Desconectando volumen  %(vol)s de instancia %(inst)s."
+msgstr "Desasociando volumen  %(vol)s de instancia %(inst)s."
 
 msgid "Details"
 msgstr "Detalles"
@@ -2309,6 +2329,12 @@ msgstr "Error al añadir o eliminar servidores"
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Error al escribir el fichero zip: %(exc)s"
 
+msgid "Errors occurred in deleting consistency group."
+msgstr "Hubo errores al eliminar el grupo consistente."
+
+msgid "Errors occurred in removing volumes from consistency group."
+msgstr "Hubo errores al eliminar volúmenes del grupo consistente."
+
 msgid "Ether Type"
 msgstr "Tipo Ethernet"
 
@@ -2629,6 +2655,9 @@ msgstr "IP flotante"
 msgid "Floating IP Address (optional)"
 msgstr "Dirección IP flotante (opcional)"
 
+msgid "Floating IP Address ="
+msgstr "Dirección IP flotante ="
+
 msgid "Floating IP Details"
 msgstr "Detalles de la IP flotante"
 
@@ -2786,8 +2815,8 @@ msgstr "Reinicio brusco"
 
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
-msgstr[0] "Instancia de Reinicio Duro"
-msgstr[1] "Instancias de Reinicio Duro"
+msgstr[0] "Reiniciar inmediatamente instancia"
+msgstr[1] "Reiniciar inmediatamente instancias"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Reboot Pending"
@@ -3395,6 +3424,9 @@ msgstr "Dirección MAC"
 msgid "MAC Learning State"
 msgstr "Estado de aprendizaje MAC"
 
+msgid "MAC address for the port."
+msgstr "Dirección MAC para el puerto."
+
 msgid "MB"
 msgstr "MB"
 
@@ -3642,6 +3674,11 @@ msgstr "Modificar nombre y descripción de un volumen."
 msgid "Modify the name and description of a snapshot."
 msgstr "Modificar el nombre y descripción de una instantánea."
 
+msgid "Modify the name and description of a volume consistency group snapshot."
+msgstr ""
+"Modificar el nombre y la descripción de una instantánea de un grupo "
+"consistente de volumen."
+
 msgid "Modify the name and description of a volume consistency group."
 msgstr ""
 "Modificar el nombre y la descripción de un grupo de consistencia de volumen."
@@ -3726,6 +3763,9 @@ msgstr "Detalles de la red"
 
 msgid "Network ID"
 msgstr "ID de la red"
+
+msgid "Network ID ="
+msgstr "ID de red ="
 
 msgid "Network Mask"
 msgstr "Máscara de Red"
@@ -4217,6 +4257,9 @@ msgstr "El puerto %s se ha creado correctamente. "
 msgid "Port %s was successfully updated."
 msgstr "El puerto %s fue actualizado con éxito."
 
+msgid "Port ID ="
+msgstr "ID de puerto ="
+
 msgid "Port Range"
 msgstr "Rango de puertos"
 
@@ -4247,7 +4290,7 @@ msgid "Post-Creation"
 msgstr "Pos-creación"
 
 msgid "Power State"
-msgstr "Estado de energía"
+msgstr "Estado"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -4344,7 +4387,7 @@ msgid "Properties Target: "
 msgstr "Propiedades del Objetivo:"
 
 msgid "Protected"
-msgstr "Protegido"
+msgstr "Protegida"
 
 msgid "Protocol ID"
 msgstr "ID de protocolo"
@@ -4578,6 +4621,10 @@ msgstr ""
 "huérfanos. No debe eliminar un par de claves a menos que esté seguro de que "
 "no se utiliza en ningún sitio."
 
+#, python-format
+msgid "Removing volumes from volume consistency group \"%s\""
+msgstr "Eliminando volúmenes del grupo consistente de volumen \"%s\""
+
 msgid "Request ID"
 msgstr "ID de la petición"
 
@@ -4757,6 +4804,9 @@ msgstr "Se ha creado el router %s correctamente."
 msgid "Router %s was successfully updated."
 msgstr "El enrutador %s fue actualizado correctamente."
 
+msgid "Router ID ="
+msgstr "ID de router ="
+
 msgid "Router Name"
 msgstr "Nombre del router"
 
@@ -4792,7 +4842,7 @@ msgstr ""
 
 msgctxt "Power state of an Instance"
 msgid "Running"
-msgstr "Ejecutando"
+msgstr "Corriendo"
 
 msgid "Running Instance Migration Type"
 msgstr "Ejecutar instancia de Tipo Migración"
@@ -4840,8 +4890,8 @@ msgstr[1] "Eliminación programada de Volúmenes"
 
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
-msgstr[0] "Eliminación programada de el vaciado del Volumen."
-msgstr[1] "Eliminación programada de los vaciados del Volumen."
+msgstr[0] "Eliminación programada de la instantánea de volumen"
+msgstr[1] "Eliminación programada de las instantáneas de volumen"
 
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
@@ -4973,10 +5023,10 @@ msgid "Select a volume"
 msgstr "Seleccionar volumen"
 
 msgid "Select a volume to attach to this instance."
-msgstr "Elegir un volumen de adjuntar a esta instancia."
+msgstr "Elegir un volumen a asociar a esta instancia."
 
 msgid "Select a volume to detach from this instance."
-msgstr "Seleccione un volumen de separar de esta instancia."
+msgstr "Seleccione un volumen a desasociar de esta instancia."
 
 msgid "Select a volume to restore to."
 msgstr "Seleccionar un volumen a restaurar."
@@ -5263,8 +5313,8 @@ msgstr "Borrado no definitivo"
 
 msgid "Soft Reboot Instance"
 msgid_plural "Soft Reboot Instances"
-msgstr[0] "Instancia de Reinicio Suave"
-msgstr[1] "Instancias de Reinicio Suave"
+msgstr[0] "Reiniciar instancia"
+msgstr[1] "Reiniciar instancias"
 
 msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
@@ -5721,6 +5771,16 @@ msgstr ""
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "No se puede eliminar el contenedor porque no está vacío."
+
+msgid ""
+"The current Horizon settings indicate no valid image creation methods are "
+"available. Providing an image location and/or uploading from the local file "
+"system must be allowed to support image creation."
+msgstr ""
+"La configuración actual de Horizon indica que no se ha encontrado ningún "
+"método válido de creación de imágenes. Tiene que permitirse la posibilidad "
+"de proporcionar una ubicación de la imagen y/o cargar desde un fichero local "
+"para que sea posible la creación de imágenes."
 
 msgid ""
 "The data will remain in the volume and another instance will be able to "
@@ -6248,7 +6308,7 @@ msgid "Unable to detach interface."
 msgstr "No ha sido posible desconectar la interfaz."
 
 msgid "Unable to detach volume."
-msgstr "No es posible desconectar volumen."
+msgstr "No es posible desasociar el volumen."
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""
@@ -6759,8 +6819,11 @@ msgstr "No ha sido posible obtener los grupos de seguridad del puerto."
 msgid "Unable to retrieve security groups."
 msgstr "No ha sido posible obtener los grupos de seguridad."
 
+msgid "Unable to retrieve shared images."
+msgstr "No se han podido obtener las imágenes compartidas."
+
 msgid "Unable to retrieve snapshot data."
-msgstr "No se puede recuperar datos del snapshot.."
+msgstr "No se puede recuperar datos de la instantánea."
 
 msgid "Unable to retrieve snapshot details."
 msgstr "No ha sido posible obtener las instantáneas."
@@ -6822,6 +6885,9 @@ msgstr "No ha sido posible obtener información de la versión."
 msgid "Unable to retrieve volume backups."
 msgstr "No ha sido posible obtener las copias de seguridad del volumen."
 
+msgid "Unable to retrieve volume consistency groups."
+msgstr "No ha sido posible obtener los grupos consistentes de volumen."
+
 msgid "Unable to retrieve volume details."
 msgstr "No ha sido posible obtener los detalles del volumen."
 
@@ -6855,10 +6921,10 @@ msgid "Unable to retrieve volume project information."
 msgstr "No ha sido posible obtener la información del proyecto de volúmenes."
 
 msgid "Unable to retrieve volume snapshot."
-msgstr "No ha sido posible obtener la snapshot de volumen."
+msgstr "No ha sido posible obtener la instantánea de volumen."
 
 msgid "Unable to retrieve volume snapshots."
-msgstr "No ha sido posible obtener las snapshots de volúmenes."
+msgstr "No ha sido posible obtener las instantáneas de volúmenes."
 
 msgid "Unable to retrieve volume transfer."
 msgstr "No es posible obtener volumen de transferencia"
@@ -6993,8 +7059,11 @@ msgstr "No ha sido posible actualizar la contraseña de usuario."
 msgid "Unable to update the user."
 msgstr "No ha sido posible actualizar el usuario."
 
+msgid "Unable to update volume consistency group."
+msgstr "No ha sido posible actualizar el grupo consistente de volumen."
+
 msgid "Unable to update volume snapshot status."
-msgstr "No ha sido posible actualizar el estado de la snapshot del volumen."
+msgstr "No ha sido posible actualizar el estado de la instantánea del volumen."
 
 msgid "Unable to update volume snapshot."
 msgstr "No ha sido posible actualizar la instantánea de volumen."
@@ -7139,7 +7208,7 @@ msgid "Update User"
 msgstr "Actualizar usuario"
 
 msgid "Update Volume Snapshot Status"
-msgstr "Actualizar estado de la snapshot de volumen"
+msgstr "Actualizar estado de la instantánea de volumen"
 
 msgid "Update Volume Status"
 msgstr "Actualizar estado del volumen"
@@ -7192,6 +7261,10 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Modificando volumen \"%s\""
+
+#, python-format
+msgid "Updating volume consistency group \"%s\""
+msgstr "Actualizando grupo consistente de volumen \"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -7384,6 +7457,9 @@ msgstr ""
 "Object Storage. Debes tener este servicio activado para poder crear copias "
 "de seguridad. "
 
+msgid "Volume Consistency Groups"
+msgstr "Grupos consistentes de volumen"
+
 msgid "Volume Encryption Details"
 msgstr "Detalles del cifrado de Volumen."
 
@@ -7416,7 +7492,7 @@ msgid "Volume Snapshot"
 msgstr "Instantánea de volumen"
 
 msgid "Volume Snapshots"
-msgstr "Snapshots de volumen"
+msgstr "Instantáneas de volumen"
 
 #, python-format
 msgid "Volume Snapshots of Type %(type)s"
@@ -7701,6 +7777,9 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "abajo"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "p. ej. ACTIVO/APAGADO/ERROR"
 
 msgid "e.g. Yes / No"
 msgstr "e.j Si/ No"
