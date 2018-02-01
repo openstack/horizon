@@ -75,6 +75,12 @@ class Group(horizon_tabs.TabGroup):
         self._assert_tabs_not_available = True
 
 
+class GroupWithConfig(horizon_tabs.TabGroup):
+    slug = "tab_group"
+    tabs = (TabOne, TabDisallowed)
+    sticky = True
+
+
 class TabWithTable(horizon_tabs.TableTab):
     table_classes = (MyTable,)
     name = "Tab With My Table"
@@ -143,6 +149,24 @@ class TabTests(test.TestCase):
 
         # Test get_selected_tab is None w/o GET input
         self.assertIsNone(tg.get_selected_tab())
+
+    @test.update_settings(
+        HORIZON_CONFIG={'extra_tabs': {
+            'horizon.test.unit.tabs.test_tabs.GroupWithConfig': (
+                (2, 'horizon.test.unit.tabs.test_tabs.TabDelayed'),
+                # No priority means priority 0
+                'horizon.test.unit.tabs.test_tabs.TabDisabled',
+            ),
+        }}
+    )
+    def test_tab_group_with_config(self):
+        tg = GroupWithConfig(self.request)
+        tabs = tg.get_tabs()
+        # "tab_disallowed" should NOT be in this list.
+        # Other tabs must be ordered in the priorities in HORIZON_CONFIG.
+        self.assertQuerysetEqual(tabs, ['<TabOne: tab_one>',
+                                        '<TabDisabled: tab_disabled>',
+                                        '<TabDelayed: tab_delayed>'])
 
     def test_tab_group_active_tab(self):
         tg = Group(self.request)

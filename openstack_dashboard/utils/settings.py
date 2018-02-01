@@ -112,6 +112,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     scss_files = []
     panel_customization = []
     header_sections = []
+    extra_tabs = {}
     update_horizon_config = {}
     for key, config in import_dashboard_config(modules):
         if config.get('DISABLED', False):
@@ -154,6 +155,9 @@ def update_dashboards(modules, horizon_config, installed_apps):
         elif config.get('PANEL') or config.get('PANEL_GROUP'):
             config.pop("__builtins__", None)
             panel_customization.append(config)
+        _extra_tabs = config.get('EXTRA_TABS', {}).items()
+        for tab_key, tab_defs in _extra_tabs:
+            extra_tabs[tab_key] = extra_tabs.get(tab_key, tuple()) + tab_defs
     # Preserve the dashboard order specified in settings
     dashboards = ([d for d in config_dashboards
                    if d not in disabled_dashboards] +
@@ -169,6 +173,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     horizon_config.setdefault('js_files', []).extend(js_files)
     horizon_config.setdefault('js_spec_files', []).extend(js_spec_files)
     horizon_config.setdefault('scss_files', []).extend(scss_files)
+    horizon_config['extra_tabs'] = extra_tabs
 
     # apps contains reference to applications declared in the enabled folder
     # basically a list of applications that are internal and external plugins

@@ -107,6 +107,51 @@ listed there will be appended to the auto-discovered files.
 
 If set to ``True``, this settings file will not be added to the settings.
 
+``EXTRA_TABS``
+--------------
+
+.. versionadded:: 14.0.0(Rocky)
+
+Extra tabs can be added to a tab group implemented in horizon or other
+horizon plugins by using this setting. Extra tabs will be shown after
+default tabs defined in a corresponding tab group.
+
+This is a dict setting. A key of the dict specifies a tab group which extra
+tab(s) are added. The key must match a full class name of the target tab group.
+
+A value of the dict is a list of full name of an extra tab classes (where a
+module name and a class name must be delimiteed by a period). Tabs specified
+via ``EXTRA_TABS`` will be displayed in the order of being registered.
+
+There might be cases where you would like to specify the order of the extra
+tabs as multiple horizon plugins can register extra tabs. You can specify a
+priority of each tab in ``EXTRA_TABS`` by using a tuple of priority and a tab
+class as an element of a dict value instead of a full name of an extra tab.
+Priority is an integer of a tab and a tab with a lower value will be displayed
+first. If a priority of an extra tab is omitted, ``0`` is assumed as a priority.
+
+Example:
+
+.. code-block:: python
+
+   EXTRA_TABS = {
+       'openstack_dashboard.dashboards.project.networks.tabs.NetworkDetailsTabs': (
+           'openstack_dashboard.dashboards.project.networks.subnets.tabs.SubnetsTab',
+           'openstack_dashboard.dashboards.project.networks.ports.tabs.PortsTab',
+       ),
+   }
+
+Example (with priority):
+
+.. code-block:: python
+
+   EXTRA_TABS = {
+       'openstack_dashboard.dashboards.project.networks.tabs.NetworkDetailsTabs': (
+           (1, 'openstack_dashboard.dashboards.project.networks.subnets.tabs.SubnetsTab'),
+           (2, 'openstack_dashboard.dashboards.project.networks.ports.tabs.PortsTab'),
+       ),
+   }
+
 ``UPDATE_HORIZON_CONFIG``
 -------------------------
 

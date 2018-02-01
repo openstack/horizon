@@ -16,12 +16,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import collections
+import copy
 import logging
 import os
 import socket
 import time
 import unittest
 
+from django.conf import settings
 from django.contrib.auth.middleware import AuthenticationMiddleware
 from django.contrib.auth.models import Permission
 from django.contrib.auth.models import User
@@ -32,6 +35,7 @@ from django.core.handlers import wsgi
 from django import http
 from django import test as django_test
 from django.test.client import RequestFactory
+from django.test import utils as django_test_utils
 from django.utils.encoding import force_text
 import six
 
@@ -331,3 +335,28 @@ class JasmineTests(SeleniumTestCase):
         if self.__class__ == JasmineTests:
             return
         self.run_jasmine()
+
+
+class update_settings(django_test_utils.override_settings):
+    """override_settings which allows override an item in dict.
+
+    django original override_settings replaces a dict completely,
+    however OpenStack dashboard setting has many dictionary configuration
+    and there are test case where we want to override only one item in
+    a dictionary and keep other items in the dictionary.
+    This version of override_settings allows this if keep_dict is True.
+
+    If keep_dict False is specified, the original behavior of
+    Django override_settings is used.
+    """
+
+    def __init__(self, keep_dict=True, **kwargs):
+        if keep_dict:
+            for key, new_value in kwargs.items():
+                value = getattr(settings, key, None)
+                if (isinstance(new_value, collections.Mapping) and
+                        isinstance(value, collections.Mapping)):
+                    copied = copy.copy(value)
+                    copied.update(new_value)
+                    kwargs[key] = copied
+        super(update_settings, self).__init__(**kwargs)

@@ -13,15 +13,21 @@
 #    under the License.
 
 from collections import OrderedDict
+import logging
+import operator
 import sys
 
 import six
 
+from django.conf import settings
 from django.template.loader import render_to_string
 from django.template import TemplateSyntaxError
+from django.utils import module_loading
 
 from horizon import exceptions
 from horizon.utils import html
+
+LOG = logging.getLogger(__name__)
 
 SEPARATOR = "__"
 CSS_TAB_GROUP_CLASSES = ["nav", "nav-tabs", "ajax-tabs"]
@@ -35,6 +41,11 @@ class TabGroup(html.HTMLElement):
     .. attribute:: slug
 
         The URL slug and pseudo-unique identifier for this tab group.
+
+    .. attribute:: tabs
+
+       A list of :class:`.Tab` classes. Tabs specified here are displayed
+       in the order of the list.
 
     .. attribute:: template_name
 
@@ -104,14 +115,54 @@ class TabGroup(html.HTMLElement):
         self.request = request
         self.kwargs = kwargs
         self._data = None
-        tab_instances = []
-        for tab in self.tabs:
-            tab_instances.append((tab.slug, tab(self, request)))
-        self._tabs = OrderedDict(tab_instances)
+        self._tabs = self._load_tabs(request)
         if self.sticky:
             self.attrs['data-sticky-tabs'] = 'sticky'
         if not self._set_active_tab():
             self.tabs_not_available()
+
+    def _load_tabs(self, request):
+        tabs = tuple(self.tabs)
+        tabs += self._load_tabs_from_config()
+        return OrderedDict([(tab.slug, tab(self, request))
+                            for tab in tabs])
+
+    def _load_tabs_from_config(self):
+        my_name = '.'.join([self.__class__.__module__,
+                            self.__class__.__name__])
+        horizon_config = settings.HORIZON_CONFIG.get('extra_tabs', {})
+        tabs_config = [self._load_tab_config(tab_config, my_name)
+                       for tab_config in horizon_config.get(my_name, [])]
+        tabs_config = [t for t in tabs_config if t]
+        tabs_config.sort(key=operator.itemgetter(0))
+        LOG.debug('Loaded extra tabs for %s: %s',
+                  my_name, tabs_config)
+        return tuple(x[1] for x in tabs_config)
+
+    @staticmethod
+    def _load_tab_config(tab_config, my_name):
+        if isinstance(tab_config, str):
+            tab_config = (0, tab_config)
+        if not isinstance(tab_config, (tuple, list)):
+            LOG.error('Extra tab definition must be a string or '
+                      'a tuple/list (tab group "%s")', my_name)
+            return
+        if len(tab_config) != 2:
+            LOG.error('Entry must be a format of (priority, tab class) '
+                      '(tab group "%s")', my_name)
+            return
+        priority, tab_class = tab_config
+        if not isinstance(priority, int):
+            LOG.error('Priority of tab entry must be an integer '
+                      '(tab group "%s")', my_name)
+            return
+        try:
+            class_ = module_loading.import_string(tab_class)
+        except ImportError:
+            LOG.error('Tab class "%s" is not found (tab group "%s")',
+                      tab_class, my_name)
+            return
+        return priority, class_
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
