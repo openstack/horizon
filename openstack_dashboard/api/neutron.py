@@ -421,7 +421,7 @@ class SecurityGroupManager(object):
             rule = self.client.create_security_group_rule(body)
         except neutron_exc.OverQuotaClient:
             raise exceptions.Conflict(
-                _('Security group rule quotas exceed.'))
+                _('Security group rule quota exceeded.'))
         except neutron_exc.Conflict:
             raise exceptions.Conflict(
                 _('Security group rule already exists.'))
