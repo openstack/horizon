@@ -34,7 +34,8 @@
     // angular-schema-form would have made many things easier, but it wasn't
     // really an option because it does not have a transfer-table widget.
     'horizon.framework.widgets.modal.wizard-modal.service',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.widgets.toast.service',
+    '$location'
   ];
 
   /**
@@ -52,7 +53,8 @@
     resourceType,
     actionResultService,
     wizardModalService,
-    toast
+    toast,
+    $location
   ) {
     var service = {
       perform: perform,
@@ -64,11 +66,24 @@
     ////////////
 
     function allowed() {
-      return policy.ifAllowed(
+      // NOTE(lajos katona): in case of admin let's disable create action.
+      // TODO(lajos katona): make possible to create/edit from admin panel
+      var fromNonAdminUrl = ($location.url().indexOf('admin') === -1);
+      var deferred = $q.defer();
+
+      policy.ifAllowed(
         {rules: [
           ['network', 'create_trunk']
         ]}
-      );
+      ).then(function(result) {
+        if (fromNonAdminUrl) {
+          deferred.resolve(result);
+        } else {
+          deferred.reject();
+        }
+      });
+
+      return deferred.promise;
     }
 
     function perform() {

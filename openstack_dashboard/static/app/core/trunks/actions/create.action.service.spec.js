@@ -21,13 +21,15 @@
 
     var $q, $scope, service, modalWaitSpinnerService, deferred, $timeout;
 
+    var location = {
+      url: function() {
+        return "project/trunks";
+      }
+    };
+
     var policyAPI = {
       ifAllowed: function() {
-        return {
-          success: function(callback) {
-            callback({allowed: true});
-          }
-        };
+        return $q.when({allowed: true});
       }
     };
 
@@ -80,6 +82,7 @@
         neutronAPI);
       $provide.value('horizon.app.core.openstack-service-api.userSession',
         userSession);
+      $provide.value('$location', location);
     }));
 
     beforeEach(inject(function($injector, $rootScope, _$q_, _$timeout_) {
@@ -93,13 +96,31 @@
         );
     }));
 
-    it('should check the policy if the user is allowed to create trunks', function() {
+    it('should check the policy if the user is allowed to create trunks', function(done) {
       spyOn(policyAPI, 'ifAllowed').and.callThrough();
-      var allowed = service.allowed();
-      expect(allowed).toBeTruthy();
-      expect(policyAPI.ifAllowed).toHaveBeenCalledWith(
-        { rules: [['network', 'create_trunk']] }
-      );
+      spyOn(location, 'url').and.callThrough();
+
+      service.allowed().then(function(result) {
+        expect(result).toBeTruthy();
+        expect(policyAPI.ifAllowed).toHaveBeenCalledWith(
+          { rules: [['network', 'create_trunk']] }
+        );
+        done();
+      });
+
+      $scope.$digest();
+    });
+
+    it('Allowed should be rejected in case of admin', function(done) {
+      spyOn(policyAPI, 'ifAllowed').and.callThrough();
+      spyOn(location, 'url').and.returnValue('admin/trunks');
+
+      service.allowed().then(null, function(result) {
+        expect(result).toBeUndefined();
+        done();
+      });
+
+      $scope.$digest();
     });
 
     it('open the modal with the correct parameters', function() {
