@@ -1,0 +1,5 @@
+---
+features:
+  - Security groups now can be specified when creating a port.
+    When the port security is enabled, the security groups tab
+    will be displayed in create port workflow.
