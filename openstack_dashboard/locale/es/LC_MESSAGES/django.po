@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-01 07:30+0000\n"
+"POT-Creation-Date: 2018-02-01 11:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-31 07:40+0000\n"
+"PO-Revision-Date: 2018-02-01 06:32+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -322,6 +322,9 @@ msgstr ""
 msgid "Add"
 msgstr "Añadir"
 
+msgid "Add Allowed Address Pair"
+msgstr "Añadir pares de direcciones permitidas"
+
 msgid "Add DHCP Agent"
 msgstr "Añadir agente DHCP"
 
@@ -355,6 +358,13 @@ msgid "Add Users"
 msgstr "Añadir Usuarios"
 
 msgid ""
+"Add an allowed address pair for this port. This will allow multiple MAC/IP "
+"address (range) pairs to pass through this port."
+msgstr ""
+"Añadir un par de direcciones a este puerto. Esto permitirá a múltiples pares "
+"de direcciones MAC/IP (rango) atravesar este puerto."
+
+msgid ""
 "Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr ""
@@ -383,6 +393,15 @@ msgstr ""
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Añadir/Quitar Hosts a agregado"
+
+msgid ""
+"Add/remove volumes to/from this consistency group. Only volumes associated "
+"with the volume type(s) assigned to this consistency group will be available "
+"for selection."
+msgstr ""
+"Añada/elimine volúmenes de/desde este grupo consistente. Sólo los volúmenes "
+"asociados con el tipo(s) de volumen asignado a este grupo consistente "
+"estarán disponible para seleccionar."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -475,8 +494,14 @@ msgstr "Todos los usuarios"
 msgid "All available hosts"
 msgstr "Todos los hosts disponibles"
 
+msgid "All available volume types"
+msgstr "Todos los tipo de volumen disponibles"
+
 msgid "All available volumes"
 msgstr "Todos los volúmenes disponibles"
+
+msgid "All ports"
+msgstr "Todos los puertos"
 
 msgid ""
 "All selected volume types must be associated with the same volume backend "
@@ -500,6 +525,10 @@ msgstr "Asignar Dirección de Red de una pool"
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Asignar una IP flotante desde un pool de IPs flotantes."
 
+msgctxt "Label in the limit summary"
+msgid "Allocated"
+msgstr "Asignada"
+
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Se asignó la IP flotante %(ip)s."
@@ -510,6 +539,9 @@ msgstr "IPs flotantes asignadas %(ip)s."
 
 msgid "Allocation Pools"
 msgstr "Pools de asignación"
+
+msgid "Allowed Address Pairs"
+msgstr "Pares de direcciones permitidas"
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Una URL externa (HTTP/HTTPS) desde la que cargar la imagen."
@@ -641,6 +673,14 @@ msgstr "Zonas de Disponibilidad"
 msgid "Availability zone"
 msgstr "Zona de disponibilidad"
 
+msgid ""
+"Availability zones where the DHCP agents may be scheduled. Leaving this "
+"unset is equivalent to selecting all availability zones"
+msgstr ""
+"Zonas de disponibilidad donde deben ejecutarse agentes DHCP. Dejar sin "
+"configurar esto es equivalente a seleccionar todas las zonas de "
+"disponibilidad"
+
 msgid "Available"
 msgstr "Disponible"
 
@@ -765,6 +805,11 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "Es necesario especificar un CIDR."
+
+#, python-format
+msgid "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
+msgstr ""
+"Las CIDRs permitidas para redes %(ip_ver)s de uso privado son %(allowed)s."
 
 msgid "CPU architecture of the image."
 msgstr "imagen  de la arquitectura de la CPU "
@@ -969,6 +1014,15 @@ msgstr "Confirmando redimensionar o migrar"
 msgid "Consistency Group"
 msgstr "Grupo consistente"
 
+msgid "Consistency Group Name"
+msgstr "Nombre del grupo consistente"
+
+msgid "Consistency Group Snapshots"
+msgstr "Instantáneas de grupos consistentes"
+
+msgid "Consistency Groups"
+msgstr "Grupos consistentes"
+
 msgid "Console"
 msgstr "Consola"
 
@@ -1004,6 +1058,11 @@ msgstr ""
 "Controle el acceso a sus instancias a través de pares de claves, grupos de "
 "seguridad y otros mecanismos."
 
+msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
+msgstr ""
+"Las cookies deben estar desactivadas. Asegúrese de que estén activas y "
+"vuelva a intentarlo."
+
 msgid "Copy Data"
 msgstr "Copiar Datos"
 
@@ -1031,6 +1090,9 @@ msgstr "Crear una imagen"
 
 msgid "Create Backup"
 msgstr "Crear copia de seguridad"
+
+msgid "Create Consistency Group"
+msgstr "Crear grupo consistente"
 
 msgid "Create Domain"
 msgstr "Crear dominio"
@@ -1211,6 +1273,9 @@ msgstr "Crear nuevo agregado de hosts \"%s\"."
 msgid "Created new project \"%s\"."
 msgstr "Nuevo proyecto \"%s\" creado."
 
+msgid "Created new volume consistency group"
+msgstr "Creado nuevo grupo consistente de volumen"
+
 #, python-format
 msgid "Created spec \"%s\"."
 msgstr "Especificación \"%s\" creada."
@@ -1247,6 +1312,10 @@ msgstr "Creando"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "Creando"
+
+#, python-format
+msgid "Creating consistency group \"%s\"."
+msgstr "Creando grupo consistente \"%s\"."
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1382,6 +1451,9 @@ msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "Borrar"
 msgstr[1] "Borrar"
+
+msgid "Delete Consistency Group"
+msgstr "Eliminar grupo consistente"
 
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
@@ -1692,6 +1764,11 @@ msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "Tipo de volumen eliminado"
 msgstr[1] "Tipos de volumen eliminados"
+
+msgid "Deleted address pair"
+msgid_plural "Deleted address pairs"
+msgstr[0] "Par de direcciones eliminada"
+msgstr[1] "Pares de direcciones eliminadas"
 
 msgid "Deleted images are not recoverable."
 msgstr "Imagenes eliminadas no son recuperables."
@@ -2156,6 +2233,13 @@ msgstr "Habilitar Dominios"
 msgid "Enable HA mode"
 msgstr "Habilitar modo HA"
 
+msgid "Enable SNAT"
+msgstr "Habilitar SNAT"
+
+msgid "Enable SNAT will only have an effect if an external network is set."
+msgstr ""
+"Habilitar SNAT sólo tendrá efecto si se ha establecido una red externa."
+
 msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "Habilitar servicio"
@@ -2345,6 +2429,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Evacuar los servidores del anfitrión caido a un anfitrión objetivo activo."
+
+msgid "Example:"
+msgstr "Ejemplo:"
 
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
@@ -2569,6 +2656,9 @@ msgstr "Falso"
 msgid "Fault"
 msgstr "Fallo"
 
+msgid "Federation"
+msgstr "Federación"
+
 msgid "File"
 msgstr "Fichero"
 
@@ -2762,6 +2852,9 @@ msgstr "GiB"
 msgid "Go"
 msgstr "Ir"
 
+msgid "Graph"
+msgstr "Gráfico"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "El grupo \"%s\" se ha creado correctamente."
@@ -2947,6 +3040,9 @@ msgstr ""
 "start_ip_address,end_ip_address (por ejemplo: 192.168.1.100,192.168.1.120) y "
 "hay una entrada por línea."
 
+msgid "IP address for the new port"
+msgstr "Dirección IP del nuevo puerto"
+
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
@@ -3123,6 +3219,9 @@ msgstr "Importar par de claves"
 msgid "Import Namespace"
 msgstr "Importar Espacio de Nombres"
 
+msgid "Import Public Key"
+msgstr "Importar clave pública"
+
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "En uso"
@@ -3294,6 +3393,9 @@ msgstr "Detalles del par de claves"
 
 msgid "Key Pair Name"
 msgstr "Nombre de par de claves"
+
+msgid "Key Pair Name ="
+msgstr "Nombre par de claves ="
 
 msgid "Key Pairs"
 msgstr "Pares de claves"
@@ -3688,6 +3790,9 @@ msgstr "Modificar el tipo de volumen, nombre, descripción y estado público."
 
 msgid "Monitoring:"
 msgstr "Monitoreo:"
+
+msgid "More"
+msgstr "Más"
 
 msgid "N/A"
 msgstr "N/A"
@@ -4153,6 +4258,9 @@ msgstr "Vista general"
 msgid "Owner"
 msgstr "Propietario"
 
+msgid "Owner of the device attached to the port"
+msgstr "Propietario del dispositivo conectado al puerto"
+
 msgid ""
 "Ownership of a volume can be transferred from one project to another. "
 "Accepting a transfer requires obtaining the Transfer ID and Authorization "
@@ -4420,6 +4528,9 @@ msgstr "Público:"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulador QEMU"
 
+msgid "QOS Policy ID"
+msgstr "ID de política QoS"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "El nombre de especificación QoS \"%s\" ya existe."
@@ -4550,6 +4661,10 @@ msgstr "Reconstruir Instancia %s."
 msgid "Recreate EC2 Credentials"
 msgstr "Recrear las credenciales EC2"
 
+#, python-format
+msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
+msgstr "Regenerar y descargar el par de claves &quot;%(keypair_name)s&quot;"
+
 msgid "Region"
 msgstr "Región"
 
@@ -4624,6 +4739,9 @@ msgstr ""
 #, python-format
 msgid "Removing volumes from volume consistency group \"%s\""
 msgstr "Eliminando volúmenes del grupo consistente de volumen \"%s\""
+
+msgid "Report Bug"
+msgstr "Informar de un fallo"
 
 msgid "Request ID"
 msgstr "ID de la petición"
@@ -4853,6 +4971,9 @@ msgstr "S3 URL"
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Dirección encontrada desde el Enrutador Openstack "
 
+msgid "SLAAC: Address discovered from an external router"
+msgstr "SLAAC: Dirección obtendida de un router externo"
+
 msgid "SNAT"
 msgstr "SNAT"
 
@@ -4882,6 +5003,11 @@ msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "Se ha planificado la eliminación de la instancia"
 msgstr[1] "Se ha planificado la eliminación de las instancias"
+
+msgid "Scheduled deletion of Snapshot"
+msgid_plural "Scheduled deletion of Snapshots"
+msgstr[0] "Planificado borrado de instantánea"
+msgstr[1] "Planificado borrado de instantáneas"
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
@@ -5095,6 +5221,9 @@ msgstr "Hosts seleccionados"
 
 msgid "Selected networks"
 msgstr "Redes seleccionadas"
+
+msgid "Selected volume types"
+msgstr "Tipos de volumen seleccionados"
 
 msgid "Selected volumes"
 msgstr "Los volúmenes seleccionados"
@@ -5364,6 +5493,9 @@ msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
 msgstr ""
 "Especifique una \"IP de la puerta de enlace\" o seleccione \"Deshabilitar "
 "puerta de enlace\"."
+
+msgid "Specify IP address or subnet"
+msgstr "Especificar dirección IP o subred"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr ""
@@ -5751,6 +5883,9 @@ msgstr ""
 "para aceptar la transferencia. Por favor capture el ID de Transferencia y la "
 "Clave de Autorización y proporciónelos a su destinatario de transferencia."
 
+msgid "The VNIC type that is bound to the network port"
+msgstr "El tipo VNIC al que se asocia el puerto de red"
+
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -5806,6 +5941,14 @@ msgstr "La contraseña cifrada con su clave pública."
 
 msgid "The instance(s) will be shut off."
 msgstr "La instancia(s) seran apagadas."
+
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the button below."
+msgstr ""
+"El par de claves &quot;%(keypair_name)s&quot; debe descargarse "
+"automáticamente. En caso contrario utilice el siguiente enlace."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -5983,6 +6126,9 @@ msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 "Esta aplicación requiere JavaScript para ser habilitada en su navegador web. "
 
+msgid "This field is required."
+msgstr "Este campo es obligatorio."
+
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
@@ -6000,6 +6146,9 @@ msgstr ""
 
 msgid "This instance is unlocked."
 msgstr "Esta instancia está desbloqueada."
+
+msgid "This is a test: "
+msgstr "Esto es una prueba:"
 
 msgid ""
 "This is equivalent to the <tt>openstack volume qos associate</tt> and "
@@ -6057,6 +6206,9 @@ msgstr ""
 
 msgid "To make volume type private, uncheck this field."
 msgstr "Para hacer el tipo de volumen privado, desactive este campo."
+
+msgid "To specify a subnet or a fixed IP, select any options."
+msgstr "Para especificar una subred o IP fija, seleccione alguna opción."
 
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
@@ -6199,6 +6351,14 @@ msgid "Unable to create QoS Spec."
 msgstr "No se ha podido crear la especificación de QoS."
 
 #, python-format
+msgid "Unable to create consistency group \"%s\" from snapshot."
+msgstr ""
+"No se ha podido crear el grupo consistente \"%s\" desde la instantánea."
+
+msgid "Unable to create consistency group."
+msgstr "No se ha podido crear el grupo consistente."
+
+#, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "No ha sido posible crear el dominio \"%s\"."
 
@@ -6301,6 +6461,12 @@ msgstr "No ha sido posible crear el tipo de volumen."
 msgid "Unable to create volume."
 msgstr "No ha sido posible crear el volumen."
 
+#, python-format
+msgid ""
+"Unable to delete subnet %(name)s. Most possible reason is because one or "
+"more ports have an IP allocation from this subnet."
+msgstr "No se ha podido eliminar la subred %(name)s. "
+
 msgid "Unable to delete volume transfer."
 msgstr "No es posible eliminar volumen de transferencia."
 
@@ -6342,6 +6508,10 @@ msgid "Unable to get EC2 credentials"
 msgstr "No ha sido posible obtener las credenciales EC2"
 
 #, python-format
+msgid "Unable to get MKS console for instance \"%s\"."
+msgstr "No se ha podido obtener la consola MKS de la instancia \"%s\"."
+
+#, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "No ha sido posible obtener la consola RDP para la instancia \"%s\"."
 
@@ -6355,6 +6525,10 @@ msgstr "No ha sido posible obtener la consola VNC de la instancia \"%s\"."
 
 msgid "Unable to get cinder services list."
 msgstr "No ha sido posible obtener la lista de servicios de cinder"
+
+#, python-format
+msgid "Unable to get console for instance \"%s\"."
+msgstr "No se ha podido obtener la consola de la instancia \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "No ha sido posible obtener la lista de sabores"
@@ -6390,6 +6564,9 @@ msgstr "No ha sido posible obtener los agregados de hosts."
 
 msgid "Unable to get the available volumes"
 msgstr "No ha sido posible obtener los volúmenes disponibles"
+
+msgid "Unable to get volume type list"
+msgstr "No se ha podido obtener la lista de tipos de volumen"
 
 msgid "Unable to import key pair."
 msgstr "No ha sido posible importar el par de claves."
@@ -6500,6 +6677,9 @@ msgstr "No se puede recuperar el estado de aprendizaje MAC"
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr ""
 "No se ha podido recuperar la información de red para la instancia \"%s\"."
+
+msgid "Unable to retrieve Neutron quota information."
+msgstr "No se ha podido obtener información de la cuota de neutron."
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "No ha sido posible obtener las zonas de disponibilidad de Nova."
@@ -6721,6 +6901,9 @@ msgstr "No ha sido posible obtener los pares de claves."
 msgid "Unable to retrieve limit information."
 msgstr "No ha sido posible obtener la información del límite."
 
+msgid "Unable to retrieve limits information."
+msgstr "No se ha podido obtener información sobre los límites."
+
 msgid "Unable to retrieve list of security groups"
 msgstr "No ha sido posible obtener la lista de grupos de seguridad"
 
@@ -6884,6 +7067,9 @@ msgstr "No ha sido posible obtener información de la versión."
 
 msgid "Unable to retrieve volume backups."
 msgstr "No ha sido posible obtener las copias de seguridad del volumen."
+
+msgid "Unable to retrieve volume consistency group snapshots."
+msgstr "No se han podido obtener las instantáneas de grupos consistentes."
 
 msgid "Unable to retrieve volume consistency groups."
 msgstr "No ha sido posible obtener los grupos consistentes de volumen."
@@ -7303,6 +7489,10 @@ msgstr "Utilizar una imagen como origen"
 msgid "Use snapshot as a source"
 msgstr "Utilizar una instantánea como origen"
 
+msgctxt "Label in the limit summary"
+msgid "Used"
+msgstr "Usada"
+
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(used)s </span> usado de <span> %(available)s </span>"
@@ -7653,6 +7843,10 @@ msgstr "Ya está utilizando todas las IPs flotantes disponibles."
 msgid "You are already using all of your available volumes."
 msgstr "Ya está utilizando todos los volúmenes disponibles."
 
+#, python-format
+msgid "You are not allowed to create a port for network %s."
+msgstr "No tiene permiso para crear el puerto de red %s."
+
 msgid ""
 "You can connect a specified external network to the router. The external "
 "network is regarded as a default route of the router and the router acts as "
@@ -7771,6 +7965,12 @@ msgstr "procesos ocultos"
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "ambas"
+
+msgid "by Network (and IP address)"
+msgstr "por red (y dirección IP)"
+
+msgid "by Port"
+msgstr "por puerto"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
