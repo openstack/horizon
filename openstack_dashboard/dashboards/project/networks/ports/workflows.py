@@ -32,6 +32,215 @@ from openstack_dashboard.utils import filters
 LOG = logging.getLogger(__name__)
 
 
+class CreatePortInfoAction(workflows.Action):
+    name = forms.CharField(max_length=255,
+                           label=_("Name"),
+                           required=False)
+    admin_state = forms.BooleanField(label=_("Enable Admin State"),
+                                     initial=True,
+                                     required=False)
+    device_id = forms.CharField(max_length=100, label=_("Device ID"),
+                                help_text=_("Device ID attached to the port"),
+                                required=False)
+    device_owner = forms.CharField(
+        max_length=100, label=_("Device Owner"),
+        help_text=_("Owner of the device attached to the port"),
+        required=False)
+    specify_ip = forms.ThemableChoiceField(
+        label=_("Specify IP address or subnet"),
+        help_text=_("To specify a subnet or a fixed IP, select any options."),
+        required=False,
+        choices=[('', _("Unspecified")),
+                 ('subnet_id', _("Subnet")),
+                 ('fixed_ip', _("Fixed IP Address"))],
+        widget=forms.ThemableSelectWidget(attrs={
+            'class': 'switchable',
+            'data-slug': 'specify_ip',
+        }))
+    subnet_id = forms.ThemableChoiceField(
+        label=_("Subnet"),
+        required=False,
+        widget=forms.ThemableSelectWidget(attrs={
+            'class': 'switched',
+            'data-switch-on': 'specify_ip',
+            'data-specify_ip-subnet_id': _('Subnet'),
+        }))
+    fixed_ip = forms.IPField(
+        label=_("Fixed IP Address"),
+        required=False,
+        help_text=_("Specify the subnet IP address for the new port"),
+        version=forms.IPv4 | forms.IPv6,
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'specify_ip',
+            'data-specify_ip-fixed_ip': _('Fixed IP Address'),
+        }))
+    mac_address = forms.MACAddressField(
+        label=_("MAC Address"),
+        required=False,
+        help_text=_("Specify the MAC address for the new port"))
+    mac_state = forms.BooleanField(
+        label=_("MAC Learning State"), initial=False,
+        required=False)
+    port_security_enabled = forms.BooleanField(
+        label=_("Port Security"),
+        help_text=_("Enable anti-spoofing rules for the port"),
+        initial=True,
+        required=False)
+    binding__vnic_type = forms.ThemableChoiceField(
+        label=_("VNIC Type"),
+        help_text=_("The VNIC type that is bound to the network port"),
+        required=False)
+
+    def __init__(self, request, context, *args, **kwargs):
+        super(CreatePortInfoAction, self).__init__(
+            request, context, *args, **kwargs)
+
+        # prepare subnet choices and input area for each subnet
+        subnet_choices = self._get_subnet_choices(context)
+        if subnet_choices:
+            subnet_choices.insert(0, ('', _("Select a subnet")))
+            self.fields['subnet_id'].choices = subnet_choices
+        else:
+            self.fields['specify_ip'].widget = forms.HiddenInput()
+            self.fields['subnet_id'].widget = forms.HiddenInput()
+            self.fields['fixed_ip'].widget = forms.HiddenInput()
+
+        self._hide_field_if_not_supported(
+            request, 'mac_state', 'mac-learning',
+            _("Unable to retrieve MAC learning state"))
+        self._hide_field_if_not_supported(
+            request, 'port_security_enabled', 'port-security',
+            _("Unable to retrieve port security state"))
+
+        self._populate_vnic_type_choices(request)
+
+    def _hide_field_if_not_supported(self, request, field, extension_alias,
+                                     failure_message):
+        is_supproted = False
+        try:
+            is_supproted = api.neutron.is_extension_supported(
+                request, extension_alias)
+        except Exception:
+            exceptions.handle(self.request, failure_message)
+        if not is_supproted:
+            del self.fields[field]
+        return is_supproted
+
+    def _populate_vnic_type_choices(self, request):
+        neutron_settings = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+        supported_vnic_types = neutron_settings.get('supported_vnic_types',
+                                                    ['*'])
+        # When a list of VNIC types is empty, hide the corresponding field.
+        if not supported_vnic_types:
+            del self.fields['binding__vnic_type']
+            return
+
+        binding_supported = self._hide_field_if_not_supported(
+            request, 'binding__vnic_type', 'binding',
+            _("Unable to verify the VNIC types extension in Neutron"))
+        if not binding_supported:
+            # binding__vnic_type field is already deleted, so return here
+            return
+
+        if supported_vnic_types == ['*']:
+            vnic_type_choices = api.neutron.VNIC_TYPES
+        else:
+            vnic_type_choices = [
+                vnic_type for vnic_type in api.neutron.VNIC_TYPES
+                if vnic_type[0] in supported_vnic_types
+            ]
+        self.fields['binding__vnic_type'].choices = vnic_type_choices
+
+    def _get_subnet_choices(self, context):
+        try:
+            network_id = context['network_id']
+            network = api.neutron.network_get(self.request, network_id)
+        except Exception:
+            return []
+
+        # NOTE(amotoki): When a user cannot retrieve a subnet info,
+        # subnet ID is stored in network.subnets field.
+        # If so, we skip such subnet as subnet choices.
+        # This happens usually for external networks.
+        # TODO(amotoki): Ideally it is better to disable/hide
+        # Create Port button in the port table, but as of Pike
+        # the default neutron policy.json for "create_port" is empty
+        # and there seems no appropriate policy. This is a dirty hack.
+        return [(subnet.id, '%s %s' % (subnet.name_or_id, subnet.cidr))
+                for subnet in network.subnets
+                if isinstance(subnet, api.neutron.Subnet)]
+
+    class Meta(object):
+        name = _("Info")
+        slug = 'create_info'
+        help_text_template = 'project/networks/ports/_create_port_help.html'
+
+
+class CreatePortInfo(workflows.Step):
+    action_class = CreatePortInfoAction
+    depends_on = ("network_id",)
+    contributes = ["name", "admin_state", "device_id", "device_owner",
+                   "specify_ip", "subnet_id", "fixed_ip", "mac_address",
+                   "mac_state", "port_security_enabled", "binding__vnic_type"]
+
+
+class CreatePort(workflows.Workflow):
+    slug = "create_port"
+    name = _("Create Port")
+    finalize_button_name = _("Create")
+    success_message = _('Port %s was successfully created.')
+    failure_message = _('Failed to create port "%s".')
+    default_steps = (CreatePortInfo,)
+
+    def get_success_url(self):
+        return reverse("horizon:project:networks:detail",
+                       args=(self.context['network_id'],))
+
+    def format_status_message(self, message):
+        name = self.context['name'] or self.context.get('port_id', '')
+        return message % name
+
+    def handle(self, request, context):
+        try:
+            params = self._construct_parameters(context)
+            port = api.neutron.port_create(request, **params)
+            self.context['port_id'] = port.id
+            return True
+        except Exception as e:
+            LOG.info('Failed to create a port for network %(id)s: %(exc)s',
+                     {'id': context['network_id'], 'exc': e})
+
+    def _construct_parameters(self, context):
+        params = {
+            'network_id': context['network_id'],
+            'admin_state_up': context['admin_state'],
+            'name': context['name'],
+            'device_id': context['device_id'],
+            'device_owner': context['device_owner']
+        }
+
+        if context.get('specify_ip') == 'subnet_id':
+            if context.get('subnet_id'):
+                params['fixed_ips'] = [{"subnet_id": context['subnet_id']}]
+        elif context.get('specify_ip') == 'fixed_ip':
+            if context.get('fixed_ip'):
+                params['fixed_ips'] = [{"ip_address": context['fixed_ip']}]
+
+        if context.get('binding__vnic_type'):
+            params['binding__vnic_type'] = context['binding__vnic_type']
+        if context.get('mac_state'):
+            params['mac_learning_enabled'] = context['mac_state']
+        if 'port_security_enabled' in context:
+            params['port_security_enabled'] = context['port_security_enabled']
+
+        # Send mac_address only when it is specified.
+        if context['mac_address']:
+            params['mac_address'] = context['mac_address']
+
+        return params
+
+
 class UpdatePortInfoAction(workflows.Action):
     name = forms.CharField(max_length=255,
                            label=_("Name"),

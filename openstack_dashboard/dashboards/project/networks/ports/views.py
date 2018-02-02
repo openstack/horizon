@@ -16,15 +16,12 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import forms
 from horizon import tabs
 from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.networks.ports \
-    import forms as project_forms
 from openstack_dashboard.dashboards.project.networks.ports \
     import tables as project_tables
 from openstack_dashboard.dashboards.project.networks.ports \
@@ -38,19 +35,9 @@ STATUS_DICT = dict(project_tables.STATUS_DISPLAY_CHOICES)
 VNIC_TYPE_DICT = dict(api.neutron.VNIC_TYPES)
 
 
-class CreateView(forms.ModalFormView):
-    form_class = project_forms.CreatePort
-    form_id = "create_port_form"
-    modal_header = _("Create Port")
-    submit_label = _("Create Port")
-    submit_url = "horizon:project:networks:addport"
-    page_title = _("Create Port")
-    template_name = 'project/networks/ports/create.html'
-    url = 'horizon:project:networks:detail'
-
-    def get_success_url(self):
-        return reverse(self.url,
-                       args=(self.kwargs['network_id'],))
+class CreateView(workflows.WorkflowView):
+    workflow_class = project_workflows.CreatePort
+    failure_url = 'horizon:project:networks:detail'
 
     @memoized.memoized_method
     def get_network(self):
@@ -58,23 +45,16 @@ class CreateView(forms.ModalFormView):
             network_id = self.kwargs["network_id"]
             return api.neutron.network_get(self.request, network_id)
         except Exception:
-            redirect = reverse(self.url,
+            redirect = reverse(self.failure_url,
                                args=(self.kwargs['network_id'],))
             msg = _("Unable to retrieve network.")
             exceptions.handle(self.request, msg, redirect=redirect)
 
-    def get_context_data(self, **kwargs):
-        context = super(CreateView, self).get_context_data(**kwargs)
-        context['network'] = self.get_network()
-        args = (self.kwargs['network_id'],)
-        context['submit_url'] = reverse(self.submit_url, args=args)
-        context['cancel_url'] = reverse(self.url, args=args)
-        return context
-
     def get_initial(self):
         network = self.get_network()
         return {"network_id": self.kwargs['network_id'],
-                "network_name": network.name}
+                "network_name": network.name,
+                "target_tenant_id": network.tenant_id}
 
 
 class DetailView(tabs.TabbedTableView):
