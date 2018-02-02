@@ -187,6 +187,8 @@ class CreatePort(forms.SelfHandlingForm):
                 if data.get('fixed_ip'):
                     params['fixed_ips'] = [{"ip_address": data['fixed_ip']}]
 
+            if data.get('binding__vnic_type'):
+                params['binding__vnic_type'] = data['binding__vnic_type']
             if data.get('mac_state'):
                 params['mac_learning_enabled'] = data['mac_state']
             if 'port_security_enabled' in data:
