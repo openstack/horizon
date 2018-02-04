@@ -145,12 +145,6 @@ horizon.network_topology = {
     // set up loader first thing
     self.$loading_template.show();
 
-    if (self.data.networks.length === undefined) {
-      $('.loader-inline').remove();
-      $(self.svg_container).addClass('noinfo');
-      return;
-    }
-
     self.create_vis();
     self.force_direction(0.05,70,-700);
     if(horizon.networktopologyloader.model !== null) {
@@ -165,6 +159,13 @@ horizon.network_topology = {
 
     angular.element('#networktopology').on('change', function() {
       self.retrieve_network_info(true);
+      if(angular.equals(self.data.networks,{}) && angular.equals(self.data.routers,{}) &&
+         angular.equals(self.data.servers,{})){
+        $('.loader-inline').remove();
+        angular.element('#topologyCanvasContainer').find('svg').remove();
+        $(self.svg_container).addClass('noinfo');
+        return;
+      }
     });
 
     // register for message notifications
