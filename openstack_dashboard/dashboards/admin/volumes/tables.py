@@ -92,10 +92,16 @@ class UpdateVolumeStatusAction(tables.LinkAction):
                      "volume_extension:volume_admin_actions:reset_status"),)
 
 
+class AttachmentColumn(volumes_tables.AttachmentColumn):
+    instance_detail_url = "horizon:admin:instances:detail"
+
+
 class VolumesTable(volumes_tables.VolumesTable):
     name = tables.WrappingColumn("name",
                                  verbose_name=_("Name"),
                                  link="horizon:admin:volumes:detail")
+    attachments = AttachmentColumn("attachments",
+                                   verbose_name=_("Attached To"))
     host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
     tenant = tables.Column(lambda obj: getattr(obj, 'tenant_name', None),
                            verbose_name=_("Project"))
