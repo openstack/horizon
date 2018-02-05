@@ -39,13 +39,14 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         cmd = ('python setup.py {quiet} extract_messages '
                '-F babel-{domain}.cfg '
-               '-o {module}/locale/{domain}.pot')
+               '--input-dirs {module} '
+               '-o {potfile}')
         distribution = Distribution()
         distribution.parse_config_files(distribution.find_config_files())
 
         quiet = '-q' if int(options['verbosity']) == 0 else ''
         if options['check_only']:
-            cmd += " ; rm {module}/locale/{domain}.pot"
+            cmd += " ; rm {potfile}"
 
         for module in options['module']:
             for domain in options['domain']:
