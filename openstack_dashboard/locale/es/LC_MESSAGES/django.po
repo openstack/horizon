@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-02 18:26+0000\n"
+"POT-Creation-Date: 2018-02-05 04:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-03 06:50+0000\n"
+"PO-Revision-Date: 2018-02-04 06:04+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -357,6 +357,9 @@ msgstr "Añadir usuario al grupo"
 msgid "Add Users"
 msgstr "Añadir Usuarios"
 
+msgid "Add allowed address pair"
+msgstr "Añadir par de direcciones permitidas"
+
 msgid ""
 "Add an allowed address pair for this port. This will allow multiple MAC/IP "
 "address (range) pairs to pass through this port."
@@ -383,8 +386,24 @@ msgstr ""
 "Añade hosts a esta agregación. Un Host puede pertenecer a varias "
 "agregaciones."
 
+msgid ""
+"Add or remove security groups to this port from the list of available "
+"security groups."
+msgstr ""
+"Añadir o quitar grupos de seguridad a este puerto de la lista de grupos de "
+"seguridad disponibles."
+
 msgid "Add static route to the router."
 msgstr "Añadir ruta estática al router."
+
+msgid ""
+"Add volume types to this consistency group. Multiple volume types can be "
+"added to the same consistency group only if they are associated with same "
+"back end."
+msgstr ""
+"Añadir tipos de volumen a este grupo consistente. Se pueden asociar varios "
+"tipos de volumen al mismo grupo consistente si están asociados al mismo "
+"\"backend\"."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
@@ -442,6 +461,9 @@ msgstr "Contraseña de Administrador"
 
 msgid "Admin State"
 msgstr "Estado de administración"
+
+msgid "Admin State ="
+msgstr "Estado de administración ="
 
 msgid "Admin:"
 msgstr "Admin:"
@@ -596,6 +618,9 @@ msgstr "Tipos de Recursos Asociados"
 msgid "At least one network must be specified."
 msgstr "Debe especificar al menos una red."
 
+msgid "At least one volume type must be assigned to a consistency group."
+msgstr "Un grupo consistente debe tener al menos un tipo de volumen asignado."
+
 msgid "Attach Interface"
 msgstr "Conectar interfaz"
 
@@ -672,6 +697,13 @@ msgstr "Nombre de la zona de disponibilidad"
 
 msgid "Availability Zones"
 msgstr "Zonas de Disponibilidad"
+
+msgid ""
+"Availability Zones where the router may be scheduled. Leaving this unset is "
+"equivalent to selecting all Availability Zones"
+msgstr ""
+"Zonas de disponibilidad donde se puede lanzar el router. Si no se especifica "
+"alguna es equivalente a seleccionar todas."
 
 msgid "Availability zone"
 msgstr "Zona de disponibilidad"
@@ -869,8 +901,22 @@ msgstr "Cambios desde"
 msgid "Changing password is not supported."
 msgstr "No se soporta el cambio de contraseña."
 
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this consistency group."
+msgstr ""
+"Verificar la caja &quot;Eliminar Volumen&quot; para eliminar también "
+"cualquier volumen asociado con este grupo consistente."
+
 msgid "Checksum"
 msgstr "Suma de comprobación"
+
+msgid ""
+"Choose \"Disk Format\" for the image. The volume images are created with the "
+"QEMU disk image utility."
+msgstr ""
+"Elija un \"Formato de disco\" para la imagen. Las imágenes de volumen se "
+"crean con la utilidad de imágenes de disco de QEMU."
 
 msgid "Choose Your Boot Source Type."
 msgstr "Elija el tipo de origen de arranque."
@@ -953,6 +999,13 @@ msgstr "Haga click aquí para mostrar solo la consola"
 
 msgid "Clone Consistency Group"
 msgstr "Clonar grupo consistente"
+
+msgid ""
+"Clone each of the volumes in the source Consistency Group, and then add them "
+"to a newly created Consistency Group."
+msgstr ""
+"Clonar cada volumen en el grupo consistente origen y despueś añadirlos al "
+"nuevo grupo consistente."
 
 msgid "Close"
 msgstr "Cerrar"
@@ -1145,6 +1198,9 @@ msgstr "Crear Red (Cuota superada)"
 msgid "Create Port"
 msgstr "Crear puerto"
 
+msgid "Create Port (Quota exceeded)"
+msgstr "Crear puerto (cuota superada)"
+
 msgid "Create Project"
 msgstr "Crear proyecto"
 
@@ -1214,6 +1270,13 @@ msgstr "Crear tipo de cifrado de volumen"
 msgid "Create Volume Type Extra Spec"
 msgstr "Crea especificaciones adicionales para el tipo de volumen."
 
+msgid ""
+"Create a Consistency Group that will contain newly created volumes cloned "
+"from each of the snapshots in the source Consistency Group Snapshot."
+msgstr ""
+"Crear un grupo consistente que contendrá nuevos volúmenes clonados de cada "
+"una de las instancias de la instantánea de grupo de consistencia origen."
+
 msgid "Create a Metadata Namespace"
 msgstr "Crear un Namespace de Metadatos"
 
@@ -1234,6 +1297,23 @@ msgstr ""
 "Crea un nuevo par clave-valor \"especificación adicional\" para un tipo de "
 "volumen."
 
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
+"Valid key names are expected in the QoS specs. The acceptable values for key "
+"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
+msgstr ""
+"Crear una nueva especificación  clave-valor para QoS \"%(qos_spec_name)s\". "
+"Es necesaario utilizar un nombre válido. Los valors aceptados para las "
+"claves son: <tt>\"minIOPS\", \"maxIOPS\" y \"burstIOPS\"</tt>."
+
+msgid ""
+"Create a new network. In addition, a subnet associated with the network can "
+"be created in the following steps of this wizard."
+msgstr ""
+"Crear una nueva red. Además, se puede crear una subred asociada a la red "
+"siguiendo los pasos de este asistente."
+
 msgid "Create a new role."
 msgstr "Crear un nuevo rol."
 
@@ -1246,6 +1326,10 @@ msgstr ""
 
 msgid "Create a project to organize users."
 msgstr "Crear un proyecto para organizar usuarios."
+
+msgid "Create a snapshot for each volume contained in the Consistency Group."
+msgstr ""
+"Crear una instantánea para de cada volumen contenido en el grupo consistente."
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -1331,6 +1415,10 @@ msgstr "Creando"
 #, python-format
 msgid "Creating consistency group \"%s\"."
 msgstr "Creando grupo consistente \"%s\"."
+
+#, python-format
+msgid "Creating consistency group snapshot \"%s\"."
+msgstr "Crear instantánea de grupo consistente \"%s\"."
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1607,7 +1695,7 @@ msgstr[1] "Eliminar Usuarios"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
-msgstr[0] "Eliminar  Volúmen"
+msgstr[0] "Eliminar  Volumen"
 msgstr[1] "Eliminar Volúmenes"
 
 msgid "Delete Volume Backup"
@@ -2114,6 +2202,9 @@ msgstr "Editar"
 msgid "Edit Access"
 msgstr "Editar acceso"
 
+msgid "Edit Consistency Group"
+msgstr "Editar grupo consistente"
+
 msgid "Edit Consumer"
 msgstr "Editar consumidor"
 
@@ -2293,6 +2384,17 @@ msgid_plural "Enabled Users"
 msgstr[0] "Usuario Habilitado"
 msgstr[1] "Usuarios Habilitados"
 
+msgid ""
+"Enables anti-spoofing rules for the port if enabled. In addition, if port "
+"security is disabled, security groups on the port will be automatically "
+"cleared. When you enable port security of the port, you may want to "
+"associate some security groups on the port."
+msgstr ""
+"Activa las reglas \"anti-spoofing\" para el puerto. Además, si la seguridad "
+"del puerto se desactiva, los grupos de seguridad del puerto se eliminan. "
+"Cuando se activa la seguridad del puerto, es muy probable que quiera asociar "
+"al puerto algún grupo de seguridad."
+
 msgid "Encrypted"
 msgstr "Cifrado"
 
@@ -2316,7 +2418,7 @@ msgid "Endpoints"
 msgstr "Extremos"
 
 msgid "Enter Network Address manually"
-msgstr "Introducir la Dirección de Red manualmente"
+msgstr "Introducir la dirección de red manualmente"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Introduzca un valor para el código ICMP en el rango (-1:255)"
@@ -2449,6 +2551,15 @@ msgid "Example:"
 msgstr "Ejemplo:"
 
 msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
+"For <tt>mod_auth_mellon</tt>, this could be <tt>MELLON_IDP</tt>."
+msgstr ""
+"Ejamplo: Para <tt>mod_shib</tt> sería <tt>Shib-Identity-Provider</tt>, para "
+"<tt>mod_auth_openidc</tt>, podría ser <tt>HTTP_OIDC_ISS</tt>. Para "
+"<tt>mod_auth_mellon</tt>, podría ser <tt>MELLON_IDP</tt>."
+
+msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavors."
@@ -2523,6 +2634,10 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Fallo al añadir el agente %(agent_name)s para la red %(network)s."
 
 #, python-format
+msgid "Failed to add interface: %s"
+msgstr "No se ha podido añadir interfaz: %s"
+
+#, python-format
 msgid "Failed to add project %(project)s to volume type access."
 msgstr ""
 "No ha sido posible añadir al proyecto %(project)s el tipo de acceso de "
@@ -2552,6 +2667,15 @@ msgstr "Ha ocurrido un fallo al crear red %s"
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Ha ocurrido un fallo al crear el router \"%s\"."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+msgstr ""
+"No se ha podido crear la subred \"%(sub)s\" de la red \"%(net)s\": %(reason)s"
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
+msgstr "No se ha podido crear la subred \"%(sub)s\": %(reason)s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2585,6 +2709,10 @@ msgstr "Fallo al obtener la lista de redes {0}"
 
 msgid "Failed to get network list."
 msgstr "Fallo al obtener la lista de redes."
+
+#, python-format
+msgid "Failed to get network list: %s"
+msgstr "No se ha podido obtener la lista de redes: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "Ha fallado la migración en vivo a un nuevo servidor."
@@ -2648,6 +2776,10 @@ msgstr ""
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Ha habido un fallo al obtener la red %s para la subred"
+
+#, python-format
+msgid "Failed to set gateway: %s"
+msgstr "No se ha podido fijar la puerta de enlace: %s"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3037,6 +3169,9 @@ msgstr "Dirección IP o CIDR"
 msgid "IP Addresses"
 msgstr "Direcciones IP"
 
+msgid "IP Allocation Pools"
+msgstr "Pool de IPs asignadas"
+
 msgid "IP Protocol"
 msgstr "Protocolo IP"
 
@@ -3385,6 +3520,10 @@ msgstr ""
 "Período de tiempo no válido. Está solicitando datos futuros que pueden no "
 "existir. "
 
+msgid "It specifies the VNIC type bound to the networking port."
+msgstr ""
+"Especifica la interfaz de red virtual (VNIC) asociada al puerto de red."
+
 msgid "Items Per Page"
 msgstr "Ítems por página"
 
@@ -3435,6 +3574,15 @@ msgstr "Pareja de claves a utilizar para la autentificación."
 
 msgid "Key-Value Pairs"
 msgstr "Parejas de clave-valor"
+
+msgid "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
+msgstr "Clave: burstIOPS y valor: 5000 (valor numérico superior a minIOPS)"
+
+msgid "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
+msgstr "Clave: maxIOPS y valor: 5000 (valor numérico superior a minIOPS)"
+
+msgid "Key: minIOPS and Value:20 (number value less than maxIOPS)"
+msgstr "Clave: minIOPS y valor: 20 (valor numérico inferior a maxIOPS)"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -3598,7 +3746,7 @@ msgstr ""
 "({{ security_group.id }})"
 
 msgid "Manage Specs"
-msgstr "Gestion de especificaciones"
+msgstr "Gestionar especificaciones"
 
 msgid "Manage Volume"
 msgstr "Gestionar volumen"
@@ -3809,6 +3957,10 @@ msgstr "Monitoreo:"
 msgid "More"
 msgstr "Más"
 
+msgid "N/A"
+msgstr "N/A"
+
+msgctxt "current status of port"
 msgid "N/A"
 msgstr "N/A"
 
@@ -4158,6 +4310,9 @@ msgstr ""
 msgid "Non-Members"
 msgstr "No miembros"
 
+msgid "Non-Public from Other Projects"
+msgstr "No públicas para otros proyectos"
+
 msgid "None"
 msgstr "Ninguno"
 
@@ -4198,6 +4353,14 @@ msgstr "Número de VCPU"
 
 msgid "Number of Volumes"
 msgstr "Número de volúmenes"
+
+#, python-format
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination, Max Value: %s)"
+msgstr ""
+"Número de ítems a mostrar por página (se aplica a las páginas que tienen "
+"soporte de paginación en la API, Valor máximo: %s)"
 
 msgid "Number of log lines to be shown per instance"
 msgstr "Número de líneas de inicio de sesión para mostrar por instancia"
@@ -4392,6 +4555,9 @@ msgstr "Puerto de seguridad"
 msgid "Port Security Enabled"
 msgstr "Seguridad de puerto habilitada"
 
+msgid "Port Security Groups"
+msgstr "Grupos de seguridad de puerto"
+
 msgid "Port list can not be retrieved."
 msgstr "No ha sido posible obtener la lista de puertos."
 
@@ -4561,6 +4727,26 @@ msgstr "QoS Spec: {{ qos_spec_name }}"
 
 msgid "QoS Specs"
 msgstr "Specs QoS"
+
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>openstack volume qos create</tt> command. Once the QoS "
+"Spec gets created, click the \"Manage Specs\" button to manage the key-value "
+"specs for the QoS Spec. <br> <br> Each QoS Spec entity has a \"Consumer\" "
+"value which indicates where the administrator would like the QoS policy to "
+"be enforced. This value can be \"front-end\" (Compute back-end), \"back-end"
+"\" (Block Storage back-end), or \"both\"."
+msgstr ""
+"Se pueden asociar QoS a los tipos de volumen. Se utiliza para asignar un "
+"conjunto de capacidades de calidad de servicio solicitadas por el "
+"propietario del volumen. Es equivalente a la instrucción <tt>openstack "
+"volume qos create</tt>. Una vez que se crea el QoS, pulse el botón "
+"\"Gestionar especificaciones\" para gestionar los correspondientes "
+"especificaciones clave-valor. <br> <br> Cada entidad spec de QoS tiene un "
+"valor \"Consumidor\" que indica al administrador dónde debería aplicarse la "
+"política QoS. Este valor puede ser \"front-end\" si se aplica en el nodo de "
+"computación, \"back-end\" si lo es en el nodo de almacenamiento o \"ambos\"."
 
 msgctxt "Current status of an Image"
 msgid "Queued"
@@ -4738,6 +4924,9 @@ msgid_plural "Remove Users"
 msgstr[0] "Eliminar Usuario"
 msgstr[1] "Eliminar Usuarios"
 
+msgid "Remove Volumes from Consistency Group"
+msgstr "Quitar volúmenes del grupo consistente"
+
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Usuario Eliminado"
@@ -4802,6 +4991,15 @@ msgstr "Redimensionar"
 
 msgid "Resize Instance"
 msgstr "Redimensionar instancia"
+
+msgid ""
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology. Pan around the canvas by clicking and dragging the space behind "
+"the topology."
+msgstr ""
+"Redimensionar el panel subiendo/bajando con el ratón en la topología. "
+"Desplazar el lienzo haciendo clic y arrastrando el espacio detrás de la "
+"topología."
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -5028,6 +5226,11 @@ msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
 msgstr[0] "Eliminación programada de  Volúmen["
 msgstr[1] "Eliminación programada de Volúmenes"
+
+msgid "Scheduled deletion of Volume Backup"
+msgid_plural "Scheduled deletion of Volume Backups"
+msgstr[0] "Se ha planificado el borrado de la copia de seguridad de volumen"
+msgstr[1] "Se ha planificado el borrado de las copias de seguridad de volumen"
 
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
@@ -5477,6 +5680,9 @@ msgstr ""
 msgid "Something went wrong!"
 msgstr "¡Algo ha ido mal!"
 
+msgid "Sorry, the page you were looking for does not exist"
+msgstr "Lo sentimos, la página que estaba viendo ya no existe."
+
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Generando"
@@ -5499,6 +5705,13 @@ msgstr "Especifica que el nuevo volumen creado debe marcarse como arrancable"
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr ""
 "Especificar que el volumen puede ser usado para ejecutar una instancia "
+
+msgid ""
+"Specify \"Address pool\" or select \"Enter Network Address manually\" and "
+"specify \"Network Address\"."
+msgstr ""
+"Especifique \"pool de direcciones\" o seleccione \"Introducir la dirección "
+"de red manualmente\" y especifique \"Dirección de red\""
 
 msgid ""
 "Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
@@ -5624,6 +5837,9 @@ msgstr "ID de subred"
 
 msgid "Subnet Name"
 msgstr "Nombre de subred"
+
+msgid "Subnet Pool"
+msgstr "Pool de subredes"
 
 msgid "Subnet list can not be retrieved."
 msgstr "No ha sido posible obtener la lista de subredes."
@@ -5790,6 +6006,17 @@ msgstr ""
 "El indicador de arranque estipula que este volumen puede utilizarse para "
 "ejecutar una instancia."
 
+msgid ""
+"The \"Migration Policy\" is only used if the volume retype cannot be "
+"completed. If the \"Migration Policy\" is \"On Demand\", the back end will "
+"perform volume migration. Note that migration may take a significant amount "
+"of time to complete, in some cases hours."
+msgstr ""
+"La política de migración se usa solo si la modificación del tipo de volumen "
+"no se puede completar. Si la política de migración es \"a demanda\" el "
+"\"backend\" realizará la migración. Tenga en cuenta que la migración puede "
+"tardar una cantidad de tiempo importante, en algunos casos horas."
+
 msgid "The \"Type\" selected must be different from the current volume type."
 msgstr "El tipo seleccionado debe ser diferente al actual."
 
@@ -5848,6 +6075,15 @@ msgstr ""
 
 msgid "The Aggregate was updated."
 msgstr "El agregado se ha actualizado."
+
+msgid ""
+"The Authorization Key will not be available after closing this page, so you "
+"must capture it now or download it, or else you will be unable to use the "
+"transfer."
+msgstr ""
+"La clave de autorización no estará disponible después de cerrar esta página, "
+"por lo que debe copiarla o descargarla ahora o no podrá utilizar la "
+"transferencia."
 
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "El código ICMP no está en el rango (-1,255)"
@@ -5983,6 +6219,10 @@ msgstr ""
 "especifica este valor se asume 0 (sin mínimo)."
 
 #, python-format
+msgid "The name \"%s\" is already used by another consistency group."
+msgstr "Otro grupo consistente está ya utilizando el nombre \"%s\"."
+
+#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "El nombre \"%s\" ya lo ha usado otro sabor."
 
@@ -6105,6 +6345,9 @@ msgstr ""
 "El tamaño del volumen no puede ser menor que el tamaño del volumen original "
 "(%sGiB)"
 
+msgid "The way to specify an interface"
+msgstr "La forma de especificar una interfaz"
+
 msgid "Theme Preview"
 msgstr "Previsualización del tema"
 
@@ -6139,6 +6382,13 @@ msgid ""
 msgstr ""
 "Esta acción no se puede deshacer. Las credenciales EC2 actuales se "
 "suprimirán y no se podrán recuperar."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"consistency group."
+msgstr ""
+"Esta acción eliminará las asignaciones de los volúmenes actualmente "
+"contenidos en este grupo consistente."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -6236,6 +6486,9 @@ msgstr ""
 "permitir acceso a todos los miembros de otro grupo de seguridad seleccione "
 "\"Grupo de seguridad\""
 
+msgid "Toggle Labels"
+msgstr "Alternar etiquetas"
+
 msgid "Toggle Network Collapse"
 msgstr "Alternar Colapso de Red"
 
@@ -6293,6 +6546,10 @@ msgstr "Uso total de disco (GB * Horas Empleadas) para el proyecto"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "Uso total de memoria (MB * Horas Empleadas) para el proyecto"
+
+#, python-format
+msgid "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
+msgstr "Trazado con id %(id)s. Ir a <a href=\"%(url)s\">página</a>"
 
 msgid "Transfer ID"
 msgstr "ID de Transferencia"
@@ -6365,6 +6622,30 @@ msgstr ""
 "No se puede comprobar si se admite la extensión del  planificador de agente "
 "DHCP"
 
+msgid "Unable to check if network availability zone extension is supported"
+msgstr ""
+"No se ha podido comprobar si la extensión zonas de disponibilidad de red "
+"está soportada."
+
+msgid "Unable to check if router availability zone extension is supported"
+msgstr ""
+"No se ha podido verificar si la extensión de zona de disponiblidad para "
+"router está soportada"
+
+#, python-format
+msgid ""
+"Unable to clear gateway for router %(name)s. Most possible reason is because "
+"the gateway is required by one or more floating IPs"
+msgstr ""
+"No se ha podido eliminar la puerta de enlace del router %(name)s. "
+"Probablemente sea porque está siendo usada por alguna IP flotante."
+
+msgid "Unable to clone consistency group."
+msgstr "No se ha podido clonar el grupo consistente."
+
+msgid "Unable to clone empty consistency group."
+msgstr "No se ha podido clonar el grupo consistente vacío."
+
 msgid "Unable to connect to Neutron."
 msgstr "No ha sido posible conectar con Neutron."
 
@@ -6380,6 +6661,9 @@ msgid "Unable to create consistency group due to exceeding volume quota limit."
 msgstr ""
 "No se ha podido crear el grupo consistente de volumen por que se ha superado "
 "la cuota."
+
+msgid "Unable to create consistency group snapshot."
+msgstr "No se ha podido crear instantánea de grupo consistente."
 
 msgid "Unable to create consistency group."
 msgstr "No se ha podido crear el grupo consistente."
@@ -6457,6 +6741,14 @@ msgstr "No ha sido posible crear el grupo de seguridad: %s"
 msgid "Unable to create snapshot."
 msgstr "No ha sido posible crear la instantánea."
 
+msgid "Unable to create snapshot. Consistency group must contain volumes."
+msgstr ""
+"No se ha podido crear la instantánea. Grupo consistente debe incluir "
+"volúmenes."
+
+msgid "Unable to create snapshots due to exceeding snapshot quota limit."
+msgstr "No se han podido crear instantáneas porque se ha superado la cuota."
+
 msgid "Unable to create spec."
 msgstr "Imposible crear la especificación."
 
@@ -6486,6 +6778,18 @@ msgstr "No ha sido posible crear el tipo de volumen."
 
 msgid "Unable to create volume."
 msgstr "No ha sido posible crear el volumen."
+
+#, python-format
+msgid ""
+"Unable to delete network %(name)s. Most possible reason is because one or "
+"more ports still exist on the requested network."
+msgstr ""
+"No se ha podido borrar la red %(name)s. El motivo más probable es que "
+"todavía haya puertos asociados a esta red."
+
+#, python-format
+msgid "Unable to delete router %(name)s: %(exc)s"
+msgstr "No se ha podido eliminar el router %(name)s: %(exc)s"
 
 #, python-format
 msgid ""
@@ -6594,6 +6898,9 @@ msgstr "No ha sido posible obtener la subred \"%s\""
 msgid "Unable to get the available hosts"
 msgstr "No ha sido posible obtener los agregados de hosts."
 
+msgid "Unable to get the available volume types"
+msgstr "No se han podido obtener los tipos de volumen disponibles"
+
 msgid "Unable to get the available volumes"
 msgstr "No ha sido posible obtener los volúmenes disponibles"
 
@@ -6615,6 +6922,9 @@ msgstr "No ha sido posible enumerar los agentes dhcp del segmento de red."
 
 msgid "Unable to load console. Please reload page to try again."
 msgstr "No se ha podido recuperar la consola.  Inténtelo más tarde."
+
+msgid "Unable to load the specified consistency group."
+msgstr "No se ha podido cargar el grupo consistente especificado."
 
 #, python-format
 msgid "Unable to load the specified image. %s"
@@ -7148,6 +7458,9 @@ msgstr "No ha sido posible obtener los mensajes del volumen."
 msgid "Unable to retrieve volume project information."
 msgstr "No ha sido posible obtener la información del proyecto de volúmenes."
 
+msgid "Unable to retrieve volume quota information."
+msgstr "No se ha podido obtener información de las cuotas de volumen."
+
 msgid "Unable to retrieve volume snapshot."
 msgstr "No ha sido posible obtener la instantánea de volumen."
 
@@ -7305,6 +7618,9 @@ msgstr "No se puede actualizar el tipo de volumen."
 
 msgid "Unable to update volume."
 msgstr "No ha sido posible modificar el volumen."
+
+msgid "Unable to update volumes for consistency group"
+msgstr "No se han podido actualizar los volúmenes del grupo consistente"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7475,6 +7791,10 @@ msgstr "Actualizado el"
 msgid "Updated subnet \"%s\"."
 msgstr "Subred \"%s\" actualizada."
 
+#, python-format
+msgid "Updated volumes for consistency group \"%s\"."
+msgstr "Se han actualizado los volúmenes del grupo consistente \"%s\"."
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Actualizando contraseña"
@@ -7504,6 +7824,13 @@ msgstr "Subir"
 msgid "Upload Volume to Image"
 msgstr "Cargar un volumen a una imagen"
 
+msgid ""
+"Upload the volume to the Image Service as an image. This is equivalent to "
+"the <tt>cinder upload-to-image</tt> command."
+msgstr ""
+"Subir el volumen al Servicio de Imágenes como una imagen. Esto es "
+"equivalente a la instrucción <tt>cinder upload-to-image</tt>"
+
 msgid "Upload to Image"
 msgstr "Subir Imagen"
 
@@ -7521,6 +7848,9 @@ msgstr "Informe de Uso para el Periodo:"
 
 msgid "Use Server Default"
 msgstr "Usar el predeterminado del servidor"
+
+msgid "Use a consistency group as source"
+msgstr "Utilizar un grupo consistente como origen"
 
 msgid "Use a volume as source"
 msgstr "Usar un volumen como origen"
@@ -7777,6 +8107,18 @@ msgstr "Tipo de Volumen: %(volume_type_name)s"
 msgid "Volume Types"
 msgstr "Tipos de volúmenes"
 
+#, python-format
+msgid ""
+"Volume cannot be extended to %(req)iGiB as the maximum size it can be "
+"extended to is %(max_size)iGiB."
+msgstr ""
+"No se puede extender el volumen a %(req)iGiB ya que el tamaño máximo al que "
+"se puede extender es %(max_size)iGiB."
+
+msgid "Volume consistency groups can not be deleted if they contain volumes."
+msgstr ""
+"No se pueden eliminar los grupos consistentes si aún contienen algún volumen."
+
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "
 "multiple volumes at the same point-in-time to ensure data consistency\n"
@@ -7898,6 +8240,13 @@ msgstr ""
 "paquetes a través del puerto. En caso contrario, no enviará paquetes a "
 "través de él."
 
+msgid ""
+"When the volume status is \"in-use\", you can use \"Force\" to upload the "
+"volume to an image."
+msgstr ""
+"Cuando el estado del volumen sea \"en uso\", puede utilizar \"Forzar\" para "
+"subir el volumen a una imagen."
+
 msgid "Yes"
 msgstr "Sí"
 
@@ -7910,6 +8259,13 @@ msgstr "Ya está utilizando todos los volúmenes disponibles."
 #, python-format
 msgid "You are not allowed to create a port for network %s."
 msgstr "No tiene permiso para crear el puerto de red %s."
+
+msgid ""
+"You can add or remove security groups associated with the port in the next "
+"tab (if the port security is enabled for the port)."
+msgstr ""
+"Puede añadir o quitar grupos de seguridad asociados con el puerto en la "
+"siguiente pestaña (si la seguridad de puerto está activa en el puerto)."
 
 msgid ""
 "You can connect a specified external network to the router. The external "
@@ -7969,6 +8325,13 @@ msgstr ""
 "actualmente inició sesión. Muévase a otro proyecto con privilegios de "
 "administración o elimine el rol de administración manualmente desde la línea "
 "de comandos."
+
+msgid ""
+"You do not have the required privileges to access this content. If you "
+"believe this message to be in error, please contact your project manager."
+msgstr ""
+"No tiene los privilegios necesarios para acceder al contenido. Si cree que "
+"este mensaje es un error, contacte con el administrador de los proyectos."
 
 msgid "You have selected:"
 msgstr "Ha seleccionado:"
