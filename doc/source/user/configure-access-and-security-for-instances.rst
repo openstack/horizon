@@ -152,7 +152,7 @@ Import a key pair
       If you are using the Dashboard from a Windows computer, use PuTTYgen
       to load the ``*.pem`` file and convert and save it as ``*.ppk``. For
       more information see the `WinSCP web page for
-      PuTTYgen <http://winscp.net/eng/docs/ui_puttygen>`__.
+      PuTTYgen <https://winscp.net/eng/docs/ui_puttygen>`__.
 
 #. To make the key pair known to SSH, run the :command:`ssh-add` command.
 
