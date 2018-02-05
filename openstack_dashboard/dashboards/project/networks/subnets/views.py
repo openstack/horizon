@@ -123,6 +123,9 @@ class DetailView(tabs.TabView):
 
             if ('subnetpool_id' in subnet and
                 subnet.subnetpool_id and
+                # subnetpool_id = prefix_delegation is a special subnetpool
+                # and we cannot retrieve such subnet pool.
+                subnet.subnetpool_id != 'prefix_delegation' and
                 api.neutron.is_extension_supported(self.request,
                                                    'subnet_allocation')):
                 subnetpool = api.neutron.subnetpool_get(self.request,
