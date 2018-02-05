@@ -18,6 +18,8 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
+from neutronclient.common import exceptions as neutron_exc
+
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
@@ -51,7 +53,6 @@ class CreatePort(forms.SelfHandlingForm):
     specify_ip = forms.ThemableChoiceField(
         label=_("Specify IP address or subnet"),
         help_text=_("To specify a subnet or a fixed IP, select any options."),
-        initial=False,
         required=False,
         choices=[('', _("Unspecified")),
                  ('subnet_id', _("Subnet")),
@@ -119,8 +120,17 @@ class CreatePort(forms.SelfHandlingForm):
         except Exception:
             return []
 
+        # NOTE(amotoki): When a user cannot retrieve a subnet info,
+        # subnet ID is stored in network.subnets field.
+        # If so, we skip such subnet as subnet choices.
+        # This happens usually for external networks.
+        # TODO(amotoki): Ideally it is better to disable/hide
+        # Create Port button in the port table, but as of Pike
+        # the default neutron policy.json for "create_port" is empty
+        # and there seems no appropriate policy. This is a dirty hack.
         return [(subnet.id, '%s %s' % (subnet.name_or_id, subnet.cidr))
-                for subnet in network.subnets]
+                for subnet in network.subnets
+                if isinstance(subnet, api.neutron.Subnet)]
 
     def handle(self, request, data):
         try:
@@ -158,8 +168,13 @@ class CreatePort(forms.SelfHandlingForm):
         except Exception as e:
             LOG.info('Failed to create a port for network %(id)s: %(exc)s',
                      {'id': self.initial['network_id'], 'exc': e})
-            msg = (_('Failed to create a port for network %s')
-                   % self.initial['network_id'])
+            if isinstance(e, neutron_exc.Forbidden):
+                msg = (_('You are not allowed to create a port '
+                         'for network %s.')
+                       % self.initial['network_id'])
+            else:
+                msg = (_('Failed to create a port for network %s')
+                       % self.initial['network_id'])
             redirect = reverse(self.failure_url,
                                args=(self.initial['network_id'],))
             exceptions.handle(request, msg, redirect=redirect)
