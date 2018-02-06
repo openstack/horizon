@@ -3,7 +3,6 @@
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
@@ -11,12 +10,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-01 11:04+0000\n"
+"POT-Creation-Date: 2018-02-05 04:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-02 07:17+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2018-02-05 06:16+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -3422,7 +3421,7 @@ msgid ""
 msgstr "無効な期間指定です。存在しない未来のデータを要求しています。"
 
 msgid "It specifies the VNIC type bound to the networking port."
-msgstr "このネットワークポートに割り当てる VNIC 種別を指定します。"
+msgstr "このネットワークポートに割り当てる仮想 NIC 種別を指定します。"
 
 msgid "Items Per Page"
 msgstr "ページあたりの項目数"
@@ -4450,7 +4449,7 @@ msgid "Port Security Enabled"
 msgstr "ポートセキュリティー有効"
 
 msgid "Port Security Groups"
-msgstr "ポートのセキュリティグループ"
+msgstr "ポートのセキュリティーグループ"
 
 msgid "Port list can not be retrieved."
 msgstr "ポート一覧を取得できません。"
@@ -5547,7 +5546,7 @@ msgid "Something went wrong!"
 msgstr "どこかがおかしくなりました！"
 
 msgid "Sorry, the page you were looking for does not exist"
-msgstr "ごめんなさい、お探しのページが見つかりません"
+msgstr "残念ながら、お探しのページが見つかりません"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -8065,7 +8064,7 @@ msgid ""
 "You can add or remove security groups associated with the port in the next "
 "tab (if the port security is enabled for the port)."
 msgstr ""
-"次のタブで、このポートの関連付けるセキュリティーグループの追加、削除を行えま"
+"次のタブで、このポートに関連付けるセキュリティーグループの追加、削除を行えま"
 "す (このポートでポートセキュリティーが有効になっている場合)。"
 
 msgid ""
