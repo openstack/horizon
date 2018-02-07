@@ -15,6 +15,7 @@ from importlib import import_module
 import logging
 import os
 import pkgutil
+import re
 
 from horizon.utils import file_discovery
 from openstack_dashboard import theme_settings
@@ -329,9 +330,10 @@ def find_static_files(
             #       'framework/widgets/help-panel/help-panel.html'
             #   ] = 'themes/material/templates/framework/widgets/\
             #        help-panel/help-panel.html'
-            (templates_part, override_path) = theme_file.split('/templates/')
-            template_overrides[override_path] = 'themes/' + \
-                                                theme_name + theme_file
+            override_path = re.sub(r'^(|.*/)templates/', '', theme_file)
+            template_overrides[override_path] = os.path.join('themes',
+                                                             theme_name,
+                                                             theme_file)
 
         discovered_files['template_overrides'] = template_overrides
 
