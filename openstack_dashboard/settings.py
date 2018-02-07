@@ -268,6 +268,7 @@ POLICY_FILES = {
 # Services for which horizon has extra policies are defined
 # in POLICY_DIRS by default.
 POLICY_DIRS = {
+    'compute': ['nova_policy.d'],
     'volume': ['cinder_policy.d'],
 }
 
