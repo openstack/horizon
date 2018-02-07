@@ -3,5 +3,5 @@ upgrade:
   - |
     [:blueprint:`merge-openstack-auth`]
     ``django_openstack_auth`` was merged into the main horizon repository.
-    You no longer need to install ``django-openstack-auth`` module
-    separately.
+    Ensure to uninstall ``django-openstack-auth`` python package **BEFORE**
+    upgrading horizon to Queens.
