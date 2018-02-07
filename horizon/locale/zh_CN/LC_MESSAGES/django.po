@@ -10,16 +10,17 @@
 # Tony <tfu@redhat.com>, 2017. #zanata
 # bkb <bakbad2015@gmail.com>, 2017. #zanata
 # vuuv <froms2008@gmail.com>, 2017. #zanata
+# Tony <tfu@redhat.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b3.dev31\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-15 19:34+0000\n"
+"POT-Creation-Date: 2018-02-07 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-12 01:54+0000\n"
-"Last-Translator: TigerFang <tigerfun@126.com>\n"
+"PO-Revision-Date: 2018-02-06 12:16+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -203,6 +204,10 @@ msgstr "无效的MAC（硬件地址）地址格式"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr "无效的元数据条目，请使用逗号分隔的 key=value 组合"
+
+#, python-format
+msgid "Invalid service catalog: %s"
+msgstr "无效的服务目录：%s"
 
 msgid "Invalid subnet mask"
 msgstr "无效的子网掩码"

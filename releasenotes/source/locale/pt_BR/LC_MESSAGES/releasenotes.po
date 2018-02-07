@@ -2,17 +2,18 @@
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2017. #zanata
 # José Mello <jose.eduardo.jr@gmail.com>, 2017. #zanata
 # douglas santos costa <douglas.santos.mat@gmail.com>, 2017. #zanata
+# Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2018. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2018. #zanata
 # Rodrigo Loures <rmoraesloures@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-01 11:02+0000\n"
+"POT-Creation-Date: 2018-02-07 05:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-01 08:31+0000\n"
+"PO-Revision-Date: 2018-02-05 08:55+0000\n"
 "Last-Translator: Rodrigo Loures <rmoraesloures@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -768,6 +769,9 @@ msgstr ""
 "fácil configuração, baseado em informações de registro sobre recursos (Ex: "
 "Instâncias)."
 
+msgid "AngularJS table implementation"
+msgstr "Implementação de tabela Angular JS"
+
 msgid ""
 "Another cool new component is an interface designed for \"browsing\" "
 "resources which are nested under a parent resource. The object store (Swift) "
@@ -823,6 +827,9 @@ msgstr ""
 "implantadores  podem precisar atualizar também configurações de painel sob "
 "diretórios ``enabled`` para adaptar os novos menus de Administração."
 
+msgid "Availability zone support."
+msgstr "Suporte de zona de disponibilidade."
+
 msgid "Backwards Compatibility"
 msgstr "Compatibilidade Retroativa"
 
@@ -867,6 +874,9 @@ msgid ""
 msgstr ""
 "Gerenciamento de erros centralizado para ampliação melhorada da estabilidade/"
 "confiabilidade em APIs/clientes."
+
+msgid "Cinder"
+msgstr "Cinder"
 
 msgid ""
 "Cinder API v3 is used by default now. It was introduced in Mitaka release "
@@ -921,6 +931,9 @@ msgstr ""
 "Hashing de token configurável, para desativar a capacidade do Horizon fazer "
 "hashing do token que é repassado aos serviços do OpenStack."
 
+msgid "Conflicting Security Group Names With Neutron"
+msgstr "Os nomes do Grupo de Segurança estão conflitando com o Neutron."
+
 msgid "Copious amounts of documentation for developers."
 msgstr "Quantidades enormes de documentação para desenvolvedores."
 
@@ -950,6 +963,9 @@ msgstr "Criação de Topologias de Rede Complexas"
 msgid "Creation and publication of a set of Human Interface Guidelines (HIG)."
 msgstr ""
 "Criação e publicação de um conjunto de Diretrizes de Interface Humana (HIG)."
+
+msgid "Current Series Release Notes"
+msgstr "Atual - Séries de Notas de Versão"
 
 msgid "Current limitations on managing identity resources with Keystone v3:"
 msgstr ""
@@ -995,8 +1011,17 @@ msgstr "Notas de obsolecência"
 msgid "Direct Image Upload To Glance"
 msgstr "Upload Direto de Imagem para o Glance"
 
+msgid "Display IPMI meters values from Ceilometer"
+msgstr "Exibir métricas IPMI de Ceilometer"
+
 msgid "Displaying instance power states."
 msgstr "Exibindo status de energia da instância."
+
+msgid "Django 1.7 is now supported."
+msgstr "Django 1.7 agora é suportado."
+
+msgid "Django 1.8 is not fully supported yet."
+msgstr "Django 1.8 ainda não suportado completamente."
 
 msgid ""
 "Django 1.8 is now supported, and Django 1.7 is our minimum supported version."
@@ -1103,6 +1128,12 @@ msgstr "Download de credenciais EC2."
 
 msgid "Editable and interactive network topology visualizations."
 msgstr "Visualizações editáveis e interativas de topologia de rede. "
+
+msgid "Editable default quotas."
+msgstr "Cotas padrões editáveis."
+
+msgid "Editing a Flavor Which Results In An API Error Will Delete The Flavor"
+msgstr "Editando um sabor que resulta em um erro de API excluirá o sabor."
 
 msgid ""
 "Editing flavors is deprecated and may be removed from the 'R' cycle onwards."
@@ -1251,6 +1282,10 @@ msgid ""
 msgstr ""
 "Migração total para python-novaclient a partir da biblioteca obsoleta "
 "openstackx."
+
+msgid "Full security group and quota parity between Neutron and Nova network."
+msgstr ""
+"Grupo de segurança completo e paridade de cota entre Neutron e rede Nova."
 
 msgid ""
 "Full support for translation in AngularJS, along with simpler tooling. See "
@@ -1497,6 +1532,9 @@ msgstr ""
 msgid "IRC Meeting"
 msgstr "Reunião IRC"
 
+msgid "Icehouse Series Release Notes"
+msgstr "Icehouse - Série de Notas de Versão"
+
 msgid "Icons!"
 msgstr "Ícones!"
 
@@ -1576,6 +1614,9 @@ msgstr "Suporte WebSSO melhorado."
 
 msgid "Improved boot-from-volume support."
 msgstr "Melhor suporte de inicialização pelo volume."
+
+msgid "Improved client/server search"
+msgstr "Melhor mecanismo de busca cliente/servidor."
 
 msgid "Improved error handling and error messages."
 msgstr "Tratamento de erros e mensagens de erro melhorados."
@@ -1749,6 +1790,9 @@ msgstr ""
 "fortemente recomendado que o upload seja feito utilizando o CLI do Glance. "
 "Outras melhorias neste recurso virão em lançamentos futuros."
 
+msgid "JavaScript"
+msgstr "JavaScript"
+
 msgid "JavaScript can now access the Keystone Token."
 msgstr "O JavaScript agora pode acessar o Token do Keystone."
 
@@ -1844,6 +1888,12 @@ msgstr "Nomes do Painel de Legado & Separação de Código"
 msgid "Less Complicated LESS Compilation: No More NodeJS"
 msgstr "Menos compilação menos complicação: não há mais NodeJS"
 
+msgid "Liberty Series Release Notes"
+msgstr "Liberty - Série de Notas de Versão"
+
+msgid "Live Migration Support"
+msgstr "Suporte a migração em tempo real"
+
 msgid "Loadbalancer Feature"
 msgstr "Recurso Balanceador de Carga"
 
@@ -1935,6 +1985,9 @@ msgstr ""
 "Migração para python-keystoneclient a partir da porção obsoleta do Keystone "
 "da biblioteca python-novaclient."
 
+msgid "Mitaka Series Release Notes"
+msgstr "Mitaka - Série de Notas de Versão"
+
 msgid "Modal interactions throughout the entire UI."
 msgstr "Interações modal em toda a UI."
 
@@ -1987,6 +2040,9 @@ msgstr "Rede"
 msgid "Networking (Quantum)"
 msgstr "Rede (Quantum)"
 
+msgid "Neutron"
+msgstr "Neutron"
+
 msgid "Neutron Features"
 msgstr "Recursos do Neutron"
 
@@ -2025,6 +2081,15 @@ msgid "New network topology panel. Added support for subnet allocation."
 msgstr ""
 "Novo painel de topologia de rede. Adicionado suporte à alocação de subredes."
 
+msgid "New visualizations for utilization and quotas."
+msgstr "Novas visualizações para utilização e quotas."
+
+msgid "Newton Series Release Notes"
+msgstr "Newton - Série de Notas de Versão"
+
+msgid "Nova"
+msgstr "Nova"
+
 msgid "Nova Features"
 msgstr "Recursos Nova"
 
@@ -2055,6 +2120,9 @@ msgstr ""
 msgid "Object Storage Delimiters and Pseudo-folder Objects"
 msgstr "Delimitadores de Object Storage e Objetos Pseudo-pasta"
 
+msgid "Ocata Series Release Notes"
+msgstr "Ocata - Série de Notas de Versão"
+
 msgid ""
 "One of the most common activities in a dashboard user interface is simply "
 "displaying a list of resources or data and allowing the user to take actions "
@@ -2075,6 +2143,9 @@ msgstr "Gerenciamento de IP Flutuante em Um Click"
 
 msgid "OpenStack RC file download."
 msgstr "Download de arquivo OpenStack RC."
+
+msgid "Orchestration Resources Panel"
+msgstr "Painel de recursos de orquestração"
 
 msgid "Organized Images"
 msgstr "Imagens Organizadas"
@@ -2118,6 +2189,9 @@ msgstr "Pausando/Suspendendo instâncias."
 
 msgid "Per-project flavor support."
 msgstr "Suporte a sabor por projeto."
+
+msgid "Pike Series Release Notes"
+msgstr "Pike - Série de Notas de Versão"
 
 msgid ""
 "Plugin improvements, Horizon auto discovers JavaScript files for inclusion, "
@@ -2228,6 +2302,10 @@ msgstr ""
 msgid "Reorganizations"
 msgstr "Reorganizações"
 
+msgid "Resizing of Trove instances -- changing instance flavor"
+msgstr ""
+"Redimensionamento de instâncias do Trove -- alterando o sabor da instância"
+
 msgid "Resource Browser"
 msgstr "Navegador de Recursos"
 
@@ -2316,6 +2394,9 @@ msgstr ""
 msgid "Some of the general areas of improvement include:"
 msgstr "Algumas das áreas gerais de melhorias incluem:"
 
+msgid "Stack Template view"
+msgstr "Visualização de modelo de pilha"
+
 msgid ""
 "String attributes ``action_present`` and ``action_past`` were dropped from "
 "``horizon.tables.BatchAction``. ``action_present`` and ``action_past`` "
@@ -2383,6 +2464,12 @@ msgstr ""
 "operadores e usuários. Observe que a implementação atual apenas suporta a "
 "edição de grupos de segurança da porta do neutron das tabelas de portas na "
 "página de detalhes da rede (é planejada uma nova melhoria)."
+
+msgid "Suspend/Resume actions for Stacks"
+msgstr "Suspender/retomar ações para pilhas."
+
+msgid "Swift"
+msgstr "Swift"
 
 msgid "Tabs and TabGroups"
 msgstr "Abas e Grupos de Abas"
@@ -2639,6 +2726,11 @@ msgid "The `select` method has been renamed to to `toggleSelect`."
 msgstr "O método  `select` foi renomeado para `toggleSelect`."
 
 msgid ""
+"The ability for an administrator to reset the password of a server/instance."
+msgstr ""
+"A capacidade de um administrador para zerar a senha de um servidor/instância."
+
+msgid ""
 "The ability to edit flavors is disabled by default. See "
 "``ENABLE_FLAVOR_EDIT`` in the settings documentation for more information."
 msgstr ""
@@ -2823,6 +2915,13 @@ msgstr ""
 "contendo redes escamoteáveis, e escala muito melhor em grandes "
 "implementações. Veja `isto <https://blueprints.launchpad.net/horizon/+spec/"
 "curvature-network-topology>`__ para maiores detalhes."
+
+msgid ""
+"The number of OpenStack Compute (Nova) features that are supported in "
+"Horizon continues to grow. New features in the Havana release include:"
+msgstr ""
+"O número de recursos do Openstack Compute (Nova) que são suportados no "
+"Horizon continua crescendo. Novos recursos na versão Havana incluem:"
 
 msgid ""
 "The oslo concurrency minimum requirement has been raised from 3.5.0 to 3.7.1"
@@ -3158,6 +3257,16 @@ msgstr ""
 "\" foi renomeado para \"projetar\" e o painel de controle \"syspanel\" foi "
 "renomeado para \"admin\" para refletir melhor seus respectivos propósitos."
 
+msgid ""
+"View added to allow administrators to view/add/update Glance Metadata "
+"definitions"
+msgstr ""
+"Visão adicionada para permitir administradores a visualizar/adicionar/"
+"atualizar definições de metadados do Glance."
+
+msgid "Volume encryption metadata support"
+msgstr "Suporte de metadados de criptografia de volume"
+
 msgid "Volume migration is now supported."
 msgstr "Migração de volume agora é suportada."
 
@@ -3170,6 +3279,9 @@ msgstr ""
 
 msgid "Volume snapshots."
 msgstr "Snapshots de volume"
+
+msgid "Volume transfer support between projects"
+msgstr "Suporte de transferência de volume entre projetos"
 
 msgid ""
 "Volume types can be now edited, and include description fields. See `this "
@@ -3219,6 +3331,9 @@ msgstr ""
 "Espera-se melhorias adicionais nessas áreas na medida que o Qauntum continua "
 "a amadurecer e mais usuários adotam esse modelo de gerenciamento virtual de "
 "rede."
+
+msgid "Wizard"
+msgstr "Assistente"
 
 msgid "Workflows"
 msgstr "Fluxos de Trabalho"

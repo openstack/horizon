@@ -1,14 +1,15 @@
 # TigerFang <tigerfun@126.com>, 2017. #zanata
+# Tony <tfu@redhat.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-31 06:40+0000\n"
+"POT-Creation-Date: 2018-02-07 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-12 02:10+0000\n"
-"Last-Translator: TigerFang <tigerfun@126.com>\n"
+"PO-Revision-Date: 2018-02-06 12:19+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -20,8 +21,14 @@ msgstr "验证过程中发生错误。请稍后重试。"
 msgid "Authenticate using"
 msgstr "用于认证"
 
+msgid "Could not find service provider ID on keystone."
+msgstr "在 keystone 中无法找到服务提供者。"
+
 msgid "Domain"
 msgstr "域"
+
+msgid "Identity provider authentication failed."
+msgstr "身份提供者身份验证失败。"
 
 msgid "Invalid credentials."
 msgstr "证书不可用。"

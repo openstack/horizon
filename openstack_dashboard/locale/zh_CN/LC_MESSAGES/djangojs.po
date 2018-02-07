@@ -10,16 +10,17 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 # TigerFang <tigerfun@126.com>, 2017. #zanata
 # Tony <tfu@redhat.com>, 2017. #zanata
+# Tony <tfu@redhat.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-01 07:30+0000\n"
+"POT-Creation-Date: 2018-02-07 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-15 03:18+0000\n"
-"Last-Translator: TigerFang <tigerfun@126.com>\n"
+"PO-Revision-Date: 2018-02-07 06:28+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -96,6 +97,37 @@ msgstr ""
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>这行文字为了更好的打印。</small>"
+
+msgid ""
+"<strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<strong>提示！</strong>\n"
+"           此\n"
+"          <a href=\"#\" class=\"alert-link\">警告需要您的注意</a>，\n"
+"           但它可能不是非常重要。"
+
+msgid ""
+"<strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<strong>存在问题！</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">请进行一些修改</a>\n"
+"          然后再重新提交。"
+
+msgid ""
+"<strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<strong>成功！</strong>\n"
+"          您已成功读了\n"
+"          <a href=\"#\" class=\"alert-link\">这个重要的警告信息</a>。"
 
 msgid "A Confirmation Dialog"
 msgstr "确认对话框"
@@ -222,6 +254,9 @@ msgstr "添加接口"
 msgid "Add Ons, Required and Feedback"
 msgstr "附加组件，必需组件和反馈"
 
+msgid "Admin Password"
+msgstr "管理员密码"
+
 msgid "Admin State"
 msgstr "管理员状态"
 
@@ -242,6 +277,15 @@ msgstr "管理员建立可以绑定到实例的浮动IP池。"
 
 msgid "Alerts"
 msgstr "提醒"
+
+msgid ""
+"Also note that segmentation details may be mandatory\n"
+"  or optional depending on the backend. Notably Ironic may provide\n"
+"  segmentation details instead of the user."
+msgstr ""
+"另外请注意，根据具体的后端，网段详情可能是必需的，\n"
+" 也可能是可选的。Ironic 可能会提供网段详情，而\n"
+" 不是用户。"
 
 msgid "Amount of RAM in MB that is required to boot the image."
 msgstr "引导镜像所需的内存数量（以 MB 为单位）"
@@ -276,6 +320,23 @@ msgstr ""
 "当创建实例时，一个可用的高级选项是磁盘分区。有两种磁盘分区选项目。选择<b>自动"
 "</b>调整磁盘并设置为一个单独的分区。选择<b>手动</b>允许您在一个磁盘上创建多个"
 "分区。"
+
+msgid ""
+"An arbitrary amount (0, 1, 2, ...) of regular Neutron\n"
+"  ports with segmentation details (ie. type and ID). May be provided\n"
+"  when the trunk is created. Also may be attached or detached later\n"
+"  during the trunk's (and the instance's) life."
+msgstr ""
+"不确定数量 (0, 1, 2, ...) 的普通 Neutron\n"
+"  端口带有分段详情（例如，类型和 ID）。可能在创建\n"
+" 中继是被提供，也可能是在中继（以及实例）存在期间\n"
+"被附加或取消附加。"
+
+msgid "An arbitrary description for the trunk."
+msgstr "中继描述信息无效。"
+
+msgid "An arbitrary name for the trunk. May not be unique."
+msgstr "无效的中继名。它可能不是唯一的。"
 
 msgid "An external (HTTP) URL is required"
 msgstr "需要一个外部 (HTTP) URL"
@@ -389,6 +450,12 @@ msgstr "无法从认证获取服务目录。"
 msgid "Cannot get the extension list."
 msgstr "无法获取扩展列表。"
 
+msgid "Change Password"
+msgstr "更改密码"
+
+msgid "Change user's password. We highly recommend you create a strong one."
+msgstr "更改您的密码。强烈建议您选择复杂密码。"
+
 msgid "Charts"
 msgstr "图表"
 
@@ -467,6 +534,10 @@ msgstr[0] "确认删除角色"
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
 msgstr[0] "确认删除中继"
+
+msgid "Confirm Delete User"
+msgid_plural "Confirm Delete Users"
+msgstr[0] "确认删除用户"
 
 msgid "Connecting"
 msgstr "连接中"
@@ -549,8 +620,19 @@ msgstr "创建角色"
 msgid "Create Subnet"
 msgstr "创建子网"
 
+msgid "Create Trunk"
+msgstr "创建中继"
+
+msgid "Create User"
+msgstr "创建用户"
+
 msgid "Create Volume"
 msgstr "创建卷"
+
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr "创建一个新用户，并设置相关的属性，包括主项目和角色。"
 
 msgid "Created"
 msgstr "已创建"
@@ -641,6 +723,12 @@ msgstr "默认按钮"
 msgid "Default input"
 msgstr "默认输入"
 
+msgid "Default: Empty string"
+msgstr "默认：空字符串"
+
+msgid "Default: Enabled"
+msgstr "默认：启用"
+
 msgid "Definition list"
 msgstr "定义列表"
 
@@ -706,6 +794,13 @@ msgstr[0] "删除中继"
 msgid "Delete Trunks"
 msgstr "删除中继"
 
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "删除用户"
+
+msgid "Delete Users"
+msgstr "删除用户"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "删除实例时删除卷"
 
@@ -737,6 +832,11 @@ msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
 msgstr[0] "删除中继：%s。"
 
+#, python-format
+msgid "Deleted User: %s."
+msgid_plural "Deleted Users: %s."
+msgstr[0] "删除用户：%s。"
+
 msgid "Deleting"
 msgstr "删除中"
 
@@ -755,8 +855,14 @@ msgstr "详情"
 msgid "Details Views:"
 msgstr "详情视图："
 
+msgid "Device ID"
+msgstr "设备ID"
+
 msgid "Device Name"
 msgstr "设备名称"
+
+msgid "Device Owner"
+msgstr "设备所有者"
 
 msgid "Dialogs"
 msgstr "会话"
@@ -769,6 +875,9 @@ msgstr "直通物理硬件"
 
 msgid "Direction"
 msgstr "直连"
+
+msgid "Disable User"
+msgstr "禁用用户"
 
 msgid "Disabled"
 msgstr "禁用"
@@ -796,6 +905,9 @@ msgstr "域"
 
 msgid "Domain ID"
 msgstr "域ID"
+
+msgid "Domain Id"
+msgstr "域 ID"
 
 msgid "Domain Name"
 msgstr "域名"
@@ -839,11 +951,26 @@ msgstr "编辑镜像"
 msgid "Edit Role"
 msgstr "编辑角色"
 
+msgid "Edit Trunk"
+msgstr "编辑中继"
+
+msgid "Edit User"
+msgstr "编辑用户"
+
+msgid "Edit the user's details, including the Primary Project."
+msgstr "编辑用户详情，包括主项目。"
+
 msgid "Email"
 msgstr "邮箱"
 
 msgid "Emphasis classes"
 msgstr "强调类型"
+
+msgid "Enable User"
+msgstr "启用用户"
+
+msgid "Enable/Disable subport addition, removal and trunk delete."
+msgstr "启用/禁用子端口添加、删除和中继删除功能。"
 
 msgid "Enabled"
 msgstr "激活"
@@ -871,6 +998,13 @@ msgstr "删除时出错"
 
 msgid "Ether Type"
 msgstr "以太网类型"
+
+msgid ""
+"Exactly one regular Neutron port. Has to be provided when\n"
+"  the trunk is created. Cannot be changed during the trunk's life."
+msgstr ""
+"在创建中继中需要提供一个普通的 Neutron 端口。\n"
+"在中继的存在期中不能改变它。"
 
 msgid "Example body text"
 msgstr "正文例子"
@@ -937,6 +1071,19 @@ msgstr "目录 %(name)s 已创建。"
 
 msgid "Folder Name"
 msgstr "目录名"
+
+msgid ""
+"For ports on provider networks you may choose the special\n"
+"  segmentation type <em>inherit</em>. Then the subport's segmentation\n"
+"  type and ID will be automagically inherited from the provider network's\n"
+"  segmentation type and ID. This is useful when the switch is incapable of\n"
+"  remapping (tag pop-push) for example as usual for Ironic instances."
+msgstr ""
+"对于供应商网络的端口，您可以需要选项特殊的\n"
+" 网段类型 <em>inherit</em>。然后，子端口的网段\n"
+" 类型和 ID 将会自动继承供应商网络的网段\n"
+"  类型和 ID。这对于交换机无法重新映射（tag pop-push）\n"
+" 时非常有用（Ironic 实例通常会是这种情况）。"
 
 msgid "Form"
 msgstr "表单"
@@ -1155,6 +1302,29 @@ msgstr "输入成功"
 msgid "Input warning"
 msgstr "输入警告"
 
+msgid ""
+"Inside the instance a particular subport's network will\n"
+"  be presented as tagged frames transmitted and received on the vNIC\n"
+"  belonging to the parent port. The cloud user may control the tagging\n"
+"  by setting the <em>segmentation type</em> and <em>segmentation ID</em>\n"
+"  of the subport."
+msgstr ""
+"在实例内，一个特定的子端口网络将会以\n"
+" 标记数据包（tagged frame）的形式被属于\n"
+"父端口的 vNIC 传输并接收。云用户可以通过\n"
+" 设置子端口的 <em>segmentation type</em>\n"
+"和 <em>segmentation ID</em> 来控制\n"
+"标记。"
+
+msgid ""
+"Inside the instance the parent port's network will always\n"
+"  be presented as the untagged network. It will be available early from\n"
+"  the moment of bootup."
+msgstr ""
+"在实例内，父端口的网络将会一直作为\n"
+"未标记的（untagged）网络存在。它将会自\n"
+"启动的早期就可用。"
+
 msgid "Instance"
 msgstr "实例"
 
@@ -1321,6 +1491,12 @@ msgstr "加载的功能："
 msgid "Loading"
 msgstr "加载中"
 
+msgid "Loading ports... Please Wait"
+msgstr "加载端口... 请等待"
+
+msgid "Loading trunk... Please Wait"
+msgstr "加载中继... 请等待"
+
 msgid "Location"
 msgstr "位置"
 
@@ -1332,6 +1508,9 @@ msgstr "Look, I'm in a small well!"
 
 msgid "Look, I'm in a well!"
 msgstr "Look, I'm in a well!"
+
+msgid "MAC Address"
+msgstr "MAC 地址"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -1435,6 +1614,13 @@ msgstr "模型"
 msgid "Month"
 msgstr "月"
 
+msgid ""
+"Must not be the parent or a subport of any other\n"
+"  trunks."
+msgstr ""
+"不能是任何其它中继的父端口或子\n"
+"端口。"
+
 msgid "Name"
 msgstr "名称"
 
@@ -1486,6 +1672,15 @@ msgstr "网络特性"
 msgid "Networks"
 msgstr "网络"
 
+msgid ""
+"Networks of subports may become available later than the\n"
+"  moment of bootup. But they will be available after the trunk reached\n"
+"  the <em>ACTIVE</em> status."
+msgstr ""
+"子端口网络可能不会在启动时就\n"
+"有效。但它们会在中继成为\n"
+" <em>ACTIVE</em> 状态时有效。"
+
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "在云中，网络为实例提供通信通道。"
 
@@ -1516,6 +1711,13 @@ msgstr "没有存在的 scheduler hint"
 msgid "No items to display."
 msgstr "没有要显示的条目。"
 
+msgid ""
+"No subport can be the parent or a subport of any other\n"
+"  trunks."
+msgstr ""
+"子端口不能是任何其它中继网络的父端口或\n"
+"子端口。"
+
 msgid "None"
 msgstr "无"
 
@@ -1527,6 +1729,26 @@ msgstr "未设置"
 
 msgid "Not public"
 msgstr "非共有"
+
+msgid ""
+"Note that most guest operating systems will not\n"
+"  automatically configure and bring up the VLAN subinterfaces belonging\n"
+"  to subports. You may have to do that yourself. For example:"
+msgstr ""
+"请注意，多数客机操纵系统不能自动配置并启用\n"
+"属于子端口的 VLAN 子接口。您可能需要自己手工\n"
+" 实现。例如："
+
+msgid ""
+"Note that some Neutron backends (notably the Open vSwitch\n"
+"  based backend) only allow trunk creation before an instance is launched\n"
+"  on the parent port.  Other backends may allow trunk creation at any\n"
+"  time during the life of a port."
+msgstr ""
+"请注意，一些 Neutron 后端（包括基于 Open vSwitch\n"
+"的后端）只允许实例在一个父端口中启动之前\n"
+"创建中继。其它的后端可以在端口存在的任何阶段\n"
+"创建中继。"
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1665,6 +1887,9 @@ msgstr "面板"
 msgid "Parent Port"
 msgstr "父端口"
 
+msgid "Parent port"
+msgstr "父端口"
+
 msgid "Password"
 msgstr "密码"
 
@@ -1734,6 +1959,9 @@ msgstr "主锚点"
 msgid "Primary Button"
 msgstr "主按钮"
 
+msgid "Primary Project"
+msgstr "主项目"
+
 msgid "Primary Project ID"
 msgstr "主项目 ID"
 
@@ -1776,6 +2004,9 @@ msgstr "受保护的"
 
 msgid "Protocol"
 msgstr "协议"
+
+msgid "Provide basic properties of the trunk to be created. All optional."
+msgstr "为创建的中继提供基本属性。所有都是可选的。"
 
 msgid "Provider Network"
 msgstr "提供者网络"
@@ -1931,8 +2162,18 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "段ID"
 
+msgid "Segmentation Id"
+msgstr "网络分段 ID"
+
 msgid "Segmentation Type"
 msgstr "分段类型"
+
+msgid ""
+"Select <em>exactly one port</em> as the parent port of the trunk to\n"
+"    be created. Mandatory."
+msgstr ""
+"选择 <em>exactly one port</em> 作为中继的父端口进行\n"
+"    创建。必须的。"
 
 msgid "Select Boot Source"
 msgstr "选择源"
@@ -1955,11 +2196,29 @@ msgstr "从以下可用的组中选择一个服务器组。"
 msgid "Select a source from those listed below."
 msgstr "从以下列表选择一个源。"
 
+msgid ""
+"Select an <em>arbitrary amount of ports (0, 1, 2, ...)</em> and their\n"
+"    segmentation details as the subports of the trunk to be created.\n"
+"    Optional."
+msgstr ""
+"选择一个<em>不确定端口数量（0, 1, 2, ...）</em>，它们的\n"
+" 网段详情作为中继的子端口被创建。\n"
+"    可选。"
+
 msgid "Select an item from Available items below"
 msgstr "从以下可选项中选择一项"
 
 msgid "Select at least one network"
 msgstr "至少选择一个网络"
+
+msgid "Select from the list of available ports below."
+msgstr "从以下有效的端口列表中选择。"
+
+msgid "Select items from Available items below"
+msgstr "从以下可用项中选择一项"
+
+msgid "Select many"
+msgstr "选择多个"
 
 msgid "Select networks from those listed below."
 msgstr "从下拉列表选择网络"
@@ -2072,6 +2331,9 @@ msgstr "Someone famous in"
 msgid "Something else here"
 msgstr "此处为其他内容"
 
+msgid "Something wrong to change password."
+msgstr "修改密码有问题。"
+
 msgid "Source"
 msgstr "源"
 
@@ -2117,6 +2379,9 @@ msgstr "已连接的子网"
 
 msgid "Subport Count"
 msgstr "子端口数量"
+
+msgid "Subports"
+msgstr "子端口"
 
 msgid "Success"
 msgstr "成功"
@@ -2178,6 +2443,9 @@ msgstr "文本框"
 
 msgid "The access permission for the image."
 msgstr "镜像的访问权限。"
+
+msgid "The admin password is incorrect."
+msgstr "管理员密码不正确。"
 
 msgid "The architecture of the image."
 msgstr "镜像的架构。"
@@ -2248,6 +2516,35 @@ msgstr "卷的名称。"
 
 msgid "The name of the image."
 msgstr "镜像名称。"
+
+msgid ""
+"The parent port is the port you have to add to the instance\n"
+"  at launch. Do not try to add the trunk or any of the subports to the\n"
+"  instance directly."
+msgstr ""
+"父端口是在启动时需要添加到实例的\n"
+" 端口。不用试图为实例直接添加中继或\n"
+" 子端口。"
+
+msgid ""
+"The segmentation type and ID are decoupled (and\n"
+"  therefore independent) from Neutron's network virtualization\n"
+"  implementation. Different segmentation types will be remapped as frames\n"
+"  leave/enter the instance."
+msgstr ""
+"网络分段类型和 ID 会独立于\n"
+" Neutron 的网络虚拟化实现。\n"
+"不同的网络分段类型会被重新映射为\n"
+"数据包离开/进入实例。."
+
+msgid ""
+"The segmentation type, ID tuples of subports must be unique\n"
+"  (in the scope of a trunk), otherwise networks of subports could not\n"
+"  be distinguished inside the instance."
+msgstr ""
+"子端口的网段类型和 ID 在一个中继网络范围内\n"
+"必须是唯一的，否则，子端口网络无法在实例\n"
+"内被区分。"
 
 #, python-format
 msgid ""
@@ -2324,6 +2621,13 @@ msgid ""
 msgstr ""
 "这个 JavaScript 项包括了新的表单，可以和 <code>horizon.framework.widgets."
 "form.ModalFormService</code> 一起使用"
+
+msgid ""
+"This can be simplified by reusing the parent's MAC address\n"
+"  for all subports of the trunk earlier at port creation. Eg.:"
+msgstr ""
+"这可以通过在端口创建时为中继网络的所有子端口\n"
+"重新使用父端口的 MAC 地址。例如："
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
@@ -2415,6 +2719,14 @@ msgstr "总计卷"
 
 msgid "Trunk"
 msgstr "中继"
+
+#, python-format
+msgid "Trunk %s was successfully created."
+msgstr "中继 %s 创建成功。"
+
+#, python-format
+msgid "Trunk %s was successfully edited."
+msgstr "中继 %s 编辑成功。"
 
 msgid "Trunks"
 msgstr "中继"
@@ -2523,6 +2835,11 @@ msgstr[0] "无法删除角色：%s。"
 msgid "Unable to delete Trunk: %s."
 msgid_plural "Unable to delete Trunks: %s."
 msgstr[0] "无法删除中继：%s。"
+
+#, python-format
+msgid "Unable to delete User: %s."
+msgid_plural "Unable to delete Users: %s."
+msgstr[0] "无法删除用户：%s。"
 
 msgid "Unable to delete the container."
 msgstr "无法删除容器。"
@@ -2723,6 +3040,9 @@ msgstr "无法获取cinder服务。"
 
 msgid "Unable to retrieve the current user session."
 msgstr "无法获取当前用户会话。"
+
+msgid "Unable to retrieve the default domain."
+msgstr "无法获取默认域。"
 
 msgid "Unable to retrieve the default quotas."
 msgstr "无法获取默认的配额。"
@@ -2985,11 +3305,30 @@ msgstr ""
 msgid "User"
 msgstr "用户"
 
+#, python-format
+msgid "User %s was successfully created."
+msgstr "用户 %s 已被成功创建。"
+
+#, python-format
+msgid "User %s was successfully disabled."
+msgstr "用户 %s 已被成功禁用。"
+
+#, python-format
+msgid "User %s was successfully enabled."
+msgstr "用户 %s 已被成功启用。"
+
+#, python-format
+msgid "User %s was successfully updated."
+msgstr "用户 %s 已被成功更新。"
+
 msgid "User ID"
 msgstr "用户ID"
 
 msgid "User Name"
 msgstr "用户名"
+
+msgid "User password has been updated successfully."
+msgstr "已成功更新用户密码。"
 
 msgid "Users"
 msgstr "用户"
@@ -3218,11 +3557,19 @@ msgid "You have selected \"%s\". Deleted role is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
 msgstr[0] "你已经选定了“%s”。删除角色的操作无法恢复。"
 
+#, python-format
+msgid "You have selected \"%s\". Deleted user is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted users are not recoverable."
+msgstr[0] "您已经选定了“%s”。删除用户的操作无法恢复。"
+
 msgid "Your Form as JavaScript"
 msgstr "JavaScript格式"
 
 msgid "image"
 msgstr "镜像"
+
+msgid "inherit"
+msgstr "继承"
 
 #, python-format
 msgid "resource load failed: %s"
@@ -3233,6 +3580,9 @@ msgstr "快照"
 
 msgid "volume"
 msgstr "卷"
+
+msgid "{$ address $} on subnet {$ subnet $}"
+msgstr "{$ address $} 在子网 {$ subnet $} 中"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
