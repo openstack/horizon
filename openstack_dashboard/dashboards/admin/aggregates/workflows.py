@@ -76,16 +76,13 @@ class AddHostsToAggregateAction(workflows.MembershipAction):
         field_name = self.get_member_field_name('member')
         self.fields[field_name] = forms.MultipleChoiceField(required=False)
 
-        hosts = []
+        services = []
         try:
-            hosts = api.nova.host_list(request)
+            services = api.nova.service_list(request, binary='nova-compute')
         except Exception:
             exceptions.handle(request, err_msg)
 
-        host_names = []
-        for host in hosts:
-            if host.host_name not in host_names and host.service == u'compute':
-                host_names.append(host.host_name)
+        host_names = [s.host for s in services]
         host_names.sort()
 
         self.fields[field_name].choices = \
@@ -114,16 +111,13 @@ class ManageAggregateHostsAction(workflows.MembershipAction):
         aggregate = api.nova.aggregate_get(request, aggregate_id)
         current_aggregate_hosts = aggregate.hosts
 
-        hosts = []
+        services = []
         try:
-            hosts = api.nova.host_list(request)
+            services = api.nova.service_list(request, binary='nova-compute')
         except Exception:
             exceptions.handle(request, err_msg)
 
-        host_names = []
-        for host in hosts:
-            if host.host_name not in host_names and host.service == u'compute':
-                host_names.append(host.host_name)
+        host_names = [s.host for s in services]
         host_names.sort()
 
         self.fields[field_name].choices = \

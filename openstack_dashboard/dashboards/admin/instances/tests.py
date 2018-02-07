@@ -257,14 +257,16 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertContains(res, "instances__revert")
         self.assertNotContains(res, "instances__migrate")
 
-    @test.create_stubs({api.nova: ('host_list',
+    @test.create_stubs({api.nova: ('service_list',
                                    'server_get',)})
     def test_instance_live_migrate_get(self):
         server = self.servers.first()
+        compute_services = [s for s in self.services.list()
+                            if s.binary == 'nova-compute']
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        api.nova.host_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.hosts.list())
+        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
+            .AndReturn(compute_services)
 
         self.mox.ReplayAll()
 
@@ -288,13 +290,13 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('host_list',
+    @test.create_stubs({api.nova: ('service_list',
                                    'server_get',)})
-    def test_instance_live_migrate_list_hypervisor_get_exception(self):
+    def test_instance_live_migrate_list_host_get_exception(self):
         server = self.servers.first()
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        api.nova.host_list(IsA(http.HttpRequest)) \
+        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
             .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -304,40 +306,42 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('host_list',
+    @test.create_stubs({api.nova: ('service_list',
                                    'server_get',)})
-    def test_instance_live_migrate_list_hypervisor_without_current(self):
+    def test_instance_live_migrate_list_host_without_current(self):
         server = self.servers.first()
+        compute_services = [s for s in self.services.list()
+                            if s.binary == 'nova-compute']
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        api.nova.host_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.hosts.list())
+        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
+            .AndReturn(compute_services)
 
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:instances:live_migrate',
                       args=[server.id])
         res = self.client.get(url)
-        self.assertNotContains(
-            res, "<option value=\"instance-host\">devstack004</option>")
         self.assertContains(
             res, "<option value=\"devstack001\">devstack001</option>")
-        self.assertNotContains(
-            res, "<option value=\"devstack002\">devstack002</option>")
         self.assertContains(
-            res, "<option value=\"devstack003\">devstack003</option>")
+            res, "<option value=\"devstack002\">devstack002</option>")
+        self.assertNotContains(
+            res, "<option value=\"instance-host\">instance-host</option>")
 
-    @test.create_stubs({api.nova: ('host_list',
+    @test.create_stubs({api.nova: ('service_list',
                                    'server_get',
                                    'server_live_migrate',)})
     def test_instance_live_migrate_post(self):
         server = self.servers.first()
-        host = self.hosts.first().host_name
+        compute_services = [s for s in self.services.list()
+                            if s.binary == 'nova-compute']
+        host = compute_services[0].host
 
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        api.nova.host_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.hosts.list())
+        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
+            .AndReturn(compute_services)
         api.nova.server_live_migrate(IsA(http.HttpRequest), server.id, host,
                                      block_migration=False,
                                      disk_over_commit=False) \
@@ -351,7 +355,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('host_list',
+    @test.create_stubs({api.nova: ('service_list',
                                    'server_get',
                                    'server_live_migrate',)})
     def test_instance_live_migrate_auto_sched(self):
@@ -359,8 +363,10 @@ class InstanceViewTest(test.BaseAdminViewTests):
         host = "AUTO_SCHEDULE"
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        api.nova.host_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.hosts.list())
+        compute_services = [s for s in self.services.list()
+                            if s.binary == 'nova-compute']
+        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
+            .AndReturn(compute_services)
         api.nova.server_live_migrate(IsA(http.HttpRequest), server.id, None,
                                      block_migration=False,
                                      disk_over_commit=False) \
@@ -374,17 +380,19 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('host_list',
+    @test.create_stubs({api.nova: ('service_list',
                                    'server_get',
                                    'server_live_migrate',)})
     def test_instance_live_migrate_post_api_exception(self):
         server = self.servers.first()
-        host = self.hosts.first().host_name
+        compute_services = [s for s in self.services.list()
+                            if s.binary == 'nova-compute']
+        host = compute_services[0].host
 
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        api.nova.host_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.hosts.list())
+        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
+            .AndReturn(compute_services)
         api.nova.server_live_migrate(IsA(http.HttpRequest), server.id, host,
                                      block_migration=False,
                                      disk_over_commit=False) \

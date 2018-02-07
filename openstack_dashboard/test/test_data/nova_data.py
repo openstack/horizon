@@ -18,7 +18,6 @@ from novaclient.v2 import aggregates
 from novaclient.v2 import availability_zones
 from novaclient.v2 import flavor_access
 from novaclient.v2 import flavors
-from novaclient.v2 import hosts
 from novaclient.v2 import hypervisors
 from novaclient.v2 import keypairs
 from novaclient.v2 import quotas
@@ -167,7 +166,6 @@ def data(TEST):
     TEST.hypervisors = utils.TestDataContainer()
     TEST.services = utils.TestDataContainer()
     TEST.aggregates = utils.TestDataContainer()
-    TEST.hosts = utils.TestDataContainer()
     TEST.server_groups = utils.TestDataContainer()
 
     # Volumes
@@ -483,7 +481,7 @@ def data(TEST):
             "vcpus_used": 1,
             "hypervisor_type": "QEMU",
             "local_gb_used": 20,
-            "hypervisor_hostname": "devstack001",
+            "hypervisor_hostname": "devstack002",
             "memory_mb_used": 1500,
             "memory_mb": 2000,
             "current_workload": 0,
@@ -509,7 +507,7 @@ def data(TEST):
             "vcpus_used": 1,
             "hypervisor_type": "QEMU",
             "local_gb_used": 20,
-            "hypervisor_hostname": "devstack003",
+            "hypervisor_hostname": "instance-host",
             "memory_mb_used": 1500,
             "memory_mb": 2000,
             "current_workload": 0,
@@ -621,35 +619,6 @@ def data(TEST):
 
     TEST.aggregates.add(aggregate_1)
     TEST.aggregates.add(aggregate_2)
-
-    host1 = hosts.Host(hosts.HostManager(None), {
-        "host_name": "devstack001",
-        "service": "compute",
-        "zone": "testing",
-    })
-
-    host2 = hosts.Host(hosts.HostManager(None), {
-        "host_name": "devstack002",
-        "service": "nova-conductor",
-        "zone": "testing",
-    })
-
-    host3 = hosts.Host(hosts.HostManager(None), {
-        "host_name": "devstack003",
-        "service": "compute",
-        "zone": "testing",
-    })
-
-    host4 = hosts.Host(hosts.HostManager(None), {
-        "host_name": "devstack004",
-        "service": "compute",
-        "zone": "testing",
-    })
-
-    TEST.hosts.add(host1)
-    TEST.hosts.add(host2)
-    TEST.hosts.add(host3)
-    TEST.hosts.add(host4)
 
     server_group_1 = server_groups.ServerGroup(
         server_groups.ServerGroupsManager(None),
