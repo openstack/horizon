@@ -11,17 +11,18 @@
 # Taehee Jang <jang0913@gmail.com>, 2017. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-24 06:29+0000\n"
+"POT-Creation-Date: 2018-02-07 19:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-24 03:42+0000\n"
-"Last-Translator: minwook-shin <minwook0106@gmail.com>\n"
+"PO-Revision-Date: 2018-02-07 11:47+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -921,7 +922,7 @@ msgid "Security Group Rule Editing Improvements"
 msgstr "보안 그룹 규칙 편집 개선"
 
 msgid "Security Group Rule Templates"
-msgstr "보안 그룹 규칙 템플렛"
+msgstr "보안 그룹 규칙 템플릿"
 
 msgid "Security Issues"
 msgstr "보안 이슈"
