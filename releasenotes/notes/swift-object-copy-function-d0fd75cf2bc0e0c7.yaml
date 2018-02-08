@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    Added support for Swift object copy as one of row actions.
+    Destination container must exist in advance.
+    To avoid overwriting an existing object,
+    you cannot copy an object if a specified destination object
+    already exists.
