@@ -1068,7 +1068,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
     def _test_create_button_shown_when_quota_disabled(
             self,
             find_button_fn):
-        # if quota_data doesnt contain a networks|subnets|routers key or
+        # if quota_data doesn't contain a networks|subnets|routers key or
         # these keys are empty dicts, its disabled
         quota_data = self.neutron_quota_usages.first()
 

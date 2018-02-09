@@ -50,7 +50,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
             params = {'admin_state_up': data['admin_state'],
                       'name': data['name']}
             # Make sure we are not sending shared data when the user
-            # doesnt'have admin rights because even if the user doesn't
+            # doesn't have admin rights because even if the user doesn't
             # change it neutron sends back a 403 error
             if policy.check((("network", "update_network:shared"),), request):
                 params['shared'] = data['shared']
