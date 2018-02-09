@@ -113,7 +113,7 @@ class NetworkPortTests(test.BaseAdminViewTests):
                       args=[network.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'admin/networks/ports/create.html')
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'is_extension_supported',
@@ -137,12 +137,6 @@ class NetworkPortTests(test.BaseAdminViewTests):
                                port_security=False):
         network = self.networks.first()
         port = self.ports.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
@@ -205,14 +199,8 @@ class NetworkPortTests(test.BaseAdminViewTests):
         network = self.networks.first()
         port = self.ports.first()
         api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
+                                network.id) \
+            .MultipleTimes().AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(True)
@@ -280,12 +268,6 @@ class NetworkPortTests(test.BaseAdminViewTests):
                                          port_security=False):
         network = self.networks.first()
         port = self.ports.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())

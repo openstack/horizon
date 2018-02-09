@@ -27,6 +27,41 @@ from openstack_dashboard.dashboards.project.networks.ports \
 LOG = logging.getLogger(__name__)
 
 
+class CreatePortInfoAction(project_workflow.CreatePortInfoAction):
+    binding__host_id = forms.CharField(
+        label=_("Binding: Host"),
+        help_text=_("The ID of the host where the port is allocated. In some "
+                    "cases, different implementations can run on different "
+                    "hosts."),
+        required=False)
+
+    class Meta(object):
+        name = _("Info")
+        slug = 'create_info'
+        help_text_template = 'project/networks/ports/_create_port_help.html'
+
+
+class CreatePortInfo(project_workflow.CreatePortInfo):
+    action_class = CreatePortInfoAction
+    depends_on = ("network_id", "target_tenant_id")
+    contributes = (project_workflow.CreatePortInfo.contributes
+                   + ['binding__host_id'])
+
+
+class CreatePort(project_workflow.CreatePort):
+    default_steps = (CreatePortInfo,)
+
+    def get_success_url(self):
+        return reverse("horizon:admin:networks:detail",
+                       args=(self.context['network_id'],))
+
+    def _construct_parameters(self, context):
+        params = super(CreatePort, self)._construct_parameters(context)
+        params.update({'tenant_id': context['target_tenant_id'],
+                       'binding__host_id': context['binding__host_id']})
+        return params
+
+
 class UpdatePortInfoAction(project_workflow.UpdatePortInfoAction):
     device_id = forms.CharField(
         max_length=100, label=_("Device ID"),

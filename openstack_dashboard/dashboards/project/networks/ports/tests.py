@@ -392,7 +392,7 @@ class NetworkPortTests(test.TestCase):
                       args=[network.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'project/networks/ports/create.html')
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'is_extension_supported',
@@ -446,7 +446,6 @@ class NetworkPortTests(test.TestCase):
                                 **extension_kwargs) \
             .AndReturn(port)
         self.mox.ReplayAll()
-
         form_data = {'network_id': port.network_id,
                      'network_name': network.name,
                      'name': port.name,
