@@ -4,17 +4,19 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2018. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-07 19:42+0000\n"
+"POT-Creation-Date: 2018-02-08 14:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-07 08:13+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2018-02-08 10:58+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -81,6 +83,9 @@ msgstr "13.0.0.0b2"
 
 msgid "13.0.0.0b3"
 msgstr "13.0.0.0b3"
+
+msgid "13.0.0.0b3-47"
+msgstr "13.0.0.0b3-47"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -975,8 +980,8 @@ msgid ""
 "Cinder API v3 is used by default now. It was introduced in Mitaka release "
 "and has all features from API v2."
 msgstr ""
-"Cinder API v3 がデフォルトで使用されます。Mitaka リリースで導入され、API v2 "
-"のすべての機能を備えています。"
+"Cinder API v3 がデフォルトで使用されます。 Cinder v3 API は Mitaka リリースで"
+"導入され、API v2 のすべての機能を備えています。"
 
 msgid ""
 "Cinder defines storage size in gibibytes (GiB), which is inconsistent with "
@@ -4418,6 +4423,16 @@ msgstr ""
 "タンスに対するこれ以外の操作はこれまで通り動作するはずです。"
 
 msgid ""
+"[:blueprint:`merge-openstack-auth`] ``django_openstack_auth`` was merged "
+"into the main horizon repository. Ensure to uninstall ``django-openstack-"
+"auth`` python package **BEFORE** upgrading horizon to Queens."
+msgstr ""
+"[:blueprint:`merge-openstack-auth`] ``django_openstack_auth`` が Horizon のメ"
+"インリポジトリに統合されました\n"
+"。 Horizon を Queens にアップグレードする前に ``django-openstack-auth`` "
+"Python パッケージを必ずアンインストールしてください。"
+
+msgid ""
 "[:blueprint:`neutron-trunk-ui`] Neutron trunk feature is now supported. It "
 "is supported in both the project and admin dashboards. The panel will be "
 "displayed if Neutron API extension 'trunk' is available. It displays "
@@ -4470,7 +4485,7 @@ msgid ""
 msgstr ""
 "[:bug:`1681627`] Angular ベースの詳細ページ (ngdetail ページ) をリロード、あ"
 "るいは直接 URL で開けない問題を修正しました。`既知の問題`_ セクションに書かれ"
-"ている、幾つかの問題があることに注意してください。"
+"ている、いくつかの問題があることに注意してください。"
 
 msgid ""
 "[:bug:`1700325`] Horizon now allows to override an embeded default plugin "

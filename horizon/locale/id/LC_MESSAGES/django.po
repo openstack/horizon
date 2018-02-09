@@ -1,15 +1,16 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev82\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-15 05:06+0000\n"
+"POT-Creation-Date: 2018-02-08 14:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-15 04:15+0000\n"
+"PO-Revision-Date: 2018-02-08 04:03+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -196,6 +197,10 @@ msgstr "Format MAC Address tidak valid"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr "Entri metadata tidak valid. Gunakan pasangan key=value dipisahkan koma"
+
+#, python-format
+msgid "Invalid service catalog: %s"
+msgstr "Invalid service catalog: %s"
 
 msgid "Invalid subnet mask"
 msgstr "Subnet mask alamat IP tidak benar."
