@@ -49,7 +49,7 @@ class CreatePortInfo(project_workflow.CreatePortInfo):
 
 
 class CreatePort(project_workflow.CreatePort):
-    default_steps = (CreatePortInfo,)
+    default_steps = (CreatePortInfo, project_workflow.CreatePortSecurityGroup)
 
     def get_success_url(self):
         return reverse("horizon:admin:networks:detail",

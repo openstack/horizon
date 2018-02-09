@@ -32,6 +32,29 @@ from openstack_dashboard.utils import filters
 LOG = logging.getLogger(__name__)
 
 
+class CreatePortSecurityGroupAction(base_sec_group.BaseSecurityGroupsAction):
+    def _get_initial_security_groups(self, context):
+        field_name = self.get_member_field_name('member')
+        groups_list = self.fields[field_name].choices
+        return [group[0] for group in groups_list
+                if group[1] == 'default']
+
+    class Meta(object):
+        name = _("Security Groups")
+        slug = "create_security_groups"
+
+
+class CreatePortSecurityGroup(base_sec_group.BaseSecurityGroups):
+    action_class = CreatePortSecurityGroupAction
+    members_list_title = _("Port Security Groups")
+    help_text = _('Add or remove security groups to the port '
+                  'from the list of available security groups. '
+                  'The "default" security group is associated '
+                  'by default and you can remove "default" '
+                  'security group from the port.')
+    depends_on = ("target_tenant_id",)
+
+
 class CreatePortInfoAction(workflows.Action):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
@@ -86,7 +109,13 @@ class CreatePortInfoAction(workflows.Action):
         label=_("Port Security"),
         help_text=_("Enable anti-spoofing rules for the port"),
         initial=True,
-        required=False)
+        required=False,
+        widget=forms.CheckboxInput(attrs={
+            'class': 'switchable',
+            'data-slug': 'port_security_enabled',
+            'data-hide-tab': 'create_port__create_security_groups',
+            'data-hide-on-checked': 'false'
+        }))
     binding__vnic_type = forms.ThemableChoiceField(
         label=_("VNIC Type"),
         help_text=_("The VNIC type that is bound to the network port"),
@@ -191,7 +220,7 @@ class CreatePort(workflows.Workflow):
     finalize_button_name = _("Create")
     success_message = _('Port %s was successfully created.')
     failure_message = _('Failed to create port "%s".')
-    default_steps = (CreatePortInfo,)
+    default_steps = (CreatePortInfo, CreatePortSecurityGroup)
 
     def get_success_url(self):
         return reverse("horizon:project:networks:detail",
@@ -237,6 +266,20 @@ class CreatePort(workflows.Workflow):
         # Send mac_address only when it is specified.
         if context['mac_address']:
             params['mac_address'] = context['mac_address']
+
+        # If port_security_enabled is set to False, security groups on the port
+        # must be cleared. We will clear the current security groups
+        # in this case.
+        if ('port_security_enabled' in params
+                and not params['port_security_enabled']):
+            params['security_groups'] = []
+        # In case of CreatePortSecurityGroup registered, 'wanted_groups'
+        # exists in context.
+        elif 'wanted_groups' in context:
+            # If context has that key, we need to set its value
+            # even if its value is empty to clear sec group setting.
+            groups = map(filters.get_int_or_uuid, context['wanted_groups'])
+            params['security_groups'] = groups
 
         return params
 
