@@ -41,6 +41,12 @@ class IndexView(r_views.IndexView, n_views.IndexView):
         try:
             filters = self.get_filters(filters_map=self.FILTERS_MAPPING)
 
+            # If the tenant filter selected and the tenant does not exist.
+            # We do not need to retrieve the list from neutron,just return
+            # an empty list.
+            if 'tenant_id' in filters and not filters['tenant_id']:
+                return []
+
             # If admin_filter_first is set and if there are not other filters
             # selected, then search criteria must be provided and return an
             # empty list
