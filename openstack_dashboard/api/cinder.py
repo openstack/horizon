@@ -370,7 +370,9 @@ def volume_get(request, volume_id):
 @profiler.trace
 def volume_create(request, size, name, description, volume_type,
                   snapshot_id=None, metadata=None, image_id=None,
-                  availability_zone=None, source_volid=None):
+                  availability_zone=None, source_volid=None,
+                  group_id=None):
+    client = _cinderclient_with_generic_groups(request)
     data = {'name': name,
             'description': description,
             'volume_type': volume_type,
@@ -378,9 +380,10 @@ def volume_create(request, size, name, description, volume_type,
             'metadata': metadata,
             'imageRef': image_id,
             'availability_zone': availability_zone,
-            'source_volid': source_volid}
+            'source_volid': source_volid,
+            'group_id': group_id}
 
-    volume = cinderclient(request).volumes.create(size, **data)
+    volume = client.volumes.create(size, **data)
     return Volume(volume)
 
 
