@@ -29,7 +29,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-07 05:35+0000\n"
+"POT-Creation-Date: 2018-02-09 15:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2472,10 +2472,6 @@ msgstr "添加路由失败：%s"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "无法检查是否支持网络IP可用性扩展。"
-
-#, python-format
-msgid "Failed to create a port for network %s"
-msgstr "创建网络 %s 端口失败"
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
@@ -7745,10 +7741,6 @@ msgstr "您已经使用了您全部可用的浮动IP地址。"
 
 msgid "You are already using all of your available volumes."
 msgstr "所有可用卷已使用完"
-
-#, python-format
-msgid "You are not allowed to create a port for network %s."
-msgstr "您没有权限为网络 %s 创建端口。"
 
 msgid ""
 "You can add or remove security groups associated with the port in the next "

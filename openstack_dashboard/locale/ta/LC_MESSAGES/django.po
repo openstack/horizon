@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-26 06:40+0000\n"
+"POT-Creation-Date: 2018-02-09 15:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1290,10 +1290,6 @@ msgstr ""
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "பிணைய %(network)s -ற்கான முகவர் %(agent_name)s-ஐ சேர்க்க முடியவில்லை."
-
-#, python-format
-msgid "Failed to create a port for network %s"
-msgstr "பிணையம் %s-ற்கு துறையை உருவாக்குவதில் தோல்வி"
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"

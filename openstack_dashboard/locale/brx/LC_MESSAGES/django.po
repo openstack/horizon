@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-26 06:40+0000\n"
+"POT-Creation-Date: 2018-02-09 15:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1277,10 +1277,6 @@ msgstr "%s प्रजेक्ट हानजाखौ दाजाबदे�
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "नेटवार्क %(network)s नि थाखाय थान्दै %(agent_name)s दाजाबदेरनो फेलें जाबाय।"
-
-#, python-format
-msgid "Failed to create a port for network %s"
-msgstr "%s नेटवार्कनि थाखाय पर्ट सोरजिनो फेलें जाबाय"
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"

@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-05 04:08+0000\n"
+"POT-Creation-Date: 2018-02-09 15:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-04 06:06+0000\n"
+"PO-Revision-Date: 2018-02-09 04:32+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -60,6 +60,17 @@ msgstr "7"
 msgid "75%"
 msgstr "75%"
 
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+msgstr ""
+"<b>Imagen (con creación de nuevo volumen)</b>: Esta opción utiliza una "
+"imagen para arrancar la instancia y crea un nuevo volumen para almacenar de "
+"forma permanente los datos. Puede especificar el tamaño del volumen y si se "
+"eliminará el volumen al eliminar la instancia."
+
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr "<b>Imagen</b>:Esta opción usa una imagen para arrancar la instancia."
 
@@ -70,8 +81,52 @@ msgstr ""
 "<b>Instancia Snapshot</b>: Esta opción usa un Snapshot de una instancia para "
 "arrancar la instancia."
 
+msgid ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+msgstr ""
+"<b>Instantánea de volumen</b>: Esta opción utiliza una instantánea de "
+"volumen para lanzar la instancia y crea un nuevo volumen para almacenar de "
+"forma permanente los datos. Puede elegir si se eliminará el volumen al "
+"eliminar la instancia."
+
+msgid ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
+msgstr ""
+"<b>Volumen</b>: Esta opción utiliza un volumen que existe previamente. No se "
+"crea un nuevo volumen. Puede elegir si se eliminará el volumen al eliminar "
+"la instancia. <em>Nota: al seleccionar Volumen, solo puede lanzar una "
+"instancia.</em>"
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Esta línea de texto se debe tratar como letra chica.</small>"
+
+msgid ""
+"<strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<strong>¡Atención!</strong>\n"
+"           Esta\n"
+"          <a href=\"#\" class=\"alert-link\">alerta necesita su atención</"
+"a>,\n"
+"           pero no es superimportante."
+
+msgid ""
+"<strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<strong>¡Bien hecho!</strong>\n"
+"          Ha leído correctamente\n"
+"          <a href=\"#\" class=\"alert-link\">este importante mensaje</a>."
 
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
@@ -269,6 +324,18 @@ msgstr ""
 "única. Seleccionando <b>Manual</b> le permite crear múltiples particiones en "
 "el disco. "
 
+msgid ""
+"An arbitrary amount (0, 1, 2, ...) of regular Neutron\n"
+"  ports with segmentation details (ie. type and ID). May be provided\n"
+"  when the trunk is created. Also may be attached or detached later\n"
+"  during the trunk's (and the instance's) life."
+msgstr ""
+"Deben proporcionarse un número arbitrario (0, 1, 2, ...)\n"
+"  de puertos de neutron normales con detalles de \n"
+"  segmentación (p.ej. tipo e ID) cuando se crea el enlace\n"
+"  troncal. También pueden asociarse o desasociarse después,\n"
+"  durante la vida del enlace troncal (y de la instancia)."
+
 msgid "An arbitrary description for the trunk."
 msgstr "Una descripción del enlace troncal."
 
@@ -336,6 +403,9 @@ msgstr "Zona de Disponibilidad"
 msgid "Available"
 msgstr "Disponible"
 
+msgid "Available Scheduler Hints"
+msgstr "Sugerencias de planificación disponibles"
+
 msgid "Badges"
 msgstr "Distintivos"
 
@@ -393,6 +463,11 @@ msgstr "No se puede obtener la lista de extensiones."
 msgid "Change Password"
 msgstr "Cambiar contraseña"
 
+msgid "Change user's password. We highly recommend you create a strong one."
+msgstr ""
+"Cambiar la contraseña del usuario. Le recomendamos encarecidamente que cree "
+"una fuerte."
+
 msgid "Charts"
 msgstr "Gráficos"
 
@@ -429,6 +504,9 @@ msgstr "Cerrada"
 msgid "Closing"
 msgstr "Cerrando"
 
+msgid "Collecting information for deletion:"
+msgstr "Recolectando información para borrar:"
+
 msgid "Color"
 msgstr "Color"
 
@@ -443,6 +521,9 @@ msgstr "Comunidad"
 
 msgid "Configuration"
 msgstr "Configuración"
+
+msgid "Configuration Drive"
+msgstr "Unidad de configuración"
 
 msgid "Confirm Delete"
 msgstr "Confirmar supresión"
@@ -528,6 +609,9 @@ msgstr "No se puede descifrar la contraseña"
 msgid "Could not read the file"
 msgstr "No se puede leer el fichero"
 
+msgid "Count"
+msgstr "Número"
+
 msgid "Create Container"
 msgstr "Crear contenedor"
 
@@ -564,6 +648,13 @@ msgstr "Crear usuario"
 msgid "Create Volume"
 msgstr "Crear volumen"
 
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr ""
+"Crear un nuevo usuario y detallar las propiedades relacionadas, incluyendo "
+"su proyecto principal y rol."
+
 msgid "Created"
 msgstr "Creado"
 
@@ -594,6 +685,9 @@ msgstr ""
 "instalar <samp>cloud-init</samp> en un sistema operativo invitado, puede "
 "utilizar un script personalizado para obtener una clave pública y añadirla a "
 "la cuenta de usuario."
+
+msgid "Customization Script"
+msgstr "Script personalizado"
 
 msgid "DNS Domain"
 msgstr "Dominio DNS"
@@ -883,6 +977,9 @@ msgstr "Editar enlace troncal"
 msgid "Edit User"
 msgstr "Editar usuario"
 
+msgid "Edit the user's details, including the Primary Project."
+msgstr "Editar los detalles de usuario, incluyendo el proyecto principal."
+
 msgid "Email"
 msgstr "Correo electrónico"
 
@@ -892,8 +989,15 @@ msgstr "Clases de énfasis"
 msgid "Enable User"
 msgstr "Activar usuario"
 
+msgid "Enable/Disable subport addition, removal and trunk delete."
+msgstr ""
+"Habilitar/deshabilitar añadir, quitar y borrar enlace troncal de subpuertos."
+
 msgid "Enabled"
 msgstr "Habilitado"
+
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "Se han encontrado {$ ctrl.model.deleted.failures $} fallos."
 
 msgid "Encrypted"
 msgstr "Cifrado"
@@ -918,6 +1022,9 @@ msgstr "Tipo Ethernet"
 
 msgid "Example body text"
 msgstr "Texto de cuerpo de ejemplo"
+
+msgid "Existing Scheduler Hints"
+msgstr "Sugerencias de planificación existentes"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -1171,6 +1278,9 @@ msgstr "Info"
 msgid "Info Button"
 msgstr "Botón de información"
 
+msgid "Inline Form"
+msgstr "Formulario en línea"
+
 msgid "Input Sizes"
 msgstr "Tamaños de entrada"
 
@@ -1201,6 +1311,21 @@ msgstr "Instantánea de Instancia"
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 "Contador de la instancia es necesario y debe ser un entero de la menos 1"
+
+msgid ""
+"Instance source is the template used to create an instance.\n"
+"    You can use an image, a snapshot of an instance (image snapshot),\n"
+"    a volume or a volume snapshot (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"La instancia origen es la plantilla utilizada para crear una instancia.\n"
+"    Puede utilizar una imagen, una instantánea de una instancia "
+"(instantánea\n"
+"    de imagen), un volumen o una instantánea de volumen (si están "
+"habilitadas).\n"
+"    Puede también elegir si se utiliza almacenamiento permanente al crear "
+"un\n"
+"    volumen nuevo."
 
 msgid "Instances"
 msgstr "Instancias"
@@ -1341,6 +1466,9 @@ msgstr "Función de Carga:"
 msgid "Loading"
 msgstr "Cargando"
 
+msgid "Loading ports... Please Wait"
+msgstr "Cargando puertos ... Por favor, espere"
+
 msgid "Loading trunk... Please Wait"
 msgstr "Cargando el enlace troncal ... Por favor, espere"
 
@@ -1440,6 +1568,13 @@ msgstr "Modelo"
 msgid "Month"
 msgstr "Mes"
 
+msgid ""
+"Must not be the parent or a subport of any other\n"
+"  trunks."
+msgstr ""
+"No debe ser el padre o un subpuerto de ningún otro\n"
+"  enlace troncal."
+
 msgid "Name"
 msgstr "Nombre"
 
@@ -1495,6 +1630,9 @@ msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Las Redes proveen los canales de comunicación para las instancias en la nube."
 
+msgid "New File Contents"
+msgstr "Contenido del nuevo fichero"
+
 msgid "Newer"
 msgstr "Más reciente"
 
@@ -1507,11 +1645,24 @@ msgstr "No"
 msgid "No available items"
 msgstr "No hay ítems disponibles"
 
+msgid "No available scheduler hints"
+msgstr "No hay sugerencias de planificación disponibles"
+
 msgid "No description available."
 msgstr "No hay descripción disponible."
 
+msgid "No existing scheduler hints"
+msgstr "No hay sugerencias de planificación existentes"
+
 msgid "No items to display."
 msgstr "No hay elementos que mostrar."
+
+msgid ""
+"No subport can be the parent or a subport of any other\n"
+"  trunks."
+msgstr ""
+"Un subpuerto no puede ser padre o un subpuerto de cualquier otro\n"
+"  enlace troncal."
 
 msgid "None"
 msgstr "Ninguno"
@@ -1645,6 +1796,9 @@ msgstr "Paneles"
 msgid "Parent Port"
 msgstr "Puerto heredado"
 
+msgid "Parent port"
+msgstr "Puerto padre"
+
 msgid "Password"
 msgstr "Contraseña"
 
@@ -1656,6 +1810,16 @@ msgstr "Red Física"
 
 msgid "Please Wait"
 msgstr "Por favor, espere"
+
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"Por favor, proporcione el nombre inicial de la instancia, la zona de "
+"disponibilidad en la que se lanzará y el número de instancias.\n"
+"    Incremente el número de instancias para crear múltiples instancias con "
+"la misma configuración."
 
 msgid "Policy"
 msgstr "Política"
@@ -1671,6 +1835,9 @@ msgstr "Nombre de política"
 
 msgid "Policy check failed."
 msgstr "Comprobación de política fallada."
+
+msgid "Popovers"
+msgstr "Popovers"
 
 msgid "Port ID"
 msgstr "ID puerto"
@@ -1745,6 +1912,11 @@ msgstr "Protegido"
 
 msgid "Protocol"
 msgstr "Protocolo"
+
+msgid "Provide basic properties of the trunk to be created. All optional."
+msgstr ""
+"Proporcionar propiedades básicas del enlace troncal a crear. Todas "
+"opcionales."
 
 msgid "Provider Network"
 msgstr "Red de Proveedor"
@@ -1853,6 +2025,16 @@ msgstr "Guardar los cambios"
 msgid "Saving"
 msgstr "Guardando"
 
+msgid "Scheduler Hints"
+msgstr "Sugerencias de planificación"
+
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr ""
+"Las sugerencias de planificación permiten pasar información adicional al "
+"planificador relacionada con la ubicación."
+
 msgid "Schema"
 msgstr "Esquema"
 
@@ -1873,6 +2055,20 @@ msgid ""
 msgstr ""
 "Los grupos de seguridad son específicos de un proyecto y no pueden "
 "compartirse entre proyectos."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Network | Security "
+"Groups</b> view, then find the security group and click <b>Manage Rules</b>."
+msgstr ""
+"Los grupos de seguridad definen un conjunto de reglas de filtrado IP que "
+"determinan el tráfico de red que entra o sale de la instancia. Los usuarios "
+"pueden añadir reglas a un grupo de seguridad existente para concretar las "
+"opciones de acceso a la instancia. Para crear reglas adicionales vaya a "
+"<b>Red | Grupos de seguridad</b>, encuentre el grupo de seguridad y haga "
+"click en <b>Gestionar reglas</b>."
 
 msgid "Segmentation ID"
 msgstr "ID de Segmentación"
@@ -1909,6 +2105,12 @@ msgstr "Seleccionar al menos una red"
 
 msgid "Select from the list of available ports below."
 msgstr "Seleccione de la siguiente lista de puertos disponibles."
+
+msgid "Select items from Available items below"
+msgstr "Seleccione elementos de los disponibles a continuación"
+
+msgid "Select many"
+msgstr "Seleccionar varios"
 
 msgid "Select networks from those listed below."
 msgstr "Seleccionar redes de las listadas abajo."
@@ -1971,6 +2173,20 @@ msgid ""
 msgstr ""
 "Los grupos de seguridad son específicos de un proyecto y no pueden "
 "compartirse entre proyectos."
+
+msgid ""
+"Server groups define collections of VM's so that the entire\n"
+"    collection can be given specific properties. For example, the policy of "
+"a\n"
+"    server group may specify that VM's in this group should not be placed "
+"on\n"
+"    the same physical hardware due to availability requirements."
+msgstr ""
+"Los grupos de servidores definen colecciones de MVs, por lo \n"
+"   que se pueden asignar propiedades a toda la colección. Por ejemplo,\n"
+"   un grupo de servidores puede especificar que las MVs de ese grupo no\n"
+"   deben ubicarse en el mismo hardware físico debido a requisitos de\n"
+"   disponibilidad."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -2058,6 +2274,9 @@ msgstr "Subredes"
 
 msgid "Subnets Associated"
 msgstr "Subredes Asociadas"
+
+msgid "Subport Count"
+msgstr "Número de subpuertos"
 
 msgid "Subports"
 msgstr "Subpuertos"
@@ -2190,6 +2409,26 @@ msgstr "Nombre del volumen."
 msgid "The name of the image."
 msgstr "Nombre de la imagen."
 
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+msgstr ""
+"El origen seleccionado %(sourceType)s necesita un sabor con al menos "
+"%(minDisk)s GB de disco raíz. Seleccione un sabor con el disco raíz mayor o "
+"utilice un origen diferente a %(sourceType)s."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
+msgstr ""
+"El origen seleccionado %(sourceType)s necesita un sabor con al menos "
+"%(minRam)s MB de RAM. Seleccione un sabor con más RAM o utilice un origen "
+"diferente a %(sourceType)s."
+
 msgid "The size of the volume, in gibibytes (GiB)."
 msgstr "El tamaño del volumen en gibibytes (GiB)."
 
@@ -2262,6 +2501,9 @@ msgstr "El nombre ya existe."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "Este paso le permite añadir elementos de metadatos a su instancia."
+
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr "Este paso permite añadir sugerencias de planificación a su instancia."
 
 msgid "Time"
 msgstr "Hora"
@@ -2344,6 +2586,9 @@ msgstr "No se ha podido asociar la dirección IP flotante."
 msgid "Unable to change the container access."
 msgstr "No se ha podido modificar el acceso del contenedor."
 
+msgid "Unable to check the Nova service feature."
+msgstr "No se han podido comprobar las características del servicio Nova. "
+
 msgid "Unable to copy the object."
 msgstr "No se ha podido copiar el objeto."
 
@@ -2358,6 +2603,9 @@ msgstr "No se ha podido crear el tipo."
 
 msgid "Unable to create the folder."
 msgstr "No se ha podido crear la carpeta."
+
+msgid "Unable to create the group."
+msgstr "No se ha podido crear el grupo."
 
 msgid "Unable to create the image."
 msgstr "No se ha podido crear la imagen."
@@ -2444,9 +2692,19 @@ msgstr "No se ha podido suprimir el tipo con el id: %(id)s"
 msgid "Unable to delete the folder because it is not empty."
 msgstr "No se ha podido suprimir la carpeta porque no está vacía."
 
+msgid "Unable to delete the group."
+msgstr "No se ha podido eliminar el grupo."
+
+msgid "Unable to delete the groups."
+msgstr "No se ha podido eliminar los grupos."
+
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "No se ha podido suprimir la imagen con el id: %(id)s"
+
+#, python-format
+msgid "Unable to delete the keypair with name: %(name)s"
+msgstr "No se ha podido borrar el par de claves de nombre: %(name)s"
 
 msgid "Unable to delete the object."
 msgstr "No se ha podido suprimir el objeto."
@@ -2495,6 +2753,9 @@ msgstr "No ha sido posible editar el dominio."
 
 msgid "Unable to edit the flavor extra specs."
 msgstr "No ha sido posible editar las especificaciones adicionales del sabor."
+
+msgid "Unable to edit the group."
+msgstr "No se ha podido editar el grupo."
 
 msgid "Unable to edit the image custom properties."
 msgstr "No ha sido posible editar las propiedades de la imagen."
@@ -2617,6 +2878,9 @@ msgstr "No se han podido obtener los servicios de cinder."
 msgid "Unable to retrieve the current user session."
 msgstr "No ha sido posible obtener la sesión de usuario actual."
 
+msgid "Unable to retrieve the default domain."
+msgstr "No se ha podido obtener el dominio por defecto."
+
 msgid "Unable to retrieve the default quotas."
 msgstr "No se han podido obtener las cuotas por defecto."
 
@@ -2643,6 +2907,9 @@ msgstr "No ha sido posible obtener el sabor."
 
 msgid "Unable to retrieve the flavors."
 msgstr "No ha sido posible obtener los sabores."
+
+msgid "Unable to retrieve the group."
+msgstr "No se ha podido obtener el grupo."
 
 msgid "Unable to retrieve the image custom properties."
 msgstr "No ha sido posible obtener las propiedades de la imagen."
@@ -3053,6 +3320,27 @@ msgstr ""
 "asociados a una instancia. El tamaño máximo de cada clave de metadatos es "
 "255 caracteres."
 
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"Puede personalizar la instancia después de lanzarla con las opciones "
+"disponibles aquí.\n"
+"    \"Script personalizado\" es análogo a \"User Data\" en otros sistemas."
+
+msgid ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
+msgstr ""
+"Puede especificar sugerencias de planificación moviendo los elementos de la "
+"columna de la izquierda a la de la derecha. En la columna de la izquierda "
+"están las definiciones de las sugerencias de planificación obtenidas del "
+"Catálogo de metadatos de Glance. Use la opción \"personalizar\" para añadir "
+"al planificador sugerencias de planificación con las claves que desee."
+
 #, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
@@ -3098,6 +3386,9 @@ msgstr[1] ""
 
 msgid "image"
 msgstr "imagen"
+
+msgid "inherit"
+msgstr "Heredar"
 
 #, python-format
 msgid "resource load failed: %s"
