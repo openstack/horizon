@@ -489,9 +489,12 @@ class SetInstanceDetailsAction(workflows.Action):
         try:
             if cinder.is_volume_service_enabled(request):
                 available = api.cinder.VOLUME_STATE_AVAILABLE
+                volumes = [v.id for v in cinder.volume_list(
+                           self.request, search_opts=dict(bootable=True))]
                 snapshots = [self._get_volume_display_name(s)
                              for s in cinder.volume_snapshot_list(
-                             self.request, search_opts=dict(status=available))]
+                             self.request, search_opts=dict(status=available))
+                             if s.volume_id in volumes]
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volume '

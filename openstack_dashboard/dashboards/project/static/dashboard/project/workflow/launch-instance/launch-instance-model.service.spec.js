@@ -229,7 +229,9 @@
             return deferred.promise;
           },
           getVolumeSnapshots: function() {
-            var snapshots = [ { id: 'snap-1' }, { id: 'snap-2' } ];
+            var snapshots = [ { id: 'snap-1', volume_id: 'vol-1' },
+                              { id: 'snap-2', volume_id: 'vol-2' },
+                              { id: 'snap-3', volume_id: 'vol-3' } ];
 
             var deferred = $q.defer();
             deferred.resolve({ data: { items: snapshots } });
@@ -682,7 +684,8 @@
           expect(model.volumes.length).toBe(0);
           expect(model.volumes).toEqual([]);
           expect(model.volumeSnapshots.length).toBe(2);
-          expect(model.volumeSnapshots).toEqual([{ id: 'snap-1' }, { id: 'snap-2' }]);
+          expect(model.volumeSnapshots).toEqual([{ id: 'snap-1', volume_id: 'vol-1' },
+                                                 { id: 'snap-2', volume_id: 'vol-2' }]);
           expect(model.allowedBootSources).toBeDefined();
           expect(model.allowedBootSources.length).toBe(3);
           expect(model.allowedBootSources).toContain(IMAGE);

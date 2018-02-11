@@ -678,8 +678,20 @@
     }
 
     function onGetVolumeSnapshots(data) {
+      cinderAPI.getVolumes({bootable: 1}).then(function (volumes) {
+        onGetBootableVolumeSnapshots(volumes.data.items, data.data.items);
+      });
+    }
+
+    function onGetBootableVolumeSnapshots(bootableVolumes, volumeSnapshots) {
+      var bootableVolumeIds = [];
+      bootableVolumes.forEach(function(volume) {
+        bootableVolumeIds.push(volume.id);
+      });
       model.volumeSnapshots.length = 0;
-      push.apply(model.volumeSnapshots, data.data.items);
+      push.apply(model.volumeSnapshots, volumeSnapshots.filter(function (volumeSnapshot) {
+        return bootableVolumeIds.indexOf(volumeSnapshot.volume_id) !== -1;
+      }));
       addAllowedBootSource(
         model.volumeSnapshots,
         bootSourceTypes.VOLUME_SNAPSHOT,
