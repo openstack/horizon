@@ -436,6 +436,41 @@ class RouterActionTests(RouterMixin, test.TestCase):
                                       'get_feature_permission',
                                       'network_list',
                                       'is_extension_supported')})
+    def test_router_create_post_with_admin_state_up(self):
+        router = self.routers.first()
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "ext-gw-mode",
+                                           "create_router_enable_snat")\
+            .AndReturn(False)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "dvr", "create")\
+            .MultipleTimes().AndReturn(False)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "l3-ha", "create")\
+            .MultipleTimes().AndReturn(False)
+        api.neutron.network_list(IsA(http.HttpRequest))\
+            .AndReturn(self.networks.list())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           "router_availability_zone")\
+            .AndReturn(False)
+        param = {'name': router.name,
+                 'admin_state_up': False}
+        api.neutron.router_create(IsA(http.HttpRequest), **param)\
+            .AndReturn(router)
+
+        self.mox.ReplayAll()
+        form_data = {'name': router.name,
+                     'admin_state_up': False}
+        url = reverse('horizon:%s:routers:create' % self.DASHBOARD)
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, self.INDEX_URL)
+
+    @test.create_stubs({api.neutron: ('router_create',
+                                      'get_feature_permission',
+                                      'network_list',
+                                      'is_extension_supported')})
     def test_router_create_post_exception_error_case_409(self):
         router = self.routers.first()
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
