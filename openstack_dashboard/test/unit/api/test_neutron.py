@@ -13,6 +13,7 @@
 #    under the License.
 import copy
 
+import mock
 from mox3.mox import IsA
 import netaddr
 from neutronclient.common import exceptions as neutron_exc
@@ -393,13 +394,16 @@ class NeutronApiTests(test.APITestCase):
         for p in ret_val:
             self.assertIsInstance(p, api.neutron.Port)
 
-    def test_port_list_with_trunk_types(self):
+    @mock.patch.object(api.neutron, 'is_extension_supported')
+    def test_port_list_with_trunk_types(self, mock_is_extension_supported):
         ports = self.api_tp_ports.list()
         trunks = self.api_tp_trunks.list()
 
+        # list_extensions is decorated with memoized_with_request,
+        # stub_neutronclient is not called. We need to mock it separately.
+        mock_is_extension_supported.return_value = True  # trunk
+
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_extensions() \
-            .AndReturn({'extensions': self.api_extensions.list()})
         neutronclient.list_ports().AndReturn({'ports': ports})
         neutronclient.list_trunks().AndReturn({'trunks': trunks})
         self.mox.ReplayAll()
@@ -428,13 +432,19 @@ class NeutronApiTests(test.APITestCase):
         self.assertEqual(expected_subport_ids, subport_ids)
         self.assertEqual(expected_normal_port_ids, normal_port_ids)
 
-    def test_port_list_with_trunk_types_without_trunk_extension(self):
-        extensions = [ext for ext in self.api_extensions.list()
-                      if ext['alias'] != 'trunk']
+        mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'trunk')
+
+    @mock.patch.object(api.neutron, 'is_extension_supported')
+    def test_port_list_with_trunk_types_without_trunk_extension(
+            self, mock_is_extension_supported):
         ports = self.api_tp_ports.list()
 
+        # list_extensions is decorated with memoized_with_request,
+        # the simpliest way is to mock it directly.
+        mock_is_extension_supported.return_value = False  # trunk
+
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_extensions().AndReturn({'extensions': extensions})
         neutronclient.list_ports().AndReturn({'ports': ports})
         self.mox.ReplayAll()
 
@@ -446,6 +456,9 @@ class NeutronApiTests(test.APITestCase):
         # When trunk extension is disabled, all returned values should be
         # instances of Port class.
         self.assertTrue(all(isinstance(p, api.neutron.Port) for p in ret_val))
+
+        mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'trunk')
 
     def test_port_get(self):
         port = {'port': self.api_ports.first()}
@@ -715,12 +728,13 @@ class NeutronApiTests(test.APITestCase):
         api.neutron.router_remove_interface(
             self.request, router_id, port_id=fake_port)
 
-    def test_is_extension_supported(self):
-        neutronclient = self.stub_neutronclient()
-        neutronclient.list_extensions() \
-            .AndReturn({'extensions': self.api_extensions.list()})
-        self.mox.ReplayAll()
-
+    # stub_neutronclient does not work because api.neutron.list_extensions
+    # is decorated with memoized_with_request, so we need to mock
+    # neutronclient.v2_0.client directly.
+    @mock.patch('neutronclient.v2_0.client.Client.list_extensions')
+    def test_is_extension_supported(self, mock_list_extensions):
+        extensions = self.api_extensions.list()
+        mock_list_extensions.return_value = {'extensions': extensions}
         self.assertTrue(
             api.neutron.is_extension_supported(self.request, 'quotas'))
         self.assertFalse(

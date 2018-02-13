@@ -35,6 +35,7 @@ import six
 from horizon import exceptions
 from horizon import messages
 from horizon.utils.memoized import memoized
+from horizon.utils.memoized import memoized_with_request
 from openstack_dashboard.api import base
 from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
@@ -760,13 +761,22 @@ def get_ipver_str(ip_version):
     return IP_VERSION_DICT.get(ip_version, '')
 
 
-@memoized
-def neutronclient(request):
+def get_auth_params_from_request(request):
+    return (
+        request.user.token.id,
+        base.url_for(request, 'network'),
+        base.url_for(request, 'identity')
+    )
+
+
+@memoized_with_request(get_auth_params_from_request)
+def neutronclient(request_auth_params):
+    token_id, neutron_url, auth_url = request_auth_params
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    c = neutron_client.Client(token=request.user.token.id,
-                              auth_url=base.url_for(request, 'identity'),
-                              endpoint_url=base.url_for(request, 'network'),
+    c = neutron_client.Client(token=token_id,
+                              auth_url=auth_url,
+                              endpoint_url=neutron_url,
                               insecure=insecure, ca_cert=cacert)
     return c
 
@@ -1704,10 +1714,14 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
 
 
 @profiler.trace
-@memoized
-def list_extensions(request):
+@memoized_with_request(neutronclient)
+def list_extensions(neutron_api):
+    """List neutron extensions.
+
+    :param request: django request object
+    """
     try:
-        extensions_list = neutronclient(request).list_extensions()
+        extensions_list = neutron_api.list_extensions()
     except exceptions.ServiceCatalogException:
         return {}
     if 'extensions' in extensions_list:
@@ -1717,10 +1731,13 @@ def list_extensions(request):
 
 
 @profiler.trace
-@memoized
 def is_extension_supported(request, extension_alias):
-    extensions = list_extensions(request)
+    """Check if a specified extension is supported.
 
+    :param request: django request object
+    :param extension_alias: neutron extension alias
+    """
+    extensions = list_extensions(request)
     for extension in extensions:
         if extension['alias'] == extension_alias:
             return True
