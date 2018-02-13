@@ -285,7 +285,7 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://example.com",
             "tenant_name": "Tenant",
             "region": "Colorado"}
-        out = yaml.load(loader.render_to_string(
+        out = yaml.safe_load(loader.render_to_string(
             'project/api_access/clouds.yaml.template',
             context,
             template.Context(context)))
@@ -306,7 +306,7 @@ class TemplateRenderTest(test.TestCase):
             "tenant_id": "some-cool-id",
             "auth_url": "http://example.com",
             "tenant_name": "Tenant"}
-        out = yaml.load(loader.render_to_string(
+        out = yaml.safe_load(loader.render_to_string(
             'project/api_access/clouds.yaml.template',
             context,
             template.Context(context)))
@@ -329,7 +329,7 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://example.com",
             "tenant_name": "Tenant",
             "regions": regions}
-        out = yaml.load(loader.render_to_string(
+        out = yaml.safe_load(loader.render_to_string(
             'project/api_access/clouds.yaml.template',
             context,
             template.Context(context)))
@@ -354,7 +354,7 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://example.com",
             "tenant_name": "Tenant",
             "regions": regions}
-        out = yaml.load(loader.render_to_string(
+        out = yaml.safe_load(loader.render_to_string(
             'project/api_access/clouds.yaml.template',
             context,
             template.Context(context)))
