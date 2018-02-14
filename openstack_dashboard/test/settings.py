@@ -13,8 +13,6 @@
 import os
 import tempfile
 
-import six
-
 from django.utils.translation import pgettext_lazy
 
 from horizon.test.settings import *  # noqa: F403,H303
@@ -30,6 +28,7 @@ from openstack_dashboard.utils import settings as settings_utils
 monkeypatch_escape()
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
+
 ROOT_PATH = os.path.abspath(os.path.join(TEST_DIR, ".."))
 MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
 MEDIA_URL = '/media/'
@@ -82,7 +81,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.messages',
     'django.contrib.humanize',
-    'django_nose',
     'openstack_auth',
     'compressor',
     'horizon',
@@ -249,26 +247,6 @@ SECURITY_GROUP_RULES = {
         'to_port': '80',
     },
 }
-
-NOSE_ARGS = ['--nocapture',
-             '--nologcapture',
-             '--cover-package=openstack_dashboard',
-             '--cover-inclusive',
-             '--all-modules']
-# TODO(amotoki): Need to investigate why --with-html-output
-# is unavailable in python3.
-# NOTE(amotoki): Most horizon plugins import this module in their test
-# settings and they do not necessarily have nosehtmloutput in test-reqs.
-# Assuming nosehtmloutput potentially breaks plugins tests,
-# we check the availability of htmloutput module (from nosehtmloutput).
-try:
-    import htmloutput  # noqa: F401
-    has_html_output = True
-except ImportError:
-    has_html_output = False
-if six.PY2 and has_html_output:
-    NOSE_ARGS += ['--with-html-output',
-                  '--html-out-file=ut_openstack_dashboard_nose_results.html']
 
 POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
 POLICY_FILES = {

@@ -14,9 +14,8 @@
 
 import datetime
 import logging
-import os
-import unittest
 
+from django.test import tag
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils import timezone
@@ -1318,8 +1317,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                                                      self.tenant.id)
 
 
-@unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
-                     "The WITH_SELENIUM env variable is not set.")
+@tag('selenium')
 class SeleniumTests(test.SeleniumAdminTestCase):
     @test.create_mocks({api.keystone: ('get_default_domain',
                                        'get_default_role',

@@ -2,6 +2,18 @@
 testcommand="${1} ${2}/manage.py test"
 posargs="${@:3}"
 
+tagarg="--exclude-tag selenium --exclude-tag integration"
+
+if [[ -n "${WITH_SELENIUM}" ]]
+then
+  tagarg="--tag selenium"
+elif [[ -n "${INTEGRATION_TESTS}" ]]
+then
+  tagarg="--tag integration"
+#else
+#  tag="unit"
+fi
+
 # Attempt to identify if any of the arguments passed from tox is a test subset
 if [ -n "$posargs" ]; then
   for arg in "$posargs"
@@ -16,23 +28,19 @@ fi
 # If not, simply run the entire test suite.
 if [ -n "$subset" ]; then
   project="${subset%%.*}"
-
   if [ $project == "horizon" ]; then
-    $testcommand --settings=horizon.test.settings --verbosity 2 $posargs
+    $testcommand --settings=horizon.test.settings --verbosity 2 $tagarg $posargs
   elif [ $project == "openstack_dashboard" ]; then
-    $testcommand --settings=openstack_dashboard.test.settings \
-    --exclude-dir=openstack_dashboard/test/integration_tests --verbosity 2 $posargs
+    $testcommand --settings=openstack_dashboard.test.settings --verbosity 2 $tagarg $posargs
   elif [ $project == "openstack_auth" ]; then
-    $testcommand --settings=openstack_auth.tests.settings $posargs
+    $testcommand --settings=openstack_auth.tests.settings --verbosity 2 $tagarg $posargs
   fi
 else
-  $testcommand horizon --settings=horizon.test.settings --verbosity 2 $posargs
-  horizon_tests=$?
-  $testcommand openstack_dashboard --settings=openstack_dashboard.test.settings \
-  --exclude-dir=openstack_dashboard/test/integration_tests --verbosity 2 $posargs
+  $testcommand horizon --settings=horizon.test.settings --verbosity 2 $tagarg $posargs
+  horizon_tests=0
+  $testcommand openstack_dashboard --settings=openstack_dashboard.test.settings --verbosity 2 $tagarg $posargs
   openstack_dashboard_tests=$?
-  $testcommand openstack_auth --settings=openstack_auth.tests.settings \
-  --verbosity 2 $posargs
+  $testcommand openstack_auth --settings=openstack_auth.tests.settings --verbosity 2 $tagarg $posargs
   auth_tests=$?
   # we have to tell tox if either of these test runs failed
   if [[ $horizon_tests != 0 || $openstack_dashboard_tests != 0 || \

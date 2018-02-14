@@ -613,11 +613,6 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False,
         },
-        'nose.plugins.manager': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
         'django': {
             'handlers': ['console'],
             'level': 'DEBUG',

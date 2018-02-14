@@ -21,12 +21,12 @@ from importlib import import_module
 import logging
 import os
 import traceback
-import unittest
 
 from django.conf import settings
 from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django.test.client import RequestFactory
+from django.test import tag
 from django import urls
 from django.utils import http
 
@@ -235,8 +235,6 @@ class RequestFactoryWithMessages(RequestFactory):
         return req
 
 
-@unittest.skipIf(os.environ.get('SKIP_UNITTESTS', False),
-                 "The SKIP_UNITTESTS env variable is set.")
 class TestCase(horizon_helpers.TestCase):
     """Specialized base test case class for Horizon.
 
@@ -636,8 +634,7 @@ class ResetImageAPIVersionMixin(object):
         super(ResetImageAPIVersionMixin, self).tearDown()
 
 
-@unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
-                     "The WITH_SELENIUM env variable is not set.")
+@tag('selenium')
 class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
 
     def setUp(self):

@@ -19,7 +19,6 @@ Django==1.11
 django-appconf==1.0.2
 django-babel==0.6.2
 django-compressor==2.0
-django-nose==1.4.4
 django-pyscss==2.0.2
 doc8==0.6.0
 docutils==0.11
@@ -55,11 +54,7 @@ munch==2.1.0
 netaddr==0.7.18
 netifaces==0.10.4
 nodeenv==0.9.4
-nose==1.3.7
-nose-exclude==0.5.0
-nosehtmloutput==0.0.3
 nosexcover==1.0.10
-openstack.nose-plugin==0.7
 openstackdocstheme==1.18.1
 openstacksdk==0.11.2
 os-client-config==1.28.0

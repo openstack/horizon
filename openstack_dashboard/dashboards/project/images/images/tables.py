@@ -23,7 +23,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
 from horizon import tables
-from horizon.utils.memoized import memoized
 
 from openstack_dashboard import api
 
@@ -192,7 +191,6 @@ def filter_tenants():
     return getattr(settings, 'IMAGES_LIST_FILTER_TENANTS', [])
 
 
-@memoized
 def filter_tenant_ids():
     return [ft['tenant'] for ft in filter_tenants()]
 

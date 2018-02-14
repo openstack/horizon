@@ -20,6 +20,7 @@ import tempfile
 import time
 import traceback
 
+from django.test import tag
 from oslo_utils import uuidutils
 from selenium.webdriver.common import action_chains
 from selenium.webdriver.common import by
@@ -45,11 +46,15 @@ LOG = logging.getLogger(__name__)
 IS_SELENIUM_HEADLESS = os.environ.get('SELENIUM_HEADLESS', False)
 ROOT_PATH = os.path.dirname(os.path.abspath(config.__file__))
 
+SCREEN_SIZE = (None, None)
+
 if not subprocess.call('which xdpyinfo > /dev/null 2>&1', shell=True):
-    SCREEN_SIZE = subprocess.check_output('xdpyinfo | grep dimensions',
-                                          shell=True).split()[1].split('x')
+    try:
+        SCREEN_SIZE = subprocess.check_output('xdpyinfo | grep dimensions',
+                                              shell=True).split()[1].split('x')
+    except subprocess.CalledProcessError:
+        LOG.info("Can't run 'xdpyinfo'")
 else:
-    SCREEN_SIZE = (None, None)
     LOG.info("X11 isn't installed. Should use xvfb to run tests.")
 
 
@@ -95,15 +100,12 @@ class AssertsMixin(object):
         return self.assertEqual(list(actual), [False] * len(actual))
 
 
+@tag('integration')
 class BaseTestCase(testtools.TestCase):
 
     CONFIG = config.get_config()
 
     def setUp(self):
-        if not os.environ.get('INTEGRATION_TESTS', False):
-            raise self.skipException(
-                "The INTEGRATION_TESTS env variable is not set.")
-
         self._configure_log()
 
         self.addOnException(
@@ -298,6 +300,7 @@ class BaseTestCase(testtools.TestCase):
         return html_elem.get_attribute("innerHTML").encode("utf-8")
 
 
+@tag('integration')
 class TestCase(BaseTestCase, AssertsMixin):
 
     TEST_USER_NAME = BaseTestCase.CONFIG.identity.username

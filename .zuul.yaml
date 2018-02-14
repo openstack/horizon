@@ -63,12 +63,12 @@
     check:
       jobs:
         - horizon-openstack-tox-python3-django111
-        - horizon-selenium-headless
+        - horizon-selenium-headless:
+            voting: false
         - horizon-dsvm-tempest-plugin
         - openstack-tox-lower-constraints
     gate:
       jobs:
         - horizon-openstack-tox-python3-django111
-        - horizon-selenium-headless
         - horizon-dsvm-tempest-plugin
         - openstack-tox-lower-constraints

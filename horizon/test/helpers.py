@@ -35,6 +35,7 @@ from django.core.handlers import wsgi
 from django import http
 from django import test as django_test
 from django.test.client import RequestFactory
+from django.test import tag
 from django.test import utils as django_test_utils
 from django.utils.encoding import force_text
 import six
@@ -249,8 +250,7 @@ class TestCase(django_test.TestCase):
                                                      ", ".join(msgs))
 
 
-@unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
-                     "The WITH_SELENIUM env variable is not set.")
+@tag('selenium')
 class SeleniumTestCase(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):

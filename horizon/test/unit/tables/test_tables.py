@@ -214,12 +214,16 @@ class MyToggleAction(tables.BatchAction):
         self.down = getattr(obj, 'status', None) == 'down'
         if self.down:
             self.current_present_action = 1
+        else:
+            self.current_present_action = 0
         return self.down or getattr(obj, 'status', None) == 'up'
 
     def action(self, request, object_ids):
         if self.down:
             # up it
             self.current_past_action = 1
+        else:
+            self.current_past_action = 0
 
 
 class MyDisabledAction(MyToggleAction):

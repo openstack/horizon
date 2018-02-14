@@ -19,8 +19,6 @@
 import os
 import socket
 
-import six
-
 from openstack_dashboard.utils import settings as settings_utils
 
 socket.setdefaulttimeout(1)
@@ -52,7 +50,6 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django_nose',
     'django_pyscss',
     'compressor',
     'horizon',
@@ -104,25 +101,6 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 ROOT_URLCONF = 'horizon.test.urls'
 SITE_ID = 1
 SITE_BRANDING = 'Horizon'
-
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-NOSE_ARGS = ['--nocapture',
-             '--nologcapture',
-             '--exclude-dir=horizon/conf/',
-             '--exclude-dir=horizon/test/customization',
-             '--cover-package=horizon',
-             '--cover-inclusive',
-             '--all-modules']
-# TODO(amotoki): Need to investigate why --with-html-output
-# is unavailable in python3.
-try:
-    import htmloutput  # noqa: F401
-    has_html_output = True
-except ImportError:
-    has_html_output = False
-if six.PY2 and has_html_output:
-    NOSE_ARGS += ['--with-html-output',
-                  '--html-out-file=ut_horizon_nose_results.html']
 
 EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
