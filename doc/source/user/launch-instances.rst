@@ -231,7 +231,7 @@ file.
 It is also possible to SSH into an instance without an SSH keypair, if the
 administrator has enabled root password injection.  For more information
 about root password injection, see `Injecting the administrator password
-<https://docs.openstack.org/admin-guide/compute-admin-password-injection.html>`_
+<https://docs.openstack.org/nova/latest/admin/admin-password-injection.html>`_
 in the *OpenStack Administrator Guide*.
 
 Track usage for instances

@@ -6,7 +6,7 @@ Shares are file storage that instances can access. Users can
 allow or deny a running instance to have access to a share at any time.
 For information about using the Dashboard to create and manage shares as
 an end user, see the
-`OpenStack End User Guide <https://docs.openstack.org/user-guide/dashboard-manage-shares.html>`_.
+:doc:`OpenStack End User Guide </user/manage-shares>`.
 
 As an administrative user, you can manage shares and share types for users
 in various projects. You can create and delete share types, and view
