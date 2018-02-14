@@ -117,9 +117,8 @@ class CreateForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            params = {'name': data['name']}
-            if 'admin_state_up' in data and data['admin_state_up']:
-                params['admin_state_up'] = data['admin_state_up']
+            params = {'name': data['name'],
+                      'admin_state_up': data['admin_state_up']}
             if 'external_network' in data and data['external_network']:
                 params['external_gateway_info'] = {'network_id':
                                                    data['external_network']}
