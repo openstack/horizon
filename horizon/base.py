@@ -43,6 +43,7 @@ import six
 from horizon import conf
 from horizon.decorators import _current_component
 from horizon.decorators import require_auth
+from horizon.decorators import require_component_access
 from horizon.decorators import require_perms
 from horizon import loaders
 from horizon.utils import settings as utils_settings
@@ -320,6 +321,8 @@ class Panel(HorizonComponent):
         # Apply access controls to all views in the patterns
         permissions = getattr(self, 'permissions', [])
         _decorate_urlconf(urlpatterns, require_perms, permissions)
+        _decorate_urlconf(
+            urlpatterns, require_component_access, component=self)
         _decorate_urlconf(urlpatterns, _current_component, panel=self)
 
         # Return the three arguments to django.conf.urls.include

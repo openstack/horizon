@@ -90,3 +90,26 @@ def require_perms(view_func, required):
         return dec
     else:
         return view_func
+
+
+def require_component_access(view_func, component):
+    """Perform component can_access check to access the view.
+
+    :param component containing the view (panel or dashboard).
+
+    Raises a :exc:`~horizon.exceptions.NotAuthorized` exception if the
+    user cannot access the component containing the view.
+    By example the check of component policy rules will be applied to its
+    views.
+    """
+    from horizon.exceptions import NotAuthorized
+
+    @functools.wraps(view_func, assigned=available_attrs(view_func))
+    def dec(request, *args, **kwargs):
+        if not component.can_access({'request': request}):
+            raise NotAuthorized(_("You are not authorized to access %s")
+                                % request.path)
+
+        return view_func(request, *args, **kwargs)
+
+    return dec
