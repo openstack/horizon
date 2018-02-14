@@ -5,17 +5,18 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2017. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2017. #zanata
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
+# Reik Keutterling <spielkind@gmail.com>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-01 07:30+0000\n"
+"POT-Creation-Date: 2018-02-14 03:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-29 04:07+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2018-02-13 05:04+0000\n"
+"Last-Translator: Reik Keutterling <spielkind@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -102,6 +103,39 @@ msgstr ""
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Diese Textzeile soll wie Kleindruck behandelt werden.</small>"
+
+msgid ""
+"<strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<strong>Achtung!</strong>\n"
+"           Dieser\n"
+"          <a href=\"#\" class=\"alert-link\">Alarm erfordert Aufmerksamkeit</"
+"a>,\n"
+"           ist aber nicht extrem wichtig."
+
+msgid ""
+"<strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<strong>Oh nein!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Ändern Sie ein paar Dinge</a>\n"
+"          und versuchen Sie es noch einmal."
+
+msgid ""
+"<strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<strong>Gut gemacht!</strong>\n"
+"          Sie haben erfolgreich\n"
+"          <a href=\"#\" class=\"alert-link\">diese wichtige Benachrichtigung "
+"gelesen</a>."
 
 msgid "A Confirmation Dialog"
 msgstr "Ein Bestätigungsdialog"
@@ -985,6 +1019,10 @@ msgstr "Attributklassen"
 msgid "Enable User"
 msgstr "Benutzer aktivieren"
 
+msgid "Enable/Disable subport addition, removal and trunk delete."
+msgstr ""
+"Subport hinzfügen, entfernen und Trunk löschen aktivieren/deaktivieren."
+
 msgid "Enabled"
 msgstr "Aktiviert"
 
@@ -1011,6 +1049,14 @@ msgstr "Fehler beim Löschen"
 
 msgid "Ether Type"
 msgstr "Netzwerktyp"
+
+msgid ""
+"Exactly one regular Neutron port. Has to be provided when\n"
+"  the trunk is created. Cannot be changed during the trunk's life."
+msgstr ""
+"Exakt ein regulärer Neutron Port muss bei der Trunk Erstellung \n"
+"zur Verfügung gestellt werden. Dieser kann nicht nachträglich geändert "
+"werden."
 
 msgid "Example body text"
 msgstr "Beispieltext für Hauptteil"
@@ -1486,6 +1532,9 @@ msgstr "Ladefunktion:"
 
 msgid "Loading"
 msgstr "Wird geladen"
+
+msgid "Loading ports... Please Wait"
+msgstr "Lade Ports. Bitte warten ..."
 
 msgid "Loading trunk... Please Wait"
 msgstr "Lade Trunk. Bitte warten ..."
@@ -2136,6 +2185,14 @@ msgstr "Segmentierungs-ID"
 msgid "Segmentation Type"
 msgstr "Segmentierungs-Typ"
 
+msgid ""
+"Select <em>exactly one port</em> as the parent port of the trunk to\n"
+"    be created. Mandatory."
+msgstr ""
+"Wählen Sie <em>exakt einen Port</em> als den Eltern-Port des zu "
+"erstellenden\n"
+"    Trunks aus. Obligatorisch."
+
 msgid "Select Boot Source"
 msgstr "Bootquelle auswählen"
 
@@ -2165,6 +2222,9 @@ msgstr "Wählen Sie mindestens ein Netzwerk aus"
 
 msgid "Select from the list of available ports below."
 msgstr "Wählen Sie aus den unten stehenden verfügbaren Ports aus."
+
+msgid "Select items from Available items below"
+msgstr "Wählen Sie Einträge aus den verfügbaren Positionen aus"
 
 msgid "Select many"
 msgstr "Mehrere auswählen"
@@ -3599,6 +3659,9 @@ msgstr "Schattenkopie"
 
 msgid "volume"
 msgstr "Datenträger"
+
+msgid "{$ address $} on subnet {$ subnet $}"
+msgstr "{$ address $} in Subnetz {$ subnet $}"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"

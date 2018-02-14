@@ -29,11 +29,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-07 05:35+0000\n"
+"POT-Creation-Date: 2018-02-14 03:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-06 12:33+0000\n"
+"PO-Revision-Date: 2018-02-14 03:15+0000\n"
 "Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -523,7 +523,7 @@ msgstr "从指定的浮动IP池中分配一个浮动IP。"
 
 msgctxt "Label in the limit summary"
 msgid "Allocated"
-msgstr "已分配的"
+msgstr "已分配"
 
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
@@ -7375,7 +7375,7 @@ msgstr "使用快照作为源"
 
 msgctxt "Label in the limit summary"
 msgid "Used"
-msgstr "已使用的"
+msgstr "已使用"
 
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
