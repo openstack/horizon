@@ -1,0 +1,14 @@
+---
+issues:
+  - |
+    [:bug:`1746706`] When reloading or opening Angular-based detail page
+    directly, the navigation menu and breadcrumb list are not recovered
+    properly and the first panel is focused.
+    [:bug:`1746709`] when we try to open non-existing Angular-based detail
+    page, "Not Found" (404) page is not shown. A blank page only with
+    the navigation menu will be shown.
+fixes:
+  - |
+    [:bug:`1681627`] A problem that Angular-based detail page (ngdetail page)
+    cannot be reloaded or opened via direct URL has been fixed. Note that
+    there are some known issues described in the `Known Issues`_ section.
