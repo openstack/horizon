@@ -117,14 +117,20 @@ class RequestFactoryWithMessages(RequestFactory):
 class TestCase(django_test.TestCase):
     """Base test case class for Horizon with numerous additional features.
 
-      * The ``mox`` mocking framework via ``self.mox``.
+      * The ``mox`` mocking framework via ``self.mox``
+        if ``use_mox`` attribute is set to True.
+        Note that ``use_mox`` defaults to False.
       * A ``RequestFactory`` class which supports Django's ``contrib.messages``
         framework via ``self.factory``.
       * A ready-to-go request object via ``self.request``.
     """
+
+    use_mox = False
+
     def setUp(self):
         super(TestCase, self).setUp()
-        self.mox = mox.Mox()
+        if self.use_mox:
+            self.mox = mox.Mox()
         self._setup_test_data()
         self._setup_factory()
         self._setup_user()
@@ -149,8 +155,9 @@ class TestCase(django_test.TestCase):
 
     def tearDown(self):
         super(TestCase, self).tearDown()
-        self.mox.UnsetStubs()
-        self.mox.VerifyAll()
+        if self.use_mox:
+            self.mox.UnsetStubs()
+            self.mox.VerifyAll()
         del os.environ["HORIZON_TEST_RUN"]
 
     def set_permissions(self, permissions=None):
