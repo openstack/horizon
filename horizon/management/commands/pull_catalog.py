@@ -23,9 +23,10 @@ ZANATA_LOCALES_URL = ("https://translate.openstack.org/rest/project"
 DOMAINS = ['django', 'djangojs']
 MODULES = ['horizon', 'openstack_dashboard']
 PROJECT = 'horizon'
+VERSION = 'master',
 POFILE = "{module}/locale/{locale}/LC_MESSAGES/{domain}.po"
 POFILE_URL = ("https://translate.openstack.org/rest/file/translation/{project}"
-              "/master/{language}/po?docId={module}%2Flocale%2F{domain}")
+              "/{version}/{language}/po?docId={module}%2Flocale%2F{domain}")
 
 
 class Command(BaseCommand):
@@ -57,6 +58,10 @@ class Command(BaseCommand):
                                   "strings from e.g. 'openstack_dashboard'. "
                                   "The default modules are 'horizon' and "
                                   "'openstack_dashboard'"))
+        parser.add_argument('-v', '--version', type=str, default=VERSION,
+                            help=("The version of the project to extract "
+                                  "strings from e.g. 'horizon'. The default "
+                                  "is 'master'"))
 
     def handle(self, *args, **options):
         for module in options['module']:
@@ -75,6 +80,7 @@ class Command(BaseCommand):
                     new_po = requests.get((POFILE_URL).format(
                         language=language,
                         project=options['project'],
+                        version=options['version'],
                         module=module,
                         domain=domain))
 
