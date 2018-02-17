@@ -119,7 +119,7 @@ class UpdateInstanceSecurityGroups(BaseSecurityGroups):
     members_list_title = _("Instance Security Groups")
     help_text = _("Add and remove security groups to this instance "
                   "from the list of available security groups.")
-    depends_on = ("instance_id",)
+    depends_on = ("instance_id", "target_tenant_id")
 
     def allowed(self, request):
         return api.base.is_service_enabled(request, 'network')
