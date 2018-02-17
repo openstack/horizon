@@ -4,3 +4,5 @@ features:
     "Interfaces" tab is added to the instance detail page. The new tab shows
     a list of ports attached to an instance. Users now have an easy way to
     access the list of ports of the instance and edit security groups per port.
+    In addition, "Edit Port Security Groups" menu is added as an action of
+    the instance table.
