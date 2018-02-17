@@ -119,15 +119,27 @@
   }
   tr.even {
     td {
-      background-color: inherit;
+      background-color: $table-bg-even;
     }
   }
 
-  // Hover stuffs!
+  // Hover on main table
   tr.odd:hover td,
   tr.even:hover td,
   tr:hover th {
     background-color: $table-bg-hover;
+  }
+
+  // Override inheritted background color for popup right column
+  tr.odd div td, tr.odd:hover div td,
+  tr.even div td, tr.even:hover div td {
+    background-color: $table-bg-odd;
+  }
+
+  // Override inheritted background color for popup right column
+  tr.odd:hover div th,
+  tr.even:hover div th {
+    background-color: $table-bg-even;
   }
 }
 
