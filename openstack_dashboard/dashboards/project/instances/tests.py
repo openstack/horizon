@@ -1350,21 +1350,29 @@ class InstanceDetailTests(InstanceTestBase):
 
         return res
 
+    @helpers.create_mocks({api.neutron: ['is_extension_supported']})
     def test_instance_details_volumes(self):
         server = self.servers.first()
         volumes = [self.volumes.list()[1]]
         security_groups = self.security_groups.list()
+
+        self.mock_is_extension_supported.return_value = False
 
         res = self._get_instance_details(
             server, volumes_return=volumes,
             security_groups_return=security_groups)
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
+        self.mock_is_extension_supported.assert_called_once_with(
+            helpers.IsHttpRequest(), 'mac-learning')
 
+    @helpers.create_mocks({api.neutron: ['is_extension_supported']})
     def test_instance_details_volume_sorting(self):
         server = self.servers.first()
         volumes = self.volumes.list()[1:3]
         security_groups = self.security_groups.list()
+
+        self.mock_is_extension_supported.return_value = False
 
         res = self._get_instance_details(
             server, volumes_return=volumes,
@@ -1375,9 +1383,14 @@ class InstanceDetailTests(InstanceTestBase):
                          "/dev/hda")
         self.assertEqual(res.context['instance'].volumes[1].device,
                          "/dev/hdk")
+        self.mock_is_extension_supported.assert_called_once_with(
+            helpers.IsHttpRequest(), 'mac-learning')
 
+    @helpers.create_mocks({api.neutron: ['is_extension_supported']})
     def test_instance_details_metadata(self):
         server = self.servers.first()
+
+        self.mock_is_extension_supported.return_value = False
 
         tg = tabs.InstanceDetailTabs(self.request, instance=server)
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("overview").get_id())
@@ -1392,8 +1405,15 @@ class InstanceDetailTests(InstanceTestBase):
         self.assertContains(res, "<dt>empty</dt>", 1)
         self.assertContains(res, "<dd><em>N/A</em></dd>", 1)
 
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_extension_supported, 2,
+            mock.call(helpers.IsHttpRequest(), 'mac-learning'))
+
+    @helpers.create_mocks({api.neutron: ['is_extension_supported']})
     def test_instance_details_fault(self):
         server = self.servers.first()
+
+        self.mock_is_extension_supported.return_value = False
 
         server.status = 'ERROR'
         server.fault = {"message": "NoValidHost",
@@ -1408,8 +1428,11 @@ class InstanceDetailTests(InstanceTestBase):
 
         res = self._get_instance_details(server)
         self.assertItemsEqual(res.context['instance'].fault, server.fault)
+        self.mock_is_extension_supported.assert_called_once_with(
+            helpers.IsHttpRequest(), 'mac-learning')
 
-    @helpers.create_mocks({console: ('get_console',)})
+    @helpers.create_mocks({console: ['get_console'],
+                           api.neutron: ['is_extension_supported']})
     def test_instance_details_console_tab(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = '/vncserver'
@@ -1417,6 +1440,7 @@ class InstanceDetailTests(InstanceTestBase):
         CONSOLE_URL = CONSOLE_OUTPUT + CONSOLE_TITLE
 
         self.mock_get_console.return_value = ('VNC', CONSOLE_URL)
+        self.mock_is_extension_supported.return_value = False
 
         tg = tabs.InstanceDetailTabs(self.request, instance=server)
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("console").get_id())
@@ -1432,10 +1456,16 @@ class InstanceDetailTests(InstanceTestBase):
         self.assertTrue(console_tab_rendered)
         self.mock_get_console.assert_called_once_with(
             mock.ANY, 'AUTO', server)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_extension_supported, 2,
+            mock.call(helpers.IsHttpRequest(), 'mac-learning'))
 
     @django.test.utils.override_settings(CONSOLE_TYPE=None)
+    @helpers.create_mocks({api.neutron: ['is_extension_supported']})
     def test_instance_details_console_tab_deactivated(self):
         server = self.servers.first()
+
+        self.mock_is_extension_supported.return_value = False
 
         tg = tabs.InstanceDetailTabs(self.request, instance=server)
         self.assertIsNone(tg.get_tab("console"))
@@ -1444,6 +1474,10 @@ class InstanceDetailTests(InstanceTestBase):
                                    'project/instances/_detail_console.html')
         for tab in res.context_data['tab_group'].get_loaded_tabs():
             self.assertNotIsInstance(tab, tabs.ConsoleTab)
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_extension_supported, 2,
+            mock.call(helpers.IsHttpRequest(), 'mac-learning'))
 
     @helpers.create_mocks({api.nova: ('server_get',)})
     def test_instance_details_exception(self):
@@ -1475,19 +1509,25 @@ class InstanceDetailTests(InstanceTestBase):
         self.assertEqual(403, res.status_code)
         self.assertEqual(0, self.mock_server_get.call_count)
 
+    @helpers.create_mocks({api.neutron: ['is_extension_supported']})
     def test_instance_details_flavor_not_found(self):
         server = self.servers.first()
+        self.mock_is_extension_supported.return_value = False
         res = self._get_instance_details(server, flavor_exception=True)
         self.assertTemplateUsed(res,
                                 'project/instances/_detail_overview.html')
         self.assertContains(res, "Not available")
+        self.mock_is_extension_supported.assert_called_once_with(
+            helpers.IsHttpRequest(), 'mac-learning')
 
-    @helpers.create_mocks({api.nova: ('server_console_output',)})
+    @helpers.create_mocks({api.nova: ['server_console_output'],
+                           api.neutron: ['is_extension_supported']})
     def test_instance_log(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = 'output'
 
         self.mock_server_console_output.return_value = CONSOLE_OUTPUT
+        self.mock_is_extension_supported.return_value = False
 
         url = reverse('horizon:project:instances:console',
                       args=[server.id])
@@ -1500,12 +1540,16 @@ class InstanceDetailTests(InstanceTestBase):
         self.assertContains(res, CONSOLE_OUTPUT)
         self.mock_server_console_output.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, tail_length=None)
+        self.mock_is_extension_supported.assert_called_once_with(
+            helpers.IsHttpRequest(), 'mac-learning')
 
-    @helpers.create_mocks({api.nova: ('server_console_output',)})
+    @helpers.create_mocks({api.nova: ['server_console_output'],
+                           api.neutron: ['is_extension_supported']})
     def test_instance_log_exception(self):
         server = self.servers.first()
 
         self.mock_server_console_output.side_effect = self.exceptions.nova
+        self.mock_is_extension_supported.return_value = False
 
         url = reverse('horizon:project:instances:console',
                       args=[server.id])
@@ -1516,9 +1560,13 @@ class InstanceDetailTests(InstanceTestBase):
         self.assertContains(res, "Unable to get log for")
         self.mock_server_console_output.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, tail_length=None)
+        self.mock_is_extension_supported.assert_called_once_with(
+            helpers.IsHttpRequest(), 'mac-learning')
 
+    @helpers.create_mocks({api.neutron: ['is_extension_supported']})
     def test_instance_log_invalid_input(self):
         server = self.servers.first()
+        self.mock_is_extension_supported.return_value = False
 
         url = reverse('horizon:project:instances:console',
                       args=[server.id])
@@ -1530,6 +1578,9 @@ class InstanceDetailTests(InstanceTestBase):
             res = self.client.get(url + qs)
 
             self.assertContains(res, "Unable to get log for")
+
+        self.mock_is_extension_supported.assert_called_once_with(
+            helpers.IsHttpRequest(), 'mac-learning')
 
     @helpers.create_mocks({api.nova: ['server_get'],
                            console: ['get_console']})

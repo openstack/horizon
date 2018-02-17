@@ -51,6 +51,8 @@ from openstack_dashboard.dashboards.project.instances \
     import tabs as project_tabs
 from openstack_dashboard.dashboards.project.instances \
     import workflows as project_workflows
+from openstack_dashboard.dashboards.project.networks.ports \
+    import views as port_views
 from openstack_dashboard.utils import futurist_utils
 from openstack_dashboard.views import get_url_with_pagination
 
@@ -655,3 +657,24 @@ class DetachInterfaceView(forms.ModalFormView):
         submit_url = "horizon:project:instances:detach_interface"
         self.submit_url = reverse(submit_url, kwargs=args)
         return args
+
+
+class UpdatePortView(port_views.UpdateView):
+    workflow_class = project_workflows.UpdatePort
+    failure_url = 'horizon:project:instances:detail'
+
+    @memoized.memoized_method
+    def _get_object(self, *args, **kwargs):
+        port_id = self.kwargs['port_id']
+        try:
+            return api.neutron.port_get(self.request, port_id)
+        except Exception:
+            redirect = reverse(self.failure_url,
+                               args=(self.kwargs['instance_id'],))
+            msg = _('Unable to retrieve port details')
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+    def get_initial(self):
+        initial = super(UpdatePortView, self).get_initial()
+        initial['instance_id'] = self.kwargs['instance_id']
+        return initial

@@ -54,5 +54,7 @@ urlpatterns = [
     url(r'^(?P<instance_id>[^/]+)/detach_volume/$',
         views.DetachVolumeView.as_view(),
         name='detach_volume'
-        )
+        ),
+    url(r'^(?P<instance_id>[^/]+)/ports/(?P<port_id>[^/]+)/update$',
+        views.UpdatePortView.as_view(), name='update_port'),
 ]
