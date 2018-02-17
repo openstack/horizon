@@ -45,7 +45,7 @@ Create an encrypted volume type
    available options (see table):
 
    Provider
-     Specifies the class responsible for configuring the encryption.
+     Specifies the encryption provider format.
    Control Location
      Specifies whether the encryption is from the front end (nova) or the
      back end (cinder).
@@ -67,16 +67,16 @@ volumes.
 |      Encryption    |      Parameter        |   Comments                 |
 |      parameters    |      options          |                            |
 +====================+=======================+============================+
-|   Provider         |nova.volume.encryptors.|Allows easier import and    |
-|                    |luks.LuksEncryptor     |migration of imported       |
-|                    |(Recommended)          |encrypted volumes, and      |
+|   Provider         | luks                  |Allows easier import and    |
+|                    | (Recommended)         |migration of imported       |
+|                    |                       |encrypted volumes, and      |
 |                    |                       |allows access key to be     |
 |                    |                       |changed without             |
 |                    |                       |re-encrypting the volume    |
 +                    +-----------------------+----------------------------+
-|                    |nova.volume.encryptors.|Less disk overhead than     |
-|                    |cryptsetup.            |LUKS                        |
-|                    |CryptsetupEncryptor    |                            |
+|                    | plain                 |Less disk overhead than     |
+|                    |                       |LUKS                        |
+|                    |                       |                            |
 +--------------------+-----------------------+----------------------------+
 | Control Location   | front-end             |The encryption occurs within|
 |                    | (Recommended)         |nova so that the data       |
@@ -117,8 +117,8 @@ volumes.
 
    To see further information and CLI instructions, see
    `Create an encrypted volume type
-   <https://docs.openstack.org/cinder/latest/configuration/block-storage/volume-encryption.html>`__
-   in the OpenStack Configuration Reference.
+   <https://docs.openstack.org/cinder/latest/configuration/block-storage/volume-encryption.html#create-an-encrypted-volume-type>`__
+   in the OpenStack Block Storage Configuration Guide.
 
 Delete volume types
 ~~~~~~~~~~~~~~~~~~~
