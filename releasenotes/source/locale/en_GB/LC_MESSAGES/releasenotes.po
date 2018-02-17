@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-09 15:06+0000\n"
+"POT-Creation-Date: 2018-02-16 17:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-08 12:12+0000\n"
+"PO-Revision-Date: 2018-02-16 02:22+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -70,6 +70,9 @@ msgstr "11.0.3"
 msgid "12.0.0"
 msgstr "12.0.0"
 
+msgid "12.0.2-24"
+msgstr "12.0.2-24"
+
 msgid "13.0.0.0b1"
 msgstr "13.0.0.0b1"
 
@@ -78,6 +81,9 @@ msgstr "13.0.0.0b2"
 
 msgid "13.0.0.0b3"
 msgstr "13.0.0.0b3"
+
+msgid "13.0.0.0rc1"
+msgstr "13.0.0.0rc1"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -2713,6 +2719,9 @@ msgstr ""
 "be restored in Folsom in conjunction with Quantum's first release as a core "
 "OpenStack project."
 
+msgid "Queens Series Release Notes"
+msgstr "Queens Series Release Notes"
+
 msgid "Quotas are now displayed dynamically throughout the Project dashboard."
 msgstr "Quotas are now displayed dynamically throughout the Project dashboard."
 
@@ -2813,6 +2822,15 @@ msgstr ""
 
 msgid "Security groups can be added to a running instance."
 msgstr "Security groups can be added to a running instance."
+
+msgid ""
+"Security groups now can be specified when creating a port. When the port "
+"security is enabled, the security groups tab will be displayed in create "
+"port workflow."
+msgstr ""
+"Security groups now can be specified when creating a port. When the port "
+"security is enabled, the security groups tab will be displayed in create "
+"port workflow."
 
 msgid ""
 "Securtiy group \"Add rule\" form now allows to specify 'any' IP protocol and "

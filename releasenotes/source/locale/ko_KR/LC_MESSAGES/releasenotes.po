@@ -12,17 +12,18 @@
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
+# Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-07 19:42+0000\n"
+"POT-Creation-Date: 2018-02-16 17:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-07 11:47+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2018-02-17 01:50+0000\n"
+"Last-Translator: Jaewook Oh <kyle.oh95@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -60,11 +61,23 @@ msgstr "11.0.3"
 msgid "12.0.0"
 msgstr "12.0.0"
 
+msgid "12.0.2-24"
+msgstr "12.0.2-24"
+
 msgid "13.0.0.0b1"
 msgstr "13.0.0.0b1"
 
 msgid "13.0.0.0b2"
 msgstr "13.0.0.0b2"
+
+msgid "13.0.0.0b3"
+msgstr "13.0.0.0b3"
+
+msgid "13.0.0.0rc1"
+msgstr "13.0.0.0rc1"
+
+msgid "13.0.0.0rc1-23"
+msgstr "13.0.0.0rc1-23"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -477,6 +490,14 @@ msgstr "Ceilometer"
 msgid "Cinder"
 msgstr "Cinder"
 
+#, fuzzy
+msgid ""
+"Cinder API v3 is used by default now. It was introduced in Mitaka release "
+"and has all features from API v2."
+msgstr ""
+"Cinder v3 API는 현재 기본값으로 사용되고 있습니다. Cinder v3 API는 Mitaka 릴"
+"리스에서 도입되었으며, API v2의 모든 기능을 지원합니다. "
+
 msgid ""
 "Cinder defines storage size in gibibytes (GiB), which is inconsistent with "
 "Horizon panels that show/request storage size in gigabytes (GB)."
@@ -799,6 +820,14 @@ msgstr "Mitaka 시리즈에 대한 릴리즈 노트"
 msgid "Modal sizes now inherit from Bootstrap's theme variables."
 msgstr "Modal 크기는 Bootstrap 테마 변수로부터 상속됩니다."
 
+msgid ""
+"Most of the documentation has been reorganised and updated, or rewritten "
+"entirely, with the aim of promoting discoverability and ensuring all content "
+"is relevant and up to date."
+msgstr ""
+"대부분의 문서는 검색 가능성을 높이고 모든 콘텐츠가 관련성 있고 최신 상태인지 "
+"확인하기 위해, 재구성되고 업데이트되거나 완전히 다시 작성되었습니다."
+
 msgid "Multi-Domain Cross Service Support"
 msgstr "다중-도메인 교차 서비스 지원"
 
@@ -896,6 +925,9 @@ msgstr "QoS (quality of service) 지원"
 msgid "Quantum"
 msgstr "Quantum"
 
+msgid "Queens Series Release Notes"
+msgstr "Queens 시리즈 릴리즈 노트"
+
 msgid "Release Overview"
 msgstr "릴리즈 개요"
 
@@ -964,11 +996,30 @@ msgid "The 'webroot' theme has been removed."
 msgstr "'webroot' 테마를 삭제하였습니다."
 
 msgid ""
+"The Flavor panel now may be configured to use either the legacy or Angular "
+"code."
+msgstr ""
+"이제 레거시 또는 Angular 코드를 사용하도록 Flavor 패널을 구성할 수 있습니다."
+
+msgid ""
+"The Images panel now may be configured to use either the legacy or Angular "
+"code."
+msgstr ""
+"이제 레거시 또는 Angular 코드를 사용하도록 Images 패널을 구성할 수 있습니다."
+
+msgid ""
 "The Python Launch Instance workflow has been deprecated and no longer "
 "displays by default."
 msgstr ""
 "Python Launch 인스턴스 워크 플로우는 더 이상 사용되지 않으며 기본적으로 더 이"
 "상 표시되지 않습니다."
+
+msgid ""
+"The Queens release of horizon depends on Django 1.8 to 1.11, but Django 1.8 "
+"to 1.10 support will be dropped in the next release (Rocky)."
+msgstr ""
+"Queens 릴리즈의 horizon은 Django 1.8 to 1.11에 의존합니다. 그러나 Django 1.8 "
+"to 1.10 지원은 다음 릴리즈 (Rocky) 에서 삭제될 예정입니다."
 
 msgid ""
 "Timezone support is now enabled. You can select your preferred timezone in "
