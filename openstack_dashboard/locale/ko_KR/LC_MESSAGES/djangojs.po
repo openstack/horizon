@@ -10,20 +10,21 @@
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # YoungKyun Kim <chancethecoder@gmail.com>, 2017. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
-# Jaewook Oh <jwoh95@dcn.ssu.ac.kr>, 2018. #zanata
+# Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-12 09:31+0000\n"
+"POT-Creation-Date: 2018-02-15 05:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-12 08:28+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2018-02-18 10:33+0000\n"
+"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -1097,6 +1098,19 @@ msgstr "%(name)s 폴더가 생성디었습니다."
 msgid "Folder Name"
 msgstr "폴더 이름"
 
+msgid ""
+"For ports on provider networks you may choose the special\n"
+"  segmentation type <em>inherit</em>. Then the subport's segmentation\n"
+"  type and ID will be automagically inherited from the provider network's\n"
+"  segmentation type and ID. This is useful when the switch is incapable of\n"
+"  remapping (tag pop-push) for example as usual for Ironic instances."
+msgstr ""
+"프로바이더 네트워크의 포트의 경우 특별한 세그멘테이션\n"
+"  유형인 <em>inherit</em>을 선택할 수 있습니다. 그 후 하위 포트의\n"
+"  세그멘테이션 유형과 ID는 자동적으로 프로바이더 네트워크의\n"
+"  세그멘테이션 유형과 ID에서 상속됩니다. 이는 스위치가 Ironic 인스턴스처럼\n"
+"  재매핑 (태그 pop-push)를 할 수 없을 때 유용합니다."
+
 msgid "Form"
 msgstr "Form"
 
@@ -1319,6 +1333,19 @@ msgstr "입력 성공"
 
 msgid "Input warning"
 msgstr "입력 경고"
+
+msgid ""
+"Inside the instance a particular subport's network will\n"
+"  be presented as tagged frames transmitted and received on the vNIC\n"
+"  belonging to the parent port. The cloud user may control the tagging\n"
+"  by setting the <em>segmentation type</em> and <em>segmentation ID</em>\n"
+"  of the subport."
+msgstr ""
+"인스턴스 내에서 특정 하위 포트의 네트워크는\n"
+"  상위 포트에 속해있는 vNIC에서 전송되고 수신되는\n"
+"  태그된 프래임으로 표시됩니다. 클라우드 사용자는 \n"
+"  하위 포트의  <em>segmentation type</em> 과 <em>segmentation ID</em>\n"
+"  을 설정함으로서 태깅을 제어할 수 있습니다."
 
 msgid ""
 "Inside the instance the parent port's network will always\n"
@@ -1678,6 +1705,15 @@ msgstr "네트워크 특징"
 msgid "Networks"
 msgstr "네트워크"
 
+msgid ""
+"Networks of subports may become available later than the\n"
+"  moment of bootup. But they will be available after the trunk reached\n"
+"  the <em>ACTIVE</em> status."
+msgstr ""
+"하위 포트의 네트워크는 부팅 이후에 사용 가능합니다.\n"
+"  그러나 트렁크가 <em>ACTIVE</em> 상태가 되어야만\n"
+"  사용할 수 있습니다."
+
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "네트워크는 클라우드 내 인스턴스에 대한 통신 채널을 제공합니다."
 
@@ -1724,6 +1760,15 @@ msgstr "설정되지 않음"
 
 msgid "Not public"
 msgstr "공개되지 않음"
+
+msgid ""
+"Note that most guest operating systems will not\n"
+"  automatically configure and bring up the VLAN subinterfaces belonging\n"
+"  to subports. You may have to do that yourself. For example:"
+msgstr ""
+"대부분의 게스트 OS는 자동적으로 하위포트에 속한\n"
+"  VLAN 서브인터페이스를 설정하거나 동작시키지 않음을 유의하세요.\n"
+"  직접 수행해야 합니다. 예시:"
 
 msgid ""
 "Note that some Neutron backends (notably the Open vSwitch\n"
@@ -2526,6 +2571,26 @@ msgid ""
 msgstr ""
 "상위 포트는 인스턴스 실행시 추가되어야하는 포트입니다.\n"
 "  Trunk나 하위 포트를 인스턴스에 직접 추가하지 마십시오."
+
+msgid ""
+"The segmentation type and ID are decoupled (and\n"
+"  therefore independent) from Neutron's network virtualization\n"
+"  implementation. Different segmentation types will be remapped as frames\n"
+"  leave/enter the instance."
+msgstr ""
+"세그멘테이션 유형과 ID는 뉴트론의 네트워크\n"
+"  가상화 구현에서 분리 (따라서 독립적임) 됩니다.\n"
+"  다른 세그멘테이션 유형은 인스턴스를 오가는\n"
+"  프레임으로서 다시 매핑됩니다."
+
+msgid ""
+"The segmentation type, ID tuples of subports must be unique\n"
+"  (in the scope of a trunk), otherwise networks of subports could not\n"
+"  be distinguished inside the instance."
+msgstr ""
+"세그멘테이션 유형, 하위 포트의 ID 튜플은 (트렁크 범주 내에서)\n"
+"  유일해야 하고, 그렇지 않으면 인스턴스 내에서 하위포트의 네트워크는 \n"
+"  구별될 수 없습니다."
 
 #, python-format
 msgid ""
