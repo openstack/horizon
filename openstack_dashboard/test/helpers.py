@@ -446,6 +446,11 @@ class TestCase(horizon_helpers.TestCase):
         mock_args.update(args)
         return mock.Mock(**mock_args)
 
+    def assert_mock_multiple_calls_with_same_arguments(
+            self, mocked_method, count, expected_call):
+        self.assertEqual(count, mocked_method.call_count)
+        mocked_method.assert_has_calls([expected_call] * count)
+
 
 class BaseAdminViewTests(TestCase):
     """Sets an active user with the "admin" role.
