@@ -39,12 +39,14 @@ SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
 
 
 class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
-    @test.create_mocks(api.nova, ['server_get', 'server_list'])
-    @test.create_mocks(api.cinder, ['volume_backup_list_paged',
-                                    'volume_backup_supported',
-                                    'volume_snapshot_list',
-                                    'volume_list_paged',
-                                    'tenant_absolute_limits'])
+    @test.create_mocks({
+        api.nova: ['server_get', 'server_list'],
+        api.cinder: ['volume_backup_list_paged',
+                     'volume_backup_supported',
+                     'volume_snapshot_list',
+                     'volume_list_paged',
+                     'tenant_absolute_limits'],
+    })
     def _test_index(self, with_attachments):
         vol_snaps = self.cinder_volume_snapshots.list()
         volumes = self.cinder_volumes.list()
@@ -88,11 +90,13 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_index_no_volume_attachments(self):
         self._test_index(False)
 
-    @test.create_mocks(api.nova, ['server_get', 'server_list'])
-    @test.create_mocks(cinder, ['tenant_absolute_limits',
-                                'volume_list_paged',
-                                'volume_backup_supported',
-                                'volume_snapshot_list'])
+    @test.create_mocks({
+        api.nova: ['server_get', 'server_list'],
+        cinder: ['tenant_absolute_limits',
+                 'volume_list_paged',
+                 'volume_backup_supported',
+                 'volume_snapshot_list'],
+    })
     def _test_index_paginated(self, marker, sort_dir, volumes, url,
                               has_more, has_prev):
         backup_supported = True
@@ -202,13 +206,15 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                     del att['instance']
         super(VolumeViewTests, self).tearDown()
 
-    @test.create_mocks(cinder, ['volume_create', 'volume_snapshot_list',
-                                'volume_type_list', 'volume_type_default',
-                                'volume_list', 'availability_zone_list',
-                                'extension_supported'])
-    @mock.patch.object(quotas, 'tenant_limit_usages')
-    @mock.patch.object(api.glance, 'image_list_detailed')
-    def test_create_volume(self, mock_image, mock_quotas):
+    @test.create_mocks({
+        cinder: ['volume_create', 'volume_snapshot_list',
+                 'volume_type_list', 'volume_type_default',
+                 'volume_list', 'availability_zone_list',
+                 'extension_supported'],
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_list_detailed'],
+    })
+    def test_create_volume(self):
         volume = self.cinder_volumes.first()
         volume_type = self.cinder_volume_types.first()
         az = self.cinder_availability_zones.first().zoneName
@@ -228,10 +234,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             self.cinder_volume_types.first()
         self.mock_volume_type_list.return_value = \
             self.cinder_volume_types.list()
-        mock_quotas.return_value = usage_limit
+        self.mock_tenant_limit_usages.return_value = usage_limit
         self.mock_volume_snapshot_list.return_value = \
             self.cinder_volume_snapshots.list()
-        mock_image.return_value = [[], False, False]
+        self.mock_image_list_detailed.return_value = [[], False, False]
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
         self.mock_extension_supported.return_value = True
@@ -259,20 +265,22 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             formData['description'], formData['type'], metadata={},
             snapshot_id=None, image_id=None,
             availability_zone=formData['availability_zone'], source_volid=None)
-        mock_image.assert_called_with(
+        self.mock_image_list_detailed.assert_called_with(
             test.IsHttpRequest(),
             filters={'visibility': 'shared', 'status': 'active'})
-        mock_quotas.assert_called_once()
+        self.mock_tenant_limit_usages.assert_called_once()
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_list_detailed'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'availability_zone_list',
-                                'volume_list',
-                                'volume_type_default',
-                                'volume_type_list',
-                                'volume_snapshot_list',
-                                'volume_create'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_list_detailed'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_list',
+                 'volume_type_default',
+                 'volume_type_list',
+                 'volume_snapshot_list',
+                 'volume_create'],
+    })
     def test_create_volume_without_name(self):
         volume = self.cinder_volumes.first()
         volume_type = self.cinder_volume_types.first()
@@ -329,15 +337,17 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             snapshot_id=None, image_id=None,
             availability_zone=formData['availability_zone'], source_volid=None)
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_list_detailed'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'availability_zone_list',
-                                'volume_list',
-                                'volume_type_default',
-                                'volume_type_list',
-                                'volume_snapshot_list',
-                                'volume_create'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_list_detailed'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_list',
+                 'volume_type_default',
+                 'volume_type_list',
+                 'volume_snapshot_list',
+                 'volume_create'],
+    })
     def test_create_volume_dropdown(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
@@ -394,12 +404,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             formData['description'], '', metadata={}, snapshot_id=None,
             image_id=None, availability_zone=None, source_volid=None)
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(cinder, ['volume_type_list',
-                                'volume_type_default',
-                                'volume_get',
-                                'volume_snapshot_get',
-                                'volume_create'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        cinder: ['volume_type_list',
+                 'volume_type_default',
+                 'volume_get',
+                 'volume_snapshot_get',
+                 'volume_create'],
+    })
     def test_create_volume_from_snapshot(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
@@ -444,17 +456,19 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             formData['description'], '', metadata={}, snapshot_id=snapshot.id,
             image_id=None, availability_zone=None, source_volid=None)
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_list_detailed'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'volume_snapshot_list',
-                                'volume_snapshot_get',
-                                'availability_zone_list',
-                                'volume_type_list',
-                                'volume_list',
-                                'volume_type_default',
-                                'volume_get',
-                                'volume_create'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_list_detailed'],
+        cinder: ['extension_supported',
+                 'volume_snapshot_list',
+                 'volume_snapshot_get',
+                 'availability_zone_list',
+                 'volume_type_list',
+                 'volume_list',
+                 'volume_type_default',
+                 'volume_get',
+                 'volume_create'],
+    })
     def test_create_volume_from_volume(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
@@ -514,17 +528,19 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             formData['description'], '', metadata={}, snapshot_id=None,
             image_id=None, availability_zone=None, source_volid=volume.id)
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_list_detailed'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'availability_zone_list',
-                                'volume_type_list',
-                                'volume_list',
-                                'volume_type_default',
-                                'volume_get',
-                                'volume_snapshot_get',
-                                'volume_snapshot_list',
-                                'volume_create'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_list_detailed'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_type_list',
+                 'volume_list',
+                 'volume_type_default',
+                 'volume_get',
+                 'volume_snapshot_get',
+                 'volume_snapshot_list',
+                 'volume_create'],
+    })
     def test_create_volume_from_snapshot_dropdown(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
@@ -583,12 +599,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             formData['description'], '', metadata={}, snapshot_id=snapshot.id,
             image_id=None, availability_zone=None, source_volid=None)
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_list_detailed'])
-    @test.create_mocks(cinder, ['volume_snapshot_get',
-                                'volume_type_list',
-                                'volume_type_default',
-                                'volume_get'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_list_detailed'],
+        cinder: ['volume_snapshot_get',
+                 'volume_type_list',
+                 'volume_type_default',
+                 'volume_get'],
+    })
     def test_create_volume_from_snapshot_invalid_size(self):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
                        'totalGigabytesUsed': 20,
@@ -628,13 +646,15 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_get.assert_called_with(test.IsHttpRequest(),
                                                 snapshot.volume_id)
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_get'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'availability_zone_list',
-                                'volume_type_default',
-                                'volume_type_list',
-                                'volume_create'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_get'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_type_default',
+                 'volume_type_list',
+                 'volume_create'],
+    })
     def test_create_volume_from_image(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 200,
@@ -682,16 +702,18 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             formData['description'], '', metadata={}, snapshot_id=None,
             image_id=image.id, availability_zone=None, source_volid=None)
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_list_detailed',
-                                    'image_get'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'availability_zone_list',
-                                'volume_snapshot_list',
-                                'volume_list',
-                                'volume_type_list',
-                                'volume_type_default',
-                                'volume_create'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_list_detailed',
+                     'image_get'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_snapshot_list',
+                 'volume_list',
+                 'volume_type_list',
+                 'volume_type_default',
+                 'volume_create'],
+    })
     def test_create_volume_from_image_dropdown(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 200,
@@ -752,12 +774,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             formData['description'], '', metadata={}, snapshot_id=None,
             image_id=image.id, availability_zone=None, source_volid=None)
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_get'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'availability_zone_list',
-                                'volume_type_list',
-                                'volume_type_default'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_get'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_type_list',
+                 'volume_type_default'],
+    })
     def test_create_volume_from_image_under_image_size(self):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
                        'totalGigabytesUsed': 20,
@@ -801,12 +825,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.assert_called_with(test.IsHttpRequest(),
                                                          'AvailabilityZones')
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_get'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'availability_zone_list',
-                                'volume_type_list',
-                                'volume_type_default'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_get'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_type_list',
+                 'volume_type_default'],
+    })
     def _test_create_volume_from_image_under_image_min_disk_size(self, image):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
                        'totalGigabytesUsed': 20,
@@ -865,14 +891,16 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         image = self.imagesV2.get(name="protected_images")
         self._test_create_volume_from_image_under_image_min_disk_size(image)
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_list_detailed'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'availability_zone_list',
-                                'volume_list',
-                                'volume_type_list',
-                                'volume_type_default',
-                                'volume_snapshot_list'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_list_detailed'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_list',
+                 'volume_type_list',
+                 'volume_type_default',
+                 'volume_snapshot_list'],
+    })
     def test_create_volume_gb_used_over_alloted_quota(self):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
                        'totalGigabytesUsed': 80,
@@ -924,14 +952,16 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.assert_called_with(test.IsHttpRequest(),
                                                          'AvailabilityZones')
 
-    @test.create_mocks(quotas, ['tenant_limit_usages'])
-    @test.create_mocks(api.glance, ['image_list_detailed'])
-    @test.create_mocks(cinder, ['extension_supported',
-                                'availability_zone_list',
-                                'volume_list',
-                                'volume_type_list',
-                                'volume_type_default',
-                                'volume_snapshot_list'])
+    @test.create_mocks({
+        quotas: ['tenant_limit_usages'],
+        api.glance: ['image_list_detailed'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_list',
+                 'volume_type_list',
+                 'volume_type_default',
+                 'volume_snapshot_list'],
+    })
     def test_create_volume_number_over_alloted_quota(self):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
                        'totalGigabytesUsed': 20,
@@ -982,11 +1012,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.assert_called_with(test.IsHttpRequest(),
                                                          'AvailabilityZones')
 
-    @test.create_mocks(api.nova, ['server_list'])
-    @test.create_mocks(cinder, ['volume_delete',
-                                'volume_snapshot_list',
-                                'volume_list_paged',
-                                'tenant_absolute_limits'])
+    @test.create_mocks({
+        api.nova: ['server_list'],
+        cinder: ['volume_delete',
+                 'volume_snapshot_list',
+                 'volume_list_paged',
+                 'tenant_absolute_limits'],
+    })
     def test_delete_volume(self):
         volumes = self.cinder_volumes.list()
         volume = self.cinder_volumes.first()
@@ -1206,11 +1238,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
         mock_limits.assert_called_once()
 
-    @test.create_mocks(api.nova, ['server_list'])
-    @test.create_mocks(cinder, ['volume_backup_supported',
-                                'volume_snapshot_list',
-                                'volume_list_paged',
-                                'tenant_absolute_limits'])
+    @test.create_mocks({
+        api.nova: ['server_list'],
+        cinder: ['volume_backup_supported',
+                 'volume_snapshot_list',
+                 'volume_list_paged',
+                 'tenant_absolute_limits'],
+    })
     def test_create_button_attributes(self):
         limits = self.cinder_limits['absolute']
         limits['maxTotalVolumes'] = 10
@@ -1249,11 +1283,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                       search_opts=None)
         self.assertEqual(8, self.mock_tenant_absolute_limits.call_count)
 
-    @test.create_mocks(api.nova, ['server_list'])
-    @test.create_mocks(cinder, ['volume_backup_supported',
-                                'volume_snapshot_list',
-                                'volume_list_paged',
-                                'tenant_absolute_limits'])
+    @test.create_mocks({
+        api.nova: ['server_list'],
+        cinder: ['volume_backup_supported',
+                 'volume_snapshot_list',
+                 'volume_list_paged',
+                 'tenant_absolute_limits'],
+    })
     def test_create_button_disabled_when_quota_exceeded(self):
         limits = self.cinder_limits['absolute']
         limits['totalVolumesUsed'] = limits['maxTotalVolumes']
@@ -1283,11 +1319,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                       search_opts=None)
         self.assertEqual(8, self.mock_tenant_absolute_limits.call_count)
 
-    @test.create_mocks(api.nova, ['server_get'])
-    @test.create_mocks(cinder, ['message_list',
-                                'volume_snapshot_list',
-                                'volume_get',
-                                'tenant_absolute_limits'])
+    @test.create_mocks({
+        api.nova: ['server_get'],
+        cinder: ['message_list',
+                 'volume_snapshot_list',
+                 'volume_get',
+                 'tenant_absolute_limits'],
+    })
     def test_detail_view(self):
         volume = self.cinder_volumes.first()
         server = self.servers.first()
@@ -1398,11 +1436,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
         mock_limits.assert_called_once()
 
-    @test.create_mocks(api.nova, ['server_get'])
-    @test.create_mocks(cinder, ['tenant_absolute_limits',
-                                'volume_get',
-                                'volume_snapshot_list',
-                                'message_list'])
+    @test.create_mocks({
+        api.nova: ['server_get'],
+        cinder: ['tenant_absolute_limits',
+                 'volume_get',
+                 'volume_snapshot_list',
+                 'message_list'],
+    })
     def test_detail_view_snapshot_tab(self):
         volume = self.cinder_volumes.first()
         server = self.servers.first()
@@ -1456,9 +1496,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
 
-    @test.create_mocks(cinder, ['volume_update',
-                                'volume_set_bootable',
-                                'volume_get'])
+    @test.create_mocks({cinder: ['volume_update',
+                                 'volume_set_bootable',
+                                 'volume_get']})
     def test_update_volume(self):
         volume = self.cinder_volumes.get(name="my_volume")
 
@@ -1481,9 +1521,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_set_bootable.assert_called_once_with(
             test.IsHttpRequest(), volume.id, False)
 
-    @test.create_mocks(cinder, ['volume_update',
-                                'volume_set_bootable',
-                                'volume_get'])
+    @test.create_mocks({cinder: ['volume_update',
+                                 'volume_set_bootable',
+                                 'volume_get']})
     def test_update_volume_without_name(self):
         volume = self.cinder_volumes.get(name="my_volume")
 
@@ -1506,9 +1546,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_set_bootable.assert_called_once_with(
             test.IsHttpRequest(), volume.id, False)
 
-    @test.create_mocks(cinder, ['volume_update',
-                                'volume_set_bootable',
-                                'volume_get'])
+    @test.create_mocks({cinder: ['volume_update',
+                                 'volume_set_bootable',
+                                 'volume_get']})
     def test_update_volume_bootable_flag(self):
         volume = self.cinder_bootable_volumes.get(name="my_volume")
 
@@ -1648,9 +1688,11 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
         mock_limits.assert_called_once()
 
-    @test.create_mocks(cinder, ['volume_type_list',
-                                'volume_retype',
-                                'volume_get'])
+    @test.create_mocks({
+        cinder: ['volume_type_list',
+                 'volume_retype',
+                 'volume_get']
+    })
     def test_retype_volume(self):
         volume = self.cinder_volumes.get(name='my_volume2')
 
@@ -1688,11 +1730,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_encryption_true(self):
         self._test_encryption(True)
 
-    @test.create_mocks(api.nova, ['server_list'])
-    @test.create_mocks(cinder, ['volume_backup_supported',
-                                'volume_list_paged',
-                                'volume_snapshot_list',
-                                'tenant_absolute_limits'])
+    @test.create_mocks({
+        api.nova: ['server_list'],
+        cinder: ['volume_backup_supported',
+                 'volume_list_paged',
+                 'volume_snapshot_list',
+                 'tenant_absolute_limits'],
+    })
     def _test_encryption(self, encryption):
         volumes = self.volumes.list()
         for volume in volumes:
@@ -1750,11 +1794,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
         self.assertEqual(2, mock_quotas.call_count)
 
-    @test.create_mocks(api.nova, ['server_list'])
-    @test.create_mocks(cinder, ['volume_backup_supported',
-                                'volume_list_paged',
-                                'volume_snapshot_list',
-                                'tenant_absolute_limits'])
+    @test.create_mocks({
+        api.nova: ['server_list'],
+        cinder: ['volume_backup_supported',
+                 'volume_list_paged',
+                 'volume_snapshot_list',
+                 'tenant_absolute_limits'],
+    })
     def test_create_transfer_availability(self):
         limits = self.cinder_limits['absolute']
 
@@ -1810,12 +1856,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_transfer_get.assert_called_once_with(test.IsHttpRequest(),
                                                   transfer.id)
 
-    @test.create_mocks(api.nova, ['server_list'])
-    @test.create_mocks(cinder, ['volume_backup_supported',
-                                'volume_list_paged',
-                                'volume_snapshot_list',
-                                'transfer_delete',
-                                'tenant_absolute_limits'])
+    @test.create_mocks({
+        api.nova: ['server_list'],
+        cinder: ['volume_backup_supported',
+                 'volume_list_paged',
+                 'volume_snapshot_list',
+                 'transfer_delete',
+                 'tenant_absolute_limits'],
+    })
     def test_delete_transfer(self):
         transfer = self.cinder_volume_transfers.first()
         volumes = []
@@ -1856,10 +1904,12 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                       search_opts=None)
         self.assertEqual(7, self.mock_tenant_absolute_limits.call_count)
 
-    @test.create_mocks(cinder, ['volume_list_paged',
-                                'volume_snapshot_list',
-                                'tenant_absolute_limits',
-                                'transfer_accept'])
+    @test.create_mocks({
+        cinder: ['volume_list_paged',
+                 'volume_snapshot_list',
+                 'tenant_absolute_limits',
+                 'transfer_accept']
+    })
     def test_accept_transfer(self):
         transfer = self.cinder_volume_transfers.first()
 
@@ -1896,12 +1946,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_transfer.assert_called_once_with(test.IsHttpRequest(),
                                               transfer.id)
 
-    @test.create_mocks(api.nova, ['server_list'])
-    @test.create_mocks(cinder, ['volume_backup_supported',
-                                'volume_list_paged',
-                                'volume_snapshot_list',
-                                'tenant_absolute_limits',
-                                'volume_get'])
+    @test.create_mocks({
+        api.nova: ['server_list'],
+        cinder: ['volume_backup_supported',
+                 'volume_list_paged',
+                 'volume_snapshot_list',
+                 'tenant_absolute_limits',
+                 'volume_get'],
+    })
     def test_create_backup_availability(self):
         limits = self.cinder_limits['absolute']
 

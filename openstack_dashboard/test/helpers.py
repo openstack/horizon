@@ -119,13 +119,16 @@ def create_stubs(stubs_to_create=None):
     return inner_stub_out
 
 
-def create_mocks(target, methods):
+def create_mocks(target_methods):
     """decorator to simplify setting up multiple mocks at once
 
-    :param target: target object whose attribute(s) are patched.
-    :param methods: a list of methods to be patched using mock.
+    :param target_methods: a dict to define methods to be patched using mock.
 
-    Each element of methods argument can be a string or a tuple
+    A key of "target_methods" is a target object whose attribute(s) are
+    patched.
+
+    A value of "target_methods" is a list of methods to be patched
+    using mock. Each element can be a string or a tuple
     consisting of two strings.
 
     A string specifies a method name of "target" object to be mocked.
@@ -133,7 +136,7 @@ def create_mocks(target, methods):
     can be accessed via 'mock_<method-name>' of the test class.
     For example, in case of::
 
-        @create_mocks(api.nova, ['server_list'])
+        @create_mocks({api.nova: ['server_list']})
 
     you can access the mocked method via "self.mock_server_list"
     inside a test class.
@@ -150,11 +153,12 @@ def create_mocks(target, methods):
 
     Example::
 
-        @create_mocks(
-            api.nova,
-            ['usage_get',
-             ('tenant_absolute_limits', 'nova_tenant_absolute_limits'),
-             'extension_supported'])
+        @create_mocks({
+            api.nova: [
+                'usage_get',
+                ('tenant_absolute_limits', 'nova_tenant_absolute_limits'),
+                'extension_supported',
+            ]})
         def test_example(self):
             ...
             self.mock_usage_get.return_value = ...
@@ -166,15 +170,16 @@ def create_mocks(target, methods):
     def wrapper(function):
         @wraps(function)
         def wrapped(inst, *args, **kwargs):
-            for method in methods:
-                if isinstance(method, str):
-                    method_mocked = method
-                    attr_name = method
-                else:
-                    method_mocked = method[0]
-                    attr_name = method[1]
-                m = mock.patch.object(target, method_mocked)
-                setattr(inst, 'mock_%s' % attr_name, m.start())
+            for target, methods in target_methods.items():
+                for method in methods:
+                    if isinstance(method, str):
+                        method_mocked = method
+                        attr_name = method
+                    else:
+                        method_mocked = method[0]
+                        attr_name = method[1]
+                    m = mock.patch.object(target, method_mocked)
+                    setattr(inst, 'mock_%s' % attr_name, m.start())
             return function(inst, *args, **kwargs)
         return wrapped
     return wrapper
