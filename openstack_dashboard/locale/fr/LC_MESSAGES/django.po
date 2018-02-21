@@ -24,11 +24,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-08 14:02+0000\n"
+"POT-Creation-Date: 2018-02-20 18:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-11 10:05+0000\n"
+"PO-Revision-Date: 2018-02-20 08:40+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -703,6 +703,9 @@ msgstr "Zone de disponibilité"
 msgid "Availability Zone ="
 msgstr "Zone de disponibilité ="
 
+msgid "Availability Zone Hints"
+msgstr "Indications de zone de disponibilité"
+
 msgid "Availability Zone Name"
 msgstr "Nom de la zone de disponibilité"
 
@@ -1305,6 +1308,17 @@ msgstr "Créer un mapping"
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Créer une nouvelle paire clé-valeur \"extra spec\" pour un type de volume."
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
+"Valid key names are expected in the QoS specs. The acceptable values for key "
+"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
+msgstr ""
+"Créer une nouvelle paire clé-valeur \"spec\" pour la Spec QOS "
+"\"%(qos_spec_name)s\". Des noms de clé valides sont attendus dans les specs "
+"QOS. Les valeurs acceptables pour la clé sont <tt>\"minIOPS\", \"maxIOPS\" "
+"et \"burstIOPS\"</tt>."
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -3591,6 +3605,15 @@ msgstr "Paire de clés à utiliser pour l'authentification."
 
 msgid "Key-Value Pairs"
 msgstr "Paires de clé-valeur"
+
+msgid "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
+msgstr "Clé: burstIOPS et Valeur:5000 (valeur supérieure à minIOPS)"
+
+msgid "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
+msgstr "Clé: maxIOPS et Valeur:5000 (valeur supérieure à minIOPS)"
+
+msgid "Key: minIOPS and Value:20 (number value less than maxIOPS)"
+msgstr "Clé: minIOPS et Valeur:20 (valeur inférieure à maxIOPS)"
 
 msgctxt "Current status of an Image"
 msgid "Killed"

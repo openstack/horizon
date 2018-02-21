@@ -20,11 +20,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-01 07:30+0000\n"
+"POT-Creation-Date: 2018-02-20 18:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-27 05:01+0000\n"
+"PO-Revision-Date: 2018-02-20 09:14+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -255,6 +255,9 @@ msgstr "Ajouter une interface"
 msgid "Add Ons, Required and Feedback"
 msgstr "Compléments, Requis et Rétroaction"
 
+msgid "Admin Password"
+msgstr "Mot de passe admin"
+
 msgid "Admin State"
 msgstr "Admin State"
 
@@ -435,6 +438,9 @@ msgstr "Impossible d'obtenir le catalogue de services Keystone"
 msgid "Cannot get the extension list."
 msgstr "Impossible d'obtenir la liste des extensions."
 
+msgid "Change Password"
+msgstr "Changer le mot de passe"
+
 msgid "Charts"
 msgstr "Graphiques"
 
@@ -498,8 +504,8 @@ msgstr "Confirmer la suppression"
 
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
-msgstr[0] "Confirmer la suppression de la variété"
-msgstr[1] "Confirmer la suppression des variétés"
+msgstr[0] "Confirmer la suppression du gabarit"
+msgstr[1] "Confirmer la suppression des gabarits"
 
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
@@ -520,6 +526,11 @@ msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
 msgstr[0] "Confirmer la suppression du joncteur"
 msgstr[1] "Confirmer la suppression des joncteurs"
+
+msgid "Confirm Delete User"
+msgid_plural "Confirm Delete Users"
+msgstr[0] "Confirmer la suppression de l'utilisateur"
+msgstr[1] "Confirmer la suppression des utilisateurs"
 
 msgid "Connecting"
 msgstr "Connexion en cours"
@@ -602,8 +613,18 @@ msgstr "Créer un rôle"
 msgid "Create Subnet"
 msgstr "Créer un sous-réseau"
 
+msgid "Create User"
+msgstr "Créer un utilisateur"
+
 msgid "Create Volume"
 msgstr "Créer le volume"
+
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
 
 msgid "Created"
 msgstr "Créé"
@@ -693,6 +714,12 @@ msgstr "Bouton par défaut"
 msgid "Default input"
 msgstr "Champ par défaut"
 
+msgid "Default: Empty string"
+msgstr "Défaut: chaîne vide"
+
+msgid "Default: Enabled"
+msgstr "Défaut: activé"
+
 msgid "Definition list"
 msgstr "Liste des définitions"
 
@@ -710,11 +737,11 @@ msgstr "Supprimer les fichiers dans {$ ctrl.model.container.name $}"
 
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] "Supprimer la variété"
-msgstr[1] "Supprimer les variétés"
+msgstr[0] "Supprimer le gabarit"
+msgstr[1] "Supprimer les gabarits"
 
 msgid "Delete Flavors"
-msgstr "Supprimer les variétés"
+msgstr "Supprimer les gabarits"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -734,6 +761,9 @@ msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
 msgstr[0] "Supprimer la paire de clés"
 msgstr[1] "Supprimer les paires de clés"
+
+msgid "Delete Key Pairs"
+msgstr "Supprimer les paires de clés"
 
 msgid "Delete Network"
 msgstr "Supprimer le réseau"
@@ -760,6 +790,14 @@ msgstr[1] "Supprimer les joncteurs"
 msgid "Delete Trunks"
 msgstr "Supprimer les joncteurs"
 
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "Supprimer l'utilisateur"
+msgstr[1] "Supprimer les utilisateurs"
+
+msgid "Delete Users"
+msgstr "Supprimer les utilisateurs"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Supprimer le volume après terminaison de l'instance"
 
@@ -769,8 +807,8 @@ msgstr "Supprimée"
 #, python-format
 msgid "Deleted Flavor: %s."
 msgid_plural "Deleted Flavors: %s."
-msgstr[0] "Variété supprimé: %s."
-msgstr[1] "Variétés supprimées: %s."
+msgstr[0] "Gabarit supprimé: %s."
+msgstr[1] "Gabarits supprimée: %s."
 
 #, python-format
 msgid "Deleted Image: %s."
@@ -796,6 +834,12 @@ msgid_plural "Deleted Trunks: %s."
 msgstr[0] "Joncteur %s supprimé"
 msgstr[1] "Joncteurs %s supprimés"
 
+#, python-format
+msgid "Deleted User: %s."
+msgid_plural "Deleted Users: %s."
+msgstr[0] "Utilisateur supprimé: %s."
+msgstr[1] "Utilisateurs supprimés: %s;"
+
 msgid "Deleting"
 msgstr "Suppression"
 
@@ -814,8 +858,14 @@ msgstr "Détails"
 msgid "Details Views:"
 msgstr "Vues détaillées :"
 
+msgid "Device ID"
+msgstr "ID du périphérique"
+
 msgid "Device Name"
 msgstr "Nom du périphérique"
+
+msgid "Device Owner"
+msgstr "Propriétaire du périphérique"
 
 msgid "Dialogs"
 msgstr "Fenêtres"
@@ -828,6 +878,9 @@ msgstr "Physique direct"
 
 msgid "Direction"
 msgstr "Direction"
+
+msgid "Disable User"
+msgstr "Désactiver l'utilisateur"
 
 msgid "Disabled"
 msgstr "Désactivée"
@@ -855,6 +908,9 @@ msgstr "Domaine"
 
 msgid "Domain ID"
 msgstr "ID Domaine"
+
+msgid "Domain Id"
+msgstr "Id du domaine"
 
 msgid "Domain Name"
 msgstr "Nom de domaine"
@@ -898,11 +954,20 @@ msgstr "Éditer l'image"
 msgid "Edit Role"
 msgstr "Éditer le rôle"
 
+msgid "Edit User"
+msgstr "Editer l'utilisateur"
+
+msgid "Edit the user's details, including the Primary Project."
+msgstr "Editer les détails de l'utilisateur, y compris le projet primaire."
+
 msgid "Email"
 msgstr "E-mail"
 
 msgid "Emphasis classes"
 msgstr "Classes d'emphase"
+
+msgid "Enable User"
+msgstr "Activer l'utilisateur"
 
 msgid "Enabled"
 msgstr "Activé"
@@ -1189,6 +1254,9 @@ msgstr "Impact sur votre quota"
 msgid "Import Key Pair"
 msgstr "Importer une Paire Clés"
 
+msgid "Import Public Key"
+msgstr "Importer la clé publique"
+
 msgid "Indicators"
 msgstr "Indications"
 
@@ -1381,6 +1449,9 @@ msgstr "Charger une fonction :"
 msgid "Loading"
 msgstr "Chargement..."
 
+msgid "Loading ports... Please Wait"
+msgstr "Chargement des ports en cours...Veuillez patienter"
+
 msgid "Location"
 msgstr "Emplacement"
 
@@ -1392,6 +1463,9 @@ msgstr "Regarde, je suis dans un petit well !"
 
 msgid "Look, I'm in a well!"
 msgstr "Regarde, je suis dans un well !"
+
+msgid "MAC Address"
+msgstr "Adresse MAC"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -1805,6 +1879,9 @@ msgstr "Ancre primaire"
 msgid "Primary Button"
 msgstr "Bouton principal"
 
+msgid "Primary Project"
+msgstr "Projet primaire"
+
 msgid "Primary Project ID"
 msgstr "ID du projet primaire"
 
@@ -2042,6 +2119,9 @@ msgstr "Sélectionner un élément depuis les éléments disponibles ci-dessous"
 msgid "Select at least one network"
 msgstr "Sélectionner au moins un réseau"
 
+msgid "Select items from Available items below"
+msgstr "Sélectionner des éléments parmi les éléments Disponibles ci-dessous"
+
 msgid "Select networks from those listed below."
 msgstr "Sélectionner des réseaux à partir de la liste fournie ci-dessous."
 
@@ -2268,6 +2348,9 @@ msgstr "Champ de texte"
 
 msgid "The access permission for the image."
 msgstr "L'autorisation d'accès à l'image."
+
+msgid "The admin password is incorrect."
+msgstr "Le mot de passe admin est erroné."
 
 msgid "The architecture of the image."
 msgstr "Architecture de l'image."
@@ -2613,8 +2696,8 @@ msgstr "Impossible de créer le volume."
 #, python-format
 msgid "Unable to delete Flavor: %s."
 msgid_plural "Unable to delete Flavors: %s."
-msgstr[0] "Impossible de supprimer la variété: %s."
-msgstr[1] "Impossible de supprimer les variétés: %s."
+msgstr[0] "Impossible de supprimer le gabarit: %s."
+msgstr[1] "Impossible de supprimer les gabarits: %s."
 
 #, python-format
 msgid "Unable to delete Image: %s."
@@ -2639,6 +2722,12 @@ msgid "Unable to delete Trunk: %s."
 msgid_plural "Unable to delete Trunks: %s."
 msgstr[0] "Impossible de supprimer le joncteur: %s."
 msgstr[1] "Impossible de supprimer les joncteurs: %s."
+
+#, python-format
+msgid "Unable to delete User: %s."
+msgid_plural "Unable to delete Users: %s."
+msgstr[0] "Impossible de supprimer l'utilisateur: %s."
+msgstr[1] "Impossible de supprimer les utilisateurs: %s."
 
 msgid "Unable to delete the container."
 msgstr "Impossible de supprimer le conteneur."
@@ -2842,6 +2931,9 @@ msgid "Unable to retrieve the current user session."
 msgstr ""
 "Impossible de récupérer les informations de session de l'utilisateur courant."
 
+msgid "Unable to retrieve the default domain."
+msgstr "Impossible de récupérer le domaine par défaut."
+
 msgid "Unable to retrieve the default quotas."
 msgstr "Impossible de récupérer les quotas par défaut."
 
@@ -2948,6 +3040,9 @@ msgstr "Impossible de récupérer l'utilisateur."
 
 msgid "Unable to retrieve the users."
 msgstr "Impossible de récupérer les utilisateurs."
+
+msgid "Unable to retrieve the volume availability zones."
+msgstr "Impossible de récupérer les zones de disponibilité du volume."
 
 msgid "Unable to retrieve the volume metadata."
 msgstr "Impossible de récupérer les métadonnées du volume."
@@ -3360,9 +3455,9 @@ msgstr[1] ""
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] ""
-"Vous avez sélectionné \"%s\". La variété supprimée ne sera pas récupérable."
+"Vous avez sélectionné \"%s\". Un gabarit supprimé n'est pas récupérable."
 msgstr[1] ""
-"Vous avez sélectionné \"%s\". Les variétés suppriméss ne seront pas "
+"Vous avez sélectionné \"%s\". Les gabarits supprimés ne sont pas "
 "récupérables."
 
 #, python-format
@@ -3390,6 +3485,15 @@ msgstr[0] ""
 "Vous avez sélectionné \"%s\". Le rôle supprimé ne sera pas récupérable."
 msgstr[1] ""
 "Vous avez sélectionné \"%s\". Les rôles supprimés ne seront pas récupérables."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted user is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted users are not recoverable."
+msgstr[0] ""
+"Vous avez sélectionné \"%s. Un utilisateur supprimé n'est pas récupérable."
+msgstr[1] ""
+"Vous avez sélectionné \"%s\". Les utilisateurs supprimés ne sont pas "
+"récupérables."
 
 msgid "Your Form as JavaScript"
 msgstr "Votre formulaire en JavaScript"
