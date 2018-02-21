@@ -222,6 +222,7 @@ LANGUAGES = (
     ('en', 'English'),
     ('en-au', 'Australian English'),
     ('en-gb', 'British English'),
+    ('eo', 'Esperanto'),
     ('es', 'Spanish'),
     ('fr', 'French'),
     ('id', 'Indonesian'),
