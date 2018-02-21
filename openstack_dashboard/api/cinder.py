@@ -414,7 +414,7 @@ def volume_delete_metadata(request, volume_id, keys):
 
 @profiler.trace
 def volume_reset_state(request, volume_id, state):
-    return cinderclient(request).volumes.reset_state(volume_id, state)
+    cinderclient(request).volumes.reset_state(volume_id, state)
 
 
 @profiler.trace
@@ -742,7 +742,7 @@ def volume_manage(request,
                   metadata,
                   bootable):
     source = {id_type: identifier}
-    return cinderclient(request).volumes.manage(
+    cinderclient(request).volumes.manage(
         host=host,
         ref=source,
         name=name,
