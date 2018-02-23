@@ -6,17 +6,18 @@
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2017. #zanata
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-09 15:08+0000\n"
+"POT-Creation-Date: 2018-02-23 05:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-29 04:06+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2018-02-16 10:59+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -6033,20 +6034,6 @@ msgstr ""
 "Die <strong>Schlüssellänge</strong> ist die Länge des Schlüssels in Bit (z."
 "B. 128, 256). Wenn das Feld leer bleibt, wird die Standardeinstellung des "
 "Anbieters verwendet."
-
-msgid ""
-"The <strong>Provider</strong> is the class providing encryption support (e."
-"g. LuksEncryptor)."
-msgstr ""
-"Der <strong>Anbieter</strong> ist die Klasse, die die "
-"Verschlüsselungsunterstützung bereitstellt (z.B. LuksEncryptor)."
-
-msgid ""
-"The <strong>Provider</strong> is the class providing encryption support (e."
-"g., LuksEncryptor)."
-msgstr ""
-"Der <strong>Anbieter</strong> ist die Klasse, die "
-"Verschlüsselungsunterstützung bereitstellt (z. B. LuksEncryptor)."
 
 msgid "The Aggregate was updated."
 msgstr "Das Aggregat wurde aktualisiert."
