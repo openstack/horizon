@@ -5165,6 +5165,62 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.mock_instance_volume_attach.assert_called_once_with(
             helpers.IsHttpRequest(), volume.id, server.id, str(None))
 
+    @mock.patch.object(api.cinder, 'volume_list')
+    @mock.patch.object(api.cinder, 'volume_get')
+    @mock.patch.object(api.nova, 'get_microversion', return_value='2.60')
+    @mock.patch.object(api.nova, 'novaclient')
+    def test_volume_attach_post_multiattach(
+            self, mock_client, mock_get_microversion, mock_volume_get,
+            mock_volume_list):
+        # Tests that a multiattach volume must be attached with compute API
+        # microversion 2.60 and the feature is supported.
+        server = self.servers.first()
+        volumes = self.cinder_volumes.list()
+        volume = volumes[1]
+        volume.multiattach = True
+        mock_volume_list.return_value = volumes
+        mock_volume_get.return_value = volume
+
+        form_data = {"volume": volume.id,
+                     "instance_id": server.id,
+                     "device": None}
+
+        url = reverse('horizon:project:instances:attach_volume',
+                      args=[server.id])
+
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        mock_client.assert_called_once_with(mock.ANY, '2.60')
+
+    @mock.patch.object(api.cinder, 'volume_list')
+    @mock.patch.object(api.cinder, 'volume_get')
+    @mock.patch.object(api.nova, 'get_microversion', return_value=None)
+    @mock.patch.object(api.nova, 'novaclient')
+    def test_volume_attach_post_multiattach_feature_not_available(
+            self, mock_client, mock_get_microversion, mock_volume_get,
+            mock_volume_list):
+        # Tests that a multiattach volume must be attached with compute API
+        # microversion 2.60 and the feature is not available.
+        server = self.servers.first()
+        volumes = self.cinder_volumes.list()
+        volume = volumes[1]
+        volume.multiattach = True
+        mock_volume_list.return_value = volumes
+        mock_volume_get.return_value = volume
+
+        form_data = {"volume": volume.id,
+                     "instance_id": server.id,
+                     "device": None}
+
+        url = reverse('horizon:project:instances:attach_volume',
+                      args=[server.id])
+
+        self.client.post(url, form_data)
+        # TODO(mriedem): Assert the actual error from the response but
+        # the test helpers don't seem to handle this case.
+        mock_client.assert_not_called()
+
     @helpers.create_mocks({api.nova: ('instance_volumes_list',)})
     def test_volume_detach_get(self):
         server = self.servers.first()

@@ -17,6 +17,7 @@ from django.template.defaultfilters import filesizeformat
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
+import six
 
 from horizon import exceptions
 from horizon import forms
@@ -230,11 +231,15 @@ class AttachVolume(forms.SelfHandlingForm):
                                                    "inst": instance_id,
                                                    "dev": attach.device}
             messages.info(request, message)
-        except Exception:
+        except Exception as ex:
             redirect = reverse('horizon:project:instances:index')
-            exceptions.handle(request,
-                              _('Unable to attach volume.'),
-                              redirect=redirect)
+            if isinstance(ex, api.nova.VolumeMultiattachNotSupported):
+                # Use the specific error from the specific message.
+                msg = six.text_type(ex)
+            else:
+                # Use a generic error message.
+                msg = _('Unable to attach volume.')
+            exceptions.handle(request, msg, redirect=redirect)
         return True
 
 
