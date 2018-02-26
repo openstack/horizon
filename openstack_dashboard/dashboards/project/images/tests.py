@@ -111,7 +111,7 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertIn('images_table', res.context)
         snaps = res.context['images_table']
-        self.assertEqual(len(snaps.get_rows()), 3)
+        self.assertEqual(len(snaps.get_rows()), 4)
 
         row_actions = snaps.get_row_actions(snaps.data[0])
 

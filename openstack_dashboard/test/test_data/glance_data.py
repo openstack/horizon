@@ -52,6 +52,7 @@ def data(TEST):
     TEST.snapshots = utils.TestDataContainer()
     TEST.metadata_defs = utils.TestDataContainer()
     TEST.imagesV2 = utils.TestDataContainer()
+    TEST.snapshotsV2 = utils.TestDataContainer()
 
     # Snapshots
     snapshot_dict = {'name': u'snapshot',
@@ -78,11 +79,25 @@ def data(TEST):
                             'properties': {'image_type': u'snapshot'},
                             'is_public': False,
                             'protected': False}
+    snapshot_dict_with_volume = {'name': u'snapshot 2',
+                                 'container_format': u'ami',
+                                 'id': 6,
+                                 'status': "queued",
+                                 'owner': TEST.tenant.id,
+                                 'properties': {
+                                     'block_device_mapping':
+                                         '[{"source_type": "snapshot"}]'},
+                                 'is_public': False,
+                                 'protected': False}
+
     snapshot = images.Image(images.ImageManager(None), snapshot_dict)
     TEST.snapshots.add(api.glance.Image(snapshot))
     snapshot = images.Image(images.ImageManager(None), snapshot_dict_no_owner)
     TEST.snapshots.add(api.glance.Image(snapshot))
     snapshot = images.Image(images.ImageManager(None), snapshot_dict_queued)
+    TEST.snapshots.add(api.glance.Image(snapshot))
+    snapshot = images.Image(images.ImageManager(None),
+                            snapshot_dict_with_volume)
     TEST.snapshots.add(api.glance.Image(snapshot))
 
     # Images
@@ -317,6 +332,29 @@ def data(TEST):
     for fixture in image_v2_dicts:
         apiresource = APIResourceV2(fixture)
         TEST.imagesV2.add(api.glance.Image(apiresource))
+
+    snapshot_v2_dict = {
+        'checksum': None,
+        'container_format': 'novaImage',
+        'created_at': '2018-02-26T22:50:56Z',
+        'disk_format': None,
+        'block_device_mapping': '[{"source_type": "snapshot"}]',
+        'file': '/v2/images/c701226a-aa32-4064-bd36-e85a3dcc61aa/file',
+        'id': 'c701226a-aa32-4064-bd36-e85a3dcc61aa',
+        'locations': [],
+        'min_disk': 30,
+        'min_ram': 0,
+        'name': 'snpashot_with_volume',
+        'owner': TEST.tenant.id,
+        'protected': True,
+        'size': 2 * 1024 ** 3,
+        'status': "active",
+        'tags': ['empty_image'],
+        'updated_at': '2018-02-26T22:50:56Z',
+        'virtual_size': None,
+        'visibility': 'public'
+    }
+    TEST.snapshotsV2.add(api.glance.Image(APIResourceV2(snapshot_v2_dict)))
 
     metadef_dict = {
         'namespace': 'namespace_1',
