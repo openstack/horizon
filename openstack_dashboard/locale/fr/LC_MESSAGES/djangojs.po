@@ -20,11 +20,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-21 06:50+0000\n"
+"POT-Creation-Date: 2018-02-22 09:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-21 09:01+0000\n"
+"PO-Revision-Date: 2018-02-25 05:44+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -604,7 +604,7 @@ msgid "Create Image"
 msgstr "Créer une image"
 
 msgid "Create Key Pair"
-msgstr "Créer Paire Clés"
+msgstr "Créer une paire de clés"
 
 msgid "Create Keypair"
 msgstr "Créer une paire de clés"
@@ -661,6 +661,9 @@ msgstr ""
 "pouvez pas installer <samp>cloud-init</samp> à l'intérieur d'un système "
 "d'exploitation invité, vous pouvez utiliser un script personnalisé pour "
 "récupérer une clé publique et l'ajouter au compte utilisateur."
+
+msgid "Customization Script"
+msgstr "Script de personnalisation"
 
 msgid "DNS Domain"
 msgstr "Domaine DNS"
@@ -1257,10 +1260,10 @@ msgid "Impact on your quota"
 msgstr "Impact sur votre quota"
 
 msgid "Import Key Pair"
-msgstr "Importer une Paire Clés"
+msgstr "Importer une paire de clés"
 
 msgid "Import Public Key"
-msgstr "Importer la clé publique"
+msgstr "Importer une clé publique"
 
 msgid "Indicators"
 msgstr "Indications"
@@ -1604,6 +1607,9 @@ msgstr "Mois"
 
 msgid "Name"
 msgstr "Nom"
+
+msgid "Name/ID"
+msgstr "Nom/ID"
 
 msgid "Names:"
 msgstr "Noms :"
@@ -2147,6 +2153,9 @@ msgstr "Sélectionner un élément depuis les éléments disponibles ci-dessous"
 msgid "Select at least one network"
 msgstr "Sélectionner au moins un réseau"
 
+msgid "Select from the list of available ports below."
+msgstr "Sélectionner dans la liste des ports disponibles ci-dessous."
+
 msgid "Select items from Available items below"
 msgstr "Sélectionner des éléments parmi les éléments Disponibles ci-dessous"
 
@@ -2524,6 +2533,13 @@ msgid "There are no Availability Zones."
 msgstr "Aucune zones de disponibilité."
 
 msgid ""
+"There are no allowed boot\n"
+"      sources. If you think this is wrong please contact your administrator."
+msgstr ""
+"Il n'existe aucune source de démarrage autorisée. Si vous pensez que c'est "
+"inexact, merci de contacter votre administrateur."
+
+msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
@@ -2672,6 +2688,9 @@ msgstr "Impossible d'associer les adresses IP flottantes."
 
 msgid "Unable to change the container access."
 msgstr "Impossible de changer les accès du conteneur."
+
+msgid "Unable to check the Nova service feature."
+msgstr "Impossible de vérifier le service Nova."
 
 msgid "Unable to copy the object."
 msgstr "Impossible de copier l'objet."
