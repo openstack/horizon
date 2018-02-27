@@ -976,7 +976,7 @@ def aggregate_get(request, aggregate_id):
 
 @profiler.trace
 def aggregate_update(request, aggregate_id, values):
-    return novaclient(request).aggregates.update(aggregate_id, values)
+    novaclient(request).aggregates.update(aggregate_id, values)
 
 
 @profiler.trace
@@ -986,12 +986,12 @@ def aggregate_set_metadata(request, aggregate_id, metadata):
 
 @profiler.trace
 def add_host_to_aggregate(request, aggregate_id, host):
-    return novaclient(request).aggregates.add_host(aggregate_id, host)
+    novaclient(request).aggregates.add_host(aggregate_id, host)
 
 
 @profiler.trace
 def remove_host_from_aggregate(request, aggregate_id, host):
-    return novaclient(request).aggregates.remove_host(aggregate_id, host)
+    novaclient(request).aggregates.remove_host(aggregate_id, host)
 
 
 @profiler.trace
