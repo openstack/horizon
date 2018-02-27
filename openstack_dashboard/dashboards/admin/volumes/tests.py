@@ -18,11 +18,8 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.test.utils import override_settings
 from django.utils.http import urlunquote
-import mock
 
 from openstack_dashboard import api
-from openstack_dashboard.api import cinder
-from openstack_dashboard.api import keystone
 from openstack_dashboard.dashboards.project.volumes \
     import tables as volume_tables
 from openstack_dashboard.test import helpers as test
@@ -44,36 +41,35 @@ class VolumeTests(test.BaseAdminViewTests):
                     del att['instance']
         super(VolumeTests, self).tearDown()
 
-    @mock.patch.object(keystone, 'tenant_list')
-    @mock.patch.object(cinder, 'volume_snapshot_list')
-    @mock.patch.object(cinder, 'volume_list_paged')
-    @mock.patch.object(api.nova, 'server_list')
-    def _test_index(self, instanceless_volumes, mock_server_list,
-                    mock_volume_list, mock_snapshot_list, mock_tenant_list):
+    @test.create_mocks({
+        api.nova: ['server_list'],
+        api.cinder: ['volume_snapshot_list', 'volume_list_paged'],
+        api.keystone: ['tenant_list']})
+    def _test_index(self, instanceless_volumes):
         volumes = self.cinder_volumes.list()
         if instanceless_volumes:
             for volume in volumes:
                 volume.attachments = []
 
-        mock_volume_list.return_value = [volumes, False, False]
-        mock_snapshot_list.return_value = []
+        self.mock_volume_list_paged.return_value = [volumes, False, False]
+        self.mock_volume_snapshot_list.return_value = []
 
         if not instanceless_volumes:
-            mock_server_list.return_value = [self.servers.list(), False]
+            self.mock_server_list.return_value = [self.servers.list(), False]
 
-        mock_tenant_list.return_value = [[self.tenants.list(), False]]
+        self.mock_tenant_list.return_value = [[self.tenants.list(), False]]
 
         res = self.client.get(INDEX_URL)
         if not instanceless_volumes:
-            mock_server_list.assert_called_once_with(
+            self.mock_server_list.assert_called_once_with(
                 test.IsHttpRequest(), search_opts={'all_tenants': True})
 
-        mock_volume_list.assert_called_once_with(
+        self.mock_volume_list_paged.assert_called_once_with(
             test.IsHttpRequest(), sort_dir="desc", marker=None, paginate=True,
             search_opts={'all_tenants': True})
-        mock_snapshot_list.assert_called_once_with(
+        self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts={'all_tenants': True})
-        mock_tenant_list.assert_called_once()
+        self.mock_tenant_list.assert_called_once()
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
@@ -84,33 +80,33 @@ class VolumeTests(test.BaseAdminViewTests):
     def test_index_with_attachments(self):
         self._test_index(False)
 
-    @mock.patch.object(keystone, 'tenant_list')
-    @mock.patch.object(cinder, 'volume_snapshot_list')
-    @mock.patch.object(cinder, 'volume_list_paged')
-    @mock.patch.object(api.nova, 'server_list')
+    @test.create_mocks({
+        api.nova: ['server_list'],
+        api.cinder: ['volume_snapshot_list', 'volume_list_paged'],
+        api.keystone: ['tenant_list']})
     def _test_index_paginated(self, marker, sort_dir, volumes, url,
-                              has_more, has_prev, mock_server_list,
-                              mock_volume_list, mock_snapshot_list,
-                              mock_tenant_list):
+                              has_more, has_prev):
         vol_snaps = self.cinder_volume_snapshots.list()
 
-        mock_volume_list.return_value = [volumes, has_more, has_prev]
-        mock_snapshot_list.return_value = vol_snaps
-        mock_server_list.return_value = [self.servers.list(), False]
-        mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_volume_list_paged.return_value = \
+            [volumes, has_more, has_prev]
+        self.mock_volume_snapshot_list.return_value = vol_snaps
+        self.mock_server_list.return_value = [self.servers.list(), False]
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
         res = self.client.get(urlunquote(url))
 
-        mock_server_list.assert_called_once_with(
+        self.mock_server_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts={'all_tenants': True})
-        mock_volume_list.assert_called_once_with(test.IsHttpRequest(),
-                                                 sort_dir=sort_dir,
-                                                 marker=marker, paginate=True,
-                                                 search_opts={
-                                                     'all_tenants': True})
-        mock_snapshot_list.assert_called_once_with(
+        self.mock_volume_list_paged.assert_called_once_with(
+            test.IsHttpRequest(),
+            sort_dir=sort_dir,
+            marker=marker, paginate=True,
+            search_opts={
+                'all_tenants': True})
+        self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts={'all_tenants': True})
-        mock_tenant_list.assert_called_once()
+        self.mock_tenant_list.assert_called_once()
 
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         self.assertEqual(res.status_code, 200)
@@ -192,178 +188,181 @@ class VolumeTests(test.BaseAdminViewTests):
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, expected_volumes)
 
-    @mock.patch.object(cinder, 'volume_get')
-    @mock.patch.object(cinder, 'volume_reset_state')
-    def test_update_volume_status(self, mock_reset, mock_volume_get):
+    @test.create_mocks({api.cinder: ['volume_get', 'volume_reset_state']})
+    def test_update_volume_status(self):
         volume = self.volumes.first()
-        formData = {'status': 'error'}
+        form_data = {'status': 'error'}
 
-        mock_volume_get.return_value = volume
+        self.mock_volume_reset_state.return_value = None
+        self.mock_volume_get.return_value = volume
 
         res = self.client.post(
             reverse('horizon:admin:volumes:update_status',
                     args=(volume.id,)),
-            formData)
+            form_data)
 
-        mock_reset.assert_called_once_with(test.IsHttpRequest(),
-                                           volume.id, formData['status'])
-        mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
-                                                volume.id)
+        self.mock_volume_reset_state.assert_called_once_with(
+            test.IsHttpRequest(), volume.id, form_data['status'])
+        self.mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     volume.id)
         self.assertNoFormErrors(res)
 
-    @mock.patch.object(cinder, 'extension_supported')
-    @mock.patch.object(cinder, 'availability_zone_list')
-    @mock.patch.object(cinder, 'volume_type_list')
-    @mock.patch.object(cinder, 'volume_manage')
-    def test_manage_volume(self, mock_manage, mock_type_list, mock_az_list,
-                           mock_extension):
+    @test.create_mocks({
+        api.cinder: ['extension_supported', 'availability_zone_list',
+                     'volume_type_list', 'volume_manage']})
+    def test_manage_volume(self):
         metadata = {'key': u'k1',
                     'value': u'v1'}
-        formData = {'host': 'host-1',
-                    'identifier': 'vol-1',
-                    'id_type': u'source-name',
-                    'name': 'name-1',
-                    'description': 'manage a volume',
-                    'volume_type': 'vol_type_1',
-                    'availability_zone': 'nova',
-                    'metadata': metadata['key'] + '=' + metadata['value'],
-                    'bootable': False}
+        form_data = {'host': 'host-1',
+                     'identifier': 'vol-1',
+                     'id_type': u'source-name',
+                     'name': 'name-1',
+                     'description': 'manage a volume',
+                     'volume_type': 'vol_type_1',
+                     'availability_zone': 'nova',
+                     'metadata': metadata['key'] + '=' + metadata['value'],
+                     'bootable': False}
 
-        mock_type_list.return_value = self.cinder_volume_types.list()
-        mock_az_list.return_value = self.availability_zones.list()
-        mock_extension.return_value = True
+        self.mock_extension_supported.return_value = None
+        self.mock_volume_type_list.return_value = \
+            self.cinder_volume_types.list()
+        self.mock_availability_zone_list.return_value = \
+            self.availability_zones.list()
+        self.mock_extension_supported.return_value = True
 
         res = self.client.post(
             reverse('horizon:admin:volumes:manage'),
-            formData)
+            form_data)
 
-        mock_manage.assert_called_once_with(
+        self.mock_volume_manage.assert_called_once_with(
             test.IsHttpRequest(),
-            host=formData['host'],
-            identifier=formData['identifier'],
-            id_type=formData['id_type'],
-            name=formData['name'],
-            description=formData['description'],
-            volume_type=formData['volume_type'],
-            availability_zone=formData['availability_zone'],
+            host=form_data['host'],
+            identifier=form_data['identifier'],
+            id_type=form_data['id_type'],
+            name=form_data['name'],
+            description=form_data['description'],
+            volume_type=form_data['volume_type'],
+            availability_zone=form_data['availability_zone'],
             metadata={metadata['key']: metadata['value']},
-            bootable=formData['bootable'])
-        mock_type_list.assert_called_once()
-        mock_az_list.assert_called_once()
-        mock_extension.assert_called_once_with(test.IsHttpRequest(),
-                                               'AvailabilityZones')
+            bootable=form_data['bootable'])
+        self.mock_volume_type_list.assert_called_once()
+        self.mock_availability_zone_list.assert_called_once()
+        self.mock_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(),
+            'AvailabilityZones')
         self.assertNoFormErrors(res)
 
-    @mock.patch.object(cinder, 'volume_get')
-    @mock.patch.object(cinder, 'volume_unmanage')
-    def test_unmanage_volume(self, mock_unmanage, mock_get):
+    @test.create_mocks({api.cinder: ['volume_get', 'volume_unmanage']})
+    def test_unmanage_volume(self):
         # important - need to get the v2 cinder volume which has host data
         volume_list = [x for x in self.cinder_volumes.list()
                        if x.name == 'v2_volume']
         volume = volume_list[0]
-        formData = {'volume_name': volume.name,
-                    'host_name': 'host@backend-name#pool',
-                    'volume_id': volume.id}
+        form_data = {'volume_name': volume.name,
+                     'host_name': 'host@backend-name#pool',
+                     'volume_id': volume.id}
 
-        mock_get.return_value = volume
-        mock_unmanage.return_value = volume
+        self.mock_volume_get.return_value = volume
+        self.mock_volume_unmanage.return_value = volume
 
         res = self.client.post(
             reverse('horizon:admin:volumes:unmanage',
                     args=(volume.id,)),
-            formData)
+            form_data)
 
-        mock_unmanage.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
+        self.mock_volume_unmanage.assert_called_once_with(
+            test.IsHttpRequest(), volume.id)
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), volume.id)
         self.assertNoFormErrors(res)
 
-    @mock.patch.object(cinder, 'volume_get')
-    @mock.patch.object(cinder, 'pool_list')
-    def test_volume_migrate_get(self, mock_pool, mock_get):
+    @test.create_mocks({api.cinder: ['volume_get', 'pool_list']})
+    def test_volume_migrate_get(self):
         volume = self.cinder_volumes.get(name='v2_volume')
 
-        mock_pool.return_value = self.cinder_pools.list()
-        mock_get.return_value = volume
+        self.mock_pool_list.return_value = self.cinder_pools.list()
+        self.mock_volume_get.return_value = volume
 
         url = reverse('horizon:admin:volumes:migrate',
                       args=[volume.id])
         res = self.client.get(url)
 
-        mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_pool.assert_called_once()
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), volume.id)
+        self.mock_pool_list.assert_called_once()
         self.assertTemplateUsed(res,
                                 'admin/volumes/migrate_volume.html')
 
-    @mock.patch.object(cinder, 'volume_get')
-    def test_volume_migrate_get_volume_get_exception(self, mock_get):
+    @test.create_mocks({api.cinder: ['volume_get']})
+    def test_volume_migrate_get_volume_get_exception(self):
         volume = self.cinder_volumes.get(name='v2_volume')
-        mock_get.side_effect = self.exceptions.cinder
+        self.mock_volume_get.side_effect = self.exceptions.cinder
 
         url = reverse('horizon:admin:volumes:migrate',
                       args=[volume.id])
         res = self.client.get(url)
 
-        mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), volume.id)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @mock.patch.object(cinder, 'volume_get')
-    @mock.patch.object(cinder, 'pool_list')
-    def test_volume_migrate_list_pool_get_exception(self, mock_pool, mock_get):
+    @test.create_mocks({api.cinder: ['volume_get', 'pool_list']})
+    def test_volume_migrate_list_pool_get_exception(self):
         volume = self.cinder_volumes.get(name='v2_volume')
 
-        mock_get.return_value = volume
-        mock_pool.side_effect = self.exceptions.cinder
+        self.mock_volume_get.return_value = volume
+        self.mock_pool_list.side_effect = self.exceptions.cinder
 
         url = reverse('horizon:admin:volumes:migrate',
                       args=[volume.id])
         res = self.client.get(url)
 
-        mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_pool.assert_called_once()
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), volume.id)
+        self.mock_pool_list.assert_called_once()
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @mock.patch.object(cinder, 'volume_migrate')
-    @mock.patch.object(cinder, 'volume_get')
-    @mock.patch.object(cinder, 'pool_list')
-    def test_volume_migrate_post(self, mock_pool, mock_get, mock_migtate):
+    @test.create_mocks({
+        api.cinder: ['volume_migrate', 'volume_get', 'pool_list']})
+    def test_volume_migrate_post(self):
         volume = self.cinder_volumes.get(name='v2_volume')
         host = self.cinder_pools.first().name
 
-        mock_get.return_value = volume
-        mock_pool.return_value = self.cinder_pools.list()
-        mock_migtate.return_value = None
+        self.mock_volume_get.return_value = volume
+        self.mock_pool_list.return_value = self.cinder_pools.list()
+        self.mock_volume_migrate.return_value = None
 
         url = reverse('horizon:admin:volumes:migrate',
                       args=[volume.id])
         res = self.client.post(url, {'host': host, 'volume_id': volume.id})
 
-        mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_pool.assert_called_once()
-        mock_migtate.assert_called_once_with(test.IsHttpRequest(),
-                                             volume.id, host, False)
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), volume.id)
+        self.mock_pool_list.assert_called_once()
+        self.mock_volume_migrate.assert_called_once_with(
+            test.IsHttpRequest(), volume.id, host, False)
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @mock.patch.object(cinder, 'volume_migrate')
-    @mock.patch.object(cinder, 'volume_get')
-    @mock.patch.object(cinder, 'pool_list')
-    def test_volume_migrate_post_api_exception(self, mock_pool, mock_get,
-                                               mock_migtate):
+    @test.create_mocks({
+        api.cinder: ['volume_migrate', 'volume_get', 'pool_list']})
+    def test_volume_migrate_post_api_exception(self):
         volume = self.cinder_volumes.get(name='v2_volume')
         host = self.cinder_pools.first().name
 
-        mock_get.return_value = volume
-        mock_pool.return_value = self.cinder_pools.list()
-        mock_migtate.side_effect = self.exceptions.cinder
+        self.mock_volume_get.return_value = volume
+        self.mock_pool_list.return_value = self.cinder_pools.list()
+        self.mock_volume_migrate.side_effect = self.exceptions.cinder
 
         url = reverse('horizon:admin:volumes:migrate',
                       args=[volume.id])
         res = self.client.post(url, {'host': host, 'volume_id': volume.id})
 
-        mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_pool.assert_called_once()
-        mock_migtate.assert_called_once_with(test.IsHttpRequest(), volume.id,
-                                             host, False)
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), volume.id)
+        self.mock_pool_list.assert_called_once()
+        self.mock_volume_migrate.assert_called_once_with(
+            test.IsHttpRequest(), volume.id, host, False)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_get_volume_status_choices_without_current(self):
@@ -374,19 +373,24 @@ class VolumeTests(test.BaseAdminViewTests):
         self.assertNotIn(current_status,
                          [status[0] for status in status_choices])
 
-    @mock.patch.object(cinder, 'volume_get')
-    def test_update_volume_status_get(self, mock_get):
+    @test.create_mocks({api.cinder: ['volume_get']})
+    def test_update_volume_status_get(self):
         volume = self.cinder_volumes.get(name='v2_volume')
-        mock_get.return_value = volume
+        self.mock_volume_get.return_value = volume
 
         url = reverse('horizon:admin:volumes:update_status',
                       args=[volume.id])
         res = self.client.get(url)
         status_option = "<option value=\"%s\"></option>" % volume.status
 
-        mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
+        self.mock_volume_get.assert_called_once_with(
+            test.IsHttpRequest(), volume.id)
         self.assertNotContains(res, status_option)
 
+    @test.create_mocks({
+        api.nova: ['server_get'],
+        api.cinder: ['tenant_absolute_limits', 'volume_get',
+                     'volume_snapshot_list', 'message_list']})
     def test_detail_view_snapshot_tab(self):
         volume = self.cinder_volumes.first()
         server = self.servers.first()
@@ -395,25 +399,16 @@ class VolumeTests(test.BaseAdminViewTests):
                                  if snapshot.volume_id == volume.id]
         volume.attachments = [{"server_id": server.id}]
         volume_limits = self.cinder_limits['absolute']
-        with mock.patch.object(api.nova, 'server_get',
-                               return_value=server) as mock_server_get, \
-                mock.patch.object(
-                    cinder, 'tenant_absolute_limits',
-                    return_value=volume_limits) as mock_limits, \
-                mock.patch.object(
-                    cinder, 'volume_get',
-                    return_value=volume) as mock_volume_get, \
-                mock.patch.object(
-                    cinder, 'volume_snapshot_list',
-                    return_value=this_volume_snapshots) \
-                as mock_snapshot_list, \
-                mock.patch.object(
-                    cinder, 'message_list',
-                    return_value=[]) as mock_message_list:
 
-            url = (reverse(DETAIL_URL, args=[volume.id]) + '?' +
-                   '='.join(['tab', 'volume_details__snapshots_tab']))
-            res = self.client.get(url)
+        self.mock_server_get.return_value = server
+        self.mock_tenant_absolute_limits.return_value = volume_limits
+        self.mock_volume_get.return_value = volume
+        self.mock_volume_snapshot_list.return_value = this_volume_snapshots
+        self.mock_message_list.return_value = []
+
+        url = (reverse(DETAIL_URL, args=[volume.id]) + '?' +
+               '='.join(['tab', 'volume_details__snapshots_tab']))
+        res = self.client.get(url)
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertEqual(res.context['volume'].id, volume.id)
@@ -421,15 +416,15 @@ class VolumeTests(test.BaseAdminViewTests):
                          len(this_volume_snapshots))
         self.assertNoMessages()
 
-        mock_server_get.assert_called_once_with(test.IsHttpRequest(),
-                                                server.id)
-        mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
-                                                volume.id)
-        mock_snapshot_list.assert_called_once_with(
+        self.mock_server_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     server.id)
+        self.mock_tenant_absolute_limits.assert_called_once()
+        self.mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     volume.id)
+        self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(),
             search_opts={'volume_id': volume.id, 'all_tenants': True})
-        mock_limits.assert_called_once()
-        mock_message_list.assert_called_once_with(
+        self.mock_message_list.assert_called_once_with(
             test.IsHttpRequest(),
             {
                 'resource_uuid': volume.id,
