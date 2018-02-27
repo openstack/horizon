@@ -73,6 +73,18 @@
         expect(result.$$state.value.data.items[0].id).toBe(1);
       }));
 
+      it('returns detailsPath with nav parameter in case of admin url', function() {
+        spyOn(_location_, 'url').and.returnValue('/admin/trunks');
+        var result = service.getDetailsPath({id:"42"});
+        expect(result).toContain('?nav=/admin/trunks/');
+      });
+
+      it('returns detailsPath without nav parameter in case of non admin url', function() {
+        spyOn(_location_, 'url').and.returnValue('/project/trunks');
+        var result = service.getDetailsPath({id:"42"});
+        expect(result).not.toContain('?nav');
+      });
+
     });
 
   });

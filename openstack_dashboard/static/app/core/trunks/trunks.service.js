@@ -55,7 +55,11 @@
      * view.
      */
     function getDetailsPath(item) {
-      return detailRoute + 'OS::Neutron::Trunk/' + item.id;
+      var detailsPath = detailRoute + 'OS::Neutron::Trunk/' + item.id;
+      if ($location.url() === '/admin/trunks') {
+        detailsPath = detailsPath + "?nav=/admin/trunks/";
+      }
+      return detailsPath;
     }
 
     /*
