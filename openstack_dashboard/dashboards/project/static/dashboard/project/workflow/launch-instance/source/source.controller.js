@@ -516,7 +516,8 @@
     function checkVolumeForImage() {
       var source = selection[0];
 
-      if (source && ctrl.currentBootSource === bootSourceTypes.IMAGE) {
+      if (source && ctrl.currentBootSource === bootSourceTypes.IMAGE ||
+          source && ctrl.currentBootSource === bootSourceTypes.INSTANCE_SNAPSHOT ) {
         var imageGb = source.size * 1e-9;
         var imageDisk = source.min_disk;
         ctrl.minVolumeSize = Math.ceil(Math.max(imageGb, imageDisk));
