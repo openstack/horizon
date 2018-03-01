@@ -13,7 +13,7 @@
 #    under the License.
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from openstack_dashboard.test import helpers as test
 

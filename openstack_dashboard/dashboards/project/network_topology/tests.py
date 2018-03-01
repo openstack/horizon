@@ -12,9 +12,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
 from django import http
 import django.test
+from django.urls import reverse
 
 from mox3.mox import IsA
 from oslo_serialization import jsonutils

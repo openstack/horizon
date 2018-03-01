@@ -18,10 +18,10 @@ import tempfile
 import zipfile
 
 from django.conf import settings
-from django.core.urlresolvers import reverse_lazy
 from django import http
 from django import shortcuts
 from django.template.loader import render_to_string
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_auth import utils

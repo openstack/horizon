@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from openstack_dashboard.dashboards.admin.networks import forms \
     as networks_forms

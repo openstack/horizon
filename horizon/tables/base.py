@@ -22,13 +22,13 @@ import sys
 
 from django.conf import settings
 from django.core import exceptions as core_exceptions
-from django.core import urlresolvers
 from django import forms
 from django.http import HttpResponse
 from django import template
 from django.template.defaultfilters import slugify
 from django.template.defaultfilters import truncatechars
 from django.template.loader import render_to_string
+from django import urls
 from django.utils.html import escape
 from django.utils import http
 from django.utils.http import urlencode
@@ -471,8 +471,8 @@ class Column(html.HTMLElement):
                 return self.link(datum, request=self.table.request)
             return self.link(datum)
         try:
-            return urlresolvers.reverse(self.link, args=(obj_id,))
-        except urlresolvers.NoReverseMatch:
+            return urls.reverse(self.link, args=(obj_id,))
+        except urls.NoReverseMatch:
             return self.link
 
     if getattr(settings, 'INTEGRATION_TESTS_SUPPORT', False):

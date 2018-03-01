@@ -11,9 +11,9 @@
 # under the License.
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
+from django.urls import reverse
 from django.utils.http import urlunquote
 from mox3.mox import IsA
 

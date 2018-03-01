@@ -18,9 +18,9 @@ Views for managing volumes.
 """
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.forms import ValidationError
 from django.template.defaultfilters import filesizeformat
+from django.urls import reverse
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 

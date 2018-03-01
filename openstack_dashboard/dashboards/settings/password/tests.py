@@ -13,8 +13,8 @@
 #    under the License.
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django import http
+from django.urls import reverse
 from django.utils.six.moves.urllib.parse import urlsplit
 
 import mock

@@ -16,11 +16,11 @@ from mox3.mox import IsA
 import six
 import yaml
 
-from django.core.urlresolvers import reverse
 from django.http import HttpRequest
 from django import template
 from django.template import loader
 from django.test.utils import override_settings
+from django.urls import reverse
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

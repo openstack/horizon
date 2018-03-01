@@ -32,7 +32,7 @@ from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import empty
 from django.utils.functional import SimpleLazyObject

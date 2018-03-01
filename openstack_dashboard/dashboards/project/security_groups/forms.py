@@ -19,8 +19,8 @@
 import netaddr
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.forms import ValidationError
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 import six

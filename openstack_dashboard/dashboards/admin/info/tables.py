@@ -11,9 +11,9 @@
 # under the License.
 
 from django.conf import settings
-from django.core import urlresolvers
 from django import template
 from django.template import defaultfilters as filters
+from django import urls
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -196,8 +196,8 @@ class NetworkL3AgentRoutersLinkAction(tables.LinkAction):
 
     def get_link_url(self, datum=None):
         obj_id = datum.id
-        return urlresolvers.reverse("horizon:admin:routers:l3_agent_list",
-                                    args=(obj_id,))
+        return urls.reverse("horizon:admin:routers:l3_agent_list",
+                            args=(obj_id,))
 
 
 class NetworkAgentsTable(tables.DataTable):

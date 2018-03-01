@@ -29,10 +29,10 @@ import django
 from django.conf import settings
 from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
-from django.core import urlresolvers
 from django import http as http_request
 from django.test.client import RequestFactory
 from django.test import utils as django_test_utils
+from django import urls
 from django.utils import http
 
 from cinderclient import client as cinder_client
@@ -747,7 +747,7 @@ class PluginTestCase(TestCase):
         to be re-calculated after registering new dashboards. Useful
         only for testing and should never be used on a live site.
         """
-        urlresolvers.clear_url_caches()
+        urls.clear_url_caches()
         moves.reload_module(import_module(settings.ROOT_URLCONF))
         base.Horizon._urls()
 

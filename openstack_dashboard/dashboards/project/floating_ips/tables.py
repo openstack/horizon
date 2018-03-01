@@ -15,8 +15,8 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
 from django import shortcuts
+from django.urls import reverse
 from django.utils.http import urlencode
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import string_concat

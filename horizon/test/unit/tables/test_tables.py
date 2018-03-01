@@ -18,12 +18,12 @@
 import unittest
 import uuid
 
-from django.core.urlresolvers import reverse
 from django import forms
 from django import http
 from django import shortcuts
 from django.template import defaultfilters
 from django.test.utils import override_settings
+from django.urls import reverse
 from django.utils.translation import ungettext_lazy
 
 import mock

@@ -23,11 +23,11 @@ import sys
 
 import django
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
 import django.test
 from django.test.utils import override_settings
+from django.urls import reverse
 from django.utils.http import urlencode
 from mox3.mox import IgnoreArg
 from mox3.mox import IsA
