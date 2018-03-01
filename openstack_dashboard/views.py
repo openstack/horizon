@@ -56,7 +56,7 @@ def get_user_home(user):
 
 @django.views.decorators.vary.vary_on_cookie
 def splash(request):
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         raise exceptions.NotAuthenticated()
 
     response = shortcuts.redirect(horizon.get_user_home(request.user))

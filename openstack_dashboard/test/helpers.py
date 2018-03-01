@@ -438,7 +438,7 @@ class TestCase(horizon_helpers.TestCase):
     @staticmethod
     def mock_rest_request(**args):
         mock_args = {
-            'user.is_authenticated.return_value': True,
+            'user.is_authenticated': True,
             'is_ajax.return_value': True,
             'policy.check.return_value': True,
             'body': ''

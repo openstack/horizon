@@ -49,7 +49,7 @@ class HorizonMiddleware(object):
         request.horizon = {'dashboard': None,
                            'panel': None,
                            'async_messages': []}
-        if not hasattr(request, "user") or not request.user.is_authenticated():
+        if not hasattr(request, "user") or not request.user.is_authenticated:
             # proceed no further if the current request is already known
             # not to be authenticated
             # it is CRITICAL to perform this check as early as possible
