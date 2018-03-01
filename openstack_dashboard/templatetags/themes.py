@@ -67,22 +67,22 @@ def find_asset(theme, asset):
     return staticfiles_storage.url(pathname2url(return_path))
 
 
-@register.assignment_tag()
+@register.simple_tag()
 def themes():
     return hz_themes.get_selectable_themes()
 
 
-@register.assignment_tag()
+@register.simple_tag()
 def theme_cookie():
     return hz_themes.get_theme_cookie_name()
 
 
-@register.assignment_tag()
+@register.simple_tag()
 def theme_dir():
     return hz_themes.get_theme_dir()
 
 
-@register.assignment_tag(takes_context=True)
+@register.simple_tag(takes_context=True)
 def current_theme(context):
     return get_theme(context.request)
 

@@ -199,19 +199,19 @@ def jstemplate(parser, token):
     return JSTemplateNode(nodelist)
 
 
-@register.assignment_tag
+@register.simple_tag
 def load_config():
     return conf
 
 
-@register.assignment_tag
+@register.simple_tag
 def datepicker_locale():
     locale_mapping = getattr(settings, 'DATEPICKER_LOCALES',
                              bootstrap_datepicker.LOCALE_MAPPING)
     return locale_mapping.get(translation.get_language(), 'en')
 
 
-@register.assignment_tag
+@register.simple_tag
 def template_cache_age():
     return getattr(settings, 'NG_TEMPLATE_CACHE_AGE', 0)
 
