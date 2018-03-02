@@ -20,80 +20,80 @@ from openstack_dashboard import api
 from openstack_dashboard.api import base
 from openstack_dashboard.api.rest import neutron
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.test.test_data import neutron_data
-from openstack_dashboard.test.test_data.utils import TestData
-
-TEST = TestData(neutron_data.data)
+from openstack_dashboard.usage import quotas
 
 
 class NeutronNetworksTestCase(test.TestCase):
 
     use_mox = False
 
-    def setUp(self):
-        super(NeutronNetworksTestCase, self).setUp()
-        self._networks = [test.mock_factory(n)
-                          for n in TEST.api_networks.list()]
+    def _dictify_network(self, network):
+        net_dict = network.to_dict()
+        net_dict['subnets'] = [s.to_dict() for s in net_dict['subnets']]
+        return net_dict
 
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_get_list_for_tenant(self, client):
+    @mock.patch.object(api.neutron, 'network_list_for_tenant')
+    def test_get_list_for_tenant(self, mock_network_list_for_tenant):
         request = self.mock_rest_request()
-        networks = self._networks
-        client.network_list_for_tenant.return_value = networks
+        mock_network_list_for_tenant.return_value = self.networks.list()
         response = neutron.Networks().get(request)
         self.assertStatusCode(response, 200)
-        self.assertItemsCollectionEqual(response, TEST.api_networks.list())
-        client.network_list_for_tenant.assert_called_once_with(
+        exp_resp = [self._dictify_network(n) for n in self.networks.list()]
+        self.assertItemsCollectionEqual(response, exp_resp)
+        mock_network_list_for_tenant.assert_called_once_with(
             request, request.user.tenant_id)
 
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_create(self, client):
+    def test_create(self):
         self._test_create(
             '{"name": "mynetwork"}',
             {'name': 'mynetwork'}
         )
 
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_create_with_bogus_param(self, client):
+    def test_create_with_bogus_param(self):
         self._test_create(
             '{"name": "mynetwork","bilbo":"baggins"}',
-            {'name': 'mynetwork'}
+            {'name': 'mynetwork', 'bilbo': 'baggins'}
         )
 
-    @mock.patch.object(neutron.api, 'neutron')
-    def _test_create(self, supplied_body, expected_call, client):
+    @mock.patch.object(api.neutron, 'network_create')
+    def _test_create(self, supplied_body, expected, mock_network_create):
         request = self.mock_rest_request(body=supplied_body)
-        client.network_create.return_value = self._networks[0]
+        mock_network_create.return_value = self.networks.first()
         response = neutron.Networks().post(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'],
                          '/api/neutron/networks/'
-                         + str(TEST.api_networks.first().get("id")))
-        self.assertEqual(response.json, TEST.api_networks.first())
+                         + self.networks.first().id)
+        exp_resp = self._dictify_network(self.networks.first())
+        self.assertEqual(response.json, exp_resp)
+        mock_network_create.assert_called_once_with(request, **expected)
 
     #
     # Services
     #
 
-    @mock.patch.object(api.base, 'is_service_enabled')
-    @mock.patch.object(api, 'neutron')
-    def test_services_get(self, client, mock_is_service_enabled):
+    @test.create_mocks({api.base: ['is_service_enabled'],
+                        api.neutron: ['is_extension_supported',
+                                      'agent_list']})
+    def test_services_get(self):
         params = django_request.QueryDict('network_id=the_network')
         request = self.mock_rest_request(GET=params)
 
-        mock_is_service_enabled.return_value = True
-        client.is_extension_supported.return_value = True
+        self.mock_is_service_enabled.return_value = True
+        self.mock_is_extension_supported.return_value = True
 
-        client.agent_list.return_value = [
+        self.mock_agent_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'id': '2'}})
         ]
 
         response = neutron.Services().get(request)
         self.assertStatusCode(response, 200)
-        mock_is_service_enabled.assert_called_once_with(request, 'network')
-        client.is_extension_supported.assert_called_once_with(request, 'agent')
-        client.agent_list.assert_called_once_with(
+        self.mock_is_service_enabled.assert_called_once_with(
+            request, 'network')
+        self.mock_is_extension_supported.assert_called_once_with(
+            request, 'agent')
+        self.mock_agent_list.assert_called_once_with(
             request, network_id='the_network')
         self.assertEqual(response.content.decode('utf-8'),
                          '{"items": [{"id": "1"}, {"id": "2"}]}')
@@ -101,7 +101,7 @@ class NeutronNetworksTestCase(test.TestCase):
     @mock.patch.object(api.base, 'is_service_enabled')
     def test_services_get_disabled(self, mock_is_service_enabled):
         request = self.mock_rest_request(
-            GET={"network_id": self._networks[0].id})
+            GET={"network_id": self.networks.first().id})
 
         mock_is_service_enabled.return_value = False
 
@@ -114,91 +114,84 @@ class NeutronSubnetsTestCase(test.TestCase):
 
     use_mox = False
 
-    def setUp(self):
-        super(NeutronSubnetsTestCase, self).setUp()
-        self._networks = [test.mock_factory(n)
-                          for n in TEST.api_networks.list()]
-        self._subnets = [test.mock_factory(n)
-                         for n in TEST.api_subnets.list()]
-
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_get(self, client):
-        params = django_request.QueryDict('network_id=%s' %
-                                          self._networks[0].id)
+    @mock.patch.object(api.neutron, 'subnet_list')
+    def test_get(self, mock_subnet_list):
+        network_id = self.networks.first().id
+        params = django_request.QueryDict('network_id=%s' % network_id)
         request = self.mock_rest_request(GET=params)
-        client.subnet_list.return_value = [self._subnets[0]]
+        mock_subnet_list.return_value = self.subnets.list()
         response = neutron.Subnets().get(request)
         self.assertStatusCode(response, 200)
-        client.subnet_list.assert_called_once_with(
-            request, network_id=TEST.api_networks.first().get("id"))
+        mock_subnet_list.assert_called_once_with(
+            request, network_id=network_id)
 
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_create(self, client):
+    @mock.patch.object(api.neutron, 'subnet_create')
+    def test_create(self, mock_subnet_create):
+        network_id = self.networks.first().id
         request = self.mock_rest_request(
             body='{"network_id": "%s",'
                  ' "ip_version": "4",'
-                 ' "cidr": "192.168.199.0/24"}' % self._networks[0].id)
-        client.subnet_create.return_value = self._subnets[0]
+                 ' "cidr": "192.168.199.0/24"}' % network_id)
+        mock_subnet_create.return_value = self.subnets.first()
         response = neutron.Subnets().post(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'],
                          '/api/neutron/subnets/' +
-                         str(TEST.api_subnets.first().get("id")))
-        self.assertEqual(response.json, TEST.api_subnets.first())
+                         self.subnets.first().id)
+        self.assertEqual(response.json, self.subnets.first().to_dict())
+        mock_subnet_create.assert_called_once_with(
+            request, cidr='192.168.199.0/24', ip_version='4',
+            network_id=network_id)
 
 
 class NeutronPortsTestCase(test.TestCase):
 
     use_mox = False
 
-    def setUp(self):
-        super(NeutronPortsTestCase, self).setUp()
-        self._networks = [test.mock_factory(n)
-                          for n in TEST.api_networks.list()]
-        self._ports = [test.mock_factory(n)
-                       for n in TEST.api_ports.list()]
-
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_get(self, client):
-        params = django_request.QueryDict('network_id=%s' %
-                                          self._networks[0].id)
+    @mock.patch.object(api.neutron, 'port_list_with_trunk_types')
+    def test_get(self, mock_port_list_with_trunk_types):
+        network_id = self.networks.first().id
+        params = django_request.QueryDict('network_id=%s' % network_id)
         request = self.mock_rest_request(GET=params)
-        client.port_list_with_trunk_types.return_value = [self._ports[0]]
+        mock_port_list_with_trunk_types.return_value = self.ports.list()
         response = neutron.Ports().get(request)
         self.assertStatusCode(response, 200)
-        client.port_list_with_trunk_types.assert_called_once_with(
-            request, network_id=TEST.api_networks.first().get("id"))
+        mock_port_list_with_trunk_types.assert_called_once_with(
+            request, network_id=network_id)
 
 
 class NeutronTrunkTestCase(test.TestCase):
 
     use_mox = False
 
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_trunk_delete(self, client):
+    @mock.patch.object(api.neutron, 'trunk_delete')
+    def test_trunk_delete(self, mock_trunk_delete):
+        mock_trunk_delete.return_value = None
         request = self.mock_rest_request()
-        neutron.Trunk().delete(request, 1)
-        client.trunk_delete.assert_called_once_with(request, 1)
+        response = neutron.Trunk().delete(request, 1)
+        self.assertStatusCode(response, 204)
+        mock_trunk_delete.assert_called_once_with(request, 1)
 
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_trunk_get(self, client):
-        trunk_id = TEST.api_trunks.first().get("id")
+    @mock.patch.object(api.neutron, 'trunk_show')
+    def test_trunk_get(self, mock_trunk_show):
+        trunk_id = self.trunks.first().id
         request = self.mock_rest_request(GET={"trunk_id": trunk_id})
-        client.trunk_show.return_value = self.trunks.first()
+        mock_trunk_show.return_value = self.trunks.first()
         response = neutron.Trunk().get(request, trunk_id=trunk_id)
         self.assertStatusCode(response, 200)
-        client.trunk_show.assert_called_once_with(
+        mock_trunk_show.assert_called_once_with(
             request, trunk_id)
 
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_trunk_patch(self, client):
+    @mock.patch.object(api.neutron, 'trunk_update')
+    def test_trunk_patch(self, mock_trunk_update):
         request = self.mock_rest_request(body='''
             [{"name": "trunk1"}, {"name": "trunk2"}]
         ''')
+        mock_trunk_update.return_value = self.trunks.first()
 
         response = neutron.Trunk().patch(request, '1')
         self.assertStatusCode(response, 200)
-        client.trunk_update.assert_called_once_with(
+        mock_trunk_update.assert_called_once_with(
             request, '1', {'name': 'trunk1'}, {'name': 'trunk2'}
         )
 
@@ -207,65 +200,57 @@ class NeutronTrunksTestCase(test.TestCase):
 
     use_mox = False
 
-    def setUp(self):
-        super(NeutronTrunksTestCase, self).setUp()
-        self._trunks = [test.mock_factory(n)
-                        for n in TEST.api_trunks.list()]
-
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_trunks_get(self, client):
+    @mock.patch.object(api.neutron, 'trunk_list')
+    def test_trunks_get(self, mock_trunk_list):
         request = self.mock_rest_request(GET=django_request.QueryDict())
-        client.trunk_list.return_value = self.trunks.list()
+        mock_trunk_list.return_value = self.trunks.list()
         response = neutron.Trunks().get(request)
         self.assertStatusCode(response, 200)
         self.assertItemsCollectionEqual(
             response,
             [t.to_dict() for t in self.trunks.list()])
+        mock_trunk_list.assert_called_once_with(request)
 
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_trunks_create(self, client):
+    @mock.patch.object(api.neutron, 'trunk_create')
+    def test_trunks_create(self, mock_trunk_create):
         request = self.mock_rest_request(body='''
-            {"name": "trunk1", "port_id": 1}
+            {"name": "trunk1", "port_id": "1"}
         ''')
-
-        client.trunk_create.return_value = self._trunks[0]
+        trunk = self.trunks.first()
+        mock_trunk_create.return_value = trunk
         response = neutron.Trunks().post(request)
         self.assertStatusCode(response, 201)
-        self.assertEqual(response.json, TEST.api_trunks.first())
+        self.assertEqual(response.json, trunk.to_dict())
+        mock_trunk_create.assert_called_once_with(request, name='trunk1',
+                                                  port_id='1')
 
 
 class NeutronExtensionsTestCase(test.TestCase):
 
     use_mox = False
 
-    def setUp(self):
-        super(NeutronExtensionsTestCase, self).setUp()
-
-        self._extensions = [n for n in TEST.api_extensions.list()]
-
-    @mock.patch.object(neutron.api, 'neutron')
-    def test_list_extensions(self, nc):
+    @mock.patch.object(api.neutron, 'list_extensions')
+    def test_list_extensions(self, mock_list_extensions):
         request = self.mock_rest_request(**{'GET': {}})
-        nc.list_extensions.return_value = self._extensions
+        mock_list_extensions.return_value = self.api_extensions.list()
         response = neutron.Extensions().get(request)
         self.assertStatusCode(response, 200)
-        self.assertItemsCollectionEqual(response, TEST.api_extensions.list())
-        nc.list_extensions.assert_called_once_with(request)
+        self.assertItemsCollectionEqual(response, self.api_extensions.list())
+        mock_list_extensions.assert_called_once_with(request)
 
 
 class NeutronDefaultQuotasTestCase(test.TestCase):
 
     use_mox = False
 
-    @mock.patch.object(api.base, 'is_service_enabled')
-    @mock.patch.object(api, 'neutron')
-    def test_quotas_sets_defaults_get_when_service_is_enabled(
-            self, client, mock_is_service_enabled):
+    @test.create_mocks({api.base: ['is_service_enabled'],
+                        api.neutron: ['tenant_quota_get']})
+    def test_quotas_sets_defaults_get_when_service_is_enabled(self):
         filters = {'user': {'tenant_id': 'tenant'}}
         request = self.mock_rest_request(**{'GET': dict(filters)})
 
-        mock_is_service_enabled.return_value = True
-        client.tenant_quota_get.return_value = [
+        self.mock_is_service_enabled.return_value = True
+        self.mock_tenant_quota_get.return_value = [
             base.Quota("network", 100),
             base.Quota("q2", 101)]
 
@@ -275,15 +260,15 @@ class NeutronDefaultQuotasTestCase(test.TestCase):
             {'limit': 100, 'display_name': 'Networks', 'name': 'network'},
             {'limit': 101, 'display_name': 'Q2', 'name': 'q2'}])
 
-        mock_is_service_enabled.assert_called_once_with(request, 'network')
-        client.tenant_quota_get.assert_called_once_with(
+        self.mock_is_service_enabled.assert_called_once_with(
+            request, 'network')
+        self.mock_tenant_quota_get.assert_called_once_with(
             request,
             request.user.tenant_id)
 
     @mock.patch.object(api.base, 'is_service_enabled')
-    @mock.patch.object(api, 'neutron')
     def test_quota_sets_defaults_get_when_service_is_disabled(
-            self, client, mock_is_service_enabled):
+            self, mock_is_service_enabled):
         filters = {'user': {'tenant_id': 'tenant'}}
         request = self.mock_rest_request(**{'GET': dict(filters)})
         mock_is_service_enabled.return_value = False
@@ -294,26 +279,17 @@ class NeutronDefaultQuotasTestCase(test.TestCase):
                          '"Service Neutron is disabled."')
 
         mock_is_service_enabled.assert_called_once_with(request, 'network')
-        client.tenant_quota_get.assert_not_called()
 
 
 class NeutronQuotaSetsTestCase(test.TestCase):
 
     use_mox = False
 
-    def setUp(self):
-        super(NeutronQuotaSetsTestCase, self).setUp()
-
-        quota_set = self.neutron_quotas.list()[0]
-        self._quota_data = {}
-
-        for quota in quota_set:
-            self._quota_data[quota.name] = quota.limit
-
-    @mock.patch.object(neutron, 'quotas')
-    @mock.patch.object(neutron.api, 'neutron')
-    @mock.patch.object(neutron.api, 'base')
-    def test_quotas_sets_patch(self, bc, nc, qc):
+    @test.create_mocks({api.base: ['is_service_enabled'],
+                        api.neutron: ['is_extension_supported',
+                                      'tenant_quota_update'],
+                        quotas: ['get_disabled_quotas']})
+    def test_quotas_sets_patch(self):
         request = self.mock_rest_request(body='''
             {"network": "5", "subnet": "5", "port": "50",
              "router": "5", "floatingip": "50",
@@ -321,25 +297,30 @@ class NeutronQuotaSetsTestCase(test.TestCase):
              "volumes": "5", "cores": "50"}
         ''')
 
-        qc.get_disabled_quotas.return_value = []
-        qc.NEUTRON_QUOTA_FIELDS = {n for n in self._quota_data}
-        bc.is_service_enabled.return_value = True
-        nc.is_extension_supported.return_value = True
+        self.mock_get_disabled_quotas.return_value = []
+        self.mock_is_service_enabled.return_value = True
+        self.mock_is_extension_supported.return_value = True
+        self.mock_tenant_quota_update.return_value = None
 
         response = neutron.QuotasSets().patch(request, 'spam123')
 
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content.decode('utf-8'), '')
-        nc.tenant_quota_update.assert_called_once_with(
+
+        self.mock_get_disabled_quotas.assert_called_once_with(request)
+        self.mock_is_service_enabled.assert_called_once_with(
+            request, 'network')
+        self.mock_is_extension_supported.assert_called_once_with(
+            request, 'quotas')
+        self.mock_tenant_quota_update.assert_called_once_with(
             request, 'spam123', network='5',
             subnet='5', port='50', router='5',
             floatingip='50', security_group='5',
             security_group_rule='50')
 
-    @mock.patch.object(neutron, 'quotas')
-    @mock.patch.object(neutron.api, 'neutron')
-    @mock.patch.object(neutron.api, 'base')
-    def test_quotas_sets_patch_when_service_is_disabled(self, bc, nc, qc):
+    @test.create_mocks({api.base: ['is_service_enabled'],
+                        quotas: ['get_disabled_quotas']})
+    def test_quotas_sets_patch_when_service_is_disabled(self):
         request = self.mock_rest_request(body='''
             {"network": "5", "subnet": "5", "port": "50",
              "router": "5", "floatingip": "50",
@@ -347,25 +328,16 @@ class NeutronQuotaSetsTestCase(test.TestCase):
              "volumes": "5", "cores": "50"}
         ''')
 
-        qc.get_disabled_quotas.return_value = []
-        qc.NEUTRON_QUOTA_FIELDS = {n for n in self._quota_data}
-        bc.is_service_enabled.return_value = False
+        self.mock_get_disabled_quotas.return_value = []
+        self.mock_is_service_enabled.return_value = False
 
         response = neutron.QuotasSets().patch(request, 'spam123')
-        message = \
-            '"Service Neutron is disabled or quotas extension not available."'
+        message = ('"Service Neutron is disabled or '
+                   'quotas extension not available."')
 
         self.assertStatusCode(response, 501)
         self.assertEqual(response.content.decode('utf-8'), message)
-        nc.tenant_quota_update.assert_not_called()
 
-
-def mock_obj_to_dict(r):
-    return mock.Mock(**{'to_dict.return_value': r})
-
-
-def mock_factory(r):
-    """mocks all the attributes as well as the to_dict """
-    mocked = mock_obj_to_dict(r)
-    mocked.configure_mock(**r)
-    return mocked
+        self.mock_get_disabled_quotas.assert_called_once_with(request)
+        self.mock_is_service_enabled.assert_called_once_with(
+            request, 'network')
