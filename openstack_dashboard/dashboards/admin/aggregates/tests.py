@@ -12,10 +12,8 @@
 
 import mock
 
-from django import http
 from django.urls import reverse
 from django.utils import html
-from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.aggregates import constants
@@ -38,14 +36,12 @@ class BaseAggregateWorkflowTests(test.BaseAdminViewTests):
 
 class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 
-    @test.create_stubs({api.nova: ('service_list', ), })
+    @test.create_mocks({api.nova: ['service_list']})
     def test_workflow_get(self):
 
         compute_services = [s for s in self.services.list()
                             if s.binary == 'nova-compute']
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        self.mox.ReplayAll()
+        self.mock_service_list.return_value = compute_services
 
         url = reverse(constants.AGGREGATES_CREATE_URL)
         res = self.client.get(url)
@@ -57,27 +53,25 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
             workflow.steps,
             ['<SetAggregateInfoStep: set_aggregate_info>',
              '<AddHostsToAggregateStep: add_host_to_aggregate>'])
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            binary='nova-compute')
 
-    @test.create_stubs({api.nova: ('service_list', 'aggregate_details_list',
-                                   'aggregate_create'), })
+    @test.create_mocks({
+        api.nova: ['service_list',
+                   'aggregate_details_list',
+                   'aggregate_create']})
     def _test_generic_create_aggregate(self, workflow_data, aggregate,
                                        existing_aggregates=(),
                                        error_count=0,
                                        expected_error_message=None):
         compute_services = [s for s in self.services.list()
                             if s.binary == 'nova-compute']
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        api.nova.aggregate_details_list(IsA(http.HttpRequest)) \
-            .AndReturn(existing_aggregates)
-        if not expected_error_message:
-            api.nova.aggregate_create(
-                IsA(http.HttpRequest),
-                name=workflow_data['name'],
-                availability_zone=workflow_data['availability_zone'],
-            ).AndReturn(aggregate)
+        self.mock_service_list.return_value = compute_services
+        self.mock_aggregate_details_list.return_value = existing_aggregates
 
-        self.mox.ReplayAll()
+        if not expected_error_message:
+            self.mock_aggregate_create.return_value = aggregate
 
         url = reverse(constants.AGGREGATES_CREATE_URL)
         res = self.client.post(url, workflow_data)
@@ -86,8 +80,18 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
             self.assertNoFormErrors(res)
             self.assertRedirectsNoFollow(
                 res, reverse(constants.AGGREGATES_INDEX_URL))
+            self.mock_aggregate_create.assert_called_once_with(
+                test.IsHttpRequest(),
+                name=workflow_data['name'],
+                availability_zone=workflow_data['availability_zone'])
         else:
             self.assertFormErrors(res, error_count, expected_error_message)
+            self.mock_aggregate_create.assert_not_called()
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            binary='nova-compute')
+        self.mock_aggregate_details_list.assert_called_once_with(
+            test.IsHttpRequest())
 
     def test_create_aggregate(self):
         aggregate = self.aggregates.first()
@@ -125,34 +129,25 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
                                             existing_aggregates, 1,
                                             expected_error_message)
 
-    @test.create_stubs({api.nova: ('service_list',
-                                   'aggregate_details_list',
-                                   'aggregate_create',
-                                   'add_host_to_aggregate'), })
+    @test.create_mocks(
+        {api.nova: ['service_list',
+                    'aggregate_details_list',
+                    'aggregate_create',
+                    'add_host_to_aggregate']})
     def test_create_aggregate_with_hosts(self):
         aggregate = self.aggregates.first()
 
         compute_services = [s for s in self.services.list()
                             if s.binary == 'nova-compute']
         compute_hosts = [s.host for s in compute_services]
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        api.nova.aggregate_details_list(IsA(http.HttpRequest)).AndReturn([])
+
+        self.mock_service_list.return_value = compute_services
+        self.mock_aggregate_details_list.return_value = []
 
         workflow_data = self._get_create_workflow_data(aggregate,
                                                        compute_hosts)
-        api.nova.aggregate_create(
-            IsA(http.HttpRequest),
-            name=workflow_data['name'],
-            availability_zone=workflow_data['availability_zone'],
-        ).AndReturn(aggregate)
-
-        for host in compute_hosts:
-            api.nova.add_host_to_aggregate(
-                IsA(http.HttpRequest),
-                aggregate.id, host).InAnyOrder()
-
-        self.mox.ReplayAll()
+        self.mock_aggregate_create.return_value = aggregate
+        self.mock_add_host_to_aggregate.return_value = None
 
         url = reverse(constants.AGGREGATES_CREATE_URL)
         res = self.client.post(url, workflow_data)
@@ -160,15 +155,28 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res,
                                      reverse(constants.AGGREGATES_INDEX_URL))
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            binary='nova-compute')
+        self.mock_aggregate_details_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_aggregate_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            name=workflow_data['name'],
+            availability_zone=workflow_data['availability_zone'])
+        self.assertEqual(self.mock_add_host_to_aggregate.call_count,
+                         len(compute_hosts))
 
-    @test.create_stubs({api.nova: ('service_list',
-                                   'aggregate_details_list', ), })
+        expected_calls = [mock.call(test.IsHttpRequest(), aggregate.id, h)
+                          for h in compute_hosts]
+        self.mock_add_host_to_aggregate.assert_has_calls(
+            expected_calls)
+
+    @test.create_mocks({api.nova: ['service_list']})
     def test_service_list_nova_compute(self):
         compute_services = [s for s in self.services.list()
                             if s.binary == 'nova-compute']
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        self.mox.ReplayAll()
+        self.mock_service_list.return_value = compute_services
 
         url = reverse(constants.AGGREGATES_CREATE_URL)
         res = self.client.get(url)
@@ -177,30 +185,38 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
         field_name = step.get_member_field_name('member')
         self.assertEqual(len(step.action.fields[field_name].choices),
                          len(compute_services))
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(), binary='nova-compute')
 
 
 class AggregatesViewTests(test.BaseAdminViewTests):
 
-    @mock.patch('openstack_dashboard.api.nova.extension_supported',
-                mock.Mock(return_value=False))
-    @test.create_stubs({api.keystone: ('tenant_list',)})
+    @test.create_mocks({
+        api.keystone: ['tenant_list'],
+        api.nova: ['extension_supported']})
     def test_panel_not_available(self):
-        api.keystone.tenant_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.tenants.list())
-        self.mox.ReplayAll()
+        self.mock_tenant_list.return_value = self.tenants.list()
+        self.mock_extension_supported.return_value = False
 
         self.patchers['aggregates'].stop()
         res = self.client.get(reverse('horizon:admin:overview:index'))
         self.assertNotIn(b'Host Aggregates', res.content)
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.assertEqual(self.mock_extension_supported.call_count, 3)
+        expected_calls = [mock.call(a, test.IsHttpRequest())
+                          for a in ['SimpleTenantUsage',
+                                    'SimpleTenantUsage',
+                                    'Aggregates']]
+        self.mock_extension_supported.assert_has_calls(
+            expected_calls)
 
-    @test.create_stubs({api.nova: ('aggregate_details_list',
-                                   'availability_zone_list',)})
+    @test.create_mocks({
+        api.nova: ['aggregate_details_list',
+                   'availability_zone_list']})
     def test_index(self):
-        api.nova.aggregate_details_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.aggregates.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest), detailed=True) \
-                .AndReturn(self.availability_zones.list())
-        self.mox.ReplayAll()
+        self.mock_aggregate_details_list.return_value = self.aggregates.list()
+        self.mock_availability_zone_list.return_value = \
+            self.availability_zones.list()
 
         res = self.client.get(reverse(constants.AGGREGATES_INDEX_URL))
         self.assertTemplateUsed(res, constants.AGGREGATES_INDEX_VIEW_TEMPLATE)
@@ -208,29 +224,37 @@ class AggregatesViewTests(test.BaseAdminViewTests):
                               self.aggregates.list())
         self.assertItemsEqual(res.context['availability_zones_table'].data,
                               self.availability_zones.list())
+        self.mock_aggregate_details_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_availability_zone_list.assert_called_once_with(
+            test.IsHttpRequest(), detailed=True)
 
-    @test.create_stubs({api.nova: ('aggregate_update', 'aggregate_get',), })
+    @test.create_mocks({api.nova: ['aggregate_update', 'aggregate_get']})
     def _test_generic_update_aggregate(self, form_data, aggregate,
                                        error_count=0,
                                        expected_error_message=None):
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id))\
-                .AndReturn(aggregate)
+        self.mock_aggregate_get.return_value = aggregate
         if not expected_error_message:
             az = form_data['availability_zone']
             aggregate_data = {'name': form_data['name'],
                               'availability_zone': az}
-            api.nova.aggregate_update(IsA(http.HttpRequest), str(aggregate.id),
-                                      aggregate_data)
-        self.mox.ReplayAll()
+            self.mock_aggregate_update.return_value = None
 
         res = self.client.post(reverse(constants.AGGREGATES_UPDATE_URL,
                                args=[aggregate.id]),
                                form_data)
 
+        self.mock_aggregate_get.assert_called_once_with(
+            test.IsHttpRequest(),
+            str(aggregate.id))
         if not expected_error_message:
             self.assertNoFormErrors(res)
             self.assertRedirectsNoFollow(
                 res, reverse(constants.AGGREGATES_INDEX_URL))
+            self.mock_aggregate_update.assert_called_once_with(
+                test.IsHttpRequest(),
+                str(aggregate.id),
+                aggregate_data)
         else:
             self.assertFormErrors(res, error_count, expected_error_message)
 
@@ -252,27 +276,32 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
 class ManageHostsTests(test.BaseAdminViewTests):
 
-    @test.create_stubs({api.nova: ('aggregate_get', 'service_list')})
+    @test.create_mocks({api.nova: ['aggregate_get', 'service_list']})
     def test_manage_hosts(self):
         aggregate = self.aggregates.first()
 
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .AndReturn(aggregate)
+        self.mock_aggregate_get.return_value = aggregate
         compute_services = [s for s in self.services.list()
                             if s.binary == 'nova-compute']
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        self.mox.ReplayAll()
+        self.mock_service_list.return_value = compute_services
 
         res = self.client.get(reverse(constants.AGGREGATES_MANAGE_HOSTS_URL,
                                       args=[aggregate.id]))
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res,
                                 constants.AGGREGATES_MANAGE_HOSTS_TEMPLATE)
+        self.mock_aggregate_get.assert_called_once_with(
+            test.IsHttpRequest(),
+            str(aggregate.id))
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            binary='nova-compute')
 
-    @test.create_stubs({api.nova: ('aggregate_get', 'add_host_to_aggregate',
-                                   'remove_host_from_aggregate',
-                                   'service_list')})
+    @test.create_mocks({
+        api.nova: ['aggregate_get',
+                   'add_host_to_aggregate',
+                   'remove_host_from_aggregate',
+                   'service_list']})
     def test_manage_hosts_update_add_remove_not_empty_aggregate(self):
         aggregate = self.aggregates.first()
         aggregate.hosts = ['host1', 'host2']
@@ -281,23 +310,12 @@ class ManageHostsTests(test.BaseAdminViewTests):
         host = compute_services[0].host
         form_data = {'manageaggregatehostsaction_role_member': [host]}
 
-        api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
-                                            str(aggregate.id),
-                                            'host2').InAnyOrder()
-        api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
-                                            str(aggregate.id),
-                                            'host1').InAnyOrder()
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .AndReturn(aggregate)
+        self.mock_remove_host_from_aggregate.return_value = None
+        self.mock_aggregate_get.return_value = aggregate
         compute_services = [s for s in self.services.list()
                             if s.binary == 'nova-compute']
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .AndReturn(aggregate)
-        api.nova.add_host_to_aggregate(IsA(http.HttpRequest),
-                                       str(aggregate.id), host)
-        self.mox.ReplayAll()
+        self.mock_service_list.return_value = compute_services
+        self.mock_add_host_to_aggregate.return_value = None
 
         res = self.client.post(reverse(constants.AGGREGATES_MANAGE_HOSTS_URL,
                                        args=[aggregate.id]),
@@ -305,10 +323,25 @@ class ManageHostsTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res,
                                      reverse(constants.AGGREGATES_INDEX_URL))
+        self.assertEqual(self.mock_aggregate_get.call_count, 2)
+        self.mock_aggregate_get.assert_has_calls(
+            [mock.call(test.IsHttpRequest(), str(aggregate.id))]*2)
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(), binary='nova-compute')
+        self.mock_add_host_to_aggregate.assert_called_once_with(
+            test.IsHttpRequest(), str(aggregate.id), host)
+        self.assertEqual(self.mock_remove_host_from_aggregate.call_count, 2)
+        expected_calls = [mock.call(test.IsHttpRequest(), str(aggregate.id), h)
+                          for h in ('host1', 'host2')]
+        self.mock_remove_host_from_aggregate.assert_has_calls(
+            expected_calls,
+            any_order=True)
 
-    @test.create_stubs({api.nova: ('aggregate_get', 'add_host_to_aggregate',
-                                   'remove_host_from_aggregate',
-                                   'service_list')})
+    @test.create_mocks({
+        api.nova: ['aggregate_get',
+                   'add_host_to_aggregate',
+                   'remove_host_from_aggregate',
+                   'service_list']})
     def test_manage_hosts_update_add_not_empty_aggregate_should_fail(self):
         aggregate = self.aggregates.first()
         aggregate.hosts = ['devstack001']
@@ -318,17 +351,9 @@ class ManageHostsTests(test.BaseAdminViewTests):
         host3 = compute_services[2].host
         form_data = {'manageaggregatehostsaction_role_member': [host1, host3]}
 
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .InAnyOrder().AndReturn(aggregate)
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .InAnyOrder().AndReturn(aggregate)
-        api.nova.add_host_to_aggregate(IsA(http.HttpRequest),
-                                       str(aggregate.id),
-                                       host3) \
-                .InAnyOrder().AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
+        self.mock_aggregate_get.return_value = aggregate
+        self.mock_service_list.return_value = compute_services
+        self.mock_add_host_to_aggregate.side_effect = self.exceptions.nova
 
         res = self.client.post(reverse(constants.AGGREGATES_MANAGE_HOSTS_URL,
                                        args=[aggregate.id]),
@@ -337,70 +362,71 @@ class ManageHostsTests(test.BaseAdminViewTests):
         self.assertMessageCount(error=2)
         self.assertRedirectsNoFollow(res,
                                      reverse(constants.AGGREGATES_INDEX_URL))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_aggregate_get,
+            2,
+            mock.call(test.IsHttpRequest(), str(aggregate.id)))
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(), binary='nova-compute')
+        self.mock_add_host_to_aggregate.assert_called_once_with(
+            test.IsHttpRequest(), str(aggregate.id), host3)
 
-    @test.create_stubs({api.nova: ('aggregate_get', 'add_host_to_aggregate',
-                                   'remove_host_from_aggregate',
-                                   'service_list')})
+    @test.create_mocks({
+        api.nova: ['aggregate_get',
+                   'add_host_to_aggregate',
+                   'remove_host_from_aggregate',
+                   'service_list']})
     def test_manage_hosts_update_clean_not_empty_aggregate_should_fail(self):
         aggregate = self.aggregates.first()
         aggregate.hosts = ['host2']
         form_data = {'manageaggregatehostsaction_role_member':
                      []}
 
-        api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
-                                            str(aggregate.id),
-                                            'host2')\
-                .AndRaise(self.exceptions.nova)
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .AndReturn(aggregate)
+        self.mock_remove_host_from_aggregate.side_effect = self.exceptions.nova
+        self.mock_aggregate_get.return_value = aggregate
         compute_services = [s for s in self.services.list()
                             if s.binary == 'nova-compute']
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .AndReturn(aggregate)
-        self.mox.ReplayAll()
+        self.mock_service_list.return_value = compute_services
 
         res = self.client.post(reverse(constants.AGGREGATES_MANAGE_HOSTS_URL,
                                        args=[aggregate.id]),
                                form_data)
+
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=2)
         self.assertRedirectsNoFollow(res,
                                      reverse(constants.AGGREGATES_INDEX_URL))
+        self.mock_remove_host_from_aggregate.assert_called_once_with(
+            test.IsHttpRequest(),
+            str(aggregate.id),
+            'host2')
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_aggregate_get,
+            2,
+            mock.call(test.IsHttpRequest(), str(aggregate.id)))
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            binary='nova-compute')
 
-    @test.create_stubs({api.nova: ('aggregate_get', 'add_host_to_aggregate',
-                                   'remove_host_from_aggregate',
-                                   'service_list')})
+    @test.create_mocks({
+        api.nova: ['aggregate_get',
+                   'add_host_to_aggregate',
+                   'remove_host_from_aggregate',
+                   'service_list']})
     def _test_manage_hosts_update(self,
                                   host,
                                   aggregate,
                                   form_data,
-                                  addAggregate=False,
-                                  cleanAggregates=False):
-        if cleanAggregates:
-            api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
-                                                str(aggregate.id),
-                                                'host3').InAnyOrder()
-            api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
-                                                str(aggregate.id),
-                                                'host2').InAnyOrder()
-            api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
-                                                str(aggregate.id),
-                                                'host1').InAnyOrder()
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .AndReturn(aggregate)
+                                  add_aggregate=False,
+                                  clean_aggregates=False):
+        if clean_aggregates:
+            self.mock_remove_host_from_aggregate.return_value = None
+        self.mock_aggregate_get.return_value = aggregate
         compute_services = [s for s in self.services.list()
                             if s.binary == 'nova-compute']
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .AndReturn(aggregate)
-        if addAggregate:
-            api.nova.add_host_to_aggregate(IsA(http.HttpRequest),
-                                           str(aggregate.id),
-                                           host)
-        self.mox.ReplayAll()
+        self.mock_service_list.return_value = compute_services
+        if add_aggregate:
+            self.mock_add_host_to_aggregate.return_value = None
 
         res = self.client.post(reverse(constants.AGGREGATES_MANAGE_HOSTS_URL,
                                        args=[aggregate.id]),
@@ -408,6 +434,33 @@ class ManageHostsTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res,
                                      reverse(constants.AGGREGATES_INDEX_URL))
+        if clean_aggregates:
+            self.assertEqual(self.mock_remove_host_from_aggregate.call_count,
+                             3)
+            expected_calls = [mock.call(test.IsHttpRequest(),
+                                        str(aggregate.id), h)
+                              for h in ('host1', 'host2', 'host3')]
+            self.mock_remove_host_from_aggregate.assert_has_calls(
+                expected_calls,
+                any_order=True)
+        else:
+            self.mock_remove_host_from_aggregate.assert_not_called()
+
+        if add_aggregate:
+            self.mock_add_host_to_aggregate.assert_called_once_with(
+                test.IsHttpRequest(),
+                str(aggregate.id),
+                host)
+        else:
+            self.mock_add_host_to_aggregate.assert_not_called()
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_aggregate_get,
+            2,
+            mock.call(test.IsHttpRequest(), str(aggregate.id)))
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            binary='nova-compute')
 
     def test_manage_hosts_update_nothing_not_empty_aggregate(self):
         aggregate = self.aggregates.first()
@@ -419,7 +472,7 @@ class ManageHostsTests(test.BaseAdminViewTests):
         self._test_manage_hosts_update(host,
                                        aggregate,
                                        form_data,
-                                       addAggregate=False)
+                                       add_aggregate=False)
 
     def test_manage_hosts_update_nothing_empty_aggregate(self):
         aggregate = self.aggregates.first()
@@ -429,7 +482,7 @@ class ManageHostsTests(test.BaseAdminViewTests):
         self._test_manage_hosts_update(None,
                                        aggregate,
                                        form_data,
-                                       addAggregate=False)
+                                       add_aggregate=False)
 
     def test_manage_hosts_update_add_empty_aggregate(self):
         aggregate = self.aggregates.first()
@@ -441,7 +494,7 @@ class ManageHostsTests(test.BaseAdminViewTests):
         self._test_manage_hosts_update(host,
                                        aggregate,
                                        form_data,
-                                       addAggregate=True)
+                                       add_aggregate=True)
 
     def test_manage_hosts_update_add_not_empty_aggregate(self):
         aggregate = self.aggregates.first()
@@ -454,7 +507,7 @@ class ManageHostsTests(test.BaseAdminViewTests):
         self._test_manage_hosts_update(host3,
                                        aggregate,
                                        form_data,
-                                       addAggregate=True)
+                                       add_aggregate=True)
 
     def test_manage_hosts_update_clean_not_empty_aggregate(self):
         aggregate = self.aggregates.first()
@@ -464,5 +517,5 @@ class ManageHostsTests(test.BaseAdminViewTests):
         self._test_manage_hosts_update(None,
                                        aggregate,
                                        form_data,
-                                       addAggregate=False,
-                                       cleanAggregates=True)
+                                       add_aggregate=False,
+                                       clean_aggregates=True)
