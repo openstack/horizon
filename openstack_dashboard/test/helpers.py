@@ -38,8 +38,15 @@ from django.utils import http
 from cinderclient import client as cinder_client
 import glanceclient
 from keystoneclient.v2_0 import client as keystone_client
+# As of Rocky, we are in the process of removing mox usage.
+# To allow mox-free horizon plugins to consume the test helper,
+# mox import is now optional. If tests depends on mox,
+# mox (or mox3) must be declared in test-requirements.txt.
 import mock
-from mox3 import mox
+try:
+    from mox3 import mox
+except ImportError:
+    pass
 from neutronclient.v2_0 import client as neutron_client
 from novaclient import api_versions as nova_api_versions
 from novaclient.v2 import client as nova_client

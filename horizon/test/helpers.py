@@ -55,8 +55,14 @@ except ImportError as e:
     LOG.warning("%s, force WITH_SELENIUM=False", e)
     os.environ['WITH_SELENIUM'] = ''
 
-
-from mox3 import mox
+# As of Rocky, we are in the process of removing mox usage.
+# To allow mox-free horizon plugins to consume the test helper,
+# mox import is now optional. If tests depends on mox,
+# mox (or mox3) must be declared in test-requirements.txt.
+try:
+    from mox3 import mox
+except ImportError:
+    pass
 
 from horizon import middleware
 
