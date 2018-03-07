@@ -208,8 +208,8 @@
         if (step.checkReadiness) {
           var promise = step.checkReadiness();
           stepReadyPromises.push(promise);
-          promise.then(function() {
-            step.ready = true;
+          promise.then(function(isReady) {
+            step.ready = isReady;
           });
         }
       });

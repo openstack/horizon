@@ -225,9 +225,9 @@
       expect(checkedStep.checkReadiness).toHaveBeenCalled();
     });
 
-    it("should remove steps when readiness is false", function() {
+    it("should remove steps when readiness doesn't resolve with true parameter", function() {
 
-      var checkReadinessPromises = [$q.defer(), $q.defer(), $q.defer(), $q.defer()];
+      var checkReadinessPromises = [$q.defer(), $q.defer(), $q.defer(), $q.defer(), $q.defer()];
 
       $scope.workflow = {
         steps: [
@@ -247,20 +247,25 @@
           {
             id: 'five',
             checkReadiness: function() { return checkReadinessPromises[3].promise; }
+          },
+          {
+            id: 'six',
+            checkReadiness: function() { return checkReadinessPromises[4].promise; }
           }
         ]
       };
 
       checkReadinessPromises[0].reject();
-      checkReadinessPromises[1].resolve();
+      checkReadinessPromises[1].resolve(true);
       checkReadinessPromises[2].reject();
-      checkReadinessPromises[3].resolve();
+      checkReadinessPromises[3].resolve(false);
+      checkReadinessPromises[4].resolve(true);
       $scope.$apply();
 
       expect($scope.steps.length).toBe(3);
       expect($scope.steps[0].id).toBe('one');
       expect($scope.steps[1].id).toBe('three');
-      expect($scope.steps[2].id).toBe('five');
+      expect($scope.steps[2].id).toBe('six');
     });
 
     it('should pass result of submit function on to close function', function () {
