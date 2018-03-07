@@ -128,12 +128,26 @@ class UpdateInstanceSecurityGroups(BaseSecurityGroups):
 class UpdateInstanceInfoAction(workflows.Action):
     name = forms.CharField(label=_("Name"),
                            max_length=255)
+    description = forms.CharField(
+        label=_("Description"),
+        widget=forms.Textarea(attrs={'rows': 4}),
+        max_length=255,
+        required=False
+    )
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateInstanceInfoAction, self).__init__(request,
+                                                       *args,
+                                                       **kwargs)
+        if not api.nova.is_feature_available(request, "instance_description"):
+            del self.fields["description"]
 
     def handle(self, request, data):
         try:
             api.nova.server_update(request,
                                    data['instance_id'],
-                                   data['name'])
+                                   data['name'],
+                                   description=data.get('description'))
         except Exception:
             exceptions.handle(request, ignore=True)
             return False
@@ -148,7 +162,7 @@ class UpdateInstanceInfoAction(workflows.Action):
 class UpdateInstanceInfo(workflows.Step):
     action_class = UpdateInstanceInfoAction
     depends_on = ("instance_id",)
-    contributes = ("name",)
+    contributes = ("name", "description")
 
 
 class UpdateInstance(workflows.Workflow):

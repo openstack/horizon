@@ -56,9 +56,17 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         widget=forms.PasswordInput(render_value=False))
     disk_config = forms.ThemableChoiceField(label=_("Disk Partition"),
                                             required=False)
+    description = forms.CharField(
+        label=_("Description"),
+        widget=forms.Textarea(attrs={'rows': 4}),
+        max_length=255,
+        required=False
+    )
 
     def __init__(self, request, *args, **kwargs):
         super(RebuildInstanceForm, self).__init__(request, *args, **kwargs)
+        if not api.nova.is_feature_available(request, "instance_description"):
+            del self.fields['description']
         instance_id = kwargs.get('initial', {}).get('instance_id')
         self.fields['instance_id'].initial = instance_id
 
@@ -105,9 +113,10 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         image = data.get('image')
         password = data.get('password') or None
         disk_config = data.get('disk_config', None)
+        description = data.get('description', None)
         try:
             api.nova.server_rebuild(request, instance, image, password,
-                                    disk_config)
+                                    disk_config, description=description)
             messages.info(request, _('Rebuilding instance %s.') % instance)
         except Exception:
             redirect = reverse('horizon:project:instances:index')

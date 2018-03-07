@@ -334,8 +334,10 @@ class UpdateView(workflows.WorkflowView):
 
     def get_initial(self):
         initial = super(UpdateView, self).get_initial()
+        instance = self.get_object()
         initial.update({'instance_id': self.kwargs['instance_id'],
-                        'name': getattr(self.get_object(), 'name', '')})
+                        'name': getattr(instance, 'name', ''),
+                        'description': getattr(instance, 'description', '')})
         return initial
 
 
@@ -352,8 +354,21 @@ class RebuildView(forms.ModalFormView):
         context['can_set_server_password'] = api.nova.can_set_server_password()
         return context
 
+    @memoized.memoized_method
+    def get_object(self, *args, **kwargs):
+        instance_id = self.kwargs['instance_id']
+        try:
+            return api.nova.server_get(self.request, instance_id)
+        except Exception:
+            redirect = reverse("horizon:project:instances:index")
+            msg = _('Unable to retrieve instance details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
+
     def get_initial(self):
-        return {'instance_id': self.kwargs['instance_id']}
+        instance = self.get_object()
+        initial = {'instance_id': self.kwargs['instance_id'],
+                   'description': getattr(instance, 'description', '')}
+        return initial
 
 
 class DecryptPasswordView(forms.ModalFormView):
