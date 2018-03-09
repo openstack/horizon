@@ -15,7 +15,7 @@ Plugin Registry
 
    * - Plugin
      - URL
-     - Launchpad
+     - Bug Tracker
    * - Astara Dashboard
      - https://github.com/openstack/astara-horizon
      - https://launchpad.net/astara
@@ -78,13 +78,13 @@ Plugin Registry
      - https://launchpad.net/neutron-fwaas-dashboard
    * - Neutron LBaaS Dashboard
      - https://github.com/openstack/neutron-lbaas-dashboard
-     - http://launchpad.net/octavia
+     - https://storyboard.openstack.org/#!/project/907
    * - Neutron VPNaaS Dashboard
      - https://github.com/openstack/neutron-vpnaas-dashboard
      - https://launchpad.net/neutron-vpnaas-dashboard
    * - Octavia Dashboard
      - https://github.com/openstack/octavia-dashboard
-     - https://launchpad.net/octavia
+     - https://storyboard.openstack.org/#!/project/909
    * - Sahara Dashboard
      - https://github.com/openstack/sahara-dashboard
      - https://launchpad.net/sahara
