@@ -73,6 +73,27 @@ TEMPLATES = [
     },
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'test': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+        }
+    },
+    'loggers': {
+        'openstack_auth': {
+            'handlers': ['test'],
+            'propagate': False,
+        },
+    }
+}
+
 AUTH_USER_MODEL = 'openstack_auth.User'
 
 LOGGING = {
