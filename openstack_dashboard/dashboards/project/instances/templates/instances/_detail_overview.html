@@ -122,8 +122,8 @@
       {% endif %}
       {% with default_item_value="<em>"|add:_("N/A")|add:"</em>" %}
       {% for key, value in instance.metadata.items %}
-        <dt>{{ key|force_escape }}</dt>
-        <dd>{{ value|force_escape|default:default_item_value }}</dd>
+        <dt>{{ key }}</dt>
+        <dd>{{ value|default:default_item_value }}</dd>
       {% endfor %}
       {% endwith %}
     </dl>
