@@ -13,9 +13,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import django
+import mock
+
 from django.conf import settings
 from django.http import HttpResponseRedirect
+from django import test as django_test
 from django.utils import timezone
 
 from horizon import exceptions
@@ -23,32 +25,32 @@ from horizon import middleware
 from horizon.test import helpers as test
 
 
-class MiddlewareTests(test.TestCase):
+class MiddlewareTests(django_test.TestCase):
 
     def setUp(self):
         self._timezone_backup = timezone.get_current_timezone_name()
-        return super(MiddlewareTests, self).setUp()
+        self.factory = test.RequestFactoryWithMessages()
+        self.get_response = mock.Mock()
+        super(MiddlewareTests, self).setUp()
 
     def tearDown(self):
         timezone.activate(self._timezone_backup)
-        return super(MiddlewareTests, self).tearDown()
+        super(MiddlewareTests, self).tearDown()
 
     def test_redirect_login_fail_to_login(self):
         url = settings.LOGIN_URL
         request = self.factory.post(url)
+        self.get_response.return_value = request
 
-        mw = middleware.HorizonMiddleware()
+        mw = middleware.HorizonMiddleware(self.get_response)
         resp = mw.process_exception(request, exceptions.NotAuthenticated())
         resp.client = self.client
 
-        if django.VERSION >= (1, 9):
-            self.assertRedirects(resp, settings.TESTSERVER + url)
-        else:
-            self.assertRedirects(resp, url)
+        self.assertRedirects(resp, settings.TESTSERVER + url)
 
     def test_process_response_redirect_on_ajax_request(self):
         url = settings.LOGIN_URL
-        mw = middleware.HorizonMiddleware()
+        mw = middleware.HorizonMiddleware(self.get_response)
 
         request = self.factory.post(url,
                                     HTTP_X_REQUESTED_WITH='XMLHttpRequest')
@@ -65,7 +67,7 @@ class MiddlewareTests(test.TestCase):
 
     def test_timezone_awareness(self):
         url = settings.LOGIN_REDIRECT_URL
-        mw = middleware.HorizonMiddleware()
+        mw = middleware.HorizonMiddleware(self.get_response)
 
         request = self.factory.get(url)
         request.session['django_timezone'] = 'America/Chicago'
