@@ -1912,6 +1912,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     })
     def test_accept_transfer(self):
         transfer = self.cinder_volume_transfers.first()
+        self.mock_tenant_absolute_limits.return_value = \
+            self.cinder_limits['absolute']
 
         formData = {'transfer_id': transfer.id, 'auth_key': transfer.auth_key}
         url = reverse('horizon:project:volumes:accept_transfer')

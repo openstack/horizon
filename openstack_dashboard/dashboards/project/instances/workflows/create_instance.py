@@ -685,6 +685,8 @@ class CustomizeAction(workflows.Action):
                 script = upload_file.read()
                 if script != "":
                     try:
+                        if not isinstance(script, six.text_type):
+                            script = script.decode()
                         normalize_newlines(script)
                     except Exception as e:
                         msg = _('There was a problem parsing the'

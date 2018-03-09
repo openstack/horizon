@@ -20,6 +20,8 @@ import subprocess
 import sys
 import warnings
 
+import six
+
 from django.conf import settings
 from django.core.management import base
 from django import template
@@ -112,8 +114,10 @@ for cmd in APACHE2_VERSION_CMDS:
     if os.path.exists(cmd[0][0]):
         try:
             reg = re.compile(cmd[1])
-            res = reg.search(
-                subprocess.check_output(cmd[0], stderr=subprocess.STDOUT))
+            output = subprocess.check_output(cmd[0], stderr=subprocess.STDOUT)
+            if isinstance(output, six.binary_type):
+                output = output.decode()
+            res = reg.search(output)
             if res:
                 APACHE2_VERSION = res.group('version')
                 break
