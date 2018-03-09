@@ -13,7 +13,6 @@
 #    under the License.
 import copy
 
-import django
 from django import http
 from django.urls import reverse
 
@@ -590,14 +589,9 @@ class RouterActionTests(RouterMixin, test.TestCase):
 
         self.assertTemplateUsed(res, 'project/routers/update.html')
         self.assertContains(res, 'Router Type')
-        if django.VERSION >= (1, 10):
-            pattern = ('<input class="form-control" id="id_mode" name="mode" '
-                       'readonly="readonly" type="text" value="distributed" '
-                       'required/>')
-        else:
-            pattern = ('<input class="form-control" id="id_mode" name="mode" '
-                       'readonly="readonly" type="text" '
-                       'value="distributed" />')
+        pattern = ('<input class="form-control" id="id_mode" name="mode" '
+                   'readonly="readonly" type="text" value="distributed" '
+                   'required/>')
         self.assertContains(res, pattern, html=True)
         self.assertNotContains(res, 'centralized')
 

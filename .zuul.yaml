@@ -54,11 +54,11 @@
 - project:
     check:
       jobs:
-        - horizon-openstack-tox-py35dj20:
-            voting: false
+        - horizon-openstack-tox-py35dj20
         - horizon-selenium-headless
         - horizon-dsvm-tempest-plugin
     gate:
       jobs:
+        - horizon-openstack-tox-py35dj20
         - horizon-selenium-headless
         - horizon-dsvm-tempest-plugin

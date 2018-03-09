@@ -27,7 +27,6 @@ import inspect
 import logging
 import os
 
-import django
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
@@ -58,12 +57,7 @@ def _decorate_urlconf(urlpatterns, decorator, *args, **kwargs):
     for pattern in urlpatterns:
         if getattr(pattern, 'callback', None):
             decorated = decorator(pattern.callback, *args, **kwargs)
-            if django.VERSION >= (1, 10):
-                pattern.callback = decorated
-            else:
-                # prior to 1.10 callback was a property and we had
-                # to modify the private attribute behind the property
-                pattern._callback = decorated
+            pattern.callback = decorated
         if getattr(pattern, 'url_patterns', []):
             _decorate_urlconf(pattern.url_patterns, decorator, *args, **kwargs)
 
