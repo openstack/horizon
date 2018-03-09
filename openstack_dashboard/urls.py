@@ -28,6 +28,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views import defaults
 
 import horizon
+import horizon.base
 
 from openstack_dashboard.api import rest
 from openstack_dashboard import views
@@ -36,7 +37,7 @@ urlpatterns = [
     url(r'^$', views.splash, name='splash'),
     url(r'^api/', include(rest.urls)),
     url(r'^header/', views.ExtensibleHeaderView.as_view()),
-    url(r'', include(horizon.urls)),
+    url(r'', horizon.base._wrapped_include(horizon.urls)),
 ]
 
 for u in getattr(settings, 'AUTHENTICATION_URLS', ['openstack_auth.urls']):

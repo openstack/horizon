@@ -34,12 +34,12 @@ if settings.ANGULAR_FEATURES['images_panel']:
     # New angular images
     urlpatterns = [
         url(r'^$', AngularIndexView.as_view(title=title), name='index'),
-        url(r'', include(image_urls, namespace='images')),
-        url(r'', include(snapshot_urls, namespace='snapshots')),
+        url(r'', include((image_urls, 'images'))),
+        url(r'', include((snapshot_urls, 'snapshots'))),
     ]
 else:
     urlpatterns = [
         url(r'^$', views.IndexView.as_view(), name='index'),
-        url(r'', include(image_urls, namespace='images')),
-        url(r'', include(snapshot_urls, namespace='snapshots')),
+        url(r'', include((image_urls, 'images'))),
+        url(r'', include((snapshot_urls, 'snapshots'))),
     ]

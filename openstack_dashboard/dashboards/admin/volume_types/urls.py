@@ -37,7 +37,7 @@ urlpatterns = [
         views.EditQosSpecConsumerView.as_view(),
         name='edit_qos_spec_consumer'),
     url(r'^(?P<type_id>[^/]+)/extras/',
-        include(extras_urls, namespace='extras')),
+        include((extras_urls, 'extras'))),
     url(r'^(?P<volume_type_id>[^/]+)/create_type_encryption/$',
         views.CreateVolumeTypeEncryptionView.as_view(),
         name='create_type_encryption'),
@@ -48,7 +48,7 @@ urlpatterns = [
         views.VolumeTypeEncryptionDetailView.as_view(),
         name='type_encryption_detail'),
     url(r'^qos_specs/',
-        include(qos_specs_urls, namespace='qos_specs')),
+        include((qos_specs_urls, 'qos_specs'))),
     url(r'^(?P<volume_type_id>[^/]+)/edit_access/$',
         views.EditAccessView.as_view(), name='edit_access'),
 ]
