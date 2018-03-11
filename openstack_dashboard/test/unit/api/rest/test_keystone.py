@@ -17,6 +17,7 @@ import mock
 from oslo_serialization import jsonutils
 import six
 
+from openstack_dashboard import api
 from openstack_dashboard.api.rest import keystone
 from openstack_dashboard.test import helpers as test
 
@@ -25,43 +26,43 @@ class KeystoneRestTestCase(test.TestCase):
     #
     # Version
     #
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_version_get(self, kc):
+    @test.create_mocks({api.keystone: ['get_version']})
+    def test_version_get(self):
         request = self.mock_rest_request()
-        kc.get_version.return_value = '2.0'
+        self.mock_get_version.return_value = '2.0'
         response = keystone.Version().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"version": "2.0"})
-        kc.get_version.assert_called_once_with()
+        self.mock_get_version.assert_called_once_with()
 
     #
     # Users
     #
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_get(self, kc):
+    @test.create_mocks({api.keystone: ['user_get']})
+    def test_user_get(self):
         request = self.mock_rest_request()
-        kc.user_get.return_value.to_dict.return_value = {'name': 'Ni!'}
+        self.mock_user_get.return_value.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.User().get(request, 'the_id')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        kc.user_get.assert_called_once_with(request, 'the_id')
+        self.mock_user_get.assert_called_once_with(request, 'the_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_get_current(self, kc):
+    @test.create_mocks({api.keystone: ['user_get']})
+    def test_user_get_current(self):
         request = self.mock_rest_request(**{'user.id': 'current_id'})
-        kc.user_get.return_value.to_dict.return_value = {'name': 'Ni!'}
+        self.mock_user_get.return_value.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.User().get(request, 'current')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        kc.user_get.assert_called_once_with(request, 'current_id')
+        self.mock_user_get.assert_called_once_with(request, 'current_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_get_list(self, kc):
+    @test.create_mocks({api.keystone: ['user_list']})
+    def test_user_get_list(self):
         request = self.mock_rest_request(**{
             'session.get': mock.Mock(return_value='the_domain'),
             'GET': {},
         })
-        kc.user_list.return_value = [
+        self.mock_user_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'name': 'Ni!'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'Ptang!'}})
         ]
@@ -69,18 +70,19 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
                          {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
-        kc.user_list.assert_called_once_with(request, project=None,
-                                             domain='the_domain', group=None,
-                                             filters=None)
+        self.mock_user_list.assert_called_once_with(request, project=None,
+                                                    domain='the_domain',
+                                                    group=None,
+                                                    filters=None)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_get_list_with_filters(self, kc):
+    @test.create_mocks({api.keystone: ['user_list']})
+    def test_user_get_list_with_filters(self):
         filters = {'enabled': True}
         request = self.mock_rest_request(**{
             'session.get': mock.Mock(return_value='the_domain'),
             'GET': dict(**filters),
         })
-        kc.user_list.return_value = [
+        self.mock_user_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'name': 'Ni!'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'Ptang!'}})
         ]
@@ -88,9 +90,10 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
                          {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
-        kc.user_list.assert_called_once_with(request, project=None,
-                                             domain='the_domain', group=None,
-                                             filters=filters)
+        self.mock_user_list.assert_called_once_with(request, project=None,
+                                                    domain='the_domain',
+                                                    group=None,
+                                                    filters=filters)
 
     def test_user_create_full(self):
         self._test_user_create(
@@ -155,12 +158,13 @@ class KeystoneRestTestCase(test.TestCase):
             }
         )
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def _test_user_create(self, supplied_body, add_user_call, kc):
+    @test.create_mocks({api.keystone: ['get_default_domain',
+                                       'user_create']})
+    def _test_user_create(self, supplied_body, add_user_call):
         request = self.mock_rest_request(body=supplied_body)
-        kc.get_default_domain.return_value = mock.Mock(**{'id': 'the_domain'})
-        kc.user_create.return_value.id = 'user123'
-        kc.user_create.return_value = mock.Mock(**{
+        self.mock_get_default_domain.return_value = \
+            mock.Mock(**{'id': 'the_domain'})
+        self.mock_user_create.return_value = mock.Mock(**{
             'id': 'user123',
             'to_dict.return_value': {'id': 'user123', 'name': 'bob'}
         })
@@ -171,115 +175,124 @@ class KeystoneRestTestCase(test.TestCase):
                          '/api/keystone/users/user123')
         self.assertEqual(response.json,
                          {"id": "user123", "name": "bob"})
-        kc.user_create.assert_called_once_with(request, **add_user_call)
+        self.mock_user_create.assert_called_once_with(request, **add_user_call)
+        self.mock_get_default_domain.assert_called_once_with(request)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_delete_many(self, kc):
+    @test.create_mocks({api.keystone: ['user_delete']})
+    def test_user_delete_many(self):
         request = self.mock_rest_request(body='''
             ["id1", "id2", "id3"]
         ''')
+        self.mock_user_delete.return_value = None
 
         response = keystone.Users().delete(request)
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.user_delete.assert_has_calls([
+        self.mock_user_delete.assert_has_calls([
             mock.call(request, 'id1'),
             mock.call(request, 'id2'),
             mock.call(request, 'id3'),
         ])
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_delete(self, kc):
+    @test.create_mocks({api.keystone: ['user_delete']})
+    def test_user_delete(self):
         request = self.mock_rest_request()
+        self.mock_user_delete.return_value = None
         response = keystone.User().delete(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.user_delete.assert_called_once_with(request, 'the_id')
+        self.mock_user_delete.assert_called_once_with(request, 'the_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_patch_password(self, kc):
+    @test.create_mocks({api.keystone: ['user_get',
+                                       'user_update_password']})
+    def test_user_patch_password(self):
         request = self.mock_rest_request(body='''
             {"password": "sekrit"}
         ''')
         user = keystone.User()
-        kc.user_get = mock.MagicMock(return_value=user)
+        self.mock_user_get.return_value = mock.sentinel.user
+        self.mock_user_update_password.return_value = None
         response = user.patch(request, 'user123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.user_update_password.assert_called_once_with(request,
-                                                        user,
-                                                        'sekrit')
+        self.mock_user_get.assert_called_once_with(request, 'user123')
+        self.mock_user_update_password.assert_called_once_with(
+            request, mock.sentinel.user, 'sekrit')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_patch_enabled(self, kc):
+    @test.create_mocks({api.keystone: ['user_get',
+                                       'user_update_enabled']})
+    def test_user_patch_enabled(self):
         request = self.mock_rest_request(body='''
             {"enabled": false}
         ''')
         user = keystone.User()
-        kc.user_get = mock.MagicMock(return_value=user)
+        self.mock_user_get.return_value = mock.sentinel.user
+        self.mock_user_update_enabled.return_value = None
         response = user.patch(request, 'user123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.user_get.assert_called_once_with(request, 'user123')
-        kc.user_update_enabled.assert_called_once_with(request,
-                                                       user,
-                                                       False)
+        self.mock_user_get.assert_called_once_with(request, 'user123')
+        self.mock_user_update_enabled.assert_called_once_with(
+            request, mock.sentinel.user, False)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_patch_project(self, kc):
+    @test.create_mocks({api.keystone: ['user_get',
+                                       'user_update']})
+    def test_user_patch_project(self):
         request = self.mock_rest_request(body='''
             {"project": "other123"}
         ''')
         user = keystone.User()
-        kc.user_get = mock.MagicMock(return_value=user)
+        self.mock_user_get.return_value = mock.sentinel.user
+        self.mock_user_update.return_value = self.users.first()
         response = user.patch(request, 'user123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.user_update.assert_called_once_with(request,
-                                               user,
-                                               project='other123')
+        self.mock_user_get.assert_called_once_with(request, 'user123')
+        self.mock_user_update.assert_called_once_with(
+            request, mock.sentinel.user, project='other123')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_patch_multiple(self, kc):
+    @test.create_mocks({api.keystone: ['user_get',
+                                       'user_update']})
+    def test_user_patch_multiple(self):
         request = self.mock_rest_request(body='''
             {"project": "other123", "name": "something"}
         ''')
         user = keystone.User()
-        kc.user_get = mock.MagicMock(return_value=user)
+        self.mock_user_get.return_value = mock.sentinel.user
+        self.mock_user_update.return_value = self.users.first()
         response = user.patch(request, 'user123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.user_update.assert_called_once_with(request,
-                                               user,
-                                               project='other123',
-                                               name='something')
+        self.mock_user_get.assert_called_once_with(request, 'user123')
+        self.mock_user_update.assert_called_once_with(
+            request, mock.sentinel.user, project='other123', name='something')
 
     #
     # Roles
     #
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_role_get(self, kc):
+    @test.create_mocks({api.keystone: ['role_get']})
+    def test_role_get(self):
         request = self.mock_rest_request()
-        kc.role_get.return_value.to_dict.return_value = {'name': 'Ni!'}
+        self.mock_role_get.return_value.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.Role().get(request, 'the_id')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        kc.role_get.assert_called_once_with(request, 'the_id')
+        self.mock_role_get.assert_called_once_with(request, 'the_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_role_get_default(self, kc):
+    @test.create_mocks({api.keystone: ['get_default_role']})
+    def test_role_get_default(self):
         request = self.mock_rest_request()
-        kc.get_default_role.return_value.to_dict.return_value = {'name': 'Ni!'}
+        ret_val_role = self.mock_get_default_role.return_value
+        ret_val_role.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.Role().get(request, 'default')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        kc.get_default_role.assert_called_once_with(request)
-        kc.role_get.assert_not_called()
+        self.mock_get_default_role.assert_called_once_with(request)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_role_get_list(self, kc):
+    @test.create_mocks({api.keystone: ['role_list']})
+    def test_role_get_list(self):
         request = self.mock_rest_request(**{'GET': {}})
-        kc.role_list.return_value = [
+        self.mock_role_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'name': 'Ni!'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'Ptang!'}})
         ]
@@ -287,13 +300,13 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
                          {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
-        kc.role_list.assert_called_once_with(request)
+        self.mock_role_list.assert_called_once_with(request)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_role_get_for_user(self, kc):
+    @test.create_mocks({api.keystone: ['roles_for_user']})
+    def test_role_get_for_user(self):
         request = self.mock_rest_request(**{'GET': {'user_id': 'user123',
                                          'project_id': 'project123'}})
-        kc.roles_for_user.return_value = [
+        self.mock_roles_for_user.return_value = [
             mock.Mock(**{'to_dict.return_value': {'name': 'Ni!'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'Ptang!'}})
         ]
@@ -301,16 +314,16 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
                          {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
-        kc.roles_for_user.assert_called_once_with(request, 'user123',
-                                                  'project123')
+        self.mock_roles_for_user.assert_called_once_with(request, 'user123',
+                                                         'project123')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_role_create(self, kc):
+    @test.create_mocks({api.keystone: ['role_create']})
+    def test_role_create(self):
         request = self.mock_rest_request(body='''
             {"name": "bob"}
         ''')
-        kc.role_create.return_value.id = 'role123'
-        kc.role_create.return_value.to_dict.return_value = {
+        self.mock_role_create.return_value.id = 'role123'
+        self.mock_role_create.return_value.to_dict.return_value = {
             'id': 'role123', 'name': 'bob'
         }
 
@@ -319,10 +332,11 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertEqual(response['location'],
                          '/api/keystone/roles/role123')
         self.assertEqual(response.json, {"id": "role123", "name": "bob"})
-        kc.role_create.assert_called_once_with(request, 'bob')
+        self.mock_role_create.assert_called_once_with(request, 'bob')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_role_grant(self, kc):
+    @test.create_mocks({api.keystone: ['add_tenant_user_role']})
+    def test_role_grant(self):
+        self.mock_add_tenant_user_role.return_value = None
         request = self.mock_rest_request(body='''
             {"action": "grant", "data": {"user_id": "user123",
             "role_id": "role123", "project_id": "project123"}}
@@ -331,11 +345,12 @@ class KeystoneRestTestCase(test.TestCase):
                                               "user3")
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.add_tenant_user_role.assert_called_once_with(request, 'project1',
-                                                        'user3', 'role2')
+        self.mock_add_tenant_user_role.assert_called_once_with(
+            request, 'project1', 'user3', 'role2')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_role_delete_many(self, kc):
+    @test.create_mocks({api.keystone: ['role_delete']})
+    def test_role_delete_many(self):
+        self.mock_role_delete.return_value = None
         request = self.mock_rest_request(body='''
             ["id1", "id2", "id3"]
         ''')
@@ -343,65 +358,70 @@ class KeystoneRestTestCase(test.TestCase):
         response = keystone.Roles().delete(request)
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.role_delete.assert_has_calls([
+        self.mock_role_delete.assert_has_calls([
             mock.call(request, 'id1'),
             mock.call(request, 'id2'),
             mock.call(request, 'id3'),
         ])
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_role_delete(self, kc):
+    @test.create_mocks({api.keystone: ['role_delete']})
+    def test_role_delete(self):
+        self.mock_role_delete.return_value = None
         request = self.mock_rest_request()
         response = keystone.Role().delete(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.role_delete.assert_called_once_with(request, 'the_id')
+        self.mock_role_delete.assert_called_once_with(request, 'the_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_role_patch(self, kc):
+    @test.create_mocks({api.keystone: ['role_update']})
+    def test_role_patch(self):
+        self.mock_role_update.return_value = self.roles.first()
         request = self.mock_rest_request(body='{"name": "spam"}')
         response = keystone.Role().patch(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.role_update.assert_called_once_with(request,
-                                               'the_id',
-                                               'spam')
+        self.mock_role_update.assert_called_once_with(request,
+                                                      'the_id',
+                                                      'spam')
 
     #
     # Domains
     #
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_default_domain_get(self, kc):
+    @test.create_mocks({api.keystone: ['get_default_domain']})
+    def test_default_domain_get(self):
         request = self.mock_rest_request()
+        domain = api.base.APIDictWrapper({'id': 'the_id', 'name': 'the_name'})
+        self.mock_get_default_domain.return_value = domain
         response = keystone.DefaultDomain().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.json, {})
+        self.assertEqual(response.json, domain.to_dict())
+        self.mock_get_default_domain.assert_called_once_with(request)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_domain_get(self, kc):
+    @test.create_mocks({api.keystone: ['domain_get']})
+    def test_domain_get(self):
         request = self.mock_rest_request()
-        kc.domain_get.return_value.to_dict.return_value = {'name': 'Ni!'}
+        ret_val_domain = self.mock_domain_get.return_value
+        ret_val_domain.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.Domain().get(request, 'the_id')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        kc.domain_get.assert_called_once_with(request, 'the_id')
+        self.mock_domain_get.assert_called_once_with(request, 'the_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_domain_get_default(self, kc):
+    @test.create_mocks({api.keystone: ['get_default_domain']})
+    def test_domain_get_default(self):
         request = self.mock_rest_request()
-        kc.get_default_domain.return_value.to_dict.return_value = {
+        self.mock_get_default_domain.return_value.to_dict.return_value = {
             'name': 'Ni!'
         }
         response = keystone.Domain().get(request, 'default')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        kc.get_default_domain.assert_called_once_with(request)
-        kc.domain_get.assert_not_called()
+        self.mock_get_default_domain.assert_called_once_with(request)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_domain_get_list(self, kc):
+    @test.create_mocks({api.keystone: ['domain_list']})
+    def test_domain_get_list(self):
         request = self.mock_rest_request()
-        kc.domain_list.return_value = [
+        self.mock_domain_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'name': 'Ni!'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'Ptang!'}})
         ]
@@ -409,7 +429,7 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
                          {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
-        kc.domain_list.assert_called_once_with(request)
+        self.mock_domain_list.assert_called_once_with(request)
 
     def test_domain_create_full(self):
         self._test_domain_create(
@@ -430,11 +450,12 @@ class KeystoneRestTestCase(test.TestCase):
             }
         )
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def _test_domain_create(self, supplied_body, expected_call, kc):
+    @test.create_mocks({api.keystone: ['domain_create']})
+    def _test_domain_create(self, supplied_body, expected_call):
         request = self.mock_rest_request(body=supplied_body)
-        kc.domain_create.return_value.id = 'domain123'
-        kc.domain_create.return_value.to_dict.return_value = {
+        ret_val_domain = self.mock_domain_create.return_value
+        ret_val_domain.id = 'domain123'
+        ret_val_domain.to_dict.return_value = {
             'id': 'domain123', 'name': 'bob'
         }
 
@@ -443,11 +464,12 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertEqual(response['location'],
                          '/api/keystone/domains/domain123')
         self.assertEqual(response.json, {"id": "domain123", "name": "bob"})
-        kc.domain_create.assert_called_once_with(request, 'bob',
-                                                 **expected_call)
+        self.mock_domain_create.assert_called_once_with(request, 'bob',
+                                                        **expected_call)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_domain_delete_many(self, kc):
+    @test.create_mocks({api.keystone: ['domain_delete']})
+    def test_domain_delete_many(self):
+        self.mock_domain_delete.return_value = None
         request = self.mock_rest_request(body='''
             ["id1", "id2", "id3"]
         ''')
@@ -455,43 +477,46 @@ class KeystoneRestTestCase(test.TestCase):
         response = keystone.Domains().delete(request)
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.domain_delete.assert_has_calls([
+        self.mock_domain_delete.assert_has_calls([
             mock.call(request, 'id1'),
             mock.call(request, 'id2'),
             mock.call(request, 'id3'),
         ])
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_domain_delete(self, kc):
+    @test.create_mocks({api.keystone: ['domain_delete']})
+    def test_domain_delete(self):
+        self.mock_domain_delete.return_value = None
         request = self.mock_rest_request()
         response = keystone.Domain().delete(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.domain_delete.assert_called_once_with(request, 'the_id')
+        self.mock_domain_delete.assert_called_once_with(request, 'the_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_domain_patch(self, kc):
+    @test.create_mocks({api.keystone: ['domain_update']})
+    def test_domain_patch(self):
+        self.mock_domain_update.return_value = self.domains.first()
         request = self.mock_rest_request(body='{"name": "spam"}')
         response = keystone.Domain().patch(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.domain_update.assert_called_once_with(request,
-                                                 'the_id',
-                                                 name='spam',
-                                                 description=None,
-                                                 enabled=None)
+        self.mock_domain_update.assert_called_once_with(request,
+                                                        'the_id',
+                                                        name='spam',
+                                                        description=None,
+                                                        enabled=None)
 
     #
     # Projects
     #
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_project_get(self, kc):
+    @test.create_mocks({api.keystone: ['tenant_get']})
+    def test_project_get(self):
         request = self.mock_rest_request()
-        kc.tenant_get.return_value.to_dict.return_value = {'name': 'Ni!'}
+        ret_val_tenant = self.mock_tenant_get.return_value
+        ret_val_tenant.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.Project().get(request, 'the_id')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        kc.tenant_get.assert_called_once_with(request, 'the_id')
+        self.mock_tenant_get.assert_called_once_with(request, 'the_id')
 
     def test_project_get_list(self):
         self._test_project_get_list(
@@ -538,10 +563,10 @@ class KeystoneRestTestCase(test.TestCase):
             }
         )
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def _test_project_get_list(self, params, expected_call, kc):
+    @test.create_mocks({api.keystone: ['tenant_list']})
+    def _test_project_get_list(self, params, expected_call):
         request = self.mock_rest_request(**{'GET': dict(**params)})
-        kc.tenant_list.return_value = ([
+        self.mock_tenant_list.return_value = ([
             mock.Mock(**{'to_dict.return_value': {'name': 'Ni!'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'Ptang!'}})
         ], False)
@@ -551,13 +576,13 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertEqual(response.json,
                          {"has_more": False,
                           "items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
-        kc.tenant_list.assert_called_once_with(request, **expected_call)
+        self.mock_tenant_list.assert_called_once_with(request, **expected_call)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_project_get_list_with_filters(self, kc):
+    @test.create_mocks({api.keystone: ['tenant_list']})
+    def test_project_get_list_with_filters(self):
         filters = {'name': 'Ni!'}
         request = self.mock_rest_request(**{'GET': dict(**filters)})
-        kc.tenant_list.return_value = ([
+        self.mock_tenant_list.return_value = ([
             mock.Mock(**{'to_dict.return_value': {'name': 'Ni!'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'Ni!'}})
         ], False)
@@ -567,10 +592,10 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertEqual(response.json,
                          {"has_more": False,
                           "items": [{"name": "Ni!"}, {"name": "Ni!"}]})
-        kc.tenant_list.assert_called_once_with(request, paginate=False,
-                                               marker=None, domain=None,
-                                               user=None, admin=True,
-                                               filters=filters)
+        self.mock_tenant_list.assert_called_once_with(request, paginate=False,
+                                                      marker=None, domain=None,
+                                                      user=None, admin=True,
+                                                      filters=filters)
 
     def test_project_create_full(self):
         self._test_project_create(
@@ -594,11 +619,11 @@ class KeystoneRestTestCase(test.TestCase):
             }
         )
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def _test_project_create(self, supplied_body, expected_call, kc):
+    @test.create_mocks({api.keystone: ['tenant_create']})
+    def _test_project_create(self, supplied_body, expected_call):
         request = self.mock_rest_request(body=supplied_body)
-        kc.tenant_create.return_value.id = 'project123'
-        kc.tenant_create.return_value.to_dict.return_value = {
+        self.mock_tenant_create.return_value.id = 'project123'
+        self.mock_tenant_create.return_value.to_dict.return_value = {
             'id': 'project123', 'name': 'bob'
         }
 
@@ -608,11 +633,12 @@ class KeystoneRestTestCase(test.TestCase):
                          '/api/keystone/projects/project123')
         self.assertEqual(response.json,
                          {"id": "project123", "name": "bob"})
-        kc.tenant_create.assert_called_once_with(request, 'bob',
-                                                 **expected_call)
+        self.mock_tenant_create.assert_called_once_with(request, 'bob',
+                                                        **expected_call)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_project_delete_many(self, kc):
+    @test.create_mocks({api.keystone: ['tenant_delete']})
+    def test_project_delete_many(self):
+        self.mock_tenant_delete.return_value = None
         request = self.mock_rest_request(body='''
             ["id1", "id2", "id3"]
         ''')
@@ -620,42 +646,43 @@ class KeystoneRestTestCase(test.TestCase):
         response = keystone.Projects().delete(request)
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.tenant_delete.assert_has_calls([
+        self.mock_tenant_delete.assert_has_calls([
             mock.call(request, 'id1'),
             mock.call(request, 'id2'),
             mock.call(request, 'id3'),
         ])
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_project_delete(self, kc):
+    @test.create_mocks({api.keystone: ['tenant_delete']})
+    def test_project_delete(self):
+        self.mock_tenant_delete.return_value = None
         request = self.mock_rest_request()
         response = keystone.Project().delete(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.tenant_delete.assert_called_once_with(request, 'the_id')
+        self.mock_tenant_delete.assert_called_once_with(request, 'the_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_project_patch(self, kc):
+    @test.create_mocks({api.keystone: ['tenant_update']})
+    def test_project_patch(self):
         # nothing in the Horizon code documents what additional parameters are
         # allowed, so we'll just assume GIGO
+        self.mock_tenant_update.return_value = self.tenants.first()
         request = self.mock_rest_request(body='''
             {"name": "spam", "domain_id": "domain123", "foo": "bar"}
         ''')
         response = keystone.Project().patch(request, 'spam123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.tenant_update.assert_called_once_with(request,
-                                                 'spam123',
-                                                 name='spam', foo='bar',
-                                                 description=None,
-                                                 domain='domain123',
-                                                 enabled=None)
+        self.mock_tenant_update.assert_called_once_with(request,
+                                                        'spam123',
+                                                        name='spam', foo='bar',
+                                                        description=None,
+                                                        domain='domain123',
+                                                        enabled=None)
 
     #
     # Service Catalog
     #
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_service_catalog_get(self, kc):
+    def test_service_catalog_get(self):
         request = self.mock_rest_request()
         response = keystone.ServiceCatalog().get(request)
         self.assertStatusCode(response, 200)
@@ -668,8 +695,7 @@ class KeystoneRestTestCase(test.TestCase):
     #
     # User Session
     #
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_user_session_get(self, kc):
+    def test_user_session_get(self):
         request = self.mock_rest_request()
         request.user = mock.Mock(
             services_region='some region',
@@ -688,13 +714,13 @@ class KeystoneRestTestCase(test.TestCase):
     #
     # Groups
     #
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_group_get_list(self, kc):
+    @test.create_mocks({api.keystone: ['group_list']})
+    def test_group_get_list(self):
         request = self.mock_rest_request(**{
             'session.get': mock.Mock(return_value='the_domain'),
             'GET': {},
         })
-        kc.group_list.return_value = [
+        self.mock_group_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'name': 'uno!'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'dos!'}})
         ]
@@ -702,17 +728,18 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
                          {"items": [{"name": "uno!"}, {"name": "dos!"}]})
-        kc.group_list.assert_called_once_with(request, domain='the_domain')
+        self.mock_group_list.assert_called_once_with(request,
+                                                     domain='the_domain')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_group_create(self, kc):
+    @test.create_mocks({api.keystone: ['group_create']})
+    def test_group_create(self):
         request = self.mock_rest_request(**{
             'session.get': mock.Mock(return_value='the_domain'),
             'GET': {},
             'body': '{"name": "bug!", "description": "bugaboo!!"}',
         })
-        kc.group_create.return_value.id = 'group789'
-        kc.group_create.return_value.to_dict.return_value = {
+        self.mock_group_create.return_value.id = 'group789'
+        self.mock_group_create.return_value.to_dict.return_value = {
             'id': 'group789', 'name': 'bug!', 'description': 'bugaboo!!'
         }
 
@@ -724,18 +751,18 @@ class KeystoneRestTestCase(test.TestCase):
                          {"id": "group789",
                           "name": "bug!",
                           "description": "bugaboo!!"})
-        kc.group_create.assert_called_once_with(request, 'the_domain',
-                                                'bug!', 'bugaboo!!')
+        self.mock_group_create.assert_called_once_with(request, 'the_domain',
+                                                       'bug!', 'bugaboo!!')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_group_create_without_description(self, kc):
+    @test.create_mocks({api.keystone: ['group_create']})
+    def test_group_create_without_description(self):
         request = self.mock_rest_request(**{
             'session.get': mock.Mock(return_value='the_domain'),
             'GET': {},
             'body': '{"name": "bug!"}',
         })
-        kc.group_create.return_value.id = 'group789'
-        kc.group_create.return_value.to_dict.return_value = {
+        self.mock_group_create.return_value.id = 'group789'
+        self.mock_group_create.return_value.to_dict.return_value = {
             'id': 'group789', 'name': 'bug!'
         }
 
@@ -746,42 +773,45 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertEqual(response.json,
                          {"id": "group789",
                           "name": "bug!"})
-        kc.group_create.assert_called_once_with(request, 'the_domain',
-                                                'bug!', None)
+        self.mock_group_create.assert_called_once_with(request, 'the_domain',
+                                                       'bug!', None)
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_group_get(self, kc):
+    @test.create_mocks({api.keystone: ['group_get']})
+    def test_group_get(self):
         request = self.mock_rest_request()
-        kc.group_get.return_value.to_dict.return_value = {
+        self.mock_group_get.return_value.to_dict.return_value = {
             'name': 'bug!', 'description': 'bugaboo!!'}
         response = keystone.Group().get(request, 'the_id')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "bug!",
                          "description": "bugaboo!!"})
-        kc.group_get.assert_called_once_with(request, 'the_id')
+        self.mock_group_get.assert_called_once_with(request, 'the_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_group_delete(self, kc):
+    @test.create_mocks({api.keystone: ['group_delete']})
+    def test_group_delete(self):
+        self.mock_group_delete.return_value = None
         request = self.mock_rest_request()
         response = keystone.Group().delete(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.group_delete.assert_called_once_with(request, 'the_id')
+        self.mock_group_delete.assert_called_once_with(request, 'the_id')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_group_patch(self, kc):
+    @test.create_mocks({api.keystone: ['group_update']})
+    def test_group_patch(self):
+        self.mock_group_update.return_value = self.groups.first()
         request = self.mock_rest_request(
             body='{"name": "spam_i_am", "description": "Sir Spam"}')
         response = keystone.Group().patch(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.group_update.assert_called_once_with(request,
-                                                'the_id',
-                                                'spam_i_am',
-                                                'Sir Spam')
+        self.mock_group_update.assert_called_once_with(request,
+                                                       'the_id',
+                                                       'spam_i_am',
+                                                       'Sir Spam')
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_group_delete_many(self, kc):
+    @test.create_mocks({api.keystone: ['group_delete']})
+    def test_group_delete_many(self):
+        self.mock_group_delete.return_value = None
         request = self.mock_rest_request(body='''
             ["id1", "id2", "id3"]
         ''')
@@ -789,7 +819,7 @@ class KeystoneRestTestCase(test.TestCase):
         response = keystone.Groups().delete(request)
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        kc.group_delete.assert_has_calls([
+        self.mock_group_delete.assert_has_calls([
             mock.call(request, 'id1'),
             mock.call(request, 'id2'),
             mock.call(request, 'id3'),
@@ -799,8 +829,8 @@ class KeystoneRestTestCase(test.TestCase):
     # Services
     #
 
-    @mock.patch.object(keystone.api, 'keystone')
-    def test_services_get(self, kc):
+    @test.create_mocks({api.keystone: ['Service']})
+    def test_services_get(self):
         request = self.mock_rest_request()
         mock_service = {
             "name": "srv_name",
@@ -811,7 +841,8 @@ class KeystoneRestTestCase(test.TestCase):
             service_catalog=[mock_service],
             services_region='some region'
         )
+        self.mock_Service.return_value.to_dict.return_value = mock_service
 
         response = keystone.Services().get(request)
         self.assertStatusCode(response, 200)
-        kc.Service.assert_called_once_with(mock_service, "some region")
+        self.mock_Service.assert_called_once_with(mock_service, "some region")
