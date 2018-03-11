@@ -23,6 +23,7 @@ from keystoneclient.v2_0 import ec2
 from keystoneclient.v2_0 import roles
 from keystoneclient.v2_0 import tenants
 from keystoneclient.v2_0 import users
+from keystoneclient.v3 import application_credentials
 from keystoneclient.v3.contrib.federation import identity_providers
 from keystoneclient.v3.contrib.federation import mappings
 from keystoneclient.v3.contrib.federation import protocols
@@ -134,6 +135,8 @@ def data(TEST):
     TEST.identity_providers = utils.TestDataContainer()
     TEST.idp_mappings = utils.TestDataContainer()
     TEST.idp_protocols = utils.TestDataContainer()
+
+    TEST.application_credentials = utils.TestDataContainer()
 
     admin_role_dict = {'id': '1',
                        'name': 'admin'}
@@ -430,3 +433,42 @@ def data(TEST):
         idp_protocol_dict_1,
         loaded=True)
     TEST.idp_protocols.add(idp_protocol)
+
+    app_cred_dict = {
+        'id': 'ac1',
+        'name': 'created',
+        'secret': 'secret',
+        'project': 'p1',
+        'description': 'newly created application credential',
+        'expires_at': None,
+        'unrestricted': False,
+        'roles': [
+            {'id': 'r1',
+             'name': 'Member',
+             'domain': None},
+            {'id': 'r2',
+             'name': 'admin',
+             'domain': None}
+        ]
+    }
+    app_cred_create = application_credentials.ApplicationCredential(
+        None, app_cred_dict)
+    app_cred_dict = {
+        'id': 'ac2',
+        'name': 'detail',
+        'project': 'p1',
+        'description': 'existing application credential',
+        'expires_at': None,
+        'unrestricted': False,
+        'roles': [
+            {'id': 'r1',
+             'name': 'Member',
+             'domain': None},
+            {'id': 'r2',
+             'name': 'admin',
+             'domain': None}
+        ]
+    }
+    app_cred_detail = application_credentials.ApplicationCredential(
+        None, app_cred_dict)
+    TEST.application_credentials.add(app_cred_create, app_cred_detail)

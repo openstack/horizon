@@ -1082,3 +1082,37 @@ def protocol_delete(request, identity_provider, protocol):
 def protocol_list(request, identity_provider):
     manager = keystoneclient(request).federation.protocols
     return manager.list(identity_provider)
+
+
+@profiler.trace
+def application_credential_list(request, filters=None):
+    user = request.user.id
+    manager = keystoneclient(request).application_credentials
+    return manager.list(user=user, **filters)
+
+
+@profiler.trace
+def application_credential_get(request, application_credential_id):
+    user = request.user.id
+    manager = keystoneclient(request).application_credentials
+    return manager.get(application_credential=application_credential_id,
+                       user=user)
+
+
+@profiler.trace
+def application_credential_delete(request, application_credential_id):
+    user = request.user.id
+    manager = keystoneclient(request).application_credentials
+    return manager.delete(application_credential=application_credential_id,
+                          user=user)
+
+
+@profiler.trace
+def application_credential_create(request, name, secret=None,
+                                  description=None, expires_at=None,
+                                  roles=None, unrestricted=False):
+    user = request.user.id
+    manager = keystoneclient(request).application_credentials
+    return manager.create(name=name, user=user, secret=secret,
+                          description=description, expires_at=expires_at,
+                          roles=roles, unrestricted=unrestricted)

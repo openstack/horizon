@@ -1,0 +1,35 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block header %}
+  <div class="modal-header">
+    <h3 class="modal-title">{% block modal-header %}{{ modal_header }}{% endblock %}</h3>
+  </div>
+{% endblock %}
+{% block modal-body-right %}
+    <h3>{% trans "Your application credential" %}</h3>
+    <p>
+    {% blocktrans trimmed %}
+    Please capture the application credential ID and secret in order to
+    provide them to your application.
+    {% endblocktrans %}
+    </p>
+    <p class="alert alert-warning">
+    {% blocktrans trimmed %}
+    The application credential secret will not be available after closing this
+    page, so you must capture it now or download it. If you lose this secret,
+    you must generate a new application credential.
+    {% endblocktrans %}
+    </p>
+{% endblock %}
+{% block modal-footer %}
+    <a href="{{ download_openrc_url }}" class="btn btn-default">
+        <span class="fa fa-download"></span>
+        {{ download_openrc_label }}
+    </a>
+    <a href="{{ download_clouds_yaml_url }}" class="btn btn-default">
+        <span class="fa fa-download"></span>
+        {{ download_clouds_yaml_label }}
+    </a>
+    <a onClick="location.href='{{cancel_url}}'" href="{{ cancel_url }}" class="btn btn-default">{{ cancel_label }}</a>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Application Credential Details" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_detail_header.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="row">
+    <div class="col-sm-12">
+      {% include "identity/application_credentials/_detail_overview.html" %}
+    </div>
+  </div>
+{% endblock %}
+
