@@ -16,8 +16,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import collections
-import copy
 from functools import wraps
 from importlib import import_module
 import logging
@@ -30,7 +28,6 @@ from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django import http as http_request
 from django.test.client import RequestFactory
-from django.test import utils as django_test_utils
 from django import urls
 from django.utils import http
 
@@ -68,6 +65,8 @@ LOG = logging.getLogger(__name__)
 
 # Makes output of failing mox tests much easier to read.
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
+
+update_settings = horizon_helpers.update_settings
 
 
 def create_stubs(stubs_to_create=None):
@@ -752,31 +751,6 @@ class PluginTestCase(TestCase):
         urls.clear_url_caches()
         moves.reload_module(import_module(settings.ROOT_URLCONF))
         base.Horizon._urls()
-
-
-class update_settings(django_test_utils.override_settings):
-    """override_settings which allows override an item in dict.
-
-    django original override_settings replaces a dict completely,
-    however OpenStack dashboard setting has many dictionary configuration
-    and there are test case where we want to override only one item in
-    a dictionary and keep other items in the dictionary.
-    This version of override_settings allows this if keep_dict is True.
-
-    If keep_dict False is specified, the original behavior of
-    Django override_settings is used.
-    """
-
-    def __init__(self, keep_dict=True, **kwargs):
-        if keep_dict:
-            for key, new_value in kwargs.items():
-                value = getattr(settings, key, None)
-                if (isinstance(new_value, collections.Mapping) and
-                        isinstance(value, collections.Mapping)):
-                    copied = copy.copy(value)
-                    copied.update(new_value)
-                    kwargs[key] = copied
-        super(update_settings, self).__init__(**kwargs)
 
 
 def mock_obj_to_dict(r):

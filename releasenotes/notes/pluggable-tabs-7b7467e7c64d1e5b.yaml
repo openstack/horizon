@@ -1,0 +1,10 @@
+---
+features:
+  - |
+    [:bug:`1746754`]
+    (for horizon plugin developers) Django tab is now pluggable and horizon
+    plugins can add extra tab(s) to an existing tab provided by horizon or
+    other horizon plugins. Extra tabs can be added via the horizon plugin
+    "enabled" file. For more detail, see ``EXTRA_TABS`` description in
+    `Pluggable Panels and Groups <https://docs.openstack.org/horizon/latest/configuration/pluggable_panels.html#extra-tabs>`__
+    of the horizon documentation.
