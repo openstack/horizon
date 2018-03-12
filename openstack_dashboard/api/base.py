@@ -133,7 +133,7 @@ class APIResourceWrapper(object):
     def to_dict(self):
         obj = {}
         for key in self._attrs:
-            obj[key] = getattr(self._apiresource, key, None)
+            obj[key] = getattr(self, key, None)
         return obj
 
 
