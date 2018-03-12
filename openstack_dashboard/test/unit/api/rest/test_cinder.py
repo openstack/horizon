@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.conf import settings
-import mock
-
 from openstack_dashboard import api
 from openstack_dashboard.api.base import Quota
 from openstack_dashboard.api.cinder import VolTypeExtraSpec
@@ -266,23 +263,17 @@ class CinderRestTestCase(test.TestCase):
     #
     # Extensions
     #
-    # TODO(amotoki): This is actually not tested. Make this work.
-    # TODO(amotoki): There is no such setting named
-    # OPENSTACK_CINDER_EXTENSIONS_BLACKLIST.
     @test.create_mocks({api.cinder: ['list_extensions']})
-    @mock.patch.object(settings,
-                       'OPENSTACK_CINDER_EXTENSIONS_BLACKLIST', ['baz'])
-    def _test_extension_list(self):
+    def test_extension_list(self):
         request = self.mock_rest_request()
-        self.mock_list_extensions.return_value = [
-            mock.Mock(**{'to_dict.return_value': {'name': 'foo'}}),
-            mock.Mock(**{'to_dict.return_value': {'name': 'bar'}}),
-            mock.Mock(**{'to_dict.return_value': {'name': 'baz'}}),
-        ]
+        exts = tuple(self.cinder_extensions.list())
+        self.mock_list_extensions.return_value = exts
+
         response = cinder.Extensions().get(request)
+
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"name": "foo"}, {"name": "bar"}]}')
+        self.assertEqual([ext.to_dict() for ext in exts],
+                         response.json['items'])
         self.mock_list_extensions.assert_called_once_with(request)
 
     @test.create_mocks({api.cinder: ['qos_specs_list']})
