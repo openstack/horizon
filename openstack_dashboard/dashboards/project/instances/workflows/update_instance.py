@@ -99,7 +99,8 @@ class UpdateInstanceSecurityGroupsAction(BaseSecurityGroupsAction):
 
     def handle(self, request, data):
         instance_id = data['instance_id']
-        wanted_groups = map(filters.get_int_or_uuid, data['wanted_groups'])
+        wanted_groups = [filters.get_int_or_uuid(sg)
+                         for sg in data['wanted_groups']]
         try:
             api.neutron.server_update_security_groups(request, instance_id,
                                                       wanted_groups)
