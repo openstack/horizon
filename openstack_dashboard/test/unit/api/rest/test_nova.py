@@ -33,154 +33,168 @@ class NovaRestTestCase(test.TestCase):
     #
     # Snapshots
     #
-    @mock.patch.object(nova.api, 'nova')
-    def test_snapshots_create(self, nc):
+    @test.create_mocks({api.nova: ['snapshot_create']})
+    def test_snapshots_create(self):
         body = '{"instance_id": "1234", "name": "foo"}'
         request = self.mock_rest_request(body=body)
-        nc.snapshot_create.return_value = {'id': 'abcd', 'name': 'foo'}
+        self.mock_snapshot_create.return_value = {'id': 'abcd', 'name': 'foo'}
         response = nova.Snapshots().post(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {'id': 'abcd', 'name': 'foo'})
-        nc.snapshot_create.assert_called_once_with(request,
-                                                   instance_id='1234',
-                                                   name='foo')
+        self.mock_snapshot_create.assert_called_once_with(request,
+                                                          instance_id='1234',
+                                                          name='foo')
 
     #
     # Server Actions
     #
-    @mock.patch.object(nova.api, 'nova')
-    def test_serveractions_list(self, nc):
+    @test.create_mocks({api.nova: ['instance_action_list']})
+    def test_serveractions_list(self):
         request = self.mock_rest_request()
-        nc.instance_action_list.return_value = [
+        self.mock_instance_action_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
         ]
         response = nova.ServerActions().get(request, 'MegaMan')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {'items': [{'id': '1'}, {'id': '2'}]})
-        nc.instance_action_list.assert_called_once_with(request, 'MegaMan')
+        self.mock_instance_action_list.assert_called_once_with(request,
+                                                               'MegaMan')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_start(self, nc):
+    @test.create_mocks({api.nova: ['server_start']})
+    def test_server_start(self):
+        self.mock_server_start.return_value = None
         request = self.mock_rest_request(body='{"operation": "start"}')
         response = nova.Server().post(request, 'MegaMan')
-        self.assertStatusCode(response, 200)
-        nc.server_start.assert_called_once_with(request, 'MegaMan')
+        self.assertStatusCode(response, 204)
+        self.mock_server_start.assert_called_once_with(request, 'MegaMan')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_stop(self, nc):
+    @test.create_mocks({api.nova: ['server_stop']})
+    def test_server_stop(self):
+        self.mock_server_stop.return_value = None
         request = self.mock_rest_request(body='{"operation": "stop"}')
         response = nova.Server().post(request, 'MegaMan')
-        self.assertStatusCode(response, 200)
-        nc.server_stop.assert_called_once_with(request, 'MegaMan')
+        self.assertStatusCode(response, 204)
+        self.mock_server_stop.assert_called_once_with(request, 'MegaMan')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_pause(self, nc):
+    @test.create_mocks({api.nova: ['server_pause']})
+    def test_server_pause(self):
+        self.mock_server_pause.return_value = None
         request = self.mock_rest_request(body='{"operation": "pause"}')
         response = nova.Server().post(request, 'MegaMan')
-        self.assertStatusCode(response, 200)
-        nc.server_pause.assert_called_once_with(request, 'MegaMan')
+        self.assertStatusCode(response, 204)
+        self.mock_server_pause.assert_called_once_with(request, 'MegaMan')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_unpause(self, nc):
+    @test.create_mocks({api.nova: ['server_unpause']})
+    def test_server_unpause(self):
+        self.mock_server_unpause.return_value = None
         request = self.mock_rest_request(body='{"operation": "unpause"}')
         response = nova.Server().post(request, 'MegaMan')
-        self.assertStatusCode(response, 200)
-        nc.server_unpause.assert_called_once_with(request, 'MegaMan')
+        self.assertStatusCode(response, 204)
+        self.mock_server_unpause.assert_called_once_with(request, 'MegaMan')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_suspend(self, nc):
+    @test.create_mocks({api.nova: ['server_suspend']})
+    def test_server_suspend(self):
+        self.mock_server_suspend.return_value = None
         request = self.mock_rest_request(body='{"operation": "suspend"}')
         response = nova.Server().post(request, 'MegaMan')
-        self.assertStatusCode(response, 200)
-        nc.server_suspend.assert_called_once_with(request, 'MegaMan')
+        self.assertStatusCode(response, 204)
+        self.mock_server_suspend.assert_called_once_with(request, 'MegaMan')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_resume(self, nc):
+    @test.create_mocks({api.nova: ['server_resume']})
+    def test_server_resume(self):
+        self.mock_server_resume.return_value = None
         request = self.mock_rest_request(body='{"operation": "resume"}')
         response = nova.Server().post(request, 'MegaMan')
-        self.assertStatusCode(response, 200)
-        nc.server_resume.assert_called_once_with(request, 'MegaMan')
+        self.assertStatusCode(response, 204)
+        self.mock_server_resume.assert_called_once_with(request, 'MegaMan')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_hard_reboot(self, nc):
+    @test.create_mocks({api.nova: ['server_reboot']})
+    def test_server_hard_reboot(self):
+        self.mock_server_reboot.return_value = None
         request = self.mock_rest_request(body='{"operation": "hard_reboot"}')
         response = nova.Server().post(request, 'MegaMan')
-        self.assertStatusCode(response, 200)
-        nc.server_reboot.assert_called_once_with(request, 'MegaMan', False)
+        self.assertStatusCode(response, 204)
+        self.mock_server_reboot.assert_called_once_with(request, 'MegaMan',
+                                                        False)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_soft_reboot(self, nc):
+    @test.create_mocks({api.nova: ['server_reboot']})
+    def test_server_soft_reboot(self):
+        self.mock_server_reboot.return_value = None
         request = self.mock_rest_request(body='{"operation": "soft_reboot"}')
         response = nova.Server().post(request, 'MegaMan')
-        self.assertStatusCode(response, 200)
-        nc.server_reboot.assert_called_once_with(request, 'MegaMan', True)
+        self.assertStatusCode(response, 204)
+        self.mock_server_reboot.assert_called_once_with(request, 'MegaMan',
+                                                        True)
 
     #
     # Security Groups
     #
-    @mock.patch.object(nova.api, 'neutron')
-    def test_securitygroups_list(self, nc):
+    @test.create_mocks({api.neutron: ['server_security_groups']})
+    def test_securitygroups_list(self):
         request = self.mock_rest_request()
-        nc.server_security_groups.return_value = [
+        self.mock_server_security_groups.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
         ]
         response = nova.SecurityGroups().get(request, 'MegaMan')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {'items': [{'id': '1'}, {'id': '2'}]})
-        nc.server_security_groups.assert_called_once_with(request, 'MegaMan')
+        self.mock_server_security_groups.assert_called_once_with(request,
+                                                                 'MegaMan')
 
     #
     # Console Output
     #
-    @mock.patch.object(nova.api, 'nova')
-    def test_console_output(self, nc):
+    @test.create_mocks({api.nova: ['server_console_output']})
+    def test_console_output(self):
         request = self.mock_rest_request(body='{"length": 50}')
-        nc.server_console_output.return_value = "this\nis\ncool"
+        self.mock_server_console_output.return_value = "this\nis\ncool"
         response = nova.ConsoleOutput().post(request, 'MegaMan')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {'lines': ["this", "is", "cool"]})
-        nc.server_console_output.assert_called_once_with(request,
-                                                         'MegaMan',
-                                                         tail_length=50)
+        self.mock_server_console_output.assert_called_once_with(request,
+                                                                'MegaMan',
+                                                                tail_length=50)
 
     #
     # Remote Console Info
     #
-    @mock.patch.object(nova.api, 'nova')
-    def test_console_info(self, nc):
+    @test.create_mocks({api.nova: ['server_serial_console']})
+    def test_console_info(self):
         request = self.mock_rest_request(body='{"console_type": "SERIAL"}')
         retval = mock.Mock(**{"url": "http://here.com"})
-        nc.server_serial_console.return_value = retval
+        self.mock_server_serial_console.return_value = retval
         response = nova.RemoteConsoleInfo().post(request, 'MegaMan')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
                          {"type": "SERIAL", "url": "http://here.com"})
-        nc.server_serial_console.assert_called_once_with(request, 'MegaMan')
+        self.mock_server_serial_console.assert_called_once_with(request,
+                                                                'MegaMan')
 
     #
     # Volumes
     #
-    @mock.patch.object(nova.api, 'nova')
-    def test_volumes_list(self, nc):
+    @test.create_mocks({api.nova: ['instance_volumes_list']})
+    def test_volumes_list(self):
         request = self.mock_rest_request()
-        nc.instance_volumes_list.return_value = [
+        self.mock_instance_volumes_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
         ]
         response = nova.Volumes().get(request, 'MegaMan')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {'items': [{'id': '1'}, {'id': '2'}]})
-        nc.instance_volumes_list.assert_called_once_with(request, 'MegaMan')
+        self.mock_instance_volumes_list.assert_called_once_with(request,
+                                                                'MegaMan')
 
     #
     # Keypairs
     #
-    @mock.patch.object(nova.api, 'nova')
-    def test_keypair_list(self, nc):
+    @test.create_mocks({api.nova: ['keypair_list']})
+    def test_keypair_list(self):
         request = self.mock_rest_request()
-        nc.keypair_list.return_value = [
+        self.mock_keypair_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
             mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
         ]
@@ -188,12 +202,12 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual({"items": [{"id": "one"}, {"id": "two"}]},
                          response.json)
-        nc.keypair_list.assert_called_once_with(request)
+        self.mock_keypair_list.assert_called_once_with(request)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_keypair_create(self, nc):
+    @test.create_mocks({api.nova: ['keypair_create']})
+    def test_keypair_create(self):
         request = self.mock_rest_request(body='''{"name": "Ni!"}''')
-        new = nc.keypair_create.return_value
+        new = self.mock_keypair_create.return_value
         new.to_dict.return_value = {'name': 'Ni!', 'public_key': 'sekrit'}
         new.name = 'Ni!'
         with mock.patch.object(settings, 'DEBUG', True):
@@ -202,14 +216,14 @@ class NovaRestTestCase(test.TestCase):
         self.assertEqual({"name": "Ni!", "public_key": "sekrit"},
                          response.json)
         self.assertEqual('/api/nova/keypairs/Ni%21', response['location'])
-        nc.keypair_create.assert_called_once_with(request, 'Ni!')
+        self.mock_keypair_create.assert_called_once_with(request, 'Ni!')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_keypair_import(self, nc):
+    @test.create_mocks({api.nova: ['keypair_import']})
+    def test_keypair_import(self):
         request = self.mock_rest_request(body='''
             {"name": "Ni!", "public_key": "hi"}
         ''')
-        new = nc.keypair_import.return_value
+        new = self.mock_keypair_import.return_value
         new.to_dict.return_value = {'name': 'Ni!', 'public_key': 'hi'}
         new.name = 'Ni!'
         with mock.patch.object(settings, 'DEBUG', True):
@@ -218,23 +232,24 @@ class NovaRestTestCase(test.TestCase):
         self.assertEqual({"name": "Ni!", "public_key": "hi"},
                          response.json)
         self.assertEqual('/api/nova/keypairs/Ni%21', response['location'])
-        nc.keypair_import.assert_called_once_with(request, 'Ni!', 'hi')
+        self.mock_keypair_import.assert_called_once_with(request, 'Ni!', 'hi')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_keypair_get(self, nc):
+    @test.create_mocks({api.nova: ['keypair_get']})
+    def test_keypair_get(self):
         request = self.mock_rest_request()
-        nc.keypair_get.return_value.to_dict.return_value = {'name': '1'}
+        self.mock_keypair_get.return_value.to_dict.return_value = {'name': '1'}
         response = nova.Keypair().get(request, '1')
         self.assertStatusCode(response, 200)
         self.assertEqual({"name": "1"},
                          response.json)
-        nc.keypair_get.assert_called_once_with(request, "1")
+        self.mock_keypair_get.assert_called_once_with(request, "1")
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_keypair_delete(self, nc):
+    @test.create_mocks({api.nova: ['keypair_delete']})
+    def test_keypair_delete(self):
+        self.mock_keypair_delete.return_value = None
         request = self.mock_rest_request()
         nova.Keypair().delete(request, "1")
-        nc.keypair_delete.assert_called_once_with(request, "1")
+        self.mock_keypair_delete.assert_called_once_with(request, "1")
 
     #
     # Availability Zones
@@ -245,13 +260,13 @@ class NovaRestTestCase(test.TestCase):
     def test_availzone_get_detailed(self):
         self._test_availzone_get(True)
 
-    @mock.patch.object(nova.api, 'nova')
-    def _test_availzone_get(self, detail, nc):
+    @test.create_mocks({api.nova: ['availability_zone_list']})
+    def _test_availzone_get(self, detail):
         if detail:
             request = self.mock_rest_request(GET={'detailed': 'true'})
         else:
             request = self.mock_rest_request(GET={})
-        nc.availability_zone_list.return_value = [
+        self.mock_availability_zone_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
             mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
         ]
@@ -259,7 +274,8 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual({"items": [{"id": "one"}, {"id": "two"}]},
                          response.json)
-        nc.availability_zone_list.assert_called_once_with(request, detail)
+        self.mock_availability_zone_list.assert_called_once_with(request,
+                                                                 detail)
 
     #
     # Limits
@@ -270,67 +286,69 @@ class NovaRestTestCase(test.TestCase):
     def test_limits_get_reserved(self):
         self._test_limits_get(True)
 
-    @mock.patch.object(nova.api, 'nova')
-    def _test_limits_get(self, reserved, nc):
+    @test.create_mocks({api.nova: ['tenant_absolute_limits']})
+    def _test_limits_get(self, reserved):
         if reserved:
             request = self.mock_rest_request(GET={'reserved': 'true'})
         else:
             request = self.mock_rest_request(GET={})
-        nc.tenant_absolute_limits.return_value = {'id': 'one'}
+        self.mock_tenant_absolute_limits.return_value = {'id': 'one'}
         response = nova.Limits().get(request)
         self.assertStatusCode(response, 200)
-        nc.tenant_absolute_limits.assert_called_once_with(request, reserved)
+        self.mock_tenant_absolute_limits.assert_called_once_with(request,
+                                                                 reserved)
         self.assertEqual({"id": "one"}, response.json)
 
     #
     # Servers
     #
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_create_missing(self, nc):
+    def test_server_create_missing(self):
         request = self.mock_rest_request(body='''{"name": "hi"}''')
         response = nova.Servers().post(request)
         self.assertStatusCode(response, 400)
         self.assertEqual("missing required parameter 'source_id'",
                          response.json)
-        nc.server_create.assert_not_called()
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_create_basic(self, nc):
+    @test.create_mocks({api.nova: ['server_create']})
+    def test_server_create_basic(self):
         request = self.mock_rest_request(body='''{"name": "Ni!",
             "source_id": "image123", "flavor_id": "flavor123",
             "key_name": "sekrit", "user_data": "base64 yes",
             "security_groups": [{"name": "root"}]}
         ''')
-        new = nc.server_create.return_value
+        new = self.mock_server_create.return_value
         new.to_dict.return_value = {'id': 'server123'}
         new.id = 'server123'
         response = nova.Servers().post(request)
         self.assertStatusCode(response, 201)
         self.assertEqual({"id": "server123"}, response.json)
         self.assertEqual('/api/nova/servers/server123', response['location'])
-        nc.server_create.assert_called_once_with(
+        self.mock_server_create.assert_called_once_with(
             request, 'Ni!', 'image123', 'flavor123', 'sekrit', 'base64 yes',
             [{'name': 'root'}]
         )
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_create_with_leading_trailing_space(self, nc):
+    @test.create_mocks({api.nova: ['server_create']})
+    def test_server_create_with_leading_trailing_space(self):
         request = self.mock_rest_request(body='''{"name": " Ni! ",
                 "source_id": "image123", "flavor_id": "flavor123",
                 "key_name": "sekrit", "user_data": "base64 yes",
                 "security_groups": [{"name": "root"}]}
             ''')
-        new = nc.server_create.return_value
+        new = self.mock_server_create.return_value
         new.to_dict.return_value = {'name': ' Ni! '.strip()}
         new.id = str(uuid.uuid4())
         response = nova.Servers().post(request)
         self.assertStatusCode(response, 201)
         self.assertEqual({"name": "Ni!"}, response.json)
+        self.mock_server_create.assert_called_once_with(
+            request, ' Ni! ', 'image123', 'flavor123', 'sekrit', 'base64 yes',
+            [{'name': 'root'}])
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_list(self, nc):
+    @test.create_mocks({api.nova: ['server_list']})
+    def test_server_list(self):
         request = self.mock_rest_request()
-        nc.server_list.return_value = ([
+        self.mock_server_list.return_value = ([
             mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
             mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
         ], False)
@@ -339,24 +357,24 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual({'items': [{'id': 'one'}, {'id': 'two'}]},
                          response.json)
-        nc.server_list.assert_called_once_with(request)
+        self.mock_server_list.assert_called_once_with(request)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_get_single(self, nc):
+    @test.create_mocks({api.nova: ['server_get']})
+    def test_server_get_single(self):
         request = self.mock_rest_request()
-        nc.server_get.return_value.to_dict.return_value = {'name': '1'}
+        self.mock_server_get.return_value.to_dict.return_value = {'name': '1'}
 
         response = nova.Server().get(request, "1")
         self.assertStatusCode(response, 200)
-        nc.server_get.assert_called_once_with(request, "1")
+        self.mock_server_get.assert_called_once_with(request, "1")
 
     #
     # Server Groups
     #
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_group_list(self, nc):
+    @test.create_mocks({api.nova: ['server_group_list']})
+    def test_server_group_list(self):
         request = self.mock_rest_request()
-        nc.server_group_list.return_value = [
+        self.mock_server_group_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
         ]
@@ -365,7 +383,7 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual({'items': [{'id': '1'}, {'id': '2'}]},
                          response.json)
-        nc.server_group_list.assert_called_once_with(request)
+        self.mock_server_group_list.assert_called_once_with(request)
 
     @test.create_mocks({api.nova: ['server_group_create']})
     def test_server_group_create(self):
@@ -412,41 +430,45 @@ class NovaRestTestCase(test.TestCase):
     #
     # Server Metadata
     #
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_get_metadata(self, nc):
+    @test.create_mocks({api.nova: ['server_get']})
+    def test_server_get_metadata(self):
         request = self.mock_rest_request()
         meta = {'foo': 'bar'}
-        nc.server_get.return_value.to_dict.return_value.get.return_value = meta
+        ret_val_server = self.mock_server_get.return_value
+        ret_val_server.to_dict.return_value.get.return_value = meta
 
         response = nova.ServerMetadata().get(request, "1")
         self.assertStatusCode(response, 200)
-        nc.server_get.assert_called_once_with(request, "1")
+        self.mock_server_get.assert_called_once_with(request, "1")
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_server_edit_metadata(self, nc):
+    @test.create_mocks({api.nova: ['server_metadata_delete',
+                                   'server_metadata_update']})
+    def test_server_edit_metadata(self):
         request = self.mock_rest_request(
             body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
         )
+        self.mock_server_metadata_update.return_value = None
+        self.mock_server_metadata_delete.return_value = None
 
         response = nova.ServerMetadata().patch(request, '1')
         self.assertStatusCode(response, 204)
         self.assertEqual(b'', response.content)
-        nc.server_metadata_update.assert_called_once_with(
+        self.mock_server_metadata_update.assert_called_once_with(
             request, '1', {'a': '1', 'b': '2'}
         )
-        nc.server_metadata_delete.assert_called_once_with(
+        self.mock_server_metadata_delete.assert_called_once_with(
             request, '1', ['c', 'd']
         )
 
     #
     # Extensions
     #
-    @mock.patch.object(nova.api, 'nova')
+    @test.create_mocks({api.nova: ['list_extensions']})
     @mock.patch.object(settings,
                        'OPENSTACK_NOVA_EXTENSIONS_BLACKLIST', ['baz'])
-    def _test_extension_list(self, nc):
+    def _test_extension_list(self):
         request = self.mock_rest_request()
-        nc.list_extensions.return_value = [
+        self.mock_list_extensions.return_value = [
             mock.Mock(**{'to_dict.return_value': {'name': 'foo'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'bar'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'baz'}}),
@@ -455,19 +477,19 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual({"items": [{"name": "foo"}, {"name": "bar"}]},
                          response.json)
-        nc.list_extensions.assert_called_once_with(request)
+        self.mock_list_extensions.assert_called_once_with(request)
 
     #
     # Flavors
     #
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_get_single_with_access_list(self, nc):
+    @test.create_mocks({api.nova: ['flavor_get', 'flavor_access_list']})
+    def test_flavor_get_single_with_access_list(self):
         request = self.mock_rest_request(GET={'get_access_list': 'tRuE'})
-        nc.flavor_get.return_value.to_dict.return_value = {'name': '1'}
-        nc.flavor_get.return_value.is_public = False
+        self.mock_flavor_get.return_value.to_dict.return_value = {'name': '1'}
+        self.mock_flavor_get.return_value.is_public = False
 
-        nc.flavor_access_list.return_value = [
+        self.mock_flavor_access_list.return_value = [
             mock.Mock(**{'tenant_id': '11'}),
             mock.Mock(**{'tenant_id': '22'}),
         ]
@@ -478,8 +500,9 @@ class NovaRestTestCase(test.TestCase):
         self.assertEqual(to_json(response.content.decode('utf-8')),
                          to_json('{"access-list": ["11", "22"], "name": "1"}'))
 
-        nc.flavor_get.assert_called_once_with(request, "1",
-                                              get_extras=False)
+        self.mock_flavor_get.assert_called_once_with(request, "1",
+                                                     get_extras=False)
+        self.mock_flavor_access_list.assert_called_once_with(request, "1")
 
     def test_get_extras_no(self):
         self._test_flavor_get_single(get_extras=False)
@@ -490,8 +513,8 @@ class NovaRestTestCase(test.TestCase):
     def test_get_extras_default(self):
         self._test_flavor_get_single(get_extras=None)
 
-    @mock.patch.object(nova.api, 'nova')
-    def _test_flavor_get_single(self, nc, get_extras):
+    @test.create_mocks({api.nova: ['flavor_get']})
+    def _test_flavor_get_single(self, get_extras):
         if get_extras:
             request = self.mock_rest_request(GET={'get_extras': 'tRuE'})
         elif get_extras is None:
@@ -499,7 +522,7 @@ class NovaRestTestCase(test.TestCase):
             get_extras = False
         else:
             request = self.mock_rest_request(GET={'get_extras': 'fAlsE'})
-        nc.flavor_get.return_value.to_dict.return_value = {'name': '1'}
+        self.mock_flavor_get.return_value.to_dict.return_value = {'name': '1'}
 
         response = nova.Flavor().get(request, "1")
         self.assertStatusCode(response, 200)
@@ -507,13 +530,13 @@ class NovaRestTestCase(test.TestCase):
             self.assertEqual(response.json, {"extras": {}, "name": "1"})
         else:
             self.assertEqual({"name": "1"}, response.json)
-        nc.flavor_get.assert_called_once_with(request, "1",
-                                              get_extras=get_extras)
+        self.mock_flavor_get.assert_called_once_with(request, "1",
+                                                     get_extras=get_extras)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_get_single_with_swap_set_to_empty(self, nc):
+    @test.create_mocks({api.nova: ['flavor_get']})
+    def test_flavor_get_single_with_swap_set_to_empty(self):
         request = self.mock_rest_request()
-        nc.flavor_get.return_value\
+        self.mock_flavor_get.return_value\
             .to_dict.return_value = {'name': '1', 'swap': ''}
 
         response = nova.Flavor().get(request, "1")
@@ -521,15 +544,18 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(to_json(response.content.decode('utf-8')),
                          to_json('{"name": "1", "swap": 0}'))
+        self.mock_flavor_get.assert_called_once_with(request, '1',
+                                                     get_extras=False)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_delete(self, nc):
+    @test.create_mocks({api.nova: ['flavor_delete']})
+    def test_flavor_delete(self):
+        self.mock_flavor_delete.return_value = None
         request = self.mock_rest_request()
         nova.Flavor().delete(request, "1")
-        nc.flavor_delete.assert_called_once_with(request, "1")
+        self.mock_flavor_delete.assert_called_once_with(request, "1")
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_create(self, nc):
+    @test.create_mocks({api.nova: ['flavor_create']})
+    def test_flavor_create(self):
         flavor_req_data = '{"name": "flavor", ' \
                           '"ram": 12, ' \
                           '"vcpus": 1, ' \
@@ -539,7 +565,7 @@ class NovaRestTestCase(test.TestCase):
                           '"id": "123"' \
                           '}'
 
-        nc.flavor_create.return_value = mock.Mock(**{
+        self.mock_flavor_create.return_value = mock.Mock(**{
             'id': '123',
             'to_dict.return_value': {'id': '123', 'name': 'flavor'}
         })
@@ -559,10 +585,11 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 201)
         self.assertEqual('/api/nova/flavors/123', response['location'])
 
-        nc.flavor_create.assert_called_once_with(request, **flavor_data)
+        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_create_with_access_list(self, nc):
+    @test.create_mocks({api.nova: ['flavor_create',
+                                   'add_tenant_to_flavor']})
+    def test_flavor_create_with_access_list(self):
         flavor_req_data = '{"name": "flavor", ' \
                           '"ram": 12, ' \
                           '"vcpus": 1, ' \
@@ -573,10 +600,14 @@ class NovaRestTestCase(test.TestCase):
                           '"flavor_access": [{"id":"1", "name":"test"}]' \
                           '}'
 
-        nc.flavor_create.return_value = mock.Mock(**{
+        self.mock_flavor_create.return_value = mock.Mock(**{
             'id': '1234',
             'to_dict.return_value': {'id': '1234', 'name': 'flavor'}
         })
+        # A list of FlavorAccess object is returned but it is actually unused.
+        self.mock_add_tenant_to_flavor.return_value = [
+            mock.sentinel.flavor_access1,
+        ]
 
         flavor_data = {'name': 'flavor',
                        'memory': 12,
@@ -593,11 +624,14 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 201)
         self.assertEqual('/api/nova/flavors/1234', response['location'])
 
-        nc.flavor_create.assert_called_once_with(request, **flavor_data)
-        nc.add_tenant_to_flavor.assert_called_once_with(request, '1234', '1')
+        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
+        self.mock_add_tenant_to_flavor.assert_called_once_with(
+            request, '1234', '1')
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_update(self, nc):
+    @test.create_mocks({api.nova: ['flavor_create',
+                                   'flavor_delete',
+                                   'flavor_get_extras']})
+    def test_flavor_update(self):
         flavor_req_data = '{"name": "flavor", ' \
                           '"ram": 12, ' \
                           '"vcpus": 1, ' \
@@ -606,10 +640,12 @@ class NovaRestTestCase(test.TestCase):
                           '"swap": 4' \
                           '}'
 
-        nc.flavor_create.return_value = mock.Mock(**{
+        self.mock_flavor_get_extras.return_value = {}
+        self.mock_flavor_create.return_value = mock.Mock(**{
             'id': '123',
             'to_dict.return_value': {'id': '123', 'name': 'flavor'}
         })
+        self.mock_flavor_delete.return_value = None
 
         flavor_data = {'name': 'flavor',
                        'memory': 12,
@@ -625,11 +661,14 @@ class NovaRestTestCase(test.TestCase):
 
         self.assertStatusCode(response, 204)
 
-        nc.flavor_delete.assert_called_once_with(request, '123')
-        nc.flavor_create.assert_called_once_with(request, **flavor_data)
+        self.mock_flavor_get_extras.assert_called_once_with(
+            request, '123', raw=True)
+        self.mock_flavor_delete.assert_called_once_with(request, '123')
+        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_update_with_extras(self, nc):
+    @test.create_mocks({api.nova: ['flavor_create', 'flavor_delete',
+                                   'flavor_extra_set', 'flavor_get_extras']})
+    def test_flavor_update_with_extras(self):
         flavor_req_data = '{"name": "flavor", ' \
                           '"ram": 12, ' \
                           '"vcpus": 1, ' \
@@ -640,12 +679,13 @@ class NovaRestTestCase(test.TestCase):
 
         extra_dict = mock.Mock()
 
-        nc.flavor_get_extras.return_value = extra_dict
-
-        nc.flavor_create.return_value = mock.Mock(**{
+        self.mock_flavor_get_extras.return_value = extra_dict
+        self.mock_flavor_create.return_value = mock.Mock(**{
             'id': '1234',
             'to_dict.return_value': {'id': '1234', 'name': 'flavor'}
         })
+        self.mock_flavor_delete.return_value = None
+        self.mock_flavor_extra_set.return_value = None
 
         flavor_data = {'name': 'flavor',
                        'memory': 12,
@@ -661,14 +701,18 @@ class NovaRestTestCase(test.TestCase):
 
         self.assertStatusCode(response, 204)
 
-        nc.flavor_delete.assert_called_once_with(request, '123')
-        nc.flavor_create.assert_called_once_with(request, **flavor_data)
-        nc.flavor_get_extras.assert_called_once_with(request, '123', raw=True)
-        nc.flavor_extra_set.assert_called_once_with(request, '1234',
-                                                    extra_dict)
+        self.mock_flavor_delete.assert_called_once_with(request, '123')
+        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
+        self.mock_flavor_get_extras.assert_called_once_with(request, '123',
+                                                            raw=True)
+        self.mock_flavor_extra_set.assert_called_once_with(request, '1234',
+                                                           extra_dict)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_update_with_access_list(self, nc):
+    @test.create_mocks({api.nova: ['flavor_create',
+                                   'flavor_delete',
+                                   'flavor_get_extras',
+                                   'add_tenant_to_flavor']})
+    def test_flavor_update_with_access_list(self):
         flavor_req_data = '{"name": "flavor", ' \
                           '"ram": 12, ' \
                           '"vcpus": 1, ' \
@@ -678,10 +722,16 @@ class NovaRestTestCase(test.TestCase):
                           '"flavor_access": [{"id":"1", "name":"test"}]' \
                           '}'
 
-        nc.flavor_create.return_value = mock.Mock(**{
+        self.mock_flavor_get_extras.return_value = {}
+        self.mock_flavor_create.return_value = mock.Mock(**{
             'id': '1234',
             'to_dict.return_value': {'id': '1234', 'name': 'flavor'}
         })
+        self.mock_flavor_delete.return_value = None
+        # A list of FlavorAccess object is returned but it is actually unused.
+        self.mock_add_tenant_to_flavor.return_value = [
+            mock.sentinel.flavor_access1,
+        ]
 
         flavor_data = {'name': 'flavor',
                        'memory': 12,
@@ -697,19 +747,22 @@ class NovaRestTestCase(test.TestCase):
 
         self.assertStatusCode(response, 204)
 
-        nc.flavor_delete.assert_called_once_with(request, '123')
-        nc.flavor_create.assert_called_once_with(request, **flavor_data)
-        nc.add_tenant_to_flavor.assert_called_once_with(request, '1234', '1')
+        self.mock_flavor_get_extras.assert_called_once_with(
+            request, '123', raw=True)
+        self.mock_flavor_delete.assert_called_once_with(request, '123')
+        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
+        self.mock_add_tenant_to_flavor.assert_called_once_with(
+            request, '1234', '1')
 
-    @mock.patch.object(nova.api, 'nova')
-    def _test_flavor_list_public(self, nc, is_public=None):
+    @test.create_mocks({api.nova: ['flavor_list']})
+    def _test_flavor_list_public(self, is_public=None):
         if is_public:
             request = self.mock_rest_request(GET={'is_public': 'tRuE'})
         elif is_public is None:
             request = self.mock_rest_request(GET={})
         else:
             request = self.mock_rest_request(GET={'is_public': 'fAlsE'})
-        nc.flavor_list.return_value = [
+        self.mock_flavor_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
         ]
@@ -717,8 +770,9 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual({"items": [{"id": "1"}, {"id": "2"}]},
                          response.json)
-        nc.flavor_list.assert_called_once_with(request, is_public=is_public,
-                                               get_extras=False)
+        self.mock_flavor_list.assert_called_once_with(request,
+                                                      is_public=is_public,
+                                                      get_extras=False)
 
     def test_flavor_list_private(self):
         self._test_flavor_list_public(is_public=False)
@@ -729,8 +783,8 @@ class NovaRestTestCase(test.TestCase):
     def test_flavor_list_public_none(self):
         self._test_flavor_list_public(is_public=None)
 
-    @mock.patch.object(nova.api, 'nova')
-    def _test_flavor_list_extras(self, nc, get_extras=None):
+    @test.create_mocks({api.nova: ['flavor_list']})
+    def _test_flavor_list_extras(self, get_extras=None):
         if get_extras:
             request = self.mock_rest_request(GET={'get_extras': 'tRuE'})
         elif get_extras is None:
@@ -738,7 +792,7 @@ class NovaRestTestCase(test.TestCase):
             get_extras = False
         else:
             request = self.mock_rest_request(GET={'get_extras': 'fAlsE'})
-        nc.flavor_list.return_value = [
+        self.mock_flavor_list.return_value = [
             mock.Mock(**{'extras': {}, 'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'extras': {}, 'to_dict.return_value': {'id': '2'}}),
         ]
@@ -751,8 +805,8 @@ class NovaRestTestCase(test.TestCase):
         else:
             self.assertEqual({"items": [{"id": "1"}, {"id": "2"}]},
                              response.json)
-        nc.flavor_list.assert_called_once_with(request, is_public=None,
-                                               get_extras=get_extras)
+        self.mock_flavor_list.assert_called_once_with(request, is_public=None,
+                                                      get_extras=get_extras)
 
     def test_flavor_list_extras_no(self):
         self._test_flavor_list_extras(get_extras=False)
@@ -763,43 +817,49 @@ class NovaRestTestCase(test.TestCase):
     def test_flavor_list_extras_absent(self):
         self._test_flavor_list_extras(get_extras=None)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_get_extra_specs(self, nc):
+    @test.create_mocks({api.nova: ['flavor_get_extras']})
+    def test_flavor_get_extra_specs(self):
         request = self.mock_rest_request()
-        nc.flavor_get_extras.return_value.to_dict.return_value = {'foo': '1'}
+        self.mock_flavor_get_extras.return_value.to_dict.return_value = \
+            {'foo': '1'}
 
         response = nova.FlavorExtraSpecs().get(request, "1")
         self.assertStatusCode(response, 200)
-        nc.flavor_get_extras.assert_called_once_with(request, "1", raw=True)
+        self.mock_flavor_get_extras.assert_called_once_with(request, "1",
+                                                            raw=True)
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_flavor_edit_extra_specs(self, nc):
+    @test.create_mocks({api.nova: ['flavor_extra_delete',
+                                   'flavor_extra_set']})
+    def test_flavor_edit_extra_specs(self):
         request = self.mock_rest_request(
             body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
         )
+        self.mock_flavor_extra_delete.return_value = None
+        self.mock_flavor_extra_set.return_value = {'a': '1', 'b': '2'}
 
         response = nova.FlavorExtraSpecs().patch(request, '1')
         self.assertStatusCode(response, 204)
         self.assertEqual(b'', response.content)
-        nc.flavor_extra_set.assert_called_once_with(
+        self.mock_flavor_extra_set.assert_called_once_with(
             request, '1', {'a': '1', 'b': '2'}
         )
-        nc.flavor_extra_delete.assert_called_once_with(
+        self.mock_flavor_extra_delete.assert_called_once_with(
             request, '1', ['c', 'd']
         )
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_aggregate_get_extra_specs(self, nc):
+    @test.create_mocks({api.nova: ['aggregate_get']})
+    def test_aggregate_get_extra_specs(self):
         request = self.mock_rest_request()
-        nc.aggregate_get.return_value.metadata = {'a': '1', 'b': '2'}
+        self.mock_aggregate_get.return_value.metadata = {'a': '1', 'b': '2'}
 
         response = nova.AggregateExtraSpecs().get(request, "1")
         self.assertStatusCode(response, 200)
         self.assertEqual({"a": "1", "b": "2"}, response.json)
-        nc.aggregate_get.assert_called_once_with(request, "1")
+        self.mock_aggregate_get.assert_called_once_with(request, "1")
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_aggregate_edit_extra_specs(self, nc):
+    @test.create_mocks({api.nova: ['aggregate_set_metadata']})
+    def test_aggregate_edit_extra_specs(self):
+        self.mock_aggregate_set_metadata.return_value = self.aggregates.first()
         request = self.mock_rest_request(
             body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
         )
@@ -807,7 +867,7 @@ class NovaRestTestCase(test.TestCase):
         response = nova.AggregateExtraSpecs().patch(request, '1')
         self.assertStatusCode(response, 204)
         self.assertEqual(b'', response.content)
-        nc.aggregate_set_metadata.assert_called_once_with(
+        self.mock_aggregate_set_metadata.assert_called_once_with(
             request, '1', {'a': '1', 'b': '2', 'c': None, 'd': None}
         )
 
@@ -815,23 +875,28 @@ class NovaRestTestCase(test.TestCase):
     # Services
     #
 
-    @mock.patch.object(api.base, 'is_service_enabled')
-    @mock.patch.object(nova.api, 'nova')
-    def test_services_get(self, nc, mock_is_service_enabled):
+    @test.create_mocks({api.base: ['is_service_enabled'],
+                        api.nova: ['service_list',
+                                   'extension_supported']})
+    def test_services_get(self):
         request = self.mock_rest_request(GET={})
-        nc.service_list.return_value = [
+        self.mock_service_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'id': '2'}})
         ]
-        mock_is_service_enabled.return_value = True
+        self.mock_is_service_enabled.return_value = True
+        self.mock_extension_supported.return_value = True
 
         response = nova.Services().get(request)
 
         self.assertStatusCode(response, 200)
         self.assertEqual('{"items": [{"id": "1"}, {"id": "2"}]}',
                          response.content.decode('utf-8'))
-        nc.service_list.assert_called_once_with(request)
-        mock_is_service_enabled.assert_called_once_with(request, 'compute')
+        self.mock_service_list.assert_called_once_with(request)
+        self.mock_is_service_enabled.assert_called_once_with(request,
+                                                             'compute')
+        self.mock_extension_supported.assert_called_once_with(
+            'Services', request)
 
     @mock.patch.object(api.base, 'is_service_enabled')
     def test_services_get_disabled(self, mock_is_service_enabled):
@@ -843,17 +908,16 @@ class NovaRestTestCase(test.TestCase):
         self.assertStatusCode(response, 501)
         mock_is_service_enabled.assert_called_once_with(request, 'compute')
 
-    @mock.patch.object(api.base, 'is_service_enabled')
-    @mock.patch.object(quotas, 'get_disabled_quotas')
-    @mock.patch.object(nova.api, 'nova')
-    def test_quota_sets_defaults_get(self, nc, mock_get_disabled_quotas,
-                                     mock_is_service_enabled):
+    @test.create_mocks({api.base: ['is_service_enabled'],
+                        quotas: ['get_disabled_quotas'],
+                        api.nova: ['default_quota_get']})
+    def test_quota_sets_defaults_get(self):
         filters = {'user': {'tenant_id': 'tenant'}}
         request = self.mock_rest_request(**{'GET': dict(filters)})
 
-        mock_is_service_enabled.return_value = True
-        mock_get_disabled_quotas.return_value = ['floating_ips']
-        nc.default_quota_get.return_value = [
+        self.mock_is_service_enabled.return_value = True
+        self.mock_get_disabled_quotas.return_value = ['floating_ips']
+        self.mock_default_quota_get.return_value = [
             Quota('metadata_items', 100),
             Quota('floating_ips', 1),
             Quota('q2', 101)
@@ -871,32 +935,30 @@ class NovaRestTestCase(test.TestCase):
                               "name": "q2"}
                          ]})
 
-        mock_is_service_enabled.assert_called_once_with(request, 'compute')
-        mock_get_disabled_quotas.assert_called_once_with(request)
-        nc.default_quota_get.assert_called_once_with(request,
-                                                     request.user.tenant_id)
+        self.mock_is_service_enabled.assert_called_once_with(request,
+                                                             'compute')
+        self.mock_get_disabled_quotas.assert_called_once_with(request)
+        self.mock_default_quota_get.assert_called_once_with(
+            request, request.user.tenant_id)
 
-    @mock.patch.object(api.base, 'is_service_enabled')
-    @mock.patch.object(nova.api, 'nova')
-    def test_quota_sets_defaults_get_when_service_is_disabled(
-            self, nc, mock_is_service_enabled):
+    @test.create_mocks({api.base: ['is_service_enabled']})
+    def test_quota_sets_defaults_get_when_service_is_disabled(self):
         filters = {'user': {'tenant_id': 'tenant'}}
         request = self.mock_rest_request(**{'GET': dict(filters)})
-        mock_is_service_enabled.return_value = False
+        self.mock_is_service_enabled.return_value = False
 
         response = nova.DefaultQuotaSets().get(request)
 
         self.assertStatusCode(response, 501)
         self.assertEqual(response.content.decode('utf-8'),
                          '"Service Nova is disabled."')
-        nc.default_quota_get.assert_not_called()
-        mock_is_service_enabled.assert_called_once_with(request, 'compute')
+        self.mock_is_service_enabled.assert_called_once_with(request,
+                                                             'compute')
 
-    @mock.patch.object(api.base, 'is_service_enabled')
-    @mock.patch.object(quotas, 'get_disabled_quotas')
-    @mock.patch.object(nova.api, 'nova')
-    def test_quota_sets_defaults_patch(self, nc, mock_get_disabled_quotas,
-                                       mock_is_service_enabled):
+    @test.create_mocks({api.base: ['is_service_enabled'],
+                        quotas: ['get_disabled_quotas'],
+                        api.nova: ['default_quota_update']})
+    def test_quota_sets_defaults_patch(self):
         request = self.mock_rest_request(body='''
             {"key_pairs": "15", "metadata_items": "5000",
             "cores": "10", "instances": "20", "floating_ips": 10,
@@ -905,27 +967,27 @@ class NovaRestTestCase(test.TestCase):
             "injected_files": "5", "ram": "10", "gigabytes": "5"}
         ''')
 
-        mock_is_service_enabled.return_value = True
-        mock_get_disabled_quotas.return_value = ['floating_ips']
+        self.mock_is_service_enabled.return_value = True
+        self.mock_get_disabled_quotas.return_value = ['floating_ips']
+        self.mock_default_quota_update.return_value = None
 
         response = nova.DefaultQuotaSets().patch(request)
 
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content.decode('utf-8'), '')
 
-        mock_is_service_enabled.assert_called_once_with(request, 'compute')
-        mock_get_disabled_quotas.assert_called_once_with(request)
-        nc.default_quota_update.assert_called_once_with(
+        self.mock_is_service_enabled.assert_called_once_with(request,
+                                                             'compute')
+        self.mock_get_disabled_quotas.assert_called_once_with(request)
+        self.mock_default_quota_update.assert_called_once_with(
             request, key_pairs='15',
             metadata_items='5000', cores='10',
             instances='20', injected_file_content_bytes='15',
             injected_file_path_bytes='5000',
             injected_files='5', ram='10')
 
-    @mock.patch.object(api.base, 'is_service_enabled')
-    @mock.patch.object(nova.api, 'nova')
-    def test_quota_sets_defaults_patch_when_service_is_disabled(
-            self, nc, mock_is_service_enabled):
+    @test.create_mocks({api.base: ['is_service_enabled']})
+    def test_quota_sets_defaults_patch_when_service_is_disabled(self):
         request = self.mock_rest_request(body='''
             {"key_pairs": "15", "metadata_items": "5000",
             "cores": "10", "instances": "20", "floating_ips": 10,
@@ -934,7 +996,7 @@ class NovaRestTestCase(test.TestCase):
             "injected_files": "5", "ram": "10", "gigabytes": "5"}
         ''')
 
-        mock_is_service_enabled.return_value = False
+        self.mock_is_service_enabled.return_value = False
 
         response = nova.DefaultQuotaSets().patch(request)
 
@@ -942,30 +1004,32 @@ class NovaRestTestCase(test.TestCase):
         self.assertEqual(response.content.decode('utf-8'),
                          '"Service Nova is disabled."')
 
-        nc.default_quota_update.assert_not_called()
-        mock_is_service_enabled.assert_called_once_with(request, 'compute')
+        self.mock_is_service_enabled.assert_called_once_with(request,
+                                                             'compute')
 
-    @mock.patch.object(nova, 'quotas')
-    @mock.patch.object(nova.api, 'nova')
-    def test_editable_quotas_get(self, nc, qc):
+    @test.create_mocks({quotas: ['get_disabled_quotas']})
+    def test_editable_quotas_get(self):
         disabled_quotas = {'floating_ips', 'fixed_ips',
                            'security_groups', 'security_group_rules'}
         editable_quotas = {'cores', 'volumes', 'network', 'fixed_ips'}
-        qc.get_disabled_quotas.return_value = disabled_quotas
-        qc.QUOTA_FIELDS = editable_quotas
+        self.mock_get_disabled_quotas.return_value = disabled_quotas
         request = self.mock_rest_request()
-        response = nova.EditableQuotaSets().get(request)
+
+        with mock.patch.object(quotas, 'QUOTA_FIELDS', editable_quotas):
+            response = nova.EditableQuotaSets().get(request)
+
         self.assertStatusCode(response, 200)
         # NOTE(amotoki): assertItemsCollectionEqual cannot be used below
         # since the item list is generated from a set and the order of items
         # is unpredictable.
         self.assertEqual(set(response.json['items']),
                          {'cores', 'volumes', 'network'})
+        self.mock_get_disabled_quotas.assert_called_once_with(request)
 
-    @mock.patch.object(nova.api, 'nova')
-    @mock.patch.object(nova.api, 'base')
-    @mock.patch.object(nova, 'quotas')
-    def test_quota_sets_patch(self, qc, bc, nc):
+    @test.create_mocks({api.base: ['is_service_enabled'],
+                        quotas: ['get_disabled_quotas'],
+                        api.nova: ['tenant_quota_update']})
+    def test_quota_sets_patch(self):
         quota_data = dict(cores='15', instances='5',
                           ram='50000', metadata_items='150',
                           injected_files='5',
@@ -982,21 +1046,26 @@ class NovaRestTestCase(test.TestCase):
              "security_group_rules": "100", "volumes": "10"}
         ''')
 
-        qc.get_disabled_quotas.return_value = set()
-        qc.NOVA_QUOTA_FIELDS = {n for n in quota_data}
-        bc.is_service_enabled.return_value = True
+        self.mock_get_disabled_quotas.return_value = set()
+        self.mock_is_service_enabled.return_value = True
+        self.mock_tenant_quota_update.return_value = None
 
-        response = nova.QuotaSets().patch(request, 'spam123')
+        with mock.patch.object(quotas, 'NOVA_QUOTA_FIELDS',
+                               {n for n in quota_data}):
+            response = nova.QuotaSets().patch(request, 'spam123')
 
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content.decode('utf-8'), '')
-        nc.tenant_quota_update.assert_called_once_with(
+        self.mock_is_service_enabled.assert_called_once_with(request,
+                                                             'compute')
+        self.mock_get_disabled_quotas.assert_called_once_with(request)
+        self.mock_tenant_quota_update.assert_called_once_with(
             request, 'spam123', **quota_data)
 
-    @mock.patch.object(nova.api, 'nova')
-    @mock.patch.object(nova.api, 'base')
-    @mock.patch.object(nova, 'quotas')
-    def test_quota_sets_patch_when_service_is_disabled(self, qc, bc, nc):
+    @test.create_mocks({api.nova: ['tenant_quota_update'],
+                        api.base: ['is_service_enabled'],
+                        quotas: ['get_disabled_quotas']})
+    def test_quota_sets_patch_when_service_is_disabled(self):
         quota_data = dict(cores='15', instances='5',
                           ram='50000', metadata_items='150',
                           injected_files='5',
@@ -1013,22 +1082,29 @@ class NovaRestTestCase(test.TestCase):
              "security_group_rules": "100", "volumes": "10"}
         ''')
 
-        qc.get_disabled_quotas.return_value = {}
-        qc.NOVA_QUOTA_FIELDS = {n for n in quota_data}
-        bc.is_service_enabled.return_value = False
+        self.mock_get_disabled_quotas.return_value = {}
+        self.mock_is_service_enabled.return_value = False
+        self.mock_tenant_quota_update.return_value = None
 
-        response = nova.QuotaSets().patch(request, 'spam123')
+        with mock.patch.object(quotas, 'NOVA_QUOTA_FIELDS',
+                               {n for n in quota_data}):
+            response = nova.QuotaSets().patch(request, 'spam123')
 
         self.assertStatusCode(response, 501)
         self.assertEqual(response.content.decode('utf-8'),
                          '"Service Nova is disabled."')
-        nc.tenant_quota_update.assert_not_called()
+        self.mock_get_disabled_quotas.assert_called_once_with(request)
+        self.mock_is_service_enabled.assert_called_once_with(request,
+                                                             'compute')
+        self.mock_tenant_quota_update.assert_not_called()
 
-    @mock.patch.object(nova.api, 'nova')
-    def test_version_get(self, nc):
+    @test.create_mocks({api.nova: ['is_feature_available']})
+    def test_version_get(self):
         request = self.mock_rest_request()
-        nc.is_feature_available.return_value = True
+        self.mock_is_feature_available.return_value = True
 
         response = nova.Features().get(request, 'fake')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.content.decode('utf-8'), 'true')
+        self.mock_is_feature_available.assert_called_once_with(request,
+                                                               ('fake',))
