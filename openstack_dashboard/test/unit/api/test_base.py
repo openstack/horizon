@@ -59,6 +59,9 @@ class APIDict(api_base.APIDictWrapper):
 
 
 class APIVersionTests(test.TestCase):
+
+    use_mox = False
+
     def test_equal(self):
         version = api_base.Version('1.0')
         self.assertEqual(1, version)
@@ -105,6 +108,9 @@ class APIVersionTests(test.TestCase):
 
 # Wrapper classes that only define _attrs don't need extra testing.
 class APIResourceWrapperTests(test.TestCase):
+
+    use_mox = False
+
     def test_get_attribute(self):
         resource = APIResource.get_instance()
         self.assertEqual('foo', resource.foo)
@@ -131,6 +137,9 @@ class APIResourceWrapperTests(test.TestCase):
 
 
 class APIDictWrapperTests(test.TestCase):
+
+    use_mox = False
+
     # APIDict allows for both attribute access and dictionary style [element]
     # style access.  Test both
     def test_get_item(self):
@@ -198,6 +207,9 @@ class APIDictWrapperTests(test.TestCase):
 
 
 class ApiVersionTests(test.TestCase):
+
+    use_mox = False
+
     def setUp(self):
         super(ApiVersionTests, self).setUp()
         self.previous_settings = settings.OPENSTACK_API_VERSIONS
@@ -234,6 +246,8 @@ class ApiVersionTests(test.TestCase):
 
 class ApiHelperTests(test.TestCase):
     """Tests for functions that don't use one of the api objects."""
+
+    use_mox = False
 
     def test_url_for(self):
         url = api_base.url_for(self.request, 'image')
@@ -289,6 +303,8 @@ class ApiHelperTests(test.TestCase):
 
 
 class QuotaSetTests(test.TestCase):
+
+    use_mox = False
 
     def test_quotaset_add_with_plus(self):
         quota_dict = {'foo': 1, 'bar': 10}

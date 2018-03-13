@@ -25,6 +25,8 @@ from openstack_dashboard.test import helpers as test
 
 class CinderRestTestCase(test.TestCase):
 
+    use_mox = False
+
     #
     # Volumes
     #
