@@ -37,6 +37,7 @@ HORIZON_CONFIG.pop('default_dashboard', None)
 HORIZON_CONFIG.pop('js_files', None)
 HORIZON_CONFIG.pop('js_spec_files', None)
 HORIZON_CONFIG.pop('scss_files', None)
+HORIZON_CONFIG.pop('xstatic_modules', None)
 
 util_settings.update_dashboards([panel_config,], HORIZON_CONFIG, INSTALLED_APPS)
 
@@ -60,6 +61,8 @@ class PanelPluginTests(test.PluginTestCase):
         self.assertEqual(pc.ADD_JS_FILES, HORIZON_CONFIG['js_files'])
         self.assertEqual(pc.ADD_JS_SPEC_FILES, HORIZON_CONFIG['js_spec_files'])
         self.assertEqual(pc.ADD_SCSS_FILES, HORIZON_CONFIG['scss_files'])
+        self.assertEqual(pc.ADD_XSTATIC_MODULES,
+                         HORIZON_CONFIG['xstatic_modules'])
         self.assertEqual(pc.ADD_HEADER_SECTIONS,
                          HORIZON_CONFIG['header_sections'])
 

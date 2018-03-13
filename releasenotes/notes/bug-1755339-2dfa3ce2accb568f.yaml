@@ -1,0 +1,9 @@
+---
+features:
+  - |
+    [:bug:`1755339`]
+    (for horizon plugin developers) A new plugin option ``ADD_XSTATIC_MODULES``
+    is now available and horizon plugins can add extra xstatic modules via the
+    horizon plugin "enabled" file. For more detail, see ``ADD_XSTATIC_MODULES``
+    description in `Pluggable Panels and Groups <https://docs.openstack.org/horizon/latest/configuration/pluggable_panels.html#ADD_XSTATIC_MODULES>`__
+    in horizon documentation.

@@ -79,6 +79,29 @@ A list of scss files to be included in the compressed set of files that are
 loaded on every page. We recommend one scss file per dashboard, use @import if
 you need to include additional scss files for panels.
 
+
+``ADD_XSTATIC_MODULES``
+-----------------------
+
+.. versionadded:: 14.0.0(Rocky)
+
+A list of xstatic modules containing javascript and scss files to be included
+in the compressed set of files that are loaded on every page. Related files
+specified in ``ADD_XSTATIC_MODULES`` do not need to be included in
+``ADD_JS_FILES``. This option expects a list of tuples, each consists of
+a xstatic module and a list of javascript files to be loaded if any.
+For more details, please check the comment of ``BASE_XSTATIC_MODULES``
+in openstack_dashboard/utils/settings.py.
+
+Example:
+
+.. code-block:: python
+
+   ADD_XSTATIC_MODULES = [
+       ('xstatic.pkg.foo', ['foo.js']),
+       ('xstatic.pkg.bar', None),
+   ]
+
 .. _auto_discover_static_files:
 
 ``AUTO_DISCOVER_STATIC_FILES``
