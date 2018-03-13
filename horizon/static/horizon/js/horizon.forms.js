@@ -523,6 +523,11 @@ horizon.addInitFunction(horizon.forms.init = function () {
             $input.attr("required", "required");
           }
         }
+        if ($input.data("required-when-shown") === true &&
+            $input.closest('.form-group').find('.hz-icon-required').length < 1) {
+          var asterist_text = '<span class="hz-icon-required fa fa-asterisk"></span>';
+          $input.closest('.form-group').children('.control-label').after(asterist_text);
+        }
       }
 
       $fieldset.find('.switched[data-switch-on*="' + slug + '"]').each(handle_switched_field);
