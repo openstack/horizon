@@ -290,27 +290,6 @@ def _augment_url_with_version(auth_url):
         return url_path_append(auth_url, "/v2.0")
 
 
-# TODO(tsufiev): remove this legacy version as soon as Horizon switches to
-# the new fix_auth_url_version_prefix() call
-def fix_auth_url_version(auth_url):
-    """Fix up the auth url if an invalid or no version prefix was given.
-
-    People still give a v2 auth_url even when they specify that they want v3
-    authentication. Fix the URL to say v3 in this case and add version if it is
-    missing entirely. This should be smarter and use discovery.
-    """
-    auth_url = _augment_url_with_version(auth_url)
-
-    if get_keystone_version() >= 3 and has_in_url_path(auth_url, ["/v2.0"]):
-        LOG.warning("The Keystone URL (either in Horizon settings or in "
-                    "service catalog) points to a v2.0 Keystone endpoint, "
-                    "but v3 is specified as the API version to use by "
-                    "Horizon. Using v3 endpoint for authentication.")
-        auth_url = url_path_replace(auth_url, "/v2.0", "/v3", 1)
-
-    return auth_url
-
-
 def fix_auth_url_version_prefix(auth_url):
     """Fix up the auth url if an invalid or no version prefix was given.
 
