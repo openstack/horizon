@@ -87,7 +87,13 @@
       }
       if (promises.length > 0) {
         step.checkReadiness = function () {
-          return $q.all(promises);
+          return $q.all(promises).then(function() {
+            // all promises have succeeded, return the readiness status to true
+            return true;
+          }, function() {
+            // at least one promise has failed, return the readiness status to false
+            return false;
+          });
         };
       }
     }

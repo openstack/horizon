@@ -67,7 +67,7 @@
       expect(novaExtensionsService.ifNameEnabled).toHaveBeenCalledWith('foo-novaExtension');
     });
 
-    it('step checkReadiness function returns correct results', function() {
+    it('step checkReadiness function returns true when promise is resolved', function() {
       decoratorService(spec);
       var readinessResult;
       deferred.resolve('foo');
@@ -75,7 +75,18 @@
         readinessResult = result;
       });
       $scope.$apply();
-      expect(readinessResult).toEqual(['foo']);
+      expect(readinessResult).toEqual(true);
+    });
+
+    it('step checkReadiness function returns false when promise is rejected', function() {
+      decoratorService(spec);
+      var readinessResult;
+      deferred.reject();
+      steps[1].checkReadiness().then(function(result) {
+        readinessResult = result;
+      });
+      $scope.$apply();
+      expect(readinessResult).toEqual(false);
     });
 
   });
