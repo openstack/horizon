@@ -882,13 +882,6 @@ class Site(Registry, HorizonComponent):
             urlpatterns.append(url(r'^%s/' % dash.slug,
                                    _wrapped_include(dash._decorated_urls)))
 
-        # add URL for ngdetails
-        views = import_module('horizon.browsers.views')
-        urlpatterns.append(url(r'^ngdetails/',
-                               views.AngularDetailsView.as_view(),
-                               name='ngdetails'))
-        _decorate_urlconf(urlpatterns, require_auth)
-
         # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.namespace, self.slug
 

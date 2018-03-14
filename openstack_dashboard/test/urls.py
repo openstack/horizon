@@ -25,6 +25,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views import defaults
 
 import horizon.base
+from horizon.browsers import views as browsers_views
 
 from openstack_dashboard.api import rest
 from openstack_dashboard.test.jasmine import jasmine
@@ -38,6 +39,9 @@ urlpatterns = [
     url(r'^api/', include(rest.urls)),
     url(r'^jasmine/(.*?)$', jasmine.dispatcher),
     url(r'', horizon.base._wrapped_include(horizon.urls)),
+    url(r'^ngdetails/',
+        browsers_views.AngularDetailsView.as_view(),
+        name='ngdetails'),
 ]
 
 # Development static app and project media serving using the staticfiles app.
