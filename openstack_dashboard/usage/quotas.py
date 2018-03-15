@@ -24,6 +24,7 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
+from openstack_dashboard.utils import futurist_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -415,9 +416,13 @@ def tenant_quota_usages(request, tenant_id=None, targets=None):
         enabled_quotas &= set(targets)
         disabled_quotas = set(QUOTA_FIELDS) - enabled_quotas
 
-    _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id)
-    _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id)
-    _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id)
+    futurist_utils.call_functions_parallel(
+        (_get_tenant_compute_usages,
+         [request, usages, disabled_quotas, tenant_id]),
+        (_get_tenant_network_usages,
+         [request, usages, disabled_quotas, tenant_id]),
+        (_get_tenant_volume_usages,
+         [request, usages, disabled_quotas, tenant_id]))
 
     return usages
 
