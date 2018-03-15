@@ -45,10 +45,10 @@ class InstanceViewTest(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(True)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
             AndReturn([tenants, False])
-        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.glance.image_list_detailed(IsA(http.HttpRequest))\
-            .AndReturn(images)
+            .AndReturn((images, False, False))
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
+        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -69,6 +69,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         servers = self.servers.list()
         tenants = self.tenants.list()
         flavors = self.flavors.list()
+        images = self.images.list()
         full_flavors = OrderedDict([(f.id, f) for f in flavors])
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
@@ -78,6 +79,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
+        api.glance.image_list_detailed(IsA(http.HttpRequest))\
+            .AndReturn((images, False, False))
         api.nova.flavor_list(IsA(http.HttpRequest)). \
             AndRaise(self.exceptions.nova)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
@@ -143,13 +146,18 @@ class InstanceViewTest(test.BaseAdminViewTests):
     })
     def test_index_server_list_exception(self):
         tenants = self.tenants.list()
+        images = self.images.list()
+        flavors = self.flavors.list()
 
+        api.keystone.tenant_list(IsA(http.HttpRequest)).\
+            AndReturn([tenants, False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest))\
+            .AndReturn((images, False, False))
+        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              search_opts=search_opts) \
             .AndRaise(self.exceptions.nova)
-        api.keystone.tenant_list(IsA(http.HttpRequest)).\
-            AndReturn([tenants, False])
 
         self.mox.ReplayAll()
 
@@ -207,7 +215,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
             AndReturn([self.tenants.list(), False])
         api.glance.image_list_detailed(IsA(http.HttpRequest)) \
-            .AndReturn(images)
+            .AndReturn((images, False, False))
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
@@ -240,13 +248,13 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
             .AndReturn([self.tenants.list(), False])
         api.glance.image_list_detailed(IsA(http.HttpRequest)) \
-            .AndReturn(images)
+            .AndReturn((images, False, False))
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
-        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
+        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              search_opts=search_opts) \
             .AndReturn([servers, False])
