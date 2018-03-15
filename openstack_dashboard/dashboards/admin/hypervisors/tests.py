@@ -12,33 +12,27 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
 from django.urls import reverse
-from mox3.mox import IsA
+
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
 class HypervisorViewTest(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('extension_supported',
+    @test.create_mocks({api.nova: ['extension_supported',
                                    'hypervisor_list',
                                    'hypervisor_stats',
-                                   'service_list')})
+                                   'service_list']})
     def test_index(self):
         hypervisors = self.hypervisors.list()
-        services = self.services.list()
-        stats = self.hypervisors.stats
-        compute_services = [service for service in services
+        compute_services = [service for service in self.services.list()
                             if service.binary == 'nova-compute']
-        api.nova.extension_supported('AdminActions',
-                                     IsA(http.HttpRequest)) \
-            .MultipleTimes().AndReturn(True)
-        api.nova.hypervisor_list(IsA(http.HttpRequest)).AndReturn(hypervisors)
-        api.nova.hypervisor_stats(IsA(http.HttpRequest)).AndReturn(stats)
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndReturn(compute_services)
-        self.mox.ReplayAll()
+        self.mock_extension_supported.return_value = True
+        self.mock_hypervisor_list.return_value = hypervisors
+        self.mock_hypervisor_stats.return_value = self.hypervisors.stats
+        self.mock_service_list.return_value = compute_services
 
         res = self.client.get(reverse('horizon:admin:hypervisors:index'))
         self.assertTemplateUsed(res, 'admin/hypervisors/index.html')
@@ -67,35 +61,44 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         self.assertEqual('migrate_maintenance',
                          actions_service_disabled[1].name)
 
-    @test.create_stubs({api.nova: ('hypervisor_list',
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_extension_supported, 28,
+            mock.call('AdminActions', test.IsHttpRequest()))
+        self.mock_hypervisor_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_hypervisor_stats.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(), binary='nova-compute')
+
+    @test.create_mocks({api.nova: ['hypervisor_list',
                                    'hypervisor_stats',
-                                   'service_list')})
+                                   'service_list']})
     def test_service_list_unavailable(self):
         # test that error message should be returned when
         # nova.service_list isn't available.
 
-        hypervisors = self.hypervisors.list()
-        stats = self.hypervisors.stats
-        api.nova.hypervisor_list(IsA(http.HttpRequest)).AndReturn(hypervisors)
-        api.nova.hypervisor_stats(IsA(http.HttpRequest)).AndReturn(stats)
-        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
-            .AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
+        self.mock_hypervisor_list.return_value = self.hypervisors.list()
+        self.mock_hypervisor_stats.return_value = self.hypervisors.stats
+        self.mock_service_list.side_effect = self.exceptions.nova
 
         resp = self.client.get(reverse('horizon:admin:hypervisors:index'))
         self.assertMessageCount(resp, error=1, warning=0)
 
+        self.mock_hypervisor_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_hypervisor_stats.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(), binary='nova-compute')
+
 
 class HypervisorDetailViewTest(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('hypervisor_search',)})
+    @test.create_mocks({api.nova: ['hypervisor_search']})
     def test_index(self):
         hypervisor = self.hypervisors.first()
-        api.nova.hypervisor_search(
-            IsA(http.HttpRequest),
-            hypervisor.hypervisor_hostname).AndReturn([
-                hypervisor,
-                self.hypervisors.list()[1]])
-        self.mox.ReplayAll()
+        self.mock_hypervisor_search.return_value = [
+            hypervisor, self.hypervisors.list()[1]]
 
         url = reverse('horizon:admin:hypervisors:detail',
                       args=["%s_%s" % (hypervisor.id,
@@ -103,3 +106,6 @@ class HypervisorDetailViewTest(test.BaseAdminViewTests):
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'admin/hypervisors/detail.html')
         self.assertItemsEqual(res.context['table'].data, hypervisor.servers)
+
+        self.mock_hypervisor_search.assert_called_once_with(
+            test.IsHttpRequest(), hypervisor.hypervisor_hostname)
