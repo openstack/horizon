@@ -557,6 +557,7 @@ class APITestCase(TestCase):
         return self.cinderclient
 
     def stub_keystoneclient(self):
+        self._warn_client('keystone', 'S')
         if not hasattr(self, "keystoneclient"):
             self.mox.StubOutWithMock(keystone_client, 'Client')
             # NOTE(saschpe): Mock properties, MockObject.__init__ ignores them:
@@ -619,6 +620,11 @@ class APIMockTestCase(APITestCase):
         if not hasattr(self, "glanceclient"):
             self.glanceclient = mock.Mock()
         return self.glanceclient
+
+    def stub_keystoneclient(self):
+        if not hasattr(self, "keystoneclient"):
+            self.keystoneclient = mock.Mock()
+        return self.keystoneclient
 
     def stub_swiftclient(self):
         # This method should not be called.

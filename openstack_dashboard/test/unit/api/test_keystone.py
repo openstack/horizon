@@ -18,31 +18,14 @@
 
 from __future__ import absolute_import
 
-from keystoneclient.v2_0 import client as keystone_client
+import mock
 import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
-class FakeConnection(object):
-    pass
-
-
-class ClientConnectionTests(test.TestCase):
-    def setUp(self):
-        super(ClientConnectionTests, self).setUp()
-        self.mox.StubOutWithMock(keystone_client, "Client")
-        self.internal_url = api.base.url_for(self.request,
-                                             'identity',
-                                             endpoint_type='internalURL')
-        self.admin_url = api.base.url_for(self.request,
-                                          'identity',
-                                          endpoint_type='adminURL')
-        self.conn = FakeConnection()
-
-
-class RoleAPITests(test.APITestCase):
+class RoleAPITests(test.APIMockTestCase):
     def setUp(self):
         super(RoleAPITests, self).setUp()
         self.role = self.roles.member
@@ -60,31 +43,36 @@ class RoleAPITests(test.APITestCase):
         keystoneclient = self.stub_keystoneclient()
         tenant = self.tenants.first()
 
-        keystoneclient.roles = self.mox.CreateMockAnything()
-        keystoneclient.roles.roles_for_user(self.user.id,
-                                            tenant.id).AndReturn(self.roles)
-        for role in self.roles:
-            keystoneclient.roles.revoke(role.id,
-                                        domain=None,
-                                        group=None,
-                                        project=tenant.id,
-                                        user=self.user.id)
-        self.mox.ReplayAll()
+        keystoneclient.roles.roles_for_user.return_value = self.roles
+        keystoneclient.roles.revoke.side_effect = [None for role in self.roles]
+
         api.keystone.remove_tenant_user(self.request, tenant.id, self.user.id)
+
+        keystoneclient.roles.roles_for_user.assert_called_once_with(
+            self.user.id, tenant.id)
+        keystoneclient.roles.revoke.assert_has_calls(
+            [mock.call(role.id,
+                       domain=None,
+                       group=None,
+                       project=tenant.id,
+                       user=self.user.id)
+             for role in self.roles]
+        )
 
     def test_get_default_role(self):
         keystoneclient = self.stub_keystoneclient()
-        keystoneclient.roles = self.mox.CreateMockAnything()
-        keystoneclient.roles.list().AndReturn(self.roles)
-        self.mox.ReplayAll()
+        keystoneclient.roles.list.return_value = self.roles
+
         role = api.keystone.get_default_role(self.request)
         self.assertEqual(self.role, role)
         # Verify that a second call doesn't hit the API again,
         # (it would show up in mox as an unexpected method call)
         role = api.keystone.get_default_role(self.request)
 
+        keystoneclient.roles.list.assert_called_once_with()
 
-class ServiceAPITests(test.APITestCase):
+
+class ServiceAPITests(test.APIMockTestCase):
     def test_service_wrapper(self):
         catalog = self.service_catalog
         identity_data = api.base.get_service_from_catalog(catalog, "identity")
