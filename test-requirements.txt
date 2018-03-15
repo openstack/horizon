@@ -25,7 +25,7 @@ openstackdocstheme>=1.18.1 # Apache-2.0
 reno>=2.5.0 # Apache-2.0
 requests>=2.14.2 # Apache-2.0
 selenium>=2.50.1 # Apache-2.0
-sphinx!=1.6.6,>=1.6.2 # BSD
+sphinx!=1.6.6,!=1.6.7,>=1.6.2 # BSD
 testscenarios>=0.4 # Apache-2.0/BSD
 testtools>=2.2.0 # MIT
 # This also needs xvfb library installed on your OS
