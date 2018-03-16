@@ -30,55 +30,57 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
     #
     # Version
     #
-    @mock.patch.object(glance.api, 'glance')
-    def test_version_get(self, gc):
+    @test.create_mocks({api.glance: ['get_version']})
+    def test_version_get(self):
         request = self.mock_rest_request()
-        gc.get_version.return_value = '2.0'
+        self.mock_get_version.return_value = '2.0'
         response = glance.Version().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"version": "2.0"})
-        gc.get_version.assert_called_once_with()
+        self.mock_get_version.assert_called_once_with()
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_get_single(self, gc):
+    @test.create_mocks({api.glance: ['image_get']})
+    def test_image_get_single(self):
         request = self.mock_rest_request()
-        gc.image_get.return_value.to_dict.return_value = {'name': '1'}
+        self.mock_image_get.return_value.to_dict.return_value = {'name': '1'}
 
         response = glance.Image().get(request, "1")
         self.assertStatusCode(response, 200)
-        gc.image_get.assert_called_once_with(request, "1")
+        self.mock_image_get.assert_called_once_with(request, "1")
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_get_metadata(self, gc):
+    @test.create_mocks({api.glance: ['image_get']})
+    def test_image_get_metadata(self):
         request = self.mock_rest_request()
-        gc.image_get.return_value.properties = {'a': '1', 'b': '2'}
+        self.mock_image_get.return_value.properties = {'a': '1', 'b': '2'}
 
         response = glance.ImageProperties().get(request, "1")
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"a": "1", "b": "2"})
-        gc.image_get.assert_called_once_with(request, "1")
+        self.mock_image_get.assert_called_once_with(request, "1")
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_edit_metadata(self, gc):
+    @test.create_mocks({api.glance: ['image_update_properties']})
+    def test_image_edit_metadata(self):
         request = self.mock_rest_request(
             body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
         )
+        self.mock_image_update_properties.return_value = self.images.first()
 
         response = glance.ImageProperties().patch(request, '1')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, b'')
-        gc.image_update_properties.assert_called_once_with(
+        self.mock_image_update_properties.assert_called_once_with(
             request, '1', ['c', 'd'], a='1', b='2'
         )
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_delete(self, gc):
+    @test.create_mocks({api.glance: ['image_delete']})
+    def test_image_delete(self):
         request = self.mock_rest_request()
+        self.mock_image_delete.return_value = None
         glance.Image().delete(request, "1")
-        gc.image_delete.assert_called_once_with(request, "1")
+        self.mock_image_delete.assert_called_once_with(request, "1")
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_edit_v1(self, gc):
+    @test.create_mocks({api.glance: ['image_update', 'VERSIONS']})
+    def test_image_edit_v1(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "container_format": "aki",
             "visibility": "public", "protected": false,
@@ -87,7 +89,8 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        gc.VERSIONS.active = 1
+        self.mock_VERSIONS.active = 1
+        self.mock_image_update.return_value = self.images.first()
 
         metadata = {'name': 'Test',
                     'disk_format': 'aki',
@@ -105,10 +108,11 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         response = glance.Image().patch(request, "1")
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content.decode('utf-8'), '')
-        gc.image_update.assert_called_once_with(request, '1', **metadata)
+        self.mock_image_update.assert_called_once_with(request, '1',
+                                                       **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_edit_v2(self, gc):
+    @test.create_mocks({api.glance: ['image_update', 'VERSIONS']})
+    def test_image_edit_v2(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "container_format": "aki",
             "visibility": "public", "protected": false,
@@ -117,7 +121,8 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        gc.VERSIONS.active = 2
+        self.mock_VERSIONS.active = 2
+        self.mock_image_update.return_value = self.images.first()
 
         metadata = {'name': 'Test',
                     'disk_format': 'aki',
@@ -135,10 +140,11 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         response = glance.Image().patch(request, "1")
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content.decode('utf-8'), '')
-        gc.image_update.assert_called_once_with(request, '1', **metadata)
+        self.mock_image_update.assert_called_once_with(request, '1',
+                                                       **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_get_list_detailed(self, gc):
+    @test.create_mocks({api.glance: ['image_list_detailed']})
+    def test_image_get_list_detailed(self):
         kwargs = {
             'sort_dir': 'desc',
             'sort_key': 'namespace',
@@ -148,7 +154,7 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         filters = {'name': 'fedora'}
         request = self.mock_rest_request(
             **{'GET': dict(kwargs, **filters)})
-        gc.image_list_detailed.return_value = ([
+        self.mock_image_list_detailed.return_value = ([
             mock.Mock(**{'to_dict.return_value': {'name': 'fedora'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'cirros'}})
         ], False, False)
@@ -158,12 +164,12 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(response.json,
                          {"items": [{"name": "fedora"}, {"name": "cirros"}],
                           "has_more_data": False, "has_prev_data": False})
-        gc.image_list_detailed.assert_called_once_with(request,
-                                                       filters=filters,
-                                                       **kwargs)
+        self.mock_image_list_detailed.assert_called_once_with(request,
+                                                              filters=filters,
+                                                              **kwargs)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v1_basic(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v1_basic(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "import_data": false,
             "visibility": "public", "container_format": "aki",
@@ -172,8 +178,8 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        new = gc.image_create.return_value
-        gc.VERSIONS.active = 1
+        new = self.mock_image_create.return_value
+        self.mock_VERSIONS.active = 1
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -197,10 +203,10 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(response.content.decode('utf-8'),
                          '{"name": "testimage"}')
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v2_basic(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v2_basic(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "import_data": false,
             "visibility": "public", "container_format": "aki",
@@ -209,8 +215,8 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        gc.VERSIONS.active = 2
-        new = gc.image_create.return_value
+        self.mock_VERSIONS.active = 2
+        new = self.mock_image_create.return_value
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -233,10 +239,10 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(response.content.decode('utf-8'),
                          '{"name": "testimage"}')
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v1_shared(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v1_shared(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "import_data": false,
             "visibility": "shared", "container_format": "aki",
@@ -245,8 +251,8 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        gc.VERSIONS.active = 1
-        new = gc.image_create.return_value
+        self.mock_VERSIONS.active = 1
+        new = self.mock_image_create.return_value
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -270,10 +276,10 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(response.content.decode('utf-8'),
                          '{"name": "testimage"}')
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v2_shared(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v2_shared(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "import_data": false,
             "visibility": "shared", "container_format": "aki",
@@ -282,8 +288,8 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        gc.VERSIONS.active = 2
-        new = gc.image_create.return_value
+        self.mock_VERSIONS.active = 2
+        new = self.mock_image_create.return_value
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -306,10 +312,10 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(response.content.decode('utf-8'),
                          '{"name": "testimage"}')
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v1_private(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v1_private(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "import_data": false,
             "visibility": "private", "container_format": "aki",
@@ -318,8 +324,8 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        gc.VERSIONS.active = 1
-        new = gc.image_create.return_value
+        self.mock_VERSIONS.active = 1
+        new = self.mock_image_create.return_value
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -343,10 +349,10 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(response.content.decode('utf-8'),
                          '{"name": "testimage"}')
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v2_private(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v2_private(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "import_data": false,
             "visibility": "private", "container_format": "aki",
@@ -355,8 +361,8 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        gc.VERSIONS.active = 2
-        new = gc.image_create.return_value
+        self.mock_VERSIONS.active = 2
+        new = self.mock_image_create.return_value
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -379,10 +385,10 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(response.content.decode('utf-8'),
                          '{"name": "testimage"}')
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v1_bad_visibility(self, gc):
+    @test.create_mocks({api.glance: ['VERSIONS']})
+    def test_image_create_v1_bad_visibility(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "import_data": false,
             "visibility": "verybad", "container_format": "aki",
@@ -391,15 +397,15 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        gc.VERSIONS.active = 1
+        self.mock_VERSIONS.active = 1
 
         response = glance.Images().put(request)
         self.assertStatusCode(response, 400)
         self.assertEqual(response.content.decode('utf-8'),
                          '"invalid visibility option: verybad"')
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v2_bad_visibility(self, gc):
+    @test.create_mocks({api.glance: ['VERSIONS']})
+    def test_image_create_v2_bad_visibility(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "aki", "import_data": false,
             "visibility": "verybad", "container_format": "aki",
@@ -408,22 +414,22 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
             "description": "description", "kernel": "kernel",
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
-        gc.VERSIONS.active = 2
+        self.mock_VERSIONS.active = 2
 
         response = glance.Images().put(request)
         self.assertStatusCode(response, 400)
         self.assertEqual(response.content.decode('utf-8'),
                          '"invalid visibility option: verybad"')
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v1_required(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v1_required(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "raw", "import_data": true,
             "container_format": "docker",
             "visibility": "public", "protected": false,
             "source_type": "url", "image_url": "test.com" }''')
-        gc.VERSIONS.active = 1
-        new = gc.image_create.return_value
+        self.mock_VERSIONS.active = 1
+        new = self.mock_image_create.return_value
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -440,17 +446,17 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         response = glance.Images().put(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v2_required(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v2_required(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "raw", "import_data": true,
             "container_format": "docker",
             "visibility": "public", "protected": false,
             "source_type": "url", "image_url": "test.com" }''')
-        gc.VERSIONS.active = 2
-        new = gc.image_create.return_value
+        self.mock_VERSIONS.active = 2
+        new = self.mock_image_create.return_value
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -466,18 +472,18 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         response = glance.Images().put(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v1_additional_props(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v1_additional_props(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "raw", "import_data": true,
             "container_format": "docker",
             "visibility": "public", "protected": false,
             "arbitrary": "property", "another": "prop",
             "source_type": "url", "image_url": "test.com" }''')
-        gc.VERSIONS.active = 1
-        new = gc.image_create.return_value
+        self.mock_VERSIONS.active = 1
+        new = self.mock_image_create.return_value
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -494,18 +500,18 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         response = glance.Images().put(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_image_create_v2_additional_props(self, gc):
+    @test.create_mocks({api.glance: ['image_create', 'VERSIONS']})
+    def test_image_create_v2_additional_props(self):
         request = self.mock_rest_request(body='''{"name": "Test",
             "disk_format": "raw", "import_data": true,
             "container_format": "docker",
             "visibility": "public", "protected": false,
             "arbitrary": "property", "another": "prop",
             "source_type": "url", "image_url": "test.com" }''')
-        gc.VERSIONS.active = 2
-        new = gc.image_create.return_value
+        self.mock_VERSIONS.active = 2
+        new = self.mock_image_create.return_value
         new.to_dict.return_value = {'name': 'testimage'}
         new.name = 'testimage'
 
@@ -523,12 +529,12 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         response = glance.Images().put(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'], '/api/glance/images/testimage')
-        gc.image_create.assert_called_once_with(request, **metadata)
+        self.mock_image_create.assert_called_once_with(request, **metadata)
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_namespace_get_list(self, gc):
+    @test.create_mocks({api.glance: ['metadefs_namespace_full_list']})
+    def test_namespace_get_list(self):
         request = self.mock_rest_request(**{'GET': {}})
-        gc.metadefs_namespace_full_list.return_value = (
+        self.mock_metadefs_namespace_full_list.return_value = (
             [{'namespace': '1'}, {'namespace': '2'}], False, False
         )
 
@@ -537,12 +543,12 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(response.json,
                          {"items": [{"namespace": "1"}, {"namespace": "2"}],
                           "has_more_data": False, "has_prev_data": False})
-        gc.metadefs_namespace_full_list.assert_called_once_with(
+        self.mock_metadefs_namespace_full_list.assert_called_once_with(
             request, filters={}
         )
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_namespace_get_list_kwargs_and_filters(self, gc):
+    @test.create_mocks({api.glance: ['metadefs_namespace_full_list']})
+    def test_namespace_get_list_kwargs_and_filters(self):
         kwargs = {
             'sort_dir': 'desc',
             'sort_key': 'namespace',
@@ -552,7 +558,7 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         filters = {'resource_types': 'type'}
         request = self.mock_rest_request(
             **{'GET': dict(kwargs, **filters)})
-        gc.metadefs_namespace_full_list.return_value = (
+        self.mock_metadefs_namespace_full_list.return_value = (
             [{'namespace': '1'}, {'namespace': '2'}], False, False
         )
 
@@ -561,14 +567,14 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(response.json,
                          {"items": [{"namespace": "1"}, {"namespace": "2"}],
                           "has_more_data": False, "has_prev_data": False})
-        gc.metadefs_namespace_full_list.assert_called_once_with(
+        self.mock_metadefs_namespace_full_list.assert_called_once_with(
             request, filters=filters, **kwargs
         )
 
-    @mock.patch.object(glance.api, 'glance')
-    def test_resource_types_get_list(self, gc):
+    @test.create_mocks({api.glance: ['metadefs_resource_types_list']})
+    def test_resource_types_get_list(self):
         request = self.mock_rest_request(**{'GET': {}})
-        gc.metadefs_resource_types_list.return_value = ([
+        self.mock_metadefs_resource_types_list.return_value = ([
             {"created_at": "2015-08-21T16:49:43Z",
              "name": "OS::Glance::Image",
              "updated_at": "2015-08-21T16:49:43Z"},
@@ -588,4 +594,4 @@ class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
              "updated_at": "2015-08-21T16:49:43Z"}
         ]})
 
-        gc.metadefs_resource_types_list.assert_called_once_with(request)
+        self.mock_metadefs_resource_types_list.assert_called_once_with(request)
