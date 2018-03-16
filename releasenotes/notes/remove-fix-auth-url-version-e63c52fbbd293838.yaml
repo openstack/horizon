@@ -1,0 +1,5 @@
+---
+other:
+  - |
+    Deprecated function fix_auth_url_version is removed from openstack_auth
+    library. fix_auth_url_version_prefix function should be used instead of it.
