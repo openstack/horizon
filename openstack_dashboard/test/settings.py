@@ -310,6 +310,11 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.domains.panel.Domains.can_access'),
         'return_value': True,
     },
+    'server_groups': {
+        'method': ('openstack_dashboard.dashboards.project'
+                   '.server_groups.panel.ServerGroups.can_access'),
+        'return_value': True,
+    },
     'trunk-project': {
         'method': ('openstack_dashboard.dashboards.project'
                    '.trunks.panel.Trunks.can_access'),
