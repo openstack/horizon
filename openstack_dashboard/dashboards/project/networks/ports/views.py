@@ -28,6 +28,7 @@ from openstack_dashboard.dashboards.project.networks.ports \
     import tabs as project_tabs
 from openstack_dashboard.dashboards.project.networks.ports \
     import workflows as project_workflows
+from openstack_dashboard.utils import futurist_utils
 
 
 STATE_DICT = dict(project_tables.DISPLAY_CHOICES)
@@ -87,43 +88,46 @@ class DetailView(tabs.TabbedTableView):
 
         return port
 
-    @memoized.memoized_method
-    def get_network(self, network_id):
-        try:
-            network = api.neutron.network_get(self.request, network_id)
-        except Exception:
-            network = {}
-            msg = _('Unable to retrieve network details.')
-            exceptions.handle(self.request, msg)
-
-        return network
-
-    @memoized.memoized_method
-    def get_security_groups(self, sg_ids):
-        # Avoid extra API calls if no security group is associated.
-        if not sg_ids:
-            return []
-        try:
-            security_groups = api.neutron.security_group_list(self.request,
-                                                              id=sg_ids)
-        except Exception:
-            security_groups = []
-            msg = _("Unable to retrieve security groups for the port.")
-            exceptions.handle(self.request, msg)
-        return security_groups
-
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         port = self.get_data()
         network_url = "horizon:project:networks:detail"
         subnet_url = "horizon:project:networks:subnets:detail"
-        network = self.get_network(port.network_id)
+
+        @memoized.memoized_method
+        def get_network(network_id):
+            try:
+                network = api.neutron.network_get(self.request, network_id)
+            except Exception:
+                network = {}
+                msg = _('Unable to retrieve network details.')
+                exceptions.handle(self.request, msg)
+
+            return network
+
+        @memoized.memoized_method
+        def get_security_groups(sg_ids):
+            # Avoid extra API calls if no security group is associated.
+            if not sg_ids:
+                return []
+            try:
+                security_groups = api.neutron.security_group_list(self.request,
+                                                                  id=sg_ids)
+            except Exception:
+                security_groups = []
+                msg = _("Unable to retrieve security groups for the port.")
+                exceptions.handle(self.request, msg)
+            return security_groups
+
+        results = futurist_utils.call_functions_parallel(
+            (get_network, [port.network_id]),
+            (get_security_groups, [tuple(port.security_groups)]))
+        network, port.security_groups = results
+
         port.network_name = network.get('name')
         port.network_url = reverse(network_url, args=[port.network_id])
         for ip in port.fixed_ips:
             ip['subnet_url'] = reverse(subnet_url, args=[ip['subnet_id']])
-        port.security_groups = self.get_security_groups(
-            tuple(port.security_groups))
         table = project_tables.PortsTable(self.request,
                                           network_id=port.network_id)
         # TODO(robcresswell) Add URL for "Ports" crumb after bug/1416838
