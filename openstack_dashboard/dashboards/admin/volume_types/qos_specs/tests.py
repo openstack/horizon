@@ -10,10 +10,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django import http
 from django.urls import reverse
 
-from mox3.mox import IsA
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.volume_types.qos_specs \
@@ -22,18 +21,14 @@ from openstack_dashboard.test import helpers as test
 
 
 class QosSpecsTests(test.BaseAdminViewTests):
-    @test.create_stubs({api.cinder: ('qos_spec_get',), })
+    @test.create_mocks({api.cinder: ('qos_spec_get',)})
     def test_manage_qos_spec(self):
         qos_spec = self.cinder_qos_specs.first()
         index_url = reverse(
             'horizon:admin:volume_types:qos_specs:index',
             args=[qos_spec.id])
 
-        api.cinder.qos_spec_get(IsA(http.HttpRequest),
-                                qos_spec.id)\
-            .AndReturn(qos_spec)
-
-        self.mox.ReplayAll()
+        self.mock_qos_spec_get.return_value = qos_spec
 
         res = self.client.get(index_url)
 
@@ -47,15 +42,15 @@ class QosSpecsTests(test.BaseAdminViewTests):
             self.assertEqual(row.cells['value'].data,
                              specs.get(key))
 
-    @test.create_stubs({api.cinder: ('qos_spec_create',)})
+        self.mock_qos_spec_get.assert_has_calls(
+            [mock.call(test.IsHttpRequest(), qos_spec.id)] * 2)
+        self.assertEqual(2, self.mock_qos_spec_get.call_count)
+
+    @test.create_mocks({api.cinder: ('qos_spec_create',)})
     def test_create_qos_spec(self):
         formData = {'name': 'qos-spec-1',
                     'consumer': 'back-end'}
-        api.cinder.qos_spec_create(IsA(http.HttpRequest),
-                                   formData['name'],
-                                   {'consumer': formData['consumer']}).\
-            AndReturn(self.cinder_qos_specs.first())
-        self.mox.ReplayAll()
+        self.mock_qos_spec_create.return_value = self.cinder_qos_specs.first()
 
         res = self.client.post(
             reverse('horizon:admin:volume_types:create_qos_spec'),
@@ -66,24 +61,25 @@ class QosSpecsTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redirect)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.cinder: ('volume_type_list_with_qos_associations',
+        self.mock_qos_spec_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            formData['name'],
+            {'consumer': formData['consumer']})
+
+    @test.create_mocks({api.cinder: ('volume_type_list_with_qos_associations',
                                      'volume_encryption_type_list',
                                      'qos_spec_list',
-                                     'qos_spec_delete',)})
+                                     'qos_spec_delete')})
     def test_delete_qos_spec(self):
         qos_spec = self.cinder_qos_specs.first()
         formData = {'action': 'qos_specs__delete__%s' % qos_spec.id}
 
-        api.cinder.volume_type_list_with_qos_associations(
-            IsA(http.HttpRequest)).\
-            AndReturn(self.cinder_volume_types.list())
-        api.cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
-            .AndReturn(self.cinder_volume_encryption_types.list()[0:1])
-        api.cinder.qos_spec_list(IsA(http.HttpRequest)).\
-            AndReturn(self.cinder_qos_specs.list())
-        api.cinder.qos_spec_delete(IsA(http.HttpRequest),
-                                   str(qos_spec.id))
-        self.mox.ReplayAll()
+        self.mock_volume_type_list_with_qos_associations.return_value = \
+            self.cinder_volume_types.list()
+        self.mock_volume_encryption_type_list.return_value = \
+            self.cinder_volume_encryption_types.list()[0:1]
+        self.mock_qos_spec_list.return_value = self.cinder_qos_specs.list()
+        self.mock_qos_spec_delete.return_value = None
 
         res = self.client.post(
             reverse('horizon:admin:volume_types:index'),
@@ -94,9 +90,16 @@ class QosSpecsTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redirect)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.cinder: ('qos_spec_get',
+        self.mock_volume_type_list_with_qos_associations(test.IsHttpRequest())
+        self.mock_volume_encryption_type_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_qos_spec_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_qos_spec_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                          str(qos_spec.id))
+
+    @test.create_mocks({api.cinder: ('qos_spec_get',
                                      'qos_spec_get_keys',
-                                     'qos_spec_set_keys',), })
+                                     'qos_spec_set_keys')})
     def test_spec_edit(self):
         qos_spec = self.cinder_qos_specs.first()
         key = 'minIOPS'
@@ -107,17 +110,9 @@ class QosSpecsTests(test.BaseAdminViewTests):
         data = {'value': '9999'}
         qos_spec.specs[key] = data['value']
 
-        api.cinder.qos_spec_get(IsA(http.HttpRequest),
-                                qos_spec.id)\
-            .AndReturn(qos_spec)
-        api.cinder.qos_spec_get_keys(IsA(http.HttpRequest),
-                                     qos_spec.id, raw=True)\
-            .AndReturn(qos_spec)
-        api.cinder.qos_spec_set_keys(IsA(http.HttpRequest),
-                                     qos_spec.id,
-                                     qos_spec.specs)
-
-        self.mox.ReplayAll()
+        self.mock_qos_spec_get.return_value = qos_spec
+        self.mock_qos_spec_get_keys.return_value = qos_spec
+        self.mock_qos_spec_set_keys.return_value = None
 
         resp = self.client.post(edit_url, data)
         self.assertEqual('admin/volume_types/qos_specs/edit.html',
@@ -128,8 +123,15 @@ class QosSpecsTests(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(resp, index_url)
 
-    @test.create_stubs({api.cinder: ('qos_spec_get',
-                                     'qos_spec_set_keys',), })
+        self.mock_qos_spec_get.assert_called_once_with(test.IsHttpRequest(),
+                                                       qos_spec.id)
+        self.mock_qos_spec_get_keys.assert_called_once_with(
+            test.IsHttpRequest(), qos_spec.id, raw=True)
+        self.mock_qos_spec_set_keys.assert_called_once_with(
+            test.IsHttpRequest(), qos_spec.id, qos_spec.specs)
+
+    @test.create_mocks({api.cinder: ('qos_spec_get',
+                                     'qos_spec_set_keys')})
     def test_edit_consumer(self):
         qos_spec = self.cinder_qos_specs.first()
 
@@ -140,13 +142,8 @@ class QosSpecsTests(test.BaseAdminViewTests):
             'horizon:admin:volume_types:edit_qos_spec_consumer',
             args=[qos_spec.id])
 
-        api.cinder.qos_spec_get(IsA(http.HttpRequest),
-                                qos_spec.id).AndReturn(qos_spec)
-        api.cinder.qos_spec_set_keys(IsA(http.HttpRequest),
-                                     qos_spec.id,
-                                     {'consumer': formData['consumer_choice']})
-
-        self.mox.ReplayAll()
+        self.mock_qos_spec_get.return_value = qos_spec
+        self.mock_qos_spec_set_keys.return_value = None
 
         resp = self.client.post(edit_url, formData)
         redirect = reverse('horizon:admin:volume_types:index')
@@ -154,12 +151,18 @@ class QosSpecsTests(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(resp, redirect)
 
-    @test.create_stubs({api.cinder: ('qos_spec_list',
+        self.mock_qos_spec_get.assert_called_once_with(test.IsHttpRequest(),
+                                                       qos_spec.id)
+        self.mock_qos_spec_set_keys.assert_called_once_with(
+            test.IsHttpRequest(), qos_spec.id,
+            {'consumer': formData['consumer_choice']})
+
+    @test.create_mocks({api.cinder: ('qos_spec_list',
                                      'qos_spec_get',
                                      'qos_spec_get_associations',
                                      'volume_type_get',
                                      'qos_spec_associate',
-                                     'qos_spec_disassociate'), })
+                                     'qos_spec_disassociate')})
     def test_associate_qos_spec(self):
         volume_type = self.cinder_volume_types.first()
         volume_types = self.cinder_volume_types.list()
@@ -174,31 +177,31 @@ class QosSpecsTests(test.BaseAdminViewTests):
 
         # for maximum code coverage, this test swaps the QoS association
         # on one volume type moving the QoS assigned from 1 to 0
-        api.cinder.volume_type_get(IsA(http.HttpRequest),
-                                   volume_type.id) \
-            .AndReturn(volume_type)
-        api.cinder.qos_spec_list(IsA(http.HttpRequest)) \
-            .MultipleTimes().AndReturn(qos_specs)
-        api.cinder.qos_spec_get_associations(IsA(http.HttpRequest),
-                                             qos_specs[0].id) \
-            .AndReturn([])
-        api.cinder.qos_spec_get_associations(IsA(http.HttpRequest),
-                                             qos_specs[1].id) \
-            .AndReturn(volume_types)
-        api.cinder.qos_spec_get(IsA(http.HttpRequest),
-                                qos_specs[1].id).AndReturn(qos_specs[1])
-        api.cinder.qos_spec_disassociate(IsA(http.HttpRequest),
-                                         qos_specs[1],
-                                         volume_type.id)
-        api.cinder.qos_spec_get(IsA(http.HttpRequest),
-                                qos_specs[0].id).AndReturn(qos_specs[0])
-        api.cinder.qos_spec_associate(IsA(http.HttpRequest),
-                                      qos_specs[0],
-                                      volume_type.id)
-        self.mox.ReplayAll()
+        self.mock_volume_type_get.return_value = volume_type
+        self.mock_qos_spec_list.return_value = qos_specs
+        self.mock_qos_spec_get_associations.side_effect = [[], volume_types]
+        self.mock_qos_spec_get.side_effect = [qos_specs[1], qos_specs[0]]
+        self.mock_qos_spec_disassociate.return_value = None
+        self.mock_qos_spec_associate.return_value = None
 
         resp = self.client.post(edit_url, formData)
         redirect = reverse('horizon:admin:volume_types:index')
         self.assertNoFormErrors(resp)
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(resp, redirect)
+
+        self.mock_volume_type_get.assert_called_once_with(test.IsHttpRequest(),
+                                                          volume_type.id)
+        self.mock_qos_spec_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_qos_spec_get_associations.assert_has_calls([
+            mock.call(test.IsHttpRequest(), qos_specs[0].id),
+            mock.call(test.IsHttpRequest(), qos_specs[1].id),
+        ])
+        self.mock_qos_spec_get.assert_has_calls([
+            mock.call(test.IsHttpRequest(), qos_specs[1].id),
+            mock.call(test.IsHttpRequest(), qos_specs[0].id),
+        ])
+        self.mock_qos_spec_disassociate.assert_called_once_with(
+            test.IsHttpRequest(), qos_specs[1], volume_type.id)
+        self.mock_qos_spec_associate.assert_called_once_with(
+            test.IsHttpRequest(), qos_specs[0], volume_type.id)
