@@ -360,3 +360,18 @@ class update_settings(django_test_utils.override_settings):
                     copied.update(new_value)
                     kwargs[key] = copied
         super(update_settings, self).__init__(**kwargs)
+
+
+class IsA(object):
+    """Class to compare param is a specified class."""
+    def __init__(self, cls):
+        self.cls = cls
+
+    def __eq__(self, other):
+        return isinstance(other, self.cls)
+
+
+class IsHttpRequest(IsA):
+    """Class to compare param is django.http.HttpRequest."""
+    def __init__(self):
+        super(IsHttpRequest, self).__init__(http.HttpRequest)

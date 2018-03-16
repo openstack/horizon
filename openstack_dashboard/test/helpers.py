@@ -26,7 +26,6 @@ import unittest
 from django.conf import settings
 from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
-from django import http as http_request
 from django.test.client import RequestFactory
 from django import urls
 from django.utils import http
@@ -66,7 +65,10 @@ LOG = logging.getLogger(__name__)
 # Makes output of failing mox tests much easier to read.
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
 
+# Shortcuts to avoid importing horizon_helpers and for backward compatibility.
 update_settings = horizon_helpers.update_settings
+IsA = horizon_helpers.IsA
+IsHttpRequest = horizon_helpers.IsHttpRequest
 
 
 def create_stubs(stubs_to_create=None):
@@ -768,18 +770,3 @@ def mock_factory(r):
     mocked = mock_obj_to_dict(r)
     mocked.configure_mock(**r)
     return mocked
-
-
-class IsA(object):
-    """Class to compare param is a specified class."""
-    def __init__(self, cls):
-        self.cls = cls
-
-    def __eq__(self, other):
-        return isinstance(other, self.cls)
-
-
-class IsHttpRequest(IsA):
-    """Class to compare param is django.http.HttpRequest."""
-    def __init__(self):
-        super(IsHttpRequest, self).__init__(http_request.HttpRequest)
