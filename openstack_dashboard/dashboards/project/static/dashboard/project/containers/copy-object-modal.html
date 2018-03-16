@@ -1,0 +1,106 @@
+<div ng-form="copyForm">
+
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true" aria-label="Close">
+      <span aria-hidden="true" class="fa fa-times"></span>
+    </button>
+    <div class="h3 modal-title">
+      <translate>Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}</translate>
+    </div>
+  </div>
+
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <fieldset>
+
+          <!-- Destination Container -->
+          <div class="form-group required"
+               ng-class="{'has-error': copyForm.dest_container.$invalid && copyForm.dest_container.$dirty}">
+            <label class="control-label required" for="id_dest_container" translate>
+              Destination Container
+            </label>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+            <div>
+              <input class="form-control"
+                     id="id_dest_container"
+                     name="dest_container"
+                     type="text"
+                     maxlength="255"
+                     ng-model="ctrl.model.dest_container"
+                     ng-required="true"
+                     ng-model-options="{ debounce: 1000 }"
+                     check-copy-destination
+              >
+            </div>
+            <span class="help-block"
+                  ng-show="copyForm.dest_container.$error.required && copyForm.dest_container.$dirty"
+                  translate>
+              This field is required.
+            </span>
+            <span class="help-block text-danger"
+                  ng-show="copyForm.dest_container.$error.containerNotFound"
+                  translate>
+              This container does not exist.
+            </span>
+          </div>
+
+
+          <!-- Destination Object -->
+          <div class="form-group required"
+               ng-class="{'has-error': copyForm.dest_name.$invalid && copyForm.dest_name.$dirty}">
+            <label class="control-label required" for="id_dest_name" translate>
+              Destination Object
+            </label>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+            <div>
+              <input class="form-control"
+                     id="id_dest_name"
+                     name="dest_name"
+                     type="text"
+                     maxlength="255"
+                     ng-model="ctrl.model.dest_name"
+                     ng-required="true"
+                     ng-model-options="{ debounce: 1000 }"
+                     check-copy-destination
+              >
+            </div>
+            <span class="help-block"
+                  ng-show="copyForm.dest_name.$error.required && copyForm.dest_name.$dirty"
+                  translate>
+              This field is required.
+            </span>
+            <span class="help-block text-danger"
+                  ng-show="copyForm.dest_name.$error.objectExists"
+                  translate>
+              This name already exists.
+            </span>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="col-sm-6">
+        <p translate>
+          You can copy objects. You have to create destination container prior to copy.
+        </p>
+        <p translate>
+          You can specify folder by using '/' at destination object field.
+          For example, if you want to copy object under the folder named 'folder1', you need to specify destination object like 'folder1/[your object name]'.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-default" ng-click="$dismiss()">
+      <span class="fa fa-close"></span>
+      <translate>Cancel</translate>
+    </button>
+    <button class="btn btn-primary" ng-click="$close(ctrl.model)"
+           ng-disabled="copyForm.$invalid">
+      <span class="fa fa-upload"></span>
+      <translate>Copy Object</translate>
+    </button>
+  </div>
+</div>

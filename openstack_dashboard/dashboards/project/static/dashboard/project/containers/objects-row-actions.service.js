@@ -23,6 +23,7 @@
     .factory('horizon.dashboard.project.containers.objects-actions.download', downloadService)
     .factory('horizon.dashboard.project.containers.objects-actions.edit', editService)
     .factory('horizon.dashboard.project.containers.objects-actions.view', viewService)
+    .factory('horizon.dashboard.project.containers.objects-actions.copy', copyService)
     .run(registerActions);
 
   registerActions.$inject = [
@@ -32,6 +33,7 @@
     'horizon.dashboard.project.containers.objects-actions.download',
     'horizon.dashboard.project.containers.objects-actions.edit',
     'horizon.dashboard.project.containers.objects-actions.view',
+    'horizon.dashboard.project.containers.objects-actions.copy',
     'horizon.framework.util.i18n.gettext'
   ];
   /**
@@ -45,6 +47,7 @@
     downloadService,
     editService,
     viewService,
+    copyService,
     gettext
   ) {
     registryService.getResourceType(objectResCode).itemActions
@@ -59,6 +62,10 @@
     .append({
       service: editService,
       template: {text: gettext('Edit')}
+    })
+    .append({
+      service: copyService,
+      template: {text: gettext('Copy')}
     })
     .append({
       service: deleteService,
@@ -229,4 +236,93 @@
       });
     }
   }
+
+  copyService.$inject = [
+    'horizon.app.core.openstack-service-api.swift',
+    'horizon.dashboard.project.containers.basePath',
+    'horizon.dashboard.project.containers.containerRoute',
+    'horizon.dashboard.project.containers.containers-model',
+    'horizon.framework.util.q.extensions',
+    'horizon.framework.widgets.modal-wait-spinner.service',
+    'horizon.framework.widgets.toast.service',
+    '$uibModal',
+    '$location'
+  ];
+
+  function copyService(swiftAPI,
+                       basePath,
+                       containerRoute,
+                       model,
+                       $qExtensions,
+                       modalWaitSpinnerService,
+                       toastService,
+                       $uibModal,
+                       $location) {
+    return {
+      allowed: allowed,
+      perform: perform
+    };
+
+    function allowed(file) {
+      var objectCheck = file.is_object;
+      var capacityCheck = (file.bytes > 0);
+      var result = (objectCheck && capacityCheck);
+      return $qExtensions.booleanAsPromise(result);
+    }
+
+    function perform(file) {
+      var localSpec = {
+        backdrop: 'static',
+        keyboard: false,
+        controller: 'horizon.dashboard.project.containers.CopyObjectModalController as ctrl',
+        templateUrl: basePath + 'copy-object-modal.html',
+        resolve: {
+          fileDetails: function fileDetails() {
+            return {
+              path: file.path,
+              container: model.container.name
+            };
+          }
+        }
+      };
+      return $uibModal.open(localSpec).result.then(copyObjectCallback);
+    }
+
+    function copyObjectCallback(copyInfo) {
+
+      modalWaitSpinnerService.showModalSpinner(gettext("Copying"));
+      swiftAPI.copyObject(
+        model.container.name,
+        copyInfo.path,
+        copyInfo.dest_container,
+        copyInfo.dest_name
+      ).then(success, error);
+
+      function success() {
+        var dstNameArray = copyInfo.dest_name.split('/');
+        dstNameArray.pop();
+        var dstFolder = dstNameArray.join('/');
+
+        modalWaitSpinnerService.hideModalSpinner();
+        toastService.add(
+          'success',
+          interpolate(gettext('Object %(path)s has copied.'), copyInfo, true)
+        );
+
+        model.updateContainer();
+        model.selectContainer(
+          copyInfo.dest_container,
+          dstFolder
+        ).then(function openDest() {
+          var path = containerRoute + copyInfo.dest_container + '/' + dstFolder;
+          $location.path(path);
+        });
+      }
+
+      function error() {
+        modalWaitSpinnerService.hideModalSpinner();
+      }
+    }
+  }
+
 })();

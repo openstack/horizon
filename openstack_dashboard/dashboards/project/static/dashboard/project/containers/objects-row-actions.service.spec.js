@@ -41,7 +41,7 @@
     }));
 
     it('should create an actions list', function test() {
-      expect(rowActions.length).toEqual(4);
+      expect(rowActions.length).toEqual(5);
       angular.forEach(rowActions, function check(action) {
         expect(action.service).toBeDefined();
         expect(action.template).toBeDefined();
@@ -252,6 +252,123 @@
         // Check the string of functions called by this code path succeed
         expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalled();
         expect(swiftAPI.uploadObject).toHaveBeenCalled();
+        expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
+        expect($uibModal.open).toHaveBeenCalled();
+
+        // Check the success branch is not called
+        expect(model.updateContainer).not.toHaveBeenCalled();
+        expect(model.selectContainer).not.toHaveBeenCalled();
+        expect(toastService.add).not.toHaveBeenCalledWith('success');
+      });
+    });
+
+    describe('copyService', function test() {
+      var swiftAPI, copyService, modalWaitSpinnerService, toastService, $q, objectDef;
+
+      beforeEach(inject(function inject($injector, _$q_) {
+        swiftAPI = $injector.get('horizon.app.core.openstack-service-api.swift');
+        copyService = $injector.get('horizon.dashboard.project.containers.objects-actions.copy');
+        modalWaitSpinnerService = $injector.get(
+          'horizon.framework.widgets.modal-wait-spinner.service'
+        );
+        toastService = $injector.get('horizon.framework.widgets.toast.service');
+        $q = _$q_;
+      }));
+
+      it('should have an allowed and perform', function test() {
+        expect(copyService.allowed).toBeDefined();
+        expect(copyService.perform).toBeDefined();
+      });
+
+      it('should only allow files which has size(bytes) over 0', function test() {
+        objectDef = {
+          is_object: true,
+          bytes: 1
+        };
+        expectAllowed(copyService.allowed(objectDef));
+      });
+
+      it('should not allow folders', function test() {
+        objectDef = {
+          is_object: false,
+          bytes: 1
+        };
+        expectNotAllowed(copyService.allowed(objectDef));
+      });
+
+      it('should not allow 0 byte file, because it means separated files', function test() {
+        objectDef = {
+          is_object: true,
+          bytes: 0
+        };
+        expectNotAllowed(copyService.allowed(objectDef));
+      });
+
+      it('should handle copy success correctly', function() {
+        var modalDeferred = $q.defer();
+        var apiDeferred = $q.defer();
+        var result = { result: modalDeferred.promise };
+        spyOn($uibModal, 'open').and.returnValue(result);
+        spyOn(modalWaitSpinnerService, 'showModalSpinner');
+        spyOn(modalWaitSpinnerService, 'hideModalSpinner');
+        spyOn(swiftAPI, 'copyObject').and.returnValue(apiDeferred.promise);
+        spyOn(toastService, 'add').and.callThrough();
+        spyOn(model,'updateContainer');
+        spyOn(model,'selectContainer').and.returnValue(apiDeferred.promise);
+
+        copyService.perform();
+        model.container = {name: 'spam'};
+        $rootScope.$apply();
+
+        // Close the modal, make sure API call succeeds
+        var sourceObjectPath = 'sourceObjectPath';
+        modalDeferred.resolve({name: 'ham',
+                               path: sourceObjectPath,
+                               dest_container: 'dest_container',
+                               dest_name: 'dest_name'});
+        apiDeferred.resolve();
+        $rootScope.$apply();
+
+        // Check the string of functions called by this code path succeed
+        expect($uibModal.open).toHaveBeenCalled();
+        expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalled();
+        expect(swiftAPI.copyObject).toHaveBeenCalled();
+        expect(toastService.add).
+            toHaveBeenCalledWith('success', 'Object ' + sourceObjectPath +
+            ' has copied.');
+        expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
+        expect(model.updateContainer).toHaveBeenCalled();
+        expect(model.selectContainer).toHaveBeenCalled();
+      });
+
+      it('should handle copy error correctly', function() {
+        var modalDeferred = $q.defer();
+        var apiDeferred = $q.defer();
+        var result = { result: modalDeferred.promise };
+        spyOn($uibModal, 'open').and.returnValue(result);
+        spyOn(modalWaitSpinnerService, 'showModalSpinner');
+        spyOn(modalWaitSpinnerService, 'hideModalSpinner');
+        spyOn(swiftAPI, 'copyObject').and.returnValue(apiDeferred.promise);
+        spyOn(toastService, 'add').and.callThrough();
+        spyOn(model,'updateContainer');
+        spyOn(model,'selectContainer').and.returnValue(apiDeferred.promise);
+
+        copyService.perform();
+        model.container = {name: 'spam'};
+        $rootScope.$apply();
+
+        // Close the modal, make sure API call succeeds
+        var sourceObjectPath = 'sourceObjectPath';
+        modalDeferred.resolve({name: 'ham',
+                               path: sourceObjectPath,
+                               dest_container: 'dest_container',
+                               dest_name: 'dest_name'});
+        apiDeferred.reject();
+        $rootScope.$apply();
+
+        // Check the string of functions called by this code path succeed
+        expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalled();
+        expect(swiftAPI.copyObject).toHaveBeenCalled();
         expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
         expect($uibModal.open).toHaveBeenCalled();
 

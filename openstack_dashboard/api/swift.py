@@ -276,10 +276,13 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
 
     headers = {"X-Copy-From": FOLDER_DELIMITER.join([orig_container_name,
                                                      orig_object_name])}
-    return swift_api(request).put_object(new_container_name,
+    etag = swift_api(request).put_object(new_container_name,
                                          new_object_name,
                                          None,
                                          headers=headers)
+
+    obj_info = {'name': new_object_name, 'etag': etag}
+    return StorageObject(obj_info, new_container_name)
 
 
 @profiler.trace
