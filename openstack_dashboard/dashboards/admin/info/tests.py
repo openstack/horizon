@@ -12,10 +12,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
+import mock
+
 from django.urls import reverse
-from mox3.mox import IgnoreArg
-from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -25,34 +24,43 @@ INDEX_URL = reverse('horizon:admin:info:index')
 
 class SystemInfoViewTests(test.BaseAdminViewTests):
 
-    @test.create_stubs({api.base: ('is_service_enabled',),
-                        api.nova: ('service_list',),
-                        api.neutron: ('agent_list', 'is_extension_supported'),
-                        api.cinder: ('service_list',),
+    @test.create_mocks({api.base: ['is_service_enabled'],
+                        api.nova: [('service_list', 'nova_service_list')],
+                        api.neutron: ['agent_list', 'is_extension_supported'],
+                        api.cinder: [('service_list', 'cinder_service_list')],
                         })
     def _test_base_index(self):
-        api.base.is_service_enabled(IsA(http.HttpRequest), IgnoreArg()) \
-                .MultipleTimes().AndReturn(True)
+        self.mock_is_service_enabled.return_value = True
+        self.mock_nova_service_list.return_value = self.services.list()
 
-        services = self.services.list()
-        api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
+        extensions = {
+            'agent': True,
+            'availability_zone': False
+        }
 
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'agent').AndReturn(True)
-        agents = self.agents.list()
-        api.neutron.agent_list(IsA(http.HttpRequest)).AndReturn(agents)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           "availability_zone")\
-            .AndReturn(False)
+        def _is_extension_supported(request, ext):
+            return extensions[ext]
 
-        cinder_services = self.cinder_services.list()
-        api.cinder.service_list(IsA(http.HttpRequest)).\
-            AndReturn(cinder_services)
-
-        self.mox.ReplayAll()
+        self.mock_is_extension_supported.side_effect = _is_extension_supported
+        self.mock_agent_list.return_value = self.agents.list()
+        self.mock_cinder_service_list.return_value = \
+            self.cinder_services.list()
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'admin/info/index.html')
+
+        self.mock_is_service_enabled.assert_called_once_with(
+            test.IsHttpRequest(), 'network')
+        self.mock_nova_service_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_is_extension_supported.assert_has_calls([
+            mock.call(test.IsHttpRequest(), 'agent'),
+            mock.call(test.IsHttpRequest(), 'availability_zone')])
+        self.assertEqual(2, self.mock_is_extension_supported.call_count)
+        self.mock_agent_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_cinder_service_list.assert_called_once_with(
+            test.IsHttpRequest())
 
         return res
 
@@ -62,7 +70,6 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         self.assertIn("region", services_tab._tables['services'].data[0])
         self.assertIn("endpoints",
                       services_tab._tables['services'].data[0])
-        self.mox.VerifyAll()
 
     def test_neutron_index(self):
         res = self._test_base_index()
@@ -72,8 +79,6 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
             [agent.__repr__() for agent in self.agents.list()]
         )
 
-        self.mox.VerifyAll()
-
     def test_cinder_index(self):
         res = self._test_base_index()
         cinder_services_tab = res.context['tab_group'].\
@@ -82,5 +87,3 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
             cinder_services_tab._tables['cinder_services'].data,
             [service.__repr__() for service in self.cinder_services.list()]
         )
-
-        self.mox.VerifyAll()
