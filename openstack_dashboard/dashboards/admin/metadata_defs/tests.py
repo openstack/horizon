@@ -16,10 +16,9 @@
 
 import json
 
-from django import http
 from django.urls import reverse
 
-from mox3.mox import IsA
+import mock
 import six
 
 from openstack_dashboard import api
@@ -42,57 +41,49 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
         self.assertTrue(namespace.public)
         self.assertEqual('sample', namespace.resource_type_names[0])
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_list',)})
-    def test_metadata_defs_list(self):
+    @mock.patch.object(api.glance, 'metadefs_namespace_list')
+    def test_metadata_defs_list(self, mock_metafefs_namespace_list):
         namespace_list = self.metadata_defs.list()
-        api.glance.metadefs_namespace_list(
-            IsA(http.HttpRequest),
-            sort_dir='asc',
-            marker=None,
-            paginate=True,
-            filters={}).AndReturn((namespace_list, False, False))
-        self.mox.ReplayAll()
+        mock_metafefs_namespace_list.return_value = (namespace_list,
+                                                     False, False)
 
         res = self.client.get(reverse(constants.METADATA_INDEX_URL))
+
         self.assertTemplateUsed(res, constants.METADATA_INDEX_TEMPLATE)
         self.assertEqual(len(res.context['namespaces_table'].data),
                          len(namespace_list))
+        mock_metafefs_namespace_list.assert_called_once_with(
+            test.IsHttpRequest(), sort_dir='asc',
+            marker=None, paginate=True, filters={})
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_list',)})
-    def test_metadata_defs_no_results(self):
-        api.glance.metadefs_namespace_list(
-            IsA(http.HttpRequest),
-            sort_dir='asc',
-            marker=None,
-            paginate=True).AndReturn(((), False, False))
-        self.mox.ReplayAll()
+    @mock.patch.object(api.glance, 'metadefs_namespace_list')
+    def test_metadata_defs_no_results(self, mock_metadefs_namespace_list):
+        mock_metadefs_namespace_list.return_value = ((), False, False)
 
         res = self.client.get(reverse(constants.METADATA_INDEX_URL))
+
         self.assertTemplateUsed(res, constants.METADATA_INDEX_TEMPLATE)
         self.assertEqual(len(res.context['namespaces_table'].data), 0)
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_list',)})
-    def test_metadata_defs_error(self):
-        api.glance.metadefs_namespace_list(
-            IsA(http.HttpRequest),
-            sort_dir='asc',
-            marker=None,
-            paginate=True).AndRaise(self.exceptions.glance)
-        self.mox.ReplayAll()
+        mock_metadefs_namespace_list.assert_called_once_with(
+            test.IsHttpRequest(), filters={}, marker=None,
+            paginate=True, sort_dir='asc')
+
+    @mock.patch.object(api.glance, 'metadefs_namespace_list')
+    def test_metadata_defs_error(self, mock_metadefs_namespace_list):
+        mock_metadefs_namespace_list.side_effect = self.exceptions.glance
 
         res = self.client.get(reverse(constants.METADATA_INDEX_URL))
-        self.assertTemplateUsed(res, constants.METADATA_INDEX_TEMPLATE)
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_list',)})
-    def test_delete_availability(self):
-        namespace_list = self.metadata_defs.list()
-        api.glance.metadefs_namespace_list(
-            IsA(http.HttpRequest),
-            sort_dir='asc',
-            marker=None,
-            paginate=True,
-            filters={}).AndReturn((namespace_list, False, False))
-        self.mox.ReplayAll()
+        self.assertTemplateUsed(res, constants.METADATA_INDEX_TEMPLATE)
+        mock_metadefs_namespace_list.assert_called_once_with(
+            test.IsHttpRequest(), filters={}, marker=None,
+            paginate=True, sort_dir='asc')
+
+    @mock.patch.object(api.glance, 'metadefs_namespace_list')
+    def test_delete_availability(self, mock_metadefs_namespace_list):
+        mock_metadefs_namespace_list.return_value = (self.metadata_defs.list(),
+                                                     False, False)
 
         res = self.client.get(reverse(constants.METADATA_INDEX_URL))
         self.assertIn('namespaces_table', res.context)
@@ -107,15 +98,13 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
             self.assertIn('manage_resource_types',
                           [a.name for a in row_actions])
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_get',)})
-    def test_metadata_defs_get(self):
-        namespace = self.metadata_defs.first()
-        api.glance.metadefs_namespace_get(
-            IsA(http.HttpRequest),
-            '1',
-            wrap=True
-        ).MultipleTimes().AndReturn(namespace)
-        self.mox.ReplayAll()
+        mock_metadefs_namespace_list.assert_called_once_with(
+            test.IsHttpRequest(), sort_dir='asc',
+            marker=None, paginate=True, filters={})
+
+    @mock.patch.object(api.glance, 'metadefs_namespace_get')
+    def test_metadata_defs_get(self, mock_metadefs_namespace_get):
+        mock_metadefs_namespace_get.return_value = self.metadata_defs.first()
 
         res = self.client.get(reverse(constants.METADATA_DETAIL_URL,
                                       kwargs={'namespace_id': '1'}))
@@ -123,15 +112,13 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertTemplateUsed(res, constants.METADATA_DETAIL_TEMPLATE)
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_get',)})
-    def test_metadata_defs_get_contents(self):
-        namespace = self.metadata_defs.first()
-        api.glance.metadefs_namespace_get(
-            IsA(http.HttpRequest),
-            '1',
-            wrap=True
-        ).MultipleTimes().AndReturn(namespace)
-        self.mox.ReplayAll()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            mock_metadefs_namespace_get, 2,
+            mock.call(test.IsHttpRequest(), '1', wrap=True))
+
+    @mock.patch.object(api.glance, 'metadefs_namespace_get')
+    def test_metadata_defs_get_contents(self, mock_metadefs_namespace_get):
+        mock_metadefs_namespace_get.return_value = self.metadata_defs.first()
 
         res = self.client.get(
             '?'.join([reverse(constants.METADATA_DETAIL_URL,
@@ -141,15 +128,13 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertTemplateUsed(res, constants.METADATA_DETAIL_TEMPLATE)
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_get',)})
-    def test_metadata_defs_get_overview(self):
-        namespace = self.metadata_defs.first()
-        api.glance.metadefs_namespace_get(
-            IsA(http.HttpRequest),
-            '1',
-            wrap=True
-        ).MultipleTimes().AndReturn(namespace)
-        self.mox.ReplayAll()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            mock_metadefs_namespace_get, 3,
+            mock.call(test.IsHttpRequest(), '1', wrap=True))
+
+    @mock.patch.object(api.glance, 'metadefs_namespace_get')
+    def test_metadata_defs_get_overview(self, mock_metadefs_namespace_get):
+        mock_metadefs_namespace_get.return_value = self.metadata_defs.first()
 
         res = self.client.get(
             '?'.join([reverse(constants.METADATA_DETAIL_URL,
@@ -159,18 +144,18 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertTemplateUsed(res, constants.METADATA_DETAIL_TEMPLATE)
 
-    @test.create_stubs({api.glance: ('metadefs_resource_types_list',
-                                     'metadefs_namespace_resource_types')})
+        mock_metadefs_namespace_get.assert_has_calls([
+            mock.call(test.IsHttpRequest(), '1', wrap=True)])
+        self.assertEqual(2, mock_metadefs_namespace_get.call_count)
+
+    @test.create_mocks({api.glance: ['metadefs_resource_types_list',
+                                     'metadefs_namespace_resource_types']})
     def test_metadata_defs_manage_resource_types(self):
         namespace = self.metadata_defs.first()
-        api.glance.metadefs_namespace_resource_types(
-            IsA(http.HttpRequest),
-            '1'
-        ).AndReturn(namespace.resource_type_associations)
-        api.glance.metadefs_resource_types_list(
-            IsA(http.HttpRequest)
-        ).AndReturn(namespace.resource_type_associations)
-        self.mox.ReplayAll()
+        self.mock_metadefs_resource_types_list.return_value = \
+            namespace.resource_type_associations
+        self.mock_metadefs_namespace_resource_types.return_value = \
+            namespace.resource_type_associations
 
         res = self.client.get(
             reverse(constants.METADATA_MANAGE_RESOURCES_URL,
@@ -180,9 +165,14 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
                                 constants.METADATA_MANAGE_RESOURCES_TEMPLATE)
         self.assertContains(res, 'mock name')
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_resource_types',
+        self.mock_metadefs_namespace_resource_types.assert_called_once_with(
+            test.IsHttpRequest(), '1')
+        self.mock_metadefs_resource_types_list.assert_called_once_with(
+            test.IsHttpRequest())
+
+    @test.create_mocks({api.glance: ['metadefs_namespace_resource_types',
                                      'metadefs_namespace_remove_resource_type',
-                                     'metadefs_namespace_add_resource_type')})
+                                     'metadefs_namespace_add_resource_type']})
     def test_metadata_defs_manage_resource_types_change(self):
         resource_type_associations = [
             {
@@ -195,30 +185,12 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
                 'selected': True
             }
         ]
-
-        api.glance.metadefs_namespace_resource_types(
-            IsA(http.HttpRequest),
-            '1'
-        ).AndReturn(resource_type_associations)
-        api.glance.metadefs_namespace_remove_resource_type(
-            IsA(http.HttpRequest),
-            '1',
-            'mock1'
-        ).AndReturn(resource_type_associations)
-        api.glance.metadefs_namespace_remove_resource_type(
-            IsA(http.HttpRequest),
-            '1',
-            'mock2'
-        ).AndReturn(resource_type_associations)
-        api.glance.metadefs_namespace_add_resource_type(
-            IsA(http.HttpRequest),
-            '1',
-            {
-                'prefix': 'mock2_prefix',
-                'name': 'mock2'
-            }
-        ).AndReturn(resource_type_associations)
-        self.mox.ReplayAll()
+        self.mock_metadefs_namespace_resource_types.return_value = \
+            resource_type_associations
+        self.mock_metadefs_namespace_remove_resource_type.return_value = \
+            resource_type_associations
+        self.mock_metadefs_namespace_add_resource_type.return_value = \
+            resource_type_associations
 
         form_data = {'resource_types': json.dumps(resource_type_associations)}
         res = self.client.post(
@@ -232,6 +204,19 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
             res, reverse(constants.METADATA_INDEX_URL)
         )
 
+        self.mock_metadefs_namespace_resource_types.assert_called_once_with(
+            test.IsHttpRequest(), '1')
+        self.mock_metadefs_namespace_remove_resource_type.assert_has_calls([
+            mock.call(test.IsHttpRequest(), '1', 'mock1'),
+            mock.call(test.IsHttpRequest(), '1', 'mock2')])
+        self.mock_metadefs_namespace_add_resource_type. \
+            assert_called_once_with(
+                test.IsHttpRequest(), '1',
+                {
+                    'prefix': 'mock2_prefix',
+                    'name': 'mock2'
+                })
+
 
 class MetadataDefinitionsCreateViewTest(test.BaseAdminViewTests):
 
@@ -239,21 +224,19 @@ class MetadataDefinitionsCreateViewTest(test.BaseAdminViewTests):
         res = self.client.get(reverse(constants.METADATA_CREATE_URL))
         self.assertTemplateUsed(res, constants.METADATA_CREATE_TEMPLATE)
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_create',)})
-    def test_admin_metadata_defs_create_namespace_post(self):
-        metadata = {}
-        metadata["namespace"] = "test_namespace"
-        metadata["display_name"] = "display_name"
-        metadata["description"] = "description"
-        metadata["visibility"] = "private"
-        metadata["protected"] = False
-
-        api.glance.metadefs_namespace_create(
-            IsA(http.HttpRequest),
-            metadata
-        ).AndReturn(metadata)
+    @mock.patch.object(api.glance, 'metadefs_namespace_create')
+    def test_admin_metadata_defs_create_namespace_post(
+            self, mock_metadefs_namespace_create):
+        metadata = {
+            "namespace": "test_namespace",
+            "display_name": "display_name",
+            "description": "description",
+            "visibility": "private",
+            "protected": False,
+        }
 
         self.mox.ReplayAll()
+        mock_metadefs_namespace_create.return_value = metadata
 
         form_data = {
             'source_type': 'raw',
@@ -264,6 +247,8 @@ class MetadataDefinitionsCreateViewTest(test.BaseAdminViewTests):
                                form_data)
 
         self.assertNoFormErrors(res)
+        mock_metadefs_namespace_create.assert_called_once_with(
+            test.IsHttpRequest(), metadata)
 
     def test_admin_metadata_defs_create_namespace_invalid_json_post_raw(self):
         form_data = {
@@ -309,28 +294,26 @@ class MetadataDefinitionsCreateViewTest(test.BaseAdminViewTests):
 
 class MetadataDefinitionsUpdateViewTest(test.BaseAdminViewTests):
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_get', )})
-    def test_admin_metadata_defs_update_namespace_get(self):
+    @mock.patch.object(api.glance, 'metadefs_namespace_get')
+    def test_admin_metadata_defs_update_namespace_get(
+            self, mock_metadata_namespace_get):
         namespace = self.metadata_defs.first()
 
-        api.glance.metadefs_namespace_get(
-            IsA(http.HttpRequest),
-            namespace["namespace"]).AndReturn(namespace)
-        self.mox.ReplayAll()
+        mock_metadata_namespace_get.return_value = namespace
 
         res = self.client.get(reverse(
             constants.METADATA_UPDATE_URL,
             args=[namespace['namespace']]))
         self.assertTemplateUsed(res, constants.METADATA_UPDATE_TEMPLATE)
+        mock_metadata_namespace_get.assert_called_once_with(
+            test.IsHttpRequest(), namespace['namespace'])
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_get',)})
-    def test_admin_metadata_defs_update_namespace_get_exception(self):
+    @mock.patch.object(api.glance, 'metadefs_namespace_get')
+    def test_admin_metadata_defs_update_namespace_get_exception(
+            self, mock_metadefs_namespace_get):
         namespace = self.metadata_defs.first()
 
-        api.glance.metadefs_namespace_get(
-            IsA(http.HttpRequest),
-            namespace["namespace"]).AndRaise(self.exceptions.glance)
-        self.mox.ReplayAll()
+        mock_metadefs_namespace_get.side_effect = self.exceptions.glance
 
         res = self.client.get(reverse(
             constants.METADATA_UPDATE_URL,
@@ -338,8 +321,11 @@ class MetadataDefinitionsUpdateViewTest(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res,
                                      reverse(constants.METADATA_INDEX_URL))
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_get',
-                                     'metadefs_namespace_update',)})
+        mock_metadefs_namespace_get.assert_called_once_with(
+            test.IsHttpRequest(), namespace['namespace'])
+
+    @test.create_mocks({api.glance: ['metadefs_namespace_get',
+                                     'metadefs_namespace_update']})
     def test_admin_metadata_defs_update_namespace_post(self):
         namespace = self.metadata_defs.first()
         params = {
@@ -347,15 +333,8 @@ class MetadataDefinitionsUpdateViewTest(test.BaseAdminViewTests):
             'protected': namespace.protected
         }
 
-        api.glance.metadefs_namespace_update(
-            IsA(http.HttpRequest),
-            namespace.namespace,
-            **params).AndReturn(namespace)
-
-        api.glance.metadefs_namespace_get(
-            IsA(http.HttpRequest),
-            namespace["namespace"]).AndReturn(namespace)
-        self.mox.ReplayAll()
+        self.mock_metadefs_namespace_update.return_value = namespace
+        self.mock_metadefs_namespace_get.return_value = namespace
 
         form_data = {
             'namespace_id': namespace.namespace,
@@ -370,8 +349,13 @@ class MetadataDefinitionsUpdateViewTest(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res,
                                      reverse(constants.METADATA_INDEX_URL))
 
-    @test.create_stubs({api.glance: ('metadefs_namespace_get',
-                                     'metadefs_namespace_update',)})
+        self.mock_metadefs_namespace_update.assert_called_once_with(
+            test.IsHttpRequest(), namespace.namespace, **params)
+        self.mock_metadefs_namespace_get.assert_called_once_with(
+            test.IsHttpRequest(), namespace['namespace'])
+
+    @test.create_mocks({api.glance: ['metadefs_namespace_get',
+                                     'metadefs_namespace_update']})
     def test_admin_metadata_defs_update_namespace_post_exception(self):
         namespace = self.metadata_defs.first()
         params = {
@@ -379,15 +363,9 @@ class MetadataDefinitionsUpdateViewTest(test.BaseAdminViewTests):
             'protected': namespace.protected
         }
 
-        api.glance.metadefs_namespace_update(
-            IsA(http.HttpRequest),
-            namespace.namespace,
-            **params).AndRaise(self.exceptions.glance)
-
-        api.glance.metadefs_namespace_get(
-            IsA(http.HttpRequest),
-            namespace["namespace"]).AndReturn(namespace)
-        self.mox.ReplayAll()
+        self.mock_metadefs_namespace_update.side_effect = \
+            self.exceptions.glance
+        self.mock_metadefs_namespace_get.return_value = namespace
 
         form_data = {
             'namespace_id': namespace.namespace,
@@ -401,3 +379,8 @@ class MetadataDefinitionsUpdateViewTest(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res,
                                      reverse(constants.METADATA_INDEX_URL))
+
+        self.mock_metadefs_namespace_update.assert_called_once_with(
+            test.IsHttpRequest(), namespace.namespace, **params)
+        self.mock_metadefs_namespace_get.assert_called_once_with(
+            test.IsHttpRequest(), namespace['namespace'])
