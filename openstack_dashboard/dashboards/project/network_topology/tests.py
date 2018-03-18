@@ -148,6 +148,7 @@ class NetworkTopologyTests(test.TestCase):
             'name': net.name,
             'router:external': net.router__external,
             'status': net.status.title(),
+            'allow_delete_subnet': True,
             'original_status': net.status,
             'subnets': [{
                 'cidr': subnet.cidr,

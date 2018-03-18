@@ -75,6 +75,7 @@ from openstack_dashboard.dashboards.project.routers.tables import \
     STATUS_DISPLAY_CHOICES as routers_status_choices
 from openstack_dashboard.dashboards.project.routers import\
     views as r_views
+from openstack_dashboard import policy
 
 # List of known server statuses that wont connect to the console
 console_invalid_status = {
@@ -270,12 +271,19 @@ class JSONView(View):
             neutron_networks = []
         networks = []
         for network in neutron_networks:
+            allow_delete_subnet = policy.check(
+                (("network", "delete_subnet"),),
+                request,
+                target={'network:tenant_id': getattr(network,
+                                                     'tenant_id', None)}
+            )
             obj = {'name': network.name_or_id,
                    'id': network.id,
                    'subnets': [{'id': subnet.id,
                                 'cidr': subnet.cidr}
                                for subnet in network.subnets],
                    'status': self.trans.network[network.status],
+                   'allow_delete_subnet': allow_delete_subnet,
                    'original_status': network.status,
                    'router:external': network['router:external']}
             self.add_resource_url('horizon:project:networks:subnets:detail',
