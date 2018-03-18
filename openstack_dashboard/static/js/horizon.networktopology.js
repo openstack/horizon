@@ -142,6 +142,36 @@ horizon.network_topology = {
       self.refresh_labels();
     });
 
+    angular.element('#center_topology').click(function() {
+     this.blur(); // remove btn focus after click
+     self.delete_balloon();
+      // move visualization to the center and reset scale
+      self.vis.transition()
+        .duration(1500)
+        .attr('transform', 'translate(0,0)scale(1)');
+
+      // reset internal zoom translate and scale parameters so on next
+      // move the objects do not jump to the old position
+      self.zoom.translate([0,0]);
+      self.zoom.scale(1);
+      self.translate = null;
+    });
+    angular.element(window).on('message', function(e) {
+        var message = angular.element.parseJSON(e.originalEvent.data);
+        if (self.previous_message !== message.message) {
+          horizon.alert(message.type, message.message);
+          self.previous_message = message.message;
+          self.delete_post_message(message.iframe_id);
+          if (message.type == 'success' && self.deleting_device) {
+            self.remove_node_on_delete();
+          }
+          self.retrieve_network_info();
+          setTimeout(function() {
+            self.previous_message = null;
+          },10000);
+        }
+      });
+
     // set up loader first thing
     self.$loading_template.show();
 
