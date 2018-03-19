@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-23 05:59+0000\n"
+"POT-Creation-Date: 2018-03-18 09:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-23 07:31+0000\n"
+"PO-Revision-Date: 2018-03-18 08:43+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
@@ -366,6 +366,15 @@ msgstr ""
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Aldoni servilojn al tiu agregato. Serviloj povas esti en multiplaj agregatoj."
+
+msgid ""
+"Add or remove security groups to the port from the list of available "
+"security groups. The \"default\" security group is associated by default and "
+"you can remove \"default\" security group from the port."
+msgstr ""
+"Aldonu aŭ forigu sekurecajn grupojn al la pordo el la listo de disponeblaj "
+"sekurecaj grupoj. La \"defaŭlta\" sekureca grupo estas asociita defaŭlte kaj "
+"vi povas forigi la \"defaŭltan\" sekurecan grupon de la pordo."
 
 msgid ""
 "Add or remove security groups to this port from the list of available "
@@ -850,6 +859,9 @@ msgstr "Neeblas ricevi konzolon por apero %s."
 msgid "Cannot specify both file and direct input."
 msgstr "Neeblas specifi ambaŭ dosiero kaj rekta enigo."
 
+msgid "Center Topology"
+msgstr "Centra Topologio"
+
 msgid "Centralized"
 msgstr "Centralizita"
 
@@ -1098,6 +1110,11 @@ msgstr ""
 "Kontrolu aliron al vian aperon per ŝlosilaj paroj, secureca grupoj, kaj "
 "aliaj mekanismoj."
 
+msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
+msgstr ""
+"Kuketoj povas esti malŝaltitaj. Certigu, ke kuketoj estas ebligitaj kaj "
+"provu denove."
+
 msgid "Copy Data"
 msgstr "Kopiu Datumo"
 
@@ -1267,6 +1284,17 @@ msgstr "Kreu mapigon."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Kreu novan \"ekstra spec\" klavo-valoro paro por volumo tipo."
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
+"Valid key names are expected in the QoS specs. The acceptable values for key "
+"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
+msgstr ""
+"Kreu novan \"spec\" ŝlosilo-valoro paron por QoS Spec \"%(qos_spec_name)s\". "
+"Validaj ŝlosilaj nomoj estas atenditaj en la QoS specoj. La akcepteblaj "
+"valoroj por ŝlosilo estas <tt>\"minIOPS\", \"maxIOPS\" kaj \"burstIOPS\"</"
+"tt>."
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -2495,13 +2523,16 @@ msgid "Ether Type"
 msgstr "Ether Tipo"
 
 msgid "Evacuate Host"
-msgstr "Evakuiu gastiganto"
+msgstr "Evakui gastiganto"
 
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Evakuiu la servilojn de la selektita malvalidigita gastiganto al aktiva "
 "celgastiganto."
+
+msgid "Example:"
+msgstr "Ekzemple:"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2606,6 +2637,10 @@ msgstr "Malsukcesis krei  reton \"%(network)s\": %(reason)s"
 #, python-format
 msgid "Failed to create network %s"
 msgstr "Malsukcesis krei  reto %s"
+
+#, python-format
+msgid "Failed to create port \"%s\"."
+msgstr "Malsukcesis krei pordon \"%s\"."
 
 #, python-format
 msgid "Failed to create router \"%s\"."
@@ -3259,6 +3294,9 @@ msgstr "Bildo ID"
 msgid "Image ID ="
 msgstr "Bildo ID ="
 
+msgid "Image Location"
+msgstr "Bildo Loko"
+
 msgid "Image Name"
 msgstr "Bildiga Nomo"
 
@@ -3445,6 +3483,9 @@ msgstr ""
 "Malĝusta tempo formato. Vi estas petitanta datumon de la estonto kiu eble ne "
 "ekzistas."
 
+msgid "It specifies the VNIC type bound to the networking port."
+msgstr "Ĝi specifas la VNIC-tipon ligita al la reta pordo."
+
 msgid "Items Per Page"
 msgstr "Elementoj per paĝo"
 
@@ -3494,6 +3535,15 @@ msgstr "Ŝlosila paro uzonta por aŭtentigon."
 
 msgid "Key-Value Pairs"
 msgstr "Klavo-Valoro Paroj"
+
+msgid "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
+msgstr "Ŝlosilo: burstIOPS kaj Valoro:5000 (numera valoro pli ol minIOPS)"
+
+msgid "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
+msgstr "Ŝlosilo: maxIOPS kaj Valoro:5000 (numera valoro pli ol minIOPS)"
+
+msgid "Key: minIOPS and Value:20 (number value less than maxIOPS)"
+msgstr "Ŝlosilo: minIOPS kaj Valoro:20 (numera valoro malpli ol maxIOPS)"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -4032,7 +4082,7 @@ msgid "No Host selected."
 msgstr "Neniu Servilo selektita."
 
 msgid "No Hosts found."
-msgstr "Neniu Servilo trovita"
+msgstr "Neniuj Serviloj trovita"
 
 msgid "No Ports available"
 msgstr "Neniuj Pordoj havebla"
@@ -4308,6 +4358,12 @@ msgstr "OpenStack RC Dosiero (Identeco API v2.0)"
 msgid "OpenStack RC File (Identity API v3)"
 msgstr "OpenStack RC Dosiero (IdentecoAPI v3)"
 
+msgid "OpenStack RC File v2"
+msgstr "OpenStack RC File v2"
+
+msgid "OpenStack RC File v3"
+msgstr "OpenStack RC File v3"
+
 msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml Dosiero"
 
@@ -4471,6 +4527,9 @@ msgstr ""
 "Pordoj estas nedevigaj kaj povas esti uzitaj kun retoj por aldoni ekstrajn "
 "IP adresojn al viaj aperoj aŭ por elekti difinajn tipojn de pordoj."
 
+msgid "Post-Creation"
+msgstr "Postan-Kreadon"
+
 msgid "Power State"
 msgstr "Povo   Stato"
 
@@ -4502,7 +4561,7 @@ msgid "Primary Project Name"
 msgstr "Ĉefa Projekto Nomo"
 
 msgid "Private Key File"
-msgstr "Privata Klavo Dosiero"
+msgstr "Privata  Ŝlosilo Dosiero"
 
 msgid "Profile"
 msgstr "Profilo"
@@ -5151,7 +5210,10 @@ msgid "Security Groups"
 msgstr "Secureco Grupoj"
 
 msgid "Security group rule already exists."
-msgstr "Sekuriga grupa rolo jam ekzistas."
+msgstr "Sekureco grupo regulo jam ekzistas."
+
+msgid "Security group rule quota exceeded."
+msgstr "Sekureco grupo regulo kvoto transpasita. "
 
 msgid ""
 "Security groups are sets of IP filter rules that are applied to network "
@@ -5371,10 +5433,10 @@ msgid "Services"
 msgstr "Servoj"
 
 msgid "Services Down"
-msgstr "Servoj malŝaltita   "
+msgstr "Servoj malŝaltita"
 
 msgid "Services Up"
-msgstr "Servoj  Up aktiva kaj funkcianta  "
+msgstr "Servoj  aktiva kaj funkcianta  "
 
 msgid "Set Domain Context"
 msgstr "Agordu Domajno Kunteksto"
@@ -5926,6 +5988,20 @@ msgstr ""
 "bitoj (ekz., 128, 256). Se la kampo ne estas plenigita, la provizanto "
 "defaulto estas uzata."
 
+msgid ""
+"The <strong>Provider</strong> is the encryption provider format (e.g. 'luks' "
+"or 'plain')."
+msgstr ""
+"La <strong>Provizanto</strong> estas la formato de la ĉifranta provizanto "
+"(ekz. 'luks' aŭ 'plain')."
+
+msgid ""
+"The <strong>Provider</strong> is the encryption provider format (e.g., "
+"'luks' or 'plain')."
+msgstr ""
+"La <strong>Provizanto</strong> estas la formato de la ĉifranta provizanto "
+"(ekz. 'luks' aŭ 'plain')."
+
 msgid "The Aggregate was updated."
 msgstr "La Agregato estis ĝisdatigita.  "
 
@@ -6089,6 +6165,9 @@ msgid ""
 msgstr ""
 "La nomo de la fiskia reto tra kiu la virtuala reto estas realigita. Specifu "
 "unu el la fisikaj  retoj definita en vian Neutron disponigon ."
+
+msgid "The new availability zone can't be empty"
+msgstr "La nova disponebla zono ne povas esti malplena"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "La fisika mekanismo helpe de la virtuala reto estas realigita."
@@ -6465,6 +6544,14 @@ msgstr "Neeblas validi se reto disponebleco zono etendaĵo estas subtenita"
 msgid "Unable to check if router availability zone extension is supported"
 msgstr "Neeblas validi se enkursigilo disponeblo zono etendaĵo estas subtenita"
 
+#, python-format
+msgid ""
+"Unable to clear gateway for router %(name)s. Most possible reason is because "
+"the gateway is required by one or more floating IPs"
+msgstr ""
+"Neeblas klarigi la kluzon por enkursigilo %(name)s. La plej ebla kialo estas "
+"ĉar la kluzo estas postulita per unu aŭ pli glitaj IPoj"
+
 msgid "Unable to clone consistency group."
 msgstr "Neeblas kloni kohereco grupon."
 
@@ -6591,6 +6678,26 @@ msgstr "Neeblas krei volumo tipo."
 
 msgid "Unable to create volume."
 msgstr "Neeblas krei volumon."
+
+#, python-format
+msgid ""
+"Unable to delete network %(name)s. Most possible reason is because one or "
+"more ports still exist on the requested network."
+msgstr ""
+"Neeblas forigi reton %(name)s. La plej ebla kialo estas ĉar unu aŭ pli "
+"pordoj ankoraŭ ekzistas en la petita reto."
+
+#, python-format
+msgid "Unable to delete router %(name)s: %(exc)s"
+msgstr "Neeblas forigi enkursigilo %(name)s: %(exc)s"
+
+#, python-format
+msgid ""
+"Unable to delete subnet %(name)s. Most possible reason is because one or "
+"more ports have an IP allocation from this subnet."
+msgstr ""
+"Neeblas forigi subreton %(name)s. La plej ebla kialo estas ĉar unu aŭ pli "
+"pordoj havas IP- asignon de ĉi tiu subreto."
 
 msgid "Unable to delete volume transfer."
 msgstr "Neeblas forigi volumo transigon."
@@ -6743,7 +6850,7 @@ msgid "Unable to modify flavor \"%s\"."
 msgstr "Neeblas modifi variaĵo   \"%s\"."
 
 msgid "Unable to modify flavor access."
-msgstr "Neeblas modifi variaĵo aliro."
+msgstr "Neeblas modifi variaĵo aliron."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
@@ -7024,6 +7131,9 @@ msgstr "Neeblas ricevi klavo parojn."
 
 msgid "Unable to retrieve limit information."
 msgstr "Neeblas ricevi limo informon."
+
+msgid "Unable to retrieve limits information."
+msgstr "Ne eblas ricevi limajn informojn."
 
 msgid "Unable to retrieve list of security groups"
 msgstr "Neeblas ricevi listo de secureca grupoj."
