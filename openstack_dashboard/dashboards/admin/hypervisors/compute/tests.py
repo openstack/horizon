@@ -10,26 +10,19 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django import http
 from django.urls import reverse
-from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
 class EvacuateHostViewTest(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('hypervisor_list',
-                                   'hypervisor_stats',
-                                   'service_list')})
+    @test.create_mocks({api.nova: ['service_list']})
     def test_index(self):
         hypervisor = self.hypervisors.list().pop().hypervisor_hostname
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
-        api.nova.service_list(IsA(http.HttpRequest),
-                              binary='nova-compute').AndReturn(services)
-
-        self.mox.ReplayAll()
+        self.mock_service_list.return_value = services
 
         url = reverse('horizon:admin:hypervisors:compute:evacuate_host',
                       args=[hypervisor])
@@ -37,22 +30,18 @@ class EvacuateHostViewTest(test.BaseAdminViewTests):
         self.assertTemplateUsed(res,
                                 'admin/hypervisors/compute/evacuate_host.html')
 
-    @test.create_stubs({api.nova: ('hypervisor_list',
-                                   'hypervisor_stats',
-                                   'service_list',
-                                   'evacuate_host')})
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(), binary='nova-compute')
+
+    @test.create_mocks({api.nova: ['service_list',
+                                   'evacuate_host']})
     def test_successful_post(self):
         hypervisor = self.hypervisors.list().pop().hypervisor_hostname
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
 
-        api.nova.service_list(IsA(http.HttpRequest),
-                              binary='nova-compute').AndReturn(services)
-        api.nova.evacuate_host(IsA(http.HttpRequest),
-                               services[1].host,
-                               services[0].host,
-                               False).AndReturn(True)
-        self.mox.ReplayAll()
+        self.mock_service_list.return_value = services
+        self.mock_evacuate_host.return_value = True
 
         url = reverse('horizon:admin:hypervisors:compute:evacuate_host',
                       args=[hypervisor])
@@ -67,22 +56,23 @@ class EvacuateHostViewTest(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(res, dest_url)
 
-    @test.create_stubs({api.nova: ('hypervisor_list',
-                                   'hypervisor_stats',
-                                   'service_list',
-                                   'evacuate_host')})
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(), binary='nova-compute')
+        self.mock_evacuate_host.assert_called_once_with(
+            test.IsHttpRequest(),
+            services[1].host,
+            services[0].host,
+            False)
+
+    @test.create_mocks({api.nova: ['service_list',
+                                   'evacuate_host']})
     def test_failing_nova_call_post(self):
         hypervisor = self.hypervisors.list().pop().hypervisor_hostname
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
 
-        api.nova.service_list(IsA(http.HttpRequest),
-                              binary='nova-compute').AndReturn(services)
-        api.nova.evacuate_host(IsA(http.HttpRequest),
-                               services[1].host,
-                               services[0].host,
-                               False).AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
+        self.mock_service_list.return_value = services
+        self.mock_evacuate_host.side_effect = self.exceptions.nova
 
         url = reverse('horizon:admin:hypervisors:compute:evacuate_host',
                       args=[hypervisor])
@@ -95,6 +85,14 @@ class EvacuateHostViewTest(test.BaseAdminViewTests):
         dest_url = reverse('horizon:admin:hypervisors:index')
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, dest_url)
+
+        self.mock_service_list.assert_called_once_with(
+            test.IsHttpRequest(), binary='nova-compute')
+        self.mock_evacuate_host.assert_called_once_with(
+            test.IsHttpRequest(),
+            services[1].host,
+            services[0].host,
+            False)
 
 
 class MigrateHostViewTest(test.BaseAdminViewTests):
@@ -111,20 +109,14 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
         self.assertTemplateUsed(res,
                                 'admin/hypervisors/compute/migrate_host.html')
 
-    @test.create_stubs({api.nova: ('migrate_host',)})
+    @test.create_mocks({api.nova: ['migrate_host']})
     def test_maintenance_host_cold_migration_succeed(self):
         disabled_services = [service for service in self.services.list()
                              if service.binary == 'nova-compute'
                              and service.status == 'disabled']
         disabled_service = disabled_services[0]
-        api.nova.migrate_host(
-            IsA(http.HttpRequest),
-            disabled_service.host,
-            live_migrate=False,
-            disk_over_commit=False,
-            block_migration=False
-        ).AndReturn(True)
-        self.mox.ReplayAll()
+        self.mock_migrate_host.return_value = True
+
         url = reverse('horizon:admin:hypervisors:compute:migrate_host',
                       args=[disabled_service.host])
         form_data = {'current_host': disabled_service.host,
@@ -137,20 +129,20 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(res, dest_url)
 
-    @test.create_stubs({api.nova: ('migrate_host',)})
+        self.mock_migrate_host.assert_called_once_with(
+            test.IsHttpRequest(),
+            disabled_service.host,
+            live_migrate=False,
+            disk_over_commit=False,
+            block_migration=False)
+
+    @test.create_mocks({api.nova: ['migrate_host']})
     def test_maintenance_host_live_migration_succeed(self):
         disabled_services = [service for service in self.services.list()
                              if service.binary == 'nova-compute'
                              and service.status == 'disabled']
         disabled_service = disabled_services[0]
-        api.nova.migrate_host(
-            IsA(http.HttpRequest),
-            disabled_service.host,
-            live_migrate=True,
-            disk_over_commit=False,
-            block_migration=True
-        ).AndReturn(True)
-        self.mox.ReplayAll()
+        self.mock_migrate_host.return_value = True
         url = reverse('horizon:admin:hypervisors:compute:migrate_host',
                       args=[disabled_service.host])
         form_data = {'current_host': disabled_service.host,
@@ -163,20 +155,22 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(res, dest_url)
 
-    @test.create_stubs({api.nova: ('migrate_host',)})
+        self.mock_migrate_host.assert_called_once_with(
+            test.IsHttpRequest(),
+            disabled_service.host,
+            live_migrate=True,
+            disk_over_commit=False,
+            block_migration=True)
+
+    @test.create_mocks({api.nova: ['migrate_host']})
     def test_maintenance_host_migration_fails(self):
         disabled_services = [service for service in self.services.list()
                              if service.binary == 'nova-compute'
                              and service.status == 'disabled']
         disabled_service = disabled_services[0]
-        api.nova.migrate_host(
-            IsA(http.HttpRequest),
-            disabled_service.host,
-            live_migrate=True,
-            disk_over_commit=False,
-            block_migration=True
-        ).AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
+
+        self.mock_migrate_host.side_effect = self.exceptions.nova
+
         url = reverse('horizon:admin:hypervisors:compute:migrate_host',
                       args=[disabled_service.host])
         form_data = {'current_host': disabled_service.host,
@@ -188,14 +182,17 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, dest_url)
 
+        self.mock_migrate_host.assert_called_once_with(
+            test.IsHttpRequest(),
+            disabled_service.host,
+            live_migrate=True,
+            disk_over_commit=False,
+            block_migration=True)
+
 
 class DisableServiceViewTest(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('hypervisor_list',
-                                   'hypervisor_stats')})
     def test_index(self):
         hypervisor = self.hypervisors.list().pop().hypervisor_hostname
-
-        self.mox.ReplayAll()
 
         url = reverse('horizon:admin:hypervisors:compute:disable_service',
                       args=[hypervisor])
@@ -203,19 +200,13 @@ class DisableServiceViewTest(test.BaseAdminViewTests):
         template = 'admin/hypervisors/compute/disable_service.html'
         self.assertTemplateUsed(res, template)
 
-    @test.create_stubs({api.nova: ('hypervisor_list',
-                                   'hypervisor_stats',
-                                   'service_disable')})
+    @test.create_mocks({api.nova: ['service_disable']})
     def test_successful_post(self):
         hypervisor = self.hypervisors.list().pop().hypervisor_hostname
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
 
-        api.nova.service_disable(IsA(http.HttpRequest),
-                                 services[0].host,
-                                 'nova-compute',
-                                 reason='test disable').AndReturn(True)
-        self.mox.ReplayAll()
+        self.mock_service_disable.return_value = True
 
         url = reverse('horizon:admin:hypervisors:compute:disable_service',
                       args=[hypervisor])
@@ -229,18 +220,19 @@ class DisableServiceViewTest(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(res, dest_url)
 
-    @test.create_stubs({api.nova: ('hypervisor_list',
-                                   'hypervisor_stats',
-                                   'service_disable')})
+        self.mock_service_disable.assert_called_once_with(
+            test.IsHttpRequest(),
+            services[0].host,
+            'nova-compute',
+            reason='test disable')
+
+    @test.create_mocks({api.nova: ['service_disable']})
     def test_failing_nova_call_post(self):
         hypervisor = self.hypervisors.list().pop().hypervisor_hostname
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
 
-        api.nova.service_disable(
-            IsA(http.HttpRequest), services[0].host, 'nova-compute',
-            reason='test disable').AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
+        self.mock_service_disable.side_effect = self.exceptions.nova
 
         url = reverse('horizon:admin:hypervisors:compute:disable_service',
                       args=[hypervisor])
@@ -252,3 +244,9 @@ class DisableServiceViewTest(test.BaseAdminViewTests):
         dest_url = reverse('horizon:admin:hypervisors:index')
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, dest_url)
+
+        self.mock_service_disable.assert_called_once_with(
+            test.IsHttpRequest(),
+            services[0].host,
+            'nova-compute',
+            reason='test disable')
