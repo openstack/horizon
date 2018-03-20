@@ -23,6 +23,16 @@
       registry = $injector.get('horizon.framework.conf.resource-type-registry.service');
     }));
 
+    it('registers Delete Server Group as an item action', function() {
+      var actions = registry.getResourceType('OS::Nova::ServerGroup').itemActions;
+      expect(actionHasId(actions, 'deleteServerGroupAction')).toBe(true);
+    });
+
+    it('registers Delete Server Group as a batch action', function() {
+      var actions = registry.getResourceType('OS::Nova::ServerGroup').batchActions;
+      expect(actionHasId(actions, 'batchDeleteServerGroupAction')).toBe(true);
+    });
+
     it('registers Create Server Group as a global action', function() {
       var actions = registry.getResourceType('OS::Nova::ServerGroup').globalActions;
       expect(actionHasId(actions, 'createServerGroupAction')).toBe(true);

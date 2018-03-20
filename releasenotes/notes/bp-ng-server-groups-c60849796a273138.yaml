@@ -6,4 +6,4 @@ features:
     Project->Compute panel group. The panel turns on if Nova API
     extension 'ServerGroups' is available. It displays information about
     server groups.
-    Supported actions: create.
+    Supported actions: create, delete.

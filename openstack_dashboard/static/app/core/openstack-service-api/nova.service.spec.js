@@ -313,6 +313,13 @@
         ]
       },
       {
+        "func": "deleteServerGroup",
+        "method": "delete",
+        "path": "/api/nova/servergroups/1/",
+        "error": "Unable to delete the server group with id 1",
+        "testInput": [1]
+      },
+      {
         "func": "getExtensions",
         "method": "get",
         "path": "/api/nova/extensions/",

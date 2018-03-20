@@ -54,6 +54,7 @@
       getServers: getServers,
       getServerGroups: getServerGroups,
       createServerGroup: createServerGroup,
+      deleteServerGroup: deleteServerGroup,
       deleteServer: deleteServer,
       pauseServer: pauseServer,
       unpauseServer: unpauseServer,
@@ -353,6 +354,28 @@
         .error(function () {
           toastService.add('error', gettext('Unable to create the server group.'));
         });
+    }
+
+    /**
+     * @name deleteServerGroup
+     * @description
+     * Delete a single server group by ID.
+     *
+     * @param {String} serverGroupId
+     * Server Group to delete
+     *
+     * @param {boolean} suppressError
+     * If passed in, this will not show the default error handling
+     * (horizon alert).
+     *
+     * @returns {Object} The result of the API call
+     */
+    function deleteServerGroup(serverGroupId, suppressError) {
+      var promise = apiService.delete('/api/nova/servergroups/' + serverGroupId + '/');
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to delete the server group with id %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverGroupId }, true));
+      });
     }
 
     /*

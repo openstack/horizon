@@ -939,6 +939,11 @@ def server_group_create(request, **kwargs):
 
 
 @profiler.trace
+def server_group_delete(request, servergroup_id):
+    novaclient(request).server_groups.delete(servergroup_id)
+
+
+@profiler.trace
 def service_list(request, binary=None):
     return novaclient(request).services.list(binary=binary)
 
