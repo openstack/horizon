@@ -42,9 +42,18 @@ class UpdateDefaultQuotas(tables.LinkAction):
         return quotas.enabled_quotas(request)
 
 
-def get_quota_name(quota):
+class UpdateDefaultComputeQuotas(UpdateDefaultQuotas):
+    name = 'update_compute_defaults'
+    step = 'update_default_compute_quotas'
+
+
+class UpdateDefaultVolumeQuotas(UpdateDefaultQuotas):
+    name = 'update_volume_defaults'
+    step = 'update_default_volume_quotas'
+
+
+def get_compute_quota_name(quota):
     QUOTA_NAMES = {
-        # Nova
         'injected_file_content_bytes': _('Injected File Content Bytes'),
         'injected_file_path_bytes': _('Length of Injected File Path'),
         'metadata_items': _('Metadata Items'),
@@ -55,7 +64,26 @@ def get_quota_name(quota):
         'key_pairs': _('Key Pairs'),
         'server_group_members': _('Server Group Members'),
         'server_groups': _('Server Groups'),
-        # Cinder
+    }
+    return QUOTA_NAMES.get(quota.name, quota.name.replace("_", " ").title())
+
+
+class ComputeQuotasTable(tables.DataTable):
+    name = tables.Column(get_compute_quota_name, verbose_name=_('Quota Name'))
+    limit = tables.Column("limit", verbose_name=_('Limit'))
+
+    def get_object_id(self, obj):
+        return obj.name
+
+    class Meta(object):
+        name = "compute_quotas"
+        verbose_name = _("Compute Quotas")
+        table_actions = (QuotaFilterAction, UpdateDefaultComputeQuotas)
+        multi_select = False
+
+
+def get_volume_quota_name(quota):
+    QUOTA_NAMES = {
         'volumes': _('Volumes'),
         'snapshots': _('Volume Snapshots'),
         'backups': _('Backups'),
@@ -64,14 +92,6 @@ def get_quota_name(quota):
         'per_volume_gigabytes': _('Per Volume Size (GiB)'),
         'groups': _('Volume Groups'),
         'dm-crypt': _('dm-crypt'),
-        # Neutron
-        'network': _('Networks'),
-        'subnet': _('Subnets'),
-        'port': _('Ports'),
-        'router': _('Routers'),
-        'floatingip': _('Floating IPs'),
-        'security_group': _('Security Groups'),
-        'security_group_rule': _('Security Group Rules'),
     }
 
     QUOTA_DYNAMIC_NAMES = {
@@ -89,15 +109,45 @@ def get_quota_name(quota):
     return QUOTA_NAMES.get(quota.name, quota.name.replace("_", " ").title())
 
 
-class QuotasTable(tables.DataTable):
-    name = tables.Column(get_quota_name, verbose_name=_('Quota Name'))
+class VolumeQuotasTable(tables.DataTable):
+    name = tables.Column(get_volume_quota_name, verbose_name=_('Quota Name'))
     limit = tables.Column("limit", verbose_name=_('Limit'))
 
     def get_object_id(self, obj):
         return obj.name
 
     class Meta(object):
-        name = "quotas"
-        verbose_name = _("Quotas")
+        name = "volume_quotas"
+        verbose_name = _("Volume Quotas")
         table_actions = (QuotaFilterAction, UpdateDefaultQuotas)
+        multi_select = False
+
+
+def get_network_quota_name(quota):
+    QUOTA_NAMES = {
+        'network': _('Networks'),
+        'subnet': _('Subnets'),
+        'port': _('Ports'),
+        'subnetpool': _('Subnet Pool'),
+        'router': _('Routers'),
+        'floatingip': _('Floating IPs'),
+        'security_group': _('Security Groups'),
+        'security_group_rule': _('Security Group Rules'),
+        'rbac_policy': _('RBAC Policies'),
+        'trunk': _('Trunks'),
+    }
+    return QUOTA_NAMES.get(quota.name, quota.name.replace("_", " ").title())
+
+
+class NetworkQuotasTable(tables.DataTable):
+    name = tables.Column(get_network_quota_name, verbose_name=_('Quota Name'))
+    limit = tables.Column("limit", verbose_name=_('Limit'))
+
+    def get_object_id(self, obj):
+        return obj.name
+
+    class Meta(object):
+        name = "network_quotas"
+        verbose_name = _("Network Quotas")
+        table_actions = (QuotaFilterAction,)
         multi_select = False

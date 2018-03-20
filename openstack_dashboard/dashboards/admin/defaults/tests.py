@@ -25,16 +25,6 @@ INDEX_URL = reverse('horizon:admin:defaults:index')
 
 class ServicesViewTests(test.BaseAdminViewTests):
     def test_index(self):
-        self._test_index(neutron_enabled=True)
-
-    def test_index_with_neutron_disabled(self):
-        self._test_index(neutron_enabled=False)
-
-    def test_index_with_neutron_sg_disabled(self):
-        self._test_index(neutron_enabled=True,
-                         neutron_sg_enabled=False)
-
-    def _test_index(self, neutron_enabled=True, neutron_sg_enabled=True):
         # Neutron does not have an API for getting default system
         # quotas. When not using Neutron, the floating ips quotas
         # should be in the list.
@@ -42,27 +32,24 @@ class ServicesViewTests(test.BaseAdminViewTests):
         self.mox.StubOutWithMock(api.cinder, 'default_quota_get')
         self.mox.StubOutWithMock(api.cinder, 'is_volume_service_enabled')
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
-        if neutron_enabled:
-            self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
-            self.mox.StubOutWithMock(api.neutron, 'is_router_enabled')
+        self.mox.StubOutWithMock(api.neutron, 'default_quota_get')
+        self.mox.StubOutWithMock(quotas, 'enabled_quotas')
 
         api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
             .MultipleTimes().AndReturn(True)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
-            .MultipleTimes().AndReturn(neutron_enabled)
-
+            .MultipleTimes().AndReturn(True)
+        compute_quotas = [q.name for q in self.quotas.nova]
+        quotas.enabled_quotas(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(compute_quotas)
         api.nova.default_quota_get(IsA(http.HttpRequest),
                                    self.tenant.id).AndReturn(self.quotas.nova)
         api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(self.cinder_quotas.first())
-        if neutron_enabled:
-            api.neutron.is_extension_supported(
-                IsA(http.HttpRequest),
-                'security-group').MultipleTimes().AndReturn(neutron_sg_enabled)
-            api.neutron.is_router_enabled(
-                IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
+        api.neutron.default_quota_get(
+            IsA(http.HttpRequest)).AndReturn(self.neutron_quotas.first())
 
         self.mox.ReplayAll()
 
@@ -70,21 +57,40 @@ class ServicesViewTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, 'admin/defaults/index.html')
 
-        quotas_tab = res.context['tab_group'].get_tab('quotas')
-        expected_tabs = ['<Quota: (injected_file_content_bytes, 1)>',
-                         '<Quota: (metadata_items, 1)>',
-                         '<Quota: (injected_files, 1)>',
-                         '<Quota: (gigabytes, 1000)>',
-                         '<Quota: (ram, 10000)>',
-                         '<Quota: (instances, 10)>',
-                         '<Quota: (snapshots, 1)>',
-                         '<Quota: (volumes, 1)>',
-                         '<Quota: (cores, 10)>',
-                         '<Quota: (key_pairs, 100)>',
-                         '<Quota: (injected_file_path_bytes, 255)>']
+        expected_data = [
+            '<Quota: (injected_file_content_bytes, 1)>',
+            '<Quota: (metadata_items, 1)>',
+            '<Quota: (injected_files, 1)>',
+            '<Quota: (ram, 10000)>',
+            '<Quota: (instances, 10)>',
+            '<Quota: (cores, 10)>',
+            '<Quota: (key_pairs, 100)>',
+            '<Quota: (injected_file_path_bytes, 255)>',
+        ]
+        self._check_quotas_data(res, 'compute_quotas', expected_data)
 
-        self.assertQuerysetEqual(quotas_tab._tables['quotas'].data,
-                                 expected_tabs,
+        expected_data = [
+            '<Quota: (gigabytes, 1000)>',
+            '<Quota: (snapshots, 1)>',
+            '<Quota: (volumes, 1)>',
+        ]
+        self._check_quotas_data(res, 'volume_quotas', expected_data)
+
+        expected_data = [
+            '<Quota: (network, 10)>',
+            '<Quota: (subnet, 10)>',
+            '<Quota: (port, 50)>',
+            '<Quota: (router, 10)>',
+            '<Quota: (floatingip, 50)>',
+            '<Quota: (security_group, 20)>',
+            '<Quota: (security_group_rule, 100)>',
+        ]
+        self._check_quotas_data(res, 'network_quotas', expected_data)
+
+    def _check_quotas_data(self, res, slug, expected_data):
+        quotas_tab = res.context['tab_group'].get_tab(slug)
+        self.assertQuerysetEqual(quotas_tab._tables[slug].data,
+                                 expected_data,
                                  ordered=False)
 
 

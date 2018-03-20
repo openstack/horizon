@@ -17,28 +17,73 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tabs
 
-from openstack_dashboard.usage import quotas
-
+from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.defaults import tables
 
 
-class DefaultQuotasTab(tabs.TableTab):
-    table_classes = (tables.QuotasTable,)
-    name = _("Default Quotas")
-    slug = "quotas"
+class ComputeQuotasTab(tabs.TableTab):
+    table_classes = (tables.ComputeQuotasTable,)
+    name = _("Compute Quotas")
+    slug = "compute_quotas"
     template_name = ("horizon/common/_detail_table.html")
 
-    def get_quotas_data(self):
+    def get_compute_quotas_data(self):
         request = self.tab_group.request
+        tenant_id = request.user.tenant_id
         try:
-            data = quotas.get_default_quota_data(request)
+            data = api.nova.default_quota_get(request, tenant_id)
         except Exception:
             data = []
-            exceptions.handle(self.request, _('Unable to get quota info.'))
+            exceptions.handle(self.request,
+                              _('Unable to get nova quota info.'))
         return data
+
+    def allowed(self, request):
+        return api.base.is_service_enabled(request, 'compute')
+
+
+class VolumeQuotasTab(tabs.TableTab):
+    table_classes = (tables.VolumeQuotasTable,)
+    name = _("Volume Quotas")
+    slug = "volume_quotas"
+    template_name = ("horizon/common/_detail_table.html")
+
+    def get_volume_quotas_data(self):
+        request = self.tab_group.request
+        tenant_id = request.user.tenant_id
+        try:
+            data = api.cinder.default_quota_get(request, tenant_id)
+        except Exception:
+            data = []
+            exceptions.handle(self.request,
+                              _('Unable to get cinder quota info.'))
+        return data
+
+    def allowed(self, request):
+        return api.cinder.is_volume_service_enabled(request)
+
+
+class NetworkQuotasTab(tabs.TableTab):
+    table_classes = (tables.NetworkQuotasTable,)
+    name = _("Network Quotas")
+    slug = "network_quotas"
+    template_name = ("horizon/common/_detail_table.html")
+
+    def get_network_quotas_data(self):
+        request = self.tab_group.request
+        try:
+            data = api.neutron.default_quota_get(request)
+        except Exception:
+            data = []
+            exceptions.handle(self.request,
+                              _('Unable to get neutron quota info.'))
+        return data
+
+    def allowed(self, request):
+        return api.base.is_service_enabled(request, 'network')
 
 
 class DefaultsTabs(tabs.TabGroup):
     slug = "defaults"
-    tabs = (DefaultQuotasTab,)
+    tabs = (ComputeQuotasTab, VolumeQuotasTab, NetworkQuotasTab)
     sticky = True
