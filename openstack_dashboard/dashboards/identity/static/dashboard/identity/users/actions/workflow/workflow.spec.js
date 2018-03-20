@@ -56,16 +56,16 @@
     it('should create workflow config for creation using Keystone V3', function() {
       var config = testInitWorkflow('3');
 
-      expect(config.form[0].items[0].items[1].condition).not.toBeDefined();
-      expect(config.form[0].items[0].items[2].condition).not.toBeDefined();
+      expect(config.form[0].items[1].items[0].condition).not.toBeDefined();
+      expect(config.form[0].items[2].items[0].condition).not.toBeDefined();
     });
 
     it('should create workflow config and the config does not show domain info ' +
        'when use Keystone V2', function() {
       var config = testInitWorkflow('2');
 
-      expect(config.form[0].items[0].items[1].condition).toBe(true);
-      expect(config.form[0].items[0].items[2].condition).toBe(true);
+      expect(config.form[0].items[1].items[0].condition).toBe(true);
+      expect(config.form[0].items[2].items[0].condition).toBe(true);
     });
   });
 })();

@@ -113,13 +113,14 @@
                 {
                   type: 'template',
                   templateUrl: basePath + "actions/workflow/info." + action + ".help.html"
-                },
+                }
+              ]
+            },
+            {
+              type: 'section',
+              htmlClass: 'col-sm-4',
+              items: [
                 { key: 'domain_name' },
-                { key: 'domain_id' },
-                {
-                  key: 'name',
-                  readonly: action === 'password'
-                },
                 {
                   key: 'email',
                   condition: action === 'password'
@@ -128,19 +129,14 @@
                   key: 'password',
                   type: 'password',
                   condition: action === 'update'
-                },
-                {
-                  key: 'confirm',
-                  type: 'password-confirm',
-                  title: 'Confirm Password',
-                  match: 'model.password',
-                  condition: action === 'update'
-                },
-                {
-                  key: 'admin_password',
-                  type: 'password',
-                  condition: !(action === 'password' && adminPassword)
-                },
+                }
+              ]
+            },
+            {
+              type: 'section',
+              htmlClass: 'col-sm-4',
+              items: [
+                { key: 'domain_id' },
                 {
                   key: 'project',
                   type: 'select',
@@ -148,11 +144,39 @@
                   condition: action === 'password'
                 },
                 {
+                  key: 'confirm',
+                  type: 'password-confirm',
+                  title: gettext('Confirm Password'),
+                  match: 'model.password',
+                  condition: action === 'update'
+                }
+              ]
+            },
+            {
+              type: 'section',
+              htmlClass: 'col-sm-4',
+              items: [
+                {
+                  key: 'name',
+                  readonly: action === 'password'
+                },
+                {
                   key: 'role',
                   type: 'select',
                   titleMap: [],
                   condition: action === 'update' || action === 'password'
                 },
+                {
+                  key: 'admin_password',
+                  type: 'password',
+                  condition: !(action === 'password' && adminPassword)
+                }
+              ]
+            },
+            {
+              type: 'section',
+              htmlClass: 'col-sm-12',
+              items: [
                 {
                   key: 'description',
                   condition: action === 'password'
@@ -172,13 +196,14 @@
       var config = {
         schema: schema,
         form: form,
-        model: model
+        model: model,
+        size: 'md'
       };
 
       keystone.getVersion().then(function (response) {
         var apiVersion = response.data.version;
-        var domainName = config.form[0].items[0].items[1];
-        var domainId = config.form[0].items[0].items[2];
+        var domainName = config.form[0].items[1].items[0];
+        var domainId = config.form[0].items[2].items[0];
         if (apiVersion !== "3") {
           domainName.condition = true;
           domainId.condition = true;
@@ -191,13 +216,13 @@
         return response.data;
       });
       keystone.getProjects().then(function (response) {
-        var projectField = config.form[0].items[0].items[8];
+        var projectField = config.form[0].items[2].items[1];
         projectField.titleMap = response.data.items.map(function each(item) {
           return {value: item.id, name: item.name};
         });
       });
       keystone.getRoles().then(function (response) {
-        var roleField = config.form[0].items[0].items[9];
+        var roleField = config.form[0].items[3].items[1];
         roleField.titleMap = response.data.items.map(function each(item) {
           return {value: item.id, name: item.name};
         });
