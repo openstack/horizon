@@ -944,6 +944,13 @@ def server_group_delete(request, servergroup_id):
 
 
 @profiler.trace
+def server_group_get(request, servergroup_id):
+    microversion = get_microversion(request, "servergroup_user_info")
+    return novaclient(request, version=microversion).server_groups.get(
+        servergroup_id)
+
+
+@profiler.trace
 def service_list(request, binary=None):
     return novaclient(request).services.list(binary=binary)
 

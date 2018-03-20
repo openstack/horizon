@@ -27,7 +27,8 @@
     .module('horizon.app.core.server_groups', [
       'horizon.framework.conf',
       'horizon.app.core',
-      'horizon.app.core.server_groups.actions'
+      'horizon.app.core.server_groups.actions',
+      'horizon.app.core.server_groups.details'
     ])
     .constant('horizon.app.core.server_groups.resourceType', 'OS::Nova::ServerGroup')
     .run(run)
@@ -50,7 +51,8 @@
       .append({
         id: 'name',
         priority: 1,
-        sortDefault: true
+        sortDefault: true,
+        urlFunction: serverGroupsService.getDetailsPath
       })
       // The name is not unique, so we need to show the ID to
       // distinguish.
@@ -89,28 +91,43 @@
     return {
       name: gettext('Name'),
       id: gettext('ID'),
-      policy: gettext('Policy')
+      policy: gettext('Policy'),
+      project_id: gettext('Project ID'),
+      user_id: gettext('User ID')
     };
   }
 
   config.$inject = [
+    '$provide',
     '$windowProvider',
-    '$routeProvider'
+    '$routeProvider',
+    'horizon.app.core.detailRoute'
   ];
 
   /**
    * @name config
+   * @param {Object} $provide
    * @param {Object} $windowProvider
    * @param {Object} $routeProvider
+   * @param {String} detailRoute
    * @description Routes used by this module.
    * @returns {undefined} Returns nothing
    */
-  function config($windowProvider, $routeProvider) {
+  function config($provide, $windowProvider, $routeProvider, detailRoute) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/server_groups/';
+    $provide.constant('horizon.app.core.server_groups.basePath', path);
 
     $routeProvider.when('/project/server_groups', {
       templateUrl: path + 'panel.html'
     });
+
+    $routeProvider.when('/project/server_groups/:id', {
+      redirectTo: goToAngularDetails
+    });
+
+    function goToAngularDetails(params) {
+      return detailRoute + 'OS::Nova::ServerGroup/' + params.id;
+    }
   }
 
 })();

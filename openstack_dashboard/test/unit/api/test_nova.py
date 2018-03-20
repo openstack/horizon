@@ -667,3 +667,15 @@ class ComputeApiTests(test.APIMockTestCase):
 
         self.assertIsNone(api_val)
         novaclient.server_groups.delete.assert_called_once_with(servergroup_id)
+
+    def test_server_group_get(self):
+        servergroup = self.server_groups.first()
+        novaclient = self.stub_novaclient()
+        self._mock_current_version(novaclient, '2.45')
+        novaclient.server_groups.get.return_value = servergroup
+
+        ret_val = api.nova.server_group_get(self.request, servergroup.id)
+
+        self.assertEqual(ret_val.id, servergroup.id)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.server_groups.get.assert_called_once_with(servergroup.id)

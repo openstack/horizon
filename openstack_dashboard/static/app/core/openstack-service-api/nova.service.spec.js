@@ -297,6 +297,15 @@
         "error": "Unable to retrieve instances."
       },
       {
+        "func": "getServerGroup",
+        "method": "get",
+        "path": "/api/nova/servergroups/17",
+        "error": "Unable to retrieve the server group.",
+        "testInput": [
+          '17'
+        ]
+      },
+      {
         "func": 'getServerGroups',
         "method": 'get',
         "path": '/api/nova/servergroups/',

@@ -1,0 +1,17 @@
+<div ng-controller="ServerGroupOverviewController as ctrl">
+  <hz-resource-property-list
+    resource-type-name="OS::Nova::ServerGroup"
+    cls="dl-horizontal"
+    item="ctrl.servergroup"
+    property-groups="[ctrl.properties]">
+  </hz-resource-property-list>
+  <h2 class="h4">{$ ::'Server Group Members' | translate $}</h2>
+  <hr>
+  <dl class="dl-horizontal">
+    <hz-dynamic-table
+      config="ctrl.tableConfig"
+      items="ctrl.members"
+      table="ctrl">
+    </hz-dynamic-table>
+  </dl>
+</div>
