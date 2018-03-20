@@ -100,7 +100,7 @@ HORIZON_CONFIG = {
         "help_text": "Password must be between 8 and 18 characters."
     },
     'user_home': None,
-    'help_url': "http://docs.openstack.org",
+    'help_url': "https://docs.openstack.org/",
     'exceptions': {'recoverable': exceptions.RECOVERABLE,
                    'not_found': exceptions.NOT_FOUND,
                    'unauthorized': exceptions.UNAUTHORIZED},
