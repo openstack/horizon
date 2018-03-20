@@ -70,7 +70,8 @@
         title: gettext('Edit Role'),
         schema: schema,
         form: ['*'],
-        model: response.data
+        model: response.data,
+        size: 'sm'
       };
       return modalFormService.open(config).then(service.submit);
     }
