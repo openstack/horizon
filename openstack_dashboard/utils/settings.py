@@ -110,6 +110,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     js_files = []
     js_spec_files = []
     scss_files = []
+    xstatic_modules = []
     panel_customization = []
     header_sections = []
     extra_tabs = {}
@@ -145,6 +146,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
                          if f not in existing])
         js_spec_files.extend(config.get('ADD_JS_SPEC_FILES', []))
         scss_files.extend(config.get('ADD_SCSS_FILES', []))
+        xstatic_modules.extend(config.get('ADD_XSTATIC_MODULES', []))
         update_horizon_config.update(
             config.get('UPDATE_HORIZON_CONFIG', {}))
         if config.get('DASHBOARD'):
@@ -173,6 +175,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     horizon_config.setdefault('js_files', []).extend(js_files)
     horizon_config.setdefault('js_spec_files', []).extend(js_spec_files)
     horizon_config.setdefault('scss_files', []).extend(scss_files)
+    horizon_config.setdefault('xstatic_modules', []).extend(xstatic_modules)
     horizon_config['extra_tabs'] = extra_tabs
 
     # apps contains reference to applications declared in the enabled folder
@@ -247,7 +250,7 @@ def get_xstatic_dirs(XSTATIC_MODULES, HORIZON_CONFIG):
     it must be handled as a special case.
     """
     STATICFILES_DIRS = []
-    HORIZON_CONFIG['xstatic_lib_files'] = []
+    HORIZON_CONFIG.setdefault('xstatic_lib_files', [])
     for module_name, files in XSTATIC_MODULES:
         module = import_module(module_name)
         if module_name == 'xstatic.pkg.jquery_ui':
