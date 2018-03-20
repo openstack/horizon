@@ -135,7 +135,7 @@ def create_mocks(target_methods):
     patched.
 
     A value of "target_methods" is a list of methods to be patched
-    using mock. Each element can be a string or a tuple
+    using mock. Each element of the list can be a string or a tuple
     consisting of two strings.
 
     A string specifies a method name of "target" object to be mocked.
@@ -143,7 +143,12 @@ def create_mocks(target_methods):
     can be accessed via 'mock_<method-name>' of the test class.
     For example, in case of::
 
-        @create_mocks({api.nova: ['server_list']})
+        @create_mocks({api.nova: ['server_list',
+                                  'flavor_list']})
+        def test_example(self):
+            ...
+            self.mock_server_list.return_value = ...
+            self.mock_flavar_list.side_effect = ...
 
     you can access the mocked method via "self.mock_server_list"
     inside a test class.
@@ -165,11 +170,16 @@ def create_mocks(target_methods):
                 'usage_get',
                 ('tenant_absolute_limits', 'nova_tenant_absolute_limits'),
                 'extension_supported',
-            ]})
+            ],
+            api.cinder: [
+                ('tenant_absolute_limits', 'cinder_tenant_absolute_limits'),
+            ],
+        })
         def test_example(self):
             ...
             self.mock_usage_get.return_value = ...
             self.mock_nova_tenant_absolute_limits.return_value = ...
+            self.mock_cinder_tenant_absolute_limits.return_value = ...
             ...
             self.mock_extension_supported.assert_has_calls(....)
 
