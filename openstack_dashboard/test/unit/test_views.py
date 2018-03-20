@@ -44,3 +44,9 @@ class DashboardViewsTest(test.TestCase):
         url = views.get_url_with_pagination(
             req, None, 'prev', url_string, None)
         self.assertEqual(six.text_type('/project/instances/?prev=id'), url)
+
+    def test_urls_ngdetails(self):
+        resp = self.client.get("/ngdetails/")
+        self.assertEqual(200, resp.status_code)
+        resp = self.client.get("/ngdetails/OS::Glance::Image/xxxxx-xxx")
+        self.assertEqual(200, resp.status_code)
