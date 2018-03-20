@@ -48,7 +48,6 @@
       var a = angular.element('<a></a>');
       a.attr("href", fileUrl);
       a.attr("download", filename);
-      a.attr("target", "_blank");
       angular.element(document.body).append(a);
 
       var deferred = $q.defer();
