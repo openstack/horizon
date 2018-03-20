@@ -87,7 +87,7 @@ Plugin Registry
      - https://storyboard.openstack.org/#!/project/909
    * - Sahara Dashboard
      - https://github.com/openstack/sahara-dashboard
-     - https://launchpad.net/sahara
+     - https://storyboard.openstack.org/#!/project/936
    * - Searchlight UI
      - https://github.com/openstack/searchlight-ui
      - https://launchpad.net/searchlight
