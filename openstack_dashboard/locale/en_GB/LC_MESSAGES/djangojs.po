@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-01 14:57+0000\n"
+"POT-Creation-Date: 2018-03-20 04:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-01 09:42+0000\n"
+"PO-Revision-Date: 2018-03-19 09:40+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -292,6 +292,9 @@ msgstr ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
 
+msgid "Affinity"
+msgstr "Affinity"
+
 msgid "Alerts"
 msgstr "Alerts"
 
@@ -398,6 +401,9 @@ msgstr "Animated"
 
 msgid "Another action"
 msgstr "Another action"
+
+msgid "Anti Affinity"
+msgstr "Anti Affinity"
 
 msgid "Any Availability Zone"
 msgstr "Any Availability Zone"
@@ -613,11 +619,23 @@ msgstr "Content Type"
 msgid "Contextual alternatives"
 msgstr "Contextual alternatives"
 
+msgid "Copy"
+msgstr "Copy"
+
 msgid "Copy Data"
 msgstr "Copy Data"
 
+msgid "Copy Object"
+msgstr "Copy Object"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
 msgid "Copy Private Key to Clipboard"
 msgstr "Copy Private Key to Clipboard"
+
+msgid "Copying"
+msgstr "Copying"
 
 msgid "Could not decrypt the password"
 msgstr "Could not decrypt the password"
@@ -898,6 +916,12 @@ msgstr "Description"
 
 msgid "Description lists"
 msgstr "Description lists"
+
+msgid "Destination Container"
+msgstr "Destination Container"
+
+msgid "Destination Object"
+msgstr "Destination Object"
 
 msgid "Details"
 msgstr "Details"
@@ -1845,6 +1869,10 @@ msgstr "OVA - Open Virtual Appliance"
 msgid "Object"
 msgstr "Object"
 
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "Object %(path)s has copied."
+
 msgid "Object Count"
 msgstr "Object Count"
 
@@ -2340,6 +2368,9 @@ msgstr "Send invitation"
 msgid "Separated link"
 msgstr "Separated link"
 
+msgid "Server Group"
+msgstr "Server Group"
+
 msgid "Server Groups"
 msgstr "Server Groups"
 
@@ -2397,6 +2428,12 @@ msgstr "Small input"
 
 msgid "Snapshot"
 msgstr "Snapshot"
+
+msgid "Soft Affinity"
+msgstr "Soft Affinity"
+
+msgid "Soft Anti Affinity"
+msgstr "Soft Anti Affinity"
 
 msgid "Someone famous in"
 msgstr "Someone famous in"
@@ -2727,6 +2764,12 @@ msgid ""
 msgstr ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
+
+msgid "This container does not exist."
+msgstr "This container does not exist."
+
+msgid "This field is required."
+msgstr "This field is required."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
@@ -3632,6 +3675,11 @@ msgstr ""
 "metadata key and value is 255 characters."
 
 msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr ""
+"You can copy objects. You have to create destination container prior to copy."
+
+msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3639,6 +3687,17 @@ msgstr ""
 "You can customise your instance after it has launched using the options "
 "available here.\n"
 "    \"Customisation Script\" is analogous to \"User Data\" in other systems."
+
+msgid ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
+msgstr ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "

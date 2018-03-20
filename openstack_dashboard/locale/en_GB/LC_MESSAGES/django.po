@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-07 14:45+0000\n"
+"POT-Creation-Date: 2018-03-20 04:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-07 12:03+0000\n"
+"PO-Revision-Date: 2018-03-19 09:39+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -861,6 +861,9 @@ msgstr "Cannot get console for instance %s."
 
 msgid "Cannot specify both file and direct input."
 msgstr "Cannot specify both file and direct input."
+
+msgid "Center Topology"
+msgstr "Centre Topology"
 
 msgid "Centralized"
 msgstr "Centralised"
@@ -6782,9 +6785,6 @@ msgstr "Unable to get nova services list."
 
 msgid "Unable to get openrc credentials"
 msgstr "Unable to get openrc credentials"
-
-msgid "Unable to get quota info."
-msgstr "Unable to get quota info."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
