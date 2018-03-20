@@ -431,6 +431,22 @@ class ServerGroups(generic.View):
         result = api.nova.server_group_list(request)
         return {'items': [u.to_dict() for u in result]}
 
+    @rest_utils.ajax(data_required=True)
+    def post(self, request):
+        """Create a server group.
+
+        Create a server group using parameters supplied in the POST
+        application/json object. The "name" (string) parameter is required
+        and the "policies" (array) parameter is required.
+
+        This method returns the new server group object on success.
+        """
+        new_servergroup = api.nova.server_group_create(request, **request.DATA)
+        return rest_utils.CreatedResponse(
+            '/api/nova/servergroups/%s' % utils_http.urlquote(
+                new_servergroup.id), new_servergroup.to_dict()
+        )
+
 
 @urls.register
 class ServerMetadata(generic.View):

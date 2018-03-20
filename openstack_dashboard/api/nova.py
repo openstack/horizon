@@ -932,6 +932,13 @@ def server_group_list(request):
 
 
 @profiler.trace
+def server_group_create(request, **kwargs):
+    microversion = get_microversion(request, "servergroup_soft_policies")
+    return novaclient(request, version=microversion).server_groups.create(
+        **kwargs)
+
+
+@profiler.trace
 def service_list(request, binary=None):
     return novaclient(request).services.list(binary=binary)
 

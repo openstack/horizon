@@ -303,6 +303,16 @@
         "error": 'Unable to retrieve server groups.'
       },
       {
+        "func": "createServerGroup",
+        "method": "post",
+        "path": "/api/nova/servergroups/",
+        "data": "new server group",
+        "error": "Unable to create the server group.",
+        "testInput": [
+          "new server group"
+        ]
+      },
+      {
         "func": "getExtensions",
         "method": "get",
         "path": "/api/nova/extensions/",
