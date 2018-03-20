@@ -2,7 +2,7 @@
 features:
   - A new Profiler panel in the Developer dashboard is
     introduced. It integrates
-    `osprofiler library <http://docs.openstack.org/developer/osprofiler/>`_
+    `osprofiler library <https://docs.openstack.org/osprofiler/latest/>`_
     into horizon, thus implementing
     `blueprint openstack-profiler-at-developer-dashboard <https://blueprints.launchpad.net/horizon/+spec/openstack-profiler-at-developer-dashboard>`_.
     Initially profiler is disabled. To enable it the value

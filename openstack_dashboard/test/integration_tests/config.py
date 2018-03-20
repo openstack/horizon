@@ -20,7 +20,7 @@ DashboardGroup = [
                default='http://localhost/',
                help="Where the dashboard can be found"),
     cfg.StrOpt('help_url',
-               default='http://docs.openstack.org/',
+               default='https://docs.openstack.org/',
                help="Dashboard help page url"),
 ]
 

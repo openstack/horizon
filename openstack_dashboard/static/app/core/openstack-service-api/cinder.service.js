@@ -284,12 +284,11 @@
      *  {
      *    "items": [
      *      {
-     *        "alias": "NMN",
-     *        "description": "Multiple network support.",
+     *        "alias": "OS-SCH-HNT",
+     *        "description": "Pass arbitrary key/value pairs to the scheduler.",
      *        "links": [],
-     *        "name": "Multinic",
-     *        "namespace": "http://docs.openstack.org/compute/ext/multinic/api/v1.1",
-     *        "updated": "2011-06-09T00:00:00Z"
+     *        "name": "SchedulerHints",
+     *        "updated": "2013-04-18T00:00:00+00:00"
      *      }
      *    ]
      *  }
