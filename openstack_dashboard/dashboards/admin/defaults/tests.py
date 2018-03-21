@@ -12,9 +12,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
 from django.urls import reverse
-from mox3.mox import IsA
+
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -24,34 +24,26 @@ INDEX_URL = reverse('horizon:admin:defaults:index')
 
 
 class ServicesViewTests(test.BaseAdminViewTests):
+    @test.create_mocks({
+        api.nova: [('default_quota_get', 'nova_default_quota_get')],
+        api.cinder: [('default_quota_get', 'cinder_default_quota_get'),
+                     'is_volume_service_enabled'],
+        api.base: ['is_service_enabled'],
+        api.neutron: [('default_quota_get', 'neutron_default_quota_get')],
+        quotas: ['enabled_quotas']})
     def test_index(self):
         # Neutron does not have an API for getting default system
         # quotas. When not using Neutron, the floating ips quotas
         # should be in the list.
-        self.mox.StubOutWithMock(api.nova, 'default_quota_get')
-        self.mox.StubOutWithMock(api.cinder, 'default_quota_get')
-        self.mox.StubOutWithMock(api.cinder, 'is_volume_service_enabled')
-        self.mox.StubOutWithMock(api.base, 'is_service_enabled')
-        self.mox.StubOutWithMock(api.neutron, 'default_quota_get')
-        self.mox.StubOutWithMock(quotas, 'enabled_quotas')
-
-        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
-            .MultipleTimes().AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
-            .MultipleTimes().AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
-            .MultipleTimes().AndReturn(True)
+        self.mock_is_volume_service_enabled.return_value = True
+        self.mock_is_service_enabled.return_value = True
         compute_quotas = [q.name for q in self.quotas.nova]
-        quotas.enabled_quotas(IsA(http.HttpRequest)) \
-            .MultipleTimes().AndReturn(compute_quotas)
-        api.nova.default_quota_get(IsA(http.HttpRequest),
-                                   self.tenant.id).AndReturn(self.quotas.nova)
-        api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-            .AndReturn(self.cinder_quotas.first())
-        api.neutron.default_quota_get(
-            IsA(http.HttpRequest)).AndReturn(self.neutron_quotas.first())
-
-        self.mox.ReplayAll()
+        self.mock_enabled_quotas.return_value = compute_quotas
+        self.mock_nova_default_quota_get.return_value = self.quotas.nova
+        self.mock_cinder_default_quota_get.return_value = \
+            self.cinder_quotas.first()
+        self.mock_neutron_default_quota_get.return_value = \
+            self.neutron_quotas.first()
 
         res = self.client.get(INDEX_URL)
 
@@ -87,6 +79,22 @@ class ServicesViewTests(test.BaseAdminViewTests):
         ]
         self._check_quotas_data(res, 'network_quotas', expected_data)
 
+        self.mock_is_volume_service_enabled.assert_called_once_with(
+            test.IsHttpRequest())
+        self.assertEqual(2, self.mock_is_service_enabled.call_count)
+        self.mock_is_service_enabled.assert_has_calls([
+            mock.call(test.IsHttpRequest(), 'compute'),
+            mock.call(test.IsHttpRequest(), 'network')])
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_enabled_quotas, 4,
+            mock.call(test.IsHttpRequest()))
+        self.mock_nova_default_quota_get.assert_called_once_with(
+            test.IsHttpRequest(), self.tenant.id)
+        self.mock_cinder_default_quota_get.assert_called_once_with(
+            test.IsHttpRequest(), self.tenant.id)
+        self.mock_neutron_default_quota_get.assert_called_once_with(
+            test.IsHttpRequest())
+
     def _check_quotas_data(self, res, slug, expected_data):
         quotas_tab = res.context['tab_group'].get_tab(slug)
         self.assertQuerysetEqual(quotas_tab._tables[slug].data,
@@ -105,38 +113,41 @@ class UpdateDefaultQuotasTests(test.BaseAdminViewTests):
                 quota_data[field] = int(limit)
         return quota_data
 
-    @test.create_stubs({api.nova: ('default_quota_update', ),
-                        api.cinder: ('default_quota_update', ),
-                        quotas: ('get_default_quota_data',
-                                 'get_disabled_quotas')})
+    @test.create_mocks({
+        api.nova: [('default_quota_update', 'nova_default_quota_update')],
+        api.cinder: [('default_quota_update', 'cinder_default_quota_update')],
+        quotas: ['get_default_quota_data', 'get_disabled_quotas']})
     def test_update_default_quotas(self):
         quota = self.quotas.first()
 
-        # init
-        quotas.get_disabled_quotas(IsA(http.HttpRequest)).AndReturn(set())
-        quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+        self.mock_get_disabled_quotas.return_value = set()
+        self.mock_get_default_quota_data.return_value = quota
+        self.mock_nova_default_quota_update.return_value = None
+        self.mock_cinder_default_quota_update.return_value = None
 
         # update some fields
         quota[0].limit = 123
         quota[1].limit = -1
         updated_quota = self._get_quota_info(quota)
 
-        # handle
-        nova_fields = quotas.NOVA_QUOTA_FIELDS
-        nova_updated_quota = dict([(key, updated_quota[key]) for key in
-                                   nova_fields if key != 'fixed_ips'])
-        api.nova.default_quota_update(IsA(http.HttpRequest),
-                                      **nova_updated_quota)
-
-        cinder_updated_quota = dict([(key, updated_quota[key]) for key in
-                                    quotas.CINDER_QUOTA_FIELDS])
-        api.cinder.default_quota_update(IsA(http.HttpRequest),
-                                        **cinder_updated_quota)
-
-        self.mox.ReplayAll()
-
         url = reverse('horizon:admin:defaults:update_defaults')
         res = self.client.post(url, updated_quota)
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_get_disabled_quotas.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_get_default_quota_data.assert_called_once_with(
+            test.IsHttpRequest())
+
+        nova_fields = quotas.NOVA_QUOTA_FIELDS
+        nova_updated_quota = dict((key, updated_quota[key]) for key in
+                                  nova_fields if key != 'fixed_ips')
+        self.mock_nova_default_quota_update.assert_called_once_with(
+            test.IsHttpRequest(), **nova_updated_quota)
+
+        cinder_updated_quota = dict((key, updated_quota[key]) for key in
+                                    quotas.CINDER_QUOTA_FIELDS)
+        self.mock_cinder_default_quota_update.assert_called_once_with(
+            test.IsHttpRequest(), **cinder_updated_quota)
