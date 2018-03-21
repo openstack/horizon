@@ -299,6 +299,7 @@ class AttachInterface(forms.SelfHandlingForm):
         required=False,
         widget=forms.ThemableSelectWidget(attrs={
             'class': 'switched',
+            'data-required-when-shown': 'true',
             'data-switch-on': 'specification_method',
             'data-specification_method-port': _('Port'),
         }))
