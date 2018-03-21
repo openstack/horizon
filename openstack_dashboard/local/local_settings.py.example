@@ -515,16 +515,6 @@ TIME_ZONE = "UTC"
 #    'network': 'neutron_policy.json',
 #}
 
-# TODO: (david-lyle) remove when plugins support adding settings.
-# Note: Only used when trove-dashboard plugin is configured to be used by
-# Horizon.
-# Trove user and database extension support. By default support for
-# creating users and databases on database instances is turned on.
-# To disable these extensions set the permission here to something
-# unusable such as ["!"].
-#TROVE_ADD_USER_PERMS = []
-#TROVE_ADD_DATABASE_PERMS = []
-
 # Change this patch to the appropriate list of tuples containing
 # a key, label and static directory containing two files:
 # _variables.scss and _styles.scss
@@ -792,17 +782,6 @@ SECURITY_GROUP_RULES = {
 #
 # See Metadata Definitions on:
 # https://docs.openstack.org/glance/latest/user/glancemetadefcatalogapi.html
-
-# TODO: (david-lyle) remove when plugins support settings natively
-# Note: This is only used when the Sahara plugin is configured and enabled
-# for use in Horizon.
-# Indicate to the Sahara data processing service whether or not
-# automatic floating IP allocation is in effect.  If it is not
-# in effect, the user will be prompted to choose a floating IP
-# pool for use in their cluster.  False by default.  You would want
-# to set this to True if you were running Nova Networking with
-# auto_assign_floating_ip = True.
-#SAHARA_AUTO_IP_ALLOCATION_ENABLED = False
 
 # The hash algorithm to use for authentication tokens. This must
 # match the hash algorithm that the identity server and the
