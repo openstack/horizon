@@ -266,11 +266,6 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # allowing Admin session password retrieval/decryption.
 #OPENSTACK_ENABLE_PASSWORD_RETRIEVE = False
 
-# This setting allows deployers to control whether a token is deleted on log
-# out. This can be helpful when there are often long running processes being
-# run in the Horizon environment.
-#TOKEN_DELETION_DISABLED = False
-
 # The Launch Instance user experience has been significantly enhanced.
 # You can choose whether to enable the new launch instance experience,
 # the legacy experience, or both. The legacy experience will be removed

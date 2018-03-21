@@ -17,8 +17,6 @@
 import logging
 import os
 
-from django.utils.translation import pgettext_lazy
-
 
 def get_theme_static_dirs(available_themes, collection_dir, root):
     static_dirs = []
@@ -40,64 +38,21 @@ def get_theme_static_dirs(available_themes, collection_dir, root):
     return static_dirs
 
 
-def get_available_themes(available_themes, custom_path, default_path,
-                         default_theme, selectable_themes):
+def get_available_themes(available_themes, default_theme, selectable_themes):
     new_theme_list = []
     # We can only support one path at a time, because of static file
     # collection.
-    custom_ndx = -1
-    default_ndx = -1
     default_theme_ndx = -1
     for ndx, each_theme in enumerate(available_themes):
-
-        # Maintain Backward Compatibility for CUSTOM_THEME_PATH
-        if custom_path:
-            if each_theme[2] == custom_path:
-                custom_ndx = ndx
-
-        # Maintain Backward Compatibility for DEFAULT_THEME_PATH
-        if default_path:
-            if each_theme[0] == 'default':
-                default_ndx = ndx
-                each_theme = (
-                    'default',
-                    pgettext_lazy('Default style theme', 'Default'),
-                    default_path
-                )
-
         # Make sure that DEFAULT_THEME is configured for use
         if each_theme[0] == default_theme:
             default_theme_ndx = ndx
 
         new_theme_list.append(each_theme)
 
-    if custom_ndx != -1:
-        # If CUSTOM_THEME_PATH is set, then we should set that as the default
-        # theme to make sure that upgrading Horizon doesn't jostle anyone
-        default_theme = available_themes[custom_ndx][0]
-        logging.warning("Your AVAILABLE_THEMES already contains your "
-                        "CUSTOM_THEME_PATH, therefore using configuration in "
-                        "AVAILABLE_THEMES for %s.", custom_path)
-
-    elif custom_path is not None:
-        new_theme_list.append(
-            ('custom',
-             pgettext_lazy('Custom style theme', 'Custom'),
-             custom_path)
-        )
-        default_theme = 'custom'
-
-    # If 'default' isn't present at all, add it with the default_path
-    if default_ndx == -1 and default_path is not None:
-        new_theme_list.append(
-            ('default',
-             pgettext_lazy('Default style theme', 'Default'),
-             default_path)
-        )
-
     # If default is not configured, we have to set one,
     # just grab the first theme
-    if default_theme_ndx == -1 and custom_ndx == -1:
+    if default_theme_ndx == -1:
         default_theme = available_themes[0][0]
 
     if selectable_themes is None:

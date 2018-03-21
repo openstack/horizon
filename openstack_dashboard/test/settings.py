@@ -48,8 +48,6 @@ TEMPLATES[0]['OPTIONS']['context_processors'].append(
     'openstack_dashboard.context_processors.openstack'
 )
 
-CUSTOM_THEME_PATH = 'themes/default'
-
 # 'key', 'label', 'path'
 AVAILABLE_THEMES = [
     (

@@ -134,38 +134,6 @@ the GUI. For example themes, see: /horizon/openstack_dashboard/themes/
 Horizon ships with two themes configured. 'default' is the default theme,
 and 'material' is based on Google's Material Design.
 
-.. _custom_theme_path:
-
-CUSTOM_THEME_PATH
------------------
-
-.. versionadded:: 2015.1(Kilo)
-
-.. deprecated:: 9.0.0(Mitaka)
-
-  Themes are now controlled by `AVAILABLE_THEMES`_.
-
-Default: ``"themes/default"``
-
-This setting tells Horizon to use a directory as a custom theme.
-
-By default, this directory will serve as the static root of the theme
-and the entire contents of the directory will be served up at
-``/static/custom``.  If you wish to include content other than static
-files in a theme directory, but do not wish that content to be served up,
-then you can create a sub directory named ``static``. If the theme folder
-contains a sub-directory with the name ``static``, then
-``static/custom/static`` will be used as the root for the content
-served at ``/static/custom``.
-
-The static root of the theme folder must always contain a _variables.scss
-file and a _styles.scss file.  These must contain or import all the
-bootstrap and horizon specific variables and styles which are used to style
-the GUI. For example themes, see: /horizon/openstack_dashboard/themes/
-
-Horizon ships with one alternate theme based on Google's Material Design.  To
-use the alternate theme, set your CUSTOM_THEME_PATH to ``themes/material``.
-
 DEFAULT_THEME
 -------------
 
@@ -181,24 +149,6 @@ also be configured inside of ``AVAILABLE_THEMES``. Your default theme
 must be configured as part of `SELECTABLE_THEMES`_.  If it is not, then
 your ``DEFAULT_THEME`` will default to the first theme in
 ``SELECTABLE_THEMES``.
-
-DEFAULT_THEME_PATH
-------------------
-
-.. versionadded:: 8.0.0(Liberty)
-
-.. deprecated:: 9.0.0(Mitaka)
-
-  Themes are now controlled by `AVAILABLE_THEMES`_.
-
-Default: ``"themes/default"``
-
-This setting allows Horizon to collect an additional theme during static
-collection and be served up via /static/themes/default.  This is useful
-if CUSTOM_THEME_PATH inherits from another theme (like 'default').
-
-If DEFAULT_THEME_PATH is the same as CUSTOM_THEME_PATH, then collection
-is skipped and /static/themes will not exist.
 
 DISALLOW_IFRAME_EMBED
 ---------------------
@@ -1022,33 +972,6 @@ Valid values are  ``"public"`` and ``"private"``. By default, the visibility
 option is public on create image modal. If it's set to ``"private"``, the
 default visibility option is private.
 
-HORIZON_IMAGES_ALLOW_UPLOAD
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 2013.1(Grizzly)
-
-.. deprecated:: 10.0.0(Newton)
-
-    Use `HORIZON_IMAGES_UPLOAD_MODE`_ instead.
-
-Default: ``True``
-
-If set to ``False``, this setting disables **local** uploads to prevent filling
-up the disk on the dashboard server since uploads to the Glance image store
-service tend to be particularly large - in the order of hundreds of megabytes
-to multiple gigabytes.
-
-The setting is marked as deprecated and will be removed in P or later release.
-It is superseded by the setting HORIZON_IMAGES_UPLOAD_MODE. Until the removal
-the ``False`` value of HORIZON_IMAGES_ALLOW_UPLOAD overrides the value of
-HORIZON_IMAGES_UPLOAD_MODE.
-
-.. note::
-
-    This will not disable image creation altogether, as this setting does not
-    affect images created by specifying an image location (URL) as the image
-    source.
-
 HORIZON_IMAGES_UPLOAD_MODE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1056,12 +979,10 @@ HORIZON_IMAGES_UPLOAD_MODE
 
 Default: ``"legacy"``
 
-Valid values are  ``"direct"``, ``"legacy"`` (default) and ``"off"``. ``"off"``
-disables the ability to upload images via Horizon. It is equivalent to setting
-``False`` on the deprecated setting ``HORIZON_IMAGES_ALLOW_UPLOAD``. ``legacy``
-enables local file upload by piping the image file through the Horizon's
-web-server. It is equivalent to setting ``True`` on the deprecated setting
-``HORIZON_IMAGES_ALLOW_UPLOAD``. ``direct`` sends the image file directly from
+Valid values are  ``"direct"``, ``"legacy"`` (default) and ``"off"``.
+``"off"`` disables the ability to upload images via Horizon.
+``legacy`` enables local file upload by piping the image file through the
+Horizon's web-server. ``direct`` sends the image file directly from
 the web browser to Glance. This bypasses Horizon web-server which both reduces
 network hops and prevents filling up Horizon web-server's filesystem. ``direct``
 is the preferred mode, but due to the following requirements it is not the
@@ -1075,15 +996,6 @@ full hostname of Horizon web-server (e.g. http://<HOST_IP>/dashboard) and
 restart glance-api process.
 
 .. _here: https://docs.openstack.org/oslo.middleware/latest/reference/cors.html#configuration-for-oslo-config
-
-.. note::
-
-    To maintain the compatibility with the deprecated HORIZON_IMAGES_ALLOW_UPLOAD
-    setting, neither ``"direct"``, nor ``"legacy"`` modes will have an effect if
-    HORIZON_IMAGES_ALLOW_UPLOAD is set to ``False`` - as if HORIZON_IMAGES_UPLOAD_MODE
-    was set to ``"off"`` itself. When HORIZON_IMAGES_ALLOW_UPLOAD is set to ``True``,
-    all three modes are considered, as if HORIZON_IMAGES_ALLOW_UPLOAD setting
-    was removed.
 
 IMAGE_CUSTOM_PROPERTY_TITLES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1440,23 +1352,6 @@ The hash algorithm to use for authentication tokens. This must match the hash
 algorithm that the identity (Keystone) server and the auth_token middleware
 are using. Allowed values are the algorithms supported by Python's hashlib
 library.
-
-OPENSTACK_TOKEN_HASH_ENABLED
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 8.0.0(Liberty)
-
-.. deprecated:: 9.0.0(Mitaka)
-
-    PKI tokens currently work with hashing, and Keystone will soon deprecate
-    usage of PKI tokens.
-
-Default: ``True``
-
-Hashing tokens from Keystone keeps the Horizon session data smaller, but it
-doesn't work in some cases when using PKI tokens.  Uncomment this value and
-set it to False if using PKI tokens and there are 401 errors due to token
-hashing.
 
 PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

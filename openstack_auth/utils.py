@@ -116,13 +116,6 @@ def is_safe_url(url, host=None):
     return not netloc or netloc == host
 
 
-# DEPRECATED -- Mitaka
-# This method definition is included to prevent breaking backward compatibility
-# The original functionality was problematic and has been removed.
-def remove_project_cache(token):
-    pass
-
-
 # Helper for figuring out keystone version
 # Implementation will change when API version discovery is available
 def get_keystone_version():
@@ -144,11 +137,6 @@ def get_keystone_client():
         return client_v2
     else:
         return client_v3
-
-
-def is_token_deletion_disabled():
-    LOG.warning("Deprecated TOKEN_DELETION_DISABLED setting is no longer used")
-    return getattr(settings, 'TOKEN_DELETION_DISABLED', False)
 
 
 def is_websso_enabled():
