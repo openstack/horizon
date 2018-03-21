@@ -34,6 +34,7 @@ import django
 # Ignore warnings from openstack_dashboard.settings in the doc build.
 # This can be dropped once Sphinx correctly ignore such warnings.
 logging.getLogger('openstack_dashboard.settings').setLevel(logging.ERROR)
+logging.getLogger('horizon.test.helpers').setLevel(logging.ERROR)
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
