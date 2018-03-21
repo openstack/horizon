@@ -20,11 +20,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-09 17:54+0000\n"
+"POT-Creation-Date: 2018-03-20 22:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-10 06:21+0000\n"
+"PO-Revision-Date: 2018-03-20 09:30+0000\n"
 "Last-Translator: Jaewook Oh <kyle.oh95@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -565,6 +565,9 @@ msgid "Confirm Delete User"
 msgid_plural "Confirm Delete Users"
 msgstr[0] "사용자 삭제 확인"
 
+msgid "Confirm Password"
+msgstr "비밀번호 확인"
+
 msgid "Connecting"
 msgstr "연결중"
 
@@ -604,11 +607,23 @@ msgstr "Content 유형"
 msgid "Contextual alternatives"
 msgstr "Contextual alternatives"
 
+msgid "Copy"
+msgstr "복사"
+
 msgid "Copy Data"
 msgstr "데이터 복사"
 
+msgid "Copy Object"
+msgstr "오브젝트 복사"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "오브젝트 복사: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
 msgid "Copy Private Key to Clipboard"
 msgstr "클립 보드에 개인키 복사"
+
+msgid "Copying"
+msgstr "복사 중"
 
 msgid "Could not decrypt the password"
 msgstr "암호를 해독할 수 없습니다."
@@ -874,6 +889,12 @@ msgstr "설명"
 
 msgid "Description lists"
 msgstr "Description lists"
+
+msgid "Destination Container"
+msgstr "대상 컨테이너"
+
+msgid "Destination Object"
+msgstr "대상 오브젝트"
 
 msgid "Details"
 msgstr "세부 정보"
@@ -2688,6 +2709,12 @@ msgstr ""
 "이것을 이용하여 키 한쌍을 생성합니다: 개인키 (cloud.key)와\n"
 "  공개 키 (cloud.key.pub)."
 
+msgid "This container does not exist."
+msgstr "컨테이너가 존재하지 않습니다."
+
+msgid "This field is required."
+msgstr "이 항목은 필수입니다."
+
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
@@ -3362,7 +3389,7 @@ msgid ""
 "is always JSON. NOTE: A schema element is not needed for items that have no "
 "data model, like sections and fieldsets."
 msgstr ""
-"스키마를 사용하여 데이터 모델과 유요한 입력 패턴을 설명하십시오. 스키마는 항"
+"스키마를 사용하여 데이터 모델과 유효한 입력 패턴을 설명하십시오. 스키마는 항"
 "상 JSON입니다. 참고: 섹션과 필드 세트와 같은 데이터 모델이 없는 항목에는 스키"
 "마 요소가 필요하지 않습니다."
 
@@ -3582,6 +3609,12 @@ msgstr ""
 "좀 더 쉽게 실행중인 다른 인스턴트간 식별할 수 있도록 하기위해 임의의 메타데이"
 "터를 추가할 수 있습니다. 메타 데이터는 인스턴스에 접근 가능한 키값 쌍의 컬렉"
 "션입니다. 각 메타데이터 키와 값의 최대 길이는 255자입니다."
+
+msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr ""
+"오브젝트를 복사할 수 있습니다. 복사하기에 앞서 대상 컨테이너를 생성해야 합니"
+"다."
 
 msgid ""
 "You can customize your instance after it has launched using the options "
