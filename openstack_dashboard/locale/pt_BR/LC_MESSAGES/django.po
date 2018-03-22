@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-21 12:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-13 02:43+0000\n"
+"PO-Revision-Date: 2018-03-21 09:40+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
@@ -879,6 +879,9 @@ msgid "Cannot specify both file and direct input."
 msgstr ""
 "Não é permitido especificar simultaneamente um arquivo e uma entrada direta."
 
+msgid "Center Topology"
+msgstr "Topologia de Centro"
+
 msgid "Centralized"
 msgstr "Centralizado"
 
@@ -1040,6 +1043,9 @@ msgstr "Computação"
 
 msgid "Compute Host"
 msgstr "Compute Host"
+
+msgid "Compute Quotas"
+msgstr "Quotas de Computação"
 
 msgid "Compute Services"
 msgstr "Serviços de Computação"
@@ -4057,6 +4063,9 @@ msgstr "QoS de Rede"
 msgid "Network QoS Policies"
 msgstr "Políticas de QoS de Rede"
 
+msgid "Network Quotas"
+msgstr "Quotas de Rede"
+
 msgid "Network Topology"
 msgstr "Topologia de Rede"
 
@@ -4789,6 +4798,9 @@ msgstr "RAM (utilizado)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Disponível: %(avail)s, Requisitado: %(req)s)"
+
+msgid "RBAC Policies"
+msgstr "Políticas RBAC"
 
 msgid "RX/TX Factor"
 msgstr "Fator RX/TX "
@@ -6853,6 +6865,9 @@ msgstr "Não foi possível obter o console SPICE para a instância \"%s\"."
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Não foi possível acessar o console VNC da instância \"%s\"."
 
+msgid "Unable to get cinder quota info."
+msgstr "Não é possível obter informações de quota do cinder"
+
 msgid "Unable to get cinder services list."
 msgstr "Não foi possível ler a lista de serviços do Cinder"
 
@@ -6878,6 +6893,12 @@ msgstr "Não foi possível ler as informações dos agentes de rede."
 
 msgid "Unable to get network agents list."
 msgstr "Não foi possível obter lista de agentes de rede."
+
+msgid "Unable to get neutron quota info."
+msgstr "Não é possível obter informações de quota do neutron"
+
+msgid "Unable to get nova quota info."
+msgstr "Não é possível obter informações de quota do nova"
 
 msgid "Unable to get nova services list."
 msgstr "Não é possível obter a lista de serviços nova."
@@ -8033,6 +8054,9 @@ msgstr "Nome do Volume"
 
 msgid "Volume Name ="
 msgstr "Nome do Volume ="
+
+msgid "Volume Quotas"
+msgstr "Quotas de Volume"
 
 msgid "Volume Snapshot"
 msgstr "Snapshot de Volume"
