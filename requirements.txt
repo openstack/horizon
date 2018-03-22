@@ -10,9 +10,9 @@
 pbr!=2.1.0,>=2.0.0 # Apache-2.0
 # Horizon Core Requirements
 Babel!=2.4.0,>=2.3.4 # BSD
-Django<2.0,>=1.8 # BSD
+Django<2.0,>=1.11 # BSD
 Pint>=0.5 # BSD
-django-babel>=0.5.1 # BSD
+django-babel>=0.6.2 # BSD
 django-compressor>=2.0 # MIT
 django-pyscss>=2.0.2 # BSD License (2 clause)
 futurist>=1.2.0 # Apache-2.0

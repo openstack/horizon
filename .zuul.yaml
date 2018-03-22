@@ -57,8 +57,10 @@
         - horizon-openstack-tox-py35dj20
         - horizon-selenium-headless
         - horizon-dsvm-tempest-plugin
+        - openstack-tox-lower-constraints
     gate:
       jobs:
         - horizon-openstack-tox-py35dj20
         - horizon-selenium-headless
         - horizon-dsvm-tempest-plugin
+        - openstack-tox-lower-constraints
