@@ -2,9 +2,14 @@
 <a href="#" id="flavor_details_{{ id }}" class="link-popover" rel="popover" tabindex="0" data-trigger="focus" data-content="
 <table class='table table-bordered'>
   <tr><th>{% trans 'ID' %}</th><td>{{ flavor_id }}</td></tr>
+  <tr><th>{% trans 'VCPUs' %}</th><td>Hardware details for your instance can be found in our <a target='blank' href='https://www.chameleoncloud.org/hardware/'>resource discovery interface.</a></td></tr>
+  <tr><th>{% trans 'RAM' %}</th><td>--</td></tr>
+  <tr><th>{% trans 'Size' %}</th><td>--</td></tr>
+  <!--
   <tr><th>{% trans 'VCPUs' %}</th><td>{{ vcpus }}</td></tr>
   <tr><th>{% trans 'RAM' %}</th><td>{{ size_ram }}</td></tr>
   <tr><th>{% trans 'Size' %}</th><td>{{ size_disk }}</td></tr>
+	-->
 </table>
 " data-original-title="{% blocktrans %}Flavor Details: {{ name }}">{{ name }}{% endblocktrans %}</a>
 <script type="text/javascript" charset="utf-8">

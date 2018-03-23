@@ -52,29 +52,29 @@ limitations under the License.
         </td>
         <td class="rsp-p1 word-break">{$ ::item.name $}</td>
         <td class="rsp-p1">
-          <span class="invalid fa fa-exclamation-triangle"
+          <!--<span class="invalid fa fa-exclamation-triangle"
           ng-show="item.errors.vcpus"
           popover="{$ item.errors.vcpus $}"
           popover-placement="top" popover-append-to-body="true"
           popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.vcpus $}
+          {$ ::item.vcpus $}-->
         </td>
         <td class="rsp-p1">
-          <span class="invalid fa fa-exclamation-triangle"
+          <!--<span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.ram"
             popover="{$ item.errors.ram $}"
             popover-placement="top" popover-append-to-body="true"
             popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.ram | mb $}
+          {$ ::item.ram | mb $} -->
         </td>
         <td class="rsp-p1">{$ ::item.totalDisk | gb $}</td>
         <td class="rsp-p2">
-          <span class="invalid fa fa-exclamation-triangle"
+          <!--<span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.disk"
             popover="{$ item.errors.disk $}"
             popover-placement="top" popover-append-to-body="true"
             popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.rootDisk | gb $}
+          {$ ::item.rootDisk | gb $}-->
         </td>
         <td class="rsp-p2">{$ ::item.ephemeralDisk | gb $}</td>
         <td class="rsp-p1">{$ ::item.isPublic | yesno $}</td>
@@ -163,29 +163,32 @@ limitations under the License.
         </td>
         <td class="rsp-p1 word-break">{$ ::item.name $}</td>
         <td class="rsp-p1">
-          <span class="invalid fa fa-exclamation-triangle"
+          <div style="max-width: 200px;">
+            Hardware details for your instance can be found in our <a target='blank' href='https://www.chameleoncloud.org/hardware/'>resource discovery interface.</a>
+          </div>
+          <!--<span class="invalid fa fa-exclamation-triangle"
           ng-show="item.errors.vcpus"
           popover="{$ item.errors.vcpus $}"
           popover-placement="top" popover-append-to-body="true"
           popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.vcpus $}
+          {$ ::item.vcpus $} -->
         </td>
-        <td class="rsp-p1">
-          <span class="invalid fa fa-exclamation-triangle"
+        <td class="rsp-p1">--
+          <!--<span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.ram"
             popover="{$ item.errors.ram $}"
             popover-placement="top" popover-append-to-body="true"
             popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.ram | mb $}
+          {$ ::item.ram | mb $} -->
         </td>
         <td class="rsp-p1">{$ ::item.totalDisk | gb $}</td>
-        <td class="rsp-p2">
-          <span class="invalid fa fa-exclamation-triangle"
+        <td class="rsp-p2">--
+          <!-- <span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.disk"
             popover="{$ item.errors.disk $}"
             popover-placement="top" popover-append-to-body="true"
             popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.rootDisk | gb $}
+          {$ ::item.rootDisk | gb $} -->
         </td>
         <td class="rsp-p2">{$ ::item.ephemeralDisk | gb $}</td>
         <td class="rsp-p1">{$ ::item.isPublic | yesno $}</td>
@@ -215,13 +218,13 @@ limitations under the License.
               <pie-chart chart-data="item.instancesChartData"
                          chart-settings="chartSettings"></pie-chart>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4"><!--
               <pie-chart chart-data="item.vcpusChartData"
-                         chart-settings="chartSettings"></pie-chart>
+                         chart-settings="chartSettings"></pie-chart> -->
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4"><!--
               <pie-chart chart-data="item.ramChartData"
-                         chart-settings="chartSettings"></pie-chart>
+                         chart-settings="chartSettings"></pie-chart> -->
             </div>
           </div>
           <div ng-if="selectFlavorCtrl.metadataDefs.flavor">
