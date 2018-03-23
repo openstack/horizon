@@ -13,115 +13,108 @@
 # limitations under the License.
 import mock
 
+from openstack_dashboard import api
 from openstack_dashboard.api.rest import swift
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.test.test_data import swift_data
-from openstack_dashboard.test.test_data.utils import TestData
-
-
-TEST = TestData(swift_data.data)
 
 
 class SwiftRestTestCase(test.TestCase):
 
     use_mox = False
 
-    def setUp(self):
-        super(SwiftRestTestCase, self).setUp()
-        self._containers = TEST.containers.list()
-        self._objects = TEST.objects.list()
-        self._folder = TEST.folder.list()
-        self._folder_alt = TEST.folder_alt.list()
-        self._subfolder = TEST.subfolder.list()
-
     #
     # Version
     #
-    @mock.patch.object(swift.api, 'swift')
-    def test_version_get(self, nc):
+    @test.create_mocks({api.swift: ['swift_get_capabilities']})
+    def test_version_get(self):
         request = self.mock_rest_request()
-        nc.swift_get_capabilities.return_value = {'swift': {'version': '1.0'}}
+        self.mock_swift_get_capabilities.return_value = {'swift':
+                                                         {'version': '1.0'}}
         response = swift.Info().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual({'info': {'swift': {'version': '1.0'}}},
                          response.json)
-        nc.swift_get_capabilities.assert_called_once_with(request)
+        self.mock_swift_get_capabilities.assert_called_once_with(request)
 
     #
     # Containers
     #
-    @mock.patch.object(swift.api, 'swift')
-    def test_containers_get(self, nc):
+    @test.create_mocks({api.swift: ['swift_get_containers']})
+    def test_containers_get(self):
         request = self.mock_rest_request(GET={})
-        nc.swift_get_containers.return_value = (self._containers, False)
+        self.mock_swift_get_containers.return_value = (self.containers.list(),
+                                                       False)
         response = swift.Containers().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(u'container one%\u6346',
                          response.json['items'][0]['name'])
         self.assertFalse(response.json['has_more'])
-        nc.swift_get_containers.assert_called_once_with(request)
+        self.mock_swift_get_containers.assert_called_once_with(request)
 
-    #
-    # Container
-    #
-    @mock.patch.object(swift.api, 'swift')
-    def test_container_get(self, nc):
+    @test.create_mocks({api.swift: ['swift_get_container']})
+    def test_container_get(self):
         request = self.mock_rest_request()
-        nc.swift_get_container.return_value = self._containers[0]
+        self.mock_swift_get_container.return_value = self.containers.first()
         response = swift.Container().get(request, u'container one%\u6346')
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.json, self._containers[0].to_dict())
-        nc.swift_get_container.assert_called_once_with(request,
-                                                       u'container one%\u6346')
+        self.assertEqual(response.json, self.containers.first().to_dict())
+        self.mock_swift_get_container.assert_called_once_with(
+            request, u'container one%\u6346')
 
-    @mock.patch.object(swift.api, 'swift')
-    def test_container_create(self, nc):
+    @test.create_mocks({api.swift: ['swift_create_container']})
+    def test_container_create(self):
+        self.mock_swift_create_container.return_value = self.containers.first()
         request = self.mock_rest_request(body='{}')
         response = swift.Container().post(request, 'spam')
         self.assertStatusCode(response, 201)
         self.assertEqual(u'/api/swift/containers/spam',
                          response['location'])
-        nc.swift_create_container.assert_called_once_with(
+        self.mock_swift_create_container.assert_called_once_with(
             request, 'spam', metadata={}
         )
 
-    @mock.patch.object(swift.api, 'swift')
-    def test_container_create_is_public(self, nc):
+    @test.create_mocks({api.swift: ['swift_create_container']})
+    def test_container_create_is_public(self):
+        self.mock_swift_create_container.return_value = self.containers.first()
         request = self.mock_rest_request(body='{"is_public": false}')
         response = swift.Container().post(request, 'spam')
         self.assertStatusCode(response, 201)
         self.assertEqual(u'/api/swift/containers/spam',
                          response['location'])
-        nc.swift_create_container.assert_called_once_with(
+        self.mock_swift_create_container.assert_called_once_with(
             request, 'spam', metadata={'is_public': False}
         )
 
-    @mock.patch.object(swift.api, 'swift')
-    def test_container_delete(self, nc):
+    @test.create_mocks({api.swift: ['swift_delete_container']})
+    def test_container_delete(self):
+        self.mock_swift_delete_container.return_value = True
         request = self.mock_rest_request()
         response = swift.Container().delete(request, u'container one%\u6346')
         self.assertStatusCode(response, 204)
-        nc.swift_delete_container.assert_called_once_with(
+        self.mock_swift_delete_container.assert_called_once_with(
             request, u'container one%\u6346'
         )
 
-    @mock.patch.object(swift.api, 'swift')
-    def test_container_update(self, nc):
+    @test.create_mocks({api.swift: ['swift_update_container']})
+    def test_container_update(self):
+        # is_public of the second container is True
+        container = self.containers.list()[1]
+        self.mock_swift_update_container.return_value = container
         request = self.mock_rest_request(body='{"is_public": false}')
-        response = swift.Container().put(request, 'spam')
+        response = swift.Container().put(request, container.name)
         self.assertStatusCode(response, 204)
-        nc.swift_update_container.assert_called_once_with(
-            request, 'spam', metadata={'is_public': False}
+        self.mock_swift_update_container.assert_called_once_with(
+            request, container.name, metadata={'is_public': False}
         )
 
     #
     # Objects
     #
-    @mock.patch.object(swift.api, 'swift')
-    def test_objects_get(self, nc):
+    @test.create_mocks({api.swift: ['swift_get_objects']})
+    def test_objects_get(self):
         request = self.mock_rest_request(GET={})
-        nc.swift_get_objects.return_value = (
-            self._objects + self._folder, False
+        self.mock_swift_get_objects.return_value = (
+            self.objects.list() + self.folder.list(), False
         )
         response = swift.Objects().get(request, u'container one%\u6346')
         self.assertStatusCode(response, 200)
@@ -141,61 +134,61 @@ class SwiftRestTestCase(test.TestCase):
         self.assertFalse(response.json['items'][4]['is_object'])
         self.assertTrue(response.json['items'][4]['is_subdir'])
 
-        nc.swift_get_objects.assert_called_once_with(request,
-                                                     u'container one%\u6346',
-                                                     prefix=None)
+        self.mock_swift_get_objects.assert_called_once_with(
+            request,
+            u'container one%\u6346',
+            prefix=None)
 
-    @mock.patch.object(swift.api, 'swift')
-    def test_container_get_path_folder(self, nc):
+    @test.create_mocks({api.swift: ['swift_get_objects']})
+    def test_container_get_path_folder(self):
         request = self.mock_rest_request(GET={'path': u'test folder%\u6346/'})
-        nc.swift_get_objects.return_value = (self._subfolder, False)
+        self.mock_swift_get_objects.return_value = (self.subfolder.list(),
+                                                    False)
         response = swift.Objects().get(request, u'container one%\u6346')
         self.assertStatusCode(response, 200)
         self.assertEqual(1, len(response.json['items']))
         self.assertTrue(response.json['items'][0]['is_object'])
         self.assertFalse(response.json['items'][0]['is_subdir'])
-        nc.swift_get_objects.assert_called_once_with(
+        self.mock_swift_get_objects.assert_called_once_with(
             request,
             u'container one%\u6346', prefix=u'test folder%\u6346/'
         )
 
-    #
-    # Object
-    #
-    @mock.patch.object(swift.api, 'swift')
-    def test_object_get(self, nc):
+    @test.create_mocks({api.swift: ['swift_get_object']})
+    def test_object_get(self):
         request = self.mock_rest_request()
-        nc.swift_get_object.return_value = self._objects[0]
+        self.mock_swift_get_object.return_value = self.objects.first()
         response = swift.ObjectMetadata().get(request, 'container', 'test.txt')
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.json, self._objects[0].to_dict())
-        nc.swift_get_object.assert_called_once_with(
+        self.assertEqual(response.json, self.objects.first().to_dict())
+        self.mock_swift_get_object.assert_called_once_with(
             request,
             container_name='container',
             object_name='test.txt',
             with_data=False
         )
 
-    @mock.patch.object(swift.api, 'swift')
-    def test_object_delete(self, nc):
+    @test.create_mocks({api.swift: ['swift_delete_object']})
+    def test_object_delete(self):
         request = self.mock_rest_request()
-        nc.swift_delete_object.return_value = True
+        self.mock_swift_delete_object.return_value = True
         response = swift.Object().delete(request, 'container', 'test.txt')
         self.assertStatusCode(response, 204)
-        nc.swift_delete_object.assert_called_once_with(request,
-                                                       'container',
-                                                       'test.txt')
+        self.mock_swift_delete_object.assert_called_once_with(request,
+                                                              'container',
+                                                              'test.txt')
 
-    @mock.patch.object(swift, 'UploadObjectForm')
-    @mock.patch.object(swift.api, 'swift')
-    def test_object_create(self, nc, uf):
-        uf.return_value.is_valid.return_value = True
+    @test.create_mocks({api.swift: ['swift_upload_object'],
+                        swift: ['UploadObjectForm']})
+    def test_object_create(self):
+        form_obj = self.mock_UploadObjectForm.return_value
+        form_obj.is_valid.return_value = True
         # note file name not used, path name is
-        file = mock.Mock(name=u'NOT object%\u6346')
-        uf.return_value.clean.return_value = {'file': file}
+        _file = mock.Mock(name=u'NOT object%\u6346')
+        form_obj.clean.return_value = {'file': _file}
         request = self.mock_rest_request()
         real_name = u'test_object%\u6346'
-        nc.swift_upload_object.return_value = self._objects[0]
+        self.mock_swift_upload_object.return_value = self.objects.first()
         response = swift.Object().post(request, 'spam', real_name)
         self.assertStatusCode(response, 201)
         self.assertEqual(
@@ -203,18 +196,18 @@ class SwiftRestTestCase(test.TestCase):
             '=25=E6=8D=86?=',
             response['location']
         )
-        self.assertTrue(nc.swift_upload_object.called)
-        call = nc.swift_upload_object.call_args[0]
-        self.assertEqual(call[0:3], (request, 'spam', u'test_object%\u6346'))
-        self.assertEqual(call[3], file)
+        self.mock_swift_upload_object.assert_called_once_with(
+            request, 'spam', u'test_object%\u6346', _file)
 
-    @mock.patch.object(swift, 'UploadObjectForm')
-    @mock.patch.object(swift.api, 'swift')
-    def test_folder_create(self, nc, uf):
-        uf.return_value.is_valid.return_value = True
-        uf.return_value.clean.return_value = {}
+    @test.create_mocks({api.swift: ['swift_create_pseudo_folder'],
+                        swift: ['UploadObjectForm']})
+    def test_folder_create(self):
+        form_obj = self.mock_UploadObjectForm.return_value
+        form_obj.is_valid.return_value = True
+        form_obj.clean.return_value = {}
         request = self.mock_rest_request()
-        nc.swift_create_pseudo_folder.return_value = self._folder_alt[0]
+        self.mock_swift_create_pseudo_folder.return_value = \
+            self.folder_alt.first()
         response = swift.Object().post(request, 'spam', u'test_folder%\u6346/')
         self.assertStatusCode(response, 201)
         self.assertEqual(
@@ -222,16 +215,15 @@ class SwiftRestTestCase(test.TestCase):
             '=?utf-8?q?/api/swift/containers/spam/object/test_folder'
             '=25=E6=8D=86/?='
         )
-        self.assertTrue(nc.swift_create_pseudo_folder.called)
-        call = nc.swift_create_pseudo_folder.call_args[0]
-        self.assertEqual(call[0:3], (request, 'spam', u'test_folder%\u6346/'))
+        self.mock_swift_create_pseudo_folder.assert_called_once_with(
+            request, 'spam', u'test_folder%\u6346/')
 
-    @mock.patch.object(swift.api, 'swift')
-    def test_object_copy(self, nc):
+    @test.create_mocks({api.swift: ['swift_copy_object']})
+    def test_object_copy(self):
         request = self.mock_rest_request(
             body='{"dest_container":"eggs", "dest_name":"bacon"}',
         )
-        nc.swift_copy_object.return_value = self._objects[0]
+        self.mock_swift_copy_object.return_value = self.objects.first()
         response = swift.ObjectCopy().post(request,
                                            'spam',
                                            u'test object%\u6346')
@@ -242,11 +234,10 @@ class SwiftRestTestCase(test.TestCase):
             '=25=E6=8D=86?='
         )
 
-        self.assertTrue(nc.swift_copy_object.called)
-        call = nc.swift_copy_object.call_args[0]
-        self.assertEqual(call[0:5], (request,
-                                     'spam',
-                                     u'test object%\u6346',
-                                     'eggs',
-                                     'bacon'))
+        self.mock_swift_copy_object.assert_called_once_with(
+            request,
+            'spam',
+            u'test object%\u6346',
+            'eggs',
+            'bacon')
         self.assertStatusCode(response, 201)
