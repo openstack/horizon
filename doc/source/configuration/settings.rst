@@ -2232,30 +2232,6 @@ Ignore all listed Nova extensions, and behave as if they were unsupported.
 Can be used to selectively disable certain costly extensions for performance
 reasons.
 
-Sahara
-------
-
-.. warning::
-
-  The Sahara dashboard was removed from Horizon during the Newton cycle,
-  and any settings here should be considered legacy. For more up to date
-  information, see the `Sahara Dashboard repo
-  <https://github.com/openstack/sahara-dashboard>`_
-
-SAHARA_AUTO_IP_ALLOCATION_ENABLED
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 2014.2(Juno)
-
-.. deprecated:: 10.0.0(Newton)
-
-Default:  ``False``
-
-This setting notifies the Data Processing (Sahara) system whether or not
-automatic IP allocation is enabled.  You would want to set this to ``True``
-if you were running Nova Networking with ``auto_assign_floating_ip`` set to
-``True``.
-
 Swift
 -----
 
@@ -2270,42 +2246,6 @@ This setting specifies the size of the chunk (in bytes) for downloading objects
 from Swift. Do not make it very large (higher than several dozens of Megabytes,
 exact number depends on your connection speed), otherwise you may encounter
 socket timeout. The default value is 524288 bytes (or 512 Kilobytes).
-
-Trove
------
-
-.. warning::
-
-  The Trove dashboard was removed from Horizon during the Newton cycle,
-  and any settings here should be considered legacy. For more up to date
-  information, see the `Trove Dashboard repo
-  <https://github.com/openstack/trove-dashboard>`_
-
-TROVE_ADD_DATABASE_PERMS
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 2013.2(Havana)
-
-.. deprecated:: 10.0.0(Newton)
-
-Default: ``[]``
-
-Trove database extension support. By default, support for creating databases on
-database instances is turned on. To disable this extensions set the permission
-to something unusable such as ``[!]``.
-
-TROVE_ADD_USER_PERMS
-~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 2013.2(Havana)
-
-.. deprecated:: 10.0.0(Newton)
-
-Default: ``[]``
-
-Trove users extension support. By default, support for creating users on
-database instances is turned on. To disable this extensions set the permission
-to something unusable such as ``[!]``.
 
 Django Settings
 ===============
