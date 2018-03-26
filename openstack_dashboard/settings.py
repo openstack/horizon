@@ -309,10 +309,6 @@ USER_MENU_LINKS = [
      }
 ]
 
-# Deprecated Theme Settings
-CUSTOM_THEME_PATH = None
-DEFAULT_THEME_PATH = None
-
 # 'key', 'label', 'path'
 AVAILABLE_THEMES = [
     (
@@ -439,20 +435,10 @@ if STATIC_URL is None:
 AVAILABLE_THEMES, SELECTABLE_THEMES, DEFAULT_THEME = (
     theme_settings.get_available_themes(
         AVAILABLE_THEMES,
-        CUSTOM_THEME_PATH,
-        DEFAULT_THEME_PATH,
         DEFAULT_THEME,
         SELECTABLE_THEMES
     )
 )
-
-if CUSTOM_THEME_PATH is not None:
-    _LOG.warning("CUSTOM_THEME_PATH has been deprecated.  Please convert "
-                 "your settings to make use of AVAILABLE_THEMES.")
-
-if DEFAULT_THEME_PATH is not None:
-    _LOG.warning("DEFAULT_THEME_PATH has been deprecated.  Please convert "
-                 "your settings to make use of AVAILABLE_THEMES.")
 
 # Discover all the directories that contain static files
 STATICFILES_DIRS = theme_settings.get_theme_static_dirs(
@@ -516,11 +502,3 @@ if DEBUG:
 # Here comes the Django settings deprecation section. Being at the very end
 # of settings.py allows it to catch the settings defined in local_settings.py
 # or inside one of local_settings.d/ snippets.
-if 'HORIZON_IMAGES_ALLOW_UPLOAD' in globals():
-    message = 'The setting HORIZON_IMAGES_ALLOW_UPLOAD is deprecated in ' \
-              'Newton and will be removed in P release. Use the setting ' \
-              'HORIZON_IMAGES_UPLOAD_MODE instead.'
-    if not HORIZON_IMAGES_ALLOW_UPLOAD:
-        message += ' Keep in mind that HORIZON_IMAGES_ALLOW_UPLOAD set to ' \
-                   'False overrides the value of HORIZON_IMAGES_UPLOAD_MODE.'
-    _LOG.warning(message)

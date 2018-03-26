@@ -1,0 +1,15 @@
+---
+upgrade:
+  - |
+    The following deprecated settings have been dropped.
+
+    * ``HORIZON_IMAGES_ALLOW_UPLOAD`` (deprecated in Newton):
+      Use ``HORIZON_IMAGES_UPLOAD_MODE`` instead.
+    * ``CUSTOM_THEME_PATH`` and ``DEFAULT_THEME_PATH``
+      (both deprecated in Mitaka): Use AVAILABLE_THEMES instead.
+    * ``OPENSTACK_TOKEN_HASH_ENABLED`` (deprecated in Mitaka):
+      PKI tokens currently work with hashing (before Ocata) and
+      Keystone already dropped PKI token support in Ocata.
+    * ``TOKEN_DELETION_DISABLED`` (deprecated in Ocata):
+      It was not marked as deprecated in the horizon documentation,
+      but this had no effect since Ocata release.

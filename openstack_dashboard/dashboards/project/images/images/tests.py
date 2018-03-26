@@ -20,7 +20,6 @@ import tempfile
 
 from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from django.forms.widgets import HiddenInput
 from django.test.utils import override_settings
 from django.urls import reverse
 
@@ -64,28 +63,6 @@ class CreateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
         form = forms.CreateImageForm(post, files)
 
         self.assertFalse(form.is_valid())
-        mock_image_list.assert_has_calls(image_calls)
-
-    @override_settings(HORIZON_IMAGES_ALLOW_UPLOAD=False)
-    @override_settings(IMAGES_ALLOW_LOCATION=True)
-    @mock.patch.object(api.glance, 'image_list_detailed')
-    def test_image_upload_disabled(self, mock_image_list):
-        mock_image_list.side_effect = [
-            [self.images.list(), False, False],
-            [self.images.list(), False, False]
-        ]
-
-        image_calls = [
-            mock.call(test.IsA(dict), filters={'disk_format': 'aki'}),
-            mock.call(test.IsA(dict), filters={'disk_format': 'ari'})
-        ]
-
-        form = forms.CreateImageForm({})
-
-        self.assertEqual(
-            isinstance(form.fields['image_file'].widget, HiddenInput), True)
-        source_type_dict = dict(form.fields['source_type'].choices)
-        self.assertNotIn('file', source_type_dict)
         mock_image_list.assert_has_calls(image_calls)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})

@@ -377,8 +377,6 @@ def image_update(request, image_id, **kwargs):
 
 
 def get_image_upload_mode():
-    if getattr(settings, 'HORIZON_IMAGES_ALLOW_UPLOAD', None) is False:
-        return 'off'
     mode = getattr(settings, 'HORIZON_IMAGES_UPLOAD_MODE', 'legacy')
     if mode not in ('off', 'legacy', 'direct'):
         LOG.warning('HORIZON_IMAGES_UPLOAD_MODE has an unrecognized value of '

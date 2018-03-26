@@ -178,11 +178,6 @@ def logout(request, login_url=None, **kwargs):
                                                **kwargs)
 
 
-def delete_token(endpoint, token_id):
-    """Delete a token."""
-    LOG.warning("The delete_token method is deprecated and now does nothing")
-
-
 @login_required
 def switch(request, tenant_id, redirect_field_name=auth.REDIRECT_FIELD_NAME):
     """Switches an authenticated user from one project to another."""
