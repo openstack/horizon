@@ -1,0 +1,13 @@
+# The order of packages is significant, because pip processes them in the order
+# of appearance. Changing the order has an impact on the overall integration
+# process, which may cause wedges in the gate later.
+# Order matters to the pip dependency resolver, so sorting this file
+# changes how packages are installed.  New dependencies should be
+# added in alphabetical order, however, some dependencies may need to
+# be installed in a specific order.
+openstackdocstheme>=1.18.1 # Apache-2.0
+reno>=2.5.0 # Apache-2.0
+sphinx!=1.6.6,!=1.6.7,>=1.6.2 # BSD
+
+# The below is rewquired to build testing module reference
+mock>=2.0.0 # BSD
