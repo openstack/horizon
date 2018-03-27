@@ -260,7 +260,7 @@ class CreatePort(workflows.Workflow):
             params['binding__vnic_type'] = context['binding__vnic_type']
         if context.get('mac_state'):
             params['mac_learning_enabled'] = context['mac_state']
-        if 'port_security_enabled' in context:
+        if context['port_security_enabled'] is not None:
             params['port_security_enabled'] = context['port_security_enabled']
 
         # Send mac_address only when it is specified.
@@ -278,7 +278,8 @@ class CreatePort(workflows.Workflow):
         elif 'wanted_groups' in context:
             # If context has that key, we need to set its value
             # even if its value is empty to clear sec group setting.
-            groups = map(filters.get_int_or_uuid, context['wanted_groups'])
+            groups = [filters.get_int_or_uuid(sg)
+                      for sg in context['wanted_groups']]
             params['security_groups'] = groups
 
         return params
@@ -426,7 +427,8 @@ class UpdatePort(workflows.Workflow):
         elif 'wanted_groups' in data:
             # If data has that key, we need to set its value
             # even if its value is empty to clear sec group setting.
-            groups = map(filters.get_int_or_uuid, data['wanted_groups'])
+            groups = [filters.get_int_or_uuid(sg)
+                      for sg in data['wanted_groups']]
             params['security_groups'] = groups
 
         return params
