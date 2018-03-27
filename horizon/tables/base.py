@@ -41,6 +41,7 @@ from horizon import conf
 from horizon import exceptions
 from horizon.forms import ThemableCheckboxInput
 from horizon import messages
+from horizon.tables.actions import BatchAction
 from horizon.tables.actions import FilterAction
 from horizon.tables.actions import LinkAction
 from horizon.utils import html
@@ -1548,6 +1549,8 @@ class DataTable(object):
         template_path = self._meta.table_actions_template
         table_actions_template = template.loader.get_template(template_path)
         bound_actions = self.get_table_actions()
+        batch_actions = [action for action in bound_actions
+                         if isinstance(action, BatchAction)]
         extra_context = {"table_actions": bound_actions,
                          "table_actions_buttons": [],
                          "table_actions_menu": []}
@@ -1562,7 +1565,7 @@ class DataTable(object):
         if self._meta.table_actions_menu_label:
             extra_context['table_actions_menu_label'] = \
                 self._meta.table_actions_menu_label
-        self.set_multiselect_column_visibility(len(bound_actions) > 0)
+        self.set_multiselect_column_visibility(len(batch_actions) > 0)
         return table_actions_template.render(extra_context, self.request)
 
     def render_row_actions(self, datum, row=False):
