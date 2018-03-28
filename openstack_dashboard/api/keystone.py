@@ -216,7 +216,7 @@ def domain_get(request, domain_id):
 @profiler.trace
 def domain_delete(request, domain_id):
     manager = keystoneclient(request, admin=True).domains
-    return manager.delete(domain_id)
+    manager.delete(domain_id)
 
 
 @profiler.trace
@@ -348,7 +348,7 @@ def tenant_get(request, project, admin=True):
 @profiler.trace
 def tenant_delete(request, project):
     manager = VERSIONS.get_project_manager(request, admin=True)
-    return manager.delete(project)
+    manager.delete(project)
 
 
 @profiler.trace
@@ -451,7 +451,7 @@ def user_create(request, name=None, email=None, password=None, project=None,
 
 @profiler.trace
 def user_delete(request, user_id):
-    return keystoneclient(request, admin=True).users.delete(user_id)
+    keystoneclient(request, admin=True).users.delete(user_id)
 
 
 @profiler.trace
@@ -513,9 +513,9 @@ def user_update(request, user, **data):
 def user_update_enabled(request, user, enabled):
     manager = keystoneclient(request, admin=True).users
     if VERSIONS.active < 3:
-        return manager.update_enabled(user, enabled)
+        manager.update_enabled(user, enabled)
     else:
-        return manager.update(user, enabled=enabled)
+        manager.update(user, enabled=enabled)
 
 
 @profiler.trace
@@ -527,9 +527,9 @@ def user_update_password(request, user, password, admin=True):
 
     manager = keystoneclient(request, admin=admin).users
     if VERSIONS.active < 3:
-        return manager.update_password(user, password)
+        manager.update_password(user, password)
     else:
-        return manager.update(user, password=password)
+        manager.update(user, password=password)
 
 
 def user_verify_admin_password(request, admin_password):
@@ -708,7 +708,7 @@ def role_update(request, role_id, name=None):
 @profiler.trace
 def role_delete(request, role_id):
     manager = keystoneclient(request, admin=True).roles
-    return manager.delete(role_id)
+    manager.delete(role_id)
 
 
 @profiler.trace
@@ -806,10 +806,10 @@ def add_tenant_user_role(request, project=None, user=None, role=None,
     """Adds a role for a user on a tenant."""
     manager = keystoneclient(request, admin=True).roles
     if VERSIONS.active < 3:
-        return manager.add_user_role(user, role, project)
+        manager.add_user_role(user, role, project)
     else:
-        return manager.grant(role, user=user, project=project,
-                             group=group, domain=domain)
+        manager.grant(role, user=user, project=project,
+                      group=group, domain=domain)
 
 
 @profiler.trace
