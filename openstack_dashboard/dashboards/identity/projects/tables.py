@@ -143,7 +143,7 @@ class UpdateProject(policy.PolicyTargetMixin, tables.LinkAction):
 class ModifyQuotas(tables.LinkAction):
     name = "quotas"
     verbose_name = _("Modify Quotas")
-    url = "horizon:identity:projects:update"
+    url = "horizon:identity:projects:update_quotas"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (('compute', "os_compute_api:os-quota-sets:update"),)
