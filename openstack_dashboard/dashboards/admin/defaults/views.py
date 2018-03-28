@@ -40,9 +40,9 @@ class UpdateDefaultQuotasView(workflows.WorkflowView):
             quota_defaults = quotas.get_default_quota_data(self.request)
             for field in quotas.QUOTA_FIELDS:
                 initial[field] = quota_defaults.get(field).limit
-
         except Exception:
             error_msg = _('Unable to retrieve default quota values.')
             self.add_error_to_step(error_msg, 'update_default_quotas')
+        initial['disabled_quotas'] = quotas.get_disabled_quotas(self.request)
 
         return initial
