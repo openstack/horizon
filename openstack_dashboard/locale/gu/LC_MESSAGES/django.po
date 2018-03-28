@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -840,9 +840,6 @@ msgstr "DNS નામ સર્વરો"
 msgid "Decrypt Password"
 msgstr "પાસવર્ડ ડિક્રિપ્ટ કરો"
 
-msgid "Default Quotas"
-msgstr "મૂળભૂત ક્વોટા"
-
 msgid "Default quotas updated."
 msgstr "મૂળભૂત ક્વોટા સુધારાયેલ છે."
 
@@ -1461,9 +1458,6 @@ msgstr "અહિંયા થી તમે નેટવર્ક માટે �
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "અહિંયાથી તમે વોલ્યુમના સ્નેપશોટ બનાવી શકો છો."
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "અહિંયાથી તમે મૂળભૂત ક્વોટા (મહત્તમ મર્યાદા) સુધારી શકો છો."
 
 msgid "GB"
 msgstr "GB"
@@ -3961,9 +3955,6 @@ msgstr "પ્રોજેક્ટ %s માટે ફ્લેવર પ્ર
 
 msgid "Unable to set gateway."
 msgstr "ગેટવે સુયોજિત કરવામાં અસમર્થ."
-
-msgid "Unable to set project quotas."
-msgstr "પ્રોજેક્ટ ક્વોટા સુયોજિત કરવામાં અસમર્થ."
 
 msgid "Unable to sort instance flavors."
 msgstr "ઉદાહરણ ફ્લેવરો સૉર્ટ કરવામાં અક્ષમ."

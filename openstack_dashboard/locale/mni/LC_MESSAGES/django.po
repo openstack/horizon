@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -801,9 +801,6 @@ msgstr "DNS নেম সর্ভরশীং"
 msgid "Decrypt Password"
 msgstr "দিক্রিপ্ত পাসৱার্দ"
 
-msgid "Default Quotas"
-msgstr "দিফোল্ট ক্যুওতাশীং"
-
 msgid "Default quotas updated."
 msgstr "দিফোল্ট ক্যুওতাশীং অপদেত তৌরে।"
 
@@ -1415,9 +1412,6 @@ msgstr "মফমসিদগী নহাক্না নেতৱার্ক 
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "মফমসিদগী নহাক্না ভোল্যুম অমগী স্নেপশোত অমা শেম্বা য়াই।"
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "মফমশীদগী নহাক্না দিফোল্ট ক্যুওতাশীং (মেক্সিমম লিমিতশীং) অপদেত তৌবা য়াই।"
 
 msgid "GB"
 msgstr "GB"
@@ -3763,9 +3757,6 @@ msgstr "প্রোজেক্ত %sগীদমক ফ্লেবর এক�
 
 msgid "Unable to set gateway."
 msgstr "গেতৱে সেত তৌবা ঙমদে।"
-
-msgid "Unable to set project quotas."
-msgstr "প্রোজেক্ত ক্যুওতাশীং সেত তৌবা ঙমদে।"
 
 msgid "Unable to sort instance flavors."
 msgstr "ইন্সতেন্স ফ্লেভরশীং সোর্ত তৌবা ঙমদে।"

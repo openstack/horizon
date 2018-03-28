@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1433,10 +1433,6 @@ msgstr ""
 "В данный момент поддерживаются только образы скаченные с вашей локальной "
 "файловой системы "
 
-msgctxt "Custom style theme"
-msgid "Custom"
-msgstr "Пользовательская тема"
-
 msgid "Custom ICMP Rule"
 msgstr "Настраиваемое правило ICMP"
 
@@ -1499,9 +1495,6 @@ msgstr "Расшифровать пароль"
 msgctxt "Default style theme"
 msgid "Default"
 msgstr "Тема по умолчанию"
-
-msgid "Default Quotas"
-msgstr "Квоты по умолчанию"
 
 msgid "Default quotas updated for Cinder."
 msgstr "Для дискового хранилища (Cinder) обновлены квоты по умолчанию."
@@ -2965,11 +2958,6 @@ msgstr "Здесь вы можете выдать назначаемый IP дл
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "Здесь вы можете создать снимок диска."
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr ""
-"Здесь вы можете обновить значения квот по умолчанию (максимальные значения "
-"лимитов)."
 
 msgid "GB"
 msgstr "ГБ"
@@ -7314,9 +7302,6 @@ msgstr "Не удалось задать права использования �
 
 msgid "Unable to set gateway."
 msgstr "Не удалось установить шлюз."
-
-msgid "Unable to set project quotas."
-msgstr "Не удалось установить квоты для проекта."
 
 msgid "Unable to sort instance flavors."
 msgstr "Не удалось отсортировать типы инстансов"

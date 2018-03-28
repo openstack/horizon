@@ -29,7 +29,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1388,10 +1388,6 @@ msgid ""
 "Currently only images uploaded from your local file system are supported."
 msgstr "当前只支持从本地文件系统上传的镜像。"
 
-msgctxt "Custom style theme"
-msgid "Custom"
-msgstr "自定义"
-
 msgid "Custom ICMP Rule"
 msgstr "定制ICMP规则"
 
@@ -1452,9 +1448,6 @@ msgstr "解密密码"
 msgctxt "Default style theme"
 msgid "Default"
 msgstr "默认"
-
-msgid "Default Quotas"
-msgstr "默认配额"
 
 msgid "Default quotas updated for Cinder."
 msgstr "Cinder 的默认配额已更新."
@@ -2767,9 +2760,6 @@ msgstr "从这里可以为一个特定项目分配一个浮动 IP。"
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "为一个卷创建一个快照"
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "在这里您可以更新默认配额(上限)。"
 
 msgid "GB"
 msgstr "GB"
@@ -7038,9 +7028,6 @@ msgstr "无法设置项目 %s 使用实例类型。"
 
 msgid "Unable to set gateway."
 msgstr "无法设置网关"
-
-msgid "Unable to set project quotas."
-msgstr "无法设置项目配额"
 
 msgid "Unable to sort instance flavors."
 msgstr "无法对实例类型排序."

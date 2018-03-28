@@ -16,16 +16,17 @@
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 # Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2018. #zanata
+# Loic Nicolle <loic.nicolle@orange.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-04 12:29+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-06 07:26+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2018-03-27 03:01+0000\n"
+"Last-Translator: Loic Nicolle <loic.nicolle@orange.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -112,6 +113,30 @@ msgstr ""
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Cette ligne de texte s'affichera en petits caractères.</small>"
+
+msgid ""
+"<strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<strong>Attention !</strong>\n"
+"           Cette\n"
+"          <a href=\"#\" class=\"alert-link\">alerte requiert votre "
+"attention</a>,\n"
+"            mais elle n'est pas très importante."
+
+msgid ""
+"<strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<strong>Félicitations !</strong>\n"
+"          Vous avez bien lu\n"
+"          <a href=\"#\" class=\"alert-link\">cet important message d'alerte</"
+"a>."
 
 msgid "A Confirmation Dialog"
 msgstr "Une fenêtre de confirmation"
@@ -279,6 +304,9 @@ msgstr ""
 "Les administrateurs créent le groupe d'adresses IP flottantes qui pourront "
 "être attachées aux instances."
 
+msgid "Affinity"
+msgstr "Affinité"
+
 msgid "Alerts"
 msgstr "Alerte"
 
@@ -358,6 +386,9 @@ msgstr "Animé"
 
 msgid "Another action"
 msgstr "Autre action"
+
+msgid "Anti Affinity"
+msgstr "Anti-affinité"
 
 msgid "Any Availability Zone"
 msgstr "Toute zone de disponibilité"
@@ -537,6 +568,9 @@ msgid_plural "Confirm Delete Users"
 msgstr[0] "Confirmer la suppression de l'utilisateur"
 msgstr[1] "Confirmer la suppression des utilisateurs"
 
+msgid "Confirm Password"
+msgstr "Confirmer le mot de passe"
+
 msgid "Connecting"
 msgstr "Connexion en cours"
 
@@ -576,11 +610,23 @@ msgstr "Type de Contenu"
 msgid "Contextual alternatives"
 msgstr "Alternatives contextuelles"
 
+msgid "Copy"
+msgstr "Copier"
+
 msgid "Copy Data"
 msgstr "Copier les données"
 
+msgid "Copy Object"
+msgstr "Copier l'Objet"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "Copier l'Objet: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
 msgid "Copy Private Key to Clipboard"
 msgstr "Copier la clé privé dans le presse-papier"
+
+msgid "Copying"
+msgstr "Copie en cours"
 
 msgid "Could not decrypt the password"
 msgstr "Impossible de déchiffrer le mot de passe"
@@ -614,6 +660,9 @@ msgstr "Créer un nouveau volume"
 
 msgid "Create Role"
 msgstr "Créer un rôle"
+
+msgid "Create Server Group"
+msgstr "Créer un groupe de serveur"
 
 msgid "Create Subnet"
 msgstr "Créer un sous-réseau"
@@ -722,6 +771,12 @@ msgstr "Bouton par défaut"
 msgid "Default input"
 msgstr "Champ par défaut"
 
+msgid "Default: Empty string"
+msgstr "Défaut: chaîne vide"
+
+msgid "Default: Enabled"
+msgstr "Défaut: activé"
+
 msgid "Definition list"
 msgstr "Liste des définitions"
 
@@ -780,6 +835,9 @@ msgstr "Supprimer les rôles"
 
 msgid "Delete Router"
 msgstr "Supprimer le routeur"
+
+msgid "Delete Server Groups"
+msgstr "Supprimer un groupe de serveur"
 
 msgid "Delete Subnet"
 msgstr "Supprimer le sous-réseau"
@@ -854,14 +912,26 @@ msgstr "Description"
 msgid "Description lists"
 msgstr "Listes de descriptions"
 
+msgid "Destination Container"
+msgstr "Conteneur de destination"
+
+msgid "Destination Object"
+msgstr "Objet de destination"
+
 msgid "Details"
 msgstr "Détails"
 
 msgid "Details Views:"
 msgstr "Vues détaillées :"
 
+msgid "Device ID"
+msgstr "ID du Périphérique"
+
 msgid "Device Name"
 msgstr "Nom du périphérique"
+
+msgid "Device Owner"
+msgstr "Propriétaire du périphérique"
 
 msgid "Dialogs"
 msgstr "Fenêtres"
@@ -1292,6 +1362,9 @@ msgstr "Avertissement de saisie"
 msgid "Instance"
 msgstr "Instance"
 
+msgid "Instance ID"
+msgstr "ID de l'instance"
+
 msgid "Instance Name"
 msgstr "Nom de l'instance"
 
@@ -1468,6 +1541,9 @@ msgstr "Charger une fonction :"
 msgid "Loading"
 msgstr "Chargement..."
 
+msgid "Loading ports... Please Wait"
+msgstr "Chargement des ports en cours...Veuillez patienter"
+
 msgid "Location"
 msgstr "Emplacement"
 
@@ -1479,6 +1555,9 @@ msgstr "Regarde, je suis dans un petit well !"
 
 msgid "Look, I'm in a well!"
 msgstr "Regarde, je suis dans un well !"
+
+msgid "MAC Address"
+msgstr "Adresse MAC"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -1718,6 +1797,10 @@ msgstr "OVA - Open Virtual Appliance"
 msgid "Object"
 msgstr "Objet"
 
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "L'objet %(path)s a été copié."
+
 msgid "Object Count"
 msgstr "Nombre d'objets"
 
@@ -1822,6 +1905,9 @@ msgstr "Fenêtres"
 
 msgid "Parent Port"
 msgstr "Port Parent"
+
+msgid "Parent port"
+msgstr "Port parent"
 
 msgid "Password"
 msgstr "Mot de passe"
@@ -2104,6 +2190,9 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "ID de segmentation"
 
+msgid "Segmentation Id"
+msgstr "ID segmentation"
+
 msgid "Segmentation Type"
 msgstr "Type de segmentation"
 
@@ -2190,6 +2279,9 @@ msgstr "Envoyer une invitation"
 
 msgid "Separated link"
 msgstr "Lien séparé"
+
+msgid "Server Group"
+msgstr "Groupe de serveur"
 
 msgid "Server Groups"
 msgstr "Groupes de serveurs"
@@ -2532,6 +2624,12 @@ msgid ""
 msgstr ""
 "Cette commande génère une paire de clés : une clé privée (cloud.key)\n"
 "  et une clé publique (cloud.key.pub)."
+
+msgid "This container does not exist."
+msgstr "Ce conteneur n'existe pas."
+
+msgid "This field is required."
+msgstr "Ce champ est requis."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
@@ -3037,6 +3135,9 @@ msgstr "Impossible de récupérer les rôles."
 
 msgid "Unable to retrieve the security groups."
 msgstr "Impossible de récupérer les groupes de sécurité."
+
+msgid "Unable to retrieve the server group."
+msgstr "Impossible de récupérer le groupe de serveur."
 
 msgid "Unable to retrieve the server."
 msgstr "Impossible de récupérer le serveur."

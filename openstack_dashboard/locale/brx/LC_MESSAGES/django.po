@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -842,9 +842,6 @@ msgstr "DNS मुं सार्भार"
 msgid "Decrypt Password"
 msgstr "पासवार्डखौ डिक्राइप्ट खालाम"
 
-msgid "Default Quotas"
-msgstr "डिफल्ट क'टा"
-
 msgid "Default quotas updated."
 msgstr "डिफल्ट क'टाखौ आपडेट खालामबाय।"
 
@@ -1463,9 +1460,6 @@ msgstr "बेनिफ्राय नोंथाङा नेटवार्�
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "बेनिफ्राय नोंथाङा भलिउमनि स्नेपसटखौ सोरजिनो हायो।"
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "बेनिफ्राय नोंथाङा डिफल्ट क'टाखौ आपडेट खालामनो हायो (बांसिन सिमा)।"
 
 msgid "GB"
 msgstr "GB"
@@ -3967,9 +3961,6 @@ msgstr "%s प्रजेक्टनि थाखाय फ्लेभार 
 
 msgid "Unable to set gateway."
 msgstr "गेटवेखौ फजनो हायाखै"
-
-msgid "Unable to set project quotas."
-msgstr "प्रजेक्ट क'टाखौ फजनो हायाखै"
 
 msgid "Unable to sort instance flavors."
 msgstr "बिदिन्थि फ्लेभारखौ थख' साजायनो हायाखै"

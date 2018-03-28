@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -804,9 +804,6 @@ msgstr "DNS نام سرورز"
 msgid "Decrypt Password"
 msgstr "پاس ڈكرپٹ کریں"
 
-msgid "Default Quotas"
-msgstr "ڈیفالٹ کوٹہ"
-
 msgid "Default quotas updated."
 msgstr " ڈیفالٹ کوٹہ اپ ڈیٹ."
 
@@ -1423,9 +1420,6 @@ msgstr "یہاں سے آپ کے نیٹ ورک کے لئے ایک DHCP ایجنٹ
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "یہاں سے آپ ولیوم کا اسنیپ شاٹ تخلیق كرسکتے ہیں."
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "یہاں سے آپ ڈیفالٹ کوٹہ (زیادہ سے زیادہ حد) کی تازہ کر سکتے ہیں."
 
 msgid "GB"
 msgstr "GB"
@@ -3801,9 +3795,6 @@ msgstr "پرجیكٹ کے لئے فلیور پہنچ قائم کرنے کے قا
 
 msgid "Unable to set gateway."
 msgstr "گیٹ وے قائم کرنے میں ناقابل."
-
-msgid "Unable to set project quotas."
-msgstr " پروجیكٹ کا کوٹہ مقرر کرنے میں غیر فعال."
 
 msgid "Unable to sort instance flavors."
 msgstr "انسٹانس فلور کو ترتیب کرنے میں ناقابل۔"
