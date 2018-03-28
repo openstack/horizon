@@ -118,6 +118,7 @@ class CreateSubnetInfoAction(workflows.Action):
         label=_("Address pool"),
         widget=forms.ThemableSelectWidget(attrs={
             'class': 'switched switchable',
+            'data-required-when-shown': 'true',
             'data-slug': 'subnetpool',
             'data-switch-on': 'source',
             'data-source-subnetpool': _('Address pool')},
@@ -142,6 +143,7 @@ class CreateSubnetInfoAction(workflows.Action):
                          initial="",
                          widget=forms.TextInput(attrs={
                              'class': 'switched',
+                             'data-required-when-shown': 'true',
                              'data-switch-on': 'source',
                              'data-source-manual': _("Network Address"),
                          }),

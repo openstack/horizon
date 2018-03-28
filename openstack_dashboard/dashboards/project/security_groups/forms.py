@@ -147,6 +147,7 @@ class AddRule(forms.SelfHandlingForm):
                                           "between 1 and 65535."),
                               widget=forms.TextInput(attrs={
                                   'class': 'switched',
+                                  'data-required-when-shown': 'true',
                                   'data-switch-on': 'range',
                                   'data-range-port': _('Port')}),
                               validators=[
@@ -158,6 +159,7 @@ class AddRule(forms.SelfHandlingForm):
                                                "between 1 and 65535."),
                                    widget=forms.TextInput(attrs={
                                        'class': 'switched',
+                                       'data-required-when-shown': 'true',
                                        'data-switch-on': 'range',
                                        'data-range-range': _('From Port')}),
                                    validators=[
@@ -169,6 +171,7 @@ class AddRule(forms.SelfHandlingForm):
                                              "between 1 and 65535."),
                                  widget=forms.TextInput(attrs={
                                      'class': 'switched',
+                                     'data-required-when-shown': 'true',
                                      'data-switch-on': 'range',
                                      'data-range-range': _('To Port')}),
                                  validators=[

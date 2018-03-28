@@ -85,6 +85,7 @@ class CreatePortInfoAction(workflows.Action):
         required=False,
         widget=forms.ThemableSelectWidget(attrs={
             'class': 'switched',
+            'data-required-when-shown': 'true',
             'data-switch-on': 'specify_ip',
             'data-specify_ip-subnet_id': _('Subnet'),
         }))
@@ -95,6 +96,7 @@ class CreatePortInfoAction(workflows.Action):
         version=forms.IPv4 | forms.IPv6,
         widget=forms.TextInput(attrs={
             'class': 'switched',
+            'data-required-when-shown': 'true',
             'data-switch-on': 'specify_ip',
             'data-specify_ip-fixed_ip': _('Fixed IP Address'),
         }))
