@@ -590,6 +590,7 @@ class APITestCase(TestCase):
         return self.glanceclient
 
     def stub_neutronclient(self):
+        self._warn_client('neutron', 'S')
         if not hasattr(self, "neutronclient"):
             self.mox.StubOutWithMock(neutron_client, 'Client')
             self.neutronclient = self.mox.CreateMock(neutron_client.Client)
@@ -637,6 +638,11 @@ class APIMockTestCase(APITestCase):
         if not hasattr(self, "keystoneclient"):
             self.keystoneclient = mock.Mock()
         return self.keystoneclient
+
+    def stub_neutronclient(self):
+        if not hasattr(self, "neutronclient"):
+            self.neutronclient = mock.Mock()
+        return self.neutronclient
 
     def stub_swiftclient(self):
         # This method should not be called.

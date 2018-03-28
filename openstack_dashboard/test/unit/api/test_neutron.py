@@ -14,13 +14,11 @@
 import copy
 
 import mock
-from mox3.mox import IsA
 import netaddr
 from neutronclient.common import exceptions as neutron_exc
 from oslo_utils import uuidutils
 import six
 
-from django import http
 from django.test.utils import override_settings
 
 from openstack_dashboard import api
@@ -28,27 +26,22 @@ from openstack_dashboard import policy
 from openstack_dashboard.test import helpers as test
 
 
-class NeutronApiTestBase(test.APITestCase):
-    def setUp(self):
-        super(NeutronApiTestBase, self).setUp()
-        self.qclient = self.stub_neutronclient()
-
-
-class NeutronApiTests(test.APITestCase):
+class NeutronApiTests(test.APIMockTestCase):
     def test_network_list(self):
         networks = {'networks': self.api_networks.list()}
         subnets = {'subnets': self.api_subnets.list()}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_networks().AndReturn(networks)
-        neutronclient.list_subnets().AndReturn(subnets)
-        self.mox.ReplayAll()
+        neutronclient.list_networks.return_value = networks
+        neutronclient.list_subnets.return_value = subnets
 
         ret_val = api.neutron.network_list(self.request)
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.Network)
+        neutronclient.list_networks.assert_called_once_with()
+        neutronclient.list_subnets.assert_called_once_with()
 
-    @test.create_stubs({api.neutron: ('network_list',
+    @test.create_mocks({api.neutron: ('network_list',
                                       'subnet_list')})
     def _test_network_list_for_tenant(
             self, include_external,
@@ -64,34 +57,39 @@ class NeutronApiTests(test.APITestCase):
         filter_params = filter_params or {}
         all_networks = self.networks.list()
         tenant_id = '1'
+        return_values = []
+        expected_calls = []
         if 'non_shared' in should_called:
             params = filter_params.copy()
             params['shared'] = False
-            api.neutron.network_list(
-                IsA(http.HttpRequest),
-                tenant_id=tenant_id,
-                **params).AndReturn([
-                    network for network in all_networks
-                    if network['tenant_id'] == tenant_id
-                ])
+            return_values.append([
+                network for network in all_networks
+                if network['tenant_id'] == tenant_id
+            ])
+            expected_calls.append(
+                mock.call(test.IsHttpRequest(), tenant_id=tenant_id, **params),
+            )
         if 'shared' in should_called:
             params = filter_params.copy()
             params['shared'] = True
-            api.neutron.network_list(
-                IsA(http.HttpRequest),
-                **params).AndReturn([
-                    network for network in all_networks
-                    if network.get('shared')
-                ])
+            return_values.append([
+                network for network in all_networks
+                if network.get('shared')
+            ])
+            expected_calls.append(
+                mock.call(test.IsHttpRequest(), **params),
+            )
         if 'external' in should_called:
             params = filter_params.copy()
             params['router:external'] = True
-            api.neutron.network_list(
-                IsA(http.HttpRequest), **params).AndReturn([
-                    network for network in all_networks
-                    if network.get('router:external')
-                ])
-        self.mox.ReplayAll()
+            return_values.append([
+                network for network in all_networks
+                if network.get('router:external')
+            ])
+            expected_calls.append(
+                mock.call(test.IsHttpRequest(), **params),
+            )
+        self.mock_network_list.side_effect = return_values
 
         ret_val = api.neutron.network_list_for_tenant(
             self.request, tenant_id,
@@ -106,6 +104,7 @@ class NeutronApiTests(test.APITestCase):
                          include_external and n['router:external']))]
         self.assertEqual(set(n.id for n in expected),
                          set(n.id for n in ret_val))
+        self.mock_network_list.assert_has_calls(expected_calls)
 
     def test_network_list_for_tenant(self):
         self._test_network_list_for_tenant(
@@ -173,15 +172,19 @@ class NeutronApiTests(test.APITestCase):
         subnetv6_id = self.api_networks.first()['subnets'][1]
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_network(network_id).AndReturn(network)
-        neutronclient.show_subnet(subnet_id).AndReturn(subnet)
-        neutronclient.show_subnet(subnetv6_id).AndReturn(subnetv6)
-        self.mox.ReplayAll()
+        neutronclient.show_network.return_value = network
+        neutronclient.show_subnet.side_effect = [subnet, subnetv6]
 
         ret_val = api.neutron.network_get(self.request, network_id)
+
         self.assertIsInstance(ret_val, api.neutron.Network)
         self.assertEqual(2, len(ret_val['subnets']))
         self.assertIsInstance(ret_val['subnets'][0], api.neutron.Subnet)
+        neutronclient.show_network.assert_called_once_with(network_id)
+        neutronclient.show_subnet.assert_has_calls([
+            mock.call(subnet_id),
+            mock.call(subnetv6_id),
+        ])
 
     def test_network_get_with_subnet_get_notfound(self):
         network = {'network': self.api_networks.first()}
@@ -189,25 +192,28 @@ class NeutronApiTests(test.APITestCase):
         subnet_id = self.api_networks.first()['subnets'][0]
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_network(network_id).AndReturn(network)
-        neutronclient.show_subnet(subnet_id).AndRaise(neutron_exc.NotFound)
-        self.mox.ReplayAll()
+        neutronclient.show_network.return_value = network
+        neutronclient.show_subnet.side_effect = neutron_exc.NotFound
 
         ret_val = api.neutron.network_get(self.request, network_id)
         self.assertIsInstance(ret_val, api.neutron.Network)
         self.assertEqual(2, len(ret_val['subnets']))
         self.assertNotIsInstance(ret_val['subnets'][0], api.neutron.Subnet)
         self.assertIsInstance(ret_val['subnets'][0], str)
+        neutronclient.show_network.assert_called_once_with(network_id)
+        neutronclient.show_subnet.assert_called_once_with(subnet_id)
 
     def test_network_create(self):
         network = {'network': self.api_networks.first()}
         form_data = {'network': {'name': 'net1',
                                  'tenant_id': self.request.user.project_id}}
         neutronclient = self.stub_neutronclient()
-        neutronclient.create_network(body=form_data).AndReturn(network)
-        self.mox.ReplayAll()
+        neutronclient.create_network.return_value = network
+
         ret_val = api.neutron.network_create(self.request, name='net1')
+
         self.assertIsInstance(ret_val, api.neutron.Network)
+        neutronclient.create_network.assert_called_once_with(body=form_data)
 
     def test_network_update(self):
         network = {'network': self.api_networks.first()}
@@ -215,44 +221,46 @@ class NeutronApiTests(test.APITestCase):
 
         neutronclient = self.stub_neutronclient()
         form_data = {'network': {'name': 'net1'}}
-        neutronclient.update_network(network_id, body=form_data)\
-            .AndReturn(network)
-        self.mox.ReplayAll()
+        neutronclient.update_network.return_value = network
 
         ret_val = api.neutron.network_update(self.request, network_id,
                                              name='net1')
+
         self.assertIsInstance(ret_val, api.neutron.Network)
+        neutronclient.update_network.assert_called_once_with(network_id,
+                                                             body=form_data)
 
     def test_network_delete(self):
         network_id = self.api_networks.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.delete_network(network_id)
-        self.mox.ReplayAll()
+        neutronclient.delete_network.return_value = None
 
         api.neutron.network_delete(self.request, network_id)
+
+        neutronclient.delete_network.assert_called_once_with(network_id)
 
     def test_get_network_ip_availability(self):
         network = {'network': self.api_networks.first()}
         mock_ip_availability = self.ip_availability.get()
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_network_ip_availability(network).\
-            AndReturn(mock_ip_availability)
+        neutronclient.show_network_ip_availability.return_value = \
+            mock_ip_availability
 
-        self.mox.ReplayAll()
         ret_val = api.neutron.show_network_ip_availability(self.request,
                                                            network)
 
         self.assertIsInstance(ret_val, dict)
+        neutronclient.show_network_ip_availability.assert_called_once_with(
+            network)
 
     def test_subnet_network_ip_availability(self):
         network = {'network': self.api_networks.first()}
         mock_ip_availability = self.ip_availability.get()
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_network_ip_availability(network).\
-            AndReturn(mock_ip_availability)
+        neutronclient.show_network_ip_availability.return_value = \
+            mock_ip_availability
 
-        self.mox.ReplayAll()
         ip_availability = api.neutron. \
             show_network_ip_availability(self.request, network)
         availabilities = ip_availability.get("network_ip_availability",
@@ -260,28 +268,32 @@ class NeutronApiTests(test.APITestCase):
         ret_val = availabilities.get("subnet_ip_availability", [])
 
         self.assertIsInstance(ret_val, list)
+        neutronclient.show_network_ip_availability.assert_called_once_with(
+            network)
 
     def test_subnet_list(self):
         subnets = {'subnets': self.api_subnets.list()}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_subnets().AndReturn(subnets)
-        self.mox.ReplayAll()
+        neutronclient.list_subnets.return_value = subnets
 
         ret_val = api.neutron.subnet_list(self.request)
+
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.Subnet)
+        neutronclient.list_subnets.assert_called_once_with()
 
     def test_subnet_get(self):
         subnet = {'subnet': self.api_subnets.first()}
         subnet_id = self.api_subnets.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_subnet(subnet_id).AndReturn(subnet)
-        self.mox.ReplayAll()
+        neutronclient.show_subnet.return_value = subnet
 
         ret_val = api.neutron.subnet_get(self.request, subnet_id)
+
         self.assertIsInstance(ret_val, api.neutron.Subnet)
+        neutronclient.show_subnet.assert_called_once_with(subnet_id)
 
     def test_subnet_create(self):
         subnet_data = self.api_subnets.first()
@@ -293,12 +305,13 @@ class NeutronApiTests(test.APITestCase):
                   'gateway_ip': subnet_data['gateway_ip']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.create_subnet(body={'subnet': params})\
-            .AndReturn({'subnet': subnet_data})
-        self.mox.ReplayAll()
+        neutronclient.create_subnet.return_value = {'subnet': subnet_data}
 
         ret_val = api.neutron.subnet_create(self.request, **params)
+
         self.assertIsInstance(ret_val, api.neutron.Subnet)
+        neutronclient.create_subnet.assert_called_once_with(
+            body={'subnet': params})
 
     def test_subnet_update(self):
         subnet_data = self.api_subnets.first()
@@ -307,43 +320,47 @@ class NeutronApiTests(test.APITestCase):
                   'gateway_ip': subnet_data['gateway_ip']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.update_subnet(subnet_id, body={'subnet': params})\
-            .AndReturn({'subnet': subnet_data})
-        self.mox.ReplayAll()
+        neutronclient.update_subnet.return_value = {'subnet': subnet_data}
 
         ret_val = api.neutron.subnet_update(self.request, subnet_id, **params)
+
         self.assertIsInstance(ret_val, api.neutron.Subnet)
+        neutronclient.update_subnet.assert_called_once_with(
+            subnet_id, body={'subnet': params})
 
     def test_subnet_delete(self):
         subnet_id = self.api_subnets.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.delete_subnet(subnet_id)
-        self.mox.ReplayAll()
+        neutronclient.delete_subnet.return_value = None
 
         api.neutron.subnet_delete(self.request, subnet_id)
+
+        neutronclient.delete_subnet.assert_called_once_with(subnet_id)
 
     def test_subnetpool_list(self):
         subnetpools = {'subnetpools': self.api_subnetpools.list()}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_subnetpools().AndReturn(subnetpools)
-        self.mox.ReplayAll()
+        neutronclient.list_subnetpools.return_value = subnetpools
 
         ret_val = api.neutron.subnetpool_list(self.request)
+
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.SubnetPool)
+        neutronclient.list_subnetpools.assert_called_once_with()
 
     def test_subnetpool_get(self):
         subnetpool = {'subnetpool': self.api_subnetpools.first()}
         subnetpool_id = self.api_subnetpools.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_subnetpool(subnetpool_id).AndReturn(subnetpool)
-        self.mox.ReplayAll()
+        neutronclient.show_subnetpool.return_value = subnetpool
 
         ret_val = api.neutron.subnetpool_get(self.request, subnetpool_id)
+
         self.assertIsInstance(ret_val, api.neutron.SubnetPool)
+        neutronclient.show_subnetpool.assert_called_once_with(subnetpool_id)
 
     def test_subnetpool_create(self):
         subnetpool_data = self.api_subnetpools.first()
@@ -352,12 +369,14 @@ class NeutronApiTests(test.APITestCase):
                   'tenant_id': subnetpool_data['tenant_id']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.create_subnetpool(body={'subnetpool': params})\
-            .AndReturn({'subnetpool': subnetpool_data})
-        self.mox.ReplayAll()
+        neutronclient.create_subnetpool.return_value = {'subnetpool':
+                                                        subnetpool_data}
 
         ret_val = api.neutron.subnetpool_create(self.request, **params)
+
         self.assertIsInstance(ret_val, api.neutron.SubnetPool)
+        neutronclient.create_subnetpool.assert_called_once_with(
+            body={'subnetpool': params})
 
     def test_subnetpool_update(self):
         subnetpool_data = self.api_subnetpools.first()
@@ -366,33 +385,37 @@ class NeutronApiTests(test.APITestCase):
                   'prefixes': subnetpool_data['prefixes']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.update_subnetpool(subnetpool_id, body={'subnetpool': params})\
-            .AndReturn({'subnetpool': subnetpool_data})
-        self.mox.ReplayAll()
+        neutronclient.update_subnetpool.return_value = {'subnetpool':
+                                                        subnetpool_data}
 
         ret_val = api.neutron.subnetpool_update(self.request, subnetpool_id,
                                                 **params)
+
         self.assertIsInstance(ret_val, api.neutron.SubnetPool)
+        neutronclient.update_subnetpool.assert_called_once_with(
+            subnetpool_id, body={'subnetpool': params})
 
     def test_subnetpool_delete(self):
         subnetpool_id = self.api_subnetpools.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.delete_subnetpool(subnetpool_id)
-        self.mox.ReplayAll()
+        neutronclient.delete_subnetpool.return_value = None
 
         api.neutron.subnetpool_delete(self.request, subnetpool_id)
+
+        neutronclient.delete_subnetpool.assert_called_once_with(subnetpool_id)
 
     def test_port_list(self):
         ports = {'ports': self.api_ports.list()}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_ports().AndReturn(ports)
-        self.mox.ReplayAll()
+        neutronclient.list_ports.return_value = ports
 
         ret_val = api.neutron.port_list(self.request)
+
         for p in ret_val:
             self.assertIsInstance(p, api.neutron.Port)
+        neutronclient.list_ports.assert_called_once_with()
 
     @mock.patch.object(api.neutron, 'is_extension_supported')
     def test_port_list_with_trunk_types(self, mock_is_extension_supported):
@@ -404,9 +427,8 @@ class NeutronApiTests(test.APITestCase):
         mock_is_extension_supported.return_value = True  # trunk
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_ports().AndReturn({'ports': ports})
-        neutronclient.list_trunks().AndReturn({'trunks': trunks})
-        self.mox.ReplayAll()
+        neutronclient.list_ports.return_value = {'ports': ports}
+        neutronclient.list_trunks.return_value = {'trunks': trunks}
 
         expected_parent_port_ids = set()
         expected_subport_ids = set()
@@ -434,6 +456,8 @@ class NeutronApiTests(test.APITestCase):
 
         mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'trunk')
+        neutronclient.list_ports.assert_called_once_with()
+        neutronclient.list_trunks.assert_called_once_with()
 
     @mock.patch.object(api.neutron, 'is_extension_supported')
     def test_port_list_with_trunk_types_without_trunk_extension(
@@ -445,8 +469,7 @@ class NeutronApiTests(test.APITestCase):
         mock_is_extension_supported.return_value = False  # trunk
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_ports().AndReturn({'ports': ports})
-        self.mox.ReplayAll()
+        neutronclient.list_ports.return_value = {'ports': ports}
 
         ret_val = api.neutron.port_list_with_trunk_types(self.request)
 
@@ -459,17 +482,19 @@ class NeutronApiTests(test.APITestCase):
 
         mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'trunk')
+        neutronclient.list_ports.assert_called_once_with()
 
     def test_port_get(self):
         port = {'port': self.api_ports.first()}
         port_id = self.api_ports.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_port(port_id).AndReturn(port)
-        self.mox.ReplayAll()
+        neutronclient.show_port.return_value = port
 
         ret_val = api.neutron.port_get(self.request, port_id)
+
         self.assertIsInstance(ret_val, api.neutron.Port)
+        neutronclient.show_port.assert_called_once_with(port_id)
 
     def test_port_create(self):
         port = {'port': self.api_ports.first()}
@@ -479,11 +504,14 @@ class NeutronApiTests(test.APITestCase):
                   'device_id': port['port']['device_id']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.create_port(body={'port': params}).AndReturn(port)
-        self.mox.ReplayAll()
+        neutronclient.create_port.return_value = port
+
         ret_val = api.neutron.port_create(self.request, **params)
+
         self.assertIsInstance(ret_val, api.neutron.Port)
         self.assertEqual(api.neutron.Port(port['port']).id, ret_val.id)
+        neutronclient.create_port.assert_called_once_with(
+            body={'port': params})
 
     def test_port_update(self):
         port_data = self.api_ports.first()
@@ -492,43 +520,47 @@ class NeutronApiTests(test.APITestCase):
                   'device_id': port_data['device_id']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.update_port(port_id, body={'port': params})\
-            .AndReturn({'port': port_data})
-        self.mox.ReplayAll()
+        neutronclient.update_port.return_value = {'port': port_data}
 
         ret_val = api.neutron.port_update(self.request, port_id, **params)
+
         self.assertIsInstance(ret_val, api.neutron.Port)
         self.assertEqual(api.neutron.Port(port_data).id, ret_val.id)
+        neutronclient.update_port.assert_called_once_with(
+            port_id, body={'port': params})
 
     def test_port_delete(self):
         port_id = self.api_ports.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.delete_port(port_id)
-        self.mox.ReplayAll()
+        neutronclient.delete_port.return_value = None
 
         api.neutron.port_delete(self.request, port_id)
+
+        neutronclient.delete_port.assert_called_once_with(port_id)
 
     def test_trunk_list(self):
         trunks = {'trunks': self.api_trunks.list()}
         neutron_client = self.stub_neutronclient()
-        neutron_client.list_trunks().AndReturn(trunks)
-        self.mox.ReplayAll()
+        neutron_client.list_trunks.return_value = trunks
 
         ret_val = api.neutron.trunk_list(self.request)
+
         for t in ret_val:
             self.assertIsInstance(t, api.neutron.Trunk)
+        neutron_client.list_trunks.assert_called_once_with()
 
     def test_trunk_show(self):
         trunk = {'trunk': self.api_trunks.first()}
         trunk_id = self.api_trunks.first()['id']
 
         neutron_client = self.stub_neutronclient()
-        neutron_client.show_trunk(trunk_id).AndReturn(trunk)
-        self.mox.ReplayAll()
+        neutron_client.show_trunk.return_value = trunk
 
         ret_val = api.neutron.trunk_show(self.request, trunk_id)
+
         self.assertIsInstance(ret_val, api.neutron.Trunk)
+        neutron_client.show_trunk.assert_called_once_with(trunk_id)
 
     def test_trunk_object(self):
         trunk = self.api_trunks.first().copy()
@@ -554,21 +586,24 @@ class NeutronApiTests(test.APITestCase):
                   'project_id': trunk['trunk']['project_id']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.create_trunk(body={'trunk': params}).AndReturn(trunk)
-        self.mox.ReplayAll()
+        neutronclient.create_trunk.return_value = trunk
 
         ret_val = api.neutron.trunk_create(self.request, **params)
+
         self.assertIsInstance(ret_val, api.neutron.Trunk)
         self.assertEqual(api.neutron.Trunk(trunk['trunk']).id, ret_val.id)
+        neutronclient.create_trunk.assert_called_once_with(
+            body={'trunk': params})
 
     def test_trunk_delete(self):
         trunk_id = self.api_trunks.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.delete_trunk(trunk_id)
-        self.mox.ReplayAll()
+        neutronclient.delete_trunk.return_value = None
 
         api.neutron.trunk_delete(self.request, trunk_id)
+
+        neutronclient.delete_trunk.assert_called_once_with(trunk_id)
 
     def test_trunk_update_details(self):
         trunk_data = self.api_trunks.first()
@@ -585,15 +620,16 @@ class NeutronApiTests(test.APITestCase):
                      'admin_state_up': trunk_data['admin_state_up']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.update_trunk(trunk_id, body={'trunk': {'name': 'foo'}})\
-            .AndReturn({'trunk': new_trunk})
-        self.mox.ReplayAll()
+        neutronclient.update_trunk.return_value = {'trunk': new_trunk}
 
         ret_val = api.neutron.trunk_update(self.request, trunk_id,
                                            old_trunk, new_trunk)
+
         self.assertIsInstance(ret_val, api.neutron.Trunk)
         self.assertEqual(api.neutron.Trunk(trunk_data).id, ret_val.id)
         self.assertEqual(ret_val.name, new_trunk['name'])
+        neutronclient.update_trunk.assert_called_once_with(
+            trunk_id, body={'trunk': {'name': 'foo'}})
 
     def test_trunk_update_add_subports(self):
         trunk_data = self.api_trunks.first()
@@ -615,19 +651,19 @@ class NeutronApiTests(test.APITestCase):
                      'admin_state_up': trunk_data['admin_state_up']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.trunk_add_subports(trunk_id, body={
-            'sub_ports': [
-                {'port_id': 1, 'segmentation_id': 100,
-                 'segmentation_type': 'vlan'}
-            ]})\
-            .AndReturn({'trunk': new_trunk})
-        self.mox.ReplayAll()
+        neutronclient.trunk_add_subports.return_value = {'trunk': new_trunk}
 
         ret_val = api.neutron.trunk_update(self.request, trunk_id,
                                            old_trunk, new_trunk)
+
         self.assertIsInstance(ret_val, api.neutron.Trunk)
         self.assertEqual(api.neutron.Trunk(trunk_data).id, ret_val.trunk['id'])
         self.assertEqual(ret_val.trunk['sub_ports'], new_trunk['sub_ports'])
+        neutronclient.trunk_add_subports.assert_called_once_with(
+            trunk_id,
+            body={'sub_ports': [{'port_id': 1, 'segmentation_id': 100,
+                                 'segmentation_type': 'vlan'}]}
+        )
 
     def test_trunk_update_remove_subports(self):
         trunk_data = self.api_trunks.first()
@@ -649,38 +685,43 @@ class NeutronApiTests(test.APITestCase):
                      'admin_state_up': trunk_data['admin_state_up']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.trunk_remove_subports(trunk_id, body={
-            'sub_ports': [{'port_id': old_trunk['sub_ports'][0]['port_id']}]})\
-            .AndReturn({'trunk': new_trunk})
-        self.mox.ReplayAll()
+        neutronclient.trunk_remove_subports.return_value = {'trunk': new_trunk}
 
         ret_val = api.neutron.trunk_update(self.request, trunk_id,
                                            old_trunk, new_trunk)
+
         self.assertIsInstance(ret_val, api.neutron.Trunk)
         self.assertEqual(api.neutron.Trunk(trunk_data).id, ret_val.trunk['id'])
         self.assertEqual(ret_val.trunk['sub_ports'], new_trunk['sub_ports'])
+        neutronclient.trunk_remove_subports.assert_called_once_with(
+            trunk_id,
+            body={'sub_ports': [{'port_id':
+                                 old_trunk['sub_ports'][0]['port_id']}]}
+        )
 
     def test_router_list(self):
         routers = {'routers': self.api_routers.list()}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_routers().AndReturn(routers)
-        self.mox.ReplayAll()
+        neutronclient.list_routers.return_value = routers
 
         ret_val = api.neutron.router_list(self.request)
+
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.Router)
+        neutronclient.list_routers.assert_called_once_with()
 
     def test_router_get(self):
         router = {'router': self.api_routers.first()}
         router_id = self.api_routers.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_router(router_id).AndReturn(router)
-        self.mox.ReplayAll()
+        neutronclient.show_router.return_value = router
 
         ret_val = api.neutron.router_get(self.request, router_id)
+
         self.assertIsInstance(ret_val, api.neutron.Router)
+        neutronclient.show_router.assert_called_once_with(router_id)
 
     def test_router_create(self):
         router = {'router': self.api_routers.first()}
@@ -688,20 +729,22 @@ class NeutronApiTests(test.APITestCase):
         neutronclient = self.stub_neutronclient()
         form_data = {'router': {'name': 'router1',
                                 'tenant_id': self.request.user.project_id}}
-        neutronclient.create_router(body=form_data).AndReturn(router)
-        self.mox.ReplayAll()
+        neutronclient.create_router.return_value = router
 
         ret_val = api.neutron.router_create(self.request, name='router1')
+
         self.assertIsInstance(ret_val, api.neutron.Router)
+        neutronclient.create_router.assert_called_once_with(body=form_data)
 
     def test_router_delete(self):
         router_id = self.api_routers.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.delete_router(router_id)
-        self.mox.ReplayAll()
+        neutronclient.delete_router.return_value = None
 
         api.neutron.router_delete(self.request, router_id)
+
+        neutronclient.delete_router.assert_called_once_with(router_id)
 
     def test_router_add_interface(self):
         subnet_id = self.api_subnets.first()['id']
@@ -709,24 +752,26 @@ class NeutronApiTests(test.APITestCase):
 
         neutronclient = self.stub_neutronclient()
         form_data = {'subnet_id': subnet_id}
-        neutronclient.add_interface_router(
-            router_id, form_data).AndReturn(None)
-        self.mox.ReplayAll()
+        neutronclient.add_interface_router.return_value = None
 
         api.neutron.router_add_interface(
             self.request, router_id, subnet_id=subnet_id)
+
+        neutronclient.add_interface_router.assert_called_once_with(router_id,
+                                                                   form_data)
 
     def test_router_remove_interface(self):
         router_id = self.api_routers.first()['id']
         fake_port = self.api_ports.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.remove_interface_router(
-            router_id, {'port_id': fake_port})
-        self.mox.ReplayAll()
+        neutronclient.remove_interface_router.return_value = None
 
         api.neutron.router_remove_interface(
             self.request, router_id, port_id=fake_port)
+
+        neutronclient.remove_interface_router.assert_called_once_with(
+            router_id, {'port_id': fake_port})
 
     # stub_neutronclient does not work because api.neutron.list_extensions
     # is decorated with memoized_with_request, so we need to mock
@@ -740,16 +785,19 @@ class NeutronApiTests(test.APITestCase):
         self.assertFalse(
             api.neutron.is_extension_supported(self.request, 'doesntexist'))
 
+        mock_list_extensions.assert_called_once_with()
+
     def test_router_static_route_list(self):
         router = {'router': self.api_routers_with_routes.first()}
         router_id = self.api_routers_with_routes.first()['id']
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_router(router_id).AndReturn(router)
-        self.mox.ReplayAll()
+        neutronclient.show_router.return_value = router
 
         ret_val = api.neutron.router_static_route_list(self.request, router_id)
+
         self.assertIsInstance(ret_val[0], api.neutron.RouterStaticRoute)
+        neutronclient.show_router.assert_called_once_with(router_id)
 
     def test_router_static_route_remove(self):
         router = {'router': self.api_routers_with_routes.first()}
@@ -759,14 +807,16 @@ class NeutronApiTests(test.APITestCase):
                                               ['routes'].pop())
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_router(router_id).AndReturn(router)
-        body = {'router': {'routes': post_router['router']['routes']}}
-        neutronclient.update_router(router_id, body=body)\
-                     .AndReturn(post_router)
-        self.mox.ReplayAll()
+        neutronclient.show_router.return_value = router
+        neutronclient.update_router.return_value = post_router
 
         api.neutron.router_static_route_remove(self.request,
                                                router_id, route.id)
+
+        neutronclient.show_router.assert_called_once_with(router_id)
+        body = {'router': {'routes': post_router['router']['routes']}}
+        neutronclient.update_router.assert_called_once_with(
+            router_id, body=body)
 
     def test_router_static_route_add(self):
         router = {'router': self.api_routers_with_routes.first()}
@@ -777,12 +827,14 @@ class NeutronApiTests(test.APITestCase):
         body = {'router': {'routes': post_router['router']['routes']}}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.show_router(router_id).AndReturn(router)
-        neutronclient.update_router(router_id, body=body)\
-                     .AndReturn(post_router)
-        self.mox.ReplayAll()
+        neutronclient.show_router.return_value = router
+        neutronclient.update_router.return_value = post_router
 
         api.neutron.router_static_route_add(self.request, router_id, route)
+
+        neutronclient.show_router.assert_called_once_with(router_id)
+        neutronclient.update_router.assert_called_once_with(router_id,
+                                                            body=body)
 
     # NOTE(amotoki): "dvr" permission tests check most of
     # get_feature_permission features.
@@ -792,14 +844,14 @@ class NeutronApiTests(test.APITestCase):
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_distributed_router':
                                                   True},
                        POLICY_CHECK_FUNCTION=None)
-    @test.create_stubs({api.neutron: ('is_extension_supported',)})
+    @test.create_mocks({api.neutron: ('is_extension_supported',)})
     def _test_get_dvr_permission_dvr_supported(self, dvr_enabled):
-        api.neutron.is_extension_supported(self.request, 'dvr').\
-            AndReturn(dvr_enabled)
-        self.mox.ReplayAll()
+        self.mock_is_extension_supported.return_value = dvr_enabled
         self.assertEqual(dvr_enabled,
                          api.neutron.get_feature_permission(self.request,
                                                             'dvr', 'get'))
+        self.mock_is_extension_supported.assert_called_once_with(
+            self.request, 'dvr')
 
     def test_get_dvr_permission_dvr_supported(self):
         self._test_get_dvr_permission_dvr_supported(dvr_enabled=True)
@@ -810,22 +862,27 @@ class NeutronApiTests(test.APITestCase):
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_distributed_router':
                                                   True},
                        POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
-    @test.create_stubs({api.neutron: ('is_extension_supported',)})
+    @test.create_mocks({api.neutron: ('is_extension_supported',),
+                        policy: ('check',)})
     def _test_get_dvr_permission_with_policy_check(self, policy_check_allowed,
                                                    operation):
-        self.mox.StubOutWithMock(policy, 'check')
         if operation == "create":
             role = (("network", "create_router:distributed"),)
         elif operation == "get":
             role = (("network", "get_router:distributed"),)
-        policy.check(role, self.request).AndReturn(policy_check_allowed)
-        if policy_check_allowed:
-            api.neutron.is_extension_supported(self.request, 'dvr').\
-                AndReturn(policy_check_allowed)
-        self.mox.ReplayAll()
+        self.mock_check.return_value = policy_check_allowed
+        self.mock_is_extension_supported.return_value = policy_check_allowed
+
         self.assertEqual(policy_check_allowed,
                          api.neutron.get_feature_permission(self.request,
                                                             'dvr', operation))
+
+        self.mock_check.assert_called_once_with(role, self.request)
+        if policy_check_allowed:
+            self.mock_is_extension_supported.assert_called_once_with(
+                self.request, 'dvr')
+        else:
+            self.mock_is_extension_supported.assert_not_called()
 
     def test_get_dvr_permission_with_policy_check_allowed(self):
         self._test_get_dvr_permission_with_policy_check(True, "get")
@@ -868,17 +925,20 @@ class NeutronApiTests(test.APITestCase):
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_ha_router': True},
                        POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
-    @test.create_stubs({api.neutron: ('is_extension_supported', )})
+    @test.create_mocks({api.neutron: ('is_extension_supported',),
+                        policy: ('check',)})
     def _test_get_router_ha_permission_with_policy_check(self, ha_enabled):
-        self.mox.StubOutWithMock(policy, 'check')
         role = (("network", "create_router:ha"),)
-        policy.check(role, self.request).AndReturn(True)
-        api.neutron.is_extension_supported(self.request, 'l3-ha')\
-            .AndReturn(ha_enabled)
-        self.mox.ReplayAll()
+        self.mock_check.return_value = True
+        self.mock_is_extension_supported.return_value = ha_enabled
+
         self.assertEqual(ha_enabled,
                          api.neutron.get_feature_permission(self.request,
                                                             'l3-ha', 'create'))
+
+        self.mock_check.assert_called_once_with(role, self.request)
+        self.mock_is_extension_supported.assert_called_once_with(self.request,
+                                                                 'l3-ha')
 
     def test_get_router_ha_permission_with_l3_ha_extension(self):
         self._test_get_router_ha_permission_with_policy_check(True)
@@ -904,50 +964,57 @@ class NeutronApiTests(test.APITestCase):
 
         neutronclient = self.stub_neutronclient()
         uri_len_exc = neutron_exc.RequestURITooLong(excess=220)
-        neutronclient.list_ports(id=port_ids).AndRaise(uri_len_exc)
+        list_ports_retval = [uri_len_exc]
         for i in range(0, 10, 4):
-            neutronclient.list_ports(id=port_ids[i:i + 4]) \
-                .AndReturn({'ports': ports[i:i + 4]})
-        self.mox.ReplayAll()
+            list_ports_retval.append({'ports': ports[i:i + 4]})
+        neutronclient.list_ports.side_effect = list_ports_retval
 
         ret_val = api.neutron.list_resources_with_long_filters(
-            api.neutron.port_list, 'id', port_ids,
+            api.neutron.port_list, 'id', tuple(port_ids),
             request=self.request)
         self.assertEqual(10, len(ret_val))
         self.assertEqual(port_ids, tuple([p.id for p in ret_val]))
+
+        expected_calls = []
+        expected_calls.append(mock.call(id=tuple(port_ids)))
+        for i in range(0, 10, 4):
+            expected_calls.append(mock.call(id=tuple(port_ids[i:i + 4])))
+        neutronclient.list_ports.assert_has_calls(expected_calls)
 
     def test_qos_policies_list(self):
         exp_policies = self.qos_policies.list()
         api_qos_policies = {'policies': self.api_qos_policies.list()}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.list_qos_policies().AndReturn(api_qos_policies)
-        self.mox.ReplayAll()
+        neutronclient.list_qos_policies.return_value = api_qos_policies
 
         ret_val = api.neutron.policy_list(self.request)
+
         self.assertEqual(len(ret_val), len(exp_policies))
         self.assertIsInstance(ret_val[0], api.neutron.QoSPolicy)
         self.assertEqual(exp_policies[0].name, ret_val[0].name)
+        neutronclient.list_qos_policies.assert_called_once_with()
 
     def test_qos_policy_create(self):
         qos_policy = self.api_qos_policies.first()
         post_data = {'policy': {'name': qos_policy['name']}}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.create_qos_policy(body=post_data) \
-            .AndReturn({'policy': qos_policy})
-        self.mox.ReplayAll()
+        neutronclient.create_qos_policy.return_value = {'policy': qos_policy}
 
         ret_val = api.neutron.policy_create(self.request,
                                             name=qos_policy['name'])
+
         self.assertIsInstance(ret_val, api.neutron.QoSPolicy)
         self.assertEqual(qos_policy['name'], ret_val.name)
+        neutronclient.create_qos_policy.assert_called_once_with(body=post_data)
 
 
-class NeutronApiSecurityGroupTests(NeutronApiTestBase):
+class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 
     def setUp(self):
         super(NeutronApiSecurityGroupTests, self).setUp()
+        self.qclient = self.stub_neutronclient()
         self.sg_dict = dict([(sg['id'], sg['name']) for sg
                              in self.api_security_groups.list()])
 
@@ -987,14 +1054,14 @@ class NeutronApiSecurityGroupTests(NeutronApiTestBase):
         # if tenant_id is specified, the passed tenant_id should be sent.
         q_params.update(params)
         # use deepcopy to ensure self.api_security_groups is not modified.
-        self.qclient.list_security_groups(**q_params) \
-            .AndReturn({'security_groups': copy.deepcopy(sgs)})
-        self.mox.ReplayAll()
+        self.qclient.list_security_groups.return_value = {'security_groups':
+                                                          copy.deepcopy(sgs)}
 
         rets = api.neutron.security_group_list(self.request, **params)
         self.assertEqual(len(sgs), len(rets))
         for (exp, ret) in six.moves.zip(sgs, rets):
             self._cmp_sg(exp, ret)
+        self.qclient.list_security_groups.assert_called_once_with(**q_params)
 
     def test_security_group_list(self):
         self._test_security_group_list()
@@ -1014,13 +1081,18 @@ class NeutronApiSecurityGroupTests(NeutronApiTestBase):
         related_sgs = [sg for sg in self.api_security_groups.list()
                        if sg['id'] in sg_ids]
         # use deepcopy to ensure self.api_security_groups is not modified.
-        self.qclient.show_security_group(secgroup['id']) \
-            .AndReturn({'security_group': copy.deepcopy(secgroup)})
-        self.qclient.list_security_groups(id=sg_ids, fields=['id', 'name']) \
-            .AndReturn({'security_groups': related_sgs})
-        self.mox.ReplayAll()
+        self.qclient.show_security_group.return_value = \
+            {'security_group': copy.deepcopy(secgroup)}
+        self.qclient.list_security_groups.return_value = \
+            {'security_groups': related_sgs}
+
         ret = api.neutron.security_group_get(self.request, secgroup['id'])
+
         self._cmp_sg(secgroup, ret)
+        self.qclient.show_security_group.assert_called_once_with(
+            secgroup['id'])
+        self.qclient.list_security_groups.assert_called_once_with(
+            id=sg_ids, fields=['id', 'name'])
 
     def test_security_group_create(self):
         secgroup = self.api_security_groups.list()[1]
@@ -1028,12 +1100,14 @@ class NeutronApiSecurityGroupTests(NeutronApiTestBase):
                 {'name': secgroup['name'],
                  'description': secgroup['description'],
                  'tenant_id': self.request.user.project_id}}
-        self.qclient.create_security_group(body) \
-            .AndReturn({'security_group': copy.deepcopy(secgroup)})
-        self.mox.ReplayAll()
+        self.qclient.create_security_group.return_value = \
+            {'security_group': copy.deepcopy(secgroup)}
+
         ret = api.neutron.security_group_create(self.request, secgroup['name'],
                                                 secgroup['description'])
+
         self._cmp_sg(secgroup, ret)
+        self.qclient.create_security_group.assert_called_once_with(body)
 
     def test_security_group_update(self):
         secgroup = self.api_security_groups.list()[1]
@@ -1043,20 +1117,25 @@ class NeutronApiSecurityGroupTests(NeutronApiTestBase):
         body = {'security_group':
                 {'name': secgroup['name'],
                  'description': secgroup['description']}}
-        self.qclient.update_security_group(secgroup['id'], body) \
-            .AndReturn({'security_group': secgroup})
-        self.mox.ReplayAll()
+        self.qclient.update_security_group.return_value = {'security_group':
+                                                           secgroup}
+
         ret = api.neutron.security_group_update(self.request,
                                                 secgroup['id'],
                                                 secgroup['name'],
                                                 secgroup['description'])
         self._cmp_sg(secgroup, ret)
+        self.qclient.update_security_group.assert_called_once_with(
+            secgroup['id'], body)
 
     def test_security_group_delete(self):
         secgroup = self.api_security_groups.first()
-        self.qclient.delete_security_group(secgroup['id'])
-        self.mox.ReplayAll()
+        self.qclient.delete_security_group.return_value = None
+
         api.neutron.security_group_delete(self.request, secgroup['id'])
+
+        self.qclient.delete_security_group.assert_called_once_with(
+            secgroup['id'])
 
     def test_security_group_rule_create(self):
         sg_rule = [r for r in self.api_security_group_rules.list()
@@ -1069,25 +1148,31 @@ class NeutronApiSecurityGroupTests(NeutronApiTestBase):
         del post_rule['id']
         del post_rule['tenant_id']
         post_body = {'security_group_rule': post_rule}
-        self.qclient.create_security_group_rule(post_body) \
-            .AndReturn({'security_group_rule': copy.deepcopy(sg_rule)})
-        self.qclient.list_security_groups(id=set([sg_id]),
-                                          fields=['id', 'name']) \
-            .AndReturn({'security_groups': [copy.deepcopy(secgroup)]})
-        self.mox.ReplayAll()
+        self.qclient.create_security_group_rule.return_value = \
+            {'security_group_rule': copy.deepcopy(sg_rule)}
+        self.qclient.list_security_groups.return_value = \
+            {'security_groups': [copy.deepcopy(secgroup)]}
 
         ret = api.neutron.security_group_rule_create(
             self.request, sg_rule['security_group_id'],
             sg_rule['direction'], sg_rule['ethertype'], sg_rule['protocol'],
             sg_rule['port_range_min'], sg_rule['port_range_max'],
             sg_rule['remote_ip_prefix'], sg_rule['remote_group_id'])
+
         self._cmp_sg_rule(sg_rule, ret)
+        self.qclient.create_security_group_rule.assert_called_once_with(
+            post_body)
+        self.qclient.list_security_groups.assert_called_once_with(
+            id=set([sg_id]), fields=['id', 'name'])
 
     def test_security_group_rule_delete(self):
         sg_rule = self.api_security_group_rules.first()
-        self.qclient.delete_security_group_rule(sg_rule['id'])
-        self.mox.ReplayAll()
+        self.qclient.delete_security_group_rule.return_value = None
+
         api.neutron.security_group_rule_delete(self.request, sg_rule['id'])
+
+        self.qclient.delete_security_group_rule.assert_called_once_with(
+            sg_rule['id'])
 
     def _get_instance(self, cur_sg_ids):
         instance_port = [p for p in self.api_ports.list()
@@ -1105,65 +1190,71 @@ class NeutronApiSecurityGroupTests(NeutronApiTestBase):
     def test_server_security_groups(self):
         cur_sg_ids = [sg['id'] for sg in self.api_security_groups.list()[:2]]
         instance_id, instance_ports = self._get_instance(cur_sg_ids)
-        self.qclient.list_ports(device_id=instance_id) \
-            .AndReturn({'ports': instance_ports})
+        self.qclient.list_ports.return_value = {'ports': instance_ports}
         secgroups = copy.deepcopy(self.api_security_groups.list())
-        self.qclient.list_security_groups(id=set(cur_sg_ids)) \
-            .AndReturn({'security_groups': secgroups})
-        self.mox.ReplayAll()
+        self.qclient.list_security_groups.return_value = \
+            {'security_groups': secgroups}
 
         api.neutron.server_security_groups(self.request, instance_id)
+
+        self.qclient.list_ports.assert_called_once_with(device_id=instance_id)
+        self.qclient.list_security_groups.assert_called_once_with(
+            id=set(cur_sg_ids))
 
     def test_server_update_security_groups(self):
         cur_sg_ids = [self.api_security_groups.first()['id']]
         new_sg_ids = [sg['id'] for sg in self.api_security_groups.list()[:2]]
         instance_id, instance_ports = self._get_instance(cur_sg_ids)
-        self.qclient.list_ports(device_id=instance_id) \
-            .AndReturn({'ports': instance_ports})
-        for p in instance_ports:
-            body = {'port': {'security_groups': new_sg_ids}}
-            self.qclient.update_port(p['id'], body=body).AndReturn({'port': p})
-        self.mox.ReplayAll()
+
+        self.qclient.list_ports.return_value = {'ports': instance_ports}
+        self.qclient.update_port.side_effect = \
+            [{'port': p} for p in instance_ports]
+
         api.neutron.server_update_security_groups(
             self.request, instance_id, new_sg_ids)
 
+        self.qclient.list_ports.assert_called_once_with(device_id=instance_id)
+        body = {'port': {'security_groups': new_sg_ids}}
+        expected_calls = [mock.call(p['id'], body=body)
+                          for p in instance_ports]
+        self.qclient.update_port.assert_has_calls(expected_calls)
 
-class NeutronApiFloatingIpTests(NeutronApiTestBase):
+
+class NeutronApiFloatingIpTests(test.APIMockTestCase):
+
+    def setUp(self):
+        super(NeutronApiFloatingIpTests, self).setUp()
+        self.qclient = self.stub_neutronclient()
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_router': True})
     def test_floating_ip_supported(self):
-        self.mox.ReplayAll()
         self.assertTrue(api.neutron.floating_ip_supported(self.request))
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_router': False})
     def test_floating_ip_supported_false(self):
-        self.mox.ReplayAll()
         self.assertFalse(api.neutron.floating_ip_supported(self.request))
 
     def test_floating_ip_pools_list(self):
         search_opts = {'router:external': True}
         ext_nets = [n for n in self.api_networks.list()
                     if n['router:external']]
-        self.qclient.list_networks(**search_opts) \
-            .AndReturn({'networks': ext_nets})
-        self.mox.ReplayAll()
+        self.qclient.list_networks.return_value = {'networks': ext_nets}
 
         rets = api.neutron.floating_ip_pools_list(self.request)
         for attr in ['id', 'name']:
             self.assertEqual([p[attr] for p in ext_nets],
                              [getattr(p, attr) for p in rets])
+        self.qclient.list_networks.assert_called_once_with(**search_opts)
 
     def test_floating_ip_list(self):
         fips = self.api_floating_ips.list()
         filters = {'tenant_id': self.request.user.tenant_id}
 
-        self.qclient.list_floatingips(**filters) \
-            .AndReturn({'floatingips': fips})
-        self.qclient.list_ports(**filters) \
-            .AndReturn({'ports': self.api_ports.list()})
-        self.mox.ReplayAll()
+        self.qclient.list_floatingips.return_value = {'floatingips': fips}
+        self.qclient.list_ports.return_value = {'ports': self.api_ports.list()}
 
         rets = api.neutron.tenant_floating_ip_list(self.request)
+
         assoc_port = self.api_ports.list()[1]
         self.assertEqual(len(fips), len(rets))
         for ret, exp in zip(rets, fips):
@@ -1176,15 +1267,17 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
             else:
                 self.assertIsNone(ret.instance_id)
                 self.assertIsNone(ret.instance_type)
+        self.qclient.list_floatingips.assert_called_once_with(**filters)
+        self.qclient.list_ports.assert_called_once_with(**filters)
 
     def test_floating_ip_list_all_tenants(self):
         fips = self.api_floating_ips.list()
-        self.qclient.list_floatingips().AndReturn({'floatingips': fips})
-        self.qclient.list_ports().AndReturn({'ports': self.api_ports.list()})
-        self.mox.ReplayAll()
+        self.qclient.list_floatingips.return_value = {'floatingips': fips}
+        self.qclient.list_ports.return_value = {'ports': self.api_ports.list()}
 
         fip_manager = api.neutron.FloatingIpManager(self.request)
         rets = fip_manager.list(all_tenants=True)
+
         assoc_port = self.api_ports.list()[1]
         self.assertEqual(len(fips), len(rets))
         for ret, exp in zip(rets, fips):
@@ -1197,20 +1290,22 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
             else:
                 self.assertIsNone(ret.instance_id)
                 self.assertIsNone(ret.instance_type)
+        self.qclient.list_floatingips.assert_called_once_with()
+        self.qclient.list_ports.assert_called_once_with()
 
     def _test_floating_ip_get_associated(self, assoc_port, exp_instance_type):
         fip = self.api_floating_ips.list()[1]
-
-        self.qclient.show_floatingip(fip['id']).AndReturn({'floatingip': fip})
-        self.qclient.show_port(assoc_port['id']) \
-            .AndReturn({'port': assoc_port})
-        self.mox.ReplayAll()
+        self.qclient.show_floatingip.return_value = {'floatingip': fip}
+        self.qclient.show_port.return_value = {'port': assoc_port}
 
         ret = api.neutron.tenant_floating_ip_get(self.request, fip['id'])
+
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
             self.assertEqual(fip[attr], getattr(ret, attr))
         self.assertEqual(assoc_port['device_id'], ret.instance_id)
         self.assertEqual(exp_instance_type, ret.instance_type)
+        self.qclient.show_floatingip.assert_called_once_with(fip['id'])
+        self.qclient.show_port.assert_called_once_with(assoc_port['id'])
 
     def test_floating_ip_get_associated(self):
         assoc_port = self.api_ports.list()[1]
@@ -1226,25 +1321,22 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
     def test_floating_ip_get_unassociated(self):
         fip = self.api_floating_ips.list()[0]
 
-        self.qclient.show_floatingip(fip['id']).AndReturn({'floatingip': fip})
-        self.mox.ReplayAll()
+        self.qclient.show_floatingip.return_value = {'floatingip': fip}
 
         ret = api.neutron.tenant_floating_ip_get(self.request, fip['id'])
+
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
             self.assertEqual(fip[attr], getattr(ret, attr))
         self.assertIsNone(ret.instance_id)
         self.assertIsNone(ret.instance_type)
+        self.qclient.show_floatingip.assert_called_once_with(fip['id'])
 
     def test_floating_ip_allocate(self):
         ext_nets = [n for n in self.api_networks.list()
                     if n['router:external']]
         ext_net = ext_nets[0]
         fip = self.api_floating_ips.first()
-        self.qclient.create_floatingip(
-            {'floatingip': {'floating_network_id': ext_net['id'],
-                            'tenant_id': self.request.user.project_id}}) \
-            .AndReturn({'floatingip': fip})
-        self.mox.ReplayAll()
+        self.qclient.create_floatingip.return_value = {'floatingip': fip}
 
         ret = api.neutron.tenant_floating_ip_allocate(self.request,
                                                       ext_net['id'])
@@ -1252,13 +1344,17 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
             self.assertEqual(fip[attr], getattr(ret, attr))
         self.assertIsNone(ret.instance_id)
         self.assertIsNone(ret.instance_type)
+        self.qclient.create_floatingip.assert_called_once_with(
+            {'floatingip': {'floating_network_id': ext_net['id'],
+                            'tenant_id': self.request.user.project_id}})
 
     def test_floating_ip_release(self):
         fip = self.api_floating_ips.first()
-        self.qclient.delete_floatingip(fip['id'])
-        self.mox.ReplayAll()
+        self.qclient.delete_floatingip.return_value = None
 
         api.neutron.tenant_floating_ip_release(self.request, fip['id'])
+
+        self.qclient.delete_floatingip.assert_called_once_with(fip['id'])
 
     def test_floating_ip_associate(self):
         fip = self.api_floating_ips.list()[1]
@@ -1267,20 +1363,22 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
         target_id = '%s_%s' % (assoc_port['id'], ip_address)
         params = {'port_id': assoc_port['id'],
                   'fixed_ip_address': ip_address}
-        self.qclient.update_floatingip(fip['id'],
-                                       {'floatingip': params})
-        self.mox.ReplayAll()
+        self.qclient.update_floatingip.return_value = None
 
         api.neutron.floating_ip_associate(self.request, fip['id'], target_id)
+
+        self.qclient.update_floatingip.assert_called_once_with(
+            fip['id'], {'floatingip': params})
 
     def test_floating_ip_disassociate(self):
         fip = self.api_floating_ips.list()[1]
 
-        self.qclient.update_floatingip(fip['id'],
-                                       {'floatingip': {'port_id': None}})
-        self.mox.ReplayAll()
+        self.qclient.update_floatingip.return_value = None
 
         api.neutron.floating_ip_disassociate(self.request, fip['id'])
+
+        self.qclient.update_floatingip.assert_called_once_with(
+            fip['id'], {'floatingip': {'port_id': None}})
 
     def _get_target_id(self, port, ip=None, index=0):
         param = {'id': port['id'],
@@ -1319,31 +1417,26 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
                     self._get_target_id(p, ip['ip_address']),
                     self._get_target_name(p, ip['ip_address'])))
         filters = {'tenant_id': self.request.user.tenant_id}
-        self.qclient.list_ports(**filters).AndReturn({'ports': ports})
+        self.qclient.list_ports.return_value = {'ports': ports}
         servers = self.servers.list()
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn("2.45")
-        search_opts = {'project_id': self.request.user.tenant_id}
-        novaclient.servers.list(False, search_opts).AndReturn(servers)
+        ver = mock.Mock(min_version='2.1', version='2.45')
+        novaclient.versions.get_current.return_value = ver
+        novaclient.servers.list.return_value = servers
 
-        search_opts = {'router:external': True}
         ext_nets = [n for n in self.api_networks.list()
                     if n['router:external']]
-        self.qclient.list_networks(**search_opts) \
-            .AndReturn({'networks': ext_nets})
-        self.qclient.list_routers().AndReturn({'routers':
-                                               self.api_routers.list()})
-        self.qclient.list_networks(shared=True).AndReturn({'networks':
-                                                           shared_nets})
+        list_networks_retvals = [{'networks': ext_nets},
+                                 {'networks': shared_nets}]
+        self.qclient.list_networks.side_effect = list_networks_retvals
+        self.qclient.list_routers.return_value = {'routers':
+                                                  self.api_routers.list()}
         shared_subs = [s for s in self.api_subnets.list()
                        if s['id'] in shared_subnet_ids]
-        self.qclient.list_subnets().AndReturn({'subnets': shared_subs})
-
-        self.mox.ReplayAll()
+        self.qclient.list_subnets.return_value = {'subnets': shared_subs}
 
         rets = api.neutron.floating_ip_target_list(self.request)
+
         self.assertEqual(len(target_ports), len(rets))
         for ret, exp in zip(rets, target_ports):
             pid, ip_address = ret.id.split('_', 1)
@@ -1351,42 +1444,68 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
             self.assertEqual(exp[0], ret.id)
             self.assertEqual(exp[1], ret.name)
 
+        self.qclient.list_ports.assert_called_once_with(**filters)
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.servers.list.assert_called_once_with(
+            False, {'project_id': self.request.user.tenant_id})
+        self.qclient.list_networks.assert_has_calls([
+            mock.call(**{'router:external': True}),
+            mock.call(shared=True),
+        ])
+        self.qclient.list_routers.assert_called_once_with()
+        self.qclient.list_subnets.assert_called_once_with()
+
     def _test_target_floating_ip_port_by_instance(self, server, ports,
                                                   candidates):
+        # list_ports and list_networks are called multiple times,
+        # we prepare a list for return values.
+        list_ports_retvals = []
+        self.qclient.list_ports.side_effect = list_ports_retvals
+        list_nets_retvals = []
+        self.qclient.list_networks.side_effect = list_nets_retvals
+
         # _target_ports_by_instance()
-        search_opts = {'device_id': server.id}
-        self.qclient.list_ports(**search_opts).AndReturn({'ports': candidates})
+        list_ports_retvals.append({'ports': candidates})
+
         # _get_reachable_subnets()
-        search_opts = {'router:external': True}
         ext_nets = [n for n in self.api_networks.list()
                     if n['router:external']]
-        self.qclient.list_networks(**search_opts) \
-            .AndReturn({'networks': ext_nets})
-        self.qclient.list_routers() \
-            .AndReturn({'routers': self.api_routers.list()})
+        list_nets_retvals.append({'networks': ext_nets})
+        self.qclient.list_routers.side_effect = [{'routers':
+                                                  self.api_routers.list()}]
         rinfs = [p for p in ports
                  if p['device_owner'] in api.neutron.ROUTER_INTERFACE_OWNERS]
-        filters = {'device_owner': api.neutron.ROUTER_INTERFACE_OWNERS}
-        self.qclient.list_ports(**filters).AndReturn({'ports': rinfs})
+        list_ports_retvals.append({'ports': rinfs})
         shared_nets = [n for n in self.api_networks.list() if n['shared']]
-        self.qclient.list_networks(shared=True) \
-            .AndReturn({'networks': shared_nets})
+        list_nets_retvals.append({'networks': shared_nets})
         shared_subnet_ids = [s for n in shared_nets for s in n['subnets']]
         shared_subs = [s for s in self.api_subnets.list()
                        if s['id'] in shared_subnet_ids]
-        self.qclient.list_subnets().AndReturn({'subnets': shared_subs})
+        self.qclient.list_subnets.side_effect = [{'subnets': shared_subs}]
+
         # _get_server_name()
         novaclient = self.stub_novaclient()
-        novaclient.servers = self.mox.CreateMockAnything()
-        novaclient.versions = self.mox.CreateMockAnything()
-        novaclient.versions.get_current().AndReturn("2.45")
-        search_opts = {'project_id': self.request.user.tenant_id}
-        novaclient.servers.get(server.id).AndReturn(server)
+        ver = mock.Mock(min_version='2.1', version='2.45')
+        novaclient.versions.get_current.return_value = ver
+        novaclient.servers.get.return_value = server
 
-        self.mox.ReplayAll()
+        ret_val = api.neutron.floating_ip_target_list_by_instance(self.request,
+                                                                  server.id)
 
-        return api.neutron.floating_ip_target_list_by_instance(self.request,
-                                                               server.id)
+        self.qclient.list_ports.assert_has_calls([
+            mock.call(device_id=server.id),
+            mock.call(device_owner=api.neutron.ROUTER_INTERFACE_OWNERS),
+        ])
+        self.qclient.list_networks.assert_has_calls([
+            mock.call(**{'router:external': True}),
+            mock.call(shared=True),
+        ])
+        self.qclient.list_routers.assert_called_once_with()
+        self.qclient.list_subnets.assert_called_once_with()
+        novaclient.versions.get_current.assert_called_once_with()
+        novaclient.servers.get.assert_called_once_with(server.id)
+
+        return ret_val
 
     def test_target_floating_ip_port_by_instance(self):
         server = self.servers.first()
@@ -1439,7 +1558,6 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
 
     def test_target_floating_ip_port_by_instance_with_preloaded_target(self):
         target_list = self._get_preloaded_targets()
-        self.mox.ReplayAll()
 
         ret = api.neutron.floating_ip_target_list_by_instance(
             self.request, 'id-vm2', target_list)
