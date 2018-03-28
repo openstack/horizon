@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1343,10 +1343,6 @@ msgid ""
 "Currently only images uploaded from your local file system are supported."
 msgstr "目前僅支援從 您目前的檔案系統上傳來得到映像檔。"
 
-msgctxt "Custom style theme"
-msgid "Custom"
-msgstr "自訂"
-
 msgid "Custom ICMP Rule"
 msgstr "自訂 ICMP 規則"
 
@@ -1407,9 +1403,6 @@ msgstr "解鎖密碼"
 msgctxt "Default style theme"
 msgid "Default"
 msgstr "預設"
-
-msgid "Default Quotas"
-msgstr "預設配額"
 
 msgid "Default quotas updated for Cinder."
 msgstr "已更新Cinder預設的配額。"
@@ -2698,9 +2691,6 @@ msgstr "從這裡可以配製浮動 IP 至特定專案"
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "您可以在此新增雲硬碟的即時存檔。"
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "您可以在此更新預設的配額（最大限制）。"
 
 msgid "GB"
 msgstr "GB"
@@ -6883,9 +6873,6 @@ msgstr "無法為專案 %s 設定虛擬硬體樣板存取權。"
 
 msgid "Unable to set gateway."
 msgstr "無法設定閘道"
-
-msgid "Unable to set project quotas."
-msgstr "無法設定專案的配額。"
 
 msgid "Unable to sort instance flavors."
 msgstr "無法排序雲實例的虛擬硬體樣板。"

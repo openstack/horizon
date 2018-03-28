@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -801,9 +801,6 @@ msgstr "DNS নাম সার্ভার"
 msgid "Decrypt Password"
 msgstr "ডিক্রিপ্ট পাসওয়ার্ড"
 
-msgid "Default Quotas"
-msgstr "স্থিতক কোটা"
-
 msgid "Default quotas updated."
 msgstr "স্থিতক কোটা আপডেট করা."
 
@@ -1411,9 +1408,6 @@ msgstr "এখান থেকে আপনি নেটওয়ার্কের
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "এখান থেকে আপনি একটি ভলিয়্যুমের স্ন্যাপশট তৈরি করতে পারেন."
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "এখান থেকে আপনি স্থিতক কোটা আপডেট করতে পারেন (সর্বাধিক সীমা)."
 
 msgid "GB"
 msgstr "GB"
@@ -3737,9 +3731,6 @@ msgstr "%s প্রোজেক্টের জন্য ফ্লেভার 
 
 msgid "Unable to set gateway."
 msgstr "গেটওয়ে সেট করতে অসমর্থ."
-
-msgid "Unable to set project quotas."
-msgstr "প্রোজেক্ট কোটা সেট করতে অসমর্থ."
 
 msgid "Unable to sort instance flavors."
 msgstr "উদাহরণ ফ্লেভার ক্রম করতে অসমর্থ."

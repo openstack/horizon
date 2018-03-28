@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -717,9 +717,6 @@ msgstr "DNS नाम सर्वर"
 
 msgid "Decrypt Password"
 msgstr "पासवर्ड डिक्रिप्ट करें"
-
-msgid "Default Quotas"
-msgstr "डिफ़ॉल्ट कोटा"
 
 msgid "Default quotas updated."
 msgstr "डिफ़ॉल्ट कोटा अद्यतन."
@@ -1447,9 +1444,6 @@ msgstr "प्रारूप ="
 
 msgid "From Port"
 msgstr "पोर्ट से"
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "यहाँ से आप डिफ़ॉल्ट कोटा (अधिकतम सीमा) अपडेट कर सकते हैं."
 
 msgid "GB"
 msgstr "GB"
@@ -3557,9 +3551,6 @@ msgstr "परियोजना के लिए फ्लेवर पहु�
 
 msgid "Unable to set gateway."
 msgstr "गेटवे सेट करने में असमर्थ."
-
-msgid "Unable to set project quotas."
-msgstr "परियोजना का कोटा निर्धारित करने में अक्षम."
 
 msgid "Unable to sort instance flavors."
 msgstr "इंस्टेंस फ्लेवर को क्रमबद्ध करने में असमर्थ."

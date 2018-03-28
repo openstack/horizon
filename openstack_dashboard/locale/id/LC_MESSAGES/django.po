@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 04:31+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1460,10 +1460,6 @@ msgid ""
 "Currently only images uploaded from your local file system are supported."
 msgstr "Saat ini hanya image di-upload dari sistem file lokal yang didukung."
 
-msgctxt "Custom style theme"
-msgid "Custom"
-msgstr "Ubahsuai"
-
 msgid "Custom ICMP Rule"
 msgstr "Custom ICMP Rule (aturan ICMP kustom)"
 
@@ -1526,9 +1522,6 @@ msgstr "Decrypt Password"
 msgctxt "Default style theme"
 msgid "Default"
 msgstr "Baku"
-
-msgid "Default Quotas"
-msgstr "Default Quotas"
 
 msgid "Default quotas updated for Cinder."
 msgstr "Kuota default diperbarui untuk Cinder."
@@ -2877,9 +2870,6 @@ msgstr ""
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "Dari sini Anda dapat membuat snapshot dari volume."
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "Dari sini Anda dapat memperbarui kuota default (batas max)."
 
 msgid "GB"
 msgstr "GB"
@@ -7329,9 +7319,6 @@ msgstr "Tidak dapat menentukan akses pilihan untuk proyek %s."
 
 msgid "Unable to set gateway."
 msgstr "Tidak dapat menyetel gateway"
-
-msgid "Unable to set project quotas."
-msgstr "Tidak dapat mengatur kuota proyek."
 
 msgid "Unable to sort instance flavors."
 msgstr "Tidak dapat mengurutkan flavor instance."

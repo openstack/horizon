@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 22:05+0000\n"
+"POT-Creation-Date: 2018-03-28 07:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1448,10 +1448,6 @@ msgid ""
 "Currently only images uploaded from your local file system are supported."
 msgstr "현재 사용자의 로컬 파일 시스템에서 업로드한 이미지만 지원합니다."
 
-msgctxt "Custom style theme"
-msgid "Custom"
-msgstr "사용자 정의"
-
 msgid "Custom ICMP Rule"
 msgstr "사용자 정의 ICMP 규칙"
 
@@ -1514,9 +1510,6 @@ msgstr "비밀번호 해독"
 msgctxt "Default style theme"
 msgid "Default"
 msgstr "기본"
-
-msgid "Default Quotas"
-msgstr "기본 할당량"
 
 msgid "Default quotas updated for Cinder."
 msgstr "Cinder 기본 할당량을 업데이트 되었습니다."
@@ -2859,9 +2852,6 @@ msgstr "여기에서 유동 IP를 특정 프로젝트에 할당 가능합니다.
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "여기서 볼륨 스냅샷을 생성할 수 있습니다."
-
-msgid "From here you can update the default quotas (max limits)."
-msgstr "여기서 기본 할당량를 업데이트 할 수 있습니다 (최대 한계)."
 
 msgid "GB"
 msgstr "GB"
@@ -7248,9 +7238,6 @@ msgstr "프로젝트 %s에 대한 flavor 접근 권한을 설정할 수 없습�
 
 msgid "Unable to set gateway."
 msgstr "게이트웨이를 설정하지 못했습니다."
-
-msgid "Unable to set project quotas."
-msgstr "프로젝트 quota를 설정하지 못하였습니다."
 
 msgid "Unable to sort instance flavors."
 msgstr "인스턴스 flavor를 분류할 수 없습니다."
