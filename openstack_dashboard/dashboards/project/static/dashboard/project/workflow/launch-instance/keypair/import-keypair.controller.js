@@ -47,6 +47,7 @@
     ctrl.cancel = cancel;
     ctrl.model = { name: '', public_key: '' };
     ctrl.path = basePath + 'keypair/';
+    ctrl.title = gettext('Public Key');
 
     //////////
 

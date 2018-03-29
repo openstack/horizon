@@ -24,16 +24,12 @@
              ng-required="true"/>
     </div>
 
-    <div class="form-group">
-      <label for="public-key">
-        <translate>Public Key</translate>
-        <span class="hz-icon-required fa fa-asterisk"></span>
-      </label>
-      <textarea class="form-control" id="public-key" name="key" rows="15"
-                  ng-model="ctrl.model.public_key"
-                  ng-required="true">
-      </textarea>
-    </div>
+    <load-edit title="{$ ctrl.title $}"
+               model="ctrl.model.public_key"
+               max-bytes="{$ 16 * 1024 $}"
+               key="public-key"
+               rows="8" required="true">
+    </load-edit>
 
   </div>
 
