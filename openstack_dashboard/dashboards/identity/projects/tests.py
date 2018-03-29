@@ -903,20 +903,21 @@ class UpdateQuotasWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(res.context['workflow'].name,
                          workflows.UpdateQuota.name)
 
-        step = workflow.get_step("update_quotas")
+        step = workflow.get_step("update_compute_quotas")
         self.assertEqual(step.action.initial['ram'], quota.get('ram').limit)
         self.assertEqual(step.action.initial['injected_files'],
                          quota.get('injected_files').limit)
         self.assertQuerysetEqual(
             workflow.steps,
-            ['<UpdateProjectQuota: update_quotas>'])
+            ['<UpdateComputeQuota: update_compute_quotas>',
+             '<UpdateVolumeQuota: update_volume_quotas>'])
 
     @test.create_stubs({api.nova: ('tenant_quota_update',),
                         api.cinder: ('tenant_quota_update',),
                         quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas',
                                  'tenant_quota_usages',)})
-    def test_update_quotas_save(self):
+    def _test_update_quotas_save(self, with_neutron=False):
         project = self.tenants.first()
         quota = self.quotas.first()
         quota_usages = self.quota_usages.first()
@@ -935,22 +936,36 @@ class UpdateQuotasWorkflowTests(test.BaseAdminViewTests):
 
         # handle
         quotas.tenant_quota_usages(IsA(http.HttpRequest),
-                                   tenant_id=project.id) \
+                                   tenant_id=project.id,
+                                   targets=tuple(quotas.NOVA_QUOTA_FIELDS)) \
             .AndReturn(quota_usages)
-
         nova_updated_quota = {key: updated_quota[key] for key
                               in quotas.NOVA_QUOTA_FIELDS}
-        quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(set())
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
                                      **nova_updated_quota)
 
+        quotas.tenant_quota_usages(IsA(http.HttpRequest),
+                                   tenant_id=project.id,
+                                   targets=tuple(quotas.CINDER_QUOTA_FIELDS)) \
+            .AndReturn(quota_usages)
         cinder_updated_quota = {key: updated_quota[key] for key
                                 in quotas.CINDER_QUOTA_FIELDS}
         api.cinder.tenant_quota_update(IsA(http.HttpRequest),
                                        project.id,
                                        **cinder_updated_quota)
+        if with_neutron:
+            api.neutron.is_quotas_extension_supported(IsA(http.HttpRequest)) \
+                .AndReturn(with_neutron)
+            quotas.tenant_quota_usages(
+                IsA(http.HttpRequest), tenant_id=project.id,
+                targets=tuple(quotas.NEUTRON_QUOTA_FIELDS)) \
+                .AndReturn(quota_usages)
+            neutron_updated_quota = {key: updated_quota[key] for key
+                                     in quotas.NEUTRON_QUOTA_FIELDS}
+            api.neutron.tenant_quota_update(IsA(http.HttpRequest),
+                                            self.tenant.id,
+                                            **neutron_updated_quota)
         self.mox.ReplayAll()
 
         # submit form data
@@ -964,24 +979,19 @@ class UpdateQuotasWorkflowTests(test.BaseAdminViewTests):
         self.assertMessageCount(error=0, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    def test_update_quotas_save(self):
+        self._test_update_quotas_save()
+
     @test.create_stubs({api.neutron: ('is_quotas_extension_supported',
                                       'tenant_quota_update')})
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_update_quotas_save_with_neutron(self):
-        quota_data = self.neutron_quotas.first()
-        neutron_updated_quota = {key:  quota_data.get(key).limit
-                                 for key in quotas.NEUTRON_QUOTA_FIELDS}
-
-        api.neutron.is_quotas_extension_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.neutron.tenant_quota_update(IsA(http.HttpRequest),
-                                        self.tenant.id,
-                                        **neutron_updated_quota)
-        self.test_update_quotas_save()
+        self._test_update_quotas_save(with_neutron=True)
 
     @test.create_stubs({quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas',
                                  'tenant_quota_usages',),
+                        api.cinder: ('tenant_quota_update',),
                         api.nova: ('tenant_quota_update',)})
     def test_update_quotas_update_error(self):
         project = self.tenants.first()
@@ -1003,17 +1013,27 @@ class UpdateQuotasWorkflowTests(test.BaseAdminViewTests):
 
         # handle
         quotas.tenant_quota_usages(IsA(http.HttpRequest),
-                                   tenant_id=project.id) \
+                                   tenant_id=project.id,
+                                   targets=tuple(quotas.NOVA_QUOTA_FIELDS)) \
+            .AndReturn(quota_usages)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest),
+                                   tenant_id=project.id,
+                                   targets=tuple(quotas.CINDER_QUOTA_FIELDS)) \
             .AndReturn(quota_usages)
 
         nova_updated_quota = {key: updated_quota[key]
                               for key in quotas.NOVA_QUOTA_FIELDS}
-        quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
-            .AndReturn(set())
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
                                      project.id,
                                      **nova_updated_quota) \
             .AndRaise(self.exceptions.nova)
+
+        # handle() of all steps are called even after one of handle() fails.
+        cinder_updated_quota = {key: updated_quota[key] for key
+                                in quotas.CINDER_QUOTA_FIELDS}
+        api.cinder.tenant_quota_update(IsA(http.HttpRequest),
+                                       project.id,
+                                       **cinder_updated_quota)
 
         self.mox.ReplayAll()
 

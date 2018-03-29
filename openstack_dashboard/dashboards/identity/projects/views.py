@@ -227,6 +227,7 @@ class UpdateQuotasView(workflows.WorkflowView):
             exceptions.handle(self.request,
                               _('Unable to retrieve project quotas.'),
                               redirect=reverse(INDEX_URL))
+        initial['disabled_quotas'] = quotas.get_disabled_quotas(self.request)
         return initial
 
 
