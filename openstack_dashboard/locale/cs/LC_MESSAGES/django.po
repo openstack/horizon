@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-28 07:26+0000\n"
+"POT-Creation-Date: 2018-03-29 05:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3589,13 +3589,6 @@ msgstr "Instance \"%s\" změněna."
 msgid "Modified project \"%s\"."
 msgstr "Projekt \"%s\" změněn."
 
-msgid ""
-"Modified project information and members, but unable to modify project "
-"quotas."
-msgstr ""
-"Informace o projektu a členové změněni, ale nebylo možné změnit kvóty "
-"projektu."
-
 msgid "Modify Access"
 msgstr "Změnit přístup"
 
@@ -4334,9 +4327,6 @@ msgstr "Kvóta je překročená pro prostředek: router."
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr "Hodnoty kvóty nemohou být menší než hodnoty současného využití: %s."
-
-msgid "Quotas"
-msgstr "Kvóty"
 
 msgid "RAM"
 msgstr "RAM"

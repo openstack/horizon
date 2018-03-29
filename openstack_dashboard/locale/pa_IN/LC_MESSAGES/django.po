@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-28 07:26+0000\n"
+"POT-Creation-Date: 2018-03-29 05:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1968,13 +1968,6 @@ msgstr "\"%s\" مثال نظر ثانی شدہ."
 msgid "Modified project \"%s\"."
 msgstr "تبدیل پروجیكٹ \"%s\""
 
-msgid ""
-"Modified project information and members, but unable to modify project "
-"quotas."
-msgstr ""
-"پروجیكٹ کی معلومات اور اراکین کو ترمیم شدہ، لیکن پروجیكٹ کوٹہ ثانی کرنے کے "
-"قابل نہیں."
-
 msgid "Modify Access"
 msgstr "پہنچ تبدیل کریں"
 
@@ -2414,9 +2407,6 @@ msgstr "کوٹہ وسائل روٹر کے لئے تجاوز کر گئی."
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr "کوٹہ قیمت موجودہ استعمال کے قیمت (یوں) سے کم نہیں ہو سکتے: %s."
-
-msgid "Quotas"
-msgstr "کوٹاز"
 
 msgid "RAM"
 msgstr "RAM"

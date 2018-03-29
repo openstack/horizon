@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-28 07:26+0000\n"
+"POT-Creation-Date: 2018-03-29 05:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1933,13 +1933,6 @@ msgstr "संशोधित इंस्टेंस \"%s\"."
 msgid "Modified project \"%s\"."
 msgstr "परिवर्तित परियोजना \"%s\"."
 
-msgid ""
-"Modified project information and members, but unable to modify project "
-"quotas."
-msgstr ""
-"परियोजना की जानकारी और सदस्यों को संशोधित, लेकिन परियोजना कोटा संशोधित करने में "
-"असमर्थ."
-
 msgid "Modify Access"
 msgstr "पहुँच रूपांतरित करें"
 
@@ -2331,9 +2324,6 @@ msgstr "QCOW2 - QEMU एमुलेटर"
 
 msgid "Quota Name"
 msgstr "कोटा नाम"
-
-msgid "Quotas"
-msgstr "कोटा"
 
 msgid "RAM"
 msgstr "रैम"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-28 07:26+0000\n"
+"POT-Creation-Date: 2018-03-29 05:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2012,12 +2012,6 @@ msgstr "\"%s\" ઇન્સ્ટન્સ સંશોધિત કરો."
 msgid "Modified project \"%s\"."
 msgstr "\"% s\" પ્રોજેક્ટમાં ફેરફાર કર્યો છે."
 
-msgid ""
-"Modified project information and members, but unable to modify project "
-"quotas."
-msgstr ""
-"પ્રોજેક્ટ માહિતી અને સભ્યોમા ફેરફાર કર્યા છે, પરંતુ પ્રોજેક્ટ ક્વોટા ફેરફાર કરવામા અસમર્થ."
-
 msgid "Modify Access"
 msgstr "સુધારા માટે પ્રવેશાધિકાર"
 
@@ -2474,9 +2468,6 @@ msgstr "સંસાધન રૂટર માટે ક્વોટા ઓળ�
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr "વર્તમાન વપરાશ મૂલ્ય(ઓ) કરતાં ક્વોટા મુલ્ય(ઓ) ઓછા હોઈ શકતા નથી %s."
-
-msgid "Quotas"
-msgstr "ક્વોટા"
 
 msgid "RAM"
 msgstr "RAM"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-28 07:26+0000\n"
+"POT-Creation-Date: 2018-03-29 05:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1941,11 +1941,6 @@ msgstr "সংশোধিত উদাহরণ \"%s\"."
 msgid "Modified project \"%s\"."
 msgstr "সংশোধিত প্রোজেক্ট \"%s\"."
 
-msgid ""
-"Modified project information and members, but unable to modify project "
-"quotas."
-msgstr "প্রোজেক্ট তথ্য এবং সদস্য সংশোধিত, কিন্তু প্রোজেক্ট কোটা সংশোধন করতে অসমর্থ."
-
 msgid "Modify Access"
 msgstr "অ্যাক্সেস সংশোধন করুন"
 
@@ -2382,9 +2377,6 @@ msgstr "উত্স রাউটারের জন্য কোটা পে�
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr "কোটা মান বর্তমানে উপযোগী মানের চেয়ে কম হতে পারে না: %s."
-
-msgid "Quotas"
-msgstr "কোটা"
 
 msgid "RAM"
 msgstr "RAM"
