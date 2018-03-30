@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-29 05:31+0000\n"
+"POT-Creation-Date: 2018-03-29 09:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-27 06:14+0000\n"
+"PO-Revision-Date: 2018-03-29 04:45+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -881,6 +881,9 @@ msgstr "No se puede obtener la consola para la instancia %s."
 msgid "Cannot specify both file and direct input."
 msgstr "No se pudo especificar ni en el archivo ni el acceso directo"
 
+msgid "Center Topology"
+msgstr "Centrar topología"
+
 msgid "Centralized"
 msgstr "Centralizado"
 
@@ -1044,6 +1047,9 @@ msgstr "Compute"
 
 msgid "Compute Host"
 msgstr "Anfitrión de cómputo"
+
+msgid "Compute Quotas"
+msgstr "Cuotas de computación"
 
 msgid "Compute Services"
 msgstr "Servicios de computación"
@@ -2265,6 +2271,9 @@ msgstr "Editar atributos públicos/protegidos del espacio de nombres."
 msgid "Edit QoS Spec Consumer"
 msgstr "Editar consumidor de especificaciones QoS"
 
+msgid "Edit Quotas"
+msgstr "Editar cuotas"
+
 msgid "Edit Router"
 msgstr "Editar enrutador"
 
@@ -2981,6 +2990,15 @@ msgstr "Desde aquí puede asignar una IP flotante a un proyecto concreto."
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "Aquí podrá crear una instantánea de un volumen."
+
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr ""
+"Desde aquí puede actualizar las cuotas de computación por defecto (max "
+"limits)."
+
+msgid "From here you can update the default volume quotas (max limits)."
+msgstr ""
+"Desde aquí puede actualizar las cuotas de volumen por defecto (max limits)."
 
 msgid "GB"
 msgstr "GB"
@@ -3917,6 +3935,9 @@ msgstr "Modificada la instancia \"%s\"."
 msgid "Modified project \"%s\"."
 msgstr "Proyecto \"%s\" modificado."
 
+msgid "Modified quotas of project"
+msgstr "Cuotas modificadas del proyecto"
+
 #, python-format
 msgid "Modified volume type access: %s"
 msgstr "Se ha modificado el tipo de acceso de volumen: %s"
@@ -4056,6 +4077,9 @@ msgstr "QoS de red"
 
 msgid "Network QoS Policies"
 msgstr "Políticas de QoS de red"
+
+msgid "Network Quotas"
+msgstr "Cuotas de red"
 
 msgid "Network Topology"
 msgstr "Topología de red"
@@ -4785,6 +4809,9 @@ msgstr "RAM (usada)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Disponible: %(avail)s, Solicitada: %(req)s)"
+
+msgid "RBAC Policies"
+msgstr "Políticas RBAC"
 
 msgid "RX/TX Factor"
 msgstr "Factor RX/TX"
@@ -6862,6 +6889,9 @@ msgstr "No ha sido posible obtener la consola SPICE de la instancia \"%s\"."
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "No ha sido posible obtener la consola VNC de la instancia \"%s\"."
 
+msgid "Unable to get cinder quota info."
+msgstr "No es posible obtener información de las cuotas de cinder."
+
 msgid "Unable to get cinder services list."
 msgstr "No ha sido posible obtener la lista de servicios de cinder"
 
@@ -6887,6 +6917,12 @@ msgstr "No ha sido posible obtener información de los agentes de red."
 
 msgid "Unable to get network agents list."
 msgstr "No ha sido posible obtener la lista de agentes de red."
+
+msgid "Unable to get neutron quota info."
+msgstr "No es posible obtener información de las cuotas de neutron."
+
+msgid "Unable to get nova quota info."
+msgstr "No es posible obtener información de las cuotas de nova."
 
 msgid "Unable to get nova services list."
 msgstr "No ha sido posible obtener la lista de servicios de nova."
@@ -6966,6 +7002,9 @@ msgstr "No ha sido posible modificar la instancia \"%s\"."
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "No ha sido posible modificar el proyecto \"%s\"."
+
+msgid "Unable to modify quotas of project"
+msgstr "No ha sido posible modificar las cuotas del proyecto"
 
 #, python-format
 msgid "Unable to parse IP address %s."
@@ -7312,6 +7351,9 @@ msgstr "No ha sido posible obtener la información del proyecto."
 
 msgid "Unable to retrieve project list."
 msgstr "No ha sido posible obtener la lista de proyectos."
+
+msgid "Unable to retrieve project quotas."
+msgstr "No es posible obtener las cuotas del proyecto."
 
 msgid "Unable to retrieve protocol list."
 msgstr "No se ha podido recuperar la lista de protocolos."
@@ -8052,6 +8094,9 @@ msgstr "Nombre del volumen"
 
 msgid "Volume Name ="
 msgstr "Nombre de volumen ="
+
+msgid "Volume Quotas"
+msgstr "Cuotas de volumen"
 
 msgid "Volume Snapshot"
 msgstr "Instantánea de volumen"
