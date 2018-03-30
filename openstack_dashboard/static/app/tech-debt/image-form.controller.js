@@ -23,6 +23,7 @@
 
     ctrl.copyFrom = angular.element('#id_image_url').val();
     ctrl.diskFormat = angular.element('#id_disk_format option:selected').val();
+    ctrl.selectTitle = $('#id_disk_format').parents('.themable-select').find('.dropdown-title');
     ctrl.selectImageFormat = function (path) {
       if (!path) {
         return;
@@ -33,8 +34,10 @@
       if ($('#id_disk_format').find('[value=' + format + ']').length !== 0) {
       /* eslint-enable angular/ng_angularelement */
         ctrl.diskFormat = format;
+        ctrl.selectTitle.text($('#id_disk_format').find('[value=' + format + ']').text());
       } else {
         ctrl.diskFormat = "";
+        ctrl.selectTitle.text($('#id_disk_format').find('option').first().text());
       }
     };
   }
