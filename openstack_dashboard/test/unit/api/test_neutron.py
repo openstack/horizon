@@ -27,11 +27,12 @@ from openstack_dashboard.test import helpers as test
 
 
 class NeutronApiTests(test.APIMockTestCase):
-    def test_network_list(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_network_list(self, mock_neutronclient):
         networks = {'networks': self.api_networks.list()}
         subnets = {'subnets': self.api_subnets.list()}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.list_networks.return_value = networks
         neutronclient.list_subnets.return_value = subnets
 
@@ -163,7 +164,8 @@ class NeutronApiTests(test.APIMockTestCase):
                            'foo': 'bar'},
             should_called=['non_shared', 'external'])
 
-    def test_network_get(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_network_get(self, mock_neutronclient):
         network = {'network': self.api_networks.first()}
         subnet = {'subnet': self.api_subnets.first()}
         subnetv6 = {'subnet': self.api_subnets.list()[1]}
@@ -171,7 +173,7 @@ class NeutronApiTests(test.APIMockTestCase):
         subnet_id = self.api_networks.first()['subnets'][0]
         subnetv6_id = self.api_networks.first()['subnets'][1]
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_network.return_value = network
         neutronclient.show_subnet.side_effect = [subnet, subnetv6]
 
@@ -186,12 +188,13 @@ class NeutronApiTests(test.APIMockTestCase):
             mock.call(subnetv6_id),
         ])
 
-    def test_network_get_with_subnet_get_notfound(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_network_get_with_subnet_get_notfound(self, mock_neutronclient):
         network = {'network': self.api_networks.first()}
         network_id = self.api_networks.first()['id']
         subnet_id = self.api_networks.first()['subnets'][0]
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_network.return_value = network
         neutronclient.show_subnet.side_effect = neutron_exc.NotFound
 
@@ -203,11 +206,12 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.show_network.assert_called_once_with(network_id)
         neutronclient.show_subnet.assert_called_once_with(subnet_id)
 
-    def test_network_create(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_network_create(self, mock_neutronclient):
         network = {'network': self.api_networks.first()}
         form_data = {'network': {'name': 'net1',
                                  'tenant_id': self.request.user.project_id}}
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.create_network.return_value = network
 
         ret_val = api.neutron.network_create(self.request, name='net1')
@@ -215,11 +219,12 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val, api.neutron.Network)
         neutronclient.create_network.assert_called_once_with(body=form_data)
 
-    def test_network_update(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_network_update(self, mock_neutronclient):
         network = {'network': self.api_networks.first()}
         network_id = self.api_networks.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         form_data = {'network': {'name': 'net1'}}
         neutronclient.update_network.return_value = network
 
@@ -230,20 +235,22 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.update_network.assert_called_once_with(network_id,
                                                              body=form_data)
 
-    def test_network_delete(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_network_delete(self, mock_neutronclient):
         network_id = self.api_networks.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.delete_network.return_value = None
 
         api.neutron.network_delete(self.request, network_id)
 
         neutronclient.delete_network.assert_called_once_with(network_id)
 
-    def test_get_network_ip_availability(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_get_network_ip_availability(self, mock_neutronclient):
         network = {'network': self.api_networks.first()}
         mock_ip_availability = self.ip_availability.get()
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_network_ip_availability.return_value = \
             mock_ip_availability
 
@@ -254,10 +261,11 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.show_network_ip_availability.assert_called_once_with(
             network)
 
-    def test_subnet_network_ip_availability(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnet_network_ip_availability(self, mock_neutronclient):
         network = {'network': self.api_networks.first()}
         mock_ip_availability = self.ip_availability.get()
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_network_ip_availability.return_value = \
             mock_ip_availability
 
@@ -271,10 +279,11 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.show_network_ip_availability.assert_called_once_with(
             network)
 
-    def test_subnet_list(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnet_list(self, mock_neutronclient):
         subnets = {'subnets': self.api_subnets.list()}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.list_subnets.return_value = subnets
 
         ret_val = api.neutron.subnet_list(self.request)
@@ -283,11 +292,12 @@ class NeutronApiTests(test.APIMockTestCase):
             self.assertIsInstance(n, api.neutron.Subnet)
         neutronclient.list_subnets.assert_called_once_with()
 
-    def test_subnet_get(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnet_get(self, mock_neutronclient):
         subnet = {'subnet': self.api_subnets.first()}
         subnet_id = self.api_subnets.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_subnet.return_value = subnet
 
         ret_val = api.neutron.subnet_get(self.request, subnet_id)
@@ -295,7 +305,8 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val, api.neutron.Subnet)
         neutronclient.show_subnet.assert_called_once_with(subnet_id)
 
-    def test_subnet_create(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnet_create(self, mock_neutronclient):
         subnet_data = self.api_subnets.first()
         params = {'network_id': subnet_data['network_id'],
                   'tenant_id': subnet_data['tenant_id'],
@@ -304,7 +315,7 @@ class NeutronApiTests(test.APIMockTestCase):
                   'ip_version': subnet_data['ip_version'],
                   'gateway_ip': subnet_data['gateway_ip']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.create_subnet.return_value = {'subnet': subnet_data}
 
         ret_val = api.neutron.subnet_create(self.request, **params)
@@ -313,13 +324,14 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.create_subnet.assert_called_once_with(
             body={'subnet': params})
 
-    def test_subnet_update(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnet_update(self, mock_neutronclient):
         subnet_data = self.api_subnets.first()
         subnet_id = subnet_data['id']
         params = {'name': subnet_data['name'],
                   'gateway_ip': subnet_data['gateway_ip']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.update_subnet.return_value = {'subnet': subnet_data}
 
         ret_val = api.neutron.subnet_update(self.request, subnet_id, **params)
@@ -328,20 +340,22 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.update_subnet.assert_called_once_with(
             subnet_id, body={'subnet': params})
 
-    def test_subnet_delete(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnet_delete(self, mock_neutronclient):
         subnet_id = self.api_subnets.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.delete_subnet.return_value = None
 
         api.neutron.subnet_delete(self.request, subnet_id)
 
         neutronclient.delete_subnet.assert_called_once_with(subnet_id)
 
-    def test_subnetpool_list(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnetpool_list(self, mock_neutronclient):
         subnetpools = {'subnetpools': self.api_subnetpools.list()}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.list_subnetpools.return_value = subnetpools
 
         ret_val = api.neutron.subnetpool_list(self.request)
@@ -350,11 +364,12 @@ class NeutronApiTests(test.APIMockTestCase):
             self.assertIsInstance(n, api.neutron.SubnetPool)
         neutronclient.list_subnetpools.assert_called_once_with()
 
-    def test_subnetpool_get(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnetpool_get(self, mock_neutronclient):
         subnetpool = {'subnetpool': self.api_subnetpools.first()}
         subnetpool_id = self.api_subnetpools.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_subnetpool.return_value = subnetpool
 
         ret_val = api.neutron.subnetpool_get(self.request, subnetpool_id)
@@ -362,13 +377,14 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val, api.neutron.SubnetPool)
         neutronclient.show_subnetpool.assert_called_once_with(subnetpool_id)
 
-    def test_subnetpool_create(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnetpool_create(self, mock_neutronclient):
         subnetpool_data = self.api_subnetpools.first()
         params = {'name': subnetpool_data['name'],
                   'prefixes': subnetpool_data['prefixes'],
                   'tenant_id': subnetpool_data['tenant_id']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.create_subnetpool.return_value = {'subnetpool':
                                                         subnetpool_data}
 
@@ -378,13 +394,14 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.create_subnetpool.assert_called_once_with(
             body={'subnetpool': params})
 
-    def test_subnetpool_update(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnetpool_update(self, mock_neutronclient):
         subnetpool_data = self.api_subnetpools.first()
         subnetpool_id = subnetpool_data['id']
         params = {'name': subnetpool_data['name'],
                   'prefixes': subnetpool_data['prefixes']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.update_subnetpool.return_value = {'subnetpool':
                                                         subnetpool_data}
 
@@ -395,20 +412,22 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.update_subnetpool.assert_called_once_with(
             subnetpool_id, body={'subnetpool': params})
 
-    def test_subnetpool_delete(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_subnetpool_delete(self, mock_neutronclient):
         subnetpool_id = self.api_subnetpools.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.delete_subnetpool.return_value = None
 
         api.neutron.subnetpool_delete(self.request, subnetpool_id)
 
         neutronclient.delete_subnetpool.assert_called_once_with(subnetpool_id)
 
-    def test_port_list(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_port_list(self, mock_neutronclient):
         ports = {'ports': self.api_ports.list()}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.list_ports.return_value = ports
 
         ret_val = api.neutron.port_list(self.request)
@@ -418,15 +437,17 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.list_ports.assert_called_once_with()
 
     @mock.patch.object(api.neutron, 'is_extension_supported')
-    def test_port_list_with_trunk_types(self, mock_is_extension_supported):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_port_list_with_trunk_types(
+            self, mock_neutronclient, mock_is_extension_supported):
         ports = self.api_tp_ports.list()
         trunks = self.api_tp_trunks.list()
 
-        # list_extensions is decorated with memoized_with_request,
-        # stub_neutronclient is not called. We need to mock it separately.
+        # list_extensions is decorated with memoized_with_request, so
+        # neutronclient() is not called. We need to mock it separately.
         mock_is_extension_supported.return_value = True  # trunk
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.list_ports.return_value = {'ports': ports}
         neutronclient.list_trunks.return_value = {'trunks': trunks}
 
@@ -460,15 +481,16 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.list_trunks.assert_called_once_with()
 
     @mock.patch.object(api.neutron, 'is_extension_supported')
+    @mock.patch.object(api.neutron, 'neutronclient')
     def test_port_list_with_trunk_types_without_trunk_extension(
-            self, mock_is_extension_supported):
+            self, mock_neutronclient, mock_is_extension_supported):
         ports = self.api_tp_ports.list()
 
         # list_extensions is decorated with memoized_with_request,
         # the simpliest way is to mock it directly.
         mock_is_extension_supported.return_value = False  # trunk
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.list_ports.return_value = {'ports': ports}
 
         ret_val = api.neutron.port_list_with_trunk_types(self.request)
@@ -484,11 +506,12 @@ class NeutronApiTests(test.APIMockTestCase):
             test.IsHttpRequest(), 'trunk')
         neutronclient.list_ports.assert_called_once_with()
 
-    def test_port_get(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_port_get(self, mock_neutronclient):
         port = {'port': self.api_ports.first()}
         port_id = self.api_ports.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_port.return_value = port
 
         ret_val = api.neutron.port_get(self.request, port_id)
@@ -496,14 +519,15 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val, api.neutron.Port)
         neutronclient.show_port.assert_called_once_with(port_id)
 
-    def test_port_create(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_port_create(self, mock_neutronclient):
         port = {'port': self.api_ports.first()}
         params = {'network_id': port['port']['network_id'],
                   'tenant_id': port['port']['tenant_id'],
                   'name': port['port']['name'],
                   'device_id': port['port']['device_id']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.create_port.return_value = port
 
         ret_val = api.neutron.port_create(self.request, **params)
@@ -513,13 +537,14 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.create_port.assert_called_once_with(
             body={'port': params})
 
-    def test_port_update(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_port_update(self, mock_neutronclient):
         port_data = self.api_ports.first()
         port_id = port_data['id']
         params = {'name': port_data['name'],
                   'device_id': port_data['device_id']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.update_port.return_value = {'port': port_data}
 
         ret_val = api.neutron.port_update(self.request, port_id, **params)
@@ -529,19 +554,21 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.update_port.assert_called_once_with(
             port_id, body={'port': params})
 
-    def test_port_delete(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_port_delete(self, mock_neutronclient):
         port_id = self.api_ports.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.delete_port.return_value = None
 
         api.neutron.port_delete(self.request, port_id)
 
         neutronclient.delete_port.assert_called_once_with(port_id)
 
-    def test_trunk_list(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_trunk_list(self, mock_neutronclient):
         trunks = {'trunks': self.api_trunks.list()}
-        neutron_client = self.stub_neutronclient()
+        neutron_client = mock_neutronclient.return_value
         neutron_client.list_trunks.return_value = trunks
 
         ret_val = api.neutron.trunk_list(self.request)
@@ -550,11 +577,12 @@ class NeutronApiTests(test.APIMockTestCase):
             self.assertIsInstance(t, api.neutron.Trunk)
         neutron_client.list_trunks.assert_called_once_with()
 
-    def test_trunk_show(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_trunk_show(self, mock_neutronclient):
         trunk = {'trunk': self.api_trunks.first()}
         trunk_id = self.api_trunks.first()['id']
 
-        neutron_client = self.stub_neutronclient()
+        neutron_client = mock_neutronclient.return_value
         neutron_client.show_trunk.return_value = trunk
 
         ret_val = api.neutron.trunk_show(self.request, trunk_id)
@@ -579,13 +607,14 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertEqual(obj.name_or_id, trunk_dict['name_or_id'])
         self.assertEqual(2, trunk_dict['subport_count'])
 
-    def test_trunk_create(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_trunk_create(self, mock_neutronclient):
         trunk = {'trunk': self.api_trunks.first()}
         params = {'name': trunk['trunk']['name'],
                   'port_id': trunk['trunk']['port_id'],
                   'project_id': trunk['trunk']['project_id']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.create_trunk.return_value = trunk
 
         ret_val = api.neutron.trunk_create(self.request, **params)
@@ -595,17 +624,19 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.create_trunk.assert_called_once_with(
             body={'trunk': params})
 
-    def test_trunk_delete(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_trunk_delete(self, mock_neutronclient):
         trunk_id = self.api_trunks.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.delete_trunk.return_value = None
 
         api.neutron.trunk_delete(self.request, trunk_id)
 
         neutronclient.delete_trunk.assert_called_once_with(trunk_id)
 
-    def test_trunk_update_details(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_trunk_update_details(self, mock_neutronclient):
         trunk_data = self.api_trunks.first()
         trunk_id = trunk_data['id']
         old_trunk = {'name': trunk_data['name'],
@@ -619,7 +650,7 @@ class NeutronApiTests(test.APIMockTestCase):
                      'port_id': trunk_data['port_id'],
                      'admin_state_up': trunk_data['admin_state_up']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.update_trunk.return_value = {'trunk': new_trunk}
 
         ret_val = api.neutron.trunk_update(self.request, trunk_id,
@@ -631,7 +662,8 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.update_trunk.assert_called_once_with(
             trunk_id, body={'trunk': {'name': 'foo'}})
 
-    def test_trunk_update_add_subports(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_trunk_update_add_subports(self, mock_neutronclient):
         trunk_data = self.api_trunks.first()
         trunk_id = trunk_data['id']
         old_trunk = {'name': trunk_data['name'],
@@ -650,7 +682,7 @@ class NeutronApiTests(test.APIMockTestCase):
                           'segmentation_type': 'vlan'}],
                      'admin_state_up': trunk_data['admin_state_up']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.trunk_add_subports.return_value = {'trunk': new_trunk}
 
         ret_val = api.neutron.trunk_update(self.request, trunk_id,
@@ -665,7 +697,8 @@ class NeutronApiTests(test.APIMockTestCase):
                                  'segmentation_type': 'vlan'}]}
         )
 
-    def test_trunk_update_remove_subports(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_trunk_update_remove_subports(self, mock_neutronclient):
         trunk_data = self.api_trunks.first()
         trunk_id = trunk_data['id']
         old_trunk = {'name': trunk_data['name'],
@@ -684,7 +717,7 @@ class NeutronApiTests(test.APIMockTestCase):
                      'sub_ports': [],
                      'admin_state_up': trunk_data['admin_state_up']}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.trunk_remove_subports.return_value = {'trunk': new_trunk}
 
         ret_val = api.neutron.trunk_update(self.request, trunk_id,
@@ -699,10 +732,11 @@ class NeutronApiTests(test.APIMockTestCase):
                                  old_trunk['sub_ports'][0]['port_id']}]}
         )
 
-    def test_router_list(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_router_list(self, mock_neutronclient):
         routers = {'routers': self.api_routers.list()}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.list_routers.return_value = routers
 
         ret_val = api.neutron.router_list(self.request)
@@ -711,11 +745,12 @@ class NeutronApiTests(test.APIMockTestCase):
             self.assertIsInstance(n, api.neutron.Router)
         neutronclient.list_routers.assert_called_once_with()
 
-    def test_router_get(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_router_get(self, mock_neutronclient):
         router = {'router': self.api_routers.first()}
         router_id = self.api_routers.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_router.return_value = router
 
         ret_val = api.neutron.router_get(self.request, router_id)
@@ -723,10 +758,11 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val, api.neutron.Router)
         neutronclient.show_router.assert_called_once_with(router_id)
 
-    def test_router_create(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_router_create(self, mock_neutronclient):
         router = {'router': self.api_routers.first()}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         form_data = {'router': {'name': 'router1',
                                 'tenant_id': self.request.user.project_id}}
         neutronclient.create_router.return_value = router
@@ -736,21 +772,23 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val, api.neutron.Router)
         neutronclient.create_router.assert_called_once_with(body=form_data)
 
-    def test_router_delete(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_router_delete(self, mock_neutronclient):
         router_id = self.api_routers.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.delete_router.return_value = None
 
         api.neutron.router_delete(self.request, router_id)
 
         neutronclient.delete_router.assert_called_once_with(router_id)
 
-    def test_router_add_interface(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_router_add_interface(self, mock_neutronclient):
         subnet_id = self.api_subnets.first()['id']
         router_id = self.api_routers.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         form_data = {'subnet_id': subnet_id}
         neutronclient.add_interface_router.return_value = None
 
@@ -760,11 +798,12 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.add_interface_router.assert_called_once_with(router_id,
                                                                    form_data)
 
-    def test_router_remove_interface(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_router_remove_interface(self, mock_neutronclient):
         router_id = self.api_routers.first()['id']
         fake_port = self.api_ports.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.remove_interface_router.return_value = None
 
         api.neutron.router_remove_interface(
@@ -773,7 +812,7 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.remove_interface_router.assert_called_once_with(
             router_id, {'port_id': fake_port})
 
-    # stub_neutronclient does not work because api.neutron.list_extensions
+    # Mocking neutronclient() does not work because api.neutron.list_extensions
     # is decorated with memoized_with_request, so we need to mock
     # neutronclient.v2_0.client directly.
     @mock.patch('neutronclient.v2_0.client.Client.list_extensions')
@@ -787,11 +826,12 @@ class NeutronApiTests(test.APIMockTestCase):
 
         mock_list_extensions.assert_called_once_with()
 
-    def test_router_static_route_list(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_router_static_route_list(self, mock_neutronclient):
         router = {'router': self.api_routers_with_routes.first()}
         router_id = self.api_routers_with_routes.first()['id']
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_router.return_value = router
 
         ret_val = api.neutron.router_static_route_list(self.request, router_id)
@@ -799,14 +839,15 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val[0], api.neutron.RouterStaticRoute)
         neutronclient.show_router.assert_called_once_with(router_id)
 
-    def test_router_static_route_remove(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_router_static_route_remove(self, mock_neutronclient):
         router = {'router': self.api_routers_with_routes.first()}
         router_id = self.api_routers_with_routes.first()['id']
         post_router = copy.deepcopy(router)
         route = api.neutron.RouterStaticRoute(post_router['router']
                                               ['routes'].pop())
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_router.return_value = router
         neutronclient.update_router.return_value = post_router
 
@@ -818,7 +859,8 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.update_router.assert_called_once_with(
             router_id, body=body)
 
-    def test_router_static_route_add(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_router_static_route_add(self, mock_neutronclient):
         router = {'router': self.api_routers_with_routes.first()}
         router_id = self.api_routers_with_routes.first()['id']
         post_router = copy.deepcopy(router)
@@ -826,7 +868,7 @@ class NeutronApiTests(test.APIMockTestCase):
         post_router['router']['routes'].insert(0, route)
         body = {'router': {'routes': post_router['router']['routes']}}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.show_router.return_value = router
         neutronclient.update_router.return_value = post_router
 
@@ -946,7 +988,8 @@ class NeutronApiTests(test.APIMockTestCase):
     def test_get_router_ha_permission_without_l3_ha_extension(self):
         self._test_get_router_ha_permission_with_policy_check(False)
 
-    def test_list_resources_with_long_filters(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_list_resources_with_long_filters(self, mock_neutronclient):
         # In this tests, port_list is called with id=[10 port ID]
         # filter. It generates about 40*10 char length URI.
         # Each port ID is converted to "id=<UUID>&" in URI and
@@ -962,7 +1005,7 @@ class NeutronApiTests(test.APIMockTestCase):
                  for i in range(10)]
         port_ids = tuple([port['id'] for port in ports])
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         uri_len_exc = neutron_exc.RequestURITooLong(excess=220)
         list_ports_retval = [uri_len_exc]
         for i in range(0, 10, 4):
@@ -981,11 +1024,12 @@ class NeutronApiTests(test.APIMockTestCase):
             expected_calls.append(mock.call(id=tuple(port_ids[i:i + 4])))
         neutronclient.list_ports.assert_has_calls(expected_calls)
 
-    def test_qos_policies_list(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_qos_policies_list(self, mock_neutronclient):
         exp_policies = self.qos_policies.list()
         api_qos_policies = {'policies': self.api_qos_policies.list()}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.list_qos_policies.return_value = api_qos_policies
 
         ret_val = api.neutron.policy_list(self.request)
@@ -995,11 +1039,12 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertEqual(exp_policies[0].name, ret_val[0].name)
         neutronclient.list_qos_policies.assert_called_once_with()
 
-    def test_qos_policy_create(self):
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_qos_policy_create(self, mock_neutronclient):
         qos_policy = self.api_qos_policies.first()
         post_data = {'policy': {'name': qos_policy['name']}}
 
-        neutronclient = self.stub_neutronclient()
+        neutronclient = mock_neutronclient.return_value
         neutronclient.create_qos_policy.return_value = {'policy': qos_policy}
 
         ret_val = api.neutron.policy_create(self.request,
@@ -1014,7 +1059,8 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 
     def setUp(self):
         super(NeutronApiSecurityGroupTests, self).setUp()
-        self.qclient = self.stub_neutronclient()
+        neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
+        self.qclient = neutronclient.return_value
         self.sg_dict = dict([(sg['id'], sg['name']) for sg
                              in self.api_security_groups.list()])
 
@@ -1224,7 +1270,8 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def setUp(self):
         super(NeutronApiFloatingIpTests, self).setUp()
-        self.qclient = self.stub_neutronclient()
+        neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
+        self.qclient = neutronclient.return_value
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_router': True})
     def test_floating_ip_supported(self):
@@ -1395,7 +1442,8 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             'enable_fip_topology_check': True,
         }
     )
-    def test_floating_ip_target_list(self):
+    @mock.patch.object(api.nova, 'novaclient')
+    def test_floating_ip_target_list(self, mock_novaclient):
         ports = self.api_ports.list()
         # Port on the first subnet is connected to a router
         # attached to external network in neutron_data.
@@ -1419,7 +1467,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         filters = {'tenant_id': self.request.user.tenant_id}
         self.qclient.list_ports.return_value = {'ports': ports}
         servers = self.servers.list()
-        novaclient = self.stub_novaclient()
+        novaclient = mock_novaclient.return_value
         ver = mock.Mock(min_version='2.1', version='2.45')
         novaclient.versions.get_current.return_value = ver
         novaclient.servers.list.return_value = servers
@@ -1455,8 +1503,9 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.qclient.list_routers.assert_called_once_with()
         self.qclient.list_subnets.assert_called_once_with()
 
+    @mock.patch.object(api.nova, 'novaclient')
     def _test_target_floating_ip_port_by_instance(self, server, ports,
-                                                  candidates):
+                                                  candidates, mock_novaclient):
         # list_ports and list_networks are called multiple times,
         # we prepare a list for return values.
         list_ports_retvals = []
@@ -1484,7 +1533,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.qclient.list_subnets.side_effect = [{'subnets': shared_subs}]
 
         # _get_server_name()
-        novaclient = self.stub_novaclient()
+        novaclient = mock_novaclient.return_value
         ver = mock.Mock(min_version='2.1', version='2.45')
         novaclient.versions.get_current.return_value = ver
         novaclient.servers.get.return_value = server

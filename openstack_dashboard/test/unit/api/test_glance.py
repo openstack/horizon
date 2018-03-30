@@ -31,14 +31,15 @@ class GlanceApiTests(test.APIMockTestCase):
         api.glance.VERSIONS.clear_active_cache()
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
-    def test_image_list_detailed_no_pagination(self):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_image_list_detailed_no_pagination(self, mock_glanceclient):
         # Verify that all images are returned even with a small page size
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
         filters = {}
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
         mock_images_list.return_value = iter(api_images)
 
@@ -55,7 +56,8 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertFalse(has_prev)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
-    def test_image_list_detailed_sort_options(self):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_image_list_detailed_sort_options(self, mock_glanceclient):
         # Verify that sort_dir and sort_key work
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
@@ -64,7 +66,7 @@ class GlanceApiTests(test.APIMockTestCase):
         sort_dir = 'asc'
         sort_key = 'min_disk'
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
         mock_images_list.return_value = iter(api_images)
 
@@ -83,7 +85,9 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertFalse(has_prev)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
-    def test_image_list_detailed_pagination_more_page_size(self):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_image_list_detailed_pagination_more_page_size(self,
+                                                           mock_glanceclient):
         # The total snapshot count is over page size, should return
         # page_size images.
         filters = {}
@@ -94,7 +98,7 @@ class GlanceApiTests(test.APIMockTestCase):
         expected_images = self.images.list()  # Wrapped Images
         images_iter = iter(api_images)
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
         mock_images_list.return_value = images_iter
 
@@ -121,7 +125,9 @@ class GlanceApiTests(test.APIMockTestCase):
                          len(api_images) - len(expected_images) - 1)
 
     @override_settings(API_RESULT_PAGE_SIZE=20)
-    def test_image_list_detailed_pagination_less_page_size(self):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_image_list_detailed_pagination_less_page_size(self,
+                                                           mock_glanceclient):
         # The total image count is less than page size, should return images
         # more, prev should return False.
         filters = {}
@@ -131,7 +137,7 @@ class GlanceApiTests(test.APIMockTestCase):
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
         mock_images_list.return_value = iter(api_images)
 
@@ -153,7 +159,9 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertFalse(has_prev)
 
     @override_settings(API_RESULT_PAGE_SIZE=9)
-    def test_image_list_detailed_pagination_equal_page_size(self):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_image_list_detailed_pagination_equal_page_size(self,
+                                                            mock_glanceclient):
         # The total image count equals page size, should return
         # page_size images. more, prev should return False
         filters = {}
@@ -163,7 +171,7 @@ class GlanceApiTests(test.APIMockTestCase):
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
         mock_images_list.return_value = iter(api_images)
 
@@ -185,7 +193,8 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertEqual(len(expected_images), len(images))
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
-    def test_image_list_detailed_pagination_marker(self):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_image_list_detailed_pagination_marker(self, mock_glanceclient):
         # Tests getting a second page with a marker.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
@@ -196,7 +205,7 @@ class GlanceApiTests(test.APIMockTestCase):
         expected_images = self.images.list()[page_size:]  # Wrapped Images
         images_iter = iter(api_images)
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
         mock_images_list.return_value = images_iter
 
@@ -222,7 +231,9 @@ class GlanceApiTests(test.APIMockTestCase):
                          len(api_images) - len(expected_images) - 1)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
-    def test_image_list_detailed_pagination_marker_prev(self):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_image_list_detailed_pagination_marker_prev(self,
+                                                        mock_glanceclient):
         # Tests getting previous page with a marker.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
@@ -233,7 +244,7 @@ class GlanceApiTests(test.APIMockTestCase):
         expected_images = self.images.list()[page_size:]  # Wrapped Images
         images_iter = iter(api_images)
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
         mock_images_list.return_value = images_iter
 
@@ -259,8 +270,9 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertEqual(len(list(images_iter)),
                          len(api_images) - len(expected_images) - 1)
 
-    def test_get_image_empty_name(self):
-        glanceclient = self.stub_glanceclient()
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_get_image_empty_name(self, mock_glanceclient):
+        glanceclient = mock_glanceclient.return_value
         mock_images_get = glanceclient.images.get
         mock_images_get.return_value = self.empty_name_image
 
@@ -269,11 +281,12 @@ class GlanceApiTests(test.APIMockTestCase):
         mock_images_get.assert_called_once_with('empty')
         self.assertIsNone(image.name)
 
-    def test_metadefs_namespace_list(self):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_metadefs_namespace_list(self, mock_glanceclient):
         metadata_defs = self.metadata_defs.list()
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_metadefs_list = glanceclient.metadefs_namespace.list
         mock_metadefs_list.return_value = metadata_defs
 
@@ -290,13 +303,15 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertFalse(more)
         self.assertFalse(prev)
 
-    def test_metadefs_namespace_list_with_properties_target(self):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def test_metadefs_namespace_list_with_properties_target(self,
+                                                            mock_glanceclient):
         metadata_defs = self.metadata_defs.list()
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
         filters = {'resource_types': ['OS::Cinder::Volume'],
                    'properties_target': 'user'}
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_metadefs_list = glanceclient.metadefs_namespace.list
         mock_metadefs_list.return_value = metadata_defs
 
@@ -323,7 +338,9 @@ class GlanceApiTests(test.APIMockTestCase):
         res_types = api.glance.metadefs_resource_types_list(self.request)
         self.assertItemsEqual(res_types, [])
 
-    def _test_image_create_external_upload(self, api_version=2):
+    @mock.patch.object(api.glance, 'glanceclient')
+    def _test_image_create_external_upload(self, mock_glanceclient,
+                                           api_version=2):
         expected_image = self.images.first()
         service = base.get_service_from_catalog(self.service_catalog, 'image')
         base_url = base.get_url_for_service(service, 'RegionOne', 'publicURL')
@@ -333,7 +350,7 @@ class GlanceApiTests(test.APIMockTestCase):
             url_template = '%s/v2/images/%s/file'
         upload_url = url_template % (base_url, expected_image.id)
 
-        glanceclient = self.stub_glanceclient()
+        glanceclient = mock_glanceclient.return_value
         mock_image_create = glanceclient.images.create
         mock_image_create.return_value = expected_image
 

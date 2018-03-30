@@ -31,7 +31,8 @@ class RoleAPITests(test.APIMockTestCase):
         self.role = self.roles.member
         self.roles = self.roles.list()
 
-    def test_remove_tenant_user(self):
+    @mock.patch.object(api.keystone, 'keystoneclient')
+    def test_remove_tenant_user(self, mock_keystoneclient):
         """Tests api.keystone.remove_tenant_user
 
         Verifies that remove_tenant_user is called with the right arguments
@@ -40,7 +41,7 @@ class RoleAPITests(test.APIMockTestCase):
         There are no assertions in this test because the checking is handled
         by mox in the VerifyAll() call in tearDown().
         """
-        keystoneclient = self.stub_keystoneclient()
+        keystoneclient = mock_keystoneclient.return_value
         tenant = self.tenants.first()
 
         keystoneclient.roles.roles_for_user.return_value = self.roles
@@ -59,8 +60,9 @@ class RoleAPITests(test.APIMockTestCase):
              for role in self.roles]
         )
 
-    def test_get_default_role(self):
-        keystoneclient = self.stub_keystoneclient()
+    @mock.patch.object(api.keystone, 'keystoneclient')
+    def test_get_default_role(self, mock_keystoneclient):
+        keystoneclient = mock_keystoneclient.return_value
         keystoneclient.roles.list.return_value = self.roles
 
         role = api.keystone.get_default_role(self.request)

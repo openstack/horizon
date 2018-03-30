@@ -615,38 +615,13 @@ class APITestCase(TestCase):
         return self.swiftclient
 
 
-class APIMockTestCase(APITestCase):
+class APIMockTestCase(TestCase):
 
     use_mox = False
 
-    def stub_novaclient(self):
-        if not hasattr(self, "novaclient"):
-            self.novaclient = mock.Mock()
-        return self.novaclient
-
-    def stub_cinderclient(self):
-        if not hasattr(self, "cinderclient"):
-            self.cinderclient = mock.Mock()
-        return self.cinderclient
-
-    def stub_glanceclient(self):
-        if not hasattr(self, "glanceclient"):
-            self.glanceclient = mock.Mock()
-        return self.glanceclient
-
-    def stub_keystoneclient(self):
-        if not hasattr(self, "keystoneclient"):
-            self.keystoneclient = mock.Mock()
-        return self.keystoneclient
-
-    def stub_neutronclient(self):
-        if not hasattr(self, "neutronclient"):
-            self.neutronclient = mock.Mock()
-        return self.neutronclient
-
-    def stub_swiftclient(self):
-        # This method should not be called.
-        raise NotImplementedError
+    def setUp(self):
+        super(APIMockTestCase, self).setUp()
+        utils.patch_middleware_get_user()
 
 
 # Need this to test both Glance API V1 and V2 versions

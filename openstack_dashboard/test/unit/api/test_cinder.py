@@ -16,6 +16,7 @@ from django.conf import settings
 from django.test.utils import override_settings
 
 import cinderclient as cinder_client
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -23,13 +24,14 @@ from openstack_dashboard.test import helpers as test
 
 class CinderApiTests(test.APIMockTestCase):
 
-    def test_volume_list(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_list(self, mock_cinderclient):
         search_opts = {'all_tenants': 1}
         detailed = True
 
         volumes = self.cinder_volumes.list()
         volume_transfers = self.cinder_volume_transfers.list()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         volumes_mock = cinderclient.volumes.list
         volumes_mock.return_value = volumes
@@ -45,12 +47,13 @@ class CinderApiTests(test.APIMockTestCase):
                                                search_opts=search_opts)
         self.assertEqual(len(volumes), len(api_volumes))
 
-    def test_volume_list_paged(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_list_paged(self, mock_cinderclient):
         search_opts = {'all_tenants': 1}
         detailed = True
         volumes = self.cinder_volumes.list()
         volume_transfers = self.cinder_volume_transfers.list()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         volumes_mock = cinderclient.volumes.list
         volumes_mock.return_value = volumes
@@ -70,7 +73,8 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    def test_volume_list_paginate_first_page(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_list_paginate_first_page(self, mock_cinderclient):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -80,7 +84,7 @@ class CinderApiTests(test.APIMockTestCase):
         mock_volumes = volumes[:page_size + 1]
         expected_volumes = mock_volumes[:-1]
 
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         volumes_mock = cinderclient.volumes.list
         volumes_mock.return_value = mock_volumes
@@ -103,7 +107,8 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    def test_volume_list_paginate_second_page(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_list_paginate_second_page(self, mock_cinderclient):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -114,7 +119,7 @@ class CinderApiTests(test.APIMockTestCase):
         expected_volumes = mock_volumes[:-1]
         marker = expected_volumes[0].id
 
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         volumes_mock = cinderclient.volumes.list
         volumes_mock.return_value = mock_volumes
@@ -138,7 +143,8 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    def test_volume_list_paginate_last_page(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_list_paginate_last_page(self, mock_cinderclient):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -149,7 +155,7 @@ class CinderApiTests(test.APIMockTestCase):
         expected_volumes = mock_volumes
         marker = expected_volumes[0].id
 
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         volumes_mock = cinderclient.volumes.list
         volumes_mock.return_value = mock_volumes
@@ -173,7 +179,8 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    def test_volume_list_paginate_back_from_some_page(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_list_paginate_back_from_some_page(self, mock_cinderclient):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -184,7 +191,7 @@ class CinderApiTests(test.APIMockTestCase):
         expected_volumes = mock_volumes[:-1]
         marker = expected_volumes[0].id
 
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         volumes_mock = cinderclient.volumes.list
         volumes_mock.return_value = mock_volumes
@@ -208,7 +215,8 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    def test_volume_list_paginate_back_to_first_page(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_list_paginate_back_to_first_page(self, mock_cinderclient):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -219,7 +227,7 @@ class CinderApiTests(test.APIMockTestCase):
         expected_volumes = mock_volumes
         marker = expected_volumes[0].id
 
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         volumes_mock = cinderclient.volumes.list
         volumes_mock.return_value = mock_volumes
@@ -241,10 +249,11 @@ class CinderApiTests(test.APIMockTestCase):
         self.assertTrue(more_data)
         self.assertFalse(prev_data)
 
-    def test_volume_snapshot_list(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_snapshot_list(self, mock_cinderclient):
         search_opts = {'all_tenants': 1}
         volume_snapshots = self.cinder_volume_snapshots.list()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         snapshots_mock = cinderclient.volume_snapshots.list
         snapshots_mock.return_value = volume_snapshots
@@ -252,7 +261,9 @@ class CinderApiTests(test.APIMockTestCase):
         api.cinder.volume_snapshot_list(self.request, search_opts=search_opts)
         snapshots_mock.assert_called_once_with(search_opts=search_opts)
 
-    def test_volume_snapshot_list_no_volume_configured(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_snapshot_list_no_volume_configured(self,
+                                                       mock_cinderclient):
         # remove volume from service catalog
         catalog = self.service_catalog
         for service in catalog:
@@ -261,7 +272,7 @@ class CinderApiTests(test.APIMockTestCase):
         search_opts = {'all_tenants': 1}
         volume_snapshots = self.cinder_volume_snapshots.list()
 
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         snapshots_mock = cinderclient.volume_snapshots.list
         snapshots_mock.return_value = volume_snapshots
@@ -270,7 +281,8 @@ class CinderApiTests(test.APIMockTestCase):
 
         snapshots_mock.assert_called_once_with(search_opts=search_opts)
 
-    def test_volume_type_list_with_qos_associations(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_type_list_with_qos_associations(self, mock_cinderclient):
         volume_types = self.cinder_volume_types.list()
         # Due to test data limitations, we can only run this test using
         # one qos spec, which is associated with one volume type.
@@ -281,7 +293,7 @@ class CinderApiTests(test.APIMockTestCase):
         qos_specs_only_one = [qos_specs_full[0]]
         associations = self.cinder_qos_spec_associations.list()
 
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         volume_types_mock = cinderclient.volume_types.list
         volume_types_mock.return_value = volume_types
@@ -300,13 +312,14 @@ class CinderApiTests(test.APIMockTestCase):
         qos_associations_mock.assert_called_once_with(qos_specs_only_one[0].id)
         self.assertEqual(associate_spec, qos_specs_only_one[0].name)
 
-    def test_volume_type_get_with_qos_association(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_type_get_with_qos_association(self, mock_cinderclient):
         volume_type = self.cinder_volume_types.first()
         qos_specs_full = self.cinder_qos_specs.list()
         qos_specs_only_one = [qos_specs_full[0]]
         associations = self.cinder_qos_spec_associations.list()
 
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         volume_types_mock = cinderclient.volume_types.get
         volume_types_mock.return_value = volume_type
@@ -327,7 +340,8 @@ class CinderApiTests(test.APIMockTestCase):
         qos_associations_mock.assert_called_once_with(qos_specs_only_one[0].id)
         self.assertEqual(associate_spec, qos_specs_only_one[0].name)
 
-    def test_absolute_limits_with_negative_values(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_absolute_limits_with_negative_values(self, mock_cinderclient):
         values = {"maxTotalVolumes": -1, "totalVolumesUsed": -1}
         expected_results = {"maxTotalVolumes": float("inf"),
                             "totalVolumesUsed": 0}
@@ -343,7 +357,7 @@ class CinderApiTests(test.APIMockTestCase):
 
         fake_limits = [FakeLimit(k, v) for k, v in values.items()]
 
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
         mock_limit = cinderclient.limits.get
         mock_limit.return_value = AbsoluteLimit(fake_limits)
 
@@ -354,9 +368,10 @@ class CinderApiTests(test.APIMockTestCase):
 
         mock_limit.assert_called_once()
 
-    def test_pool_list(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_pool_list(self, mock_cinderclient):
         pools = self.cinder_pools.list()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         cinderclient.pools.list.return_value = pools
 
@@ -364,9 +379,10 @@ class CinderApiTests(test.APIMockTestCase):
 
         cinderclient.pools.list.assert_called_once_with(detailed=True)
 
-    def test_volume_type_default(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_volume_type_default(self, mock_cinderclient):
         volume_type = self.cinder_volume_types.first()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         cinderclient.volume_types.default.return_value = volume_type
 
@@ -374,9 +390,10 @@ class CinderApiTests(test.APIMockTestCase):
         self.assertEqual(default_volume_type, volume_type)
         cinderclient.volume_types.default.assert_called_once()
 
-    def test_cgroup_list(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_cgroup_list(self, mock_cinderclient):
         cgroups = self.cinder_consistencygroups.list()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         mock_cgs = cinderclient.consistencygroups.list
         mock_cgs.return_value = cgroups
@@ -386,9 +403,10 @@ class CinderApiTests(test.APIMockTestCase):
         self.assertEqual(len(cgroups), len(api_cgroups))
         mock_cgs.assert_called_once_with(search_opts=None)
 
-    def test_cgroup_get(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_cgroup_get(self, mock_cinderclient):
         cgroup = self.cinder_consistencygroups.first()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         mock_cg = cinderclient.consistencygroups.get
         mock_cg.return_value = cgroup
@@ -400,10 +418,11 @@ class CinderApiTests(test.APIMockTestCase):
         self.assertEqual(api_cgroup.description, cgroup.description)
         self.assertEqual(api_cgroup.volume_types, cgroup.volume_types)
 
-    def test_cgroup_list_with_vol_type_names(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_cgroup_list_with_vol_type_names(self, mock_cinderclient):
         cgroups = self.cinder_consistencygroups.list()
         volume_types_list = self.cinder_volume_types.list()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         mock_cgs = cinderclient.consistencygroups.list
         mock_cgs.return_value = cgroups
@@ -421,9 +440,10 @@ class CinderApiTests(test.APIMockTestCase):
             self.assertEqual(volume_types_list[i].name,
                              api_cgroups[0].volume_type_names[i])
 
-    def test_cgsnapshot_list(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_cgsnapshot_list(self, mock_cinderclient):
         cgsnapshots = self.cinder_cg_snapshots.list()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         mock_cg_snapshots = cinderclient.cgsnapshots.list
         mock_cg_snapshots.return_value = cgsnapshots
@@ -433,9 +453,10 @@ class CinderApiTests(test.APIMockTestCase):
         mock_cg_snapshots.assert_called_once_with(search_opts=None)
         self.assertEqual(len(cgsnapshots), len(api_cgsnapshots))
 
-    def test_cgsnapshot_get(self):
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_cgsnapshot_get(self, mock_cinderclient):
         cgsnapshot = self.cinder_cg_snapshots.first()
-        cinderclient = self.stub_cinderclient()
+        cinderclient = mock_cinderclient.return_value
 
         mock_cg_snapshot = cinderclient.cgsnapshots.get
         mock_cg_snapshot.return_value = cgsnapshot
