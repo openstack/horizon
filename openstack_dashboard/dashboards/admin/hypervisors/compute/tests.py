@@ -101,7 +101,7 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
                              if service.binary == 'nova-compute'
                              and service.status == 'disabled']
         disabled_service = disabled_services[0]
-        self.mox.ReplayAll()
+
         url = reverse('horizon:admin:hypervisors:compute:migrate_host',
                       args=[disabled_service.host])
         res = self.client.get(url)
