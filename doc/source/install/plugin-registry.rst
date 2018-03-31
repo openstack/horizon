@@ -16,30 +16,18 @@ Plugin Registry
    * - Plugin
      - URL
      - Bug Tracker
-   * - Astara Dashboard
-     - https://github.com/openstack/astara-horizon
-     - https://launchpad.net/astara
    * - BGPVPN Dashboard
      - https://github.com/openstack/networking-bgpvpn
      - https://launchpad.net/bgpvpn
    * - Blazar Dashboard
      - https://github.com/openstack/blazar-dashboard
      - https://launchpad.net/blazar
-   * - Cerberus Dashboard
-     - https://github.com/openstack/cerberus-dashboard
-     - https://launchpad.net/cerberus
-   * - Cisco UI
-     - http://github.com/openstack/horizon-cisco-ui
-     - https://launchpad.net/horizon-cisco-ui
    * - Cloudkitty Dashboard
      - https://github.com/openstack/cloudkitty-dashboard
      - https://launchpad.net/cloudkitty
    * - Congress Dashboard
      - https://github.com/openstack/congress-dashboard
      - https://launchpad.net/congress
-   * - Cue Dashboard
-     - https://github.com/openstack/cue-dashboard
-     - https://launchpad.net/cue-dashboard
    * - Designate Dashboard
      - https://github.com/openstack/designate-dashboard
      - https://launchpad.net/designate-dashboard
@@ -59,10 +47,10 @@ Plugin Registry
      - https://github.com/openstack/karbor-dashboard
      - https://launchpad.net/karbor-dashboard
    * - Magnum UI
-     - http://github.com/openstack/magnum-ui
+     - https://github.com/openstack/magnum-ui
      - https://launchpad.net/magnum-ui
    * - Manila UI
-     - http://github.com/openstack/manila-ui
+     - https://github.com/openstack/manila-ui
      - https://launchpad.net/manila-ui
    * - Mistral Dashboard
      - https://github.com/openstack/mistral-dashboard
@@ -71,8 +59,8 @@ Plugin Registry
      - https://github.com/openstack/monasca-ui
      - https://launchpad.net/monasca
    * - Murano Dashboard
-     - http://github.com/openstack/murano-dashboard
-     - http://launchpad.net/murano
+     - https://github.com/openstack/murano-dashboard
+     - https://launchpad.net/murano
    * - Neutron FWaaS Dashboard
      - https://github.com/openstack/neutron-fwaas-dashboard
      - https://launchpad.net/neutron-fwaas-dashboard
@@ -93,13 +81,10 @@ Plugin Registry
      - https://launchpad.net/searchlight
    * - Senlin Dashboard
      - https://github.com/openstack/senlin-dashboard
-     - http://launchpad.net/senlin-dashboard
+     - https://launchpad.net/senlin-dashboard
    * - Solum Dashboard
      - https://github.com/openstack/solum-dashboard
      - https://launchpad.net/solum
-   * - Sticks Dashboard
-     - https://github.com/openstack/sticks-dashboard
-     - https://wiki.openstack.org/wiki/Sticks
    * - Tacker UI
      - https://github.com/openstack/tacker-horizon
      - https://launchpad.net/tacker
@@ -110,13 +95,13 @@ Plugin Registry
      - https://github.com/openstack/trove-dashboard
      - https://launchpad.net/trove-dashboard
    * - Vitrage Dashboard
-     - http://github.com/openstack/vitrage-dashboard
+     - https://github.com/openstack/vitrage-dashboard
      - https://launchpad.net/vitrage-dashboard
    * - Watcher Dashboard
-     - http://github.com/openstack/watcher-dashboard
+     - https://github.com/openstack/watcher-dashboard
      - https://launchpad.net/watcher-dashboard
    * - Zaqar UI
-     - http://github.com/openstack/zaqar-ui
+     - https://github.com/openstack/zaqar-ui
      - https://launchpad.net/zaqar-ui
    * - Zun UI
      - https://github.com/openstack/zun-ui
