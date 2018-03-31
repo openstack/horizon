@@ -20,8 +20,6 @@ from openstack_dashboard.test import helpers as test
 
 class SwiftRestTestCase(test.TestCase):
 
-    use_mox = False
-
     #
     # Version
     #

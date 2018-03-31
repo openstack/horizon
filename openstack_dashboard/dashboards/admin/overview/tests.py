@@ -38,6 +38,8 @@ INDEX_URL = reverse('horizon:project:overview:index')
 
 class UsageViewTests(test.BaseAdminViewTests):
 
+    use_mox = True
+
     def _stub_api_calls(self, nova_stu_enabled):
         self.mox.StubOutWithMock(api.nova, 'usage_list')
         self.mox.StubOutWithMock(api.nova, 'extension_supported')

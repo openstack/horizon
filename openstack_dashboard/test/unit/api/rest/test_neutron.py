@@ -25,8 +25,6 @@ from openstack_dashboard.usage import quotas
 
 class NeutronNetworksTestCase(test.TestCase):
 
-    use_mox = False
-
     def _dictify_network(self, network):
         net_dict = network.to_dict()
         net_dict['subnets'] = [s.to_dict() for s in net_dict['subnets']]
@@ -112,8 +110,6 @@ class NeutronNetworksTestCase(test.TestCase):
 
 class NeutronSubnetsTestCase(test.TestCase):
 
-    use_mox = False
-
     @mock.patch.object(api.neutron, 'subnet_list')
     def test_get(self, mock_subnet_list):
         network_id = self.networks.first().id
@@ -146,8 +142,6 @@ class NeutronSubnetsTestCase(test.TestCase):
 
 class NeutronPortsTestCase(test.TestCase):
 
-    use_mox = False
-
     @mock.patch.object(api.neutron, 'port_list_with_trunk_types')
     def test_get(self, mock_port_list_with_trunk_types):
         network_id = self.networks.first().id
@@ -161,8 +155,6 @@ class NeutronPortsTestCase(test.TestCase):
 
 
 class NeutronTrunkTestCase(test.TestCase):
-
-    use_mox = False
 
     @mock.patch.object(api.neutron, 'trunk_delete')
     def test_trunk_delete(self, mock_trunk_delete):
@@ -198,8 +190,6 @@ class NeutronTrunkTestCase(test.TestCase):
 
 class NeutronTrunksTestCase(test.TestCase):
 
-    use_mox = False
-
     @mock.patch.object(api.neutron, 'trunk_list')
     def test_trunks_get(self, mock_trunk_list):
         request = self.mock_rest_request(GET=django_request.QueryDict())
@@ -227,8 +217,6 @@ class NeutronTrunksTestCase(test.TestCase):
 
 class NeutronExtensionsTestCase(test.TestCase):
 
-    use_mox = False
-
     @mock.patch.object(api.neutron, 'list_extensions')
     def test_list_extensions(self, mock_list_extensions):
         request = self.mock_rest_request(**{'GET': {}})
@@ -240,8 +228,6 @@ class NeutronExtensionsTestCase(test.TestCase):
 
 
 class NeutronDefaultQuotasTestCase(test.TestCase):
-
-    use_mox = False
 
     @test.create_mocks({api.base: ['is_service_enabled'],
                         api.neutron: ['tenant_quota_get']})
@@ -282,8 +268,6 @@ class NeutronDefaultQuotasTestCase(test.TestCase):
 
 
 class NeutronQuotaSetsTestCase(test.TestCase):
-
-    use_mox = False
 
     @test.create_mocks({api.base: ['is_service_enabled'],
                         api.neutron: ['is_extension_supported',

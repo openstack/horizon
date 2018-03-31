@@ -36,8 +36,6 @@ from openstack_dashboard.test import helpers as test
 
 class ServerWrapperTests(test.TestCase):
 
-    use_mox = False
-
     def test_get_base_attribute(self):
         server = api.nova.Server(self.servers.first(), self.request)
         self.assertEqual(self.servers.first().id, server.id)

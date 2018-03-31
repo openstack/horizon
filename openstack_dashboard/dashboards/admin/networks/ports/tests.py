@@ -31,6 +31,8 @@ NETWORKS_DETAIL_URL = 'horizon:admin:networks:detail'
 
 class NetworkPortTests(test.BaseAdminViewTests):
 
+    use_mox = True
+
     @test.create_stubs({api.neutron: ('network_get',
                                       'port_get',
                                       'is_extension_supported',)})

@@ -84,8 +84,6 @@ class RouterMixin(object):
 
 class RouterTestCase(object):
 
-    use_mox = False
-
     @test.create_mocks({api.neutron: ('router_list',
                                       'network_list',
                                       'is_extension_supported'),
@@ -297,8 +295,6 @@ class RouterActionTests(test.TestCase):
     DASHBOARD = 'project'
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
-
-    use_mox = False
 
     @test.create_mocks({api.neutron: ('router_create',
                                       'get_feature_permission',
@@ -1050,8 +1046,6 @@ class RouterActionTests(test.TestCase):
 
 class RouterRouteTestCase(object):
 
-    use_mox = False
-
     @test.create_mocks({api.neutron: ('router_get',
                                       'port_list',
                                       'network_get',
@@ -1164,8 +1158,6 @@ class RouterRouteTests(RouterMixin, RouterRouteTestCase, test.TestCase):
 class RouterViewTests(RouterMixin, test.TestCase):
     DASHBOARD = 'project'
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
-
-    use_mox = False
 
     @test.create_mocks({api.neutron: ('router_list',
                                       'network_list',

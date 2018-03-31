@@ -20,8 +20,6 @@ from openstack_dashboard.test import helpers as test
 
 class RestNetworkApiSecurityGroupTests(test.TestCase):
 
-    use_mox = False
-
     @test.create_mocks({api.neutron: ['security_group_list']})
     def test_security_group_detailed(self):
         request = self.mock_rest_request()
@@ -37,8 +35,6 @@ class RestNetworkApiSecurityGroupTests(test.TestCase):
 
 
 class RestNetworkApiFloatingIpTests(test.TestCase):
-
-    use_mox = False
 
     @test.create_mocks({api.neutron: ['tenant_floating_ip_list']})
     def test_floating_ip_list(self):

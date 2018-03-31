@@ -20,8 +20,6 @@ from openstack_dashboard.test import helpers as test
 
 class PolicyRestTestCase(test.TestCase):
 
-    use_mox = False
-
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def _test_policy(self, body, expected=True):
         request = self.mock_rest_request(body=body)

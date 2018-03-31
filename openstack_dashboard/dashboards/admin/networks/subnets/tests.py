@@ -32,6 +32,8 @@ NETWORKS_DETAIL_URL = 'horizon:admin:networks:detail'
 
 class NetworkSubnetTests(test.BaseAdminViewTests):
 
+    use_mox = True
+
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_get',
                                       'is_extension_supported')})

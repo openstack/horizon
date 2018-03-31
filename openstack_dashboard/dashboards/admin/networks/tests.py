@@ -31,6 +31,9 @@ INDEX_URL = reverse('horizon:admin:networks:index')
 
 
 class NetworkTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     @test.create_stubs({api.neutron: ('network_list',
                                       'list_dhcp_agent_hosting_networks',
                                       'is_extension_supported'),

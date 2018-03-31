@@ -261,11 +261,6 @@ class TestCase(horizon_helpers.TestCase):
     # boolean variable to store failures
     missing_mocks = False
 
-    # Most openstack_dashbaord tests depends on mox,
-    # we mark use_mox to True by default.
-    # Eventually we can drop this when mock migration has good progress.
-    use_mox = True
-
     def fake_conn_request(self):
         # print a stacktrace to illustrate where the unmocked API call
         # is being made from
@@ -493,8 +488,16 @@ class APITestCase(TestCase):
     For use with tests which deal with the underlying clients rather than
     stubbing out the openstack_dashboard.api.* methods.
     """
+
+    # NOTE: This test class depends on mox but does not declare use_mox = True
+    # to notify mox is no longer recommended.
+    # If a consumer would like to use this class, declare use_mox = True.
+
     def setUp(self):
         super(APITestCase, self).setUp()
+        LOG.warning("APITestCase has been deprecated in favor of mock usage "
+                    "and will be removed at the beginning of 'Stein' release. "
+                    "Please convert your to use APIMockTestCase instead.")
         utils.patch_middleware_get_user()
 
         def fake_keystoneclient(request, admin=False):
@@ -547,7 +550,7 @@ class APITestCase(TestCase):
         )
 
     def stub_novaclient(self):
-        self._warn_client('nova', 'S')
+        self._warn_client('nova', 'Stein')
         if not hasattr(self, "novaclient"):
             self.mox.StubOutWithMock(nova_client, 'Client')
             # mock the api_version since MockObject.__init__ ignores it.
@@ -562,14 +565,14 @@ class APITestCase(TestCase):
         return self.novaclient
 
     def stub_cinderclient(self):
-        self._warn_client('cinder', 'S')
+        self._warn_client('cinder', 'Stein')
         if not hasattr(self, "cinderclient"):
             self.mox.StubOutWithMock(cinder_client, 'Client')
             self.cinderclient = self.mox.CreateMock(cinder_client.Client)
         return self.cinderclient
 
     def stub_keystoneclient(self):
-        self._warn_client('keystone', 'S')
+        self._warn_client('keystone', 'Stein')
         if not hasattr(self, "keystoneclient"):
             self.mox.StubOutWithMock(keystone_client, 'Client')
             # NOTE(saschpe): Mock properties, MockObject.__init__ ignores them:
@@ -583,21 +586,21 @@ class APITestCase(TestCase):
         return self.keystoneclient
 
     def stub_glanceclient(self):
-        self._warn_client('glance', 'S')
+        self._warn_client('glance', 'Stein')
         if not hasattr(self, "glanceclient"):
             self.mox.StubOutWithMock(glanceclient, 'Client')
             self.glanceclient = self.mox.CreateMock(glanceclient.Client)
         return self.glanceclient
 
     def stub_neutronclient(self):
-        self._warn_client('neutron', 'S')
+        self._warn_client('neutron', 'Stein')
         if not hasattr(self, "neutronclient"):
             self.mox.StubOutWithMock(neutron_client, 'Client')
             self.neutronclient = self.mox.CreateMock(neutron_client.Client)
         return self.neutronclient
 
     def stub_swiftclient(self, expected_calls=1):
-        self._warn_client('swift', 'S')
+        self._warn_client('swift', 'Stein')
         if not hasattr(self, "swiftclient"):
             self.mox.StubOutWithMock(swift_client, 'Connection')
             self.swiftclient = self.mox.CreateMock(swift_client.Connection)
@@ -616,8 +619,6 @@ class APITestCase(TestCase):
 
 
 class APIMockTestCase(TestCase):
-
-    use_mox = False
 
     def setUp(self):
         super(APIMockTestCase, self).setUp()
