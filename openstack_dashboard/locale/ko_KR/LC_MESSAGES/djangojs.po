@@ -20,12 +20,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-20 22:05+0000\n"
+"POT-Creation-Date: 2018-03-31 02:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-20 09:30+0000\n"
-"Last-Translator: Jaewook Oh <kyle.oh95@gmail.com>\n"
+"PO-Revision-Date: 2018-04-01 04:55+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -291,6 +291,9 @@ msgid ""
 "to instances."
 msgstr "관리자는 인스턴스에 연결하여 사용할 floating IP 풀을 설정합니다."
 
+msgid "Affinity"
+msgstr "Affinity"
+
 msgid "Alerts"
 msgstr "Alerts"
 
@@ -395,6 +398,9 @@ msgstr "Animated"
 
 msgid "Another action"
 msgstr "Another action"
+
+msgid "Anti Affinity"
+msgstr "Anti Affinity"
 
 msgid "Any Availability Zone"
 msgstr "Any Availability Zone"
@@ -557,6 +563,10 @@ msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "역활 삭제 확인"
 
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "서버 그룹 삭제 확인"
+
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
 msgstr[0] "Trunk 삭제 확인"
@@ -657,6 +667,9 @@ msgstr "새로운 볼륨 생성"
 
 msgid "Create Role"
 msgstr "역할 생성"
+
+msgid "Create Server Group"
+msgstr "서버 그룹 생성"
 
 msgid "Create Subnet"
 msgstr "서브넷 생성"
@@ -825,6 +838,13 @@ msgstr "역할 삭제"
 msgid "Delete Router"
 msgstr "라우터 삭제"
 
+msgid "Delete Server Group"
+msgid_plural "Delete Server Groups"
+msgstr[0] "서버 그룹 삭제"
+
+msgid "Delete Server Groups"
+msgstr "서버 그룹 삭제"
+
 msgid "Delete Subnet"
 msgstr "서브넷 삭제"
 
@@ -867,6 +887,11 @@ msgstr[0] "삭제된 키 페어: %s."
 msgid "Deleted Role: %s."
 msgid_plural "Deleted Roles: %s."
 msgstr[0] "역할 삭제됨: %s"
+
+#, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "서버 그룹 삭제됨 : %s."
 
 #, python-format
 msgid "Deleted Trunk: %s."
@@ -1381,6 +1406,9 @@ msgstr ""
 msgid "Instance"
 msgstr "인스턴스"
 
+msgid "Instance ID"
+msgstr "인스턴스 ID"
+
 msgid "Instance Name"
 msgstr "인스턴스 이름"
 
@@ -1834,6 +1862,10 @@ msgstr "OVA - 오픈 가상 어플라이언스 (Open Virtual Appliance)"
 
 msgid "Object"
 msgstr "Object"
+
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "오브잭트 %(path)s 를 복사하였습니다."
 
 msgid "Object Count"
 msgstr "오브젝트 카운트"
@@ -2326,6 +2358,13 @@ msgstr "초대장 보내기"
 msgid "Separated link"
 msgstr "Separated link"
 
+msgid "Server Group"
+msgstr "서버 그룹"
+
+#, python-format
+msgid "Server Group %s was successfully created."
+msgstr "서버 그룹 %s 를 성공적으로 생성하였습니다."
+
 msgid "Server Groups"
 msgstr "서버 그룹"
 
@@ -2381,6 +2420,12 @@ msgstr "Small input"
 
 msgid "Snapshot"
 msgstr "스냅샷"
+
+msgid "Soft Affinity"
+msgstr "Soft Affinity"
+
+msgid "Soft Anti Affinity"
+msgstr "Soft Anti Affinity"
 
 msgid "Someone famous in"
 msgstr "Someone famous in"
@@ -2882,6 +2927,9 @@ msgstr "프로젝트를 생성하지 못했습니다."
 msgid "Unable to create the role."
 msgstr "역할을 생성하지 못했습니다."
 
+msgid "Unable to create the server group."
+msgstr "서버 그룹을 생성할 수 없습니다."
+
 msgid "Unable to create the server snapshot."
 msgstr "서버 스냅샷을 생성할 수 없습니다."
 
@@ -2919,6 +2967,11 @@ msgstr[0] "키 페어를 삭제할 수 없습니다: %s."
 msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "역할을 삭제할 수 없습니다: %s"
+
+#, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "서버 그룹을 삭제할 수 없습니다: %s."
 
 #, python-format
 msgid "Unable to delete Trunk: %s."
@@ -2974,6 +3027,10 @@ msgstr "역할을 삭제하지 못했습니다."
 
 msgid "Unable to delete the roles."
 msgstr "역할을 삭제하지 못했습니다."
+
+#, python-format
+msgid "Unable to delete the server group with id %(id)s"
+msgstr "id %(id)s 인 서버 그룹을 삭제할 수 없습니다."
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
@@ -3216,6 +3273,9 @@ msgstr "역할들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the security groups."
 msgstr "보안 그룹들을 찾지 못했습니다."
+
+msgid "Unable to retrieve the server group."
+msgstr "서버 그룹을 검색할 수 없습니다."
 
 msgid "Unable to retrieve the server."
 msgstr "서버를 찾지 못했습니다."
@@ -3625,6 +3685,16 @@ msgstr ""
 "    \"커스텀 스크립트\"는 다른 시스템에서 \"사용자 데이터\"와 유사합니다."
 
 msgid ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
+msgstr ""
+"대상 오브젝트 필드에 '/'를 사용하여 폴더를 지정할 수 있습니다.\n"
+"          예를 들어, 'folder1' 폴더 아래에 객체를 복사하려면 'folder1/[your "
+"object name]'과 같이 대상 오프젝트를 지정해야 합니다."
+
+msgid ""
 "You can specify scheduler hints by moving items from the left column to the "
 "right column. In the left column there are scheduler hint definitions from "
 "the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
@@ -3633,6 +3703,12 @@ msgstr ""
 "왼쪽 열에서 오른쪽 열로 이동하여 스케줄러 힌트를 지정할 수 있습니다. 왼쪽 열"
 "에는 Glance 메타데이터 카탈로그로부터의 스케줄러 힌트 정의가 존재합니다. \"사"
 "용자 정의\" 옵션을 사용하여 선택한 키에 스케줄러 힌트를 추가할 수 있습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] "\"%s\" 를 선택하셨습니다. 서버 그룹을 삭제하면 되돌릴 수 없습니다."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."

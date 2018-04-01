@@ -18,16 +18,17 @@
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-29 05:31+0000\n"
+"POT-Creation-Date: 2018-03-31 02:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-20 09:26+0000\n"
-"Last-Translator: Jaewook Oh <kyle.oh95@gmail.com>\n"
+"PO-Revision-Date: 2018-04-01 04:36+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -867,6 +868,9 @@ msgstr "인스턴스 %s에 대한 콘솔을 가져올 수 없습니다."
 msgid "Cannot specify both file and direct input."
 msgstr "파일 및 직접 입력은 모두 지정할 수 없습니다."
 
+msgid "Center Topology"
+msgstr "Center 토폴로지"
+
 msgid "Centralized"
 msgstr "중앙 집중"
 
@@ -1019,6 +1023,9 @@ msgstr "Compute"
 
 msgid "Compute Host"
 msgstr "Compute 호스트"
+
+msgid "Compute Quotas"
+msgstr "Compute 할당량"
 
 msgid "Compute Services"
 msgstr "Compute 서비스"
@@ -2160,6 +2167,9 @@ msgstr "네임스페이스 공용/보호 속성 편집"
 msgid "Edit QoS Spec Consumer"
 msgstr "QoS 스펙 사용자 편집"
 
+msgid "Edit Quotas"
+msgstr "할당량 편집"
+
 msgid "Edit Router"
 msgstr "라우터 편집"
 
@@ -2852,6 +2862,14 @@ msgstr "여기에서 유동 IP를 특정 프로젝트에 할당 가능합니다.
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "여기서 볼륨 스냅샷을 생성할 수 있습니다."
+
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr ""
+"이 항목에서 당신은 기본 최대치 Compute 할당량 값을 업데이트 할 수 있습니다."
+
+msgid "From here you can update the default volume quotas (max limits)."
+msgstr ""
+"이 항목에서 당신은 기본 최대치 볼륨 할당량 값을 업데이트 할 수 있습니다."
 
 msgid "GB"
 msgstr "GB"
@@ -3760,6 +3778,9 @@ msgstr "인스턴스 \"%s\" 수정합니다."
 msgid "Modified project \"%s\"."
 msgstr "프로젝트 \"%s\" 수정하였습니다."
 
+msgid "Modified quotas of project"
+msgstr "프로젝트에 대한 할당량 수정"
+
 #, python-format
 msgid "Modified volume type access: %s"
 msgstr "수정 된 볼륨 유형 접근: %s"
@@ -3895,6 +3916,9 @@ msgstr "네트워크 QoS"
 
 msgid "Network QoS Policies"
 msgstr "네트워크 QoS 정책"
+
+msgid "Network Quotas"
+msgstr "네트워크 할당량"
 
 msgid "Network Topology"
 msgstr "네트워크 토폴로지"
@@ -4610,6 +4634,9 @@ msgstr "RAM (사용중)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(사용: %(avail)s, 요청: %(req)s)"
+
+msgid "RBAC Policies"
+msgstr "RBAC 정책"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 요인"
@@ -6588,6 +6615,9 @@ msgstr "인스턴스 \"%s\" SPICE 콘솔을 가져올 수 없습니다."
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "인스턴스 \"%s\"의 VNC 콘솔을 사용할 수 없습니다."
 
+msgid "Unable to get cinder quota info."
+msgstr "Cinder 할당량 정보를 얻을 수 없습니다."
+
 msgid "Unable to get cinder services list."
 msgstr "Cinder 서비스 목록을 가져올 수 없습니다."
 
@@ -6613,6 +6643,12 @@ msgstr "네트워크 에이전트 정보를 가져올 수 없습니다."
 
 msgid "Unable to get network agents list."
 msgstr "네트워크 에이전트 목록을 불러올 수 없습니다."
+
+msgid "Unable to get neutron quota info."
+msgstr "Neutron 할당량 정보를 얻을 수 없습니다."
+
+msgid "Unable to get nova quota info."
+msgstr "Nova 할당량 정보를 얻을 수 없습니다."
 
 msgid "Unable to get nova services list."
 msgstr "Nova 서비스 목록을 가져올 수 없습니다"
@@ -6690,6 +6726,9 @@ msgstr "인스턴스 \"%s\"를 수정할 수 없습니다."
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "프로젝트 \"%s\"를 수정할 수 없습니다."
+
+msgid "Unable to modify quotas of project"
+msgstr "프로젝트에 대한 할당량을 수정하지 못하였습니다."
 
 #, python-format
 msgid "Unable to parse IP address %s."
@@ -7024,6 +7063,9 @@ msgstr "프로젝트 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve project list."
 msgstr "프로젝트 리스트를 찾지 못했습니다."
+
+msgid "Unable to retrieve project quotas."
+msgstr "프로젝트 할당량을 회수하지 못하였습니다."
 
 msgid "Unable to retrieve protocol list."
 msgstr "프로토콜 목록을 찾지 못했습니다."
@@ -7739,6 +7781,9 @@ msgstr "볼륨 이름"
 
 msgid "Volume Name ="
 msgstr "Volume Name ="
+
+msgid "Volume Quotas"
+msgstr "볼륨 할당량"
 
 msgid "Volume Snapshot"
 msgstr "볼륨 스냅샷"
