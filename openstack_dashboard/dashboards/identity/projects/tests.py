@@ -1318,7 +1318,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
 
 @tag('selenium')
-class SeleniumTests(test.SeleniumAdminTestCase):
+class SeleniumTests(test.SeleniumAdminTestCase, test.TestCase):
     @test.create_mocks({api.keystone: ('get_default_domain',
                                        'get_default_role',
                                        'user_list',

@@ -1,0 +1,5 @@
+# selenium tests
+firefox [selenium]
+xvfb [selenium platform:dpkg]
+# already part of xorg-x11-server on openSUSE
+xorg-x11-server-Xvfb [selenium platform:redhat]

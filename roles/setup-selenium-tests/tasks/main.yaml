@@ -1,0 +1,13 @@
+---
+- name: download the Gecko WebDriver
+  get_url:
+    url: "{{ geckodriver_url }}"
+    dest: "/tmp/geckodriver.package"
+
+- name: extract the Gecko WebDriver
+  become: true
+  unarchive:
+    src: "/tmp/geckodriver.package"
+    dest: "/usr/local/bin"
+    remote_src: yes
+

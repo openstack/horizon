@@ -134,6 +134,7 @@ settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
 # image form. If set to 'off', there will be no file form field on the create
 # image form. See documentation for deployment considerations.
 HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
+IMAGES_ALLOW_LOCATION = True
 
 AVAILABLE_REGIONS = [
     ('http://localhost:5000/v3', 'local'),

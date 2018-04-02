@@ -1,0 +1,7 @@
+---
+- hosts: all
+  roles:
+    - role: bindep
+      bindep_profile: selenium
+      become: true
+    - setup-selenium-tests

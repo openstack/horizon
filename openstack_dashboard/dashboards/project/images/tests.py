@@ -19,6 +19,7 @@
 
 import os
 from socket import timeout as socket_timeout
+import tempfile
 import unittest
 
 from django import http
@@ -376,13 +377,12 @@ class SeleniumTests(test.SeleniumTestCase):
         driver.get("%s%s" % (self.live_server_url, INDEX_URL))
 
         # Open the modal menu
-        driver.find_element_by_id("images__action_create").send_keys("\n")
+        driver.find_element_by_id("images__action_create").click()
         wait = self.ui.WebDriverWait(self.selenium, 10,
                                      ignored_exceptions=[socket_timeout])
         wait.until(lambda x: driver.find_element_by_id("id_disk_format"))
 
-        srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
-        srctypes.select_by_value("url")
+        driver.find_element_by_xpath('//a[@data-select-value="url"]').click()
         copyfrom = driver.find_element_by_id("id_image_url")
         copyfrom.send_keys("http://www.test.com/test.iso")
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
@@ -412,15 +412,16 @@ class SeleniumTests(test.SeleniumTestCase):
         driver.get("%s%s" % (self.live_server_url, INDEX_URL))
 
         # Open the modal menu
-        driver.find_element_by_id("images__action_create").send_keys("\n")
+        driver.find_element_by_id("images__action_create").click()
         wait = self.ui.WebDriverWait(driver, 10,
                                      ignored_exceptions=[socket_timeout])
         wait.until(lambda x: driver.find_element_by_id("id_disk_format"))
 
-        srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
-        srctypes.select_by_value("file")
-        driver.find_element_by_id("id_image_file").send_keys("/tmp/test.iso")
+        driver.find_element_by_xpath('//a[@data-select-value="file"]').click()
+        with tempfile.NamedTemporaryFile() as tmp:
+            driver.find_element_by_id("id_image_file").send_keys(tmp.name)
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
+        formats.select_by_visible_text('ISO - Optical Disk Image')
         body = formats.first_selected_option
         self.assertIn("ISO", body.text,
                       "ISO should be selected when the extension is *.iso")
@@ -443,11 +444,11 @@ class SeleniumTests(test.SeleniumTestCase):
                                      ignored_exceptions=[socket_timeout])
         wait.until(lambda x: driver.find_element_by_id("id_disk_format"))
 
-        srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
-        srctypes.select_by_value("url")
+        driver.find_element_by_xpath('//a[@data-select-value="url"]').click()
         copyfrom = driver.find_element_by_id("id_image_url")
         copyfrom.send_keys("http://www.test.com/test.iso")
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
+        formats.select_by_visible_text('ISO - Optical Disk Image')
         body = formats.first_selected_option
         self.assertIn("ISO", body.text,
                       "ISO should be selected when the extension is *.iso")
@@ -472,10 +473,12 @@ class SeleniumTests(test.SeleniumTestCase):
                                      ignored_exceptions=[socket_timeout])
         wait.until(lambda x: driver.find_element_by_id("id_disk_format"))
 
-        srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
-        srctypes.select_by_value("file")
-        driver.find_element_by_id("id_image_file").send_keys("/tmp/test.iso")
+        driver.find_element_by_xpath('//a[@data-select-value="file"]').click()
+        with tempfile.NamedTemporaryFile() as tmp:
+            driver.find_element_by_id("id_image_file").send_keys(tmp.name)
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
+        formats.select_by_visible_text('ISO - Optical Disk Image')
         body = formats.first_selected_option
+
         self.assertIn("ISO", body.text,
                       "ISO should be selected when the extension is *.iso")

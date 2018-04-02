@@ -993,11 +993,11 @@ class SeleniumTests(test.SeleniumAdminTestCase):
 
         if api.keystone.VERSIONS.active >= 3:
             api.keystone.tenant_list(
-                IgnoreArg(), domain=None).AndReturn(
+                IgnoreArg(), False).AndReturn(
                 [self.tenants.list(), False])
         else:
             api.keystone.tenant_list(
-                IgnoreArg(), user=None).AndReturn(
+                IgnoreArg(), False).AndReturn(
                 [self.tenants.list(), False])
 
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
@@ -1011,8 +1011,7 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         self.selenium.get("%s%s" % (self.live_server_url, USERS_INDEX_URL))
 
         # Open the modal menu
-        self.selenium.find_element_by_id("users__action_create") \
-                     .send_keys("\n")
+        self.selenium.find_element_by_id("users__action_create").click()
         wait = self.ui.WebDriverWait(self.selenium, 10,
                                      ignored_exceptions=[socket_timeout])
         wait.until(lambda x: self.selenium.find_element_by_id("id_name"))
@@ -1033,7 +1032,7 @@ class SeleniumTests(test.SeleniumAdminTestCase):
     @test.create_stubs({api.keystone: ('user_get',)})
     def test_update_user_with_passwords_not_matching(self):
         api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(self.user)
+                              admin=False).AndReturn(self.user)
         self.mox.ReplayAll()
 
         self.selenium.get("%s%s" % (self.live_server_url,
