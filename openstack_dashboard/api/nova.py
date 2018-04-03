@@ -626,9 +626,12 @@ def server_reboot(request, instance_id, soft_reboot=False):
 
 @profiler.trace
 def server_rebuild(request, instance_id, image_id, password=None,
-                   disk_config=None):
-    return novaclient(request).servers.rebuild(instance_id, image_id,
-                                               password, disk_config)
+                   disk_config=None, description=None):
+    kwargs = {}
+    if description:
+        kwargs['description'] = description
+    return get_novaclient_with_instance_desc(request).servers.rebuild(
+        instance_id, image_id, password, disk_config, **kwargs)
 
 
 @profiler.trace

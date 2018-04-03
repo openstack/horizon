@@ -1778,7 +1778,7 @@ class InstanceTests(InstanceTestBase):
             helpers.IsHttpRequest(), server.id)
 
     instance_update_get_stubs = {
-        api.nova: ('server_get',),
+        api.nova: ('server_get', 'is_feature_available'),
         api.neutron: ('security_group_list',
                       'server_security_groups',)}
 
@@ -1789,6 +1789,7 @@ class InstanceTests(InstanceTestBase):
         self.mock_server_get.return_value = server
         self.mock_security_group_list.return_value = []
         self.mock_server_security_groups.return_value = []
+        self.mock_is_feature_available.return_value = False
 
         url = reverse('horizon:project:instances:update', args=[server.id])
         res = self.client.get(url)
@@ -1799,6 +1800,9 @@ class InstanceTests(InstanceTestBase):
             helpers.IsHttpRequest(), server.id)
         self.mock_security_group_list(helpers.IsHttpRequest(), tenant_id=None)
         self.mock_server_security_groups(helpers.IsHttpRequest(), server.id)
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
 
     @helpers.create_mocks(instance_update_get_stubs)
     def test_instance_update_get_server_get_exception(self):
@@ -1825,7 +1829,7 @@ class InstanceTests(InstanceTestBase):
         return self.client.post(url, formData)
 
     instance_update_post_stubs = {
-        api.nova: ('server_get', 'server_update'),
+        api.nova: ('server_get', 'server_update', 'is_feature_available'),
         api.neutron: ('security_group_list',
                       'server_security_groups',
                       'server_update_security_groups')}
@@ -1839,6 +1843,7 @@ class InstanceTests(InstanceTestBase):
         wanted_groups = [secgroups[1].id, secgroups[2].id]
 
         self.mock_server_get.return_value = server
+        self.mock_is_feature_available.return_value = False
         self.mock_security_group_list.return_value = secgroups
         self.mock_server_security_groups.return_value = server_groups
         self.mock_server_update.return_value = server
@@ -1855,15 +1860,54 @@ class InstanceTests(InstanceTestBase):
         self.mock_server_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_server_update.assert_called_once_with(
-            helpers.IsHttpRequest(), server.id, server.name)
+            helpers.IsHttpRequest(), server.id, server.name, description=None)
         self.mock_server_update_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, wanted_groups)
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
+
+    @helpers.create_mocks(instance_update_post_stubs)
+    def test_instance_update_post_with_desc(self):
+        server = self.servers.first()
+        secgroups = self.security_groups.list()[:3]
+
+        server_groups = [secgroups[0], secgroups[1]]
+        test_description = 'test description'
+
+        self.mock_server_get.return_value = server
+        self.mock_is_feature_available.return_value = True
+        self.mock_security_group_list.return_value = secgroups
+        self.mock_server_security_groups.return_value = server_groups
+        self.mock_server_update.return_value = server
+
+        formData = {'name': server.name,
+                    'description': test_description}
+        url = reverse('horizon:project:instances:update',
+                      args=[server.id])
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_server_get.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
+        self.mock_security_group_list.assert_called_once_with(
+            helpers.IsHttpRequest(), tenant_id=None)
+        self.mock_server_security_groups.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
+        self.mock_server_update.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id, server.name,
+            description=test_description)
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
 
     @helpers.create_mocks(instance_update_post_stubs)
     def test_instance_update_post_api_exception(self):
         server = self.servers.first()
 
         self.mock_server_get.return_value = server
+        self.mock_is_feature_available.return_value = False
         self.mock_security_group_list.return_value = []
         self.mock_server_security_groups.return_value = []
         self.mock_server_update.side_effect = self.exceptions.nova
@@ -1879,15 +1923,19 @@ class InstanceTests(InstanceTestBase):
         self.mock_server_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_server_update.assert_called_once_with(
-            helpers.IsHttpRequest(), server.id, server.name)
+            helpers.IsHttpRequest(), server.id, server.name, description=None)
         self.mock_server_update_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, [])
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
 
     @helpers.create_mocks(instance_update_post_stubs)
     def test_instance_update_post_secgroup_api_exception(self):
         server = self.servers.first()
 
         self.mock_server_get.return_value = server
+        self.mock_is_feature_available.return_value = False
         self.mock_security_group_list.return_value = []
         self.mock_server_security_groups.return_value = []
         self.mock_server_update.return_value = server
@@ -1904,9 +1952,12 @@ class InstanceTests(InstanceTestBase):
         self.mock_server_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_server_update.assert_called_once_with(
-            helpers.IsHttpRequest(), server.id, server.name)
+            helpers.IsHttpRequest(), server.id, server.name, description=None)
         self.mock_server_update_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, [])
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
 
 
 class InstanceLaunchInstanceTests(InstanceTestBase,
@@ -4316,12 +4367,15 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             helpers.IsHttpRequest(), server.id, flavor.id, 'AUTO')
 
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
-                           api.nova: ('extension_supported',
+                           api.nova: ('server_get',
+                                      'extension_supported',
                                       'is_feature_available',)})
     def test_rebuild_instance_get(self, expect_password_fields=True):
         server = self.servers.first()
         self._mock_glance_image_list_detailed(self.images.list())
         self.mock_extension_supported.return_value = True
+        self.mock_is_feature_available.return_value = False
+        self.mock_server_get.return_value = server
 
         url = reverse('horizon:project:instances:rebuild', args=[server.id])
         res = self.client.get(url)
@@ -4334,9 +4388,14 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         else:
             self.assertNotContains(res, password_field_label)
 
+        self.mock_server_get.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=3)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
 
     @django.test.utils.override_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
@@ -4358,7 +4417,8 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         return self.client.post(url, form_data)
 
     instance_rebuild_post_stubs = {
-        api.nova: ('server_rebuild',
+        api.nova: ('server_get',
+                   'server_rebuild',
                    'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',)}
@@ -4369,9 +4429,11 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         image = self.images.first()
         password = u'testpass'
 
+        self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
         self.mock_extension_supported.return_value = True
         self.mock_server_rebuild.return_value = []
+        self.mock_is_feature_available.return_value = False
 
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=password,
@@ -4380,20 +4442,28 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+        self.mock_server_get.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=3)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
-            helpers.IsHttpRequest(), server.id, image.id, password, 'AUTO')
+            helpers.IsHttpRequest(), server.id, image.id, password, 'AUTO',
+            description=None)
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
 
     @helpers.create_mocks(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_with_password_equals_none(self):
         server = self.servers.first()
         image = self.images.first()
 
+        self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
         self.mock_extension_supported.return_value = True
         self.mock_server_rebuild.side_effect = self.exceptions.nova
+        self.mock_is_feature_available.return_value = False
 
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=None,
@@ -4401,11 +4471,17 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                           disk_config='AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+        self.mock_server_get.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=3)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
-            helpers.IsHttpRequest(), server.id, image.id, None, 'AUTO')
+            helpers.IsHttpRequest(), server.id, image.id, None, 'AUTO',
+            description=None)
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
 
     @helpers.create_mocks(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_password_do_not_match(self):
@@ -4414,8 +4490,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         pass1 = u'somepass'
         pass2 = u'notsomepass'
 
+        self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
         self.mock_extension_supported.return_value = True
+        self.mock_is_feature_available.return_value = False
 
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=pass1,
@@ -4431,19 +4509,26 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         else:
             image_list_count = 3
             ext_count = 1
+        self.mock_server_get.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=image_list_count)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_extension_supported, ext_count,
             mock.call('DiskConfig', helpers.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_feature_available, 2,
+            mock.call(helpers.IsHttpRequest(), 'instance_description'))
 
     @helpers.create_mocks(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_with_empty_string(self):
         server = self.servers.first()
         image = self.images.first()
 
+        self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
         self.mock_extension_supported.return_value = True
         self.mock_server_rebuild.return_value = []
+        self.mock_is_feature_available.return_value = False
 
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=u'',
@@ -4452,11 +4537,50 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+        self.mock_server_get.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=3)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
-            helpers.IsHttpRequest(), server.id, image.id, None, 'AUTO')
+            helpers.IsHttpRequest(), server.id, image.id, None, 'AUTO',
+            description=None)
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
+
+    @helpers.create_mocks(instance_rebuild_post_stubs)
+    def test_rebuild_instance_post_with_desc(self):
+        server = self.servers.first()
+        image = self.images.first()
+        test_description = 'test description'
+
+        self.mock_server_get.return_value = server
+        self._mock_glance_image_list_detailed(self.images.list())
+        self.mock_extension_supported.return_value = True
+        self.mock_server_rebuild.return_value = []
+        self.mock_is_feature_available.return_value = True
+
+        form_data = {'instance_id': server.id,
+                     'image': image.id,
+                     'description': test_description}
+        url = reverse('horizon:project:instances:rebuild',
+                      args=[server.id])
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_server_get.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
+        self._check_glance_image_list_detailed(count=3)
+        self.mock_extension_supported.assert_called_once_with(
+            'DiskConfig', helpers.IsHttpRequest())
+        self.mock_server_rebuild.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id, image.id, None, '',
+            description=test_description)
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
 
     @helpers.create_mocks(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_api_exception(self):
@@ -4464,9 +4588,11 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         image = self.images.first()
         password = u'testpass'
 
+        self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
         self.mock_extension_supported.return_value = True
         self.mock_server_rebuild.side_effect = self.exceptions.nova
+        self.mock_is_feature_available.return_value = False
 
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=password,
@@ -4474,11 +4600,17 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                           disk_config='AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+        self.mock_server_get.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=3)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
-            helpers.IsHttpRequest(), server.id, image.id, password, 'AUTO')
+            helpers.IsHttpRequest(), server.id, image.id, password, 'AUTO',
+            description=None)
+        self.mock_is_feature_available.assert_called_once_with(
+            helpers.IsHttpRequest(), "instance_description"
+        )
 
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
     @helpers.create_mocks({
