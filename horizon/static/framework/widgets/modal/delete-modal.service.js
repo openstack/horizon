@@ -71,6 +71,7 @@
      * @param {function} context.deleteEntity
      * The function that should be called to delete each entity.
      * The first argument is the id of the Entity to delete.
+     * The second argument is the Entity itself.
      * Note: This callback might need to suppress errors on the
      * alert service.
      *
@@ -100,7 +101,7 @@
       }
 
       function deleteEntityPromise(entity) {
-        return {promise: context.deleteEntity(entity.id), context: entity};
+        return {promise: context.deleteEntity(entity.id, entity), context: entity};
       }
 
       function notify(result) {
