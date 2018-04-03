@@ -205,10 +205,4 @@
   #selected_network {
     @include common_box_list_selected("NIC");
   }
-  #selected_rule {
-    @include common_box_list_selected("rule");
-  }
-  #selected_router {
-    @include common_box_list_selected("router");
-  }
 }
