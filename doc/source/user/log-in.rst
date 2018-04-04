@@ -71,6 +71,8 @@ model, you can also select the domain from this menu.
 
 From the :guilabel:`Project` tab, you can access the following categories:
 
+* :guilabel:`API Access`: View API endpoints.
+
 Compute tab
 -----------
 
