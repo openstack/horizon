@@ -25,6 +25,8 @@ from django.utils.translation import ugettext_lazy as _
 import six
 import six.moves.urllib.parse as urlparse
 
+from keystoneauth1 import session
+from keystoneauth1 import token_endpoint
 from keystoneclient import exceptions as keystone_exceptions
 
 from openstack_auth import backend
@@ -154,7 +156,7 @@ def keystoneclient(request, admin=False):
     The client is cached so that subsequent API calls during the same
     request/response cycle don't have to be re-authenticated.
     """
-    api_version = VERSIONS.get_active_version()
+    client_version = VERSIONS.get_active_version()
     user = request.user
     token_id = user.token.id
 
@@ -184,19 +186,27 @@ def keystoneclient(request, admin=False):
         conn = getattr(request, cache_attr)
     else:
         endpoint = _get_endpoint_url(request, endpoint_type)
-        insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+        verify = not getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
         cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+        verify = verify and cacert
         LOG.debug("Creating a new keystoneclient connection to %s.", endpoint)
         remote_addr = request.environ.get('REMOTE_ADDR', '')
-        conn = api_version['client'].Client(token=token_id,
-                                            endpoint=endpoint,
-                                            original_ip=remote_addr,
-                                            insecure=insecure,
-                                            cacert=cacert,
-                                            auth_url=endpoint,
-                                            debug=settings.DEBUG)
+        token_auth = token_endpoint.Token(endpoint=endpoint,
+                                          token=token_id)
+        keystone_session = session.Session(auth=token_auth,
+                                           original_ip=remote_addr,
+                                           verify=verify)
+        conn = client_version['client'].Client(session=keystone_session,
+                                               debug=settings.DEBUG)
         setattr(request, cache_attr, conn)
     return conn
+
+
+@profiler.trace
+def get_identity_api_version(request):
+    client = keystoneclient(request)
+    endpoint_data = client.session.get_endpoint_data(service_type='identity')
+    return endpoint_data.api_version
 
 
 @profiler.trace

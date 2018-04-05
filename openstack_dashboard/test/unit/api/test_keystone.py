@@ -104,3 +104,16 @@ class ServiceAPITests(test.APIMockTestCase):
         self.assertEqual("http://public.nova2.example.com:8774/v2",
                          service.public_url)
         self.assertEqual("int.nova2.example.com", service.host)
+
+
+class APIVersionTests(test.APIMockTestCase):
+    @mock.patch.object(api.keystone, 'keystoneclient')
+    def test_get_identity_api_version(self, mock_keystoneclient):
+        keystoneclient = mock_keystoneclient.return_value
+        endpoint_data = mock.Mock()
+        endpoint_data.api_version = (3, 10)
+        keystoneclient.session.get_endpoint_data.return_value = endpoint_data
+        api_version = api.keystone.get_identity_api_version(self.request)
+        keystoneclient.session.get_endpoint_data.assert_called_once_with(
+            service_type='identity')
+        self.assertEqual((3, 10), api_version)
