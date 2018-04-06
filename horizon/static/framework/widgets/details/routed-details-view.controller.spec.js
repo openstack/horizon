@@ -18,7 +18,7 @@
   'use strict';
 
   describe('RoutedDetailsViewController', function() {
-    var ctrl, deferred, $timeout, $q, actionResultService;
+    var ctrl, deferred, $timeout, $q, actionResultService, navigationsService;
 
     beforeEach(module('horizon.framework.widgets.details'));
     beforeEach(inject(function($injector, $controller, _$q_, _$timeout_) {
@@ -32,7 +32,8 @@
             load: function() { return deferred.promise; },
             parsePath: function() { return 'my-context'; },
             itemName: function() { return 'A name'; },
-            initActions: angular.noop
+            initActions: angular.noop,
+            getDefaultIndexUrl: function() { return '/project/images/'; }
           };
         },
         getDefaultDetailsTemplateUrl: angular.noop
@@ -42,9 +43,15 @@
         getIdsOfType: function() { return []; }
       };
 
+      navigationsService = {
+        expandNavigationByUrl: function() { return ['Project', 'Compute', 'Images']; },
+        setBreadcrumb: angular.noop
+      };
+
       ctrl = $controller("RoutedDetailsViewController", {
         'horizon.framework.conf.resource-type-registry.service': service,
         'horizon.framework.util.actions.action-result.service': actionResultService,
+        'horizon.framework.util.navigations.service': navigationsService,
         'horizon.framework.widgets.modal-wait-spinner.service': {
           showModalSpinner: angular.noop,
           hideModalSpinner: angular.noop

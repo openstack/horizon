@@ -139,6 +139,10 @@
       self.summaryTemplateUrl = false;
       self.setSummaryTemplateUrl = setSummaryTemplateUrl;
 
+      self.defaultIndexUrl = false;
+      self.setDefaultIndexUrl = setDefaultIndexUrl;
+      self.getDefaultIndexUrl = getDefaultIndexUrl;
+
       // Function declarations
 
       /*
@@ -501,6 +505,35 @@
       function setSummaryTemplateUrl(url) {
         self.summaryTemplateUrl = url;
         return self;
+      }
+
+      /**
+       * @ngdoc function
+       * @name setDefaultIndexUrl
+       * @param url
+       * @description
+       * This sets the defaultIndexUrl property on the resourceType.
+       *
+       * That URL points to a index view that shows table view for the
+       * resource type. The defaultIndexUrl will be used when details view
+       * should redirect to index view (e.g. after deletion of the resource
+       * itself) or should reset navigations (e.g. after refreshing details
+       * view by browser).
+       */
+      function setDefaultIndexUrl(url) {
+        self.defaultIndexUrl = url;
+        return self;
+      }
+
+      /**
+       * @ngdoc function
+       * @name setDefaultIndexUrl
+       * @param url
+       * @description
+       * This returns the defaultIndexUrl property on the resourceType.
+       */
+      function getDefaultIndexUrl() {
+        return self.defaultIndexUrl;
       }
 
       /**
