@@ -12,8 +12,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import mock
 
+from openstack_dashboard import api
 from openstack_dashboard.api.rest import network
 from openstack_dashboard.test import helpers as test
 
@@ -22,87 +22,86 @@ class RestNetworkApiSecurityGroupTests(test.TestCase):
 
     use_mox = False
 
-    @mock.patch.object(network.api, 'neutron')
-    def test_security_group_detailed(self, client):
+    @test.create_mocks({api.neutron: ['security_group_list']})
+    def test_security_group_detailed(self):
         request = self.mock_rest_request()
-        client.security_group_list.return_value = [
-            mock.Mock(**{'to_dict.return_value': {'name': 'default'}}),
-        ]
+        self.mock_security_group_list.return_value = \
+            self.security_groups.list()
 
         response = network.SecurityGroups().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
-                         {"items": [{"name": "default"}]})
-        client.security_group_list.assert_called_once_with(request)
+                         {"items": [sg.to_dict() for sg
+                                    in self.security_groups.list()]})
+        self.mock_security_group_list.assert_called_once_with(request)
 
 
 class RestNetworkApiFloatingIpTests(test.TestCase):
 
     use_mox = False
 
-    @mock.patch.object(network.api, 'neutron')
-    def test_floating_ip_list(self, client):
+    @test.create_mocks({api.neutron: ['tenant_floating_ip_list']})
+    def test_floating_ip_list(self):
         request = self.mock_rest_request()
-        client.tenant_floating_ip_list.return_value = ([
-            mock.Mock(**{'to_dict.return_value': {'ip': '1.2.3.4'}}),
-            mock.Mock(**{'to_dict.return_value': {'ip': '2.3.4.5'}})
-        ])
+        self.mock_tenant_floating_ip_list.return_value = \
+            self.floating_ips.list()
 
         response = network.FloatingIPs().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
-                         {'items': [{'ip': '1.2.3.4'}, {'ip': '2.3.4.5'}]})
-        client.tenant_floating_ip_list.assert_called_once_with(request)
+                         {'items': [fip.to_dict() for fip
+                                    in self.floating_ips.list()]})
+        self.mock_tenant_floating_ip_list.assert_called_once_with(request)
 
-    @mock.patch.object(network.api, 'neutron')
-    def test_floating_ip_pool_list(self, client):
+    @test.create_mocks({api.neutron: ['floating_ip_pools_list']})
+    def test_floating_ip_pool_list(self):
+        pools = [api.neutron.FloatingIpPool(n)
+                 for n in self.api_networks.list()
+                 if n['router:external']]
         request = self.mock_rest_request()
-        client.floating_ip_pools_list.return_value = ([
-            mock.Mock(**{'to_dict.return_value': {'name': '1'}}),
-            mock.Mock(**{'to_dict.return_value': {'name': '2'}})
-        ])
+        self.mock_floating_ip_pools_list.return_value = pools
 
         response = network.FloatingIPPools().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
-                         {'items': [{'name': '1'}, {'name': '2'}]})
-        client.floating_ip_pools_list.assert_called_once_with(request)
+                         {'items': [p.to_dict() for p in pools]})
+        self.mock_floating_ip_pools_list.assert_called_once_with(request)
 
-    @mock.patch.object(network.api, 'neutron')
-    def test_allocate_floating_ip(self, client):
+    @test.create_mocks({api.neutron: ['tenant_floating_ip_allocate']})
+    def test_allocate_floating_ip(self):
         request = self.mock_rest_request(
             body='{"pool_id": "pool"}'
         )
-        client.tenant_floating_ip_allocate.return_value = (
-            mock.Mock(**{'to_dict.return_value': {'ip': '1.2.3.4'}})
-        )
+        fip = self.floating_ips.first()
+        self.mock_tenant_floating_ip_allocate.return_value = fip
 
         response = network.FloatingIP().post(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.json,
-                         {'ip': '1.2.3.4'})
-        client.tenant_floating_ip_allocate.assert_called_once_with(request,
-                                                                   'pool')
+        self.assertEqual(response.json, fip.to_dict())
+        self.mock_tenant_floating_ip_allocate.assert_called_once_with(request,
+                                                                      'pool')
 
-    @mock.patch.object(network.api, 'neutron')
-    def test_associate_floating_ip(self, client):
+    @test.create_mocks({api.neutron: ['floating_ip_associate']})
+    def test_associate_floating_ip(self):
+        self.mock_floating_ip_associate.return_value = None
         request = self.mock_rest_request(
             body='{"address_id": "address", "port_id": "port"}'
         )
 
         response = network.FloatingIP().patch(request)
         self.assertStatusCode(response, 204)
-        client.floating_ip_associate.assert_called_once_with(request,
-                                                             'address',
-                                                             'port')
+        self.mock_floating_ip_associate.assert_called_once_with(request,
+                                                                'address',
+                                                                'port')
 
-    @mock.patch.object(network.api, 'neutron')
-    def test_disassociate_floating_ip(self, client):
+    @test.create_mocks({api.neutron: ['floating_ip_disassociate']})
+    def test_disassociate_floating_ip(self):
+        self.mock_floating_ip_disassociate.return_value = None
         request = self.mock_rest_request(
             body='{"address_id": "address"}'
         )
 
         response = network.FloatingIP().patch(request)
         self.assertStatusCode(response, 204)
-        client.floating_ip_disassociate.assert_called_once_with(request,
-                                                                'address')
+        self.mock_floating_ip_disassociate.assert_called_once_with(request,
+                                                                   'address')
