@@ -117,8 +117,8 @@
 
       $scope.$apply();
 
-      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('1');
-      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('2');
+      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('1', {name: 'entity1', id: '1'});
+      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('2', {name: 'entity2', id: '2'});
       expect(toastService.add).toHaveBeenCalledWith('success', 'Deleted : entity1, entity2.');
       expect($scope.$emit).toHaveBeenCalledWith('custom_delete_event_passed', [ '1', '2' ]);
     });
@@ -134,7 +134,7 @@
 
       $scope.$apply();
 
-      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('bad');
+      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('bad', {name: 'entity1', id: 'bad'});
       expect(toastService.add).toHaveBeenCalledWith('error', 'Unable to delete: entity1.');
       expect($scope.$emit).toHaveBeenCalledWith('custom_delete_event_failed', ['bad']);
     });
@@ -153,8 +153,8 @@
 
       $scope.$apply();
 
-      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('bad');
-      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('1');
+      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('bad', {name: 'bad_entity', id: 'bad'});
+      expect(entityAPI.deleteEntity).toHaveBeenCalledWith('1', {name: 'entity2', id: '1'});
       expect(toastService.add).toHaveBeenCalledWith('success', 'Deleted : entity2.');
       expect(toastService.add).toHaveBeenCalledWith('error', 'Unable to delete: bad_entity.');
       expect($scope.$emit).toHaveBeenCalledWith('custom_delete_event_passed', ['1']);
