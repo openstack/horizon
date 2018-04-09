@@ -162,7 +162,7 @@ limitations under the License.
                 title="{$ ::expandDetailsText $}"></span>
         </td>
         <td class="rsp-p1 word-break">{$ ::item.name $}</td>
-        <td class="rsp-p1">
+        <td class="rsp-p1" colspan="5">
           <div style="max-width: 200px;">
             Hardware details for your instance can be found in our <a target='blank' href='https://www.chameleoncloud.org/hardware/'>resource discovery interface.</a>
           </div>
@@ -173,24 +173,24 @@ limitations under the License.
           popover-trigger="mouseenter mouseleave"/>
           {$ ::item.vcpus $} -->
         </td>
-        <td class="rsp-p1">--
-          <!--<span class="invalid fa fa-exclamation-triangle"
+        <!--<td class="rsp-p1">-
+          <span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.ram"
             popover="{$ item.errors.ram $}"
             popover-placement="top" popover-append-to-body="true"
             popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.ram | mb $} -->
+          {$ ::item.ram | mb $}
         </td>
         <td class="rsp-p1">{$ ::item.totalDisk | gb $}</td>
         <td class="rsp-p2">--
-          <!-- <span class="invalid fa fa-exclamation-triangle"
+          <span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.disk"
             popover="{$ item.errors.disk $}"
             popover-placement="top" popover-append-to-body="true"
             popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.rootDisk | gb $} -->
+          {$ ::item.rootDisk | gb $}
         </td>
-        <td class="rsp-p2">{$ ::item.ephemeralDisk | gb $}</td>
+        <td class="rsp-p2">{$ ::item.ephemeralDisk | gb $}</td> -->
         <td class="rsp-p1">{$ ::item.isPublic | yesno $}</td>
         <td class="action-col">
           <action-list button-tooltip="item.disabledMessage"
