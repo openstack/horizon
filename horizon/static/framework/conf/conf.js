@@ -20,5 +20,8 @@
     .value('horizon.framework.conf.toastOptions', {
       'delay': 3000,
       'dimissible': ['alert-success', 'alert-info']
+    })
+    .value('horizon.framework.conf.tableOptions', {
+      'pageSize': 20
     });
 })();

@@ -1,0 +1,13 @@
+<span ng-if="pages.length > 1">
+  <span class="spacer">|</span>
+  <span ng-hide="currentPage === 1">
+    <a ng-click="selectPage(currentPage - 1)">
+      &laquo;&nbsp;<translate>Prev</translate>
+    </a>
+  </span>
+  <span ng-hide="currentPage === numPages">
+    <a ng-click="selectPage(currentPage + 1)">
+      <translate>Next</translate>&nbsp;&raquo;
+    </a>
+  </span>
+</span>
