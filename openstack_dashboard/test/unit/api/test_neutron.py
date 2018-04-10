@@ -365,7 +365,8 @@ class NeutronApiTests(test.APITestCase):
                   'prefixes': subnetpool_data['prefixes']}
 
         neutronclient = self.stub_neutronclient()
-        neutronclient.update_subnetpool(subnetpool_id, body={'subnetpool': params})\
+        neutronclient.update_subnetpool(subnetpool_id,
+                                        body={'subnetpool': params})\
             .AndReturn({'subnetpool': subnetpool_data})
         self.mox.ReplayAll()
 

@@ -36,7 +36,8 @@ class RouterMixin(object):
     })
     def _get_detail(self, router, extraroute=True, lookup_l3=False,
                     support_l3_agent=True):
-        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'extraroute')\
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'extraroute')\
             .MultipleTimes().AndReturn(extraroute)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            "router_availability_zone")\
@@ -53,7 +54,8 @@ class RouterMixin(object):
         self._mock_external_network_get(router)
         if lookup_l3 and support_l3_agent:
             agent = self.agents.list()[1]
-            api.neutron.list_l3_agent_hosting_router(IsA(http.HttpRequest), router.id)\
+            api.neutron.list_l3_agent_hosting_router(IsA(http.HttpRequest),
+                                                     router.id)\
                 .AndReturn([agent])
         self.mox.ReplayAll()
 
@@ -896,7 +898,8 @@ class RouterRouteTests(RouterMixin, test.TestCase):
         pre_router = self.routers_with_routes.first()
         post_router = copy.deepcopy(pre_router)
         route = post_router['routes'].pop()
-        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'extraroute')\
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'extraroute')\
             .MultipleTimes().AndReturn(True)
         api.neutron.router_get(IsA(http.HttpRequest),
                                pre_router.id).AndReturn(pre_router)

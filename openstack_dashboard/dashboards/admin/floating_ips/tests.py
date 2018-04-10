@@ -36,7 +36,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         tenants = self.tenants.list()
         api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True).AndReturn(fips)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts={'all_tenants': True}) \
+        api.nova.server_list(IsA(http.HttpRequest),
+                             search_opts={'all_tenants': True}) \
             .AndReturn([servers, False])
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
@@ -196,7 +197,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         tenants = self.tenants.list()
         api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True).AndReturn(fips)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts={'all_tenants': True}) \
+        api.nova.server_list(IsA(http.HttpRequest),
+                             search_opts={'all_tenants': True}) \
             .AndReturn([servers, False])
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
@@ -226,7 +228,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         tenants = self.tenants.list()
         api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True).AndReturn(fips)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts={'all_tenants': True}) \
+        api.nova.server_list(IsA(http.HttpRequest),
+                             search_opts={'all_tenants': True}) \
             .AndReturn([servers, False])
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
@@ -254,7 +257,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         tenants = self.tenants.list()
         api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True).AndReturn(fips)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts={'all_tenants': True}) \
+        api.nova.server_list(IsA(http.HttpRequest),
+                             search_opts={'all_tenants': True}) \
             .AndReturn([servers, False])
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
