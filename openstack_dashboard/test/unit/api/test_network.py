@@ -26,7 +26,8 @@ from openstack_dashboard.test import helpers as test
 class NetworkApiNeutronTests(test.APIMockTestCase):
     def setUp(self):
         super(NetworkApiNeutronTests, self).setUp()
-        self.qclient = self.stub_neutronclient()
+        neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
+        self.qclient = neutronclient.return_value
 
     def _get_expected_addresses(self, server, no_fip_expected=True):
         server_ports = self.ports.filter(device_id=server.id)
