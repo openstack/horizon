@@ -117,8 +117,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             AndReturn([self.servers.list(), False])
         api.nova.server_get(IsA(http.HttpRequest),
                             server.id).AndReturn(server)
-        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
-            AndReturn(self.cinder_limits['absolute'])
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         res = self.client.get(urlunquote(url))

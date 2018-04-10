@@ -153,5 +153,6 @@ class BaseWebObject(unittest.TestCase):
                 pass
 
     def wait_till_spinner_disappears(self):
-        getter = lambda: self.driver.find_element(*self._spinner_locator)
+        def getter():
+            return self.driver.find_element(*self._spinner_locator)
         self.wait_till_element_disappears(getter)

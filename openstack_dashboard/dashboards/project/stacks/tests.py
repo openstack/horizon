@@ -388,7 +388,7 @@ class StackTests(test.TestCase):
         }
         api.heat.template_validate(IsA(http.HttpRequest),
                                    files={},
-                                   template=hc_format.parse(template['data'])) \
+                                   template=hc_format.parse(template['data']))\
            .AndReturn(template['validate'])
 
         self.mox.ReplayAll()
@@ -475,7 +475,7 @@ class StackTests(test.TestCase):
         }
         api.heat.template_validate(IsA(http.HttpRequest),
                                    files={},
-                                   template=hc_format.parse(template['data'])) \
+                                   template=hc_format.parse(template['data']))\
            .AndReturn(template['validate'])
 
         self.mox.ReplayAll()
@@ -550,7 +550,7 @@ class StackTests(test.TestCase):
 
         api.heat.template_validate(IsA(http.HttpRequest),
                                    files={},
-                                   template=hc_format.parse(template['data'])) \
+                                   template=hc_format.parse(template['data']))\
            .AndReturn(template['validate'])
 
         api.heat.stack_create(IsA(http.HttpRequest),

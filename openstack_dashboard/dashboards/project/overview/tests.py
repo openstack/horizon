@@ -52,10 +52,12 @@ class UsageViewTests(test.TestCase):
             .AndReturn(nova_stu_enabled)
 
         if tenant_limits_exception:
-            api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True)\
+            api.nova.tenant_absolute_limits(IsA(http.HttpRequest),
+                                            reserved=True) \
                 .AndRaise(tenant_limits_exception)
         else:
-            api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+            api.nova.tenant_absolute_limits(IsA(http.HttpRequest),
+                                            reserved=True) \
                 .AndReturn(self.limits['absolute'])
 
         if nova_stu_enabled:

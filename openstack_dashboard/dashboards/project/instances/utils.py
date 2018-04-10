@@ -52,7 +52,8 @@ def sort_flavor_list(request, flavors):
         sort_key = flavor_sort.get('key', 'ram')
         rev = flavor_sort.get('reverse', False)
         if not callable(sort_key):
-            key = lambda flavor: get_key(flavor, sort_key)
+            def key(flavor):
+                return get_key(flavor, sort_key)
         else:
             key = sort_key
         flavor_list = [(flavor.id, '%s' % flavor.name)

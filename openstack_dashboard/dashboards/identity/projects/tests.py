@@ -1071,7 +1071,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self._check_role_list(keystone_api_version, role_assignments, groups,
                               proj_users, roles, workflow_data)
 
-        quotas.tenant_quota_usages(IsA(http.HttpRequest), tenant_id=project.id) \
+        quotas.tenant_quota_usages(IsA(http.HttpRequest),
+                                   tenant_id=project.id) \
             .AndReturn(quota_usages)
 
         nova_updated_quota = {key: updated_quota[key] for key in
@@ -1230,7 +1231,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         updated_quota = self._get_quota_info(quota)
 
         # handle
-        quotas.tenant_quota_usages(IsA(http.HttpRequest), tenant_id=project.id) \
+        quotas.tenant_quota_usages(IsA(http.HttpRequest),
+                                   tenant_id=project.id) \
             .AndReturn(quota_usages)
 
         api.keystone.get_effective_domain_id(
@@ -1362,7 +1364,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self._check_role_list(keystone_api_version, role_assignments, groups,
                               proj_users, roles, workflow_data)
 
-        quotas.tenant_quota_usages(IsA(http.HttpRequest), tenant_id=project.id) \
+        quotas.tenant_quota_usages(IsA(http.HttpRequest),
+                                   tenant_id=project.id) \
             .AndReturn(quota_usages)
 
         nova_updated_quota = {key: updated_quota[key] for key in
@@ -1475,7 +1478,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         updated_quota = self._get_quota_info(quota)
 
         # handle
-        quotas.tenant_quota_usages(IsA(http.HttpRequest), tenant_id=project.id) \
+        quotas.tenant_quota_usages(IsA(http.HttpRequest),
+                                   tenant_id=project.id) \
             .AndReturn(quota_usages)
 
         api.keystone.get_effective_domain_id(
