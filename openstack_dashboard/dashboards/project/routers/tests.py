@@ -533,7 +533,7 @@ class RouterActionTests(test.TestCase):
         self.mock_network_list.assert_called_once_with(
             test.IsHttpRequest(), **{'router:external': True})
         self.mock_is_extension_supported.assert_called_once_with(
-            test.IsHttpRequest(),  "router_availability_zone")
+            test.IsHttpRequest(), "router_availability_zone")
         self.mock_router_create.assert_called_once_with(
             test.IsHttpRequest(), name=router.name, admin_state_up=False)
 

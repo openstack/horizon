@@ -307,7 +307,7 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
             self.exceptions.glance,
             [shared_images, False, False],
             [private_images, False, False]
-            ]
+        ]
         images_cache = {}
         ret = utils.get_available_images(self.request, self.tenant.id,
                                          images_cache)

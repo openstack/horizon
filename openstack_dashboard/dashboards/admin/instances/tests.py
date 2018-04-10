@@ -50,7 +50,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_extension_supported.assert_has_calls([
             mock.call('AdminActions', test.IsHttpRequest()),
             mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())]*4)
+            mock.call('Shelve', test.IsHttpRequest())] * 4)
         self.assertEqual(12, self.mock_extension_supported.call_count)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_image_list_detailed.assert_called_once_with(
@@ -94,7 +94,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_extension_supported.assert_has_calls([
             mock.call('AdminActions', test.IsHttpRequest()),
             mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())]*4)
+            mock.call('Shelve', test.IsHttpRequest())] * 4)
         self.assertEqual(12, self.mock_extension_supported.call_count)
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
@@ -143,7 +143,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_extension_supported.assert_has_calls([
             mock.call('AdminActions', test.IsHttpRequest()),
             mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())]*4)
+            mock.call('Shelve', test.IsHttpRequest())] * 4)
         self.assertEqual(12, self.mock_extension_supported.call_count)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_flavor_get.assert_has_calls(
@@ -247,7 +247,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_extension_supported.assert_has_calls([
             mock.call('AdminActions', test.IsHttpRequest()),
             mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())]*4)
+            mock.call('Shelve', test.IsHttpRequest())] * 4)
         self.assertEqual(12, self.mock_extension_supported.call_count)
 
     @test.create_mocks({
@@ -280,7 +280,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_extension_supported.assert_has_calls([
             mock.call('AdminActions', test.IsHttpRequest()),
             mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())]*4)
+            mock.call('Shelve', test.IsHttpRequest())] * 4)
         self.assertEqual(12, self.mock_extension_supported.call_count)
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         self.mock_server_list.assert_called_once_with(

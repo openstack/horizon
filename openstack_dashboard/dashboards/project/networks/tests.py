@@ -994,7 +994,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         self._check_net_list()
         self.mock_is_extension_supported.assert_called_once_with(
-            test.IsHttpRequest(),  'network_availability_zone')
+            test.IsHttpRequest(), 'network_availability_zone')
         self.mock_network_delete.assert_called_once_with(
             test.IsHttpRequest(), network.id)
 
@@ -1016,7 +1016,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         self._check_net_list()
         self.mock_is_extension_supported.assert_called_once_with(
-            test.IsHttpRequest(),  'network_availability_zone')
+            test.IsHttpRequest(), 'network_availability_zone')
         self.mock_network_delete.assert_called_once_with(
             test.IsHttpRequest(), network.id)
 
@@ -1038,7 +1038,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         self._check_net_list()
         self.mock_is_extension_supported.assert_called_once_with(
-            test.IsHttpRequest(),  'network_availability_zone')
+            test.IsHttpRequest(), 'network_availability_zone')
         self.mock_network_delete.assert_called_once_with(
             test.IsHttpRequest(), network.id)
 

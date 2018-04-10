@@ -287,7 +287,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_extension_supported, 2,
-            mock.call(test.IsHttpRequest(),  "router_availability_zone"))
+            mock.call(test.IsHttpRequest(), "router_availability_zone"))
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
 
 

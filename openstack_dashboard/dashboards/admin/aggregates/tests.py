@@ -325,7 +325,7 @@ class ManageHostsTests(test.BaseAdminViewTests):
                                      reverse(constants.AGGREGATES_INDEX_URL))
         self.assertEqual(self.mock_aggregate_get.call_count, 2)
         self.mock_aggregate_get.assert_has_calls(
-            [mock.call(test.IsHttpRequest(), str(aggregate.id))]*2)
+            [mock.call(test.IsHttpRequest(), str(aggregate.id))] * 2)
         self.mock_service_list.assert_called_once_with(
             test.IsHttpRequest(), binary='nova-compute')
         self.mock_add_host_to_aggregate.assert_called_once_with(
