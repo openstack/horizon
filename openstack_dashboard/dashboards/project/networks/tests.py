@@ -924,8 +924,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         self.mock_network_get.side_effect = self.exceptions.neutron
 
-        self.mox.ReplayAll()
-
         url = reverse('horizon:project:networks:update', args=[network.id])
         res = self.client.get(url)
 
@@ -989,8 +987,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_is_extension_supported.return_value = True
         self._stub_net_list()
         self.mock_network_delete.return_value = None
-
-        self.mox.ReplayAll()
 
         form_data = {'action': 'networks__delete__%s' % network.id}
         res = self.client.post(INDEX_URL, form_data)

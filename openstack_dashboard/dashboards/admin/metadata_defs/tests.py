@@ -30,13 +30,13 @@ from openstack_dashboard.test import helpers as test
 class MetadataDefinitionsView(test.BaseAdminViewTests):
 
     def test_namespace_object(self):
-        mock = self.mox.CreateMockAnything()
-        mock.name = 'hello'
-        mock.description = 'world'
-        mock.visibility = 'public'
-        mock.resource_type_associations = [{'name': 'sample'}]
+        ns_obj = mock.Mock()
+        ns_obj.name = 'hello'
+        ns_obj.description = 'world'
+        ns_obj.visibility = 'public'
+        ns_obj.resource_type_associations = [{'name': 'sample'}]
 
-        namespace = api.glance.Namespace(mock)
+        namespace = api.glance.Namespace(ns_obj)
         self.assertEqual('world', namespace.description)
         self.assertTrue(namespace.public)
         self.assertEqual('sample', namespace.resource_type_names[0])
@@ -235,7 +235,6 @@ class MetadataDefinitionsCreateViewTest(test.BaseAdminViewTests):
             "protected": False,
         }
 
-        self.mox.ReplayAll()
         mock_metadefs_namespace_create.return_value = metadata
 
         form_data = {
