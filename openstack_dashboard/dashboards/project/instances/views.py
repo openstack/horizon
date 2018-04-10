@@ -337,7 +337,8 @@ class UpdateView(workflows.WorkflowView):
         instance = self.get_object()
         initial.update({'instance_id': self.kwargs['instance_id'],
                         'name': getattr(instance, 'name', ''),
-                        'description': getattr(instance, 'description', '')})
+                        'description': getattr(instance, 'description', ''),
+                        'target_tenant_id': self.request.user.tenant_id})
         return initial
 
 

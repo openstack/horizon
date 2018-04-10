@@ -1856,7 +1856,7 @@ class InstanceTests(InstanceTestBase):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_security_group_list.assert_called_once_with(
-            helpers.IsHttpRequest(), tenant_id=None)
+            helpers.IsHttpRequest(), tenant_id=self.tenant.id)
         self.mock_server_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_server_update.assert_called_once_with(
@@ -1892,7 +1892,7 @@ class InstanceTests(InstanceTestBase):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_security_group_list.assert_called_once_with(
-            helpers.IsHttpRequest(), tenant_id=None)
+            helpers.IsHttpRequest(), tenant_id=self.tenant.id)
         self.mock_server_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_server_update.assert_called_once_with(
@@ -1919,7 +1919,7 @@ class InstanceTests(InstanceTestBase):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_security_group_list.assert_called_once_with(
-            helpers.IsHttpRequest(), tenant_id=None)
+            helpers.IsHttpRequest(), tenant_id=self.tenant.id)
         self.mock_server_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_server_update.assert_called_once_with(
@@ -1948,7 +1948,7 @@ class InstanceTests(InstanceTestBase):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_security_group_list.assert_called_once_with(
-            helpers.IsHttpRequest(), tenant_id=None)
+            helpers.IsHttpRequest(), tenant_id=self.tenant.id)
         self.mock_server_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_server_update.assert_called_once_with(
