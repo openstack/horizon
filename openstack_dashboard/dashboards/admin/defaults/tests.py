@@ -114,15 +114,19 @@ class UpdateDefaultQuotasTests(test.BaseAdminViewTests):
         return quota_data
 
     @test.create_mocks({
-        api.nova: [('default_quota_update', 'nova_default_quota_update')],
-        api.cinder: [('default_quota_update', 'cinder_default_quota_update')],
-        quotas: ['get_default_quota_data', 'get_disabled_quotas']})
+        api.nova: [('default_quota_update', 'nova_default_quota_update'),
+                   ('default_quota_get', 'nova_default_quota_get')],
+        api.cinder: [('default_quota_update', 'cinder_default_quota_update'),
+                     ('default_quota_get', 'cinder_default_quota_get')],
+        quotas: ['get_disabled_quotas']})
     def test_update_default_quotas(self):
-        quota = self.quotas.first()
+        quota = self.quotas.first() + self.cinder_quotas.first()
 
         self.mock_get_disabled_quotas.return_value = set()
-        self.mock_get_default_quota_data.return_value = quota
+        self.mock_nova_default_quota_get.return_value = self.quotas.first()
         self.mock_nova_default_quota_update.return_value = None
+        self.mock_cinder_default_quota_get.return_value = \
+            self.cinder_quotas.first()
         self.mock_cinder_default_quota_update.return_value = None
 
         # update some fields
@@ -138,16 +142,18 @@ class UpdateDefaultQuotasTests(test.BaseAdminViewTests):
 
         self.mock_get_disabled_quotas.assert_called_once_with(
             test.IsHttpRequest())
-        self.mock_get_default_quota_data.assert_called_once_with(
-            test.IsHttpRequest())
 
         nova_fields = quotas.NOVA_QUOTA_FIELDS
         nova_updated_quota = dict((key, updated_quota[key]) for key in
                                   nova_fields if key != 'fixed_ips')
+        self.mock_nova_default_quota_get.assert_called_once_with(
+            test.IsHttpRequest(), self.request.user.tenant_id)
         self.mock_nova_default_quota_update.assert_called_once_with(
             test.IsHttpRequest(), **nova_updated_quota)
 
         cinder_updated_quota = dict((key, updated_quota[key]) for key in
                                     quotas.CINDER_QUOTA_FIELDS)
+        self.mock_cinder_default_quota_get.assert_called_once_with(
+            test.IsHttpRequest(), self.request.user.tenant_id)
         self.mock_cinder_default_quota_update.assert_called_once_with(
             test.IsHttpRequest(), **cinder_updated_quota)
