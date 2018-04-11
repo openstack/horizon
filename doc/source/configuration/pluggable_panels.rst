@@ -130,6 +130,36 @@ listed there will be appended to the auto-discovered files.
 
 If set to ``True``, this settings file will not be added to the settings.
 
+``EXTRA_STEPS``
+---------------
+
+.. versionadded:: 14.0.0(Rocky)
+
+Extra workflow steps can be added to a workflow in horizon or other
+horizon plugins by using this setting. Extra steps will be shown after
+default steps defined in a corresponding workflow.
+
+This is a dict setting. A key of the dict specifies a workflow which extra
+step(s) are added. The key must match a full class name of the target workflow.
+
+A value of the dict is a list of full name of an extra step classes (where a
+module name and a class name must be delimiteed by a period). Steps specified
+via ``EXTRA_STEPS`` will be displayed in the order of being registered.
+
+Example:
+
+.. code-block:: python
+
+   EXTRA_STEPS = {
+       'openstack_dashboard.dashboards.identity.projects.workflows.UpdateQuota':
+       (
+           ('openstack_dashboard.dashboards.identity.projects.workflows.'
+            'UpdateVolumeQuota'),
+           ('openstack_dashboard.dashboards.identity.projects.workflows.'
+            'UpdateNetworkQuota'),
+       ),
+   }
+
 ``EXTRA_TABS``
 --------------
 

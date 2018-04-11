@@ -12,11 +12,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import collections
 import copy
 from importlib import import_module
 import inspect
 import logging
 
+from django.conf import settings
 from django import forms
 from django.forms.forms import NON_FIELD_ERRORS
 from django import template
@@ -25,6 +27,7 @@ from django.template.defaultfilters import safe
 from django.template.defaultfilters import slugify
 from django import urls
 from django.utils.encoding import force_text
+from django.utils import module_loading
 from django.utils.translation import ugettext_lazy as _
 from openstack_auth import policy
 import six
@@ -481,7 +484,7 @@ class Step(object):
 class WorkflowMetaclass(type):
     def __new__(mcs, name, bases, attrs):
         super(WorkflowMetaclass, mcs).__new__(mcs, name, bases, attrs)
-        attrs["_cls_registry"] = set([])
+        attrs["_cls_registry"] = []
         return type.__new__(mcs, name, bases, attrs)
 
 
@@ -652,12 +655,15 @@ class Workflow(html.HTMLElement):
         self.entry_point = entry_point
         self.object = None
 
+        self._register_steps_from_config()
+
         # Put together our steps in order. Note that we pre-register
         # non-default steps so that we can identify them and subsequently
         # insert them in order correctly.
-        self._registry = dict([(step_class, step_class(self)) for step_class
-                               in self.__class__._cls_registry
-                               if step_class not in self.default_steps])
+        self._registry = collections.OrderedDict(
+            [(step_class, step_class(self)) for step_class
+             in self.__class__._cls_registry
+             if step_class not in self.default_steps])
         self._gather_steps()
 
         # Determine all the context data we need to end up with.
@@ -697,6 +703,27 @@ class Workflow(html.HTMLElement):
         for step in self.steps:
             if step.slug == slug:
                 return step
+
+    def _register_steps_from_config(self):
+        my_name = '.'.join([self.__class__.__module__,
+                            self.__class__.__name__])
+        horizon_config = settings.HORIZON_CONFIG.get('extra_steps', {})
+        extra_steps = horizon_config.get(my_name, [])
+        for step in extra_steps:
+            self._register_step_from_config(step, my_name)
+
+    def _register_step_from_config(self, step_config, my_name):
+        if not isinstance(step_config, str):
+            LOG.error('Extra step definition must be a string '
+                      '(workflow "%s"', my_name)
+            return
+        try:
+            class_ = module_loading.import_string(step_config)
+        except ImportError:
+            LOG.error('Step class "%s" is not found (workflow "%s")',
+                      step_config, my_name)
+            return
+        self.register(class_)
 
     def _gather_steps(self):
         ordered_step_classes = self._order_steps()
@@ -775,7 +802,7 @@ class Workflow(html.HTMLElement):
         if step_class in cls._cls_registry:
             return False
         else:
-            cls._cls_registry.add(step_class)
+            cls._cls_registry.append(step_class)
             return True
 
     @classmethod

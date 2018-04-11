@@ -73,6 +73,14 @@ class TestActionThree(workflows.Action):
         slug = "test_action_three"
 
 
+class TestActionFour(workflows.Action):
+    field_four = forms.CharField(widget=forms.widgets.Textarea)
+
+    class Meta(object):
+        name = "Test Action Four"
+        slug = "test_action_four"
+
+
 class AdminAction(workflows.Action):
     admin_id = forms.CharField(label="Admin")
 
@@ -114,13 +122,18 @@ class TestStepTwo(workflows.Step):
                     "other_callback_func")}
 
 
-class TestExtraStep(workflows.Step):
+class TestStepThree(workflows.Step):
     action_class = TestActionThree
     depends_on = ("project_id",)
     contributes = ("extra_data",)
     connections = {"project_id": (extra_callback_func,)}
     after = TestStepOne
     before = TestStepTwo
+
+
+class TestStepFour(workflows.Step):
+    action_class = TestActionFour
+    contributes = ("field_four",)
 
 
 class AdminStep(workflows.Step):
@@ -145,6 +158,11 @@ class AdminForbiddenStep(workflows.Step):
 class TestWorkflow(workflows.Workflow):
     slug = "test_workflow"
     default_steps = (TestStepOne, TestStepTwo)
+
+
+class TestWorkflowWithConfig(workflows.Workflow):
+    slug = "test_workflow"
+    default_steps = (TestStepOne,)
 
 
 class TestWorkflowView(workflows.WorkflowView):
@@ -176,16 +194,34 @@ class WorkflowsTests(test.TestCase):
         self._reset_workflow()
 
     def _reset_workflow(self):
-        TestWorkflow._cls_registry = set([])
+        TestWorkflow._cls_registry = []
 
     def test_workflow_construction(self):
-        TestWorkflow.register(TestExtraStep)
+        TestWorkflow.register(TestStepThree)
         flow = TestWorkflow(self.request)
         self.assertQuerysetEqual(flow.steps,
                                  ['<TestStepOne: test_action_one>',
-                                  '<TestExtraStep: test_action_three>',
+                                  '<TestStepThree: test_action_three>',
                                   '<TestStepTwo: test_action_two>'])
         self.assertEqual(set(['project_id']), flow.depends_on)
+
+    @test.update_settings(HORIZON_CONFIG={'extra_steps': {
+        'horizon.test.unit.workflows.test_workflows.TestWorkflowWithConfig': (
+            'horizon.test.unit.workflows.test_workflows.TestStepTwo',
+            'horizon.test.unit.workflows.test_workflows.TestStepThree',
+            'horizon.test.unit.workflows.test_workflows.TestStepFour',
+        ),
+    }})
+    def test_workflow_construction_with_config(self):
+        flow = TestWorkflowWithConfig(self.request)
+        # NOTE: TestStepThree must be placed between TestStepOne and
+        # TestStepTwo in honor of before/after of TestStepThree.
+        self.assertQuerysetEqual(flow.steps,
+                                 ['<TestStepOne: test_action_one>',
+                                  '<TestStepThree: test_action_three>',
+                                  '<TestStepTwo: test_action_two>',
+                                  '<TestStepFour: test_action_four>',
+                                  ])
 
     def test_step_construction(self):
         step_one = TestStepOne(TestWorkflow(self.request))
@@ -236,7 +272,7 @@ class WorkflowsTests(test.TestCase):
             InvalidStep(TestWorkflow(self.request))
 
     def test_connection_handlers_called(self):
-        TestWorkflow.register(TestExtraStep)
+        TestWorkflow.register(TestStepThree)
         flow = TestWorkflow(self.request)
 
         # This should set the value without any errors, but trigger nothing
@@ -292,15 +328,15 @@ class WorkflowsTests(test.TestCase):
                                  ['<TestStepOne: test_action_one>',
                                   '<TestStepTwo: test_action_two>'])
 
-        TestWorkflow.register(TestExtraStep)
+        TestWorkflow.register(TestStepThree)
         flow = TestWorkflow(req)
         self.assertQuerysetEqual(flow.steps,
                                  ['<TestStepOne: test_action_one>',
-                                  '<TestExtraStep: test_action_three>',
+                                  '<TestStepThree: test_action_three>',
                                   '<TestStepTwo: test_action_two>'])
 
     def test_workflow_render(self):
-        TestWorkflow.register(TestExtraStep)
+        TestWorkflow.register(TestStepThree)
         req = self.factory.get("/foo")
         flow = TestWorkflow(req)
         output = http.HttpResponse(flow.render())
