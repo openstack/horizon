@@ -128,8 +128,8 @@ class Token(object):
         """Determines if this is a pki-based token (pki or pkiz)"""
         if token is None:
             return False
-        return (keystone_cms.is_ans1_token(token)
-                or keystone_cms.is_pkiz(token))
+        return (keystone_cms.is_ans1_token(token) or
+                keystone_cms.is_pkiz(token))
 
 
 class User(models.AbstractBaseUser, models.AnonymousUser):
@@ -229,8 +229,8 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
         self.project_name = project_name or tenant_name
         self.service_catalog = service_catalog
         self._services_region = (
-            services_region
-            or utils.default_services_region(service_catalog)
+            services_region or
+            utils.default_services_region(service_catalog)
         )
         self.roles = roles or []
         self.endpoint = endpoint

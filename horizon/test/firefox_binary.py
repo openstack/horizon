@@ -91,8 +91,8 @@ class WebDriver(firefox.webdriver.WebDriver):
                               'connection refused.' % i)
                     break
                 except socket.error as socket_error:
-                    if (socket_error.errno == errno.ECONNREFUSED
-                            and i < self.CONNREFUSED_RETRY_COUNT):
+                    if (socket_error.errno == errno.ECONNREFUSED and
+                            i < self.CONNREFUSED_RETRY_COUNT):
                         time.sleep(self.CONNREFUSED_RETRY_INTERVAL)
                         continue
                     raise

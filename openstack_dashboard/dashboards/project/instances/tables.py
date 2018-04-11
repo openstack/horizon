@@ -137,9 +137,9 @@ class RebootInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     def allowed(self, request, instance=None):
         if instance is not None:
-            return ((instance.status in ACTIVE_STATES
-                     or instance.status == 'SHUTOFF')
-                    and not is_deleting(instance))
+            return ((instance.status in ACTIVE_STATES or
+                     instance.status == 'SHUTOFF') and
+                    not is_deleting(instance))
         else:
             return True
 
@@ -230,9 +230,9 @@ class TogglePause(tables.BatchAction):
             policy_rules, request,
             target={'project_id': getattr(instance, 'tenant_id', None)})
 
-        return (has_permission
-                and (instance.status in ACTIVE_STATES or self.paused)
-                and not is_deleting(instance))
+        return (has_permission and
+                (instance.status in ACTIVE_STATES or self.paused) and
+                not is_deleting(instance))
 
     def action(self, request, obj_id):
         if self.paused:
@@ -297,9 +297,9 @@ class ToggleSuspend(tables.BatchAction):
             policy_rules, request,
             target={'project_id': getattr(instance, 'tenant_id', None)})
 
-        return (has_permission
-                and (instance.status in ACTIVE_STATES or self.suspended)
-                and not is_deleting(instance))
+        return (has_permission and
+                (instance.status in ACTIVE_STATES or self.suspended) and
+                not is_deleting(instance))
 
     def action(self, request, obj_id):
         if self.suspended:
@@ -365,9 +365,9 @@ class ToggleShelve(tables.BatchAction):
             policy_rules, request,
             target={'project_id': getattr(instance, 'tenant_id', None)})
 
-        return (has_permission
-                and (instance.status in SHELVE_READY_STATES or self.shelved)
-                and not is_deleting(instance))
+        return (has_permission and
+                (instance.status in SHELVE_READY_STATES or self.shelved) and
+                not is_deleting(instance))
 
     def action(self, request, obj_id):
         if self.shelved:
@@ -550,9 +550,9 @@ class ResizeLink(policy.PolicyTargetMixin, tables.LinkAction):
         return "?".join([base_url, param])
 
     def allowed(self, request, instance):
-        return ((instance.status in ACTIVE_STATES
-                 or instance.status == 'SHUTOFF')
-                and not is_deleting(instance))
+        return ((instance.status in ACTIVE_STATES or
+                 instance.status == 'SHUTOFF') and
+                not is_deleting(instance))
 
 
 class ConfirmResize(policy.PolicyTargetMixin, tables.Action):
@@ -590,9 +590,9 @@ class RebuildInstance(policy.PolicyTargetMixin, tables.LinkAction):
     action_type = "danger"
 
     def allowed(self, request, instance):
-        return ((instance.status in ACTIVE_STATES
-                 or instance.status == 'SHUTOFF')
-                and not is_deleting(instance))
+        return ((instance.status in ACTIVE_STATES or
+                 instance.status == 'SHUTOFF') and
+                not is_deleting(instance))
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
@@ -609,11 +609,11 @@ class DecryptInstancePassword(tables.LinkAction):
         enable = getattr(settings,
                          'OPENSTACK_ENABLE_PASSWORD_RETRIEVE',
                          False)
-        return (enable
-                and (instance.status in ACTIVE_STATES
-                     or instance.status == 'SHUTOFF')
-                and not is_deleting(instance)
-                and get_keyname(instance) is not None)
+        return (enable and
+                (instance.status in ACTIVE_STATES or
+                 instance.status == 'SHUTOFF') and
+                not is_deleting(instance) and
+                get_keyname(instance) is not None)
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
@@ -831,9 +831,9 @@ class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
         )
 
     def allowed(self, request, instance):
-        return ((instance is None)
-                or ((get_power_state(instance) in ("RUNNING", "SUSPENDED"))
-                    and not is_deleting(instance)))
+        return (instance is None or
+                (get_power_state(instance) in ("RUNNING", "SUSPENDED") and
+                 not is_deleting(instance)))
 
     def action(self, request, obj_id):
         api.nova.server_stop(request, obj_id)
@@ -918,9 +918,9 @@ class AttachVolume(tables.LinkAction):
     # is not active, or the instance is being deleted
     # or cinder is not enabled
     def allowed(self, request, instance=None):
-        return instance.status in ("ACTIVE") \
-            and not is_deleting(instance) \
-            and api.cinder.is_volume_service_enabled(request)
+        return (instance.status in ("ACTIVE") and
+                not is_deleting(instance) and
+                api.cinder.is_volume_service_enabled(request))
 
 
 class DetachVolume(AttachVolume):
@@ -933,9 +933,9 @@ class DetachVolume(AttachVolume):
     # is not active, or the instance is being deleted
     # or cinder is not enabled
     def allowed(self, request, instance=None):
-        return instance.status in ("ACTIVE") \
-            and not is_deleting(instance) \
-            and api.cinder.is_volume_service_enabled(request)
+        return (instance.status in ("ACTIVE") and
+                not is_deleting(instance) and
+                api.cinder.is_volume_service_enabled(request))
 
 
 class AttachInterface(policy.PolicyTargetMixin, tables.LinkAction):
@@ -946,10 +946,10 @@ class AttachInterface(policy.PolicyTargetMixin, tables.LinkAction):
     policy_rules = (("compute", "os_compute_api:os-attach-interfaces"),)
 
     def allowed(self, request, instance):
-        return ((instance.status in ACTIVE_STATES
-                 or instance.status == 'SHUTOFF')
-                and not is_deleting(instance)
-                and api.base.is_service_enabled(request, 'network'))
+        return ((instance.status in ACTIVE_STATES or
+                 instance.status == 'SHUTOFF') and
+                not is_deleting(instance) and
+                api.base.is_service_enabled(request, 'network'))
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)

@@ -272,8 +272,8 @@ class CreatePort(workflows.Workflow):
         # If port_security_enabled is set to False, security groups on the port
         # must be cleared. We will clear the current security groups
         # in this case.
-        if ('port_security_enabled' in params
-                and not params['port_security_enabled']):
+        if ('port_security_enabled' in params and
+                not params['port_security_enabled']):
             params['security_groups'] = []
         # In case of CreatePortSecurityGroup registered, 'wanted_groups'
         # exists in context.
@@ -421,8 +421,8 @@ class UpdatePort(workflows.Workflow):
         # If port_security_enabled is set to False, security groups on the port
         # must be cleared. We will clear the current security groups
         # in this case.
-        if ('port_security_enabled' in params
-                and not params['port_security_enabled']):
+        if ('port_security_enabled' in params and
+                not params['port_security_enabled']):
             params['security_groups'] = []
         # In case of UpdatePortSecurityGroup registered, 'wanted_groups'
         # exists in data.

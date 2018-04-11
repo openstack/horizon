@@ -123,8 +123,8 @@ class UserFilterAction(tables.FilterAction):
         """Naive case-insensitive search."""
         q = filter_string.lower()
         return [user for user in users
-                if q in user.name.lower()
-                or q in (getattr(user, 'email', None) or '').lower()]
+                if (q in user.name.lower() or
+                    q in (getattr(user, 'email', None) or '').lower())]
 
 
 class RemoveMembers(tables.DeleteAction):

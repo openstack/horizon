@@ -46,9 +46,9 @@ def import_dashboard_config(modules):
             if hasattr(submodule, 'DASHBOARD'):
                 dashboard = submodule.DASHBOARD
                 config[dashboard].update(submodule.__dict__)
-            elif (hasattr(submodule, 'PANEL')
-                  or hasattr(submodule, 'PANEL_GROUP')
-                  or hasattr(submodule, 'FEATURE')):
+            elif (hasattr(submodule, 'PANEL') or
+                  hasattr(submodule, 'PANEL_GROUP') or
+                  hasattr(submodule, 'FEATURE')):
                 # If enabled and local.enabled contains a same filename,
                 # the file loaded later (i.e., local.enabled) will be used.
                 name = submodule.__name__.rsplit('.', 1)[1]
@@ -136,8 +136,8 @@ def update_dashboards(modules, horizon_config, installed_apps):
 
         add_exceptions = config.get('ADD_EXCEPTIONS', {}).items()
         for category, exc_list in add_exceptions:
-            exceptions[category] = tuple(set(exceptions.get(category, ())
-                                             + exc_list))
+            exceptions[category] = tuple(set(exceptions.get(category, ()) +
+                                             exc_list))
 
         angular_modules.extend(config.get('ADD_ANGULAR_MODULES', []))
         # avoid pulling in dashboard javascript dependencies multiple times

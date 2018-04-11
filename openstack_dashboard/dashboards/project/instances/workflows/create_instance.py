@@ -519,8 +519,9 @@ class SetInstanceDetails(workflows.Step):
     def contribute(self, data, context):
         context = super(SetInstanceDetails, self).contribute(data, context)
         # Allow setting the source dynamically.
-        if ("source_type" in context and "source_id" in context
-                and context["source_type"] not in context):
+        if ("source_type" in context and
+                "source_id" in context and
+                context["source_type"] not in context):
             context[context["source_type"]] = context["source_id"]
 
         # Translate form input to context for source values.

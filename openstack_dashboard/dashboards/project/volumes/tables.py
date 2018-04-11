@@ -141,10 +141,10 @@ class CreateVolume(tables.LinkAction):
     def allowed(self, request, volume=None):
         limits = api.cinder.tenant_absolute_limits(request)
 
-        gb_available = (limits.get('maxTotalVolumeGigabytes', float("inf"))
-                        - limits.get('totalGigabytesUsed', 0))
-        volumes_available = (limits.get('maxTotalVolumes', float("inf"))
-                             - limits.get('totalVolumesUsed', 0))
+        gb_available = (limits.get('maxTotalVolumeGigabytes', float("inf")) -
+                        limits.get('totalGigabytesUsed', 0))
+        volumes_available = (limits.get('maxTotalVolumes', float("inf")) -
+                             limits.get('totalVolumesUsed', 0))
 
         if gb_available <= 0 or volumes_available <= 0:
             if "disabled" not in self.classes:
@@ -217,8 +217,8 @@ class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
             exceptions.handle(request, _('Unable to retrieve tenant limits.'))
             limits = {}
 
-        snapshots_available = (limits.get('maxTotalSnapshots', float("inf"))
-                               - limits.get('totalSnapshotsUsed', 0))
+        snapshots_available = (limits.get('maxTotalSnapshots', float("inf")) -
+                               limits.get('totalSnapshotsUsed', 0))
 
         if snapshots_available <= 0 and "disabled" not in self.classes:
             self.classes = [c for c in self.classes] + ['disabled']

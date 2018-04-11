@@ -66,9 +66,9 @@ class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
         )
 
     def allowed(self, request, instance):
-        return ((instance.status in project_tables.ACTIVE_STATES
-                 or instance.status == 'SHUTOFF')
-                and not project_tables.is_deleting(instance))
+        return ((instance.status in project_tables.ACTIVE_STATES or
+                 instance.status == 'SHUTOFF') and
+                not project_tables.is_deleting(instance))
 
     def action(self, request, obj_id):
         api.nova.server_migrate(request, obj_id)
@@ -84,8 +84,8 @@ class LiveMigrateInstance(policy.PolicyTargetMixin,
         ("compute", "os_compute_api:os-migrate-server:migrate_live"),)
 
     def allowed(self, request, instance):
-        return ((instance.status in project_tables.ACTIVE_STATES)
-                and not project_tables.is_deleting(instance))
+        return (instance.status in project_tables.ACTIVE_STATES and
+                not project_tables.is_deleting(instance))
 
 
 class AdminUpdateRow(project_tables.UpdateRow):

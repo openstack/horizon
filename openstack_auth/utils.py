@@ -352,8 +352,8 @@ def default_services_region(service_catalog, request=None,
         available_regions = [get_endpoint_region(endpoint) for service
                              in service_catalog for endpoint
                              in service.get('endpoints', [])
-                             if (service.get('type') is not None
-                                 and service.get('type') != 'identity')]
+                             if (service.get('type') is not None and
+                                 service.get('type') != 'identity')]
         if not available_regions:
             # this is very likely an incomplete keystone setup
             LOG.warning('No regions could be found excluding identity.')

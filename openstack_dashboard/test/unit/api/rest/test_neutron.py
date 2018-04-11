@@ -62,8 +62,7 @@ class NeutronNetworksTestCase(test.TestCase):
         response = neutron.Networks().post(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'],
-                         '/api/neutron/networks/'
-                         + self.networks.first().id)
+                         '/api/neutron/networks/' + self.networks.first().id)
         exp_resp = self._dictify_network(self.networks.first())
         self.assertEqual(response.json, exp_resp)
         mock_network_create.assert_called_once_with(request, **expected)

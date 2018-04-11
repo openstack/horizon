@@ -67,8 +67,8 @@ class ExtraRoutesTable(tables.DataTable):
 
     def get_object_display(self, datum):
         """Display ExtraRoutes when deleted."""
-        return (super(ExtraRoutesTable, self).get_object_display(datum)
-                or datum.destination + " -> " + datum.nexthop)
+        return (super(ExtraRoutesTable, self).get_object_display(datum) or
+                datum.destination + " -> " + datum.nexthop)
 
     class Meta(object):
         name = "extra_routes"

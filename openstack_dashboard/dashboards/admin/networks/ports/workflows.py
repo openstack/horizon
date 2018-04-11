@@ -44,8 +44,8 @@ class CreatePortInfoAction(project_workflow.CreatePortInfoAction):
 class CreatePortInfo(project_workflow.CreatePortInfo):
     action_class = CreatePortInfoAction
     depends_on = ("network_id", "target_tenant_id")
-    contributes = (project_workflow.CreatePortInfo.contributes
-                   + ['binding__host_id'])
+    contributes = (project_workflow.CreatePortInfo.contributes +
+                   ['binding__host_id'])
 
 
 class CreatePort(project_workflow.CreatePort):

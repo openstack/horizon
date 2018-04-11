@@ -457,9 +457,9 @@ class NeutronApiTests(test.APIMockTestCase):
             expected_parent_port_ids.add(trunk['port_id'])
             expected_subport_ids |= set([p['port_id'] for p
                                          in trunk['sub_ports']])
-        expected_normal_port_ids = ({p['id'] for p in ports}
-                                    - expected_parent_port_ids
-                                    - expected_subport_ids)
+        expected_normal_port_ids = ({p['id'] for p in ports} -
+                                    expected_parent_port_ids -
+                                    expected_subport_ids)
 
         ret_val = api.neutron.port_list_with_trunk_types(self.request)
 
@@ -469,8 +469,8 @@ class NeutronApiTests(test.APIMockTestCase):
                            if isinstance(p, api.neutron.PortTrunkParent)}
         subport_ids = {p.id for p in ret_val
                        if isinstance(p, api.neutron.PortTrunkSubport)}
-        normal_port_ids = ({p.id for p in ret_val}
-                           - parent_port_ids - subport_ids)
+        normal_port_ids = ({p.id for p in ret_val} -
+                           parent_port_ids - subport_ids)
         self.assertEqual(expected_parent_port_ids, parent_port_ids)
         self.assertEqual(expected_subport_ids, subport_ids)
         self.assertEqual(expected_normal_port_ids, normal_port_ids)
