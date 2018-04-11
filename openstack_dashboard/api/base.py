@@ -208,6 +208,8 @@ class QuotaSet(Sequence):
     use the `get` method to retrieve a specific quota, but otherwise it
     behaves much like a list or tuple, particularly in supporting iteration.
     """
+    ignore_quotas = {}
+
     def __init__(self, apiresource=None):
         self.items = []
         if apiresource:
@@ -217,7 +219,7 @@ class QuotaSet(Sequence):
                 items = apiresource.items()
 
             for k, v in items:
-                if k == 'id':
+                if k == 'id' or k in self.ignore_quotas:
                     continue
                 self[k] = v
 
