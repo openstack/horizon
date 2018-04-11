@@ -3,20 +3,21 @@
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
+# Shu Muto <shu.mutow@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-07 05:35+0000\n"
+"POT-Creation-Date: 2018-04-10 19:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-07 01:55+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2018-04-11 03:15+0000\n"
+"Last-Translator: Shu Muto <shu.mutow@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "#"
@@ -562,6 +563,9 @@ msgid "Confirm Delete User"
 msgid_plural "Confirm Delete Users"
 msgstr[0] "ユーザーの削除の確認"
 
+msgid "Confirm Password"
+msgstr "パスワード (確認)"
+
 msgid "Connecting"
 msgstr "接続中"
 
@@ -603,6 +607,9 @@ msgstr "文脈依存の代替"
 
 msgid "Copy Data"
 msgstr "データのコピー"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "オブジェクトのコピー: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
 msgid "Copy Private Key to Clipboard"
 msgstr "秘密鍵をクリップボードにコピー"
@@ -873,6 +880,12 @@ msgstr "説明"
 
 msgid "Description lists"
 msgstr "説明リスト"
+
+msgid "Destination Container"
+msgstr "宛先コンテナー"
+
+msgid "Destination Object"
+msgstr "宛先オブジェクト名"
 
 msgid "Details"
 msgstr "詳細"
@@ -2710,6 +2723,12 @@ msgid ""
 msgstr ""
 "このコマンドを実行すると、秘密鍵 (cloud.key) \n"
 "と公開鍵 (cloud.key.pub) のペアが生成されます。"
+
+msgid "This container does not exist."
+msgstr "このコンテナーは存在しません。"
+
+msgid "This field is required."
+msgstr "このフィールドは必須です。"
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
