@@ -30,6 +30,8 @@ import sys
 
 import django
 
+import horizon.version
+
 # NOTE(amotoki): Sphinx 1.6.x catches warnings from imported modules.
 # Ignore warnings from openstack_dashboard.settings in the doc build.
 # This can be dropped once Sphinx correctly ignore such warnings.
@@ -44,8 +46,6 @@ sys.path.insert(0, ROOT)
 
 # This is required for ReadTheDocs.org, but isn't a bad idea anyway.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'openstack_dashboard.settings')
-
-import horizon.version
 
 django.setup()
 
