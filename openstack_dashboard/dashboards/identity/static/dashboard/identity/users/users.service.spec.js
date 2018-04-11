@@ -17,12 +17,13 @@
   "use strict";
 
   describe('Identity user service', function() {
-    var service, keystone, scope, settings, $q, detailRoute;
+    var service, keystone, policy, scope, settings, $q, detailRoute;
 
     beforeEach(module('horizon.dashboard.identity.users'));
     beforeEach(inject(function($injector, _$q_) {
       service = $injector.get('horizon.dashboard.identity.users.service');
       keystone = $injector.get('horizon.app.core.openstack-service-api.keystone');
+      policy = $injector.get('horizon.app.core.openstack-service-api.policy');
       settings = $injector.get('horizon.app.core.openstack-service-api.settings');
       detailRoute = $injector.get('horizon.app.core.detailRoute');
       scope = $injector.get('$rootScope').$new();
@@ -37,16 +38,21 @@
     describe('getUsersPromise', function() {
 
       it("provides a promise", function() {
-        var deferred = $q.defer();
-        spyOn(keystone, 'getUsers').and.returnValue(deferred.promise);
+        var deferredGetUser = $q.defer();
+        var deferredGetUsers = $q.defer();
+        var deferredPolicy = $q.defer();
+        spyOn(keystone, 'getUser').and.returnValue(deferredGetUser.promise);
+        spyOn(keystone, 'getUsers').and.returnValue(deferredGetUsers.promise);
+        spyOn(policy, 'ifAllowed').and.returnValue(deferredPolicy.promise);
 
         var result = service.getUsersPromise();
-        deferred.resolve({data: {items: [{id: '1', name: 'puff'}]}});
+        deferredGetUser.resolve({data: {id: '1', name: 'puff'}});
+        deferredGetUsers.resolve({data: {items: [{id: '1234', name: 'test_user1'}]}});
+        deferredPolicy.resolve({"allowed": true});
 
         scope.$apply();
-
         expect(keystone.getUsers).toHaveBeenCalled();
-        expect(result.$$state.value.data.items[0].name).toBe('puff');
+        expect(result.$$state.value.data.items[0].name).toBe('test_user1');
       });
     });
 

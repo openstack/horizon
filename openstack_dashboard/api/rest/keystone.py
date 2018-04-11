@@ -123,7 +123,7 @@ class User(generic.View):
         """
         if id == 'current':
             id = request.user.id
-        return api.keystone.user_get(request, id).to_dict()
+        return api.keystone.user_get(request, id, admin=False).to_dict()
 
     @rest_utils.ajax()
     def delete(self, request, id):
@@ -487,7 +487,7 @@ class Project(generic.View):
     @rest_utils.ajax()
     def get(self, request, id):
         """Get a specific project by id."""
-        return api.keystone.tenant_get(request, id).to_dict()
+        return api.keystone.tenant_get(request, id, admin=False).to_dict()
 
     @rest_utils.ajax()
     def delete(self, request, id):
