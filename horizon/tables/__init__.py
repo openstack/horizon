@@ -22,7 +22,6 @@ from horizon.tables.actions import FilterAction
 from horizon.tables.actions import FixedFilterAction
 from horizon.tables.actions import LinkAction
 from horizon.tables.actions import NameFilterAction
-from horizon.tables.actions import UpdateAction
 from horizon.tables.base import Column
 from horizon.tables.base import DataTable
 from horizon.tables.base import Row
@@ -42,7 +41,6 @@ __all__ = [
     'FixedFilterAction',
     'LinkAction',
     'NameFilterAction',
-    'UpdateAction',
     'Column',
     'DataTable',
     'Row',

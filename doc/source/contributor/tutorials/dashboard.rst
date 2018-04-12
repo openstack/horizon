@@ -285,7 +285,6 @@ classes:
 
 - :class:`~horizon.tables.BatchAction`
 - :class:`~horizon.tables.DeleteAction`
-- :class:`~horizon.tables.UpdateAction` **DEPRECATED**
 - :class:`~horizon.tables.FixedFilterAction`
 
 

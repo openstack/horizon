@@ -124,5 +124,3 @@ horizon.addInitFunction(horizon.tabs.init = function () {
   });
 });
 
-//TODO(lcastell):Inline edit is deprecated and will be removed in Horizon 12.0
-horizon.tabs.addTabLoadFunction(horizon.inline_edit.init);
