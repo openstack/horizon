@@ -64,10 +64,12 @@ class IndexView(tables.DataTableView):
     @memoized.memoized_method
     def get_data(self):
         floating_ips = []
+        search_opts = self.get_filters()
         try:
             floating_ips = api.neutron.tenant_floating_ip_list(
                 self.request,
-                all_tenants=True)
+                all_tenants=True,
+                **search_opts)
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve floating IP list.'))
