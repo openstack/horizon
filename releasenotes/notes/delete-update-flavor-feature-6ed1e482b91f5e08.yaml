@@ -1,0 +1,7 @@
+---
+upgrade:
+  - |
+    The deprecated feature of "Edit Flavor" was deleted
+    Historically, Horizon has provided the ability to edit Flavors by deleting
+    and creating a new one with the same information. This is not supported in
+    the Nova API and causes unexpected issues and breakages.

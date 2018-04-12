@@ -16,7 +16,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.template import defaultfilters as filters
 from django.urls import reverse
 from django.utils.http import urlencode
@@ -56,23 +55,6 @@ class CreateFlavor(tables.LinkAction):
     url = "horizon:admin:flavors:create"
     classes = ("ajax-modal",)
     icon = "plus"
-
-
-class UpdateFlavor(tables.LinkAction):
-    name = "update"
-    verbose_name = _("Edit Flavor")
-    url = "horizon:admin:flavors:update"
-    classes = ("ajax-modal",)
-    icon = "pencil"
-
-    def allowed(self, request, flavor):
-        return getattr(settings, 'ENABLE_FLAVOR_EDIT', False)
-
-    def get_link_url(self, flavor):
-        step = 'update_info'
-        base_url = reverse(self.url, args=[flavor.id])
-        param = urlencode({"step": step})
-        return "?".join([base_url, param])
 
 
 class UpdateMetadata(tables.LinkAction):
@@ -182,7 +164,6 @@ class FlavorsTable(tables.DataTable):
         name = "flavors"
         verbose_name = _("Flavors")
         table_actions = (FlavorFilterAction, CreateFlavor, DeleteFlavor)
-        row_actions = (UpdateFlavor,
-                       ModifyAccess,
+        row_actions = (ModifyAccess,
                        UpdateMetadata,
                        DeleteFlavor)
