@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-29 05:31+0000\n"
+"POT-Creation-Date: 2018-04-11 17:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3641,9 +3641,6 @@ msgstr "कम्पिउट हस्ट फोरमायथिहोग्�
 
 msgid "Unable to retrieve compute limit information."
 msgstr "कम्पिउट सिमा फोरमायथिहोग्राखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve default quota values."
-msgstr "डिफल्ट क'टा बेसेन मोनफिननो हायाखै।"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
