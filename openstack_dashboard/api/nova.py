@@ -22,6 +22,7 @@ from __future__ import absolute_import
 
 import collections
 import logging
+from operator import attrgetter
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
@@ -920,7 +921,9 @@ def tenant_absolute_limits(request, reserved=False, tenant_id=None):
 
 @profiler.trace
 def availability_zone_list(request, detailed=False):
-    return novaclient(request).availability_zones.list(detailed=detailed)
+    zones = novaclient(request).availability_zones.list(detailed=detailed)
+    zones.sort(key=attrgetter('zoneName'))
+    return zones
 
 
 @profiler.trace

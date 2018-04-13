@@ -751,3 +751,17 @@ class ComputeApiTests(test.APIMockTestCase):
         for key in expected_keys:
             self.assertEqual(quota_data[key], ret_val.get(key).limit)
         novaclient.quotas.get.assert_called_once_with(tenant_id)
+
+    @mock.patch.object(api.nova, 'novaclient')
+    def test_availability_zone_list(self, mock_novaclient):
+        novaclient = mock_novaclient.return_value
+        detailed = False
+        zones = [mock.Mock(zoneName='john'), mock.Mock(zoneName='sam'),
+                 mock.Mock(zoneName='bob')]
+        novaclient.availability_zones.list.return_value = zones
+
+        ret_val = api.nova.availability_zone_list(self.request, detailed)
+        self.assertEqual([zone.zoneName for zone in ret_val],
+                         ['bob', 'john', 'sam'])
+        novaclient.availability_zones.list.assert_called_once_with(
+            detailed=detailed)
