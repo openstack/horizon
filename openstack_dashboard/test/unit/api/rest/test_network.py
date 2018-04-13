@@ -75,7 +75,9 @@ class RestNetworkApiFloatingIpTests(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, fip.to_dict())
         self.mock_tenant_floating_ip_allocate.assert_called_once_with(request,
-                                                                      'pool')
+                                                                      'pool',
+                                                                      None,
+                                                                      {})
 
     @test.create_mocks({api.neutron: ['floating_ip_associate']})
     def test_associate_floating_ip(self):

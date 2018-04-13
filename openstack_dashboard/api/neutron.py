@@ -492,7 +492,7 @@ class SecurityGroupManager(object):
 
 class FloatingIp(base.APIDictWrapper):
     _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id',
-              'instance_type', 'pool']
+              'instance_type', 'pool', 'dns_domain', 'dns_name']
 
     def __init__(self, fip):
         fip['ip'] = fip['floating_ip_address']
@@ -631,6 +631,10 @@ class FloatingIpManager(object):
             create_dict['floating_ip_address'] = params['floating_ip_address']
         if 'description' in params:
             create_dict['description'] = params['description']
+        if 'dns_domain' in params:
+            create_dict['dns_domain'] = params['dns_domain']
+        if 'dns_name' in params:
+            create_dict['dns_name'] = params['dns_name']
         fip = self.client.create_floatingip(
             {'floatingip': create_dict}).get('floatingip')
         self._set_instance_info(fip)

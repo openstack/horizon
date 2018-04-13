@@ -214,10 +214,12 @@ class FloatingIpViewTests(test.TestCase):
     @test.create_mocks({api.nova: ('server_list',),
                         api.neutron: ('floating_ip_disassociate',
                                       'floating_ip_pools_list',
+                                      'is_extension_supported',
                                       'tenant_floating_ip_list')})
     def test_disassociate_post(self):
         floating_ip = self.floating_ips.first()
 
+        self.mock_is_extension_supported.return_value = False
         self.mock_server_list.return_value = [self.servers.list(), False]
         self.mock_tenant_floating_ip_list.return_value = \
             self.floating_ips.list()
@@ -237,14 +239,18 @@ class FloatingIpViewTests(test.TestCase):
             test.IsHttpRequest())
         self.mock_floating_ip_disassociate.assert_called_once_with(
             test.IsHttpRequest(), floating_ip.id)
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'dns-integration')
 
     @test.create_mocks({api.nova: ('server_list',),
                         api.neutron: ('floating_ip_disassociate',
                                       'floating_ip_pools_list',
+                                      'is_extension_supported',
                                       'tenant_floating_ip_list')})
     def test_disassociate_post_with_exception(self):
         floating_ip = self.floating_ips.first()
 
+        self.mock_is_extension_supported.return_value = False
         self.mock_server_list.return_value = [self.servers.list(), False]
         self.mock_tenant_floating_ip_list.return_value = \
             self.floating_ips.list()
@@ -263,8 +269,11 @@ class FloatingIpViewTests(test.TestCase):
             test.IsHttpRequest())
         self.mock_floating_ip_disassociate.assert_called_once_with(
             test.IsHttpRequest(), floating_ip.id)
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'dns-integration')
 
     @test.create_mocks({api.neutron: ('tenant_floating_ip_list',
+                                      'is_extension_supported',
                                       'floating_ip_pools_list'),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
@@ -273,6 +282,7 @@ class FloatingIpViewTests(test.TestCase):
         floating_pools = self.pools.list()
         quota_data = self.neutron_quota_usages.first()
 
+        self.mock_is_extension_supported.return_value = False
         self.mock_tenant_floating_ip_list.return_value = floating_ips
         self.mock_floating_ip_pools_list.return_value = floating_pools
         self.mock_server_list.return_value = [self.servers.list(), False]
@@ -299,8 +309,12 @@ class FloatingIpViewTests(test.TestCase):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 3,
             mock.call(test.IsHttpRequest(), targets=('floatingip', )))
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'dns-integration',
+        )
 
     @test.create_mocks({api.neutron: ('tenant_floating_ip_list',
+                                      'is_extension_supported',
                                       'floating_ip_pools_list'),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
@@ -310,6 +324,7 @@ class FloatingIpViewTests(test.TestCase):
         quota_data = self.neutron_quota_usages.first()
         quota_data['floatingip']['available'] = 0
 
+        self.mock_is_extension_supported.return_value = False
         self.mock_tenant_floating_ip_list.return_value = floating_ips
         self.mock_floating_ip_pools_list.return_value = floating_pools
         self.mock_server_list.return_value = [self.servers.list(), False]
@@ -333,6 +348,9 @@ class FloatingIpViewTests(test.TestCase):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 3,
             mock.call(test.IsHttpRequest(), targets=('floatingip', )))
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'dns-integration',
+        )
 
     @test.create_mocks({api.neutron: ('floating_ip_pools_list',
                                       'tenant_floating_ip_list',
@@ -343,7 +361,7 @@ class FloatingIpViewTests(test.TestCase):
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_correct_quotas_displayed(self):
         self.mock_is_service_enabled.return_value = True
-        self.mock_is_extension_supported.side_effect = [True, False]
+        self.mock_is_extension_supported.side_effect = [False, True, False]
         self.mock_is_router_enabled.return_value = True
         self.mock_tenant_quota_get.return_value = self.neutron_quotas.first()
         self.mock_tenant_floating_ip_list.return_value = \
@@ -357,8 +375,9 @@ class FloatingIpViewTests(test.TestCase):
 
         self.mock_is_service_enabled.assert_called_once_with(
             test.IsHttpRequest(), 'network')
-        self.assertEqual(2, self.mock_is_extension_supported.call_count)
+        self.assertEqual(3, self.mock_is_extension_supported.call_count)
         self.mock_is_extension_supported.assert_has_calls([
+            mock.call(test.IsHttpRequest(), 'dns-integration'),
             mock.call(test.IsHttpRequest(), 'quotas'),
             mock.call(test.IsHttpRequest(), 'quota_details'),
         ])

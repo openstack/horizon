@@ -189,6 +189,10 @@ class FloatingIPsTable(tables.DataTable):
                        attrs={'data-type': "ip"})
     description = tables.Column("description",
                                 verbose_name=_("Description"))
+    dns_name = tables.Column("dns_name",
+                             verbose_name=_("DNS Name"))
+    dns_domain = tables.Column("dns_domain",
+                               verbose_name=_("DNS Domain"))
     fixed_ip = tables.Column(get_instance_info,
                              link=get_instance_link,
                              verbose_name=_("Mapped Fixed IP Address"))
@@ -204,6 +208,12 @@ class FloatingIPsTable(tables.DataTable):
         super(FloatingIPsTable, self).__init__(
             request, data=data, needs_form_wrapper=needs_form_wrapper,
             **kwargs)
+        dns_supported = api.neutron.is_extension_supported(
+            request,
+            "dns-integration")
+        if not dns_supported:
+            del self.columns["dns_name"]
+            del self.columns["dns_domain"]
 
     def sanitize_id(self, obj_id):
         return filters.get_int_or_uuid(obj_id)

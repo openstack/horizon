@@ -61,7 +61,13 @@ class FloatingIP(generic.View):
         :return: JSON representation of the new floating IP address
         """
         pool = request.DATA['pool_id']
-        result = api.neutron.tenant_floating_ip_allocate(request, pool)
+        params = {}
+        if 'dns_domain' in request.DATA:
+            params['dns_domain'] = request.DATA['dns_domain']
+        if 'dns_name' in request.DATA:
+            params['dns_name'] = request.DATA['dns_name']
+        result = api.neutron.tenant_floating_ip_allocate(request, pool,
+                                                         None, params)
         return result.to_dict()
 
     @rest_utils.ajax(data_required=True)
