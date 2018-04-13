@@ -66,7 +66,8 @@
       })
       .append({
         id: 'port_id',
-        priority: 1
+        priority: 1,
+        urlFunction: trunksService.getPortDetailsPath
       })
       .append({
         id: 'subport_count',
