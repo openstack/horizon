@@ -1184,6 +1184,12 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
             secgroup['id'])
 
     def test_security_group_rule_create(self):
+        self._test_security_group_rule_create(with_desc=True)
+
+    def test_security_group_rule_create_without_desc(self):
+        self._test_security_group_rule_create(with_desc=False)
+
+    def _test_security_group_rule_create(self, with_desc):
         sg_rule = [r for r in self.api_security_group_rules.list()
                    if r['protocol'] == 'tcp' and r['remote_ip_prefix']][0]
         sg_id = sg_rule['security_group_id']
@@ -1193,17 +1199,25 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         post_rule = copy.deepcopy(sg_rule)
         del post_rule['id']
         del post_rule['tenant_id']
+        if not with_desc:
+            del post_rule['description']
         post_body = {'security_group_rule': post_rule}
         self.qclient.create_security_group_rule.return_value = \
             {'security_group_rule': copy.deepcopy(sg_rule)}
         self.qclient.list_security_groups.return_value = \
             {'security_groups': [copy.deepcopy(secgroup)]}
 
+        if with_desc:
+            description = sg_rule['description']
+        else:
+            description = None
+
         ret = api.neutron.security_group_rule_create(
             self.request, sg_rule['security_group_id'],
             sg_rule['direction'], sg_rule['ethertype'], sg_rule['protocol'],
             sg_rule['port_range_min'], sg_rule['port_range_max'],
-            sg_rule['remote_ip_prefix'], sg_rule['remote_group_id'])
+            sg_rule['remote_ip_prefix'], sg_rule['remote_group_id'],
+            description)
 
         self._cmp_sg_rule(sg_rule, ret)
         self.qclient.create_security_group_rule.assert_called_once_with(
