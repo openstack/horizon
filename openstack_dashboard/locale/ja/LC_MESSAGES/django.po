@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-13 14:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-10 07:13+0000\n"
+"PO-Revision-Date: 2018-04-13 08:30+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1023,6 +1023,9 @@ msgstr "コンピュート"
 
 msgid "Compute Host"
 msgstr "コンピュートホスト"
+
+msgid "Compute Quotas"
+msgstr "コンピュートクォータ"
 
 msgid "Compute Services"
 msgstr "コンピュートサービス"
@@ -2164,6 +2167,9 @@ msgstr "名前空間のパブリック属性、保護属性を編集します。
 
 msgid "Edit QoS Spec Consumer"
 msgstr "QoS スペックの使用者の編集"
+
+msgid "Edit Quotas"
+msgstr "クォータの編集"
 
 msgid "Edit Router"
 msgstr "ルーターの編集"
@@ -3797,6 +3803,9 @@ msgstr "インスタンス \"%s\" を変更しました。"
 msgid "Modified project \"%s\"."
 msgstr "プロジェクト \"%s\" を変更しました。"
 
+msgid "Modified quotas of project"
+msgstr "プロジェクトのクォータを変更しました。"
+
 #, python-format
 msgid "Modified volume type access: %s"
 msgstr "ボリューム種別 %s のアクセス権を変更しました"
@@ -3933,6 +3942,9 @@ msgstr "ネットワーク QoS"
 
 msgid "Network QoS Policies"
 msgstr "ネットワーク QoS ポリシー"
+
+msgid "Network Quotas"
+msgstr "ネットワーククォータ"
 
 msgid "Network Topology"
 msgstr "ネットワークトポロジー"
@@ -4655,6 +4667,9 @@ msgstr "メモリー (使用中)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "メモリー (利用可能: %(avail)s, 要求: %(req)s)"
+
+msgid "RBAC Policies"
+msgstr "RBAC ポリシー"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 係数"
@@ -6662,6 +6677,9 @@ msgstr "インスタンス \"%s\" の SPICE コンソールを取得できませ
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "インスタンス \"%s\" の VNC コンソールを取得できません。"
 
+msgid "Unable to get cinder quota info."
+msgstr "cinder のクォータ情報を取得できません。"
+
 msgid "Unable to get cinder services list."
 msgstr "Cinder のサービス一覧を取得できません。"
 
@@ -6687,6 +6705,12 @@ msgstr "ネットワークエージェント情報を取得できません。"
 
 msgid "Unable to get network agents list."
 msgstr "ネットワークエージェントの一覧を取得できません。"
+
+msgid "Unable to get neutron quota info."
+msgstr "neutron のクォータ情報を取得できません。"
+
+msgid "Unable to get nova quota info."
+msgstr "nova のクォータ情報を取得できません。"
 
 msgid "Unable to get nova services list."
 msgstr "nova のサービス一覧を取得できません。"
@@ -6767,6 +6791,9 @@ msgstr "インスタンス \"%s\" のログを取得できません。"
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "プロジェクト \"%s\" を変更できません。"
+
+msgid "Unable to modify quotas of project"
+msgstr "プロジェクトのクォータを変更できません。"
 
 #, python-format
 msgid "Unable to parse IP address %s."
@@ -6883,6 +6910,12 @@ msgstr "整合性グループの情報を取得できません。"
 
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "整合性グループのスナップショットの詳細を取得できません。"
+
+msgid "Unable to retrieve default compute quotas."
+msgstr "コンピュートのデフォルトのクォータを取得できません。"
+
+msgid "Unable to retrieve default volume quotas."
+msgstr "ボリュームのデフォルトクォータを取得できません。"
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -7097,6 +7130,9 @@ msgstr "プロジェクト情報を取得できません。"
 msgid "Unable to retrieve project list."
 msgstr "プロジェクト一覧を取得できません。"
 
+msgid "Unable to retrieve project quotas."
+msgstr "プロジェクトのクォータを取得できません。"
+
 msgid "Unable to retrieve protocol list."
 msgstr "プロトコル一覧を取得できません。"
 
@@ -7309,8 +7345,14 @@ msgstr "インスタンスのフレーバーの並び替えができません。
 msgid "Unable to unmanage volume."
 msgstr "ボリュームの管理を解除できません。"
 
+msgid "Unable to update default compute quotas."
+msgstr "コンピュートのデフォルトクォータを更新できません。"
+
 msgid "Unable to update default quotas."
 msgstr "標準のクォータを更新できません。"
+
+msgid "Unable to update default volume quotas."
+msgstr "ボリュームのデフォルトクォータを更新できません。"
 
 msgid "Unable to update encrypted volume type."
 msgstr "ボリューム種別の暗号化設定を更新できません。"
@@ -7809,6 +7851,9 @@ msgstr "ボリューム名"
 
 msgid "Volume Name ="
 msgstr "ボリューム名 ="
+
+msgid "Volume Quotas"
+msgstr "ボリュームクォータ"
 
 msgid "Volume Snapshot"
 msgstr "ボリュームスナップショット"

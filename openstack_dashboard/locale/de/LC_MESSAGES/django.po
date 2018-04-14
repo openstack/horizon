@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-13 14:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-20 02:05+0000\n"
+"PO-Revision-Date: 2018-04-13 01:23+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -879,6 +879,9 @@ msgstr "Konsole für Instanz %s kann nicht aufgerufen werden."
 
 msgid "Cannot specify both file and direct input."
 msgstr "Gleichzeitige Angabe von Datei und direkte Eingabe ist nicht möglich."
+
+msgid "Center Topology"
+msgstr "Center Topologie"
 
 msgid "Centralized"
 msgstr "Zentralisiert"
@@ -2263,6 +2266,9 @@ msgstr "Öffentliche/geschützte Attribute für den Namensraum bearbeiten."
 msgid "Edit QoS Spec Consumer"
 msgstr "Spezifikation für QoS-Verbraucher bearbeiten"
 
+msgid "Edit Quotas"
+msgstr "Kontingente bearbeiten"
+
 msgid "Edit Router"
 msgstr "Router bearbeiten"
 
@@ -2982,6 +2988,15 @@ msgstr "Hier können Sie eine Floating IP einem bestimmten Projekt zuweisen."
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "Hier kann eine Schattenkopie eines Datenträger erstellt werden."
+
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr ""
+"Hier können Sie Standard-Compute-Kontingente (maximale Limits) aktualisieren."
+
+msgid "From here you can update the default volume quotas (max limits)."
+msgstr ""
+"Hier können Sie Standard-Datenträger-kontingente (maximale Limits) "
+"aktualisieren."
 
 msgid "GB"
 msgstr "GB"
@@ -3919,6 +3934,9 @@ msgstr "Instanz \"%s\" angepasst."
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "Projekt \"%s\" geändert."
+
+msgid "Modified quotas of project"
+msgstr "Geänderte Projektkontingente"
 
 #, python-format
 msgid "Modified volume type access: %s"
@@ -6997,6 +7015,9 @@ msgstr "Kann Instanz \"%s\" nicht anpasen."
 msgid "Unable to modify project \"%s\"."
 msgstr "Projekt \"%s\" kann nicht geändert werden."
 
+msgid "Unable to modify quotas of project"
+msgstr "Projektkontingente können nicht geändert werden."
+
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP-Adresse %s kann nicht analysiert werden."
@@ -7119,6 +7140,12 @@ msgstr "Konsistenzgruppeninformationen können nicht abgerufen werden."
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr ""
 "Details zur Konsistenzgruppen-Schattenkopie können nicht abgerufen werden."
+
+msgid "Unable to retrieve default compute quotas."
+msgstr "Standard-Compute-Kontingente können nicht abgerufen werden."
+
+msgid "Unable to retrieve default volume quotas."
+msgstr "Standard-Datenträger-Kontingente können nicht abgerufen werden."
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -7342,6 +7369,9 @@ msgstr "Projektinformationen können nicht abgerufen werden."
 msgid "Unable to retrieve project list."
 msgstr "Projektliste kann nicht abgerufen werden."
 
+msgid "Unable to retrieve project quotas."
+msgstr "Projektkontingente können nicht abgerufen werden."
+
 msgid "Unable to retrieve protocol list."
 msgstr "Abrufen der Protokolliste nicht möglich."
 
@@ -7563,8 +7593,14 @@ msgstr "Instanzvarianten können nicht sortiert werden."
 msgid "Unable to unmanage volume."
 msgstr "Datenträgerverwaltung kann nicht aufgehoben werden."
 
+msgid "Unable to update default compute quotas."
+msgstr "Standard-Compute-Kontingente können nicht aktualisieren werden."
+
 msgid "Unable to update default quotas."
 msgstr "Standard-Kontingente können nicht aktualisiert werden."
+
+msgid "Unable to update default volume quotas."
+msgstr "Standard-Datenträger-Kontingente können nicht aktualisieren werden."
 
 msgid "Unable to update encrypted volume type."
 msgstr "Aktualisieren von verschlüsselten Datenträgertypen nicht möglich."

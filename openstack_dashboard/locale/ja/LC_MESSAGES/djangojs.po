@@ -3,18 +3,19 @@
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 # Shu Muto <shu.mutow@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-10 19:17+0000\n"
+"POT-Creation-Date: 2018-04-13 14:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-11 03:15+0000\n"
-"Last-Translator: Shu Muto <shu.mutow@gmail.com>\n"
+"PO-Revision-Date: 2018-04-13 08:34+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -555,6 +556,10 @@ msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "ロールの削除の確認"
 
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "サーバーグループの削除の確認"
+
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
 msgstr[0] "トランクの削除の確認"
@@ -605,8 +610,14 @@ msgstr "コンテンツタイプ"
 msgid "Contextual alternatives"
 msgstr "文脈依存の代替"
 
+msgid "Copy"
+msgstr "コピー"
+
 msgid "Copy Data"
 msgstr "データのコピー"
+
+msgid "Copy Object"
+msgstr "オブジェクトのコピー"
 
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "オブジェクトのコピー: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
@@ -646,6 +657,9 @@ msgstr "新規ボリュームの作成"
 
 msgid "Create Role"
 msgstr "ロールの作成"
+
+msgid "Create Server Group"
+msgstr "サーバーグループの作成"
 
 msgid "Create Subnet"
 msgstr "サブネットの作成"
@@ -816,6 +830,13 @@ msgstr "ロールの削除"
 msgid "Delete Router"
 msgstr "ルーターの削除"
 
+msgid "Delete Server Group"
+msgid_plural "Delete Server Groups"
+msgstr[0] "サーバーグループの削除"
+
+msgid "Delete Server Groups"
+msgstr "サーバーグループの削除"
+
 msgid "Delete Subnet"
 msgstr "サブネットの削除"
 
@@ -858,6 +879,11 @@ msgstr[0] "キーペア %s を削除しました"
 msgid "Deleted Role: %s."
 msgid_plural "Deleted Roles: %s."
 msgstr[0] "ロール %s を削除しました。"
+
+#, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "サーバーグループ %s を削除しました"
 
 #, python-format
 msgid "Deleted Trunk: %s."
@@ -1373,6 +1399,9 @@ msgstr ""
 msgid "Instance"
 msgstr "インスタンス"
 
+msgid "Instance ID"
+msgstr "インスタンス ID"
+
 msgid "Instance Name"
 msgstr "インスタンス名"
 
@@ -1830,6 +1859,10 @@ msgstr "OVA - オープン仮想アプライアンス"
 
 msgid "Object"
 msgstr "オブジェクト"
+
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "オブジェクト %(path)s をコピーしました。"
 
 msgid "Object Count"
 msgstr "オブジェクト数"
@@ -2331,6 +2364,13 @@ msgstr "招待状の送信"
 
 msgid "Separated link"
 msgstr "分割されたリンク"
+
+msgid "Server Group"
+msgstr "サーバーグループ"
+
+#, python-format
+msgid "Server Group %s was successfully created."
+msgstr "サーバーグループ %s を作成しました。"
 
 msgid "Server Groups"
 msgstr "サーバーグループ"
@@ -2901,6 +2941,9 @@ msgstr "プロジェクトを作成できません。"
 msgid "Unable to create the role."
 msgstr "ロールを作成できません。"
 
+msgid "Unable to create the server group."
+msgstr "サーバーグループを作成できません。"
+
 msgid "Unable to create the server snapshot."
 msgstr "サーバーのスナップショットを作成できません。"
 
@@ -2938,6 +2981,11 @@ msgstr[0] "キーペアを削除できません: %s"
 msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "ロールを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "サーバーグループを削除できません: %s"
 
 #, python-format
 msgid "Unable to delete Trunk: %s."
@@ -2993,6 +3041,10 @@ msgstr "ロールを削除できません。"
 
 msgid "Unable to delete the roles."
 msgstr "ロールを削除できません。"
+
+#, python-format
+msgid "Unable to delete the server group with id %(id)s"
+msgstr "ID %(id)s のサーバーグループを削除できません。"
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
@@ -3235,6 +3287,9 @@ msgstr "ロール一覧を取得できません。"
 
 msgid "Unable to retrieve the security groups."
 msgstr "セキュリティーグループの一覧を取得できません。"
+
+msgid "Unable to retrieve the server group."
+msgstr "サーバーグループを取得できません。"
 
 msgid "Unable to retrieve the server."
 msgstr "サーバーを取得できません。"
@@ -3651,6 +3706,12 @@ msgstr ""
 "の列には、Glance のメタデータカタログに登録されているスケジューラーヒントの定"
 "義が表示されています。キーを自分で指定してスケジューラーヒントを追加するに"
 "は、「カスタム」 オプションを使用してください。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたサーバーグループは元に戻せません。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
