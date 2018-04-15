@@ -107,6 +107,12 @@
     ///////////////////
 
     function link(scope, element) {
+      scope.$watch('item', function() {
+        filterItem(scope, element);
+      });
+    }
+
+    function filterItem(scope, element) {
       var config = scope.config;
       var item = scope.item;
       var propValue = item[config.id];
@@ -131,7 +137,7 @@
         }
 
         if (url) {
-          element.append(angular.element('<a>').attr('href', url).text(output));
+          element.replaceWith(angular.element('<a>').attr('href', url).text(output));
         } else {
           element.text(output);
         }
