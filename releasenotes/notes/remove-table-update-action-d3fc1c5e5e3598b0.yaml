@@ -1,0 +1,5 @@
+---
+other:
+  - |
+    UpdateAction is deprecated in Newton and removed now. You should not use
+    inline edit functionality in your plugins anymore.

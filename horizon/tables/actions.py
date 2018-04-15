@@ -26,7 +26,6 @@ from django import urls
 from django.utils.functional import Promise
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 import six
 
 from horizon import exceptions
@@ -964,61 +963,3 @@ class handle_exception_with_detail_message(object):
                 # just to re-raise the exception.
                 raise
         return decorated
-
-
-class Deprecated(type):
-    # TODO(lcastell) Replace class with similar functionality from
-    # oslo_log.versionutils when it's finally added in 11.0
-    def __new__(meta, name, bases, kwargs):
-        cls = super(Deprecated, meta).__new__(meta, name, bases, kwargs)
-        if name != 'UpdateAction':
-            LOG.warning(
-                "WARNING:The UpdateAction class defined in module '%(mod)s' "
-                "is deprecated as of Newton and may be removed in "
-                "Horizon P (12.0). Class '%(name)s' defined at "
-                "module '%(module)s' shall no longer subclass it.",
-                {'mod': UpdateAction.__module__,
-                 'name': name,
-                 'module': kwargs['__module__']})
-        return cls
-
-
-@six.add_metaclass(Deprecated)
-class UpdateAction(object):
-    """**DEPRECATED**: A table action for cell updates by inline editing."""
-
-    name = "update"
-
-    def action(self, request, datum, obj_id, cell_name, new_cell_value):
-        self.update_cell(request, datum, obj_id, cell_name, new_cell_value)
-
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Update Item",
-            u"Update Items",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Updated Item",
-            u"Updated Items",
-            count
-        )
-
-    def update_cell(self, request, datum, obj_id, cell_name, new_cell_value):
-        """Method for saving data of the cell.
-
-        This method must implements saving logic of the inline edited table
-        cell.
-        """
-
-    def allowed(self, request, datum, cell):
-        """Determine whether updating is allowed for the current request.
-
-        This method is meant to be overridden with more specific checks.
-        Data of the row and of the cell are passed to the method.
-        """
-        return True

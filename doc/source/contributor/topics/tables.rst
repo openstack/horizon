@@ -289,53 +289,6 @@ Example::
                                                    admin=True)
             return project_info
 
-Updating changed cell data (DEPRECATED)
----------------------------------------
-
-Define an ``update_cell`` method in the class inherited from
-``tables.UpdateAction``. This method takes care of saving the data of the
-table cell. There can be one class for every cell thanks to the
-``cell_name`` parameter. This class is then defined in tables column as
-``update_action=UpdateCell``, so each column can have its own updating
-method.
-
-Example::
-
-    class UpdateCell(tables.UpdateAction):
-        def allowed(self, request, project, cell):
-            # Determines whether given cell or row will be inline editable
-            # for signed in user.
-            return api.keystone.keystone_can_edit_project()
-
-        def update_cell(self, request, project_id, cell_name, new_cell_value):
-            # in-line update project info
-            try:
-                project_obj = datum
-                # updating changed value by new value
-                setattr(project_obj, cell_name, new_cell_value)
-
-                # sending new attributes back to API
-                api.keystone.tenant_update(
-                    request,
-                    project_id,
-                    name=project_obj.name,
-                    description=project_obj.description,
-                    enabled=project_obj.enabled)
-
-            except Conflict:
-                # Validation error for naming conflict, raised when user
-                # choose the existing name. We will raise a
-                # ValidationError, that will be sent back to the client
-                # browser and shown inside of the table cell.
-                message = _("This name is already taken.")
-                raise ValidationError(message)
-            except:
-                # Other exception of the API just goes through standard
-                # channel
-                exceptions.handle(request, ignore=True)
-                return False
-            return True
-
 Defining a form_field for each Column that we want to be in-line edited.
 ------------------------------------------------------------------------
 
