@@ -27,7 +27,7 @@ limitations under the License.
     <thead>
       <tr>
         <th class="expander"></th>
-        <th st-sort="name" class="rsp-p1" translate>Name</th>
+        <th st-sort="name" class="rsp-p1" colspan="5" translate>Name</th>
         <th st-sort="vcpus" class="rsp-p1" translate>VCPUS</th>
         <th st-sort="ram" class="rsp-p1" translate>RAM</th>
         <th st-sort="totalDisk" class="rsp-p1" translate>Total Disk</th>
@@ -39,7 +39,7 @@ limitations under the License.
     </thead>
     <tbody>
       <tr ng-if="selectFlavorCtrl.displayedAllocatedFlavorFacades.length === 0">
-        <td colspan="10">
+        <td colspan="14">
           <div class="no-rows-help">
             {$ ::trCtrl.helpText.noneAllocText $}
           </div>
@@ -51,32 +51,36 @@ limitations under the License.
                 title="{$ ::expandDetailsText $}"></span>
         </td>
         <td class="rsp-p1 word-break">{$ ::item.name $}</td>
-        <td class="rsp-p1">
+        <td class="rsp-p1" colspan="9">
+          <div style="width: auto;">
+            Hardware details for your instance can be found in our <a target='blank' href='https://www.chameleoncloud.org/hardware/'>resource discovery interface.</a>
+          </div>
           <!--<span class="invalid fa fa-exclamation-triangle"
           ng-show="item.errors.vcpus"
           popover="{$ item.errors.vcpus $}"
           popover-placement="top" popover-append-to-body="true"
           popover-trigger="mouseenter mouseleave"/>
           {$ ::item.vcpus $}-->
-        </td>
+        </td><!--
         <td class="rsp-p1">
-          <!--<span class="invalid fa fa-exclamation-triangle"
+          <span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.ram"
             popover="{$ item.errors.ram $}"
             popover-placement="top" popover-append-to-body="true"
             popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.ram | mb $} -->
+          {$ ::item.ram | mb $} 
         </td>
         <td class="rsp-p1">{$ ::item.totalDisk | gb $}</td>
         <td class="rsp-p2">
-          <!--<span class="invalid fa fa-exclamation-triangle"
+          <span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.disk"
             popover="{$ item.errors.disk $}"
             popover-placement="top" popover-append-to-body="true"
             popover-trigger="mouseenter mouseleave"/>
-          {$ ::item.rootDisk | gb $}-->
+          {$ ::item.rootDisk | gb $}
         </td>
         <td class="rsp-p2">{$ ::item.ephemeralDisk | gb $}</td>
+        -->
         <td class="rsp-p1">{$ ::item.isPublic | yesno $}</td>
         <td class="action-col">
           <action-list button-tooltip="item.disabledMessage"
@@ -97,20 +101,20 @@ limitations under the License.
         </td>
       </tr>
       <tr ng-repeat-end class="detail-row">
-        <td colspan="9" class="detail">
+        <td colspan="14" class="detail">
           <span class="h5" translate>Impact on your quota</span>
           <div class="row">
             <div class="col-xs-4">
               <pie-chart chart-data="item.instancesChartData"
                          chart-settings="chartSettings"></pie-chart>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4"><!--
               <pie-chart chart-data="item.vcpusChartData"
-                         chart-settings="chartSettings"></pie-chart>
+                         chart-settings="chartSettings"></pie-chart> -->
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4"><!--
               <pie-chart chart-data="item.ramChartData"
-                         chart-settings="chartSettings"></pie-chart>
+                         chart-settings="chartSettings"></pie-chart> -->
             </div>
           </div>
           <div ng-if="selectFlavorCtrl.metadataDefs.flavor">
@@ -163,7 +167,7 @@ limitations under the License.
         </td>
         <td class="rsp-p1 word-break">{$ ::item.name $}</td>
         <td class="rsp-p1" colspan="5">
-          <div style="max-width: 200px;">
+          <div style="width: auto;">
             Hardware details for your instance can be found in our <a target='blank' href='https://www.chameleoncloud.org/hardware/'>resource discovery interface.</a>
           </div>
           <!--<span class="invalid fa fa-exclamation-triangle"
