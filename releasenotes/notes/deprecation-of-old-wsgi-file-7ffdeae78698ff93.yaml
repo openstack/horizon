@@ -1,0 +1,9 @@
+---
+deprecations:
+  - |
+    [:bug:`1763204`]
+    Use of this 'djano.wsgi' file has been deprecated since the Rocky
+    release in favor of 'wsgi.py' in the 'openstack_dashboard' module. This
+    file is a legacy naming from before Django 1.4 and an importable
+    'wsgi.py' is now the default. This file will be removed in the T release
+    cycle.

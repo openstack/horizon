@@ -170,8 +170,8 @@ Deployment
 
      $ sudo apt-get install apache2 libapache2-mod-wsgi
 
-   You can either use the provided ``openstack_dashboard/wsgi/django.wsgi`` or
-   generate a ``openstack_dashboard/wsgi/horizon.wsgi`` file with the following
+   You can either use the provided ``openstack_dashboard/wsgi.py`` or
+   generate a ``openstack_dashboard/horizon_wsgi.py`` file with the following
    command (which detects if you use a virtual environment or not to
    automatically build an adapted WSGI file)
 
@@ -184,8 +184,9 @@ Deployment
    ``/etc/apache2/sites-available/horizon.conf``.
    The template in DevStack is a good example of the file.
    http://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-horizon.template
-   Or, if you previously generated an ``openstack_dashboard/wsgi/horizon.wsgi``
-   you can automatically generate an apache configuration file
+   Or you can automatically generate an apache configuration file. If you
+   previously generated an ``openstack_dashboard/horizon_wsgi.py`` file it will
+   use that, otherwise will default to using ``openstack_dashboard/wsgi.py``
 
    .. code-block:: console
 

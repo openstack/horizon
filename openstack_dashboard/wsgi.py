@@ -1,5 +1,3 @@
-# Copyright (c) 2017 OpenStack Foundation.
-#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -17,7 +15,6 @@
 WSGI config for openstack_dashboard project.
 """
 
-import logging
 import os
 import sys
 
@@ -28,13 +25,5 @@ sys.path.insert(0, os.path.normpath(os.path.join(
     os.path.dirname(os.path.realpath(__file__)), '../..')))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'openstack_dashboard.settings'
 sys.stdout = sys.stderr
-
-logging.warning(
-    "Use of this 'djano.wsgi' file has been deprecated since the Rocky "
-    "release in favor of 'wsgi.py' in the 'openstack_dashboard' module. This "
-    "file is a legacy naming from before Django 1.4 and an importable "
-    "'wsgi.py' is now the default. This file will be removed in the T release "
-    "cycle."
-)
 
 application = get_wsgi_application()

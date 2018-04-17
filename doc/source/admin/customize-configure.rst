@@ -341,10 +341,10 @@ Use a domain that fits your current setup.
 
    .. code-block:: apacheconf
 
-      WSGIScriptAlias / /usr/share/openstack-dashboard/openstack_dashboard/wsgi/django.wsgi
+      WSGIScriptAlias / /usr/share/openstack-dashboard/openstack_dashboard/wsgi.py
       WSGIDaemonProcess horizon user=www-data group=www-data processes=3 threads=10
       Alias /static /usr/share/openstack-dashboard/openstack_dashboard/static/
-      <Directory /usr/share/openstack-dashboard/openstack_dashboard/wsgi>
+      <Directory /usr/share/openstack-dashboard/openstack_dashboard>
       # For Apache http server 2.2 and earlier:
       Order allow,deny
       Allow from all
@@ -385,10 +385,10 @@ Use a domain that fits your current setup.
       # wire
       Header add Strict-Transport-Security "max-age=15768000"
 
-      WSGIScriptAlias / /usr/share/openstack-dashboard/openstack_dashboard/wsgi/django.wsgi
+      WSGIScriptAlias / /usr/share/openstack-dashboard/openstack_dashboard/wsgi.py
       WSGIDaemonProcess horizon user=www-data group=www-data processes=3 threads=10
       Alias /static /usr/share/openstack-dashboard/openstack_dashboard/static/
-      <Directory /usr/share/openstack-dashboard/openstack_dashboard/wsgi>
+      <Directory /usr/share/openstack-dashboard/openstack_dashboard>
       # For Apache http server 2.2 and earlier:
           <ifVersion <2.4>
               Order allow,deny

@@ -31,6 +31,7 @@ openstack_dashboard/test/.secret_key_store
 openstack_dashboard/test/integration_tests/local-horizon.conf
 openstack_dashboard/test/integration_tests/test_reports/
 openstack_dashboard/wsgi/horizon.wsgi
+openstack_dashboard/horizon_wsgi.py
 doc/build/
 /static/
 integration_tests_screenshots/
