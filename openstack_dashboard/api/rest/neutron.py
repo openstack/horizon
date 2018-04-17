@@ -297,12 +297,8 @@ class QoSPolicies(generic.View):
         The listing result is an object with property "items".
         Each item is a qos policy.
         """
-        # TODO(amotoki):
-        # project_id=request.user.project_id should be changed to
-        # tenant_id=request.user.project_id once bug 1695954 is
-        # addressed to allow tenant_id to be accepted.
         result = api.neutron.policy_list(request,
-                                         project_id=request.user.project_id)
+                                         tenant_id=request.user.project_id)
         return {'items': [p.to_dict() for p in result]}
 
 
