@@ -29,10 +29,42 @@ the desired url target e.g., ``http://sample-company.com`` in
 Customizing the Footer
 ======================
 
-It is possible to customize the global and login footers using a theme's
-template override.  Simply add ``_footer.html`` for a global footer
-override or ``_login_footer.html`` for the login page's footer to your
-theme's template directory.
+It is possible to customize the global and login footers by using Django's
+recursive inheritance to extend the ``base.html``, ``auth/login.html``, and
+``auth/_login_form.html`` templates. You do this by naming your template the
+same name as the template you wish to extend and only overriding the blocks you
+wish to change.
+
+Your theme's ``base.html``::
+
+    {% extends "base.html" %}
+
+    {% block footer %}
+      <p>My custom footer</p>
+    {% endblock %}
+
+Your theme's ``auth/login.html``::
+
+    {% extends "auth/login.html" %}
+
+    {% block footer %}
+      <p>My custom login footer</p>
+    {% endblock %}
+
+Your theme's ``auth/_login_form.html``::
+
+    {% extends "auth/_login_form.html" %}
+
+    {% block login_footer %}
+      {% comment %}
+        You MUST have block.super because that includes the login button.
+      {% endcomment %}
+     {{ block.super }}
+      <p>My custom login form footer</p>
+    {% endblock %}
+
+See the ``example`` theme for a working theme that uses these blocks.
+
 
 Modifying Existing Dashboards and Panels
 ========================================
@@ -384,26 +416,69 @@ my_custom_dashboard/templates/my_custom_dashboard/base.html`` override
 The result is a single compressed js file consisting both Horizon and
 dashboard's custom scripts.
 
-Additionally, some marketing and analytics scripts require you to place them
-within the page's <head> tag. To do this, place them within the
-``horizon/_custom_head_js.html`` file. Similar to the ``_scripts.html`` file
-mentioned above, you may link to an existing file::
+Custom Head js
+--------------
 
-    <script src='{{ STATIC_URL }}/my_custom_dashboard/js/my_marketing_js.js' type='text/javascript' charset='utf-8'></script>
+Additionally, some scripts require you to place them within the page's <head>
+tag. To do this, recursively extend the ``base.html`` template in your theme
+to override the ``custom_head_js`` block.
 
-or you can paste your script directly in the file, being sure to use
-appropriate tags::
+Your theme's ``base.html``::
 
-  <script type="text/javascript">
-  //some javascript
-  </script>
+    {% extends "base.html" %}
 
+    {% block custom_head_js %}
+      <script src='{{ STATIC_URL }}/my_custom_dashboard/js/my_custom_js.js' type='text/javascript' charset='utf-8'></script>
+    {% endblock %}
+
+See the ``example`` theme for a working theme that uses these blocks.
+
+.. warning::
+
+    Don't use the ``custom_head_js`` block for analytics tracking. See below.
+
+Custom Analytics
+----------------
+
+For analytics or tracking scripts you should avoid the ``custom_head_js``
+block. We have a specific block instead called ``custom_analytics``. Much like
+the ``custom_head_js`` block this inserts additional content into the head of
+the ``base.html`` template and it will be on all pages.
+
+The reason for an analytics specific block is that for security purposes we
+want to be able to turn off tracking on certain pages that we deem sensitive.
+This is done for the safety of the users and the cloud admins. By using this
+block instead, pages using ``base.html`` can override it themselves when they
+want to avoid tracking. They can't simply override the custom js because it may
+be non-tracking code.
+
+Your theme's ``base.html``::
+
+    {% extends "base.html" %}
+
+    {% block custom_analytics %}
+      <script src='{{ STATIC_URL }}/my_custom_dashboard/js/my_tracking_js.js' type='text/javascript' charset='utf-8'></script>
+    {% endblock %}
+
+See the ``example`` theme for a working theme that uses these blocks.
 
 Customizing Meta Attributes
 ===========================
 
-To add custom metadata attributes to your project's base template, include
-them in the ``horizon/_custom_meta.html`` file. The contents of this file will
-be inserted into the page's <head> just after the default Horizon meta tags.
+To add custom metadata attributes to your project's base template use the
+``custom_metadata`` block. To do this, recursively extend the ``base.html``
+template in your theme to override the ``custom_metadata`` block. The contents
+of this block will be inserted into the page's <head> just after the default
+Horizon meta tags.
+
+Your theme's ``base.html``::
+
+    {% extends "base.html" %}
+
+    {% block custom_metadata %}
+      <meta name="description" content="My custom metadata.">
+    {% endblock %}
+
+See the ``example`` theme for a working theme that uses these blocks.
 
 ..  _Font Awesome: https://fortawesome.github.io/Font-Awesome/

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block custom_analytics %}
+  <script src='{{ STATIC_URL }}/themes/example/js/my_analytics_js.js' type='text/javascript' charset='utf-8'></script>
+{% endblock %}
+
+{% block custom_metadata %}
+  <meta name="description" content="My custom metadata.">
+{% endblock %}
+
+{% block custom_head_js %}
+  <script src='{{ STATIC_URL }}/themes/example/js/my_custom_js.js' type='text/javascript' charset='utf-8'></script>
+{% endblock %}
+
+{% block footer %}
+  <p>My custom footer</p>
+{% endblock %}

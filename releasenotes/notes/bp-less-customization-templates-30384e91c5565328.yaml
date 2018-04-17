@@ -1,0 +1,25 @@
+---
+features:
+  - |
+    With the fixes in Rocky that allow using Django's recursive template
+    inheritance we have added new blocks in our ``base.html`` template to allow
+    a better means of customizing through your themes. For details see the
+    ``customizing`` docs.
+deprecations:
+  - |
+    The customization override templates have been deprecated in favor of using
+    recursive inheritance in your themes. The following templates have been
+    deprecated and are slated for removal in the U release:
+    * ``_footer.html'``
+    * ``_login_footer.html``
+    * ``_login_form_footer.html``
+    * ``horizon/_custom_head_js.html``
+    * ``horizon/_custom_meta.html``
+upgrade:
+  - |
+    To allow certain views to optionally disable analytics tracking when
+    handling sensitive data, don't use the ``custom_head_js`` block, or the now
+    deprecated template ``horizon/_custom_head_js.html`` for analytics
+    tracking. Please read the ``customizing`` docs and instead use the
+    dedicated ``custom_analytics`` block so Horizon or its plugins can when
+    needed disable tracking on a given view.

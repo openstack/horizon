@@ -538,6 +538,7 @@ TIME_ZONE = "UTC"
 #AVAILABLE_THEMES = [
 #    ('default', 'Default', 'themes/default'),
 #    ('material', 'Material', 'themes/material'),
+#    ('example', 'Example', 'themes/example'),
 #]
 
 LOGGING = {
