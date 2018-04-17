@@ -1,0 +1,93 @@
+# Jesus Montoya <jmontoyac@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2018-04-12 01:35+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-04-16 11:04+0000\n"
+"Last-Translator: Jesus Montoya <jmontoyac@gmail.com>\n"
+"Language-Team: Spanish (Mexico)\n"
+"Language: es_MX\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "An error occurred authenticating. Please try again later."
+msgstr ""
+"Se ha producido un error de autenticación. Por favor inténtelo de nuevo más "
+"tarde."
+
+msgid "Authenticate using"
+msgstr "Autentificar usando"
+
+msgid "Could not find service provider ID on keystone."
+msgstr "No es posible encontrar la identidad de proveedor keystone."
+
+msgid "Domain"
+msgstr "Dominio"
+
+msgid "Identity provider authentication failed."
+msgstr "Autenticación fallida para el prveedor de identidad."
+
+msgid "Invalid credentials."
+msgstr "Credenciales inválidas."
+
+msgid "K2K Federation not setup for this session"
+msgstr "K2K Federation no configurado para esta sesión"
+
+msgid ""
+"No authentication backend could be determined to handle the provided "
+"credentials."
+msgstr ""
+"Autentificación de soporte no puede ser determinada para manejar las "
+"credenciales proveidas."
+
+msgid "Password"
+msgstr "Contraseña"
+
+#, python-format
+msgid "Please consider changing your password, it will expire in %s minutes"
+msgstr "Por favor considere cambiar su contraseña, ésta expirará en %s minutos"
+
+#, python-format
+msgid "Project switch failed for user \"%(username)s\"."
+msgstr "Cambio de proyecto fallido para el usuario \"%(username)s\"."
+
+msgid "Region"
+msgstr "Región."
+
+#, python-format
+msgid "Service provider authentication failed. %s"
+msgstr "Autenticación fallida para el prveedor de servicio. %s"
+
+#, python-format
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\"successful."
+msgstr "Cambio al proveedor Keystone \"%(keystone_provider)s\" satisfactorio."
+
+#, python-format
+msgid "Switch to project \"%(project_name)s\" successful."
+msgstr "Cambio al proyecto \"%(project_name)s\" satisfactorio."
+
+msgid "The authentication token issued by the Identity service has expired."
+msgstr ""
+"El token de autenticación otorgado por el servicio de identidad ha expirado."
+
+msgid "Unable to establish connection to keystone endpoint."
+msgstr "No es posible establecer conexión a punto final de keystone."
+
+msgid "Unable to retrieve authorized domains."
+msgstr "No se pueden recuperar los dominios autorizados."
+
+msgid "Unable to retrieve authorized projects."
+msgstr "No se pueden recuperar los proyectos autorizados."
+
+msgid "User Name"
+msgstr "Nombre de Usuario"
+
+msgid "You are not authorized for any projects or domains."
+msgstr "No está autorizado para ningún proyecto o dominio."
+
+msgid "You are not authorized for any projects."
+msgstr "No está autorizado para ningún proyecto."
