@@ -358,11 +358,16 @@
      * Specifies the id of the policy to request.
      * @returns {Object} The result of the API call
      */
-    function getQosPolicy(id) {
-      return apiService.get('/api/neutron/qos_policy/' + id + '/')
-        .error(function () {
-          toastService.add('error', gettext('Unable to retrieve the qos policy.'));
+    function getQosPolicy(id, suppressError) {
+      var promise = apiService.get('/api/neutron/qos_policies/' + id + '/')
+        .success(function(policy) {
+          convertDatesHumanReadable(policy);
         });
+      promise = suppressError ? promise : promise.error(function () {
+        var msg = gettext('Unable to retrieve the policy with ID %(id)s');
+        toastService.add('error', interpolate(msg, {id: id}, true));
+      });
+      return promise;
     }
 
     /**
@@ -372,8 +377,14 @@
      * The listing result is an object with property "items". Each item is
      * a QoS policy.
      */
-    function getQoSPolicies() {
-      return apiService.get('/api/neutron/qos_policies/')
+    function getQoSPolicies(params) {
+      var config = params ? {'params' : params} : {};
+      return apiService.get('/api/neutron/qos_policies/', config)
+        .success(function(policies) {
+          policies.items.forEach(function(policy) {
+            convertDatesHumanReadable(policy);
+          });
+        })
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the qos policies.'));
         });

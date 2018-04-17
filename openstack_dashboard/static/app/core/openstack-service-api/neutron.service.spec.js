@@ -38,7 +38,8 @@
       expect(service).toBeDefined();
     });
 
-    it('converts created_at and updated_at to human readable if calling getTrunk', function() {
+    it('converts created_at and updated_at to human readable if calling getTrunk' +
+       'or getQosPolicy',function() {
       var data = {
         id: 1,
         created_at: '2017-11-16',
@@ -61,9 +62,15 @@
         expect(result.created_at).toEqual(new Date(data.created_at));
         expect(result.updated_at).toEqual(new Date(data.updated_at));
       });
+      service.getQosPolicy(data.id, true).success(function(result) {
+        expect(result.id).toEqual(data.id);
+        expect(result.created_at).toEqual(new Date(data.created_at));
+        expect(result.updated_at).toEqual(new Date(data.updated_at));
+      });
     });
 
-    it('converts created_at and updated_at to human readable if calling getTrunks', function() {
+    it('converts created_at and updated_at to human readable if calling getTrunks' +
+       'or getQoSPolicies', function() {
       var data = {items: [{
         id: 1,
         created_at: '2017-11-16',
@@ -86,6 +93,13 @@
           expect(trunk.id).toEqual(data.items[0].id);
           expect(trunk.created_at).toEqual(new Date(data.items[0].created_at));
           expect(trunk.updated_at).toEqual(new Date(data.items[0].updated_at));
+        });
+      });
+      service.getQoSPolicies().success(function(result) {
+        result.items.forEach(function(policy) {
+          expect(policy.id).toEqual(data.items[0].id);
+          expect(policy.created_at).toEqual(new Date(data.items[0].created_at));
+          expect(policy.updated_at).toEqual(new Date(data.items[0].updated_at));
         });
       });
     });
@@ -270,8 +284,8 @@
       {
         "func": "getQosPolicy",
         "method": "get",
-        "path": "/api/neutron/qos_policy/1/",
-        "error": "Unable to retrieve the qos policy.",
+        "path": "/api/neutron/qos_policies/1/",
+        "error": "Unable to retrieve the policy with ID 1",
         "testInput": [
           1
         ]
@@ -280,6 +294,21 @@
         "func": "getQoSPolicies",
         "method": "get",
         "path": "/api/neutron/qos_policies/",
+        "data": {},
+        "error": "Unable to retrieve the qos policies."
+      },
+      {
+        "func": "getQoSPolicies",
+        "method": "get",
+        "path": "/api/neutron/qos_policies/",
+        "data": {
+          "params": {
+            "project_id": 1
+          }
+        },
+        "testInput": [
+          {"project_id": 1}
+        ],
         "error": "Unable to retrieve the qos policies."
       }
     ];
