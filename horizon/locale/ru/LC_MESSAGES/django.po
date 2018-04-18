@@ -21,9 +21,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 13.0.0.0b2.dev82\n"
+"Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-11-15 05:06+0000\n"
+"POT-Creation-Date: 2018-04-15 19:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Language-Team: Russian\n"
 
 #, python-format
@@ -408,18 +408,6 @@ msgid_plural "Up Items"
 msgstr[0] "Поднять элемент"
 msgstr[1] "Поднять элементы"
 msgstr[2] "Поднять элементы"
-
-msgid "Update Item"
-msgid_plural "Update Items"
-msgstr[0] "Обновить элемент"
-msgstr[1] "Обновить элементы"
-msgstr[2] "Обновить элементы"
-
-msgid "Updated Item"
-msgid_plural "Updated Items"
-msgstr[0] "Обновленный элемент"
-msgstr[1] "Обновленные элементы"
-msgstr[2] "Обновленные элементы"
 
 #. Translators: test code, don't really have to translate
 msgid "Upped Item"
