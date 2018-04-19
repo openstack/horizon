@@ -24,15 +24,14 @@ from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.instances.workflows import \
-    update_instance as base_sec_group
+from openstack_dashboard.dashboards.project.networks.ports import sg_base
 from openstack_dashboard.utils import filters
 
 
 LOG = logging.getLogger(__name__)
 
 
-class CreatePortSecurityGroupAction(base_sec_group.BaseSecurityGroupsAction):
+class CreatePortSecurityGroupAction(sg_base.BaseSecurityGroupsAction):
     def _get_initial_security_groups(self, context):
         field_name = self.get_member_field_name('member')
         groups_list = self.fields[field_name].choices
@@ -44,7 +43,7 @@ class CreatePortSecurityGroupAction(base_sec_group.BaseSecurityGroupsAction):
         slug = "create_security_groups"
 
 
-class CreatePortSecurityGroup(base_sec_group.BaseSecurityGroups):
+class CreatePortSecurityGroup(sg_base.BaseSecurityGroups):
     action_class = CreatePortSecurityGroupAction
     members_list_title = _("Port Security Groups")
     help_text = _('Add or remove security groups to the port '
@@ -357,7 +356,7 @@ class UpdatePortInfo(workflows.Step):
                    "binding__vnic_type", "mac_state", "port_security_enabled"]
 
 
-class UpdatePortSecurityGroupAction(base_sec_group.BaseSecurityGroupsAction):
+class UpdatePortSecurityGroupAction(sg_base.BaseSecurityGroupsAction):
     def _get_initial_security_groups(self, context):
         port_id = context.get('port_id', '')
         port = api.neutron.port_get(self.request, port_id)
@@ -368,7 +367,7 @@ class UpdatePortSecurityGroupAction(base_sec_group.BaseSecurityGroupsAction):
         slug = "update_security_groups"
 
 
-class UpdatePortSecurityGroup(base_sec_group.BaseSecurityGroups):
+class UpdatePortSecurityGroup(sg_base.BaseSecurityGroups):
     action_class = UpdatePortSecurityGroupAction
     members_list_title = _("Port Security Groups")
     help_text = _("Add or remove security groups to this port "
