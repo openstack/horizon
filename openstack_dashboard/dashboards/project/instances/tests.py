@@ -52,6 +52,7 @@ SEC_GROUP_ROLE_PREFIX = \
     workflows.update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
 AVAILABLE = api.cinder.VOLUME_STATE_AVAILABLE
 VOLUME_SEARCH_OPTS = dict(status=AVAILABLE, bootable=True)
+VOLUME_BOOTABLE_SEARCH_OPTS = dict(bootable=True)
 SNAPSHOT_SEARCH_OPTS = dict(status=AVAILABLE)
 
 
@@ -2109,9 +2110,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': 1,
             'ServerGroups': 1,
         })
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -2275,9 +2279,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': 1,
             'ServerGroups': 1,
         })
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -2383,9 +2390,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         })
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -2524,9 +2534,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': 1,
             'ServerGroups': 1,
         })
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -2645,9 +2658,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         })
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -2743,9 +2759,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self._check_glance_image_list_detailed(count=5)
         self._check_neutron_network_and_port_list()
         self._check_nova_lists(flavor_count=3)
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -2812,9 +2831,11 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ServerGroups': True,
         })
         self.mock_server_group_list.return_value = []
+        volumes = [v for v in self.cinder_volumes.list()
+                   if (getattr(v, 'bootable', 'false') == 'true')]
         snapshots = [v for v in self.cinder_volume_snapshots.list()
                      if (v.status == AVAILABLE)]
-        self.mock_volume_list.return_value = []
+        self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = snapshots
         self.mock_server_create.return_value = None
         self.mock_tenant_quota_usages.return_value = quota_usages
@@ -2854,9 +2875,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         })
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -3021,9 +3045,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': 1,
             'ServerGroups': 1,
         })
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -3128,9 +3155,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': 1,
             'ServerGroups': 1,
         })
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -3241,9 +3271,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': 1,
             'ServerGroups': 1,
         })
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -3349,9 +3382,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         })
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -3444,9 +3480,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': 1,
             'ServerGroups': 1,
         })
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -3633,9 +3672,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                        network_id=net.id,
                        tenant_id=self.tenant.id)
              for net in self.networks.list()])
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -3767,9 +3809,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self._check_neutron_network_and_port_list()
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -4011,9 +4056,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(),
-            search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
@@ -4135,8 +4183,12 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             html=True,
             msg_prefix="The default key pair was not selected.")
 
-        self.mock_volume_list.assert_called_once_with(
-            helpers.IsHttpRequest(), search_opts=VOLUME_SEARCH_OPTS)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(), search_opts=SNAPSHOT_SEARCH_OPTS)
         self._check_glance_image_list_detailed(count=5)
