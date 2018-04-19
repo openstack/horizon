@@ -428,31 +428,6 @@ there are any.
 This setting allows you to set rules for passwords if your organization
 requires them.
 
-simple_ip_management
-~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 2013.1(Grizzly)
-
-Default: ``True``
-
-Enable or disable simplified floating IP address management.
-
-"Simple" floating IP address management means that the user does not ever have
-to select the specific IP addresses they wish to use, and the process of
-allocating an IP and assigning it to an instance is one-click.
-
-The "advanced" floating IP management allows users to select the floating IP
-pool from which the IP should be allocated and to select a specific IP address
-when associating one with an instance.
-
-.. note::
-
-    Currently "simple" floating IP address management is not compatible with
-    Neutron. There are two reasons for this. First, Neutron does not support
-    the default floating IP pool at the moment. Second, a Neutron floating IP
-    can be associated with each VIF and we need to check whether there is only
-    one VIF for an instance to enable simple association support.
-
 user_home
 ~~~~~~~~~
 

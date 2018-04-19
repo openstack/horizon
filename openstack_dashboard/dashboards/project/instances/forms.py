@@ -15,6 +15,7 @@
 
 from django.template.defaultfilters import filesizeformat
 from django.urls import reverse
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
@@ -417,4 +418,55 @@ class DetachInterface(forms.SelfHandlingForm):
             redirect = reverse('horizon:project:instances:index')
             exceptions.handle(request, _("Unable to detach interface."),
                               redirect=redirect)
+        return True
+
+
+class Disassociate(forms.SelfHandlingForm):
+    fip = forms.ThemableChoiceField(label=_('Floating IP'))
+    is_release = forms.BooleanField(label=_('Release Floating IP'),
+                                    required=False)
+
+    def __init__(self, request, *args, **kwargs):
+        super(Disassociate, self).__init__(request, *args, **kwargs)
+        instance_id = self.initial['instance_id']
+        targets = api.neutron.floating_ip_target_list_by_instance(
+            request, instance_id)
+
+        target_ids = [t.port_id for t in targets]
+
+        self.fips = [fip for fip
+                     in api.neutron.tenant_floating_ip_list(request)
+                     if fip.port_id in target_ids]
+
+        fip_choices = [(fip.id, fip.ip) for fip in self.fips]
+        fip_choices.insert(0, ('', _('Select a floating IP to disassociate')))
+        self.fields['fip'].choices = fip_choices
+        self.fields['fip'].initial = self.fips[0].id
+
+    def handle(self, request, data):
+        redirect = reverse_lazy('horizon:project:instances:index')
+        fip_id = data['fip']
+        fips = [fip for fip in self.fips if fip.id == fip_id]
+        if not fips:
+            messages.error(request,
+                           _("The specified floating IP no longer exists."),
+                           redirect=redirect)
+        fip = fips[0]
+        try:
+            if data['is_release']:
+                api.neutron.tenant_floating_ip_release(request, fip_id)
+                messages.success(
+                    request,
+                    _("Successfully disassociated and released "
+                      "floating IP %s") % fip.ip)
+            else:
+                api.neutron.floating_ip_disassociate(request, fip_id)
+                messages.success(
+                    request,
+                    _("Successfully disassociated floating IP %s") % fip.ip)
+        except Exception:
+            exceptions.handle(
+                request,
+                _('Unable to disassociate floating IP %s') % fip.ip,
+                redirect=redirect)
         return True

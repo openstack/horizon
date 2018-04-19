@@ -45,9 +45,6 @@ HORIZON_CONFIG = {
 
     'password_autocomplete': 'off',
 
-    # Enable or disable simplified floating IP address management.
-    'simple_ip_management': True,
-
     'integration_tests_support':
         getattr(settings, 'INTEGRATION_TESTS_SUPPORT', False)
 }
