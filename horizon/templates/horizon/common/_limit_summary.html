@@ -12,11 +12,11 @@
           <div class="quota_title" title="{{ quota.name }}" data-toggle="tooltip"> {{ quota.name }}</div>
           <div class="quota_subtitle">
             {% if quota.max|quotainf != '-1' %}
-              {% if quota.type == "totalRAMUsed" %}
+              {% if quota.type == "ram" %}
                 {% blocktrans trimmed with usedphrase=quota.text used=quota.used|mb_float_format available=quota.max|quotainf|mb_float_format %}
                   {{ usedphrase }} <span> {{ used }} </span>of<span> {{ available }} </span>
                 {% endblocktrans %}
-              {% elif quota.type == "totalGigabytesUsed" %}
+              {% elif quota.type == "gigabytes" %}
                 {% blocktrans trimmed with usedphrase=quota.text used=quota.used|diskgbformat available=quota.max|quotainf|diskgbformat %}
                   {{ usedphrase }} <span> {{ used }} </span>of<span> {{ available }} </span>
                 {% endblocktrans %}

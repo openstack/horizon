@@ -307,8 +307,8 @@ def data(TEST):
     # Quota Usages
     quota_usage_data = {'gigabytes': {'used': 0,
                                       'quota': 1000},
-                        'instances': {'used': 0,
-                                      'quota': 10},
+                        'volumes': {'used': 0,
+                                    'quota': 10},
                         'snapshots': {'used': 0,
                                       'quota': 10}}
     quota_usage = usage_quotas.QuotaUsage()

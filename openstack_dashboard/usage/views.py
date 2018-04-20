@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import collections
+
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -83,41 +85,43 @@ class UsageView(tables.DataTableView):
         return resp
 
 
+ChartDef = collections.namedtuple(
+    'ChartDef',
+    ('quota_key', 'label', 'used_phrase'))
+# (quota key, Human Readable Name, text to display when
+# describing the quota by default it is 'Used')
+CHART_DEFS = [
+    ChartDef("instances", _("Instances"), None),
+    ChartDef("cores", _("VCPUs"), None),
+    ChartDef("ram", _("RAM"), None),
+    ChartDef("floatingip", _("Floating IPs"),
+             pgettext_lazy('Label in the limit summary', "Allocated")),
+    ChartDef("security_group", _("Security Groups"), None),
+    ChartDef("volumes", _("Volumes"), None),
+    ChartDef("gigabytes", _("Volume Storage"), None),
+]
+
+
 class ProjectUsageView(UsageView):
 
     def _get_charts_data(self):
         charts = []
-
-        # (Used key, Max key, Human Readable Name, text to display when
-        # describing the quota by default it is 'Used')
-        types = [("totalInstancesUsed", "maxTotalInstances", _("Instances")),
-                 ("totalCoresUsed", "maxTotalCores", _("VCPUs")),
-                 ("totalRAMUsed", "maxTotalRAMSize", _("RAM")),
-                 ("totalFloatingIpsUsed", "maxTotalFloatingIps",
-                  _("Floating IPs"),
-                  pgettext_lazy('Label in the limit summary', "Allocated")),
-                 ("totalSecurityGroupsUsed", "maxSecurityGroups",
-                  _("Security Groups"))]
-        # Check for volume usage
-        if 'totalVolumesUsed' in self.usage.limits and self.usage.limits[
-                'totalVolumesUsed'] >= 0:
-            types.append(("totalVolumesUsed", "maxTotalVolumes",
-                         _("Volumes")))
-            types.append(("totalGigabytesUsed", "maxTotalVolumeGigabytes",
-                         _("Volume Storage")))
-        for t in types:
-            if t[0] in self.usage.limits and t[1] in self.usage.limits:
+        for t in CHART_DEFS:
+            if t.quota_key not in self.usage.limits:
+                continue
+            key = t.quota_key
+            used = self.usage.limits[key]['used']
+            quota = self.usage.limits[key]['quota']
+            text = t.used_phrase
+            if text is None:
                 text = pgettext_lazy('Label in the limit summary', 'Used')
-                if len(t) > 3:
-                    text = t[3]
-                charts.append({
-                    'type': t[0],
-                    'name': t[2],
-                    'used': self.usage.limits[t[0]],
-                    'max': self.usage.limits[t[1]],
-                    'text': text
-                })
-
+            charts.append({
+                'type': key,
+                'name': t.label,
+                'used': used,
+                'max': quota,
+                'text': text
+            })
         return charts
 
     def get_context_data(self, **kwargs):
