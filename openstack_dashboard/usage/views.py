@@ -12,11 +12,13 @@
 
 import collections
 
+from django.contrib.humanize.templatetags import humanize as humanize_filters
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tables
+from horizon.templatetags import sizeformat
 from openstack_dashboard import api
 from openstack_dashboard.usage import base
 
@@ -87,19 +89,36 @@ class UsageView(tables.DataTableView):
 
 ChartDef = collections.namedtuple(
     'ChartDef',
-    ('quota_key', 'label', 'used_phrase'))
-# (quota key, Human Readable Name, text to display when
-# describing the quota by default it is 'Used')
+    ('quota_key', 'label', 'used_phrase', 'filters'))
+# Each ChartDef should contains the following fields:
+# - quota key:
+#   The key must be included in a response of tenant_quota_usages().
+# - Human Readable Name:
+# - text to display when describing the quota.
+#   If None is specified, the default value 'Used' will be used.
+# - filters to be applied to the value
+#   If None is specified, the default filter 'intcomma' will be applied.
+#   if you want to apply no filters, specify an empty tuple or list.
 CHART_DEFS = [
-    ChartDef("instances", _("Instances"), None),
-    ChartDef("cores", _("VCPUs"), None),
-    ChartDef("ram", _("RAM"), None),
+    ChartDef("instances", _("Instances"), None, None),
+    ChartDef("cores", _("VCPUs"), None, None),
+    ChartDef("ram", _("RAM"), None, (sizeformat.mb_float_format,)),
     ChartDef("floatingip", _("Floating IPs"),
-             pgettext_lazy('Label in the limit summary', "Allocated")),
-    ChartDef("security_group", _("Security Groups"), None),
-    ChartDef("volumes", _("Volumes"), None),
-    ChartDef("gigabytes", _("Volume Storage"), None),
+             pgettext_lazy('Label in the limit summary', "Allocated"),
+             None),
+    ChartDef("security_group", _("Security Groups"), None, None),
+    ChartDef("volumes", _("Volumes"), None, None),
+    ChartDef("gigabytes", _("Volume Storage"), None,
+             (sizeformat.diskgbformat,)),
 ]
+
+
+def _apply_filters(value, filters):
+    if not filters:
+        return value
+    for f in filters:
+        value = f(value)
+    return value
 
 
 class ProjectUsageView(UsageView):
@@ -115,11 +134,23 @@ class ProjectUsageView(UsageView):
             text = t.used_phrase
             if text is None:
                 text = pgettext_lazy('Label in the limit summary', 'Used')
+
+            filters = t.filters
+            if filters is None:
+                filters = (humanize_filters.intcomma,)
+            used_display = _apply_filters(used, filters)
+            # When quota is float('inf'), we don't show quota
+            # so filtering is unnecessary.
+            if quota != float('inf'):
+                quota_display = _apply_filters(quota, filters)
+
             charts.append({
                 'type': key,
                 'name': t.label,
                 'used': used,
-                'max': quota,
+                'quota': quota,
+                'used_display': used_display,
+                'quota_display': quota_display,
                 'text': text
             })
         return charts

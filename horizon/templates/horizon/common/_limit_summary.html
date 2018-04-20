@@ -1,33 +1,23 @@
-{% load i18n horizon humanize sizeformat %}
+{% load i18n horizon %}
 
 {% spaceless %}
   <div class="quota-dynamic limit-summary">
     <h3 class="quota-heading">{% trans "Limit Summary" %}</h3>
-     {% for quota in charts %}
+     {% for chart in charts %}
        {% if forloop.first or forloop.counter0|divisibleby:6 %}
          <div class="row">
        {% endif %}
         <div class="d3_quota_bar col-lg-2 col-md-4 col-sm-4 col-xs-6">
-          <div class="pie-chart-usage" data-used="{% quotapercent quota.used quota.max %}"></div>
-          <div class="quota_title" title="{{ quota.name }}" data-toggle="tooltip"> {{ quota.name }}</div>
+          <div class="pie-chart-usage" data-used="{% quotapercent chart.used chart.quota %}"></div>
+          <div class="quota_title" title="{{ chart.name }}" data-toggle="tooltip"> {{ chart.name }}</div>
           <div class="quota_subtitle">
-            {% if quota.max|quotainf != '-1' %}
-              {% if quota.type == "ram" %}
-                {% blocktrans trimmed with usedphrase=quota.text used=quota.used|mb_float_format available=quota.max|quotainf|mb_float_format %}
-                  {{ usedphrase }} <span> {{ used }} </span>of<span> {{ available }} </span>
-                {% endblocktrans %}
-              {% elif quota.type == "gigabytes" %}
-                {% blocktrans trimmed with usedphrase=quota.text used=quota.used|diskgbformat available=quota.max|quotainf|diskgbformat %}
-                  {{ usedphrase }} <span> {{ used }} </span>of<span> {{ available }} </span>
-                {% endblocktrans %}
-              {% else %}
-                {% blocktrans trimmed with usedphrase=quota.text used=quota.used|intcomma available=quota.max|quotainf|intcomma %}
-                  {{ usedphrase }} <span> {{ used }} </span>of<span> {{ available }} </span>
-                {% endblocktrans %}
-              {% endif %}
+            {% if chart.quota|quotainf != '-1' %}
+              {% blocktrans trimmed with usedphrase=chart.text used=chart.used_display available=chart.quota_display %}
+                {{ usedphrase }} {{ used }} of {{ available }}
+              {% endblocktrans %}
             {% else %}
-              {% blocktrans trimmed with usedphrase=quota.text used=quota.used|intcomma %}
-                {{ usedphrase }} <span> {{ used }} </span>(No Limit)
+              {% blocktrans trimmed with usedphrase=chart.text used=chart.used_display %}
+                {{ usedphrase }} {{ used }} (No Limit)
               {% endblocktrans %}
             {% endif %}
           </div>
