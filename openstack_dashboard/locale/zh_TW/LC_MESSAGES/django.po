@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3796,9 +3796,6 @@ msgstr "無可用的浮動 IP 倉庫"
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "無可用的浮動 IPv4 IP 儲存區"
 
-msgid "No floating IPs to disassociate."
-msgstr "無浮動 IP 可以解除聯結。"
-
 msgid "No groups found."
 msgstr "找不到任何群組。"
 
@@ -5417,10 +5414,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "已成功解除了浮動 IP 的聯結：%s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "已成功解除浮動 IP 聯結：%s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "已成功匯入公鑰：%s"
 
@@ -6600,9 +6593,6 @@ msgstr "無法獲得密鑰對列表。"
 msgid "Unable to retrieve key pairs."
 msgstr "無法獲得密鑰對。"
 
-msgid "Unable to retrieve limit information."
-msgstr "無法獲得限制資訊。"
-
 msgid "Unable to retrieve list of security groups"
 msgstr "無法獲得安全性群組列表"
 
@@ -6623,9 +6613,6 @@ msgstr "無法獲得命名空間詳細資訊。"
 
 msgid "Unable to retrieve network details."
 msgstr "無法獲得網路詳細資訊。"
-
-msgid "Unable to retrieve network quota information."
-msgstr "無法獲得網路配額資訊。"
 
 msgid "Unable to retrieve network."
 msgstr "無法獲得網路。"

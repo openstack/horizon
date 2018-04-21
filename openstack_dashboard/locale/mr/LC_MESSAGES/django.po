@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2153,9 +2153,6 @@ msgstr "कोणताही आयपी पत्ता वितरित �
 msgid "No floating IP pools available"
 msgstr "कोणताही बदलता आयपी गट उपलब्ध नाही"
 
-msgid "No floating IPs to disassociate."
-msgstr "कोणताही बदलता आयपी विलग केला नाही."
-
 msgid "No groups found."
 msgstr "एकही गट सापडला नाही."
 
@@ -3058,10 +3055,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "बदलते आयपी यशस्वीपणे वेगळा केला: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "बदलता आयपी यशस्वीपणे विलग केला: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "यशस्वीपणे सार्वजनिक कळ आयात केली: %s"
 
@@ -3763,9 +3756,6 @@ msgstr "कळ जोडी यादी मिळविण्यास अस�
 msgid "Unable to retrieve key pairs."
 msgstr "कळ जोड्या मिळविण्यास असमर्थ."
 
-msgid "Unable to retrieve limit information."
-msgstr "मर्यादा माहिती मिळविण्यास असमर्थ."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "सुरक्षा गटांची यादी मिळविण्यास असमर्थ"
 
@@ -3777,9 +3767,6 @@ msgstr "खंडांमधून यादी मिळविण्यास 
 
 msgid "Unable to retrieve network details."
 msgstr "नेटवर्कचे तपशील मिळविण्यास असमर्थ."
-
-msgid "Unable to retrieve network quota information."
-msgstr "नेटवर्क वाटा माहिती मिळविण्यास असमर्थ."
 
 msgid "Unable to retrieve network."
 msgstr "नेटवर्क मिळविण्यात अपयशी."

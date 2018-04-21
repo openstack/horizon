@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-29 05:30+0000\n"
+"POT-Creation-Date: 2018-04-20 11:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-13 02:52+0000\n"
+"PO-Revision-Date: 2018-04-19 10:10+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
@@ -74,6 +74,9 @@ msgstr "11.0.3"
 
 msgid "12.0.0"
 msgstr "12.0.0"
+
+msgid "12.0.2-27"
+msgstr "12.0.2-27"
 
 msgid "13.0.0"
 msgstr "13.0.0"
@@ -237,6 +240,9 @@ msgstr ""
 "ANGULAR_FEATURES agora permite que uma chave 'flavors_panel' seja "
 "especificada como True ou False indicando se a versão Angular do painel está "
 "ativada."
+
+msgid "API call efficiency optimizations."
+msgstr "Otimização da eficiência das chamadas de API."
 
 msgid ""
 "API endpoints are now displayed on the OpenStack RC File panel so they can "
@@ -996,6 +1002,9 @@ msgstr ""
 "com/openstack/django_openstack_auth/"
 "commit/8c64de92f4148d85704b10ea1f7bc441db2ddfee>`__ para maiores detalhes."
 
+msgid "Default Hypervisor Settings Changes"
+msgstr "Alterações em configurações Padrão do Hypervisor"
+
 msgid "Deleting large numbers of resources simultaneously"
 msgstr "Exclusão de um grande número de recursos simultaneamente"
 
@@ -1010,6 +1019,9 @@ msgstr "Exibir métricas IPMI de Ceilometer"
 
 msgid "Displaying instance power states."
 msgstr "Exibindo status de energia da instância."
+
+msgid "Django 1.6 Support"
+msgstr "Suporte ao Django 1.6"
 
 msgid "Django 1.7 is now supported."
 msgstr "Django 1.7 agora é suportado."
@@ -1195,6 +1207,9 @@ msgstr ""
 msgid "Extensibility"
 msgstr "Extensibilidade"
 
+msgid "Extensible Enhancements"
+msgstr "Melhorias Extensíveis"
+
 msgid ""
 "FWaaS dashboard is now split out into a separate project ``neutron-fwaas-"
 "dashboard``. All new features and maintenances are provided from the new "
@@ -1323,6 +1338,12 @@ msgstr ""
 "+spec/network-ports-tenant>`_] O bug pode ser encontrado em [`bug 1399252 "
 "<https://bugs.launchpad.net/horizon/+bug/1399252>`_]"
 
+msgid "Glance"
+msgstr "Glance"
+
+msgid "Glance image types are now configurable."
+msgstr "Tipos de imagens do Glance agora são configuráveis."
+
 msgid ""
 "Glance v2 doesn't support the copy-from feature, so this feature is disabled "
 "in Horizon when using Glance v2."
@@ -1391,6 +1412,9 @@ msgstr "Melhorias na topologia do Heat"
 
 msgid "Highlights"
 msgstr "Destaques"
+
+msgid "Horizon Release Notes"
+msgstr "Notas de Versão do Horizon"
 
 msgid ""
 "Horizon and Horizon Plugins can access the Keystone Token from JavaScript so "
@@ -1808,6 +1832,9 @@ msgstr ""
 "blueprints.launchpad.net/horizon/+spec/auto-js-file-finding>`__ para maiores "
 "detalhes."
 
+msgid "Juno Series Release Notes"
+msgstr "Notas de Versão da Série Juno"
+
 msgid "Keystone"
 msgstr "Keystone"
 
@@ -2049,6 +2076,9 @@ msgstr "Neutron"
 msgid "Neutron Features"
 msgstr "Recursos do Neutron"
 
+msgid "Neutron L3 HA"
+msgstr "Neutron L3 HA"
+
 msgid "Neutron network type for Geneve tunneling protocol is now supported."
 msgstr ""
 "Tipo de rede do Neutron para o protocolo de tunelamento Geneve agora é "
@@ -2167,6 +2197,9 @@ msgstr ""
 "desenvolvedores de terceiros, os quais podem ter construído em cima do "
 "Horizon até agora."
 
+msgid "Page Layout Changes"
+msgstr "Alterações de Layout de Página"
+
 msgid "Pagination"
 msgstr "Paginação"
 
@@ -2195,6 +2228,9 @@ msgstr "Suporte a sabor por projeto."
 
 msgid "Pike Series Release Notes"
 msgstr "Pike - Série de Notas de Versão"
+
+msgid "Plugin Architecture"
+msgstr "Arquitetura do Plugin"
 
 msgid ""
 "Plugin improvements, Horizon auto discovers JavaScript files for inclusion, "
@@ -2305,12 +2341,18 @@ msgstr ""
 msgid "Reorganizations"
 msgstr "Reorganizações"
 
+msgid "Required fields in forms are now better indicated."
+msgstr "Os campos obrigatórios nos formulários agora são melhor indicados."
+
 msgid "Resizing of Trove instances -- changing instance flavor"
 msgstr ""
 "Redimensionamento de instâncias do Trove -- alterando o sabor da instância"
 
 msgid "Resource Browser"
 msgstr "Navegador de Recursos"
+
+msgid "Role-Based Access Controls"
+msgstr "Controle de Acesso Baseados em Funções"
 
 msgid ""
 "Router rules is a horizon extension provided by Big Switch Networks. As part "
@@ -2322,6 +2364,9 @@ msgstr ""
 "Networks. Como parte do trabalho do horizon-vendor-split ,  retiramos a "
 "extensão do Horizon principal. Ela é disponível agora como um plugin "
 "separado em https://github.com/bigswitch/horizon-bsn"
+
+msgid "Sahara"
+msgstr "Sahara"
 
 msgid ""
 "Second, the Default Quotas and Services panels (which were both strictly "
@@ -2482,6 +2527,9 @@ msgstr "Suspender/retomar ações para pilhas."
 
 msgid "Swift"
 msgstr "Swift"
+
+msgid "Swift container and object metadata are now supported."
+msgstr "Contêiner Swift e metadados de objeto agora são suportados."
 
 msgid "Tabs and TabGroups"
 msgstr "Abas e Grupos de Abas"
@@ -2822,6 +2870,9 @@ msgstr ""
 "ADD_TEMPLATE_LOADERS. Veja a documentação sobre configurações para mais "
 "informações."
 
+msgid "The following deprecated settings have been dropped."
+msgstr "As configurações obsoletas a seguir foram retiradas."
+
 msgid ""
 "The function fix_auth_url_version() should be removed from openstack_auth "
 "library as soon as Horizon no longer needs it. The replacement function is "
@@ -3091,6 +3142,13 @@ msgstr ""
 "desenvolvedor nos logs."
 
 msgid ""
+"These features allow for tremendous flexibility when constructing software-"
+"defined networks for your cloud using Neutron."
+msgstr ""
+"Esses recursos permitem grande flexibilidade ao construir redes definidas "
+"por software para sua nuvem utilizando o Neutron."
+
+msgid ""
 "Third-party developers who wish to build on Horizon can get started much "
 "faster using the new dashboard and panel templates. See the docs on "
 "`creating a dashboard`_ and `creating a panel`_ for more information."
@@ -3153,6 +3211,9 @@ msgstr ""
 
 msgid "Translation Team"
 msgstr "Time de tradução"
+
+msgid "Trove"
+msgstr "Trove"
 
 msgid "Trove Databases"
 msgstr "Bancos de Dados Trove"
@@ -3502,6 +3563,10 @@ msgstr ""
 "``enabled`` e depois ``local/enabled``, mas isso tornava difícil para os "
 "operadores alterar a ordem dos painéis a partir da ordem padrão."
 
+msgid "[:bug:`1742332`] Description for security group rule is supported."
+msgstr ""
+"[:bug:`1742332`] A descrição para regra de grupo de segurança é suportada."
+
 msgid ""
 "[:bug:`1746706`] When reloading or opening Angular-based detail page "
 "directly, the navigation menu and breadcrumb list are not recovered properly "
@@ -3813,6 +3878,20 @@ msgstr ""
 "Horizon agora permite utilizar corretamente a tecla de seta dentro da "
 "entrada de pesquisa, sem disparar uma nova busca de texto que atualiza o "
 "conteúdo da tabela abaixo."
+
+msgid ""
+"``CUSTOM_THEME_PATH`` and ``DEFAULT_THEME_PATH`` (both deprecated in "
+"Mitaka): Use AVAILABLE_THEMES instead."
+msgstr ""
+"``CUSTOM_THEME_PATH`` e ``DEFAULT_THEME_PATH`` (ambos obsoletos no Mitaka): "
+"Em vez disso use AVAILABLE_THEMES ."
+
+msgid ""
+"``HORIZON_IMAGES_ALLOW_UPLOAD`` (deprecated in Newton): Use "
+"``HORIZON_IMAGES_UPLOAD_MODE`` instead."
+msgstr ""
+"``HORIZON_IMAGES_ALLOW_UPLOAD`` (obsoleto no Newton): Em vez disso "
+"use``HORIZON_IMAGES_UPLOAD_MODE``."
 
 msgid ""
 "``OPENSTACK_ENDPOINT_TYPE`` setting now has a consistent default value and "

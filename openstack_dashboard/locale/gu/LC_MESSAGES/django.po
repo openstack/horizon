@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2151,9 +2151,6 @@ msgstr "ફ્લોટિંગ IP સરનામાઓ ફાળવવામ�
 msgid "No floating IP pools available"
 msgstr "ફ્લોટિંગ IP પુલ ઉપલબ્ધ નથી"
 
-msgid "No floating IPs to disassociate."
-msgstr "અલગ કરવા માટે કોઈ ફ્લોટિંગ IPs નથી ."
-
 msgid "No groups found."
 msgstr "કોઈ જૂથો મળ્યા નથી."
 
@@ -3055,10 +3052,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "સફળતાપૂર્વક ફ્લોટિંગ IP જોડાણ અલગ થયું: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "સફળતાપૂર્વક અલગ કરેલ ફ્લોટિંગ IP:  %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "સફળતાપૂર્વક જાહેર કી આયાત કરેલ: %s"
 
@@ -3760,9 +3753,6 @@ msgstr "કી જોડની યાદી પ્રાપ્ત કરવા�
 msgid "Unable to retrieve key pairs."
 msgstr "કી જોડીઓ પુનઃપ્રાપ્ત કરવામાં અક્ષમ."
 
-msgid "Unable to retrieve limit information."
-msgstr "મર્યાદાની જાણકારી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "સુરક્ષા જૂથોની યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ"
 
@@ -3774,9 +3764,6 @@ msgstr "વોલ્યુમોની યાદીપુનઃપ્રાપ�
 
 msgid "Unable to retrieve network details."
 msgstr "નેટવર્કની વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-msgid "Unable to retrieve network quota information."
-msgstr "નેટવર્ક ક્વોટા જાણકારી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
 msgid "Unable to retrieve network."
 msgstr "નેટવર્ક પુનઃપ્રાપ્ત કરવા માટે અસમર્થ."

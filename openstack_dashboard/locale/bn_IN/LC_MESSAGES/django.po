@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2076,9 +2076,6 @@ msgstr "কোনো ফ্লোটিং IP ঠিকানা বণ্টি
 msgid "No floating IP pools available"
 msgstr "কোনো ফ্লোটিং IP পুল লভ্য নয়"
 
-msgid "No floating IPs to disassociate."
-msgstr "আলাদা করতে কোনো ফ্লোটিং IPনেই."
-
 msgid "No groups found."
 msgstr "কোনো শ্রেণি পাওয়া গেল না."
 
@@ -2837,10 +2834,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "ফ্লোটিং IP সফলভাবে আলাদা করা: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "ফ্লোটিং IP সফলভাবে আলাদা করা: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "সফলভাবে আমদানি করা পাবলিক কী: %s"
 
@@ -3537,9 +3530,6 @@ msgstr "কী জোড়া তালিকা পুনরুদ্ধার
 msgid "Unable to retrieve key pairs."
 msgstr "কী জোড়া পুনরুদ্ধার করতে অসমর্থ."
 
-msgid "Unable to retrieve limit information."
-msgstr "সীমা তথ্য পুনরুদ্ধার করতে অসমর্থ."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "সুরক্ষা শ্রেণির তালিকা পুনরুদ্ধার করতে অসমর্থ."
 
@@ -3551,9 +3541,6 @@ msgstr "ভলিয়্যুমের তালিকা পুনরুদ্�
 
 msgid "Unable to retrieve network details."
 msgstr "নেটওয়ার্ক বিশদ পুনরুদ্ধার করতে অসমর্থ."
-
-msgid "Unable to retrieve network quota information."
-msgstr "নেটওয়ার্ক কোটা তথ্য পুনরুদ্ধার করতে অসমর্থ."
 
 msgid "Unable to retrieve network."
 msgstr "নেটওয়ার্ক পুনরুদ্ধার করতে অসমর্থ."

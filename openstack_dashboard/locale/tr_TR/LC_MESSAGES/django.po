@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3996,9 +3996,6 @@ msgstr "Uygun değişken IP havuzu yok"
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "Kullanılabilir IPv4 altağına sahip değişken IP havuzu yok"
 
-msgid "No floating IPs to disassociate."
-msgstr "İlişkisi kesilecek değişken IP yok."
-
 msgid "No groups found."
 msgstr "Hiç bir grup bulunamadı."
 
@@ -5682,10 +5679,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Değişken IP'si tahsisi kaldırıldı: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "Değişken IP ilişkisi başarıyla kesildi: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "%s açık anahtar başarıyla getirildi"
 
@@ -6924,9 +6917,6 @@ msgstr "Anahtar çifti listesi alınamadı."
 msgid "Unable to retrieve key pairs."
 msgstr "Anahtar çiftleri getirilemiyor."
 
-msgid "Unable to retrieve limit information."
-msgstr "Limit bilgisi alınamıyor."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "Güvenlik grupları listesi alınamıyor"
 
@@ -6947,9 +6937,6 @@ msgstr "İsim uzayı ayrıntıları getirilemedi."
 
 msgid "Unable to retrieve network details."
 msgstr "Ağ detayları alınamadı."
-
-msgid "Unable to retrieve network quota information."
-msgstr "Ağ kota bilgisi alınamıyor."
 
 msgid "Unable to retrieve network."
 msgstr "Ağ bilgisi alınamadı."

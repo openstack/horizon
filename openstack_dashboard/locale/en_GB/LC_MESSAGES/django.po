@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-13 14:14+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-13 01:49+0000\n"
+"PO-Revision-Date: 2018-04-19 05:22+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -2029,10 +2029,16 @@ msgstr[1] "Disabled Users"
 msgid "Disabled compute service for host: %s."
 msgstr "Disabled compute service for host: %s."
 
+msgid "Disassocaite"
+msgstr "Disassociate"
+
 msgid "Disassociate"
 msgstr "Disassociate"
 
 msgid "Disassociate Floating IP"
+msgstr "Disassociate Floating IP"
+
+msgid "Disassociate floating IP"
 msgstr "Disassociate Floating IP"
 
 msgid "Disk"
@@ -3234,6 +3240,10 @@ msgstr ""
 "If \"No volume type\" is selected, the volume will be created without a "
 "volume type."
 
+msgid "If checked, the selected floating IP will be released at the same time."
+msgstr ""
+"If checked, the selected Floating IP will be released at the same time."
+
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
@@ -4128,9 +4138,6 @@ msgstr "No floating IP pools available"
 
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "No floating IP pools with IPv4 subnet available"
-
-msgid "No floating IPs to disassociate."
-msgstr "No floating IPs to disassociate."
 
 msgid "No groups found."
 msgstr "No groups found."
@@ -5274,6 +5281,9 @@ msgstr "Select Volume Snapshot"
 msgid "Select a New Flavor"
 msgstr "Select a New Flavour"
 
+msgid "Select a floating IP to disassociate"
+msgstr "Select a Floating IP to disassociate"
+
 msgid "Select a key pair"
 msgstr "Select a key pair"
 
@@ -5349,6 +5359,9 @@ msgid ""
 msgstr ""
 "Select the IP address you wish to associate with the selected instance or "
 "port."
+
+msgid "Select the floating IP to be disassociated from the instance."
+msgstr "Select the Floating IP to be disassociated from the instance."
 
 msgid "Select the image to rebuild your instance."
 msgstr "Select the image to rebuild your instance."
@@ -5818,8 +5831,12 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Successfully disassociated Floating IP: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "Successfully disassociated floating IP: %s"
+msgid "Successfully disassociated and released floating IP %s"
+msgstr "Successfully disassociated and released Floating IP %s"
+
+#, python-format
+msgid "Successfully disassociated floating IP %s"
+msgstr "Successfully disassociated Floating IP %s"
 
 #, python-format
 msgid "Successfully imported public key: %s"
@@ -6221,6 +6238,9 @@ msgid ""
 msgstr ""
 "The requested instance(s) cannot be launched as your quota will be exceeded: "
 "Available: %(avail)s, Requested: %(req)s."
+
+msgid "The specified floating IP no longer exists."
+msgstr "The specified Floating IP no longer exists."
 
 msgid "The specified port is invalid."
 msgstr "The specified port is invalid."
@@ -6715,6 +6735,10 @@ msgstr "Unable to determine if availability zones extension is supported."
 msgid "Unable to determine if volume type encryption is supported."
 msgstr "Unable to determine if volume type encryption is supported."
 
+#, python-format
+msgid "Unable to disassociate floating IP %s"
+msgstr "Unable to disassociate Floating IP %s"
+
 msgid "Unable to disassociate floating IP."
 msgstr "Unable to disassociate floating IP."
 
@@ -7145,9 +7169,6 @@ msgstr "Unable to retrieve key pair list."
 msgid "Unable to retrieve key pairs."
 msgstr "Unable to retrieve key pairs."
 
-msgid "Unable to retrieve limit information."
-msgstr "Unable to retrieve limit information."
-
 msgid "Unable to retrieve limits information."
 msgstr "Unable to retrieve limits information."
 
@@ -7171,9 +7192,6 @@ msgstr "Unable to retrieve namespace details."
 
 msgid "Unable to retrieve network details."
 msgstr "Unable to retrieve network details."
-
-msgid "Unable to retrieve network quota information."
-msgstr "Unable to retrieve network quota information."
 
 msgid "Unable to retrieve network."
 msgstr "Unable to retrieve network."

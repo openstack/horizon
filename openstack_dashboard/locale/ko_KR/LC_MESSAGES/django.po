@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4033,9 +4033,6 @@ msgstr "사용가능한 유동 IP pool이 없습니다."
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "IPv4 서브넷에서 사용 가능한 floating IP pool이 없습니다."
 
-msgid "No floating IPs to disassociate."
-msgstr "유동 IP를 연결 해제할 수 없습니다."
-
 msgid "No groups found."
 msgstr "그룹을 찾을 수 없습니다."
 
@@ -5692,10 +5689,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Floating IP 연결 해제 완료: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "유동 IP를 성공적으로 연결 해제: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "공개 Key를 성공적으로 가져왔습니다:%s"
 
@@ -7001,9 +6994,6 @@ msgstr "키 페어 목록을 찾지 못 했습니다."
 msgid "Unable to retrieve key pairs."
 msgstr "키 페어를 찾지 못 했습니다."
 
-msgid "Unable to retrieve limit information."
-msgstr "최대 사용량 정보를 찾지 못 했습니다."
-
 msgid "Unable to retrieve limits information."
 msgstr "제한 정보를 가져올 수 없습니다."
 
@@ -7027,9 +7017,6 @@ msgstr "네임스페이스의 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve network details."
 msgstr "네트워크 세부 정보를 찾지 못 했습니다."
-
-msgid "Unable to retrieve network quota information."
-msgstr "네트워크 quota 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve network."
 msgstr "네트워크를 찾지 못했습니다."

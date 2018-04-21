@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3815,9 +3815,6 @@ msgstr "Žádné plovoucí IP nepřiděleny"
 msgid "No floating IP pools available"
 msgstr "Žádná zásoba plovoucích IP není dostupná"
 
-msgid "No floating IPs to disassociate."
-msgstr "Žádné plovoucí IP k odloučení"
-
 msgid "No groups found."
 msgstr "Žádné skupiny nenalezeny."
 
@@ -5364,10 +5361,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Úspěšně odloučeny plovoucí IP: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "Plovoucí IP úspěšně odloučena: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "Úspěšně importován veřejný klíč: %s"
 
@@ -6491,9 +6484,6 @@ msgstr "Nelze získat seznam klíčů."
 msgid "Unable to retrieve key pairs."
 msgstr "Nelze získat seznam klíčů."
 
-msgid "Unable to retrieve limit information."
-msgstr "Nelze získat informace o omezení."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "Nelze získat seznam bezpečnostních skupin"
 
@@ -6514,9 +6504,6 @@ msgstr "Nelze získat podrobnosti jmenného prostoru. "
 
 msgid "Unable to retrieve network details."
 msgstr "Nelze získat podrobnosti sítě."
-
-msgid "Unable to retrieve network quota information."
-msgstr "Nelze získat informace o síťových kvótách."
 
 msgid "Unable to retrieve network."
 msgstr "Nelze získat síť."

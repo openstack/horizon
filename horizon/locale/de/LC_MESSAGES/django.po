@@ -4,13 +4,12 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 # Adriano Perri <adriano.perri@telekom.de>, 2017. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2017. #zanata
-# Robert Simai <robert.simai@suse.com>, 2017. #zanata
 # Reik Keutterling <spielkind@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-15 19:08+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,14 +37,6 @@ msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d Byte"
 msgstr[1] "%(size)d Bytes"
-
-#, python-format
-msgid "%(usedphrase)s <span> %(used)s </span>(No Limit)"
-msgstr "%(usedphrase)s <span> %(used)s </span>(kein Limit)"
-
-#, python-format
-msgid "%(usedphrase)s <span> %(used)s </span>of<span> %(available)s </span>"
-msgstr "%(usedphrase)s <span> %(used)s </span>von<span> %(available)s </span>"
 
 #, python-format
 msgid "%s EB"

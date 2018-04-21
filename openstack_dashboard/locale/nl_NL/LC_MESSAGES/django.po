@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1662,9 +1662,6 @@ msgstr "Geen smaken beschikbaar"
 msgid "No floating IP pools available"
 msgstr "Geen vlottende IP poules beschikbaar."
 
-msgid "No floating IPs to disassociate."
-msgstr "Geen vlottende IP adressen om af te koppelen."
-
 msgid "No groups found."
 msgstr "Geen groepen gevonden."
 
@@ -2353,10 +2350,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Volttend IP adres %s succesvol afgekoppeld"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "Succesvol afgekoppeld vlottend IP adres: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "Succesvol geimporteerde publieke sleutel: %s"
 
@@ -2884,9 +2877,6 @@ msgstr "Niet in staat om de sleutelparenlijst op te halen."
 msgid "Unable to retrieve key pairs."
 msgstr "Kon de sleutelparen niet ophalen."
 
-msgid "Unable to retrieve limit information."
-msgstr "Niet in staat om de limietinformatie op te halen."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "Niet in staat om de beveiligingsgroepenlijst op te halen."
 
@@ -2898,9 +2888,6 @@ msgstr "Niet in staat om de volumelijst op te halen."
 
 msgid "Unable to retrieve network details."
 msgstr "Niet in staat om de netwerkdetails op te halen."
-
-msgid "Unable to retrieve network quota information."
-msgstr "Niet in staat om de netwerkquotainformatie op te halen."
 
 msgid "Unable to retrieve network."
 msgstr "Niet in staat om het netwerk op te halen."

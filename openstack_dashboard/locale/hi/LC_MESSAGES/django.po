@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2045,9 +2045,6 @@ msgstr "कोई अस्थायी आईपी पता आबंटि�
 msgid "No floating IP pools available"
 msgstr " कोई अस्थायी आईपी पूल उपलब्ध नहीं"
 
-msgid "No floating IPs to disassociate."
-msgstr "अलग करने के लिए कोई अस्थायी आईपी नहीं "
-
 msgid "No groups found."
 msgstr "कोई समूह नहीं मिला."
 
@@ -2823,10 +2820,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "सफलतापूर्वक जुड़े अस्थायी आईपी को अलग किया: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "सफलतापूर्वक जुड़े अस्थायी आईपी को अलग किया: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "सफलतापूर्वक सार्वजनिक कुंजी आयातित: %s"
 
@@ -3382,9 +3375,6 @@ msgstr "कुंजी युग्म सूची को प्राप्�
 msgid "Unable to retrieve key pairs."
 msgstr "कुंजी युग्मों को पुनः प्राप्त करने में असमर्थ."
 
-msgid "Unable to retrieve limit information."
-msgstr "सीमा सूचना पाने में असमर्थ."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "सुरक्षा समूहों की सूची को प्राप्त करने में असमर्थ"
 
@@ -3396,9 +3386,6 @@ msgstr "संस्करणों की सूची को प्राप�
 
 msgid "Unable to retrieve network details."
 msgstr "नेटवर्क जानकारी प्राप्त करने में असमर्थ."
-
-msgid "Unable to retrieve network quota information."
-msgstr "नेटवर्क कोटा जानकारी प्राप्त करने में असमर्थ."
 
 msgid "Unable to retrieve network."
 msgstr "संजाल पुनः प्राप्त करने में असमर्थ."

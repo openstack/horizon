@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-21 09:40+0000\n"
+"PO-Revision-Date: 2018-04-19 09:59+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
@@ -186,6 +186,10 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> no %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> no %(volume_device)s"
+
+msgid "A brief description of the security group rule you are adding"
+msgstr ""
+"Uma breve descrição da regra de grupo de segurança que você está adicionando"
 
 msgid "A local image to upload."
 msgstr "Uma imagem local para enviar."
@@ -2055,11 +2059,17 @@ msgstr[1] "Usuários Desabilitados"
 msgid "Disabled compute service for host: %s."
 msgstr "Desabilita serviço de computação para host: %s."
 
+msgid "Disassocaite"
+msgstr "Desassociar"
+
 msgid "Disassociate"
 msgstr "Desassociar"
 
 msgid "Disassociate Floating IP"
 msgstr "Remover IP Flutuante"
+
+msgid "Disassociate floating IP"
+msgstr "Desassociar o IP flutuante"
 
 msgid "Disk"
 msgstr "Disco"
@@ -2258,6 +2268,9 @@ msgstr "Editar atributos Públicos/Protegidos para o Namespace."
 
 msgid "Edit QoS Spec Consumer"
 msgstr "Editar Consumidor de Especificação de QoS"
+
+msgid "Edit Quotas"
+msgstr "Editar Quotas"
 
 msgid "Edit Router"
 msgstr "Editar Roteador"
@@ -2649,6 +2662,9 @@ msgstr "Falha ao adicionar  projeto %(project)s ao acesso de tipo de volume."
 msgid "Failed to add route: %s"
 msgstr "Falha ao adicionar rota: %s"
 
+msgid "Failed to check if description field is supported."
+msgstr "Falha ao verificar se o campo de descrição é suportado."
+
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Falha ao checar se a extensão network-ip-availability é suportada."
 
@@ -2962,6 +2978,13 @@ msgstr "Aqui você pode alocar um IP flutuante para um projeto específico."
 msgid "From here you can create a snapshot of a volume."
 msgstr "A partir daqui você pode criar um snapshot de um volume."
 
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr ""
+"Aqui você pode atualizar as quotas padrão de computação (limites máximos)."
+
+msgid "From here you can update the default volume quotas (max limits)."
+msgstr "Aqui você pode atualizar as quotas padrão de volume (limites máximos)."
+
 msgid "GB"
 msgstr "GB"
 
@@ -3255,6 +3278,9 @@ msgid ""
 msgstr ""
 "Se \"Nenhum tipo de volume\" é selecionado, o volume será criado sem um tipo "
 "de volume."
+
+msgid "If checked, the selected floating IP will be released at the same time."
+msgstr "Se marcado, o IP flutuante selecionado será descartado ao mesmo tempo."
 
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
@@ -3901,6 +3927,9 @@ msgstr "Modificada instância \"%s\"."
 msgid "Modified project \"%s\"."
 msgstr "Projeto \"%s\" modificado."
 
+msgid "Modified quotas of project"
+msgstr "Quotas modificadas de projeto"
+
 #, python-format
 msgid "Modified volume type access: %s"
 msgstr "Acesso de tipo de volume modificado: %s"
@@ -4165,9 +4194,6 @@ msgstr "Não há pools de IP disponíveis"
 
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "Não há pools de IP flutuantes com sub-rede IPv4 disponíveis"
-
-msgid "No floating IPs to disassociate."
-msgstr "Sem IPs flutuantes para desassociar."
 
 msgid "No groups found."
 msgstr "Nenhum grupo de encontrado."
@@ -5321,6 +5347,9 @@ msgstr "Selecionar Snapshot de Volume"
 msgid "Select a New Flavor"
 msgstr "Selecionar um novo sabor"
 
+msgid "Select a floating IP to disassociate"
+msgstr "Selecione o IP flutuante para desassociar"
+
 msgid "Select a key pair"
 msgstr "Selecionar um par de chaves"
 
@@ -5396,6 +5425,9 @@ msgid ""
 msgstr ""
 "Selecione o endereço IP que você deseja associar com a instância ou porta "
 "selecionada."
+
+msgid "Select the floating IP to be disassociated from the instance."
+msgstr "Selecione o IP flutuante para ser desassociado da instância."
 
 msgid "Select the image to rebuild your instance."
 msgstr "Selecione a imagem para reconstruir sua instância."
@@ -5877,8 +5909,12 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "IP flutuante dissociado com sucesso: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "IP flutuante %s desassociado com sucesso"
+msgid "Successfully disassociated and released floating IP %s"
+msgstr "Desassociado e liberado com sucesso o IP flutuante %s"
+
+#, python-format
+msgid "Successfully disassociated floating IP %s"
+msgstr "Desassociado com sucesso o IP flutuante %s"
 
 #, python-format
 msgid "Successfully imported public key: %s"
@@ -6283,6 +6319,9 @@ msgid ""
 msgstr ""
 "A(s) instância(s) requisitada(s) não podem ser lançadas pois sua quota será "
 "excedida:  Disponível: %(avail)s, Requisitada: %(req)s."
+
+msgid "The specified floating IP no longer exists."
+msgstr "O IP flutuante especificado não existe mais."
 
 msgid "The specified port is invalid."
 msgstr "A porta especificada é inválida."
@@ -6799,6 +6838,10 @@ msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
 "Não foi possível determinar se o tipo de encriptação de volumes é suportada."
 
+#, python-format
+msgid "Unable to disassociate floating IP %s"
+msgstr "Não é possível desassociar o IP flutuante %s"
+
 msgid "Unable to disassociate floating IP."
 msgstr "Não é possível desassociar IP flutuante."
 
@@ -6840,7 +6883,7 @@ msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Não foi possível acessar o console VNC da instância \"%s\"."
 
 msgid "Unable to get cinder quota info."
-msgstr "Não é possível obter informações de quota do cinder"
+msgstr "Não é possível obter informações de quota do cinder."
 
 msgid "Unable to get cinder services list."
 msgstr "Não foi possível ler a lista de serviços do Cinder"
@@ -6869,10 +6912,10 @@ msgid "Unable to get network agents list."
 msgstr "Não foi possível obter lista de agentes de rede."
 
 msgid "Unable to get neutron quota info."
-msgstr "Não é possível obter informações de quota do neutron"
+msgstr "Não é possível obter informações de quota do neutron."
 
 msgid "Unable to get nova quota info."
-msgstr "Não é possível obter informações de quota do nova"
+msgstr "Não é possível obter informações de quota do nova."
 
 msgid "Unable to get nova services list."
 msgstr "Não é possível obter a lista de serviços nova."
@@ -6952,6 +6995,9 @@ msgstr "Não foi possível modificar a instância \"%s\"."
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Não foi possível modificar o projeto \"%s\"."
+
+msgid "Unable to modify quotas of project"
+msgstr "Não é possível modificar as quotas de projeto"
 
 #, python-format
 msgid "Unable to parse IP address %s."
@@ -7071,6 +7117,12 @@ msgstr "Impossível recuperar informações sobre grupo de consistência."
 
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "Impossível recuperar detalhes do snapshot do grupo de consistência."
+
+msgid "Unable to retrieve default compute quotas."
+msgstr "Não é possível obter as quotas padrão de computação."
+
+msgid "Unable to retrieve default volume quotas."
+msgstr "Não é possível obter as quotas padrão de volume."
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -7231,9 +7283,6 @@ msgstr "Não foi possível obter a lista de pares de chave."
 msgid "Unable to retrieve key pairs."
 msgstr "Não foi possível obter pares de chave."
 
-msgid "Unable to retrieve limit information."
-msgstr "Não foi possível recuperar informações de limite."
-
 msgid "Unable to retrieve limits information."
 msgstr "Não é possível recuperar informações de limites."
 
@@ -7257,9 +7306,6 @@ msgstr "Não é possível obter detalhes do namespace."
 
 msgid "Unable to retrieve network details."
 msgstr "Não foi possível obter detalhes da rede."
-
-msgid "Unable to retrieve network quota information."
-msgstr "Não foi possível obter informações de cota de rede."
 
 msgid "Unable to retrieve network."
 msgstr "Não é possível recuperar redes."
@@ -7290,6 +7336,9 @@ msgstr "Não é possível recuperar informações de projeto."
 
 msgid "Unable to retrieve project list."
 msgstr "Não foi possível obter a lista de projeto."
+
+msgid "Unable to retrieve project quotas."
+msgstr "Não é possível obter as quotas de projeto."
 
 msgid "Unable to retrieve protocol list."
 msgstr "Não é possível recuperar a lista de protocolos."
@@ -7510,8 +7559,14 @@ msgstr "Não foi possível ordenar Flavors da instância."
 msgid "Unable to unmanage volume."
 msgstr "Não foi possível liberar o volume."
 
+msgid "Unable to update default compute quotas."
+msgstr "Não é possível atualizar as quotas padrão de computação."
+
 msgid "Unable to update default quotas."
 msgstr "Não é possível atualizar cotas padrão."
+
+msgid "Unable to update default volume quotas."
+msgstr "Não é possível atualizar as quotas padrão de volume."
 
 msgid "Unable to update encrypted volume type."
 msgstr "Não é possível atualizar o tipo de volume criptografado."

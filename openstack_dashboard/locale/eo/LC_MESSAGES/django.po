@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4106,9 +4106,6 @@ msgstr "Neniuj glitaj IP Komunaĵoj disponeblaj"
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "Neniu glidanta IP Komunaĵoj kun IPv4 subreto disponebla"
 
-msgid "No floating IPs to disassociate."
-msgstr "Neniuj glitaj IP-oj por malasociigi. "
-
 msgid "No groups found."
 msgstr "Neniuj grupoj trovitaj."
 
@@ -5797,10 +5794,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Sukcese malasociigita glidanta IP: %s   "
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "Sukcese malasociigita glitan IP-on: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "Sukcese importita publikan ŝlosilon : %s"
 
@@ -7098,9 +7091,6 @@ msgstr "Neeblas ricevi ŝlosilparo listo."
 msgid "Unable to retrieve key pairs."
 msgstr "Neeblas ricevi klavo parojn."
 
-msgid "Unable to retrieve limit information."
-msgstr "Neeblas ricevi limo informon."
-
 msgid "Unable to retrieve limits information."
 msgstr "Ne eblas ricevi limajn informojn."
 
@@ -7124,9 +7114,6 @@ msgstr "Nekababla ricevi nomspacajn detajlojn."
 
 msgid "Unable to retrieve network details."
 msgstr "Neeblas ricevi reto detajlojn."
-
-msgid "Unable to retrieve network quota information."
-msgstr "Neeblas ricevi reto kvota informon."
 
 msgid "Unable to retrieve network."
 msgstr "Neeblas ricevi reton."

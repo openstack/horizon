@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-13 14:14+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4066,9 +4066,6 @@ msgstr "Floating IP プールがありません。"
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "IPv4 サブネットを持つ Floating IP プールがありません"
 
-msgid "No floating IPs to disassociate."
-msgstr "利用可能な Floating IP プールがありません。"
-
 msgid "No groups found."
 msgstr "グループがありません。"
 
@@ -5747,10 +5744,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Floating IP の割り当て解除に成功しました: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "Floating IP の割り当て解除に成功しました: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "公開鍵 %s を正常に取り込みました"
 
@@ -7070,9 +7063,6 @@ msgstr "キーペアの一覧を取得できません。"
 msgid "Unable to retrieve key pairs."
 msgstr "キーペアの一覧を取得できません。"
 
-msgid "Unable to retrieve limit information."
-msgstr "リソース上限情報を取得できません。"
-
 msgid "Unable to retrieve limits information."
 msgstr "上限情報を取得できません。"
 
@@ -7096,9 +7086,6 @@ msgstr "名前空間の詳細を取得できません。"
 
 msgid "Unable to retrieve network details."
 msgstr "ネットワークの詳細を取得できません。"
-
-msgid "Unable to retrieve network quota information."
-msgstr "ネットワークのクォータ情報を取得できません。"
 
 msgid "Unable to retrieve network."
 msgstr "ネットワークを取得できません。"

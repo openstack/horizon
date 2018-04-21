@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-13 14:14+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4201,9 +4201,6 @@ msgstr "Keine Floating IP Pools verfügbar"
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "Keine Floating IP Pools mit IPv4 Subnetz verfügbar"
 
-msgid "No floating IPs to disassociate."
-msgstr "Keine Floating IPs zum Trennen vorhanden."
-
 msgid "No groups found."
 msgstr "Keine Gruppen gefunden."
 
@@ -5913,10 +5910,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Floating IP erfolgreich getrennt: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "Floating IP %s erfolgreich getrennt"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "Erfolgreich importierter öffentlicher Schlüssel: %s"
 
@@ -7309,9 +7302,6 @@ msgstr "Liste der Schlüsselpaare kann nicht abgerufen werden."
 msgid "Unable to retrieve key pairs."
 msgstr "Schlüsselpaare können nicht abgerufen werden."
 
-msgid "Unable to retrieve limit information."
-msgstr "Limit-Informationen können nicht abgerufen werden."
-
 msgid "Unable to retrieve limits information."
 msgstr "Die Begrenzungsinformationen können nicht abgerufen werden."
 
@@ -7335,9 +7325,6 @@ msgstr "Einzelheiten zum Namensraum können nicht abgerufen werden."
 
 msgid "Unable to retrieve network details."
 msgstr "Netzwerkdetails können nicht abgerufen werden."
-
-msgid "Unable to retrieve network quota information."
-msgstr "Netzwerk Kontingent Informationen können nicht abgerufen werden."
 
 msgid "Unable to retrieve network."
 msgstr "Netzwerk kann nicht abgerufen werden."

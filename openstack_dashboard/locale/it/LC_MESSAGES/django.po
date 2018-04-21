@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3462,9 +3462,6 @@ msgstr "Nessun indirizzo IP mobile allocato"
 msgid "No floating IP pools available"
 msgstr "Nessun pool dell'IP mobile disponibile"
 
-msgid "No floating IPs to disassociate."
-msgstr "Nessun IP mobile di cui annullare l'associazione."
-
 msgid "No groups found."
 msgstr "Nessun gruppo trovato."
 
@@ -4857,10 +4854,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "IP mobile dissociato correttamente: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "Associazione IP mobile annullata correttamente: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "Chiave pubblica importata correttamente: %s"
 
@@ -5921,9 +5914,6 @@ msgstr "Impossibile richiamare l'elenco delle coppie di chiavi."
 msgid "Unable to retrieve key pairs."
 msgstr "Impossibile richiamare le coppie di chiavi."
 
-msgid "Unable to retrieve limit information."
-msgstr "Impossibile richiamare le informazioni sul limite."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "Impossibile richiamare l'elenco dei gruppi di sicurezza"
 
@@ -5944,9 +5934,6 @@ msgstr "Impossibile richiamare i dettagli dello spazio dei nomi."
 
 msgid "Unable to retrieve network details."
 msgstr "Impossibile richiamare i dettagli della rete."
-
-msgid "Unable to retrieve network quota information."
-msgstr "Impossibile richiamare le informazioni sulla quota di rete."
 
 msgid "Unable to retrieve network."
 msgstr "Impossibile ottenere la rete."

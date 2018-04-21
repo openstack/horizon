@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2156,9 +2156,6 @@ msgstr "जेबो फ्ल'टिं IP थंखौ रानना हो�
 msgid "No floating IP pools available"
 msgstr "जेबो फ्ल'टिं IP पुल्‌स गैया"
 
-msgid "No floating IPs to disassociate."
-msgstr "आलादा खालामनो जेबो फ्ल'टिं IP गैया"
-
 msgid "No groups found."
 msgstr "जेबो हानजा मोनाखै"
 
@@ -3060,10 +3057,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "फ्ल'टिं IP खौ जाफुंसारै आलादा खालामबाय: %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "फ्ल'टिं IP खौ जाफुंसारै आलादा खालामबाय: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "राइजो-राजा साबिखौ जाफुंसारै लाबोबाय: %s"
 
@@ -3766,9 +3759,6 @@ msgstr "साबि जरा लिस्टखौ मोनफिननो �
 msgid "Unable to retrieve key pairs."
 msgstr "साबि जराखौ मोनफिननो हाया।"
 
-msgid "Unable to retrieve limit information."
-msgstr "सिगा फोरमायथिहोग्राखौ मोनफिननो हायाखै।"
-
 msgid "Unable to retrieve list of security groups"
 msgstr "रैखाथि हानजानि लिस्टखौ मोनफिननो हायाखै"
 
@@ -3780,9 +3770,6 @@ msgstr "भलिउमनि लिस्टखौ मोनफिननो ह
 
 msgid "Unable to retrieve network details."
 msgstr "नेटवार्क गुवारैखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve network quota information."
-msgstr "नेटवार्क क'टा फोरमायथिहोग्राखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve network."
 msgstr "नेटवार्क मोनफिननो हायाखै"

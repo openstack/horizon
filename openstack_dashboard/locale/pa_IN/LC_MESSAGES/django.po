@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-11 17:48+0000\n"
+"POT-Creation-Date: 2018-04-20 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2103,9 +2103,6 @@ msgstr "کوئی فلاٹینگ IP ایڈریس مختص نہیں"
 msgid "No floating IP pools available"
 msgstr "کوئی IP پولس دستاب نہیں ہے"
 
-msgid "No floating IPs to disassociate."
-msgstr "الگ کرنے کے لئے کوئی عارضی IPs نہیں"
-
 msgid "No groups found."
 msgstr "كوئی گروپس نہیں ملیں۔"
 
@@ -2871,10 +2868,6 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "کامیابی منسلک عارضیIP کو الگ کیا : %s"
 
 #, python-format
-msgid "Successfully disassociated floating IP: %s"
-msgstr "کامیابی کے ساتھ منسلك عارضی IP علیحدہ کرلیا: %s"
-
-#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "کامیابی عوامی کلید درآمد :  %s"
 
@@ -3596,9 +3589,6 @@ msgstr "کلید مجموعہ فہرست کو حاصل کرنے کے قابل ن
 msgid "Unable to retrieve key pairs."
 msgstr "کلید جوڑوں کو دوبارہ حاصل کرنے میں ناقابل."
 
-msgid "Unable to retrieve limit information."
-msgstr "حد انفارمیشن پانے میں غیر فعال."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "سیکورٹی گروپس کی فہرست حاصل کرنے میں ناقابل"
 
@@ -3610,9 +3600,6 @@ msgstr "ورژن کی فہرست حاصل کرنے میں ناقابل."
 
 msgid "Unable to retrieve network details."
 msgstr "نیٹ ورک کی معلومات حاصل کرنے میں ناقابل."
-
-msgid "Unable to retrieve network quota information."
-msgstr "نیٹ ورک کوٹہ معلومات حاصل کرنے میں غیر فعال۔"
 
 msgid "Unable to retrieve network."
 msgstr "نیٹ ورک دوبارہ حاصل کرنے کے قابل نہیں."
