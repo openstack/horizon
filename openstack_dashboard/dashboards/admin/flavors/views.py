@@ -86,19 +86,17 @@ class UpdateView(workflows.WorkflowView):
 
     def get_initial(self):
         flavor_id = self.kwargs['id']
-
         try:
             # Get initial flavor information
             flavor = api.nova.flavor_get(self.request, flavor_id)
+            if flavor.is_public:
+                flavor_access = []
+            else:
+                flavor_access = api.nova.flavor_access_list(self.request,
+                                                            flavor_id)
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve flavor details.'),
                               redirect=reverse_lazy(INDEX_URL))
-        return {'flavor_id': flavor.id,
-                'name': flavor.name,
-                'vcpus': flavor.vcpus,
-                'memory_mb': flavor.ram,
-                'disk_gb': flavor.disk,
-                'swap_mb': flavor.swap or 0,
-                'rxtx_factor': flavor.rxtx_factor or 1,
-                'eph_gb': getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral', None)}
+        return {'flavor': flavor,
+                'current_flavor_access': flavor_access}
