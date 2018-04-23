@@ -18,12 +18,10 @@
 
 from socket import timeout as socket_timeout
 
-from django import http
 from django.test.utils import override_settings
 from django.urls import reverse
 
-from mox3.mox import IgnoreArg
-from mox3.mox import IsA
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -38,8 +36,6 @@ USER_CHANGE_PASSWORD_URL = reverse('horizon:identity:users:change_password',
 
 
 class UsersViewTests(test.BaseAdminViewTests):
-
-    use_mox = True
 
     def _get_default_domain(self):
         domain = {"id": self.request.session.get('domain_context',
@@ -56,7 +52,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                      if user.domain_id == domain_id]
         return users
 
-    @test.create_stubs({api.keystone: ('user_list',
+    @test.create_mocks({api.keystone: ('user_list',
                                        'get_effective_domain_id',
                                        'domain_lookup')})
     def test_index(self, with_domain=False):
@@ -66,16 +62,10 @@ class UsersViewTests(test.BaseAdminViewTests):
         users = self._get_users(domain_id)
 
         if not with_domain:
-            api.keystone.get_effective_domain_id(
-                IgnoreArg()).AndReturn(domain_id)
+            self.mock_get_effective_domain_id.return_value = domain_id
+        self.mock_user_list.return_value = users
+        self.mock_domain_lookup.return_value = {domain.id: domain.name}
 
-        api.keystone.user_list(IgnoreArg(),
-                               domain=domain_id,
-                               filters=filters).AndReturn(users)
-        api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
-                                                           domain.name})
-
-        self.mox.ReplayAll()
         res = self.client.get(USERS_INDEX_URL)
         self.assertTemplateUsed(res, 'identity/users/index.html')
         self.assertItemsEqual(res.context['table'].data, users)
@@ -84,6 +74,16 @@ class UsersViewTests(test.BaseAdminViewTests):
             for user in res.context['table'].data:
                 self.assertItemsEqual(user.domain_id, domain_id)
 
+        if with_domain:
+            self.mock_get_effective_domain_id.assert_not_called()
+        else:
+            self.mock_get_effective_domain_id.assert_called_once_with(
+                test.IsHttpRequest())
+        self.mock_user_list.assert_called_once_with(test.IsHttpRequest(),
+                                                    domain=domain_id,
+                                                    filters=filters)
+        self.mock_domain_lookup.assert_called_once_with(test.IsHttpRequest())
+
     def test_index_with_domain(self):
         domain = self.domains.get(id="1")
         self.setSessionValues(domain_context=domain.id,
@@ -91,7 +91,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.test_index(with_domain=True)
 
     @override_settings(USER_TABLE_EXTRA_INFO={'phone_num': 'Phone Number'})
-    @test.create_stubs({api.keystone: ('user_create',
+    @test.create_mocks({api.keystone: ('user_create',
                                        'get_default_domain',
                                        'tenant_list',
                                        'add_tenant_user_role',
@@ -106,37 +106,14 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         role = self.roles.first()
 
-        api.keystone.get_default_domain(IgnoreArg()) \
-            .AndReturn(domain)
-        api.keystone.get_default_domain(IgnoreArg(), False) \
-            .AndReturn(domain)
+        self.mock_get_default_domain.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain.id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=None).AndReturn(
-                [self.tenants.list(), False])
-
-        kwargs = {'phone_num': phone_number}
-        api.keystone.user_create(IgnoreArg(),
-                                 name=user.name,
-                                 description=user.description,
-                                 email=user.email,
-                                 password=user.password,
-                                 project=self.tenant.id,
-                                 enabled=True,
-                                 domain=domain_id,
-                                 **kwargs).AndReturn(user)
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.get_default_role(IgnoreArg()).AndReturn(role)
-        api.keystone.roles_for_user(IgnoreArg(), user.id, self.tenant.id)
-        api.keystone.add_tenant_user_role(IgnoreArg(), self.tenant.id,
-                                          user.id, role.id)
-
-        self.mox.ReplayAll()
+        self.mock_user_create.return_value = user
+        self.mock_role_list.return_value = self.roles.list()
+        self.mock_get_default_role.return_value = role
+        self.mock_roles_for_user.return_value = []
+        self.mock_add_tenant_user_role.return_value = None
 
         formData = {'method': 'CreateUserForm',
                     'domain_id': domain_id,
@@ -154,13 +131,39 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
+        self.mock_get_default_domain.assert_has_calls([
+            mock.call(test.IsHttpRequest()),
+            mock.call(test.IsHttpRequest(), False),
+        ])
+        self.assertEqual(2, self.mock_get_default_domain.call_count)
+
+        if api.keystone.VERSIONS.active >= 3:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), domain=domain.id)
+        else:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), user=None)
+
+        kwargs = {'phone_num': phone_number}
+        self.mock_user_create.assert_called_once_with(
+            test.IsHttpRequest(), name=user.name, description=user.description,
+            email=user.email, password=user.password, project=self.tenant.id,
+            enabled=True, domain=domain_id, **kwargs)
+        self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_get_default_role.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_roles_for_user.assert_called_once_with(
+            test.IsHttpRequest(), user.id, self.tenant.id)
+        self.mock_add_tenant_user_role.assert_called_once_with(
+            test.IsHttpRequest(), self.tenant.id, user.id, role.id)
+
     def test_create_with_domain(self):
         domain = self.domains.get(id="1")
         self.setSessionValues(domain_context=domain.id,
                               domain_context_name=domain.name)
         self.test_create()
 
-    @test.create_stubs({api.keystone: ('user_create',
+    @test.create_mocks({api.keystone: ('user_create',
                                        'get_default_domain',
                                        'add_tenant_user_role',
                                        'tenant_list',
@@ -172,35 +175,15 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain = self._get_default_domain()
         domain_id = domain.id
         role = self.roles.first()
-        api.keystone.get_default_domain(IgnoreArg()) \
-            .AndReturn(domain)
-        api.keystone.get_default_domain(IgnoreArg(), False) \
-            .AndReturn(domain)
 
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain.id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=user.id).AndReturn(
-                [self.tenants.list(), False])
+        self.mock_get_default_domain.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_user_create.return_value = user
+        self.mock_role_list.return_value = self.roles.list()
+        self.mock_get_default_role.return_value = role
+        self.mock_add_tenant_user_role.return_value = None
+        self.mock_roles_for_user.return_value = []
 
-        api.keystone.user_create(IgnoreArg(),
-                                 name=user.name,
-                                 description=user.description,
-                                 email=user.email,
-                                 password=user.password,
-                                 project=self.tenant.id,
-                                 enabled=True,
-                                 domain=domain_id).AndReturn(user)
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.get_default_role(IgnoreArg()).AndReturn(role)
-        api.keystone.add_tenant_user_role(IgnoreArg(), self.tenant.id,
-                                          user.id, role.id)
-        api.keystone.roles_for_user(IgnoreArg(), user.id, self.tenant.id)
-
-        self.mox.ReplayAll()
         formData = {'method': 'CreateUserForm',
                     'domain_id': domain_id,
                     'name': user.name,
@@ -216,7 +199,34 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.keystone: ('get_default_domain',
+        self.mock_get_default_domain.assert_has_calls([
+            mock.call(test.IsHttpRequest()),
+            mock.call(test.IsHttpRequest(), False),
+        ])
+        if api.keystone.VERSIONS.active >= 3:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), domain=domain.id)
+        else:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), user=user.id)
+        self.mock_user_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            name=user.name,
+            description=user.description,
+            email=user.email,
+            password=user.password,
+            project=self.tenant.id,
+            enabled=True,
+            domain=domain_id)
+        self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_get_default_role.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_add_tenant_user_role.assert_called_once_with(
+            test.IsHttpRequest(), self.tenant.id, user.id, role.id)
+        self.mock_roles_for_user.assert_called_once_with(
+            test.IsHttpRequest(), user.id, self.tenant.id)
+
+    @test.create_mocks({api.keystone: ('get_default_domain',
                                        'tenant_list',
                                        'role_list',
                                        'get_default_role')})
@@ -225,35 +235,10 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain = self._get_default_domain()
         domain_id = domain.id
 
-        api.keystone.get_default_domain(IgnoreArg()) \
-            .MultipleTimes().AndReturn(domain)
-
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain_id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=None).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.get_default_role(IgnoreArg()) \
-                    .AndReturn(self.roles.first())
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain_id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=None).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.get_default_role(IgnoreArg()) \
-            .AndReturn(self.roles.first())
-
-        self.mox.ReplayAll()
+        self.mock_get_default_domain.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_role_list.return_value = self.roles.list()
+        self.mock_get_default_role.return_value = self.roles.first()
 
         formData = {'method': 'CreateUserForm',
                     'domain_id': domain_id,
@@ -268,7 +253,25 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
 
-    @test.create_stubs({api.keystone: ('get_default_domain',
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_default_domain, 2,
+            mock.call(test.IsHttpRequest()))
+        if api.keystone.VERSIONS.active >= 3:
+            self.assert_mock_multiple_calls_with_same_arguments(
+                self.mock_tenant_list, 2,
+                mock.call(test.IsHttpRequest(), domain=domain_id))
+        else:
+            self.assert_mock_multiple_calls_with_same_arguments(
+                self.mock_tenant_list, 2,
+                mock.call(test.IsHttpRequest(), user=None))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_role_list, 2,
+            mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_default_role, 2,
+            mock.call(test.IsHttpRequest()))
+
+    @test.create_mocks({api.keystone: ('get_default_domain',
                                        'tenant_list',
                                        'role_list',
                                        'get_default_role')})
@@ -277,35 +280,10 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain = self._get_default_domain()
         domain_id = domain.id
 
-        api.keystone.get_default_domain(IgnoreArg()) \
-            .MultipleTimes().AndReturn(domain)
-
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain_id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=None).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.get_default_role(IgnoreArg()) \
-                    .AndReturn(self.roles.first())
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain_id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=None).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.get_default_role(IgnoreArg()) \
-            .AndReturn(self.roles.first())
-
-        self.mox.ReplayAll()
+        self.mock_get_default_domain.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_role_list.return_value = self.roles.list()
+        self.mock_get_default_role.return_value = self.roles.first()
 
         # check password min-len verification
         formData = {'method': 'CreateUserForm',
@@ -323,7 +301,25 @@ class UsersViewTests(test.BaseAdminViewTests):
             res, "form", 'password',
             ['Password must be between 8 and 18 characters.'])
 
-    @test.create_stubs({api.keystone: ('get_default_domain',
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_default_domain, 2,
+            mock.call(test.IsHttpRequest()))
+        if api.keystone.VERSIONS.active >= 3:
+            self.assert_mock_multiple_calls_with_same_arguments(
+                self.mock_tenant_list, 2,
+                mock.call(test.IsHttpRequest(), domain=domain_id))
+        else:
+            self.assert_mock_multiple_calls_with_same_arguments(
+                self.mock_tenant_list, 2,
+                mock.call(test.IsHttpRequest(), user=None))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_role_list, 2,
+            mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_default_role, 2,
+            mock.call(test.IsHttpRequest()))
+
+    @test.create_mocks({api.keystone: ('get_default_domain',
                                        'tenant_list',
                                        'role_list',
                                        'get_default_role')})
@@ -332,35 +328,10 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain = self._get_default_domain()
         domain_id = domain.id
 
-        api.keystone.get_default_domain(IgnoreArg()) \
-            .MultipleTimes().AndReturn(domain)
-
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain_id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=None).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.get_default_role(IgnoreArg()) \
-                    .AndReturn(self.roles.first())
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain_id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=None).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.get_default_role(IgnoreArg()) \
-            .AndReturn(self.roles.first())
-
-        self.mox.ReplayAll()
+        self.mock_get_default_domain.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_role_list.return_value = self.roles.list()
+        self.mock_get_default_role.return_value = self.roles.first()
 
         # check password min-len verification
         formData = {'method': 'CreateUserForm',
@@ -378,42 +349,39 @@ class UsersViewTests(test.BaseAdminViewTests):
             res, "form", 'password',
             ['Password must be between 8 and 18 characters.'])
 
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_default_domain, 2,
+            mock.call(test.IsHttpRequest()))
+        if api.keystone.VERSIONS.active >= 3:
+            self.assert_mock_multiple_calls_with_same_arguments(
+                self.mock_tenant_list, 2,
+                mock.call(test.IsHttpRequest(), domain=domain_id))
+        else:
+            self.assert_mock_multiple_calls_with_same_arguments(
+                self.mock_tenant_list, 2,
+                mock.call(test.IsHttpRequest(), user=None))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_role_list, 2,
+            mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_default_role, 2,
+            mock.call(test.IsHttpRequest()))
+
     @override_settings(USER_TABLE_EXTRA_INFO={'phone_num': 'Phone Number'})
-    @test.create_stubs({api.keystone: ('user_get',
+    @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',
                                        'tenant_list',
-                                       'user_update_tenant',
-                                       'user_update_password',
-                                       'user_update',
-                                       'roles_for_user', )})
+                                       'user_update',)})
     def test_update(self):
         user = self.users.get(id="1")
         domain_id = user.domain_id
         domain = self.domains.get(id=domain_id)
         phone_number = "+81-3-1234-5678"
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(user)
-        api.keystone.domain_get(IsA(http.HttpRequest),
-                                domain_id).AndReturn(domain)
-
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain.id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=user.id).AndReturn(
-                [self.tenants.list(), False])
-
-        kwargs = {'phone_num': phone_number}
-        api.keystone.user_update(IsA(http.HttpRequest),
-                                 user.id,
-                                 email=user.email,
-                                 name=user.name,
-                                 **kwargs).AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
+        self.mock_domain_get.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_user_update.return_value = None
 
         formData = {'method': 'UpdateUserForm',
                     'id': user.id,
@@ -426,40 +394,37 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.keystone: ('user_get',
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=True)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain_id)
+        if api.keystone.VERSIONS.active >= 3:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), domain=domain.id)
+        else:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), user=user.id)
+        kwargs = {'phone_num': phone_number}
+        self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
+                                                      user.id,
+                                                      email=user.email,
+                                                      name=user.name,
+                                                      **kwargs)
+
+    @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',
                                        'tenant_list',
-                                       'user_update_tenant',
-                                       'user_update_password',
-                                       'user_update',
-                                       'roles_for_user', )})
+                                       'user_update',)})
     def test_update_default_project(self):
         user = self.users.get(id="1")
         domain_id = user.domain_id
         domain = self.domains.get(id=domain_id)
         new_project_id = self.tenants.get(id="3").id
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(user)
-        api.keystone.domain_get(IsA(http.HttpRequest),
-                                domain_id).AndReturn(domain)
-
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain.id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=user.id).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.user_update(IsA(http.HttpRequest),
-                                 user.id,
-                                 email=user.email,
-                                 name=user.name,
-                                 project=new_project_id).AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
+        self.mock_domain_get.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_user_update.return_value = None
 
         formData = {'method': 'UpdateUserForm',
                     'id': user.id,
@@ -472,38 +437,35 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.keystone: ('user_get',
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=True)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain_id)
+        if api.keystone.VERSIONS.active >= 3:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), domain=domain.id)
+        else:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), user=user.id)
+        self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
+                                                      user.id,
+                                                      email=user.email,
+                                                      name=user.name,
+                                                      project=new_project_id)
+
+    @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',
                                        'tenant_list',
-                                       'user_update_tenant',
-                                       'user_update',
-                                       'roles_for_user', )})
+                                       'user_update',)})
     def test_update_with_no_email_attribute(self):
         user = self.users.get(id="5")
         domain_id = user.domain_id
         domain = self.domains.get(id=domain_id)
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(user)
-        api.keystone.domain_get(IsA(http.HttpRequest),
-                                domain_id).AndReturn(domain)
-
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain_id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=user.id).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.user_update(IsA(http.HttpRequest),
-                                 user.id,
-                                 email=user.email or "",
-                                 name=user.name,
-                                 project=self.tenant.id).AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
+        self.mock_domain_get.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_user_update.return_value = None
 
         formData = {'method': 'UpdateUserForm',
                     'id': user.id,
@@ -516,35 +478,35 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.keystone: ('user_get',
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=True)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain_id)
+        if api.keystone.VERSIONS.active >= 3:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), domain=domain.id)
+        else:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), user=user.id)
+        self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
+                                                      user.id,
+                                                      email=user.email or "",
+                                                      name=user.name,
+                                                      project=self.tenant.id)
+
+    @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',
                                        'tenant_list',
-                                       'user_update_tenant',
-                                       'keystone_can_edit_user',
-                                       'roles_for_user', )})
+                                       'keystone_can_edit_user', )})
     def test_update_with_keystone_can_edit_user_false(self):
         user = self.users.get(id="1")
         domain_id = user.domain_id
         domain = self.domains.get(id=domain_id)
 
-        api.keystone.user_get(IsA(http.HttpRequest),
-                              '1',
-                              admin=True).AndReturn(user)
-        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
-            .AndReturn(domain)
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain_id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=user.id).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.keystone_can_edit_user().AndReturn(False)
-        api.keystone.keystone_can_edit_user().AndReturn(False)
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
+        self.mock_domain_get.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_keystone_can_edit_user.return_value = False
 
         formData = {'method': 'UpdateUserForm',
                     'id': user.id,
@@ -556,20 +518,28 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=1)
 
-    @test.create_stubs({api.keystone: ('user_get',
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=True)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain_id)
+        if api.keystone.VERSIONS.active >= 3:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), domain=domain.id)
+        else:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), user=user.id)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_keystone_can_edit_user, 2,
+            mock.call())
+
+    @test.create_mocks({api.keystone: ('user_get',
                                        'user_update_password')})
     def test_change_password(self):
         user = self.users.get(id="5")
         test_password = 'normalpwd'
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=False).AndReturn(user)
-        api.keystone.user_update_password(IsA(http.HttpRequest),
-                                          user.id,
-                                          test_password,
-                                          admin=False).AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
+        self.mock_user_update_password.return_value = None
 
         formData = {'method': 'ChangePasswordForm',
                     'id': user.id,
@@ -581,7 +551,12 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.keystone: ('user_get',
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_user_update_password.assert_called_once_with(
+            test.IsHttpRequest(), user.id, test_password, admin=False)
+
+    @test.create_mocks({api.keystone: ('user_get',
                                        'user_verify_admin_password')})
     @override_settings(ENFORCE_PASSWORD_CHECK=True)
     def test_change_password_validation_for_admin_password(self):
@@ -589,12 +564,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         test_password = 'normalpwd'
         admin_password = 'secret'
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=False).AndReturn(user)
-        api.keystone.user_verify_admin_password(
-            IsA(http.HttpRequest), admin_password).AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
+        self.mock_user_verify_admin_password.return_value = None
 
         formData = {'method': 'ChangePasswordForm',
                     'id': user.id,
@@ -607,15 +578,16 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertFormError(res, "form", None,
                              ['The admin password is incorrect.'])
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_user_verify_admin_password.assert_called_once_with(
+            test.IsHttpRequest(), admin_password)
 
-    @test.create_stubs({api.keystone: ('user_get',)})
+    @test.create_mocks({api.keystone: ('user_get',)})
     def test_update_validation_for_password_too_short(self):
         user = self.users.get(id="1")
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=False).AndReturn(user)
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
 
         formData = {'method': 'ChangePasswordForm',
                     'id': user.id,
@@ -629,14 +601,14 @@ class UsersViewTests(test.BaseAdminViewTests):
             res, "form", 'password',
             ['Password must be between 8 and 18 characters.'])
 
-    @test.create_stubs({api.keystone: ('user_get',)})
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+
+    @test.create_mocks({api.keystone: ('user_get',)})
     def test_update_validation_for_password_too_long(self):
         user = self.users.get(id="1")
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=False).AndReturn(user)
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
 
         formData = {'method': 'ChangePasswordForm',
                     'id': user.id,
@@ -650,7 +622,10 @@ class UsersViewTests(test.BaseAdminViewTests):
             res, "form", 'password',
             ['Password must be between 8 and 18 characters.'])
 
-    @test.create_stubs({api.keystone: ('domain_get',
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+
+    @test.create_mocks({api.keystone: ('get_effective_domain_id',
                                        'user_update_enabled',
                                        'user_list',
                                        'domain_lookup')})
@@ -662,25 +637,25 @@ class UsersViewTests(test.BaseAdminViewTests):
         users = self._get_users(domain_id)
         user.enabled = False
 
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        api.keystone.user_list(IgnoreArg(),
-                               domain=domain_id,
-                               filters=filters)\
-            .AndReturn(users)
-        api.keystone.user_update_enabled(IgnoreArg(),
-                                         user.id,
-                                         True).AndReturn(user)
-        api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
-                                                           domain.name})
-
-        self.mox.ReplayAll()
+        self.mock_get_effective_domain_id.return_value = None
+        self.mock_user_list.return_value = users
+        self.mock_user_update_enabled.return_value = user
+        self.mock_domain_lookup.return_value = {domain.id: domain.name}
 
         formData = {'action': 'users__toggle__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
-    @test.create_stubs({api.keystone: ('domain_get',
+        self.mock_get_effective_domain_id.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_user_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain_id, filters=filters)
+        self.mock_user_update_enabled.assert_called_once_with(
+            test.IsHttpRequest(), user.id, True)
+        self.mock_domain_lookup.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({api.keystone: ('get_effective_domain_id',
                                        'user_update_enabled',
                                        'user_list',
                                        'domain_lookup')})
@@ -693,25 +668,25 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertTrue(user.enabled)
 
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        api.keystone.user_list(IgnoreArg(),
-                               domain=domain_id,
-                               filters=filters)\
-            .AndReturn(users)
-        api.keystone.user_update_enabled(IgnoreArg(),
-                                         user.id,
-                                         False).AndReturn(user)
-        api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
-                                                           domain.name})
-
-        self.mox.ReplayAll()
+        self.mock_get_effective_domain_id.return_value = None
+        self.mock_user_list.return_value = users
+        self.mock_user_update_enabled.return_value = user
+        self.mock_domain_lookup.return_value = {domain.id: domain.name}
 
         formData = {'action': 'users__toggle__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
-    @test.create_stubs({api.keystone: ('domain_get',
+        self.mock_get_effective_domain_id.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_user_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain_id, filters=filters)
+        self.mock_user_update_enabled.assert_called_once_with(
+            test.IsHttpRequest(), user.id, False)
+        self.mock_domain_lookup.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({api.keystone: ('get_effective_domain_id',
                                        'user_update_enabled',
                                        'user_list',
                                        'domain_lookup')})
@@ -723,23 +698,25 @@ class UsersViewTests(test.BaseAdminViewTests):
         users = self._get_users(domain_id)
         user.enabled = False
 
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        api.keystone.user_list(IgnoreArg(),
-                               domain=domain_id,
-                               filters=filters)\
-            .AndReturn(users)
-        api.keystone.user_update_enabled(IgnoreArg(), user.id, True) \
-                    .AndRaise(self.exceptions.keystone)
-        api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
-                                                           domain.name})
-        self.mox.ReplayAll()
+        self.mock_get_effective_domain_id.return_value = None
+        self.mock_user_list.return_value = users
+        self.mock_user_update_enabled.side_effect = self.exceptions.keystone
+        self.mock_domain_lookup.return_value = {domain.id: domain.name}
 
         formData = {'action': 'users__toggle__%s' % user.id}
         res = self.client.post(USERS_INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
-    @test.create_stubs({api.keystone: ('domain_get',
+        self.mock_get_effective_domain_id.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_user_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain_id, filters=filters)
+        self.mock_user_update_enabled.assert_called_once_with(
+            test.IsHttpRequest(), user.id, True)
+        self.mock_domain_lookup.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({api.keystone: ('get_effective_domain_id',
                                        'user_list',
                                        'domain_lookup')})
     def test_disabling_current_user(self):
@@ -747,16 +724,10 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain_id = domain.id
         filters = {}
         users = self._get_users(domain_id)
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        for i in range(0, 2):
-            api.keystone.user_list(IgnoreArg(),
-                                   domain=domain_id,
-                                   filters=filters) \
-                .AndReturn(users)
-            api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
-                                                               domain.name})
 
-        self.mox.ReplayAll()
+        self.mock_get_effective_domain_id.return_value = None
+        self.mock_user_list.return_value = users
+        self.mock_domain_lookup.return_value = {domain.id: domain.name}
 
         formData = {'action': 'users__toggle__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
@@ -765,7 +736,17 @@ class UsersViewTests(test.BaseAdminViewTests):
                          u'You are not allowed to disable user: '
                          u'test_user')
 
-    @test.create_stubs({api.keystone: ('domain_get',
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_effective_domain_id, 2,
+            mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_user_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id, filters=filters))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_domain_lookup, 2,
+            mock.call(test.IsHttpRequest()))
+
+    @test.create_mocks({api.keystone: ('get_effective_domain_id',
                                        'user_list',
                                        'domain_lookup')})
     def test_disabling_current_user_domain_name(self):
@@ -776,18 +757,11 @@ class UsersViewTests(test.BaseAdminViewTests):
         users = self._get_users(domain_id)
         domain_lookup = dict((d.id, d.name) for d in domains)
 
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
+        self.mock_get_effective_domain_id.return_value = None
         for u in users:
             u.domain_name = domain_lookup.get(u.domain_id)
-
-        for i in range(0, 2):
-            api.keystone.domain_lookup(IgnoreArg()).AndReturn(domain_lookup)
-            api.keystone.user_list(IgnoreArg(),
-                                   domain=domain_id,
-                                   filters=filters) \
-                .AndReturn(users)
-
-        self.mox.ReplayAll()
+        self.mock_domain_lookup.return_value = domain_lookup
+        self.mock_user_list.return_value = users
 
         formData = {'action': 'users__toggle__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
@@ -796,7 +770,17 @@ class UsersViewTests(test.BaseAdminViewTests):
                          u'You are not allowed to disable user: '
                          u'test_user')
 
-    @test.create_stubs({api.keystone: ('domain_get',
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_effective_domain_id, 2,
+            mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_domain_lookup, 2,
+            mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_user_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id, filters=filters))
+
+    @test.create_mocks({api.keystone: ('get_effective_domain_id',
                                        'user_list',
                                        'domain_lookup')})
     def test_delete_user_with_improper_permissions(self):
@@ -804,16 +788,10 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain_id = domain.id
         filters = {}
         users = self._get_users(domain_id)
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        for i in range(0, 2):
-            api.keystone.user_list(IgnoreArg(),
-                                   domain=domain_id,
-                                   filters=filters) \
-                .AndReturn(users)
-            api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
-                                                               domain.name})
 
-        self.mox.ReplayAll()
+        self.mock_get_effective_domain_id.return_value = None
+        self.mock_user_list.return_value = users
+        self.mock_domain_lookup.return_value = {domain.id: domain.name}
 
         formData = {'action': 'users__delete__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
@@ -822,7 +800,17 @@ class UsersViewTests(test.BaseAdminViewTests):
                          u'You are not allowed to delete user: %s'
                          % self.request.user.username)
 
-    @test.create_stubs({api.keystone: ('domain_get',
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_effective_domain_id, 2,
+            mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_user_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id, filters=filters))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_domain_lookup, 2,
+            mock.call(test.IsHttpRequest()))
+
+    @test.create_mocks({api.keystone: ('get_effective_domain_id',
                                        'user_list',
                                        'domain_lookup')})
     def test_delete_user_with_improper_permissions_domain_name(self):
@@ -833,18 +821,11 @@ class UsersViewTests(test.BaseAdminViewTests):
         users = self._get_users(domain_id)
         domain_lookup = dict((d.id, d.name) for d in domains)
 
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
+        self.mock_get_effective_domain_id.return_value = None
         for u in users:
             u.domain_name = domain_lookup.get(u.domain_id)
-
-        for i in range(0, 2):
-            api.keystone.user_list(IgnoreArg(),
-                                   domain=domain_id,
-                                   filters=filters) \
-                .AndReturn(users)
-            api.keystone.domain_lookup(IgnoreArg()).AndReturn(domain_lookup)
-
-        self.mox.ReplayAll()
+        self.mock_user_list.return_value = users
+        self.mock_domain_lookup.return_value = domain_lookup
 
         formData = {'action': 'users__delete__%s' % self.request.user.id}
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
@@ -853,7 +834,17 @@ class UsersViewTests(test.BaseAdminViewTests):
                          u'You are not allowed to delete user: %s'
                          % self.request.user.username)
 
-    @test.create_stubs({api.keystone: ('domain_get',
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_effective_domain_id, 2,
+            mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_user_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id, filters=filters))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_domain_lookup, 2,
+            mock.call(test.IsHttpRequest()))
+
+    @test.create_mocks({api.keystone: ('domain_get',
                                        'user_get',
                                        'tenant_get')})
     def test_detail_view(self):
@@ -861,12 +852,9 @@ class UsersViewTests(test.BaseAdminViewTests):
         user = self.users.get(id="1")
         tenant = self.tenants.get(id=user.project_id)
 
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        api.keystone.user_get(IsA(http.HttpRequest), '1', admin=False) \
-            .AndReturn(user)
-        api.keystone.tenant_get(IsA(http.HttpRequest), user.project_id) \
-            .AndReturn(tenant)
-        self.mox.ReplayAll()
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
 
         res = self.client.get(USER_DETAIL_URL, args=[user.id])
 
@@ -875,19 +863,25 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertEqual(res.context['user'].id, user.id)
         self.assertEqual(res.context['tenant_name'], tenant.name)
 
-    @test.create_stubs({api.keystone: ('user_get',)})
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
+
+    @test.create_mocks({api.keystone: ('user_get',)})
     def test_detail_view_with_exception(self):
         user = self.users.get(id="1")
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1').\
-            AndRaise(self.exceptions.keystone)
-        self.mox.ReplayAll()
+        self.mock_user_get.side_effect = self.exceptions.keystone
 
         res = self.client.get(USER_DETAIL_URL, args=[user.id])
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
 
-    @test.create_stubs({api.keystone: ('user_get',
+    @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',
                                        'tenant_list',)})
     def test_get_update_form_init_values(self):
@@ -895,16 +889,9 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain_id = user.domain_id
         domain = self.domains.get(id=domain_id)
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(user)
-        api.keystone.domain_get(IsA(http.HttpRequest),
-                                domain_id).AndReturn(domain)
-        api.keystone.tenant_list(IgnoreArg(),
-                                 domain=domain_id,
-                                 user=user.id) \
-            .AndReturn([self.tenants.list(), False])
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
+        self.mock_domain_get.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
         res = self.client.get(USER_UPDATE_URL)
 
@@ -921,39 +908,26 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertEqual(res.context['form']['domain_name'].value(),
                          domain.name)
 
-    @test.create_stubs({api.keystone: ('user_get',
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=True)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain_id)
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      domain=domain_id)
+
+    @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',
                                        'tenant_list',
-                                       'user_update_tenant',
-                                       'user_update_password',
-                                       'user_update',
-                                       'roles_for_user', )})
+                                       'user_update',)})
     def test_update_different_description(self):
         user = self.users.get(id="1")
         domain_id = user.domain_id
         domain = self.domains.get(id=domain_id)
 
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(user)
-        api.keystone.domain_get(IsA(http.HttpRequest),
-                                domain_id).AndReturn(domain)
-
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), domain=domain.id).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), user=user.id).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.user_update(IsA(http.HttpRequest),
-                                 user.id,
-                                 email=user.email,
-                                 name=user.name,
-                                 description='changed').AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = user
+        self.mock_domain_get.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_user_update.return_value = None
 
         formData = {'method': 'UpdateUserForm',
                     'id': user.id,
@@ -965,6 +939,22 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_UPDATE_URL, formData)
 
         self.assertNoFormErrors(res)
+
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=True)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain_id)
+        if api.keystone.VERSIONS.active >= 3:
+            self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
+                                                          domain=domain.id)
+        else:
+            self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
+                                                          user=user.id)
+        self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
+                                                      user.id,
+                                                      email=user.email,
+                                                      name=user.name,
+                                                      description='changed')
 
     @test.update_settings(FILTER_DATA_FIRST={'identity.users': True})
     def test_index_with_filter_first(self):
@@ -979,7 +969,7 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         domain = {"id": None, "name": None}
         return api.base.APIDictWrapper(domain)
 
-    @test.create_stubs({api.keystone: ('get_default_domain',
+    @test.create_mocks({api.keystone: ('get_default_domain',
                                        'tenant_list',
                                        'get_default_role',
                                        'role_list',
@@ -988,25 +978,12 @@ class SeleniumTests(test.SeleniumAdminTestCase):
     def test_modal_create_user_with_passwords_not_matching(self):
         domain = self._get_default_domain()
 
-        api.keystone.get_default_domain(IgnoreArg()) \
-            .MultipleTimes().AndReturn(domain)
-
-        if api.keystone.VERSIONS.active >= 3:
-            api.keystone.tenant_list(
-                IgnoreArg(), False).AndReturn(
-                [self.tenants.list(), False])
-        else:
-            api.keystone.tenant_list(
-                IgnoreArg(), False).AndReturn(
-                [self.tenants.list(), False])
-
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
-        api.keystone.user_list(IgnoreArg(), domain=None) \
-            .AndReturn(self.users.list())
-        api.keystone.domain_lookup(IgnoreArg()).AndReturn({None: None})
-        api.keystone.get_default_role(IgnoreArg()) \
-                    .AndReturn(self.roles.first())
-        self.mox.ReplayAll()
+        self.mock_get_default_domain.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_role_list.return_value = self.roles.list()
+        self.mock_user_list.return_value = self.users.list()
+        self.mock_domain_lookup.return_value = {None: None}
+        self.mock_get_default_role.return_value = self.roles.first()
 
         self.selenium.get("%s%s" % (self.live_server_url, USERS_INDEX_URL))
 
@@ -1029,11 +1006,24 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         self.assertTrue(self._is_element_present("id_confirm_password_error"),
                         "Couldn't find password error element.")
 
-    @test.create_stubs({api.keystone: ('user_get',)})
+        self.assertEqual(2, self.mock_get_default_domain.call_count)
+        self.mock_get_default_domain.assert_has_calls([
+            mock.call(test.IsHttpRequest()),
+            mock.call(test.IsHttpRequest()),
+        ])
+
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      domain=None)
+        self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_user_list.assert_called_once_with(test.IsHttpRequest(),
+                                                    domain=None, filters={})
+        self.mock_domain_lookup.assert_called_once_with(test.IsHttpRequest())
+        self.mock_get_default_role.assert_called_once_with(
+            test.IsHttpRequest())
+
+    @test.create_mocks({api.keystone: ('user_get',)})
     def test_update_user_with_passwords_not_matching(self):
-        api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=False).AndReturn(self.user)
-        self.mox.ReplayAll()
+        self.mock_user_get.return_value = self.user
 
         self.selenium.get("%s%s" % (self.live_server_url,
                                     USER_CHANGE_PASSWORD_URL))
@@ -1045,6 +1035,8 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         self.selenium.find_element_by_id("id_name").click()
         self.assertTrue(self._is_element_present("id_confirm_password_error"),
                         "Couldn't find password error element.")
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
 
     def _is_element_present(self, element_id):
         try:
