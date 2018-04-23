@@ -32,6 +32,9 @@ GROUP_ADD_MEMBER_URL = reverse(constants.GROUPS_ADD_MEMBER_URL, args=[1])
 
 
 class GroupsViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     def _get_domain_id(self):
         return self.request.session.get('domain_context', None)
 

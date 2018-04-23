@@ -41,6 +41,9 @@ PROJECT_DETAIL_URL = reverse('horizon:identity:projects:detail', args=[1])
 
 
 class TenantsViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     @test.create_stubs({api.keystone: ('domain_get',
                                        'tenant_list',
                                        'domain_lookup'),
@@ -102,6 +105,9 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
 
 class ProjectsViewNonAdminTests(test.TestCase):
+
+    use_mox = True
+
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     @test.create_stubs({api.keystone: ('tenant_list',
                                        'domain_lookup')})
@@ -125,6 +131,9 @@ class ProjectsViewNonAdminTests(test.TestCase):
 
 
 class CreateProjectWorkflowTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     def _get_project_info(self, project):
         domain = self._get_default_domain()
         project_info = {"name": project.name,
@@ -443,6 +452,9 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
 
 class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     def _get_all_users(self, domain_id):
         if not domain_id:
             users = self.users.list()
@@ -870,6 +882,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
 
 
 class UpdateQuotasWorkflowTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     def _get_quota_info(self, quota):
         cinder_quota = self.cinder_quotas.first()
         neutron_quota = self.neutron_quotas.first()
@@ -1048,6 +1063,9 @@ class UpdateQuotasWorkflowTests(test.BaseAdminViewTests):
 
 
 class UsageViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     def _stub_nova_api_calls(self, nova_stu_enabled=True):
         self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(api.nova, 'extension_supported')
@@ -1100,6 +1118,9 @@ class UsageViewTests(test.BaseAdminViewTests):
 
 
 class DetailProjectViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     @test.create_stubs({api.keystone: ('tenant_get',),
                         quotas: ('enabled_quotas',)})
     def test_detail_view(self):

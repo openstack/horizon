@@ -25,8 +25,6 @@ from openstack_dashboard.usage import quotas
 
 class CinderRestTestCase(test.TestCase):
 
-    use_mox = False
-
     #
     # Volumes
     #

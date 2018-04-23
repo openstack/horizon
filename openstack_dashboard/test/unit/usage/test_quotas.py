@@ -34,8 +34,6 @@ from openstack_dashboard.usage import quotas
 
 class QuotaTests(test.APITestCase):
 
-    use_mox = False
-
     def _mock_service_enabled(self, compute_enabled=True,
                               network_enabled=False, volume_enabled=True):
         services = {'network': network_enabled,

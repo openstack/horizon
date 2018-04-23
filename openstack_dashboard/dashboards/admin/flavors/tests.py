@@ -25,6 +25,9 @@ from openstack_dashboard.test import helpers as test
 
 
 class FlavorsViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     @test.create_stubs({api.nova: ('flavor_list_paged',),
                         flavors.Flavor: ('get_keys',), })
     def test_index(self):
@@ -177,6 +180,9 @@ class FlavorsViewTests(test.BaseAdminViewTests):
 
 
 class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     def _flavor_create_params(self, flavor, id=None):
         eph = getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral')
         flavor_info = {"name": flavor.name,

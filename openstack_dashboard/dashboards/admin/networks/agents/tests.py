@@ -26,6 +26,8 @@ NETWORKS_DETAIL_URL = 'horizon:admin:networks:detail'
 
 class NetworkAgentTests(test.BaseAdminViewTests):
 
+    use_mox = True
+
     @test.create_stubs({api.neutron: ('agent_list',
                                       'network_get',
                                       'list_dhcp_agent_hosting_networks',)})

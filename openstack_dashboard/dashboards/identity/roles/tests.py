@@ -29,6 +29,9 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 
 class RolesViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     @test.create_stubs({api.keystone: ('role_list',)})
     def test_index(self):
         filters = {}

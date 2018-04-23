@@ -76,8 +76,6 @@ class InstanceTestBase(helpers.ResetImageAPIVersionMixin,
                        InstanceTestHelperMixin,
                        helpers.TestCase):
 
-    use_mox = False
-
     def setUp(self):
         super(InstanceTestBase, self).setUp()
         if api.glance.VERSIONS.active < 2:
@@ -4987,8 +4985,6 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
 
 
 class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
-
-    use_mox = False
 
     def setup_consoles(self):
         # Need to refresh with mocks or will fail since mox do not detect

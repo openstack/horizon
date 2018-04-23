@@ -140,6 +140,9 @@ class TestCase(django_test.TestCase):
     def setUp(self):
         super(TestCase, self).setUp()
         if self.use_mox:
+            LOG.warning("'use_mox' will be dropped at the beginning of "
+                        "'Stein' release. If you still depend on mox, "
+                        "you must prepare mox environment in your test case.")
             self.mox = mox.Mox()
         self._setup_test_data()
         self._setup_factory()

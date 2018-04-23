@@ -38,6 +38,9 @@ USER_CHANGE_PASSWORD_URL = reverse('horizon:identity:users:change_password',
 
 
 class UsersViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     def _get_default_domain(self):
         domain = {"id": self.request.session.get('domain_context',
                                                  None),

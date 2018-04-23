@@ -31,6 +31,9 @@ IDPS_DETAIL_URL = reverse('horizon:identity:identity_providers:detail',
 
 
 class IdPsViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     @test.create_stubs({api.keystone: ('identity_provider_list',)})
     def test_index(self):
         api.keystone.identity_provider_list(IgnoreArg()). \

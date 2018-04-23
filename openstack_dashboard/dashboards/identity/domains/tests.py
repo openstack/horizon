@@ -36,6 +36,9 @@ GROUP_ROLE_PREFIX = constants.DOMAIN_GROUP_MEMBER_SLUG + "_role_"
 
 
 class DomainsViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     @test.create_stubs({api.keystone: ('domain_get',
                                        'domain_list',)})
     def test_index(self):
@@ -175,6 +178,9 @@ class DomainsViewTests(test.BaseAdminViewTests):
 
 
 class CreateDomainWorkflowTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     def _get_domain_info(self, domain):
         domain_info = {"name": domain.name,
                        "description": domain.description,
@@ -218,6 +224,9 @@ class CreateDomainWorkflowTests(test.BaseAdminViewTests):
 
 
 class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     def _get_domain_info(self, domain):
         domain_info = {"domain_id": domain.id,
                        "name": domain.name,

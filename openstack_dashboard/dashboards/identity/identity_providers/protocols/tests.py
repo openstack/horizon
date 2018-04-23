@@ -31,6 +31,8 @@ PROTOCOLS_CREATE_URL = reverse(
 
 class ProtocolsViewTests(test.BaseAdminViewTests):
 
+    use_mox = True
+
     @test.create_stubs({api.keystone: ('mapping_list',
                                        'protocol_create', )})
     def test_create(self):

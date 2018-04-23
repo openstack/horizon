@@ -21,8 +21,6 @@ from openstack_dashboard.test import helpers as test
 
 class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
 
-    use_mox = False
-
     def setUp(self):
         super(ImagesRestTestCase, self).setUp()
         api.glance.VERSIONS.clear_active_cache()

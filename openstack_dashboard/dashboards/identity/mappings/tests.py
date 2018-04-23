@@ -31,6 +31,9 @@ MAPPINGS_UPDATE_URL = reverse('horizon:identity:mappings:update',
 
 
 class MappingsViewTests(test.BaseAdminViewTests):
+
+    use_mox = True
+
     @test.create_stubs({api.keystone: ('mapping_list',)})
     def test_index(self):
         api.keystone.mapping_list(IgnoreArg()). \
