@@ -12,11 +12,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django import http
 from django.urls import reverse
-
-from mox3.mox import IgnoreArg
-from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -31,23 +27,14 @@ PROTOCOLS_CREATE_URL = reverse(
 
 class ProtocolsViewTests(test.BaseAdminViewTests):
 
-    use_mox = True
-
-    @test.create_stubs({api.keystone: ('mapping_list',
+    @test.create_mocks({api.keystone: ('mapping_list',
                                        'protocol_create', )})
     def test_create(self):
         idp = self.identity_providers.first()
         protocol = self.idp_protocols.first()
 
-        api.keystone.mapping_list(IgnoreArg()). \
-            AndReturn(self.idp_mappings.list())
-        api.keystone.protocol_create(IgnoreArg(),
-                                     protocol.id,
-                                     idp.id,
-                                     protocol.mapping_id). \
-            AndReturn(protocol)
-
-        self.mox.ReplayAll()
+        self.mock_mapping_list.return_value = self.idp_mappings.list()
+        self.mock_protocol_create.return_value = protocol
 
         formData = {'method': 'AddProtocolForm',
                     'id': protocol.id,
@@ -58,24 +45,29 @@ class ProtocolsViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.keystone: ('identity_provider_get',
+        self.mock_mapping_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_protocol_create.assert_called_once_with(
+            test.IsHttpRequest(), protocol.id, idp.id, protocol.mapping_id)
+
+    @test.create_mocks({api.keystone: ('identity_provider_get',
                                        'protocol_list',
                                        'protocol_delete')})
     def test_delete(self):
         idp = self.identity_providers.first()
         protocol = self.idp_protocols.first()
 
-        api.keystone.identity_provider_get(IsA(http.HttpRequest), idp.id). \
-            AndReturn(idp)
-        api.keystone.protocol_list(IsA(http.HttpRequest), idp.id). \
-            AndReturn(self.idp_protocols.list())
-        api.keystone.protocol_delete(IsA(http.HttpRequest),
-                                     idp.id,
-                                     protocol.id).AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_identity_provider_get.return_value = idp
+        self.mock_protocol_list.return_value = self.idp_protocols.list()
+        self.mock_protocol_delete.return_value = None
 
         formData = {'action': 'idp_protocols__delete__%s' % protocol.id}
         res = self.client.post(IDPS_DETAIL_URL, formData)
 
         self.assertNoFormErrors(res)
+
+        self.mock_identity_provider_get.assert_called_once_with(
+            test.IsHttpRequest(), idp.id)
+        self.mock_protocol_list.assert_called_once_with(
+            test.IsHttpRequest(), idp.id)
+        self.mock_protocol_delete.assert_called_once_with(
+            test.IsHttpRequest(), idp.id, protocol.id)
