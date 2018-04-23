@@ -38,7 +38,7 @@ class ImagesTable(tables.TableRegion):
 
     CREATE_IMAGE_FORM_FIELDS = (
         "name", "description", "image_file", "kernel", "ramdisk",
-        "disk_format", "architecture", "minimum_disk", "minimum_ram",
+        "disk_format", "architecture", "min_disk", "min_ram",
         "is_public", "protected"
     )
 
@@ -57,8 +57,8 @@ class ImagesTable(tables.TableRegion):
     )
 
     EDIT_IMAGE_FORM_FIELDS = (
-        "name", "description", "disk_format", "minimum_disk",
-        "minimum_ram", "public", "protected"
+        "name", "description", "disk_format", "min_disk",
+        "min_ram", "public", "protected"
     )
 
     @tables.bind_table_action('create')
@@ -175,7 +175,7 @@ class ImagesPage(basepage.BaseNavigationPage):
         return matches
 
     def edit_image(self, name, new_name=None, description=None,
-                   minimum_disk=None, minimum_ram=None,
+                   min_disk=None, min_ram=None,
                    public=None, protected=None):
         row = self._get_row_with_image_name(name)
         confirm_edit_images_form = self.images_table.edit_image(row)
@@ -186,11 +186,11 @@ class ImagesPage(basepage.BaseNavigationPage):
         if description is not None:
             confirm_edit_images_form.description.text = description
 
-        if minimum_disk is not None:
-            confirm_edit_images_form.minimum_disk.value = minimum_disk
+        if min_disk is not None:
+            confirm_edit_images_form.min_disk.value = min_disk
 
-        if minimum_ram is not None:
-            confirm_edit_images_form.minimum_ram.value = minimum_ram
+        if min_ram is not None:
+            confirm_edit_images_form.min_ram.value = min_ram
 
         if public is True:
             confirm_edit_images_form.public.mark()

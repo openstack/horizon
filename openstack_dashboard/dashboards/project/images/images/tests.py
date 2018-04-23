@@ -56,61 +56,14 @@ class CreateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
             'description': u'Login with admin/admin',
             'disk_format': u'qcow2',
             'architecture': u'x86-64',
-            'minimum_disk': 15,
-            'minimum_ram': 512,
+            'min_disk': 15,
+            'min_ram': 512,
             'is_public': 1}
         files = {}
         form = forms.CreateImageForm(post, files)
 
         self.assertFalse(form.is_valid())
         mock_image_list.assert_has_calls(image_calls)
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_create_image_metadata_docker_v1(self):
-        form_data = {
-            'name': u'Docker image',
-            'description': u'Docker image test',
-            'source_type': u'url',
-            'image_url': u'/',
-            'disk_format': u'docker',
-            'architecture': u'x86-64',
-            'minimum_disk': 15,
-            'minimum_ram': 512,
-            'is_public': False,
-            'protected': False,
-            'is_copying': False
-        }
-        meta = forms.create_image_metadata(form_data)
-        self.assertEqual(meta['disk_format'], 'raw')
-        self.assertEqual(meta['container_format'], 'docker')
-        self.assertIn('properties', meta)
-        self.assertNotIn('description', meta)
-        self.assertNotIn('architecture', meta)
-        self.assertEqual(meta['properties']['description'],
-                         form_data['description'])
-        self.assertEqual(meta['properties']['architecture'],
-                         form_data['architecture'])
-
-    def test_create_image_metadata_docker_v2(self):
-        form_data = {
-            'name': u'Docker image',
-            'description': u'Docker image test',
-            'source_type': u'url',
-            'image_url': u'/',
-            'disk_format': u'docker',
-            'architecture': u'x86-64',
-            'minimum_disk': 15,
-            'minimum_ram': 512,
-            'is_public': False,
-            'protected': False,
-            'is_copying': False
-        }
-        meta = forms.create_image_metadata(form_data)
-        self.assertEqual(meta['disk_format'], 'raw')
-        self.assertEqual(meta['container_format'], 'docker')
-        self.assertNotIn('properties', meta)
-        self.assertEqual(meta['description'], form_data['description'])
-        self.assertEqual(meta['architecture'], form_data['architecture'])
 
 
 class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
@@ -149,8 +102,8 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
                          u'-amd64-disk1.img',
             'disk_format': u'qcow2',
             'architecture': u'x86-64',
-            'minimum_disk': 15,
-            'minimum_ram': 512,
+            'min_disk': 15,
+            'min_ram': 512,
             'is_public': False,
             'protected': False,
             'method': 'UpdateImageForm'}
@@ -174,8 +127,8 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
             disk_format=data['disk_format'],
             container_format="bare",
             name=data['name'],
-            min_ram=data['minimum_ram'],
-            min_disk=data['minimum_disk'],
+            min_ram=data['min_ram'],
+            min_disk=data['min_disk'],
             properties={
                 'description': data['description'],
                 'architecture': data['architecture']})
@@ -194,8 +147,8 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
                          u'-amd64-disk1.img',
             'disk_format': u'qcow2',
             'architecture': u'x86-64',
-            'minimum_disk': 15,
-            'minimum_ram': 512,
+            'min_disk': 15,
+            'min_ram': 512,
             'is_public': False,
             'protected': False,
             'method': 'UpdateImageForm'}
@@ -219,8 +172,8 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
             disk_format=data['disk_format'],
             container_format="bare",
             name=data['name'],
-            min_ram=data['minimum_ram'],
-            min_disk=data['minimum_disk'],
+            min_ram=data['min_ram'],
+            min_disk=data['min_disk'],
             description=data['description'],
             architecture=data['architecture'])
 
@@ -345,8 +298,8 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             'description': u'Login with admin/admin',
             'disk_format': u'qcow2',
             'architecture': u'x86-64',
-            'minimum_disk': 15,
-            'minimum_ram': 512,
+            'min_disk': 15,
+            'min_ram': 512,
             'is_public': True,
             'protected': False,
             'method': 'CreateImageForm'}
@@ -355,8 +308,8 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         api_data = {'container_format': 'bare',
                     'disk_format': data['disk_format'],
                     'protected': False,
-                    'min_disk': data['minimum_disk'],
-                    'min_ram': data['minimum_ram'],
+                    'min_disk': data['min_disk'],
+                    'min_ram': data['min_ram'],
                     'name': data['name']}
         if api.glance.VERSIONS.active < 2:
             api_data.update({'is_public': True,
@@ -506,8 +459,8 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                 'project/images/images/_update.html')
         self.assertEqual(res.context['image'].name, image.name)
         # Bug 1076216 - is_public checkbox not being set correctly
-        self.assertContains(res, "<input type='checkbox' id='id_public'"
-                                 " name='public' checked='checked'>",
+        self.assertContains(res, "<input type='checkbox' id='id_is_public'"
+                                 " name='is_public' checked='checked'>",
                             html=True,
                             msg_prefix="The is_public checkbox is not checked")
         mock_image_get.assert_called_once_with(test.IsHttpRequest(),

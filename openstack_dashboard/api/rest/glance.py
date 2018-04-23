@@ -76,7 +76,7 @@ class Image(generic.View):
         http://localhost/api/glance/images/cc758c90-3d98-4ea1-af44-aab405c9c915
 
         """
-        meta = create_image_metadata(request.DATA)
+        meta = _create_image_metadata(request.DATA)
 
         api.glance.image_update(request, image_id, **meta)
 
@@ -171,7 +171,7 @@ class Images(generic.View):
             raise rest_utils.AjaxError(500, 'Invalid request')
 
         data = form.clean()
-        meta = create_image_metadata(request.DATA)
+        meta = _create_image_metadata(request.DATA)
         meta['data'] = data['data']
 
         image = api.glance.image_create(request, **meta)
@@ -209,7 +209,7 @@ class Images(generic.View):
 
         This returns the new image object on success.
         """
-        meta = create_image_metadata(request.DATA)
+        meta = _create_image_metadata(request.DATA)
 
         if request.DATA.get('image_url'):
             if request.DATA.get('import_data'):
@@ -304,71 +304,14 @@ class MetadefsResourceTypesList(generic.View):
         }
 
 
-def create_image_metadata(data):
+def _create_image_metadata(data):
+    # In Angular implementation we use 'visibility' field only and
+    # 'is_public' field is not used when creating/updating metadata.
+    # However, the previous 'is_public' value is sent in a request.
+    # We drop it here before passing it to create_image_metadata.
+    if 'is_public' in data:
+        del data['is_public']
     try:
-        """Use the given dict of image form data to generate the metadata used for
-        creating the image in glance.
-        """
-
-        meta = {'protected': data.get('protected'),
-                'min_disk': data.get('min_disk', 0),
-                'min_ram': data.get('min_ram', 0),
-                'name': data.get('name'),
-                'disk_format': data.get('disk_format'),
-                'container_format': data.get('container_format')}
-        properties = {}
-
-        # 'architecture' will be directly mapped
-        # into the .properties by the handle_unknown_properties function.
-        # 'kernel' and 'ramdisk' need to get specifically mapped for backwards
-        # compatibility.
-        props = data.get('properties')
-        if props and props.get('description'):
-            properties['description'] = props.get('description')
-        if data.get('kernel'):
-            properties['kernel_id'] = data.get('kernel')
-        if data.get('ramdisk'):
-            properties['ramdisk_id'] = data.get('ramdisk')
-        handle_unknown_properties(data, properties)
-        if api.glance.VERSIONS.active >= 2:
-            meta.update(properties)
-        else:
-            meta['properties'] = properties
-
-        handle_visibility(data.get('visibility'), meta)
-
+        return api.glance.create_image_metadata(data)
     except KeyError as e:
-        raise rest_utils.AjaxError(400,
-                                   'missing required parameter %s' % e.args[0])
-    return meta
-
-
-def handle_unknown_properties(data, properties):
-    # The Glance API takes in both known and unknown fields. Unknown fields
-    # are assumed as metadata. To achieve this and continue to use the
-    # existing horizon api wrapper, we need this function.  This way, the
-    # client REST mirrors the Glance API.
-    known_props = ['visibility', 'protected', 'disk_format',
-                   'container_format', 'min_disk', 'min_ram', 'name',
-                   'properties', 'kernel', 'ramdisk',
-                   'tags', 'import_data', 'source',
-                   'image_url', 'source_type', 'data',
-                   'checksum', 'created_at', 'deleted', 'is_copying',
-                   'deleted_at', 'is_public', 'virtual_size',
-                   'status', 'size', 'owner', 'id', 'updated_at']
-    other_props = {k: v for (k, v) in data.items() if k not in known_props}
-    properties.update(other_props)
-
-
-def handle_visibility(visibility, meta):
-    mapping_to_v1 = {'public': True, 'private': False, 'shared': False}
-    # note: presence of 'visibility' previously checked for in general call
-    try:
-        is_public = mapping_to_v1[visibility]
-        if api.glance.VERSIONS.active >= 2:
-            meta['visibility'] = visibility
-        else:
-            meta['is_public'] = is_public
-    except KeyError as e:
-        raise rest_utils.AjaxError(400,
-                                   'invalid visibility option: %s' % e.args[0])
+        raise rest_utils.AjaxError(400, e.args[0])
