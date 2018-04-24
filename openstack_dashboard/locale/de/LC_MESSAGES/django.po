@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-23 22:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-13 01:23+0000\n"
+"PO-Revision-Date: 2018-04-23 03:27+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -183,6 +183,9 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> auf %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> auf %(volume_device)s"
+
+msgid "A brief description of the security group rule you are adding"
+msgstr "Eine kurze Beschreibung der hinzuzufügenden Sicherheitsgruppenregel"
 
 msgid "A local image to upload."
 msgstr "Lokales Abbild hochladen."
@@ -2061,10 +2064,16 @@ msgstr[1] "Deaktivierte Benutzer"
 msgid "Disabled compute service for host: %s."
 msgstr "Compute-Dienst für den Host deaktiviert: %s."
 
+msgid "Disassocaite"
+msgstr "Trennen"
+
 msgid "Disassociate"
 msgstr "Trennen"
 
 msgid "Disassociate Floating IP"
+msgstr "Floating IP trennen"
+
+msgid "Disassociate floating IP"
 msgstr "Floating IP trennen"
 
 msgid "Disk"
@@ -2666,6 +2675,9 @@ msgstr ""
 #, python-format
 msgid "Failed to add route: %s"
 msgstr "Route konnte nicht hinzugefügt werden: %s"
+
+msgid "Failed to check if description field is supported."
+msgstr "Fehler beim Prüfen, ob das Beschreibungsfeld unterstützt wird."
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
@@ -3290,6 +3302,9 @@ msgid ""
 msgstr ""
 "Wenn \"Kein Datenträger-Typ\" ausgewählt ist, wird der Datenträger ohne "
 "Datenträger-Typ erstellt."
+
+msgid "If checked, the selected floating IP will be released at the same time."
+msgstr "Falls markiert, wird die Floating IP gleichzeitig freigegeben."
 
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
@@ -5356,6 +5371,9 @@ msgstr "Datenträgerschattenkopie auswählen"
 msgid "Select a New Flavor"
 msgstr "Neue Variante auswählen"
 
+msgid "Select a floating IP to disassociate"
+msgstr "Floating IP zum Trennen auswählen"
+
 msgid "Select a key pair"
 msgstr "Wählen Sie ein Schlüsselpaar"
 
@@ -5431,6 +5449,9 @@ msgid ""
 msgstr ""
 "Wählen Sie die IP-Adresse, die Sie der ausgewählten Instanz oder dem Port "
 "zuweisen wollen."
+
+msgid "Select the floating IP to be disassociated from the instance."
+msgstr "Wählen Sie die zu trennende Floating IP der Instanz aus."
 
 msgid "Select the image to rebuild your instance."
 msgstr "Wählen Sie ein Abbild, um Ihre Instanz neu zu erstellen."
@@ -5910,6 +5931,14 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Floating IP erfolgreich getrennt: %s"
 
 #, python-format
+msgid "Successfully disassociated and released floating IP %s"
+msgstr "Floating IP %s erfolgreich getrennt und freigegeben"
+
+#, python-format
+msgid "Successfully disassociated floating IP %s"
+msgstr "Floating IP %s erfolgreich getrennt"
+
+#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "Erfolgreich importierter öffentlicher Schlüssel: %s"
 
@@ -6322,6 +6351,9 @@ msgid ""
 msgstr ""
 "Die angeforderte Instanz kann nicht gestartet werden, da das Kontingent "
 "überschritten wird: verfügbar: %(avail)s, angefordert: %(req)s."
+
+msgid "The specified floating IP no longer exists."
+msgstr "Die angegebene Floating IP existiert nicht mehr."
 
 msgid "The specified port is invalid."
 msgstr "Der angegebene Port ist nicht gültig."
@@ -6851,6 +6883,10 @@ msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
 "Es kann nicht festgestellt werden, ob die Verschlüsselung von "
 "Datenträgertypen unterstützt wird."
+
+#, python-format
+msgid "Unable to disassociate floating IP %s"
+msgstr "Die Floating-IP-Adresse %s kann nicht getrennt werden"
 
 msgid "Unable to disassociate floating IP."
 msgstr "Floating IP kann nicht getrennt werden."
