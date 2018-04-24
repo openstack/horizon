@@ -30,10 +30,9 @@ class NetworkQoS(horizon.Panel):
         request = context['request']
         try:
             return (
-                super(NetworkQoS, self).allowed(context)
-                and request.user.has_perms(self.permissions)
-                and neutron.is_extension_supported(request,
-                                                   extension_alias='qos')
+                super(NetworkQoS, self).allowed(context) and
+                request.user.has_perms(self.permissions) and
+                neutron.is_extension_supported(request, extension_alias='qos')
             )
         except Exception:
             LOG.error("Call to list enabled services failed. This is likely "

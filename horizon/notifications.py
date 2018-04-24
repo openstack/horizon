@@ -143,8 +143,8 @@ def process_message_notification(request, messages_path):
     # NOTE (lhcheng): Cache the processed messages to avoid parsing
     # the files every time. Check directory modification time if
     # reload is necessary.
-    if (_MESSAGES_CACHE is None
-            or _MESSAGES_MTIME != os.path.getmtime(messages_path)):
+    if (_MESSAGES_CACHE is None or
+            _MESSAGES_MTIME != os.path.getmtime(messages_path)):
         _MESSAGES_CACHE = _get_processed_messages(messages_path)
         _MESSAGES_MTIME = os.path.getmtime(messages_path)
 

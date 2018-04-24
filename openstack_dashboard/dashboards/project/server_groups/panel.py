@@ -30,8 +30,8 @@ class ServerGroups(horizon.Panel):
         request = context['request']
         try:
             return (
-                super(ServerGroups, self).allowed(context)
-                and request.user.has_perms(self.permissions)
+                super(ServerGroups, self).allowed(context) and
+                request.user.has_perms(self.permissions)
             )
         except Exception:
             LOG.exception("Call to list enabled services failed. This is "

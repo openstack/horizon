@@ -82,8 +82,9 @@ class DetailView(tabs.TabbedTableView):
             msg = _('Unable to retrieve port details.')
             exceptions.handle(self.request, msg, redirect=redirect)
 
-        if (api.neutron.is_extension_supported(self.request, 'mac-learning')
-                and not hasattr(port, 'mac_state')):
+        if (api.neutron.is_extension_supported(self.request,
+                                               'mac-learning') and
+                not hasattr(port, 'mac_state')):
             port.mac_state = api.neutron.OFF_STATE
 
         return port

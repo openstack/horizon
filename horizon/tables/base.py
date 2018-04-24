@@ -1072,8 +1072,8 @@ class DataTableOptions(object):
     """
     def __init__(self, options):
         self.name = getattr(options, 'name', self.__class__.__name__)
-        verbose_name = (getattr(options, 'verbose_name', None)
-                        or self.name.title())
+        verbose_name = (getattr(options, 'verbose_name', None) or
+                        self.name.title())
         self.verbose_name = verbose_name
         self.columns = getattr(options, 'columns', None)
         self.status_columns = getattr(options, 'status_columns', [])
@@ -1330,12 +1330,12 @@ class DataTable(object):
                 filter_string = self.get_filter_string()
                 filter_field = self.get_filter_field()
                 request_method = self.request.method
-                needs_preloading = (not filter_string
-                                    and request_method == 'GET'
-                                    and action.needs_preloading)
+                needs_preloading = (not filter_string and
+                                    request_method == 'GET' and
+                                    action.needs_preloading)
                 valid_method = (request_method == action.method)
-                not_api_filter = (filter_string
-                                  and not action.is_api_filter(filter_field))
+                not_api_filter = (filter_string and
+                                  not action.is_api_filter(filter_field))
 
                 if valid_method or needs_preloading or not_api_filter:
                     if self._meta.mixed_data_type:

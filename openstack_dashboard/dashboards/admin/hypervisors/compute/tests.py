@@ -98,8 +98,8 @@ class EvacuateHostViewTest(test.BaseAdminViewTests):
 class MigrateHostViewTest(test.BaseAdminViewTests):
     def test_index(self):
         disabled_services = [service for service in self.services.list()
-                             if service.binary == 'nova-compute'
-                             and service.status == 'disabled']
+                             if (service.binary == 'nova-compute' and
+                                 service.status == 'disabled')]
         disabled_service = disabled_services[0]
 
         url = reverse('horizon:admin:hypervisors:compute:migrate_host',
@@ -112,8 +112,8 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
     @test.create_mocks({api.nova: ['migrate_host']})
     def test_maintenance_host_cold_migration_succeed(self):
         disabled_services = [service for service in self.services.list()
-                             if service.binary == 'nova-compute'
-                             and service.status == 'disabled']
+                             if (service.binary == 'nova-compute' and
+                                 service.status == 'disabled')]
         disabled_service = disabled_services[0]
         self.mock_migrate_host.return_value = True
 
@@ -139,8 +139,8 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
     @test.create_mocks({api.nova: ['migrate_host']})
     def test_maintenance_host_live_migration_succeed(self):
         disabled_services = [service for service in self.services.list()
-                             if service.binary == 'nova-compute'
-                             and service.status == 'disabled']
+                             if (service.binary == 'nova-compute' and
+                                 service.status == 'disabled')]
         disabled_service = disabled_services[0]
         self.mock_migrate_host.return_value = True
         url = reverse('horizon:admin:hypervisors:compute:migrate_host',
@@ -165,8 +165,8 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
     @test.create_mocks({api.nova: ['migrate_host']})
     def test_maintenance_host_migration_fails(self):
         disabled_services = [service for service in self.services.list()
-                             if service.binary == 'nova-compute'
-                             and service.status == 'disabled']
+                             if (service.binary == 'nova-compute' and
+                                 service.status == 'disabled')]
         disabled_service = disabled_services[0]
 
         self.mock_migrate_host.side_effect = self.exceptions.nova

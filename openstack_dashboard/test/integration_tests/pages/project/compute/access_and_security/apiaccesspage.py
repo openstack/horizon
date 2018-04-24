@@ -48,8 +48,9 @@ class ApiaccessPage(basepage.BaseNavigationPage):
             self.apiaccess_table.download_openstack_rc_v3()
 
     def list_of_files(self, directory, template):
-        return [f for f in listdir(directory) if isfile(join(directory, f))
-                and f.endswith(template)]
+        return [f for f in listdir(directory)
+                if (isfile(join(directory, f)) and
+                    f.endswith(template))]
 
     def get_credentials_from_file(self, version, directory, template):
         self._wait_until(
