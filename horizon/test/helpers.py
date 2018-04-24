@@ -42,6 +42,9 @@ import six
 from django.contrib.staticfiles.testing \
     import StaticLiveServerTestCase as LiveServerTestCase
 
+from horizon import middleware
+
+
 LOG = logging.getLogger(__name__)
 
 
@@ -67,8 +70,6 @@ try:
     from mox3 import mox
 except ImportError:
     pass
-
-from horizon import middleware
 
 
 # Makes output of failing mox tests much easier to read.

@@ -25,12 +25,14 @@ import warnings
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
+from horizon.utils.escape import monkeypatch_escape
+
+from openstack_dashboard import enabled
 from openstack_dashboard import exceptions
+from openstack_dashboard.local import enabled as local_enabled
 from openstack_dashboard import theme_settings
 from openstack_dashboard.utils import config
 from openstack_dashboard.utils import settings as settings_utils
-
-from horizon.utils.escape import monkeypatch_escape
 
 monkeypatch_escape()
 
@@ -461,16 +463,11 @@ if not SECRET_KEY:
 settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
                                  THEME_COLLECTION_DIR, ROOT_PATH)
 
-
-# Load the pluggable dashboard settings
-import openstack_dashboard.enabled
-import openstack_dashboard.local.enabled
-
 INSTALLED_APPS = list(INSTALLED_APPS)  # Make sure it's mutable
 settings_utils.update_dashboards(
     [
-        openstack_dashboard.enabled,
-        openstack_dashboard.local.enabled,
+        enabled,
+        local_enabled,
     ],
     HORIZON_CONFIG,
     INSTALLED_APPS,

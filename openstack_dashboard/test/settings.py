@@ -16,17 +16,18 @@ import tempfile
 import six
 
 from django.utils.translation import pgettext_lazy
-from horizon.test.settings import *  # noqa: F403,H303
-from horizon.utils import secret_key
-from openstack_dashboard import exceptions
 
+from horizon.test.settings import *  # noqa: F403,H303
 from horizon.utils.escape import monkeypatch_escape
+from horizon.utils import secret_key
+
+from openstack_dashboard import enabled
+from openstack_dashboard import exceptions
+from openstack_dashboard.utils import settings as settings_utils
 
 # this is used to protect from client XSS attacks, but it's worth
 # enabling in our test setup to find any issues it might cause
 monkeypatch_escape()
-
-from openstack_dashboard.utils import settings as settings_utils
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_PATH = os.path.abspath(os.path.join(TEST_DIR, ".."))
@@ -116,13 +117,10 @@ STATICFILES_DIRS = settings_utils.get_xstatic_dirs(
     settings_utils.BASE_XSTATIC_MODULES, HORIZON_CONFIG
 )
 
-# Load the pluggable dashboard settings
-import openstack_dashboard.enabled
-
 INSTALLED_APPS = list(INSTALLED_APPS)  # Make sure it's mutable
 settings_utils.update_dashboards(
     [
-        openstack_dashboard.enabled,
+        enabled,
     ],
     HORIZON_CONFIG,
     INSTALLED_APPS,
