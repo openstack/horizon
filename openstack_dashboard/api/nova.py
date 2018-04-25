@@ -70,6 +70,10 @@ def is_feature_available(request, features):
     return bool(get_microversion(request, features))
 
 
+class VolumeMultiattachNotSupported(horizon_exceptions.HorizonException):
+    status_code = 400
+
+
 class VNCConsole(base.APIDictWrapper):
     """Wrapper for the "console" dictionary.
 
@@ -792,9 +796,20 @@ def get_password(request, instance_id, private_key=None):
 
 @profiler.trace
 def instance_volume_attach(request, volume_id, instance_id, device):
-    return novaclient(request).volumes.create_server_volume(instance_id,
-                                                            volume_id,
-                                                            device)
+    from openstack_dashboard.api import cinder
+    # If we have a multiattach volume, we need to use microversion>=2.60.
+    volume = cinder.volume_get(request, volume_id)
+    if volume.multiattach:
+        version = get_microversion(request, 'multiattach')
+        if version:
+            client = novaclient(request, version)
+        else:
+            raise VolumeMultiattachNotSupported(
+                _('Multiattach volumes are not yet supported.'))
+    else:
+        client = novaclient(request)
+    return client.volumes.create_server_volume(
+        instance_id, volume_id, device)
 
 
 @profiler.trace
