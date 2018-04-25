@@ -145,7 +145,7 @@
 
     "identity:create_identity_provider": "rule:cloud_admin",
     "identity:list_identity_providers": "rule:cloud_admin",
-    "identity:get_identity_providers": "rule:cloud_admin",
+    "identity:get_identity_provider": "rule:cloud_admin",
     "identity:update_identity_provider": "rule:cloud_admin",
     "identity:delete_identity_provider": "rule:cloud_admin",
 
