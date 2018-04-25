@@ -29,7 +29,7 @@
    * module and jQuery (for table drawer slide animation in IE9) to be installed.
    */
   angular
-    .module('horizon.framework.widgets.table', [])
+    .module('horizon.framework.widgets.table', ['smart-table'])
 
     /**
      * @ngdoc parameters
@@ -53,5 +53,9 @@
       CLEAR_SELECTIONS: 'hzTable:clearSelections',
       ROW_SELECTED: 'hzTable:rowSelected',
       ROW_EXPANDED: 'hzTable:rowExpanded'
-    });
+    })
+    .config(['stConfig','$windowProvider', function (stConfig, $windowProvider) {
+      var path = $windowProvider.$get().STATIC_URL + 'framework/widgets/table/';
+      stConfig.pagination.template = path + 'pagination.html';
+    }]);
 })();

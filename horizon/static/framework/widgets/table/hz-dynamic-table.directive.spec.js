@@ -29,6 +29,17 @@
     beforeEach(module('horizon.framework.widgets.magic-search'));
     beforeEach(module('horizon.framework.widgets.table'));
 
+    beforeEach(function() {
+      horizon.cookies = {
+        get: function() {
+          return;
+        }
+      };
+
+      spyOn(horizon.cookies, 'get').and.callThrough();
+
+    });
+
     beforeEach(inject(function(_$compile_, _$rootScope_) {
       $compile = _$compile_;
       $rootScope = _$rootScope_;
