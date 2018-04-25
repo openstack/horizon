@@ -113,7 +113,8 @@ def update_dashboards(modules, horizon_config, installed_apps):
     xstatic_modules = []
     panel_customization = []
     header_sections = []
-    extra_tabs = {}
+    extra_tabs = collections.defaultdict(tuple)
+    extra_steps = collections.defaultdict(tuple)
     update_horizon_config = {}
     for key, config in import_dashboard_config(modules):
         if config.get('DISABLED', False):
@@ -157,9 +158,12 @@ def update_dashboards(modules, horizon_config, installed_apps):
         elif config.get('PANEL') or config.get('PANEL_GROUP'):
             config.pop("__builtins__", None)
             panel_customization.append(config)
-        _extra_tabs = config.get('EXTRA_TABS', {}).items()
-        for tab_key, tab_defs in _extra_tabs:
-            extra_tabs[tab_key] = extra_tabs.get(tab_key, tuple()) + tab_defs
+        _extra_tabs = config.get('EXTRA_TABS', {})
+        for tab_key, tab_defs in _extra_tabs.items():
+            extra_tabs[tab_key] += tuple(tab_defs)
+        _extra_steps = config.get('EXTRA_STEPS', {})
+        for step_key, step_defs in _extra_steps.items():
+            extra_steps[step_key] += tuple(step_defs)
     # Preserve the dashboard order specified in settings
     dashboards = ([d for d in config_dashboards
                    if d not in disabled_dashboards] +
@@ -177,6 +181,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     horizon_config.setdefault('scss_files', []).extend(scss_files)
     horizon_config.setdefault('xstatic_modules', []).extend(xstatic_modules)
     horizon_config['extra_tabs'] = extra_tabs
+    horizon_config['extra_steps'] = extra_steps
 
     # apps contains reference to applications declared in the enabled folder
     # basically a list of applications that are internal and external plugins
