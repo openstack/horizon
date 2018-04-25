@@ -289,7 +289,6 @@ class Extensions(generic.View):
             'description': e.description,
             'links': e.links,
             'name': e.name,
-            'namespace': e.namespace,
             'updated': e.updated
 
         } for e in result]}

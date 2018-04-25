@@ -15,6 +15,7 @@
 from cinderclient.v2 import availability_zones
 from cinderclient.v2 import cgsnapshots
 from cinderclient.v2 import consistencygroups
+from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 from cinderclient.v2 import pools
 from cinderclient.v2 import qos_specs
 from cinderclient.v2 import quotas
@@ -45,6 +46,7 @@ def data(TEST):
     TEST.cinder_qos_specs = utils.TestDataContainer()
     TEST.cinder_qos_spec_associations = utils.TestDataContainer()
     TEST.cinder_volume_snapshots = utils.TestDataContainer()
+    TEST.cinder_extensions = utils.TestDataContainer()
     TEST.cinder_quotas = utils.TestDataContainer()
     TEST.cinder_quota_usages = utils.TestDataContainer()
     TEST.cinder_availability_zones = utils.TestDataContainer()
@@ -296,6 +298,32 @@ def data(TEST):
         {})
     TEST.cinder_volume_encryption.add(vol_enc_metadata1)
     TEST.cinder_volume_encryption.add(vol_unenc_metadata1)
+
+    # v2 extensions
+
+    extensions = [
+        {'alias': 'os-services',
+         'description': 'Services support.',
+         'links': '[]',
+         'name': 'Services',
+         'updated': '2012-10-28T00:00:00-00:00'},
+        {'alias': 'os-admin-actions',
+         'description': 'Enable admin actions.',
+         'links': '[]',
+         'name': 'AdminActions',
+         'updated': '2012-08-25T00:00:00+00:00'},
+        {'alias': 'os-volume-transfer',
+         'description': 'Volume transfer management support.',
+         'links': '[]',
+         'name': 'VolumeTransfer',
+         'updated': '2013-05-29T00:00:00+00:00'},
+    ]
+    extensions = [
+        cinder_list_extensions.ListExtResource(
+            cinder_list_extensions.ListExtManager(None), ext)
+        for ext in extensions
+    ]
+    TEST.cinder_extensions.add(*extensions)
 
     # Quota Sets
     quota_data = dict(volumes='1',
