@@ -25,6 +25,7 @@ from openstack_dashboard.dashboards.project.instances \
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances import console
+from openstack_dashboard.dashboards.project.instances import interfaces_tables
 
 
 class OverviewTab(tabs.Tab):
@@ -36,6 +37,32 @@ class OverviewTab(tabs.Tab):
     def get_context_data(self, request):
         return {"instance": self.tab_group.kwargs['instance'],
                 "is_superuser": request.user.is_superuser}
+
+
+class InterfacesTab(tabs.TableTab):
+    name = _("Interfaces")
+    slug = "interfaces"
+    table_classes = (interfaces_tables.InterfacesTable, )
+    template_name = "horizon/common/_detail_table.html"
+    preload = False
+
+    def get_interfaces_data(self):
+        instance = self.tab_group.kwargs['instance']
+        try:
+            ports = api.neutron.port_list(self.request, device_id=instance.id)
+            if ports:
+                net_ids = [p.network_id for p in ports]
+                networks = api.neutron.network_list(self.request, id=net_ids)
+                net_dict = dict((n.id, n.name_or_id) for n in networks)
+            else:
+                net_dict = {}
+            for p in ports:
+                p.network = net_dict.get(p.network_id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Failed to get instance interfaces.'))
+            ports = []
+        return ports
 
 
 class LogTab(tabs.Tab):
@@ -110,5 +137,5 @@ class AuditTab(tabs.TableTab):
 
 class InstanceDetailTabs(tabs.DetailTabsGroup):
     slug = "instance_details"
-    tabs = (OverviewTab, LogTab, ConsoleTab, AuditTab)
+    tabs = (OverviewTab, InterfacesTab, LogTab, ConsoleTab, AuditTab)
     sticky = True
