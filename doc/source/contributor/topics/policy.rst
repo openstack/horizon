@@ -201,4 +201,4 @@ provided:
        --old keystone_policy.json --new keystone_policy.json.new --mode remove
    default
    identity:change_password
-   identity:get_identity_providers
+   identity:get_identity_provider
