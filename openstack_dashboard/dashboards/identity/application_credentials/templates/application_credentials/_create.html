@@ -1,0 +1,43 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Create a new application credential." %}</p>
+  <p>
+  {% blocktrans trimmed %}
+  The application credential will be created for the currently selected
+  project.
+  {% endblocktrans %}
+  </p>
+  <p>
+  {% blocktrans trimmed %}
+  You may provide your own secret, or one will be generated for you. Once your
+  application credential is created, the secret will be revealed once. If you
+  lose the secret, you will have to generate a new application credential.
+  {% endblocktrans %}
+  </p>
+  <p>
+  {% blocktrans trimmed %}
+  You may give the application credential an expiration. The expiration will
+  be in UTC. If you provide an expiration date with no expiration time, the
+  time will be assumed to be 00:00:00. If you provide an expiration time with
+  no expiration date, the date will be assumed to be today.
+  {% endblocktrans %}
+  </p>
+  <p>
+  {% blocktrans trimmed %}
+  You may select one or more roles for this application credential. If you do
+  not select any, all of the roles you have assigned on the current project
+  will be applied to the application credential.
+  {% endblocktrans %}
+  </p>
+  <p>
+  {% blocktrans trimmed %}
+  By default, for security reasons, application credentials are forbidden from
+  being used for creating additional application credentials or keystone
+  trusts. If your application credential needs to be able to perform these
+  actions, check "unrestricted".
+  {% endblocktrans %}
+  </p>
+{% endblock %}

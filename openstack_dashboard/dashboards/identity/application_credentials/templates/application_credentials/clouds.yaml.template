@@ -1,0 +1,34 @@
+# This is a clouds.yaml file, which can be used by OpenStack tools as a source
+# of configuration on how to connect to a cloud. If this is your only cloud,
+# just put this file in ~/.config/openstack/clouds.yaml and tools like
+# python-openstackclient will just work with no further config. (You will need
+# to add your password to the auth section)
+# If you have more than one cloud account, add the cloud entry to the clouds
+# section of your existing file and you can refer to them by name with
+# OS_CLOUD={{ cloud_name }} or --os-cloud={{ cloud_name }}
+clouds:
+  {{ cloud_name }}:
+    {% if profile %}
+    profile: {{ profile }}
+    {% endif %}
+    auth:
+      {% if not profile %}
+      auth_url: {{ auth_url }}
+      {% endif %}
+      application_credential_id: "{{ application_credential_id }}"
+      application_credential_secret: "{{ application_credential_secret }}"
+    {% if not profile %}
+      {% if regions %}
+    regions:
+        {% for r in regions %}
+    - {{ r }}
+        {% endfor %}
+      {% else %}
+        {% if region %}
+    region_name: "{{ region }}"
+        {% endif %}
+      {% endif %}
+    interface: "{{ interface }}"
+    identity_api_version: 3
+    auth_type: "v3applicationcredential"
+    {% endif %}

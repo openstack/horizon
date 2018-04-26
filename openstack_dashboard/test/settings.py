@@ -326,4 +326,10 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.network_qos.panel.NetworkQoS.can_access'),
         'return_value': True,
     },
+    'application_credentials': {
+        'method': ('openstack_dashboard.dashboards.identity'
+                   '.application_credentials.panel'
+                   '.ApplicationCredentialsPanel.can_access'),
+        'return_value': True,
+    },
 }
