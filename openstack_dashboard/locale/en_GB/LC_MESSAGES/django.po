@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-25 19:11+0000\n"
+"POT-Creation-Date: 2018-04-26 12:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-25 07:46+0000\n"
+"PO-Revision-Date: 2018-04-26 02:58+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -593,6 +593,19 @@ msgstr "Any"
 msgid "Any Availability Zone"
 msgstr "Any Availability Zone"
 
+msgid "Application Credential Details"
+msgstr "Application Credential Details"
+
+msgid "Application Credential Name ="
+msgstr "Application Credential Name ="
+
+msgid "Application Credentials"
+msgstr "Application Credentials"
+
+#, python-format
+msgid "Application credential name \"%s\" is already used."
+msgstr "Application credential name \"%s\" is already used."
+
 msgid "Architecture"
 msgstr "Architecture"
 
@@ -827,6 +840,17 @@ msgstr "Building"
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Building"
+
+msgid ""
+"By default, for security reasons, application credentials are forbidden from "
+"being used for creating additional application credentials or keystone "
+"trusts. If your application credential needs to be able to perform these "
+"actions, check \"unrestricted\"."
+msgstr ""
+"By default, for security reasons, application credentials are forbidden from "
+"being used for creating additional application credentials or keystone "
+"trusts. If your application credential needs to be able to perform these "
+"actions, check \"unrestricted\"."
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -1147,6 +1171,9 @@ msgstr "Create"
 msgid "Create An Image"
 msgstr "Create An Image"
 
+msgid "Create Application Credential"
+msgstr "Create Application Credential"
+
 msgid "Create Backup"
 msgstr "Create Backup"
 
@@ -1301,6 +1328,9 @@ msgstr ""
 "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
 "Valid key names are expected in the QoS specs. The acceptable values for key "
 "are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
+
+msgid "Create a new application credential."
+msgstr "Create a new application credential."
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -1532,6 +1562,11 @@ msgid_plural "Delete"
 msgstr[0] "Delete"
 msgstr[1] "Delete"
 
+msgid "Delete Application Credential"
+msgid_plural "Delete Application Credentials"
+msgstr[0] "Delete Application Credential"
+msgstr[1] "Delete Application Credentials"
+
 msgid "Delete Consistency Group"
 msgstr "Delete Consistency Group"
 
@@ -1713,6 +1748,11 @@ msgstr "Deleted"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Deleted"
+
+msgid "Deleted Application Credential"
+msgid_plural "Deleted Application Credentialss"
+msgstr[0] "Deleted Application Credential"
+msgstr[1] "Deleted Application Credentials"
 
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
@@ -2079,6 +2119,9 @@ msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "Domain"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "Domain \"%s\" must be disabled before it can be deleted."
@@ -2155,6 +2198,12 @@ msgstr "Download CSV Summary"
 
 msgid "Download OpenStack RC File"
 msgstr "Download OpenStack RC File"
+
+msgid "Download clouds.yaml"
+msgstr "Download clouds.yaml"
+
+msgid "Download openrc file"
+msgstr "Download openrc file"
 
 msgid "Download transfer credentials"
 msgstr "Download transfer credentials"
@@ -2553,6 +2602,18 @@ msgstr ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavours."
+
+msgid "Expiration"
+msgstr "Expiration"
+
+msgid "Expiration Date"
+msgstr "Expiration Date"
+
+msgid "Expiration Time"
+msgstr "Expiration Time"
+
+msgid "Expires"
+msgstr "Expires"
 
 msgid "Extend Volume"
 msgstr "Extend Volume"
@@ -4489,6 +4550,13 @@ msgstr "Physical Network"
 msgid "Physical Network:"
 msgstr "Physical Network:"
 
+msgid ""
+"Please capture the application credential ID and secret in order to provide "
+"them to your application."
+msgstr ""
+"Please capture the application credential ID and secret in order to provide "
+"them to your application."
+
 msgid "Please note: "
 msgstr "Please note: "
 
@@ -5208,6 +5276,9 @@ msgstr "Script Data"
 
 msgid "Script File"
 msgstr "Script File"
+
+msgid "Secret"
+msgstr "Secret"
 
 msgid "Security Group"
 msgstr "Security Group"
@@ -6101,6 +6172,22 @@ msgid "The admin password is incorrect."
 msgstr "The admin password is incorrect."
 
 msgid ""
+"The application credential secret will not be available after closing this "
+"page, so you must capture it now or download it. If you lose this secret, "
+"you must generate a new application credential."
+msgstr ""
+"The application credential secret will not be available after closing this "
+"page, so you must capture it now or download it. If you lose this secret, "
+"you must generate a new application credential."
+
+msgid ""
+"The application credential will be created for the currently selected "
+"project."
+msgstr ""
+"The application credential will be created for the currently selected "
+"project."
+
+msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
 msgstr ""
@@ -6590,6 +6677,9 @@ msgstr "Unable to connect to Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "Unable to create QoS Spec."
 
+msgid "Unable to create application credential."
+msgstr "Unable to create application credential."
+
 #, python-format
 msgid "Unable to create consistency group \"%s\" from snapshot."
 msgstr "Unable to create consistency group \"%s\" from snapshot."
@@ -6988,6 +7078,12 @@ msgstr "Unable to retrieve agent list."
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "Unable to retrieve an external network \"%s\"."
+
+msgid "Unable to retrieve application credential details."
+msgstr "Unable to retrieve application credential details."
+
+msgid "Unable to retrieve application credential list."
+msgstr "Unable to retrieve application credential list."
 
 msgid "Unable to retrieve attachment information."
 msgstr "Unable to retrieve attachment information."
@@ -7582,6 +7678,12 @@ msgstr[1] "Unregistered Identity Providers"
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Unrescuing"
+
+msgid "Unrestricted"
+msgstr "Unrestricted"
+
+msgid "Unrestricted (dangerous)"
+msgstr "Unrestricted (dangerous)"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -8226,6 +8328,17 @@ msgstr ""
 msgid "You have selected:"
 msgstr "You have selected:"
 
+msgid ""
+"You may give the application credential an expiration. The expiration will "
+"be in UTC. If you provide an expiration date with no expiration time, the "
+"time will be assumed to be 00:00:00. If you provide an expiration time with "
+"no expiration date, the date will be assumed to be today."
+msgstr ""
+"You may give the application credential an expiration. The expiration will "
+"be in UTC. If you provide an expiration date with no expiration time, the "
+"time will be assumed to be 00:00:00. If you provide an expiration time with "
+"no expiration date, the date will be assumed to be today."
+
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "You may have mistyped the address or the page may have moved."
 
@@ -8233,11 +8346,29 @@ msgid "You may optionally set a password on the rebuilt instance."
 msgstr "You may optionally set a password on the rebuilt instance."
 
 msgid ""
+"You may provide your own secret, or one will be generated for you. Once your "
+"application credential is created, the secret will be revealed once. If you "
+"lose the secret, you will have to generate a new application credential."
+msgstr ""
+"You may provide your own secret, or one will be generated for you. Once your "
+"application credential is created, the secret will be revealed once. If you "
+"lose the secret, you will have to generate a new application credential."
+
+msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
 msgstr ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
+
+msgid ""
+"You may select one or more roles for this application credential. If you do "
+"not select any, all of the roles you have assigned on the current project "
+"will be applied to the application credential."
+msgstr ""
+"You may select one or more roles for this application credential. If you do "
+"not select any, all of the roles you have assigned on the current project "
+"will be applied to the application credential."
 
 msgid "You may update the editable properties of your network here."
 msgstr "You may update the editable properties of your network here."
@@ -8269,6 +8400,12 @@ msgstr ""
 "group (Security Group). Selecting a security group as the source will allow "
 "any other instance in that security group access to any other instance via "
 "this rule."
+
+msgid "Your Application Credential"
+msgstr "Your Application Credential"
+
+msgid "Your application credential"
+msgstr "Your application credential"
 
 #, python-format
 msgid "Your image %s has been queued for creation."
