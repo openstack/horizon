@@ -146,6 +146,7 @@ class ProjectUsageView(UsageView):
             used_display = _apply_filters(used, filters)
             # When quota is float('inf'), we don't show quota
             # so filtering is unnecessary.
+            quota_display = None
             if quota != float('inf'):
                 quota_display = _apply_filters(quota, filters)
 
