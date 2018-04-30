@@ -109,11 +109,9 @@ class CreateFlavorInfo(workflows.Step):
                    "rxtx_factor")
 
 
-class UpdateFlavorAccessAction(workflows.MembershipAction):
+class FlavorAccessAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateFlavorAccessAction, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super(FlavorAccessAction, self).__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve flavor access list. '
                     'Please try again later.')
         context = args[0]
@@ -144,15 +142,12 @@ class UpdateFlavorAccessAction(workflows.MembershipAction):
             return
 
         # Get list of flavor projects if the flavor is not public.
-        flavor_id = context.get('flavor_id')
+        flavor = context.get('flavor')
         flavor_access = []
         try:
-            if flavor_id:
-                flavor = api.nova.flavor_get(request, flavor_id)
-                if not flavor.is_public:
-                    flavor_access = [project.tenant_id for project in
-                                     api.nova.flavor_access_list(request,
-                                                                 flavor_id)]
+            if flavor and not flavor.is_public:
+                flavor_access = [project.tenant_id for project in
+                                 context['current_flavor_access']]
         except Exception:
             exceptions.handle(request, err_msg)
 
@@ -160,11 +155,11 @@ class UpdateFlavorAccessAction(workflows.MembershipAction):
 
     class Meta(object):
         name = _("Flavor Access")
-        slug = "update_flavor_access"
+        slug = "flavor_access"
 
 
-class UpdateFlavorAccess(workflows.UpdateMembersStep):
-    action_class = UpdateFlavorAccessAction
+class FlavorAccess(workflows.UpdateMembersStep):
+    action_class = FlavorAccessAction
     help_text = _("Select the projects where the flavors will be used. If no "
                   "projects are selected, then the flavor will be available "
                   "in all projects.")
@@ -174,14 +169,21 @@ class UpdateFlavorAccess(workflows.UpdateMembersStep):
     no_members_text = _("No projects selected. "
                         "All projects can use the flavor.")
     show_roles = False
-    depends_on = ("flavor_id",)
-    contributes = ("flavor_access",)
 
     def contribute(self, data, context):
         if data:
             member_field_name = self.get_member_field_name('member')
             context['flavor_access'] = data.get(member_field_name, [])
         return context
+
+
+class CreateFlavorAccess(FlavorAccess):
+    contributes = ("flavor_access",)
+
+
+class UpdateFlavorAccess(FlavorAccess):
+    depends_on = ("flavor", "current_flavor_access")
+    contributes = ("flavor_access",)
 
 
 class CreateFlavor(workflows.Workflow):
@@ -192,7 +194,7 @@ class CreateFlavor(workflows.Workflow):
     failure_message = _('Unable to create flavor "%s".')
     success_url = "horizon:admin:flavors:index"
     default_steps = (CreateFlavorInfo,
-                     UpdateFlavorAccess)
+                     CreateFlavorAccess)
 
     def format_status_message(self, message):
         return message % self.context['name']
@@ -234,89 +236,29 @@ class CreateFlavor(workflows.Workflow):
         return True
 
 
-class UpdateFlavorInfoAction(CreateFlavorInfoAction):
-    flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
-
-    class Meta(object):
-        name = _("Flavor Information")
-        slug = 'update_info'
-        help_text = _("Edit the flavor details. Flavors define the sizes for "
-                      "RAM, disk, number of cores, and other resources. "
-                      "Flavors are selected when users deploy instances.")
-
-    def clean(self):
-        name = self.cleaned_data.get('name')
-        flavor_id = self.cleaned_data.get('flavor_id')
-        try:
-            flavors = api.nova.flavor_list(self.request, None)
-        except Exception:
-            flavors = []
-            msg = _('Unable to get flavor list')
-            exceptions.check_message(["Connection", "refused"], msg)
-            raise
-        # Check if there is no flavor with the same name
-        if flavors is not None and name is not None:
-            for flavor in flavors:
-                if (flavor.name.lower() == name.lower() and
-                        flavor.id != flavor_id):
-                    error_msg = _('The name "%s" is already used by '
-                                  'another flavor.') % name
-                    self._errors['name'] = self.error_class([error_msg])
-        return self.cleaned_data
-
-
-class UpdateFlavorInfo(workflows.Step):
-    action_class = UpdateFlavorInfoAction
-    depends_on = ("flavor_id",)
-    contributes = ("name",
-                   "vcpus",
-                   "memory_mb",
-                   "disk_gb",
-                   "eph_gb",
-                   "swap_mb",
-                   "rxtx_factor")
-
-
 class UpdateFlavor(workflows.Workflow):
     slug = "update_flavor"
     name = _("Edit Flavor")
     finalize_button_name = _("Save")
-    success_message = _('Modified flavor "%s".')
-    failure_message = _('Unable to modify flavor "%s".')
+    success_message = _('Modified flavor access of "%s".')
+    failure_message = _('Unable to modify flavor access of "%s".')
     success_url = "horizon:admin:flavors:index"
-    default_steps = (UpdateFlavorInfo,
-                     UpdateFlavorAccess)
+    default_steps = (UpdateFlavorAccess,)
 
     def format_status_message(self, message):
-        return message % self.context['name']
+        return message % self.context['flavor'].name
 
     def handle(self, request, data):
-
         flavor_projects = data["flavor_access"]
-        is_public = not flavor_projects
+        flavor = self.context['flavor']
 
-        def is_changed(flavor):
-            return not (data['name'] == flavor.name and
-                        data['memory_mb'] == flavor.ram and
-                        data['vcpus'] == flavor.vcpus and
-                        data['disk_gb'] == flavor.disk and
-                        data['swap_mb'] == (flavor.swap or 0) and
-                        data['rxtx_factor'] == flavor.rxtx_factor and
-                        data['eph_gb'] == flavor.ephemeral)
-
-        def setup_access():
-            for project in flavor_projects:
-                api.nova.add_tenant_to_flavor(request,
-                                              flavor.id,
-                                              project)
-
-        def modify_access(flavor):
+        # Check if the flavor info is not actually changed
+        try:
             if flavor.is_public:
                 old_flavor_projects = []
             else:
                 old_flavor_projects = [project.tenant_id for project in
-                                       api.nova.flavor_access_list(request,
-                                                                   flavor.id)]
+                                       self.context['current_flavor_access']]
             to_remove = [project for project in old_flavor_projects if project
                          not in flavor_projects]
             to_add = [project for project in flavor_projects if project not in
@@ -329,53 +271,7 @@ class UpdateFlavor(workflows.Workflow):
                 api.nova.add_tenant_to_flavor(request,
                                               flavor.id,
                                               project)
-
-        # Update flavor information
-        try:
-            flavor_id = data['flavor_id']
-            flavor = api.nova.flavor_get(self.request, flavor_id)
-
-            # Check if the flavor info is not actually changed
-            if not is_changed(flavor):
-                try:
-                    modify_access(flavor)
-                except Exception:
-                    exceptions.handle(request,
-                                      _('Unable to modify flavor access.'))
-                return True
-
-            # Grab any existing extra specs, because flavor edit is currently
-            # implemented as a delete followed by a create.
-            extras_dict = api.nova.flavor_get_extras(self.request,
-                                                     flavor_id,
-                                                     raw=True)
-
-            # Mark the existing flavor as deleted.
-            api.nova.flavor_delete(request, flavor_id)
-            # Then create a new flavor with the same name but a new ID.
-            # This is in the same try/except block as the delete call
-            # because if the delete fails the API will error out because
-            # active flavors can't have the same name.
-            flavor = api.nova.flavor_create(request,
-                                            data['name'],
-                                            data['memory_mb'],
-                                            data['vcpus'],
-                                            data['disk_gb'],
-                                            ephemeral=data['eph_gb'],
-                                            swap=data['swap_mb'],
-                                            is_public=is_public,
-                                            rxtx_factor=data['rxtx_factor'])
-            if (extras_dict):
-                api.nova.flavor_extra_set(request, flavor.id, extras_dict)
+            return True
         except Exception:
-            exceptions.handle(request, ignore=True)
+            # Error message will be shown by the workflow view.
             return False
-
-        # Add flavor access if the flavor is not public.
-        try:
-            setup_access()
-        except Exception:
-            exceptions.handle(request, _('Modified flavor information, '
-                                         'but unable to modify flavor '
-                                         'access.'))
-        return True
