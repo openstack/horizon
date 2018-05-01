@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2068,13 +2068,6 @@ msgstr "編輯雲硬碟類型訪問權限"
 msgid "Edit Volume Type Extra Spec"
 msgstr "編輯雲硬碟類型的額外規格"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"編輯虛擬硬體樣板詳細資訊。虛擬硬體樣板定義隨機存取記憶體容量、硬碟容量、核心"
-"數和其他資源。用戶布署雲實例時要用到虛擬硬體樣板。"
-
 msgid "Edit the identity provider's details."
 msgstr "編輯身分提供者的詳細資訊。"
 
@@ -3532,13 +3525,6 @@ msgstr "至少隨機存取記憶體（MB）"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "已更改地域「%s」。"
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "已更改了虛擬硬體樣板「%s」。"
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "更改虛擬硬體樣板資訊，但是無法更改虛擬硬體樣板的權限。"
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -6315,13 +6301,6 @@ msgstr "無法管理雲硬碟。"
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "無法更改地域「%s」。"
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "無法更改虛擬硬體樣板「%s」。"
-
-msgid "Unable to modify flavor access."
-msgstr "無法更改虛擬硬體樣板存取權限。"
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1117,14 +1117,6 @@ msgstr "தொகுதியை திருத்து"
 msgid "Edit Volume Type Extra Spec"
 msgstr "தொகுதி வகை கூடுதல் விவரக்குறிப்பை திருத்து"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"இயல்பு விவரங்களை திருத்தவும். இயல்புகள் RAM, வட்டு, உள்ளகங்களின் எண்ணிக்கை மற்றும் பிற "
-"வளங்களை வரையறுக்கின்றன. பயனர் நிகழ்வுகளை வரிசைப்படுத்தும் போது இயல்புகள் தேர்ந்தெடுக்கப் "
-"படுகின்றன."
-
 msgid "Edit the image details."
 msgstr "படிம விவரங்களை திருத்து."
 
@@ -2025,13 +2017,6 @@ msgstr "குறைந்தபட்ச RAM (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "மாற்றியமைக்கப்பட்ட டொமைன் \"%s\"."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "மாற்றியமைக்கப்பட்ட இயல்பு \"%s\"."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "மாற்றியமைக்கப்பட்ட இயல்பு தகவல், ஆனால் இயல்பு அணுகல் மாற்றியமைக்க முடியவில்லை."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -3592,10 +3577,6 @@ msgstr "தொகுதி அல்லது காப்பு தகவல
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "டொமைன் \"%s\"-ஐ மாற்றியமைக்கமுடியவில்லை"
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "இயல்பு \"%s\"-ஐ மாற்றியமைக்கமுடியவில்லை"
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

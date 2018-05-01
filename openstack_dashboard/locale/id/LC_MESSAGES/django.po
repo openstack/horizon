@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2200,14 +2200,6 @@ msgstr "Edit Akses Jenis Volume"
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edit Volume Type Extra Spec"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"Mengedit rincian flavor. Flavor menentukan ukuran untuk RAM, disk, jumlah "
-"core, dan sumber daya lainnya. Flavor yang dipilih ketika pengguna "
-"menggunakan instance."
-
 msgid "Edit the identity provider's details."
 msgstr "Mengedit rincian penyedia identitas ini."
 
@@ -3770,13 +3762,6 @@ msgstr "RAM minimal (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domain dimodifikasi \"%s\"."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "Flavor dimodifikasi \"%s\"."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "informasi flavor dimodifikasi tapi tidak dapat mengubah akses flavor"
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -6741,13 +6726,6 @@ msgstr "Tidak mampu mengelola volume."
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "Tidak dapat memodifikasi domain \"%s\"."
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "TIDAK can be mengubah flavor \"%s\""
-
-msgid "Unable to modify flavor access."
-msgstr "Unable to modify flavor access."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

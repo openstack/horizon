@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-23 22:29+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2308,14 +2308,6 @@ msgstr "Datenträgerzugriffstypen bearbeiten"
 msgid "Edit Volume Type Extra Spec"
 msgstr "Extra Spezifikation für Datenträgertyp bearbeiten"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"Bearbeiten der Varianten-Details. Varianten bestimmen die Größe des RAM, der "
-"Festplatte, Anzahl der Kerne und andere Ressourcen. Varianten werden "
-"ausgewählt, wenn ein Benutzer Instanzen einsetzt."
-
 msgid "Edit the identity provider's details."
 msgstr "Bearbeiten Sie die Identitätsanbieterdetails."
 
@@ -3932,15 +3924,6 @@ msgstr "Minimum RAM (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domäne \"%s\" geändert."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "Variante \"%s\" geändert."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr ""
-"Varianteninformation wurde geändert, aber Zugriffsrechte für Varianten "
-"können nicht verändert werden."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -7028,13 +7011,6 @@ msgstr "Datenträger kann nicht verwaltet werden."
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "Domäne \"%s\" kann nicht geändert werden."
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "Variante \"%s\" kann nicht geändert werden."
-
-msgid "Unable to modify flavor access."
-msgstr "Zugriff auf Variante kann nicht geändert werden."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

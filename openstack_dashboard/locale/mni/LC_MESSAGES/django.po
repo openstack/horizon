@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1070,14 +1070,6 @@ msgstr "ভোল্যুম এদিত তৌ"
 msgid "Edit Volume Type Extra Spec"
 msgstr "ভোল্যুম তাইপ এক্সত্রা স্পেক এদিত তৌ"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"ফ্লেবরগী অকুপ্পা মরোলশীং অদু এদিত তৌ। ফ্লেবরশীংনা RAM, দিস্ক, কোরগী মশীং, অমসুং "
-"অতোপ্পা রিসোর্সশীংগী সাইজশীং তাকই। য়ুজরশীংনা ইন্সতেন্সশীং শীজিন্নরকপা মতমদা "
-"ফ্লেবরশীং খল্লি।"
-
 msgid "Edit the image details."
 msgstr "ইমেজগী অকুপ্পা মরোলশীংদু এদিত তৌ।"
 
@@ -1936,15 +1928,6 @@ msgstr "মিনিমম RAM (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "দোমেইন \"%s\" শেমদোক-শেমজিন তৌখ্রে।"
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "শেমদোক-শেমজিন তৌরবা ফ্লেবর \"%s\"।"
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr ""
-"ফ্লেবর ইনফোর্মেসন শেমদোক-শেমজিন তৌরে, অদুবু ফ্লেবর এক্সেসতি শেমদোক-শেমজিন তৌবা "
-"ঙমদে।"
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -3344,10 +3327,6 @@ msgstr "ভোল্যুম লুকঅপ তৌবা নত্ত্রগ
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "দোমেইন \"%s\" শেমদোক-শেমজিন তৌবা ঙমদে।"
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "ফ্লেবর \"%s\" শেমদোক-শেমজিন তৌবা ঙমদে।"
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

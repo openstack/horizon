@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1114,14 +1114,6 @@ msgstr "আয়তন সম্পাদন কৰক"
 msgid "Edit Volume Type Extra Spec"
 msgstr "আয়তন প্ৰকাৰ অতিৰিক্ত স্পেক সম্পাদনা কৰক"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"ফ্লেভাৰৰ পূংখানুপূংখ বিৱৰণ সম্পাদনা কৰক. ফ্লেভাৰবোৰে RAM, ডিস্ক, ক'ৰৰ সংখ্যা আৰু অন্য "
-"সম্পদবোৰ নিৰ্ধাৰণ কৰে. ফ্লেভাৰবোৰ নিৰ্বাচন কৰা হয় যেতিয়া ব্যৱহাৰকৰ্তাই উদাহৰণবোৰ "
-"প্ৰস্তুত কৰে."
-
 msgid "Edit the image details."
 msgstr "ছবিৰ পূংখানুপূংখ বিৱৰণটো সম্পাদনা কৰক."
 
@@ -2012,13 +2004,6 @@ msgstr "নূন্যতম RAM (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "\"%s\" ক্ষেত্ৰ পৰিৱৰ্তন কৰক."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "\"%s\" ফ্লেভাৰ পৰিৱৰ্তন কৰা হল."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "ফ্লেভাৰ তথ্য পৰিৱৰ্তন কৰা হল, কিন্তু ফ্লেভাৰ প্ৰৱেশ পৰিৱৰ্তন কৰিবলৈ অক্ষম."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -3564,10 +3549,6 @@ msgstr "আয়তন চাবলৈ বা তথ্য বেকআপ দি�
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "\"%s\" ক্ষেত্ৰ পৰিৱৰ্তন কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "\"%s\" ফ্লেভাৰ পৰিৱৰ্তন কৰিবলৈ অক্ষম."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

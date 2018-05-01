@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1533,15 +1533,6 @@ msgid "Modified domain \"%s\"."
 msgstr "Bewerk domein \"%s\"."
 
 #, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "Smaak \"%s\" aangepast."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr ""
-"De smaakinformatie is aangepast, maar het is niet gelukt om de smaaktoegang "
-"aan te passen."
-
-#, python-format
 msgid "Modified instance \"%s\"."
 msgstr "Exemplaar \"%s\" aangepast."
 
@@ -2721,10 +2712,6 @@ msgstr "Kon het gekozen volume niet laden. %s"
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "Niet in staat om domein \"%s\" te bewerken."
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "Niet in staat om de smaak \"%s\" aan te passen."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

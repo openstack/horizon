@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2202,13 +2202,6 @@ msgstr "Mantıksal Sürücü Türü Erişimini Düzenle"
 msgid "Edit Volume Type Extra Spec"
 msgstr "Mantıksal Sürücü Türü Ek Özelliklerini Düzenle"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"Şablonlar RAM, disk, çekirdek sayısı ve diğer kaynakları belirtir. "
-"Kullanıcılar instance oluştururken bu Şablonlardan birini seçilebilirler."
-
 msgid "Edit the identity provider's details."
 msgstr "Kimlik sağlayıcı ayrıntılarını düzenle."
 
@@ -3724,13 +3717,6 @@ msgstr "Asgari RAM (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Alan \"%s\" değiştirildi."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "\"%s\" şablonu düzenlendi."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "Şablon bilgisi güncellendi, ama şablon erişimi değiştirilemiyor."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -6633,13 +6619,6 @@ msgstr "Mantıksal sürücü yönetilemiyor."
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "Alan \"%s\" değiştirilemedi."
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "\"%s\" şablonu düzenlenemedi."
-
-msgid "Unable to modify flavor access."
-msgstr "Şablon erişimi değiştirilemiyor."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

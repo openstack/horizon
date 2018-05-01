@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-25 19:11+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2302,14 +2302,6 @@ msgstr "Editar Acesso de Tipo de Volume"
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edita Especificações Extra de Tipo de Volume"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"Edita os detalhes do sabor. Sabores definem os tamanhos de RAM, disco, "
-"número de nícleos, e outros recursos. Sabores são selecionados quando "
-"usuários criam instâncias."
-
 msgid "Edit the identity provider's details."
 msgstr "Editar os detalhes do provedor de identidade."
 
@@ -3912,15 +3904,6 @@ msgstr "Memóriam RAM minima(MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domínio \"%s\" modificado."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "Sabor \"%s\" modificado."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr ""
-"Modificada informação de flavor, mas não foi possível modificar o acesso ao "
-"flavor."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -6986,13 +6969,6 @@ msgstr "Não é possível gerenciar o volume."
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "Não é possível modificar domínio \"%s\"."
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "Não foi possível modificar o sabor \"%s\"."
-
-msgid "Unable to modify flavor access."
-msgstr "Não foi possível modificar o acesso ao sabor."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

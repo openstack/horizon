@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2194,13 +2194,6 @@ msgstr "볼륨 타입 접근 권한 수정"
 msgid "Edit Volume Type Extra Spec"
 msgstr "볼륨 타입 추가 사양 편집"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"Flavor 세부 사항을 편집하십시오. Flavor는 RAM, 디스크, CPU 코어 수 및 기타 리"
-"소스의 크기를 규정해 두고 인스턴스 배포 시에 선택할 수 있도록 합니다."
-
 msgid "Edit the identity provider's details."
 msgstr "Identity 공급자에 대한 세부 정보 편집"
 
@@ -3756,13 +3749,6 @@ msgstr "최소 RAM (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "수정된 도메인 \"%s\" ."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "Flavor \"%s\"를 수정하였습니다."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "Flavor 정보를 수정하였으나, flavor 접근 권한을 수정할 수 없습니다."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -6698,13 +6684,6 @@ msgstr "볼륨을 관리하지 못했습니다."
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "도메인 \"%s\" 을 수정할 수 없습니다."
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "Flavor \"%s\"를 수정할 수 없습니다"
-
-msgid "Unable to modify flavor access."
-msgstr "Flavor 접근을 수정할 수 없습니다."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

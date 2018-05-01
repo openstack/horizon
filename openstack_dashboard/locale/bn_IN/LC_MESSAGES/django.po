@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1068,14 +1068,6 @@ msgstr "ভলিয়্যুম সম্পাদনা করুন"
 msgid "Edit Volume Type Extra Spec"
 msgstr "ভলিয়্যুম প্রকার অতিরিক্ত স্পেক সম্পাদনা করুন"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"ফ্লেভার বিশদ সম্পাদনা করুন. ফ্লেভার RAM, ডিস্ক, কোরের সংখ্যা এবং অন্যান্য সম্ভাবনার "
-"জন্য আয়তন নির্ধারণ করে. ব্যবহর্তারা যখন উদাহরণগুলি বিস্তৃত করে তখন ফ্লেভার নির্বাচিত "
-"হয়."
-
 msgid "Edit the image details."
 msgstr "ইমেজ বিশদ সম্পাদনা করুন."
 
@@ -1925,13 +1917,6 @@ msgstr "ন্যূনতম RAM (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "সংশোধিত ডোমেন \"%s\"."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "সংশোধিত ফ্লেভার \"%s\"."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "সংশোধিত ফ্লেভার তথ্য,কিন্তু ফ্লেভার অ্যাক্সেস সংশোধন করতে অসমর্থ."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -3320,10 +3305,6 @@ msgstr "ভলিয়্যুম বা ব্যাকআপ তথ্য দ�
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr " \"%s\" ডোমেন সংশোধন করতে অসমর্থ."
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "ফ্লেভার  \"%s\" সংশোধন করতে অসমর্থ."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

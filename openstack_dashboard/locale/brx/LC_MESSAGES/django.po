@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1108,13 +1108,6 @@ msgstr "भलिउमखौ सुजु"
 msgid "Edit Volume Type Extra Spec"
 msgstr "भलिउम रोखोम बांद्राय Spec खौ सुजु"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"फ्लेभार गुवारैखौ सुजु। फ्लेभारआ RAM, डिस्कनि थाखाय महर, करनि अनजिमा आरो गुबुन सम्पदखौ थि "
-"खालामो। बाहायग्राया बिदिन्थिखौ फेहेरनाय समाव फ्लेभारखौ सायखनो हायो।"
-
 msgid "Edit the image details."
 msgstr "मुसुखा गुवारैखौ सुजु"
 
@@ -2001,13 +1994,6 @@ msgstr "खमसिन RAM (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "डमेइन \"%s\" खौ सुद्रायबाय।"
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "सुद्रायखानाय फ्लेभार \"%s\""
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "सुद्रायखानाय फ्लेभार फोरमायथिहोग्रा, नाथाय फ्लेभार हाबनायखौ सुद्रायनो हायाखै।"
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -3548,10 +3534,6 @@ msgstr "भलिउम एबा बेकआप फोरमायथिनो
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "डमेइन \"%s\" खौ सुद्रायनो हायाखै।"
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "फ्लेभार \"%s\" खौ सुद्रायनो हायाखै।"
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

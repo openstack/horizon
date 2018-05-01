@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -124,9 +124,6 @@ msgstr[0] "항목 일괄 처리함"
 
 msgid "Cancel"
 msgstr "취소"
-
-msgid "Connect"
-msgstr "연결"
 
 #, python-format
 msgid "Displaying %(content_items)s item"

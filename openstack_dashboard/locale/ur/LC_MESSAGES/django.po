@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1066,14 +1066,6 @@ msgstr "ولیوم كی ترمیم كریں"
 msgid "Edit Volume Type Extra Spec"
 msgstr "ولیوم قسم اضافی سپیس ترمیم"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"فلیور تفصیل میں ترمیم کریں. فلیور RAM، ڈسک، کور کی تعداد، اور دیگر وسائل کے "
-"سائز کی وضاحت کرتا ہے. پھلےور منتخب کیا جاسکتا ہے جب صارف انسٹس کو انسٹال "
-"کرتا ہے"
-
 msgid "Edit the image details."
 msgstr "امیج تفصیلات میں ترمیم کریں"
 
@@ -1938,14 +1930,6 @@ msgstr "کم از کم RAM (GB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "تبدیل شدہ ڈومین  \"%s\"."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "تصدیق كیا گیا \"%s\"."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr ""
-"نظر ثانی فلیور معلومات، لیکن فلیور رسائی کو نظر ثانی کرنے کے قابل نہیں."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -3346,10 +3330,6 @@ msgstr "تلاش کریں ولیوم یا بیک اپ کی معلومات کو �
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr " \"%s\" ڈومین کے تجزیہ کے قابل نہیں"
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "فلیور \"%s\" کے تجزیہ کے قابل نہیں"
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

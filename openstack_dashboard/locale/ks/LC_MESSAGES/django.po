@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1066,13 +1066,6 @@ msgstr "شیرئو والیوم"
 msgid "Edit Volume Type Extra Spec"
 msgstr "شیریئو  والیوم قٔسم علاوہ سِپیک "
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"شیریئو فِلیوئر تَفصیل ۔ فِلیوئر کئرہ وَضاحت  سآئزRAM خآطرہ ، ڈِسک ، نمبر کورز "
-"ہِند، تہِ بآقی ریسورسِز۔فِلیورس چھ ژارنہٕ یَلہٕ  یوزرس کئرن اِستعمال اِنسٹئنسِز"
-
 msgid "Edit the image details."
 msgstr "شیریو شکل تَفصیل"
 
@@ -1924,13 +1917,6 @@ msgstr "کم از کمRAM (MB) "
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "شیریتھ ڈومین \"%s\""
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "شیرئو فِلویئر  \"%s\""
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "شیرئتھ فِلیوئر اِطلاع، مگر ناقابِل  شیرنہٕ خآطرہ  فِلویئر ایکسئس"
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -3317,10 +3303,6 @@ msgstr "نا قابِل والیوم یا  بیک اَپ اِطلاع  وچھن�
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "نا قابِل شیرنہٕ خآطرہ   ڈومین \"%s\""
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr " ناقابل شیرنہٕ خآطرہ  فِلویئر \"%s\""
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

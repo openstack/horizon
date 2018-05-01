@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1108,14 +1108,6 @@ msgstr " वाल्यूम संपादित करू"
 msgid "Edit Volume Type Extra Spec"
 msgstr "वाल्यूम प्रकार बाइली स्पेक संपादित करू"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"फ्लेवर विवरण संपादित करू. फ्लेवर रैम, डिस्क, कोर क संख्या, आओर आन संसाधन क लेल आकार केँ "
-"परिभाषित करैत अछि. फ्लेवर चयनित कएल जाए सकैत अछि जखन प्रयोक्ता इंस्टेंस केँ संस्थापित करैत "
-"छी "
-
 msgid "Edit the image details."
 msgstr "छवि विवरण संपादित करू"
 
@@ -2000,13 +1992,6 @@ msgstr "न्यूनतम रैम (एमबी)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "परिवर्धित डोमेन \"%s\""
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "परिवर्धित फ्लेवर \"%s\"."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "संशोधित फ्लेवर जानकारी, मुदा फ्लेवर पहुँच केँ संशोधित करबामे असमर्थ."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -3546,10 +3531,6 @@ msgstr "लुकअप वाल्यूम अथवा बैकअप स�
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "\"%s\" डोमेन क विश्लेषण मे असमर्थ"
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "फ्लेवर \"%s\" क विश्लेषण मे असमर्थ"
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

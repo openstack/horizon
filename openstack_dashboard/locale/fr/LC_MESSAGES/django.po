@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-20 11:28+0000\n"
+"POT-Creation-Date: 2018-04-30 08:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2298,14 +2298,6 @@ msgstr "Éditer les Accès de type de volume"
 msgid "Edit Volume Type Extra Spec"
 msgstr "Modifier les Spécificités Supplémentaires du Type de Volume"
 
-msgid ""
-"Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
-"cores, and other resources. Flavors are selected when users deploy instances."
-msgstr ""
-"Éditer les détails du gabarit. Les gabarits définissent la taille de la RAM "
-"et du disque, le nombre de cœurs ainsi que d'autres ressources. Les gabarits "
-"sont sélectionnés quand les utilisateurs déploient des instances."
-
 msgid "Edit the identity provider's details."
 msgstr "Éditer les détails du fournisseur d'identité."
 
@@ -3915,14 +3907,6 @@ msgstr "RAM minimale (Mo)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domaine \"%s\" modifié."
-
-#, python-format
-msgid "Modified flavor \"%s\"."
-msgstr "Gabarit \"%s\" modifié."
-
-msgid "Modified flavor information, but unable to modify flavor access."
-msgstr ""
-"Informations du gabarit modifiées, mais impossible d'en modifier l'accès."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -6948,13 +6932,6 @@ msgstr "Impossible de gérer le volume."
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "Impossible de modifier le domaine \"%s\"."
-
-#, python-format
-msgid "Unable to modify flavor \"%s\"."
-msgstr "Impossible de modifier le gabarit \"%s\"."
-
-msgid "Unable to modify flavor access."
-msgstr "Impossible de modifier les droits d'accès du gabarit."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
