@@ -473,7 +473,7 @@ To make a new release of the package, you need to:
     newer package.
 
 .. _documentation: http://xstatic.rtfd.org/en/latest/packaging.html
-.. _xstatic-release: https://pypi.python.org/pypi/xstatic-release
+.. _xstatic-release: https://pypi.org/project/xstatic-release/
 .. _`Create a new repository under OpenStack`: https://docs.openstack.org/infra/manual/creators.html
 .. _`request a release`: http://git.openstack.org/cgit/openstack/releases/tree/README.rst
 .. _`releases repository`: http://git.openstack.org/cgit/openstack/releases
