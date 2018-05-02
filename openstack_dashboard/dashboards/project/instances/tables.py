@@ -478,6 +478,17 @@ class EditInstanceSecurityGroups(EditInstance):
                 request.user.tenant_id == instance.tenant_id)
 
 
+class EditPortSecurityGroups(tables.LinkAction):
+    name = "edit_port_secgroups"
+    verbose_name = _("Edit Port Security Groups")
+    url = "horizon:project:instances:detail"
+    icon = "pencil"
+
+    def get_link_url(self, instance):
+        base_url = urls.reverse(self.url, args=[instance.id])
+        return '%s?tab=%s__%s' % (base_url, 'instance_details', 'interfaces')
+
+
 class CreateSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
     name = "snapshot"
     verbose_name = _("Create Snapshot")
@@ -1253,7 +1264,9 @@ class InstancesTable(tables.DataTable):
                        AttachInterface, DetachInterface, EditInstance,
                        AttachVolume, DetachVolume,
                        UpdateMetadata, DecryptInstancePassword,
-                       EditInstanceSecurityGroups, ConsoleLink, LogLink,
+                       EditInstanceSecurityGroups,
+                       EditPortSecurityGroups,
+                       ConsoleLink, LogLink,
                        TogglePause, ToggleSuspend, ToggleShelve,
                        ResizeLink, LockInstance, UnlockInstance,
                        SoftRebootInstance, RebootInstance,

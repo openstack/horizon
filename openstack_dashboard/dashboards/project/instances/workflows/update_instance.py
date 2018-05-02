@@ -54,13 +54,12 @@ class UpdateInstanceSecurityGroupsAction(sg_base.BaseSecurityGroupsAction):
     class Meta(object):
         name = _("Security Groups")
         slug = INSTANCE_SEC_GROUP_SLUG
+        help_text_template = 'project/instances/_edit_security_group_help.html'
 
 
 class UpdateInstanceSecurityGroups(sg_base.BaseSecurityGroups):
     action_class = UpdateInstanceSecurityGroupsAction
     members_list_title = _("Instance Security Groups")
-    help_text = _("Add and remove security groups to this instance "
-                  "from the list of available security groups.")
     depends_on = ("instance_id", "target_tenant_id")
 
     def allowed(self, request):

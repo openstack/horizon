@@ -1,0 +1,15 @@
+{% load i18n %}
+<p>
+  {% blocktrans trimmed %}
+  Add and remove security groups to this instance from the list of available
+  security groups.
+  {% endblocktrans %}
+</p>
+<p>
+  {% blocktrans trimmed %}
+  <b>Warning:</b> If you change security groups here, the change will be applied to
+  all interfaces of the instance. If you have multiple interfaces on this
+  instance and apply different security groups per port,
+  use "Edit Port Security Groups" action instead.
+  {% endblocktrans %}
+</p>
