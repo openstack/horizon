@@ -14,11 +14,7 @@
 
 import json
 
-from django import http
 from django.urls import reverse
-
-from mox3.mox import IgnoreArg
-from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -32,31 +28,22 @@ MAPPINGS_UPDATE_URL = reverse('horizon:identity:mappings:update',
 
 class MappingsViewTests(test.BaseAdminViewTests):
 
-    use_mox = True
-
-    @test.create_stubs({api.keystone: ('mapping_list',)})
+    @test.create_mocks({api.keystone: ('mapping_list',)})
     def test_index(self):
-        api.keystone.mapping_list(IgnoreArg()). \
-            AndReturn(self.idp_mappings.list())
-
-        self.mox.ReplayAll()
+        self.mock_mapping_list.return_value = self.idp_mappings.list()
 
         res = self.client.get(MAPPINGS_INDEX_URL)
 
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         self.assertItemsEqual(res.context['table'].data,
                               self.idp_mappings.list())
+        self.mock_mapping_list.assert_called_once_with(test.IsHttpRequest())
 
-    @test.create_stubs({api.keystone: ('mapping_create', )})
+    @test.create_mocks({api.keystone: ('mapping_create', )})
     def test_create(self):
         mapping = self.idp_mappings.first()
 
-        api.keystone.mapping_create(IgnoreArg(),
-                                    mapping.id,
-                                    rules=mapping.rules). \
-            AndReturn(mapping)
-
-        self.mox.ReplayAll()
+        self.mock_mapping_create.return_value = mapping
 
         formData = {'method': 'CreateMappingForm',
                     'id': mapping.id,
@@ -66,21 +53,18 @@ class MappingsViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.keystone: ('mapping_get',
+        self.mock_mapping_create.assert_called_once_with(test.IsHttpRequest(),
+                                                         mapping.id,
+                                                         rules=mapping.rules)
+
+    @test.create_mocks({api.keystone: ('mapping_get',
                                        'mapping_update')})
     def test_update(self):
         mapping = self.idp_mappings.first()
         new_rules = [{"local": [], "remote": []}]
 
-        api.keystone.mapping_get(IsA(http.HttpRequest),
-                                 mapping.id). \
-            AndReturn(mapping)
-        api.keystone.mapping_update(IsA(http.HttpRequest),
-                                    mapping.id,
-                                    rules=new_rules). \
-            AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_mapping_get.return_value = mapping
+        self.mock_mapping_update.return_value = None
 
         formData = {'method': 'UpdateMappingForm',
                     'id': mapping.id,
@@ -91,20 +75,25 @@ class MappingsViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.keystone: ('mapping_list',
+        self.mock_mapping_get.assert_called_once_with(test.IsHttpRequest(),
+                                                      mapping.id)
+        self.mock_mapping_update.assert_called_once_with(test.IsHttpRequest(),
+                                                         mapping.id,
+                                                         rules=new_rules)
+
+    @test.create_mocks({api.keystone: ('mapping_list',
                                        'mapping_delete')})
     def test_delete(self):
         mapping = self.idp_mappings.first()
 
-        api.keystone.mapping_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.idp_mappings.list())
-        api.keystone.mapping_delete(IsA(http.HttpRequest),
-                                    mapping.id) \
-            .AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_mapping_list.return_value = self.idp_mappings.list()
+        self.mock_mapping_delete.return_value = None
 
         formData = {'action': 'idp_mappings__delete__%s' % mapping.id}
         res = self.client.post(MAPPINGS_INDEX_URL, formData)
 
         self.assertNoFormErrors(res)
+
+        self.mock_mapping_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_mapping_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                         mapping.id)
