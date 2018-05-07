@@ -39,7 +39,13 @@ class Networks(generic.View):
         a network.
         """
         tenant_id = request.user.tenant_id
-        result = api.neutron.network_list_for_tenant(request, tenant_id)
+        # NOTE(amotoki): At now, this method is only for server create,
+        # so it is no problem to pass include_pre_auto_allocate=True always.
+        # We need to revisit the logic if we use this method for
+        # other operations other than server create.
+        result = api.neutron.network_list_for_tenant(
+            request, tenant_id,
+            include_pre_auto_allocate=True)
         return{'items': [n.to_dict() for n in result]}
 
     @rest_utils.ajax(data_required=True)

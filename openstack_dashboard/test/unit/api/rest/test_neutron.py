@@ -39,7 +39,8 @@ class NeutronNetworksTestCase(test.TestCase):
         exp_resp = [self._dictify_network(n) for n in self.networks.list()]
         self.assertItemsCollectionEqual(response, exp_resp)
         mock_network_list_for_tenant.assert_called_once_with(
-            request, request.user.tenant_id)
+            request, request.user.tenant_id,
+            include_pre_auto_allocate=True)
 
     def test_create(self):
         self._test_create(

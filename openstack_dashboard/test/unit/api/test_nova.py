@@ -763,3 +763,70 @@ class ComputeApiTests(test.APIMockTestCase):
                          ['bob', 'john', 'sam'])
         novaclient.availability_zones.list.assert_called_once_with(
             detailed=detailed)
+
+    @test.create_mocks({api.nova: ['get_microversion',
+                                   'novaclient']})
+    def _test_server_create(self, extra_kwargs=None, expected_kwargs=None):
+        extra_kwargs = extra_kwargs or {}
+        expected_kwargs = expected_kwargs or {}
+        expected_kwargs.setdefault('nics', None)
+
+        self.mock_get_microversion.return_value = mock.sentinel.microversion
+        novaclient = mock.Mock()
+        self.mock_novaclient.return_value = novaclient
+
+        ret = api.nova.server_create(
+            mock.sentinel.request,
+            'vm1', 'image1', 'flavor1', 'key1', 'userdata1', ['sg1'],
+            **extra_kwargs)
+
+        self.assertIsInstance(ret, api.nova.Server)
+        self.mock_get_microversion.assert_called_once_with(
+            mock.sentinel.request, ('instance_description',
+                                    'auto_allocated_network'))
+        self.mock_novaclient.assert_called_once_with(
+            mock.sentinel.request, version=mock.sentinel.microversion)
+        novaclient.servers.create.assert_called_once_with(
+            'vm1', 'image1', 'flavor1', userdata='userdata1',
+            security_groups=['sg1'], key_name='key1',
+            block_device_mapping=None, block_device_mapping_v2=None,
+            availability_zone=None, min_count=1, admin_pass=None,
+            disk_config=None, config_drive=None, meta=None,
+            scheduler_hints=None, **expected_kwargs)
+
+    def test_server_create(self):
+        self._test_server_create()
+
+    def test_server_create_with_description(self):
+        kwargs = {'description': 'desc1'}
+        self._test_server_create(extra_kwargs=kwargs, expected_kwargs=kwargs)
+
+    def test_server_create_with_normal_nics(self):
+        kwargs = {
+            'nics': [
+                {'net-id': 'net1'},
+                {'port-id': 'port1'},
+            ]
+        }
+        self._test_server_create(extra_kwargs=kwargs, expected_kwargs=kwargs)
+
+    def test_server_create_with_auto_nic(self):
+        kwargs = {
+            'nics': [
+                {'net-id': api.neutron.AUTO_ALLOCATE_ID},
+            ]
+        }
+        self._test_server_create(extra_kwargs=kwargs,
+                                 expected_kwargs={'nics': 'auto'})
+
+    def test_server_create_with_auto_nic_with_others(self):
+        # This actually never happens. Just for checking the logic.
+        kwargs = {
+            'nics': [
+                {'net-id': 'net1'},
+                {'net-id': api.neutron.AUTO_ALLOCATE_ID},
+                {'port-id': 'port1'},
+            ]
+        }
+        self._test_server_create(extra_kwargs=kwargs,
+                                 expected_kwargs={'nics': 'auto'})

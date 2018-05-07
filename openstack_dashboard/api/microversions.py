@@ -33,7 +33,8 @@ MICROVERSION_FEATURES = {
         "remote_console_mks": ["2.8", "2.53"],
         "servergroup_soft_policies": ["2.15", "2.60"],
         "servergroup_user_info": ["2.13", "2.60"],
-        "multiattach": ["2.60"]
+        "multiattach": ["2.60"],
+        "auto_allocated_network": ["2.37", "2.42"],
     },
     "cinder": {
         "consistency_groups": ["2.0", "3.10"],

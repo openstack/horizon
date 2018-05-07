@@ -42,11 +42,13 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.list_networks.assert_called_once_with()
         neutronclient.list_subnets.assert_called_once_with()
 
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={
+        'enable_auto_allocated_network': True})
     @test.create_mocks({api.neutron: ('network_list',
                                       'subnet_list')})
     def _test_network_list_for_tenant(
             self, include_external,
-            filter_params, should_called):
+            filter_params, should_called, **extra_kwargs):
         """Convenient method to test network_list_for_tenant.
 
         :param include_external: Passed to network_list_for_tenant.
@@ -58,54 +60,60 @@ class NeutronApiTests(test.APIMockTestCase):
         filter_params = filter_params or {}
         all_networks = self.networks.list()
         tenant_id = '1'
+        tenant_networks = [n for n in all_networks
+                           if n['tenant_id'] == tenant_id]
+        shared_networks = [n for n in all_networks if n['shared']]
+        external_networks = [n for n in all_networks if n['router:external']]
+
         return_values = []
         expected_calls = []
         if 'non_shared' in should_called:
             params = filter_params.copy()
             params['shared'] = False
-            return_values.append([
-                network for network in all_networks
-                if network['tenant_id'] == tenant_id
-            ])
+            return_values.append(tenant_networks)
             expected_calls.append(
                 mock.call(test.IsHttpRequest(), tenant_id=tenant_id, **params),
             )
         if 'shared' in should_called:
             params = filter_params.copy()
             params['shared'] = True
-            return_values.append([
-                network for network in all_networks
-                if network.get('shared')
-            ])
+            return_values.append(shared_networks)
             expected_calls.append(
                 mock.call(test.IsHttpRequest(), **params),
             )
         if 'external' in should_called:
             params = filter_params.copy()
             params['router:external'] = True
-            return_values.append([
-                network for network in all_networks
-                if network.get('router:external')
-            ])
+            return_values.append(external_networks)
             expected_calls.append(
                 mock.call(test.IsHttpRequest(), **params),
             )
         self.mock_network_list.side_effect = return_values
 
+        extra_kwargs.update(filter_params)
         ret_val = api.neutron.network_list_for_tenant(
             self.request, tenant_id,
             include_external=include_external,
-            **filter_params)
+            **extra_kwargs)
 
-        expected = [n for n in all_networks
-                    if (('non_shared' in should_called and
-                         n['tenant_id'] == tenant_id) or
-                        ('shared' in should_called and n['shared']) or
-                        ('external' in should_called and
-                         include_external and n['router:external']))]
+        expected = []
+        if 'non_shared' in should_called:
+            expected += tenant_networks
+        if 'shared' in should_called:
+            expected += shared_networks
+        if 'external' in should_called and include_external:
+            expected += external_networks
         self.assertEqual(set(n.id for n in expected),
                          set(n.id for n in ret_val))
         self.mock_network_list.assert_has_calls(expected_calls)
+
+        # Ensure all three types of networks are not empty. This is required
+        # to check 'pre_auto_allocate' network is not included.
+        self.assertTrue(tenant_networks)
+        self.assertTrue(shared_networks)
+        self.assertTrue(external_networks)
+        self.assertNotIn(api.neutron.AUTO_ALLOCATE_ID,
+                         [n.id for n in ret_val])
 
     def test_network_list_for_tenant(self):
         self._test_network_list_for_tenant(
@@ -163,6 +171,59 @@ class NeutronApiTests(test.APIMockTestCase):
             filter_params={'router:external': True, 'shared': False,
                            'foo': 'bar'},
             should_called=['non_shared', 'external'])
+
+    def test_network_list_for_tenant_no_pre_auto_allocate_if_net_exists(self):
+        self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['non_shared', 'shared', 'external'],
+            include_pre_auto_allocate=True)
+
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={
+        'enable_auto_allocated_network': True})
+    @test.create_mocks({api.neutron: ['network_list',
+                                      'is_extension_supported'],
+                        api.nova: ['is_feature_available']})
+    def test_network_list_for_tenant_with_pre_auto_allocate(self):
+        tenant_id = '1'
+        self.mock_network_list.return_value = []
+        self.mock_is_extension_supported.return_value = True
+        self.mock_is_feature_available.return_value = True
+
+        ret_val = api.neutron.network_list_for_tenant(
+            self.request, tenant_id, include_pre_auto_allocate=True)
+
+        self.assertEqual(1, len(ret_val))
+        self.assertIsInstance(ret_val[0], api.neutron.PreAutoAllocateNetwork)
+        self.assertEqual(api.neutron.AUTO_ALLOCATE_ID, ret_val[0].id)
+
+        self.assertEqual(2, self.mock_network_list.call_count)
+        self.mock_network_list.assert_has_calls([
+            mock.call(test.IsHttpRequest(), tenant_id=tenant_id,
+                      shared=False),
+            mock.call(test.IsHttpRequest(), shared=True),
+        ])
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'auto-allocated-topology')
+        self.mock_is_feature_available.assert_called_once_with(
+            test.IsHttpRequest(),
+            ('instance_description', 'auto_allocated_network'))
+
+    @test.create_mocks({api.neutron: ['network_list']})
+    def test_network_list_for_tenant_no_pre_auto_allocate_if_disabled(self):
+        tenant_id = '1'
+        self.mock_network_list.return_value = []
+
+        ret_val = api.neutron.network_list_for_tenant(
+            self.request, tenant_id, include_pre_auto_allocate=True)
+
+        self.assertEqual(0, len(ret_val))
+
+        self.assertEqual(2, self.mock_network_list.call_count)
+        self.mock_network_list.assert_has_calls([
+            mock.call(test.IsHttpRequest(), tenant_id=tenant_id,
+                      shared=False),
+            mock.call(test.IsHttpRequest(), shared=True),
+        ])
 
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_network_get(self, mock_neutronclient):

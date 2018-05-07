@@ -512,10 +512,27 @@ def server_create(request, name, image, flavor, key_name, user_data,
                   availability_zone=None, instance_count=1, admin_pass=None,
                   disk_config=None, config_drive=None, meta=None,
                   scheduler_hints=None, description=None):
+    microversion = get_microversion(request, ("instance_description",
+                                              "auto_allocated_network"))
+    nova_client = novaclient(request, version=microversion)
+
+    # NOTE(amotoki): Handling auto allocated network
+    # Nova API 2.37 or later, it accepts a special string 'auto' for nics
+    # which means nova uses a network that is available for a current project
+    # if one exists and otherwise it creates a network automatically.
+    # This special handling is processed here as JS side assumes 'nics'
+    # is a list and it is easiest to handle it here.
+    if nics:
+        is_auto_allocate = any(nic.get('net-id') == '__auto_allocate__'
+                               for nic in nics)
+        if is_auto_allocate:
+            nics = 'auto'
+
     kwargs = {}
     if description is not None:
         kwargs['description'] = description
-    return Server(get_novaclient_with_instance_desc(request).servers.create(
+
+    return Server(nova_client.servers.create(
         name.strip(), image, flavor, userdata=user_data,
         security_groups=security_groups,
         key_name=key_name, block_device_mapping=block_device_mapping,

@@ -738,7 +738,7 @@ class SetNetworkAction(workflows.Action):
         help_text = _("Select networks for your instance.")
 
     def populate_network_choices(self, request, context):
-        return instance_utils.network_field_data(request)
+        return instance_utils.network_field_data(request, for_launch=True)
 
 
 class SetNetwork(workflows.Step):

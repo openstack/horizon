@@ -264,9 +264,17 @@ class JSONView(View):
         # specify tenant_id for subnet. The subnet which belongs to the public
         # network is needed to draw subnet information on public network.
         try:
+            # NOTE(amotoki):
+            # To support auto allocated network in the network topology view,
+            # we need to handle the auto allocated network which haven't been
+            # created yet. The current network topology logic cannot not handle
+            # fake network ID properly, so we temporarily exclude
+            # pre-auto-allocated-network from the network topology view.
+            # It would be nice if someone is interested in supporting it.
             neutron_networks = api.neutron.network_list_for_tenant(
                 request,
-                request.user.tenant_id)
+                request.user.tenant_id,
+                include_pre_auto_allocate=False)
         except Exception:
             neutron_networks = []
         networks = []

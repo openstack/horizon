@@ -52,7 +52,10 @@ class IndexView(tables.DataTableView):
             tenant_id = self.request.user.tenant_id
             search_opts = self.get_filters(filters_map=self.FILTERS_MAPPING)
             networks = api.neutron.network_list_for_tenant(
-                self.request, tenant_id, include_external=True, **search_opts)
+                self.request, tenant_id,
+                include_external=True,
+                include_pre_auto_allocate=True,
+                **search_opts)
         except Exception:
             networks = []
             msg = _('Network list can not be retrieved.')
