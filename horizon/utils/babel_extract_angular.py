@@ -15,6 +15,7 @@
 
 import re
 
+from oslo_utils import encodeutils
 from six.moves import html_parser
 
 
@@ -165,7 +166,7 @@ def extract_angular(fileobj, keywords, comment_tags, options):
     parser = AngularGettextHTMLParser()
 
     for line in fileobj:
-        parser.feed(line)
+        parser.feed(encodeutils.safe_decode(line))
 
     for string in parser.strings:
         yield(string)
