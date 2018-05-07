@@ -12,11 +12,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
 from django.urls import reverse
 
-from mox3.mox import IgnoreArg
-from mox3.mox import IsA
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -30,17 +28,11 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 class RolesViewTests(test.BaseAdminViewTests):
 
-    use_mox = True
-
-    @test.create_stubs({api.keystone: ('role_list',)})
+    @test.create_mocks({api.keystone: ('role_list',)})
     def test_index(self):
         filters = {}
 
-        api.keystone.role_list(IgnoreArg(),
-                               filters=filters) \
-            .AndReturn(self.roles.list())
-
-        self.mox.ReplayAll()
+        self.mock_role_list.return_value = self.roles.list()
 
         res = self.client.get(ROLES_INDEX_URL)
         self.assertContains(res, 'Create Role')
@@ -50,17 +42,16 @@ class RolesViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, self.roles.list())
 
-    @test.create_stubs({api.keystone: ('role_list',
+        self.mock_role_list.assert_called_once_with(test.IsHttpRequest(),
+                                                    filters=filters)
+
+    @test.create_mocks({api.keystone: ('role_list',
                                        'keystone_can_edit_role', )})
     def test_index_with_keystone_can_edit_role_false(self):
         filters = {}
 
-        api.keystone.role_list(IgnoreArg(),
-                               filters=filters) \
-            .AndReturn(self.roles.list())
-        api.keystone.keystone_can_edit_role() \
-            .MultipleTimes().AndReturn(False)
-        self.mox.ReplayAll()
+        self.mock_role_list.return_value = self.roles.list()
+        self.mock_keystone_can_edit_role.return_value = False
 
         res = self.client.get(ROLES_INDEX_URL)
 
@@ -71,13 +62,16 @@ class RolesViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, self.roles.list())
 
-    @test.create_stubs({api.keystone: ('role_create', )})
+        self.mock_role_list.assert_called_once_with(test.IsHttpRequest(),
+                                                    filters=filters)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_keystone_can_edit_role, 8, mock.call())
+
+    @test.create_mocks({api.keystone: ('role_create', )})
     def test_create(self):
         role = self.roles.first()
 
-        api.keystone.role_create(IgnoreArg(), role.name).AndReturn(role)
-
-        self.mox.ReplayAll()
+        self.mock_role_create.return_value = role
 
         formData = {'method': 'CreateRoleForm', 'name': role.name}
         res = self.client.post(ROLES_CREATE_URL, formData)
@@ -85,17 +79,16 @@ class RolesViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.keystone: ('role_get', 'role_update')})
+        self.mock_role_create.assert_called_once_with(test.IsHttpRequest(),
+                                                      role.name)
+
+    @test.create_mocks({api.keystone: ('role_get', 'role_update')})
     def test_update(self):
         role = self.roles.first()
         new_role_name = 'test_name'
 
-        api.keystone.role_get(IsA(http.HttpRequest), role.id).AndReturn(role)
-        api.keystone.role_update(IsA(http.HttpRequest),
-                                 role.id,
-                                 new_role_name).AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_role_get.return_value = role
+        self.mock_role_update.return_value = None
 
         formData = {'method': 'UpdateRoleForm',
                     'id': role.id,
@@ -106,23 +99,29 @@ class RolesViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.keystone: ('role_list', 'role_delete')})
+        self.mock_role_get.assert_called_once_with(test.IsHttpRequest(),
+                                                   role.id)
+        self.mock_role_update.assert_called_once_with(test.IsHttpRequest(),
+                                                      role.id,
+                                                      new_role_name)
+
+    @test.create_mocks({api.keystone: ('role_list', 'role_delete')})
     def test_delete(self):
         role = self.roles.first()
         filters = {}
 
-        api.keystone.role_list(IsA(http.HttpRequest),
-                               filters=filters) \
-            .AndReturn(self.roles.list())
-        api.keystone.role_delete(IsA(http.HttpRequest),
-                                 role.id).AndReturn(None)
-
-        self.mox.ReplayAll()
+        self.mock_role_list.return_value = self.roles.list()
+        self.mock_role_delete.return_value = None
 
         formData = {'action': 'roles__delete__%s' % role.id}
         res = self.client.post(ROLES_INDEX_URL, formData)
 
         self.assertNoFormErrors(res)
+
+        self.mock_role_list.assert_called_once_with(test.IsHttpRequest(),
+                                                    filters=filters)
+        self.mock_role_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                      role.id)
 
     @test.update_settings(FILTER_DATA_FIRST={'identity.roles': True})
     def test_index_with_filter_first(self):
