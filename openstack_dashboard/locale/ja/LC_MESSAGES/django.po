@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-30 08:52+0000\n"
+"POT-Creation-Date: 2018-05-05 07:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-13 08:30+0000\n"
+"PO-Revision-Date: 2018-05-06 08:11+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -179,6 +179,9 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> の %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "%(volume_device)s (<a href=\"%(volume_url)s\">%(volume_label)s</a>)"
+
+msgid "A brief description of the security group rule you are adding"
+msgstr "追加しようとしているセキュリティーグループルールの簡単な説明"
 
 msgid "A local image to upload."
 msgstr "アップロードするローカルのイメージ"
@@ -1966,10 +1969,16 @@ msgstr[0] "ユーザーを無効にしました"
 msgid "Disabled compute service for host: %s."
 msgstr "ホスト %s のコンピュートサービスを無効にしました。"
 
+msgid "Disassocaite"
+msgstr "割り当て解除"
+
 msgid "Disassociate"
 msgstr "割り当て解除"
 
 msgid "Disassociate Floating IP"
+msgstr "Floating IP の割り当て解除"
+
+msgid "Disassociate floating IP"
 msgstr "Floating IP の割り当て解除"
 
 msgid "Disk"
@@ -2086,6 +2095,12 @@ msgstr "サマリー (CSV) のダウンロード"
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC ファイルのダウンロード"
 
+msgid "Download clouds.yaml"
+msgstr "clouds.yaml のダウンロード"
+
+msgid "Download openrc file"
+msgstr "openrc ファイルのダウンロード"
+
 msgid "Download transfer credentials"
 msgstr "譲渡認証情報のダウンロード"
 
@@ -2158,6 +2173,9 @@ msgstr "ネットワークの編集"
 
 msgid "Edit Port"
 msgstr "ポートの編集"
+
+msgid "Edit Port Security Groups"
+msgstr "ポートのセキュリティーグループの編集"
 
 msgid "Edit Project"
 msgstr "プロジェクトの編集"
@@ -2474,6 +2492,9 @@ msgstr ""
 "に付与すると、フレーバーへの適用された際に属性に 'hw' というプレフィックスが"
 "付きます。"
 
+msgid "Expiration"
+msgstr "有効期限"
+
 msgid "Extend Volume"
 msgstr "ボリュームの拡張"
 
@@ -2554,6 +2575,9 @@ msgstr ""
 msgid "Failed to add route: %s"
 msgstr "ルートの追加に失敗しました: %s"
 
+msgid "Failed to check if description field is supported."
+msgstr "説明フィールドがサポートされているか確認できませんでした。"
+
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "network-ip-availability 拡張機能に対応しているかどうかを確認できませんでし"
@@ -2607,6 +2631,9 @@ msgstr "インスタンスの退避に失敗しました: %s"
 
 msgid "Failed to get availability zone list."
 msgstr "アベイラビリティーゾーンの一覧を取得できません。"
+
+msgid "Failed to get instance interfaces."
+msgstr "インスタンスのインターフェース一覧を取得できませんでした。"
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -3163,6 +3190,9 @@ msgid ""
 msgstr ""
 "「ボリューム種別の指定なし」を選択した場合、ボリュームはボリューム種別の指定"
 "なしで作成されます。"
+
+msgid "If checked, the selected floating IP will be released at the same time."
+msgstr "チェックをつけると、選択された Floating IP は同時に解放されます。"
 
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
@@ -5185,6 +5215,9 @@ msgstr "ボリュームスナップショットの選択"
 msgid "Select a New Flavor"
 msgstr "新しいフレーバーを選択してください"
 
+msgid "Select a floating IP to disassociate"
+msgstr "関連付けを解除する Floating IP を選択してください"
+
 msgid "Select a key pair"
 msgstr "キーペアを選択してください"
 
@@ -5258,6 +5291,9 @@ msgid ""
 "Select the IP address you wish to associate with the selected instance or "
 "port."
 msgstr "選択されたインスタンスかポートに割り当てる IP アドレスを選択します。"
+
+msgid "Select the floating IP to be disassociated from the instance."
+msgstr "このインスタンスから割り当てを解除する Floating IP を選択してください"
 
 msgid "Select the image to rebuild your instance."
 msgstr "インスタンスの再作成に使うイメージを選択してください。"
@@ -5728,6 +5764,14 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Floating IP の割り当て解除に成功しました: %s"
 
 #, python-format
+msgid "Successfully disassociated and released floating IP %s"
+msgstr "Floating IP %s の割り当て解除と解放に成功しました"
+
+#, python-format
+msgid "Successfully disassociated floating IP %s"
+msgstr "Floating IP %s の割り当て解除に成功しました"
+
+#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "公開鍵 %s を正常に取り込みました"
 
@@ -6102,6 +6146,9 @@ msgid ""
 msgstr ""
 "要求されたインスタンスを起動できません。クォータが超過します。利用可能な"
 "クォータは %(avail)s ですが、要求された値は %(req)s です。"
+
+msgid "The specified floating IP no longer exists."
+msgstr "指定された Floating IP はすでに存在しません。"
 
 msgid "The specified port is invalid."
 msgstr "指定されたポートは無効です。"
@@ -6613,6 +6660,10 @@ msgstr ""
 
 msgid "Unable to determine if volume type encryption is supported."
 msgstr "ボリューム種別の暗号化設定に対応しているか確認できません。"
+
+#, python-format
+msgid "Unable to disassociate floating IP %s"
+msgstr "Floating IP %s の割り当てを解除できませんでした"
 
 msgid "Unable to disassociate floating IP."
 msgstr "Floating IP の割り当てを解除できません。"
