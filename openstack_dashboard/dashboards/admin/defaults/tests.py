@@ -57,6 +57,8 @@ class ServicesViewTests(test.BaseAdminViewTests):
             '<Quota: (instances, 10)>',
             '<Quota: (cores, 10)>',
             '<Quota: (key_pairs, 100)>',
+            '<Quota: (server_groups, 10)>',
+            '<Quota: (server_group_members, 10)>',
             '<Quota: (injected_file_path_bytes, 255)>',
         ]
         self._check_quotas_data(res, 'compute_quotas', expected_data)
