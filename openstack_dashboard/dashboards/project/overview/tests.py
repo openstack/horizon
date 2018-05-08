@@ -266,8 +266,40 @@ class UsageViewTests(test.TestCase):
         return res
 
     def test_usage_charts_created(self):
-        res = self._test_usage_charts()
+        res = self._test_usage_charts(
+            quota_usage_overrides={'floatingip': {'quota': -1, 'used': 1234}})
         self.assertIn('charts', res.context)
+        charts = res.context['charts']
+
+        self.assertEqual(['Compute', 'Volume', 'Network'],
+                         [c['title'] for c in charts])
+
+        compute_charts = [c for c in charts if c['title'] == 'Compute'][0]
+        chart_ram = [c for c in compute_charts['charts']
+                     if c['type'] == 'ram'][0]
+        # Check mb_float_format filter is applied
+        self.assertEqual(10000, chart_ram['quota'])
+        self.assertEqual('9.8GB', chart_ram['quota_display'])
+        self.assertEqual(0, chart_ram['used'])
+        self.assertEqual('0Bytes', chart_ram['used_display'])
+
+        volume_charts = [c for c in charts if c['title'] == 'Volume'][0]
+        chart_gigabytes = [c for c in volume_charts['charts']
+                           if c['type'] == 'gigabytes'][0]
+        # Check diskgbformat filter is applied
+        self.assertEqual(1000, chart_gigabytes['quota'])
+        self.assertEqual('1000GB', chart_gigabytes['quota_display'])
+        self.assertEqual(0, chart_gigabytes['used'])
+        self.assertEqual('0Bytes', chart_gigabytes['used_display'])
+
+        network_charts = [c for c in charts if c['title'] == 'Network'][0]
+        chart_fip = [c for c in network_charts['charts']
+                     if c['type'] == 'floatingip'][0]
+        # Check intcomma default filter is applied
+        self.assertEqual(float('inf'), chart_fip['quota'])
+        self.assertEqual(float('inf'), chart_fip['quota_display'])
+        self.assertEqual(1234, chart_fip['used'])
+        self.assertEqual('1,234', chart_fip['used_display'])
 
     def test_usage_charts_infinite_quota(self):
         res = self._test_usage_charts(

@@ -100,21 +100,37 @@ ChartDef = collections.namedtuple(
 #   If None is specified, the default filter 'intcomma' will be applied.
 #   if you want to apply no filters, specify an empty tuple or list.
 CHART_DEFS = [
-    ChartDef("instances", _("Instances"), None, None),
-    ChartDef("cores", _("VCPUs"), None, None),
-    ChartDef("ram", _("RAM"), None, (sizeformat.mb_float_format,)),
-    ChartDef("volumes", _("Volumes"), None, None),
-    ChartDef("snapshots", _("Volume Snapshots"), None, None),
-    ChartDef("gigabytes", _("Volume Storage"), None,
-             (sizeformat.diskgbformat,)),
-    ChartDef("floatingip", _("Floating IPs"),
-             pgettext_lazy('Label in the limit summary', "Allocated"),
-             None),
-    ChartDef("security_group", _("Security Groups"), None, None),
-    ChartDef("security_group_rule", _("Security Group Rules"), None, None),
-    ChartDef("network", _("Networks"), None, None),
-    ChartDef("port", _("Ports"), None, None),
-    ChartDef("router", _("Routers"), None, None),
+    {
+        'title': _("Compute"),
+        'charts': [
+            ChartDef("instances", _("Instances"), None, None),
+            ChartDef("cores", _("VCPUs"), None, None),
+            ChartDef("ram", _("RAM"), None, (sizeformat.mb_float_format,)),
+        ]
+    },
+    {
+        'title': _("Volume"),
+        'charts': [
+            ChartDef("volumes", _("Volumes"), None, None),
+            ChartDef("snapshots", _("Volume Snapshots"), None, None),
+            ChartDef("gigabytes", _("Volume Storage"), None,
+                     (sizeformat.diskgbformat,)),
+        ]
+    },
+    {
+        'title': _("Network"),
+        'charts': [
+            ChartDef("floatingip", _("Floating IPs"),
+                     pgettext_lazy('Label in the limit summary', "Allocated"),
+                     None),
+            ChartDef("security_group", _("Security Groups"), None, None),
+            ChartDef("security_group_rule", _("Security Group Rules"),
+                     None, None),
+            ChartDef("network", _("Networks"), None, None),
+            ChartDef("port", _("Ports"), None, None),
+            ChartDef("router", _("Routers"), None, None),
+        ]
+    },
 ]
 
 
@@ -129,8 +145,18 @@ def _apply_filters(value, filters):
 class ProjectUsageView(UsageView):
 
     def _get_charts_data(self):
+        chart_sections = []
+        for section in CHART_DEFS:
+            chart_data = self._process_chart_section(section['charts'])
+            chart_sections.append({
+                'title': section['title'],
+                'charts': chart_data
+            })
+        return chart_sections
+
+    def _process_chart_section(self, chart_defs):
         charts = []
-        for t in CHART_DEFS:
+        for t in chart_defs:
             if t.quota_key not in self.usage.limits:
                 continue
             key = t.quota_key
@@ -149,6 +175,8 @@ class ProjectUsageView(UsageView):
             quota_display = None
             if quota != float('inf'):
                 quota_display = _apply_filters(quota, filters)
+            else:
+                quota_display = quota
 
             charts.append({
                 'type': key,
