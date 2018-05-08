@@ -339,78 +339,70 @@ Use a domain that fits your current setup.
 
    **Example Before**
 
-   .. code-block:: apacheconf
+   .. code-block:: none
 
       WSGIScriptAlias / /usr/share/openstack-dashboard/openstack_dashboard/wsgi.py
       WSGIDaemonProcess horizon user=www-data group=www-data processes=3 threads=10
       Alias /static /usr/share/openstack-dashboard/openstack_dashboard/static/
-      <Directory /usr/share/openstack-dashboard/openstack_dashboard>
-      # For Apache http server 2.2 and earlier:
-      Order allow,deny
-      Allow from all
-
-      # For Apache http server 2.4 and later:
-      # Require all granted
-      </Directory>
+      <Location />
+        <ifVersion >=2.4>
+          Require all granted
+        </ifVersion>
+        <ifVersion <2.4>
+          Order allow,deny
+          Allow from all
+        </ifVersion>
+      </Location>
 
    **Example After**
 
    .. code-block:: none
 
       <VirtualHost *:80>
-      ServerName openstack.example.com
-      <IfModule mod_rewrite.c>
-      RewriteEngine On
-      RewriteCond %{HTTPS} off
-      RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-      </IfModule>
-      <IfModule !mod_rewrite.c>
-      RedirectPermanent / https://openstack.example.com
-      </IfModule>
+        ServerName openstack.example.com
+        <IfModule mod_rewrite.c>
+          RewriteEngine On
+          RewriteCond %{HTTPS} off
+          RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+        </IfModule>
+        <IfModule !mod_rewrite.c>
+          RedirectPermanent / https://openstack.example.com
+        </IfModule>
       </VirtualHost>
+
       <VirtualHost *:443>
-      ServerName openstack.example.com
+        ServerName openstack.example.com
 
-      SSLEngine On
-      # Remember to replace certificates and keys with valid paths in your environment
-      SSLCertificateFile /etc/apache2/SSL/openstack.example.com.crt
-      SSLCACertificateFile /etc/apache2/SSL/openstack.example.com.crt
-      SSLCertificateKeyFile /etc/apache2/SSL/openstack.example.com.key
-      SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
+        SSLEngine On
+        # Remember to replace certificates and keys with valid paths in your environment
+        SSLCertificateFile /etc/apache2/SSL/openstack.example.com.crt
+        SSLCACertificateFile /etc/apache2/SSL/openstack.example.com.crt
+        SSLCertificateKeyFile /etc/apache2/SSL/openstack.example.com.key
+        SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
 
-      # HTTP Strict Transport Security (HSTS) enforces that all communications
-      # with a server go over SSL. This mitigates the threat from attacks such
-      # as SSL-Strip which replaces links on the wire, stripping away https prefixes
-      # and potentially allowing an attacker to view confidential information on the
-      # wire
-      Header add Strict-Transport-Security "max-age=15768000"
+        # HTTP Strict Transport Security (HSTS) enforces that all communications
+        # with a server go over SSL. This mitigates the threat from attacks such
+        # as SSL-Strip which replaces links on the wire, stripping away https prefixes
+        # and potentially allowing an attacker to view confidential information on the
+        # wire
+        Header add Strict-Transport-Security "max-age=15768000"
 
-      WSGIScriptAlias / /usr/share/openstack-dashboard/openstack_dashboard/wsgi.py
-      WSGIDaemonProcess horizon user=www-data group=www-data processes=3 threads=10
-      Alias /static /usr/share/openstack-dashboard/openstack_dashboard/static/
-      <Directory /usr/share/openstack-dashboard/openstack_dashboard>
-      # For Apache http server 2.2 and earlier:
+        WSGIScriptAlias / /usr/share/openstack-dashboard/openstack_dashboard/wsgi.py
+        WSGIDaemonProcess horizon user=www-data group=www-data processes=3 threads=10
+        Alias /static /usr/share/openstack-dashboard/openstack_dashboard/static/
+        <Location />
+          Options None
+          AllowOverride None
+          # For Apache http server 2.4 and later:
+          <ifVersion >=2.4>
+            Require all granted
+          </ifVersion>
+          # For Apache http server 2.2 and earlier:
           <ifVersion <2.4>
-              Order allow,deny
-              Allow from all
+            Order allow,deny
+            Allow from all
           </ifVersion>
-      # For Apache http server 2.4 and later:
-          <ifVersion >=2.4>
-      #The following two lines have been added by bms for error "AH01630: client denied
-      #by server configuration:
-      #/usr/share/openstack-dashboard/openstack_dashboard/static/dashboard/cssa"
-              Options All
-              AllowOverride All
-              Require all granted
-          </ifVersion>
-      </Directory>
-      <Directory /usr/share/openstack-dashboard/static>
-          <ifVersion >=2.4>
-              Options All
-              AllowOverride All
-              Require all granted
-          </ifVersion>
-      </Directory>
+        </Location>
       </VirtualHost>
 
    In this configuration, the Apache HTTP Server listens on port 443 and
