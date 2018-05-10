@@ -36,7 +36,7 @@ from openstack_dashboard.dashboards.project.volumes.tables \
 # This set of states was pulled from cinder's admin_actions.py
 SETTABLE_STATUSES = (
     'attaching', 'available', 'creating', 'deleting', 'detaching', 'error',
-    'error_deleting', 'in-use', 'maintenance')
+    'error_deleting', 'in-use', 'maintenance', 'reserved')
 STATUS_CHOICES = tuple(
     status for status in volumes_table.STATUS_DISPLAY_CHOICES
     if status[0] in SETTABLE_STATUSES
