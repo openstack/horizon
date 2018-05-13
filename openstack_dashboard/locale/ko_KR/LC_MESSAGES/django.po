@@ -23,11 +23,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-03 07:54+0000\n"
+"POT-Creation-Date: 2018-05-08 08:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-05-04 04:03+0000\n"
+"PO-Revision-Date: 2018-05-12 08:22+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -2031,6 +2031,9 @@ msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "도메인"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "도메인 \"%s\"는 삭제되기 전에 비활성화되어야 합니다."
@@ -2502,6 +2505,9 @@ msgstr "만료 날짜"
 
 msgid "Expiration Time"
 msgstr "만료 시간"
+
+msgid "Expires"
+msgstr "만료"
 
 msgid "Extend Volume"
 msgstr "볼륨 확장"
@@ -7452,6 +7458,9 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Unrescuing"
 
+msgid "Unrestricted"
+msgstr "제한되지 않음"
+
 msgid "Unrestricted (dangerous)"
 msgstr "제한 없음 (위험)"
 
@@ -8135,6 +8144,9 @@ msgstr ""
 
 msgid "Your Application Credential"
 msgstr "당신의 어플리케이션 증명서"
+
+msgid "Your application credential"
+msgstr "어플리케이션 자격 증명서"
 
 #, python-format
 msgid "Your image %s has been queued for creation."

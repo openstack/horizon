@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-08 14:02+0000\n"
+"POT-Creation-Date: 2018-05-08 08:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-08 04:21+0000\n"
+"PO-Revision-Date: 2018-05-09 01:57+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "#"
@@ -293,6 +293,9 @@ msgstr ""
 "Administrator mengatur kolam IP mengambang yang tersedia untuk melampirkan "
 "instance."
 
+msgid "Affinity"
+msgstr "Affinity"
+
 msgid "Alerts"
 msgstr "Alerts"
 
@@ -398,6 +401,9 @@ msgstr "Animated (animasi)"
 
 msgid "Another action"
 msgstr "Another action (tindakan lain)"
+
+msgid "Anti Affinity"
+msgstr "Anti Affinity"
 
 msgid "Any Availability Zone"
 msgstr "Setiap Availability Zone"
@@ -561,6 +567,10 @@ msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "Confirm Delete Role"
 
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "Confirm Delete Server Group"
+
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
 msgstr[0] "Confirm Delete Trunk"
@@ -568,6 +578,9 @@ msgstr[0] "Confirm Delete Trunk"
 msgid "Confirm Delete User"
 msgid_plural "Confirm Delete Users"
 msgstr[0] "Confirm Delete User"
+
+msgid "Confirm Password"
+msgstr "Konfirmasi Sandi"
 
 msgid "Connecting"
 msgstr "Connecting (sedang koneksi)"
@@ -608,11 +621,23 @@ msgstr "Tipe konten"
 msgid "Contextual alternatives"
 msgstr "Contextual alternatives (alternatif kontekstual)"
 
+msgid "Copy"
+msgstr "Copy"
+
 msgid "Copy Data"
 msgstr "Copy Data"
 
+msgid "Copy Object"
+msgstr "Copy Object"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
 msgid "Copy Private Key to Clipboard"
 msgstr "Salin Private Key ke Clipboard"
+
+msgid "Copying"
+msgstr "Copying"
 
 msgid "Could not decrypt the password"
 msgstr "Tidak bisa mendekripsi password"
@@ -646,6 +671,9 @@ msgstr "Create New Volume"
 
 msgid "Create Role"
 msgstr "Create Role"
+
+msgid "Create Server Group"
+msgstr "Create Server Group"
 
 msgid "Create Subnet"
 msgstr "Create Subnet (buat subnet)"
@@ -817,6 +845,13 @@ msgstr "Delete Roles"
 msgid "Delete Router"
 msgstr "Delete Router (hapus router)"
 
+msgid "Delete Server Group"
+msgid_plural "Delete Server Groups"
+msgstr[0] "Delete Server Group"
+
+msgid "Delete Server Groups"
+msgstr "Delete Server Groups"
+
 msgid "Delete Subnet"
 msgstr "Delete Subnet (hapus subnet)"
 
@@ -861,6 +896,11 @@ msgid_plural "Deleted Roles: %s."
 msgstr[0] "Deleted Role: %s."
 
 #, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "Deleted Server Group: %s."
+
+#, python-format
 msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
 msgstr[0] "Deleted Trunk: %s."
@@ -881,6 +921,12 @@ msgstr "Deskripsi"
 
 msgid "Description lists"
 msgstr "Daftar deskripsi"
+
+msgid "Destination Container"
+msgstr "Kontainer Tujuan"
+
+msgid "Destination Object"
+msgstr "Destination Object"
 
 msgid "Details"
 msgstr "Rincian"
@@ -1376,6 +1422,9 @@ msgstr ""
 msgid "Instance"
 msgstr "Instance"
 
+msgid "Instance ID"
+msgstr "Instance ID"
+
 msgid "Instance Name"
 msgstr "Nama instance"
 
@@ -1850,6 +1899,10 @@ msgstr "OVA - Open Virtual Appliance"
 
 msgid "Object"
 msgstr "Objek"
+
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "Object %(path)s telah disalin."
 
 msgid "Object Count"
 msgstr "Object Count (hitung objek)"
@@ -2351,6 +2404,13 @@ msgstr "Kirim undangan"
 msgid "Separated link"
 msgstr "Separated link (tautan terpisah)"
 
+msgid "Server Group"
+msgstr "Server Group"
+
+#, python-format
+msgid "Server Group %s was successfully created."
+msgstr "Server Group %s berhasil dibuat."
+
 msgid "Server Groups"
 msgstr "Kelompok server"
 
@@ -2408,6 +2468,12 @@ msgstr "masukan kecil"
 
 msgid "Snapshot"
 msgstr "Snapshot"
+
+msgid "Soft Affinity"
+msgstr "Soft Affinity"
+
+msgid "Soft Anti Affinity"
+msgstr "Soft Anti Affinity"
 
 msgid "Someone famous in"
 msgstr "Seseorang yang terkenal dalam"
@@ -2747,6 +2813,12 @@ msgstr ""
 "Perintah ini menghasilkan sepasang kunci: kunci private (cloud.key)\n"
 "dan kunci publik (cloud.key.pub)."
 
+msgid "This container does not exist."
+msgstr "Kontainer ini tidak ada."
+
+msgid "This field is required."
+msgstr "Bagian ini diperlukan."
+
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
@@ -2919,6 +2991,9 @@ msgstr "Tidak dapat membuat proyek."
 msgid "Unable to create the role."
 msgstr "Tidak dapat membuat peran."
 
+msgid "Unable to create the server group."
+msgstr "Tidak dapat membuat grup server."
+
 msgid "Unable to create the server snapshot."
 msgstr "Tidak dapat membuat snapshot Server."
 
@@ -2956,6 +3031,11 @@ msgstr[0] "Unable to delete Key Pair: %s."
 msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "Unable to delete Role: %s."
+
+#, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "Unable to delete Server Group: %s."
 
 #, python-format
 msgid "Unable to delete Trunk: %s."
@@ -3011,6 +3091,10 @@ msgstr "Tidak dapat menghapus peran."
 
 msgid "Unable to delete the roles."
 msgstr "Tidak dapat menghapus peran."
+
+#, python-format
+msgid "Unable to delete the server group with id %(id)s"
+msgstr "Tidak dapat menghapus grup server dengan id %(id)s"
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
@@ -3253,6 +3337,9 @@ msgstr "Tidak dapat mengambil peran."
 
 msgid "Unable to retrieve the security groups."
 msgstr "Tidak dapat mengambil kelompok keamanan."
+
+msgid "Unable to retrieve the server group."
+msgstr "Tidak dapat mengambil grup server."
 
 msgid "Unable to retrieve the server."
 msgstr "Tidak dapat mengambil server."
@@ -3653,6 +3740,12 @@ msgstr ""
 "karakter."
 
 msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr ""
+"Anda dapat menyalin objek. Anda harus membuat kontainer tujuan sebelum "
+"menyalin."
+
+msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3661,6 +3754,18 @@ msgstr ""
 "menggunakan pilihan yang tersedia di sini.\n"
 "    \"Customization Script\" merupakan analog dengan \"User Data\" di sistem "
 "lain."
+
+msgid ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
+msgstr ""
+"Anda dapat menentukan folder dengan menggunakan '/' pada bidang objek "
+"tujuan.\n"
+"           Misalnya, jika Anda ingin menyalin objek di bawah folder bernama "
+"'folder1', Anda perlu menentukan objek tujuan seperti 'folder1/[your object "
+"name]'."
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "
@@ -3672,6 +3777,12 @@ msgstr ""
 "kiri ke kolom kanan. Di kolom kiri ada definisi petunjuk scheduler dari "
 "Glance Metadata Catalog. Gunakan opsi \"Custom\" untuk menambahkan petunjuk "
 "scheduler dengan kunci pilihan Anda."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted Server Group is not recoverable."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."

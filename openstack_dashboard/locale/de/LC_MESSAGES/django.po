@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-30 08:52+0000\n"
+"POT-Creation-Date: 2018-05-08 08:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-23 03:27+0000\n"
+"PO-Revision-Date: 2018-05-11 01:37+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -183,6 +183,18 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> auf %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> auf %(volume_device)s"
+
+msgid ""
+"<b>Warning:</b> If you change security groups here, the change will be "
+"applied to all interfaces of the instance. If you have multiple interfaces "
+"on this instance and apply different security groups per port, use \"Edit "
+"Port Security Groups\" action instead."
+msgstr ""
+"<b>Warnung:</b> Wenn Sie hier die Sicherheitsgruppen ändern, so werden die "
+"Einstellungen auf alle Interfaces der Instanz angewendet. Haben Sie multiple "
+"Interfaces in dieser Instanz und verwenden Sie verschiedene "
+"Sicherheitsgruppen pro Port, dann benutzen Sie stattdessen die \"Port "
+"Sicherheitsgruppen bearbeiten\" Aktion."
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "Eine kurze Beschreibung der hinzuzufügenden Sicherheitsgruppenregel"
@@ -2588,6 +2600,12 @@ msgstr ""
 "Topologie Namensraum hinzugefügt, so dass den Eigenschaften ein 'hw:' "
 "vorangestellt wird, wenn sie auf Varianten angewendet werden."
 
+msgid "Expiration Date"
+msgstr "Ablaufdatum"
+
+msgid "Expiration Time"
+msgstr "Ablaufzeit"
+
 msgid "Extend Volume"
 msgstr "Datenträger erweitern"
 
@@ -2675,6 +2693,14 @@ msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "Fehler beim Überprüfen der Unterstützung für die network-ip-availability "
 "Erweiterung."
+
+msgid "Failed to check if neutron supports \"auto_alloocated_network\"."
+msgstr ""
+"Fehler bei der Prüfung, ob Neutron \"auto_alloocated_network\" unterstützt."
+
+msgid "Failed to check if nova supports \"auto_alloocated_network\"."
+msgstr ""
+"Fehler bei der Prüfung, ob Nova \"auto_alloocated_network\" unterstützt."
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
@@ -3926,6 +3952,10 @@ msgid "Modified domain \"%s\"."
 msgstr "Domäne \"%s\" geändert."
 
 #, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "Variantenzugriff von \"%s\" geändert."
+
+#, python-format
 msgid "Modified instance \"%s\"."
 msgstr "Instanz \"%s\" angepasst."
 
@@ -3978,6 +4008,9 @@ msgstr "Überwachung:"
 
 msgid "More"
 msgstr "Mehr"
+
+msgid "Multiattach volumes are not yet supported."
+msgstr "Multiattach Datenträger werden noch nicht unterstützt."
 
 msgid "N/A"
 msgstr "Nicht verfügbar"
@@ -7013,6 +7046,10 @@ msgid "Unable to modify domain \"%s\"."
 msgstr "Domäne \"%s\" kann nicht geändert werden."
 
 #, python-format
+msgid "Unable to modify flavor access of \"%s\"."
+msgstr "Variantenzugriff von \"%s\" kann nicht geändert werden."
+
+#, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "Kann Instanz \"%s\" nicht anpasen."
 
@@ -7736,6 +7773,9 @@ msgstr[1] "Registrierung von Identitätsanbietern aufgehoben"
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Rescue Mode beenden"
+
+msgid "Unrestricted (dangerous)"
+msgstr "Unbeschränkt (gefährlich)"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
