@@ -12,10 +12,8 @@
 
 import django
 from django.conf import settings
-from django import http
 from django.urls import reverse
 import mock
-from mox3.mox import IsA
 from novaclient.v2 import flavors
 
 from openstack_dashboard import api
@@ -27,45 +25,34 @@ from openstack_dashboard.test import helpers as test
 
 class FlavorsViewTests(test.BaseAdminViewTests):
 
-    use_mox = True
-
-    @test.create_stubs({api.nova: ('flavor_list_paged',),
+    @test.create_mocks({api.nova: ('flavor_list_paged',),
                         flavors.Flavor: ('get_keys',), })
     def test_index(self):
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=None, paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=False) \
-            .AndReturn((self.flavors.list(), False, False))
-        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
-        self.mox.ReplayAll()
+        self.mock_flavor_list_paged.return_value = (self.flavors.list(),
+                                                    False, False)
+        self.mock_get_keys.return_value = {}
 
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
         self.assertItemsEqual(res.context['table'].data, self.flavors.list())
 
+        self.mock_flavor_list_paged.assert_called_once_with(
+            test.IsHttpRequest(), None, marker=None, paginate=True,
+            sort_dir='asc', sort_key='name', reversed_order=False)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_keys, 4, mock.call())
+
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
-    @test.create_stubs({api.nova: ('flavor_list_paged',),
+    @test.create_mocks({api.nova: ('flavor_list_paged',),
                         flavors.Flavor: ('get_keys',), })
     def test_index_pagination(self):
         flavors_list = self.flavors.list()[:4]
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=None, paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=False) \
-            .AndReturn((flavors_list, True, True))
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=None, paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=False) \
-            .AndReturn((flavors_list[:2], True, True))
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=flavors_list[2].id, paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=False) \
-            .AndReturn((flavors_list[2:4], True, True))
-        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
-        self.mox.ReplayAll()
+        self.mock_flavor_list_paged.side_effect = [
+            (flavors_list, True, True),
+            (flavors_list[:2], True, True),
+            (flavors_list[2:4], True, True),
+        ]
+        self.mock_get_keys.return_value = {}
 
         # get all
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
@@ -87,33 +74,36 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         self.assertItemsEqual(res.context['table'].data,
                               self.flavors.list()[2:4])
 
+        self.mock_flavor_list_paged.assert_has_calls([
+            mock.call(test.IsHttpRequest(), None,
+                      marker=None, paginate=True,
+                      sort_dir='asc', sort_key='name',
+                      reversed_order=False),
+            mock.call(test.IsHttpRequest(), None,
+                      marker=None, paginate=True,
+                      sort_dir='asc', sort_key='name',
+                      reversed_order=False),
+            mock.call(test.IsHttpRequest(), None,
+                      marker=flavors_list[2].id, paginate=True,
+                      sort_dir='asc', sort_key='name',
+                      reversed_order=False),
+        ])
+        self.assertEqual(3, self.mock_flavor_list_paged.call_count)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_keys, 8, mock.call())
+
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
-    @test.create_stubs({api.nova: ('flavor_list_paged',),
+    @test.create_mocks({api.nova: ('flavor_list_paged',),
                         flavors.Flavor: ('get_keys',), })
     def test_index_prev_pagination(self):
         flavors_list = self.flavors.list()[:3]
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=None, paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=False) \
-            .AndReturn((flavors_list, True, False))
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=None, paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=False) \
-            .AndReturn((flavors_list[:2], True, True))
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=flavors_list[2].id, paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=False) \
-            .AndReturn((flavors_list[2:], True, True))
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=flavors_list[2].id, paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=True) \
-            .AndReturn((flavors_list[:2], True, True))
-        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
-        self.mox.ReplayAll()
+        self.mock_flavor_list_paged.side_effect = [
+            (flavors_list, True, False),
+            (flavors_list[:2], True, True),
+            (flavors_list[2:], True, True),
+            (flavors_list[:2], True, True),
+        ]
+        self.mock_get_keys.return_value = {}
 
         # get all
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
@@ -145,25 +135,39 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         self.assertItemsEqual(res.context['table'].data,
                               self.flavors.list()[:2])
 
+        self.mock_flavor_list_paged.assert_has_calls([
+            mock.call(test.IsHttpRequest(), None,
+                      marker=None, paginate=True,
+                      sort_dir='asc', sort_key='name',
+                      reversed_order=False),
+            mock.call(test.IsHttpRequest(), None,
+                      marker=None, paginate=True,
+                      sort_dir='asc', sort_key='name',
+                      reversed_order=False),
+            mock.call(test.IsHttpRequest(), None,
+                      marker=flavors_list[2].id, paginate=True,
+                      sort_dir='asc', sort_key='name',
+                      reversed_order=False),
+            mock.call(test.IsHttpRequest(), None,
+                      marker=flavors_list[2].id, paginate=True,
+                      sort_dir='asc', sort_key='name',
+                      reversed_order=True),
+        ])
+        self.assertEqual(4, self.mock_flavor_list_paged.call_count)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_keys, 8, mock.call())
+
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=1)
-    @test.create_stubs({api.nova: ('flavor_list_paged',),
+    @test.create_mocks({api.nova: ('flavor_list_paged',),
                         flavors.Flavor: ('get_keys',), })
     def test_index_form_action_with_pagination(self):
         page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
         flavors_list = self.flavors.list()[:2]
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=None, paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=False) \
-            .AndReturn((flavors_list[:page_size], False, False))
-        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=flavors_list[page_size - 1].id,
-                                   paginate=True,
-                                   sort_dir='asc', sort_key='name',
-                                   reversed_order=False) \
-            .AndReturn((flavors_list[page_size:], False, False))
-        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
-        self.mox.ReplayAll()
+        self.mock_flavor_list_paged.side_effect = [
+            (flavors_list[:page_size], False, False),
+            (flavors_list[page_size:], False, False),
+        ]
+        self.mock_get_keys.return_value = {}
 
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
@@ -179,10 +183,23 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         self.assertEqual(len(res.context['table'].data), 1)
         self.assertContains(res, form_action, count=1)
 
+        self.mock_flavor_list_paged.assert_has_calls([
+            mock.call(test.IsHttpRequest(), None,
+                      marker=None, paginate=True,
+                      sort_dir='asc', sort_key='name',
+                      reversed_order=False),
+            mock.call(test.IsHttpRequest(), None,
+                      marker=flavors_list[page_size - 1].id,
+                      paginate=True,
+                      sort_dir='asc', sort_key='name',
+                      reversed_order=False),
+        ])
+        self.assertEqual(2, self.mock_flavor_list_paged.call_count)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_get_keys, 2, mock.call())
+
 
 class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
-
-    use_mox = True
 
     def _flavor_create_params(self, flavor, id=None):
         eph = getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral')
@@ -221,13 +238,11 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
 
 
 class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
-    @test.create_stubs({api.keystone: ('tenant_list',), })
+    @test.create_mocks({api.keystone: ('tenant_list',), })
     def test_workflow_get(self):
         projects = self.tenants.list()
 
-        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
-                                                                   False])
-        self.mox.ReplayAll()
+        self.mock_tenant_list.return_value = [projects, False]
 
         url = reverse(constants.FLAVORS_CREATE_URL)
         res = self.client.get(url)
@@ -239,26 +254,18 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
             workflow.steps,
             ['<CreateFlavorInfo: createflavorinfoaction>',
              '<CreateFlavorAccess: flavor_access>'])
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
 
-    @test.create_stubs({api.keystone: ('tenant_list',),
+    @test.create_mocks({api.keystone: ('tenant_list',),
                         api.nova: ('flavor_list',
                                    'flavor_create',)})
     def test_create_flavor_without_projects_post(self):
         flavor = self.flavors.first()
         projects = self.tenants.list()
 
-        # init
-        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
-                                                                   False])
-        api.nova.flavor_list(IsA(http.HttpRequest), None) \
-            .AndReturn([])
-
-        # handle
-        params = self._flavor_create_params(flavor, id='auto')
-        api.nova.flavor_create(IsA(http.HttpRequest), **params) \
-            .AndReturn(flavor)
-
-        self.mox.ReplayAll()
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = []
+        self.mock_flavor_create.return_value = flavor
 
         workflow_data = self._get_workflow_data(flavor)
 
@@ -268,7 +275,14 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, reverse(constants.FLAVORS_INDEX_URL))
 
-    @test.create_stubs({api.keystone: ('tenant_list',),
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
+        params = self._flavor_create_params(flavor, id='auto')
+        self.mock_flavor_create.assert_called_once_with(test.IsHttpRequest(),
+                                                        **params)
+
+    @test.create_mocks({api.keystone: ('tenant_list',),
                         api.nova: ('flavor_list',
                                    'flavor_create',
                                    'add_tenant_to_flavor',)})
@@ -276,20 +290,10 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         flavor = self.flavors.first()
         projects = self.tenants.list()
 
-        # init
-        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
-                                                                   False])
-        api.nova.flavor_list(IsA(http.HttpRequest), None).AndReturn([])
-
-        # handle
-        params = self._flavor_create_params(flavor, id='auto')
-        params['is_public'] = False
-        api.nova.flavor_create(IsA(http.HttpRequest), **params) \
-            .AndReturn(flavor)
-        for project in projects:
-            api.nova.add_tenant_to_flavor(IsA(http.HttpRequest),
-                                          flavor.id, project.id)
-        self.mox.ReplayAll()
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = []
+        self.mock_flavor_create.return_value = flavor
+        self.mock_add_tenant_to_flavor.return_value = None
 
         workflow_data = self._get_workflow_data(flavor, access=projects)
 
@@ -299,20 +303,28 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, reverse(constants.FLAVORS_INDEX_URL))
 
-    @test.create_stubs({api.keystone: ('tenant_list',),
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
+        params = self._flavor_create_params(flavor, id='auto')
+        params['is_public'] = False
+        self.mock_flavor_create.assert_called_once_with(test.IsHttpRequest(),
+                                                        **params)
+        self.mock_add_tenant_to_flavor.assert_has_calls(
+            [mock.call(test.IsHttpRequest(), flavor.id, project.id)
+             for project in projects]
+        )
+        self.assertEqual(len(projects),
+                         self.mock_add_tenant_to_flavor.call_count)
+
+    @test.create_mocks({api.keystone: ('tenant_list',),
                         api.nova: ('flavor_list',)})
     def test_create_existing_flavor_name_error(self):
         flavor = self.flavors.first()
         projects = self.tenants.list()
 
-        # init
-        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
-                                                                   False])
-
-        # handle
-        api.nova.flavor_list(IsA(http.HttpRequest), None) \
-            .AndReturn(self.flavors.list())
-        self.mox.ReplayAll()
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = self.flavors.list()
 
         workflow_data = self._get_workflow_data(flavor)
 
@@ -320,21 +332,18 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         res = self.client.post(url, workflow_data)
 
         self.assertFormErrors(res)
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
 
-    @test.create_stubs({api.keystone: ('tenant_list',),
+    @test.create_mocks({api.keystone: ('tenant_list',),
                         api.nova: ('flavor_list',)})
     def test_create_existing_flavor_id_error(self):
         flavor = self.flavors.first()
         projects = self.tenants.list()
 
-        # init
-        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
-                                                                   False])
-
-        # handle
-        api.nova.flavor_list(IsA(http.HttpRequest), None) \
-            .AndReturn(self.flavors.list())
-        self.mox.ReplayAll()
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = self.flavors.list()
 
         workflow_data = self._get_workflow_data(flavor)
         # Name is okay.
@@ -346,8 +355,11 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         res = self.client.post(url, workflow_data)
 
         self.assertFormErrors(res)
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
 
-    @test.create_stubs({api.keystone: ('tenant_list',),
+    @test.create_mocks({api.keystone: ('tenant_list',),
                         api.nova: ('flavor_list',
                                    'flavor_create',
                                    'add_tenant_to_flavor',)})
@@ -356,22 +368,12 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         projects = self.tenants.list()
 
         # init
-        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
-                                                                   False])
-        api.nova.flavor_list(IsA(http.HttpRequest), None) \
-            .AndReturn([])
-
-        # handle
-        params = self._flavor_create_params(flavor, id='auto')
-        params['is_public'] = False
-        api.nova.flavor_create(IsA(http.HttpRequest), **params) \
-            .AndReturn(flavor)
-        for project in projects:
-            expect = api.nova.add_tenant_to_flavor(IsA(http.HttpRequest),
-                                                   flavor.id, project.id)
-            if project == projects[0]:
-                expect.AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = []
+        self.mock_flavor_create.return_value = flavor
+        retvals_add_tenant = [None for project in projects]
+        retvals_add_tenant[0] = self.exceptions.nova
+        self.mock_add_tenant_to_flavor.side_effect = retvals_add_tenant
 
         workflow_data = self._get_workflow_data(flavor, access=projects)
 
@@ -382,18 +384,28 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         self.assertMessageCount(error=1, warning=0)
         self.assertRedirectsNoFollow(res, reverse(constants.FLAVORS_INDEX_URL))
 
-    @test.create_stubs({api.keystone: ('tenant_list',),
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
+        params = self._flavor_create_params(flavor, id='auto')
+        params['is_public'] = False
+        self.mock_flavor_create.assert_called_once_with(test.IsHttpRequest(),
+                                                        **params)
+        self.mock_add_tenant_to_flavor.assert_has_calls(
+            [mock.call(test.IsHttpRequest(), flavor.id, project.id)
+             for project in projects]
+        )
+        self.assertEqual(len(projects),
+                         self.mock_add_tenant_to_flavor.call_count)
+
+    @test.create_mocks({api.keystone: ('tenant_list',),
                         api.nova: ('flavor_list',)})
     def test_create_flavor_missing_field_error(self):
         flavor = self.flavors.first()
         projects = self.tenants.list()
 
-        # init
-        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
-                                                                   False])
-        api.nova.flavor_list(IsA(http.HttpRequest), None) \
-            .AndReturn([])
-        self.mox.ReplayAll()
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = []
 
         workflow_data = self._get_workflow_data(flavor)
         workflow_data["name"] = ""
@@ -404,20 +416,18 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         self.assertFormErrors(res)
         self.assertContains(res, "field is required")
 
-    @test.create_stubs({api.keystone: ('tenant_list',),
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
+
+    @test.create_mocks({api.keystone: ('tenant_list',),
                         api.nova: ('flavor_list',)})
     def test_create_flavor_missing_swap_and_ephemeral_fields(self):
         flavor = self.flavors.first()
         projects = self.tenants.list()
 
-        # init
-        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
-                                                                   False])
-
-        # handle
-        api.nova.flavor_list(IsA(http.HttpRequest), None) \
-            .AndReturn(self.flavors.list())
-        self.mox.ReplayAll()
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = self.flavors.list()
 
         workflow_data = self._get_workflow_data(flavor)
         # Swap field empty
@@ -430,10 +440,12 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         self.assertFormErrors(res)
 
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
+
 
 class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
-
-    use_mox = False
 
     @test.create_mocks({api.nova: ('flavor_get',
                                    'flavor_access_list',),
