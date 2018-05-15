@@ -64,7 +64,9 @@ class ChangePasswordLink(policy.PolicyTargetMixin, tables.LinkAction):
                            ("target.user.domain_id", "domain_id"))
 
     def allowed(self, request, user):
-        return api.keystone.keystone_can_edit_user()
+        options = getattr(user, "options", {})
+        lock_password = options.get("lock_password", False)
+        return not lock_password and api.keystone.keystone_can_edit_user()
 
 
 class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):

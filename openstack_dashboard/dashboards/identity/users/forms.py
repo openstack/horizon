@@ -133,6 +133,9 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
     enabled = forms.BooleanField(label=_("Enabled"),
                                  required=False,
                                  initial=True)
+    lock_password = forms.BooleanField(label=_("Lock password"),
+                                       required=False,
+                                       initial=False)
 
     def __init__(self, *args, **kwargs):
         roles = kwargs.pop('roles')
@@ -141,7 +144,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
         ordering = ["domain_id", "domain_name", "name",
                     "description", "email", "password",
                     "confirm_password", "project", "role_id",
-                    "enabled"]
+                    "enabled", "lock_password"]
         self.add_extra_fields(ordering)
         self.fields = collections.OrderedDict(
             (key, self.fields[key]) for key in ordering)
@@ -177,6 +180,10 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
                 kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
             else:
                 kwargs = {}
+
+            if "lock_password" in data:
+                kwargs.update({'options':
+                              {'lock_password': data['lock_password']}})
 
             new_user = \
                 api.keystone.user_create(request,
@@ -235,6 +242,10 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
     project = forms.ThemableChoiceField(label=_("Primary Project"),
                                         required=PROJECT_REQUIRED)
 
+    lock_password = forms.BooleanField(label=_("Lock password"),
+                                       required=False,
+                                       initial=False)
+
     def __init__(self, request, *args, **kwargs):
         super(UpdateUserForm, self).__init__(request, *args, **kwargs)
         self.add_extra_fields()
@@ -261,6 +272,10 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
 
         if 'description' not in self.changed_data:
             data.pop('description')
+        if 'lock_password' in data:
+            data.update({'options': {'lock_password': data['lock_password']}})
+            data.pop('lock_password')
+
         try:
             if "email" in data:
                 data['email'] = data['email']

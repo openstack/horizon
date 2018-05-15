@@ -217,7 +217,18 @@ def data(TEST):
                  'enabled': True,
                  'domain_id': "1"}
     user5 = users.User(None, user_dict)
-    TEST.users.add(user, user2, user3, user4, user5)
+    user_dict = {'id': "6",
+                 'name': 'user_six',
+                 'description': 'test_description',
+                 'email': 'test@example.com',
+                 'password': 'password',
+                 'token': 'test_token',
+                 'project_id': '1',
+                 'enabled': True,
+                 'domain_id': "1",
+                 'lock_password': True}
+    user6 = users.User(None, user_dict)
+    TEST.users.add(user, user2, user3, user4, user5, user6)
     TEST.user = user  # Your "current" user
     TEST.user.service_catalog = copy.deepcopy(SERVICE_CATALOG)
 
