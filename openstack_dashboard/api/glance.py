@@ -156,6 +156,18 @@ PUBLIC_TO_VISIBILITY_MAP = {
     False: 'private'
 }
 
+KNOWN_PROPERTIES = [
+    'visibility', 'protected', 'disk_format',
+    'container_format', 'min_disk', 'min_ram', 'name',
+    'properties', 'kernel', 'ramdisk',
+    'tags', 'import_data', 'source', 'image_id',
+    'image_url', 'source_type', 'data', 'public',
+    'checksum', 'created_at', 'deleted', 'is_copying',
+    'deleted_at', 'is_public', 'virtual_size',
+    'status', 'size', 'owner', 'id', 'updated_at',
+    'kernel_id', 'ramdisk_id', 'image_file',
+]
+
 
 def _normalize_is_public_filter(filters):
     if not filters:
@@ -172,8 +184,7 @@ def _normalize_is_public_filter(filters):
                 filters['visibility'] = visibility
     elif 'visibility' in filters:
         # Glance v1: Replace 'visibility' with 'is_public'.
-        filters['is_public'] = (
-            getattr(filters, 'visibility', None) == "public")
+        filters['is_public'] = filters['visibility'] == "public"
         del filters['visibility']
 
 
@@ -413,6 +424,74 @@ class ExternallyUploadedImage(Image):
     @property
     def token_id(self):
         return self._token_id
+
+
+def create_image_metadata(data):
+    """Generate metadata dict for a new image from a given form data."""
+
+    # Default metadata
+    meta = {'protected': data.get('protected', False),
+            'disk_format': data.get('disk_format', 'raw'),
+            'container_format': data.get('container_format', 'bare'),
+            'min_disk': data.get('min_disk', 0),
+            'min_ram': data.get('min_ram', 0),
+            'name': data.get('name', '')}
+
+    # Glance does not really do anything with container_format at the
+    # moment. It requires it is set to the same disk_format for the three
+    # Amazon image types, otherwise it just treats them as 'bare.' As such
+    # we will just set that to be that here instead of bothering the user
+    # with asking them for information we can already determine.
+    if meta['disk_format'] in ('ami', 'aki', 'ari',):
+        meta['container_format'] = meta['disk_format']
+    elif meta['disk_format'] == 'docker':
+        # To support docker containers we allow the user to specify
+        # 'docker' as the format. In that case we really want to use
+        # 'raw' as the disk format and 'docker' as the container format.
+        meta['disk_format'] = 'raw'
+        meta['container_format'] = 'docker'
+    elif meta['disk_format'] == 'ova':
+        # If the user wishes to upload an OVA using Horizon, then
+        # 'ova' must be the container format and 'vmdk' must be the disk
+        # format.
+        meta['container_format'] = 'ova'
+        meta['disk_format'] = 'vmdk'
+
+    properties = {}
+
+    for prop, key in [('description', 'description'),
+                      ('kernel_id', 'kernel'),
+                      ('ramdisk_id', 'ramdisk'),
+                      ('architecture', 'architecture')]:
+        if data.get(key):
+            properties[prop] = data[key]
+
+    _handle_unknown_properties(data, properties)
+
+    if ('visibility' in data and
+            data['visibility'] not in ['public', 'private', 'shared']):
+        raise KeyError('invalid visibility option: %s' % data['visibility'])
+    _normalize_is_public_filter(data)
+
+    if VERSIONS.active < 2:
+        meta['properties'] = properties
+        meta['is_public'] = data.get('is_public', False)
+    else:
+        meta['visibility'] = data.get('visibility', 'private')
+        meta.update(properties)
+
+    return meta
+
+
+def _handle_unknown_properties(data, properties):
+    # The Glance API takes in both known and unknown fields. Unknown fields
+    # are assumed as metadata. To achieve this and continue to use the
+    # existing horizon api wrapper, we need this function.  This way, the
+    # client REST mirrors the Glance API.
+    other_props = {
+        k: v for (k, v) in data.items() if k not in KNOWN_PROPERTIES
+    }
+    properties.update(other_props)
 
 
 @profiler.trace

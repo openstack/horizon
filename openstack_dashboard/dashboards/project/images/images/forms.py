@@ -43,64 +43,6 @@ IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
 class ImageURLField(forms.URLField):
     default_validators = [validators.URLValidator(schemes=["http", "https"])]
 
-
-def create_image_metadata(data):
-    """Generate metadata dict for a new image from a given form data."""
-
-    # Glance does not really do anything with container_format at the
-    # moment. It requires it is set to the same disk_format for the three
-    # Amazon image types, otherwise it just treats them as 'bare.' As such
-    # we will just set that to be that here instead of bothering the user
-    # with asking them for information we can already determine.
-    disk_format = data['disk_format']
-    if disk_format in ('ami', 'aki', 'ari',):
-        container_format = disk_format
-    elif disk_format == 'docker':
-        # To support docker containers we allow the user to specify
-        # 'docker' as the format. In that case we really want to use
-        # 'raw' as the disk format and 'docker' as the container format.
-        disk_format = 'raw'
-        container_format = 'docker'
-    elif disk_format == 'ova':
-        # If the user wishes to upload an OVA using Horizon, then
-        # 'ova' must be the container format and 'vmdk' must be the disk
-        # format.
-        container_format = 'ova'
-        disk_format = 'vmdk'
-    else:
-        container_format = 'bare'
-
-    meta = {'protected': data['protected'],
-            'disk_format': disk_format,
-            'container_format': container_format,
-            'min_disk': (data['minimum_disk'] or 0),
-            'min_ram': (data['minimum_ram'] or 0),
-            'name': data['name']}
-
-    is_public = data.get('is_public', data.get('public', False))
-    properties = {}
-    # NOTE(tsufiev): in V2 the way how empty non-base attributes (AKA metadata)
-    # are handled has changed: in V2 empty metadata is kept in image
-    # properties, while in V1 they were omitted. Skip empty description (which
-    # is metadata) to keep the same behavior between V1 and V2
-    if data.get('description'):
-        properties['description'] = data['description']
-    if data.get('kernel'):
-        properties['kernel_id'] = data['kernel']
-    if data.get('ramdisk'):
-        properties['ramdisk_id'] = data['ramdisk']
-    if data.get('architecture'):
-        properties['architecture'] = data['architecture']
-
-    if api.glance.VERSIONS.active < 2:
-        meta.update({'is_public': is_public, 'properties': properties})
-    else:
-        meta['visibility'] = 'public' if is_public else 'private'
-        meta.update(properties)
-
-    return meta
-
-
 if api.glance.get_image_upload_mode() == 'direct':
     FileField = forms.ExternalFileField
     CreateParent = six.with_metaclass(forms.ExternalUploadMeta,
@@ -172,13 +114,13 @@ class CreateImageForm(CreateParent):
         label=_("Architecture"),
         help_text=_('CPU architecture of the image.'),
         required=False)
-    minimum_disk = forms.IntegerField(
+    min_disk = forms.IntegerField(
         label=_("Minimum Disk (GB)"),
         min_value=0,
         help_text=_('The minimum disk size required to boot the image. '
                     'If unspecified, this value defaults to 0 (no minimum).'),
         required=False)
-    minimum_ram = forms.IntegerField(
+    min_ram = forms.IntegerField(
         label=_("Minimum RAM (MB)"),
         min_value=0,
         help_text=_('The minimum memory size required to boot the image. '
@@ -308,7 +250,7 @@ class CreateImageForm(CreateParent):
             return data
 
     def handle(self, request, data):
-        meta = create_image_metadata(data)
+        meta = api.glance.create_image_metadata(data)
 
         # Add image source file or URL to metadata
         if (api.glance.get_image_upload_mode() != 'off' and
@@ -372,23 +314,19 @@ class UpdateImageForm(forms.SelfHandlingForm):
     disk_format = forms.ThemableChoiceField(
         label=_("Format"),
     )
-    minimum_disk = forms.IntegerField(label=_("Minimum Disk (GB)"),
-                                      min_value=0,
-                                      help_text=_('The minimum disk size'
-                                                  ' required to boot the'
-                                                  ' image. If unspecified,'
-                                                  ' this value defaults to'
-                                                  ' 0 (no minimum).'),
-                                      required=False)
-    minimum_ram = forms.IntegerField(label=_("Minimum RAM (MB)"),
-                                     min_value=0,
-                                     help_text=_('The minimum memory size'
-                                                 ' required to boot the'
-                                                 ' image. If unspecified,'
-                                                 ' this value defaults to'
-                                                 ' 0 (no minimum).'),
-                                     required=False)
-    public = forms.BooleanField(label=_("Public"), required=False)
+    min_disk = forms.IntegerField(
+        label=_("Minimum Disk (GB)"),
+        min_value=0,
+        help_text=_('The minimum disk size required to boot the image. '
+                    'If unspecified, this value defaults to 0 (no minimum).'),
+        required=False)
+    min_ram = forms.IntegerField(
+        label=_("Minimum RAM (MB)"),
+        min_value=0,
+        help_text=_('The minimum memory size required to boot the image. '
+                    'If unspecified, this value defaults to 0 (no minimum).'),
+        required=False)
+    is_public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
     def __init__(self, request, *args, **kwargs):
@@ -397,15 +335,15 @@ class UpdateImageForm(forms.SelfHandlingForm):
                                               name in IMAGE_FORMAT_CHOICES
                                               if value]
         if not policy.check((("image", "publicize_image"),), request):
-            self.fields['public'].widget = forms.CheckboxInput(
+            self.fields['is_public'].widget = forms.CheckboxInput(
                 attrs={'readonly': 'readonly', 'disabled': 'disabled'})
-            self.fields['public'].help_text = _(
+            self.fields['is_public'].help_text = _(
                 'Non admin users are not allowed to make images public.')
 
     def handle(self, request, data):
         image_id = data['image_id']
         error_updating = _('Unable to update image "%s".')
-        meta = create_image_metadata(data)
+        meta = api.glance.create_image_metadata(data)
 
         try:
             image = api.glance.image_update(request, image_id, **meta)

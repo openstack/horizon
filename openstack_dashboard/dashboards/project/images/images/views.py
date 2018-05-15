@@ -59,8 +59,8 @@ class CreateView(forms.ModalFormView):
             'source_type',
             'architecture',
             'disk_format',
-            'minimum_disk',
-            'minimum_ram'
+            'min_disk',
+            'min_ram'
         ]:
             tmp = self.request.GET.get(name)
             if tmp:
@@ -111,9 +111,9 @@ class UpdateView(forms.ModalFormView):
                 'kernel': properties.get('kernel_id', ''),
                 'ramdisk': properties.get('ramdisk_id', ''),
                 'architecture': properties.get('architecture', ''),
-                'minimum_ram': getattr(image, 'min_ram', None),
-                'minimum_disk': getattr(image, 'min_disk', None),
-                'public': getattr(image, 'is_public', None),
+                'min_ram': getattr(image, 'min_ram', None),
+                'min_disk': getattr(image, 'min_disk', None),
+                'is_public': getattr(image, 'is_public', None),
                 'protected': getattr(image, 'protected', None)}
         disk_format = getattr(image, 'disk_format', None)
         if (disk_format == 'raw' and
