@@ -391,9 +391,6 @@ def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
                              disabled_quotas)
 
 
-# TODO(amotoki): Merge tenant_quota_usages and tenant_limit_usages.
-# These two functions are similar. There seems no reason to have both.
-
 @profiler.trace
 @memoized
 def tenant_quota_usages(request, tenant_id=None, targets=None):
@@ -427,35 +424,6 @@ def tenant_quota_usages(request, tenant_id=None, targets=None):
          [request, usages, disabled_quotas, tenant_id]))
 
     return usages
-
-
-@profiler.trace
-def tenant_limit_usages(request):
-    # TODO(licostan): This method shall be removed from Quota module.
-    # ProjectUsage/BaseUsage maybe used instead on volume/image dashboards.
-    limits = {}
-
-    try:
-        if base.is_service_enabled(request, 'compute'):
-            limits.update(nova.tenant_absolute_limits(request, reserved=True))
-    except Exception:
-        msg = _("Unable to retrieve compute limit information.")
-        exceptions.handle(request, msg)
-
-    if cinder.is_volume_service_enabled(request):
-        try:
-            limits.update(cinder.tenant_absolute_limits(request))
-        except cinder.cinder_exception.ClientException:
-            msg = _("Unable to retrieve volume limit information.")
-            exceptions.handle(request, msg)
-
-    # TODO(amotoki): Support neutron quota details extensions
-    # which returns limit/usage/reserved per resource.
-    # Note that the data format is different from nova/cinder limit API.
-    # https://developer.openstack.org/
-    #   api-ref/network/v2/#quotas-details-extension-quota-details
-
-    return limits
 
 
 def enabled_quotas(request):

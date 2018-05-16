@@ -341,32 +341,6 @@ class QuotaTests(test.APITestCase):
             test.IsHttpRequest(),
             _("Unable to retrieve volume limit information."))
 
-    @test.create_mocks({api.base: ('is_service_enabled',),
-                        cinder: ('tenant_absolute_limits',
-                                 'is_volume_service_enabled'),
-                        exceptions: ('handle',)})
-    def test_tenant_limit_usages_cinder_exception(self):
-        self.mock_is_service_enabled.retrieve = False
-        self.mock_is_volume_service_enabled.return_value = True
-        self.mock_tenant_absolute_limits.side_effect = \
-            cinder.cinder_exception.ClientException('test')
-
-        quotas.tenant_limit_usages(self.request)
-
-        self.mock_is_service_enabled.assert_called_once_with(
-            test.IsHttpRequest(), 'compute')
-        self.mock_is_volume_service_enabled.assert_called_once_with(
-            test.IsHttpRequest())
-        self.mock_tenant_absolute_limits.assert_called_once_with(
-            test.IsHttpRequest())
-        self.mock_handle.assert_has_calls([
-            mock.call(test.IsHttpRequest(),
-                      _("Unable to retrieve compute limit information.")),
-            mock.call(test.IsHttpRequest(),
-                      _("Unable to retrieve volume limit information.")),
-        ])
-        self.assertEqual(2, self.mock_handle.call_count)
-
     @test.create_mocks({api.neutron: ('is_router_enabled',
                                       'is_extension_supported',
                                       'is_quotas_extension_supported',),

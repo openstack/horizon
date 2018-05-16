@@ -19,17 +19,17 @@
     <strong>{% trans "Total Gibibytes" %}</strong>
   </div>
   <span class="pull-right">
-    {% blocktrans with used=usages.totalGigabytesUsed|intcomma quota=usages.maxTotalVolumeGigabytes|intcomma|quotainf %}{{ used }} of {{ quota }} GiB Used{% endblocktrans %}
+    {% blocktrans with used=usages.gigabytes.used|intcomma quota=usages.gigabytes.quota|intcomma|quotainf %}{{ used }} of {{ quota }} GiB Used{% endblocktrans %}
   </span>
 </div>
 
 {{ minifyspace }}
 <div id="quota_size"
      data-progress-indicator-for="id_size"
-     data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}"
-     data-quota-used={% block gigabytes_used_progress %}"{{ usages.totalGigabytesUsed }}"{% endblock %}
+     data-quota-limit="{{ usages.gigabytes.quota }}"
+     data-quota-used={% block gigabytes_used_progress %}"{{ usages.gigabytes.used }}"{% endblock %}
      class="quota_bar">
-  {% widthratio usages.totalGigabytesUsed usages.maxTotalVolumeGigabytes 100 as gigabytes_percent %}
+  {% widthratio usages.gigabytes.used usages.gigabytes.quota 100 as gigabytes_percent %}
   {% bs_progress_bar gigabytes_percent 0 %}
 </div>
 {{ endminifyspace }}
@@ -40,22 +40,22 @@
   </div>
   <span class="pull-right">
     {% block used_of_quota %}
-      {% blocktrans with used=usages.totalVolumesUsed|intcomma quota=usages.maxTotalVolumes|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+      {% blocktrans with used=usages.volumes.used|intcomma quota=usages.volumes.quota|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
     {% endblock %}
   </span>
 </div>
 
 {{ minifyspace }}
 <div id={% block type_id %}"quota_volumes"{% endblock %}
-     data-quota-limit={% block total_progress %}"{{ usages.maxTotalVolumes }}"{% endblock %}
-     data-quota-used={% block used_progress %}"{{ usages.totalVolumesUsed }}"{% endblock %}
+     data-quota-limit={% block total_progress %}"{{ usages.volumes.quota }}"{% endblock %}
+     data-quota-used={% block used_progress %}"{{ usages.volumes.used }}"{% endblock %}
      class="quota_bar">
   {% block show_progress_bar %}
-    {% widthratio usages.totalVolumesUsed usages.maxTotalVolumes 100 as volumes_percent %}
-    {% if usages.numRequestedItems %}
-      {% widthratio 100 usages.maxTotalVolumes usages.numRequestedItems as single_step %}
+    {% widthratio usages.volumes.used usages.volumes.quota 100 as volumes_percent %}
+    {% if numRequestedItems %}
+      {% widthratio 100 usages.volumes.quota numRequestedItems as single_step %}
     {% else %}
-      {% widthratio 100 usages.maxTotalVolumes 1 as single_step %}
+      {% widthratio 100 usages.volumes.quota 1 as single_step %}
     {% endif %}
     {% bs_progress_bar volumes_percent single_step %}
   {% endblock %}

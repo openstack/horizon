@@ -130,14 +130,14 @@ class CreateCGroupView(forms.ModalFormView):
             volumes = api.cinder.volume_list(self.request,
                                              search_opts=search_opts)
             num_volumes = len(volumes)
-            usages = quotas.tenant_limit_usages(self.request)
-
-            if usages['totalVolumesUsed'] + num_volumes > \
-                    usages['maxTotalVolumes']:
+            usages = quotas.tenant_quota_usages(
+                self.request, targets=('volumes', 'gigabytes'))
+            if (usages['volumes']['used'] + num_volumes >
+                    usages['volumes']['quota']):
                 raise ValueError(_('Unable to create consistency group due to '
                                    'exceeding volume quota limit.'))
             else:
-                usages['numRequestedItems'] = num_volumes
+                context['numRequestedItems'] = num_volumes
                 context['usages'] = usages
 
         except ValueError as e:

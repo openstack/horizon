@@ -10,11 +10,11 @@
 {% endblock %}
 
 {% block gigabytes_used %}
-  {{ usages.totalGigabytesUsed|intcomma }}
+  {{ usages.gigabytes.used|intcomma }}
 {% endblock %}
 
 {% block gigabytes_used_progress %}
-  "{{ usages.totalGigabytesUsed }}"
+  "{{ usages.gigabytes.used }}"
 {% endblock %}
 
 {% block type_title %}
@@ -22,7 +22,7 @@
 {% endblock %}
 
 {% block used_of_quota %}
-  {% blocktrans with used=usages.totalSnapshotsUsed|intcomma quota=usages.maxTotalSnapshots|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+  {% blocktrans with used=usages.snapshots.used|intcomma quota=usages.snapshots.quota|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
 {% endblock %}
 
 {% block type_id %}
@@ -30,19 +30,19 @@
 {% endblock %}
 
 {% block total_progress %}
-  "{{ usages.maxTotalSnapshots }}"
+  "{{ usages.snapshots.quota }}"
 {% endblock %}
 
 {% block used_progress %}
-  "{{ usages.totalSnapshotsUsed }}"
+  "{{ usages.snapshots.used }}"
 {% endblock %}
 
 {% block show_progress_bar %}
-  {% widthratio usages.totalSnapshotsUsed usages.maxTotalSnapshots 100 as volumes_percent %}
-  {% if usages.numRequestedItems %}
-    {% widthratio usages.numRequestedItems usages.maxTotalSnapshots 100 as single_step %}
+  {% widthratio usages.snapshots.used usages.snapshots.quota 100 as volumes_percent %}
+  {% if numRequestedItems %}
+    {% widthratio numRequestedItems usages.snapshots.quota 100 as single_step %}
   {% else %}
-    {% widthratio 1 usages.maxTotalSnapshots 100 as single_step %}
+    {% widthratio 1 usages.snapshots.quota 100 as single_step %}
   {% endif %}
   {% bs_progress_bar volumes_percent single_step %}
 {% endblock %}
