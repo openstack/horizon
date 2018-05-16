@@ -48,8 +48,10 @@ class QuotaTests(test.APITestCase):
         self.mock_is_volume_service_enabled.return_value = volume_enabled
 
     def _check_service_enabled(self, expected_count):
-        self.mock_is_volume_service_enabled.assert_called_once_with(
-            test.IsHttpRequest())
+        expected_volume_count = expected_count.pop('volume', 0)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_volume_service_enabled, expected_volume_count,
+            mock.call(test.IsHttpRequest()))
         self.assertEqual(expected_count, self._service_call_count)
         total_count = sum(expected_count.values())
         self.assertEqual(total_count, self.mock_is_service_enabled.call_count)
@@ -142,7 +144,7 @@ class QuotaTests(test.APITestCase):
         # Compare available resources
         self.assertAvailableQuotasEqual(expected_output, quota_usages.usages)
 
-        self._check_service_enabled({'compute': 2, 'network': 1})
+        self._check_service_enabled({'compute': 2, 'network': 1, 'volume': 1})
         self.mock_nova_tenant_absolute_limits.assert_called_once_with(
             test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
         self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
@@ -181,11 +183,13 @@ class QuotaTests(test.APITestCase):
         self.assertAvailableQuotasEqual(expected_output, quota_usages.usages)
 
         if with_compute and nova_quotas_enabled:
-            self._check_service_enabled({'compute': 2, 'network': 1})
+            self._check_service_enabled({'compute': 2, 'network': 1,
+                                         'volume': 1})
             self.mock_nova_tenant_absolute_limits.assert_called_once_with(
                 test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
         else:
-            self._check_service_enabled({'compute': 1, 'network': 1})
+            self._check_service_enabled({'compute': 1, 'network': 1,
+                                         'volume': 1})
             self.mock_nova_tenant_absolute_limits.assert_not_called()
         if with_volume:
             self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
@@ -218,7 +222,7 @@ class QuotaTests(test.APITestCase):
                            quotas.NOVA_QUOTA_FIELDS)
         self.assertItemsEqual(result_quotas, expected_quotas)
 
-        self._check_service_enabled({'compute': 1, 'network': 1})
+        self._check_service_enabled({'compute': 1, 'network': 1, 'volume': 1})
 
     @test.create_mocks({api.nova: ('tenant_absolute_limits',),
                         api.base: ('is_service_enabled',),
@@ -240,7 +244,7 @@ class QuotaTests(test.APITestCase):
         self.assertIn('ram', quota_usages)
         self.assertIsNotNone(quota_usages.get('ram'))
 
-        self._check_service_enabled({'compute': 2, 'network': 1})
+        self._check_service_enabled({'compute': 2, 'network': 1, 'volume': 1})
         self.mock_tenant_absolute_limits.assert_called_once_with(
             test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
 
@@ -262,7 +266,7 @@ class QuotaTests(test.APITestCase):
         # Compare internal structure of usages to expected.
         self.assertItemsEqual(expected_output, quota_usages.usages)
 
-        self._check_service_enabled({'compute': 2, 'network': 1})
+        self._check_service_enabled({'compute': 2, 'network': 1, 'volume': 1})
         self.mock_tenant_absolute_limits.assert_called_once_with(
             test.IsHttpRequest(), reserved=True, tenant_id='1')
 
@@ -291,7 +295,7 @@ class QuotaTests(test.APITestCase):
         # Compare internal structure of usages to expected.
         self.assertItemsEqual(expected_output, quota_usages.usages)
 
-        self._check_service_enabled({'compute': 2, 'network': 1})
+        self._check_service_enabled({'compute': 2, 'network': 1, 'volume': 1})
         self.mock_nova_tenant_absolute_limits.assert_called_once_with(
             test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
         self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
@@ -317,7 +321,7 @@ class QuotaTests(test.APITestCase):
         # Compare internal structure of usages to expected.
         self.assertItemsEqual(expected_output, quota_usages.usages)
 
-        self._check_service_enabled({'compute': 2, 'network': 1})
+        self._check_service_enabled({'compute': 2, 'network': 1, 'volume': 1})
         self.mock_nova_tenant_absolute_limits.assert_called_once_with(
             test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
         self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
@@ -334,7 +338,7 @@ class QuotaTests(test.APITestCase):
 
         quotas.get_tenant_quota_data(self.request)
 
-        self._check_service_enabled({'compute': 1, 'network': 1})
+        self._check_service_enabled({'compute': 1, 'network': 1, 'volume': 1})
         self.mock_tenant_quota_get.assert_called_once_with(
             test.IsHttpRequest(), '1')
         self.mock_handle.assert_called_once_with(
@@ -356,7 +360,7 @@ class QuotaTests(test.APITestCase):
         expected = set(['router', 'floatingip'])
         self.assertEqual(expected, disabled_quotas)
 
-        self._check_service_enabled({'compute': 1, 'network': 1})
+        self._check_service_enabled({'compute': 1, 'network': 1, 'volume': 1})
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'security-group')
         self.mock_is_router_enabled.assert_called_once_with(
@@ -365,11 +369,12 @@ class QuotaTests(test.APITestCase):
             test.IsHttpRequest())
 
     def test_tenant_quota_usages_with_target_instances(self):
-        self._test_tenant_quota_usages_with_target(targets=('instances', ))
+        self._test_tenant_quota_usages_with_target(
+            targets=('instances', ), use_cinder_call=False)
 
     def test_tenant_quota_usages_with_target_ram(self):
         self._test_tenant_quota_usages_with_target(
-            targets=('ram', ), use_flavor_list=True)
+            targets=('ram', ), use_flavor_list=True, use_cinder_call=False)
 
     def test_tenant_quota_usages_with_target_volume(self):
         self._test_tenant_quota_usages_with_target(
@@ -411,12 +416,16 @@ class QuotaTests(test.APITestCase):
         # Compare available resources
         self.assertAvailableQuotasEqual(expected, quota_usages.usages)
 
+        expected_count = {}
         if use_compute_call:
-            self._check_service_enabled({'compute': 2, 'network': 1})
+            expected_count['compute'] = 2
+        if use_cinder_call:
+            expected_count['volume'] = 1
+        self._check_service_enabled(expected_count)
+        if use_compute_call:
             self.mock_nova_tenant_absolute_limits.assert_called_once_with(
                 test.IsHttpRequest(), reserved=True, tenant_id=tenant_id)
         else:
-            self._check_service_enabled({'compute': 1, 'network': 1})
             self.mock_nova_tenant_absolute_limits.assert_not_called()
         if use_cinder_call:
             self.mock_cinder_tenant_absolute_limits.assert_called_once_with(
@@ -450,10 +459,10 @@ class QuotaTests(test.APITestCase):
                                       'router_list')})
     def _test_tenant_quota_usages_neutron_with_target(self, targets):
         self._mock_service_enabled(network_enabled=True)
-        self.mock_is_extension_supported.side_effect = [
-            True,  # security-group
-            False,  # quota_details
-        ]
+        if 'security_group' in targets:
+            self.mock_is_extension_supported.side_effect = [True, False]
+        else:
+            self.mock_is_extension_supported.side_effect = [False]
         self.mock_is_router_enabled.return_value = True
         self.mock_is_quotas_extension_supported.return_value = True
         self.mock_tenant_quota_get.return_value = self.neutron_quotas.first()
@@ -498,14 +507,21 @@ class QuotaTests(test.APITestCase):
         # Compare available resources
         self.assertAvailableQuotasEqual(expected, quota_usages.usages)
 
-        self._check_service_enabled({'compute': 1, 'network': 1})
-        self.mock_is_extension_supported.assert_has_calls([
-            mock.call(test.IsHttpRequest(), 'security-group'),
-            mock.call(test.IsHttpRequest(), 'quota_details'),
-        ])
-        self.assertEqual(2, self.mock_is_extension_supported.call_count)
-        self.mock_is_router_enabled.assert_called_once_with(
-            test.IsHttpRequest())
+        self._check_service_enabled({'network': 1})
+        if 'security_group' in targets:
+            self.mock_is_extension_supported.assert_has_calls([
+                mock.call(test.IsHttpRequest(), 'security-group'),
+                mock.call(test.IsHttpRequest(), 'quota_details'),
+            ])
+            self.assertEqual(2, self.mock_is_extension_supported.call_count)
+        else:
+            self.mock_is_extension_supported.assert_called_once_with(
+                test.IsHttpRequest(), 'quota_details')
+        if 'floatingip' in targets or 'router' in targets:
+            self.mock_is_router_enabled.assert_called_once_with(
+                test.IsHttpRequest())
+        else:
+            self.mock_is_router_enabled.assert_not_called()
         self.mock_is_quotas_extension_supported.assert_called_once_with(
             test.IsHttpRequest())
         self.mock_tenant_quota_get.assert_called_once_with(

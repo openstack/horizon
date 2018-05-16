@@ -236,23 +236,36 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
 # It is confusing and makes the code complicated. They should be push away.
 # Check Identity Project panel and System Defaults panel too.
 @profiler.trace
-def get_disabled_quotas(request):
+def get_disabled_quotas(request, targets=None):
+    if targets:
+        if set(targets) - QUOTA_FIELDS:
+            raise ValueError('Unknown quota field names are included: %s'
+                             % set(targets) - QUOTA_FIELDS)
+        candidates = set(targets)
+    else:
+        candidates = QUOTA_FIELDS
+
     # We no longer supports nova network, so we always disable
     # network related nova quota fields.
     disabled_quotas = set()
 
     # Cinder
-    if not cinder.is_volume_service_enabled(request):
-        disabled_quotas.update(CINDER_QUOTA_FIELDS)
+    if candidates & CINDER_QUOTA_FIELDS:
+        if not cinder.is_volume_service_enabled(request):
+            disabled_quotas.update(CINDER_QUOTA_FIELDS)
 
     # Neutron
-    if not base.is_service_enabled(request, 'network'):
+    if not (candidates & NEUTRON_QUOTA_FIELDS):
+        pass
+    elif not base.is_service_enabled(request, 'network'):
         disabled_quotas.update(NEUTRON_QUOTA_FIELDS)
     else:
-        if not neutron.is_extension_supported(request, 'security-group'):
+        if ({'security_group', 'security_group_rule'} & candidates and
+                not neutron.is_extension_supported(request, 'security-group')):
             disabled_quotas.update(['security_group', 'security_group_rule'])
 
-        if not neutron.is_router_enabled(request):
+        if ({'router', 'floatingip'} & candidates and
+                not neutron.is_router_enabled(request)):
             disabled_quotas.update(['router', 'floatingip'])
 
         try:
@@ -263,9 +276,13 @@ def get_disabled_quotas(request):
                           "quotas extension is enabled.")
 
     # Nova
-    if not (base.is_service_enabled(request, 'compute') and
-            nova.can_set_quotas()):
-        disabled_quotas.update(NOVA_QUOTA_FIELDS)
+    if candidates & NOVA_QUOTA_FIELDS:
+        if not (base.is_service_enabled(request, 'compute') and
+                nova.can_set_quotas()):
+            disabled_quotas.update(NOVA_QUOTA_FIELDS)
+
+    enabled_quotas = candidates - disabled_quotas
+    disabled_quotas = set(QUOTA_FIELDS) - enabled_quotas
 
     # There appear to be no glance quota fields currently
     return disabled_quotas
@@ -404,16 +421,8 @@ def tenant_quota_usages(request, tenant_id=None, targets=None):
     if not tenant_id:
         tenant_id = request.user.project_id
 
-    disabled_quotas = get_disabled_quotas(request)
+    disabled_quotas = get_disabled_quotas(request, targets)
     usages = QuotaUsage()
-
-    if targets:
-        if set(targets) - QUOTA_FIELDS:
-            raise ValueError('Unknown quota field names are included: %s'
-                             % set(targets) - QUOTA_FIELDS)
-        enabled_quotas = set(QUOTA_FIELDS) - disabled_quotas
-        enabled_quotas &= set(targets)
-        disabled_quotas = set(QUOTA_FIELDS) - enabled_quotas
 
     futurist_utils.call_functions_parallel(
         (_get_tenant_compute_usages,
