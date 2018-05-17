@@ -85,8 +85,10 @@ context['PROJECT_DIR_NAME'] = os.path.basename(
     context['PROJECT_PATH'].split(context['PROJECT_ROOT'])[1])
 context['PROJECT_NAME'] = context['PROJECT_DIR_NAME']
 
+context['DEFAULT_WSGI_FILE'] = os.path.join(
+    context['PROJECT_PATH'], 'wsgi.py')
 context['WSGI_FILE'] = os.path.join(
-    context['PROJECT_PATH'], 'wsgi/horizon.wsgi')
+    context['PROJECT_PATH'], 'horizon_wsgi.py')
 
 VHOSTNAME = context['HOSTNAME'].split('.')
 VHOSTNAME[0] = context['PROJECT_NAME']
@@ -316,6 +318,10 @@ location you desire, e.g.::
 
         # Generate the apache configuration.
         elif options.get('apache'):
+            # first check if custom wsgi file exists, if not, use default:
+            if not os.path.exists(context['WSGI_FILE']):
+                context['WSGI_FILE'] = context['DEFAULT_WSGI_FILE']
+
             with open(
                 os.path.join(CURDIR, 'apache_vhost.conf.template'), 'r'
             ) as fp:
