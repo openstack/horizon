@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-08 08:30+0000\n"
+"POT-Creation-Date: 2018-05-16 17:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-05-11 01:37+0000\n"
+"PO-Revision-Date: 2018-05-14 02:03+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -620,6 +620,19 @@ msgstr "Jede(s)"
 msgid "Any Availability Zone"
 msgstr "Irgendeine Verfügbarkeitszone"
 
+msgid "Application Credential Details"
+msgstr "Applikations-Zugangsdaten Details"
+
+msgid "Application Credential Name ="
+msgstr "Applikations-Zugangsdaten Name ="
+
+msgid "Application Credentials"
+msgstr "Applikations-Zugangsdaten"
+
+#, python-format
+msgid "Application credential name \"%s\" is already used."
+msgstr "Applikations-Zugangsdaten-Name \"%s\" wird schon verwendet."
+
 msgid "Architecture"
 msgstr "Architektur"
 
@@ -856,6 +869,17 @@ msgstr "Bauend"
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Aufbauend"
+
+msgid ""
+"By default, for security reasons, application credentials are forbidden from "
+"being used for creating additional application credentials or keystone "
+"trusts. If your application credential needs to be able to perform these "
+"actions, check \"unrestricted\"."
+msgstr ""
+"Es ist aus Sicherheitsgründen in der Standardeinstellung verboten, dass mit "
+"Hilfe von Applikations-Zugangsdaten weitere Applikations-Zugangsdaten oder "
+"Keystone Trusts erzeugt werden. Sofern dies mit Ihren Applikations-"
+"Zugangsdaten möglich sein soll, markieren Sie \"unbeschränkt\"."
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -1185,6 +1209,9 @@ msgstr "Erstellen"
 msgid "Create An Image"
 msgstr "Abbild erstellen"
 
+msgid "Create Application Credential"
+msgstr "Applikations-Zugangsdaten erstellen"
+
 msgid "Create Backup"
 msgstr "Sicherungskopie erstellen"
 
@@ -1341,6 +1368,9 @@ msgstr ""
 "\"%(qos_spec_name)s\" erzeugen. In der QoS-Spezifikation  werden gültige "
 "Schlüsselnamen erwartet. Folgende Werte dürfen als Schlüssel verwendet "
 "werden:  <tt>\"minIOPS\", \"maxIOPS\" und \"burstIOPS\"</tt>. "
+
+msgid "Create a new application credential."
+msgstr "Neue Applikations-Zugangsdaten erstellen."
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -1576,6 +1606,11 @@ msgid_plural "Delete"
 msgstr[0] "Löschen"
 msgstr[1] "Löschen"
 
+msgid "Delete Application Credential"
+msgid_plural "Delete Application Credentials"
+msgstr[0] "Applikations-Zugangsdaten löschen"
+msgstr[1] "Applikations-Zugangsdaten löschen"
+
 msgid "Delete Consistency Group"
 msgstr "Konsistenzgruppe löschen"
 
@@ -1758,6 +1793,11 @@ msgstr "Gelöscht"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Gelöscht"
+
+msgid "Deleted Application Credential"
+msgid_plural "Deleted Application Credentialss"
+msgstr[0] "Gelöschte Applikations-Zugangsdaten"
+msgstr[1] "Gelöschte Applikations-Zugangsdaten"
 
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
@@ -2126,6 +2166,9 @@ msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "Domäne"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr ""
@@ -2204,6 +2247,12 @@ msgstr "Zusammenfassung als CSV herunterladen"
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC-Datei herunterladen"
 
+msgid "Download clouds.yaml"
+msgstr "clouds.yaml herunternladen"
+
+msgid "Download openrc file"
+msgstr "openrc-Datei herunterladen"
+
 msgid "Download transfer credentials"
 msgstr "Transfer-Zugangsdaten herunterladen"
 
@@ -2277,6 +2326,9 @@ msgstr "Netzwerk bearbeiten"
 
 msgid "Edit Port"
 msgstr "Port bearbeiten"
+
+msgid "Edit Port Security Groups"
+msgstr "Port-Sicherheitsgruppen bearbeiten"
 
 msgid "Edit Project"
 msgstr "Projekt bearbeiten"
@@ -2600,11 +2652,17 @@ msgstr ""
 "Topologie Namensraum hinzugefügt, so dass den Eigenschaften ein 'hw:' "
 "vorangestellt wird, wenn sie auf Varianten angewendet werden."
 
+msgid "Expiration"
+msgstr "Ablauf"
+
 msgid "Expiration Date"
 msgstr "Ablaufdatum"
 
 msgid "Expiration Time"
 msgstr "Ablaufzeit"
+
+msgid "Expires"
+msgstr "Läuft ab"
 
 msgid "Extend Volume"
 msgstr "Datenträger erweitern"
@@ -2750,6 +2808,9 @@ msgstr "Evakuierung von Instanzen fehlgeschlagen: %s"
 
 msgid "Failed to get availability zone list."
 msgstr "Fehler beim Abruf der Liste der Verfügbarkeitszonen. "
+
+msgid "Failed to get instance interfaces."
+msgstr "Fehler beim Abruf der Instanz-Interfaces."
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -4578,6 +4639,13 @@ msgstr "Physikalisches Netzwerk"
 msgid "Physical Network:"
 msgstr "Physisches Netzwerk:"
 
+msgid ""
+"Please capture the application credential ID and secret in order to provide "
+"them to your application."
+msgstr ""
+"Bitte erfassen Sie die Applikations-Zugangsdaten-ID mit Geheimwort, um Sie "
+"für Ihre Applikation angeben zu können."
+
 msgid "Please note: "
 msgstr "Bitte beachten:"
 
@@ -5308,6 +5376,9 @@ msgstr "Skript-Daten"
 
 msgid "Script File"
 msgstr "Skript-Datei"
+
+msgid "Secret"
+msgstr "Geheimnis"
 
 msgid "Security Group"
 msgstr "Sicherheitsgruppe"
@@ -6216,6 +6287,21 @@ msgid "The admin password is incorrect."
 msgstr "Das Administratorpasswort ist nicht richtig"
 
 msgid ""
+"The application credential secret will not be available after closing this "
+"page, so you must capture it now or download it. If you lose this secret, "
+"you must generate a new application credential."
+msgstr ""
+"Das Geheimwort der Applikations-Zugangsdaten ist nach schließen der Seite "
+"nicht mehr verfügbar, Sie müssen es jetzt erfassen oder herunterladen. Wenn "
+"Sie das Geheimwort verlieren, müssen Sie neue Applikations-Zugangsdaten "
+"erstellen."
+
+msgid ""
+"The application credential will be created for the currently selected "
+"project."
+msgstr "Applikations-Zugangsdaten werden für das ausgewählte Projekt erstellt."
+
+msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
 msgstr ""
@@ -6734,6 +6820,9 @@ msgstr "Keine Verbindung zu Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "QoS Spezifikationen können nicht erzeugt werden."
 
+msgid "Unable to create application credential."
+msgstr "Applikations-Zugangsdaten können nicht erstellt werden."
+
 #, python-format
 msgid "Unable to create consistency group \"%s\" from snapshot."
 msgstr ""
@@ -7154,6 +7243,12 @@ msgstr "Agentenliste kann nicht abgerufen werden."
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "Externes Netzwerk kann nicht abgerufen werden \"%s\"."
+
+msgid "Unable to retrieve application credential details."
+msgstr "Applikations-Zugangsdaten-Details können nicht heruntergeladen werden."
+
+msgid "Unable to retrieve application credential list."
+msgstr "Liste der Applikations-Zugangsdaten kann nicht abgerufen werden."
 
 msgid "Unable to retrieve attachment information."
 msgstr "Anhang-Informationen können nicht abgerufen werden."
@@ -7773,6 +7868,9 @@ msgstr[1] "Registrierung von Identitätsanbietern aufgehoben"
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Rescue Mode beenden"
+
+msgid "Unrestricted"
+msgstr "Unbeschränkt"
 
 msgid "Unrestricted (dangerous)"
 msgstr "Unbeschränkt (gefährlich)"
@@ -8437,6 +8535,17 @@ msgstr ""
 msgid "You have selected:"
 msgstr "Sie haben ausgewählt:"
 
+msgid ""
+"You may give the application credential an expiration. The expiration will "
+"be in UTC. If you provide an expiration date with no expiration time, the "
+"time will be assumed to be 00:00:00. If you provide an expiration time with "
+"no expiration date, the date will be assumed to be today."
+msgstr ""
+"Sie können den Applikations-Zugangsdaten ein Ablaufdatum mitgeben. Die "
+"Ablaufzeit entspricht UTC. Wenn Sie ein Ablaufdatum ohne Zeit angeben wird "
+"00:00:00 angenommen. Wenn Sie eine Ablaufzeit ohne Datum angeben wird Heute "
+"als Datum angenommen."
+
 msgid "You may have mistyped the address or the page may have moved."
 msgstr ""
 "Es könnte sein, daß Sie sich bei der Adresse vertippt haben oder daß die "
@@ -8446,11 +8555,30 @@ msgid "You may optionally set a password on the rebuilt instance."
 msgstr "Sie können optional ein Passwort für die neu gebaute Instanz setzen."
 
 msgid ""
+"You may provide your own secret, or one will be generated for you. Once your "
+"application credential is created, the secret will be revealed once. If you "
+"lose the secret, you will have to generate a new application credential."
+msgstr ""
+"Sie können Ihr eigenes Geheimwort angeben oder es wird eines für Sie "
+"erstellt. Nachdem Sie Applikations-Zugangsdaten erstellt haben, wird das "
+"Geheimwort einmalig angezeigt. Wenn Sie dieses verlieren, so müssen Sie neue "
+"Applikations-Zugangsdaten erstellen."
+
+msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
 msgstr ""
 "Sie können das Gateway später durch die \"setze Gateway\" Aktion "
 "zurücksetzen, aber die IP-Adresse kann sich ändern."
+
+msgid ""
+"You may select one or more roles for this application credential. If you do "
+"not select any, all of the roles you have assigned on the current project "
+"will be applied to the application credential."
+msgstr ""
+"Sie können eine oder mehrere Rollen für die Applikations-Zugangsdaten "
+"auswählen. Wenn Sie keine auswählen, so werden alle dem aktuellen Projekt "
+"zugewiesenen Rollen auf die Applikations-Zugangsdaten angewendet."
 
 msgid "You may update the editable properties of your network here."
 msgstr "Sie können alle editierbaren Netzwerkeinstellungen hier aktualisieren."
@@ -8484,6 +8612,12 @@ msgstr ""
 "einer Sicherheitsgruppe als Quelle erlaubt mit dieser Regel den Zugriff von "
 "jeder beliebigen Instanz innerhalb dieser Gruppe auf eine andere in der "
 "Gruppe."
+
+msgid "Your Application Credential"
+msgstr "Ihre Applikations-Zugangsdaten"
+
+msgid "Your application credential"
+msgstr "Ihre Applikations-Zugangsdaten"
 
 #, python-format
 msgid "Your image %s has been queued for creation."

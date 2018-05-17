@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-05 07:48+0000\n"
+"POT-Creation-Date: 2018-05-16 17:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-05-06 08:11+0000\n"
+"PO-Revision-Date: 2018-05-14 05:38+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -2495,6 +2495,12 @@ msgstr ""
 msgid "Expiration"
 msgstr "有効期限"
 
+msgid "Expiration Date"
+msgstr "有効期限 (日付)"
+
+msgid "Expiration Time"
+msgstr "有効期限 (時刻)"
+
 msgid "Extend Volume"
 msgstr "ボリュームの拡張"
 
@@ -2582,6 +2588,14 @@ msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "network-ip-availability 拡張機能に対応しているかどうかを確認できませんでし"
 "た。"
+
+msgid "Failed to check if neutron supports \"auto_alloocated_network\"."
+msgstr ""
+"Neutron が auto_allocated_network に対応しているかを確認できませんでした。"
+
+msgid "Failed to check if nova supports \"auto_alloocated_network\"."
+msgstr ""
+"Nova が auto_allocated_network に対応しているかを確認できませんでした。"
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
@@ -2902,6 +2916,12 @@ msgstr "指定したプロジェクトに対して Floating IP を確保でき�
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "ここから、ボリュームスナップショットを作成できます。"
+
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr "コンピュートの標準のクォータ (上限) を更新できます。"
+
+msgid "From here you can update the default volume quotas (max limits)."
+msgstr "ボリュームの標準のクォータ (上限) を更新できます。"
 
 msgid "GB"
 msgstr "GB"
@@ -3808,6 +3828,10 @@ msgstr "最小メモリー (MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "ドメイン \"%s\" を変更しました。"
+
+#, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "\"%s\" のフレーバーアクセス権を変更しました。"
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -6098,6 +6122,9 @@ msgstr ""
 "仮想ネットワークを実装する物理ネットワーク名。お使いの neutron 環境で定義され"
 "ている物理ネットワークのいずれかを指定してください。"
 
+msgid "The new availability zone can't be empty"
+msgstr "アベイラビリティーゾーンは空にできません"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "仮想ネットワークを実装する物理メカニズム"
 
@@ -6806,6 +6833,10 @@ msgid "Unable to modify domain \"%s\"."
 msgstr "ドメイン \"%s\" を変更できません。"
 
 #, python-format
+msgid "Unable to modify flavor access of \"%s\"."
+msgstr "\"%s\" のフレーバーアクセス権を変更できません。"
+
+#, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "インスタンス \"%s\" のログを取得できません。"
 
@@ -7499,6 +7530,9 @@ msgstr[0] "認証プロバイダーが登録解除されました"
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "アンレスキュー中"
+
+msgid "Unrestricted (dangerous)"
+msgstr "無制限 (危険)"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
