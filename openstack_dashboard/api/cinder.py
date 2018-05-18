@@ -74,7 +74,6 @@ class BaseCinderAPIResourceWrapper(base.APIResourceWrapper):
     def name(self):
         # If a volume doesn't have a name, use its id.
         return (getattr(self._apiresource, 'name', None) or
-                getattr(self._apiresource, 'display_name', None) or
                 getattr(self._apiresource, 'id', None))
 
     @property
@@ -249,15 +248,6 @@ def get_microversion(request, features):
         'cinder', features, api_versions.APIVersion, min_ver, max_ver))
 
 
-def _replace_v2_parameters(data):
-    if VERSIONS.active < 2:
-        data['display_name'] = data['name']
-        data['display_description'] = data['description']
-        del data['name']
-        del data['description']
-    return data
-
-
 def version_get():
     api_version = VERSIONS.get_active_version()
     return api_version['version']
@@ -365,7 +355,6 @@ def volume_create(request, size, name, description, volume_type,
             'imageRef': image_id,
             'availability_zone': availability_zone,
             'source_volid': source_volid}
-    data = _replace_v2_parameters(data)
 
     volume = cinderclient(request).volumes.create(size, **data)
     return Volume(volume)
@@ -398,7 +387,6 @@ def volume_set_bootable(request, volume_id, bootable):
 def volume_update(request, volume_id, name, description):
     vol_data = {'name': name,
                 'description': description}
-    vol_data = _replace_v2_parameters(vol_data)
     return cinderclient(request).volumes.update(volume_id,
                                                 **vol_data)
 
@@ -493,7 +481,6 @@ def volume_snapshot_create(request, volume_id, name,
     data = {'name': name,
             'description': description,
             'force': force}
-    data = _replace_v2_parameters(data)
 
     return VolumeSnapshot(cinderclient(request).volume_snapshots.create(
         volume_id, **data))
@@ -508,7 +495,6 @@ def volume_snapshot_delete(request, snapshot_id):
 def volume_snapshot_update(request, snapshot_id, name, description):
     snapshot_data = {'name': name,
                      'description': description}
-    snapshot_data = _replace_v2_parameters(snapshot_data)
     return cinderclient(request).volume_snapshots.update(snapshot_id,
                                                          **snapshot_data)
 
