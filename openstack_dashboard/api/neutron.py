@@ -1026,7 +1026,7 @@ def _is_auto_allocated_network_supported(request):
             'auto-allocated-topology', default=False)
     except Exception:
         exceptions.handle(request, _('Failed to check if neutron supports '
-                                     '"auto_alloocated_network".'))
+                                     '"auto_allocated_network".'))
         neutron_auto_supported = False
     if not neutron_auto_supported:
         return False
@@ -1039,7 +1039,7 @@ def _is_auto_allocated_network_supported(request):
                       "auto_allocated_network"))
     except Exception:
         exceptions.handle(request, _('Failed to check if nova supports '
-                                     '"auto_alloocated_network".'))
+                                     '"auto_allocated_network".'))
         nova_auto_supported = False
 
     return nova_auto_supported
