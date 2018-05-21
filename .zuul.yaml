@@ -60,6 +60,21 @@
       tempest_test_regex: horizon
       tox_envlist: all
 
+- job:
+    # Security testing for known issues
+    name: horizon-tox-bandit-baseline
+    parent: openstack-tox
+    timeout: 2400
+    vars:
+      tox_envlist: bandit-baseline
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^.*\locale/.*$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+      - ^setup.cfg$
+      - ^tools/.*$
+
 - project:
     check:
       jobs:
@@ -68,6 +83,8 @@
             voting: false
         - horizon-dsvm-tempest-plugin
         - openstack-tox-lower-constraints
+        - horizon-tox-bandit-baseline:
+            voting: false
     gate:
       jobs:
         - horizon-openstack-tox-python3-django111
