@@ -188,7 +188,7 @@ class EditAttachments(tables.LinkAction):
             project_id = getattr(volume, "os-vol-tenant-attr:tenant_id", None)
             attach_allowed = \
                 policy.check((("compute",
-                             "os_compute_api:servers:attach_volume"),),
+                             "os_compute_api:servers:create:attach_volume"),),
                              request,
                              {"project_id": project_id})
             detach_allowed = \

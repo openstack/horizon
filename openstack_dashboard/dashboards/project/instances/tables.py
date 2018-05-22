@@ -892,7 +892,8 @@ class AttachVolume(tables.LinkAction):
     verbose_name = _("Attach Volume")
     url = "horizon:project:instances:attach_volume"
     classes = ("ajax-modal",)
-    policy_rules = (("compute", "os_compute_api:servers:attach_volume"),)
+    policy_rules = (
+        ("compute", "os_compute_api:servers:create:attach_volume"),)
 
     # This action should be disabled if the instance
     # is not active, or the instance is being deleted
