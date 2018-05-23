@@ -6,21 +6,23 @@
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2017. #zanata
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2018. #zanata
 # Reik Keutterling <spielkind@gmail.com>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
+# Robin Naundorf <r.naundorf@fh-muenster.de>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-14 03:55+0000\n"
+"POT-Creation-Date: 2018-05-15 00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-13 04:31+0000\n"
-"Last-Translator: Reik Keutterling <spielkind@gmail.com>\n"
+"PO-Revision-Date: 2018-05-22 08:33+0000\n"
+"Last-Translator: Robin Naundorf <r.naundorf@fh-muenster.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
@@ -1086,7 +1088,7 @@ msgid "Consistency Group Snapshots"
 msgstr "Konsistenzgruppen Schattenkopien"
 
 msgid "Consistency Groups"
-msgstr "Konsitenzgruppen"
+msgstr "Konsistenzgruppen"
 
 msgid "Console"
 msgstr "Konsole"
