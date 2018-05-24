@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-08 08:30+0000\n"
+"POT-Creation-Date: 2018-05-23 05:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2639,12 +2639,6 @@ msgstr "Gagal memeriksa apakah bidang deskripsi didukung."
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Gagal memeriksa apakah perluasan network-ip-availability didukung."
-
-msgid "Failed to check if neutron supports \"auto_alloocated_network\"."
-msgstr "Gagal memeriksa apakah neutron mendukung \"auto_alloocated_network\"."
-
-msgid "Failed to check if nova supports \"auto_alloocated_network\"."
-msgstr "Gagal memeriksa apakah nova mendukung \"auto_alloocated_network\"."
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
