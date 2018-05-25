@@ -558,7 +558,8 @@
       var enabledSnapshot = allEnabled || !config.disable_instance_snapshot;
 
       if (enabledImage || enabledSnapshot) {
-        return glanceAPI.getImages({status: 'active'}).then(function getEnabledImages(data) {
+        var filter = {status: 'active', sort_key: 'name', sort_dir: 'asc'};
+        return glanceAPI.getImages(filter).then(function getEnabledImages(data) {
           if (enabledImage) {
             onGetImages(data);
           }
