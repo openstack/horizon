@@ -31,14 +31,16 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_mocks({
         api.nova: ['flavor_list', 'server_list', 'extension_supported'],
         api.keystone: ['tenant_list'],
-        api.glance: ['image_list_detailed'],
+        api.glance: ['image_list_detailed_by_ids'],
     })
     def test_index(self):
         servers = self.servers.list()
+        # TODO(vmarkov) instances_img_ids should be in test_data
+        instances_img_ids = [instance.image.get('id') for instance in
+                             servers if isinstance(instance.image, dict)]
         self.mock_extension_supported.return_value = True
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
-        self.mock_image_list_detailed.return_value = (self.images.list(),
-                                                      False, False)
+        self.mock_image_list_detailed_by_ids.return_value = self.images.list()
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_server_list.return_value = [servers, False]
 
@@ -53,8 +55,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
             mock.call('Shelve', test.IsHttpRequest())] * 4)
         self.assertEqual(12, self.mock_extension_supported.call_count)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.mock_image_list_detailed.assert_called_once_with(
-            test.IsHttpRequest())
+        self.mock_image_list_detailed_by_ids.assert_called_once_with(
+            test.IsHttpRequest(), instances_img_ids)
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         self.mock_server_list.assert_called_once_with(
@@ -64,11 +66,13 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova: ['flavor_list', 'flavor_get', 'server_list',
                    'extension_supported'],
         api.keystone: ['tenant_list'],
-        api.glance: ['image_list_detailed'],
+        api.glance: ['image_list_detailed_by_ids'],
     })
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
+        instances_img_ids = [instance.image.get('id') for instance in
+                             servers if hasattr(instance, 'image')]
         full_flavors = OrderedDict([(f.id, f) for f in flavors])
         self.mock_server_list.return_value = [servers, False]
         self.mock_extension_supported.return_value = True
@@ -79,8 +83,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             return full_flavors[id]
         self.mock_flavor_get.side_effect = _get_full_flavor
 
-        self.mock_image_list_detailed.return_value = (self.images.list(),
-                                                      False, False)
+        self.mock_image_list_detailed_by_ids.return_value = self.images.list()
 
         res = self.client.get(INDEX_URL)
 
@@ -101,24 +104,25 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_flavor_get.assert_has_calls(
             [mock.call(test.IsHttpRequest(), s.flavor['id']) for s in servers])
         self.assertEqual(len(servers), self.mock_flavor_get.call_count)
-        self.mock_image_list_detailed.assert_called_once_with(
-            test.IsHttpRequest())
+        self.mock_image_list_detailed_by_ids.assert_called_once_with(
+            test.IsHttpRequest(), instances_img_ids)
 
     @test.create_mocks({
         api.nova: ['flavor_list', 'flavor_get', 'server_list',
                    'extension_supported'],
         api.keystone: ['tenant_list'],
-        api.glance: ['image_list_detailed'],
+        api.glance: ['image_list_detailed_by_ids'],
     })
     def test_index_flavor_get_exception(self):
         servers = self.servers.list()
+        instances_img_ids = [instance.image.get('id') for instance in
+                             servers if hasattr(instance, 'image')]
         # UUIDs generated using indexes are unlikely to match
         # any of existing flavor ids and are guaranteed to be deterministic.
         for i, server in enumerate(servers):
             server.flavor['id'] = str(uuid.UUID(int=i))
 
-        self.mock_image_list_detailed.return_value = \
-            (self.images.list(), False, False)
+        self.mock_image_list_detailed_by_ids.return_value = self.images.list()
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_server_list.return_value = [servers, False]
         self.mock_extension_supported.return_value = True
@@ -134,8 +138,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertMessageCount(res, error=1)
         self.assertItemsEqual(instances, servers)
 
-        self.mock_image_list_detailed.assert_called_once_with(
-            test.IsHttpRequest())
+        self.mock_image_list_detailed_by_ids.assert_called_once_with(
+            test.IsHttpRequest(), instances_img_ids)
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         self.mock_server_list.assert_called_once_with(
@@ -153,14 +157,13 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_mocks({
         api.nova: ['server_list', 'flavor_list'],
         api.keystone: ['tenant_list'],
-        api.glance: ['image_list_detailed'],
+        api.glance: ['image_list_detailed_by_ids'],
     })
     def test_index_server_list_exception(self):
         self.mock_server_list.side_effect = self.exceptions.nova
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
-        self.mock_image_list_detailed.return_value = (self.images.list(),
-                                                      False, False)
+        self.mock_image_list_detailed_by_ids.return_value = self.images.list()
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
@@ -171,8 +174,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
             test.IsHttpRequest(),
             search_opts=search_opts)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.mock_image_list_detailed.assert_called_once_with(
-            test.IsHttpRequest())
+        self.mock_image_list_detailed_by_ids.assert_called_once_with(
+            test.IsHttpRequest(), [])
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({api.nova: ['server_get', 'flavor_get',
@@ -222,12 +225,14 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_mocks({
         api.nova: ['flavor_list', 'server_list', 'extension_supported'],
         api.keystone: ['tenant_list'],
-        api.glance: ['image_list_detailed'],
+        api.glance: ['image_list_detailed_by_ids'],
     })
     def test_index_options_before_migrate(self):
+        servers = self.servers.list()
+        instances_img_ids = [instance.image.get('id') for instance in
+                             servers if hasattr(instance, 'image')]
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
-        self.mock_image_list_detailed.return_value = (self.images.list(),
-                                                      False, False)
+        self.mock_image_list_detailed_by_ids.return_value = self.images.list()
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_server_list.return_value = [self.servers.list(), False]
         self.mock_extension_supported.return_value = True
@@ -238,8 +243,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertNotContains(res, "instances__revert")
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.mock_image_list_detailed.assert_called_once_with(
-            test.IsHttpRequest())
+        self.mock_image_list_detailed_by_ids.assert_called_once_with(
+            test.IsHttpRequest(), instances_img_ids)
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         self.mock_server_list.assert_called_once_with(
@@ -253,7 +258,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_mocks({
         api.nova: ['flavor_list', 'server_list', 'extension_supported'],
         api.keystone: ['tenant_list'],
-        api.glance: ['image_list_detailed'],
+        api.glance: ['image_list_detailed_by_ids'],
     })
     def test_index_options_after_migrate(self):
         servers = self.servers.list()
@@ -261,9 +266,10 @@ class InstanceViewTest(test.BaseAdminViewTests):
         server1.status = "VERIFY_RESIZE"
         server2 = servers[2]
         server2.status = "VERIFY_RESIZE"
+        instances_img_ids = [instance.image.get('id') for instance in
+                             servers if hasattr(instance, 'image')]
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
-        self.mock_image_list_detailed.return_value = (self.images.list(),
-                                                      False, False)
+        self.mock_image_list_detailed_by_ids.return_value = self.images.list()
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_extension_supported.return_value = True
         self.mock_server_list.return_value = [servers, False]
@@ -274,8 +280,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertNotContains(res, "instances__migrate")
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.mock_image_list_detailed.assert_called_once_with(
-            test.IsHttpRequest())
+        self.mock_image_list_detailed_by_ids.assert_called_once_with(
+            test.IsHttpRequest(), instances_img_ids)
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_extension_supported.assert_has_calls([
             mock.call('AdminActions', test.IsHttpRequest()),
