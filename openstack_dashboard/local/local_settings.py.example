@@ -190,8 +190,10 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 # For setting the default service region on a per-endpoint basis. Note that the
 # default value for this setting is {}, and below is just an example of how it
 # should be specified.
+# A key of '*' is an optional global default if no other key matches.
 #DEFAULT_SERVICE_REGIONS = {
-#    OPENSTACK_KEYSTONE_URL: 'RegionOne'
+#    '*': 'RegionOne'
+#    OPENSTACK_KEYSTONE_URL: 'RegionTwo'
 #}
 
 # Enables keystone web single-sign-on if set to True.
