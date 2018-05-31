@@ -34,7 +34,7 @@ def flavor_list(request):
         return []
 
 
-def sort_flavor_list(request, flavors):
+def sort_flavor_list(request, flavors, with_menu_label=True):
     """Utility method to sort a list of flavors.
 
     By default, returns the available flavors, sorted by RAM usage (ascending).
@@ -57,8 +57,12 @@ def sort_flavor_list(request, flavors):
                 return get_key(flavor, sort_key)
         else:
             key = sort_key
-        flavor_list = [(flavor.id, '%s' % flavor.name)
-                       for flavor in sorted(flavors, key=key, reverse=rev)]
+
+        if with_menu_label:
+            flavor_list = [(flavor.id, '%s' % flavor.name)
+                           for flavor in sorted(flavors, key=key, reverse=rev)]
+        else:
+            flavor_list = sorted(flavors, key=key, reverse=rev)
         return flavor_list
     except Exception:
         exceptions.handle(request,
