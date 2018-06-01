@@ -92,6 +92,10 @@ def login(request, template_name=None, extra_context=None, **kwargs):
 
     extra_context['csrf_failure'] = request.GET.get('csrf_failure')
 
+    choices = getattr(settings, 'WEBSSO_CHOICES', ())
+    extra_context['show_sso_opts'] = (utils.is_websso_enabled() and
+                                      len(choices) > 1)
+
     if not template_name:
         if request.is_ajax():
             template_name = 'auth/_login.html'
