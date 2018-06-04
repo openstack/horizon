@@ -525,7 +525,10 @@ def image_create(request, **kwargs):
             return ExternallyUploadedImage(image, request)
         elif isinstance(data, TemporaryUploadedFile):
             # Hack to fool Django, so we can keep file open in the new thread.
-            data.file.close_called = True
+            if six.PY2:
+                data.file.close_called = True
+            else:
+                data.file._closer.close_called = True
         elif isinstance(data, InMemoryUploadedFile):
             # Clone a new file for InMemeoryUploadedFile.
             # Because the old one will be closed by Django.
