@@ -188,8 +188,8 @@ class DropDownMenuRegion(baseregion.BaseRegion):
     _menu_container_locator = (by.By.CSS_SELECTOR, 'ul.dropdown-menu')
     _menu_items_locator = (by.By.CSS_SELECTOR,
                            'ul.dropdown-menu > li > *')
-    _dropdown_locator = (by.By.CSS_SELECTOR, '.dropdown')
-    _active_cls = 'selenium-active'
+    _dropdown_locator = (by.By.CSS_SELECTOR, '.dropdown > a')
+    _active_cls = 'dropdown-toggle'
 
     @property
     def menu_items(self):
