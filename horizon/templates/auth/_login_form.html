@@ -30,7 +30,9 @@
           <input type="password" name="fake_password" value="" />
         </div>
       {%endif%}
+      {% if show_sso_opts %}
       {% include "auth/_description.html" %}
+      {% endif %}
       <fieldset hz-login-finder>
         {% if request.user.is_authenticated and 'next' in request.GET %}
           <div class="form-group clearfix error help-block alert alert-danger">
