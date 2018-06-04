@@ -23,6 +23,7 @@
   launchInstanceService.$inject = [
     '$q',
     'horizon.app.core.images.non_bootable_image_types',
+    'horizon.app.core.openstack-service-api.policy',
     'horizon.dashboard.project.workflow.launch-instance.modal.service',
     'horizon.framework.util.q.extensions'
   ];
@@ -44,6 +45,7 @@
   function launchInstanceService(
     $q,
     nonBootableImageTypes,
+    policy,
     launchInstanceModal,
     $qExtensions
   ) {
@@ -66,7 +68,11 @@
     }
 
     function allowed(image) {
-      return $q.all([isBootable(image), isActive(image)]);
+      return $q.all([
+        isBootable(image),
+        isActive(image),
+        policy.ifAllowed({ rules: [['compute', 'compute:create']] })
+      ]);
     }
 
     function isActive(image) {
