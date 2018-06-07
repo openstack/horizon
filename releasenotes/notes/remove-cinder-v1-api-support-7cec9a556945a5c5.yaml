@@ -1,0 +1,7 @@
+---
+upgrade:
+  - |
+    Remove deprecated Cinder API V1 support. Cinder V1 API was deprecated for
+    a while and removed in Queens release. If you need to enable Cinder support
+    you should update the `OPENSTACK_API_VERSIONS` configuration option to use
+    Cinder V2 or V3 API.

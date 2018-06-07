@@ -496,7 +496,6 @@ class CinderApiVersionTests(test.TestCase):
         # Get a v2 volume
         volume = self.cinder_volumes.get(name="v2_volume")
         self.assertTrue(hasattr(volume._apiresource, 'name'))
-        self.assertFalse(hasattr(volume._apiresource, 'display_name'))
 
         name = "A v2 test volume name"
         description = "A v2 volume description"
@@ -534,17 +533,4 @@ class CinderApiVersionTests(test.TestCase):
 
     def test_get_id_for_nameless_volume(self):
         volume = self.cinder_volumes.first()
-        setattr(volume._apiresource, 'display_name', "")
-        self.assertEqual(volume.id, volume.name)
-
-    def test_adapt_dictionary_to_v2(self):
-        volume = self.cinder_volumes.first()
-        data = {'name': volume.name,
-                'description': volume.description,
-                'size': volume.size}
-
-        ret_data = api.cinder._replace_v2_parameters(data)
-        self.assertIn('name', ret_data.keys())
-        self.assertIn('description', ret_data.keys())
-        self.assertNotIn('display_name', ret_data.keys())
-        self.assertNotIn('display_description', ret_data.keys())
+        self.assertEqual('Volume name', volume.name)
