@@ -16,6 +16,14 @@
       tox_envlist: py35dj20
 
 - job:
+    name: horizon-openstack-tox-python3-django111
+    parent: horizon-openstack-tox-base
+    vars:
+      tox_envlist: py3-dj111
+    required-projects:
+      - name: openstack/horizon
+
+- job:
     name: horizon-selenium-headless
     parent: horizon-openstack-tox-base
     vars:
@@ -54,13 +62,13 @@
 - project:
     check:
       jobs:
-        - horizon-openstack-tox-py35dj20
+        - horizon-openstack-tox-python3-django111
         - horizon-selenium-headless
         - horizon-dsvm-tempest-plugin
         - openstack-tox-lower-constraints
     gate:
       jobs:
-        - horizon-openstack-tox-py35dj20
+        - horizon-openstack-tox-python3-django111
         - horizon-selenium-headless
         - horizon-dsvm-tempest-plugin
         - openstack-tox-lower-constraints
