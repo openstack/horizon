@@ -11,6 +11,7 @@
 # Taehee Jang <jang0913@gmail.com>, 2017. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
 # Jun-Sik Shin <jsshin@smartx.kr>, 2018. #zanata
@@ -19,16 +20,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-01 15:15+0000\n"
+"POT-Creation-Date: 2018-06-09 06:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-30 08:03+0000\n"
-"Last-Translator: Jun-Sik Shin <jsshin@smartx.kr>\n"
+"PO-Revision-Date: 2018-06-07 11:13+0000\n"
+"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ""
+"\"Interfaces\" tab is added to the instance detail page. The new tab shows a "
+"list of ports attached to an instance. Users now have an easy way to access "
+"the list of ports of the instance and edit security groups per port. In "
+"addition, \"Edit Port Security Groups\" menu is added as an action of the "
+"instance table."
+msgstr ""
+"인스턴스 상세 페이지에 \"인터페이스\" 탭이 추가되었습니다. 이 새로운 탭은 인"
+"스턴스에 연결되어 있는 포트 목록을 보여줍니다. 이제 사용자는 손쉽게 인스턴스"
+"의 포트 리스트에 접근할 수 있고 포트 단위의 보안그룹을 편집할 수 있습니다. 추"
+"가적으로, \"포트 보안 그룹 편집\" 메뉴는 인스턴스 테이블의 동작으로서 추가되"
+"었습니다."
 
 msgid "\"More Actions\", More Better"
 msgstr "\"More Actions\", 더 좋아집니다."
@@ -81,6 +95,9 @@ msgstr "11.0.3"
 
 msgid "12.0.0"
 msgstr "12.0.0"
+
+msgid "12.0.3"
+msgstr "12.0.3"
 
 msgid "13.0.0"
 msgstr "13.0.0"
@@ -402,6 +419,16 @@ msgstr ""
 "계가 출력되도록 하기 위해 반드시 통과해야 하는지를 검색하는 정책을 지정할 수 "
 "있습니다."
 
+msgid ""
+"Added server groups and server group members quota management. Users can "
+"specify their values when creating or modifying project information, and "
+"users can also change their quota default values on the Admin-> System-> "
+"Defaults page."
+msgstr ""
+"서버 그룹과 서버 그룹 멤버 할당량 관리가 추가되었습니다. 사용자는 자신의 프로"
+"젝트 정보를 생성하거나 수정할 때 값을 지정할 수 있고, 자신의 기본 할당량을 관"
+"리자->시스템->기본값 페이지에서 변경할 수 있습니다."
+
 # auto translated by TM merge from project: horizon, version: stable-pike, DocId: releasenotes/source/locale/releasenotes
 msgid ""
 "Added settings OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN (boolean) and "
@@ -428,6 +455,15 @@ msgid ""
 msgstr ""
 "angular 워크 플로우 서비스 지원 설정을 추가하여 워크 플로우의 각 단계에서 단"
 "계를 표시하기 위해 통과해야하는 boolean 설정을 지정할 수 있습니다."
+
+msgid ""
+"Added support for Swift object copy as one of row actions. Destination "
+"container must exist in advance. To avoid overwriting an existing object, "
+"you cannot copy an object if a specified destination object already exists."
+msgstr ""
+"Swift 오브젝트 복사가 행 작업의 하나로서 추가되었습니다. 대상 컨테이너는 미"
+"리 준비되어야 합니다. 기존 오브젝트에 덮어씌우기를 방지하기 위해, 지정된 대"
+"상 오브젝트가 존재할 경우 복사할 수 없습니다."
 
 msgid ""
 "Added support for managing domains and projects when using Keystone v3. "
@@ -529,6 +565,18 @@ msgstr ""
 "에 해제하는 기능을 사용자 정의화 가능하도록 합니다."
 
 msgid ""
+"Added the angular extensible service which allows angular horizon elements "
+"such as workflows, tables, actions, and forms to be extended dynamically by "
+"adding, removing, or replacing items. The extensible service is applied to "
+"every workflow created using the horizon workflow service. This includes the "
+"angular Launch Instance workflow."
+msgstr ""
+"워크플로우, 테이블, 작업, 양식과 같은 angular 호라이즌 구성요소가 항목의 추"
+"가, 삭제, 대체를 통해 동작으로 확장될 수 있는 angular 확장 서비스가 추가되었"
+"습니다. 이 확장 서비스는 호라이즌 워크플로우 서비스로 생성된 모든 워크플로우"
+"에 적용됩니다. 이는 angular 인스턴스 작동하기 워크플로우를 포함합니다."
+
+msgid ""
 "Added the way to specify an interface when attaching it to an instance. It "
 "can be specified by a network and a fixed IP address (optional) or a port."
 msgstr ""
@@ -560,6 +608,12 @@ msgstr ""
 "Horizon이 Keystone 카탈로그에서 Glance v1 엔드 포인트를 더 이상 사용하지 않도"
 "록 Glance v2에 대한 완벽한 지원을 추가합니다. 또한 Glance v1과 v2 간의 코드 "
 "호환성을 제공합니다."
+
+msgid "Admin -> Defaults -> Default Quotas table"
+msgstr "관리자 -> 기본값 -> 기본 할당량 테이블"
+
+msgid "Admin -> Defaults -> Update Defaults form"
+msgstr "관리자 -> 기본값 -> 기본 양식 업데이트"
 
 msgid ""
 "All AngularJS code must use explicit dependency injection. See https://docs."
