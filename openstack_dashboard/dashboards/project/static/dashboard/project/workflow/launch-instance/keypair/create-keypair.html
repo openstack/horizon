@@ -23,7 +23,7 @@
              id="keypair-name"
              ng-model="ctrl.keypair"
              ng-required="true"
-             ng-pattern="/^[A-Za-z0-9 -]+$/">
+             ng-pattern="/^[A-Za-z0-9 _-]+$/">
       <span class="help-block"
             ng-show="(ctrl.doesKeypairExist() || wizardForm.$invalid) && wizardForm.$dirty">
         {$ ctrl.keypairExistsError $}
