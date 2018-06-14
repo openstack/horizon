@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import random
-
 from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
@@ -23,8 +21,8 @@ class TestFlavorAngular(helpers.AdminTestCase):
     @property
     def flavors_page(self):
         from openstack_dashboard.test.integration_tests.pages.admin.\
-            system.flavorspage import FlavorsPageNG
-        self.home_pg.go_to_system_flavorspage()
+            compute.flavorspage import FlavorsPageNG
+        self.home_pg.go_to_admin_compute_flavorspage()
         return FlavorsPageNG(self.driver, self.CONFIG)
 
     def test_basic_flavors_browse(self):
@@ -39,7 +37,7 @@ class TestFlavors(helpers.AdminTestCase):
 
     def setUp(self):
         super(TestFlavors, self).setUp()
-        self.flavors_page = self.home_pg.go_to_system_flavorspage()
+        self.flavors_page = self.home_pg.go_to_admin_compute_flavorspage()
 
     def _create_flavor(self, flavor_name):
         self.flavors_page.create_flavor(
@@ -87,52 +85,4 @@ class TestFlavors(helpers.AdminTestCase):
         * verifies the flavor does not appear in the table after deletion
         """
         self._create_flavor(self.FLAVOR_NAME)
-        self._delete_flavor(self.FLAVOR_NAME)
-
-    def test_flavor_update_info(self):
-        """Tests the flavor Edit row action functionality"""
-
-        self._create_flavor(self.FLAVOR_NAME)
-
-        add_up = random.randint(1, 10)
-        old_vcpus = self.flavors_page.get_flavor_vcpus(self.FLAVOR_NAME)
-        old_ram = self.flavors_page.get_flavor_ram(self.FLAVOR_NAME)
-        old_disk = self.flavors_page.get_flavor_disk(self.FLAVOR_NAME)
-
-        self.flavors_page.update_flavor_info(self.FLAVOR_NAME, add_up)
-
-        self.assertTrue(
-            self.flavors_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.flavors_page.find_message_and_dismiss(messages.ERROR))
-        self.assertTrue(
-            self.flavors_page.is_flavor_present("edited-" + self.FLAVOR_NAME))
-
-        new_vcpus = self.flavors_page.get_flavor_vcpus(
-            "edited-" + self.FLAVOR_NAME)
-        new_ram = self.flavors_page.get_flavor_ram(
-            "edited-" + self.FLAVOR_NAME)
-        new_disk = self.flavors_page.get_flavor_disk(
-            "edited-" + self.FLAVOR_NAME)
-
-        self.assertIsNot(old_disk, new_disk)
-        self.assertIsNot(old_ram, new_ram)
-        self.assertIsNot(old_vcpus, new_vcpus)
-
-        self._delete_flavor("edited-" + self.FLAVOR_NAME)
-
-    def test_flavor_update_access(self):
-        self._create_flavor(self.FLAVOR_NAME)
-
-        self.flavors_page.update_flavor_access(self.FLAVOR_NAME,
-                                               self.HOME_PROJECT)
-
-        self.assertFalse(self.flavors_page.is_flavor_public(self.FLAVOR_NAME))
-
-        self.flavors_page.update_flavor_access(self.FLAVOR_NAME,
-                                               self.HOME_PROJECT,
-                                               allocate=False)
-
-        self.assertTrue(self.flavors_page.is_flavor_public(self.FLAVOR_NAME))
-
         self._delete_flavor(self.FLAVOR_NAME)

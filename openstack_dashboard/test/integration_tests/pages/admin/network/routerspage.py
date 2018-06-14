@@ -17,7 +17,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 
 class RoutersTable(routerspage.RoutersTable):
-    EDIT_ROUTER_FORM_FIELDS = ("name", "admin_state", "router_id")
+    EDIT_ROUTER_FORM_FIELDS = ("name", "admin_state")
 
     @tables.bind_row_action('update')
     def edit_router(self, edit_button, row):

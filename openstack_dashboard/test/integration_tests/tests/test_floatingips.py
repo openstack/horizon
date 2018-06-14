@@ -13,6 +13,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -22,7 +23,7 @@ class TestFloatingip(helpers.TestCase):
 
     def test_floatingip(self):
         floatingip_page = \
-            self.home_pg.go_to_compute_accessandsecurity_floatingipspage()
+            self.home_pg.go_to_project_network_floatingipspage()
         floating_ip = floatingip_page.allocate_floatingip()
         self.assertTrue(
             floatingip_page.find_message_and_dismiss(messages.SUCCESS))
@@ -41,10 +42,11 @@ class TestFloatingip(helpers.TestCase):
 class TestFloatingipAssociateDisassociate(helpers.TestCase):
     """Checks that the user is able to Associate/Disassociate floatingip."""
 
+    @decorators.skip_because(bugs=['1774697'])
     def test_floatingip_associate_disassociate(self):
         instance_name = helpers.gen_random_resource_name('instance',
                                                          timestamp=False)
-        instances_page = self.home_pg.go_to_compute_instancespage()
+        instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.create_instance(instance_name)
         self.assertTrue(
             instances_page.find_message_and_dismiss(messages.SUCCESS))
@@ -55,7 +57,7 @@ class TestFloatingipAssociateDisassociate(helpers.TestCase):
         instance_info = "{} {}".format(instance_name, instance_ipv4)
 
         floatingip_page = \
-            self.home_pg.go_to_compute_accessandsecurity_floatingipspage()
+            self.home_pg.go_to_project_network_floatingipspage()
         floating_ip = floatingip_page.allocate_floatingip()
         self.assertTrue(
             floatingip_page.find_message_and_dismiss(messages.SUCCESS))
@@ -87,7 +89,7 @@ class TestFloatingipAssociateDisassociate(helpers.TestCase):
             floatingip_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(floatingip_page.is_floatingip_present(floating_ip))
 
-        instances_page = self.home_pg.go_to_compute_instancespage()
+        instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.delete_instance(instance_name)
         self.assertTrue(
             instances_page.find_message_and_dismiss(messages.SUCCESS))

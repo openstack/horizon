@@ -68,11 +68,11 @@ class FlavorsTable(tables.TableRegion):
 
 class FlavorsPage(basepage.BaseNavigationPage):
     DEFAULT_ID = "auto"
-    FLAVORS_TABLE_NAME_COLUMN = 'name'
-    FLAVORS_TABLE_VCPUS_COLUMN = 'vcpus'
-    FLAVORS_TABLE_RAM_COLUMN = 'ram'
-    FLAVORS_TABLE_DISK_COLUMN = 'disk'
-    FLAVORS_TABLE_PUBLIC_COLUMN = 'public'
+    FLAVORS_TABLE_NAME_COLUMN = 'Flavor Name'
+    FLAVORS_TABLE_VCPUS_COLUMN = 'VCPUs'
+    FLAVORS_TABLE_RAM_COLUMN = 'RAM'
+    FLAVORS_TABLE_DISK_COLUMN = 'Root Disk'
+    FLAVORS_TABLE_PUBLIC_COLUMN = 'Public'
 
     def __init__(self, driver, conf):
         super(FlavorsPage, self).__init__(driver, conf)

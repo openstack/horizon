@@ -10,7 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -22,21 +21,19 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
 
     @property
     def volumes_snapshot_page(self):
-        return self.home_pg.go_to_compute_volumes_volumesnapshotspage()
+        return self.home_pg.go_to_project_volumes_snapshotspage()
 
     def setUp(self):
         """Setup: create volume"""
         super(TestVolumeSnapshotsBasic, self).setUp()
-        volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
+        volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.create_volume(self.VOLUME_NAME)
         volumes_page.find_message_and_dismiss(messages.INFO)
         self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
                                                       'Available'))
 
         def cleanup():
-            volumes_snapshot_page = \
-                self.home_pg.go_to_compute_volumes_volumesnapshotspage()
-            volumes_page = volumes_snapshot_page.switch_to_volumes_tab()
+            volumes_page = self.home_pg.go_to_project_volumes_volumespage()
             volumes_page.delete_volume(self.VOLUME_NAME)
             volumes_page.find_message_and_dismiss(messages.SUCCESS)
             self.assertTrue(volumes_page.is_volume_deleted(self.VOLUME_NAME))
@@ -48,7 +45,7 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
 
         Steps:
         1. Login to Horizon Dashboard
-        2. Navigate to Project -> Compute -> Volumes page
+        2. Navigate to Project -> Volumes -> Volumes page
         3. Create snapshot for existed volume
         4. Check that no ERROR appears
         5. Check that snapshot is in the list
@@ -57,7 +54,7 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         8. Delete volume snapshot from proper page
         9. Check that volume snapshot not in the list
         """
-        volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
+        volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_snapshot_page = volumes_page.create_volume_snapshot(
             self.VOLUME_NAME, self.VOLUME_SNAPSHOT_NAME)
         self.assertTrue(volumes_page.find_message_and_dismiss(messages.INFO))
@@ -70,7 +67,7 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
 
         new_name = "new_" + self.VOLUME_SNAPSHOT_NAME
         volumes_snapshot_page = \
-            self.home_pg.go_to_compute_volumes_volumesnapshotspage()
+            self.home_pg.go_to_project_volumes_snapshotspage()
         volumes_snapshot_page.edit_snapshot(self.VOLUME_SNAPSHOT_NAME,
                                             new_name, "description")
         self.assertTrue(
@@ -80,7 +77,6 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         self.assertTrue(volumes_snapshot_page.
                         is_volume_snapshot_available(new_name))
 
-        volumes_snapshot_page = self.volumes_snapshot_page
         volumes_snapshot_page.delete_volume_snapshot(new_name)
         self.assertTrue(
             volumes_snapshot_page.find_message_and_dismiss(messages.SUCCESS))
@@ -94,12 +90,12 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
 
         Steps:
         1) Login to Horizon Dashboard
-        2) Go to Project -> Compute -> Volumes -> Volumes tab, create
+        2) Go to Project -> Volumes -> Volumes tab, create
            volumes and 3 snapshots
         3) Navigate to user settings page
         4) Change 'Items Per Page' value to 1
-        5) Go to Project -> Compute -> Volumes -> Volumes Snapshot tab
-           or Admin -> System -> Volumes -> Volumes Snapshot tab
+        5) Go to Project -> Volumes -> Snapshots tab
+           or Admin -> Volume -> Snapshots tab
            (depends on user)
         6) Check that only 'Next' link is available, only one snapshot is
            available (and it has correct name)
@@ -112,7 +108,7 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         11) Go to user settings page and restore 'Items Per Page'
         12) Delete created snapshots and volumes
         """
-        volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
+        volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         count = 3
         items_per_page = 1
         snapshot_names = ["{0}_{1}".format(self.VOLUME_SNAPSHOT_NAME, i) for i
@@ -124,7 +120,7 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
             self.assertTrue(
                 volumes_snapshot_page.is_volume_snapshot_available(name))
             if i < count - 1:
-                volumes_snapshot_page.switch_to_volumes_tab()
+                self.home_pg.go_to_project_volumes_volumespage()
 
         first_page_definition = {'Next': True, 'Prev': False,
                                  'Count': items_per_page,
@@ -179,14 +175,12 @@ class TestVolumeSnapshotsAdmin(helpers.AdminTestCase,
 
     @property
     def volumes_snapshot_page(self):
-        return self.home_pg.go_to_system_volumes_volumesnapshotspage()
+        return self.home_pg.go_to_project_volumes_snapshotspage()
 
-    @decorators.skip_because(bugs=['1584057'])
     def test_create_edit_delete_volume_snapshot(self):
         super(TestVolumeSnapshotsAdmin, self).\
             test_create_edit_delete_volume_snapshot()
 
-    @decorators.skip_because(bugs=['1584057'])
     def test_volume_snapshots_pagination(self):
         super(TestVolumeSnapshotsAdmin, self).\
             test_volume_snapshots_pagination()
@@ -199,21 +193,19 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
 
     @property
     def volumes_snapshot_page(self):
-        return self.home_pg.go_to_compute_volumes_volumesnapshotspage()
+        return self.home_pg.go_to_project_volumes_snapshotspage()
 
     def setUp(self):
         """Setup: create volume"""
         super(TestVolumeSnapshotsAdvanced, self).setUp()
-        volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
+        volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.create_volume(self.VOLUME_NAME)
         volumes_page.find_message_and_dismiss(messages.INFO)
         self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
                                                       'Available'))
 
         def cleanup():
-            volumes_snapshot_page = \
-                self.home_pg.go_to_compute_volumes_volumesnapshotspage()
-            volumes_page = volumes_snapshot_page.switch_to_volumes_tab()
+            volumes_page = self.home_pg.go_to_project_volumes_volumespage()
             volumes_page.delete_volume(self.VOLUME_NAME)
             self.assertTrue(
                 volumes_page.find_message_and_dismiss(messages.SUCCESS))
@@ -228,14 +220,14 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
 
         Steps:
         1. Login to Horizon Dashboard as regular user
-        2. Navigate to Project -> Compute -> Volumes page
+        2. Navigate to Project -> Volumes -> Volumes page
         3. Create snapshot for existed volume
         4. Create new volume from snapshot
         5. Check the volume is created and has 'Available' status
         6. Delete volume snapshot
         7. Delete volume
         """
-        volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
+        volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_snapshot_page = volumes_page.create_volume_snapshot(
             self.VOLUME_NAME, self.VOLUME_SNAPSHOT_NAME)
         self.assertTrue(volumes_page.find_message_and_dismiss(messages.INFO))
@@ -258,7 +250,7 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
         self.assertTrue(volumes_snapshot_page.is_volume_snapshot_deleted(
             self.VOLUME_SNAPSHOT_NAME))
 
-        volumes_page = volumes_snapshot_page.switch_to_volumes_tab()
+        volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.delete_volume(new_volume)
         self.assertTrue(
             volumes_page.find_message_and_dismiss(messages.SUCCESS))

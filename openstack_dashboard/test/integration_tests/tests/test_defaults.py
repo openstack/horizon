@@ -20,16 +20,17 @@ class TestDefaults(helpers.AdminTestCase):
 
     def setUp(self):
         super(TestDefaults, self).setUp()
-        self.defaults_page = self.home_pg.go_to_system_defaultspage()
+        self.defaults_page = self.home_pg.go_to_admin_system_defaultspage()
         self.add_up = random.randint(1, 10)
 
-    def test_update_defaults(self):
-        """Tests the Update Default Quotas functionality:
+    def test_update_compute_defaults(self):
+        """Tests the Update Default Compute Quotas functionality:
 
         1) Login as Admin and go to Admin > System > Defaults
-        2) Updates default Quotas by adding a random number between 1 and 10
+        2) Updates default compute Quotas by adding a random
+           number between 1 and 10
         3) Verifies that the updated values are present in the
-           Quota Defaults table
+           Compute Quota Defaults table
         """
         default_quota_values = self.defaults_page.quota_values
         self.defaults_page.update_defaults(self.add_up)

@@ -17,8 +17,8 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class NetworksTable(tables.TableRegion):
     name = "networks"
-    CREATE_NETWORK_FORM_FIELDS = (("net_name", "admin_state", "shared",
-                                   "with_subnet"),
+    CREATE_NETWORK_FORM_FIELDS = (("net_name", "admin_state",
+                                   "with_subnet", "az_hints"),
                                   ("subnet_name", "cidr", "ip_version",
                                    "gateway_ip", "no_gateway"),
                                   ("enable_dhcp", "allocation_pools",
@@ -42,8 +42,8 @@ class NetworksPage(basepage.BaseNavigationPage):
     DEFAULT_IP_VERSION = '4'
     DEFAULT_DISABLE_GATEWAY = False
     DEFAULT_ENABLE_DHCP = True
-    NETWORKS_TABLE_NAME_COLUMN = 'name'
-    NETWORKS_TABLE_STATUS_COLUMN = 'status'
+    NETWORKS_TABLE_NAME_COLUMN = 'Name'
+    NETWORKS_TABLE_STATUS_COLUMN = 'Status'
     SUBNET_TAB_INDEX = 1
     DETAILS_TAB_INDEX = 2
 

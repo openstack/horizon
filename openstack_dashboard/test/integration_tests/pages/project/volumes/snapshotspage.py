@@ -13,7 +13,7 @@
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
-from openstack_dashboard.test.integration_tests.pages.project.compute.volumes.\
+from openstack_dashboard.test.integration_tests.pages.project.volumes.\
     volumespage import VolumesPage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -54,17 +54,17 @@ class VolumesnapshotsTable(tables.TableRegion):
                                 field_mappings=self.CREATE_VOLUME_FORM_FIELDS)
 
 
-class VolumesnapshotsPage(basepage.BaseNavigationPage):
-    SNAPSHOT_TABLE_NAME_COLUMN = 'name'
-    SNAPSHOT_TABLE_STATUS_COLUMN = 'status'
-    SNAPSHOT_TABLE_VOLUME_NAME_COLUMN = 'volume_name'
+class SnapshotsPage(basepage.BaseNavigationPage):
+    SNAPSHOT_TABLE_NAME_COLUMN = 'Name'
+    SNAPSHOT_TABLE_STATUS_COLUMN = 'Status'
+    SNAPSHOT_TABLE_VOLUME_NAME_COLUMN = 'Volume Name'
     _volumes_tab_locator = (
         by.By.CSS_SELECTOR,
         'a[href*="tab=volumes_and_snapshots__volumes_tab"]')
 
     def __init__(self, driver, conf):
-        super(VolumesnapshotsPage, self).__init__(driver, conf)
-        self._page_title = "Volumes"
+        super(SnapshotsPage, self).__init__(driver, conf)
+        self._page_title = "Volume Snapshots"
 
     @property
     def volumesnapshots_table(self):

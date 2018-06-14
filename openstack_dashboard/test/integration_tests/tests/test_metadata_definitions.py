@@ -12,6 +12,7 @@
 
 import os
 
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -83,6 +84,7 @@ class TestMetadataDefinitions(helpers.AdminTestCase):
         self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(page.is_namespace_present(namespace_name))
 
+    @decorators.skip_because(bugs=['1774697'])
     def test_namespace_create_delete(self):
         """Tests the NameSpace creation and deletion functionality:
 
@@ -109,7 +111,8 @@ class TestMetadataDefinitions(helpers.AdminTestCase):
         * 11) Check that new Namespace was successfully deleted.
         * 12) Check that new Namespace is not present in the table.
         """
-        namespaces_page = self.home_pg.go_to_system_metadatadefinitionspage()
+        namespaces_page = \
+            self.home_pg.go_to_admin_system_metadatadefinitionspage()
 
         template_json_container = namespaces_page.json_load_template(
             namespace_template_name=self.NAMESPACE_TEMPLATE_PATH)

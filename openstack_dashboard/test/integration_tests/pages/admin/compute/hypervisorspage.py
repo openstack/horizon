@@ -10,9 +10,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from openstack_dashboard.test.integration_tests.pages.project.compute.volumes\
-    import volumesnapshotspage
+from openstack_dashboard.test.integration_tests.pages import basepage
 
 
-class VolumesnapshotsPage(volumesnapshotspage.VolumesnapshotsPage):
-    pass
+class HypervisorsPage(basepage.BaseNavigationPage):
+
+    def __init__(self, driver, conf):
+        super(HypervisorsPage, self).__init__(driver, conf)
+        self._page_title = "All Hypervisors"

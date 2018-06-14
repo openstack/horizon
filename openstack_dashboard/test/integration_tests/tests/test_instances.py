@@ -20,8 +20,9 @@ class TestInstances(helpers.TestCase):
 
     @property
     def instances_page(self):
-        return self.home_pg.go_to_compute_instancespage()
+        return self.home_pg.go_to_project_compute_instancespage()
 
+    @decorators.skip_because(bugs=['1774697'])
     def test_create_delete_instance(self):
         """tests the instance creation and deletion functionality:
 
@@ -30,7 +31,7 @@ class TestInstances(helpers.TestCase):
         * deletes the newly created instance via proper page (depends on user)
         * verifies the instance does not appear in the table after deletion
         """
-        instances_page = self.home_pg.go_to_compute_instancespage()
+        instances_page = self.home_pg.go_to_project_compute_instancespage()
 
         instances_page.create_instance(self.INSTANCE_NAME)
         self.assertTrue(
@@ -47,7 +48,7 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
 
-    @decorators.skip_because(bugs=['1584057'])
+    @decorators.skip_because(bugs=['1774697'])
     def test_instances_pagination(self):
         """This test checks instance pagination
 
@@ -80,7 +81,7 @@ class TestInstances(helpers.TestCase):
         self.assertTrue(
             settings_page.find_message_and_dismiss(messages.SUCCESS))
 
-        instances_page = self.home_pg.go_to_compute_instancespage()
+        instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.create_instance(self.INSTANCE_NAME,
                                        instance_count=instance_count)
         self.assertTrue(
@@ -110,6 +111,7 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
+    @decorators.skip_because(bugs=['1774697'])
     def test_instances_pagination_and_filtration(self):
         """This test checks instance pagination and filtration
 
@@ -149,7 +151,7 @@ class TestInstances(helpers.TestCase):
         self.assertTrue(
             settings_page.find_message_and_dismiss(messages.SUCCESS))
 
-        instances_page = self.home_pg.go_to_compute_instancespage()
+        instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.create_instance(self.INSTANCE_NAME,
                                        instance_count=instance_count)
         self.assertTrue(
@@ -182,6 +184,7 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
+    @decorators.skip_because(bugs=['1774697'])
     def test_filter_instances(self):
         """This test checks filtering of instances by Instance Name
 
@@ -202,7 +205,7 @@ class TestInstances(helpers.TestCase):
         instance_list = ["{0}-{1}".format(self.INSTANCE_NAME, item)
                          for item in range(1, instance_count + 1)]
 
-        instances_page = self.home_pg.go_to_compute_instancespage()
+        instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.create_instance(self.INSTANCE_NAME,
                                        instance_count=instance_count)
         self.assertTrue(
@@ -238,9 +241,9 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
 
     @property
     def instances_page(self):
-        return self.home_pg.go_to_system_instancespage()
+        return self.home_pg.go_to_admin_compute_instancespage()
 
-    @decorators.skip_because(bugs=['1584057'])
+    @decorators.skip_because(bugs=['1774697'])
     def test_instances_pagination_and_filtration(self):
         super(TestAdminInstances, self).\
             test_instances_pagination_and_filtration()

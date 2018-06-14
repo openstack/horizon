@@ -30,6 +30,7 @@ class FloatingIPTable(tables.TableRegion):
     @tables.bind_table_action('allocate')
     def allocate_ip(self, allocate_button):
         allocate_button.click()
+        self.wait_till_spinner_disappears()
         return forms.BaseFormRegion(self.driver, self.conf)
 
     @tables.bind_table_action('release')
@@ -50,15 +51,15 @@ class FloatingIPTable(tables.TableRegion):
 
 
 class FloatingipsPage(basepage.BaseNavigationPage):
-    FLOATING_IPS_TABLE_IP_COLUMN = 'ip'
-    FLOATING_IPS_TABLE_FIXED_IP_COLUMN = 'fixed_ip'
+    FLOATING_IPS_TABLE_IP_COLUMN = 'IP Address'
+    FLOATING_IPS_TABLE_FIXED_IP_COLUMN = 'Mapped Fixed IP Address'
 
     _floatingips_fadein_popup_locator = (
         by.By.CSS_SELECTOR, '.alert.alert-success.alert-dismissable.fade.in>p')
 
     def __init__(self, driver, conf):
         super(FloatingipsPage, self).__init__(driver, conf)
-        self._page_title = "Access & Security"
+        self._page_title = "Floating IPs"
 
     def _get_row_with_floatingip(self, floatingip):
         return self.floatingips_table.get_row(

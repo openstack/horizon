@@ -258,7 +258,7 @@ class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
             self.src_elem.click()
             for option in self.options:
                 if self.strict_options_match:
-                    match = text == option.text.strip()
+                    match = text == str(option.text.strip())
                 else:
                     match = option.text.startswith(text)
                 if match:

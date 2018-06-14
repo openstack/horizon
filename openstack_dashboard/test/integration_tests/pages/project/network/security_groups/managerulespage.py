@@ -17,8 +17,8 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class RulesTable(tables.TableRegion):
     name = 'rules'
-    ADD_RULE_FORM_FIELDS = ("rule_menu", "direction", "port_or_range", "port",
-                            "remote", "cidr")
+    ADD_RULE_FORM_FIELDS = ("rule_menu", "description", "direction",
+                            "port_or_range", "port", "remote", "cidr")
 
     @tables.bind_table_action('add_rule')
     def create_rule(self, create_button):
@@ -40,11 +40,11 @@ class RulesTable(tables.TableRegion):
 
 class ManageRulesPage(basepage.BaseNavigationPage):
 
-    RULES_TABLE_PORT_RANGE_COLUMN = 'port_range'
+    RULES_TABLE_PORT_RANGE_COLUMN = 'Port Range'
 
     def __init__(self, driver, conf):
         super(ManageRulesPage, self).__init__(driver, conf)
-        self._page_title = "Manage Security Group Rules - OpenStack Dashboard"
+        self._page_title = "Manage Security Group Rules"
 
     def _get_row_with_port_range(self, port):
         return self.rules_table.get_row(

@@ -47,8 +47,8 @@ class ProjectsTable(tables.TableRegion):
 class ProjectsPage(basepage.BaseNavigationPage):
 
     DEFAULT_ENABLED = True
-    PROJECTS_TABLE_NAME_COLUMN = 'name'
-    PROJECT_ID_TABLE_NAME_COLUMN = 'id'
+    PROJECTS_TABLE_NAME_COLUMN = 'Name'
+    PROJECT_ID_TABLE_NAME_COLUMN = 'Project ID'
 
     def __init__(self, driver, conf):
         super(ProjectsPage, self).__init__(driver, conf)

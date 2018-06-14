@@ -35,7 +35,7 @@ class LaunchInstanceForm(forms.TabbedFormRegion):
 class InstancesTable(tables.TableRegion):
     name = "instances"
 
-    @tables.bind_table_action('launch')
+    @tables.bind_table_action('launch-ng')
     def launch_instance(self, launch_button):
         launch_button.click()
         return LaunchInstanceForm(self.driver, self.conf)
@@ -57,10 +57,10 @@ class InstancesPage(basepage.BaseNavigationPage):
     DEFAULT_VOL_DELETE_ON_INSTANCE_DELETE = False
     DEFAULT_SECURITY_GROUP = True
 
-    INSTANCES_TABLE_NAME_COLUMN = 'name'
-    INSTANCES_TABLE_STATUS_COLUMN = 'status'
-    INSTANCES_TABLE_IP_COLUMN = 'ip'
-    INSTANCES_TABLE_IMAGE_NAME_COLUMN = 'image_name'
+    INSTANCES_TABLE_NAME_COLUMN = 'Instance Name'
+    INSTANCES_TABLE_STATUS_COLUMN = 'Status'
+    INSTANCES_TABLE_IP_COLUMN = 'IP Address'
+    INSTANCES_TABLE_IMAGE_NAME_COLUMN = 'Image Name'
 
     def __init__(self, driver, conf):
         super(InstancesPage, self).__init__(driver, conf)

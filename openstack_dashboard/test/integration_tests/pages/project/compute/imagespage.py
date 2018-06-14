@@ -17,8 +17,8 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 from openstack_dashboard.test.integration_tests.pages.project.compute.\
     instancespage import InstancesPage
-from openstack_dashboard.test.integration_tests.pages.project.compute.\
-    volumes.volumespage import VolumesPage
+from openstack_dashboard.test.integration_tests.pages.project.volumes.\
+    volumespage import VolumesPage
 
 
 # TODO(bpokorny): Set the default source back to 'url' once Glance removes
