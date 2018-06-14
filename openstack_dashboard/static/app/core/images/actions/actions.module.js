@@ -38,7 +38,8 @@
     'horizon.app.core.images.actions.delete-image.service',
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.images.actions.update-metadata.service',
-    'horizon.app.core.images.resourceType'
+    'horizon.app.core.images.resourceType',
+    'horizon.app.core.images.actions.share-image.service'
   ];
 
   function registerImageActions(
@@ -49,7 +50,8 @@
     deleteImageService,
     launchInstanceService,
     updateMetadataService,
-    imageResourceTypeCode
+    imageResourceTypeCode,
+    shareImageService
   ) {
     var imageResourceType = registry.getResourceType(imageResourceTypeCode);
     imageResourceType.itemActions
@@ -87,6 +89,13 @@
         template: {
           text: gettext('Delete Image'),
           type: 'delete'
+        }
+      })
+      .append({
+        id: 'shareImageService',
+        service: shareImageService,
+        template: {
+          text: gettext('Share')
         }
       });
 
