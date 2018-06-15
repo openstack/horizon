@@ -137,7 +137,7 @@ class ProfilerMiddleware(object):
     def clear_profiling_cookies(request, response):
         """Expire any cookie that initiated profiling request."""
         if 'profile_page' in request.COOKIES:
-            path = request.path[:-1]
+            path = request.path
             response.set_cookie('profile_page', max_age=0, path=path)
 
     def process_response(self, request, response):
