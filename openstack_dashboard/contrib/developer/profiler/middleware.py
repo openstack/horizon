@@ -141,5 +141,8 @@ class ProfilerMiddleware(object):
             response.set_cookie('profile_page', max_age=0, path=path)
 
     def process_response(self, request, response):
+        if profiler.get() is not None:
+            profiler.clean()
+
         self.clear_profiling_cookies(request, response)
         return response
