@@ -22,9 +22,12 @@
   
     shareImageService.$inject = [
       '$q',
+      'horizon.app.core.openstack-service-api.glance',
+      'horizon.app.core.openstack-service-api.userSession',
       'horizon.app.core.images.non_bootable_image_types',
       'horizon.dashboard.project.workflow.launch-instance.modal.service',
-      'horizon.framework.util.q.extensions'
+      'horizon.framework.util.q.extensions',
+      'horizon.app.core.openstack-service-api.policy'
     ];
   
     /**
@@ -43,6 +46,8 @@
      */
     function shareImageService(
       $q,
+      glance,
+      userSessionService,
       nonBootableImageTypes,
       launchInstanceModal,
       $qExtensions
@@ -51,9 +56,24 @@
         perform: perform,
         allowed: allowed
       };
+      var modifyImagePolicyCheck, scope;
   
       return service;
-  
+
+      function initScope($scope) {
+        scope = $scope;
+        $scope.$on(events.IMAGE_METADATA_CHANGED, onMetadataChange);
+        modifyImagePolicyCheck = policy.ifAllowed({rules: [['image', 'modify_image']]});
+      }
+
+      function allowed(image) {
+        return $q.all([
+          modifyImagePolicyCheck,
+          userSessionService.isCurrentProject(image.owner),
+          isActive(image)
+        ]);
+      }
+
       //////////////
   
       function perform(image) {
@@ -66,12 +86,34 @@
         console.log(image);
         var params = '?name=' + escape(image.name);
         params += '&short_description=' + escape(image.properties.description === undefined ? '' : image.properties.description);
-        return window.open('https://www.chameleoncloud.org/appliances/create' + params);
+        var region = getCookie('services_region');
+        if('region'.indexOf('@tacc') != -1){
+          params += '&chi_tacc_appliance_id=' + escape(image.id);
+        } else {
+          params += '&chi_uc_appliance_id=' + escape(image.id);
+        }
+        if(window.location.hostname.indexOf('dev.chameleon') > -1 || window.location.port != 443){
+          return window.open('https://dev.chameleon.tacc.utexas.edu/appliances/create' + params);
+        } else {
+          return window.open('https://www.chameleoncloud.org/appliances/create' + params);
+        }
       }
-  
-      function allowed(image) {
-        return $q.all([isBootable(image), isActive(image)]);
-      }
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
   
       function isActive(image) {
         return $qExtensions.booleanAsPromise(image.status === 'active');
