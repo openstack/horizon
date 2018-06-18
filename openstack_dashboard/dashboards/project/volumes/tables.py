@@ -448,6 +448,8 @@ class VolumesTableBase(tables.DataTable):
                                           u"Error Restoring")),
         ("maintenance", pgettext_lazy("Current status of a Volume",
                                       u"Maintenance")),
+        ("reserved", pgettext_lazy("Current status of a Volume",
+                                   u"Reserved")),
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),
