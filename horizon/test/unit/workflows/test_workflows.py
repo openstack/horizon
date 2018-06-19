@@ -18,6 +18,7 @@ import mock
 
 import six
 
+from horizon import base
 from horizon import exceptions
 from horizon.test import helpers as test
 from horizon import workflows
@@ -334,6 +335,10 @@ class WorkflowsTests(test.TestCase):
                                  ['<TestStepOne: test_action_one>',
                                   '<TestStepThree: test_action_three>',
                                   '<TestStepTwo: test_action_two>'])
+
+    def test_workflow_unregister_unexisting_workflow(self):
+        with self.assertRaises(base.NotRegistered):
+            TestWorkflow.unregister(TestDisabledStep)
 
     def test_workflow_render(self):
         TestWorkflow.register(TestStepThree)

@@ -810,7 +810,7 @@ class Workflow(html.HTMLElement):
         """Unregisters a :class:`~horizon.workflows.Step` from the workflow."""
         try:
             cls._cls_registry.remove(step_class)
-        except KeyError:
+        except ValueError:
             raise base.NotRegistered('%s is not registered' % cls)
         return cls._unregister(step_class)
 
