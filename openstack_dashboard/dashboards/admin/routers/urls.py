@@ -22,6 +22,7 @@ ROUTER_URL = r'^(?P<router_id>[^/]+)/%s'
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(ROUTER_URL % '$',
         views.DetailView.as_view(),
         name='detail'),
