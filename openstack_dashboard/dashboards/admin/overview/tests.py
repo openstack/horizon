@@ -18,13 +18,12 @@
 
 import datetime
 
-from django import http
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils import encoding
 from django.utils import timezone
 
-from mox3.mox import IsA
+import mock
 
 from horizon.templatetags import sizeformat
 
@@ -37,17 +36,6 @@ INDEX_URL = reverse('horizon:project:overview:index')
 
 
 class UsageViewTests(test.BaseAdminViewTests):
-
-    use_mox = True
-
-    def _stub_api_calls(self, nova_stu_enabled):
-        self.mox.StubOutWithMock(api.nova, 'usage_list')
-        self.mox.StubOutWithMock(api.nova, 'extension_supported')
-        self.mox.StubOutWithMock(api.keystone, 'tenant_list')
-
-        api.nova.extension_supported(
-            'SimpleTenantUsage', IsA(http.HttpRequest)) \
-            .AndReturn(nova_stu_enabled)
 
     @override_settings(OVERVIEW_DAYS_RANGE=None)
     def test_usage(self):
@@ -71,32 +59,20 @@ class UsageViewTests(test.BaseAdminViewTests):
             start_day = datetime.date(now.year, now.month, 1)
         return start_day, now
 
+    @test.create_mocks({api.nova: ('usage_list',
+                                   'extension_supported'),
+                        api.keystone: ('tenant_list',)})
     def _test_usage(self, nova_stu_enabled=True, tenant_deleted=False,
                     overview_days_range=1):
-        self._stub_api_calls(nova_stu_enabled)
-        api.nova.extension_supported(
-            'SimpleTenantUsage', IsA(http.HttpRequest)) \
-            .AndReturn(nova_stu_enabled)
+        self.mock_extension_supported.return_value = nova_stu_enabled
         usage_list = [api.nova.NovaUsage(u) for u in self.usages.list()]
         if tenant_deleted:
-            api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                .AndReturn([[self.tenants.first()], False])
+            self.mock_tenant_list.return_value = [[self.tenants.first()],
+                                                  False]
         else:
-            api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                .AndReturn([self.tenants.list(), False])
+            self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_usage_list.return_value = usage_list
 
-        if nova_stu_enabled:
-            start_day, now = self._get_start_end_range(overview_days_range)
-            api.nova.usage_list(IsA(http.HttpRequest),
-                                datetime.datetime(start_day.year,
-                                                  start_day.month,
-                                                  start_day.day, 0, 0, 0, 0),
-                                datetime.datetime(now.year,
-                                                  now.month,
-                                                  now.day, 23, 59, 59, 0)) \
-                .AndReturn(usage_list)
-
-        self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:overview:index'))
         self.assertTemplateUsed(res, 'admin/overview/usage.html')
         self.assertIsInstance(res.context['usage'], usage.GlobalUsage)
@@ -149,6 +125,23 @@ class UsageViewTests(test.BaseAdminViewTests):
         else:
             self.assertNotContains(res, usage_table, html=True)
 
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_extension_supported, 2,
+            mock.call('SimpleTenantUsage', test.IsHttpRequest()))
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        if nova_stu_enabled:
+            start_day, now = self._get_start_end_range(overview_days_range)
+            self.mock_usage_list.assert_called_once_with(
+                test.IsHttpRequest(),
+                datetime.datetime(start_day.year,
+                                  start_day.month,
+                                  start_day.day, 0, 0, 0, 0),
+                datetime.datetime(now.year,
+                                  now.month,
+                                  now.day, 23, 59, 59, 0))
+        else:
+            self.mock_usage_list.assert_not_called()
+
     @override_settings(OVERVIEW_DAYS_RANGE=None)
     def test_usage_csv(self):
         self._test_usage_csv(nova_stu_enabled=True, overview_days_range=None)
@@ -160,26 +153,14 @@ class UsageViewTests(test.BaseAdminViewTests):
     def test_usage_csv_disabled(self):
         self._test_usage_csv(nova_stu_enabled=False, overview_days_range=None)
 
+    @test.create_mocks({api.nova: ('usage_list',
+                                   'extension_supported'),
+                        api.keystone: ('tenant_list',)})
     def _test_usage_csv(self, nova_stu_enabled=True, overview_days_range=1):
-        self._stub_api_calls(nova_stu_enabled)
-        api.nova.extension_supported(
-            'SimpleTenantUsage', IsA(http.HttpRequest)) \
-            .AndReturn(nova_stu_enabled)
+        self.mock_extension_supported.return_value = nova_stu_enabled
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
         usage_obj = [api.nova.NovaUsage(u) for u in self.usages.list()]
-        api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                    .AndReturn([self.tenants.list(), False])
-        if nova_stu_enabled:
-            start_day, now = self._get_start_end_range(overview_days_range)
-            api.nova.usage_list(IsA(http.HttpRequest),
-                                datetime.datetime(start_day.year,
-                                                  start_day.month,
-                                                  start_day.day,
-                                                  0, 0, 0, 0),
-                                datetime.datetime(now.year,
-                                                  now.month,
-                                                  now.day, 23, 59, 59, 0)) \
-                .AndReturn(usage_obj)
-        self.mox.ReplayAll()
+        self.mock_usage_list.return_value = usage_obj
 
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"
         res = self.client.get(csv_url)
@@ -196,3 +177,21 @@ class UsageViewTests(test.BaseAdminViewTests):
                                                             obj.disk_gb_hours,
                                                             obj.vcpu_hours)
                 self.assertContains(res, row)
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_extension_supported, 2,
+            mock.call('SimpleTenantUsage', test.IsHttpRequest()))
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        if nova_stu_enabled:
+            start_day, now = self._get_start_end_range(overview_days_range)
+            self.mock_usage_list.assert_called_once_with(
+                test.IsHttpRequest(),
+                datetime.datetime(start_day.year,
+                                  start_day.month,
+                                  start_day.day,
+                                  0, 0, 0, 0),
+                datetime.datetime(now.year,
+                                  now.month,
+                                  now.day, 23, 59, 59, 0))
+        else:
+            self.mock_usage_list.assert_not_called()
