@@ -13,9 +13,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import http
+import collections
+
 from django.urls import reverse
-from mox3.mox import IsA
+import mock
 
 from horizon.workflows import views
 
@@ -32,25 +33,29 @@ NETWORKS_DETAIL_URL = 'horizon:admin:networks:detail'
 
 class NetworkSubnetTests(test.BaseAdminViewTests):
 
-    use_mox = True
+    def _stub_is_extension_supported(self, features):
+        self._features = features
+        self._feature_call_counts = collections.defaultdict(int)
 
-    @test.create_stubs({api.neutron: ('network_get',
+        def fake_extension_supported(request, alias):
+            self._feature_call_counts[alias] += 1
+            return self._features[alias]
+
+        self.mock_is_extension_supported.side_effect = fake_extension_supported
+
+    def _check_is_extension_supported(self, expected_count):
+        self.assertEqual(expected_count, self._feature_call_counts)
+
+    @test.create_mocks({api.neutron: ('network_get',
                                       'subnet_get',
                                       'is_extension_supported')})
     def test_subnet_detail(self):
         network = self.networks.first()
         subnet = self.subnets.first()
-        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
-            .MultipleTimes().AndReturn(network)
 
-        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(subnet)
-
-        api.neutron.is_extension_supported(
-            IsA(http.HttpRequest),
-            'network-ip-availability').AndReturn(True)
-
-        self.mox.ReplayAll()
+        self.mock_network_get.return_value = network
+        self.mock_subnet_get.return_value = subnet
+        self._stub_is_extension_supported({'network-ip-availability': True})
 
         url = reverse(DETAIL_URL, args=[subnet.id])
         res = self.client.get(url)
@@ -58,13 +63,16 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertEqual(res.context['subnet'].id, subnet.id)
 
-    @test.create_stubs({api.neutron: ('subnet_get',)})
+        self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
+                                                      network.id)
+        self.mock_subnet_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     subnet.id)
+        self._check_is_extension_supported({'network-ip-availability': 1})
+
+    @test.create_mocks({api.neutron: ('subnet_get',)})
     def test_subnet_detail_exception(self):
         subnet = self.subnets.first()
-        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndRaise(self.exceptions.neutron)
-
-        self.mox.ReplayAll()
+        self.mock_subnet_get.side_effect = self.exceptions.neutron
 
         url = reverse(DETAIL_URL, args=[subnet.id])
         res = self.client.get(url)
@@ -72,21 +80,18 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         redir_url = NETWORKS_INDEX_URL
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('network_get',
+        self.mock_subnet_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     subnet.id)
+
+    @test.create_mocks({api.neutron: ('network_get',
                                       'is_extension_supported',
                                       'subnetpool_list',)})
     def test_subnet_create_get(self):
         network = self.networks.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'subnet_allocation')\
-            .AndReturn(True)
-        api.neutron.subnetpool_list(IsA(http.HttpRequest))\
-            .AndReturn(self.subnets)
 
-        self.mox.ReplayAll()
+        self.mock_network_get.return_value = network
+        self._stub_is_extension_supported({'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnets
 
         url = reverse('horizon:admin:networks:createsubnet',
                       args=[network.id])
@@ -94,32 +99,23 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @test.create_stubs({api.neutron: ('network_get',
+        self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
+                                                      network.id)
+        self._check_is_extension_supported({'subnet_allocation': 1})
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({api.neutron: ('network_get',
                                       'is_extension_supported',
                                       'subnetpool_list',
                                       'subnet_create',)})
     def test_subnet_create_post(self):
         network = self.networks.first()
         subnet = self.subnets.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .MultipleTimes().AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'subnet_allocation')\
-            .MultipleTimes().AndReturn(True)
-        api.neutron.subnetpool_list(IsA(http.HttpRequest))\
-            .AndReturn(self.subnets)
-        api.neutron.subnet_create(IsA(http.HttpRequest),
-                                  network_id=network.id,
-                                  name=subnet.name,
-                                  cidr=subnet.cidr,
-                                  ip_version=subnet.ip_version,
-                                  gateway_ip=subnet.gateway_ip,
-                                  enable_dhcp=subnet.enable_dhcp,
-                                  allocation_pools=subnet.allocation_pools,
-                                  tenant_id=subnet.tenant_id)\
-            .AndReturn(subnet)
-        self.mox.ReplayAll()
+
+        self.mock_network_get.return_value = network
+        self._stub_is_extension_supported({'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnets
+        self.mock_subnet_create.return_value = subnet
 
         form_data = tests.form_data_subnet(subnet)
         url = reverse('horizon:admin:networks:createsubnet',
@@ -130,15 +126,28 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         redir_url = reverse(NETWORKS_DETAIL_URL, args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_create',)})
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_network_get, 2,
+            mock.call(test.IsHttpRequest(), network.id))
+        self._check_is_extension_supported({'subnet_allocation': 1})
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_subnet_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            network_id=network.id,
+            name=subnet.name,
+            cidr=subnet.cidr,
+            ip_version=subnet.ip_version,
+            gateway_ip=subnet.gateway_ip,
+            enable_dhcp=subnet.enable_dhcp,
+            allocation_pools=subnet.allocation_pools,
+            tenant_id=subnet.tenant_id)
+
+    @test.create_mocks({api.neutron: ('network_get',)})
     def test_subnet_create_post_network_exception(self):
         network = self.networks.first()
         subnet = self.subnets.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndRaise(self.exceptions.neutron)
-        self.mox.ReplayAll()
+
+        self.mock_network_get.side_effect = self.exceptions.neutron
 
         form_data = tests.form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:admin:networks:createsubnet',
@@ -151,32 +160,21 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         redir_url = reverse('horizon:project:networks:index')
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('network_get',
+        self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
+                                                      network.id)
+
+    @test.create_mocks({api.neutron: ('network_get',
                                       'is_extension_supported',
                                       'subnetpool_list',
                                       'subnet_create',)})
     def test_subnet_create_post_subnet_exception(self):
         network = self.networks.first()
         subnet = self.subnets.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .MultipleTimes().AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'subnet_allocation')\
-            .AndReturn(True)
-        api.neutron.subnetpool_list(IsA(http.HttpRequest))\
-            .AndReturn(self.subnets)
 
-        api.neutron.subnet_create(IsA(http.HttpRequest),
-                                  network_id=network.id,
-                                  name=subnet.name,
-                                  cidr=subnet.cidr,
-                                  ip_version=subnet.ip_version,
-                                  gateway_ip=subnet.gateway_ip,
-                                  enable_dhcp=subnet.enable_dhcp,
-                                  tenant_id=subnet.tenant_id)\
-            .AndRaise(self.exceptions.neutron)
-        self.mox.ReplayAll()
+        self.mock_network_get.return_value = network
+        self._stub_is_extension_supported({'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnets
+        self.mock_subnet_create.side_effect = self.exceptions.neutron
 
         form_data = tests.form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:admin:networks:createsubnet',
@@ -186,22 +184,31 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         redir_url = reverse(NETWORKS_DETAIL_URL, args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('network_get',
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_network_get, 2,
+            mock.call(test.IsHttpRequest(), network.id))
+        self._check_is_extension_supported({'subnet_allocation': 1})
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_subnet_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            network_id=network.id,
+            name=subnet.name,
+            cidr=subnet.cidr,
+            ip_version=subnet.ip_version,
+            gateway_ip=subnet.gateway_ip,
+            enable_dhcp=subnet.enable_dhcp,
+            tenant_id=subnet.tenant_id)
+
+    @test.create_mocks({api.neutron: ('network_get',
                                       'is_extension_supported',
                                       'subnetpool_list',)})
     def test_subnet_create_post_cidr_inconsistent(self):
         network = self.networks.first()
         subnet = self.subnets.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'subnet_allocation')\
-            .AndReturn(True)
-        api.neutron.subnetpool_list(IsA(http.HttpRequest))\
-            .AndReturn(self.subnets)
 
-        self.mox.ReplayAll()
+        self.mock_network_get.return_value = network
+        self._stub_is_extension_supported({'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnets
 
         # dummy IPv6 address
         cidr = '2001:0DB8:0:CD30:123:4567:89AB:CDEF/60'
@@ -214,22 +221,21 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         expected_msg = 'Network Address and IP version are inconsistent.'
         self.assertContains(res, expected_msg)
 
-    @test.create_stubs({api.neutron: ('network_get',
+        self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
+                                                      network.id)
+        self._check_is_extension_supported({'subnet_allocation': 1})
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({api.neutron: ('network_get',
                                       'is_extension_supported',
                                       'subnetpool_list',)})
     def test_subnet_create_post_gw_inconsistent(self):
         network = self.networks.first()
         subnet = self.subnets.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id)\
-            .AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'subnet_allocation')\
-            .AndReturn(True)
-        api.neutron.subnetpool_list(IsA(http.HttpRequest))\
-            .AndReturn(self.subnets)
 
-        self.mox.ReplayAll()
+        self.mock_network_get.return_value = network
+        self._stub_is_extension_supported({'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnets
 
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
@@ -241,28 +247,22 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
 
-    @test.create_stubs({api.neutron: ('subnet_update',
+        self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
+                                                      network.id)
+        self._check_is_extension_supported({'subnet_allocation': 1})
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({api.neutron: ('subnet_update',
                                       'subnet_get',
                                       'is_extension_supported',
                                       'subnetpool_list')})
     def test_subnet_update_post(self):
         subnet = self.subnets.first()
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'subnet_allocation')\
-            .AndReturn(True)
-        api.neutron.subnetpool_list(IsA(http.HttpRequest))\
-            .AndReturn(self.subnetpools.list())
-        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(subnet)
-        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(subnet)
-        api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
-                                  name=subnet.name,
-                                  enable_dhcp=subnet.enable_dhcp,
-                                  dns_nameservers=[],
-                                  host_routes=[])\
-            .AndReturn(subnet)
-        self.mox.ReplayAll()
+
+        self._stub_is_extension_supported({'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnetpools.list()
+        self.mock_subnet_get.return_value = subnet
+        self.mock_subnet_update.return_value = subnet
 
         form_data = tests.form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:admin:networks:editsubnet',
@@ -272,20 +272,27 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         redir_url = reverse(NETWORKS_DETAIL_URL, args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',
+        self._check_is_extension_supported({'subnet_allocation': 1})
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_subnet_get, 2,
+            mock.call(test.IsHttpRequest(), subnet.id))
+        self.mock_subnet_update.assert_called_once_with(
+            test.IsHttpRequest(), subnet.id,
+            name=subnet.name,
+            enable_dhcp=subnet.enable_dhcp,
+            dns_nameservers=[],
+            host_routes=[])
+
+    @test.create_mocks({api.neutron: ('subnet_get',
                                       'is_extension_supported',
                                       'subnetpool_list')})
     def test_subnet_update_post_gw_inconsistent(self):
         subnet = self.subnets.first()
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'subnet_allocation')\
-            .AndReturn(True)
-        api.neutron.subnetpool_list(IsA(http.HttpRequest))\
-            .AndReturn(self.subnetpools.list())
-        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(subnet)
-        self.mox.ReplayAll()
+
+        self._stub_is_extension_supported({'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnetpools.list()
+        self.mock_subnet_get.return_value = subnet
 
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
@@ -297,45 +304,32 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
 
-    @test.create_stubs({api.neutron: ('subnet_delete',
-                                      'subnet_list',
-                                      'port_list',
-                                      'is_extension_supported',
-                                      'show_network_ip_availability',
-                                      'list_dhcp_agent_hosting_networks',)})
+        self._check_is_extension_supported({'subnet_allocation': 1})
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_subnet_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     subnet.id)
+
     def test_subnet_delete(self):
         self._test_subnet_delete()
 
-    @test.create_stubs({api.neutron: ('subnet_delete',
-                                      'subnet_list',
-                                      'port_list',
-                                      'is_extension_supported',
-                                      'show_network_ip_availability',
-                                      'list_dhcp_agent_hosting_networks',),
-                        quotas: ('tenant_quota_usages',)})
     def test_subnet_delete_with_mac_learning(self):
         self._test_subnet_delete(mac_learning=True)
 
+    @test.create_mocks({api.neutron: ('subnet_delete',
+                                      'subnet_list',
+                                      'is_extension_supported',
+                                      'show_network_ip_availability')})
     def _test_subnet_delete(self, mac_learning=False):
         subnet = self.subnets.first()
         network_id = subnet.network_id
         ip_availability = self.ip_availability.get()
-        api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
-                                                 network_id). \
-            MultipleTimes().AndReturn(ip_availability)
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.subnets.first()])
-        api.neutron.is_extension_supported(
-            IsA(http.HttpRequest),
-            'network-ip-availability').AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning')\
-            .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'network-ip-availability')\
-            .MultipleTimes().AndReturn(True)
-        self.mox.ReplayAll()
+
+        self.mock_show_network_ip_availability.return_value = ip_availability
+        self.mock_subnet_delete.return_value = None
+        self.mock_subnet_list.return_value = [self.subnets.first()]
+        self._stub_is_extension_supported(
+            {'network-ip-availability': True,
+             'mac-learning': mac_learning})
 
         form_data = {'action': 'subnets__delete__%s' % subnet.id}
         url = reverse(NETWORKS_DETAIL_URL, args=[network_id])
@@ -343,45 +337,37 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, url)
 
-    @test.create_stubs({api.neutron: ('subnet_delete',
-                                      'subnet_list',
-                                      'port_list',
-                                      'is_extension_supported',
-                                      'show_network_ip_availability',
-                                      'list_dhcp_agent_hosting_networks',)})
+        self.mock_show_network_ip_availability.assert_called_once_with(
+            test.IsHttpRequest(), network_id)
+        self.mock_subnet_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                        subnet.id)
+        self.mock_subnet_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      network_id=network_id)
+        self._check_is_extension_supported(
+            {'network-ip-availability': 2,
+             'mac-learning': 1})
+
     def test_subnet_delete_exception(self):
         self._test_subnet_delete_exception()
 
-    @test.create_stubs({api.neutron: ('subnet_delete',
-                                      'subnet_list',
-                                      'port_list',
-                                      'is_extension_supported',
-                                      'show_network_ip_availability',
-                                      'list_dhcp_agent_hosting_networks',)})
     def test_subnet_delete_exception_with_mac_learning(self):
         self._test_subnet_delete_exception(mac_learning=True)
 
+    @test.create_mocks({api.neutron: ('subnet_delete',
+                                      'subnet_list',
+                                      'is_extension_supported',
+                                      'show_network_ip_availability')})
     def _test_subnet_delete_exception(self, mac_learning=False):
         subnet = self.subnets.first()
         network_id = subnet.network_id
         ip_availability = self.ip_availability.get()
-        api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
-                                                 network_id).\
-            MultipleTimes().AndReturn(ip_availability)
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)\
-            .AndRaise(self.exceptions.neutron)
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.subnets.first()])
-        api.neutron.is_extension_supported(
-            IsA(http.HttpRequest),
-            'network-ip-availability').AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning')\
-            .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'network-ip-availability') \
-            .MultipleTimes().AndReturn(True)
-        self.mox.ReplayAll()
+
+        self.mock_show_network_ip_availability.return_value = ip_availability
+        self.mock_subnet_delete.side_effect = self.exceptions.neutron
+        self.mock_subnet_list.return_value = [self.subnets.first()]
+        self._stub_is_extension_supported(
+            {'network-ip-availability': True,
+             'mac-learning': mac_learning})
 
         form_data = {'action': 'subnets__delete__%s' % subnet.id}
         url = reverse(NETWORKS_DETAIL_URL, args=[network_id])
@@ -389,57 +375,43 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, url)
 
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_list',
-                                      'port_list',
-                                      'is_extension_supported',
-                                      'show_network_ip_availability',
-                                      'list_dhcp_agent_hosting_networks',),
-                        quotas: ('tenant_quota_usages',)})
+        self.mock_show_network_ip_availability.assert_called_once_with(
+            test.IsHttpRequest(), network_id)
+        self.mock_subnet_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                        subnet.id)
+        self.mock_subnet_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      network_id=network_id)
+        self._check_is_extension_supported(
+            {'network-ip-availability': 2,
+             'mac-learning': 1})
+
     def test_network_detail_ip_availability_exception(self):
         self._test_network_detail_ip_availability_exception()
 
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_list',
-                                      'port_list',
-                                      'is_extension_supported',
-                                      'show_network_ip_availability',
-                                      'list_dhcp_agent_hosting_networks',),
-                        quotas: ('tenant_quota_usages',)})
     def test_network_detail_ip_availability_exception_with_mac_learning(self):
         self._test_network_detail_ip_availability_exception(mac_learning=True)
 
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'subnet_list',
+                                      'is_extension_supported',
+                                      'show_network_ip_availability'),
+                        quotas: ('tenant_quota_usages',)})
     def _test_network_detail_ip_availability_exception(self,
                                                        mac_learning=False):
         network = self.networks.first()
         quota_data = self.neutron_quota_usages.first()
-        api.neutron.is_extension_supported(
-            IsA(http.HttpRequest),
-            'network-ip-availability').AndReturn(True)
-        api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
-                                                 network.id).\
-            MultipleTimes().AndRaise(self.exceptions.neutron)
-        api.neutron.network_get(IsA(http.HttpRequest), network.id).\
-            MultipleTimes().AndReturn(self.networks.first())
 
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network.id).\
-            AndReturn([self.subnets.first()])
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning') \
-            .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(
-            IsA(http.HttpRequest),
-            'network-ip-availability').AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'network_availability_zone')\
-            .MultipleTimes().AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'dhcp_agent_scheduler')\
-            .MultipleTimes().AndReturn(True)
-        quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), tenant_id=network.tenant_id,
-            targets=('subnet',)).MultipleTimes().AndReturn(quota_data)
-        self.mox.ReplayAll()
+        self._stub_is_extension_supported(
+            {'network-ip-availability': True,
+             'mac-learning': mac_learning,
+             'network_availability_zone': True,
+             'dhcp_agent_scheduler': True})
+        self.mock_show_network_ip_availability.side_effect = \
+            self.exceptions.neutron
+        self.mock_network_get.return_value = network
+        self.mock_subnet_list.return_value = [self.subnets.first()]
+        self.mock_tenant_quota_usages.return_value = quota_data
+
         from django.utils.http import urlunquote
         url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
                                  args=[network.id]))
@@ -447,3 +419,20 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
         self.assertItemsEqual(subnets, [self.subnets.first()])
+
+        self._check_is_extension_supported(
+            {'network-ip-availability': 2,
+             'mac-learning': 1,
+             'network_availability_zone': 1,
+             'dhcp_agent_scheduler': 1})
+        self.mock_show_network_ip_availability.assert_called_once_with(
+            test.IsHttpRequest(), network.id)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_network_get, 2,
+            mock.call(test.IsHttpRequest(), network.id))
+        self.mock_subnet_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      network_id=network.id)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 3,
+            mock.call(test.IsHttpRequest(), tenant_id=network.tenant_id,
+                      targets=('subnet',)))
