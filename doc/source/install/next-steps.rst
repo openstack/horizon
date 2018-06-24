@@ -14,7 +14,7 @@ complete the following tasks:
 
 * Customize your dashboard. For details, see :doc:`/admin/customize-configure`.
 
-* Set up session storage. For derails, see :doc:`/admin/sessions`.
+* Set up session storage. For details, see :doc:`/admin/sessions`.
 
 * To use the VNC client with the dashboard, the browser
   must support HTML5 Canvas and HTML5 WebSockets.
