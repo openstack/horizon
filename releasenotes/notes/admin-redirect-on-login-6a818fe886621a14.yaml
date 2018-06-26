@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Do not redirect to the /identity tab admin users on login. Now `user_home`
+    config options works in the same way for all users.
+    [`bug/1778006 <https://bugs.launchpad.net/horizon/1778006>`_]

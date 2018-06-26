@@ -25,7 +25,6 @@ from django.views.generic import TemplateView
 from six.moves import urllib
 
 import horizon
-from horizon import base
 from horizon import exceptions
 from horizon import notifications
 
@@ -36,21 +35,7 @@ MESSAGES_PATH = getattr(settings, 'MESSAGES_PATH', None)
 
 
 def get_user_home(user):
-    try:
-        token = user.token
-    except AttributeError:
-        raise exceptions.NotAuthenticated()
-    # Domain Admin, Project Admin will default to identity
-    dashboard = None
-    if token.project.get('id') is None or user.is_superuser:
-        try:
-            dashboard = horizon.get_dashboard('identity')
-        except base.NotRegistered:
-            pass
-
-    if dashboard is None:
-        dashboard = horizon.get_default_dashboard()
-
+    dashboard = horizon.get_default_dashboard()
     return dashboard.get_absolute_url()
 
 
