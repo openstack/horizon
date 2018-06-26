@@ -44,10 +44,10 @@ class InterfacesTable(tables.TableRegion):
 
 class RouterInterfacesPage(basepage.BaseNavigationPage):
 
-    INTERFACES_TABLE_STATUS_COLUMN = 'status'
-    INTERFACES_TABLE_NAME_COLUMN = 'name'
-    DEFAULT_IPv4_ADDRESS = '10.1.0.10'
-    DEFAULT_SUBNET = 'private: 10.1.0.0/20 (private-subnet)'
+    INTERFACES_TABLE_STATUS_COLUMN = 'Status'
+    INTERFACES_TABLE_NAME_COLUMN = 'Name'
+    DEFAULT_IPv4_ADDRESS = '10.0.0.10'
+    DEFAULT_SUBNET = 'private: 10.0.0.0/26 (private-subnet)'
 
     _breadcrumb_routers_locator = (by.By.CSS_SELECTOR,
                                    'ol.breadcrumb>li>' +

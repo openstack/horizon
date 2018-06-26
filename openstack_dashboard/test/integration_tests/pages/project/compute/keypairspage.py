@@ -44,11 +44,11 @@ class KeypairsPage(basepage.BaseNavigationPage):
 
     KEY_PAIRS_TABLE_ACTIONS = ("create", "import", "delete")
     KEY_PAIRS_TABLE_ROW_ACTION = "delete"
-    KEY_PAIRS_TABLE_NAME_COLUMN = 'name'
+    KEY_PAIRS_TABLE_NAME_COLUMN = 'Name'
 
     def __init__(self, driver, conf):
         super(KeypairsPage, self).__init__(driver, conf)
-        self._page_title = "Access & Security"
+        self._page_title = "Key Pairs"
 
     def _get_row_with_keypair_name(self, name):
         return self.keypairs_table.get_row(self.KEY_PAIRS_TABLE_NAME_COLUMN,

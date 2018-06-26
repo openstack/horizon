@@ -21,13 +21,20 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class ApiAccessTable(tables.TableRegion):
     name = "endpoints"
+    dropdown = 'Download OpenStack'
+
+    def download_rcfile_dropdown(self):
+        self.driver.find_element_by_partial_link_text(
+            self.dropdown).click()
 
     @tables.bind_table_action('download_openrc_v2')
     def download_openstack_rc_v2(self, download_button):
+        self.download_rcfile_dropdown()
         download_button.click()
 
     @tables.bind_table_action('download_openrc')
     def download_openstack_rc_v3(self, download_button):
+        self.download_rcfile_dropdown()
         download_button.click()
 
 
@@ -35,7 +42,7 @@ class ApiaccessPage(basepage.BaseNavigationPage):
 
     def __init__(self, driver, conf):
         super(ApiaccessPage, self).__init__(driver, conf)
-        self._page_title = "Access & Security"
+        self._page_title = "API Access"
 
     @property
     def apiaccess_table(self):

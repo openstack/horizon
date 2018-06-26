@@ -30,7 +30,7 @@ class TestNetworks(helpers.TestCase):
         * verifies the network does not appear in the table after deletion
         """
 
-        networks_page = self.home_pg.go_to_network_networkspage()
+        networks_page = self.home_pg.go_to_project_network_networkspage()
 
         networks_page.create_network(self.NETWORK_NAME, self.SUBNET_NAME)
         self.assertTrue(

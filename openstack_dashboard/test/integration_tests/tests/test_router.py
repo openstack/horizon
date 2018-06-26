@@ -22,7 +22,7 @@ class TestRouters(helpers.TestCase):
 
     @property
     def routers_page(self):
-        return self.home_pg.go_to_network_routerspage()
+        return self.home_pg.go_to_project_network_routerspage()
 
     def _create_router(self):
         routers_page = self.routers_page
@@ -170,7 +170,7 @@ class TestAdminRouters(helpers.AdminTestCase):
         * deletes the newly created router
         * verifies the router does not appear in the table after deletion
         """
-        routers_page = self.home_pg.go_to_network_routerspage()
+        routers_page = self.home_pg.go_to_project_network_routerspage()
 
         routers_page.create_router(self.ROUTER_NAME)
         self.assertTrue(
@@ -179,7 +179,8 @@ class TestAdminRouters(helpers.AdminTestCase):
         self.assertTrue(routers_page.is_router_present(self.ROUTER_NAME))
         self.assertTrue(routers_page.is_router_active(self.ROUTER_NAME))
 
-        admin_routers_page = self.home_pg.go_to_system_routerspage()
+        self.home_pg.go_to_admin_overviewpage()
+        admin_routers_page = self.home_pg.go_to_admin_network_routerspage()
         self.assertTrue(routers_page.is_router_present(self.ROUTER_NAME))
         self.assertTrue(routers_page.is_router_active(self.ROUTER_NAME))
 

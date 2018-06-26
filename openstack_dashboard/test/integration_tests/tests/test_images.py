@@ -24,7 +24,7 @@ class TestImagesLegacy(helpers.TestCase):
 
     @property
     def images_page(self):
-        return self.home_pg.go_to_compute_imagespage()
+        return self.home_pg.go_to_project_compute_imagespage()
 
 
 @decorators.config_option_required('image.panel_type', 'angular',
@@ -40,7 +40,7 @@ class TestImagesAngular(helpers.TestCase):
         # (or rewrite Navigation module completely).
         from openstack_dashboard.test.integration_tests.pages.project.\
             compute.imagespage import ImagesPageNG
-        self.home_pg.go_to_compute_imagespage()
+        self.home_pg.go_to_project_compute_imagespage()
         return ImagesPageNG(self.driver, self.CONFIG)
 
     def test_basic_image_browse(self):
@@ -331,9 +331,9 @@ class TestImagesAdmin(helpers.AdminTestCase, TestImagesLegacy):
     """Login as admin user"""
     @property
     def images_page(self):
-        return self.home_pg.go_to_system_imagespage()
+        return self.home_pg.go_to_admin_compute_imagespage()
 
-    @decorators.skip_because(bugs=['1584057'])
+    @decorators.skip_because(bugs=['1774697'])
     def test_image_create_delete(self):
         super(TestImagesAdmin, self).test_image_create_delete()
 
@@ -342,7 +342,7 @@ class TestImagesAdmin(helpers.AdminTestCase, TestImagesLegacy):
 
         Steps:
         1) Login to Horizon dashboard as admin user
-        2) Go to Admin -> System -> Images
+        2) Go to Admin -> Compute -> Images
         3) Use filter by Image Name
         4) Check that filtered table has one image only (which name is
            equal to filter value)

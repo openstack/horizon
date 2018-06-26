@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -22,10 +23,11 @@ class TestDashboardHelp(helpers.TestCase):
         self.home_pg._wait_until(
             lambda _: self.home_pg.is_nth_window_opened(2))
         self.home_pg.switch_window()
+        self.home_pg.is_help_page()
 
-        self.assertEqual(self.CONFIG.dashboard.help_url,
-                         self.home_pg.get_url_current_page(),
-                         "help link did not redirect to the right URL")
+        self.assertIn(self.CONFIG.dashboard.help_url,
+                      self.home_pg.get_url_current_page(),
+                      "help link did not redirect to the right URL")
 
         self.home_pg.close_window()
         self.home_pg.switch_window()
@@ -55,6 +57,7 @@ class TestPasswordChange(helpers.TestCase):
         self.assertTrue(self.home_pg.is_logged_in,
                         "Failed to login with default password")
 
+    @decorators.skip_because(bugs=['1776678'])
     def test_password_change(self):
         # Changes the password, verifies it was indeed changed and
         # resets to default password.
@@ -72,6 +75,7 @@ class TestPasswordChange(helpers.TestCase):
             self._reset_password()
             self._login()
 
+    @decorators.skip_because(bugs=['1776678'])
     def test_show_message_after_logout(self):
         # Ensure an informational message is shown on the login page
         # after the user is logged out.

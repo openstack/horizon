@@ -28,7 +28,8 @@ class TestHostAggregates(helpers.AdminTestCase):
         * after deletion
         """
 
-        hostaggregates_page = self.home_pg.go_to_system_hostaggregatespage()
+        hostaggregates_page = \
+            self.home_pg.go_to_admin_compute_hostaggregatespage()
 
         hostaggregates_page.create_host_aggregate(
             name=self.HOST_AGGREGATE_NAME,

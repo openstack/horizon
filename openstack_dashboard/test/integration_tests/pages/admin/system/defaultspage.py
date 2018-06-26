@@ -16,7 +16,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 
 class DefaultQuotasTable(tables.TableRegion):
-    name = "quotas"
+    name = "compute_quotas"
 
     UPDATE_DEFAULTS_FORM_FIELDS = (
         "injected_file_content_bytes",
@@ -27,12 +27,11 @@ class DefaultQuotasTable(tables.TableRegion):
         "instances",
         "injected_files",
         "cores",
-        "gigabytes",
-        "snapshots",
-        "volumes"
+        "server_groups",
+        "server_group_members"
     )
 
-    @tables.bind_table_action('update_defaults')
+    @tables.bind_table_action('update_compute_defaults')
     def update(self, update_button):
         update_button.click()
         return forms.FormRegion(
@@ -45,20 +44,19 @@ class DefaultQuotasTable(tables.TableRegion):
 
 class DefaultsPage(basepage.BaseNavigationPage):
 
-    QUOTAS_TABLE_NAME_COLUMN = 'name'
-    QUOTAS_TABLE_LIMIT_COLUMN = 'limit'
+    QUOTAS_TABLE_NAME_COLUMN = 'Quota Name'
+    QUOTAS_TABLE_LIMIT_COLUMN = 'Limit'
     DEFAULT_QUOTA_NAMES = [
         'Injected File Content Bytes',
         'Metadata Items',
+        'Server Group Members',
+        'Server Groups',
         'RAM (MB)',
         'Key Pairs',
         'Length of Injected File Path',
         'Instances',
         'Injected Files',
-        'VCPUs',
-        'Total Size of Volumes and Snapshots (GiB)',
-        'Volume Snapshots',
-        'Volumes'
+        'VCPUs'
     ]
 
     def __init__(self, driver, conf):
@@ -91,6 +89,12 @@ class DefaultsPage(basepage.BaseNavigationPage):
         update_form.metadata_items.value = \
             int(update_form.metadata_items.value) + add_up
 
+        update_form.server_group_members.value = \
+            int(update_form.server_group_members.value) + add_up
+
+        update_form.server_groups.value = \
+            int(update_form.server_groups.value) + add_up
+
         update_form.ram.value = int(update_form.ram.value) + add_up
         update_form.key_pairs.value = int(update_form.key_pairs.value) + add_up
         update_form.injected_file_path_bytes.value = \
@@ -99,9 +103,6 @@ class DefaultsPage(basepage.BaseNavigationPage):
         update_form.injected_files.value = int(
             update_form.injected_files.value) + add_up
         update_form.cores.value = int(update_form.cores.value) + add_up
-        update_form.gigabytes.value = int(update_form.gigabytes.value) + add_up
-        update_form.snapshots.value = int(update_form.snapshots.value) + add_up
-        update_form.volumes.value = int(update_form.volumes.value) + add_up
 
         update_form.submit()
 

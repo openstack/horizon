@@ -28,8 +28,7 @@ class RoutersTable(tables.TableRegion):
     name = "routers"
     CREATE_ROUTER_FORM_FIELDS = ("name", "admin_state_up",
                                  "external_network")
-    SET_GATEWAY_FORM_FIELDS = ("network_id", "router_name",
-                               "router_id")
+    SET_GATEWAY_FORM_FIELDS = ("network_id",)
 
     @tables.bind_table_action('create')
     def create_router(self, create_button):
@@ -58,9 +57,9 @@ class RoutersPage(basepage.BaseNavigationPage):
 
     DEFAULT_ADMIN_STATE_UP = 'True'
     DEFAULT_EXTERNAL_NETWORK = 'public'
-    ROUTERS_TABLE_NAME_COLUMN = 'name'
-    ROUTERS_TABLE_STATUS_COLUMN = 'status'
-    ROUTERS_TABLE_NETWORK_COLUMN = 'ext_net'
+    ROUTERS_TABLE_NAME_COLUMN = 'Name'
+    ROUTERS_TABLE_STATUS_COLUMN = 'Status'
+    ROUTERS_TABLE_NETWORK_COLUMN = 'External Network'
 
     _interfaces_tab_locator = (by.By.CSS_SELECTOR,
                                'a[href*="tab=router_details__interfaces"]')

@@ -13,7 +13,7 @@
 from selenium.webdriver.common import by
 from selenium.webdriver.common import keys
 
-from openstack_dashboard.test.integration_tests.pages.admin.system import \
+from openstack_dashboard.test.integration_tests.pages.admin import \
     overviewpage as system_overviewpage
 from openstack_dashboard.test.integration_tests.pages import pageobject
 from openstack_dashboard.test.integration_tests.pages.project.compute import \

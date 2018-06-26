@@ -9,6 +9,8 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import time
+
 from selenium.common import exceptions
 from selenium.webdriver.common import by
 
@@ -32,23 +34,23 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
         return self._get_element(*self._project_bar_locator)
 
     _first_level_item_selected_locator = (
-        by.By.CSS_SELECTOR, '.openstack-dashboard-active.selenium-active > a')
+        by.By.CSS_SELECTOR, '.panel.openstack-dashboard > a:not(.collapsed)')
     _second_level_item_selected_locator = (
-        by.By.CSS_SELECTOR, 'li.openstack-panel-group.selenium-active > a')
+        by.By.CSS_SELECTOR, '.panel.openstack-panel-group > a:not(.collapsed)')
 
     _first_level_item_xpath_template = (
-        "//li[contains(concat('', @class, ''), 'openstack-dashboard') "
+        "//li[contains(concat('', @class, ''), 'panel openstack-dashboard') "
         "and contains(., '%s')]/a")
     _second_level_item_xpath_template = (
-        "//li[contains(concat('', @class, ''), 'openstack-panel-group') "
-        "and contains(., '%s')]/a")
+        "//ul[contains(@class, 'in')]//li[contains(@class, "
+        "'panel openstack-panel-group') and contains(., '%s')]/a")
     _third_level_item_xpath_template = (
-        ".//li[contains(concat('', @class, ''), 'openstack-panel') and "
-        "contains(., '%s')]/a")
+        "//ul[contains(@class, 'in')]//a[contains(concat('', @class, ''),"
+        "'list-group-item openstack-panel') and contains(., '%s')]")
 
     _parent_item_locator = (by.By.XPATH, '..')
-    _menu_list_locator = (by.By.CSS_SELECTOR, 'ul')
-    _expanded_menu_class = 'in'
+    _menu_list_locator = (by.By.CSS_SELECTOR, 'a')
+    _expanded_menu_class = ""
     _transitioning_menu_class = 'collapsing'
 
     def _get_first_level_item_locator(self, text):
@@ -89,11 +91,11 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
 
     def _wait_until_transition_ends(self, item, to_be_expanded=False):
         def predicate(d):
-            classes = item.get_attribute('class').split()
+            classes = item.get_attribute('class')
             if to_be_expanded:
-                status = self._expanded_menu_class in classes
+                status = self._expanded_menu_class == classes
             else:
-                status = self._expanded_menu_class not in classes
+                status = self._expanded_menu_class is not classes
             return status and self._transitioning_menu_class not in classes
         self._wait_until(predicate)
 
@@ -129,6 +131,7 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
                     # it. Otherwise selenium will complain with
                     # MoveTargetOutOfBoundsException
                     selected_item.click()
+                    time.sleep(1)
                     self._wait_until_transition_ends(
                         self._get_menu_list_next_to_menu_title(selected_item))
                 else:
@@ -270,8 +273,8 @@ class UserDropDownMenuRegion(DropDownMenuRegion):
 
 class TabbedMenuRegion(baseregion.BaseRegion):
 
-    _tab_locator = (by.By.CSS_SELECTOR, 'a')
-    _default_src_locator = (by.By.CSS_SELECTOR, '.selenium-nav-region')
+    _tab_locator = (by.By.CSS_SELECTOR, 'li > a')
+    _default_src_locator = (by.By.CSS_SELECTOR, 'div > .nav.nav-pills')
 
     def switch_to(self, index=0):
         self._get_elements(*self._tab_locator)[index].click()
@@ -355,7 +358,7 @@ class MembershipMenuRegion(baseregion.BaseRegion):
 
     @staticmethod
     def _is_role_selected(role):
-        return 'selected' in role.get_attribute('class').split()
+        return 'selected' == role.get_attribute('class')
 
     @staticmethod
     def _get_hidden_text(role):

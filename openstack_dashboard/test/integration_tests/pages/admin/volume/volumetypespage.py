@@ -60,14 +60,14 @@ class VolumeTypesTable(tables.TableRegion):
 
 
 class VolumetypesPage(basepage.BaseNavigationPage):
-    QOS_SPECS_TABLE_NAME_COLUMN = 'name'
-    VOLUME_TYPES_TABLE_NAME_COLUMN = 'name'
-    QOS_SPECS_TABLE_CONSUMER_COLUMN = 'consumer'
+    QOS_SPECS_TABLE_NAME_COLUMN = 'Name'
+    VOLUME_TYPES_TABLE_NAME_COLUMN = 'Name'
+    QOS_SPECS_TABLE_CONSUMER_COLUMN = 'Consumer'
     CINDER_CONSUMER = 'back-end'
 
     def __init__(self, driver, conf):
         super(VolumetypesPage, self).__init__(driver, conf)
-        self._page_title = "Volumes"
+        self._page_title = "Volume Types"
 
     @property
     def qos_specs_table(self):

@@ -23,6 +23,7 @@ class BasePage(pageobject.PageObject):
     """Base class for all dashboard page objects."""
 
     _heading_locator = (by.By.CSS_SELECTOR, 'div.page-header > h2')
+    _help_page_brand = (by.By.CSS_SELECTOR, '.navbar-brand')
 
     @property
     def heading(self):
@@ -51,6 +52,9 @@ class BasePage(pageobject.PageObject):
 
     def go_to_help_page(self):
         self.topbar.user_dropdown_menu.click_on_help()
+
+    def is_help_page(self):
+        self._wait_till_element_visible(self._help_page_brand)
 
     def choose_theme(self, theme_name):
         self.topbar.user_dropdown_menu.choose_theme(theme_name)

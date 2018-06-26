@@ -97,7 +97,7 @@ class TableRegion(baseregion.BaseRegion):
         for element in self._get_elements(*self._columns_names_locator):
             classes = element.get_attribute('class').split()
             if NORMAL_COLUMN_CLASS in classes:
-                names.append(element.get_attribute('data-selenium'))
+                names.append(element.text)
         return names
 
     @property
@@ -215,7 +215,7 @@ class TableRegion(baseregion.BaseRegion):
         :param sorting: boolean arg specifying whether to sort actual names
         :return:
         """
-        names = [row.cells['name'].text for row in self.rows]
+        names = [row.cells['Name'].text for row in self.rows]
         if sorting:
             names.sort()
         actual_table = {'Next': self.is_next_link_available(),
@@ -241,8 +241,7 @@ def bind_table_action(action_name):
         is safe to use action `name` attribute from the dashboard tables.py
         code.
     """
-    _actions_locator = (by.By.CSS_SELECTOR, 'div.table_actions > button,'
-                                            ' div.table_actions > a')
+    _actions_locator = (by.By.CSS_SELECTOR, 'div.table_actions > button, a')
 
     def decorator(method):
         @functools.wraps(method)

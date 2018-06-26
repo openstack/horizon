@@ -23,7 +23,7 @@ class TestSecuritygroup(helpers.TestCase):
     @property
     def securitygroup_page(self):
         return self.home_pg.\
-            go_to_compute_accessandsecurity_securitygroupspage()
+            go_to_project_network_securitygroupspage()
 
     def _create_securitygroup(self):
         page = self.securitygroup_page

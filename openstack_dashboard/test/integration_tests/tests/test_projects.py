@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -17,12 +18,14 @@ from openstack_dashboard.test.integration_tests.regions import messages
 PROJECT_NAME = helpers.gen_random_resource_name("project")
 
 
+@decorators.skip_because(bugs=['1777359'])
 class TestCreateDeleteProject(helpers.AdminTestCase):
 
     def setUp(self):
         super(TestCreateDeleteProject, self).setUp()
         self.projects_page = self.home_pg.go_to_identity_projectspage()
 
+    @decorators.skip_because(bugs=['1777359'])
     def test_create_delete_project(self):
         self.projects_page.create_project(PROJECT_NAME)
         self.assertTrue(
@@ -39,6 +42,7 @@ class TestCreateDeleteProject(helpers.AdminTestCase):
         self.assertFalse(self.projects_page.is_project_present(PROJECT_NAME))
 
 
+@decorators.skip_because(bugs=['1777359'])
 class TestModifyProject(helpers.AdminTestCase):
 
     def setUp(self):
@@ -55,6 +59,7 @@ class TestModifyProject(helpers.AdminTestCase):
 
         self.addCleanup(cleanup)
 
+    @decorators.skip_because(bugs=['1774697'])
     def test_add_member(self):
         admin_name = self.CONFIG.identity.admin_username
         regular_role_name = self.CONFIG.identity.default_keystone_role

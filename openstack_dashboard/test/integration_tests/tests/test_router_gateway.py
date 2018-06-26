@@ -42,7 +42,7 @@ class TestRouters(helpers.TestCase):
         14. Check that no Error messages present
         """
 
-        routers_page = self.home_pg.go_to_network_routerspage()
+        routers_page = self.home_pg.go_to_project_network_routerspage()
 
         routers_page.create_router(self.ROUTER_NAME)
         self.assertTrue(

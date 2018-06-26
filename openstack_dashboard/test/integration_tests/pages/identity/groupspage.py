@@ -49,7 +49,7 @@ class GroupsPage(basepage.BaseNavigationPage):
 
     @property
     def table_name_column(self):
-        return "name"
+        return "Name"
 
     @property
     def groups_table(self):

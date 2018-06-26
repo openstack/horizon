@@ -71,9 +71,9 @@ class VolumesTable(tables.TableRegion):
         return forms.FormRegion(self.driver, self.conf,
                                 field_mappings=self.EXTEND_VOLUME_FORM_FIELDS)
 
-    @tables.bind_row_action('launch_volume')
-    def launch_volume_as_instance(self, launch_volume_button, row):
-        launch_volume_button.click()
+    @tables.bind_row_action('launch_volume_ng')
+    def launch_as_instance(self, launch_button, row):
+        launch_button.click()
         return instancespage.LaunchInstanceForm(self.driver, self.conf)
 
     @tables.bind_row_action('upload_to_image')
@@ -90,11 +90,11 @@ class VolumesTable(tables.TableRegion):
 
 class VolumesPage(basepage.BaseNavigationPage):
 
-    VOLUMES_TABLE_NAME_COLUMN = 'name'
-    VOLUMES_TABLE_STATUS_COLUMN = 'status'
-    VOLUMES_TABLE_TYPE_COLUMN = 'volume_type'
-    VOLUMES_TABLE_SIZE_COLUMN = 'size'
-    VOLUMES_TABLE_ATTACHED_COLUMN = 'attachments'
+    VOLUMES_TABLE_NAME_COLUMN = 'Name'
+    VOLUMES_TABLE_STATUS_COLUMN = 'Status'
+    VOLUMES_TABLE_TYPE_COLUMN = 'Type'
+    VOLUMES_TABLE_SIZE_COLUMN = 'Size'
+    VOLUMES_TABLE_ATTACHED_COLUMN = 'Attached To'
 
     def __init__(self, driver, conf):
         super(VolumesPage, self).__init__(driver, conf)
@@ -140,12 +140,14 @@ class VolumesPage(basepage.BaseNavigationPage):
         row.mark()
         confirm_delete_volumes_form = self.volumes_table.delete_volume()
         confirm_delete_volumes_form.submit()
+        self.wait_till_spinner_disappears()
 
     def delete_volumes(self, volumes_names):
         for volume_name in volumes_names:
             self._get_row_with_volume_name(volume_name).mark()
         confirm_delete_volumes_form = self.volumes_table.delete_volume()
         confirm_delete_volumes_form.submit()
+        self.wait_till_spinner_disappears()
 
     def edit_volume(self, name, new_name=None, description=None):
         row = self._get_row_with_volume_name(name)
@@ -182,15 +184,15 @@ class VolumesPage(basepage.BaseNavigationPage):
             return volume_form.volume_id, volume_source
 
     def create_volume_snapshot(self, volume, snapshot, description='test'):
-        from openstack_dashboard.test.integration_tests.pages.project.compute.\
-            volumes.volumesnapshotspage import VolumesnapshotsPage
+        from openstack_dashboard.test.integration_tests.pages.project.\
+            volumes.snapshotspage import SnapshotsPage
         row = self._get_row_with_volume_name(volume)
         snapshot_form = self.volumes_table.create_snapshot(row)
         snapshot_form.name.text = snapshot
         if description is not None:
             snapshot_form.description.text = description
         snapshot_form.submit()
-        return VolumesnapshotsPage(self.driver, self.conf)
+        return SnapshotsPage(self.driver, self.conf)
 
     def extend_volume(self, name, new_size):
         row = self._get_row_with_volume_name(name)
@@ -212,7 +214,7 @@ class VolumesPage(basepage.BaseNavigationPage):
 
     def launch_instance(self, name, instance_name, available_zone=None):
         row = self._get_row_with_volume_name(name)
-        instance_form = self.volumes_table.launch_volume_as_instance(row)
+        instance_form = self.volumes_table.launch_as_instance(row)
         if available_zone is None:
             available_zone = self.conf.launch_instances.available_zone
         instance_form.availability_zone.value = available_zone

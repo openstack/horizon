@@ -13,8 +13,8 @@
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
-from openstack_dashboard.test.integration_tests.pages.project.compute.\
-    access_and_security.managerulespage import ManageRulesPage
+from openstack_dashboard.test.integration_tests.pages.project.network.\
+    security_groups.managerulespage import ManageRulesPage
 
 
 class SecurityGroupsTable(tables.TableRegion):
@@ -41,11 +41,11 @@ class SecurityGroupsTable(tables.TableRegion):
 
 class SecuritygroupsPage(basepage.BaseNavigationPage):
 
-    SECURITYGROUPS_TABLE_NAME_COLUMN = 'name'
+    SECURITYGROUPS_TABLE_NAME_COLUMN = 'Name'
 
     def __init__(self, driver, conf):
         super(SecuritygroupsPage, self).__init__(driver, conf)
-        self._page_title = "Access & Security"
+        self._page_title = "Security Groups"
 
     def _get_row_with_securitygroup_name(self, name):
         return self.securitygroups_table.get_row(

@@ -22,7 +22,7 @@ class TestAdminVolumeTypes(helpers.AdminTestCase):
 
         Steps:
         1. Login to Horizon Dashboard as admin user
-        2. Navigate to Admin -> System -> Volumes -> Volume Types page
+        2. Navigate to Admin -> Volume -> Volume Types page
         3. Create new volume type
         4. Check that the volume type is in the list
         5. Check that no Error messages present
@@ -30,7 +30,7 @@ class TestAdminVolumeTypes(helpers.AdminTestCase):
         7. Check that the volume type is absent in the list
         8. Check that no Error messages present
         """
-        volume_types_page = self.home_pg.go_to_system_volumes_volumetypespage()
+        volume_types_page = self.home_pg.go_to_admin_volume_volumetypespage()
 
         volume_types_page.create_volume_type(self.VOLUME_TYPE_NAME)
 
@@ -62,7 +62,7 @@ class TestQoSSpec(helpers.AdminTestCase):
         * deletes the newly created QoS Spec
         * verifies the QoS Spec does not appear in the table after deletion
         """
-        qos_spec_page = self.home_pg.go_to_system_volumes_volumetypespage()
+        qos_spec_page = self.home_pg.go_to_admin_volume_volumetypespage()
 
         qos_spec_page.create_qos_spec(self.QOS_SPEC_NAME)
         self.assertTrue(
@@ -90,7 +90,7 @@ class TestQoSSpec(helpers.AdminTestCase):
         * verifies the QoS Spec does not appear in the table after deletion
         """
         qos_spec_name = helpers.gen_random_resource_name("qos_spec")
-        qos_spec_page = self.home_pg.go_to_system_volumes_volumetypespage()
+        qos_spec_page = self.home_pg.go_to_admin_volume_volumetypespage()
         nova_compute_consumer = 'front-end'
         both_consumers = 'both'
         cinder_consumer = 'back-end'

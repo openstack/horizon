@@ -65,29 +65,26 @@ class Navigation(object):
                 {
                     "Compute":
                         {
-                            "Access & Security":
-                                {
-                                    ITEMS:
-                                        (
-                                            "Security Groups",
-                                            "Key Pairs",
-                                            "Floating IPs",
-                                            "API Access"
-                                        ),
-                                },
-                            "Volumes":
-                                {
-                                    ITEMS:
-                                        (
-                                            "Volumes",
-                                            "Volume Snapshots"
-                                        )
-                                },
+
                             ITEMS:
                                 (
                                     "Overview",
                                     "Instances",
                                     "Images",
+                                    "Key Pairs",
+                                    "Server Groups",
+                                )
+                        },
+                    "Volumes":
+                        {
+                            ITEMS:
+                                (
+                                    "Volumes",
+                                    "Backups",
+                                    "Snapshots",
+                                    "Consistency Groups",
+                                    "Consistency Group Snapshots",
+
                                 )
                         },
                     "Network":
@@ -96,73 +93,64 @@ class Navigation(object):
                                 (
                                     "Network Topology",
                                     "Networks",
-                                    "Routers"
+                                    "Routers",
+                                    "Security Groups",
+                                    "Floating IPs",
                                 )
                         },
-                    "Object Store":
-                        {
-                            ITEMS:
-                                (
-                                    "Containers",
-                                )
-                        },
+                    ITEMS:
+                        (
+                            "API Access",
+                        )
                 },
             "Admin":
                 {
-                    "System":
+                    "Compute":
                         {
-                            "Resource Usage":
-                                {
-                                    ITEMS:
-                                        (
-                                            "Daily Report",
-                                            "Stats"
-                                        )
-                                },
-                            "System info":
-                                {
-                                    ITEMS:
-                                        (
-                                            "Services",
-                                            "Compute Services",
-                                            "Block Storage Services",
-                                            "Network Agents",
-                                            "Default Quotas"
-                                        )
-                                },
-                            "Volumes":
-                                {
-                                    ITEMS:
-                                        (
-                                            "Volumes",
-                                            "Volume Types",
-                                            "Volume Snapshots"
-                                        )
-                                },
+
                             ITEMS:
                                 (
-                                    "Overview",
                                     "Hypervisors",
                                     "Host Aggregates",
                                     "Instances",
                                     "Flavors",
                                     "Images",
+                                )
+                        },
+                    "Volume":
+                        {
+                            ITEMS:
+                                (
+                                    "Volumes",
+                                    "Snapshots",
+                                    "Volume Types",
+
+                                )
+                        },
+                    "Network":
+                        {
+                            ITEMS:
+                                (
                                     "Networks",
                                     "Routers",
+                                    "Floating IPs",
+                                )
+                        },
+                    "System":
+                        {
+                            ITEMS:
+                                (
                                     "Defaults",
                                     "Metadata Definitions",
                                     "System Information"
                                 )
                         },
-                },
-            "Settings":
-                {
                     ITEMS:
                         (
-                            "User Settings",
-                            "Change Password"
+                            "Overview",
                         )
                 },
+
             "Identity":
                 {
                     ITEMS:
@@ -170,10 +158,18 @@ class Navigation(object):
                             "Projects",
                             "Users",
                             "Groups",
-                            "Domains",
-                            "Roles"
+                            "Roles",
+                            "Application Credentials",
                         )
-                }
+                },
+            "Settings":
+                {
+                    ITEMS:
+                        (
+                            "User Settings",
+                            "Change Password",
+                        )
+                },
         }
     _main_content_locator = (by.By.ID, 'content_body')
 
@@ -281,11 +277,10 @@ class Navigation(object):
 
             * consist of 'go_to_subsubmenu_menuitem_page'
             """
-            if len(self.path) < 4:
+            if len(self.path) < 3:
                 path_2_name = list(self.path[-2:])
             else:
                 path_2_name = list(self.path[-3:])
-
             name = self.METHOD_NAME_DELIMITER.join(path_2_name)
             name = self.METHOD_NAME_PREFIX + name + self.METHOD_NAME_SUFFIX
             name = Navigation.unify_page_path(name, preserve_spaces=False)
