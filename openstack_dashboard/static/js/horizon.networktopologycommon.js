@@ -21,54 +21,54 @@ horizon.networktopologycommon = {
 };
 
 function isEqual(data1, data2) {
-  var list1=[],list2=[];
+  var list1 = [], list2 = [];
   function compare2Objects (data1, data2) {
     var item;
 
     if (isNaN(data1) && isNaN(data2) && typeof data1 === 'number' && typeof data2 === 'number') {
-    return true;
+      return true;
     }
 
     // Compare primitives and functions.
     // Check if both arguments link to the same object.
     // Especially useful on the step where we compare prototypes
     if (data1 === data2) {
-    return true;
+      return true;
     }
     for (item in data1) {
-        if (data2.hasOwnProperty(item) !== data1.hasOwnProperty(item)) {
-            return false;
-        }
-        else if (typeof data2[item] !== typeof data1[item]) {
-            return false;
-        }
+      if (data2.hasOwnProperty(item) !== data1.hasOwnProperty(item)) {
+        return false;
+      }
+      else if (typeof data2[item] !== typeof data1[item]) {
+        return false;
+      }
 
-        switch (typeof (data1[item])) {
-            case 'object':
-            if (!compare2Objects (data1[item], data2[item])) {
+      switch (typeof (data1[item])) {
+        case 'object':
+          if (!compare2Objects (data1[item], data2[item])) {
                     return false;
-                }
-                break;
+          }
+          break;
 
-            default:
-                if (data1[item] !== data2[item]) {
-                    list1.push(data1[item]);
-                    list2.push(data2[item]);
-                }
-                break;
-        }
+        default:
+          if (data1[item] !== data2[item]) {
+            list1.push(data1[item]);
+            list2.push(data2[item]);
+          }
+          break;
+      }
     }
     return true;
   }
-  if(!compare2Objects(data1, data2)){
-      return false;
-  }else{
-      list1 = list1.sort();
-      list2 = list2.sort();
-      for(var i in list1){
-          if(list2[i]!=list1[i])
-              return false;
-      }
+  if (!compare2Objects(data1, data2)) {
+    return false;
+  } else {
+    list1 = list1.sort();
+    list2 = list2.sort();
+    for (var i in list1) {
+      if (list2[i] != list1[i])
+        return false;
+    }
   }
   return true;
 }
@@ -101,12 +101,12 @@ horizon.networktopologyloader = {
       angular.element('#networktopology').data('networktopology') + '?' + angular.element.now(),
       function(data) {
         self.model = data;
-        if(!isEqual(data,self.previous_data)) {
-            angular.copy(data, self.previous_data);
-            $('#networktopology').trigger('change');
+        if (!isEqual(data,self.previous_data)) {
+          angular.copy(data, self.previous_data);
+          $('#networktopology').trigger('change');
         }
-        self.update_timer = setTimeout(function(){
-        self.update();
+        self.update_timer = setTimeout(function() {
+          self.update();
         }, self.reload_duration);
       }
     );
@@ -154,7 +154,7 @@ horizon.networktopologymessager = {
         setTimeout(function() {
           self.previous_message = null;
           self.delete_data = {};
-        },self.reload_duration);
+        }, self.reload_duration);
       }
     });
   },
