@@ -1,0 +1,9 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block modal-body-right %}
+  <p>{% trans "Volume groups can not be deleted if they contain volumes." %}</p>
+  <p>{% trans "Check the &quot;Delete Volumes&quot; box to also delete any volumes associated with this group." %}</p>
+  <p>{% trans "Note that a volume can not be deleted if it is &quot;attached&quot; or has any dependent snapshots." %}</p>
+{% endblock %}

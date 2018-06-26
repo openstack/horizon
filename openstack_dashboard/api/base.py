@@ -136,6 +136,10 @@ class APIResourceWrapper(object):
             obj[key] = getattr(self, key, None)
         return obj
 
+    @property
+    def name_or_id(self):
+        return self.name or '(%s)' % self.id[:13]
+
 
 class APIDictWrapper(object):
     """Simple wrapper for api dictionaries

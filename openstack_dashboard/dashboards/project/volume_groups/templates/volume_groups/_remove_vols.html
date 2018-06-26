@@ -1,0 +1,7 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block modal-body %}
+  <p>{% trans "This action will unassign all volumes that are currently contained in this group." %}</p>
+{% endblock %}

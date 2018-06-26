@@ -24,16 +24,27 @@ from openstack_dashboard.test import helpers as test
 
 class CinderApiTests(test.APIMockTestCase):
 
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_volume_list(self, mock_cinderclient):
+    def _stub_cinderclient_with_generic_group(self):
+        p = mock.patch.object(api.cinder,
+                              '_cinderclient_with_generic_groups').start()
+        return p.return_value
+
+    @test.create_mocks({
+        api.cinder: [
+            'cinderclient',
+            ('_cinderclient_with_generic_groups', 'cinderclient_groups'),
+        ]
+    })
+    def test_volume_list(self):
         search_opts = {'all_tenants': 1}
         detailed = True
 
         volumes = self.cinder_volumes.list()
         volume_transfers = self.cinder_volume_transfers.list()
-        cinderclient = mock_cinderclient.return_value
+        cinderclient = self.mock_cinderclient.return_value
+        cinderclient_with_group = self.mock_cinderclient_groups.return_value
 
-        volumes_mock = cinderclient.volumes.list
+        volumes_mock = cinderclient_with_group.volumes.list
         volumes_mock.return_value = volumes
 
         transfers_mock = cinderclient.transfers.list
@@ -47,15 +58,21 @@ class CinderApiTests(test.APIMockTestCase):
                                                search_opts=search_opts)
         self.assertEqual(len(volumes), len(api_volumes))
 
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_volume_list_paged(self, mock_cinderclient):
+    @test.create_mocks({
+        api.cinder: [
+            'cinderclient',
+            ('_cinderclient_with_generic_groups', 'cinderclient_groups'),
+        ]
+    })
+    def test_volume_list_paged(self):
         search_opts = {'all_tenants': 1}
         detailed = True
         volumes = self.cinder_volumes.list()
         volume_transfers = self.cinder_volume_transfers.list()
-        cinderclient = mock_cinderclient.return_value
+        cinderclient = self.mock_cinderclient.return_value
+        cinderclient_with_group = self.mock_cinderclient_groups.return_value
 
-        volumes_mock = cinderclient.volumes.list
+        volumes_mock = cinderclient_with_group.volumes.list
         volumes_mock.return_value = volumes
 
         transfers_mock = cinderclient.transfers.list
@@ -73,8 +90,13 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_volume_list_paginate_first_page(self, mock_cinderclient):
+    @test.create_mocks({
+        api.cinder: [
+            'cinderclient',
+            ('_cinderclient_with_generic_groups', 'cinderclient_groups'),
+        ]
+    })
+    def test_volume_list_paginate_first_page(self):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -84,9 +106,10 @@ class CinderApiTests(test.APIMockTestCase):
         mock_volumes = volumes[:page_size + 1]
         expected_volumes = mock_volumes[:-1]
 
-        cinderclient = mock_cinderclient.return_value
+        cinderclient = self.mock_cinderclient.return_value
+        cinderclient_with_group = self.mock_cinderclient_groups.return_value
 
-        volumes_mock = cinderclient.volumes.list
+        volumes_mock = cinderclient_with_group.volumes.list
         volumes_mock.return_value = mock_volumes
 
         transfers_mock = cinderclient.transfers.list
@@ -107,8 +130,13 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_volume_list_paginate_second_page(self, mock_cinderclient):
+    @test.create_mocks({
+        api.cinder: [
+            'cinderclient',
+            ('_cinderclient_with_generic_groups', 'cinderclient_groups'),
+        ]
+    })
+    def test_volume_list_paginate_second_page(self):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -119,9 +147,10 @@ class CinderApiTests(test.APIMockTestCase):
         expected_volumes = mock_volumes[:-1]
         marker = expected_volumes[0].id
 
-        cinderclient = mock_cinderclient.return_value
+        cinderclient = self.mock_cinderclient.return_value
+        cinderclient_with_group = self.mock_cinderclient_groups.return_value
 
-        volumes_mock = cinderclient.volumes.list
+        volumes_mock = cinderclient_with_group.volumes.list
         volumes_mock.return_value = mock_volumes
 
         transfers_mock = cinderclient.transfers.list
@@ -143,8 +172,13 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_volume_list_paginate_last_page(self, mock_cinderclient):
+    @test.create_mocks({
+        api.cinder: [
+            'cinderclient',
+            ('_cinderclient_with_generic_groups', 'cinderclient_groups'),
+        ]
+    })
+    def test_volume_list_paginate_last_page(self):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -155,9 +189,10 @@ class CinderApiTests(test.APIMockTestCase):
         expected_volumes = mock_volumes
         marker = expected_volumes[0].id
 
-        cinderclient = mock_cinderclient.return_value
+        cinderclient = self.mock_cinderclient.return_value
+        cinderclient_with_group = self.mock_cinderclient_groups.return_value
 
-        volumes_mock = cinderclient.volumes.list
+        volumes_mock = cinderclient_with_group.volumes.list
         volumes_mock.return_value = mock_volumes
 
         transfers_mock = cinderclient.transfers.list
@@ -179,8 +214,13 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_volume_list_paginate_back_from_some_page(self, mock_cinderclient):
+    @test.create_mocks({
+        api.cinder: [
+            'cinderclient',
+            ('_cinderclient_with_generic_groups', 'cinderclient_groups'),
+        ]
+    })
+    def test_volume_list_paginate_back_from_some_page(self):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -191,9 +231,10 @@ class CinderApiTests(test.APIMockTestCase):
         expected_volumes = mock_volumes[:-1]
         marker = expected_volumes[0].id
 
-        cinderclient = mock_cinderclient.return_value
+        cinderclient = self.mock_cinderclient.return_value
+        cinderclient_with_group = self.mock_cinderclient_groups.return_value
 
-        volumes_mock = cinderclient.volumes.list
+        volumes_mock = cinderclient_with_group.volumes.list
         volumes_mock.return_value = mock_volumes
 
         transfers_mock = cinderclient.transfers.list
@@ -215,8 +256,13 @@ class CinderApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_volume_list_paginate_back_to_first_page(self, mock_cinderclient):
+    @test.create_mocks({
+        api.cinder: [
+            'cinderclient',
+            ('_cinderclient_with_generic_groups', 'cinderclient_groups'),
+        ]
+    })
+    def test_volume_list_paginate_back_to_first_page(self):
         api.cinder.VERSIONS._active = None
         page_size = settings.API_RESULT_PAGE_SIZE
         volumes = self.cinder_volumes.list()
@@ -227,9 +273,10 @@ class CinderApiTests(test.APIMockTestCase):
         expected_volumes = mock_volumes
         marker = expected_volumes[0].id
 
-        cinderclient = mock_cinderclient.return_value
+        cinderclient = self.mock_cinderclient.return_value
+        cinderclient_with_group = self.mock_cinderclient_groups.return_value
 
-        volumes_mock = cinderclient.volumes.list
+        volumes_mock = cinderclient_with_group.volumes.list
         volumes_mock.return_value = mock_volumes
 
         transfers_mock = cinderclient.transfers.list

@@ -1,0 +1,10 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <div class="quota-dynamic">
+    <p>{% blocktrans %}Create a snapshot for each volume contained in the Group.{% endblocktrans %}</p>
+    <p>{% blocktrans %}Snapshots can only be created for Groups that contain volumes.{% endblocktrans %}</p>
+    {% include "project/volume_groups/_snapshot_limits.html" with usages=usages snapshot_quota=True %}
+  </div>
+{% endblock %}

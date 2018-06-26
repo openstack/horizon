@@ -1,0 +1,42 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ group.name|default:_("-") }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ group.id }}</dd>
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ group.description|default:_("-") }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ group.status|capfirst }}</dd>
+    <dt>{% trans "Availability Zone" %}</dt>
+    <dd>{{ group.availability_zone }}</dd>
+    <dt>{% trans "Group Type" %}</dt>
+    <dd>{{ group.group_type }}</dd>
+    <dt>{% trans "Created" %}</dt>
+    <dd>{{ group.created_at|parse_isotime }}</dd>
+    <dt>{% trans "Replication Status" %}</dt>
+    <dd>{{ group.replication_status }}</dd>
+  </dl>
+
+  <h4>{% trans "Volume Types" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% for vol_type_name in group.volume_type_names %}
+    <dd>{{ vol_type_name }}</dd>
+  {% endfor %}
+  </dl>
+
+  <h4>{% trans "Volumes" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% for vol in group.volume_names %}
+    <dd><a href="{% url 'horizon:project:volumes:detail' vol.id %}">{{ vol.name }}</a></dd>
+  {% empty %}
+    <dd>
+      <em>{% trans "No assigned volumes" %}</em>
+    </dd>
+  {% endfor %}
+  </dl>
+</div>

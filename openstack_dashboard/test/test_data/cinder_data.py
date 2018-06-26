@@ -27,11 +27,14 @@ from cinderclient.v2 import volume_transfers
 from cinderclient.v2 import volume_type_access
 from cinderclient.v2 import volume_types
 from cinderclient.v2 import volumes
+from cinderclient.v3 import group_snapshots
+from cinderclient.v3 import group_types
+from cinderclient.v3 import groups
 
 from openstack_dashboard import api
-from openstack_dashboard.usage import quotas as usage_quotas
-
+from openstack_dashboard.api import cinder as cinder_api
 from openstack_dashboard.test.test_data import utils
+from openstack_dashboard.usage import quotas as usage_quotas
 
 
 def data(TEST):
@@ -55,6 +58,10 @@ def data(TEST):
     TEST.cinder_consistencygroups = utils.TestDataContainer()
     TEST.cinder_cgroup_volumes = utils.TestDataContainer()
     TEST.cinder_cg_snapshots = utils.TestDataContainer()
+    TEST.cinder_groups = utils.TestDataContainer()
+    TEST.cinder_group_types = utils.TestDataContainer()
+    TEST.cinder_group_snapshots = utils.TestDataContainer()
+    TEST.cinder_group_volumes = utils.TestDataContainer()
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {
@@ -150,22 +157,24 @@ def data(TEST):
 
     TEST.cinder_bootable_volumes.add(api.cinder.Volume(non_bootable_volume))
 
-    vol_type1 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
-                                        {'id': u'1',
-                                         'name': u'vol_type_1',
-                                         'description': 'type 1 description',
-                                         'extra_specs': {'foo': 'bar',
-                                                         'volume_backend_name':
-                                                         'backend_1'}})
-    vol_type2 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
-                                        {'id': u'2',
-                                         'name': u'vol_type_2',
-                                         'description': 'type 2 description'})
-    vol_type3 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
-                                        {'id': u'3',
-                                         'name': u'vol_type_3',
-                                         'is_public': False,
-                                         'description': 'type 3 description'})
+    vol_type1 = volume_types.VolumeType(
+        volume_types.VolumeTypeManager(None),
+        {'id': u'1',
+         'name': u'vol_type_1',
+         'description': 'type 1 description',
+         'extra_specs': {'foo': 'bar',
+                         'volume_backend_name': 'backend_1'}})
+    vol_type2 = volume_types.VolumeType(
+        volume_types.VolumeTypeManager(None),
+        {'id': u'2',
+         'name': u'vol_type_2',
+         'description': 'type 2 description'})
+    vol_type3 = volume_types.VolumeType(
+        volume_types.VolumeTypeManager(None),
+        {'id': u'3',
+         'name': u'vol_type_3',
+         'is_public': False,
+         'description': 'type 3 description'})
     TEST.cinder_volume_types.add(vol_type1, vol_type2, vol_type3)
     vol_type_access1 = volume_type_access.VolumeTypeAccess(
         volume_type_access.VolumeTypeAccessManager(None),
@@ -488,3 +497,72 @@ def data(TEST):
          'description': 'cg_ss 1 description',
          'consistencygroup_id': u'1'})
     TEST.cinder_cg_snapshots.add(cg_snapshot_1)
+
+    group_type_1 = group_types.GroupType(
+        group_types.GroupTypeManager(None),
+        {
+            "is_public": True,
+            "group_specs": {},
+            "id": "4645cbf7-8aa6-4d42-a5f7-24e6ebe5ba79",
+            "name": "group-type-1",
+            "description": None,
+        })
+    TEST.cinder_group_types.add(group_type_1)
+
+    group_1 = groups.Group(
+        groups.GroupManager(None),
+        {
+            "availability_zone": "nova",
+            "created_at": "2018-01-09T07:27:22.000000",
+            "description": "description for group1",
+            "group_snapshot_id": None,
+            "group_type": group_type_1.id,
+            "id": "f64646ac-9bf7-483f-bd85-96c34050a528",
+            "name": "group1",
+            "replication_status": "disabled",
+            "source_group_id": None,
+            "status": "available",
+            "volume_types": [
+                vol_type1.id,
+            ]
+        })
+    TEST.cinder_groups.add(cinder_api.Group(group_1))
+
+    group_snapshot_1 = group_snapshots.GroupSnapshot(
+        group_snapshots.GroupSnapshotManager(None),
+        {
+            "created_at": "2018-01-09T07:46:03.000000",
+            "description": "",
+            "group_id": group_1.id,
+            "group_type_id": group_type_1.id,
+            "id": "1036d913-9cb8-46a1-9f56-2f99dc1f14ed",
+            "name": "group-snap1",
+            "status": "available",
+        })
+    TEST.cinder_group_snapshots.add(group_snapshot_1)
+
+    group_volume_1 = volumes.Volume(
+        volumes.VolumeManager(None),
+        {'id': "fe9a2664-0f49-4354-bab6-11b2ad352630",
+         'status': 'available',
+         'size': 2,
+         'name': 'group1-volume1',
+         'display_description': 'Volume 1 in Group 1',
+         'created_at': '2014-01-27 10:30:00',
+         'volume_type': 'vol_type_1',
+         'group_id': group_1.id,
+         'attachments': []})
+
+    group_volume_2 = volumes.Volume(
+        volumes.VolumeManager(None),
+        {'id': "a7fb0402-88dc-45a3-970c-d732da63466e",
+         'status': 'available',
+         'size': 1,
+         'name': 'group1-volume2',
+         'display_description': 'Volume 2 in Group 1',
+         'created_at': '2014-01-30 10:31:00',
+         'volume_type': 'vol_type_1',
+         'group_id': group_1.id,
+         'attachments': []})
+    TEST.cinder_group_volumes.add(group_volume_1)
+    TEST.cinder_group_volumes.add(group_volume_2)
