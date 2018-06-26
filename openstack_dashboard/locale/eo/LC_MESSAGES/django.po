@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-30 08:52+0000\n"
+"POT-Creation-Date: 2018-06-24 20:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-18 08:43+0000\n"
+"PO-Revision-Date: 2018-06-25 08:54+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -173,6 +173,20 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> je %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+
+msgid ""
+"<b>Warning:</b> If you change security groups here, the change will be "
+"applied to all interfaces of the instance. If you have multiple interfaces "
+"on this instance and apply different security groups per port, use \"Edit "
+"Port Security Groups\" action instead."
+msgstr ""
+"<b>Averto:</b> Se vi ŝanĝos sekurecajn grupojn ĉi tie, la ŝanĝo aplikiĝos al "
+"ĉiuj interfacoj de la apero. Se vi havas multajn interfacojn en ĉi tiu apero "
+"kaj aplikas malsamajn sekurecajn grupojn per pordo, anstataŭe uzu \"Redaktu "
+"Pordo Sekurecajn Grupojn\"."
+
+msgid "A brief description of the security group rule you are adding"
+msgstr "Mallonga priskribo de la regularo de sekureco grupo vi aldonas"
 
 msgid "A local image to upload."
 msgstr "Lokala bildo por alŝuti."
@@ -586,6 +600,19 @@ msgstr "Iu ajn"
 msgid "Any Availability Zone"
 msgstr "Iu Disponebla  Zono"
 
+msgid "Application Credential Details"
+msgstr "Aplikaĵo Legitimaĵo Detaloj"
+
+msgid "Application Credential Name ="
+msgstr "Aplikado Legitimaĵo Nomo ="
+
+msgid "Application Credentials"
+msgstr "Aplikado Legitimaĵo"
+
+#, python-format
+msgid "Application credential name \"%s\" is already used."
+msgstr "Aplikado legitimaĵa  nomo \"%s\" jam estas uzita."
+
 msgid "Architecture"
 msgstr "Arkitekturo"
 
@@ -823,6 +850,17 @@ msgid "Building"
 msgstr "Konstruanta"
 
 msgid ""
+"By default, for security reasons, application credentials are forbidden from "
+"being used for creating additional application credentials or keystone "
+"trusts. If your application credential needs to be able to perform these "
+"actions, check \"unrestricted\"."
+msgstr ""
+"Defaŭlte, por sekurecaj kialoj, aplikaj legitimaĵoj estas malpermesataj de "
+"esti uzataj por krei pliajn aplikaĵajn legitimaĵojn aŭ 'keystone trusts'. Se "
+"via aplika legitimaĵo bezonas plenumi ĉi tiujn agojn, kontrolu \"nelimigita"
+"\"."
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -1015,10 +1053,13 @@ msgid "Comma-separated key=value pairs"
 msgstr "Koma-divita klavo=valoro paroj"
 
 msgid "Compute"
-msgstr "Komputa "
+msgstr "Komputi"
 
 msgid "Compute Host"
 msgstr "Komputo Gastiganto"
+
+msgid "Compute Quotas"
+msgstr "Komputaj Kvotoj"
 
 msgid "Compute Services"
 msgstr "Komputaj Servoj"
@@ -1139,6 +1180,9 @@ msgstr "Kreu"
 
 msgid "Create An Image"
 msgstr "Kreu Bildigon"
+
+msgid "Create Application Credential"
+msgstr "Krei Aplikadon Legitimaĵon"
 
 msgid "Create Backup"
 msgstr "Krei Sekurkopion"
@@ -1295,6 +1339,9 @@ msgstr ""
 "Validaj ŝlosilaj nomoj estas atenditaj en la QoS specoj. La akcepteblaj "
 "valoroj por ŝlosilo estas <tt>\"minIOPS\", \"maxIOPS\" kaj \"burstIOPS\"</"
 "tt>."
+
+msgid "Create a new application credential."
+msgstr "Krei novan aplikado legitimaĵon."
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -1516,7 +1563,7 @@ msgid "Default"
 msgstr "Defaŭlto"
 
 msgid "Default quotas updated."
-msgstr "Defaŭlt Kvotojn ĝisdatigita."
+msgstr "Defaŭlt kvotoj ĝisdatigita."
 
 msgid "Defaults"
 msgstr "Defaŭltojn"
@@ -1525,6 +1572,11 @@ msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "Forigu"
 msgstr[1] "Forigu"
+
+msgid "Delete Application Credential"
+msgid_plural "Delete Application Credentials"
+msgstr[0] "Forigu Aplikadon Legitimaĵon"
+msgstr[1] "Forigu Aplikadon Legitimaĵojn"
 
 msgid "Delete Consistency Group"
 msgstr "Forigu Kohereco Grupon"
@@ -1551,7 +1603,7 @@ msgstr[1] "Forigu Ekstra Specifojn"
 
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] "Forigu Variaĵo"
+msgstr[0] "Forigu Variaĵon"
 msgstr[1] "Forigu Variaĵojn"
 
 msgid "Delete Group"
@@ -1707,6 +1759,11 @@ msgstr "Forigita"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Forigita"
+
+msgid "Deleted Application Credential"
+msgid_plural "Deleted Application Credentialss"
+msgstr[0] "Forigita Aplikado Legitimaĵo"
+msgstr[1] "Forigitaj Aplikado Legitimaĵoj"
 
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
@@ -2023,11 +2080,17 @@ msgstr[1] "Malebligitaj Uzantoj"
 msgid "Disabled compute service for host: %s."
 msgstr "Malvalidigita komputa servo por gastiganto: %s."
 
+msgid "Disassocaite"
+msgstr "Malasociigu"
+
 msgid "Disassociate"
 msgstr "Malasocigu"
 
 msgid "Disassociate Floating IP"
 msgstr "Malasociigu Glitan IP-on"
+
+msgid "Disassociate floating IP"
+msgstr "Malasociigu glitan IP"
 
 msgid "Disk"
 msgstr "Disko"
@@ -2066,6 +2129,9 @@ msgstr "Docker"
 msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr "Docker"
+
+msgid "Domain"
+msgstr "Domajno"
 
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
@@ -2144,6 +2210,12 @@ msgstr "Elŝuti CSV Rezumon"
 msgid "Download OpenStack RC File"
 msgstr "Elŝuti OpenStack RC Dosiero"
 
+msgid "Download clouds.yaml"
+msgstr "Elŝuti clouds.yaml"
+
+msgid "Download openrc file"
+msgstr "Elŝuti openrc dosieron"
+
 msgid "Download transfer credentials"
 msgstr "Elŝuti transigo legitimaĵojn"
 
@@ -2217,6 +2289,9 @@ msgstr "Redakti Reton"
 msgid "Edit Port"
 msgstr "Redaktu Pordon"
 
+msgid "Edit Port Security Groups"
+msgstr "Redaktu Pordo Secureco Grupojn"
+
 msgid "Edit Project"
 msgstr "Redaktu Projekton"
 
@@ -2225,6 +2300,9 @@ msgstr "Redaktu Puplikajn/Protektitajn atributojn por la Nomspaco."
 
 msgid "Edit QoS Spec Consumer"
 msgstr "Redaktu QoS Spec Konsumanto"
+
+msgid "Edit Quotas"
+msgstr "Redakti Kvotojn"
 
 msgid "Edit Router"
 msgstr "Redaktu Enkursigilon"
@@ -2532,6 +2610,18 @@ msgstr ""
 "Virtuala CPU Topologio nomspaco por ke la ecoj estos prefiksita kun 'hw:' "
 "kiam aplikata al gustojn."
 
+msgid "Expiration"
+msgstr "Limdato"
+
+msgid "Expiration Date"
+msgstr "Limdato"
+
+msgid "Expiration Time"
+msgstr "Limtempo"
+
+msgid "Expires"
+msgstr "Senvalidiĝas"
+
 msgid "Extend Volume"
 msgstr "Etendu Volumon"
 
@@ -2607,8 +2697,17 @@ msgstr "Malsukcesis aldoni projekton %(project)s al volumo tipo aliro."
 msgid "Failed to add route: %s"
 msgstr "Malsukcesis aldoni kurson: %s"
 
+msgid "Failed to check if description field is supported."
+msgstr "Malsukcesis kontroli ĉu priskribo kampo estas subtenata."
+
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Neeblas validi se reto-ip-disponeblon etendaĵo estas subtenita."
+
+msgid "Failed to check if neutron supports \"auto_allocated_network\"."
+msgstr "Malsukcesis kontroli se Neutron subtenas \"auto_allocated_network\"."
+
+msgid "Failed to check if nova supports \"auto_allocated_network\"."
+msgstr "Malsukcesis kontroli se Nova subtenas \"auto_allocated_network\"."
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
@@ -2922,6 +3021,14 @@ msgstr "De ĉi tie vi povas asigni glidanta IP al specifa projekto."
 msgid "From here you can create a snapshot of a volume."
 msgstr "De ĉi tie vi povas krei savkopion de unu volumo."
 
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr ""
+"De ĉi-tie vi povas ĝisdatigi  la defaŭlt komputajn kvotojn (max limitoj)."
+
+msgid "From here you can update the default volume quotas (max limits)."
+msgstr ""
+"De ĉi-tie vi povas ĝisdatigi  la defaŭlt voluajn kvotojn (max limitoj)."
+
 msgid "GB"
 msgstr "GB"
 
@@ -3213,6 +3320,9 @@ msgstr ""
 "Se \"Neniu volumo tipo\" estas selektita, la volumo estos kreita sen volumo "
 "tipo."
 
+msgid "If checked, the selected floating IP will be released at the same time."
+msgstr "Se markita, la selektita glita IP estos liberigita samtempe. "
+
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
@@ -3491,7 +3601,7 @@ msgid "Key Pair Name ="
 msgstr "Klavo Paro Nomo ="
 
 msgid "Key Pairs"
-msgstr "Klavo Paroj"
+msgstr "Ŝlosilaj Paroj"
 
 msgid "Key Pairs are how you login to your instance after it is launched."
 msgstr ""
@@ -3827,12 +3937,19 @@ msgid "Modified domain \"%s\"."
 msgstr "Modifkita domajno \"%s\"."
 
 #, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "Modifita variaĵo  aliro de \"%s\"."
+
+#, python-format
 msgid "Modified instance \"%s\"."
 msgstr "Modifigita aperoo \"%s\"."
 
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "Modifigita projekto \"%s\"."
+
+msgid "Modified quotas of project"
+msgstr "Modifitaj kvotoj de projekto."
 
 #, python-format
 msgid "Modified volume type access: %s"
@@ -3873,6 +3990,9 @@ msgstr "Monitorado:  "
 
 msgid "More"
 msgstr "Pli"
+
+msgid "Multiattach volumes are not yet supported."
+msgstr "Multligitaj volumoj ankoraŭ ne estas subtenata."
 
 msgid "N/A"
 msgstr "N/A"
@@ -3970,6 +4090,9 @@ msgstr "Reto QoS"
 
 msgid "Network QoS Policies"
 msgstr "Reto QoS Regularo"
+
+msgid "Network Quotas"
+msgstr "Retaj Kvotoj"
 
 msgid "Network Topology"
 msgstr "Reto Topologio"
@@ -4436,6 +4559,13 @@ msgstr "Fisika reto"
 msgid "Physical Network:"
 msgstr "Fisika Reto:"
 
+msgid ""
+"Please capture the application credential ID and secret in order to provide "
+"them to your application."
+msgstr ""
+"Bonvolu kapti la aplikaĵon legitimaĵon ID kaj sekreton por provizi ilin al "
+"via apliko."
+
 msgid "Please note: "
 msgstr "Bonvolu notu:"
 
@@ -4691,6 +4821,9 @@ msgstr "RAM (uzita)"
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Havebla: %(avail)s, Petita: %(req)s)"
 
+msgid "RBAC Policies"
+msgstr "RBAC Regularo  "
+
 msgid "RX/TX Factor"
 msgstr "RX/TX Faktoro"
 
@@ -4886,6 +5019,10 @@ msgstr "Savadita"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Savidanta"
+
+msgctxt "Current status of a Volume"
+msgid "Reserved"
+msgstr "Rezervita"
 
 msgid "Resize"
 msgstr "Regrandiĝu"
@@ -5155,6 +5292,9 @@ msgstr "Skripto Datumo"
 msgid "Script File"
 msgstr "Skripto Dosiero"
 
+msgid "Secret"
+msgstr "Sekreto"
+
 msgid "Security Group"
 msgstr "Secureco Grupo"
 
@@ -5207,7 +5347,7 @@ msgid "Select Instance Snapshot"
 msgstr "Elektu Apero Savkopio"
 
 msgid "Select Mapping"
-msgstr "Elektu Magigon"
+msgstr "Elektu Mapigon"
 
 msgid "Select Network"
 msgstr "Elektu Reton"
@@ -5232,6 +5372,9 @@ msgstr "Elektu Volumo Savkopion"
 
 msgid "Select a New Flavor"
 msgstr "Elektu novan variaĵon"
+
+msgid "Select a floating IP to disassociate"
+msgstr "Elektu glitan IP adreson por malasocii.   "
 
 msgid "Select a key pair"
 msgstr "Elektu klavo paron"
@@ -5308,6 +5451,9 @@ msgid ""
 msgstr ""
 "Elektu la IP adreson kiun vi volas asociigi kun la selektita instanco aŭ "
 "pordo."
+
+msgid "Select the floating IP to be disassociated from the instance."
+msgstr "Elektu glitan IP por malasocii de la apero.   "
 
 msgid "Select the image to rebuild your instance."
 msgstr "Elektu la bildo por rekonstrui vian aperon."
@@ -5780,6 +5926,14 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Sukcese malasociigita glidanta IP: %s   "
 
 #, python-format
+msgid "Successfully disassociated and released floating IP %s"
+msgstr "Sukcese malasociigita kaj liberigita glitan IP %s"
+
+#, python-format
+msgid "Successfully disassociated floating IP %s"
+msgstr "Sukcese malasociigita glita IP %s   "
+
+#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "Sukcese importita publikan ŝlosilon : %s"
 
@@ -6031,6 +6185,20 @@ msgid "The admin password is incorrect."
 msgstr "La admin pasvorto estas malĝusta."
 
 msgid ""
+"The application credential secret will not be available after closing this "
+"page, so you must capture it now or download it. If you lose this secret, "
+"you must generate a new application credential."
+msgstr ""
+"La aplikaĵa legitimaĵa sekreto ne estos disponebla post fermado de ĉi tiu "
+"paĝo, do vi devas kapti ĝin nun aŭ elŝuti ĝin. Se vi perdos ĉi tiun "
+"sekreton, vi devas generi novan aplikaĵan legitimaĵon"
+
+msgid ""
+"The application credential will be created for the currently selected "
+"project."
+msgstr "La aplikado legitimaĵo estos kreita por la nun selektita  projeko."
+
+msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
 msgstr ""
@@ -6170,6 +6338,9 @@ msgid ""
 msgstr ""
 "La petita apero(j) ne povas esti lanĉita ĉar via kvoto estos transpasita: "
 "Havebla: %(avail)s, Petita: %(req)s."
+
+msgid "The specified floating IP no longer exists."
+msgstr "La difinita glitaj IP ne plu ekzistas."
 
 msgid "The specified port is invalid."
 msgstr "La finita pordo nevalidas."
@@ -6518,6 +6689,9 @@ msgstr "Neebla konektadi al Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "Neeblas krei QoS Specifon."
 
+msgid "Unable to create application credential."
+msgstr "Neeblas krei aplikada legitimaĵo."
+
 #, python-format
 msgid "Unable to create consistency group \"%s\" from snapshot."
 msgstr "Neeblas krei kohereco grupon \"%s\" de savkopio."
@@ -6668,6 +6842,10 @@ msgstr "Neeblas determini  se disponeblo zonoj etendo estas subtenata."
 msgid "Unable to determine if volume type encryption is supported."
 msgstr "Neeblas determini  se volumo tipo ĉifradon estas subtenata."
 
+#, python-format
+msgid "Unable to disassociate floating IP %s"
+msgstr "Neeblas malasocii glitan IP %s   "
+
 msgid "Unable to disassociate floating IP."
 msgstr "Neeblas malasocii glidanta IP.   "
 
@@ -6708,6 +6886,9 @@ msgstr "Neeblas ricevi SPICE konzolon por apero \"%s\"."
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Neeblas ricevi VNC konzolon por apero \"%s\"."
 
+msgid "Unable to get cinder quota info."
+msgstr "Neeblas ricevi  Cinder kvota informon."
+
 msgid "Unable to get cinder services list."
 msgstr "Neeblas ricevi Cinder servo listo."
 
@@ -6733,6 +6914,12 @@ msgstr "Neeblas ricevi  retagenta informo."
 
 msgid "Unable to get network agents list."
 msgstr "Neeblas ricevi retagento listo."
+
+msgid "Unable to get neutron quota info."
+msgstr "Neeblas ricevi  Neutrom kvota informon."
+
+msgid "Unable to get nova quota info."
+msgstr "Neeblas ricevi  Nova kvota informon."
 
 msgid "Unable to get nova services list."
 msgstr "Neeblas ricevi Nova servo listo."
@@ -6797,12 +6984,19 @@ msgid "Unable to modify domain \"%s\"."
 msgstr "Neeblas modifi domajnon \"%s\"."
 
 #, python-format
+msgid "Unable to modify flavor access of \"%s\"."
+msgstr "Neeblas modifi variaĵo aliron de   \"%s\"."
+
+#, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "Neeblas modifi aperon \"%s\"."
 
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Neeblas modifi projekton \"%s\"."
+
+msgid "Unable to modify quotas of project"
+msgstr "Neeblas modifi kvotojn de projekto"
 
 #, python-format
 msgid "Unable to parse IP address %s."
@@ -6844,7 +7038,7 @@ msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Neeblas ricevi IP adresojn de Neutron."
 
 msgid "Unable to retrieve IP availability."
-msgstr "Neeblas ricevi IP disponeblon ."
+msgstr "Neeblas ricevi IP disponeblon."
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "Neeblas ricevi MAC lernado stato"
@@ -6891,6 +7085,12 @@ msgstr "Neeblas ricevi agento listo."
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "Neeblas ricevi eksteran reton \"%s\"."
 
+msgid "Unable to retrieve application credential details."
+msgstr "Neeblas ricevi aplikado legitimaĵo detajlojn."
+
+msgid "Unable to retrieve application credential list."
+msgstr "Neeblas ricevi aplikado legitimaĵo liston."
+
 msgid "Unable to retrieve attachment information."
 msgstr "Neeblas ricevi aldonaĵo informon."
 
@@ -6917,6 +7117,12 @@ msgstr "Neeblas ricevi kohereco grupo informojn."
 
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "Neeblas ricevi kohereco grupo savkopio detajlojn."
+
+msgid "Unable to retrieve default compute quotas."
+msgstr "Neeblas ricevi defaŭlt komputajn kvotojn."
+
+msgid "Unable to retrieve default volume quotas."
+msgstr "Neeblas ricevi defaŭlt volumajn kvotojn."
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -7123,6 +7329,9 @@ msgstr "Neeblas ricevi projekto informojn."
 
 msgid "Unable to retrieve project list."
 msgstr "Neeblas ricevi projekto listo."
+
+msgid "Unable to retrieve project quotas."
+msgstr "Neeblas ricevi projektajn kvotojn."
 
 msgid "Unable to retrieve protocol list."
 msgstr "Neeblas ricevi protokolo listo."
@@ -7333,8 +7542,14 @@ msgstr "Neeblas sorti apero variaĵon."
 msgid "Unable to unmanage volume."
 msgstr "Neeblas malmastrumo volumon."
 
+msgid "Unable to update default compute quotas."
+msgstr "Neeblas ĝisdatigi defaŭlt komputajn kvotojn."
+
 msgid "Unable to update default quotas."
-msgstr "Neeblas ĝisdatigi defaŭlt Kvotojn."
+msgstr "Neeblas ĝisdatigi defaŭlt kvotojn."
+
+msgid "Unable to update default volume quotas."
+msgstr "Neeblas ĝisdatigi defaŭlt volumajn kvotojn."
 
 msgid "Unable to update encrypted volume type."
 msgstr "Neeblas ĝisdatigi  ĉifrita volumo tipo."
@@ -7469,6 +7684,12 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Malsavidanta"
 
+msgid "Unrestricted"
+msgstr "Nelimigita"
+
+msgid "Unrestricted (dangerous)"
+msgstr "Nelimigita (danĝera)"
+
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "Malreservu Aperon"
@@ -7500,7 +7721,7 @@ msgid "Update Associations"
 msgstr "Ĝisdatigu   asociigojn  "
 
 msgid "Update Default Quotas"
-msgstr "Ĝisdatigu Defaŭlt Kvotoj"
+msgstr "Ĝisdatigu Defaŭlt Kvotojn"
 
 msgid "Update Defaults"
 msgstr "Ĝisdatigu Defaŭltojn"
@@ -7837,6 +8058,9 @@ msgstr "Volumo Nomo"
 msgid "Volume Name ="
 msgstr "Volumo Nomo ="
 
+msgid "Volume Quotas"
+msgstr "Volumaj Kvotoj"
+
 msgid "Volume Snapshot"
 msgstr "Volumo Savkopio"
 
@@ -8116,6 +8340,16 @@ msgstr ""
 msgid "You have selected:"
 msgstr "Vi elektis:"
 
+msgid ""
+"You may give the application credential an expiration. The expiration will "
+"be in UTC. If you provide an expiration date with no expiration time, the "
+"time will be assumed to be 00:00:00. If you provide an expiration time with "
+"no expiration date, the date will be assumed to be today."
+msgstr ""
+"Vi rajtas doni al la aplikaĵo legitimaĵo limdaton. La limdato estos en UTC. "
+"Se vi provizos limdaton sen limtempo, la tempo estos supozata kiel 00:00:00. "
+"Se vi provizos limtempon sen limdato, la dato estos supozita hodiaŭ."
+
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "Vi eble mistajpis la adreson aŭ la paĝo eble movis."
 
@@ -8123,11 +8357,29 @@ msgid "You may optionally set a password on the rebuilt instance."
 msgstr "Vi eble nedeviga volas krei pasvorton je la rekonstruita apero."
 
 msgid ""
+"You may provide your own secret, or one will be generated for you. Once your "
+"application credential is created, the secret will be revealed once. If you "
+"lose the secret, you will have to generate a new application credential."
+msgstr ""
+"Vi povas provizi vian propran sekreton, aŭ oni generos por vi. Post kiam via "
+"aplikaĵo estas kreita, la sekreto estos malkaŝita unufoje. Se vi perdos la "
+"sekreton, vi devos generi novan aplikaĵon."
+
+msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
 msgstr ""
 "Vi eble restarigus la kluzon poste uzonta la agordu kluzo agon, sed la kluzo "
 "IP eble ŝanĝigas."
+
+msgid ""
+"You may select one or more roles for this application credential. If you do "
+"not select any, all of the roles you have assigned on the current project "
+"will be applied to the application credential."
+msgstr ""
+"Vi povas elekti unu aŭ pli da roloj por ĉi tiu aplikaĵo. Se vi ne elektas "
+"iun ajn, ĉiuj roloj, kiujn vi atribuis en la nuna projekto, estos aplikitaj "
+"al la aplikaĵo."
 
 msgid "You may update the editable properties of your network here."
 msgstr "Vi povus ĝisdatigi la redaktiblaj ecoj de via reto ĉi tie."
@@ -8159,6 +8411,12 @@ msgstr ""
 "(Sekureco Grupo). Per selekto de sekureco grupo kiel fonto vi permesas al iu "
 "ajn alia apero en tiu sekureco grupo aliron al iu ajn alia apero per tiu "
 "regulo. "
+
+msgid "Your Application Credential"
+msgstr "Via Aplikado Legitimaĵo"
+
+msgid "Your application credential"
+msgstr "Via aplikaĵo legitimaĵo "
 
 #, python-format
 msgid "Your image %s has been queued for creation."

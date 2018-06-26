@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-02 18:26+0000\n"
+"POT-Creation-Date: 2018-06-24 20:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-03 08:28+0000\n"
+"PO-Revision-Date: 2018-06-25 09:13+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "#"
@@ -286,6 +286,9 @@ msgstr ""
 "Administrantoj agordas komunaĵon de glidantaj IPs kiuj estas disponebla por "
 "alligi al aperojn."
 
+msgid "Affinity"
+msgstr "Afineco"
+
 msgid "Alerts"
 msgstr "Alarmoj "
 
@@ -336,6 +339,17 @@ msgstr ""
 "agordas ĝin al unuopa subdisko. Elekti <b>Manual</b> permesas al vi krei "
 "multajn subdiskojn sur la disko."
 
+msgid ""
+"An arbitrary amount (0, 1, 2, ...) of regular Neutron\n"
+"  ports with segmentation details (ie. type and ID). May be provided\n"
+"  when the trunk is created. Also may be attached or detached later\n"
+"  during the trunk's (and the instance's) life."
+msgstr ""
+"Abritra kvanto (0,1,2, ...) da regulaj Neutron\n"
+" pordoj kun segmento detajlojn (i.a tipon kaj ID). Povus esti provizata\n"
+" kiam la trunko estas kreata. Ankaŭ povus esti kunligata aŭ malligata poste\n"
+" dum la vivo de la trunko (kaj de la apero)."
+
 msgid "An arbitrary description for the trunk."
 msgstr "Arbitra priskribon por la trunko."
 
@@ -380,6 +394,9 @@ msgstr "Movbildigita"
 
 msgid "Another action"
 msgstr "Alia ago"
+
+msgid "Anti Affinity"
+msgstr "Anti Afineco"
 
 msgid "Any Availability Zone"
 msgstr "Iu Disponebla  Zono"
@@ -546,6 +563,11 @@ msgid_plural "Confirm Delete Roles"
 msgstr[0] "Konfirmu Forigu Rolon"
 msgstr[1] "Konfirmu Forigu Rolojn"
 
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "Konfirmu Forigi Servilo Grupon"
+msgstr[1] "Konfirmu Forigi Servilo Grupojn"
+
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
 msgstr[0] "Konfirmu Forigu Trunkon"
@@ -555,6 +577,9 @@ msgid "Confirm Delete User"
 msgid_plural "Confirm Delete Users"
 msgstr[0] "Konfirmu Forigu Uzanton"
 msgstr[1] "Konfirmu Forigu Uzantojn"
+
+msgid "Confirm Password"
+msgstr "Konfirmu Pasvorton"
 
 msgid "Connecting"
 msgstr "Konekti"
@@ -595,11 +620,23 @@ msgstr "Enhavo Tipo"
 msgid "Contextual alternatives"
 msgstr "Kuntekstaj alternatovoj"
 
+msgid "Copy"
+msgstr "Kopii"
+
 msgid "Copy Data"
 msgstr "Kopii Datumon"
 
+msgid "Copy Object"
+msgstr "Kopii Objekton"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "Kopii Objekton: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
 msgid "Copy Private Key to Clipboard"
 msgstr "Kopiu Privata Ŝlosilo al Tondujo"
+
+msgid "Copying"
+msgstr "Kopiante"
 
 msgid "Could not decrypt the password"
 msgstr "Neeblas malĉifri la pasvorton"
@@ -633,6 +670,9 @@ msgstr "Kreu novan Volumon."
 
 msgid "Create Role"
 msgstr "Kreu Rolon"
+
+msgid "Create Server Group"
+msgstr "Krei Servilo Grupo"
 
 msgid "Create Subnet"
 msgstr "Kreu Subreton"
@@ -809,6 +849,14 @@ msgstr "Forigu Rolon"
 msgid "Delete Router"
 msgstr "Forigu Enkursigilon   "
 
+msgid "Delete Server Group"
+msgid_plural "Delete Server Groups"
+msgstr[0] "Forigi Servilo Grupon"
+msgstr[1] "Forigi Servilo Grupojn"
+
+msgid "Delete Server Groups"
+msgstr "Forigi Servilo Grupojn"
+
 msgid "Delete Subnet"
 msgstr "Forigu Subreton"
 
@@ -859,6 +907,12 @@ msgstr[0] "Forigita Rolo: %s."
 msgstr[1] "Forigitaj Roloj: %s."
 
 #, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "Forigita Servilo Grupo: %s."
+msgstr[1] "Forigitaj Servilo Grupoj: %s."
+
+#, python-format
 msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
 msgstr[0] "Forigita Trunko: %s."
@@ -881,6 +935,12 @@ msgstr "Priskribo"
 
 msgid "Description lists"
 msgstr "Priskribo listo"
+
+msgid "Destination Container"
+msgstr "Destino Entenilo"
+
+msgid "Destination Object"
+msgstr "Destino Objekto"
 
 msgid "Details"
 msgstr "Detajloj"
@@ -1346,6 +1406,19 @@ msgid "Input warning"
 msgstr "Enigo Avero"
 
 msgid ""
+"Inside the instance a particular subport's network will\n"
+"  be presented as tagged frames transmitted and received on the vNIC\n"
+"  belonging to the parent port. The cloud user may control the tagging\n"
+"  by setting the <em>segmentation type</em> and <em>segmentation ID</em>\n"
+"  of the subport."
+msgstr ""
+" Ene de la apero speciala subporda reto estos prezentita\n"
+" kiel markitaj kadroj transmetita kaj ricevita je la vNIC\n"
+" apartenante al la patra pordo. La nubo uzanto povus kontroli la markadon\n"
+" pere agordo de la <em>segmento tipo</em> kaj <em>segmento ID</em>\n"
+" de la subpordo."
+
+msgid ""
 "Inside the instance the parent port's network will always\n"
 "  be presented as the untagged network. It will be available early from\n"
 "  the moment of bootup."
@@ -1356,6 +1429,9 @@ msgstr ""
 
 msgid "Instance"
 msgstr "Apero"
+
+msgid "Instance ID"
+msgstr "Apero ID"
 
 msgid "Instance Name"
 msgstr "Apero Nomo"
@@ -1820,6 +1896,10 @@ msgstr "OVA - Nefermita Virtuala Aplikaĵo "
 
 msgid "Object"
 msgstr "Objekto"
+
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "Objekto %(path)s estas kopiita."
 
 msgid "Object Count"
 msgstr "Objekto Nombro"
@@ -2317,6 +2397,13 @@ msgstr "Sendu inviton"
 msgid "Separated link"
 msgstr "Apartita Ligo"
 
+msgid "Server Group"
+msgstr "Servilo Grupo"
+
+#, python-format
+msgid "Server Group %s was successfully created."
+msgstr "Servilo Grupo %s estis sukcese kreita."
+
 msgid "Server Groups"
 msgstr "Servilo Grupoj"
 
@@ -2373,6 +2460,12 @@ msgstr "Malgranda enigo"
 
 msgid "Snapshot"
 msgstr "Savkopio"
+
+msgid "Soft Affinity"
+msgstr "Mola Afineco"
+
+msgid "Soft Anti Affinity"
+msgstr "Mola Anti Afineco"
 
 msgid "Someone famous in"
 msgstr "Iu konata en"
@@ -2706,6 +2799,12 @@ msgstr ""
 "Tiu komando generas ŝlosilparon: privata ŝlosilo  (cloud.key)\n"
 " kaj publika ŝlosilo (cloud.key.pub)."
 
+msgid "This container does not exist."
+msgstr "Tiu Entenilo ne ekzistas."
+
+msgid "This field is required."
+msgstr "Tiu kampo nepras."
+
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
@@ -2874,6 +2973,9 @@ msgstr "Neeblas krei la projekton."
 msgid "Unable to create the role."
 msgstr "Neeblas krei la rolon."
 
+msgid "Unable to create the server group."
+msgstr "Neeblas krei la servilo grupon."
+
 msgid "Unable to create the server snapshot."
 msgstr "Neeblas krei la servilo savkopion."
 
@@ -2915,6 +3017,12 @@ msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "Neeblas nuligi Rolon: %s."
 msgstr[1] "Neeblas nuligi Rolojn: %s."
+
+#, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "Neeblas forigi Servilo Grupon: %s."
+msgstr[1] "Neeblas forigi Servilo Grupon: %s."
 
 #, python-format
 msgid "Unable to delete Trunk: %s."
@@ -2972,6 +3080,10 @@ msgstr "Neeblas forigi la rolon."
 
 msgid "Unable to delete the roles."
 msgstr "Neeblas forigi la rolojn."
+
+#, python-format
+msgid "Unable to delete the server group with id %(id)s"
+msgstr "Neeblas forigi la servilo grupon kun id %(id)s"
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
@@ -3214,6 +3326,9 @@ msgstr "Neeblas ricevi la rolojn."
 
 msgid "Unable to retrieve the security groups."
 msgstr "Neeblas ricevi la secureco grupojn."
+
+msgid "Unable to retrieve the server group."
+msgstr "Neeblas ricevi servilo grupon."
 
 msgid "Unable to retrieve the server."
 msgstr "Neeblas ricevi la servilon."
@@ -3612,6 +3727,11 @@ msgstr ""
 "ŝlosilo kaj valoro estas 255 litoroj."
 
 msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr ""
+"Vi povas kopii objektojn. Vi devas krei destinan entenilon antaŭ kopii."
+
+msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3619,6 +3739,17 @@ msgstr ""
 "Vi povas tajlori vian aperon post ĝi estas lanĉita uzante la opciojn "
 "disponebla ĉi tie.\n"
 " \"Customization Script\" estas analoga al \"User Data\" en aliaj sistemoj."
+
+msgid ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
+msgstr ""
+"Vi povas difini dosieron uzante  '/' je la destina objekto kampo.\n"
+"          Ekzemple, se vi volas kopii objekton en la dosieron nomata "
+"'folder1', vi devas difini  destinan objekton kiel 'folder1/[via  objekto "
+"nomo]'."
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "
@@ -3630,6 +3761,13 @@ msgstr ""
 "dekstra kolumno. En la maldekstra kolumno estas vicigilo aludo difinoj de la "
 "Glance Metadatuma katalogo. Uzu la \"Tajloru\" opcion por aldoni vicigilo "
 "aludoj kun la klavo de via elekto."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] "Vi selektis \"%s\". Forigita servilo grupo ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj servilo grupoj ne estas restaŭreblaj."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
@@ -3685,6 +3823,9 @@ msgstr "savkopio"
 
 msgid "volume"
 msgstr "volumo"
+
+msgid "{$ address $} on subnet {$ subnet $}"
+msgstr "{$ address $} je subnet {$ subnet $}"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
