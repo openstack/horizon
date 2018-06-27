@@ -18,9 +18,9 @@
   
     angular
       .module('horizon.app.core.images')
-      .factory('horizon.app.core.images.actions.share-image.service', shareImageService);
+      .factory('horizon.app.core.images.actions.link-to-appliance-catalog.service', linkToApplianceCatalogService);
   
-    shareImageService.$inject = [
+    linkToApplianceCatalogService.$inject = [
       '$q',
       'horizon.app.core.openstack-service-api.glance',
       'horizon.app.core.openstack-service-api.userSession',
@@ -32,7 +32,7 @@
   
     /**
      * @ngDoc factory
-     * @name horizon.app.core.images.actions.shareImageService
+     * @name horizon.app.core.images.actions.linkToApplianceCatalogService
      * @param {Object} $q
      * @param {Object} nonBootableImageTypes
      * @param {Object} launchInstanceModal
@@ -44,7 +44,7 @@
      *
      * @returns {Object} The service
      */
-    function shareImageService(
+    function linkToApplianceCatalogService(
       $q,
       glance,
       userSessionService,
@@ -66,12 +66,12 @@
         modifyImagePolicyCheck = policy.ifAllowed({rules: [['image', 'modify_image']]});
       }
 
-      function allowed(image) {
+      function allowed(image){
+        
         return $q.all([
-          modifyImagePolicyCheck,
-          userSessionService.isCurrentProject(image.owner),
-          isActive(image)
-        ]);
+            applianceCatalogEntryExists(image),
+            isActive(image)
+          ]);
       }
 
       //////////////
@@ -80,45 +80,19 @@
         // Previous uses of this relocated the display using the successUrl;
         // in this case we leave the post-action behavior up to the result
         // handler.
-        // return launchInstanceModal.open({
-        //   'imageId': image.id
-        // });
-        console.log(image);
-        console.log(userSessionService.isCurrentProject(image.owner));
-        var params = '?name=' + escape(image.name);
-        params += '&short_description=' + escape(image.properties.description === undefined ? '' : image.properties.description);
-        var region = getCookie('services_region');
-        //var region = userSessionService.get().then(function(userSession){return userSession.services_region;});
-        if('region'.indexOf('@tacc') != -1){
-          params += '&chi_tacc_appliance_id=' + escape(image.id);
-        } else {
-          params += '&chi_uc_appliance_id=' + escape(image.id);
-        }
         if(window.location.hostname.indexOf('dev.chameleon') > -1 || window.location.port != 443){
-          return window.open('https://dev.chameleon.tacc.utexas.edu/appliances/create' + params);
+          return window.open('https://dev.chameleon.tacc.utexas.edu/appliances/' + image.appliance_catalog_id);
         } else {
-          return window.open('https://www.chameleoncloud.org/appliances/create' + params);
+          return window.open('https://www.chameleoncloud.org/appliances/' + image.appliance_catalog_id);
         }
       }
-
-      function getCookie(cname) {
-        var name = cname + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
   
       function isActive(image) {
         return $qExtensions.booleanAsPromise(image.status === 'active');
+      }
+
+      function applianceCatalogEntryExists(image){
+        return $qExtensions.booleanAsPromise(image.appliance_catalog_id != -1);
       }
   
       function isBootable(image) {
@@ -127,6 +101,6 @@
         );
       }
   
-    } // end of shareImageService
+    } // end of linkToApplianceCatalogService
   })(); // end of IIFE
   

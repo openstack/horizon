@@ -71,11 +71,12 @@
               <label for="{$ item[config.trackId] $}"></label>
             </div>
           </td>
-          <td ng-show="config.expand" class="expander">
-            <span class="fa fa-chevron-right"
+          <td style="width: 4em;max-width: 5em;" ng-show="config.expand" class="expander">
+            <img title="Chameleon Supported Appliance" style="float:right;" ng-if="item.project_supported" height="20px" src="https://www.chameleoncloud.org/static/images/logo-small.png" />
+            <div class="fa fa-chevron-right"
               hz-expand-detail
               duration="200">
-            </span>
+          </div>
           </td>
           <td ng-repeat="column in config.columns"
             class="rsp-p{$ column.priority $}"

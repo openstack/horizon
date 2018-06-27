@@ -23,6 +23,8 @@ import itertools
 import json
 import logging
 import os
+import urllib3
+from django.core.cache import cache
 
 from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
@@ -61,7 +63,7 @@ class Image(base.APIResourceWrapper):
     _attrs = {"architecture", "container_format", "disk_format", "created_at",
               "owner", "size", "id", "status", "updated_at", "checksum",
               "visibility", "name", "is_public", "protected", "min_disk",
-              "min_ram"}
+              "min_ram", "project_supported"}
     _ext_attrs = {"file", "locations", "schema", "tags", "virtual_size",
                   "kernel_id", "ramdisk_id", "image_url"}
 
@@ -84,6 +86,24 @@ class Image(base.APIResourceWrapper):
     @property
     def name(self):
         return getattr(self._apiresource, 'name', None)
+
+    @property
+    def project_supported(self):
+        if(cache.get('app_data_is_fresh') is not True):
+            self.refresh_project_supported_cache()
+        app = cache.get(self.id)
+        if app is None:
+            return False
+        return True if app['project_supported'] == True else False
+
+    @property
+    def appliance_catalog_id(self):
+        if(cache.get('app_data_is_fresh') is not True):
+            self.refresh_project_supported_cache()
+        app = cache.get(self.id)
+        if app is None:
+            return -1
+        return app['id']
 
     @property
     def size(self):
@@ -118,6 +138,8 @@ class Image(base.APIResourceWrapper):
             return self._apiresource.to_dict()
         image_dict = super(Image, self).to_dict()
         image_dict['is_public'] = self.is_public
+        image_dict['project_supported'] = self.project_supported
+        image_dict['appliance_catalog_id'] = self.appliance_catalog_id
         image_dict['properties'] = {
             k: self._apiresource[k] for k in self._apiresource
             if self.property_visible(k, show_ext_attrs=show_ext_attrs)}
@@ -129,6 +151,37 @@ class Image(base.APIResourceWrapper):
     def __ne__(self, other_image):
         return not self.__eq__(other_image)
 
+    ## kicks off a cache refresh if one isn't already in progress
+    def refresh_project_supported_cache(self):
+        refresh_in_progress = cache.get('refresh_in_progress')
+        # Use existing data while refresh is in progress
+        # If this is the first time here and there is no cached data, refresh_in_progress will be None, 
+        # and the first request will go ahead and fetch & cache the data
+        if (refresh_in_progress == True): 
+            return
+        ## otherwise let's set refresh_in_progress to True and start the refresh
+        LOG.warn('Refreshing appliance catalog cache')
+        cache.set('refresh_in_progress', True, 30)
+        app_json = json.loads(self.fetch_supported_appliances())
+        for app in app_json['result']:
+            if(app['chi_uc_appliance_id'] is not None):
+                LOG.warn('caching: ' + app['chi_uc_appliance_id'] + str(app['project_supported']))
+                cache.set(app['chi_uc_appliance_id'], app, None)
+            if(app['chi_tacc_appliance_id'] is not None):
+                LOG.warn('caching: ' + app['chi_tacc_appliance_id'] + ' set to project_supported: ' + str(app['project_supported']))
+                cache.set(app['chi_tacc_appliance_id'], app, None)
+            if(app['kvm_tacc_appliance_id'] is not None):
+                LOG.warn('caching: ' + app['kvm_tacc_appliance_id'] + ' set to project_supported: ' + str(app['project_supported']))
+                cache.set(app['kvm_tacc_appliance_id'], app, None)
+        cache.set('refresh_in_progress', False, None)
+        cache.set('app_data_is_fresh', True, 300)
+
+    def fetch_supported_appliances(self):
+        LOG.warn('*******####### Fetching and caching Appliance JSON from https://dev.chameleon.tacc.utexas.edu/appliances/api/appliances/')
+        http = urllib3.PoolManager()
+        r = http.request('GET', 'https://dev.chameleon.tacc.utexas.edu/appliances/api/appliances/')
+        LOG.debug('fetched appliance catalog data: ' + r.data)
+        return r.data
 
 @memoized
 def glanceclient(request, version=None):
