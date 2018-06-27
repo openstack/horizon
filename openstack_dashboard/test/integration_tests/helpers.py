@@ -335,3 +335,7 @@ class AdminTestCase(TestCase, AssertsMixin):
     TEST_USER_NAME = TestCase.CONFIG.identity.admin_username
     TEST_PASSWORD = TestCase.CONFIG.identity.admin_password
     HOME_PROJECT = BaseTestCase.CONFIG.identity.admin_home_project
+
+    def setUp(self):
+        super(AdminTestCase, self).setUp()
+        self.home_pg.go_to_admin_overviewpage()

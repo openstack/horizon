@@ -32,8 +32,8 @@ class TestDefaults(helpers.AdminTestCase):
         3) Verifies that the updated values are present in the
            Compute Quota Defaults table
         """
-        default_quota_values = self.defaults_page.quota_values
-        self.defaults_page.update_defaults(self.add_up)
+        default_quota_values = self.defaults_page.compute_quota_values
+        self.defaults_page.update_compute_defaults(self.add_up)
 
         self.assertTrue(
             self.defaults_page.find_message_and_dismiss(messages.SUCCESS))
@@ -44,7 +44,36 @@ class TestDefaults(helpers.AdminTestCase):
 
         for quota_name in default_quota_values:
             self.assertTrue(
-                self.defaults_page.is_quota_a_match(
+                self.defaults_page.is_compute_quota_a_match(
+                    quota_name,
+                    default_quota_values[quota_name] + self.add_up
+                ))
+
+    def test_update_volume_defaults(self):
+        """Tests the Update Default Volume Quotas functionality:
+
+        1) Login as Admin and go to Admin > System > Defaults
+        2) Clicks on Volume Quotas tab
+        3) Updates default volume Quotas by adding a random
+           number between 1 and 10
+        4) Verifies that the updated values are present in the
+           Volume Quota Defaults table
+        """
+
+        self.defaults_page.go_to_volume_quotas_tab()
+        default_quota_values = self.defaults_page.volume_quota_values
+        self.defaults_page.update_volume_defaults(self.add_up)
+
+        self.assertTrue(
+            self.defaults_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            self.defaults_page.find_message_and_dismiss(messages.ERROR))
+
+        self.assertGreater(len(default_quota_values), 0)
+
+        for quota_name in default_quota_values:
+            self.assertTrue(
+                self.defaults_page.is_volume_quota_a_match(
                     quota_name,
                     default_quota_values[quota_name] + self.add_up
                 ))
