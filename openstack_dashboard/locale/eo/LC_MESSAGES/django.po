@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-06-24 20:11+0000\n"
+"POT-Creation-Date: 2018-06-26 13:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-25 08:54+0000\n"
+"PO-Revision-Date: 2018-06-27 05:26+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -409,12 +409,22 @@ msgstr ""
 "aldonata al la sama kohereco grupo nur se ili estas atribuita kun la sama "
 "internaĵilo"
 
+msgid ""
+"Add volume types to this group. Multiple volume types can be added to the "
+"same group only if they are associated with same back end."
+msgstr ""
+"Aldoni volumtipojn al ĉi tiu grupo. Multoblaj volumaj tipoj povas esti "
+"aldonitaj al la sama grupo nur se ili estas asociitaj kun sama internaĵo."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Aldonu, modifu aŭ forigu la QoS Specifon asociigita kun tiu volumo tipo."
 
 msgid "Add/Remove Consistency Group Volumes"
 msgstr "Aldonu/Forigu kohereco grupo volumojn"
+
+msgid "Add/Remove Group Volumes"
+msgstr "Aldonu/Forigu  Grupo volumojn"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Aldonu/Forigu Gastigojn al al to Agregato"
@@ -427,6 +437,13 @@ msgstr ""
 "Aldonu/Forigu volumojn al/de tiu koherenco grupo. Nur volumoj asociita kun "
 "la volumo tipo(j) atribuita al tiu koherenco grupo estos disponebla por "
 "selekti."
+
+msgid ""
+"Add/remove volumes to/from this group. Only volumes associated with the "
+"volume type(s) assigned to this group will be available for selection."
+msgstr ""
+"Aldoni / forigi volumojn al / de ĉi tiu grupo. Nur volumoj asociitaj kun la "
+"volumaj tipo(j) atribuitaj al ĉi tiu grupo estos disponeblaj por elekto."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -640,6 +657,9 @@ msgstr "Almenaŭ unu reto devas esti difinita. "
 msgid "At least one volume type must be assigned to a consistency group."
 msgstr "Minimume unu volumo tipo devas esti atribuita je kohereco grupo. "
 
+msgid "At least one volume type must be assigned to a group."
+msgstr "Minimume unu volumo tipo devas esti atribuita je grupo. "
+
 msgid "Attach Interface"
 msgstr "Ligu Interfaco"
 
@@ -747,6 +767,14 @@ msgstr "Havebla"
 msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "Havebla"
+
+msgctxt "Current status of Volume Group"
+msgid "Available"
+msgstr "Disponebla"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Available"
+msgstr "Disponebla"
 
 msgctxt "Current status of a Volume"
 msgid "Available"
@@ -938,6 +966,13 @@ msgstr ""
 "Kontrolu la &quot;Forigu Volumoj&quot; skatolo por ke ankaŭ forigi iujn "
 "volumojn asociita kun tiu  kohereco grupo."
 
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this group."
+msgstr ""
+"Kontrolu la &quot;Forigu Volumoj&quot; skatolo por ke ankaŭ forigi iujn "
+"volumojn asociita kun tiu grupo."
+
 msgid "Checksum"
 msgstr "Kontrolsumo"
 
@@ -1029,12 +1064,22 @@ msgstr "Kliku ĉi tie por nur vidigi konzolon"
 msgid "Clone Consistency Group"
 msgstr "Klonu Kohereco Groupon"
 
+msgid "Clone Group"
+msgstr "Klonu Grupon"
+
 msgid ""
 "Clone each of the volumes in the source Consistency Group, and then add them "
 "to a newly created Consistency Group."
 msgstr ""
 "Klonu ĉiu de la volumoj en la fonto kohereco grupo, tiam aldonu ilin al nove "
 "kreita kohereco grupo."
+
+msgid ""
+"Clone each of the volumes in the source Group, and then add them to a newly "
+"created Group."
+msgstr ""
+"Klonu ĉiu de la volumoj en la fonto grupo, tiam aldonu ilin al nove kreita "
+"grupo."
 
 msgid "Close"
 msgstr "Fermu"
@@ -1211,6 +1256,9 @@ msgstr "Kreu Varianto"
 msgid "Create Group"
 msgstr "Kreu Grupo"
 
+msgid "Create Group Snapshot"
+msgstr "Kreu Grupo Savkopion"
+
 msgid "Create Host Aggregate"
 msgstr "Kreu Servilo Agregato"
 
@@ -1286,6 +1334,9 @@ msgstr "Kreu Volumo Sekurkopio"
 msgid "Create Volume Consistency Group"
 msgstr "Kreu Volumo Kohereco Grupo"
 
+msgid "Create Volume Group"
+msgstr "Kreu Volumo Grupon"
+
 msgid "Create Volume Snapshot"
 msgstr "Kreu Volumo Savkopio"
 
@@ -1310,6 +1361,13 @@ msgid ""
 msgstr ""
 "Kreu kohereco grupo kiu enhavas novajn kreitajn volumojn klonitaj de ĉiu el "
 "la savkopiojn en la fonta Kohereco Grupo Savkopio."
+
+msgid ""
+"Create a Group that will contain newly created volumes cloned from each of "
+"the snapshots in the source Group Snapshot."
+msgstr ""
+"Kreu grupon kiu enhavas novajn kreitajn volumojn klonitaj de ĉiu el la "
+"savkopioj en la fonta Grupo Savkopio."
 
 msgid "Create a Metadata Namespace"
 msgstr "Kreu Metadatuma Nomspaco"
@@ -1366,6 +1424,9 @@ msgstr "Kreu projekton por organizi uzantojn."
 msgid "Create a snapshot for each volume contained in the Consistency Group."
 msgstr "Kreu savkopion por ĉiu volumo entenita en la Kohereco Grupo."
 
+msgid "Create a snapshot for each volume contained in the Group."
+msgstr "Kreu savkopion por ĉiu volumo entenita en la Grupo."
+
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -1409,6 +1470,9 @@ msgstr "Estis kreita nova projekto \"%s\"."
 
 msgid "Created new volume consistency group"
 msgstr "Estas kreita nova volumo kohereco grupon"
+
+msgid "Created new volume group"
+msgstr "Kreita novan volumon grupon"
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -1462,6 +1526,14 @@ msgstr ""
 "Kreante ĉifradon por tiu volumo tipo kaŭzas ke ĉiuj volumoj kun tiu volumo "
 "tipo estas ĉifradita. Ĉifradan informon ne povas esti aldonita al volumo "
 "tipo kiam volumoj estas aktuale uzita kun tiu volumo tipo."
+
+#, python-format
+msgid "Creating group \"%s\"."
+msgstr "Krei grupo \"%s\"."
+
+#, python-format
+msgid "Creating group snapshot \"%s\"."
+msgstr "Krei grupo savkopio \"%s\"."
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -1934,6 +2006,10 @@ msgstr "Foriganta"
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
 msgstr "Forigas volume koherenco grupo \"%s\""
+
+#, python-format
+msgid "Deleting volume group \"%s\""
+msgstr "Forigi volume grupo \"%s\""
 
 msgid "Description"
 msgstr "Priskribo"
@@ -2490,6 +2566,14 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "Eraro"
 
+msgctxt "Current status of Volume Group"
+msgid "Error"
+msgstr "Eraro"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Error"
+msgstr "Eraro"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Eraro"
@@ -2574,8 +2658,14 @@ msgstr "Eraro skribi zipdosiero: %(exc)s"
 msgid "Errors occurred in deleting consistency group."
 msgstr "Eraroj okazis forigante koherenco grupo."
 
+msgid "Errors occurred in deleting group."
+msgstr "Eraroj okazis forigante grupo."
+
 msgid "Errors occurred in removing volumes from consistency group."
 msgstr "Eraroj okazis dum forigante volumojn de koherenco grupo."
+
+msgid "Errors occurred in removing volumes from group."
+msgstr "Eraroj okazis dum forigante volumojn de grupo."
 
 msgid "Ether Type"
 msgstr "Ether Tipo"
@@ -3059,6 +3149,9 @@ msgstr "Iru"
 msgid "Graph"
 msgstr "Diagramo"
 
+msgid "Group"
+msgstr "Grupo"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Grupo \"%s\" sukcese kreita."
@@ -3069,6 +3162,9 @@ msgstr "Grupo ID-o"
 msgid "Group ID ="
 msgstr "Grupo ID-o ="
 
+msgid "Group Information"
+msgstr "Grupo Informo"
+
 msgid "Group Management"
 msgstr "Grupo Mastrumado"
 
@@ -3078,8 +3174,17 @@ msgstr "Grupo Mastrumado: {{ group.name }}"
 msgid "Group Members"
 msgstr "Grupo Membroj"
 
+msgid "Group Name"
+msgstr "Grupo Nomo"
+
 msgid "Group Name ="
 msgstr "Grupo Nomo ="
+
+msgid "Group Snapshots"
+msgstr "Grupo Savkopioj"
+
+msgid "Group Type"
+msgstr "Grupo Tipo"
 
 msgid "Group has been updated successfully."
 msgstr "Grupo sukcese ĝisdatigita."
@@ -3131,6 +3236,9 @@ msgstr[1] "Malvarme restartigita aperoj"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Malvarma Restartigo"
+
+msgid "Has Snapshots"
+msgstr "Havas Savkopion"
 
 msgid "Help"
 msgstr "Helpo"
@@ -3437,6 +3545,14 @@ msgstr "Esti-uzita"
 msgctxt "Current status of Consistency Group Snapshot"
 msgid "In-use"
 msgstr "Nune uzata"
+
+msgctxt "Current status of Volume Group"
+msgid "In-use"
+msgstr "Uzata"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "In-use"
+msgstr "Uzata"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -3982,6 +4098,9 @@ msgstr "Modifu la nomojn kaj priskribojn de volumo kohereco grupo savkopio."
 msgid "Modify the name and description of a volume consistency group."
 msgstr "Modifu la nomojn kaj priskribojn de volumo kohereco grupo."
 
+msgid "Modify the name and description of a volume group."
+msgstr "Modifu la nomon kaj priskribon de volumo grupo."
+
 msgid "Modify volume type name, description, and public status."
 msgstr "Modifu volumo tipo nomo, priskriobo, kaj publika stato."
 
@@ -4261,7 +4380,7 @@ msgid "No other hosts available."
 msgstr "Neniuj aliaj gastigantoj havebla."
 
 msgid "No other volume types available"
-msgstr "Neniuj aliaj volumo tipoj havebla"
+msgstr "Neniuj aliaj volumo tipojn havebla"
 
 msgid "No ports available"
 msgstr "Neniuj pordoj disponebla"
@@ -4967,6 +5086,9 @@ msgstr[1] "Forigu Uzantojn"
 msgid "Remove Volumes from Consistency Group"
 msgstr "Forigu Volumojn de Kohereco Group"
 
+msgid "Remove Volumes from Group"
+msgstr "Forigu Volumojn de Grupo"
+
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Forigita Uzanto"
@@ -4982,6 +5104,13 @@ msgstr ""
 #, python-format
 msgid "Removing volumes from volume consistency group \"%s\""
 msgstr "Forigante volumojn de volumo koherenco grup \"%s\""
+
+#, python-format
+msgid "Removing volumes from volume group \"%s\""
+msgstr "Forigante volumojn de volumo grupo \"%s\""
+
+msgid "Replication Status"
+msgstr "Replika Statuso"
 
 msgid "Report Bug"
 msgstr "Raportu Cimon"
@@ -5436,6 +5565,9 @@ msgstr "Elekto aperon al kiu alligi."
 msgid "Select format"
 msgstr "Elektu formaton"
 
+msgid "Select group type"
+msgstr "Elektu grupo tipon"
+
 msgid "Select network"
 msgstr "Elektu reton"
 
@@ -5694,6 +5826,9 @@ msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
 "Savkopion nur povas esti kreita por Kohereco grupoj kiuj enhavas volumojn."
+
+msgid "Snapshots can only be created for Groups that contain volumes."
+msgstr "Savkopion nur povas esti kreita por grupoj kiuj enhavas volumojn."
 
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
@@ -6272,6 +6407,10 @@ msgid "The name \"%s\" is already used by another flavor."
 msgstr "La nomo \"%s\" jam estas uzita de alia variaĵo."
 
 #, python-format
+msgid "The name \"%s\" is already used by another group."
+msgstr "La nomo \"%s\" jam estas uzita de alia grupo."
+
+#, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "La nomo \"%s\" jam estas uzita de alia servilo agretato."
 
@@ -6436,6 +6575,13 @@ msgid ""
 msgstr ""
 "Tiu ago malasociigos ĉiujn volumojn kiuj estas ĉi-momente entenita en la "
 "kohereco grupo."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"group."
+msgstr ""
+"Tiu ago malasociigos ĉiujn volumojn kiuj estas ĉi-momente entenita en tiu "
+"grupo."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr "Tiu aplikado bezonas JavaSkript ebligita en via retumilo."
@@ -6683,6 +6829,12 @@ msgstr "Neeblas kloni kohereco grupon."
 msgid "Unable to clone empty consistency group."
 msgstr "Neeblas kloni kohereco grupon."
 
+msgid "Unable to clone empty group."
+msgstr "Neeblas kloni malplena grupon."
+
+msgid "Unable to clone group."
+msgstr "Neeblas kloni grupon."
+
 msgid "Unable to connect to Neutron."
 msgstr "Neebla konektadi al Neutron."
 
@@ -6718,6 +6870,16 @@ msgstr "Neeblas krei variaĵo \"%s\"."
 
 msgid "Unable to create flavor."
 msgstr "Neeblas krei variaĵo."
+
+#, python-format
+msgid "Unable to create group \"%s\" from snapshot."
+msgstr "Neeblas krei grupon \"%s\" de savkopio."
+
+msgid "Unable to create group due to exceeding volume quota limit."
+msgstr "Neeblas krei grupon pro transpasita volumo kvota limito."
+
+msgid "Unable to create group snapshot."
+msgstr "Neeblas krei grupo savkopion."
 
 msgid "Unable to create group."
 msgstr "Neeblas krei grupo."
@@ -6775,6 +6937,9 @@ msgstr "Neeblas krei savkopion."
 
 msgid "Unable to create snapshot. Consistency group must contain volumes."
 msgstr "Neeblas krei savkopion. Kohereco grupo devas enhavi volumojn,"
+
+msgid "Unable to create snapshot. group must contain volumes."
+msgstr "Neeblas krei savkopion. grupo devas enhavi volumojn,"
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "Neeblas krei savkopiojn pro transpasita savkopio kvota limito."
@@ -6852,6 +7017,9 @@ msgstr "Neeblas malasocii glidanta IP.   "
 msgid "Unable to display consistency group."
 msgstr "Neeblas vidigi kohereco grupon."
 
+msgid "Unable to display group."
+msgstr "Neeblas vidigi grupon."
+
 msgid "Unable to edit spec."
 msgstr "Neeblas redakti specifon."
 
@@ -6901,6 +7069,9 @@ msgstr "Neeblas ricevi konzolon por apero \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Neeblas ricevi variaĵo listo."
+
+msgid "Unable to get group list"
+msgstr "Neeblas ricevi grupo liston."
 
 msgid "Unable to get host aggregate list"
 msgstr "Neebla ricevi servilo agregato listo."
@@ -6961,6 +7132,9 @@ msgstr "Neeblas ŝargi konzolon. Bonvolu reŝargu paĝon por provi denove."
 
 msgid "Unable to load the specified consistency group."
 msgstr "Neeblas ŝuti la specifita kohereco grupo."
+
+msgid "Unable to load the specified group."
+msgstr "Neeblas ŝuti la specifita grupo."
 
 #, python-format
 msgid "Unable to load the specified image. %s"
@@ -7195,11 +7369,26 @@ msgstr "Neeblas ricevi glidanta IP listo."
 msgid "Unable to retrieve floating IP pools."
 msgstr "Neeblas trovi glidanta IP komunaĵoj ."
 
+msgid "Unable to retrieve group"
+msgstr "Neeblas ricevi grupon."
+
+msgid "Unable to retrieve group details."
+msgstr "Neeblas ricevi grupo detajlojn."
+
+msgid "Unable to retrieve group information."
+msgstr "Neeblas ricevi grupo informon."
+
 msgid "Unable to retrieve group list."
 msgstr "Neeblas ricevi grupo liston."
 
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "Neeblas ricevi grupo listo. Bonvolu provu denove poste."
+
+msgid "Unable to retrieve group snapshot details."
+msgstr "Neeblas ricevi grupo savkopio detajlojn."
+
+msgid "Unable to retrieve group types."
+msgstr "Neeblas ricevi grupo tipojn."
 
 msgid "Unable to retrieve group users."
 msgstr "Neeblas ricevi grupo uzantoj."
@@ -7448,6 +7637,12 @@ msgstr "Neeblas ricevi volumo detajlojn"
 msgid "Unable to retrieve volume encryption details."
 msgstr "Neeblas ricevi volumo ĉifrado detajlojn."
 
+msgid "Unable to retrieve volume group snapshots."
+msgstr "Neeblas ricevi volumo grupo savkopiojn."
+
+msgid "Unable to retrieve volume groups."
+msgstr "Neeblas ricevi volumo grupojn."
+
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "Neeblas ricevi volumo informon por volumo: \"%s\""
@@ -7606,6 +7801,9 @@ msgstr "Neeblas ĝisdatigi uzanton."
 msgid "Unable to update volume consistency group."
 msgstr "Neeblas ĝisdatigi volumo koherenco grupo."
 
+msgid "Unable to update volume group."
+msgstr "Neeblas ĝisdatigi volumo grupo."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Neeblas ĝisdatigi volumo savkopio staton."
 
@@ -7624,6 +7822,9 @@ msgstr "Neeblas ĝisdatigi volumon."
 
 msgid "Unable to update volumes for consistency group"
 msgstr "Neeblas ĝisdatigi volumoj por koherenco grupo"
+
+msgid "Unable to update volumes for group"
+msgstr "Neeblas ĝisdatigi volumoj por grupo"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7803,6 +8004,9 @@ msgstr "Ĝisdatigita subreto \"%s\"."
 msgid "Updated volumes for consistency group \"%s\"."
 msgstr "Ĝisdatigitaj volumoj por  kohereco grupo \"%s\"."
 
+msgid "Updated volumes for group."
+msgstr "Ĝisdatigitaj volumoj por  grupo."
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Ĝisdatigi Pasvorto"
@@ -7821,6 +8025,10 @@ msgstr "Ĝisdatigi volumon \"%s\""
 #, python-format
 msgid "Updating volume consistency group \"%s\""
 msgstr "Ĝisdatigante volume koherenco grup \"%s\""
+
+#, python-format
+msgid "Updating volume group \"%s\""
+msgstr "Ĝisdatigi volumo grupo \"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -7859,6 +8067,9 @@ msgstr "Uzu Servilo Defaŭlto"
 
 msgid "Use a consistency group as source"
 msgstr "Uzu kohereco grupo kiel fonto"
+
+msgid "Use a group as source"
+msgstr "Uzu grupon kiel fonto"
 
 msgid "Use a volume as source"
 msgstr "Uzu volumon kiel fonto"
@@ -8142,6 +8353,22 @@ msgstr ""
 "\n"
 "Kohereco grupo povas subteni pli ol unu volumo tipon, sed ĝi povas enhavi "
 "nur volumoj gastigita de la sama internaĵilo."
+
+msgid "Volume groups can not be deleted if they contain volumes."
+msgstr "Volumo grupoj ne povas esti forigita se ili enhavas volumojn."
+
+msgid ""
+"Volume groups provide a mechanism for creating snapshots of multiple volumes "
+"at the same point-in-time to ensure data consistency\n"
+"\n"
+"A volume group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"Volumo grupoj provizas mekanismo por krei savkopiojn de multaj volumoj je la "
+"sama punkto-en-tempo por garantii datuma kohereco.\n"
+"\n"
+"Volumo grupo povas subteni pli ol unu volumo tipon, sed ĝi povas enhavi nur "
+"volumoj gastigata de la sama internaĵilo."
 
 msgid "Volume is Unencrypted"
 msgstr "Volumo ne estas ĉifradita. "

@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-06-09 06:58+0000\n"
+"POT-Creation-Date: 2018-06-26 13:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-07 09:03+0000\n"
+"PO-Revision-Date: 2018-06-27 09:50+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -415,11 +415,21 @@ msgstr ""
 "added to the same consistency group only if they are associated with same "
 "back end."
 
+msgid ""
+"Add volume types to this group. Multiple volume types can be added to the "
+"same group only if they are associated with same back end."
+msgstr ""
+"Add volume types to this group. Multiple volume types can be added to the "
+"same group only if they are associated with same back end."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr "Add, modify or remove the QoS Spec associated with this volume type."
 
 msgid "Add/Remove Consistency Group Volumes"
 msgstr "Add/Remove Consistency Group Volumes"
+
+msgid "Add/Remove Group Volumes"
+msgstr "Add/Remove Group Volumes"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Add/Remove Hosts to Aggregate"
@@ -432,6 +442,13 @@ msgstr ""
 "Add/remove volumes to/from this consistency group. Only volumes associated "
 "with the volume type(s) assigned to this consistency group will be available "
 "for selection."
+
+msgid ""
+"Add/remove volumes to/from this group. Only volumes associated with the "
+"volume type(s) assigned to this group will be available for selection."
+msgstr ""
+"Add/remove volumes to/from this group. Only volumes associated with the "
+"volume type(s) assigned to this group will be available for selection."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -644,6 +661,9 @@ msgstr "At least one network must be specified."
 msgid "At least one volume type must be assigned to a consistency group."
 msgstr "At least one volume type must be assigned to a consistency group."
 
+msgid "At least one volume type must be assigned to a group."
+msgstr "At least one volume type must be assigned to a group."
+
 msgid "Attach Interface"
 msgstr "Attach Interface"
 
@@ -748,6 +768,14 @@ msgid "Available"
 msgstr "Available"
 
 msgctxt "Current status of Consistency Group Snapshot"
+msgid "Available"
+msgstr "Available"
+
+msgctxt "Current status of Volume Group"
+msgid "Available"
+msgstr "Available"
+
+msgctxt "Current status of Volume Group Snapshot"
 msgid "Available"
 msgstr "Available"
 
@@ -941,6 +969,13 @@ msgstr ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this consistency group."
 
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this group."
+msgstr ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this group."
+
 msgid "Checksum"
 msgstr "Checksum"
 
@@ -1032,12 +1067,22 @@ msgstr "Click here to show only console"
 msgid "Clone Consistency Group"
 msgstr "Clone Consistency Group"
 
+msgid "Clone Group"
+msgstr "Clone Group"
+
 msgid ""
 "Clone each of the volumes in the source Consistency Group, and then add them "
 "to a newly created Consistency Group."
 msgstr ""
 "Clone each of the volumes in the source Consistency Group, and then add them "
 "to a newly created Consistency Group."
+
+msgid ""
+"Clone each of the volumes in the source Group, and then add them to a newly "
+"created Group."
+msgstr ""
+"Clone each of the volumes in the source Group, and then add them to a newly "
+"created Group."
 
 msgid "Close"
 msgstr "Close"
@@ -1212,6 +1257,9 @@ msgstr "Create Flavour"
 msgid "Create Group"
 msgstr "Create Group"
 
+msgid "Create Group Snapshot"
+msgstr "Create Group Snapshot"
+
 msgid "Create Host Aggregate"
 msgstr "Create Host Aggregate"
 
@@ -1287,6 +1335,9 @@ msgstr "Create Volume Backup"
 msgid "Create Volume Consistency Group"
 msgstr "Create Volume Consistency Group"
 
+msgid "Create Volume Group"
+msgstr "Create Volume Group"
+
 msgid "Create Volume Snapshot"
 msgstr "Create Volume Snapshot"
 
@@ -1311,6 +1362,13 @@ msgid ""
 msgstr ""
 "Create a Consistency Group that will contain newly created volumes cloned "
 "from each of the snapshots in the source Consistency Group Snapshot."
+
+msgid ""
+"Create a Group that will contain newly created volumes cloned from each of "
+"the snapshots in the source Group Snapshot."
+msgstr ""
+"Create a Group that will contain newly created volumes cloned from each of "
+"the snapshots in the source Group Snapshot."
 
 msgid "Create a Metadata Namespace"
 msgstr "Create a Metadata Namespace"
@@ -1366,6 +1424,9 @@ msgstr "Create a project to organise users."
 msgid "Create a snapshot for each volume contained in the Consistency Group."
 msgstr "Create a snapshot for each volume contained in the Consistency Group."
 
+msgid "Create a snapshot for each volume contained in the Group."
+msgstr "Create a snapshot for each volume contained in the Group."
+
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -1409,6 +1470,9 @@ msgstr "Created new project \"%s\"."
 
 msgid "Created new volume consistency group"
 msgstr "Created new volume consistency group"
+
+msgid "Created new volume group"
+msgstr "Created new volume group"
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -1462,6 +1526,14 @@ msgstr ""
 "Creating encryption for a volume type causes all volumes with that volume "
 "type to be encrypted.  Encryption information cannot be added to a volume "
 "type if volumes are currently in use with that volume type."
+
+#, python-format
+msgid "Creating group \"%s\"."
+msgstr "Creating group \"%s\"."
+
+#, python-format
+msgid "Creating group snapshot \"%s\"."
+msgstr "Creating group snapshot \"%s\"."
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -1934,6 +2006,10 @@ msgstr "Deleting"
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
 msgstr "Deleting volume consistency group \"%s\""
+
+#, python-format
+msgid "Deleting volume group \"%s\""
+msgstr "Deleting volume group \"%s\""
 
 msgid "Description"
 msgstr "Description"
@@ -2490,6 +2566,14 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "Error"
 
+msgctxt "Current status of Volume Group"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Error"
+msgstr "Error"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Error"
@@ -2574,8 +2658,14 @@ msgstr "Error writing zipfile: %(exc)s"
 msgid "Errors occurred in deleting consistency group."
 msgstr "Errors occurred in deleting consistency group."
 
+msgid "Errors occurred in deleting group."
+msgstr "Errors occurred in deleting group."
+
 msgid "Errors occurred in removing volumes from consistency group."
 msgstr "Errors occurred in removing volumes from consistency group."
+
+msgid "Errors occurred in removing volumes from group."
+msgstr "Errors occurred in removing volumes from group."
 
 msgid "Ether Type"
 msgstr "Ether Type"
@@ -3057,6 +3147,9 @@ msgstr "Go"
 msgid "Graph"
 msgstr "Graph"
 
+msgid "Group"
+msgstr "Group"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Group \"%s\" was successfully created."
@@ -3067,6 +3160,9 @@ msgstr "Group ID"
 msgid "Group ID ="
 msgstr "Group ID ="
 
+msgid "Group Information"
+msgstr "Group Information"
+
 msgid "Group Management"
 msgstr "Group Management"
 
@@ -3076,8 +3172,17 @@ msgstr "Group Management: {{ group.name }}"
 msgid "Group Members"
 msgstr "Group Members"
 
+msgid "Group Name"
+msgstr "Group Name"
+
 msgid "Group Name ="
 msgstr "Group Name ="
+
+msgid "Group Snapshots"
+msgstr "Group Snapshots"
+
+msgid "Group Type"
+msgstr "Group Type"
 
 msgid "Group has been updated successfully."
 msgstr "Group has been updated successfully."
@@ -3128,6 +3233,9 @@ msgstr[1] "Hard Rebooted Instances"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Hard Rebooting"
+
+msgid "Has Snapshots"
+msgstr "Has Snapshots"
 
 msgid "Help"
 msgstr "Help"
@@ -3432,6 +3540,14 @@ msgid "In-use"
 msgstr "In-use"
 
 msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "In-use"
+
+msgctxt "Current status of Volume Group"
+msgid "In-use"
+msgstr "In-use"
+
+msgctxt "Current status of Volume Group Snapshot"
 msgid "In-use"
 msgstr "In-use"
 
@@ -3982,6 +4098,9 @@ msgstr ""
 
 msgid "Modify the name and description of a volume consistency group."
 msgstr "Modify the name and description of a volume consistency group."
+
+msgid "Modify the name and description of a volume group."
+msgstr "Modify the name and description of a volume group."
 
 msgid "Modify volume type name, description, and public status."
 msgstr "Modify volume type name, description, and public status."
@@ -4966,6 +5085,9 @@ msgstr[1] "Remove Users"
 msgid "Remove Volumes from Consistency Group"
 msgstr "Remove Volumes from Consistency Group"
 
+msgid "Remove Volumes from Group"
+msgstr "Remove Volumes from Group"
+
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Removed User"
@@ -4981,6 +5103,13 @@ msgstr ""
 #, python-format
 msgid "Removing volumes from volume consistency group \"%s\""
 msgstr "Removing volumes from volume consistency group \"%s\""
+
+#, python-format
+msgid "Removing volumes from volume group \"%s\""
+msgstr "Removing volumes from volume group \"%s\""
+
+msgid "Replication Status"
+msgstr "Replication Status"
 
 msgid "Report Bug"
 msgstr "Report Bug"
@@ -5434,6 +5563,9 @@ msgstr "Select an instance to attach to."
 msgid "Select format"
 msgstr "Select format"
 
+msgid "Select group type"
+msgstr "Select group type"
+
 msgid "Select network"
 msgstr "Select network"
 
@@ -5689,6 +5821,9 @@ msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
+
+msgid "Snapshots can only be created for Groups that contain volumes."
+msgstr "Snapshots can only be created for Groups that contain volumes."
 
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
@@ -6274,6 +6409,10 @@ msgid "The name \"%s\" is already used by another flavor."
 msgstr "The name \"%s\" is already used by another flavour."
 
 #, python-format
+msgid "The name \"%s\" is already used by another group."
+msgstr "The name \"%s\" is already used by another group."
+
+#, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "The name \"%s\" is already used by another host aggregate."
 
@@ -6440,6 +6579,13 @@ msgid ""
 msgstr ""
 "This action will unassign all volumes that are currently contained in this "
 "consistency group."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"group."
+msgstr ""
+"This action will unassign all volumes that are currently contained in this "
+"group."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -6684,6 +6830,12 @@ msgstr "Unable to clone consistency group."
 msgid "Unable to clone empty consistency group."
 msgstr "Unable to clone empty consistency group."
 
+msgid "Unable to clone empty group."
+msgstr "Unable to clone empty group."
+
+msgid "Unable to clone group."
+msgstr "Unable to clone group."
+
 msgid "Unable to connect to Neutron."
 msgstr "Unable to connect to Neutron."
 
@@ -6720,6 +6872,16 @@ msgstr "Unable to create flavour \"%s\"."
 
 msgid "Unable to create flavor."
 msgstr "Unable to create flavour."
+
+#, python-format
+msgid "Unable to create group \"%s\" from snapshot."
+msgstr "Unable to create group \"%s\" from snapshot."
+
+msgid "Unable to create group due to exceeding volume quota limit."
+msgstr "Unable to create group due to exceeding volume quota limit."
+
+msgid "Unable to create group snapshot."
+msgstr "Unable to create group snapshot."
 
 msgid "Unable to create group."
 msgstr "Unable to create group."
@@ -6777,6 +6939,9 @@ msgstr "Unable to create snapshot."
 
 msgid "Unable to create snapshot. Consistency group must contain volumes."
 msgstr "Unable to create snapshot. Consistency group must contain volumes."
+
+msgid "Unable to create snapshot. group must contain volumes."
+msgstr "Unable to create snapshot. group must contain volumes."
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "Unable to create snapshots due to exceeding snapshot quota limit."
@@ -6854,6 +7019,9 @@ msgstr "Unable to disassociate floating IP."
 msgid "Unable to display consistency group."
 msgstr "Unable to display consistency group."
 
+msgid "Unable to display group."
+msgstr "Unable to display group."
+
 msgid "Unable to edit spec."
 msgstr "Unable to edit spec."
 
@@ -6903,6 +7071,9 @@ msgstr "Unable to get console for instance \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Unable to get flavour list"
+
+msgid "Unable to get group list"
+msgstr "Unable to get group list"
 
 msgid "Unable to get host aggregate list"
 msgstr "Unable to get host aggregate list"
@@ -6963,6 +7134,9 @@ msgstr "Unable to load console. Please reload page to try again."
 
 msgid "Unable to load the specified consistency group."
 msgstr "Unable to load the specified consistency group."
+
+msgid "Unable to load the specified group."
+msgstr "Unable to load the specified group."
 
 #, python-format
 msgid "Unable to load the specified image. %s"
@@ -7200,11 +7374,26 @@ msgstr "Unable to retrieve floating IP list."
 msgid "Unable to retrieve floating IP pools."
 msgstr "Unable to retrieve floating IP pools."
 
+msgid "Unable to retrieve group"
+msgstr "Unable to retrieve group"
+
+msgid "Unable to retrieve group details."
+msgstr "Unable to retrieve group details."
+
+msgid "Unable to retrieve group information."
+msgstr "Unable to retrieve group information."
+
 msgid "Unable to retrieve group list."
 msgstr "Unable to retrieve group list."
 
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "Unable to retrieve group list. Please try again later."
+
+msgid "Unable to retrieve group snapshot details."
+msgstr "Unable to retrieve group snapshot details."
+
+msgid "Unable to retrieve group types."
+msgstr "Unable to retrieve group types."
 
 msgid "Unable to retrieve group users."
 msgstr "Unable to retrieve group users."
@@ -7453,6 +7642,12 @@ msgstr "Unable to retrieve volume details."
 msgid "Unable to retrieve volume encryption details."
 msgstr "Unable to retrieve volume encryption details."
 
+msgid "Unable to retrieve volume group snapshots."
+msgstr "Unable to retrieve volume group snapshots."
+
+msgid "Unable to retrieve volume groups."
+msgstr "Unable to retrieve volume groups."
+
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "Unable to retrieve volume information for volume: \"%s\""
@@ -7611,6 +7806,9 @@ msgstr "Unable to update the user."
 msgid "Unable to update volume consistency group."
 msgstr "Unable to update volume consistency group."
 
+msgid "Unable to update volume group."
+msgstr "Unable to update volume group."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Unable to update volume snapshot status."
 
@@ -7629,6 +7827,9 @@ msgstr "Unable to update volume."
 
 msgid "Unable to update volumes for consistency group"
 msgstr "Unable to update volumes for consistency group"
+
+msgid "Unable to update volumes for group"
+msgstr "Unable to update volumes for group"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7808,6 +8009,9 @@ msgstr "Updated subnet \"%s\"."
 msgid "Updated volumes for consistency group \"%s\"."
 msgstr "Updated volumes for consistency group \"%s\"."
 
+msgid "Updated volumes for group."
+msgstr "Updated volumes for group."
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Updating Password"
@@ -7826,6 +8030,10 @@ msgstr "Updating volume \"%s\""
 #, python-format
 msgid "Updating volume consistency group \"%s\""
 msgstr "Updating volume consistency group \"%s\""
+
+#, python-format
+msgid "Updating volume group \"%s\""
+msgstr "Updating volume group \"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -7864,6 +8072,9 @@ msgstr "Use Server Default"
 
 msgid "Use a consistency group as source"
 msgstr "Use a consistency group as source"
+
+msgid "Use a group as source"
+msgstr "Use a group as source"
 
 msgid "Use a volume as source"
 msgstr "Use a volume as source"
@@ -8145,6 +8356,22 @@ msgstr ""
 "multiple volumes at the same point-in-time to ensure data consistency\n"
 "\n"
 "A consistency group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+
+msgid "Volume groups can not be deleted if they contain volumes."
+msgstr "Volume groups can not be deleted if they contain volumes."
+
+msgid ""
+"Volume groups provide a mechanism for creating snapshots of multiple volumes "
+"at the same point-in-time to ensure data consistency\n"
+"\n"
+"A volume group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"Volume groups provide a mechanism for creating snapshots of multiple volumes "
+"at the same point-in-time to ensure data consistency\n"
+"\n"
+"A volume group can support more than one volume type, but it can only "
 "contain volumes hosted by the same back end."
 
 msgid "Volume is Unencrypted"
