@@ -181,7 +181,7 @@ class BasePlugin(object):
                 scoped_auth_ref = scoped_auth.get_access(session)
             except (keystone_exceptions.ClientException,
                     keystone_exceptions.AuthorizationFailure):
-                LOG.info('Attempted scope to project %s failed, will attempt'
+                LOG.info('Attempted scope to project %s failed, will attempt '
                          'to scope to another project.', project.name)
                 pass
             else:
@@ -229,7 +229,7 @@ class BasePlugin(object):
                 domain_auth_ref = domain_auth.get_access(session)
             except (keystone_exceptions.ClientException,
                     keystone_exceptions.AuthorizationFailure):
-                LOG.info('Attempted scope to domain %s failed, will attempt'
+                LOG.info('Attempted scope to domain %s failed, will attempt '
                          'to scope to another domain.', domain_name)
                 pass
             else:
