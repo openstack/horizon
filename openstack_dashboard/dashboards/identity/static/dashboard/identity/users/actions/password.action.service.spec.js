@@ -40,6 +40,9 @@
       var deferred = $q.defer();
       spyOn(policy, 'ifAllowed').and.returnValue(deferred.promise);
       deferred.resolve({allowed: true});
+      var deferredCanEdit = $q.defer();
+      spyOn(keystone, 'canEditIdentity').and.returnValue(deferredCanEdit.promise);
+      deferredCanEdit.resolve(true);
       var handler = jasmine.createSpyObj('handler', ['success']);
 
       service.allowed().then(handler.success);

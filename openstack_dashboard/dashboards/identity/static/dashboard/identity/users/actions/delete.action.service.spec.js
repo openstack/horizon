@@ -37,6 +37,9 @@
     var keystoneAPI = {
       deleteUser: function() {
         return;
+      },
+      canEditIdentity: function() {
+        return;
       }
     };
 
@@ -75,6 +78,7 @@
     beforeEach(module('horizon.app.core.openstack-service-api', function($provide) {
       $provide.value('horizon.app.core.openstack-service-api.keystone', keystoneAPI);
       $provide.value('horizon.app.core.openstack-service-api.policy', policyAPI);
+      spyOn(keystoneAPI, 'canEditIdentity').and.callThrough();
       spyOn(policyAPI, 'ifAllowed').and.callThrough();
     }));
 
@@ -134,7 +138,7 @@
       it('should call policy check', function() {
         service.allowed();
         $scope.$apply();
-
+        expect(keystoneAPI.canEditIdentity).toHaveBeenCalled();
         expect(policyAPI.ifAllowed).toHaveBeenCalled();
       });
     });

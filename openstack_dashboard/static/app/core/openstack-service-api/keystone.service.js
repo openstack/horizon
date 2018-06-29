@@ -22,11 +22,12 @@
 
   keystoneAPI.$inject = [
     '$q',
+    'horizon.app.core.openstack-service-api.settings',
     'horizon.framework.util.http.service',
     'horizon.framework.widgets.toast.service'
   ];
 
-  function keystoneAPI($q, apiService, toastService) {
+  function keystoneAPI($q, settingAPI, apiService, toastService) {
     var service = {
       getVersion: getVersion,
       getUsers: getUsers,
@@ -64,7 +65,8 @@
       getGroup: getGroup,
       editGroup: editGroup,
       deleteGroup: deleteGroup,
-      deleteGroups: deleteGroups
+      deleteGroups: deleteGroups,
+      canEditIdentity: canEditIdentity
     };
 
     return service;
@@ -383,6 +385,26 @@
         .error(function () {
           toastService.add('error', gettext('Unable to grant the role.'));
         });
+    }
+
+    /**
+     * @name canEditIdentity
+     * @description
+     * Returns the promise for can_edit_* setting in OPENSTACK_KEYSTONE_BACKEND.
+     * @returns {object} Deferred promiss
+     */
+    function canEditIdentity(type) {
+      var deferred = $q.defer();
+      settingAPI.getSetting('OPENSTACK_KEYSTONE_BACKEND', false).then(success);
+      return deferred.promise;
+
+      function success(response) {
+        if (response["can_edit_" + type]) {
+          deferred.resolve();
+        } else {
+          deferred.reject();
+        }
+      }
     }
 
     /**

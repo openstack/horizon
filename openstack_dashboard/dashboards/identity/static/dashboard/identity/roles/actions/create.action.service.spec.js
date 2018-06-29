@@ -38,21 +38,41 @@
       resType = $injector.get('horizon.dashboard.identity.roles.resourceType');
     }));
 
-    it('should check the policy if the user is allowed to create roles', function() {
-      var deferred = $q.defer();
-      spyOn(policyAPI, 'ifAllowed').and.returnValue(deferred.promise);
-      deferred.resolve({allowed: true});
-      var handler = jasmine.createSpyObj('handler', ['success']);
+    it('should allow if can_edit_role is set True in OPENSTACK_KEYSTONE_BACKEND', function() {
+      //for canEditRole
+      var deferredCanEditRole = $q.defer();
+      deferredCanEditRole.resolve(true);
+      spyOn(keystoneAPI, 'canEditIdentity').and.returnValue(deferredCanEditRole.promise);
 
-      service.allowed().then(handler.success);
+      //for ifAllowed
+      var deferredIfAllowed = $q.defer();
+      deferredIfAllowed.resolve(true);
+      spyOn(policyAPI, 'ifAllowed').and.returnValue(deferredIfAllowed.promise);
+
+      var allowed = service.allowed({id: '1234'});
       $scope.$apply();
-
-      expect(handler.success).toHaveBeenCalled();
-      var allowed = handler.success.calls.first().args[0];
 
       expect(allowed).toBeTruthy();
       expect(policyAPI.ifAllowed).toHaveBeenCalledWith(
         { rules: [['identity', 'identity:create_role']] });
+    });
+
+    it('should allow if can_edit_role is set True in OPENSTACK_KEYSTONE_BACKEND', function() {
+      //for canEditRole
+      var deferredCanEditRole = $q.defer();
+      deferredCanEditRole.resolve(false);
+      spyOn(keystoneAPI, 'canEditIdentity').and.returnValue(deferredCanEditRole.promise);
+
+      //for ifAllowed
+      var deferredIfAllowed = $q.defer();
+      deferredIfAllowed.resolve(true);
+      spyOn(policyAPI, 'ifAllowed').and.returnValue(deferredIfAllowed.promise);
+
+      var allowed = service.allowed({id: '1234'});
+      $scope.$apply();
+
+      // reject
+      expect(allowed.$$state.status).toEqual(1);
     });
 
     it('should open the modal with the correct parameters', function() {

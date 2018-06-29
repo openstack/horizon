@@ -20,9 +20,10 @@
     beforeEach(module('horizon.dashboard.identity.roles'));
     beforeEach(module('horizon.framework'));
 
-    var deleteModalService, service, keystoneAPI, policyAPI;
+    var deleteModalService, $scope, service, keystoneAPI, policyAPI;
 
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function($injector, _$rootScope_) {
+      $scope = _$rootScope_.$new();
       service = $injector.get('horizon.dashboard.identity.roles.actions.delete.service');
       keystoneAPI = $injector.get('horizon.app.core.openstack-service-api.keystone');
       deleteModalService = $injector.get('horizon.framework.widgets.modal.deleteModalService');
@@ -72,8 +73,11 @@
 
     describe('allow method', function() {
       it('should use default policy if batch action', function test() {
+        spyOn(keystoneAPI, 'canEditIdentity');
         spyOn(policyAPI, 'ifAllowed');
         service.allowed();
+        $scope.$apply();
+        expect(keystoneAPI.canEditIdentity).toHaveBeenCalled();
         expect(policyAPI.ifAllowed).toHaveBeenCalled();
       });
     }); // end of allowed

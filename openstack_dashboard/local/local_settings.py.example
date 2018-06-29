@@ -790,6 +790,7 @@ SECURITY_GROUP_RULES = {
 REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
                               'LAUNCH_INSTANCE_DEFAULTS',
                               'OPENSTACK_IMAGE_FORMATS',
+                              'OPENSTACK_KEYSTONE_BACKEND',
                               'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
                               'CREATE_IMAGE_DEFAULTS',
                               'ENFORCE_PASSWORD_CHECK']

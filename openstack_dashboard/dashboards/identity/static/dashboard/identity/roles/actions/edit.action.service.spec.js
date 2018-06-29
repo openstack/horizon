@@ -92,8 +92,10 @@
 
     describe('allow method', function() {
       it('should use default policy if batch action', function test() {
+        spyOn(keystoneAPI, 'canEditIdentity');
         spyOn(policyAPI, 'ifAllowed');
         service.allowed();
+        expect(keystoneAPI.canEditIdentity).toHaveBeenCalled();
         expect(policyAPI.ifAllowed).toHaveBeenCalled();
       });
     }); // end of allowed

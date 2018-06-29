@@ -22,6 +22,7 @@
     .factory('horizon.dashboard.identity.roles.actions.create.service', createService);
 
   createService.$inject = [
+    '$q',
     'horizon.dashboard.identity.roles.resourceType',
     'horizon.dashboard.identity.roles.role-schema',
     'horizon.app.core.openstack-service-api.keystone',
@@ -38,6 +39,7 @@
    * @Description A service to handle the Create Role modal.
    */
   function createService(
+    $q,
     resourceType,
     schema,
     keystoneAPI,
@@ -58,7 +60,10 @@
     //////////////
 
     function allowed() {
-      return policy.ifAllowed({ rules: [['identity', 'identity:create_role']] });
+      return $q.all([
+        keystoneAPI.canEditIdentity('role'),
+        policy.ifAllowed({ rules: [['identity', 'identity:create_role']] })
+      ]);
     }
 
     function perform() {
