@@ -21,9 +21,9 @@ from openstack_dashboard.api import glance
 def get_available_images(request, project_id=None, images_cache=None):
     """Returns a list of available images
 
-    Returns a list of images that are public, shared or owned by the given
-    project_id. If project_id is not specified, only public images are
-    returned.
+    Returns a list of images that are public, shared, community or owned by
+    the given project_id. If project_id is not specified, only public and
+    community images are returned.
 
     :param images_cache: An optional dict-like object in which to
     cache public and per-project id image metadata.
@@ -32,6 +32,7 @@ def get_available_images(request, project_id=None, images_cache=None):
     if images_cache is None:
         images_cache = {}
     public_images = images_cache.get('public_images', [])
+    community_images = images_cache.get('community_images', [])
     images_by_project = images_cache.get('images_by_project', {})
     shared_images = images_cache.get('shared_images', [])
     if 'public_images' not in images_cache:
@@ -65,6 +66,18 @@ def get_available_images(request, project_id=None, images_cache=None):
     else:
         owned_images = images_by_project[project_id]
 
+    if 'community_images' not in images_cache:
+        community = {"visibility": "community",
+                     "status": "active"}
+        try:
+            images, _more, _prev = glance.image_list_detailed(
+                request, filters=community)
+            [community_images.append(image) for image in images]
+            images_cache['community_images'] = community_images
+        except Exception:
+            exceptions.handle(request,
+                              _("Unable to retrieve community images."))
+
     if 'shared_images' not in images_cache:
         shared = {"visibility": "shared",
                   "status": "active"}
@@ -79,7 +92,7 @@ def get_available_images(request, project_id=None, images_cache=None):
     if 'images_by_project' not in images_cache:
         images_cache['images_by_project'] = images_by_project
 
-    images = owned_images + public_images + shared_images
+    images = owned_images + public_images + community_images + shared_images
 
     image_ids = []
     final_images = []

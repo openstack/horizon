@@ -119,6 +119,8 @@
     function deriveSharingStatus(image, currentProjectId, translatedVisibility) {
       if (angular.equals(translatedVisibility, imageVisibility.public)) {
         return translatedVisibility;
+      } else if (angular.equals(translatedVisibility, imageVisibility.community)) {
+        return translatedVisibility;
       } else if (angular.isDefined(currentProjectId) &&
         !angular.equals(image.owner, currentProjectId)) {
         return imageVisibility.other;

@@ -2171,7 +2171,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
 
-        self._check_glance_image_list_detailed(count=5)
+        self._check_glance_image_list_detailed(count=8)
 
         self.mock_network_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
@@ -2349,7 +2349,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
-        self._check_glance_image_list_detailed(count=5)
+        self._check_glance_image_list_detailed(count=8)
         self.mock_network_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       tenant_id=self.tenant.id, shared=False),
@@ -2445,7 +2445,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
-        self._check_glance_image_list_detailed(count=5)
+        self._check_glance_image_list_detailed(count=8)
         self.mock_network_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       tenant_id=self.tenant.id, shared=False),
@@ -2539,7 +2539,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self._check_nova_glance_neutron_lists(flavor_count=2, image_count=5)
+        self._check_nova_glance_neutron_lists(flavor_count=2, image_count=8)
         self._check_extension_supported({
             'BlockDeviceMappingV2Boot': 1,
             'DiskConfig': 1,
@@ -2685,7 +2685,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self._check_nova_glance_neutron_lists(flavor_count=2, image_count=4)
+        self._check_nova_glance_neutron_lists(flavor_count=2, image_count=6)
         self._check_extension_supported({
             'BlockDeviceMappingV2Boot': 2,
             'DiskConfig': 1,
@@ -2804,7 +2804,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
         self._check_nova_glance_neutron_lists(flavor_count=2,
-                                              image_count=4)
+                                              image_count=6)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 2,
             mock.call(helpers.IsHttpRequest()))
@@ -2920,7 +2920,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                 targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
         ])
         self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
-        self._check_glance_image_list_detailed(count=5)
+        self._check_glance_image_list_detailed(count=8)
         self._check_neutron_network_and_port_list()
         self._check_nova_lists(flavor_count=3)
         self.mock_volume_list.assert_has_calls([
@@ -3137,7 +3137,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self.assertFormErrors(res, 3, "You must select a snapshot.")
 
-        self.assertEqual(3, self.mock_image_list_detailed.call_count)
+        self.assertEqual(4, self.mock_image_list_detailed.call_count)
         self.mock_image_list_detailed.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       filters={'is_public': True,
@@ -3145,6 +3145,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             mock.call(helpers.IsHttpRequest(),
                       filters={'property-owner_id': self.tenant.id,
                                'status': 'active'}),
+            mock.call(helpers.IsHttpRequest(),
+                      filters={'status': 'active', 'visibility': 'community'}),
             mock.call(helpers.IsHttpRequest(),
                       filters={'status': 'active', 'visibility': 'shared'}),
         ])
@@ -3220,7 +3222,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
 
-        self._check_glance_image_list_detailed(count=5)
+        self._check_glance_image_list_detailed(count=8)
         self._check_neutron_network_and_port_list()
 
         self.mock_tenant_quota_usages.assert_called_once_with(
@@ -3339,7 +3341,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_availability_zone_list.assert_called_once_with(
             helpers.IsHttpRequest())
 
-        self._check_glance_image_list_detailed(count=5)
+        self._check_glance_image_list_detailed(count=8)
         self._check_neutron_network_and_port_list()
 
         self.mock_server_create.assert_called_once_with(
@@ -3428,7 +3430,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertContains(res, "greater than or equal to 1")
 
         self._check_nova_glance_neutron_lists(flavor_count=3,
-                                              image_count=6)
+                                              image_count=10)
         self._check_extension_supported({
             'BlockDeviceMappingV2Boot': 1,
             'DiskConfig': 1,
@@ -3539,7 +3541,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertContains(res, msg)
 
         self._check_nova_glance_neutron_lists(flavor_count=3,
-                                              image_count=6)
+                                              image_count=10)
         self._check_extension_supported({
             'BlockDeviceMappingV2Boot': 1,
             'DiskConfig': 1,
@@ -3641,7 +3643,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         res = self.client.post(url, form_data)
 
         self._check_nova_glance_neutron_lists(flavor_count=3,
-                                              image_count=6)
+                                              image_count=10)
         self._check_extension_supported({
             'BlockDeviceMappingV2Boot': 1,
             'DiskConfig': 1,
@@ -3802,7 +3804,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             helpers.IsHttpRequest())
         self.mock_availability_zone_list.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.assertEqual(6, self.mock_image_list_detailed.call_count)
+        self.assertEqual(10, self.mock_image_list_detailed.call_count)
         self.mock_image_list_detailed.assert_has_calls(
             [
                 mock.call(helpers.IsHttpRequest(),
@@ -3813,6 +3815,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                    'status': 'active'})
             ] +
             [
+                mock.call(helpers.IsHttpRequest(),
+                          filters={'status': 'active',
+                                   'visibility': 'community'}),
                 mock.call(helpers.IsHttpRequest(),
                           filters={'status': 'active',
                                    'visibility': 'shared'})
@@ -3974,9 +3979,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_availability_zone_list.assert_called_once_with(
             helpers.IsHttpRequest())
         if avail_volumes is None:
-            image_list_count = 6
+            image_list_count = 10
         else:
-            image_list_count = 5
+            image_list_count = 8
         self._check_glance_image_list_detailed(count=image_list_count)
         self._check_neutron_network_and_port_list()
         self.mock_server_group_list.assert_called_once_with(
@@ -4221,7 +4226,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertNoFormErrors(res)
 
         self._check_nova_glance_neutron_lists(flavor_count=2,
-                                              image_count=5)
+                                              image_count=8)
         self._check_extension_supported({
             'BlockDeviceMappingV2Boot': 1,
             'DiskConfig': 1,
@@ -4366,7 +4371,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         ])
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(), search_opts=SNAPSHOT_SEARCH_OPTS)
-        self._check_glance_image_list_detailed(count=5)
+        self._check_glance_image_list_detailed(count=8)
         self._check_neutron_network_and_port_list()
         self.mock_tenant_quota_usages.assert_called_once_with(
             helpers.IsHttpRequest(),
@@ -4620,7 +4625,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
-        self._check_glance_image_list_detailed(count=3)
+        self._check_glance_image_list_detailed(count=4)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_is_feature_available.assert_called_once_with(
@@ -4674,7 +4679,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
-        self._check_glance_image_list_detailed(count=3)
+        self._check_glance_image_list_detailed(count=4)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
@@ -4703,7 +4708,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
-        self._check_glance_image_list_detailed(count=3)
+        self._check_glance_image_list_detailed(count=4)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
@@ -4734,10 +4739,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                          ["Passwords do not match."])
 
         if django.VERSION >= (1, 9):
-            image_list_count = 6
+            image_list_count = 8
             ext_count = 2
         else:
-            image_list_count = 3
+            image_list_count = 5
             ext_count = 1
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
@@ -4769,7 +4774,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
-        self._check_glance_image_list_detailed(count=3)
+        self._check_glance_image_list_detailed(count=4)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
@@ -4802,7 +4807,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
-        self._check_glance_image_list_detailed(count=3)
+        self._check_glance_image_list_detailed(count=4)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
@@ -4832,7 +4837,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
-        self._check_glance_image_list_detailed(count=3)
+        self._check_glance_image_list_detailed(count=4)
         self.mock_extension_supported.assert_called_once_with(
             'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
@@ -5045,7 +5050,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                        password=password)
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
-        self._check_glance_image_list_detailed(count=3)
+        self._check_glance_image_list_detailed(count=4)
         self.mock_server_rescue.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, image=image.id,
             password=password)

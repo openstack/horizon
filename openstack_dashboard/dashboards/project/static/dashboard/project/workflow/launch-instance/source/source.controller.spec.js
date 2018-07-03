@@ -154,7 +154,7 @@
           expect(ctrl.sourceFacets[1].name).toEqual('updated_at');
           expect(ctrl.sourceFacets[2].name).toEqual('size');
           expect(ctrl.sourceFacets[3].name).toEqual('disk_format');
-          expect(ctrl.sourceFacets[4].name).toEqual('is_public');
+          expect(ctrl.sourceFacets[4].name).toEqual('visibility');
         });
 
         it('should broadcast event when source type is changed', function() {
@@ -174,7 +174,7 @@
           expect(ctrl.sourceFacets[1].name).toEqual('updated_at');
           expect(ctrl.sourceFacets[2].name).toEqual('size');
           expect(ctrl.sourceFacets[3].name).toEqual('disk_format');
-          expect(ctrl.sourceFacets[4].name).toEqual('is_public');
+          expect(ctrl.sourceFacets[4].name).toEqual('visibility');
         });
 
         it('should change facets for volume source type', function() {
