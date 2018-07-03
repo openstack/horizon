@@ -19,7 +19,7 @@
 
   describe('horizon.app.core.images.actions.edit.service', function() {
     var service, $scope, $q, deferred, $timeout, updateImageDeferred;
-    var image = {id: 1, name: 'Original'};
+    var image = {id: 1, name: 'Original', properties: {description: 'bla-bla'}};
     var existingMetadata = {p1: '1', p2: '2'};
 
     var metadataService = {

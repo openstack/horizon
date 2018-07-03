@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fix an error on image description field when it is changed
+    in the Angularized panel [:bug: `1779879`]
