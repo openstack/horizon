@@ -74,6 +74,10 @@
         if (query.hasOwnProperty("nav")) {
           url = query.nav;
         }
+        // check navigation from url
+        if (!navigationsService.isNavigationExists(url)) {
+          pageNotFound();
+        }
         // set navigations (side bar and breadcrumb)
         var labels = navigationsService.expandNavigationByUrl(url);
         navigationsService.setBreadcrumb(labels);
