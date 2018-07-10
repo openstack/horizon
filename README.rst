@@ -12,6 +12,7 @@ web-based interactions with the various OpenStack projects.
 * Release management: https://launchpad.net/horizon
 * Blueprints and feature specifications: https://blueprints.launchpad.net/horizon
 * Issue tracking: https://bugs.launchpad.net/horizon
+* Release notes: https://docs.openstack.org/releasenotes/horizon/
 
 .. image:: https://governance.openstack.org/tc/badges/horizon.svg
     :target: https://governance.openstack.org/tc/reference/tags/
