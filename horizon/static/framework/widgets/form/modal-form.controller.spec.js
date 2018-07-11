@@ -31,7 +31,8 @@
         title: "title",
         form: "form",
         schema: "schema",
-        model: "model"
+        model: "model",
+        helpUrl: "help.html"
       };
       ctrl = $controller(
         'horizon.framework.widgets.form.ModalFormController',
@@ -61,6 +62,10 @@
 
     it('sets model on scope', function() {
       expect(ctrl.model).toEqual('model');
+    });
+
+    it('sets helpUrl on scope', function() {
+      expect(ctrl.helpUrl).toEqual('help.html');
     });
 
     it('calls modalInstance close on submit', function() {

@@ -16,6 +16,9 @@
                       pristine: { errors: false, success: false } }"
         ng-submit="ctrl.submit($event, schemaForm)">
   </form>
+  <help-panel class="wizard-help" ng-if="ctrl.helpUrl">
+    <ng-include src="ctrl.helpUrl"></ng-include>
+  </help-panel>
 </div>
 
 <div class="modal-footer">

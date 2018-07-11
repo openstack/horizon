@@ -23,6 +23,7 @@
 
   editService.$inject = [
     '$q',
+    'horizon.dashboard.identity.roles.basePath',
     'horizon.dashboard.identity.roles.resourceType',
     'horizon.dashboard.identity.roles.role-schema',
     'horizon.app.core.openstack-service-api.keystone',
@@ -39,6 +40,7 @@
    */
   function editService(
     $q,
+    basePath,
     resourceType,
     schema,
     keystoneAPI,
@@ -76,7 +78,7 @@
         schema: schema,
         form: ['*'],
         model: response.data,
-        size: 'sm'
+        size: 'md'
       };
       return modalFormService.open(config).then(service.submit);
     }

@@ -50,6 +50,7 @@
     ctrl.submitText = context.submitText;
     ctrl.submitIcon = context.submitIcon;
     ctrl.cancel = cancel;
+    ctrl.helpUrl = context.helpUrl;
 
     function submit($event, schemaForm) {
       $event.preventDefault();

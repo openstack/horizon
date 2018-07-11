@@ -109,10 +109,6 @@
                   type: 'template',
                   templateUrl: basePath + "actions/workflow/error." + errorTemplate + ".html",
                   condition: errorTemplate === "default"
-                },
-                {
-                  type: 'template',
-                  templateUrl: basePath + "actions/workflow/info." + action + ".help.html"
                 }
               ]
             },
@@ -197,7 +193,8 @@
         schema: schema,
         form: form,
         model: model,
-        size: 'md'
+        size: 'md',
+        helpUrl: basePath + "actions/workflow/info." + action + ".help.html"
       };
 
       keystone.getVersion().then(function (response) {

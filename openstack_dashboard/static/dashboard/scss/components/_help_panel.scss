@@ -1,10 +1,11 @@
 $help-panel-width: 400px;
+$help-panel-top: -5px;
 
 .help-toggle,
 .wizard-help,
 .help-panel {
   position: absolute;
-  top: $padding-xs-horizontal;
+  top: $help-panel-top;
   right: 0;
   z-index: 2; // TODO(robcresswell) untangle the need for this sorcery
 }
