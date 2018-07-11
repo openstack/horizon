@@ -18,6 +18,7 @@ import copy
 
 from django.conf import settings
 from django import http
+from django.test.utils import override_settings
 
 import six
 
@@ -348,6 +349,7 @@ class TabExceptionTests(test.TestCase):
         super(TabExceptionTests, self).tearDown()
         TabWithTableView.tab_group_class.tabs = self._original_tabs
 
+    @override_settings(SESSION_REFRESH=False)
     def test_tab_view_exception(self):
         TabWithTableView.tab_group_class.tabs.append(RecoverableErrorTab)
         view = TabWithTableView.as_view()
@@ -355,6 +357,7 @@ class TabExceptionTests(test.TestCase):
         res = view(req)
         self.assertMessageCount(res, error=1)
 
+    @override_settings(SESSION_REFRESH=False)
     def test_tab_302_exception(self):
         TabWithTableView.tab_group_class.tabs.append(RedirectExceptionTab)
         view = TabWithTableView.as_view()

@@ -1,0 +1,11 @@
+---
+features:
+  - |
+    New setting ``SESSION_REFRESH`` (defaults to ``True``) that allows the user
+    session expiry to be refreshed for every request until the token itself
+    expires. ``SESSION_TIMEOUT`` acts as an idle timeout value now.
+upgrade:
+  - |
+    ``SESSION_TIMEOUT`` now by default acts as an idle timeout rather than a
+    hard timeout limit. If you wish to retain the old hard timeout
+    functionality set ``SESSION_REFRESH`` to ``False``.

@@ -19,8 +19,11 @@
 Middleware provided and used by Horizon.
 """
 
+import datetime
 import json
 import logging
+
+import pytz
 
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
@@ -64,6 +67,15 @@ class HorizonMiddleware(object):
             # it is CRITICAL to perform this check as early as possible
             # to avoid creating too many sessions
             return None
+
+        # Since we know the user is present and authenticated, lets refresh the
+        # session expiry if configured to do so.
+        if getattr(settings, "SESSION_REFRESH", True):
+            timeout = getattr(settings, "SESSION_TIMEOUT", 3600)
+            token_life = request.user.token.expires - datetime.datetime.now(
+                pytz.utc)
+            session_time = min(timeout, int(token_life.total_seconds()))
+            request.session.set_expiry(session_time)
 
         if request.is_ajax():
             # if the request is Ajax we do not want to proceed, as clients can

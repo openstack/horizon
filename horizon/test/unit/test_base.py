@@ -25,6 +25,7 @@ from six import moves
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ImproperlyConfigured
+from django.test.utils import override_settings
 from django import urls
 
 import horizon
@@ -268,6 +269,7 @@ class HorizonTests(BaseHorizonTests):
         self.assertEqual(redirect_url,
                          resp["X-Horizon-Location"])
 
+    @override_settings(SESSION_REFRESH=False)
     def test_required_permissions(self):
         dash = horizon.get_dashboard("cats")
         panel = dash.get_panel('tigers')
@@ -427,6 +429,7 @@ class CustomPermissionsTests(BaseHorizonTests):
         # refresh config
         conf.HORIZON_CONFIG._setup()
 
+    @override_settings(SESSION_REFRESH=False)
     def test_customized_permissions(self):
         dogs = horizon.get_dashboard("dogs")
         panel = dogs.get_panel('puppies')
