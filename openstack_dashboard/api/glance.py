@@ -160,27 +160,27 @@ class Image(base.APIResourceWrapper):
         if (refresh_in_progress == True): 
             return
         ## otherwise let's set refresh_in_progress to True and start the refresh
-        LOG.warn('Refreshing appliance catalog cache')
+        LOG.info('Refreshing appliance catalog cache')
         cache.set('refresh_in_progress', True, 30)
         app_json = json.loads(self.fetch_supported_appliances())
         for app in app_json['result']:
             if(app['chi_uc_appliance_id'] is not None):
-                LOG.warn('caching: ' + app['chi_uc_appliance_id'] + str(app['project_supported']))
+                LOG.info('caching: ' + app['chi_uc_appliance_id'] + str(app['project_supported']))
                 cache.set(app['chi_uc_appliance_id'], app, None)
             if(app['chi_tacc_appliance_id'] is not None):
-                LOG.warn('caching: ' + app['chi_tacc_appliance_id'] + ' set to project_supported: ' + str(app['project_supported']))
+                LOG.info('caching: ' + app['chi_tacc_appliance_id'] + ' set to project_supported: ' + str(app['project_supported']))
                 cache.set(app['chi_tacc_appliance_id'], app, None)
             if(app['kvm_tacc_appliance_id'] is not None):
-                LOG.warn('caching: ' + app['kvm_tacc_appliance_id'] + ' set to project_supported: ' + str(app['project_supported']))
+                LOG.info('caching: ' + app['kvm_tacc_appliance_id'] + ' set to project_supported: ' + str(app['project_supported']))
                 cache.set(app['kvm_tacc_appliance_id'], app, None)
         cache.set('refresh_in_progress', False, None)
         cache.set('app_data_is_fresh', True, 300)
 
     def fetch_supported_appliances(self):
-        LOG.warn('*******####### Fetching and caching Appliance JSON from https://dev.chameleon.tacc.utexas.edu/appliances/api/appliances/')
+        LOG.info('Fetching and caching Appliance JSON from ' + settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
         http = urllib3.PoolManager()
-        r = http.request('GET', 'https://dev.chameleon.tacc.utexas.edu/appliances/api/appliances/')
-        LOG.debug('fetched appliance catalog data: ' + r.data)
+        r = http.request('GET', settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
+        LOG.info('fetched appliance catalog data: ' + r.data)
         return r.data
 
 @memoized
