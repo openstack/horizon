@@ -220,7 +220,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder: ['volume_create', 'volume_snapshot_list',
                  'volume_type_list', 'volume_type_default',
                  'volume_list', 'availability_zone_list',
-                 'extension_supported'],
+                 'extension_supported', 'group_list'],
         quotas: ['tenant_quota_usages'],
         api.glance: ['image_list_detailed'],
     })
@@ -250,6 +250,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.return_value = True
         self.mock_volume_list.return_value = self.cinder_volumes.list()
         self.mock_volume_create.return_value = volume
+        self.mock_group_list.return_value = []
 
         url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
@@ -270,7 +271,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_create.assert_called_once_with(
             test.IsHttpRequest(), formData['size'], formData['name'],
             formData['description'], formData['type'], metadata={},
-            snapshot_id=None, image_id=None,
+            snapshot_id=None, group_id=None, image_id=None,
             availability_zone=formData['availability_zone'], source_volid=None)
         self.mock_image_list_detailed.assert_called_with(
             test.IsHttpRequest(),
@@ -278,6 +279,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_tenant_quota_usages.assert_called_once_with(
             test.IsHttpRequest(),
             targets=('volumes', 'gigabytes'))
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -288,7 +290,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'volume_type_default',
                  'volume_type_list',
                  'volume_snapshot_list',
-                 'volume_create'],
+                 'volume_create',
+                 'group_list'],
     })
     def test_create_volume_without_name(self):
         volume = self.cinder_volumes.first()
@@ -318,6 +321,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             self.cinder_volume_types.first()
         self.mock_volume_list.return_value = self.cinder_volumes.list()
         self.mock_volume_create.return_value = volume
+        self.mock_group_list.return_value = []
 
         url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
@@ -326,7 +330,6 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertRedirectsNoFollow(res, redirect_url)
 
         self.mock_volume_type_list.assert_called_once()
-        self.mock_tenant_quota_usages.assert_called_once()
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts=SEARCH_OPTS)
         self.mock_image_list_detailed.assert_called_with(
@@ -340,8 +343,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_create.assert_called_once_with(
             test.IsHttpRequest(), formData['size'], formData['name'],
             formData['description'], formData['type'], metadata={},
-            snapshot_id=None, image_id=None,
+            snapshot_id=None, group_id=None, image_id=None,
             availability_zone=formData['availability_zone'], source_volid=None)
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -352,7 +356,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'volume_type_default',
                  'volume_type_list',
                  'volume_snapshot_list',
-                 'volume_create'],
+                 'volume_create',
+                 'group_list'],
     })
     def test_create_volume_dropdown(self):
         volume = self.cinder_volumes.first()
@@ -380,6 +385,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.return_value = True
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
+        self.mock_group_list.return_value = []
 
         self.mock_volume_create.return_value = volume
 
@@ -405,7 +411,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_create.assert_called_once_with(
             test.IsHttpRequest(), formData['size'], formData['name'],
             formData['description'], '', metadata={}, snapshot_id=None,
-            image_id=None, availability_zone=None, source_volid=None)
+            group_id=None, image_id=None, availability_zone=None,
+            source_volid=None)
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -413,7 +421,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'volume_type_default',
                  'volume_get',
                  'volume_snapshot_get',
-                 'volume_create'],
+                 'volume_create',
+                 'group_list'],
     })
     def test_create_volume_from_snapshot(self):
         volume = self.cinder_volumes.first()
@@ -434,6 +443,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_snapshot_get.return_value = snapshot
         self.mock_volume_get.return_value = self.cinder_volumes.first()
         self.mock_volume_create.return_value = volume
+        self.mock_group_list.return_value = []
 
         # get snapshot from url
         url = reverse('horizon:project:volumes:create')
@@ -454,7 +464,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_create.assert_called_once_with(
             test.IsHttpRequest(), formData['size'], formData['name'],
             formData['description'], '', metadata={}, snapshot_id=snapshot.id,
-            image_id=None, availability_zone=None, source_volid=None)
+            group_id=None, image_id=None, availability_zone=None,
+            source_volid=None)
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -467,7 +479,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'volume_list',
                  'volume_type_default',
                  'volume_get',
-                 'volume_create'],
+                 'volume_create',
+                 'group_list'],
     })
     def test_create_volume_from_volume(self):
         volume = self.cinder_volumes.first()
@@ -497,6 +510,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_image_list_detailed.return_value = \
             [self.images.list(), False, False]
         self.mock_volume_create.return_value = volume
+        self.mock_group_list.return_value = []
 
         url = reverse('horizon:project:volumes:create')
         redirect_url = INDEX_URL
@@ -523,7 +537,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_create.assert_called_once_with(
             test.IsHttpRequest(), formData['size'], formData['name'],
             formData['description'], '', metadata={}, snapshot_id=None,
-            image_id=None, availability_zone=None, source_volid=volume.id)
+            group_id=None, image_id=None, availability_zone=None,
+            source_volid=volume.id)
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -536,7 +552,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'volume_get',
                  'volume_snapshot_get',
                  'volume_snapshot_list',
-                 'volume_create'],
+                 'volume_create',
+                 'group_list'],
     })
     def test_create_volume_from_snapshot_dropdown(self):
         volume = self.cinder_volumes.first()
@@ -565,6 +582,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
         self.mock_volume_create.return_value = volume
+        self.mock_group_list.return_value = []
 
         # get snapshot from dropdown list
         url = reverse('horizon:project:volumes:create')
@@ -591,7 +609,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_create.assert_called_once_with(
             test.IsHttpRequest(), formData['size'], formData['name'],
             formData['description'], '', metadata={}, snapshot_id=snapshot.id,
-            image_id=None, availability_zone=None, source_volid=None)
+            group_id=None, image_id=None, availability_zone=None,
+            source_volid=None)
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -599,7 +619,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder: ['volume_snapshot_get',
                  'volume_type_list',
                  'volume_type_default',
-                 'volume_get'],
+                 'volume_get',
+                 'group_list'],
     })
     def test_create_volume_from_snapshot_invalid_size(self):
         snapshot = self.cinder_volume_snapshots.first()
@@ -616,6 +637,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             self.cinder_quota_usages.first()
         self.mock_volume_snapshot_get.return_value = snapshot
         self.mock_volume_get.return_value = self.cinder_volumes.first()
+        self.mock_group_list.return_value = []
 
         url = reverse('horizon:project:volumes:create')
         res = self.client.post("?".join([url,
@@ -632,6 +654,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                          str(snapshot.id))
         self.mock_volume_get.assert_called_with(test.IsHttpRequest(),
                                                 snapshot.volume_id)
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -640,7 +663,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'availability_zone_list',
                  'volume_type_default',
                  'volume_type_list',
-                 'volume_create'],
+                 'volume_create',
+                 'group_list'],
     })
     def test_create_volume_from_image(self):
         volume = self.cinder_volumes.first()
@@ -661,6 +685,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.return_value = True
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
+        self.mock_group_list.return_value = []
 
         self.mock_volume_create.return_value = volume
 
@@ -684,7 +709,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_create.assert_called_once_with(
             test.IsHttpRequest(), formData['size'], formData['name'],
             formData['description'], '', metadata={}, snapshot_id=None,
-            image_id=image.id, availability_zone=None, source_volid=None)
+            group_id=None, image_id=image.id, availability_zone=None,
+            source_volid=None)
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -696,7 +723,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'volume_list',
                  'volume_type_list',
                  'volume_type_default',
-                 'volume_create'],
+                 'volume_create',
+                 'group_list'],
     })
     def test_create_volume_from_image_dropdown(self):
         volume = self.cinder_volumes.first()
@@ -725,6 +753,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.return_value = True
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
+        self.mock_group_list.return_value = []
 
         self.mock_volume_create.return_value = volume
 
@@ -753,7 +782,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_create.assert_called_once_with(
             test.IsHttpRequest(), formData['size'], formData['name'],
             formData['description'], '', metadata={}, snapshot_id=None,
-            image_id=image.id, availability_zone=None, source_volid=None)
+            group_id=None, image_id=image.id, availability_zone=None,
+            source_volid=None)
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -761,7 +792,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder: ['extension_supported',
                  'availability_zone_list',
                  'volume_type_list',
-                 'volume_type_default'],
+                 'volume_type_default',
+                 'group_list'],
     })
     def test_create_volume_from_image_under_image_size(self):
         image = self.images.first()
@@ -778,6 +810,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             self.cinder_quota_usages.first()
         self.mock_image_get.return_value = image
         self.mock_extension_supported.return_value = True
+        self.mock_group_list.return_value = []
 
         url = reverse('horizon:project:volumes:create')
         res = self.client.post("?".join([url,
@@ -798,6 +831,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                str(image.id))
         self.mock_extension_supported.assert_called_with(test.IsHttpRequest(),
                                                          'AvailabilityZones')
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -805,7 +839,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder: ['extension_supported',
                  'availability_zone_list',
                  'volume_type_list',
-                 'volume_type_default'],
+                 'volume_type_default',
+                 'group_list'],
     })
     def _test_create_volume_from_image_under_image_min_disk_size(self, image):
         formData = {'name': u'A Volume I Am Making',
@@ -823,6 +858,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.return_value = True
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
+        self.mock_group_list.return_value = []
 
         url = reverse('horizon:project:volumes:create')
         res = self.client.post("?".join([url,
@@ -840,6 +876,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                str(image.id))
         self.mock_extension_supported.assert_called_with(test.IsHttpRequest(),
                                                          'AvailabilityZones')
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     def test_create_volume_from_image_under_image_min_disk_size(self):
         image = self.images.get(name="protected_images")
@@ -865,7 +902,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'volume_list',
                  'volume_type_list',
                  'volume_type_default',
-                 'volume_snapshot_list'],
+                 'volume_snapshot_list',
+                 'group_list'],
     })
     def test_create_volume_gb_used_over_alloted_quota(self):
         formData = {'name': u'This Volume Is Huge!',
@@ -892,6 +930,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.return_value = True
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
+        self.mock_group_list.return_value = []
 
         url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
@@ -913,6 +952,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             filters={'visibility': 'shared', 'status': 'active'})
         self.mock_extension_supported.assert_called_with(test.IsHttpRequest(),
                                                          'AvailabilityZones')
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],
@@ -922,7 +962,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'volume_list',
                  'volume_type_list',
                  'volume_type_default',
-                 'volume_snapshot_list'],
+                 'volume_snapshot_list',
+                 'group_list'],
     })
     def test_create_volume_number_over_alloted_quota(self):
         formData = {'name': u'Too Many...',
@@ -950,6 +991,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_extension_supported.return_value = True
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
+        self.mock_group_list.return_value = []
 
         url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
@@ -971,6 +1013,74 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                  search_opts=SEARCH_OPTS)
         self.mock_extension_supported.assert_called_with(test.IsHttpRequest(),
                                                          'AvailabilityZones')
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
+
+    @test.create_mocks({
+        cinder: ['volume_create', 'volume_snapshot_list',
+                 'volume_type_list', 'volume_type_default',
+                 'volume_list', 'availability_zone_list',
+                 'extension_supported', 'group_list'],
+        quotas: ['tenant_quota_usages'],
+        api.glance: ['image_list_detailed'],
+    })
+    def test_create_volume_with_group(self):
+        volume = self.cinder_volumes.first()
+        volume_type = self.cinder_volume_types.first()
+        az = self.cinder_availability_zones.first().zoneName
+        volume_group = self.cinder_groups.list()[0]
+        formData = {'name': u'A Volume I Am Making',
+                    'description': u'This is a volume I am making for a test.',
+                    'method': u'CreateForm',
+                    'type': volume_type.name,
+                    'size': 50,
+                    'snapshot_source': '',
+                    'availability_zone': az,
+                    'group': volume_group.id}
+
+        self.mock_volume_type_default.return_value = \
+            self.cinder_volume_types.first()
+        self.mock_volume_type_list.return_value = \
+            self.cinder_volume_types.list()
+        self.mock_tenant_quota_usages.return_value = \
+            self.cinder_quota_usages.first()
+        self.mock_volume_snapshot_list.return_value = \
+            self.cinder_volume_snapshots.list()
+        self.mock_image_list_detailed.return_value = [[], False, False]
+        self.mock_availability_zone_list.return_value = \
+            self.cinder_availability_zones.list()
+        self.mock_extension_supported.return_value = True
+        self.mock_volume_list.return_value = self.cinder_volumes.list()
+        self.mock_volume_create.return_value = volume
+        self.mock_group_list.return_value = self.cinder_groups.list()
+
+        url = reverse('horizon:project:volumes:create')
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+
+        redirect_url = INDEX_URL
+        self.assertRedirectsNoFollow(res, redirect_url)
+
+        self.mock_volume_type_default.assert_called_once()
+        self.mock_volume_type_list.assert_called_once()
+        self.mock_volume_snapshot_list.assert_called_once_with(
+            test.IsHttpRequest(), search_opts=SEARCH_OPTS)
+        self.mock_availability_zone_list.assert_called_once()
+        self.mock_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'AvailabilityZones')
+        self.mock_volume_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      search_opts=SEARCH_OPTS)
+        self.mock_volume_create.assert_called_once_with(
+            test.IsHttpRequest(), formData['size'], formData['name'],
+            formData['description'], formData['type'], metadata={},
+            snapshot_id=None, group_id=volume_group.id, image_id=None,
+            availability_zone=formData['availability_zone'], source_volid=None)
+        self.mock_image_list_detailed.assert_called_with(
+            test.IsHttpRequest(),
+            filters={'visibility': 'shared', 'status': 'active'})
+        self.mock_tenant_quota_usages.assert_called_once_with(
+            test.IsHttpRequest(),
+            targets=('volumes', 'gigabytes'))
+        self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     @test.create_mocks({
         api.nova: ['server_list'],

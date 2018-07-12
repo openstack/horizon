@@ -17,6 +17,8 @@
 Views for managing volumes.
 """
 
+from cinderclient import exceptions as cinder_exc
+
 from django.conf import settings
 from django.forms import ValidationError
 from django.template.defaultfilters import filesizeformat
@@ -123,6 +125,10 @@ class CreateForm(forms.SelfHandlingForm):
                    'data-switch-on': 'source',
                    'data-source-no_source_type': _('Availability Zone'),
                    'data-source-image_source': _('Availability Zone')}))
+    group = forms.ThemableChoiceField(
+        label=_("Group"), required=False,
+        help_text=_("Group which the new volume belongs to. Choose "
+                    "'No group' if the new volume belongs to no group."))
 
     def prepare_source_fields_if_snapshot_specified(self, request):
         try:
@@ -261,6 +267,21 @@ class CreateForm(forms.SelfHandlingForm):
         else:
             del self.fields['volume_source_type']
 
+    def _populate_group_choices(self, request):
+        try:
+            groups = cinder.group_list(request)
+        except cinder_exc.VersionNotFoundForAPIMethod:
+            del self.fields['group']
+            return
+        except Exception:
+            redirect = reverse("horizon:project:volumes:index")
+            exceptions.handle(request,
+                              _('Unable to retrieve the volume group list.'),
+                              redirect=redirect)
+        group_choices = [(g.id, g.name or g.id) for g in groups]
+        group_choices.insert(0, ("", _("No group")))
+        self.fields['group'].choices = group_choices
+
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
         volume_types = []
@@ -286,6 +307,8 @@ class CreateForm(forms.SelfHandlingForm):
             self.prepare_source_fields_if_volume_specified(request)
         else:
             self.prepare_source_fields_default(request)
+
+        self._populate_group_choices(request)
 
     def clean(self):
         cleaned_data = super(CreateForm, self).clean()
@@ -400,7 +423,8 @@ class CreateForm(forms.SelfHandlingForm):
                                           image_id=image_id,
                                           metadata=metadata,
                                           availability_zone=az,
-                                          source_volid=volume_id)
+                                          source_volid=volume_id,
+                                          group_id=data.get('group') or None)
             message = _('Creating volume "%s"') % data['name']
             messages.info(request, message)
             return volume
