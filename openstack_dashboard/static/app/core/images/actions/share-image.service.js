@@ -94,11 +94,7 @@
         } else {
           params += '&chi_uc_appliance_id=' + escape(image.id);
         }
-        if(window.location.hostname.indexOf('dev.chameleon') > -1 || window.location.port != 443){
-          return window.open('https://dev.chameleon.tacc.utexas.edu/appliances/create' + params);
-        } else {
-          return window.open('https://www.chameleoncloud.org/appliances/create' + params);
-        }
+        return window.open(image.appliance_catalog_host + image.publish_appliance_path + params);
       }
 
       function getCookie(cname) {

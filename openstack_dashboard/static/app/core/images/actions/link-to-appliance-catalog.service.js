@@ -80,11 +80,7 @@
         // Previous uses of this relocated the display using the successUrl;
         // in this case we leave the post-action behavior up to the result
         // handler.
-        if(window.location.hostname.indexOf('dev.chameleon') > -1 || window.location.port != 443){
-          return window.open('https://dev.chameleon.tacc.utexas.edu/appliances/' + image.appliance_catalog_id);
-        } else {
-          return window.open('https://www.chameleoncloud.org/appliances/' + image.appliance_catalog_id);
-        }
+        return window.open(image.appliance_catalog_host + image.appliance_catalog_details_path + '/' + image.appliance_catalog_id);
       }
   
       function isActive(image) {

@@ -140,6 +140,9 @@ class Image(base.APIResourceWrapper):
         image_dict['is_public'] = self.is_public
         image_dict['project_supported'] = self.project_supported
         image_dict['appliance_catalog_id'] = self.appliance_catalog_id
+        image_dict['appliance_catalog_details_path'] = settings.APPLIANCE_CATALOG_DETAILS_PATH
+        image_dict['appliance_catalog_host'] = settings.CHAMELEON_PORTAL_API_BASE_URL
+        image_dict['publish_appliance_path'] = settings.PUBLISH_APPLIANCE_PATH
         image_dict['properties'] = {
             k: self._apiresource[k] for k in self._apiresource
             if self.property_visible(k, show_ext_attrs=show_ext_attrs)}
