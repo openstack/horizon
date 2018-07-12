@@ -12,6 +12,12 @@
     {% endif %}
     <dt>{% trans "Status" %}</dt>
     <dd>{{ volume.status_label|capfirst }}</dd>
+    <dt>{% trans "Group" %}</dt>
+    {% if group %}
+    <dd><a href="{% url 'horizon:project:volume_groups:detail' volume.group_id %}">{{ group.name_or_id }}</a></dd>
+    {% else %}
+    <dd>{% trans "-" %}</dd>
+    {% endif %}
   </dl>
 
   <h4>{% trans "Specs" %}</h4>

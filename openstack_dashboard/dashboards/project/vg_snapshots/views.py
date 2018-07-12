@@ -56,7 +56,7 @@ class IndexView(tables.DataTableView):
             exceptions.handle(self.request,
                               _("Unable to retrieve volume groups."))
         for gs in vg_snapshots:
-            gs._group = groups.get(gs.group_id)
+            gs.group = groups.get(gs.group_id)
         return vg_snapshots
 
 

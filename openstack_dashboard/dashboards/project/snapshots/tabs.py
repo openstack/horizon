@@ -36,7 +36,8 @@ class OverviewTab(tabs.Tab):
                               _('Unable to retrieve snapshot details.'),
                               redirect=redirect)
         return {"snapshot": snapshot,
-                "volume": volume}
+                "volume": volume,
+                "group_snapshot": snapshot.group_snapshot}
 
     def get_redirect_url(self):
         return reverse('horizon:project:snapshots:index')

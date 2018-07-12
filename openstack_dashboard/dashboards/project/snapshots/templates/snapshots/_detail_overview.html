@@ -22,6 +22,12 @@
         {% endif %}
       </a>
     </dd>
+    <dt>{% trans "Group Snapshot" %}</dt>
+    {% if group_snapshot %}
+    <dd><a href="{% url 'horizon:project:vg_snapshots:detail' snapshot.group_snapshot_id %}">{{ group_snapshot.name_or_id }}</a></dd>
+    {% else %}
+    <dd>{% trans "-" %}</dd>
+    {% endif %}
   </dl>
 
   <h4>{% trans "Specs" %}</h4>

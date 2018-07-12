@@ -38,6 +38,7 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
     def get_data(self):
         snapshots = []
         volumes = {}
+        needs_gs = False
         if cinder.is_volume_service_enabled(self.request):
             try:
                 marker, sort_dir = self._get_marker()
@@ -45,15 +46,36 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
                     cinder.volume_snapshot_list_paged(
                         self.request, paginate=True, marker=marker,
                         sort_dir=sort_dir)
+            except Exception:
+                exceptions.handle(self.request,
+                                  _("Unable to retrieve volume snapshots."))
+            try:
                 volumes = cinder.volume_list(self.request)
                 volumes = dict((v.id, v) for v in volumes)
             except Exception:
-                exceptions.handle(self.request, _("Unable to retrieve "
-                                                  "volume snapshots."))
+                exceptions.handle(self.request,
+                                  _("Unable to retrieve volumes."))
+            needs_gs = any(getattr(snapshot, 'group_snapshot_id', None)
+                           for snapshot in snapshots)
+            if needs_gs:
+                try:
+                    group_snapshots = cinder.group_snapshot_list(self.request)
+                    group_snapshots = dict((gs.id, gs) for gs
+                                           in group_snapshots)
+                except Exception:
+                    group_snapshots = {}
+                    exceptions.handle(self.request,
+                                      _("Unable to retrieve group snapshots."))
 
         for snapshot in snapshots:
             volume = volumes.get(snapshot.volume_id)
             setattr(snapshot, '_volume', volume)
+            if needs_gs:
+                group_snapshot = group_snapshots.get(
+                    snapshot.group_snapshot_id)
+                snapshot.group_snapshot = group_snapshot
+            else:
+                snapshot.group_snapshot = None
 
         return snapshots
 
@@ -127,6 +149,11 @@ class DetailView(tabs.TabView):
                                                   snapshot_id)
             snapshot._volume = cinder.volume_get(self.request,
                                                  snapshot.volume_id)
+            if getattr(snapshot, 'group_snapshot_id', None):
+                snapshot.group_snapshot = cinder.group_snapshot_get(
+                    self.request, snapshot.group_snapshot_id)
+            else:
+                snapshot.group_snapshot = None
         except Exception:
             redirect = self.get_redirect_url()
             exceptions.handle(self.request,

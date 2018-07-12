@@ -44,9 +44,10 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                      'volume_backup_supported',
                      'volume_snapshot_list',
                      'volume_list_paged',
-                     'tenant_absolute_limits'],
+                     'tenant_absolute_limits',
+                     'group_list'],
     })
-    def _test_index(self, with_attachments):
+    def _test_index(self, with_attachments=False, with_groups=False):
         vol_snaps = self.cinder_volume_snapshots.list()
         volumes = self.cinder_volumes.list()
         if with_attachments:
@@ -56,6 +57,10 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                 volume.attachments = []
 
         self.mock_volume_backup_supported.return_value = False
+        if with_groups:
+            self.mock_group_list.return_value = self.cinder_groups.list()
+            volumes = self.cinder_group_volumes.list()
+
         self.mock_volume_list_paged.return_value = [volumes, False, False]
         if with_attachments:
             self.mock_server_get.return_value = server
@@ -73,6 +78,9 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                           search_opts=None)
             self.mock_volume_snapshot_list.assert_called_once()
 
+        if with_groups:
+            self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
+
         self.mock_volume_backup_supported.assert_called_with(
             test.IsHttpRequest())
         self.mock_volume_list_paged.assert_called_once_with(
@@ -88,6 +96,9 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
     def test_index_no_volume_attachments(self):
         self._test_index(False)
+
+    def test_index_with_volume_groups(self):
+        self._test_index(with_groups=True)
 
     @test.create_mocks({
         api.nova: ['server_get', 'server_list'],
