@@ -505,7 +505,7 @@ your web browser.
 
 Note that you may need to rebuild your virtual environment if your plugin is not
 showing up properly. If your plugin does not show up properly, check your
-``.venv`` folder to make sure the plugin's content is as you expect.
+``.tox`` folder to make sure the plugin's content is as you expect.
 
 ..  Note ::
 
