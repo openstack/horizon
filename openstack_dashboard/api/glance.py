@@ -66,6 +66,7 @@ class Image(base.APIResourceWrapper):
               "min_ram", "project_supported"}
     _ext_attrs = {"file", "locations", "schema", "tags", "virtual_size",
                   "kernel_id", "ramdisk_id", "image_url"}
+    APP_CATALOG = None
 
     def __init__(self, apiresource):
         super(Image, self).__init__(apiresource)
@@ -89,21 +90,11 @@ class Image(base.APIResourceWrapper):
 
     @property
     def project_supported(self):
-        if(cache.get('app_data_is_fresh') is not True):
-            self.refresh_project_supported_cache()
-        app = cache.get(self.id)
-        if app is None:
-            return False
-        return True if app['project_supported'] == True else False
+        return self.get_is_project_supported()
 
     @property
     def appliance_catalog_id(self):
-        if(cache.get('app_data_is_fresh') is not True):
-            self.refresh_project_supported_cache()
-        app = cache.get(self.id)
-        if app is None:
-            return -1
-        return app['id']
+        return self.get_catalog_id()
 
     @property
     def size(self):
@@ -154,40 +145,47 @@ class Image(base.APIResourceWrapper):
     def __ne__(self, other_image):
         return not self.__eq__(other_image)
 
-    ## kicks off a cache refresh if one isn't already in progress
-    def refresh_project_supported_cache(self):
-        refresh_in_progress = cache.get('refresh_in_progress')
-        # Use existing data while refresh is in progress
-        # If this is the first time here and there is no cached data, refresh_in_progress will be None, 
-        # and the first request will go ahead and fetch & cache the data
-        if (refresh_in_progress == True): 
-            return
-        ## otherwise let's set refresh_in_progress to True and start the refresh
-        LOG.info('Refreshing appliance catalog cache')
-        cache.set('refresh_in_progress', True, 30)
-        app_json = json.loads(self.fetch_supported_appliances())
-        for app in app_json['result']:
-            if(app['chi_uc_appliance_id'] is not None):
-                LOG.info('caching: ' + app['chi_uc_appliance_id'] + str(app['project_supported']))
-                cache.set(app['chi_uc_appliance_id'], app, None)
-            if(app['chi_tacc_appliance_id'] is not None):
-                LOG.info('caching: ' + app['chi_tacc_appliance_id'] + ' set to project_supported: ' + str(app['project_supported']))
-                cache.set(app['chi_tacc_appliance_id'], app, None)
-            if(app['kvm_tacc_appliance_id'] is not None):
-                LOG.info('caching: ' + app['kvm_tacc_appliance_id'] + ' set to project_supported: ' + str(app['project_supported']))
-                cache.set(app['kvm_tacc_appliance_id'], app, None)
-        cache.set('refresh_in_progress', False, None)
-        cache.set('app_data_is_fresh', True, 300)
+    def get_catalog_id(self):
+        try:
+            LOG.info('Getting catalog id from appliance catalog api for image id: ' + self.id)
+            app_json = json.loads(Image.APP_CATALOG)
+            for app in app_json['result']:
+                if(app['chi_uc_appliance_id'] == self.id):
+                    return app['id']
+                if(app['chi_tacc_appliance_id'] == self.id):
+                    return app['id']
+                if(app['kvm_tacc_appliance_id'] == self.id):
+                    return app['id']
+        except:
+            LOG.error('Error getting catalog id from appliance catalog api for image id: ' + self.id)
+        return -1
 
-    def fetch_supported_appliances(self):
-        LOG.info('Fetching and caching Appliance JSON from ' + settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
-        http = urllib3.PoolManager()
-        r = http.request('GET', settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
-        LOG.info('fetched appliance catalog data: ' + r.data)
-        return r.data
+    def get_is_project_supported(self):
+        try:
+            LOG.info('Getting project_supported flag from appliance catalog api for image id: ' + self.id)
+            app_json = json.loads(Image.APP_CATALOG)
+            for app in app_json['result']:
+                if(app['chi_uc_appliance_id'] == self.id):
+                    return app['project_supported']
+                if(app['chi_tacc_appliance_id'] == self.id):
+                    return app['project_supported']
+                if(app['kvm_tacc_appliance_id'] == self.id):
+                    return app['project_supported']
+        except:
+            LOG.error('Error getting project_supported flag from appliance catalog api for image id: ' + self.id)
+        return False
+
+@memoized
+def fetch_supported_appliances(request):
+    LOG.info('Fetching and caching Appliance JSON from ' + settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
+    http = urllib3.PoolManager()
+    r = http.request('GET', settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
+    LOG.debug('fetched appliance catalog data: ' + r.data)
+    return r.data
 
 @memoized
 def glanceclient(request, version=None):
+    Image.APP_CATALOG = fetch_supported_appliances(request)
     api_version = VERSIONS.get_active_version()
 
     url = base.url_for(request, 'image')
