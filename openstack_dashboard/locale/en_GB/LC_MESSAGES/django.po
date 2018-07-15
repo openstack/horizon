@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-06-26 13:27+0000\n"
+"POT-Creation-Date: 2018-07-14 00:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-27 09:50+0000\n"
+"PO-Revision-Date: 2018-07-12 11:48+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -3178,6 +3178,9 @@ msgstr "Group Name"
 msgid "Group Name ="
 msgstr "Group Name ="
 
+msgid "Group Snapshot"
+msgstr "Group Snapshot"
+
 msgid "Group Snapshots"
 msgstr "Group Snapshots"
 
@@ -3186,6 +3189,13 @@ msgstr "Group Type"
 
 msgid "Group has been updated successfully."
 msgstr "Group has been updated successfully."
+
+msgid ""
+"Group which the new volume belongs to. Choose 'No group' if the new volume "
+"belongs to no group."
+msgstr ""
+"Group which the new volume belongs to. Choose 'No group' if the new volume "
+"belongs to no group."
 
 msgid "Groups"
 msgstr "Groups"
@@ -4333,6 +4343,9 @@ msgstr "No floating IP pools available"
 
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "No floating IP pools with IPv4 subnet available"
+
+msgid "No group"
+msgstr "No group"
 
 msgid "No groups found."
 msgstr "No groups found."
@@ -7392,11 +7405,17 @@ msgstr "Unable to retrieve group list. Please try again later."
 msgid "Unable to retrieve group snapshot details."
 msgstr "Unable to retrieve group snapshot details."
 
+msgid "Unable to retrieve group snapshots."
+msgstr "Unable to retrieve group snapshots."
+
 msgid "Unable to retrieve group types."
 msgstr "Unable to retrieve group types."
 
 msgid "Unable to retrieve group users."
 msgstr "Unable to retrieve group users."
+
+msgid "Unable to retrieve group."
+msgstr "Unable to retrieve group."
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "Unable to retrieve host aggregates list."
@@ -7597,6 +7616,9 @@ msgstr "Unable to retrieve the instance."
 msgid "Unable to retrieve the project information of the image."
 msgstr "Unable to retrieve the project information of the image."
 
+msgid "Unable to retrieve the volume group list."
+msgstr "Unable to retrieve the volume group list."
+
 msgid "Unable to retrieve the volume type list."
 msgstr "Unable to retrieve the volume type list."
 
@@ -7644,6 +7666,9 @@ msgstr "Unable to retrieve volume encryption details."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Unable to retrieve volume group snapshots."
+
+msgid "Unable to retrieve volume groups"
+msgstr "Unable to retrieve volume groups"
 
 msgid "Unable to retrieve volume groups."
 msgstr "Unable to retrieve volume groups."
@@ -7722,6 +7747,9 @@ msgstr "Unable to retrieve volume/instance attachment information"
 
 msgid "Unable to retrieve volumes availability zones."
 msgstr "Unable to retrieve volumes availability zones."
+
+msgid "Unable to retrieve volumes."
+msgstr "Unable to retrieve volumes."
 
 msgid "Unable to set Domain Context."
 msgstr "Unable to set Domain Context."
