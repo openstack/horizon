@@ -26,7 +26,10 @@
   angular
     .module('horizon.app.core.network_qos', [
       'ngRoute',
-      'horizon.app.core.network_qos.details'
+      'horizon.framework.conf',
+      'horizon.app.core.network_qos.actions',
+      'horizon.app.core.network_qos.details',
+      'horizon.app.core'
     ])
     .constant('horizon.app.core.network_qos.resourceType', 'OS::Neutron::QoSPolicy')
     .run(run)
@@ -34,12 +37,14 @@
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.framework.util.i18n.gettext',
     'horizon.app.core.network_qos.basePath',
     'horizon.app.core.network_qos.service',
     'horizon.app.core.network_qos.resourceType'
   ];
 
   function run(registry,
+               gettext,
                basePath,
                qosService,
                qosResourceType) {
@@ -130,7 +135,7 @@
     .when('/project/network_qos', {
       templateUrl: path + 'panel.html'
     })
-    .when('/project/network_qos/:policy_id', {
+    .when('/project/network_qos/:id', {
       redirectTo: goToAngularDetails
     });
 

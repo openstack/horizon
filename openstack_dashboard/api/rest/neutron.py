@@ -309,7 +309,11 @@ class QoSPolicies(generic.View):
 @urls.register
 class QoSPolicy(generic.View):
     """API for a single QoS Policy."""
-    url_regex = r'neutron/qos_policy/(?P<policy_id>[^/]+)/$'
+    url_regex = r'neutron/qos_policies/(?P<policy_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def delete(self, request, policy_id):
+        api.neutron.policy_delete(request, policy_id)
 
     @rest_utils.ajax()
     def get(self, request, policy_id):

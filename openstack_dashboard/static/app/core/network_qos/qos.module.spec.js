@@ -21,4 +21,29 @@
     });
   });
 
+  describe('loading the qos module', function () {
+    var registry;
+
+    beforeEach(module('horizon.app.core.network_qos'));
+    beforeEach(inject(function($injector) {
+      registry = $injector.get('horizon.framework.conf.resource-type-registry.service');
+    }));
+
+    it('registers names', function() {
+      expect(registry.getResourceType('OS::Neutron::QoSPolicy').getName()).toBe("QoS Policies");
+    });
+
+    it('should set facets for search', function () {
+      var names = registry.getResourceType('OS::Neutron::QoSPolicy').filterFacets
+        .map(getName);
+      expect(names).toContain('name');
+      expect(names).toContain('description');
+      expect(names).toContain('shared');
+
+      function getName(x) {
+        return x.name;
+      }
+    });
+  });
+
 })();
