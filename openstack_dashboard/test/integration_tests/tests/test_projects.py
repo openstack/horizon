@@ -18,14 +18,12 @@ from openstack_dashboard.test.integration_tests.regions import messages
 PROJECT_NAME = helpers.gen_random_resource_name("project")
 
 
-@decorators.skip_because(bugs=['1777359'])
 class TestCreateDeleteProject(helpers.AdminTestCase):
 
     def setUp(self):
         super(TestCreateDeleteProject, self).setUp()
         self.projects_page = self.home_pg.go_to_identity_projectspage()
 
-    @decorators.skip_because(bugs=['1777359'])
     def test_create_delete_project(self):
         self.projects_page.create_project(PROJECT_NAME)
         self.assertTrue(

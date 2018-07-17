@@ -150,7 +150,7 @@ class FlavorsPage(basepage.BaseNavigationPage):
 
 class FlavorsPageNG(FlavorsPage):
     _resource_page_header_locator = (by.By.CSS_SELECTOR,
-                                     'hz-resource-panel hz-page-header h1')
+                                     '.page-header > h1')
 
     @property
     def header(self):
