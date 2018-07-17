@@ -40,11 +40,8 @@ def set_session_from_user(request, user):
 
 def create_user_from_token(request, token, endpoint, services_region=None):
     # if the region is provided, use that, otherwise use the preferred region
-    default_service_regions = getattr(settings, 'DEFAULT_SERVICE_REGIONS', {})
-    default_service_region = default_service_regions.get(endpoint)
     svc_region = services_region or \
-        utils.default_services_region(token.serviceCatalog, request,
-                                      selected_region=default_service_region)
+        utils.default_services_region(token.serviceCatalog, request, endpoint)
     return User(id=token.user['id'],
                 token=token,
                 user=token.user['name'],

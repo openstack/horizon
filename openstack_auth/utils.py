@@ -343,10 +343,17 @@ def get_project_list(*args, **kwargs):
 
 
 def default_services_region(service_catalog, request=None,
-                            selected_region=None):
-    """Returns the first endpoint region for first non-identity service.
+                            ks_endpoint=None):
+    """Return the default service region.
 
-    Extracted from the service catalog.
+    Order of precedence:
+    1. 'services_region' cookie value
+    2. Matching endpoint in DEFAULT_SERVICE_REGIONS
+    3. '*' key in DEFAULT_SERVICE_REGIONS
+    4. First valid region from catalog
+
+    In each case the value must also be present in available_regions or
+    we move to the next level of precedence.
     """
     if service_catalog:
         available_regions = [get_endpoint_region(endpoint) for service
@@ -367,12 +374,20 @@ def default_services_region(service_catalog, request=None,
                 LOG.error('No regions can be found in the service catalog.')
                 return None
 
-        if request and selected_region is None:
-            selected_region = request.COOKIES.get('services_region',
-                                                  available_regions[0])
-        if selected_region not in available_regions:
-            selected_region = available_regions[0]
-        return selected_region
+        region_options = []
+        if request:
+            region_options.append(request.COOKIES.get('services_region'))
+        if ks_endpoint:
+            default_service_regions = getattr(
+                settings, 'DEFAULT_SERVICE_REGIONS', {})
+            region_options.append(default_service_regions.get(ks_endpoint))
+        region_options.append(
+            getattr(settings, 'DEFAULT_SERVICE_REGIONS', {}).get('*'))
+
+        for region in region_options:
+            if region in available_regions:
+                return region
+        return available_regions[0]
     return None
 
 

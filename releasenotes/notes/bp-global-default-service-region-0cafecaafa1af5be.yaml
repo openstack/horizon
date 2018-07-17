@@ -1,0 +1,16 @@
+---
+features:
+  - |
+    DEFAULT_SERVICE_REGIONS can now take '*' as a key which serves either as a
+    fallback service region, or the default region if no other keys are set.
+upgrade:
+  - |
+    [:bug:`1772345`]
+    ``DEFAULT_SERVICE_REGIONS`` no longer overrides the cookie value from
+    ``services_region``. This fixes the UX where a user controlled value
+    keeps being overridden by a setting and changes ``DEFAULT_SERVICE_REGIONS``
+    to act as a default (as the name implies) per endpoint if the cookie is not
+    set rather than an override. The cookie will still be overridden when
+    it is for a region not present in the user's current catalog, so this will
+    still handle the original multi-keystone case that requried the
+    introduction of ``DEFAULT_SERVICE_REGIONS``.

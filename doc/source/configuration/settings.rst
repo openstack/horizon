@@ -1145,6 +1145,18 @@ Example:
         OPENSTACK_KEYSTONE_URL: 'RegionOne'
     }
 
+As of Rocky you can optionally you can set ``'*'`` as the key, and if no
+matching endpoint is found this will be treated as a global default.
+
+Example:
+
+.. code-block:: python
+
+    DEFAULT_SERVICE_REGIONS = {
+        '*': 'RegionOne',
+        OPENSTACK_KEYSTONE_URL: 'RegionTwo'
+    }
+
 ENABLE_CLIENT_TOKEN
 ~~~~~~~~~~~~~~~~~~~
 

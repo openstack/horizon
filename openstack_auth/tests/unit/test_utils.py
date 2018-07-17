@@ -14,9 +14,24 @@
 from django.conf import settings
 from django import http
 from django import test
+from django.test import client
 from django.test.utils import override_settings
 
 from openstack_auth import utils
+
+
+FAKE_CATALOG = [
+    {
+        'name': 'fake_service',
+        'type': "not-identity",
+        'endpoints': [
+            {'region': 'RegionOne'},
+            {'region': 'RegionTwo'},
+            {'region': 'RegionThree'},
+            {'region': 'RegionFour'},
+        ]
+    },
+]
 
 
 class RoleTestCaseAdmin(test.TestCase):
@@ -74,6 +89,33 @@ class UtilsTestCase(test.TestCase):
         ]
         for src, expected in test_urls:
             self.assertEqual(expected, utils.fix_auth_url_version_prefix(src))
+
+    @override_settings(DEFAULT_SERVICE_REGIONS={
+        'http://example.com': 'RegionThree', '*': 'RegionFour'})
+    def test_default_services_region_precedence(self):
+        request = client.RequestFactory().get('fake')
+
+        # Cookie is valid, so should be region source
+        request.COOKIES['services_region'] = "RegionTwo"
+        default_region = utils.default_services_region(
+            FAKE_CATALOG, request=request, ks_endpoint='http://example.com')
+        self.assertEqual("RegionTwo", default_region)
+
+        # Cookie is invalid, so ks_endpoint is source
+        request.COOKIES['services_region'] = "Not_valid_region"
+        default_region = utils.default_services_region(
+            FAKE_CATALOG, request=request, ks_endpoint='http://example.com')
+        self.assertEqual("RegionThree", default_region)
+
+        # endpoint and cookie are invalid, so source is "*" key
+        default_region = utils.default_services_region(
+            FAKE_CATALOG, request=request, ks_endpoint='not_a_match')
+        self.assertEqual("RegionFour", default_region)
+
+    def test_default_services_region_fallback(self):
+        # Test that first region found in catalog is returned
+        default_region = utils.default_services_region(FAKE_CATALOG)
+        self.assertEqual("RegionOne", default_region)
 
 
 class BehindProxyTestCase(test.TestCase):
