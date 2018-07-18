@@ -772,12 +772,18 @@ Default:
         'OPENSTACK_HYPERVISOR_FEATURES',
         'LAUNCH_INSTANCE_DEFAULTS',
         'OPENSTACK_IMAGE_FORMATS',
-        'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN'
+        'OPENSTACK_KEYSTONE_BACKEND',
+        'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
+        'CREATE_IMAGE_DEFAULTS',
+        'ENFORCE_PASSWORD_CHECK'
     ]
 
 This setting allows you to expose configuration values over Horizons internal
 REST API, so that the AngularJS panels can access them. Please be cautious
-about which values are listed here (and thus exposed on the frontend)
+about which values are listed here (and thus exposed on the frontend).
+For security purpose, this exposure of settings should be recognized explicitly
+by operator. So ``REST_API_REQUIRED_SETTINGS`` is not set by default.
+Please refer ``local_settings.py.example`` and confirm your ``local_settings.py``.
 
 SELECTABLE_THEMES
 ---------------------

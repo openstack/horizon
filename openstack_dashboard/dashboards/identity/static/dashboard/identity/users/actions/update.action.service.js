@@ -60,7 +60,10 @@
     //////////////
 
     function allowed() {
-      return policy.ifAllowed({ rules: [['identity', 'identity:update_user']] });
+      return $q.all([
+        keystone.canEditIdentity('user'),
+        policy.ifAllowed({ rules: [['identity', 'identity:update_user']] })
+      ]);
     }
 
     function perform(selected) {

@@ -62,7 +62,10 @@
     //////////////
 
     function allowed() {
-      return policy.ifAllowed({ rules: [['identity', 'identity:update_user']] });
+      return $q.all([
+        keystone.canEditIdentity('user'),
+        policy.ifAllowed({ rules: [['identity', 'identity:update_user']] })
+      ]);
     }
 
     // eslint-disable-next-line no-unused-vars

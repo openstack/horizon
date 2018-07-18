@@ -18,7 +18,7 @@
   'use strict';
 
   describe('Keystone API', function() {
-    var testCall, service;
+    var testCall, service, settings;
     var apiService = {};
     var toastService = {};
 
@@ -31,9 +31,10 @@
 
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
-    beforeEach(inject(['horizon.app.core.openstack-service-api.keystone', function(keystoneAPI) {
-      service = keystoneAPI;
-    }]));
+    beforeEach(inject(function($injector) {
+      service = $injector.get('horizon.app.core.openstack-service-api.keystone');
+      settings = $injector.get('horizon.app.core.openstack-service-api.settings');
+    }));
 
     it('defines the service', function() {
       expect(service).toBeDefined();
@@ -507,6 +508,32 @@
         }
       });
 
+    });
+
+    describe('canEditIdentity', function () {
+      var deferred, $timeout;
+
+      beforeEach(inject(function (_$q_, _$timeout_) {
+        deferred = _$q_.defer();
+        $timeout = _$timeout_;
+      }));
+
+      it('should resolve true if can_edit_group is set True', function() {
+        deferred.resolve({can_edit_group: true});
+        spyOn(settings, 'getSettings').and.returnValue(deferred.promise);
+        var canEdit = service.canEditIdentity('group');
+        $timeout.flush();
+        expect(canEdit).toBeTruthy();
+      });
+
+      it('should resolve false if can_edit_group is set False', function() {
+        deferred.resolve({can_edit_group: false});
+        spyOn(settings, 'getSettings').and.returnValue(deferred.promise);
+        var canEdit = service.canEditIdentity('group');
+        $timeout.flush();
+        // reject
+        expect(canEdit.$$state.status).toEqual(2);
+      });
     });
   });
 

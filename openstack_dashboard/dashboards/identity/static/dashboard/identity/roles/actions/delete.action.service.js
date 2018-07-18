@@ -22,6 +22,7 @@
     .factory('horizon.dashboard.identity.roles.actions.delete.service', deleteRoleService);
 
   deleteRoleService.$inject = [
+    '$q',
     'horizon.app.core.openstack-service-api.keystone',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.framework.util.actions.action-result.service',
@@ -41,6 +42,7 @@
    * On cancel, do nothing.
    */
   function deleteRoleService(
+    $q,
     keystone,
     policy,
     actionResultService,
@@ -57,7 +59,10 @@
     //////////////
 
     function allowed() {
-      return policy.ifAllowed({rules: [[ 'identity', 'identity:delete_role' ]]});
+      return $q.all([
+        keystone.canEditIdentity('role'),
+        policy.ifAllowed({ rules: [['identity', 'identity:delete_role']] })
+      ]);
     }
 
     function perform(items, scope) {

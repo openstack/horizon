@@ -1,0 +1,15 @@
+---
+fixes:
+  - |
+    [:bug:`1779268`] Supported ``can_edit_*`` settings in Angularized identity
+    panels. To enable this settings in Angularized identity panels, add
+    ``OPENSTACK_KEYSTONE_BACKEND`` into ``REST_API_REQUIRED_SETTINGS`` on
+    ``local_settings.py``. For more detail, see
+    `REST_API_REQUIRED_SETTINGS <https://docs.openstack.org/horizon/latest/configuration/settings.html#rest-api-required-settings>`__
+    in horizon settings documentation.
+upgrade:
+  - |
+    Add ``OPENSTACK_KEYSTONE_BACKEND`` manually into
+    ``REST_API_REQUIRED_SETTINGS`` on ``local_settings.py``, if your deployment
+    uses Angularized identity panels and needs to enable ``can_edit_*``
+    settings in ``OPENSTACK_KEYSTONE_BACKEND``.

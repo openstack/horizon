@@ -58,6 +58,7 @@
 
     function allowed(selected) {
       return $q.all([
+        keystone.canEditIdentity('user'),
         $qExtensions.booleanAsPromise(selected.enabled),
         policy.ifAllowed({ rules: [['identity', 'identity:update_user']] })
       ]);

@@ -35,6 +35,9 @@
       var deferred = $q.defer();
       spyOn(keystone, 'editUser').and.returnValue(deferred.promise);
       deferred.resolve({});
+      var deferredCanEdit = $q.defer();
+      spyOn(keystone, 'canEditIdentity').and.returnValue(deferredCanEdit.promise);
+      deferredCanEdit.resolve(true);
       policy = $injector.get('horizon.app.core.openstack-service-api.policy');
       var allowedPromise = $q.defer();
       spyOn(policy, 'ifAllowed').and.returnValue(allowedPromise.promise);
