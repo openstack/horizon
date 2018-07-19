@@ -33,15 +33,37 @@
   registerGroupActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.dashboard.identity.groups.actions.create.service',
+    'horizon.dashboard.identity.groups.actions.delete.service',
     'horizon.dashboard.identity.groups.resourceType'
   ];
 
   function registerGroupActions(
     registry,
     createService,
+    deleteService,
     groupResourceTypeCode
   ) {
     var groupResourceType = registry.getResourceType(groupResourceTypeCode);
+
+    groupResourceType.itemActions
+      .append({
+        id: 'deleteAction',
+        service: deleteService,
+        template: {
+          text: gettext('Delete Group'),
+          type: 'delete'
+        }
+      });
+
+    groupResourceType.batchActions
+      .append({
+        id: 'batchDeleteAction',
+        service: deleteService,
+        template: {
+          type: 'delete-selected',
+          text: gettext('Delete Groups')
+        }
+      });
 
     groupResourceType.globalActions
       .append({
