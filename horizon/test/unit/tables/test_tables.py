@@ -274,7 +274,7 @@ class MyTable(tables.DataTable):
     name = tables.Column(get_name,
                          verbose_name="Verbose Name",
                          sortable=True,
-                         form_field=forms.CharField(required=True),
+                         form_field=forms.CharField(),
                          form_field_attributes={'class': 'test'})
     value = tables.Column('value',
                           sortable=True,
@@ -334,7 +334,7 @@ class MyTableNotAllowedInlineEdit(MyTable):
     name = tables.Column(get_name,
                          verbose_name="Verbose Name",
                          sortable=True,
-                         form_field=forms.CharField(required=True),
+                         form_field=forms.CharField(),
                          form_field_attributes={'class': 'test'})
 
     class Meta(object):
@@ -345,7 +345,7 @@ class MyTableNotAllowedInlineEdit(MyTable):
 
 class MyTableWrapList(MyTable):
     name = tables.Column('name',
-                         form_field=forms.CharField(required=True),
+                         form_field=forms.CharField(),
                          form_field_attributes={'class': 'test'},
                          wrap_list=True)
     value = tables.Column('value',
@@ -721,7 +721,6 @@ class DataTableTests(test.TestCase):
                                  verbose_name="Verbose Name",
                                  sortable=True,
                                  form_field=forms.BooleanField(
-                                     required=True,
                                      label="Verbose Name"),
                                  form_field_attributes={'class': 'test'})
 

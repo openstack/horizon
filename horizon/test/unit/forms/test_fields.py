@@ -134,7 +134,7 @@ class IPFieldTests(test.TestCase):
                       "1111:2222::4444:5555:6666::8888",
                       "1111:2222::4444:5555:6666:8888/",
                       "1111:2222::4444:5555:6666::8888/130")
-        ipv4 = forms.IPField(required=True, version=forms.IPv4)
+        ipv4 = forms.IPField(version=forms.IPv4)
         ipv6 = forms.IPField(required=False, version=forms.IPv6)
         ipmixed = forms.IPField(required=False,
                                 version=forms.IPv4 | forms.IPv6)

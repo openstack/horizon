@@ -68,7 +68,6 @@ class Login(django_auth_forms.AuthenticationForm):
                 self.fields['domain'] = forms.ChoiceField(
                     label=_("Domain"),
                     initial=last_domain,
-                    required=True,
                     choices=getattr(settings,
                                     'OPENSTACK_KEYSTONE_DOMAIN_CHOICES',
                                     ()))
@@ -76,7 +75,6 @@ class Login(django_auth_forms.AuthenticationForm):
                 self.fields['domain'] = forms.CharField(
                     initial=last_domain,
                     label=_("Domain"),
-                    required=True,
                     widget=forms.TextInput(attrs={"autofocus": "autofocus"}))
             self.fields['username'].widget = forms.widgets.TextInput()
             fields_ordering = ['domain', 'username', 'password', 'region']
