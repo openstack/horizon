@@ -1,5 +1,5 @@
 /**
- * Copyright 2016 99Cloud
+ * Copyright 2017 99Cloud
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -27,7 +27,8 @@
    */
   angular
     .module('horizon.dashboard.identity.groups', [
-      'ngRoute'
+      'ngRoute',
+      'horizon.dashboard.identity.groups.actions'
     ])
     .constant('horizon.dashboard.identity.groups.resourceType', 'OS::Keystone::Group')
     .run(run)
