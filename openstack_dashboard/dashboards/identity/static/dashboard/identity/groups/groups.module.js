@@ -74,7 +74,16 @@
       });
 
     function listFunction() {
-      return keystone.getGroups();
+      return keystone.getGroups().then(modifyResponse);
+    }
+
+    function modifyResponse(response) {
+      return {data: {items: response.data.items.map(modifyItem)}};
+
+      function modifyItem(item) {
+        item.trackBy = item.id + item.domain_id + item.name + item.description;
+        return item;
+      }
     }
 
     /**
