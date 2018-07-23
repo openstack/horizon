@@ -212,7 +212,7 @@ class Column(html.HTMLElement):
         A form field used for inline editing of the column. A django
         forms.Field can be used or django form.Widget can be used.
 
-        Example: ``form_field=forms.CharField(required=True)``.
+        Example: ``form_field=forms.CharField()``.
         Defaults to ``None``.
 
     .. attribute:: form_field_attributes
