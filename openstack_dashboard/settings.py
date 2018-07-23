@@ -330,7 +330,7 @@ OPENSTACK_PROFILER = {
 CHAMELEON_PORTAL_API_BASE_URL = 'https://www.chameleoncloud.org'
 APPLIANCE_CATALOG_API_PATH = '/appliances/api/appliances'
 APPLIANCE_CATALOG_DETAILS_PATH = '/appliances'
-PUBLISH_APPLIANCE_PATH = '/appliances/create'
+PUBLISH_APPLIANCE_PATH = '/appliances/create/image'
 
 try:
     from local.local_settings import *  # noqa

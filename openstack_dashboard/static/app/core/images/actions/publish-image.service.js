@@ -18,9 +18,9 @@
   
     angular
       .module('horizon.app.core.images')
-      .factory('horizon.app.core.images.actions.share-image.service', shareImageService);
+      .factory('horizon.app.core.images.actions.publish-image.service', publishImageService);
   
-    shareImageService.$inject = [
+    publishImageService.$inject = [
       '$q',
       'horizon.app.core.openstack-service-api.glance',
       'horizon.app.core.openstack-service-api.userSession',
@@ -32,7 +32,7 @@
   
     /**
      * @ngDoc factory
-     * @name horizon.app.core.images.actions.shareImageService
+     * @name horizon.app.core.images.actions.publishImageService
      * @param {Object} $q
      * @param {Object} nonBootableImageTypes
      * @param {Object} launchInstanceModal
@@ -44,7 +44,7 @@
      *
      * @returns {Object} The service
      */
-    function shareImageService(
+    function publishImageService(
       $q,
       glance,
       userSessionService,
@@ -56,7 +56,8 @@
         perform: perform,
         allowed: allowed
       };
-      var modifyImagePolicyCheck, scope;
+      var modifyImagePolicyCheck, scope, region;
+      userSessionService.get().then(function(userSession){region = userSession.services_region;});
   
       return service;
 
@@ -70,26 +71,15 @@
         return $q.all([
           modifyImagePolicyCheck,
           userSessionService.isCurrentProject(image.owner),
-          isActive(image)
+          isActive(image),
+          doshowPublishLink(image)
         ]);
       }
-
-      //////////////
   
       function perform(image) {
-        // Previous uses of this relocated the display using the successUrl;
-        // in this case we leave the post-action behavior up to the result
-        // handler.
-        // return launchInstanceModal.open({
-        //   'imageId': image.id
-        // });
-        console.log(image);
-        console.log(userSessionService.isCurrentProject(image.owner));
         var params = '?name=' + escape(image.name);
         params += '&short_description=' + escape(image.properties.description === undefined ? '' : image.properties.description);
-        var region = getCookie('services_region');
-        //var region = userSessionService.get().then(function(userSession){return userSession.services_region;});
-        if('region'.indexOf('@tacc') != -1){
+        if(region.indexOf('tacc') != -1){
           params += '&chi_tacc_appliance_id=' + escape(image.id);
         } else {
           params += '&chi_uc_appliance_id=' + escape(image.id);
@@ -116,6 +106,10 @@
       function isActive(image) {
         return $qExtensions.booleanAsPromise(image.status === 'active');
       }
+
+      function doshowPublishLink(image) {
+        return $qExtensions.booleanAsPromise(!image.published_in_app_catalog);
+      }
   
       function isBootable(image) {
         return $qExtensions.booleanAsPromise(
@@ -123,6 +117,6 @@
         );
       }
   
-    } // end of shareImageService
+    } // end of publishImageService
   })(); // end of IIFE
   

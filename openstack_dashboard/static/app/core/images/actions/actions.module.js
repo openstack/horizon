@@ -38,8 +38,8 @@
     'horizon.app.core.images.actions.delete-image.service',
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.images.actions.update-metadata.service',
-    'horizon.app.core.images.resourceType',/**
-    'horizon.app.core.images.actions.share-image.service', */
+    'horizon.app.core.images.resourceType',
+    'horizon.app.core.images.actions.publish-image.service',
     'horizon.app.core.images.actions.link-to-appliance-catalog.service'
   ];
 
@@ -52,7 +52,7 @@
     launchInstanceService,
     updateMetadataService,
     imageResourceTypeCode,
-    /** shareImageService, **/
+    publishImageService,
     linkToApplianceCatalogService
   ) {
     var imageResourceType = registry.getResourceType(imageResourceTypeCode);
@@ -92,14 +92,14 @@
           text: gettext('Delete Image'),
           type: 'delete'
         }
-      })/**
+      })
       .append({
-        id: 'shareImageService',
-        service: shareImageService,
+        id: 'publishImageService',
+        service: publishImageService,
         template: {
-          text: gettext('Share')
+          text: gettext('Publish to Appliance Catalog')
         }
-      }) */
+      })
       .append({
         id: 'linkToApplianceCatalogService',
         service: linkToApplianceCatalogService,

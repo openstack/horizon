@@ -63,7 +63,7 @@ class Image(base.APIResourceWrapper):
     _attrs = {"architecture", "container_format", "disk_format", "created_at",
               "owner", "size", "id", "status", "updated_at", "checksum",
               "visibility", "name", "is_public", "protected", "min_disk",
-              "min_ram", "project_supported"}
+              "min_ram", "project_supported", "published_in_app_catalog"}
     _ext_attrs = {"file", "locations", "schema", "tags", "virtual_size",
                   "kernel_id", "ramdisk_id", "image_url"}
     APP_CATALOG = None
@@ -91,6 +91,10 @@ class Image(base.APIResourceWrapper):
     @property
     def project_supported(self):
         return self.get_is_project_supported()
+
+    @property
+    def published_in_app_catalog(self):
+        return self.get_is_published_in_app_catalog()
 
     @property
     def appliance_catalog_id(self):
@@ -130,6 +134,7 @@ class Image(base.APIResourceWrapper):
         image_dict = super(Image, self).to_dict()
         image_dict['is_public'] = self.is_public
         image_dict['project_supported'] = self.project_supported
+        image_dict['published_in_app_catalog'] = self.published_in_app_catalog
         image_dict['appliance_catalog_id'] = self.appliance_catalog_id
         image_dict['appliance_catalog_details_path'] = settings.APPLIANCE_CATALOG_DETAILS_PATH
         image_dict['appliance_catalog_host'] = settings.CHAMELEON_PORTAL_API_BASE_URL
@@ -173,6 +178,21 @@ class Image(base.APIResourceWrapper):
                     return app['project_supported']
         except:
             LOG.error('Error getting project_supported flag from appliance catalog api for image id: ' + self.id)
+        return False
+
+    def get_is_published_in_app_catalog(self):
+        try:
+            LOG.info('Checking if image is published to appliance catalog for image id: ' + self.id)
+            app_json = json.loads(Image.APP_CATALOG)
+            for app in app_json['result']:
+                if(app['chi_uc_appliance_id'] == self.id):
+                    return True
+                if(app['chi_tacc_appliance_id'] == self.id):
+                    return True
+                if(app['kvm_tacc_appliance_id'] == self.id):
+                    return True
+        except:
+            LOG.error('Error checking if image is published to appliance catalog for image id: ' + self.id)
         return False
 
 @memoized
