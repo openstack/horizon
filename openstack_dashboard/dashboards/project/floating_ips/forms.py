@@ -32,11 +32,24 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
     description = forms.CharField(max_length=255,
                                   label=_("Description"),
                                   required=False)
+    dns_domain = forms.CharField(max_length=255,
+                                 label=_("DNS Domain"),
+                                 required=False)
+    dns_name = forms.CharField(max_length=255,
+                               label=_("DNS Name"),
+                               required=False)
 
-    def __init__(self, *args, **kwargs):
-        super(FloatingIpAllocate, self).__init__(*args, **kwargs)
+    def __init__(self, request, *args, **kwargs):
+        super(FloatingIpAllocate, self).__init__(request, *args, **kwargs)
         floating_pool_list = kwargs.get('initial', {}).get('pool_list', [])
         self.fields['pool'].choices = floating_pool_list
+
+        dns_supported = api.neutron.is_extension_supported(
+            request,
+            "dns-integration")
+        if not dns_supported:
+            del self.fields["dns_name"]
+            del self.fields["dns_domain"]
 
     def handle(self, request, data):
         try:
@@ -52,6 +65,10 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
             param = {}
             if data['description']:
                 param['description'] = data['description']
+            if 'dns_domain' in data and data['dns_domain']:
+                param['dns_domain'] = data['dns_domain']
+            if 'dns_name' in data and data['dns_name']:
+                param['dns_name'] = data['dns_name']
             fip = api.neutron.tenant_floating_ip_allocate(
                 request,
                 pool=data['pool'],
