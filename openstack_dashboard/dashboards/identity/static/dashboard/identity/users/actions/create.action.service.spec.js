@@ -92,6 +92,7 @@
       var deferred = $q.defer();
       spyOn(keystone, 'createUser').and.returnValue(deferred.promise);
       spyOn(toast, 'add').and.callFake(angular.noop);
+      spyOn(keystone, 'grantRole');
       var handler = jasmine.createSpyObj('handler', ['success']);
 
       deferred.resolve({data: {name: 'saved', id: '12345'}});
