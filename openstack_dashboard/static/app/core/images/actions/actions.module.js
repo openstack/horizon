@@ -38,7 +38,8 @@
     'horizon.app.core.images.actions.delete-image.service',
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.images.actions.update-metadata.service',
-    'horizon.app.core.images.resourceType'
+    'horizon.app.core.images.resourceType',
+    'horizon.app.core.images.basePath'
   ];
 
   function registerImageActions(
@@ -49,7 +50,8 @@
     deleteImageService,
     launchInstanceService,
     updateMetadataService,
-    imageResourceTypeCode
+    imageResourceTypeCode,
+    basePath
   ) {
     var imageResourceType = registry.getResourceType(imageResourceTypeCode);
     imageResourceType.itemActions
@@ -100,15 +102,18 @@
         }
       });
 
+    // A custom template is provided instead of the 'standard' definition
+    // to customize when the rendered button is disabled
+    //
+    // The template contains a new angular component which controls the
+    // disabled/enabled state of the rendered button.
     imageResourceType.batchActions
       .append({
         id: 'batchDeleteImageAction',
         service: deleteImageService,
         template: {
-          type: 'delete-selected',
-          text: gettext('Delete Images')
+          url: basePath + "/actions/delete-image-selected-button.template.html"
         }
       });
   }
-
 })();
