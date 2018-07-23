@@ -103,7 +103,8 @@
           .then(onMetadataGet);
 
         function onMetadataGet(response) {
-          var updated = metadata;
+          var updated = metadata || Object();
+          updated.description = image.properties.description;
           var removed = angular.copy(response.data);
           angular.forEach(updated, function(value, key) {
             delete removed[key];
