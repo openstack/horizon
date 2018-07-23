@@ -28,7 +28,8 @@
   angular
     .module('horizon.dashboard.identity.domains', [
       'ngRoute',
-      'horizon.dashboard.identity.domains.details'
+      'horizon.dashboard.identity.domains.details',
+      'horizon.dashboard.identity.domains.actions'
     ])
     .constant('horizon.dashboard.identity.domains.resourceType', 'OS::Keystone::Domain')
     .run(run)
