@@ -57,7 +57,6 @@
         allowed: allowed
       };
       var modifyImagePolicyCheck, scope, region;
-      userSessionService.get().then(function(userSession){region = userSession.services_region;});
   
       return service;
 
@@ -68,6 +67,7 @@
       }
 
       function allowed(image) {
+        userSessionService.get().then(function(userSession){region = userSession.services_region;});
         return $q.all([
           modifyImagePolicyCheck,
           userSessionService.isCurrentProject(image.owner),
@@ -79,7 +79,7 @@
       function perform(image) {
         var params = '?name=' + escape(image.name);
         params += '&short_description=' + escape(image.properties.description === undefined ? '' : image.properties.description);
-        if(region.indexOf('tacc') != -1){
+        if(region.toLowerCase().indexOf('tacc') != -1){
           params += '&chi_tacc_appliance_id=' + escape(image.id);
         } else {
           params += '&chi_uc_appliance_id=' + escape(image.id);
