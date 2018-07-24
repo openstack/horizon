@@ -197,11 +197,15 @@ class Image(base.APIResourceWrapper):
 
 @memoized
 def fetch_supported_appliances(request):
-    LOG.info('Fetching and caching Appliance JSON from ' + settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
-    http = urllib3.PoolManager()
-    r = http.request('GET', settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
-    LOG.debug('fetched appliance catalog data: ' + r.data)
-    return r.data
+    try:
+        LOG.info('Fetching and caching Appliance JSON from ' + settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
+        http = urllib3.PoolManager()
+        r = http.request('GET', settings.CHAMELEON_PORTAL_API_BASE_URL + settings.APPLIANCE_CATALOG_API_PATH)
+        LOG.debug('fetched appliance catalog data: ' + r.data)
+        return r.data
+    except Exception as e:
+        LOG.error(e)
+    return []
 
 @memoized
 def glanceclient(request, version=None):
