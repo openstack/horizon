@@ -433,6 +433,13 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
 
 @profiler.trace
 def image_update(request, image_id, **kwargs):
+    ## Ensuring custom properties aren't sent to glance on upate
+    kwargs.pop('appliance_catalog_id', None)
+    kwargs.pop('project_supported', None)
+    kwargs.pop('appliance_catalog_host', None)
+    kwargs.pop('publish_appliance_path', None)
+    kwargs.pop('published_in_app_catalog', None)
+
     image_data = kwargs.get('data', None)
     try:
         # Horizon doesn't support purging image properties. Make sure we don't
