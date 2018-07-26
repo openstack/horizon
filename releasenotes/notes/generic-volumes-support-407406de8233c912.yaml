@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    [:blueprint:`cinder-generic-volume-groups`]
+    Cinder generic groups is now supported. Consistency groups views will be
+    disabled if the generic group support is available. User is able to
+    create generic groups and snapshots now.
