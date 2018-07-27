@@ -26,6 +26,7 @@ DEBUG = True
 WEBROOT = '/'
 #LOGIN_URL = WEBROOT + 'auth/login/'
 #LOGOUT_URL = WEBROOT + 'auth/logout/'
+#LOGIN_ERROR = WEBROOT + 'auth/error/'
 #
 # LOGIN_REDIRECT_URL can be used as an alternative for
 # HORIZON_CONFIG.user_home, if user_home is not set.
@@ -230,6 +231,21 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 #    "acme_oidc": ("acme", "oidc"),
 #    "acme_saml2": ("acme", "saml2"),
 #}
+
+# Enables redirection on login to the identity provider defined on
+# WEBSSO_DEFAULT_REDIRECT_PROTOCOL and WEBSSO_DEFAULT_REDIRECT_REGION
+#WEBSSO_DEFAULT_REDIRECT = False
+
+# Specifies the protocol to use for default redirection on login
+#WEBSSO_DEFAULT_REDIRECT_PROTOCOL = None
+
+# Specifies the region to which the connection will be established on login
+#WEBSSO_DEFAULT_REDIRECT_REGION = OPENSTACK_KEYSTONE_URL
+
+# Enables redirection on logout to the method specified on the identity provider.
+# Once logout the client will be redirected to the address specified in this
+# variable.
+#WEBSSO_DEFAULT_REDIRECT_LOGOUT = None
 
 # The Keystone Provider drop down uses Keystone to Keystone federation
 # to switch between Keystone service providers.

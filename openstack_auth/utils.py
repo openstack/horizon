@@ -146,6 +146,30 @@ def is_websso_enabled():
     return websso_enabled and keystonev3_plus
 
 
+def is_websso_default_redirect():
+    """Checks if the websso default redirect is available.
+
+    As with websso, this is only supported in Keystone version 3.
+    """
+    websso_default_redirect = getattr(settings,
+                                      'WEBSSO_DEFAULT_REDIRECT', False)
+    keystonev3_plus = (get_keystone_version() >= 3)
+    return websso_default_redirect and keystonev3_plus
+
+
+def get_websso_default_redirect_protocol():
+    return getattr(settings, 'WEBSSO_DEFAULT_REDIRECT_PROTOCOL', None)
+
+
+def get_websso_default_redirect_region():
+    return getattr(settings, 'WEBSSO_DEFAULT_REDIRECT_REGION',
+                   settings.OPENSTACK_KEYSTONE_URL)
+
+
+def get_websso_default_redirect_logout():
+    return getattr(settings, 'WEBSSO_DEFAULT_REDIRECT_LOGOUT', None)
+
+
 def build_absolute_uri(request, relative_url):
     """Ensure absolute_uri are relative to WEBROOT."""
     webroot = getattr(settings, 'WEBROOT', '')

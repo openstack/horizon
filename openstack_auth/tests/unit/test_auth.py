@@ -1237,4 +1237,33 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
         response = self.client.post(url, form_data)
         self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
 
+    def test_websso_login_default_redirect(self):
+        origin = 'http://testserver/auth/websso/'
+        protocol = 'oidc'
+        redirect_url = ('%s/auth/OS-FEDERATION/websso/%s?origin=%s' %
+                        (settings.OPENSTACK_KEYSTONE_URL, protocol, origin))
+
+        settings.WEBSSO_DEFAULT_REDIRECT = True
+        settings.WEBSSO_DEFAULT_REDIRECT_PROTOCOL = 'oidc'
+        settings.WEBSSO_DEFAULT_REDIRECT_REGION = (
+                settings.OPENSTACK_KEYSTONE_URL)
+
+        url = reverse('login')
+
+        # POST to the page and redirect to keystone.
+        response = self.client.get(url)
+        self.assertRedirects(response, redirect_url, status_code=302,
+                             target_status_code=404)
+
+    def test_websso_logout_default_redirect(self):
+        settings.WEBSSO_DEFAULT_REDIRECT = True
+        settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT = 'http://idptest/logout'
+
+        url = reverse('logout')
+
+        # POST to the page and redirect to logout method from idp.
+        response = self.client.get(url)
+        self.assertRedirects(response, settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT,
+                             status_code=302, target_status_code=301)
+
 load_tests = load_tests_apply_scenarios

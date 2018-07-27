@@ -38,6 +38,16 @@ def set_session_from_user(request, user):
     request.user = user
 
 
+def unset_session_user_variables(request):
+    request.session['token'] = None
+    request.session['user_id'] = None
+    request.session['region_endpoint'] = None
+    request.session['services_region'] = None
+    # Update the user object cached in the request
+    request._cached_user = None
+    request.user = None
+
+
 def create_user_from_token(request, token, endpoint, services_region=None):
     # if the region is provided, use that, otherwise use the preferred region
     svc_region = services_region or \

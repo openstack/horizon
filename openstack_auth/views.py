@@ -55,6 +55,17 @@ LOG = logging.getLogger(__name__)
 def login(request, template_name=None, extra_context=None, **kwargs):
     """Logs a user in using the :class:`~openstack_auth.forms.Login` form."""
 
+    # If the user enabled websso and the default redirect
+    # redirect to the default websso url
+    if (request.method == 'GET' and utils.is_websso_enabled and
+            utils.is_websso_default_redirect()):
+        protocol = utils.get_websso_default_redirect_protocol()
+        region = utils.get_websso_default_redirect_region()
+        origin = request.build_absolute_uri('/auth/websso/')
+        url = ('%s/auth/OS-FEDERATION/websso/%s?origin=%s' %
+               (region, protocol, origin))
+        return shortcuts.redirect(url)
+
     # If the user enabled websso and selects default protocol
     # from the dropdown, We need to redirect user to the websso url
     if request.method == 'POST':
@@ -151,9 +162,12 @@ def websso(request):
         request.user = auth.authenticate(request=request, auth_url=auth_url,
                                          token=token)
     except exceptions.KeystoneAuthException as exc:
-        msg = 'Login failed: %s' % six.text_type(exc)
-        res = django_http.HttpResponseRedirect(settings.LOGIN_URL)
-        res.set_cookie('logout_reason', msg, max_age=10)
+        if utils.is_websso_default_redirect():
+            res = django_http.HttpResponseRedirect(settings.LOGIN_ERROR)
+        else:
+            msg = 'Login failed: %s' % six.text_type(exc)
+            res = django_http.HttpResponseRedirect(settings.LOGIN_URL)
+            res.set_cookie('logout_reason', msg, max_age=10)
         return res
 
     auth_user.set_session_from_user(request, request.user)
@@ -178,8 +192,15 @@ def logout(request, login_url=None, **kwargs):
     LOG.info(msg)
 
     """ Securely logs a user out. """
-    return django_auth_views.logout_then_login(request, login_url=login_url,
-                                               **kwargs)
+    if (utils.is_websso_enabled and utils.is_websso_default_redirect() and
+            utils.get_websso_default_redirect_logout()):
+        auth_user.unset_session_user_variables(request)
+        return django_http.HttpResponseRedirect(
+                   utils.get_websso_default_redirect_logout())
+    else:
+        return django_auth_views.logout_then_login(request,
+                                                   login_url=login_url,
+                                                   **kwargs)
 
 
 @login_required

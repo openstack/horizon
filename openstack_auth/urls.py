@@ -12,6 +12,7 @@
 # limitations under the License.
 
 from django.conf.urls import url
+from django.views import generic
 
 from openstack_auth import utils
 from openstack_auth import views
@@ -33,4 +34,8 @@ urlpatterns = [
 ]
 
 if utils.is_websso_enabled():
-    urlpatterns.append(url(r"^websso/$", views.websso, name='websso'))
+    urlpatterns += [
+        url(r"^websso/$", views.websso, name='websso'),
+        url(r"^error/$",
+            generic.TemplateView.as_view(template_name="403.html"))
+    ]
