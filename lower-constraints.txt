@@ -71,7 +71,7 @@ oslo.policy==1.30.0
 oslo.serialization==2.18.0
 oslo.service==1.24.0
 oslo.utils==3.33.0
-osprofiler==1.4.0
+osprofiler==2.3.0
 Paste==2.0.2
 PasteDeploy==1.5.0
 pbr==2.0.0
