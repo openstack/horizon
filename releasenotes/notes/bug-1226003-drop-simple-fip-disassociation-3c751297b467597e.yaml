@@ -8,5 +8,5 @@ upgrade:
   - |
     ``simple_ip_management`` setting in ``HORIZON_CONFIG`` was dropped.
     This actually has no meaning after nova-network support was dropped in Pike.
-    If you use this setting to hide ``Disaccoaite Floating IP`` button in the
+    If you use this setting to hide ``Disassociate Floating IP`` button in the
     instance table, use the policy file instead.
