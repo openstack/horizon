@@ -18,6 +18,8 @@ from horizon import tabs
 
 from openstack_dashboard import api
 
+from openstack_dashboard.dashboards.identity.projects.groups \
+    import tables as groups_tables
 from openstack_dashboard.dashboards.identity.projects.users \
     import tables as users_tables
 
@@ -169,6 +171,44 @@ class UsersTab(tabs.TableTab):
         return project_users.values()
 
 
+class GroupsTab(tabs.TableTab):
+    """Display groups member of the project. """
+    table_classes = (groups_tables.GroupsTable,)
+    name = _("Groups")
+    slug = "groups"
+    template_name = "horizon/common/_detail_table.html"
+    preload = False
+
+    def get_groupstable_data(self):
+        groups_in_project = []
+        project = self.tab_group.kwargs['project']
+
+        try:
+            # Get project_groups_roles: {group_id: [role_id_1, role_id_2]}
+            project_groups_roles = api.keystone.get_project_groups_roles(
+                self.request,
+                project=project.id)
+            # Get global roles and groups
+            roles = api.keystone.role_list(self.request)
+            # For keystone.group_list, we do not give the project_id because it
+            # is ignored when called with admin creds.
+            groups = api.keystone.group_list(self.request)
+            groups = {group.id: group for group in groups}
+        except Exception:
+            exceptions.handle(self.request,
+                              _("Unable to display the groups of this"
+                                " project."))
+        else:
+            # Construct Groups list, adding the role attribute
+            for group_id in project_groups_roles:
+                group = groups[group_id]
+                group.roles = [role.name for role in roles
+                               if role.id in project_groups_roles[group_id]]
+                groups_in_project.append(group)
+
+        return groups_in_project
+
+
 class ProjectDetailTabs(tabs.DetailTabsGroup):
     slug = "project_details"
-    tabs = (OverviewTab, UsersTab,)
+    tabs = (OverviewTab, UsersTab, GroupsTab,)
