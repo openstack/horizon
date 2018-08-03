@@ -97,8 +97,51 @@ class UsersTab(tabs.TableTab):
                 roles_list=roles
             )
 
+    def _get_users_from_groups(self, project_id, roles, project_users):
+        """Update with users which have role on project through a group.
+
+        :param project_id: ID of the project
+        :param roles: list of roles from keystone
+        :param project_users: list to be updated with the users found
+        """
+
+        # For keystone.group_list project_id is not passed as argument because
+        # it is ignored when using admin credentials
+        # Get all groups (to be able to find group name)
+        groups = api.keystone.group_list(self.request)
+        group_names = {group.id: group.name for group in groups}
+
+        # Get a dictionary {group_id: [role_id_1, role_id_2]}
+        project_groups_roles = api.keystone.get_project_groups_roles(
+            self.request,
+            project=project_id)
+
+        for group_id in project_groups_roles:
+            group_users = api.keystone.user_list(self.request,
+                                                 group=group_id)
+            group_roles_names = [
+                role.name for role in roles
+                if role.id in project_groups_roles[group_id]]
+
+            roles_from_group = [(role_name, group_names[group_id])
+                                for role_name in group_roles_names]
+
+            for user in group_users:
+                if user.id not in project_users:
+                    # New user: Add the user to the list
+                    project_users[user.id] = user
+                    project_users[user.id].roles = []
+                    project_users[user.id].roles_from_groups = []
+
+                # Add roles from group
+                project_users[user.id].roles_from_groups.extend(
+                    roles_from_group)
+
     def get_userstable_data(self):
-        """Get users with roles on the project."""
+        """Get users with roles on the project.
+
+        Roles can be applied directly on the project or through a group.
+        """
         project_users = {}
         project = self.tab_group.kwargs['project']
 
@@ -111,6 +154,12 @@ class UsersTab(tabs.TableTab):
             self._get_users_from_project(project_id=project.id,
                                          roles=roles,
                                          project_users=project_users)
+
+            # Update project_users with users which have role indirectly on
+            # the project, (through a group)
+            self._get_users_from_groups(project_id=project.id,
+                                        roles=roles,
+                                        project_users=project_users)
 
         except Exception:
             exceptions.handle(self.request,

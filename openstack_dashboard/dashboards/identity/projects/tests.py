@@ -1350,6 +1350,14 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                                                      self.tenant.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
 
+    def _get_users_in_group(self, group_id):
+        users_in_group = [membership["user_id"] for membership in
+                          self.user_group_membership.list()
+                          if membership["group_id"] == group_id]
+        users = [user for user in self.users.list() if
+                 user.id in users_in_group]
+        return users
+
     def _project_user_roles(self, role_assignments):
         roles = {}
         for role_assignment in role_assignments:
@@ -1358,25 +1366,45 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                     role_assignment.role["id"]]
         return roles
 
+    def _project_group_roles(self, role_assignments):
+        roles = {}
+        for role_assignment in role_assignments:
+            if hasattr(role_assignment, 'group'):
+                roles[role_assignment.group['id']] = [
+                    role_assignment.role["id"]]
+        return roles
+
     @test.create_mocks({api.keystone: ('tenant_get',
                                        'user_list',
                                        'get_project_users_roles',
-                                       'role_list',),
+                                       'get_project_groups_roles',
+                                       'role_list',
+                                       'group_list'),
                         quotas: ('enabled_quotas',)})
     def test_detail_view_users_tab(self):
         project = self.tenants.first()
         users = self.users.filter(domain_id=project.domain_id)
+        groups = self.groups.filter(domain_id=project.domain_id)
         role_assignments = self.role_assignments.filter(
             scope={'project': {'id': project.id}})
+        # {user_id: [role_id1, role_id2]} as returned by the api
         project_users_roles = self._project_user_roles(role_assignments)
+        # {group_id: [role_id1, role_id2]} as returned by the api
+        project_groups_roles = self._project_group_roles(role_assignments)
 
         # Prepare mocks
         self.mock_tenant_get.return_value = project
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_role_list.return_value = self.roles.list()
 
-        self.mock_user_list.return_value = users
+        def _user_list_side_effect(request, group=None):
+            if group:
+                return self._get_users_in_group(group)
+            return users
+        self.mock_user_list.side_effect = _user_list_side_effect
+        self.mock_group_list.return_value = groups
         self.mock_get_project_users_roles.return_value = project_users_roles
+        self.mock_get_project_groups_roles.return_value = project_groups_roles
 
         # Get project details view on user tab
         url = PROJECT_DETAIL_URL % [project.id]
@@ -1392,27 +1420,40 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         # Check the content of the table
         users_expected = {
-            '1': {'roles': ['admin'], },
-            '2': {'roles': ['_member_'], },
-            '3': {'roles': ['_member_'], },
+            '1': {'roles': ['admin'],
+                  'roles_from_groups': [('_member_', 'group_one'), ], },
+            '2': {'roles': ['_member_'],
+                  'roles_from_groups': [], },
+            '3': {'roles': ['_member_'],
+                  'roles_from_groups': [('_member_', 'group_one'), ], },
+            '4': {'roles': [],
+                  'roles_from_groups': [('_member_', 'group_one'), ], }
         }
 
         users_id_observed = [user.id for user in
                              res.context["userstable_table"].data]
         self.assertItemsEqual(users_expected.keys(), users_id_observed)
 
-        # Check the users roles
+        # Check the users groups and roles
         for user in res.context["userstable_table"].data:
             self.assertItemsEqual(users_expected[user.id]["roles"],
                                   user.roles)
+            self.assertItemsEqual(users_expected[user.id]["roles_from_groups"],
+                                  user.roles_from_groups)
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_get_project_users_roles.assert_called_once_with(
             test.IsHttpRequest(), project=project.id)
-        self.mock_user_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_get_project_groups_roles.assert_called_once_with(
+            test.IsHttpRequest(), project=project.id)
+        calls = [mock.call(test.IsHttpRequest()),
+                 mock.call(test.IsHttpRequest(), group="1"), ]
+
+        self.mock_user_list.assert_has_calls(calls)
 
     @test.create_mocks({api.keystone: ("tenant_get",
                                        "role_list",),

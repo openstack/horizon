@@ -28,6 +28,14 @@ class UsersTable(users_tables.UsersTable):
             widget=forms.Textarea(attrs={'rows': 4}),
             required=False))
 
+    groups_roles = tables.Column(
+        lambda obj: ", ".join("%s (%s)" % (role, group) for role, group in
+                              getattr(obj, 'roles_from_groups')),
+        verbose_name=_('Roles from Groups'),
+        form_field=forms.CharField(
+            widget=forms.Textarea(attrs={'rows': 4}),
+            required=False))
+
     class Meta(object):
         name = "userstable"
         verbose_name = _("Users")

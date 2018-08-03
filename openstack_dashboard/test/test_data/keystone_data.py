@@ -127,6 +127,7 @@ def data(TEST):
     TEST.domains = utils.TestDataContainer()
     TEST.users = utils.TestDataContainer()
     TEST.groups = utils.TestDataContainer()
+    TEST.user_group_membership = utils.TestDataContainer()
     TEST.tenants = utils.TestDataContainer()
     TEST.role_assignments = utils.TestDataContainer()
     TEST.roles = utils.TestDataContainer()
@@ -251,6 +252,19 @@ def data(TEST):
     group5 = groups.Group(groups.GroupManager(None), group_dict)
 
     TEST.groups.add(group, group2, group3, group4, group5)
+
+    user_group_membership = {"user_id": "1", "group_id": "1"}
+    TEST.user_group_membership.add(user_group_membership)
+    user_group_membership = {"user_id": "1", "group_id": "2"}
+    TEST.user_group_membership.add(user_group_membership)
+    user_group_membership = {"user_id": "2", "group_id": "2"}
+    TEST.user_group_membership.add(user_group_membership)
+    user_group_membership = {"user_id": "2", "group_id": "3"}
+    TEST.user_group_membership.add(user_group_membership)
+    user_group_membership = {"user_id": "3", "group_id": "1"}
+    TEST.user_group_membership.add(user_group_membership)
+    user_group_membership = {"user_id": "4", "group_id": "1"}
+    TEST.user_group_membership.add(user_group_membership)
 
     role_assignments_dict = {'user': {'id': '1'},
                              'role': {'id': '1'},
