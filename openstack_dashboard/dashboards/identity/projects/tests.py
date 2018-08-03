@@ -1350,6 +1350,101 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                                                      self.tenant.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
 
+    def _project_user_roles(self, role_assignments):
+        roles = {}
+        for role_assignment in role_assignments:
+            if hasattr(role_assignment, 'user'):
+                roles[role_assignment.user['id']] = [
+                    role_assignment.role["id"]]
+        return roles
+
+    @test.create_mocks({api.keystone: ('tenant_get',
+                                       'user_list',
+                                       'get_project_users_roles',
+                                       'role_list',),
+                        quotas: ('enabled_quotas',)})
+    def test_detail_view_users_tab(self):
+        project = self.tenants.first()
+        users = self.users.filter(domain_id=project.domain_id)
+        role_assignments = self.role_assignments.filter(
+            scope={'project': {'id': project.id}})
+        project_users_roles = self._project_user_roles(role_assignments)
+
+        # Prepare mocks
+        self.mock_tenant_get.return_value = project
+        self.mock_enabled_quotas.return_value = ('instances',)
+        self.mock_role_list.return_value = self.roles.list()
+
+        self.mock_user_list.return_value = users
+        self.mock_get_project_users_roles.return_value = project_users_roles
+
+        # Get project details view on user tab
+        url = PROJECT_DETAIL_URL % [project.id]
+        detail_view = tabs.ProjectDetailTabs(self.request, group=project)
+        users_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("users").get_id()
+        )
+        url += users_tab_link
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, "horizon/common/_detail_table.html")
+
+        # Check the content of the table
+        users_expected = {
+            '1': {'roles': ['admin'], },
+            '2': {'roles': ['_member_'], },
+            '3': {'roles': ['_member_'], },
+        }
+
+        users_id_observed = [user.id for user in
+                             res.context["userstable_table"].data]
+        self.assertItemsEqual(users_expected.keys(), users_id_observed)
+
+        # Check the users roles
+        for user in res.context["userstable_table"].data:
+            self.assertItemsEqual(users_expected[user.id]["roles"],
+                                  user.roles)
+
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     self.tenant.id)
+        self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
+        self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_get_project_users_roles.assert_called_once_with(
+            test.IsHttpRequest(), project=project.id)
+        self.mock_user_list.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({api.keystone: ("tenant_get",
+                                       "role_list",),
+                        quotas: ('enabled_quotas',)})
+    def test_detail_view_users_tab_exception(self):
+        project = self.tenants.first()
+
+        # Prepare mocks
+        self.mock_tenant_get.return_value = project
+        self.mock_enabled_quotas.return_value = ('instances',)
+        self.mock_role_list.side_effect = self.exceptions.keystone
+
+        # Get project details view on user tab
+        url = reverse('horizon:identity:projects:detail', args=[project.id])
+        detail_view = tabs.ProjectDetailTabs(self.request, group=project)
+        users_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("users").get_id()
+        )
+        url += users_tab_link
+        res = self.client.get(url)
+
+        # Check the projects table is empty
+        self.assertFalse(res.context["userstable_table"].data)
+        # Check one error message is displayed
+        self.assertMessageCount(res, error=1)
+
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     self.tenant.id)
+        self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
+        self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
+
 
 @tag('selenium')
 class SeleniumTests(test.SeleniumAdminTestCase, test.TestCase):
