@@ -1968,6 +1968,12 @@ def policy_get(request, policy_id, **kwargs):
 
 
 @profiler.trace
+def policy_delete(request, policy_id):
+    """Delete QoS policy for a given policy id."""
+    neutronclient(request).delete_qos_policy(policy_id)
+
+
+@profiler.trace
 def list_availability_zones(request, resource=None, state=None):
     az_list = neutronclient(request).list_availability_zones().get(
         'availability_zones')

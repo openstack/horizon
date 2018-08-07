@@ -310,6 +310,15 @@
           {"project_id": 1}
         ],
         "error": "Unable to retrieve the qos policies."
+      },
+      {
+        "func": "deletePolicy",
+        "method": "delete",
+        "path": "/api/neutron/qos_policies/63/",
+        "error": "Unable to delete qos policy 63",
+        "testInput": [
+          63
+        ]
       }
     ];
 
