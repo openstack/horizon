@@ -19,6 +19,7 @@ from django.conf import settings
 from django import http
 from django import shortcuts
 from django import urls
+from django.utils.encoding import smart_text
 from django.utils.translation import ugettext as _
 import django.views.decorators.vary
 from django.views.generic import TemplateView
@@ -95,7 +96,7 @@ class ExtensibleHeaderView(TemplateView):
                 response = view.get(self.request)
                 rendered_response = response.render()
                 packed_response = [view_path.replace('.', '-'),
-                                   rendered_response.content]
+                                   smart_text(rendered_response.content)]
                 header_sections.append(packed_response)
 
             except Exception as e:
