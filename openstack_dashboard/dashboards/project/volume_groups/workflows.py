@@ -77,12 +77,19 @@ class AddGroupInfoAction(workflows.Action):
         self.fields['availability_zone'].choices = \
             availability_zones(request)
         try:
+            # Group type name 'default_cgsnapshot_type' is reserved for
+            # consistency group and it cannot be used for a group type.
+            # Let's exclude it.
             group_types = [(t.id, t.name) for t
-                           in api.cinder.group_type_list(request)]
-            group_types.insert(0, ("", _("Select group type")))
-            self.fields['group_type'].choices = group_types
+                           in api.cinder.group_type_list(request)
+                           if t.name != 'default_cgsnapshot_type']
         except Exception:
             exceptions.handle(request, _('Unable to retrieve group types.'))
+        if group_types:
+            group_types.insert(0, ("", _("Select group type")))
+        else:
+            group_types.insert(0, ("", _("No valid group type")))
+        self.fields['group_type'].choices = group_types
 
     class Meta(object):
         name = _("Group Information")

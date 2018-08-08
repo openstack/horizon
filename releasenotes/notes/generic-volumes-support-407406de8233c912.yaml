@@ -5,3 +5,8 @@ features:
     Cinder generic groups is now supported. Consistency groups views will be
     disabled if the generic group support is available. User is able to
     create generic groups and snapshots now.
+
+    Note that operators need to create at least one group type so that
+    users can use the generic group feature. Otherwise, it might be better
+    to disable the group and group snapshot panels by the horizon plugin
+    ``enabled`` files.
