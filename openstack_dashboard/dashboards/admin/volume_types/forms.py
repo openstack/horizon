@@ -115,13 +115,16 @@ class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
             if data['cipher'] == u'':
                 data['cipher'] = None
 
+            volume_type_id = data.pop('volume_type_id')
+            volume_type_name = data.pop('name')
+
             # Create encryption for the volume type
             volume_type = cinder.\
                 volume_encryption_type_create(request,
-                                              data['volume_type_id'],
+                                              volume_type_id,
                                               data)
             messages.success(request, _('Successfully created encryption for '
-                                        'volume type: %s') % data['name'])
+                                        'volume type: %s') % volume_type_name)
             return volume_type
         except Exception:
             redirect = reverse("horizon:admin:volume_types:index")
@@ -138,13 +141,16 @@ class UpdateVolumeTypeEncryption(CreateVolumeTypeEncryption):
             if data['cipher'] == u'':
                 data['cipher'] = None
 
+            volume_type_id = data.pop('volume_type_id')
+            volume_type_name = data.pop('name')
+
             # Update encryption for the volume type
             volume_type = cinder.\
                 volume_encryption_type_update(request,
-                                              data['volume_type_id'],
+                                              volume_type_id,
                                               data)
             messages.success(request, _('Successfully updated encryption for '
-                                        'volume type: %s') % data['name'])
+                                        'volume type: %s') % volume_type_name)
             return volume_type
         except NotImplementedError:
             messages.error(request, _('Updating encryption is not '

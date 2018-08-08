@@ -192,10 +192,16 @@ class VolumeTypeTests(test.BaseAdminViewTests):
             'admin/volume_types/create_volume_type_encryption.html')
         self.mock_volume_type_list.assert_called_once_with(
             test.IsHttpRequest())
+        expected = {
+            'provider': u'a-provider',
+            'control_location': u'front-end',
+            'cipher': u'a-cipher',
+            'key_size': 512,
+        }
         self.mock_volume_encryption_type_create.assert_called_once_with(
             test.IsHttpRequest(),
-            formData['volume_type_id'],
-            formData)
+            volume_type1.id,
+            expected)
 
     @test.create_mocks({api.cinder: ('volume_encryption_type_get',
                                      'volume_type_list',)})
@@ -327,10 +333,16 @@ class VolumeTypeTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), volume_type.id)
         self.mock_volume_type_list.assert_called_once_with(
             test.IsHttpRequest())
+        expected = {
+            'provider': u'a-provider',
+            'control_location': u'front-end',
+            'cipher': u'a-cipher',
+            'key_size': 256,
+        }
         self.mock_volume_encryption_type_update.assert_called_once_with(
             test.IsHttpRequest(),
-            formData['volume_type_id'],
-            formData)
+            volume_type.id,
+            expected)
 
     @test.create_mocks({api.cinder: ('volume_type_get',
                                      'volume_type_access_list',
