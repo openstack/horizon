@@ -86,4 +86,5 @@ class FloatingIPsTable(project_tables.FloatingIPsTable):
                          AdminFloatingIPsFilterAction)
         row_actions = (AdminSimpleDisassociateIP,
                        AdminReleaseFloatingIP)
-        columns = ('tenant', 'ip', 'description', 'fixed_ip', 'pool', 'status')
+        columns = ('tenant', 'ip', 'description', 'fixed_ip', 'pool',
+                   'status', 'dns_name', 'dns_domain')
