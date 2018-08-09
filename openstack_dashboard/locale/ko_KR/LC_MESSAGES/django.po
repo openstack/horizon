@@ -24,12 +24,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-06-06 12:13+0000\n"
+"POT-Creation-Date: 2018-08-08 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-06 11:42+0000\n"
-"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
+"PO-Revision-Date: 2018-07-28 02:24+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -424,11 +424,21 @@ msgstr ""
 " 볼륨 타입을 해당 일관성 그룹에 추가합니다. 동일한 백엔드에 연결이 되어 있는 "
 "경우에만 여러 볼륨 타입을 같은 일관성 그룹에 추가할 수 있습니다."
 
+msgid ""
+"Add volume types to this group. Multiple volume types can be added to the "
+"same group only if they are associated with same back end."
+msgstr ""
+"이 그룹에 볼륨 타입을 추가합니다. 여러 볼륨 타입은 동일한 백엔드에 연관되어 "
+"있는 경우에만 동일한 그룹에 추가할 수 있습니다."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr "이 볼륨 타입에 QoS 스팩과 관련된 것을 추가, 수정, 제거합니다."
 
 msgid "Add/Remove Consistency Group Volumes"
 msgstr "일관성 그룹 볼륨 추가/제거"
+
+msgid "Add/Remove Group Volumes"
+msgstr "볼륨 그룹 추가/제거"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "호스트 집합에 호스트 추가/삭제"
@@ -440,6 +450,13 @@ msgid ""
 msgstr ""
 "해당 일관성 그룹에(서) 볼륨을 추가/제거합니다. 해당 일관성 그룹에 할당되어 있"
 "는 볼륨 타입에 연결된 볼륨에 대해서만 선택에서 사용 가능할 것입니다."
+
+msgid ""
+"Add/remove volumes to/from this group. Only volumes associated with the "
+"volume type(s) assigned to this group will be available for selection."
+msgstr ""
+"이 그룹에 볼륨을 추가하거나 제거합니다. 이 그룹에 할당된 볼륨 타입과 연관된 "
+"볼륨만 선택할 수 있습니다."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -649,6 +666,9 @@ msgstr "최소 하나의 네트워크가 지정되어야 합니다."
 msgid "At least one volume type must be assigned to a consistency group."
 msgstr "일관성 그룹에 최소한 하나의 볼륨 유형이 할당되어야 합니다."
 
+msgid "At least one volume type must be assigned to a group."
+msgstr "그룹에 최소한 하나의 볼륨 타입이 할당되어야 합니다."
+
 msgid "Attach Interface"
 msgstr "인터페이스 연결"
 
@@ -754,6 +774,14 @@ msgid "Available"
 msgstr "사용 가능"
 
 msgctxt "Current status of Consistency Group Snapshot"
+msgid "Available"
+msgstr "사용 가능"
+
+msgctxt "Current status of Volume Group"
+msgid "Available"
+msgstr "사용 가능"
+
+msgctxt "Current status of Volume Group Snapshot"
 msgid "Available"
 msgstr "사용 가능"
 
@@ -948,6 +976,12 @@ msgstr ""
 "&quot;볼륨 제거&quot; 상자를 선택하여 해당 일관성 그룹에 연결된 볼륨도 모두 "
 "삭제합니다."
 
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this group."
+msgstr ""
+"이 그룹과 연관된 볼륨을 삭제하려면 &quot;볼륨 삭제&quot; 박스를 클릭합니다."
+
 msgid "Checksum"
 msgstr "Checksum"
 
@@ -1034,12 +1068,20 @@ msgstr "콘솔만 보려면 여기를 클릭하세요."
 msgid "Clone Consistency Group"
 msgstr "일관성 그룹 복제"
 
+msgid "Clone Group"
+msgstr "그룹 복제"
+
 msgid ""
 "Clone each of the volumes in the source Consistency Group, and then add them "
 "to a newly created Consistency Group."
 msgstr ""
 "일관성 그룹 소스의 각 볼륨을 복제한 후 이 볼륨을 새로 생성된 일관성 그룹에 추"
 "가합니다."
+
+msgid ""
+"Clone each of the volumes in the source Group, and then add them to a newly "
+"created Group."
+msgstr "소스 그룹에서 각 볼륨을 복제한 다음 새로 만든 그룹에 추가합니다."
 
 msgid "Close"
 msgstr "닫기"
@@ -1215,6 +1257,9 @@ msgstr "Flavor 생성"
 msgid "Create Group"
 msgstr "그룹 생성"
 
+msgid "Create Group Snapshot"
+msgstr "그룹 스냅샷 생성"
+
 msgid "Create Host Aggregate"
 msgstr "호스트 집합 생성"
 
@@ -1290,6 +1335,9 @@ msgstr "볼륨 백업 생성"
 msgid "Create Volume Consistency Group"
 msgstr "볼륨 일관성 그룹 생성"
 
+msgid "Create Volume Group"
+msgstr "볼륨 그룹 생성"
+
 msgid "Create Volume Snapshot"
 msgstr "볼륨 스냅샷 생성"
 
@@ -1314,6 +1362,13 @@ msgid ""
 msgstr ""
 "일관성 그룹 스냅샷 소스에 있는 각 스냅샷에서 복제되어서 새로 생성된 볼륨이 들"
 "어갈 일관성 그룹을 생성합니다."
+
+msgid ""
+"Create a Group that will contain newly created volumes cloned from each of "
+"the snapshots in the source Group Snapshot."
+msgstr ""
+"소스 그룹 스냅샷에서 각 스냅샷이 복제되어 새로 생성될 볼륨을 추가할 그룹을 생"
+"성합니다."
 
 msgid "Create a Metadata Namespace"
 msgstr "메타데이터 네임스페이스 생성"
@@ -1367,6 +1422,9 @@ msgstr "사용자가 구성할 수 있는 프로젝트를 만듭니다."
 msgid "Create a snapshot for each volume contained in the Consistency Group."
 msgstr "일관성 그룹에 포함된 각 볼륨에 대한 스냅샷을 생성합니다."
 
+msgid "Create a snapshot for each volume contained in the Group."
+msgstr "그룹에 포함된 각 볼륨의 스냅샷을 만듭니다."
+
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -1410,6 +1468,9 @@ msgstr "새로운 프로젝트 \"%s\" 생성."
 
 msgid "Created new volume consistency group"
 msgstr "새로운 일관성 그룹을 생성하였습니다."
+
+msgid "Created new volume group"
+msgstr "새로운 볼륨 그룹을 생성하였습니다."
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -1463,6 +1524,14 @@ msgstr ""
 "볼륨 타입에 대한 암호화 생성은 암호화하고자 하는 해당 볼륨 타입에 대한 모든 "
 "볼륨에 적용됩니다. 해당 볼륨 타입에서 현재 사용 중인 볼륨이 있으면 해당 볼륨 "
 "타입에 암호화 정보를 추가할 수 없습니다."
+
+#, python-format
+msgid "Creating group \"%s\"."
+msgstr "\"%s\" 그룹 생성중입니다."
+
+#, python-format
+msgid "Creating group snapshot \"%s\"."
+msgstr "그룹 스냅샷 \"%s\" 생성 중"
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -1532,6 +1601,9 @@ msgstr ""
 
 msgid "DNS Assignment"
 msgstr "DNS 할당"
+
+msgid "DNS Domain"
+msgstr "DNS 도메인"
 
 msgid "DNS Name"
 msgstr "DNS 이름"
@@ -1872,6 +1944,10 @@ msgstr "Deleting"
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
 msgstr "볼륨 일관성 그룹 \"%s\" 삭제"
+
+#, python-format
+msgid "Deleting volume group \"%s\""
+msgstr "볼륨 그룹 \"%s\" 삭제 중"
 
 msgid "Description"
 msgstr "설명"
@@ -2413,6 +2489,14 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "에러"
 
+msgctxt "Current status of Volume Group"
+msgid "Error"
+msgstr "오류"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Error"
+msgstr "오류"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Error"
@@ -2497,8 +2581,14 @@ msgstr "zip파일 쓰는 중 오류: %(exc)s"
 msgid "Errors occurred in deleting consistency group."
 msgstr "일관성 그룹 삭제 시 에러가 발생했습니다."
 
+msgid "Errors occurred in deleting group."
+msgstr "그룹 삭제 중 오류가 발생했습니다."
+
 msgid "Errors occurred in removing volumes from consistency group."
 msgstr "일관성 그룹에서 볼륨 제거 시 에러가 발생했습니다."
+
+msgid "Errors occurred in removing volumes from group."
+msgstr "그룹에서 볼륨 제거중 오류가 발생하였습니다."
 
 msgid "Ether Type"
 msgstr "Ether 타입"
@@ -2982,6 +3072,9 @@ msgstr "시작"
 msgid "Graph"
 msgstr "그래프"
 
+msgid "Group"
+msgstr "그룹"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "그룹 \"%s\"를 성공적으로 생성하였습니다"
@@ -2992,6 +3085,9 @@ msgstr "그룹 ID"
 msgid "Group ID ="
 msgstr "그룹 ID ="
 
+msgid "Group Information"
+msgstr "그룹 정보"
+
 msgid "Group Management"
 msgstr "그룹 관리"
 
@@ -3001,11 +3097,30 @@ msgstr "그룹 관리: {{ group.name }}"
 msgid "Group Members"
 msgstr "그룹 멤버"
 
+msgid "Group Name"
+msgstr "그룹 이름"
+
 msgid "Group Name ="
 msgstr "그룹 이름 ="
 
+msgid "Group Snapshot"
+msgstr "그룹 스냅샷"
+
+msgid "Group Snapshots"
+msgstr "그룹 스냅샷"
+
+msgid "Group Type"
+msgstr "그룹 타입"
+
 msgid "Group has been updated successfully."
 msgstr "그룹을 성공적으로 업데이트 하였습니다."
+
+msgid ""
+"Group which the new volume belongs to. Choose 'No group' if the new volume "
+"belongs to no group."
+msgstr ""
+"새 볼륨이 속한 그룹. 새 그룹이 그룹에 속하지 않으면 '그룹 없음'을 선택하십시"
+"오."
 
 msgid "Groups"
 msgstr "그룹"
@@ -3051,6 +3166,9 @@ msgstr[0] "하드 리부트된 인스턴스"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Hard 리부팅"
+
+msgid "Has Snapshots"
+msgstr "스냅 샷 있음"
 
 msgid "Help"
 msgstr "도움말"
@@ -3348,6 +3466,14 @@ msgid "In-use"
 msgstr "사용 중"
 
 msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "사용 중"
+
+msgctxt "Current status of Volume Group"
+msgid "In-use"
+msgstr "사용 중"
+
+msgctxt "Current status of Volume Group Snapshot"
 msgid "In-use"
 msgstr "사용 중"
 
@@ -3893,6 +4019,9 @@ msgstr "볼륨 일관성 그룹 스냅샷의 이름과 설명을 수정합니다
 msgid "Modify the name and description of a volume consistency group."
 msgstr "볼륨 일관성 그룹에 대한 이름 및 설명을 수정합니다."
 
+msgid "Modify the name and description of a volume group."
+msgstr "볼륨 그룹에대한 이름과 설명을 수정합니다."
+
 msgid "Modify volume type name, description, and public status."
 msgstr "볼륨 타입 이름, 설명, 그리고 공용 상태를 수정합니다."
 
@@ -4122,6 +4251,9 @@ msgstr "사용가능한 유동 IP pool이 없습니다."
 
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "IPv4 서브넷에서 사용 가능한 floating IP pool이 없습니다."
+
+msgid "No group"
+msgstr "그룹 없음"
 
 msgid "No groups found."
 msgstr "그룹을 찾을 수 없습니다."
@@ -4866,6 +4998,9 @@ msgstr[0] "사용자 삭제"
 msgid "Remove Volumes from Consistency Group"
 msgstr "일관성 그룹에서 볼륨 제거"
 
+msgid "Remove Volumes from Group"
+msgstr "그룹에서 볼륨 삭제"
+
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "삭제된 사용자"
@@ -4880,6 +5015,13 @@ msgstr ""
 #, python-format
 msgid "Removing volumes from volume consistency group \"%s\""
 msgstr "볼륨 일관성 그룹 \"%s\"에서 볼륨 제거"
+
+#, python-format
+msgid "Removing volumes from volume group \"%s\""
+msgstr "볼륨 그룹 \"%s\"에서 볼륨 삭제 중"
+
+msgid "Replication Status"
+msgstr "복제 상태"
 
 msgid "Report Bug"
 msgstr "버그 보고"
@@ -5323,6 +5465,9 @@ msgstr "연결할 인스턴스 선택"
 msgid "Select format"
 msgstr "포맷 선택"
 
+msgid "Select group type"
+msgstr "그룹 타입 선택"
+
 msgid "Select network"
 msgstr "네트워크 선택"
 
@@ -5571,6 +5716,9 @@ msgstr "스냅샷"
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr "볼륨이 있는 일관성 그룹에 대해서만 스냅샷을 생성할 수 있습니다."
+
+msgid "Snapshots can only be created for Groups that contain volumes."
+msgstr "볼륨이 포함된 그룹에대해서만 스냅샷을 생성할 수 있습니다."
 
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
@@ -6142,6 +6290,10 @@ msgid "The name \"%s\" is already used by another flavor."
 msgstr "이름 \"%s\"는 다른 flavor에서 즉시 사용 가능합니다."
 
 #, python-format
+msgid "The name \"%s\" is already used by another group."
+msgstr "\"%s\" 이름은 다른 그룹에서 사용중입니다."
+
+#, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "\"%s\"라는 이름은 다른 호스트 집합에서 사용중입니다."
 
@@ -6297,6 +6449,11 @@ msgid ""
 "This action will unassign all volumes that are currently contained in this "
 "consistency group."
 msgstr "이 작업을 통해 현재 일관성 그룹에 있는 모든 볼륨의 할당을 해제합니다."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"group."
+msgstr "이 작업은 현재 이 그룹에 포함된 모든 볼륨을 할당 해제합니다."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr "이 애플리케이션은 웹 브라우저에서 JavaScript를 지원해야 합니다."
@@ -6541,6 +6698,12 @@ msgstr "일관성 그룹을 복제할 수 없습니다."
 msgid "Unable to clone empty consistency group."
 msgstr "비어 있는 일관성 그룹을 복제할 수 없습니다."
 
+msgid "Unable to clone empty group."
+msgstr "빈그룹은 복제할 수 없습니다."
+
+msgid "Unable to clone group."
+msgstr "그룹을 복제할 수 없습니다."
+
 msgid "Unable to connect to Neutron."
 msgstr "Neutron에 접속할 수 없습니다."
 
@@ -6576,6 +6739,16 @@ msgstr "Flavor \"%s\"를 생성할 수 없습니다."
 
 msgid "Unable to create flavor."
 msgstr "Flavor를 만들 수 없습니다."
+
+#, python-format
+msgid "Unable to create group \"%s\" from snapshot."
+msgstr "스냅샷에서 \"%s\" 그룹을 생성할 수 없습니다."
+
+msgid "Unable to create group due to exceeding volume quota limit."
+msgstr "볼륨 제한 값 초과로 그룹을 생성할 수 없습니다."
+
+msgid "Unable to create group snapshot."
+msgstr "그룹 스냅샷 생성할 수 없습니다."
 
 msgid "Unable to create group."
 msgstr "그룹을 생성할 수 없습니다."
@@ -6633,6 +6806,9 @@ msgstr "스냅샷을 생성할 수 없습니다."
 
 msgid "Unable to create snapshot. Consistency group must contain volumes."
 msgstr "스냅샷을 생성할 수 없습니다. 일관성 그룹에 볼륨이 있어야 합니다."
+
+msgid "Unable to create snapshot. group must contain volumes."
+msgstr "스냅샷을 생성할 수 없습니다. 그룹에 볼륨이 있어야 합니다."
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "스냅샷 쿼터 제한 초과로 인해 스냅샷을 생성하지 못했습니다."
@@ -6710,6 +6886,9 @@ msgstr "Floating IP 연결을 끊을 수 없습니다."
 msgid "Unable to display consistency group."
 msgstr "일관성 그룹을 표시할 수 없습니다."
 
+msgid "Unable to display group."
+msgstr "그룹을 표시할 수 없습니다."
+
 msgid "Unable to edit spec."
 msgstr "사양을 수정하지 못 했습니다."
 
@@ -6759,6 +6938,9 @@ msgstr "인스턴스 \"%s\"의 콘솔을 가져올 수 없습니다."
 
 msgid "Unable to get flavor list"
 msgstr "Flavor 목록을 검색할 수 없습니다."
+
+msgid "Unable to get group list"
+msgstr "그룹 목록을 가져올 수 없습니다."
 
 msgid "Unable to get host aggregate list"
 msgstr "호스트 집합 목록을 가져올 수 없습니다."
@@ -6819,6 +7001,9 @@ msgstr "콘솔을 불러올 수 없습니다. 페이지를 다시 로딩하거�
 
 msgid "Unable to load the specified consistency group."
 msgstr "지정된 일관성 그룹을 불러올 수 없습니다."
+
+msgid "Unable to load the specified group."
+msgstr "지정한 그룹을 불러올 수 없습니다."
 
 #, python-format
 msgid "Unable to load the specified image. %s"
@@ -7058,14 +7243,35 @@ msgstr "Floating IP pool을 찾지 못했습니다."
 msgid "Unable to retrieve floating IP pools."
 msgstr "Floating IP pool을 찾지 못 했습니다."
 
+msgid "Unable to retrieve group"
+msgstr "그룹을 찾을 수 없습니다."
+
+msgid "Unable to retrieve group details."
+msgstr "그룹의 상세 정보를 찾을 수 없습니다."
+
+msgid "Unable to retrieve group information."
+msgstr "그룹 정보를 찾을 수 없습니다."
+
 msgid "Unable to retrieve group list."
 msgstr "그룹 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "그룹 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세요."
 
+msgid "Unable to retrieve group snapshot details."
+msgstr "그룹 스냅샷 세부 사항을 찾을 수 없습니다."
+
+msgid "Unable to retrieve group snapshots."
+msgstr "그룹 스냅샷을 찾지 못했습니다"
+
+msgid "Unable to retrieve group types."
+msgstr "그룹 타입을 찾을 수 없습니다."
+
 msgid "Unable to retrieve group users."
 msgstr "그룹 사용자를 찾지 못했습니다."
+
+msgid "Unable to retrieve group."
+msgstr "그룹을 찾을 수 없습니다."
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "호스트 집합 목록을 찾지 못했습니다."
@@ -7267,6 +7473,9 @@ msgstr "인스턴스를 찾지 못 했습니다."
 msgid "Unable to retrieve the project information of the image."
 msgstr "이미지에 대한 프로젝트 정보를 찾지 못했습니다."
 
+msgid "Unable to retrieve the volume group list."
+msgstr "볼륨 그룹 목록을 찾을 수 없습니다."
+
 msgid "Unable to retrieve the volume type list."
 msgstr "볼륨 타입 목록을 찾지 못 했습니다."
 
@@ -7311,6 +7520,15 @@ msgstr "볼륨 세부 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "볼륨 암호화 세부 정보를 가져올 수 없습니다."
+
+msgid "Unable to retrieve volume group snapshots."
+msgstr "볼륨 그룹 스냅샷을 찾을 수 없습니다."
+
+msgid "Unable to retrieve volume groups"
+msgstr "볼륨 그룹을 찾을 수 없습니다."
+
+msgid "Unable to retrieve volume groups."
+msgstr "볼륨 그룹을 찾을 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
@@ -7387,6 +7605,9 @@ msgstr "볼륨/인스턴스 연결 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve volumes availability zones."
 msgstr "볼륨 가용성 존을 가져올 수 없습니다."
+
+msgid "Unable to retrieve volumes."
+msgstr "볼륨을 찾지 못했습니다."
 
 msgid "Unable to set Domain Context."
 msgstr "도메인 컨텍스트를 설정할 수 없습니다. "
@@ -7471,6 +7692,9 @@ msgstr "사용자 업데이트를 할 수 없습니다."
 msgid "Unable to update volume consistency group."
 msgstr "볼륨 일관성 그룹을 업데이트할 수 없습니다."
 
+msgid "Unable to update volume group."
+msgstr "볼륨 그룹을 업데이트 할 수 없습니다."
+
 msgid "Unable to update volume snapshot status."
 msgstr "볼륨 스냅샷 상태를 업데이트 하지 못했습니다."
 
@@ -7489,6 +7713,9 @@ msgstr "볼륨을 업데이트 할 수 없습니다."
 
 msgid "Unable to update volumes for consistency group"
 msgstr "일관성 그룹의 볼륨을 업데이트할 수 없습니다."
+
+msgid "Unable to update volumes for group"
+msgstr "그룹에서 볼륨 업데이트를 할 수 없습니다."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7662,6 +7889,9 @@ msgstr "서브넷 \"%s\" 업데이트."
 msgid "Updated volumes for consistency group \"%s\"."
 msgstr "일관성 그룹 \"%s\"의 볼륨을 업데이트했습니다."
 
+msgid "Updated volumes for group."
+msgstr "그룹에서 볼륨 업데이트합니다."
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Updating Password"
@@ -7680,6 +7910,10 @@ msgstr "볼륨 \"%s\" 업데이트중"
 #, python-format
 msgid "Updating volume consistency group \"%s\""
 msgstr "볼륨 일관성 그룹 \"%s\" 업데이트중"
+
+#, python-format
+msgid "Updating volume group \"%s\""
+msgstr "볼륨 그룹 \"%s\" 업데이트 중"
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -7718,6 +7952,9 @@ msgstr "사용하는 서버 기본"
 
 msgid "Use a consistency group as source"
 msgstr "일관성 그룹을 소스로 사용"
+
+msgid "Use a group as source"
+msgstr "그룹을 소스로 사용"
 
 msgid "Use a volume as source"
 msgstr "소스로 볼륨 사용"
@@ -8000,6 +8237,22 @@ msgstr ""
 "\n"
 "하나의 일관성 그룹은 하나 이상의 볼륨 타입을 지원할 수 있지만, 동일한 백엔드"
 "에 의해 호스트되는 볼륨만을 포함할 수 있습니다."
+
+msgid "Volume groups can not be deleted if they contain volumes."
+msgstr "볼륨 그룹에 볼륨이 존재하면 삭제할 수 없습니다."
+
+msgid ""
+"Volume groups provide a mechanism for creating snapshots of multiple volumes "
+"at the same point-in-time to ensure data consistency\n"
+"\n"
+"A volume group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"볼륨 그룹은 데이터 일관성을 보장하기 위해 동일한 시즘에 여러 볼륨의 스냅샷을 "
+"생성하는 메커니즘을 제공합니다.\n"
+"\n"
+"볼륨 그룹은 하나 이상의 볼륨 타입을 지원할 수 있지만, 동일한 백엔드로 제공하"
+"는 볼륨만 포함 할 수 있습니다."
 
 msgid "Volume is Unencrypted"
 msgstr "볼륨이 암호화되지 않은 상태임"

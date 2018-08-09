@@ -24,17 +24,18 @@
 # liujunpeng <liujunpeng@inspur.com>, 2017. #zanata
 # vuuv <froms2008@gmail.com>, 2017. #zanata
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
+# Boxiang Zhu <zhu.boxiang@99cloud.net>, 2018. #zanata
 # Tony <tfu@redhat.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-30 08:52+0000\n"
+"POT-Creation-Date: 2018-08-08 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-06 07:25+0000\n"
-"Last-Translator: Tony <tfu@redhat.com>\n"
+"PO-Revision-Date: 2018-07-24 10:46+0000\n"
+"Last-Translator: Boxiang Zhu <zhu.boxiang@99cloud.net>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -2108,7 +2109,7 @@ msgid "Edit Volume"
 msgstr "编辑卷"
 
 msgid "Edit Volume Type"
-msgstr "编辑卷"
+msgstr "编辑卷类型"
 
 msgid "Edit Volume Type Access"
 msgstr "编辑卷类型通道"
@@ -3664,6 +3665,9 @@ msgstr "监控："
 
 msgid "More"
 msgstr "更多"
+
+msgid "Multiattach volumes are not yet supported."
+msgstr "暂不支持卷多点挂载"
 
 msgid "N/A"
 msgstr "N/A"
@@ -5803,6 +5807,9 @@ msgid ""
 "deployment."
 msgstr "虚拟网络对应的物理网络的名称。指定一个在neutron环境中定义的物理网络。"
 
+msgid "The new availability zone can't be empty"
+msgstr "新的可用区域不能为空"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "实现虚拟网络的物理机制。"
 
@@ -6568,6 +6575,9 @@ msgstr "无法检索一致性组信息"
 
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "无法检索一致性组快照详情"
+
+msgid "Unable to retrieve default compute quotas."
+msgstr "无法获取默认的计算配额"
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."

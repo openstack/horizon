@@ -10,12 +10,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-13 14:14+0000\n"
+"POT-Creation-Date: 2018-08-08 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-13 08:34+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2018-07-30 03:18+0000\n"
+"Last-Translator: Shu Muto <shu.mutow@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -288,6 +288,9 @@ msgstr ""
 "管理者が Floating IP プールを用意し、そのプールから確保した Floating IP をイ"
 "ンスタンスに関連付けることができます。"
 
+msgid "Affinity"
+msgstr "親和性"
+
 msgid "Alerts"
 msgstr "アラート"
 
@@ -392,6 +395,9 @@ msgstr "アニメーション"
 
 msgid "Another action"
 msgstr "別のアクション"
+
+msgid "Anti Affinity"
+msgstr "反親和性"
 
 msgid "Any Availability Zone"
 msgstr "すべてのアベイラビリティーゾーン"
@@ -544,6 +550,10 @@ msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "フレーバーの削除の確認"
 
+msgid "Confirm Delete Group"
+msgid_plural "Confirm Delete Groups"
+msgstr[0] "グループの削除の確認"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "イメージの削除の確認"
@@ -551,6 +561,10 @@ msgstr[0] "イメージの削除の確認"
 msgid "Confirm Delete Key Pair"
 msgid_plural "Confirm Delete Key Pairs"
 msgstr[0] "キーペアの削除の確認"
+
+msgid "Confirm Delete Policy"
+msgid_plural "Confirm Delete Policies"
+msgstr[0] "ポリシーの削除の確認"
 
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
@@ -625,6 +639,9 @@ msgstr "オブジェクトのコピー: {$ ctrl.model.container $}/{$ ctrl.model
 msgid "Copy Private Key to Clipboard"
 msgstr "秘密鍵をクリップボードにコピー"
 
+msgid "Copying"
+msgstr "コピー中"
+
 msgid "Could not decrypt the password"
 msgstr "パスワードの復号できませんでした。"
 
@@ -637,11 +654,17 @@ msgstr "インスタンス数"
 msgid "Create Container"
 msgstr "コンテナーの作成"
 
+msgid "Create Domain"
+msgstr "ドメインの作成"
+
 msgid "Create Folder"
 msgstr "フォルダーの作成"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $} へのフォルダーの作成"
+
+msgid "Create Group"
+msgstr "グループの作成"
 
 msgid "Create Image"
 msgstr "イメージの作成"
@@ -797,6 +820,13 @@ msgstr[0] "フレーバーの削除"
 msgid "Delete Flavors"
 msgstr "フレーバーの削除"
 
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "グループの削除"
+
+msgid "Delete Groups"
+msgstr "グループの削除"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "イメージの削除"
@@ -819,6 +849,13 @@ msgstr "キーペアの削除"
 
 msgid "Delete Network"
 msgstr "ネットワークの削除"
+
+msgid "Delete Policies"
+msgstr "ポリシーの削除"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "ポリシーの削除"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -866,6 +903,11 @@ msgid_plural "Deleted Flavors: %s."
 msgstr[0] "フレーバー %s を削除しました。"
 
 #, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "グループ %s を削除しました"
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "イメージ %s を削除しました。"
@@ -894,6 +936,11 @@ msgstr[0] "トランク %s を削除しました。"
 msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
 msgstr[0] "ユーザー %s を削除しました。"
+
+#, python-format
+msgid "Deleted policy: %s."
+msgid_plural "Deleted policies: %s."
+msgstr[0] "ポリシー %s を削除しました。"
 
 msgid "Deleting"
 msgstr "削除中"
@@ -967,6 +1014,10 @@ msgstr "Docker"
 msgid "Domain"
 msgstr "ドメイン"
 
+#, python-format
+msgid "Domain %s was successfully created."
+msgstr "ドメイン %s を作成しました。"
+
 msgid "Domain ID"
 msgstr "ドメイン ID"
 
@@ -978,6 +1029,13 @@ msgstr "ドメイン名"
 
 msgid "Domains"
 msgstr "ドメイン"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr ""
+"ドメインを使うと、異なる組織間でユーザーやインフラストラクチャーを分離するこ"
+"とができます。"
 
 msgid "Done"
 msgstr "完了"
@@ -1008,6 +1066,9 @@ msgstr "ファイルの編集"
 
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "ファイルの編集: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Group"
+msgstr "グループの編集"
 
 msgid "Edit Image"
 msgstr "イメージの編集"
@@ -1183,6 +1244,13 @@ msgstr "グローバルアクション:"
 
 msgid "Group"
 msgstr "グループ"
+
+#, python-format
+msgid "Group %s was successfully created."
+msgstr "グループ %s を作成しました。"
+
+msgid "Group updated successfully."
+msgstr "グループが正常に更新されました。"
 
 msgid "Groups"
 msgstr "グループ"
@@ -2431,6 +2499,12 @@ msgstr "小さい入力項目"
 msgid "Snapshot"
 msgstr "スナップショット"
 
+msgid "Soft Affinity"
+msgstr "弱親和性"
+
+msgid "Soft Anti Affinity"
+msgstr "弱反親和性"
+
 msgid "Someone famous in"
 msgstr "有名人の名前"
 
@@ -2968,6 +3042,11 @@ msgid_plural "Unable to delete Flavors: %s."
 msgstr[0] "フレーバーを削除できません: %s"
 
 #, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "グループを削除できません: %s"
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "イメージを削除できません: %s"
@@ -2996,6 +3075,11 @@ msgstr[0] "トランクを削除できません: %s"
 msgid "Unable to delete User: %s."
 msgid_plural "Unable to delete Users: %s."
 msgstr[0] "ユーザーを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete policy: %s."
+msgid_plural "Unable to delete policies: %s."
+msgstr[0] "ポリシーを削除できません: %s"
 
 msgid "Unable to delete the container."
 msgstr "コンテナーを削除できません。"
@@ -3688,6 +3772,12 @@ msgstr ""
 "のコレクションです。各メタデータのキーと値の最大長は 255 文字です。"
 
 msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr ""
+"オブジェクトをコピーできます。コピーする前にコピー先のコンテナーを作成する必"
+"要があります。"
+
+msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3695,6 +3785,17 @@ msgstr ""
 "ここにあるオプションを使って、インスタンス起動後にインスタンスをカスタマイズ"
 "することができます。\n"
 "「カスタマイズスクリプト」は他のシステムの「ユーザーデータ」と同じです。"
+
+msgid ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
+msgstr ""
+"送信先オブジェクトのフィールドで、「/」を使用してフォルダーを指定できます。例"
+"えば、オブジェクトを「folder1」フォルダーの配下にコピーしたい場合は、"
+"「foler1/[オブジェクト名]」のように送信先オブジェクトを指定する必要がありま"
+"す。"
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "
@@ -3724,6 +3825,11 @@ msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたフレーバーは元に戻せません。"
 
 #, python-format
+msgid "You have selected \"%s\". Deleted group is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたグループは元に戻せません。"
+
+#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたイメージは元に戻せません。"
@@ -3732,6 +3838,11 @@ msgstr[0] "\"%s\" を選択しました。削除されたイメージは元に�
 msgid "You have selected \"%s\". Deleted key pair is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたキーペアは元に戻せません。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted policy is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted policies are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたポリシーは元に戻せません。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."

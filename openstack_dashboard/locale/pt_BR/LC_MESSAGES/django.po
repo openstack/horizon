@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-30 08:52+0000\n"
+"POT-Creation-Date: 2018-08-08 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-25 11:36+0000\n"
+"PO-Revision-Date: 2018-08-08 11:53+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
@@ -606,6 +606,19 @@ msgstr "Qualquer"
 msgid "Any Availability Zone"
 msgstr "Qualquer Zona de Disponibilidade"
 
+msgid "Application Credential Details"
+msgstr "Detalhes da Credencial de Aplicação"
+
+msgid "Application Credential Name ="
+msgstr "Nome da Credencial de Aplicação="
+
+msgid "Application Credentials"
+msgstr "Credenciais de Aplicação"
+
+#, python-format
+msgid "Application credential name \"%s\" is already used."
+msgstr "Nome de credencial de aplicação \"%s\" já foi utilizado."
+
 msgid "Architecture"
 msgstr "Arquitetura"
 
@@ -1171,6 +1184,9 @@ msgstr "Criar"
 msgid "Create An Image"
 msgstr "Criar Uma Imagem"
 
+msgid "Create Application Credential"
+msgstr "Criar Credencial de Aplicação"
+
 msgid "Create Backup"
 msgstr "Criar Backup"
 
@@ -1329,6 +1345,9 @@ msgstr ""
 "aceitáveis para a chave são <tt>\"minIOPS\", \"maxIOPS\" e \"burstIOPS\"</"
 "tt>."
 
+msgid "Create a new application credential."
+msgstr "Criar uma nova credencial de aplicação."
+
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the following steps of this wizard."
@@ -1452,6 +1471,10 @@ msgstr ""
 "atualmente por aquele tipo de volume."
 
 #, python-format
+msgid "Creating group \"%s\"."
+msgstr "Criando o grupo \"%s\"."
+
+#, python-format
 msgid "Creating volume \"%s\""
 msgstr "Criando volume \"%s\""
 
@@ -1522,6 +1545,9 @@ msgstr ""
 msgid "DNS Assignment"
 msgstr "Atribuição de DNS"
 
+msgid "DNS Domain"
+msgstr "Domínio DNS"
+
 msgid "DNS Name"
 msgstr "Nome do DNS"
 
@@ -1561,6 +1587,11 @@ msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "Deletar"
 msgstr[1] "Deletar"
+
+msgid "Delete Application Credential"
+msgid_plural "Delete Application Credentials"
+msgstr[0] "Excluir Credencial de Aplicação"
+msgstr[1] "Excluir Credenciais de Aplicação"
 
 msgid "Delete Consistency Group"
 msgstr "Remover Grupo de Consistência"
@@ -1743,6 +1774,11 @@ msgstr "Excluído"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Excluído"
+
+msgid "Deleted Application Credential"
+msgid_plural "Deleted Application Credentialss"
+msgstr[0] "Excluir Credencial de Aplicação"
+msgstr[1] "Excluir Credenciais de Aplicação"
 
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
@@ -2109,6 +2145,9 @@ msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "Domínio"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "Domínio \"%s\" deve ser desabilitado antes de poder ser excluído."
@@ -2186,6 +2225,12 @@ msgstr "Baixar Resumo em CSV"
 msgid "Download OpenStack RC File"
 msgstr "Baixar arquivo OpenStack RC"
 
+msgid "Download clouds.yaml"
+msgstr "Baixar clouds.yaml"
+
+msgid "Download openrc file"
+msgstr "Baixar arquivo openrc"
+
 msgid "Download transfer credentials"
 msgstr "Baixar credenciais de transferência"
 
@@ -2259,6 +2304,9 @@ msgstr "Editar Rede"
 
 msgid "Edit Port"
 msgstr "Editar Porta"
+
+msgid "Edit Port Security Groups"
+msgstr "Editar Grupos de Segurança de Porta"
 
 msgid "Edit Project"
 msgstr "Editar Projeto"
@@ -2579,6 +2627,18 @@ msgstr ""
 "de Topologia Virtual de CPU de modo que as propriedades serão prefixadas com "
 "'hw:' quando aplicadas aos sabores."
 
+msgid "Expiration"
+msgstr "Expiração"
+
+msgid "Expiration Date"
+msgstr "Data de Expiração"
+
+msgid "Expiration Time"
+msgstr "Horário de Expiração"
+
+msgid "Expires"
+msgstr "Expira"
+
 msgid "Extend Volume"
 msgstr "Estender volume"
 
@@ -2659,6 +2719,12 @@ msgstr "Falha ao verificar se o campo de descrição é suportado."
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Falha ao checar se a extensão network-ip-availability é suportada."
+
+msgid "Failed to check if neutron supports \"auto_allocated_network\"."
+msgstr "Falha ao verificar se o neutron suporta  \"auto_allocated_network\"."
+
+msgid "Failed to check if nova supports \"auto_allocated_network\"."
+msgstr "Falha ao verificar se o nova suporta \"auto_allocated_network\"."
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
@@ -3029,8 +3095,14 @@ msgstr "Grupo de Gerenciamento: {{ group.name }}"
 msgid "Group Members"
 msgstr "Membros do Grupo"
 
+msgid "Group Name"
+msgstr "Nome do Grupo"
+
 msgid "Group Name ="
 msgstr "Nome do Grupo ="
+
+msgid "Group Snapshot"
+msgstr "Snapshot de Grupo"
 
 msgid "Group has been updated successfully."
 msgstr "Grupo atualizado com sucesso."
@@ -3904,6 +3976,10 @@ msgstr "Memóriam RAM minima(MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domínio \"%s\" modificado."
+
+#, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "Modificado o acesso de flavor de \"%s\"."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -5257,6 +5333,9 @@ msgstr "Script Data"
 
 msgid "Script File"
 msgstr "Arquivo de Script"
+
+msgid "Secret"
+msgstr "Segredo"
 
 msgid "Security Group"
 msgstr "Grupo de Segurança"
@@ -6669,6 +6748,9 @@ msgstr "Não é possível conectar ao Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "Não foi possível criar Especificação de QoS."
 
+msgid "Unable to create application credential."
+msgstr "Não foi possível criar credencial de aplicação."
+
 #, python-format
 msgid "Unable to create consistency group \"%s\" from snapshot."
 msgstr ""
@@ -6698,6 +6780,10 @@ msgstr "Não foi possível criar sabor \"%s\"."
 
 msgid "Unable to create flavor."
 msgstr "Não foi possível criar o sabor."
+
+#, python-format
+msgid "Unable to create group \"%s\" from snapshot."
+msgstr "Não é possível criar o grupo \"%s\" através do snapshot."
 
 msgid "Unable to create group."
 msgstr "Não é possível criar grupo."
@@ -6971,6 +7057,10 @@ msgid "Unable to modify domain \"%s\"."
 msgstr "Não é possível modificar domínio \"%s\"."
 
 #, python-format
+msgid "Unable to modify flavor access of \"%s\"."
+msgstr "Não foi possível modificar o acesso de flavor de \"%s\"."
+
+#, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "Não foi possível modificar a instância \"%s\"."
 
@@ -7072,6 +7162,12 @@ msgstr "Não foi possível ler a lista de agentes."
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "Não foi possível obter uma rede externa \"%s\"."
+
+msgid "Unable to retrieve application credential details."
+msgstr "Não foi possível obter os detalhes da credencial da aplicação."
+
+msgid "Unable to retrieve application credential list."
+msgstr "Não foi possível obter a lista de credencial de aplicação"
 
 msgid "Unable to retrieve attachment information."
 msgstr "Não foi possível obter informações do anexo."
@@ -7189,6 +7285,9 @@ msgid "Unable to retrieve group list. Please try again later."
 msgstr ""
 "Não é possível recuperar lista de grupo. Por favor tente novamente mais "
 "tarde."
+
+msgid "Unable to retrieve group snapshots."
+msgstr "Não foi possível obter os snapshots de grupo."
 
 msgid "Unable to retrieve group users."
 msgstr "Não é possível recuperar usuários do grupo."
@@ -7522,6 +7621,9 @@ msgstr ""
 msgid "Unable to retrieve volumes availability zones."
 msgstr "Não é possível obter as zonas de disponibilidades do volume."
 
+msgid "Unable to retrieve volumes."
+msgstr "Não foi possível obter os volumes."
+
 msgid "Unable to set Domain Context."
 msgstr "Não é possível setar Contexto de Domínio."
 
@@ -7684,6 +7786,12 @@ msgstr[1] "Remover Registro de Provedores de Identidade"
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Cancelando o resgate"
+
+msgid "Unrestricted"
+msgstr "Irrestrito"
+
+msgid "Unrestricted (dangerous)"
+msgstr "Irrestrito (perigoso)"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -8386,6 +8494,12 @@ msgstr ""
 "grupo de origem (Grupo de Segurança). Selecionando um grupo de segurança com "
 "a origem irá permitir que qualquer outra instância neste grupo de segurança "
 "acesse qualquer outra instância via esta regra."
+
+msgid "Your Application Credential"
+msgstr "Sua Credencial de Aplicação"
+
+msgid "Your application credential"
+msgstr "Sua credencial de aplicação"
 
 #, python-format
 msgid "Your image %s has been queued for creation."

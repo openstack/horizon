@@ -26,12 +26,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-07-02 14:46+0000\n"
+"POT-Creation-Date: 2018-08-08 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-07-07 11:37+0000\n"
-"Last-Translator: François Magimel <magimel.francois@gmail.com>\n"
+"PO-Revision-Date: 2018-07-28 10:07+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -741,7 +741,7 @@ msgstr ""
 "en choisir revient à toutes les sélectionner."
 
 msgid "Available"
-msgstr "disponible(s)"
+msgstr "Disponible(s)"
 
 msgctxt "Current status of Consistency Group"
 msgid "Available"
@@ -781,7 +781,7 @@ msgid "Backup Name"
 msgstr "Nom de la sauvegarde"
 
 msgid "Backup Size (GiB)"
-msgstr "Taille de la sauvegarde (Gio)"
+msgstr "Taille de la sauvegarde (Go)"
 
 msgid "Backups"
 msgstr "Sauvegardes"
@@ -1125,7 +1125,7 @@ msgstr "La console est actuellement indisponible."
 
 #, python-format
 msgid "Console type \"%s\" not supported."
-msgstr "Le type de Console \"%s\" n'est pas supporté."
+msgstr "Le type de console \"%s\" n'est pas supporté."
 
 msgid "Consumer"
 msgstr "Consommateur"
@@ -2787,7 +2787,7 @@ msgstr "Échec lors de la migration de l'hôte \"%s\"."
 
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "Échec de migration des instances : %s"
+msgstr "Échec lors de la migration des instances : %s"
 
 msgid "Failed to migrate volume."
 msgstr "Échec de la migration du volume."
@@ -3187,7 +3187,7 @@ msgid ""
 "it."
 msgstr ""
 "Les agrégats d'hôtes définissent des zones logiques au sein des zones de "
-"disponibilités en regroupant des hôtes. Créez un agrégat d'hôtes puis "
+"disponibilité en regroupant des hôtes. Créez un agrégat d'hôtes puis "
 "sélectionnez les hôtes à y intégrer."
 
 msgid ""
@@ -3195,7 +3195,7 @@ msgid ""
 "together hosts. Edit the aggregate host to select hosts contained in it."
 msgstr ""
 "Les agrégats d'hôtes permettent de définir des zones logiques au sein des "
-"zones de disponibilités en regroupant des hôtes. Editez l'agrégat pour "
+"zones de disponibilité en regroupant des hôtes. Editez l'agrégat pour "
 "sélectionner les hôtes qui le composent."
 
 msgid "Hostname"
@@ -3484,7 +3484,7 @@ msgid "Injected File Content (Bytes)"
 msgstr "Contenu du fichier injecté (Octets)"
 
 msgid "Injected File Content Bytes"
-msgstr "Taille en octets des fichiers injectés "
+msgstr "Taille en octets du fichier injecté"
 
 msgid "Injected File Path Bytes"
 msgstr "Taille en octets des Fichiers Injectés "
@@ -4500,8 +4500,8 @@ msgstr "Autre Protocole"
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr ""
-"Les valeurs flottantes en dehors des limites ne sont pas compatibles avec le "
-"JSON : %r"
+"Les valeurs flottantes en dehors des limites ne sont pas conformes à JSON : "
+"%r"
 
 msgid "Overview"
 msgstr "Vue d'ensemble"
@@ -5338,10 +5338,10 @@ msgid "Security Groups"
 msgstr "Groupes de sécurité"
 
 msgid "Security group rule already exists."
-msgstr "La règle du groupe de sécurité existe déjà"
+msgstr "La règle de groupe de sécurité existe déjà."
 
 msgid "Security group rule quota exceeded."
-msgstr "Le quota groupes de sécurité est atteint."
+msgstr "Le quota règles de groupe de sécurité est atteint."
 
 msgid ""
 "Security groups are sets of IP filter rules that are applied to network "
@@ -5526,10 +5526,10 @@ msgid "Server Group"
 msgstr "Groupe de serveur"
 
 msgid "Server Group Members"
-msgstr "Groupe de serveurs"
+msgstr "Membres du groupe de serveurs"
 
 msgid "Server Groups"
-msgstr "Groupe de serveurs"
+msgstr "Groupes de serveurs"
 
 msgid "Server error"
 msgstr "Erreur serveur"
@@ -5912,7 +5912,7 @@ msgid "Subnet Name"
 msgstr "Nom du sous-réseau"
 
 msgid "Subnet Pool"
-msgstr "Pool de sous-réseaux"
+msgstr "Pool de sous-réseau"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Impossible de récupérer la liste des sous-réseaux."
@@ -6323,7 +6323,7 @@ msgstr ""
 "envoyée au serveur"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr "Le dossier-pseudo ne peut pas être supprimé car il n'est pas vide."
+msgstr "Le pseudo-dossier ne peut pas être supprimé car il n'est pas vide."
 
 #, python-format
 msgid ""
@@ -7122,7 +7122,7 @@ msgid "Unable to retrieve attachment information."
 msgstr "Impossible de récupérer les informations d'attachement."
 
 msgid "Unable to retrieve availability zone list."
-msgstr "Impossible de récupérer la liste des zones de disponibilité"
+msgstr "Impossible de récupérer la liste des zones de disponibilité."
 
 msgid "Unable to retrieve availability zones."
 msgstr "Impossible de récupérer les zones de disponibilité."

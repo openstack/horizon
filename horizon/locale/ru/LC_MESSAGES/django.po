@@ -19,15 +19,16 @@
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 # Artem <amikhalev90@gmail.com>, 2017. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-30 08:52+0000\n"
+"POT-Creation-Date: 2018-08-08 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-03 10:13+0000\n"
+"PO-Revision-Date: 2018-07-23 06:54+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -54,6 +55,14 @@ msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d байт"
 msgstr[1] "%(size)d байт"
 msgstr[2] "%(size)d байт"
+
+#, python-format
+msgid "%(usedphrase)s %(used)s (No Limit)"
+msgstr "%(usedphrase)s %(used)s (без ограничений)"
+
+#, python-format
+msgid "%(usedphrase)s %(used)s of %(available)s"
+msgstr "%(usedphrase)s %(used)s из %(available)s"
 
 #, python-format
 msgid "%s EB"
@@ -223,6 +232,10 @@ msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
 "Некорректная запись метаданных. Используйте пары ключ=значение разделенный "
 "запятой."
+
+#, python-format
+msgid "Invalid service catalog: %s"
+msgstr "Неверный каталог сервисов: %s"
 
 msgid "Invalid subnet mask"
 msgstr "Неправильная маска подсети"
