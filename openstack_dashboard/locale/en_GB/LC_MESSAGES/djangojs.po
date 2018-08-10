@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-07-17 19:15+0000\n"
+"POT-Creation-Date: 2018-08-09 12:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-07-17 12:41+0000\n"
+"PO-Revision-Date: 2018-07-25 01:55+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -555,6 +555,11 @@ msgid_plural "Confirm Delete Flavors"
 msgstr[0] "Confirm Delete Flavour"
 msgstr[1] "Confirm Delete Flavours"
 
+msgid "Confirm Delete Group"
+msgid_plural "Confirm Delete Groups"
+msgstr[0] "Confirm Delete Group"
+msgstr[1] "Confirm Delete Groups"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Confirm Delete Image"
@@ -662,11 +667,17 @@ msgstr "Count"
 msgid "Create Container"
 msgstr "Create Container"
 
+msgid "Create Domain"
+msgstr "Create Domain"
+
 msgid "Create Folder"
 msgstr "Create Folder"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Create Folder In: {$ ctrl.model.container.name $}"
+
+msgid "Create Group"
+msgstr "Create Group"
 
 msgid "Create Image"
 msgstr "Create Image"
@@ -824,6 +835,14 @@ msgstr[1] "Delete Flavours"
 msgid "Delete Flavors"
 msgstr "Delete Flavours"
 
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "Delete Group"
+msgstr[1] "Delete Groups"
+
+msgid "Delete Groups"
+msgstr "Delete Groups"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "Delete Image"
@@ -906,6 +925,12 @@ msgid "Deleted Flavor: %s."
 msgid_plural "Deleted Flavors: %s."
 msgstr[0] "Deleted Flavour: %s."
 msgstr[1] "Deleted Flavours: %s."
+
+#, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "Deleted Group: %s."
+msgstr[1] "Deleted Groups: %s."
 
 #, python-format
 msgid "Deleted Image: %s."
@@ -1021,6 +1046,10 @@ msgstr "Docker"
 msgid "Domain"
 msgstr "Domain"
 
+#, python-format
+msgid "Domain %s was successfully created."
+msgstr "Domain %s was successfully created."
+
 msgid "Domain ID"
 msgstr "Domain ID"
 
@@ -1032,6 +1061,13 @@ msgstr "Domain Name"
 
 msgid "Domains"
 msgstr "Domains"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr ""
+"Domains provide separation between users and infrastructure used by "
+"different organisations."
 
 msgid "Done"
 msgstr "Done"
@@ -1062,6 +1098,9 @@ msgstr "Edit File"
 
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Group"
+msgstr "Edit Group"
 
 msgid "Edit Image"
 msgstr "Edit Image"
@@ -1238,6 +1277,13 @@ msgstr "Global Actions:"
 
 msgid "Group"
 msgstr "Group"
+
+#, python-format
+msgid "Group %s was successfully created."
+msgstr "Group %s was successfully created."
+
+msgid "Group updated successfully."
+msgstr "Group updated successfully."
 
 msgid "Groups"
 msgstr "Groups"
@@ -3016,6 +3062,12 @@ msgstr[0] "Unable to delete Flavour: %s."
 msgstr[1] "Unable to delete Flavours: %s."
 
 #, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "Unable to delete Group: %s."
+msgstr[1] "Unable to delete Groups: %s."
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "Unable to delete Image: %s."
@@ -3802,6 +3854,12 @@ msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "You have selected \"%s\". Deleted flavour is not recoverable."
 msgstr[1] "You have selected \"%s\". Deleted flavours are not recoverable."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted group is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted group is not recoverable."
+msgstr[1] "You have selected \"%s\". Deleted groups are not recoverable."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."

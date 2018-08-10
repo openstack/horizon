@@ -20,11 +20,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-31 02:37+0000\n"
+"POT-Creation-Date: 2018-08-09 12:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-01 04:55+0000\n"
+"PO-Revision-Date: 2018-07-28 03:35+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -551,6 +551,10 @@ msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "Flavor 삭제 확인"
 
+msgid "Confirm Delete Group"
+msgid_plural "Confirm Delete Groups"
+msgstr[0] "그룹 삭제 확인"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "삭제 이미지 확인"
@@ -558,6 +562,10 @@ msgstr[0] "삭제 이미지 확인"
 msgid "Confirm Delete Key Pair"
 msgid_plural "Confirm Delete Key Pairs"
 msgstr[0] "키 페어 삭제 확인"
+
+msgid "Confirm Delete Policy"
+msgid_plural "Confirm Delete Policies"
+msgstr[0] "정책 삭제 확인"
 
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
@@ -647,11 +655,17 @@ msgstr "개수"
 msgid "Create Container"
 msgstr "컨테이너 생성"
 
+msgid "Create Domain"
+msgstr "도메인 생성"
+
 msgid "Create Folder"
 msgstr "폴더 생성"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $}에서 폴더 생성"
+
+msgid "Create Group"
+msgstr "그룹 생성"
 
 msgid "Create Image"
 msgstr "이미지 생성"
@@ -805,6 +819,13 @@ msgstr[0] "Flavor 삭제"
 msgid "Delete Flavors"
 msgstr "Flavors 삭제"
 
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "그룹 삭제"
+
+msgid "Delete Groups"
+msgstr "그룹 삭제"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "이미지 삭제"
@@ -827,6 +848,13 @@ msgstr "키 페어 삭제"
 
 msgid "Delete Network"
 msgstr "네트워크 삭제"
+
+msgid "Delete Policies"
+msgstr "정책 삭제"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "정책 삭제"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -874,6 +902,11 @@ msgid_plural "Deleted Flavors: %s."
 msgstr[0] "Flavor 삭제됨: %s"
 
 #, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "그룹 삭제됨: %s"
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "이미지 삭제됨: %s"
@@ -902,6 +935,11 @@ msgstr[0] "Trunk 삭제: %s"
 msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
 msgstr[0] "사용자 삭제됨: %s."
+
+#, python-format
+msgid "Deleted policy: %s."
+msgid_plural "Deleted policies: %s."
+msgstr[0] "정책 삭제됨: %s"
 
 msgid "Deleting"
 msgstr "삭제 중"
@@ -975,6 +1013,10 @@ msgstr "Docker"
 msgid "Domain"
 msgstr "도매인"
 
+#, python-format
+msgid "Domain %s was successfully created."
+msgstr "도메인 %s 를 성공적으로 생성했습니다."
+
 msgid "Domain ID"
 msgstr "도메인 ID"
 
@@ -986,6 +1028,12 @@ msgstr "도메인 이름"
 
 msgid "Domains"
 msgstr "도메인"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr ""
+"서로 다른 조직에서 사용하는 사용자와 인프라 사이의 도메인을 분리해 줍니다."
 
 msgid "Done"
 msgstr "완료"
@@ -1016,6 +1064,9 @@ msgstr "파일 편집"
 
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "파일 수정: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Group"
+msgstr "그룹 편집"
 
 msgid "Edit Image"
 msgstr "이미지 편집"
@@ -1191,6 +1242,13 @@ msgstr "글로벌 액션:"
 
 msgid "Group"
 msgstr "Group"
+
+#, python-format
+msgid "Group %s was successfully created."
+msgstr "그룹 %s 를 성공적으로 생성하였습니다."
+
+msgid "Group updated successfully."
+msgstr "그룹을 성공적으로 업데이트 하였습니다."
 
 msgid "Groups"
 msgstr "Groups"
@@ -2954,6 +3012,11 @@ msgid_plural "Unable to delete Flavors: %s."
 msgstr[0] "Flavor를 삭제할 수 없습니다: %s"
 
 #, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "그룹을 삭제할 수 없습니다: %s"
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "이미지를 삭제할 수 없습니다: %s."
@@ -2982,6 +3045,11 @@ msgstr[0] "Trunk 삭제하지 못했습니다: %s"
 msgid "Unable to delete User: %s."
 msgid_plural "Unable to delete Users: %s."
 msgstr[0] "사용자를 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete policy: %s."
+msgid_plural "Unable to delete policies: %s."
+msgstr[0] "정책을 삭제할 수 없습니다: %s"
 
 msgid "Unable to delete the container."
 msgstr "컨테이너를 삭제할 수 없습니다."
@@ -3721,6 +3789,11 @@ msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "\"%s\"를 선택했습니다. 삭제된 Flavor는 복구 할 수 없습니다."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted group is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
+msgstr[0] "\"%s\" 를 선택했습니다. 삭제된 그룹은 복구할 수 없습니다."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "\"%s\"를 선택했습니다. 삭제된 이미지는 복구 할 수 없습니다."
@@ -3729,6 +3802,11 @@ msgstr[0] "\"%s\"를 선택했습니다. 삭제된 이미지는 복구 할 수 �
 msgid "You have selected \"%s\". Deleted key pair is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
 msgstr[0] "\"%s\"를 선택했습니다. 삭제된 키 페어는 복구할 수 없습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted policy is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted policies are not recoverable."
+msgstr[0] "\"%s\" 를 선택했습니다. 삭제된 정책은 복구할 수 없습니다."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."
