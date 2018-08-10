@@ -30,12 +30,14 @@
   registerDomainActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.dashboard.identity.domains.actions.create.service',
+    'horizon.dashboard.identity.domains.actions.delete.service',
     'horizon.dashboard.identity.domains.resourceType'
   ];
 
   function registerDomainActions(
     registry,
     createDomainService,
+    deleteDomainService,
     domainResourceType
   ) {
     var resourceType = registry.getResourceType(domainResourceType);
@@ -47,6 +49,24 @@
         template: {
           text: gettext('Create Domain'),
           type: 'create'
+        }
+      });
+    resourceType.batchActions
+      .append({
+        id: 'deleteDomainsAction',
+        service: deleteDomainService,
+        template: {
+          text: gettext('Delete Domains'),
+          type: 'delete-selected'
+        }
+      });
+    resourceType.itemActions
+      .append({
+        id: 'deleteDomainAction',
+        service: deleteDomainService,
+        template: {
+          text: gettext('Delete Domain'),
+          type: 'delete'
         }
       });
   }
