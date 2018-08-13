@@ -12,7 +12,7 @@ features:
     (for horizon plugin developers) Django workflow step is now pluggable and
     horizon plugins can add extra step(s) to an existing workflow provided by
     horizon or other horizon plugins. Extra steps can be added via the horizon
-    plugin “enabled” file. For more detail, see ``EXTRA_TABS`` description in
+    plugin "enabled" file. For more detail, see ``EXTRA_TABS`` description in
     `Pluggable Panels and Groups <https://docs.openstack.org/horizon/latest/configuration/pluggable_panels.html#extra-steps>`__
     of the horizon documentation.
 upgrade:
