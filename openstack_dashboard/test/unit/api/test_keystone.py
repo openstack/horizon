@@ -84,9 +84,9 @@ class ServiceAPITests(test.APIMockTestCase):
         self.assertEqual(u"identity (native backend)", six.text_type(service))
         self.assertEqual(identity_data["endpoints"][0]["region"],
                          service.region)
-        self.assertEqual("http://int.keystone.example.com:5000/v2.0",
+        self.assertEqual("http://int.keystone.example.com:5000/v3",
                          service.url)
-        self.assertEqual("http://public.keystone.example.com:5000/v2.0",
+        self.assertEqual("http://public.keystone.example.com:5000/v3",
                          service.public_url)
         self.assertEqual("int.keystone.example.com", service.host)
 

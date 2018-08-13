@@ -65,7 +65,7 @@ def generate_test_data(pki=False, service_providers=False,
         'id': uuid.uuid4().hex,
         'endpoints': [
             {
-                'url': 'http://admin.%s:35357/v3' % endpoint,
+                'url': 'http://admin.%s:5000/v3' % endpoint,
                 'region': 'RegionOne',
                 'interface': 'admin',
                 'id': uuid.uuid4().hex,
