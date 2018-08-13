@@ -54,6 +54,7 @@ SITE_BRANDING = 'OpenStack Dashboard'
 WEBROOT = '/'
 LOGIN_URL = None
 LOGOUT_URL = None
+LOGIN_ERROR = None
 LOGIN_REDIRECT_URL = None
 MEDIA_ROOT = None
 MEDIA_URL = None
@@ -418,6 +419,8 @@ if LOGIN_URL is None:
     LOGIN_URL = WEBROOT + 'auth/login/'
 if LOGOUT_URL is None:
     LOGOUT_URL = WEBROOT + 'auth/logout/'
+if LOGIN_ERROR is None:
+    LOGIN_ERROR = WEBROOT + 'auth/error/'
 if LOGIN_REDIRECT_URL is None:
     LOGIN_REDIRECT_URL = WEBROOT
 

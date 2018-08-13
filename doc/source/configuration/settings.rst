@@ -1522,6 +1522,49 @@ Default: ``"credentials"``
 Specifies the default authentication mechanism. When user lands on the login
 page, this is the first choice they will see.
 
+WEBSSO_DEFAULT_REDIRECT
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``False``
+
+Allows to redirect on login to the IdP provider defined on PROTOCOL and REGION
+In cases you have a single IdP providing websso, in order to improve user
+experience, you can redirect on the login page to the IdP directly by
+specifying WEBSSO_DEFAULT_REDIRECT_PROTOCOL and WEBSSO_DEFAULT_REDIRECT_REGION
+variables.
+
+WEBSSO_DEFAULT_REDIRECT_PROTOCOL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``None``
+
+Allows to specify the protocol for the IdP to contact if the
+WEBSSO_DEFAULT_REDIRECT is set to True
+
+WEBSSO_DEFAULT_REDIRECT_REGION
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``OPENSTACK_KEYSTONE_URL``
+
+Allows to specify thee region of the IdP to contact if the
+WEBSSO_DEFAULT_REDIRECT is set to True
+
+WEBSSO_DEFAULT_REDIRECT_LOGOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``None``
+
+Allows to specify a callback to the IdP to cleanup the SSO resources.
+Once the user logs out it will redirect to the IdP log out method.
+
 Neutron
 -------
 

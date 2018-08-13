@@ -1,0 +1,6 @@
+---
+features:
+  - Adds the possibility to redirect the login to an identity provider by
+    default. For that purpose the following variables have been added,
+    ``WEBSSO_DEFAULT_REDIRECT``, ``WEBSSO_DEFAULT_REDIRECT_PROTOCOL``,
+    ``WEBSSO_DEFAULT_REDIRECT_REGION`` and ``WEBSSO_DEFAULT_REDIRECT_LOGOUT``.
