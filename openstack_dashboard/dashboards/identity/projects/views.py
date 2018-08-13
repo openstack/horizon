@@ -23,8 +23,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
+from horizon import tabs
 from horizon.utils import memoized
-from horizon import views
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -35,6 +35,8 @@ from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.identity.projects \
     import tables as project_tables
+from openstack_dashboard.dashboards.identity.projects \
+    import tabs as project_tabs
 from openstack_dashboard.dashboards.identity.projects \
     import workflows as project_workflows
 from openstack_dashboard.dashboards.project.overview \
@@ -231,8 +233,9 @@ class UpdateQuotasView(workflows.WorkflowView):
         return initial
 
 
-class DetailProjectView(views.HorizonTemplateView):
-    template_name = 'identity/projects/detail.html'
+class DetailProjectView(tabs.TabView):
+    tab_group_class = project_tabs.ProjectDetailTabs
+    template_name = 'horizon/common/_detail.html'
     page_title = "{{ project.name }}"
 
     def get_context_data(self, **kwargs):
@@ -243,11 +246,6 @@ class DetailProjectView(views.HorizonTemplateView):
         context["url"] = reverse(INDEX_URL)
         context["actions"] = table.render_row_actions(project)
 
-        if keystone.VERSIONS.active >= 3:
-            extra_info = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
-            context['extras'] = dict(
-                (display_key, getattr(project, key, ''))
-                for key, display_key in extra_info.items())
         return context
 
     @memoized.memoized_method
@@ -260,3 +258,7 @@ class DetailProjectView(views.HorizonTemplateView):
                               _('Unable to retrieve project details.'),
                               redirect=reverse(INDEX_URL))
         return project
+
+    def get_tabs(self, request, *args, **kwargs):
+        project = self.get_data()
+        return self.tab_group_class(request, project=project, **kwargs)

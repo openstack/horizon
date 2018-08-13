@@ -25,6 +25,7 @@ import mock
 from horizon.workflows import views
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.identity.projects import tabs
 from openstack_dashboard.dashboards.identity.projects import workflows
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard import usage
@@ -1295,7 +1296,9 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(PROJECT_DETAIL_URL, args=[project.id])
 
-        self.assertTemplateUsed(res, 'identity/projects/detail.html')
+        # The first tab is overview, it is the one loaded without query param
+        # in the url.
+        self.assertTemplateUsed(res, 'identity/projects/_detail_overview.html')
         self.assertEqual(res.context['project'].name, project.name)
         self.assertEqual(res.context['project'].id, project.id)
 
@@ -1315,6 +1318,37 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+
+    @test.create_mocks({api.keystone: ('tenant_get',),
+                        quotas: ('enabled_quotas',)})
+    def test_detail_view_overview_tab(self):
+        """Test the overview tab of the detail view .
+
+        Test the overview tab using directly the url targeting the tab.
+        """
+        project = self.tenants.first()
+
+        self.mock_tenant_get.return_value = project
+        self.mock_enabled_quotas.return_value = ('instances',)
+
+        # Url of the overview tab of the detail view
+        url = PROJECT_DETAIL_URL % [project.id]
+        detail_view = tabs.ProjectDetailTabs(self.request, project=project)
+        overview_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("overview").get_id()
+        )
+        url += overview_tab_link
+
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'identity/projects/_detail_overview.html')
+        self.assertEqual(res.context['project'].name, project.name)
+        self.assertEqual(res.context['project'].id, project.id)
+
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     self.tenant.id)
+        self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
 
 
 @tag('selenium')
