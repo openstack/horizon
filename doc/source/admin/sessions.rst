@@ -107,7 +107,7 @@ far beyond the scope of this documentation.
 
    .. code-block:: console
 
-      $ mysql -u root -p
+      # mysql
 
 #. Enter the MySQL root user's password when prompted.
 #. To configure the MySQL database, create the dash database.
