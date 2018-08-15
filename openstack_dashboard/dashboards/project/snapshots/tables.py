@@ -99,7 +99,7 @@ class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
     def allowed(self, request, datum=None):
         if datum:
             # Can't delete snapshot if part of group snapshot
-            if datum.group_snapshot:
+            if getattr(datum, 'group_snapshot_id', None):
                 return False
         return True
 
