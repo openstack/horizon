@@ -120,7 +120,7 @@ class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
             if getattr(volume, 'consistencygroup_id', None):
                 return False
             # Can't delete volume if part of volume group
-            if volume.group:
+            if getattr(volume, 'group_id', None):
                 return False
             return (volume.status in DELETABLE_STATES and
                     not getattr(volume, 'has_snapshot', False))
