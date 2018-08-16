@@ -624,7 +624,7 @@ horizon.flat_network_topology = {
     $balloon.find('.delete-device').click(function(){
       var $this = $(this);
       var delete_modal = horizon.datatables.confirm($this);
-      delete_modal.find('.btn-primary').click(function () {
+      delete_modal.find('.btn.btn-danger').click(function () {
         $this.prop('disabled', true);
         d3.select('#id_' + $this.data('device-id')).classed('loading',true);
         self.delete_device($this.data('type'),$this.data('device-id'));
@@ -634,7 +634,7 @@ horizon.flat_network_topology = {
     $balloon.find('.delete-port').click(function(){
       var $this = $(this);
       var delete_modal = horizon.datatables.confirm($this);
-      delete_modal.find('.btn-primary').click(function () {
+      delete_modal.find('.btn.btn-danger').click(function () {
         $this.prop('disabled', true);
         self.delete_port($this.data('router-id'),$this.data('port-id'),$this.data('network-id'));
         horizon.modals.spinner.modal('hide');
@@ -642,7 +642,7 @@ horizon.flat_network_topology = {
     });
     self.balloon_id = balloon_id;
   },
-  delete_balloon:function() {
+  delete_balloon: function() {
     var self = this;
     if(self.balloon_id) {
       $('#' + self.balloon_id).remove();
