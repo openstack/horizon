@@ -38,6 +38,7 @@
       createNetwork: createNetwork,
       createSubnet: createSubnet,
       createTrunk: createTrunk,
+      deletePolicy: deletePolicy,
       deleteTrunk: deleteTrunk,
       getAgents: getAgents,
       getDefaultQuotaSets: getDefaultQuotaSets,
@@ -390,6 +391,21 @@
         });
     }
 
+    /**
+     * @name deletePolicy
+     * @description
+     * Delete a single neutron qos policy.
+     * @param {string} policyId
+     * Specifies the id of the policy to be deleted.
+     */
+    function deletePolicy(policyId, suppressError) {
+      var promise = apiService.delete('/api/neutron/qos_policies/' + policyId + '/');
+      promise = suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to delete qos policy %(id)s');
+        toastService.add('error', interpolate(msg, { id: policyId }, true));
+      });
+      return promise;
+    }
     // Trunks
 
     /**
