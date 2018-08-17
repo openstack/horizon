@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-08-10 21:39+0000\n"
+"POT-Creation-Date: 2018-08-16 13:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-10 10:01+0000\n"
+"PO-Revision-Date: 2018-08-16 11:57+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -3398,6 +3398,10 @@ msgstr "Unable to retrieve the networks."
 msgid "Unable to retrieve the nova services."
 msgstr "Unable to retrieve the Nova services."
 
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "Unable to retrieve the policy with ID %(id)s"
+
 msgid "Unable to retrieve the ports."
 msgstr "Unable to retrieve the ports."
 
@@ -3409,9 +3413,6 @@ msgstr "Unable to retrieve the projects."
 
 msgid "Unable to retrieve the qos policies."
 msgstr "Unable to retrieve the QoS policies."
-
-msgid "Unable to retrieve the qos policy."
-msgstr "Unable to retrieve the QoS policy."
 
 msgid "Unable to retrieve the resource types."
 msgstr "Unable to retrieve the resource types."
