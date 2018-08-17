@@ -42,7 +42,6 @@ warnings.formatwarning = lambda message, category, *args, **kwargs: \
     '%s: %s' % (category.__name__, message)
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
-BIN_DIR = os.path.abspath(os.path.join(ROOT_PATH, '..', 'bin'))
 
 if ROOT_PATH not in sys.path:
     sys.path.append(ROOT_PATH)
