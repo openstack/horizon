@@ -30,27 +30,12 @@ from django.test import tag
 from django import urls
 from django.utils import http
 
-from cinderclient import client as cinder_client
-import glanceclient
-from keystoneclient.v2_0 import client as keystone_client
-# As of Rocky, we are in the process of removing mox usage.
-# To allow mox-free horizon plugins to consume the test helper,
-# mox import is now optional. If tests depends on mox,
-# mox (or mox3) must be declared in test-requirements.txt.
 import mock
-try:
-    from mox3 import mox
-except ImportError:
-    pass
-from neutronclient.v2_0 import client as neutron_client
-from novaclient import api_versions as nova_api_versions
-from novaclient.v2 import client as nova_client
 from openstack_auth import user
 from openstack_auth import utils
 from requests.packages.urllib3.connection import HTTPConnection
 import six
 from six import moves
-from swiftclient import client as swift_client
 
 from horizon import base
 from horizon import conf
@@ -62,68 +47,13 @@ from openstack_dashboard.test.test_data import utils as test_utils
 
 LOG = logging.getLogger(__name__)
 
-# Makes output of failing mox tests much easier to read.
+# Makes output of failing tests much easier to read.
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
 
 # Shortcuts to avoid importing horizon_helpers and for backward compatibility.
 update_settings = horizon_helpers.update_settings
 IsA = horizon_helpers.IsA
 IsHttpRequest = horizon_helpers.IsHttpRequest
-
-
-def create_stubs(stubs_to_create=None):
-    """decorator to simplify setting up multiple stubs at once via mox
-
-    :param stubs_to_create: methods to stub in one or more modules
-    :type stubs_to_create: dict
-
-    The keys are python paths to the module containing the methods to mock.
-
-    To mock a method in openstack_dashboard/api/nova.py, the key is::
-
-        api.nova
-
-    The values are either a tuple or list of methods to mock in the module
-    indicated by the key.
-
-    For example::
-
-        ('server_list',)
-            -or-
-        ('flavor_list', 'server_list',)
-            -or-
-        ['flavor_list', 'server_list']
-
-    Additionally, multiple modules can be mocked at once::
-
-        {
-            api.nova: ('flavor_list', 'server_list'),
-            api.glance: ('image_list_detailed',),
-        }
-
-    """
-    if stubs_to_create is None:
-        stubs_to_create = {}
-    if not isinstance(stubs_to_create, dict):
-        raise TypeError("create_stub must be passed a dict, but a %s was "
-                        "given." % type(stubs_to_create).__name__)
-
-    def inner_stub_out(fn):
-        @wraps(fn)
-        def instance_stub_out(self, *args, **kwargs):
-            for key in stubs_to_create:
-                if not (isinstance(stubs_to_create[key], tuple) or
-                        isinstance(stubs_to_create[key], list)):
-                    raise TypeError("The values of the create_stub "
-                                    "dict must be lists or tuples, but "
-                                    "is a %s."
-                                    % type(stubs_to_create[key]).__name__)
-
-                for value in stubs_to_create[key]:
-                    self.mox.StubOutWithMock(key, value)
-            return fn(self, *args, **kwargs)
-        return instance_stub_out
-    return inner_stub_out
 
 
 def create_mocks(target_methods):
@@ -245,8 +175,6 @@ class TestCase(horizon_helpers.TestCase):
       docs for
       :class:`~openstack_dashboard.test.test_data.utils.TestData`
       for more information.
-    * The ``mox`` mocking framework via ``self.mox``.
-      if ``use_mox`` attribute is set to True.
     * A set of request context data via ``self.context``.
     * A ``RequestFactory`` class which supports Django's ``contrib.messages``
       framework via ``self.factory``.
@@ -481,146 +409,17 @@ class BaseAdminViewTests(TestCase):
 
 
 class APITestCase(TestCase):
-    """Testing APIs.
-
-    For use with tests which deal with the underlying clients rather than
-    stubbing out the openstack_dashboard.api.* methods.
-    """
-
-    # NOTE: This test class depends on mox but does not declare use_mox = True
-    # to notify mox is no longer recommended.
-    # If a consumer would like to use this class, declare use_mox = True.
-
     def setUp(self):
         super(APITestCase, self).setUp()
-        LOG.warning("APITestCase has been deprecated in favor of mock usage "
-                    "and will be removed at the beginning of 'Stein' release. "
-                    "Please convert your to use APIMockTestCase instead.")
         utils.patch_middleware_get_user()
 
-        def fake_keystoneclient(request, admin=False):
-            """Returns the stub keystoneclient.
 
-            Only necessary because the function takes too many arguments to
-            conveniently be a lambda.
-            """
-            return self.stub_keystoneclient()
-
-        def fake_glanceclient(request, version='1'):
-            """Returns the stub glanceclient.
-
-            Only necessary because the function takes too many arguments to
-            conveniently be a lambda.
-            """
-            return self.stub_glanceclient()
-
-        def fake_novaclient(request, version=None):
-            return self.stub_novaclient()
-
-        # Store the original clients
-        self._original_glanceclient = api.glance.glanceclient
-        self._original_keystoneclient = api.keystone.keystoneclient
-        self._original_novaclient = api.nova.novaclient
-        self._original_neutronclient = api.neutron.neutronclient
-        self._original_cinderclient = api.cinder.cinderclient
-
-        # Replace the clients with our stubs.
-        api.glance.glanceclient = fake_glanceclient
-        api.keystone.keystoneclient = fake_keystoneclient
-        api.nova.novaclient = fake_novaclient
-        api.neutron.neutronclient = lambda request: self.stub_neutronclient()
-        api.cinder.cinderclient = lambda request: self.stub_cinderclient()
-
-    def tearDown(self):
-        super(APITestCase, self).tearDown()
-        api.glance.glanceclient = self._original_glanceclient
-        api.nova.novaclient = self._original_novaclient
-        api.keystone.keystoneclient = self._original_keystoneclient
-        api.neutron.neutronclient = self._original_neutronclient
-        api.cinder.cinderclient = self._original_cinderclient
-
-    def _warn_client(self, service, removal_version):
-        LOG.warning(
-            "APITestCase has been deprecated for %(service)s-related "
-            "tests and will be removerd in '%(removal_version)s' release. "
-            "Please convert your to use APIMockTestCase instead.",
-            {'service': service, 'removal_version': removal_version}
-        )
-
-    def stub_novaclient(self):
-        self._warn_client('nova', 'Stein')
-        if not hasattr(self, "novaclient"):
-            self.mox.StubOutWithMock(nova_client, 'Client')
-            # mock the api_version since MockObject.__init__ ignores it.
-            # The preferred version in the api.nova code is 2 but that's
-            # equivalent to 2.1 now and is the base version that's backward
-            # compatible to 2.0 anyway.
-            api_version = nova_api_versions.APIVersion('2.1')
-            nova_client.Client.api_version = api_version
-            nova_client.Client.projectid = 'fake_project'
-            nova_client.Client.tenant_id = 'fake_tenant'
-            self.novaclient = self.mox.CreateMock(nova_client.Client)
-        return self.novaclient
-
-    def stub_cinderclient(self):
-        self._warn_client('cinder', 'Stein')
-        if not hasattr(self, "cinderclient"):
-            self.mox.StubOutWithMock(cinder_client, 'Client')
-            self.cinderclient = self.mox.CreateMock(cinder_client.Client)
-        return self.cinderclient
-
-    def stub_keystoneclient(self):
-        self._warn_client('keystone', 'Stein')
-        if not hasattr(self, "keystoneclient"):
-            self.mox.StubOutWithMock(keystone_client, 'Client')
-            # NOTE(saschpe): Mock properties, MockObject.__init__ ignores them:
-            keystone_client.Client.auth_token = 'foo'
-            keystone_client.Client.service_catalog = None
-            keystone_client.Client.tenant_id = '1'
-            keystone_client.Client.tenant_name = 'tenant_1'
-            keystone_client.Client.management_url = ""
-            keystone_client.Client.__dir__ = lambda: []
-            self.keystoneclient = self.mox.CreateMock(keystone_client.Client)
-        return self.keystoneclient
-
-    def stub_glanceclient(self):
-        self._warn_client('glance', 'Stein')
-        if not hasattr(self, "glanceclient"):
-            self.mox.StubOutWithMock(glanceclient, 'Client')
-            self.glanceclient = self.mox.CreateMock(glanceclient.Client)
-        return self.glanceclient
-
-    def stub_neutronclient(self):
-        self._warn_client('neutron', 'Stein')
-        if not hasattr(self, "neutronclient"):
-            self.mox.StubOutWithMock(neutron_client, 'Client')
-            self.neutronclient = self.mox.CreateMock(neutron_client.Client)
-        return self.neutronclient
-
-    def stub_swiftclient(self, expected_calls=1):
-        self._warn_client('swift', 'Stein')
-        if not hasattr(self, "swiftclient"):
-            self.mox.StubOutWithMock(swift_client, 'Connection')
-            self.swiftclient = self.mox.CreateMock(swift_client.Connection)
-            while expected_calls:
-                swift_client.Connection(None,
-                                        mox.IgnoreArg(),
-                                        None,
-                                        preauthtoken=mox.IgnoreArg(),
-                                        preauthurl=mox.IgnoreArg(),
-                                        cacert=None,
-                                        insecure=False,
-                                        auth_version="2.0") \
-                            .AndReturn(self.swiftclient)
-                expected_calls -= 1
-        return self.swiftclient
-
-
-class APIMockTestCase(TestCase):
-
-    def setUp(self):
-        super(APIMockTestCase, self).setUp()
-        utils.patch_middleware_get_user()
+# APIMockTestCase was introduced to support mox to mock migration smoothly
+# but it turns we have still users of APITestCase.
+# We keep both for a while.
+# Looking at the usage of these classes, it seems better to drop this one.
+# TODO(amotoki): Clean up APIMockTestCase usage in horizon plugins.
+APIMockTestCase = APITestCase
 
 
 # Need this to test both Glance API V1 and V2 versions

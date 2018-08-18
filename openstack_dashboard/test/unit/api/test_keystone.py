@@ -37,9 +37,6 @@ class RoleAPITests(test.APIMockTestCase):
 
         Verifies that remove_tenant_user is called with the right arguments
         after iterating the user's roles.
-
-        There are no assertions in this test because the checking is handled
-        by mox in the VerifyAll() call in tearDown().
         """
         keystoneclient = mock_keystoneclient.return_value
         tenant = self.tenants.first()
@@ -67,10 +64,10 @@ class RoleAPITests(test.APIMockTestCase):
 
         role = api.keystone.get_default_role(self.request)
         self.assertEqual(self.role, role)
-        # Verify that a second call doesn't hit the API again,
-        # (it would show up in mox as an unexpected method call)
-        role = api.keystone.get_default_role(self.request)
 
+        # Verify that a second call doesn't hit the API again,
+        # so we use assert_called_once_with() here.
+        role = api.keystone.get_default_role(self.request)
         keystoneclient.roles.list.assert_called_once_with()
 
 
