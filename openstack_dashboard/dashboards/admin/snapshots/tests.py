@@ -80,37 +80,37 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_snapshots_index_paginated(self):
         size = settings.API_RESULT_PAGE_SIZE
-        mox_snapshots = self.cinder_volume_snapshots.list()
+        snapshots = self.cinder_volume_snapshots.list()
         base_url = reverse(INDEX_URL)
         next = tables.VolumeSnapshotsTable._meta.pagination_param
 
         # get first page
-        expected_snapshots = mox_snapshots[:size]
+        expected_snapshots = snapshots[:size]
         res = self._test_snapshots_index_paginated(
             marker=None, sort_dir="desc", snapshots=expected_snapshots,
             url=base_url, has_more=True, has_prev=False)
-        snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        result = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(result, expected_snapshots)
 
         # get second page
-        expected_snapshots = mox_snapshots[size:2 * size]
+        expected_snapshots = snapshots[size:2 * size]
         marker = expected_snapshots[0].id
         url = base_url + "?%s=%s" % (next, marker)
         res = self._test_snapshots_index_paginated(
             marker=marker, sort_dir="desc", snapshots=expected_snapshots,
             url=url, has_more=True, has_prev=True)
-        snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        result = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(result, expected_snapshots)
 
         # get last page
-        expected_snapshots = mox_snapshots[-size:]
+        expected_snapshots = snapshots[-size:]
         marker = expected_snapshots[0].id
         url = base_url + "?%s=%s" % (next, marker)
         res = self._test_snapshots_index_paginated(
             marker=marker, sort_dir="desc", snapshots=expected_snapshots,
             url=url, has_more=False, has_prev=True)
-        snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        result = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(result, expected_snapshots)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_snapshots_index_paginated_prev(self):
