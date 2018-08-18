@@ -641,7 +641,6 @@ class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
         super(SeleniumTestCase, self).setUp()
 
         test_utils.load_test_data(self)
-        self.mox = mox.Mox()
 
         self._real_get_user = utils.get_user
         self.setActiveUser(id=self.user.id,
@@ -654,10 +653,8 @@ class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
         os.environ["HORIZON_TEST_RUN"] = "True"
 
     def tearDown(self):
-        self.mox.UnsetStubs()
         utils.get_user = self._real_get_user
         mock.patch.stopall()
-        self.mox.VerifyAll()
         del os.environ["HORIZON_TEST_RUN"]
 
     def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,

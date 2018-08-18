@@ -22,11 +22,9 @@ from socket import timeout as socket_timeout
 import tempfile
 import unittest
 
-from django import http
 from django.urls import reverse
 
 import mock
-from mox3.mox import IsA
 import six
 
 from horizon import exceptions
@@ -357,22 +355,11 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
 
 
 class SeleniumTests(test.SeleniumTestCase):
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
+    @test.create_mocks({api.glance: ('image_list_detailed',)})
     def test_modal_create_image_from_url(self):
         driver = self.selenium
         images = self.images.list()
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=None).AndReturn([images,
-                                                               False, False])
-        filters = {'disk_format': 'aki'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        filters = {'disk_format': 'ari'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        self.mox.ReplayAll()
+        self.mock_image_list_detailed.return_value = [images, False, False]
 
         driver.get("%s%s" % (self.live_server_url, INDEX_URL))
 
@@ -390,24 +377,21 @@ class SeleniumTests(test.SeleniumTestCase):
         self.assertIn("ISO", body.text,
                       "ISO should be selected when the extension is *.iso")
 
+        self.assertEqual(3, self.mock_image_list_detailed.call_count)
+        self.mock_image_list_detailed.assert_has_calls([
+            mock.call(test.IsHttpRequest(), marker=None, paginate=True,
+                      reversed_order=False, sort_dir='asc', sort_key='name'),
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'aki'}),
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'}),
+        ])
+
     @unittest.skipIf(os.environ.get('SELENIUM_PHANTOMJS'),
                      "PhantomJS cannot test file upload widgets.")
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
+    @test.create_mocks({api.glance: ('image_list_detailed',)})
     def test_modal_create_image_from_file(self):
         driver = self.selenium
         images = self.images.list()
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=None).AndReturn([images,
-                                                               False, False])
-        filters = {'disk_format': 'aki'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        filters = {'disk_format': 'ari'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        self.mox.ReplayAll()
+        self.mock_image_list_detailed.return_value = [images, False, False]
 
         driver.get("%s%s" % (self.live_server_url, INDEX_URL))
 
@@ -426,18 +410,19 @@ class SeleniumTests(test.SeleniumTestCase):
         self.assertIn("ISO", body.text,
                       "ISO should be selected when the extension is *.iso")
 
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
+        self.assertEqual(3, self.mock_image_list_detailed.call_count)
+        self.mock_image_list_detailed.assert_has_calls([
+            mock.call(test.IsHttpRequest(), marker=None, paginate=True,
+                      reversed_order=False, sort_dir='asc', sort_key='name'),
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'aki'}),
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'}),
+        ])
+
+    @test.create_mocks({api.glance: ('image_list_detailed',)})
     def test_create_image_from_url(self):
         driver = self.selenium
-        filters = {'disk_format': 'aki'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        filters = {'disk_format': 'ari'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        self.mox.ReplayAll()
+        self.mock_image_list_detailed.return_value = [self.images.list(),
+                                                      False, False]
 
         driver.get("%s%s" % (self.live_server_url, CREATE_URL))
         wait = self.ui.WebDriverWait(driver, 10,
@@ -453,20 +438,19 @@ class SeleniumTests(test.SeleniumTestCase):
         self.assertIn("ISO", body.text,
                       "ISO should be selected when the extension is *.iso")
 
+        self.assertEqual(2, self.mock_image_list_detailed.call_count)
+        self.mock_image_list_detailed.assert_has_calls([
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'aki'}),
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'}),
+        ])
+
     @unittest.skipIf(os.environ.get('SELENIUM_PHANTOMJS'),
                      "PhantomJS cannot test file upload widgets.")
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
+    @test.create_mocks({api.glance: ('image_list_detailed',)})
     def test_create_image_from_file(self):
         driver = self.selenium
-        filters = {'disk_format': 'aki'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        filters = {'disk_format': 'ari'}
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest), filters=filters).AndReturn(
-            [self.images.list(), False, False])
-        self.mox.ReplayAll()
+        self.mock_image_list_detailed.return_value = [self.images.list(),
+                                                      False, False]
 
         driver.get("%s%s" % (self.live_server_url, CREATE_URL))
         wait = self.ui.WebDriverWait(driver, 10,
@@ -482,3 +466,9 @@ class SeleniumTests(test.SeleniumTestCase):
 
         self.assertIn("ISO", body.text,
                       "ISO should be selected when the extension is *.iso")
+
+        self.assertEqual(2, self.mock_image_list_detailed.call_count)
+        self.mock_image_list_detailed.assert_has_calls([
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'aki'}),
+            mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'}),
+        ])
