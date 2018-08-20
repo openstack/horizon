@@ -89,7 +89,7 @@ class OpenStackAuthTestsMixin(object):
                 auth=plugin)
 
     def get_form_data(self, user):
-        return {'region': settings.OPENSTACK_KEYSTONE_URL,
+        return {'region': "default",
                 'domain': DEFAULT_DOMAIN,
                 'password': user.password,
                 'username': user.name}

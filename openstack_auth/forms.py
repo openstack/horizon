@@ -108,10 +108,12 @@ class Login(django_auth_forms.AuthenticationForm):
 
     @staticmethod
     def get_region_choices():
-        default_region = (settings.OPENSTACK_KEYSTONE_URL, "Default Region")
-        regions = getattr(settings, 'AVAILABLE_REGIONS', [])
-        if not regions:
-            regions = [default_region]
+        all_regions = getattr(settings, 'AVAILABLE_REGIONS', [])
+        if all_regions:
+            regions = [("%d" % i, name) for i, (url, name) in
+                       enumerate(all_regions)]
+        else:
+            regions = [("default", _("Default Region"))]
         return regions
 
     @sensitive_variables()
@@ -121,8 +123,16 @@ class Login(django_auth_forms.AuthenticationForm):
                                  'Default')
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
-        region = self.cleaned_data.get('region')
         domain = self.cleaned_data.get('domain', default_domain)
+        region_id = self.cleaned_data.get('region')
+        if region_id == "default":
+            region = settings.OPENSTACK_KEYSTONE_URL
+        else:
+            all_regions = getattr(settings, 'AVAILABLE_REGIONS', [])
+            try:
+                region = all_regions[int(region_id)][0]
+            except (ValueError, IndexError, TypeError):
+                raise forms.ValidationError("Invalid region %r" % region_id)
 
         if not (username and password):
             # Don't authenticate, just let the other validators handle it.
