@@ -187,4 +187,7 @@ class OperationLogMiddleware(object):
                 [up_file.name for up_file in files])
             params['file_name'] = filenames
 
-        return json.dumps(params, ensure_ascii=False)
+        try:
+            return json.dumps(params, ensure_ascii=False)
+        except Exception:
+            return 'Unserializable Object'
