@@ -63,17 +63,7 @@ except ImportError as e:
     LOG.warning("%s, force WITH_SELENIUM=False", e)
     os.environ['WITH_SELENIUM'] = ''
 
-# As of Rocky, we are in the process of removing mox usage.
-# To allow mox-free horizon plugins to consume the test helper,
-# mox import is now optional. If tests depends on mox,
-# mox (or mox3) must be declared in test-requirements.txt.
-try:
-    from mox3 import mox
-except ImportError:
-    pass
-
-
-# Makes output of failing mox tests much easier to read.
+# Makes output of failing tests much easier to read.
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
 
 
@@ -129,23 +119,13 @@ class RequestFactoryWithMessages(RequestFactory):
 class TestCase(django_test.TestCase):
     """Base test case class for Horizon with numerous additional features.
 
-      * The ``mox`` mocking framework via ``self.mox``
-        if ``use_mox`` attribute is set to True.
-        Note that ``use_mox`` defaults to False.
       * A ``RequestFactory`` class which supports Django's ``contrib.messages``
         framework via ``self.factory``.
       * A ready-to-go request object via ``self.request``.
     """
 
-    use_mox = False
-
     def setUp(self):
         super(TestCase, self).setUp()
-        if self.use_mox:
-            LOG.warning("'use_mox' will be dropped at the beginning of "
-                        "'Stein' release. If you still depend on mox, "
-                        "you must prepare mox environment in your test case.")
-            self.mox = mox.Mox()
         self._setup_test_data()
         self._setup_factory()
         self._setup_user()
@@ -174,9 +154,6 @@ class TestCase(django_test.TestCase):
 
     def tearDown(self):
         super(TestCase, self).tearDown()
-        if self.use_mox:
-            self.mox.UnsetStubs()
-            self.mox.VerifyAll()
         del os.environ["HORIZON_TEST_RUN"]
 
     def set_permissions(self, permissions=None):

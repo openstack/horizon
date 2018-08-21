@@ -1322,7 +1322,8 @@ class DataTable(object):
         # This function should be using django.utils.functional.cached_property
         # decorator, but unfortunately due to bug in Django
         # https://code.djangoproject.com/ticket/19872 it would make it fail
-        # when being mocked by mox in tests.
+        # when being mocked in tests.
+        # TODO(amotoki): Check if this trick is still required.
         if not hasattr(self, '_filtered_data'):
             self._filtered_data = self.data
             if self._meta.filter and self._meta._filter_action:
@@ -1391,6 +1392,7 @@ class DataTable(object):
         except AssertionError:
             # don't trap mox exceptions (which subclass AssertionError)
             # when testing!
+            # TODO(amotoki): Check if this trick is still required.
             raise
         except Exception:
             LOG.exception("Error while checking action permissions.")

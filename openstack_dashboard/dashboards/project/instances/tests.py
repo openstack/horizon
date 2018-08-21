@@ -5058,7 +5058,7 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
 class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     def setup_consoles(self):
-        # Need to refresh with mocks or will fail since mox do not detect
+        # Need to refresh with mocks or will fail since mock do not detect
         # the api_call() as mocked.
         console.CONSOLES = collections.OrderedDict([
             ('VNC', api.nova.server_vnc_console),
