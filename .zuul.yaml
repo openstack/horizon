@@ -33,6 +33,14 @@
       tox_envlist: selenium-headless
 
 - project:
+    templates:
+      - openstack-python-jobs
+      - openstack-python35-jobs
+      - publish-openstack-sphinx-docs
+      - periodic-stable-jobs
+      - check-requirements
+      - release-notes-jobs
+      - nodejs4-jobs
     check:
       jobs:
         - horizon-openstack-tox-py27dj110
@@ -40,6 +48,7 @@
         - horizon-openstack-tox-py27dj18
         - horizon-selenium-headless
     gate:
+      queue: horizon
       jobs:
         - horizon-openstack-tox-py27dj110
         - horizon-openstack-tox-py27dj19
