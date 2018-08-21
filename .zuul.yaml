@@ -70,6 +70,8 @@
       - ^tools/.*$
 
 - project:
+    templates:
+      - openstack-python36-jobs
     check:
       jobs:
         - horizon-openstack-tox-python3-django111
