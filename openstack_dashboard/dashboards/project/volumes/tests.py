@@ -149,61 +149,61 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_index_paginated(self):
-        mox_volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
+        volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
         size = settings.API_RESULT_PAGE_SIZE
 
         # get first page
-        expected_volumes = mox_volumes[:size]
+        expected_volumes = volumes[:size]
         url = INDEX_URL
         res = self._test_index_paginated(None, "desc", expected_volumes, url,
                                          True, False)
-        volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, expected_volumes)
+        result = res.context['volumes_table'].data
+        self.assertItemsEqual(result, expected_volumes)
 
         # get second page
-        expected_volumes = mox_volumes[size:2 * size]
+        expected_volumes = volumes[size:2 * size]
         marker = expected_volumes[0].id
         next = volume_tables.VolumesTable._meta.pagination_param
         url = "?".join([INDEX_URL, "=".join([next, marker])])
         res = self._test_index_paginated(marker, "desc", expected_volumes, url,
                                          True, True)
-        volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, expected_volumes)
+        result = res.context['volumes_table'].data
+        self.assertItemsEqual(result, expected_volumes)
 
         # get last page
-        expected_volumes = mox_volumes[-size:]
+        expected_volumes = volumes[-size:]
         marker = expected_volumes[0].id
         next = volume_tables.VolumesTable._meta.pagination_param
         url = "?".join([INDEX_URL, "=".join([next, marker])])
         res = self._test_index_paginated(marker, "desc", expected_volumes, url,
                                          False, True)
-        volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, expected_volumes)
+        result = res.context['volumes_table'].data
+        self.assertItemsEqual(result, expected_volumes)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_index_paginated_prev_page(self):
-        mox_volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
+        volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
         size = settings.API_RESULT_PAGE_SIZE
 
         # prev from some page
-        expected_volumes = mox_volumes[size:2 * size]
+        expected_volumes = volumes[size:2 * size]
         marker = expected_volumes[0].id
         prev = volume_tables.VolumesTable._meta.prev_pagination_param
         url = "?".join([INDEX_URL, "=".join([prev, marker])])
         res = self._test_index_paginated(marker, "asc", expected_volumes, url,
                                          True, True)
-        volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, expected_volumes)
+        result = res.context['volumes_table'].data
+        self.assertItemsEqual(result, expected_volumes)
 
         # back to first page
-        expected_volumes = mox_volumes[:size]
+        expected_volumes = volumes[:size]
         marker = expected_volumes[0].id
         prev = volume_tables.VolumesTable._meta.prev_pagination_param
         url = "?".join([INDEX_URL, "=".join([prev, marker])])
         res = self._test_index_paginated(marker, "asc", expected_volumes, url,
                                          True, False)
-        volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, expected_volumes)
+        result = res.context['volumes_table'].data
+        self.assertItemsEqual(result, expected_volumes)
 
 
 class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):

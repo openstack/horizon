@@ -48,66 +48,66 @@ class VolumeBackupsViewTests(test.TestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_backups_index_paginated(self):
-        mox_backups = self.cinder_volume_backups.list()
+        backups = self.cinder_volume_backups.list()
         size = settings.API_RESULT_PAGE_SIZE
         base_url = INDEX_URL
         next = backup_tables.BackupsTable._meta.pagination_param
 
         # get first page
-        expected_backups = mox_backups[:size]
+        expected_backups = backups[:size]
         res = self._test_backups_index_paginated(
             marker=None, sort_dir="desc", backups=expected_backups,
             url=base_url, has_more=True, has_prev=False)
-        backups = res.context['volume_backups_table'].data
-        self.assertItemsEqual(backups, expected_backups)
+        result = res.context['volume_backups_table'].data
+        self.assertItemsEqual(result, expected_backups)
 
         # get second page
-        expected_backups = mox_backups[size:2 * size]
+        expected_backups = backups[size:2 * size]
         marker = expected_backups[0].id
 
         url = base_url + "?%s=%s" % (next, marker)
         res = self._test_backups_index_paginated(
             marker=marker, sort_dir="desc", backups=expected_backups, url=url,
             has_more=True, has_prev=True)
-        backups = res.context['volume_backups_table'].data
-        self.assertItemsEqual(backups, expected_backups)
+        result = res.context['volume_backups_table'].data
+        self.assertItemsEqual(result, expected_backups)
 
         # get last page
-        expected_backups = mox_backups[-size:]
+        expected_backups = backups[-size:]
         marker = expected_backups[0].id
         url = base_url + "?%s=%s" % (next, marker)
         res = self._test_backups_index_paginated(
             marker=marker, sort_dir="desc", backups=expected_backups, url=url,
             has_more=False, has_prev=True)
-        backups = res.context['volume_backups_table'].data
-        self.assertItemsEqual(backups, expected_backups)
+        result = res.context['volume_backups_table'].data
+        self.assertItemsEqual(result, expected_backups)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_backups_index_paginated_prev_page(self):
-        mox_backups = self.cinder_volume_backups.list()
+        backups = self.cinder_volume_backups.list()
         size = settings.API_RESULT_PAGE_SIZE
         base_url = INDEX_URL
         prev = backup_tables.BackupsTable._meta.prev_pagination_param
 
         # prev from some page
-        expected_backups = mox_backups[size:2 * size]
+        expected_backups = backups[size:2 * size]
         marker = expected_backups[0].id
         url = base_url + "?%s=%s" % (prev, marker)
         res = self._test_backups_index_paginated(
             marker=marker, sort_dir="asc", backups=expected_backups, url=url,
             has_more=True, has_prev=True)
-        backups = res.context['volume_backups_table'].data
-        self.assertItemsEqual(backups, expected_backups)
+        result = res.context['volume_backups_table'].data
+        self.assertItemsEqual(result, expected_backups)
 
         # back to first page
-        expected_backups = mox_backups[:size]
+        expected_backups = backups[:size]
         marker = expected_backups[0].id
         url = base_url + "?%s=%s" % (prev, marker)
         res = self._test_backups_index_paginated(
             marker=marker, sort_dir="asc", backups=expected_backups, url=url,
             has_more=True, has_prev=False)
-        backups = res.context['volume_backups_table'].data
-        self.assertItemsEqual(backups, expected_backups)
+        result = res.context['volume_backups_table'].data
+        self.assertItemsEqual(result, expected_backups)
 
     @test.create_mocks({api.cinder: ('volume_backup_create',
                                      'volume_get')})
