@@ -1595,8 +1595,9 @@ def floating_ip_pools_list(request):
 
 
 @memoized
-def tenant_floating_ip_list(request, all_tenants=False):
-    return FloatingIpManager(request).list(all_tenants=all_tenants)
+def tenant_floating_ip_list(request, all_tenants=False, **search_opts):
+    return FloatingIpManager(request).list(all_tenants=all_tenants,
+                                           **search_opts)
 
 
 def tenant_floating_ip_get(request, floating_ip_id):

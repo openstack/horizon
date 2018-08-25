@@ -89,7 +89,9 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         try:
-            floating_ips = api.neutron.tenant_floating_ip_list(self.request)
+            search_opts = self.get_filters()
+            floating_ips = api.neutron.tenant_floating_ip_list(self.request,
+                                                               **search_opts)
         except neutron_exc.ConnectionFailed:
             floating_ips = []
             exceptions.handle(self.request)
