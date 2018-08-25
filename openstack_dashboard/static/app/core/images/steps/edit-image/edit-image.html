@@ -92,6 +92,7 @@
             <label class="control-label" for="imageForm-min_disk" translate>Minimum Disk (GB)</label>
             <input id="imageForm-min_disk" name="min_disk"
                    type="number" class="form-control"
+                   ng-required="true"
                    ng-pattern="ctrl.validationRules.integer" ng-model="ctrl.image.min_disk"
                    placeholder="{$ 'The minimum disk size required to boot the image. If unspecified, this value defaults to 0 (no minimum).'|translate $}">
           </div>
@@ -102,6 +103,7 @@
             <label class="control-label required" translate>Minimum RAM (MB)</label>
             <input id="imageForm-min_ram" name="min_ram"
                    type="number" class="form-control"
+                   ng-required="true"
                    ng-pattern="ctrl.validationRules.integer" ng-model="ctrl.image.min_ram"
                    placeholder="{$ 'The minimum memory size required to boot the image. If unspecified, this value defaults to 0 (no minimum).'|translate $}">
           </div>
