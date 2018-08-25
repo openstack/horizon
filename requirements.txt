@@ -37,6 +37,7 @@ python-novaclient>=9.1.0 # Apache-2.0
 python-swiftclient>=3.2.0 # Apache-2.0
 pytz>=2013.6 # MIT
 PyYAML>=3.12 # MIT
+requests>=2.14.2 # Apache-2.0
 semantic-version>=2.3.1 # BSD
 six>=1.10.0 # MIT
 XStatic>=1.0.0 # MIT License
