@@ -72,6 +72,13 @@
 - project:
     templates:
       - openstack-python36-jobs
+      - openstack-python-jobs
+      - openstack-python35-jobs
+      - publish-openstack-sphinx-docs
+      - periodic-stable-jobs
+      - check-requirements
+      - release-notes-jobs
+      - nodejs4-jobs
     check:
       jobs:
         - horizon-openstack-tox-python3-django111
@@ -82,6 +89,7 @@
         - horizon-tox-bandit-baseline:
             voting: false
     gate:
+      queue: horizon
       jobs:
         - horizon-openstack-tox-python3-django111
         - horizon-dsvm-tempest-plugin
