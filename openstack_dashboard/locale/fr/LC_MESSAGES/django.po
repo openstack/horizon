@@ -26,11 +26,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-08-16 13:39+0000\n"
+"POT-Creation-Date: 2018-08-21 13:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-16 04:09+0000\n"
+"PO-Revision-Date: 2018-08-24 09:28+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -434,6 +434,9 @@ msgstr ""
 msgid "Add/Remove Consistency Group Volumes"
 msgstr "Ajouter/Retirer des volumes de groupe de cohérence"
 
+msgid "Add/Remove Group Volumes"
+msgstr "Ajouter/enlever des volumes du groupe"
+
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Ajouter/Enlever des hôtes dans l'agrégat."
 
@@ -445,6 +448,14 @@ msgstr ""
 "Ajoutez/retirez des volumes à/de ce groupe de cohérence. Seuls les volumes "
 "associés au(x) type(s) de volume affecté(s) à ce groupe de cohérence seront "
 "disponibles pour sélection."
+
+msgid ""
+"Add/remove volumes to/from this group. Only volumes associated with the "
+"volume type(s) assigned to this group will be available for selection."
+msgstr ""
+"Ajouter/enlever des volumes à/de ce groupe. Seuls les volumes associés au(x) "
+"type(s) de volume assigné(s) à ce groupe seront disponibles pour la "
+"sélection."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -1379,6 +1390,9 @@ msgid "Create a snapshot for each volume contained in the Consistency Group."
 msgstr ""
 "Créer un instantané pour chaque volume contenu dans le groupe de cohérence."
 
+msgid "Create a snapshot for each volume contained in the Group."
+msgstr "Créer un instantané pour chaque volume du groupe."
+
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -1481,6 +1495,10 @@ msgstr ""
 #, python-format
 msgid "Creating group \"%s\"."
 msgstr "Création du groupe \"%s\"."
+
+#, python-format
+msgid "Creating group snapshot \"%s\"."
+msgstr "Création de l'instantané de groupe \"%s\"."
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -3135,6 +3153,13 @@ msgstr "Type du groupe"
 msgid "Group has been updated successfully."
 msgstr "Le Groupe a été mis à jour avec succès."
 
+msgid ""
+"Group which the new volume belongs to. Choose 'No group' if the new volume "
+"belongs to no group."
+msgstr ""
+"Groupe auquel le nouveau volume appartient. Choisir 'Aucun' si le nouveau "
+"volume n'appartient à aucun groupe."
+
 msgid "Groups"
 msgstr "Groupes"
 
@@ -4059,6 +4084,9 @@ msgstr ""
 msgid "Modify the name and description of a volume consistency group."
 msgstr "Modifiez le nom et la description d'un groupe de cohérence de volume."
 
+msgid "Modify the name and description of a volume group."
+msgstr "Modifier le nom et la description d'un groupe de volumes."
+
 msgid "Modify volume type name, description, and public status."
 msgstr "Modifier le nom, la description et l'état public du type de volume."
 
@@ -4290,6 +4318,9 @@ msgstr "Pas de pools d'IP flottantes disponibles"
 
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "Aucun pool d'IP flottantes avec des sous-réseau IPv4 disponible"
+
+msgid "No group"
+msgstr "Aucun groupe"
 
 msgid "No groups found."
 msgstr "Aucun groupe trouvé."
@@ -5784,6 +5815,11 @@ msgstr ""
 "Les instantanées peuvent seulement être créé pour un groupe de cohérence qui "
 "contient des volumes."
 
+msgid "Snapshots can only be created for Groups that contain volumes."
+msgstr ""
+"Les instantanés ne peuvent être créés que pour les groupes contenant des "
+"volumes."
+
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr " Instantané en cours"
@@ -7257,6 +7293,9 @@ msgstr ""
 msgid "Unable to retrieve default compute quotas."
 msgstr "Impossible de récupérer les quotas par défaut du service Calcul."
 
+msgid "Unable to retrieve default volume quotas."
+msgstr "Impossible de récupérer les quotas de volume par défaut."
+
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
 msgstr ""
@@ -7352,6 +7391,9 @@ msgstr "Impossible de récupérer les types de groupe."
 
 msgid "Unable to retrieve group users."
 msgstr "Impossible de récupérer les utilisateurs du groupe."
+
+msgid "Unable to retrieve group."
+msgstr "Impossible de récupérer le groupe."
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "Impossible de récupérer la liste d’agrégats d'hôtes."
@@ -7556,6 +7598,9 @@ msgstr "Impossible de récupérer l'instance."
 msgid "Unable to retrieve the project information of the image."
 msgstr "Impossible de récupérer les informations projet de l'image."
 
+msgid "Unable to retrieve the volume group list."
+msgstr "Impossible de récupérer la liste des groupes de volumes."
+
 msgid "Unable to retrieve the volume type list."
 msgstr "Incapable de récupérer la liste de type de volume."
 
@@ -7603,6 +7648,9 @@ msgstr "Impossible de récupérer les détails du volume."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Impossible de récupérer les détails de chiffrement du volume."
+
+msgid "Unable to retrieve volume groups"
+msgstr "Impossible de récupérer les groupes de volumes"
 
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
@@ -7709,6 +7757,9 @@ msgstr "Impossible de mettre à jour les quotas par défaut du service Calcul."
 msgid "Unable to update default quotas."
 msgstr "Impossible de mettre à jour les quotas par défaut."
 
+msgid "Unable to update default volume quotas."
+msgstr "Impossible de mettre à jour les quotas de volume par défaut."
+
 msgid "Unable to update encrypted volume type."
 msgstr "Impossible de mettre à jour le volume chiffré."
 
@@ -7785,6 +7836,9 @@ msgstr "Impossible de mettre à jour le volume."
 
 msgid "Unable to update volumes for consistency group"
 msgstr "Impossible de mettre à jour le volume pour le groupe de consistence"
+
+msgid "Unable to update volumes for group"
+msgstr "Impossible de mettre à jour les volumes du groupe"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -8018,6 +8072,9 @@ msgstr "Utiliser la valeur par défaut du serveur"
 
 msgid "Use a consistency group as source"
 msgstr "Utiliser le groupe de consistence comme source"
+
+msgid "Use a group as source"
+msgstr "Utiliser un groupe en tant que source"
 
 msgid "Use a volume as source"
 msgstr "Utiliser un volume comme source"
@@ -8301,6 +8358,11 @@ msgstr ""
 "\n"
 "Un groupe de cohérence peut prendre en charge plusieurs types de volume mais "
 "il peut uniquement contenir des volumes hébergés par le même back-end."
+
+msgid "Volume groups can not be deleted if they contain volumes."
+msgstr ""
+"Les groupes de volumes ne peuvent être supprimés si ils contiennent des "
+"volumes."
 
 msgid "Volume is Unencrypted"
 msgstr "Volume n'est pas chiffré"
