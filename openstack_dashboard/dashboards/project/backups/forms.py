@@ -76,7 +76,8 @@ class RestoreBackupForm(forms.SelfHandlingForm):
         super(RestoreBackupForm, self).__init__(request, *args, **kwargs)
 
         try:
-            volumes = api.cinder.volume_list(request)
+            search_opts = {'status': 'available'}
+            volumes = api.cinder.volume_list(request, search_opts)
         except Exception:
             msg = _('Unable to lookup volume or backup information.')
             redirect = reverse('horizon:project:backups:index')

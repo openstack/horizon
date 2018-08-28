@@ -261,26 +261,29 @@ class VolumeBackupsViewTests(test.TestCase):
     @test.create_mocks({api.cinder: ('volume_list',
                                      'volume_backup_restore')})
     def test_restore_backup(self):
-        backup = self.cinder_volume_backups.first()
+        mock_backup = self.cinder_volume_backups.first()
         volumes = self.cinder_volumes.list()
+        expected_volumes = [vol for vol in volumes
+                            if vol.status == 'available']
 
-        self.mock_volume_list.return_value = volumes
-        self.mock_volume_backup_restore.return_value = backup
+        self.mock_volume_list.return_value = expected_volumes
+        self.mock_volume_backup_restore.return_value = mock_backup
 
         formData = {'method': 'RestoreBackupForm',
-                    'backup_id': backup.id,
-                    'backup_name': backup.name,
-                    'volume_id': backup.volume_id}
+                    'backup_id': mock_backup.id,
+                    'backup_name': mock_backup.name,
+                    'volume_id': mock_backup.volume_id}
         url = reverse('horizon:project:backups:restore',
-                      args=[backup.id])
-        url += '?%s' % urlencode({'backup_name': backup.name,
-                                  'volume_id': backup.volume_id})
+                      args=[mock_backup.id])
+        url += '?%s' % urlencode({'backup_name': mock_backup.name,
+                                  'volume_id': mock_backup.volume_id})
         res = self.client.post(url, formData)
 
         self.assertNoFormErrors(res)
         self.assertMessageCount(info=1)
         self.assertRedirectsNoFollow(res,
                                      reverse('horizon:project:volumes:index'))
-        self.mock_volume_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_volume_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      {'status': 'available'})
         self.mock_volume_backup_restore.assert_called_once_with(
-            test.IsHttpRequest(), backup.id, backup.volume_id)
+            test.IsHttpRequest(), mock_backup.id, mock_backup.volume_id)
