@@ -54,7 +54,6 @@
     ctrl.diskFormats = [];
     ctrl.prepareUpload = prepareUpload;
     ctrl.apiVersion = 0;
-    ctrl.allowPublicizeImage = true;
 
     $scope.stepModels.imageForm = ctrl.image = {
       source_type: '',
@@ -66,7 +65,7 @@
       min_ram: 0,
       container_format: '',
       disk_format: '',
-      visibility: 'public'
+      visibility: 'shared'
     };
 
     ctrl.uploadProgress = -1;
@@ -84,8 +83,8 @@
     ctrl.imageSourceOptions = [];
 
     ctrl.imageVisibilityOptions = [
-      { label: gettext('Public'), value: 'public'},
-      { label: gettext('Private'), value: 'private' }
+      { label: gettext('Private'), value: 'private' },
+      { label: gettext('Shared'), value: 'shared'}
     ];
 
     ctrl.kernelImages = [];
@@ -148,11 +147,14 @@
 
     function init() {
       glance.getImages({paginate: false}).success(onGetImages);
-      policyAPI.ifAllowed({rules: [['image', 'publicize_image']]}).then(
-        angular.noop,
+      policyAPI.ifAllowed({rules: [['image', 'communitize_image']]}).then(
         function () {
-          ctrl.image.visibility = "private";
-          ctrl.allowPublicizeImage = false;
+          ctrl.imageVisibilityOptions.push({ label: gettext('Community'), value: 'community' });
+        }
+      );
+      policyAPI.ifAllowed({rules: [['image', 'publicize_image']]}).then(
+        function () {
+          ctrl.imageVisibilityOptions.push({ label: gettext('Public'), value: 'public' });
         }
       );
     }
