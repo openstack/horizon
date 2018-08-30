@@ -309,7 +309,7 @@ Example::
         # HTML form input will have a class attribute tenant-name-input, we
         # can define here any HTML attribute we need.
         name = tables.Column('name', verbose_name=_('Name'),
-                             form_field=forms.CharField(required=True),
+                             form_field=forms.CharField(),
                              form_field_attributes={'class':'tenant-name-input'},
                              update_action=UpdateCell)
 

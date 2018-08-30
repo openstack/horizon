@@ -77,8 +77,7 @@ urls, views, workflows and templates:
         # step.
         name = forms.CharField(max_length=255,
                                label=_("Testing Name"),
-                               help_text="",
-                               required=True)
+                               help_text="")
 
         def handle(self, request, data):
             pass
