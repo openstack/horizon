@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    [:blueprint:`mitigate-breach-attacks`]
+    Adding Django-debreach module to mitigate breach attacks. Enabling
+    the RandomCommentMiddleware to counter breach attack by randomising
+    the content length of each response.

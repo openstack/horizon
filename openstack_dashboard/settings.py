@@ -110,6 +110,7 @@ OPENSTACK_IMAGE_BACKEND = {
 }
 
 MIDDLEWARE = (
+    'debreach.middleware.RandomCommentMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -184,6 +185,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django_pyscss',
+    'debreach',
     'openstack_dashboard.django_pyscss_fix',
     'compressor',
     'horizon',

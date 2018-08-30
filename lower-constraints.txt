@@ -19,6 +19,7 @@ Django==1.11
 django-appconf==1.0.2
 django-babel==0.6.2
 django-compressor==2.0
+django-debreach==1.4.2
 django-pyscss==2.0.2
 doc8==0.6.0
 docutils==0.11
