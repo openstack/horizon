@@ -36,8 +36,7 @@ from novaclient.v2 import servers as nova_servers
 
 from horizon import exceptions as horizon_exceptions
 from horizon.utils import functions as utils
-from horizon.utils.memoized import memoized
-from horizon.utils.memoized import memoized_with_request
+from horizon.utils import memoized
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import microversions
@@ -58,7 +57,7 @@ INSECURE = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
 CACERT = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
 
 
-@memoized
+@memoized.memoized
 def get_microversion(request, features):
     client = novaclient(request)
     min_ver, max_ver = api_versions._get_server_version_range(client)
@@ -267,7 +266,14 @@ def get_auth_params_from_request(request):
     )
 
 
-@memoized_with_request(get_auth_params_from_request)
+def _argconv_for_novaclient(request, version=None):
+    req_param = get_auth_params_from_request(request)
+    if isinstance(version, api_versions.APIVersion):
+        version = version.get_string()
+    return (req_param, version), {}
+
+
+@memoized.memoized_with_argconv(_argconv_for_novaclient)
 def novaclient(request_auth_params, version=None):
     (
         username,
@@ -361,7 +367,7 @@ def flavor_get(request, flavor_id, get_extras=False):
 
 
 @profiler.trace
-@memoized
+@memoized.memoized
 def flavor_list(request, is_public=True, get_extras=False):
     """Get the list of available instance sizes (flavors)."""
     flavors = novaclient(request).flavors.list(is_public=is_public)
@@ -397,7 +403,7 @@ def update_pagination(entities, page_size, marker, sort_dir, sort_key,
 
 
 @profiler.trace
-@memoized
+@memoized.memoized
 def flavor_list_paged(request, is_public=True, get_extras=False, marker=None,
                       paginate=False, sort_key="name", sort_dir="desc",
                       reversed_order=False):
@@ -427,7 +433,7 @@ def flavor_list_paged(request, is_public=True, get_extras=False, marker=None,
 
 
 @profiler.trace
-@memoized
+@memoized.memoized
 def flavor_access_list(request, flavor=None):
     """Get the list of access instance sizes (flavors)."""
     return novaclient(request).flavor_access.list(flavor=flavor)
@@ -1060,7 +1066,7 @@ def interface_detach(request, server, port_id):
 
 
 @profiler.trace
-@memoized_with_request(novaclient)
+@memoized.memoized_with_request(novaclient)
 def list_extensions(nova_api):
     """List all nova extensions, except the ones in the blacklist."""
     blacklist = set(getattr(settings,
@@ -1080,7 +1086,7 @@ def _list_extensions_wrap(request):
 
 
 @profiler.trace
-@memoized_with_request(_list_extensions_wrap, 1)
+@memoized.memoized_with_request(_list_extensions_wrap, 1)
 def extension_supported(extension_name, supported_ext_names):
     """Determine if nova supports a given extension name.
 
