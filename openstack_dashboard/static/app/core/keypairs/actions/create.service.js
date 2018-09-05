@@ -63,7 +63,7 @@
         items: [
           {
             type: "section",
-            htmlClass: "col-sm-6",
+            htmlClass: "col-sm-12",
             items: [
               {
                 key: "name",
@@ -76,16 +76,6 @@
                   }
                 },
                 required: true
-              }
-            ]
-          },
-          {
-            type: "section",
-            htmlClass: "col-sm-6",
-            items: [
-              {
-                type: "template",
-                templateUrl: basePath + "actions/create.description.html"
               }
             ]
           }
@@ -121,7 +111,9 @@
         "schema": schema,
         "form": form,
         "model": model,
-        "submitIcon": "plus"
+        "submitIcon": "plus",
+        "size": "md",
+        "helpUrl": basePath + "actions/create.description.html"
       };
       return modal.open(config).then(submit);
     }

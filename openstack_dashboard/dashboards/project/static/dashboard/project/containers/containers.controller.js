@@ -196,7 +196,7 @@
         items: [
           {
             type: 'section',
-            htmlClass: 'col-sm-6',
+            htmlClass: 'col-sm-12',
             items: [
               {
                 key: 'name',
@@ -217,10 +217,6 @@
                 ]
               }
             ]
-          },
-          {
-            type: 'template',
-            templateUrl: basePath + 'create-container.help.html'
           }
         ]
       }
@@ -232,7 +228,9 @@
         title: gettext('Create Container'),
         schema: createContainerSchema,
         form: createContainerForm,
-        model: model
+        model: model,
+        size: 'md',
+        helpUrl: basePath + 'create-container.help.html'
       };
       return modalFormService.open(config).then(function then() {
         return ctrl.createContainerAction(model);

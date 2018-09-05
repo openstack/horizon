@@ -41,7 +41,8 @@
         "form": "form",
         "model": "model",
         "submitIcon": "icon",
-        "submitText": "save"
+        "submitText": "save",
+        "helpUrl": "help.html"
       };
       var modalService = service.open(modalConfig);
       var context = modalService.resolve.context();
@@ -51,6 +52,7 @@
       expect(context.model).toEqual('model');
       expect(context.submitIcon).toEqual('icon');
       expect(context.submitText).toEqual('save');
+      expect(context.helpUrl).toEqual('help.html');
     });
 
     it('sets default values for optional parameters', function() {

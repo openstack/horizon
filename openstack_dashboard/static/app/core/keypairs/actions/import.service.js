@@ -66,7 +66,7 @@
         items: [
           {
             type: "section",
-            htmlClass: "col-sm-6",
+            htmlClass: "col-sm-12",
             items: [
               {
                 key: "name",
@@ -83,16 +83,6 @@
               {
                 type: "template",
                 templateUrl: basePath + "actions/import.public-key.html"
-              }
-            ]
-          },
-          {
-            type: "section",
-            htmlClass: "col-sm-6",
-            items: [
-              {
-                type: "template",
-                templateUrl: basePath + "actions/import.description.html"
               }
             ]
           }
@@ -128,7 +118,9 @@
         "schema": schema,
         "form": form,
         "model": model,
-        "submitIcon": "upload"
+        "submitIcon": "upload",
+        "size": "md",
+        "helpUrl": basePath + "actions/import.description.html"
       };
       return modal.open(config).then(submit);
     }

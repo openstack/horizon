@@ -59,7 +59,8 @@
               submitIcon: config.submitIcon || "check",
               schema: config.schema,
               form: config.form,
-              model: config.model
+              model: config.model,
+              helpUrl: config.helpUrl
             };
           }
         },

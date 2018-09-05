@@ -23,6 +23,7 @@
 
   createService.$inject = [
     '$q',
+    'horizon.dashboard.identity.roles.basePath',
     'horizon.dashboard.identity.roles.resourceType',
     'horizon.dashboard.identity.roles.role-schema',
     'horizon.app.core.openstack-service-api.keystone',
@@ -40,6 +41,7 @@
    */
   function createService(
     $q,
+    basePath,
     resourceType,
     schema,
     keystoneAPI,
@@ -74,7 +76,7 @@
         schema: schema,
         form: ['*'],
         model: model,
-        size: 'sm'
+        size: 'md'
       };
       return modalFormService.open(config).then(submit);
     }
