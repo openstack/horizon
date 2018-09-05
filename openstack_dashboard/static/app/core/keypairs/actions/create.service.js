@@ -50,7 +50,7 @@
         "name": {
           title: gettext("Key Pair Name"),
           type: "string",
-          pattern: "^[A-Za-z0-9 -]+$"
+          pattern: "^[A-Za-z0-9 -_]+$"
         }
       }
     };
