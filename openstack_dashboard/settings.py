@@ -19,7 +19,6 @@
 import glob
 import logging
 import os
-import sys
 import warnings
 
 from django.utils.translation import pgettext_lazy
@@ -43,8 +42,6 @@ warnings.formatwarning = lambda message, category, *args, **kwargs: \
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-if ROOT_PATH not in sys.path:
-    sys.path.append(ROOT_PATH)
 
 DEBUG = False
 
