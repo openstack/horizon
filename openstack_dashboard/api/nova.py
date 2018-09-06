@@ -1072,16 +1072,23 @@ def list_extensions(nova_api):
     )
 
 
+# NOTE(amotoki): In Python 3, a tuple of the Extension classes
+# is not hashable. The return value must be a known premitive.
+# This converts the return value to a tuple of a string.
+def _list_extensions_wrap(request):
+    return tuple(e.name for e in list_extensions(request))
+
+
 @profiler.trace
-@memoized_with_request(list_extensions, 1)
-def extension_supported(extension_name, extensions):
+@memoized_with_request(_list_extensions_wrap, 1)
+def extension_supported(extension_name, supported_ext_names):
     """Determine if nova supports a given extension name.
 
     Example values for the extension_name include AdminActions, ConsoleOutput,
     etc.
     """
-    for extension in extensions:
-        if extension.name == extension_name:
+    for ext in supported_ext_names:
+        if ext == extension_name:
             return True
     return False
 
