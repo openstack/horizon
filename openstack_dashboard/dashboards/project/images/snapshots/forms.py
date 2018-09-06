@@ -18,6 +18,7 @@
 
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from novaclient import exceptions as nova_exceptions
 
 from horizon import exceptions
 from horizon import forms
@@ -43,8 +44,15 @@ class CreateSnapshot(forms.SelfHandlingForm):
             messages.success(request, _('Snapshot "%(name)s" created for '
                                         'instance "%(inst)s"') % vals)
             return snapshot
-        except Exception:
+        except nova_exceptions.Forbidden as exc:
+            if str(exc).startswith('Quota exceeded for resources: snapshots'):
+                msg = _('Quota exceeded for creating snapshots')
+            else:
+                msg = _('Unable to create snapshot.')
+
             redirect = reverse("horizon:project:instances:index")
-            exceptions.handle(request,
-                              _('Unable to create snapshot.'),
-                              redirect=redirect)
+            exceptions.handle(request, msg, redirect=redirect)
+        except Exception as exc:
+            msg = _('Unable to create snapshot.')
+            redirect = reverse("horizon:project:instances:index")
+            exceptions.handle(request, msg, redirect=redirect)
