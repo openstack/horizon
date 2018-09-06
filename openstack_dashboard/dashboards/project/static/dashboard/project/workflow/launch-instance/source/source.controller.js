@@ -404,14 +404,21 @@
     // When the allowedboot list changes, change the source_type
     // and update the table for the new source selection. Only done
     // with the first item for the list
+    // The boot source is changed only if the selected value is not included
+    // in the updated list (newValue)
     var allowedBootSourcesWatcher = $scope.$watchCollection(
       function getAllowedBootSources() {
         return $scope.model.allowedBootSources;
       },
       function changeBootSource(newValue) {
-        if (angular.isArray(newValue) && newValue.length > 0) {
-          updateBootSourceSelection(newValue[0].type);
-          $scope.model.newInstanceSpec.source_type = newValue[0];
+        if (angular.isArray(newValue) && newValue.length > 0 ) {
+          if (!$scope.model.newInstanceSpec.source_type ||
+              newValue.filter(function(value) {
+                return value.type === $scope.model.newInstanceSpec.source_type.type;
+              }).length === 0) {
+            updateBootSourceSelection(newValue[0].type);
+            $scope.model.newInstanceSpec.source_type = newValue[0];
+          }
         }
       }
     );
@@ -443,7 +450,7 @@
 
     ////////////////////
 
-    function updateBootSourceSelection(selectedSource) {
+    function updateBootSourceSelection(selectedSource, preSelection) {
       if (ctrl.currentBootSource !== selectedSource) {
         ctrl.selection.length = 0;
         ctrl.currentBootSource = selectedSource;
@@ -456,7 +463,7 @@
         $scope.model.newInstanceSpec.vol_create = false;
       }
       $scope.model.newInstanceSpec.vol_delete_on_instance_delete = false;
-      changeBootSource(selectedSource);
+      changeBootSource(selectedSource, preSelection);
       validateBootSourceType();
     }
 
@@ -564,48 +571,44 @@
     function setSourceImageWithId(id) {
       var pre = findSourceById($scope.model.images, id);
       if (pre) {
-        changeBootSource(bootSourceTypes.IMAGE, [pre]);
+        updateBootSourceSelection(bootSourceTypes.IMAGE, [pre]);
         $scope.model.newInstanceSpec.source_type = {
           type: bootSourceTypes.IMAGE,
           label: gettext('Image')
         };
-        ctrl.currentBootSource = bootSourceTypes.IMAGE;
       }
     }
 
     function setSourceImageSnapshotWithId(id) {
       var pre = findSourceById($scope.model.imageSnapshots, id);
       if (pre) {
-        changeBootSource(bootSourceTypes.INSTANCE_SNAPSHOT, [pre]);
+        updateBootSourceSelection(bootSourceTypes.INSTANCE_SNAPSHOT, [pre]);
         $scope.model.newInstanceSpec.source_type = {
           type: bootSourceTypes.INSTANCE_SNAPSHOT,
           label: gettext('Snapshot')
         };
-        ctrl.currentBootSource = bootSourceTypes.INSTANCE_SNAPSHOT;
       }
     }
 
     function setSourceVolumeWithId(id) {
       var pre = findSourceById($scope.model.volumes, id);
       if (pre) {
-        changeBootSource(bootSourceTypes.VOLUME, [pre]);
+        updateBootSourceSelection(bootSourceTypes.VOLUME, [pre]);
         $scope.model.newInstanceSpec.source_type = {
           type: bootSourceTypes.VOLUME,
           label: gettext('Volume')
         };
-        ctrl.currentBootSource = bootSourceTypes.VOLUME;
       }
     }
 
     function setSourceSnapshotWithId(id) {
       var pre = findSourceById($scope.model.volumeSnapshots, id);
       if (pre) {
-        changeBootSource(bootSourceTypes.VOLUME_SNAPSHOT, [pre]);
+        updateBootSourceSelection(bootSourceTypes.VOLUME_SNAPSHOT, [pre]);
         $scope.model.newInstanceSpec.source_type = {
           type: bootSourceTypes.VOLUME_SNAPSHOT,
           label: gettext('Snapshot')
         };
-        ctrl.currentBootSource = bootSourceTypes.VOLUME_SNAPSHOT;
       }
     }
   }
