@@ -27,6 +27,7 @@ from django.utils.translation import pgettext_lazy
 from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
+import netaddr
 
 from horizon import exceptions
 from horizon import messages
@@ -969,16 +970,9 @@ def get_ips(instance):
     ip_groups = {}
 
     for ip_group, addresses in instance.addresses.items():
-        ip_groups[ip_group] = {}
-        ip_groups[ip_group]["floating"] = []
-        ip_groups[ip_group]["non_floating"] = []
-
-        for address in addresses:
-            if ('OS-EXT-IPS:type' in address and
-               address['OS-EXT-IPS:type'] == "floating"):
-                ip_groups[ip_group]["floating"].append(address)
-            else:
-                ip_groups[ip_group]["non_floating"].append(address)
+        ips = [addr['addr'] for addr in addresses]
+        ips.sort(key=lambda ip: netaddr.IPAddress(ip).version)
+        ip_groups[ip_group] = ips
 
     context = {
         "ip_groups": ip_groups,
