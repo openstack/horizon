@@ -85,7 +85,7 @@ process is entirely different. Lets walk through this process.
   like gettext or one of its variants. This allows the function to serve a dual
   purpose - acting as a marker and also as a replacer.
 
-* In order for translation to work properly, we need to know the user’s locale.
+* In order for translation to work properly, we need to know the user's locale.
   In horizon, the user can specify the locale using the Settings panel. Once we
   know the locale, we know which Portable Object (PO) file to use. The PO file
   is the file we received from translators in the message extraction process.
@@ -218,7 +218,7 @@ for message substitution but not for message extraction.
     <translate>Directive example</translate>
     <div translate>Attribute example</div>
     <div translate>Interpolated {{example}}</div>
-    <span>{$ ‘Filter example’| translate $}</span>
+    <span>{$ 'Filter example'| translate $}</span>
 
     <span translate>
       This <em>is</em> a <strong>bad</strong> example
