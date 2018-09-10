@@ -33,11 +33,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-07 04:12+0000\n"
+"POT-Creation-Date: 2018-09-10 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-09 07:48+0000\n"
+"PO-Revision-Date: 2018-09-09 07:52+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -1014,6 +1014,9 @@ msgstr "Вычислительные ресурсы"
 
 msgid "Compute Host"
 msgstr "Узел вычислительных ресурсов"
+
+msgid "Compute Quotas"
+msgstr "Квоты вычислительных ресурсов"
 
 msgid "Compute Services"
 msgstr "Службы вычислительных ресурсов"
@@ -2951,6 +2954,11 @@ msgstr "Здесь вы можете выдать назначаемый IP дл
 msgid "From here you can create a snapshot of a volume."
 msgstr "Здесь вы можете создать снимок диска."
 
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr ""
+"Здесь вы можете обновить значения квот вычислительных ресурсов по умолчанию "
+"(максимальные значения лимитов)."
+
 msgid "GB"
 msgstr "ГБ"
 
@@ -3980,6 +3988,9 @@ msgstr "Сетевые сервисы QoS"
 msgid "Network QoS Policies"
 msgstr "Сетевые политики QoS"
 
+msgid "Network Quotas"
+msgstr "Квоты сети"
+
 msgid "Network Topology"
 msgstr "Сетевая топология"
 
@@ -4682,6 +4693,9 @@ msgstr "RAM (использовано)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Доступные: %(avail)s, Запрашиваемые: %(req)s)"
+
+msgid "RBAC Policies"
+msgstr "Политики RBAC"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Фактор"
@@ -6405,6 +6419,9 @@ msgstr "ID передачи"
 msgid "Transfer Name"
 msgstr "Название передачи"
 
+msgid "Trunks"
+msgstr "Транки"
+
 msgid "Type"
 msgstr "Тип"
 
@@ -6648,6 +6665,9 @@ msgstr "Не удалось получить SPICE консоль для инс�
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Не удалось получить VNC консоль для инстанса \"%s\"."
 
+msgid "Unable to get cinder quota info."
+msgstr "Не удалось получить информацию о квотах cinder."
+
 msgid "Unable to get cinder services list."
 msgstr "Не удалось получить список служб cinder"
 
@@ -6669,6 +6689,12 @@ msgstr "Не удалось получить информацию о сетев�
 
 msgid "Unable to get network agents list."
 msgstr "Не удалось получить список сетевых агентов."
+
+msgid "Unable to get neutron quota info."
+msgstr "Не удалось получить информацию о квотах neutron."
+
+msgid "Unable to get nova quota info."
+msgstr "Не удалось получить информацию о квотах nova."
 
 msgid "Unable to get nova services list."
 msgstr "Не удалось получить список служб nova."
@@ -6856,6 +6882,9 @@ msgstr "Не удалось получить информацию о групп�
 
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "Не удалось получить сведения о снимке группы согласования."
+
+msgid "Unable to retrieve default compute quotas."
+msgstr "Не удалось получить квоты по умолчанию для вычислительных ресурсов."
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -7267,6 +7296,9 @@ msgstr "Не удалось отсортировать типы инстансо
 
 msgid "Unable to unmanage volume."
 msgstr "Не удалось отключить управление диском."
+
+msgid "Unable to update default compute quotas."
+msgstr "Не удалось обновить квоты по умолчанию для вычислительных ресурсов."
 
 msgid "Unable to update default quotas."
 msgstr "Не удалось обновить квоты по умолчанию."
@@ -7776,6 +7808,9 @@ msgstr "Имя диска"
 
 msgid "Volume Name ="
 msgstr "Имя диска ="
+
+msgid "Volume Quotas"
+msgstr "Квоты хранилища"
 
 msgid "Volume Snapshot"
 msgstr "Снимок диска"
