@@ -78,7 +78,7 @@ Plugin Registry
      - https://storyboard.openstack.org/#!/project/936
    * - Searchlight UI
      - https://github.com/openstack/searchlight-ui
-     - https://launchpad.net/searchlight
+     - https://storyboard.openstack.org/#!/project/openstack/searchlight-ui
    * - Senlin Dashboard
      - https://github.com/openstack/senlin-dashboard
      - https://launchpad.net/senlin-dashboard
