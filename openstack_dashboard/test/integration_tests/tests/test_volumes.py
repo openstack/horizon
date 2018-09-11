@@ -10,8 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import time
+from unittest import skip
 
-from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -25,6 +25,7 @@ class TestVolumesBasic(helpers.TestCase):
     def volumes_page(self):
         return self.home_pg.go_to_project_volumes_volumespage()
 
+    @skip('Skipped until bug 1792028 is resolved')
     def test_volume_create_edit_delete(self):
         """This test case checks create, edit, delete volume functionality:
 
@@ -77,6 +78,7 @@ class TestVolumesBasic(helpers.TestCase):
             form = volumes_page.volumes_table.create_volume()
             form.cancel()
 
+    @skip('Skipped until bug 1792028 is resolved')
     def test_volumes_pagination(self):
         """This test checks volumes pagination
 
@@ -166,7 +168,7 @@ class TestVolumesAdvanced(helpers.TestCase):
     def volumes_page(self):
         return self.home_pg.go_to_project_volumes_volumespage()
 
-    @decorators.skip_because(bugs=['1774697'])
+    @skip('Skipped until bug 1774697 is resolved')
     def test_manage_volume_attachments(self):
         """This test case checks attach/detach actions for volume
 
@@ -257,6 +259,7 @@ class TestVolumesActions(helpers.TestCase):
 
         self.addCleanup(cleanup)
 
+    @skip('Skipped until bug 1792028 is resolved')
     def test_volume_extend(self):
         """This test case checks extend volume functionality:
 
@@ -279,7 +282,7 @@ class TestVolumesActions(helpers.TestCase):
         new_size = volumes_page.get_size(self.VOLUME_NAME)
         self.assertLess(orig_size, new_size)
 
-    @decorators.skip_because(bugs=['1774697'])
+    @skip('Skipped until bug 1774697 is resolved')
     def test_volume_upload_to_image(self):
         """This test case checks upload volume to image functionality:
 
@@ -315,7 +318,7 @@ class TestVolumesActions(helpers.TestCase):
             self.volumes_page = \
                 self.home_pg.go_to_project_volumes_volumespage()
 
-    @decorators.skip_because(bugs=['1774697'])
+    @skip('Skipped until bug 1774697 is resolved')
     def test_volume_launch_as_instance(self):
         """This test case checks launch volume as instance functionality:
 

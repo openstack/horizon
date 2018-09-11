@@ -15,6 +15,7 @@ from os.path import join
 from os import remove
 
 from horizon.test import firefox_binary
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 
 
@@ -40,6 +41,7 @@ class TestDownloadRCFile(helpers.AdminTestCase):
 
         self.addCleanup(cleanup)
 
+    @decorators.skip_because(bugs=['1792028'])
     def test_download_rc_v2_file(self):
         """This is a basic scenario test:
 
