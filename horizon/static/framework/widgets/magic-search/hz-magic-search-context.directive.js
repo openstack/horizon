@@ -105,7 +105,7 @@
       // if filterStrings is not defined, set defaults
       var defaultFilterStrings = {
         cancel: gettext('Cancel'),
-        prompt: gettext('Click here for filters.'),
+        prompt: gettext('Click here for filters or full text search.'),
         remove: gettext('Remove'),
         text: scope.clientFullTextSearch
           ? gettext('Search in current results')
