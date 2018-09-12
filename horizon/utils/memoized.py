@@ -178,3 +178,31 @@ def memoized_with_request(request_func, request_index=0):
 
         return wrapped
     return wrapper
+
+
+def memoized_with_argconv(convert_func):
+    """Decorator for caching functions which receive unhashable arguments
+
+    This decorator is a generalized version of memoized_with_request.
+    There are cases where argument(s) other than 'request' are also unhashable.
+    For such cases, such arguments also need to be converted into hashable
+    variables.
+
+    'convert_func' is responsible for replacing unhashable arguments
+    into corresponding hashable variables.
+
+    'convert_func' receives original arguments as its arguments and
+    it must return a full arguments including converted arguments.
+
+    See openstack_dashboard.api.nova as an example.
+    """
+    def wrapper(func):
+        memoized_func = memoized(func)
+
+        @functools.wraps(func)
+        def wrapped(*args, **kwargs):
+            args, kwargs = convert_func(*args, **kwargs)
+            return memoized_func(*args, **kwargs)
+
+        return wrapped
+    return wrapper

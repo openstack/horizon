@@ -81,3 +81,36 @@ class MemoizedTests(test.TestCase):
             self.assertEqual(output2[position], leader)
             # check that some_other_func returned a memoized list.
             self.assertIs(output1, output2)
+
+    def test_memoized_with_argcnv(self):
+        value_list = []
+
+        def converter(*args, **kwargs):
+            new_args = tuple(reversed(args))
+            new_kwargs = dict((k, v + 1) for k, v in kwargs.items())
+            return new_args, new_kwargs
+
+        @memoized.memoized_with_argconv(converter)
+        def target_func(*args, **kwargs):
+            value_list.append(1)
+            return args, kwargs
+
+        for i in range(3):
+            ret_args, ret_kwargs = target_func(1, 2, 3)
+            self.assertEqual((3, 2, 1), ret_args)
+            self.assertEqual({}, ret_kwargs)
+        self.assertEqual(1, len(value_list))
+
+        value_list = []
+        for i in range(3):
+            ret_args, ret_kwargs = target_func(a=1, b=2, c=3)
+            self.assertEqual(tuple(), ret_args)
+            self.assertEqual({'a': 2, 'b': 3, 'c': 4}, ret_kwargs)
+        self.assertEqual(1, len(value_list))
+
+        value_list = []
+        for i in range(3):
+            ret_args, ret_kwargs = target_func(1, 2, a=3, b=4)
+            self.assertEqual((2, 1), ret_args)
+            self.assertEqual({'a': 4, 'b': 5}, ret_kwargs)
+        self.assertEqual(1, len(value_list))
