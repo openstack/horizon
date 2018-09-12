@@ -98,6 +98,7 @@ class NetworkAgentsTab(tabs.TableTab):
     name = tables.NetworkAgentsTable.Meta.verbose_name
     slug = tables.NetworkAgentsTable.Meta.name
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
+    permissions = ('openstack.services.network',)
 
     def allowed(self, request):
         try:
