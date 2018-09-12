@@ -30,12 +30,16 @@ ALLOCATE_URL = "horizon:project:floating_ips:allocate"
 
 
 class AssociateIPAction(workflows.Action):
+    use_required_attribute = False
     ip_id = forms.ThemableDynamicTypedChoiceField(
         label=_("IP Address"),
         coerce=filters.get_int_or_uuid,
         empty_value=None,
-        add_item_link=ALLOCATE_URL)
-    instance_id = forms.ThemableChoiceField(label=_("Port to be associated"))
+        add_item_link=ALLOCATE_URL
+    )
+    instance_id = forms.ThemableChoiceField(
+        label=_("Port to be associated")
+    )
 
     class Meta(object):
         name = _("IP Address")
