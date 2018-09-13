@@ -1,0 +1,979 @@
+# Andi Chandler <andi@gowling.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 14.0.1.dev8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-10 04:35-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-07-08 09:14+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"Language-Team: English (United Kingdom)\n"
+"Language: en_GB\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid ":ref:`install-customizing` describes how to customize horizon."
+msgstr ":ref:`install-customizing` describes how to customise Horizon."
+
+msgid ":ref:`install-settings` lists the available settings for horizon."
+msgstr ":ref:`install-settings` lists the available settings for Horizon."
+
+msgid ""
+"ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "
+"development work, but is potentially insecure and should not be used in "
+"production. See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-"
+"hosts for further information."
+msgstr ""
+"ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "
+"development work, but is potentially insecure and should not be used in "
+"production. See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-"
+"hosts for further information."
+
+msgid "Access the dashboard using a web browser at ``http://controller/``."
+msgstr "Access the dashboard using a web browser at ``http://controller/``."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/dashboard``."
+msgstr ""
+"Access the dashboard using a web browser at ``http://controller/dashboard``."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/horizon``."
+msgstr ""
+"Access the dashboard using a web browser at ``http://controller/horizon``."
+
+msgid ""
+"Add the following line to ``/etc/apache2/conf-available/openstack-dashboard."
+"conf`` if not included."
+msgstr ""
+"Add the following line to ``/etc/apache2/conf-available/openstack-dashboard."
+"conf`` if not included."
+
+msgid ""
+"Add the following line to ``/etc/httpd/conf.d/openstack-dashboard.conf`` if "
+"not included."
+msgstr ""
+"Add the following line to ``/etc/httpd/conf.d/openstack-dashboard.conf`` if "
+"not included."
+
+msgid ""
+"After you install and configure the dashboard, you can complete the "
+"following tasks:"
+msgstr ""
+"After you install and configure the dashboard, you can complete the "
+"following tasks:"
+
+msgid ""
+"All other services are optional. Horizon supports the following services as "
+"of the Queens release. If the keystone endpoint for a service is configured, "
+"horizon detects it and enables its support automatically."
+msgstr ""
+"All other services are optional. Horizon supports the following services as "
+"of the Queens release. If the keystone endpoint for a service is configured, "
+"Horizon detects it and enables its support automatically."
+
+msgid "Allow your hosts to access the dashboard:"
+msgstr "Allow your hosts to access the dashboard:"
+
+msgid ""
+"An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ "
+"endpoint"
+msgstr ""
+"An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ "
+"endpoint"
+
+msgid ""
+"Authenticate using ``admin`` or ``demo`` user and ``default`` domain "
+"credentials."
+msgstr ""
+"Authenticate using ``admin`` or ``demo`` user and ``default`` domain "
+"credentials."
+
+msgid "BGPVPN Dashboard"
+msgstr "BGPVPN Dashboard"
+
+msgid "Blazar Dashboard"
+msgstr "Blazar Dashboard"
+
+msgid "Bug Tracker"
+msgstr "Bug Tracker"
+
+msgid ""
+"By default the apache configuration will launch a number of apache processes "
+"equal to the number of CPUs + 1 of the machine on which you launch the "
+"``make_web_conf`` command. If the target machine is not the same or if you "
+"want to specify the number of processes, add the ``--processes`` option"
+msgstr ""
+"By default the apache configuration will launch a number of apache processes "
+"equal to the number of CPUs + 1 of the machine on which you launch the "
+"``make_web_conf`` command. If the target machine is not the same or if you "
+"want to specify the number of processes, add the ``--processes`` option"
+
+msgid "Cached Database"
+msgstr "Cached Database"
+
+msgid "Clone Horizon"
+msgstr "Clone Horizon"
+
+msgid "Cloudkitty Dashboard"
+msgstr "Cloudkitty Dashboard"
+
+msgid "Comment out any other session storage configuration."
+msgstr "Comment out any other session storage configuration."
+
+msgid ""
+"Compile translation message catalogs for internationalization. This step is "
+"not required if you do not need to support languages other than US English. "
+"GNU ``gettext`` tool is required to compile message catalogs."
+msgstr ""
+"Compile translation message catalogues for internationalisation. This step "
+"is not required if you do not need to support languages other than US "
+"English. GNU ``gettext`` tool is required to compile message catalogues."
+
+msgid ""
+"Compress your static files by adding ``COMPRESS_OFFLINE = True`` to your "
+"``local_settings.py``, then run the following commands"
+msgstr ""
+"Compress your static files by adding ``COMPRESS_OFFLINE = True`` to your "
+"``local_settings.py``, then run the following commands"
+
+msgid "Configuration"
+msgstr "Configuration"
+
+msgid "Configure API versions:"
+msgstr "Configure API versions:"
+
+msgid ""
+"Configure ``Default`` as the default domain for users that you create via "
+"the dashboard:"
+msgstr ""
+"Configure ``Default`` as the default domain for users that you create via "
+"the dashboard:"
+
+msgid ""
+"Configure ``user`` as the default role for users that you create via the "
+"dashboard:"
+msgstr ""
+"Configure ``user`` as the default role for users that you create via the "
+"dashboard:"
+
+msgid "Configure the ``memcached`` session storage service:"
+msgstr "Configure the ``memcached`` session storage service:"
+
+msgid ""
+"Configure the dashboard to use OpenStack services on the ``controller`` node:"
+msgstr ""
+"Configure the dashboard to use OpenStack services on the ``controller`` node:"
+
+msgid "Configure the web server:"
+msgstr "Configure the web server:"
+
+msgid "Congress Dashboard"
+msgstr "Congress Dashboard"
+
+msgid ""
+"Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
+"idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
+"edit it. As a minimum, the follow settings will need to be modified:"
+msgstr ""
+"Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
+"idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
+"edit it. As a minimum, the follow settings will need to be modified:"
+
+msgid ""
+"Currently, Horizon plugins are responsible for their own compatibility. "
+"Check the individual repos for information on support."
+msgstr ""
+"Currently, Horizon plugins are responsible for their own compatibility. "
+"Check the individual repos for information on support."
+
+msgid ""
+"Customize your dashboard. For details, see :doc:`/admin/customize-configure`."
+msgstr ""
+"Customise your dashboard. For details, see :doc:`/admin/customize-configure`."
+
+msgid "Database"
+msgstr "Database"
+
+msgid ""
+"Database-backed sessions are scalable (using an appropriate database "
+"strategy), persistent, and can be made high-concurrency and highly-available."
+msgstr ""
+"Database-backed sessions are scalable (using an appropriate database "
+"strategy), persistent, and can be made high-concurrency and highly-available."
+
+msgid ""
+"Default configuration files vary by distribution. You might need to add "
+"these sections and options rather than modifying existing sections and "
+"options. Also, an ellipsis (``...``) in the configuration snippets indicates "
+"potential default configuration options that you should retain."
+msgstr ""
+"Default configuration files vary by distribution. You might need to add "
+"these sections and options rather than modifying existing sections and "
+"options. Also, an ellipsis (``...``) in the configuration snippets indicates "
+"potential default configuration options that you should retain."
+
+msgid "Deployment"
+msgstr "Deployment"
+
+msgid "Designate Dashboard"
+msgstr "Designate Dashboard"
+
+msgid "Django 1.11 or 2.0"
+msgstr "Django 1.11 or 2.0"
+
+msgid "Django 1.8 to 1.10 are no longer supported since Rocky release."
+msgstr "Django 1.8 to 1.10 are no longer supported since Rocky release."
+
+msgid ""
+"Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
+"section."
+msgstr ""
+"Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
+"section."
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings.py`` file and complete "
+"the following actions:"
+msgstr ""
+"Edit the ``/etc/openstack-dashboard/local_settings.py`` file and complete "
+"the following actions:"
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings`` file and complete the "
+"following actions:"
+msgstr ""
+"Edit the ``/etc/openstack-dashboard/local_settings`` file and complete the "
+"following actions:"
+
+msgid ""
+"Edit the ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
+"local_settings.py`` file and complete the following actions:"
+msgstr ""
+"Edit the ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
+"local_settings.py`` file and complete the following actions:"
+
+msgid "Enable support for domains:"
+msgstr "Enable support for domains:"
+
+msgid "Enable the Identity API version 3:"
+msgstr "Enable the Identity API version 3:"
+
+msgid "Enable the above configuration and restart the web server"
+msgstr "Enable the above configuration and restart the web server"
+
+msgid ""
+"External caching using an application such as memcached offers persistence "
+"and shared storage, and can be very useful for small-scale deployment and/or "
+"development. However, for distributed and high-availability scenarios "
+"memcached has inherent problems which are beyond the scope of this "
+"documentation."
+msgstr ""
+"External caching using an application such as memcached offers persistence "
+"and shared storage, and can be very useful for small-scale deployment and/or "
+"development. However, for distributed and high-availability scenarios "
+"memcached has inherent problems which are beyond the scope of this "
+"documentation."
+
+msgid "Finalize installation"
+msgstr "Finalise installation"
+
+msgid ""
+"For details about browsers that support noVNC, see `README <https://github."
+"com/novnc/noVNC/blob/master/README.md>`__."
+msgstr ""
+"For details about browsers that support noVNC, see `README <https://github."
+"com/novnc/noVNC/blob/master/README.md>`__."
+
+msgid ""
+"For more information regarding configuring logging in Horizon, please read "
+"the `Django logging directive`_ and the `Python logging directive`_ "
+"documentation. Horizon is built on Python and Django."
+msgstr ""
+"For more information regarding configuring logging in Horizon, please read "
+"the `Django logging directive`_ and the `Python logging directive`_ "
+"documentation. Horizon is built on Python and Django."
+
+msgid "For the system dependencies, see :doc:`system-requirements`."
+msgstr "For the system dependencies, see :doc:`system-requirements`."
+
+msgid "Freezer Web UI"
+msgstr "Freezer Web UI"
+
+msgid "Group Based Policy UI"
+msgstr "Group Based Policy UI"
+
+msgid "Heat Dashboard"
+msgstr "Heat Dashboard"
+
+msgid ""
+"Horizon also supports many other OpenStack services via plugins. For more "
+"information, see the :ref:`install-plugin-registry`."
+msgstr ""
+"Horizon also supports many other OpenStack services via plugins. For more "
+"information, see the :ref:`install-plugin-registry`."
+
+msgid ""
+"Horizon also uses a number of 3rd-party clients which log separately. The "
+"log level for these can still be controlled through Horizon's ``LOGGING`` "
+"config, however behaviors may vary beyond Horizon's control."
+msgstr ""
+"Horizon also uses a number of 3rd-party clients which log separately. The "
+"log level for these can still be controlled through Horizon's ``LOGGING`` "
+"config, however behaviours may vary beyond Horizon's control."
+
+msgid "Horizon plugins"
+msgstr "Horizon plugins"
+
+msgid ""
+"Horizon uses `Django's sessions framework`_ for handling session data. There "
+"are numerous session backends available, which are selected through the "
+"``SESSION_ENGINE`` setting in your ``local_settings.py`` file."
+msgstr ""
+"Horizon uses `Django's sessions framework`_ for handling session data. There "
+"are numerous session backends available, which are selected through the "
+"``SESSION_ENGINE`` setting in your ``local_settings.py`` file."
+
+msgid ""
+"Horizon usually syncs with `Django's Roadmap <https://www.djangoproject.com/"
+"weblog/2015/jun/25/roadmap/>`__ and basically supports maintained versions "
+"of Django as of the feature freeze of each OpenStack release."
+msgstr ""
+"Horizon usually syncs with `Django's Roadmap <https://www.djangoproject.com/"
+"weblog/2015/jun/25/roadmap/>`__ and basically supports maintained versions "
+"of Django as of the feature freeze of each OpenStack release."
+
+msgid ""
+"Horizons uses Django's logging configuration mechanism, which can be "
+"customized by altering the ``LOGGING`` dictionary in ``local_settings.py``. "
+"By default, Horizon's logging example sets the log level to ``INFO``."
+msgstr ""
+"Horizons uses Django's logging configuration mechanism, which can be "
+"customized by altering the ``LOGGING`` dictionary in ``local_settings.py``. "
+"By default, Horizon's logging example sets the log level to ``INFO``."
+
+msgid ""
+"If you chose networking option 1, disable support for layer-3 networking "
+"services:"
+msgstr ""
+"If you chose networking option 1, disable support for layer-3 networking "
+"services:"
+
+msgid ""
+"In the Dashboard configuration section, allow your hosts to access Dashboard:"
+msgstr ""
+"In the Dashboard configuration section, allow your hosts to access Dashboard:"
+
+msgid ""
+"In the commands below, substitute \"<release>\" for your version of choice, "
+"such as \"ocata\" or \"pike\"."
+msgstr ""
+"In the commands below, substitute \"<release>\" for your version of choice, "
+"such as \"ocata\" or \"pike\"."
+
+msgid "Install and configure components"
+msgstr "Install and configure components"
+
+msgid "Install and configure for Debian"
+msgstr "Install and configure for Debian"
+
+msgid "Install and configure for Red Hat Enterprise Linux and CentOS"
+msgstr "Install and configure for Red Hat Enterprise Linux and CentOS"
+
+msgid "Install and configure for Ubuntu"
+msgstr "Install and configure for Ubuntu"
+
+msgid "Install and configure for openSUSE and SUSE Linux Enterprise"
+msgstr "Install and configure for openSUSE and SUSE Linux Enterprise"
+
+msgid "Install the horizon python module into your system"
+msgstr "Install the Horizon python module into your system"
+
+msgid "Install the packages:"
+msgstr "Install the packages:"
+
+msgid "Installation"
+msgstr "Installation"
+
+msgid "Installation Guide"
+msgstr "Installation Guide"
+
+msgid "Installing from Packages"
+msgstr "Installing from Packages"
+
+msgid "Installing from Source"
+msgstr "Installing from Source"
+
+msgid "Ironic UI"
+msgstr "Ironic UI"
+
+msgid "Karbor Dashboard"
+msgstr "Karbor Dashboard"
+
+msgid "Logging"
+msgstr "Logging"
+
+msgid "Magnum UI"
+msgstr "Magnum UI"
+
+msgid "Manila UI"
+msgstr "Manila UI"
+
+msgid "Manual installation"
+msgstr "Manual installation"
+
+msgid "Memcached"
+msgstr "Memcached"
+
+msgid "Memcached service running and accessible"
+msgstr "Memcached service running and accessible"
+
+msgid "Mistral Dashboard"
+msgstr "Mistral Dashboard"
+
+msgid "Monasca UI"
+msgstr "Monasca UI"
+
+msgid "Murano Dashboard"
+msgstr "Murano Dashboard"
+
+msgid "Neutron FWaaS Dashboard"
+msgstr "Neutron FWaaS Dashboard"
+
+msgid "Neutron LBaaS Dashboard"
+msgstr "Neutron LBaaS Dashboard"
+
+msgid "Neutron VPNaaS Dashboard"
+msgstr "Neutron VPNaaS Dashboard"
+
+msgid "Next Steps"
+msgstr "Next Steps"
+
+msgid "Next steps"
+msgstr "Next steps"
+
+msgid "Octavia Dashboard"
+msgstr "Octavia Dashboard"
+
+msgid "Optionally, configure the time zone:"
+msgstr "Optionally, configure the time zone:"
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Plugin Registry"
+msgstr "Plugin Registry"
+
+msgid ""
+"Provide users with a public IP address, a username, and a password so they "
+"can access the dashboard through a web browser. In case of any SSL "
+"certificate connection problems, point the server IP address to a domain "
+"name, and give users access."
+msgstr ""
+"Provide users with a public IP address, a username, and a password so they "
+"can access the dashboard through a web browser. In case of any SSL "
+"certificate connection problems, point the server IP address to a domain "
+"name, and give users access."
+
+msgid "Python 2.7 or 3.5"
+msgstr "Python 2.7 or 3.5"
+
+msgid "Python memcached module installed"
+msgstr "Python memcached module installed"
+
+msgid "Reload the web server configuration:"
+msgstr "Reload the web server configuration:"
+
+msgid ""
+"Replace ``TIME_ZONE`` with an appropriate time zone identifier. For more "
+"information, see the `list of time zones <https://en.wikipedia.org/wiki/"
+"List_of_tz_database_time_zones>`__."
+msgstr ""
+"Replace ``TIME_ZONE`` with an appropriate time zone identifier. For more "
+"information, see the `list of time zones <https://en.wikipedia.org/wiki/"
+"List_of_tz_database_time_zones>`__."
+
+msgid "Requirements:"
+msgstr "Requirements:"
+
+msgid "Respond to prompts for web server configuration."
+msgstr "Respond to prompts for web server configuration."
+
+msgid "Restart the web server and session storage service:"
+msgstr "Restart the web server and session storage service:"
+
+msgid "Sahara Dashboard"
+msgstr "Sahara Dashboard"
+
+msgid "Same as above but if you want SSL support"
+msgstr "Same as above but if you want SSL support"
+
+msgid "Searchlight UI"
+msgstr "Searchlight UI"
+
+msgid "Senlin Dashboard"
+msgstr "Senlin Dashboard"
+
+msgid "Session Storage"
+msgstr "Session Storage"
+
+msgid "Set to ``False``"
+msgstr "Set to ``False``"
+
+msgid ""
+"Set to the IP of your Keystone endpoint. You may also need to alter "
+"``OPENSTACK_KEYSTONE_URL``"
+msgstr ""
+"Set to the IP of your Keystone endpoint. You may also need to alter "
+"``OPENSTACK_KEYSTONE_URL``"
+
+msgid "Set to your domain name(s)"
+msgstr "Set to your domain name(s)"
+
+msgid ""
+"Set up a web server with WSGI support. For example, install Apache web "
+"server on Ubuntu"
+msgstr ""
+"Set up a web server with WSGI support. For example, install Apache web "
+"server on Ubuntu"
+
+msgid "Set up session storage. For details, see :doc:`/admin/sessions`."
+msgstr "Set up session storage. For details, see :doc:`/admin/sessions`."
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Solum Dashboard"
+msgstr "Solum Dashboard"
+
+msgid "Static Assets"
+msgstr "Static Assets"
+
+msgid "System Requirements"
+msgstr "System Requirements"
+
+msgid "Tacker UI"
+msgstr "Tacker UI"
+
+msgid "The Queens release of horizon has the following dependencies."
+msgstr "The Queens release of Horizon has the following dependencies."
+
+msgid ""
+"The ``systemctl restart`` command starts each service if not currently "
+"running."
+msgstr ""
+"The ``systemctl restart`` command starts each service if not currently "
+"running."
+
+msgid ""
+"The automatic configuration process generates a self-signed SSL certificate. "
+"Consider obtaining an official certificate for production environments."
+msgstr ""
+"The automatic configuration process generates a self-signed SSL certificate. "
+"Consider obtaining an official certificate for production environments."
+
+msgid ""
+"The downside to this approach is that database-backed sessions are one of "
+"the slower session storages, and incur a high overhead under heavy usage. "
+"Proper configuration of your database deployment can also be a substantial "
+"undertaking and is far beyond the scope of this documentation."
+msgstr ""
+"The downside to this approach is that database-backed sessions are one of "
+"the slower session storages, and incur a high overhead under heavy usage. "
+"Proper configuration of your database deployment can also be a substantial "
+"undertaking and is far beyond the scope of this documentation."
+
+msgid ""
+"The following steps in the \"Configuration\" section are optional, but "
+"highly recommended in production."
+msgstr ""
+"The following steps in the \"Configuration\" section are optional, but "
+"highly recommended in production."
+
+msgid ""
+"The only core service required by the dashboard is the Identity service. You "
+"can use the dashboard in combination with other services, such as Image "
+"service, Compute, and Networking. You can also use the dashboard in "
+"environments with stand-alone services such as Object Storage."
+msgstr ""
+"The only core service required by the dashboard is the Identity service. You "
+"can use the dashboard in combination with other services, such as Image "
+"service, Compute, and Networking. You can also use the dashboard in "
+"environments with stand-alone services such as Object Storage."
+
+msgid ""
+"Then configure the web server to host OpenStack dashboard via WSGI. For "
+"apache2 web server, you may need to create ``/etc/apache2/sites-available/"
+"horizon.conf``. The template in DevStack is a good example of the file. "
+"http://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-"
+"horizon.template Or you can automatically generate an apache configuration "
+"file. If you previously generated an ``openstack_dashboard/horizon_wsgi.py`` "
+"file it will use that, otherwise will default to using ``openstack_dashboard/"
+"wsgi.py``"
+msgstr ""
+"Then configure the web server to host OpenStack dashboard via WSGI. For "
+"apache2 web server, you may need to create ``/etc/apache2/sites-available/"
+"horizon.conf``. The template in DevStack is a good example of the file. "
+"http://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-"
+"horizon.template Or you can automatically generate an Apache configuration "
+"file. If you previously generated an ``openstack_dashboard/horizon_wsgi.py`` "
+"file it will use that, otherwise will default to using ``openstack_dashboard/"
+"wsgi.py``"
+
+msgid ""
+"There are a number of horizon plugins for various useful features. You can "
+"get dashboard supports for them by installing corresponding horizon plugins."
+msgstr ""
+"There are a number of Horizon plugins for various useful features. You can "
+"get dashboard supports for them by installing corresponding Horizon plugins."
+
+msgid ""
+"There are two modes of installation. One using ``/horizon`` as the URL, "
+"keeping your default vhost and only adding an Alias directive: this is the "
+"default. The other mode will remove the default Apache vhost and install the "
+"dashboard on the webroot. It was the only available option before the "
+"Liberty release. If you prefer to set the Apache configuration manually,  "
+"install the ``openstack-dashboard`` package instead of ``openstack-dashboard-"
+"apache``."
+msgstr ""
+"There are two modes of installation. One using ``/horizon`` as the URL, "
+"keeping your default vhost and only adding an Alias directive: this is the "
+"default. The other mode will remove the default Apache vhost and install the "
+"dashboard on the webroot. It was the only available option before the "
+"Liberty release. If you prefer to set the Apache configuration manually,  "
+"install the ``openstack-dashboard`` package instead of ``openstack-dashboard-"
+"apache``."
+
+msgid ""
+"This page covers the basic installation of horizon in a production "
+"environment. If you are looking for a developer environment, see :ref:"
+"`quickstart`."
+msgstr ""
+"This page covers the basic installation of horizon in a production "
+"environment. If you are looking for a developer environment, see :ref:"
+"`quickstart`."
+
+msgid ""
+"This section assumes proper installation, configuration, and operation of "
+"the Identity service using the Apache HTTP server and Memcached service."
+msgstr ""
+"This section assumes proper installation, configuration, and operation of "
+"the Identity service using the Apache HTTP server and Memcached service."
+
+msgid ""
+"This section contains a small summary of the critical settings required to "
+"run horizon. For more details, please refer to :ref:`install-settings`."
+msgstr ""
+"This section contains a small summary of the critical settings required to "
+"runHorizon. For more details, please refer to :ref:`install-settings`."
+
+msgid ""
+"This section describes how to install and configure the dashboard on the "
+"controller node."
+msgstr ""
+"This section describes how to install and configure the dashboard on the "
+"controller node."
+
+msgid ""
+"To mitigate the performance issues of database queries, you can also "
+"consider using Django's ``cached_db`` session backend which utilizes both "
+"your database and caching infrastructure to perform write-through caching "
+"and efficient retrieval. You can enable this hybrid setting by configuring "
+"both your database and cache as discussed above and then using"
+msgstr ""
+"To mitigate the performance issues of database queries, you can also "
+"consider using Django's ``cached_db`` session backend which utilises both "
+"your database and caching infrastructure to perform write-through caching "
+"and efficient retrieval. You can enable this hybrid setting by configuring "
+"both your database and cache as discussed above and then using"
+
+msgid ""
+"To use the VNC client with the dashboard, the browser must support HTML5 "
+"Canvas and HTML5 WebSockets."
+msgstr ""
+"To use the VNC client with the dashboard, the browser must support HTML5 "
+"Canvas and HTML5 WebSockets."
+
+msgid "Translations"
+msgstr "Translations"
+
+msgid "TripleO UI"
+msgstr "TripleO UI"
+
+msgid "Trove Dashboard"
+msgstr "Trove Dashboard"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Verify operation for Debian"
+msgstr "Verify operation for Debian"
+
+msgid "Verify operation for Red Hat Enterprise Linux and CentOS"
+msgstr "Verify operation for Red Hat Enterprise Linux and CentOS"
+
+msgid "Verify operation for Ubuntu"
+msgstr "Verify operation for Ubuntu"
+
+msgid "Verify operation for openSUSE and SUSE Linux Enterprise"
+msgstr "Verify operation for openSUSE and SUSE Linux Enterprise"
+
+msgid "Verify operation of the dashboard."
+msgstr "Verify operation of the dashboard."
+
+msgid "Vitrage Dashboard"
+msgstr "Vitrage Dashboard"
+
+msgid "Watcher Dashboard"
+msgstr "Watcher Dashboard"
+
+msgid ""
+"You can either use the provided ``openstack_dashboard/wsgi.py`` or generate "
+"a ``openstack_dashboard/horizon_wsgi.py`` file with the following command "
+"(which detects if you use a virtual environment or not to automatically "
+"build an adapted WSGI file)"
+msgstr ""
+"You can either use the provided ``openstack_dashboard/wsgi.py`` or generate "
+"a ``openstack_dashboard/horizon_wsgi.py`` file with the following command "
+"(which detects if you use a virtual environment or not to automatically "
+"build an adapted WSGI file)"
+
+msgid "Your OpenStack environment now includes the dashboard."
+msgstr "Your OpenStack environment now includes the dashboard."
+
+msgid "Zaqar UI"
+msgstr "Zaqar UI"
+
+msgid "Zun UI"
+msgstr "Zun UI"
+
+msgid "``ALLOWED_HOSTS``"
+msgstr "``ALLOWED_HOSTS``"
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See `Django documentation <https://docs.djangoproject."
+"com/en/dev/ref/settings/#allowed-hosts>`_ for further information."
+msgstr ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See `Django documentation <https://docs.djangoproject."
+"com/en/dev/ref/settings/#allowed-hosts>`_ for further information."
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See the `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ for further "
+"information."
+msgstr ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See the `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ for further "
+"information."
+
+msgid "``DEBUG``"
+msgstr "``DEBUG``"
+
+msgid "``OPENSTACK_HOST``"
+msgstr "``OPENSTACK_HOST``"
+
+msgid "`cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage"
+msgstr "`cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage"
+
+msgid "`glance <https://docs.openstack.org/glance/latest/>`_: Image Management"
+msgstr ""
+"`glance <https://docs.openstack.org/glance/latest/>`_: Image Management"
+
+msgid "`neutron <https://docs.openstack.org/neutron/latest/>`_: Networking"
+msgstr "`neutron <https://docs.openstack.org/neutron/latest/>`_: Networking"
+
+msgid "`nova <https://docs.openstack.org/nova/latest/>`_: Compute"
+msgstr "`nova <https://docs.openstack.org/nova/latest/>`_: Compute"
+
+msgid "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
+msgstr "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
+
+msgid "https://github.com/openstack/blazar-dashboard"
+msgstr "https://github.com/openstack/blazar-dashboard"
+
+msgid "https://github.com/openstack/cloudkitty-dashboard"
+msgstr "https://github.com/openstack/cloudkitty-dashboard"
+
+msgid "https://github.com/openstack/congress-dashboard"
+msgstr "https://github.com/openstack/congress-dashboard"
+
+msgid "https://github.com/openstack/designate-dashboard"
+msgstr "https://github.com/openstack/designate-dashboard"
+
+msgid "https://github.com/openstack/freezer-web-ui"
+msgstr "https://github.com/openstack/freezer-web-ui"
+
+msgid "https://github.com/openstack/group-based-policy-ui"
+msgstr "https://github.com/openstack/group-based-policy-ui"
+
+msgid "https://github.com/openstack/heat-dashboard"
+msgstr "https://github.com/openstack/heat-dashboard"
+
+msgid "https://github.com/openstack/ironic-ui"
+msgstr "https://github.com/openstack/ironic-ui"
+
+msgid "https://github.com/openstack/karbor-dashboard"
+msgstr "https://github.com/openstack/karbor-dashboard"
+
+msgid "https://github.com/openstack/magnum-ui"
+msgstr "https://github.com/openstack/magnum-ui"
+
+msgid "https://github.com/openstack/manila-ui"
+msgstr "https://github.com/openstack/manila-ui"
+
+msgid "https://github.com/openstack/mistral-dashboard"
+msgstr "https://github.com/openstack/mistral-dashboard"
+
+msgid "https://github.com/openstack/monasca-ui"
+msgstr "https://github.com/openstack/monasca-ui"
+
+msgid "https://github.com/openstack/murano-dashboard"
+msgstr "https://github.com/openstack/murano-dashboard"
+
+msgid "https://github.com/openstack/networking-bgpvpn"
+msgstr "https://github.com/openstack/networking-bgpvpn"
+
+msgid "https://github.com/openstack/neutron-fwaas-dashboard"
+msgstr "https://github.com/openstack/neutron-fwaas-dashboard"
+
+msgid "https://github.com/openstack/neutron-lbaas-dashboard"
+msgstr "https://github.com/openstack/neutron-lbaas-dashboard"
+
+msgid "https://github.com/openstack/neutron-vpnaas-dashboard"
+msgstr "https://github.com/openstack/neutron-vpnaas-dashboard"
+
+msgid "https://github.com/openstack/octavia-dashboard"
+msgstr "https://github.com/openstack/octavia-dashboard"
+
+msgid "https://github.com/openstack/sahara-dashboard"
+msgstr "https://github.com/openstack/sahara-dashboard"
+
+msgid "https://github.com/openstack/searchlight-ui"
+msgstr "https://github.com/openstack/searchlight-ui"
+
+msgid "https://github.com/openstack/senlin-dashboard"
+msgstr "https://github.com/openstack/senlin-dashboard"
+
+msgid "https://github.com/openstack/solum-dashboard"
+msgstr "https://github.com/openstack/solum-dashboard"
+
+msgid "https://github.com/openstack/tacker-horizon"
+msgstr "https://github.com/openstack/tacker-horizon"
+
+msgid "https://github.com/openstack/tripleo-ui/"
+msgstr "https://github.com/openstack/tripleo-ui/"
+
+msgid "https://github.com/openstack/trove-dashboard"
+msgstr "https://github.com/openstack/trove-dashboard"
+
+msgid "https://github.com/openstack/vitrage-dashboard"
+msgstr "https://github.com/openstack/vitrage-dashboard"
+
+msgid "https://github.com/openstack/watcher-dashboard"
+msgstr "https://github.com/openstack/watcher-dashboard"
+
+msgid "https://github.com/openstack/zaqar-ui"
+msgstr "https://github.com/openstack/zaqar-ui"
+
+msgid "https://github.com/openstack/zun-ui"
+msgstr "https://github.com/openstack/zun-ui"
+
+msgid "https://launchpad.net/bgpvpn"
+msgstr "https://launchpad.net/bgpvpn"
+
+msgid "https://launchpad.net/blazar"
+msgstr "https://launchpad.net/blazar"
+
+msgid "https://launchpad.net/cloudkitty"
+msgstr "https://launchpad.net/cloudkitty"
+
+msgid "https://launchpad.net/congress"
+msgstr "https://launchpad.net/congress"
+
+msgid "https://launchpad.net/designate-dashboard"
+msgstr "https://launchpad.net/designate-dashboard"
+
+msgid "https://launchpad.net/freezer"
+msgstr "https://launchpad.net/freezer"
+
+msgid "https://launchpad.net/group-based-policy-ui"
+msgstr "https://launchpad.net/group-based-policy-ui"
+
+msgid "https://launchpad.net/ironic-ui"
+msgstr "https://launchpad.net/ironic-ui"
+
+msgid "https://launchpad.net/karbor-dashboard"
+msgstr "https://launchpad.net/karbor-dashboard"
+
+msgid "https://launchpad.net/magnum-ui"
+msgstr "https://launchpad.net/magnum-ui"
+
+msgid "https://launchpad.net/manila-ui"
+msgstr "https://launchpad.net/manila-ui"
+
+msgid "https://launchpad.net/mistral"
+msgstr "https://launchpad.net/mistral"
+
+msgid "https://launchpad.net/monasca"
+msgstr "https://launchpad.net/monasca"
+
+msgid "https://launchpad.net/murano"
+msgstr "https://launchpad.net/murano"
+
+msgid "https://launchpad.net/neutron-fwaas-dashboard"
+msgstr "https://launchpad.net/neutron-fwaas-dashboard"
+
+msgid "https://launchpad.net/neutron-vpnaas-dashboard"
+msgstr "https://launchpad.net/neutron-vpnaas-dashboard"
+
+msgid "https://launchpad.net/searchlight"
+msgstr "https://launchpad.net/searchlight"
+
+msgid "https://launchpad.net/senlin-dashboard"
+msgstr "https://launchpad.net/senlin-dashboard"
+
+msgid "https://launchpad.net/solum"
+msgstr "https://launchpad.net/solum"
+
+msgid "https://launchpad.net/tacker"
+msgstr "https://launchpad.net/tacker"
+
+msgid "https://launchpad.net/tripleo"
+msgstr "https://launchpad.net/tripleo"
+
+msgid "https://launchpad.net/trove-dashboard"
+msgstr "https://launchpad.net/trove-dashboard"
+
+msgid "https://launchpad.net/vitrage-dashboard"
+msgstr "https://launchpad.net/vitrage-dashboard"
+
+msgid "https://launchpad.net/watcher-dashboard"
+msgstr "https://launchpad.net/watcher-dashboard"
+
+msgid "https://launchpad.net/zaqar-ui"
+msgstr "https://launchpad.net/zaqar-ui"
+
+msgid "https://launchpad.net/zun-ui"
+msgstr "https://launchpad.net/zun-ui"
+
+msgid "https://storyboard.openstack.org/#!/project/907"
+msgstr "https://storyboard.openstack.org/#!/project/907"
+
+msgid "https://storyboard.openstack.org/#!/project/909"
+msgstr "https://storyboard.openstack.org/#!/project/909"
+
+msgid "https://storyboard.openstack.org/#!/project/936"
+msgstr "https://storyboard.openstack.org/#!/project/936"
+
+msgid "https://storyboard.openstack.org/#!/project/992"
+msgstr "https://storyboard.openstack.org/#!/project/992"
