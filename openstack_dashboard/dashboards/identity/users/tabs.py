@@ -17,6 +17,8 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.identity.users.groups \
+    import tables as groups_tables
 from openstack_dashboard.dashboards.identity.users.role_assignments \
     import tables as role_assignments_tables
 
@@ -61,6 +63,27 @@ class RoleAssignmentsTab(tabs.TableTab):
         return []
 
 
+class GroupsTab(tabs.TableTab):
+    """Groups of the user."""
+    table_classes = (groups_tables.GroupsTable,)
+    name = _("Groups")
+    slug = "groups"
+    template_name = "horizon/common/_detail_table.html"
+    preload = False
+
+    def get_groupstable_data(self):
+        user_groups = []
+        user = self.tab_group.kwargs['user']
+
+        try:
+            user_groups = api.keystone.group_list(self.request, user=user.id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _("Unable to display the groups of this user."))
+
+        return user_groups
+
+
 class UserDetailTabs(tabs.DetailTabsGroup):
     slug = "user_details"
-    tabs = (OverviewTab, RoleAssignmentsTab,)
+    tabs = (OverviewTab, RoleAssignmentsTab, GroupsTab,)
