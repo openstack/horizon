@@ -48,9 +48,17 @@ def get_system_scope(datum):
 
 
 def get_role_name(datum):
-    if "name" in datum.role:
-        return datum.role["name"]
-    return datum.role["id"]
+    role_name = datum.role["name"] if "name" in datum.role \
+        else datum.role["id"]
+
+    if hasattr(datum, "group"):
+        # This is a role assignment through a group
+        group_name = datum.group["name"] if "name" in datum.group \
+            else datum.group["id"]
+        role_name = _("%(role)s  (through group %(group)s)") % {
+            'role': role_name, 'group': group_name}
+
+    return role_name
 
 
 class RoleAssignmentsTable(tables.DataTable):
@@ -86,7 +94,13 @@ class RoleAssignmentsTable(tables.DataTable):
         elif "domain" in datum.scope:
             scope_id = datum.scope["domain"]["id"]
 
-        return "%s%s%s" % (datum.user["id"], datum.role["id"], scope_id)
+        assignee_id = ""
+        if hasattr(datum, "user"):
+            assignee_id = datum.user["id"]
+        elif hasattr(datum, "group"):
+            assignee_id = datum.group["id"]
+
+        return "%s%s%s" % (assignee_id, datum.role["id"], scope_id)
 
     class Meta(object):
         name = "roleassignmentstable"
