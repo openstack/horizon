@@ -24,6 +24,7 @@ from django.urls import reverse
 import mock
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.identity.users import tabs
 from openstack_dashboard.test import helpers as test
 
 
@@ -858,7 +859,9 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(USER_DETAIL_URL, args=[user.id])
 
-        self.assertTemplateUsed(res, 'identity/users/detail.html')
+        # The first tab is overview, it is the one loaded without query param
+        # in the url.
+        self.assertTemplateUsed(res, 'identity/users/_detail_overview.html')
         self.assertEqual(res.context['user'].name, user.name)
         self.assertEqual(res.context['user'].id, user.id)
         self.assertEqual(res.context['tenant_name'], tenant.name)
@@ -880,6 +883,44 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
         self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
                                                    admin=False)
+
+    @test.create_mocks({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_get')})
+    def test_detail_view_overview_tab(self):
+        """Test the overview tab of the detail view .
+
+        Test the overview tab using directly the url targeting the tab.
+        """
+        domain = self._get_default_domain()
+        user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
+
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
+
+        # Url of the overview tab of the detail view
+        url = USER_DETAIL_URL % [user.id]
+        detail_view = tabs.UserDetailTabs(self.request, user=user)
+        overview_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("overview").get_id()
+        )
+        url += overview_tab_link
+
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'identity/users/_detail_overview.html')
+        self.assertEqual(res.context['user'].name, user.name)
+        self.assertEqual(res.context['user'].id, user.id)
+        self.assertEqual(res.context['tenant_name'], tenant.name)
+
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
 
     @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',

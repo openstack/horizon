@@ -30,8 +30,8 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon import tables
+from horizon import tabs
 from horizon.utils import memoized
-from horizon import views
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
@@ -40,6 +40,8 @@ from openstack_dashboard.dashboards.identity.users \
     import forms as project_forms
 from openstack_dashboard.dashboards.identity.users \
     import tables as project_tables
+from openstack_dashboard.dashboards.identity.users \
+    import tabs as user_tabs
 from openstack_dashboard.utils import identity
 
 LOG = logging.getLogger(__name__)
@@ -197,8 +199,9 @@ class CreateView(forms.ModalFormView):
                 'role_id': getattr(default_role, "id", None)}
 
 
-class DetailView(views.HorizonTemplateView):
-    template_name = 'identity/users/detail.html'
+class DetailView(tabs.TabView):
+    tab_group_class = user_tabs.UserDetailTabs
+    template_name = 'horizon/common/_detail.html'
     page_title = "{{ user.name }}"
 
     def get_context_data(self, **kwargs):
@@ -260,6 +263,10 @@ class DetailView(views.HorizonTemplateView):
 
     def get_redirect_url(self):
         return reverse('horizon:identity:users:index')
+
+    def get_tabs(self, request, *args, **kwargs):
+        user = self.get_data()
+        return self.tab_group_class(request, user=user, **kwargs)
 
 
 class ChangePasswordView(forms.ModalFormView):
