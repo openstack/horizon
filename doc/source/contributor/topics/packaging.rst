@@ -13,7 +13,7 @@ A developer building a package is comparable to an engineer building a car
 with only a manual and very few tools. If the engineer needs a specific tool
 to build the car, he must create the tool, too.
 
-As a developer, if you are going to add a library named “foo”, the package
+As a developer, if you are going to add a library named "foo", the package
 must adhere to the following standards:
 
 - Be a free package created with free software.

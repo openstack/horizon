@@ -213,7 +213,7 @@ Required
   fragment and then append the fragment to the DOM in one pass instead of doing
   multiple smaller DOM updates.
 
-* Use “strict”, enclosing each JavaScript file inside a self-executing
+* Use "strict", enclosing each JavaScript file inside a self-executing
   function. The self-executing function keeps the strict scoped to the file,
   so its variables and methods are not exposed to other JavaScript files in
   the product.
@@ -332,7 +332,7 @@ Recommended
 * Put a comment at the top of every file explaining what the purpose of this
   file is when the naming is not obvious. This guideline also applies to
   methods and variables.
-* Source-code formatting – (or “beautification”) is recommended but should be
+* Source-code formatting – (or "beautification") is recommended but should be
   used with caution. Keep in mind that if you reformat an entire file that was
   not previously formatted the same way, it will mess up the diff during the
   code review. It is best to use a formatter when you are working on a new file
