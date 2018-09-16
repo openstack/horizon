@@ -1,0 +1,2134 @@
+# Andi Chandler <andi@gowling.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-08-31 04:58+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"Language-Team: English (United Kingdom)\n"
+"Language: en_GB\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "**Bandwidth I/O**"
+msgstr "**Bandwidth I/O**"
+
+msgid "**CPU limits**"
+msgstr "**CPU limits**"
+
+msgid "**Dashboard — Create Flavor**"
+msgstr "**Dashboard — Create Flavour**"
+
+msgid "**Disk tuning**"
+msgstr "**Disk tuning**"
+
+msgid "**Encryption Options**"
+msgstr "**Encryption Options**"
+
+msgid "**Ephemeral Disk (GB)**"
+msgstr "**Ephemeral Disk (GB)**"
+
+msgid "**Example After**"
+msgstr "**Example After**"
+
+msgid "**Example Before**"
+msgstr "**Example Before**"
+
+msgid "**Figure Dashboard — Create Image**"
+msgstr "**Figure Dashboard — Create Image**"
+
+msgid "**Figure Dashboard — Instance Actions**"
+msgstr "**Figure Dashboard — Instance Actions**"
+
+msgid "**ID**"
+msgstr "**ID**"
+
+msgid "**Name**"
+msgstr "**Name**"
+
+msgid "**Optional metadata keys**"
+msgstr "**Optional metadata keys**"
+
+msgid "**Quota Descriptions**"
+msgstr "**Quota Descriptions**"
+
+msgid "**RAM (MB)**"
+msgstr "**RAM (MB)**"
+
+msgid "**RX/TX Factor**"
+msgstr "**RX/TX Factor**"
+
+msgid "**Random-number generator**"
+msgstr "**Random-number generator**"
+
+msgid "**Root Disk (GB)**"
+msgstr "**Root Disk (GB)**"
+
+msgid "**Swap Disk (MB)**"
+msgstr "**Swap Disk (MB)**"
+
+msgid "**VCPUs**"
+msgstr "**VCPUs**"
+
+msgid "**Watchdog behavior**"
+msgstr "**Watchdog behaviour**"
+
+msgid "1"
+msgstr "1"
+
+msgid "160"
+msgstr "160"
+
+msgid "16384"
+msgstr "16384"
+
+msgid "2"
+msgstr "2"
+
+msgid "20"
+msgstr "20"
+
+msgid "2048"
+msgstr "2048"
+
+msgid "256"
+msgstr "256"
+
+msgid "4"
+msgstr "4"
+
+msgid "40"
+msgstr "40"
+
+msgid "4096"
+msgstr "4096"
+
+msgid "512"
+msgstr "512"
+
+msgid ""
+"512 (Recommended for aes-xts-plain64. 256 should be used for aes-cbc-essiv)"
+msgstr ""
+"512 (Recommended for aes-xts-plain64. 256 should be used for aes-cbc-essiv)"
+
+msgid "8"
+msgstr "8"
+
+msgid "80"
+msgstr "80"
+
+msgid "8192"
+msgstr "8192"
+
+msgid ":guilabel:`Architecture`"
+msgstr ":guilabel:`Architecture`"
+
+msgid ""
+":guilabel:`Availability Zone`: The cloud provider defines the default "
+"availability zone, such as ``us-west``, ``apac-south``, or ``nova``. You can "
+"target the host aggregate, as follows:"
+msgstr ""
+":guilabel:`Availability Zone`: The cloud provider defines the default "
+"availability zone, such as ``us-west``, ``apac-south``, or ``nova``. You can "
+"target the host aggregate, as follows:"
+
+msgid ""
+":guilabel:`Block Storage Services`: Displays information specific to the "
+"Block Storage service. Both host and zone are listed for each service, as "
+"well as its activation status."
+msgstr ""
+":guilabel:`Block Storage Services`: Displays information specific to the "
+"Block Storage service. Both host and zone are listed for each service, as "
+"well as its activation status."
+
+msgid ""
+":guilabel:`Compute Services`: Displays information specific to the Compute "
+"service. Both host and zone are listed for each service, as well as its "
+"activation status."
+msgstr ""
+":guilabel:`Compute Services`: Displays information specific to the Compute "
+"service. Both host and zone are listed for each service, as well as its "
+"activation status."
+
+msgid ":guilabel:`Copy Data`"
+msgstr ":guilabel:`Copy Data`"
+
+msgid ":guilabel:`Description`"
+msgstr ":guilabel:`Description`"
+
+msgid ":guilabel:`Format`"
+msgstr ":guilabel:`Format`"
+
+msgid ":guilabel:`Image File` or :guilabel:`Image Location`"
+msgstr ":guilabel:`Image File` or :guilabel:`Image Location`"
+
+msgid ":guilabel:`Image Source`"
+msgstr ":guilabel:`Image Source`"
+
+msgid ":guilabel:`Minimum Disk (GB)`"
+msgstr ":guilabel:`Minimum Disk (GB)`"
+
+msgid ":guilabel:`Minimum RAM (MB)`"
+msgstr ":guilabel:`Minimum RAM (MB)`"
+
+msgid ":guilabel:`Name`"
+msgstr ":guilabel:`Name`"
+
+msgid ":guilabel:`Name`: The host aggregate name."
+msgstr ":guilabel:`Name`: The host aggregate name."
+
+msgid ""
+":guilabel:`Network Agents`: Displays the network agents active within the "
+"cluster, such as L3 and DHCP agents, and the status of each agent."
+msgstr ""
+":guilabel:`Network Agents`: Displays the network agents active within the "
+"cluster, such as L3 and DHCP agents, and the status of each agent."
+
+msgid ":guilabel:`Protected`"
+msgstr ":guilabel:`Protected`"
+
+msgid ":guilabel:`Public`"
+msgstr ":guilabel:`Public`"
+
+msgid ""
+":guilabel:`Services`: Displays the internal name and the public OpenStack "
+"name for each service, the host on which the service runs, and whether or "
+"not the service is enabled."
+msgstr ""
+":guilabel:`Services`: Displays the internal name and the public OpenStack "
+"name for each service, the host on which the service runs, and whether or "
+"not the service is enabled."
+
+msgid "A message indicates whether the action succeeded."
+msgstr "A message indicates whether the action succeeded."
+
+msgid ""
+"A role is a personality that a user assumes to perform a specific set of "
+"operations. A role includes a set of rights and privileges. A user assumes "
+"that role inherits those rights and privileges."
+msgstr ""
+"A role is a personality that a user assumes to perform a specific set of "
+"operations. A role includes a set of rights and privileges. A user assumes "
+"that role inherits those rights and privileges."
+
+msgid ""
+"Add a line to include your newly created style sheet. For example, ``custom."
+"css`` file:"
+msgstr ""
+"Add a line to include your newly created style sheet. For example, ``custom."
+"css`` file:"
+
+msgid "Add a new project"
+msgstr "Add a new project"
+
+msgid "Add a new user"
+msgstr "Add a new user"
+
+msgid ""
+"Adjust the :guilabel:`Domain Name`, :guilabel:`User Name`, :guilabel:"
+"`Description`, :guilabel:`Email`, and :guilabel:`Primary Project`."
+msgstr ""
+"Adjust the :guilabel:`Domain Name`, :guilabel:`User Name`, :guilabel:"
+"`Description`, :guilabel:`Email`, and :guilabel:`Primary Project`."
+
+msgid "Administration Guide"
+msgstr "Administration Guide"
+
+msgid ""
+"After architecting and implementing the core OpenStack services and other "
+"required services, combined with the Dashboard service steps below, users "
+"and administrators can use the OpenStack dashboard. Refer to the :doc:"
+"`OpenStack User Documentation </user/index>` chapter of the OpenStack End "
+"User Guide for further instructions on logging in to the Dashboard."
+msgstr ""
+"After architecting and implementing the core OpenStack services and other "
+"required services, combined with the Dashboard service steps below, users "
+"and administrators can use the OpenStack dashboard. Refer to the :doc:"
+"`OpenStack User Documentation </user/index>` chapter of the OpenStack End "
+"User Guide for further instructions on logging in to the Dashboard."
+
+msgid ""
+"After configuring the ``local_settings.py`` file as shown, you can run the :"
+"command:`manage.py syncdb` command to populate this newly created database."
+msgstr ""
+"After configuring the ``local_settings.py`` file as shown, you can run the :"
+"command:`manage.py syncdb` command to populate this newly created database."
+
+msgid ""
+"Allows easier import and migration of imported encrypted volumes, and allows "
+"access key to be changed without re-encrypting the volume"
+msgstr ""
+"Allows easier import and migration of imported encrypted volumes, and allows "
+"access key to be changed without re-encrypting the volume"
+
+msgid ""
+"As an administrative user, you can create and manage images for the projects "
+"to which you belong. You can also create and manage images for users in all "
+"projects to which you have access."
+msgstr ""
+"As an administrative user, you can create and manage images for the projects "
+"to which you belong. You can also create and manage images for users in all "
+"projects to which you have access."
+
+msgid ""
+"As an administrative user, you can manage instances for users in various "
+"projects. You can view, terminate, edit, perform a soft or hard reboot, "
+"create a snapshot from, and migrate instances. You can also view the logs "
+"for instances or launch a VNC console for an instance."
+msgstr ""
+"As an administrative user, you can manage instances for users in various "
+"projects. You can view, terminate, edit, perform a soft or hard reboot, "
+"create a snapshot from, and migrate instances. You can also view the logs "
+"for instances or launch a VNC console for an instance."
+
+msgid ""
+"As an administrative user, you can manage volumes and volume types for users "
+"in various projects. You can create and delete volume types, and you can "
+"view and delete volumes. Note that a volume can be encrypted by using the "
+"steps outlined below."
+msgstr ""
+"As an administrative user, you can manage volumes and volume types for users "
+"in various projects. You can create and delete volume types, and you can "
+"view and delete volumes. Note that a volume can be encrypted by using the "
+"steps outlined below."
+
+msgid ""
+"As an administrative user, you can view information for OpenStack services."
+msgstr ""
+"As an administrative user, you can view information for OpenStack services."
+
+msgid ""
+"As of Newton, there are no default flavors.  The following table lists the "
+"default flavors for Mitaka and earlier."
+msgstr ""
+"As of Newton, there are no default flavours.  The following table lists the "
+"default flavours for Mitaka and earlier."
+
+msgid ""
+"Assign hosts to the aggregate using the :guilabel:`Manage Hosts within "
+"Aggregate` tab in the same dialog box."
+msgstr ""
+"Assign hosts to the aggregate using the :guilabel:`Manage Hosts within "
+"Aggregate` tab in the same dialogue box."
+
+msgid ""
+"Based on your selection, there is an :guilabel:`Image File` or :guilabel:"
+"`Image Location` field. You can include the location URL or browse for the "
+"image file on your file system and add it."
+msgstr ""
+"Based on your selection, there is an :guilabel:`Image File` or :guilabel:"
+"`Image Location` field. You can include the location URL or browse for the "
+"image file on your file system and add it."
+
+msgid "Block Storage"
+msgstr "Block Storage"
+
+msgid ""
+"By default, the help URL points to https://docs.openstack.org. To change "
+"this, edit the following attribute in ``local_settings.py``:"
+msgstr ""
+"By default, the help URL points to https://docs.openstack.org. To change "
+"this, edit the following attribute in ``local_settings.py``:"
+
+msgid "Cached database"
+msgstr "Cached database"
+
+msgid ""
+"Change the colors and image file names as appropriate. Ensure the relative "
+"directory paths are the same. The following example file shows you how to "
+"customize your CSS file:"
+msgstr ""
+"Change the colours and image file names as appropriate. Ensure the relative "
+"directory paths are the same. The following example file shows you how to "
+"customise your CSS file:"
+
+msgid ""
+"Choose the image source from the dropdown list. Your choices are :guilabel:"
+"`Image Location` and :guilabel:`Image File`."
+msgstr ""
+"Choose the image source from the dropdown list. Your choices are :guilabel:"
+"`Image Location` and :guilabel:`Image File`."
+
+msgid "Cipher"
+msgstr "Cipher"
+
+msgid ""
+"Click :guilabel:`Create Encryption` in the Actions column of the newly "
+"created volume type."
+msgstr ""
+"Click :guilabel:`Create Encryption` in the Actions column of the newly "
+"created volume type."
+
+msgid "Click :guilabel:`Create Flavor`."
+msgstr "Click :guilabel:`Create Flavour`."
+
+msgid "Click :guilabel:`Create Host Aggregate`."
+msgstr "Click :guilabel:`Create Host Aggregate`."
+
+msgid ""
+"Click :guilabel:`Create Image`, which opens the :guilabel:`Create An Image` "
+"window."
+msgstr ""
+"Click :guilabel:`Create Image`, which opens the :guilabel:`Create An Image` "
+"window."
+
+msgid "Click :guilabel:`Create Image`."
+msgstr "Click :guilabel:`Create Image`."
+
+msgid "Click :guilabel:`Create Project`."
+msgstr "Click :guilabel:`Create Project`."
+
+msgid ""
+"Click :guilabel:`Create Snapshot`. The Dashboard shows the instance snapshot "
+"in the :guilabel:`Images` category."
+msgstr ""
+"Click :guilabel:`Create Snapshot`. The Dashboard shows the instance snapshot "
+"in the :guilabel:`Images` category."
+
+msgid "Click :guilabel:`Create User`."
+msgstr "Click :guilabel:`Create User`."
+
+msgid "Click :guilabel:`Create Volume Type Encryption`."
+msgstr "Click :guilabel:`Create Volume Type Encryption`."
+
+msgid "Click :guilabel:`Create Volume Type` button to confirm your changes."
+msgstr "Click :guilabel:`Create Volume Type` button to confirm your changes."
+
+msgid "Click :guilabel:`Delete Flavors`."
+msgstr "Click :guilabel:`Delete Flavours`."
+
+msgid "Click :guilabel:`Delete Images`."
+msgstr "Click :guilabel:`Delete Images`."
+
+msgid "Click :guilabel:`Delete Volume Types` button."
+msgstr "Click :guilabel:`Delete Volume Types` button."
+
+msgid "Click :guilabel:`Delete Volumes` button."
+msgstr "Click :guilabel:`Delete Volumes` button."
+
+msgid "Click :guilabel:`Download CSV Summary` to download a CSV summary."
+msgstr "Click :guilabel:`Download CSV Summary` to download a CSV summary."
+
+msgid "Click :guilabel:`Edit Image`."
+msgstr "Click :guilabel:`Edit Image`."
+
+msgid "Click :guilabel:`Save`."
+msgstr "Click :guilabel:`Save`."
+
+msgid "Click on the :guilabel:`Delete Projects` push button."
+msgstr "Click on the :guilabel:`Delete Projects` push button."
+
+msgid "Click on the :guilabel:`Delete Users` push button."
+msgstr "Click on the :guilabel:`Delete Users` push button."
+
+msgid ""
+"Click on the :guilabel:`Identity` label on the left column, and click :"
+"guilabel:`Projects`."
+msgstr ""
+"Click on the :guilabel:`Identity` label on the left column, and click :"
+"guilabel:`Projects`."
+
+msgid ""
+"Click on the :guilabel:`Identity` label on the left column, and click :"
+"guilabel:`Users`."
+msgstr ""
+"Click on the :guilabel:`Identity` label on the left column, and click :"
+"guilabel:`Users`."
+
+msgid "Click the :guilabel:`Create Role` button to confirm your changes."
+msgstr "Click the :guilabel:`Create Role` button to confirm your changes."
+
+msgid "Click the :guilabel:`Create Role` button."
+msgstr "Click the :guilabel:`Create Role` button."
+
+msgid "Click the :guilabel:`Create User` push button."
+msgstr "Click the :guilabel:`Create User` push button."
+
+msgid "Click the :guilabel:`Edit` button."
+msgstr "Click the :guilabel:`Edit` button."
+
+msgid "Click the :guilabel:`Update Defaults` button."
+msgstr "Click the :guilabel:`Update Defaults` button."
+
+msgid "Click the :guilabel:`Update Role` button to confirm your changes."
+msgstr "Click the :guilabel:`Update Role` button to confirm your changes."
+
+msgid ""
+"Click the :guilabel:`Volume Types` tab, and click :guilabel:`Create Volume "
+"Type` button. In the :guilabel:`Create Volume Type` window, enter a name for "
+"the volume type."
+msgstr ""
+"Click the :guilabel:`Volume Types` tab, and click :guilabel:`Create Volume "
+"Type` button. In the :guilabel:`Create Volume Type` window, enter a name for "
+"the volume type."
+
+msgid ""
+"Click the :guilabel:`Volume Types` tab, select the volume type or types that "
+"you want to delete."
+msgstr ""
+"Click the :guilabel:`Volume Types` tab, select the volume type or types that "
+"you want to delete."
+
+msgid ""
+"Click the :guilabel:`Volumes` tab, Select the volume or volumes that you "
+"want to delete."
+msgstr ""
+"Click the :guilabel:`Volumes` tab, Select the volume or volumes that you "
+"want to delete."
+
+msgid "Comments"
+msgstr "Comments"
+
+msgid "Compute"
+msgstr "Compute"
+
+msgid "Configure the Dashboard"
+msgstr "Configure the Dashboard"
+
+msgid "Configure the Dashboard for HTTP"
+msgstr "Configure the Dashboard for HTTP"
+
+msgid "Configure the Dashboard for HTTPS"
+msgstr "Configure the Dashboard for HTTPS"
+
+msgid ""
+"Configure the encrypted volume by setting the parameters below from "
+"available options (see table):"
+msgstr ""
+"Configure the encrypted volume by setting the parameters below from "
+"available options (see table):"
+
+msgid ""
+"Configuring the Dashboard for HTTPS also requires enabling SSL for the noVNC "
+"proxy service. On the controller node, add the following additional options "
+"to the ``[DEFAULT]`` section of the ``/etc/nova/nova.conf`` file:"
+msgstr ""
+"Configuring the Dashboard for HTTPS also requires enabling SSL for the noVNC "
+"proxy service. On the controller node, add the following additional options "
+"to the ``[DEFAULT]`` section of the ``/etc/nova/nova.conf`` file:"
+
+msgid "Content bytes allowed for each injected file."
+msgstr "Content bytes allowed for each injected file."
+
+msgid "Control Location"
+msgstr "Control Location"
+
+msgid "Control the state of an instance"
+msgstr "Control the state of an instance"
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid ""
+"Create a CSS style sheet in ``/usr/share/openstack-dashboard/"
+"openstack_dashboard/static/dashboard/scss/``."
+msgstr ""
+"Create a CSS style sheet in ``/usr/share/openstack-dashboard/"
+"openstack_dashboard/static/dashboard/scss/``."
+
+msgid ""
+"Create a MySQL user for the newly created dash database that has full "
+"control of the database. Replace DASH\\_DBPASS with a password for the new "
+"user."
+msgstr ""
+"Create a MySQL user for the newly created dash database that has full "
+"control of the database. Replace DASH\\_DBPASS with a password for the new "
+"user."
+
+msgid "Create a role"
+msgstr "Create a role"
+
+msgid "Create a volume type"
+msgstr "Create a volume type"
+
+msgid ""
+"Create a volume type using the steps above for :ref:`create-a-volume-type`."
+msgstr ""
+"Create a volume type using the steps above for :ref:`create-a-volume-type`."
+
+msgid "Create an encrypted volume type"
+msgstr "Create an encrypted volume type"
+
+msgid "Create and manage host aggregates"
+msgstr "Create and manage host aggregates"
+
+msgid "Create and manage images"
+msgstr "Create and manage images"
+
+msgid "Create and manage roles"
+msgstr "Create and manage roles"
+
+msgid "Create flavors"
+msgstr "Create flavours"
+
+msgid "Create images"
+msgstr "Create images"
+
+msgid "Create instance snapshots"
+msgstr "Create instance snapshots"
+
+msgid ""
+"Create two PNG logo files with transparent backgrounds using the following "
+"sizes:"
+msgstr ""
+"Create two PNG logo files with transparent backgrounds using the following "
+"sizes:"
+
+msgid "Customize and configure the Dashboard"
+msgstr "Customise and configure the Dashboard"
+
+msgid "Customize the Dashboard"
+msgstr "Customise the Dashboard"
+
+msgid ""
+"Database-backed sessions are scalable, persistent, and can be made high-"
+"concurrency and highly available."
+msgstr ""
+"Database-backed sessions are scalable, persistent, and can be made high-"
+"concurrency and highly available."
+
+msgid "Defines the number of"
+msgstr "Defines the number of"
+
+msgid "Delete a new user"
+msgstr "Delete a new user"
+
+msgid "Delete a project"
+msgstr "Delete a project"
+
+msgid "Delete a role"
+msgstr "Delete a role"
+
+msgid "Delete flavors"
+msgstr "Delete flavours"
+
+msgid "Delete images"
+msgstr "Delete images"
+
+msgid "Delete volume types"
+msgstr "Delete volume types"
+
+msgid "Delete volumes"
+msgstr "Delete volumes"
+
+msgid ""
+"Depending on the current state of the instance, you can perform various "
+"actions on the instance. For example, pause, un-pause, suspend, resume, soft "
+"or hard reboot, or terminate (actions in red are dangerous)."
+msgstr ""
+"Depending on the current state of the instance, you can perform various "
+"actions on the instance. For example, pause, un-pause, suspend, resume, soft "
+"or hard reboot, or terminate (actions in red are dangerous)."
+
+msgid "Disk (in GB)"
+msgstr "Disk (in GB)"
+
+msgid ""
+"Each node can have multiple aggregates and each aggregate can have multiple "
+"key-value pairs. You can assign the same key-value pair to multiple "
+"aggregates."
+msgstr ""
+"Each node can have multiple aggregates and each aggregate can have multiple "
+"key-value pairs. You can assign the same key-value pair to multiple "
+"aggregates."
+
+msgid "Edit a role"
+msgstr "Edit a role"
+
+msgid ""
+"Edit the ``openstack-dashboard.conf`` file as shown in the **Example After**:"
+msgstr ""
+"Edit the ``openstack-dashboard.conf`` file as shown in the **Example After**:"
+
+msgid "Enable or disable a user"
+msgstr "Enable or disable a user"
+
+msgid ""
+"Enable this hybrid setting by configuring both your database and cache, as "
+"discussed previously. Then, set the following value:"
+msgstr ""
+"Enable this hybrid setting by configuring both your database and cache, as "
+"discussed previously. Then, set the following value:"
+
+msgid "Encryption parameters"
+msgstr "Encryption parameters"
+
+msgid "Enter ``quit`` at the ``mysql>`` prompt to exit MySQL."
+msgstr "Enter ``quit`` at the ``mysql>`` prompt to exit MySQL."
+
+msgid ""
+"Enter a :guilabel:`Domain Name`, the :guilabel:`Username`, and a :guilabel:"
+"`password` for the new user. Enter an email for the new user, and specify "
+"which :guilabel:`Primary Project` they belong to. Leave the :guilabel:"
+"`Domain ID` field set at *default*. You can also enter a decription for the "
+"new user."
+msgstr ""
+"Enter a :guilabel:`Domain Name`, the :guilabel:`Username`, and a :guilabel:"
+"`password` for the new user. Enter an email for the new user, and specify "
+"which :guilabel:`Primary Project` they belong to. Leave the :guilabel:"
+"`Domain ID` field set at *default*. You can also enter a description for the "
+"new user."
+
+msgid "Enter a brief description of the image."
+msgstr "Enter a brief description of the image."
+
+msgid "Enter a name for the image."
+msgstr "Enter a name for the image."
+
+msgid "Enter the MySQL root user's password when prompted."
+msgstr "Enter the MySQL root user's password when prompted."
+
+msgid ""
+"Enter the Project name and description. Leave the :guilabel:`Domain ID` "
+"field set at *default*."
+msgstr ""
+"Enter the Project name and description. Leave the :guilabel:`Domain ID` "
+"field set at *default*."
+
+msgid "Enter the amount of RAM to use, in megabytes."
+msgstr "Enter the amount of RAM to use, in megabytes."
+
+msgid ""
+"Enter the amount of disk space in gigabytes to use for the ephemeral "
+"partition. If unspecified, the value is 0 by default."
+msgstr ""
+"Enter the amount of disk space in gigabytes to use for the ephemeral "
+"partition. If unspecified, the value is 0 by default."
+
+msgid ""
+"Enter the amount of disk space in gigabytes to use for the root (/) "
+"partition."
+msgstr ""
+"Enter the amount of disk space in gigabytes to use for the root (/) "
+"partition."
+
+msgid ""
+"Enter the amount of swap space (in megabytes) to use. If unspecified, the "
+"default is 0."
+msgstr ""
+"Enter the amount of swap space (in megabytes) to use. If unspecified, the "
+"default is 0."
+
+msgid "Enter the flavor name."
+msgstr "Enter the flavour name."
+
+msgid "Enter the number of virtual CPUs to use."
+msgstr "Enter the number of virtual CPUs to use."
+
+msgid ""
+"Ephemeral disks offer machine local disk storage linked to the lifecycle of "
+"a VM instance. When a VM is terminated, all data on the ephemeral disk is "
+"lost. Ephemeral disks are not included in any snapshots."
+msgstr ""
+"Ephemeral disks offer machine local disk storage linked to the lifecycle of "
+"a VM instance. When a VM is terminated, all data on the ephemeral disk is "
+"lost. Ephemeral disks are not included in any snapshots."
+
+msgid "Flavor"
+msgstr "Flavour"
+
+msgid ""
+"For details about image creation, see the `Virtual Machine Image Guide "
+"<https://docs.openstack.org/image-guide/>`_."
+msgstr ""
+"For details about image creation, see the `Virtual Machine Image Guide "
+"<https://docs.openstack.org/image-guide/>`_."
+
+msgid ""
+"For information about supporting metadata keys, see the the Compute service "
+"documentation."
+msgstr ""
+"For information about supporting metadata keys, see the the Compute service "
+"documentation."
+
+msgid ""
+"For information about using the Dashboard to launch instances as an end "
+"user, see the :doc:`OpenStack End User Guide </user/launch-instances>`."
+msgstr ""
+"For information about using the Dashboard to launch instances as an end "
+"user, see the :doc:`OpenStack End User Guide </user/launch-instances>`."
+
+msgid ""
+"For information on configuring HTTPS or HTTP, see :ref:`configure_dashboard`."
+msgstr ""
+"For information on configuring HTTPS or HTTP, see :ref:`configure_dashboard`."
+
+msgid "From the drop-down list in the Actions column, select the state."
+msgstr "From the drop-down list in the Actions column, select the state."
+
+msgid "Gigabytes"
+msgstr "Gigabytes"
+
+msgid "HTML title"
+msgstr "HTML title"
+
+msgid "Help URL"
+msgstr "Help URL"
+
+msgid ""
+"Host aggregates enable administrative users to assign key-value pairs to "
+"groups of machines."
+msgstr ""
+"Host aggregates enable administrative users to assign key-value pairs to "
+"groups of machines."
+
+msgid ""
+"However, database-backed sessions are one of the slower session storages and "
+"incur a high overhead under heavy usage. Proper configuration of your "
+"database deployment can also be a substantial undertaking and is far beyond "
+"the scope of this documentation."
+msgstr ""
+"However, database-backed sessions are one of the slower session storages and "
+"incur a high overhead under heavy usage. Proper configuration of your "
+"database deployment can also be a substantial undertaking and is far beyond "
+"the scope of this documentation."
+
+msgid ""
+"If you try to access the Dashboard through HTTP, the browser redirects you "
+"to the HTTPS page."
+msgstr ""
+"If you try to access the Dashboard through HTTP, the browser redirects you "
+"to the HTTPS page."
+
+msgid ""
+"If you use Django 1.4 or later, the ``signed_cookies`` back end avoids "
+"server load and scaling problems."
+msgstr ""
+"If you use Django 1.4 or later, the ``signed_cookies`` back end avoids "
+"server load and scaling problems."
+
+msgid ""
+"In OpenStack, a flavor defines the compute, memory, and storage capacity of "
+"a virtual server, also known as an instance. As an administrative user, you "
+"can create, edit, and delete flavors."
+msgstr ""
+"In OpenStack, a flavour defines the compute, memory, and storage capacity of "
+"a virtual server, also known as an instance. As an administrative user, you "
+"can create, edit, and delete flavours."
+
+msgid ""
+"In the :guilabel:`Add/Remove Hosts to Aggregate` dialog box, click **+** to "
+"assign a host to an aggregate. Click **-** to remove a host that is assigned "
+"to an aggregate."
+msgstr ""
+"In the :guilabel:`Add/Remove Hosts to Aggregate` dialogue box, click **+** "
+"to assign a host to an aggregate. Click **-** to remove a host that is "
+"assigned to an aggregate."
+
+msgid ""
+"In the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Flavors` category."
+msgstr ""
+"In the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Flavours` category."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Flavors` window, click :guilabel:`Delete "
+"Flavors` to confirm the deletion. You cannot undo this action."
+msgstr ""
+"In the :guilabel:`Confirm Delete Flavours` window, click :guilabel:`Delete "
+"Flavours` to confirm the deletion. You cannot undo this action."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Images` window, click :guilabel:`Delete "
+"Images` to confirm the deletion."
+msgstr ""
+"In the :guilabel:`Confirm Delete Images` window, click :guilabel:`Delete "
+"Images` to confirm the deletion."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Roles` window, click :guilabel:`Delete "
+"Roles` to confirm the deletion."
+msgstr ""
+"In the :guilabel:`Confirm Delete Roles` window, click :guilabel:`Delete "
+"Roles` to confirm the deletion."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Volume Types` window, click the :guilabel:"
+"`Delete Volume Types` button to confirm the action."
+msgstr ""
+"In the :guilabel:`Confirm Delete Volume Types` window, click the :guilabel:"
+"`Delete Volume Types` button to confirm the action."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Volumes` window, click the :guilabel:"
+"`Delete Volumes` button to confirm the action."
+msgstr ""
+"In the :guilabel:`Confirm Delete Volumes` window, click the :guilabel:"
+"`Delete Volumes` button to confirm the action."
+
+msgid ""
+"In the :guilabel:`Create An Image` window, enter or select the following "
+"values:"
+msgstr ""
+"In the :guilabel:`Create An Image` window, enter or select the following "
+"values:"
+
+msgid ""
+"In the :guilabel:`Create Flavor` window, enter or select the parameters for "
+"the flavor in the :guilabel:`Flavor Information` tab."
+msgstr ""
+"In the :guilabel:`Create Flavour` window, enter or select the parameters for "
+"the flavour in the :guilabel:`Flavour Information` tab."
+
+msgid ""
+"In the :guilabel:`Create Host Aggregate` dialog box, enter or select the "
+"following values on the :guilabel:`Host Aggregate Information` tab:"
+msgstr ""
+"In the :guilabel:`Create Host Aggregate` dialogue box, enter or select the "
+"following values on the :guilabel:`Host Aggregate Information` tab:"
+
+msgid "In the :guilabel:`Create Role` window, enter a name for the role."
+msgstr "In the :guilabel:`Create Role` window, enter a name for the role."
+
+msgid ""
+"In the :guilabel:`Create Snapshot` window, enter a name for the snapshot."
+msgstr ""
+"In the :guilabel:`Create Snapshot` window, enter a name for the snapshot."
+
+msgid ""
+"In the :guilabel:`Edit Flavor` window, you can change the flavor name, "
+"VCPUs, RAM, root disk, ephemeral disk, and swap disk values."
+msgstr ""
+"In the :guilabel:`Edit Flavour` window, you can change the flavour name, "
+"VCPUs, RAM, root disk, ephemeral disk, and swap disk values."
+
+msgid ""
+"In the :guilabel:`Edit Host Aggregate` dialog box, you can change the name "
+"and availability zone for the aggregate."
+msgstr ""
+"In the :guilabel:`Edit Host Aggregate` dialogue box, you can change the name "
+"and availability zone for the aggregate."
+
+msgid "In the :guilabel:`Edit Image` window, you can change the image name."
+msgstr "In the :guilabel:`Edit Image` window, you can change the image name."
+
+msgid ""
+"In the :guilabel:`Flavor Access` tab, you can control access to the flavor "
+"by moving projects from the :guilabel:`All Projects` column to the :guilabel:"
+"`Selected Projects` column."
+msgstr ""
+"In the :guilabel:`Flavour Access` tab, you can control access to the flavour "
+"by moving projects from the :guilabel:`All Projects` column to the :guilabel:"
+"`Selected Projects` column."
+
+msgid ""
+"In the :guilabel:`Update Default Quotas` window, you can edit the default "
+"quota values."
+msgstr ""
+"In the :guilabel:`Update Default Quotas` window, you can edit the default "
+"quota values."
+
+msgid ""
+"In the :guilabel:`Update Flavor Metadata` window, you can customize some "
+"metadata keys, then add it to this flavor and set them values."
+msgstr ""
+"In the :guilabel:`Update Flavour Metadata` window, you can customise some "
+"metadata keys, then add it to this flavour and set them values."
+
+msgid "In the :guilabel:`Update Role` window, enter a new name for the role."
+msgstr "In the :guilabel:`Update Role` window, enter a new name for the role."
+
+msgid "In the ``local_settings.py`` file, change these options:"
+msgstr "In the ``local_settings.py`` file, change these options:"
+
+msgid "In the ``local_settings.py`` file, update the following options:"
+msgstr "In the ``local_settings.py`` file, update the following options:"
+
+msgid ""
+"In this configuration, the Apache HTTP Server listens on port 443 and "
+"redirects all non-secure requests to the HTTPS protocol. The secured section "
+"defines the private key, public key, and certificate to use."
+msgstr ""
+"In this configuration, the Apache HTTP Server listens on port 443 and "
+"redirects all non-secure requests to the HTTPS protocol. The secured section "
+"defines the private key, public key, and certificate to use."
+
+msgid "Initialize and configure the database"
+msgstr "Initialise and configure the database"
+
+msgid "Injected File Content Bytes"
+msgstr "Injected File Content Bytes"
+
+msgid "Injected Files"
+msgstr "Injected Files"
+
+msgid "Injected files allowed for each project."
+msgstr "Injected files allowed for each project."
+
+msgid "Instance cores allowed for each project."
+msgstr "Instance cores allowed for each project."
+
+msgid "Instances"
+msgstr "Instances"
+
+msgid "Instances allowed for each project."
+msgstr "Instances allowed for each project."
+
+msgid "Key Size (bits)"
+msgstr "Key Size (bits)"
+
+msgid "Keypairs"
+msgstr "Keypairs"
+
+msgid "Leave this field empty."
+msgstr "Leave this field empty."
+
+msgid "Less disk overhead than LUKS"
+msgstr "Less disk overhead than LUKS"
+
+msgid "Local memory cache"
+msgstr "Local memory cache"
+
+msgid ""
+"Local memory storage is the quickest and easiest session back end to set up, "
+"as it has no external dependencies whatsoever. It has the following "
+"significant drawbacks:"
+msgstr ""
+"Local memory storage is the quickest and easiest session back end to set up, "
+"as it has no external dependencies whatsoever. It has the following "
+"significant drawbacks:"
+
+msgid ""
+"Locate the User you would like to update, and select the :guilabel:`Edit` "
+"push button under the :guilabel:`Actions` column."
+msgstr ""
+"Locate the User you would like to update, and select the :guilabel:`Edit` "
+"push button under the :guilabel:`Actions` column."
+
+msgid ""
+"Locate the User you would like to update, and select the arrow to the right "
+"of the :guilabel:`Edit` push button. This will open a drop down menu."
+msgstr ""
+"Locate the User you would like to update, and select the arrow to the right "
+"of the :guilabel:`Edit` push button. This will open a drop down menu."
+
+msgid ""
+"Locate the project you wish to update, and under the :guilabel:`Actions` "
+"column click on the drop down arrow next to the :guilabel:`Manage Members` "
+"push button. The :guilabel:`Update Project` window will open."
+msgstr ""
+"Locate the project you wish to update, and under the :guilabel:`Actions` "
+"column click on the drop down arrow next to the :guilabel:`Manage Members` "
+"push button. The :guilabel:`Update Project` window will open."
+
+msgid ""
+"Log in to the Dashboard and select the :guilabel:`admin` project from the "
+"drop-down list."
+msgstr ""
+"Log in to the Dashboard and select the :guilabel:`admin` project from the "
+"drop-down list."
+
+msgid ""
+"Log in to the dashboard and select the :guilabel:`Identity` project from the "
+"drop-down list."
+msgstr ""
+"Log in to the dashboard and select the :guilabel:`Identity` project from the "
+"drop-down list."
+
+msgid ""
+"Log in to the dashboard and select the :guilabel:`admin` project from the "
+"drop-down list."
+msgstr ""
+"Log in to the dashboard and select the :guilabel:`admin` project from the "
+"drop-down list."
+
+msgid "Log into the OpenStack Dashboard as the Admin user."
+msgstr "Log into the OpenStack Dashboard as the Admin user."
+
+msgid "Logged in banner: 216 x 35"
+msgstr "Logged in banner: 216 x 35"
+
+msgid "Login screen: 365 x 50"
+msgstr "Login screen: 365 x 50"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Logo and site colors"
+msgstr "Logo and site colours"
+
+msgid "Logo link"
+msgstr "Logo link"
+
+msgid "Manage flavors"
+msgstr "Manage flavours"
+
+msgid "Manage instances"
+msgstr "Manage instances"
+
+msgid "Manage projects and users"
+msgstr "Manage projects and users"
+
+msgid "Manage volumes and volume types"
+msgstr "Manage volumes and volume types"
+
+msgid "Memcached"
+msgstr "Memcached"
+
+msgid ""
+"Memcached is a high-performance and distributed memory object caching system "
+"providing in-memory key-value store for small chunks of arbitrary data."
+msgstr ""
+"Memcached is a high-performance and distributed memory object caching system "
+"providing in-memory key-value store for small chunks of arbitrary data."
+
+msgid "Memcached service running and accessible."
+msgstr "Memcached service running and accessible."
+
+msgid "Metadata Items"
+msgstr "Metadata Items"
+
+msgid "Metadata items allowed for each instance."
+msgstr "Metadata items allowed for each instance."
+
+msgid "No persistence after a process terminates."
+msgstr "No persistence after a process terminates."
+
+msgid "No shared storage across processes or workers."
+msgstr "No shared storage across processes or workers."
+
+msgid ""
+"Note: On the command line, type 'cryptsetup benchmark' for additional options"
+msgstr ""
+"Note: On the command line, type 'cryptsetup benchmark' for additional options"
+
+msgid "Number of keypairs."
+msgstr "Number of keypairs."
+
+msgid ""
+"On Ubuntu, restart the ``nova-api`` service to ensure that the API server "
+"can connect to the Dashboard without error."
+msgstr ""
+"On Ubuntu, restart the ``nova-api`` service to ensure that the API server "
+"can connect to the Dashboard without error."
+
+msgid ""
+"On the :guilabel:`Admin tab`, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category."
+msgstr ""
+"On the :guilabel:`Admin tab`, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category."
+
+msgid "On the :guilabel:`Admin` tab, click the :guilabel:`Overview` category."
+msgstr "On the :guilabel:`Admin` tab, click the :guilabel:`Overview` category."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Host Aggregates` category."
+msgstr ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Host Aggregates` category."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category."
+msgstr ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category. The images that you can administer for "
+"cloud users appear on this page."
+msgstr ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category. The images that you can administer for "
+"cloud users appear on this page."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Instances` category."
+msgstr ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Instances` category."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
+"guilabel:`Defaults` category."
+msgstr ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
+"guilabel:`Defaults` category."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
+"guilabel:`System Information` category."
+msgstr ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
+"guilabel:`System Information` category."
+
+msgid "On the :guilabel:`Admin` tab, open the :guilabel:`Volume` tab."
+msgstr "On the :guilabel:`Admin` tab, open the :guilabel:`Volume` tab."
+
+msgid "On the :guilabel:`Identity` tab, click the :guilabel:`Roles` category."
+msgstr "On the :guilabel:`Identity` tab, click the :guilabel:`Roles` category."
+
+msgid ""
+"On the compute nodes, ensure the ``nonvncproxy_base_url`` option points to a "
+"URL with an HTTPS scheme:"
+msgstr ""
+"On the compute nodes, ensure the ``nonvncproxy_base_url`` option points to a "
+"URL with an HTTPS scheme:"
+
+msgid ""
+"Once you have the Dashboard installed, you can customize the way it looks "
+"and feels to suit the needs of your environment, your project, or your "
+"business."
+msgstr ""
+"Once you have the Dashboard installed, you can customise the way it looks "
+"and feels to suit the needs of your environment, your project, or your "
+"business."
+
+msgid ""
+"Only projects in the :guilabel:`Selected Projects` column can use the "
+"flavor. If there are no projects in the right column, all projects can use "
+"the flavor."
+msgstr ""
+"Only projects in the :guilabel:`Selected Projects` column can use the "
+"flavour. If there are no projects in the right column, all projects can use "
+"the flavour."
+
+msgid "Open the following HTML template in an editor of your choice:"
+msgstr "Open the following HTML template in an editor of your choice:"
+
+msgid ""
+"OpenStack Identity service defines a user's role on a project, but it is "
+"completely up to the individual service to define what that role means. This "
+"is referred to as the service's policy. To get details about what the "
+"privileges for each role are, refer to the ``policy.json`` file available "
+"for each service in the ``/etc/SERVICE/policy.json`` file. For example, the "
+"policy defined for OpenStack Identity service is defined in the ``/etc/"
+"keystone/policy.json`` file."
+msgstr ""
+"OpenStack Identity service defines a user's role on a project, but it is "
+"completely up to the individual service to define what that role means. This "
+"is referred to as the service's policy. To get details about what the "
+"privileges for each role are, refer to the ``policy.json`` file available "
+"for each service in the ``/etc/SERVICE/policy.json`` file. For example, the "
+"policy defined for OpenStack Identity Service is defined in the ``/etc/"
+"keystone/policy.json`` file."
+
+msgid ""
+"OpenStack administrators can create projects, and create accounts for new "
+"users using the OpenStack Dasboard. Projects own specific resources in your "
+"OpenStack environment. You can associate users with roles, projects, or both."
+msgstr ""
+"OpenStack administrators can create projects, and create accounts for new "
+"users using the OpenStack Dashboard. Projects own specific resources in your "
+"OpenStack environment. You can associate users with roles, projects, or both."
+
+msgid ""
+"Optional property allows servers with a different bandwidth to be created "
+"with the RX/TX Factor. The default value is 1. That is, the new bandwidth is "
+"the same as that of the attached network."
+msgstr ""
+"Optional property allows servers with a different bandwidth to be created "
+"with the RX/TX Factor. The default value is 1. That is, the new bandwidth is "
+"the same as that of the attached network."
+
+msgid "Parameter options"
+msgstr "Parameter options"
+
+msgid "Provider"
+msgstr "Provider"
+
+msgid "Python module ``python-memcached`` installed."
+msgstr "Python module ``python-memcached`` installed."
+
+msgid "Python modules ``redis`` and ``django-redis`` installed."
+msgstr "Python modules ``redis`` and ``django-redis`` installed."
+
+msgid "Quota Name"
+msgstr "Quota Name"
+
+msgid "RAM (MB)"
+msgstr "RAM (MB)"
+
+msgid "RAM (in MB)"
+msgstr "RAM (in MB)"
+
+msgid "RAM megabytes allowed for each instance."
+msgstr "RAM megabytes allowed for each instance."
+
+msgid "Redis"
+msgstr "Redis"
+
+msgid ""
+"Redis is an open source, BSD licensed, advanced key-value store. It is often "
+"referred to as a data structure server."
+msgstr ""
+"Redis is an open source, BSD licensed, advanced key-value store. It is often "
+"referred to as a data structure server."
+
+msgid "Redis service running and accessible."
+msgstr "Redis service running and accessible."
+
+msgid "Requirements:"
+msgstr "Requirements:"
+
+msgid "Restart Apache for this change to take effect."
+msgstr "Restart Apache for this change to take effect."
+
+msgid "Restart ``memcached``."
+msgstr "Restart ``memcached``."
+
+msgid "Restart the Apache HTTP Server."
+msgstr "Restart the Apache HTTP Server."
+
+msgid "Restart the Apache service."
+msgstr "Restart the Apache service."
+
+msgid "Security Group Rules"
+msgstr "Security Group Rules"
+
+msgid "Security Groups"
+msgstr "Security Groups"
+
+msgid "Security group rules allowed for each project."
+msgstr "Security group rules allowed for each project."
+
+msgid "Security groups allowed for each project."
+msgstr "Security groups allowed for each project."
+
+msgid "See NIST reference below to see advantages*"
+msgstr "See NIST reference below to see advantages*"
+
+msgid ""
+"See the Django `cookie-based sessions <https://docs.djangoproject.com/en/dev/"
+"topics/http/sessions/#using-cookie-based-sessions>`__ documentation."
+msgstr ""
+"See the Django `cookie-based sessions <https://docs.djangoproject.com/en/dev/"
+"topics/http/sessions/#using-cookie-based-sessions>`__ documentation."
+
+msgid "Select :guilabel:`Disable User`."
+msgstr "Select :guilabel:`Disable User`."
+
+msgid ""
+"Select a month and click :guilabel:`Submit` to query the instance usage for "
+"that month."
+msgstr ""
+"Select a month and click :guilabel:`Submit` to query the instance usage for "
+"that month."
+
+msgid ""
+"Select an instance to create a snapshot from it. From the Actions drop-down "
+"list, select :guilabel:`Create Snapshot`."
+msgstr ""
+"Select an instance to create a snapshot from it. From the Actions drop-down "
+"list, select :guilabel:`Create Snapshot`."
+
+msgid ""
+"Select the :guilabel:`Create Project` push button. The :guilabel:`Create "
+"Project` window will open."
+msgstr ""
+"Select the :guilabel:`Create Project` push button. The :guilabel:`Create "
+"Project` window will open."
+
+msgid ""
+"Select the :guilabel:`Public` check box to make the image public. Clear this "
+"check box to make the image private. You cannot change the :guilabel:`Kernel "
+"ID`, :guilabel:`Ramdisk ID`, or :guilabel:`Architecture` attributes for an "
+"image."
+msgstr ""
+"Select the :guilabel:`Public` check box to make the image public. Clear this "
+"check box to make the image private. You cannot change the :guilabel:`Kernel "
+"ID`, :guilabel:`Ramdisk ID`, or :guilabel:`Architecture` attributes for an "
+"image."
+
+msgid ""
+"Select the :guilabel:`admin` project from the drop-down list at the top of "
+"the page."
+msgstr ""
+"Select the :guilabel:`admin` project from the drop-down list at the top of "
+"the page."
+
+msgid ""
+"Select the checkbox to the left of the project you would like to delete."
+msgstr ""
+"Select the checkbox to the left of the project you would like to delete."
+
+msgid "Select the checkbox to the left of the user you would like to delete."
+msgstr "Select the checkbox to the left of the user you would like to delete."
+
+msgid "Select the flavor that you want to edit. Click :guilabel:`Edit Flavor`."
+msgstr ""
+"Select the flavour that you want to edit. Click :guilabel:`Edit Flavour`."
+
+msgid ""
+"Select the flavor that you want to update. In the drop-down list, click :"
+"guilabel:`Update Metadata` or click :guilabel:`No` or :guilabel:`Yes` in "
+"the :guilabel:`Metadata` column."
+msgstr ""
+"Select the flavour that you want to update. In the drop-down list, click :"
+"guilabel:`Update Metadata` or click :guilabel:`No` or :guilabel:`Yes` in "
+"the :guilabel:`Metadata` column."
+
+msgid "Select the flavors that you want to delete."
+msgstr "Select the flavours that you want to delete."
+
+msgid "Select the image format."
+msgstr "Select the image format."
+
+msgid "Select the images that you want to delete."
+msgstr "Select the images that you want to delete."
+
+msgid "Select the images that you want to edit. Click :guilabel:`Edit Image`."
+msgstr "Select the images that you want to edit. Click :guilabel:`Edit Image`."
+
+msgid "Select the instance for which you want to change the state."
+msgstr "Select the instance for which you want to change the state."
+
+msgid ""
+"Select the role you want to delete and click the :guilabel:`Delete Roles` "
+"button."
+msgstr ""
+"Select the role you want to delete and click the :guilabel:`Delete Roles` "
+"button."
+
+msgid ""
+"Select this option to ensure that only users with permissions can delete it."
+msgstr ""
+"Select this option to ensure that only users with permissions can delete it."
+
+msgid "Select this option to make the image public to all users."
+msgstr "Select this option to make the image public to all users."
+
+msgid "Service"
+msgstr "Service"
+
+msgid ""
+"Set the HTML title, which appears at the top of the browser window, by "
+"adding the following line to ``local_settings.py``:"
+msgstr ""
+"Set the HTML title, which appears at the top of the browser window, by "
+"adding the following line to ``local_settings.py``:"
+
+msgid "Set up session storage for the Dashboard"
+msgstr "Set up session storage for the Dashboard"
+
+msgid "Site colors"
+msgstr "Site colours"
+
+msgid "Snapshots"
+msgstr "Snapshots"
+
+msgid "Specifies the encryption algorithm."
+msgstr "Specifies the encryption algorithm."
+
+msgid "Specifies the encryption key size."
+msgstr "Specifies the encryption key size."
+
+msgid "Specifies the encryption provider format."
+msgstr "Specifies the encryption provider format."
+
+msgid ""
+"Specifies whether the encryption is from the front end (nova) or the back "
+"end (cinder)."
+msgstr ""
+"Specifies whether the encryption is from the front end (Nova) or the back "
+"end (Cinder)."
+
+msgid ""
+"Specify the architecture. For example, ``i386`` for a 32-bit architecture or "
+"``x86_64`` for a 64-bit architecture."
+msgstr ""
+"Specify the architecture. For example, ``i386`` for a 32-bit architecture or "
+"``x86_64`` for a 64-bit architecture."
+
+msgid ""
+"Specify the host for your Identity service endpoint in the ``local_settings."
+"py`` file with the ``OPENSTACK_HOST`` setting."
+msgstr ""
+"Specify the host for your Identity service endpoint in the ``local_settings."
+"py`` file with the ``OPENSTACK_HOST`` setting."
+
+msgid "Specify this option to copy image data to the Image service."
+msgstr "Specify this option to copy image data to the Image service."
+
+msgid "Start the MySQL command-line client."
+msgstr "Start the MySQL command-line client."
+
+msgid ""
+"The Dashboard uses `Django sessions framework <https://docs.djangoproject."
+"com/en/dev/topics/http/sessions/>`__ to handle user session data. However, "
+"you can use any available session back end. You customize the session back "
+"end through the ``SESSION_ENGINE`` setting in your ``local_settings.py`` "
+"file."
+msgstr ""
+"The Dashboard uses `Django sessions framework <https://docs.djangoproject."
+"com/en/dev/topics/http/sessions/>`__ to handle user session data. However, "
+"you can use any available session back end. You customize the session back "
+"end through the ``SESSION_ENGINE`` setting in your ``local_settings.py`` "
+"file."
+
+msgid ""
+"The OpenStack Dashboard is a web-based interface that allows you to manage "
+"OpenStack resources and services. The Dashboard allows you to interact with "
+"the OpenStack Compute cloud controller using the OpenStack APIs. For more "
+"information about installing and configuring the Dashboard, see the :doc:`/"
+"install/index` for your operating system."
+msgstr ""
+"The OpenStack Dashboard is a web-based interface that allows you to manage "
+"OpenStack resources and services. The Dashboard allows you to interact with "
+"the OpenStack Compute cloud controller using the OpenStack APIs. For more "
+"information about installing and configuring the Dashboard, see the :doc:`/"
+"install/index` for your operating system."
+
+msgid ""
+"The OpenStack Dashboard on Ubuntu installs the ``openstack-dashboard-ubuntu-"
+"theme`` package by default. If you do not want to use this theme, remove it "
+"and its dependencies:"
+msgstr ""
+"The OpenStack Dashboard on Ubuntu installs the ``openstack-dashboard-ubuntu-"
+"theme`` package by default. If you do not want to use this theme, remove it "
+"and its dependencies:"
+
+msgid ""
+"The biggest downside is that it places session data into storage on the "
+"user's machine and transports it over the wire. It also limits the quantity "
+"of session data that can be stored."
+msgstr ""
+"The biggest downside is that it places session data into storage on the "
+"user's machine and transports it over the wire. It also limits the quantity "
+"of session data that can be stored."
+
+msgid ""
+"The dashboard does not show all possible project quotas. To view and update "
+"the quotas for a service, use its command-line client. See `OpenStack "
+"Administrator Guide <https://docs.openstack.org/admin-guide/cli-set-quotas."
+"html>`_."
+msgstr ""
+"The dashboard does not show all possible project quotas. To view and update "
+"the quotas for a service, use its command-line client. See `OpenStack "
+"Administrator Guide <https://docs.openstack.org/admin-guide/cli-set-quotas."
+"html>`_."
+
+msgid "The default quota values are displayed."
+msgstr "The default quota values are displayed."
+
+msgid ""
+"The encryption occurs within nova so that the data transmitted over the "
+"network is encrypted"
+msgstr ""
+"The encryption occurs within nova so that the data transmitted over the "
+"network is encrypted"
+
+msgid "The following Dashboard content can be customized to suit your needs:"
+msgstr "The following Dashboard content can be customised to suit your needs:"
+
+msgid "The following example shows this setting:"
+msgstr "The following example shows this setting:"
+
+msgid "The following output is returned:"
+msgstr "The following output is returned:"
+
+msgid ""
+"The following section on configuring the Dashboard for a secure HTTPS "
+"deployment, or a HTTP deployment, uses concrete examples to ensure the "
+"procedure is clear. The file path varies by distribution, however. If "
+"needed, you can also configure the VNC window size in the Dashboard."
+msgstr ""
+"The following section on configuring the Dashboard for a secure HTTPS "
+"deployment, or a HTTP deployment, uses concrete examples to ensure the "
+"procedure is clear. The file path varies by distribution, however. If "
+"needed, you can also configure the VNC window size in the Dashboard."
+
+msgid ""
+"The following sections describe the pros and cons of each option as it "
+"pertains to deploying the Dashboard."
+msgstr ""
+"The following sections describe the pros and cons of each option as it "
+"pertains to deploying the Dashboard."
+
+msgid ""
+"The following table describes the Compute and Block Storage service quotas:"
+msgstr ""
+"The following table describes the Compute and Block Storage service quotas:"
+
+msgid ""
+"The image is queued to be uploaded. It might take several minutes before the "
+"status changes from ``Queued`` to ``Active``."
+msgstr ""
+"The image is queued to be uploaded. It might take several minutes before the "
+"status changes from ``Queued`` to ``Active``."
+
+msgid ""
+"The local memory back end is enabled as the default for Horizon solely "
+"because it has no dependencies. It is not recommended for production use, or "
+"even for serious development work."
+msgstr ""
+"The local memory back end is enabled as the default for Horizon solely "
+"because it has no dependencies. It is not recommended for production use, or "
+"even for serious development work."
+
+msgid ""
+"The logo also acts as a hyperlink. The default behavior is to redirect to "
+"``horizon:user_home``. To change this, add the following attribute to "
+"``local_settings.py``:"
+msgstr ""
+"The logo also acts as a hyperlink. The default behaviour is to redirect to "
+"``horizon:user_home``. To change this, add the following attribute to "
+"``local_settings.py``:"
+
+msgid ""
+"The new user will then appear in the list of projects displayed under the :"
+"guilabel:`Users` page of the dashboard. You can check on the **User Name**, "
+"**User ID**, **Domain name**, and the User status in this section."
+msgstr ""
+"The new user will then appear in the list of projects displayed under the :"
+"guilabel:`Users` page of the dashboard. You can check on the **User Name**, "
+"**User ID**, **Domain name**, and the User status in this section."
+
+msgid ""
+"The other options require that HTTPS is enabled; these options defend "
+"against cross-site scripting."
+msgstr ""
+"The other options require that HTTPS is enabled; these options defend "
+"against cross-site scripting."
+
+msgid ""
+"The pros of this engine are that it requires no additional dependencies or "
+"infrastructure overhead, and it scales indefinitely as long as the quantity "
+"of session data being stored fits into a normal cookie."
+msgstr ""
+"The pros of this engine are that it requires no additional dependencies or "
+"infrastructure overhead, and it scales indefinitely as long as the quantity "
+"of session data being stored fits into a normal cookie."
+
+msgid ""
+"The scheduler uses this information to make scheduling decisions. For "
+"information, see `Scheduling <https://docs.openstack.org/nova/latest/admin/"
+"configuration/schedulers.html>`__."
+msgstr ""
+"The scheduler uses this information to make scheduling decisions. For "
+"information, see `Scheduling <https://docs.openstack.org/nova/latest/admin/"
+"configuration/schedulers.html>`__."
+
+msgid ""
+"The service catalog configuration in the Identity service determines whether "
+"a service appears in the Dashboard. For the full listing, see :ref:`install-"
+"settings`."
+msgstr ""
+"The service catalogue configuration in the Identity service determines "
+"whether a service appears in the Dashboard. For the full listing, see :ref:"
+"`install-settings`."
+
+msgid ""
+"The table below provides a few alternatives available for creating encrypted "
+"volumes."
+msgstr ""
+"The table below provides a few alternatives available for creating encrypted "
+"volumes."
+
+msgid ""
+"This back end stores session data in a cookie, which is stored by the user's "
+"browser. The back end uses a cryptographic signing technique to ensure "
+"session data is not tampered with during transport. This is not the same as "
+"encryption; session data is still readable by an attacker."
+msgstr ""
+"This back end stores session data in a cookie, which is stored by the user's "
+"browser. The back end uses a cryptographic signing technique to ensure "
+"session data is not tampered with during transport. This is not the same as "
+"encryption; session data is still readable by an attacker."
+
+msgid ""
+"This could be selected if a cinder plug-in supporting an encrypted back-end "
+"block storage device becomes available in the future. TLS or other network "
+"encryption would also be needed to protect data as it traverses the network"
+msgstr ""
+"This could be selected if a Cinder plug-in supporting an encrypted back-end "
+"block storage device becomes available in the future. TLS or other network "
+"encryption would also be needed to protect data as it traverses the network"
+
+msgid ""
+"This example uses the ``http://openstack.example.com`` domain. Use a domain "
+"that fits your current setup."
+msgstr ""
+"This example uses the ``http://openstack.example.com`` domain. Use a domain "
+"that fits your current setup."
+
+msgid "This guide focuses on the ``local_settings.py`` file."
+msgstr "This guide focuses on the ``local_settings.py`` file."
+
+msgid ""
+"To assign a host to the aggregate, click **+** for the host. The host moves "
+"from the :guilabel:`All available hosts` list to the :guilabel:`Selected "
+"hosts` list."
+msgstr ""
+"To assign a host to the aggregate, click **+** for the host. The host moves "
+"from the :guilabel:`All available hosts` list to the :guilabel:`Selected "
+"hosts` list."
+
+msgid ""
+"To avoid a warning when you restart Apache on Ubuntu, create a ``blackhole`` "
+"directory in the Dashboard directory, as follows."
+msgstr ""
+"To avoid a warning when you restart Apache on Ubuntu, create a ``blackhole`` "
+"directory in the Dashboard directory, as follows."
+
+msgid "To configure the MySQL database, create the dash database."
+msgstr "To configure the MySQL database, create the dash database."
+
+msgid "To create a host aggregate"
+msgstr "To create a host aggregate"
+
+msgid ""
+"To create and manage images as an administrator for other users, use the "
+"following procedures."
+msgstr ""
+"To create and manage images as an administrator for other users, use the "
+"following procedures."
+
+msgid ""
+"To create and manage images in specified projects as an end user, see the :"
+"doc:`upload and manage images with Dashboard in OpenStack End User Guide </"
+"user/manage-images>` and `manage images with CLI in OpenStack End User Guide "
+"<https://docs.openstack.org/glance/latest/admin/manage-images.html>`_."
+msgstr ""
+"To create and manage images in specified projects as an end user, see the :"
+"doc:`upload and manage images with Dashboard in OpenStack End User Guide </"
+"user/manage-images>` and `manage images with CLI in OpenStack End User Guide "
+"<https://docs.openstack.org/glance/latest/admin/manage-images.html>`_."
+
+msgid ""
+"To create and manage ports, see the :doc:`/user/create-networks` section of "
+"the OpenStack End User Guide."
+msgstr ""
+"To create and manage ports, see the :doc:`/user/create-networks` section of "
+"the OpenStack End User Guide."
+
+msgid ""
+"To delete host aggregates, locate the host aggregate that you want to edit "
+"in the table. Click :guilabel:`More` and select :guilabel:`Delete Host "
+"Aggregate`."
+msgstr ""
+"To delete host aggregates, locate the host aggregate that you want to edit "
+"in the table. Click :guilabel:`More` and select :guilabel:`Delete Host "
+"Aggregate`."
+
+msgid "To deploy the dashboard, see the :doc:`/install/index`."
+msgstr "To deploy the dashboard, see the :doc:`/install/index`."
+
+msgid ""
+"To edit host aggregates, select the host aggregate that you want to edit. "
+"Click :guilabel:`Edit Host Aggregate`."
+msgstr ""
+"To edit host aggregates, select the host aggregate that you want to edit. "
+"Click :guilabel:`Edit Host Aggregate`."
+
+msgid "To enable HTTPS, the ``USE_SSL = True`` option is required."
+msgstr "To enable HTTPS, the ``USE_SSL = True`` option is required."
+
+msgid ""
+"To launch an instance from the snapshot, select the snapshot and click :"
+"guilabel:`Launch`. For information about launching instances, see the :doc:"
+"`OpenStack End User Guide </user/launch-instances>`."
+msgstr ""
+"To launch an instance from the snapshot, select the snapshot and click :"
+"guilabel:`Launch`. For information about launching instances, see the :doc:"
+"`OpenStack End User Guide </user/launch-instances>`."
+
+msgid ""
+"To launch instances with the dashboard as an end user, see the :doc:`/user/"
+"launch-instances` in the OpenStack End User Guide."
+msgstr ""
+"To launch instances with the dashboard as an end user, see the :doc:`/user/"
+"launch-instances` in the OpenStack End User Guide."
+
+msgid "To manage host aggregates"
+msgstr "To manage host aggregates"
+
+msgid ""
+"To manage hosts, locate the host aggregate that you want to edit in the "
+"table. Click :guilabel:`More` and select :guilabel:`Manage Hosts`."
+msgstr ""
+"To manage hosts, locate the host aggregate that you want to edit in the "
+"table. Click :guilabel:`More` and select :guilabel:`Manage Hosts`."
+
+msgid ""
+"To mitigate the performance issues of database queries, you can use the "
+"Django ``cached_db`` session back end, which utilizes both your database and "
+"caching infrastructure to perform write-through caching and efficient "
+"retrieval."
+msgstr ""
+"To mitigate the performance issues of database queries, you can use the "
+"Django ``cached_db`` session back end, which utilises both your database and "
+"caching infrastructure to perform write-through caching and efficient "
+"retrieval."
+
+msgid ""
+"To prevent system capacities from being exhausted without notification, you "
+"can set up quotas. Quotas are operational limits. For example, the number of "
+"gigabytes allowed for each project can be controlled so that cloud resources "
+"are optimized. Quotas can be enforced at both the project and the project-"
+"user level."
+msgstr ""
+"To prevent system capacities from being exhausted without notification, you "
+"can set up quotas. Quotas are operational limits. For example, the number of "
+"gigabytes allowed for each project can be controlled so that cloud resources "
+"are optimized. Quotas can be enforced at both the project and the project-"
+"user level."
+
+msgid ""
+"To reactivate a disabled user, select :guilabel:`Enable User` under the drop "
+"down menu."
+msgstr ""
+"To reactivate a disabled user, select :guilabel:`Enable User` under the drop "
+"down menu."
+
+msgid ""
+"To see further information and CLI instructions, see `Create an encrypted "
+"volume type <https://docs.openstack.org/cinder/latest/configuration/block-"
+"storage/volume-encryption.html#create-an-encrypted-volume-type>`__ in the "
+"OpenStack Block Storage Configuration Guide."
+msgstr ""
+"To see further information and CLI instructions, see `Create an encrypted "
+"volume type <https://docs.openstack.org/cinder/latest/configuration/block-"
+"storage/volume-encryption.html#create-an-encrypted-volume-type>`__ in the "
+"OpenStack Block Storage Configuration Guide."
+
+msgid ""
+"To view your changes, reload your Dashboard. If necessary, go back and "
+"modify your CSS file as appropriate."
+msgstr ""
+"To view your changes, reload your Dashboard. If necessary, go back and "
+"modify your CSS file as appropriate."
+
+msgid "Track usage"
+msgstr "Track usage"
+
+msgid ""
+"Typically, you change quotas when a project needs more than ten volumes or 1 "
+"|nbsp| TB on a compute node."
+msgstr ""
+"Typically, you change quotas when a project needs more than ten volumes or 1 "
+"|nbsp| TB on a compute node."
+
+msgid ""
+"Unique ID (integer or UUID) for the new flavor. If specifying 'auto', a UUID "
+"will be automatically generated."
+msgstr ""
+"Unique ID (integer or UUID) for the new flavour. If specifying 'auto', a "
+"UUID will be automatically generated."
+
+msgid "Update Metadata"
+msgstr "Update Metadata"
+
+msgid "Update a project"
+msgstr "Update a project"
+
+msgid "Update a user"
+msgstr "Update a user"
+
+msgid "Update flavors"
+msgstr "Update flavours"
+
+msgid "Update images"
+msgstr "Update images"
+
+msgid "Update project quotas"
+msgstr "Update project quotas"
+
+msgid ""
+"Update the name of the project, enable the project, or disable the project "
+"as needed."
+msgstr ""
+"Update the name of the project, enable the project, or disable the project "
+"as needed."
+
+msgid ""
+"Upload your new images to ``/usr/share/openstack-dashboard/"
+"openstack_dashboard/static/dashboard/img/``."
+msgstr ""
+"Upload your new images to ``/usr/share/openstack-dashboard/"
+"openstack_dashboard/static/dashboard/img/``."
+
+msgid ""
+"Use the :guilabel:`Overview` category to track usage of instances for each "
+"project."
+msgstr ""
+"Use the :guilabel:`Overview` category to track usage of instances for each "
+"project."
+
+msgid ""
+"Using the Dashboard, you can view default Compute and Block Storage quotas "
+"for new projects, as well as update quotas for existing projects."
+msgstr ""
+"Using the Dashboard, you can view default Compute and Block Storage quotas "
+"for new projects, as well as update quotas for existing projects."
+
+msgid ""
+"Using the command-line interface, you can manage quotas for `the OpenStack "
+"Compute service <https://docs.openstack.org/nova/latest/admin/quotas."
+"html>`__, `the OpenStack Block Storage service <https://docs.openstack.org/"
+"cinder/latest/cli/cli-set-quotas.html>`__, and the OpenStack Networking "
+"service (For CLI details, see `OpenStackClient CLI reference <https://docs."
+"openstack.org/python-openstackclient/latest/cli/command-objects/quota."
+"html>`_). Additionally, you can update Compute service quotas for project "
+"users."
+msgstr ""
+"Using the command-line interface, you can manage quotas for `the OpenStack "
+"Compute service <https://docs.openstack.org/nova/latest/admin/quotas."
+"html>`__, `the OpenStack Block Storage service <https://docs.openstack.org/"
+"cinder/latest/cli/cli-set-quotas.html>`__, and the OpenStack Networking "
+"service (For CLI details, see `OpenStackClient CLI reference <https://docs."
+"openstack.org/python-openstackclient/latest/cli/command-objects/quota."
+"html>`_). Additionally, you can update Compute service quotas for project "
+"users."
+
+msgid "Using the dashboard, you can edit only the name assigned to a role."
+msgstr "Using the dashboard, you can edit only the name assigned to a role."
+
+msgid ""
+"Using this selection for aes-xts, the underlying key size would only be 128-"
+"bits*"
+msgstr ""
+"Using this selection for aes-xts, the underlying key size would only be 128-"
+"bits*"
+
+msgid ""
+"Using this selection for aes-xts, the underlying key size would only be 256-"
+"bits*"
+msgstr ""
+"Using this selection for aes-xts, the underlying key size would only be 256-"
+"bits*"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "View and manage quotas"
+msgstr "View and manage quotas"
+
+msgid "View default project quotas"
+msgstr "View default project quotas"
+
+msgid "View services information"
+msgstr "View services information"
+
+msgid "View the following information on these tabs:"
+msgstr "View the following information on these tabs:"
+
+msgid "Volume gigabytes allowed for each project."
+msgstr "Volume gigabytes allowed for each project."
+
+msgid "Volume snapshots allowed for each project."
+msgstr "Volume snapshots allowed for each project."
+
+msgid "Volumes"
+msgstr "Volumes"
+
+msgid "Volumes allowed for each project."
+msgstr "Volumes allowed for each project."
+
+msgid ""
+"Volumes are the Block Storage devices that you attach to instances to enable "
+"persistent storage. Users can attach a volume to a running instance or "
+"detach a volume and attach it to another instance at any time. For "
+"information about using the dashboard to create and manage volumes as an end "
+"user, see the :doc:`OpenStack End User Guide </user/manage-volumes>`."
+msgstr ""
+"Volumes are the Block Storage devices that you attach to instances to enable "
+"persistent storage. Users can attach a volume to a running instance or "
+"detach a volume and attach it to another instance at any time. For "
+"information about using the dashboard to create and manage volumes as an end "
+"user, see the :doc:`OpenStack End User Guide </user/manage-volumes>`."
+
+msgid ""
+"When the host aggregate is exposed as an availability zone, select the "
+"availability zone when you launch an instance."
+msgstr ""
+"When the host aggregate is exposed as an availability zone, select the "
+"availability zone when you launch an instance."
+
+msgid ""
+"When the host aggregate is not exposed as an availability zone, select a "
+"flavor and its extra specs to target the host aggregate."
+msgstr ""
+"When the host aggregate is not exposed as an availability zone, select a "
+"flavour and its extra specs to target the host aggregate."
+
+msgid "When you delete a volume type, volumes of that type are not deleted."
+msgstr "When you delete a volume type, volumes of that type are not deleted."
+
+msgid ""
+"When you delete an instance, the data of its attached volumes is not "
+"destroyed."
+msgstr ""
+"When you delete an instance, the data of its attached volumes is not "
+"destroyed."
+
+msgid ""
+"You can add one host to one or more aggregates. To add a host to an existing "
+"aggregate, edit the aggregate."
+msgstr ""
+"You can add one host to one or more aggregates. To add a host to an existing "
+"aggregate, edit the aggregate."
+
+msgid ""
+"You can also configure the Dashboard for a secure HTTPS deployment, or an "
+"HTTP deployment. The standard OpenStack installation uses a non-encrypted "
+"HTTP channel, but you can enable SSL support for the Dashboard."
+msgstr ""
+"You can also configure the Dashboard for a secure HTTPS deployment, or an "
+"HTTP deployment. The standard OpenStack installation uses a non-encrypted "
+"HTTP channel, but you can enable SSL support for the Dashboard."
+
+msgid ""
+"You can configure the Dashboard for a secured HTTPS deployment. While the "
+"standard installation uses a non-encrypted HTTP channel, you can enable SSL "
+"support for the Dashboard."
+msgstr ""
+"You can configure the Dashboard for a secured HTTPS deployment. While the "
+"standard installation uses a non-encrypted HTTP channel, you can enable SSL "
+"support for the Dashboard."
+
+msgid ""
+"You can configure the Dashboard for a simple HTTP deployment. The standard "
+"installation uses a non-encrypted HTTP channel."
+msgstr ""
+"You can configure the Dashboard for a simple HTTP deployment. The standard "
+"installation uses a non-encrypted HTTP channel."
+
+msgid ""
+"You can sort the table by clicking on either the :guilabel:`Quota Name` or :"
+"guilabel:`Limit` column headers."
+msgstr ""
+"You can sort the table by clicking on either the :guilabel:`Quota Name` or :"
+"guilabel:`Limit` column headers."
+
+msgid ""
+"You can track costs per month by showing meters like number of VCPUs, disks, "
+"RAM, and uptime of all your instances."
+msgstr ""
+"You can track costs per month by showing meters like number of VCPUs, disks, "
+"RAM, and uptime of all your instances."
+
+msgid ""
+"You can use applications such as ``Memcached`` or ``Redis`` for external "
+"caching. These applications offer persistence and shared storage and are "
+"useful for small-scale deployments and development."
+msgstr ""
+"You can use applications such as ``Memcached`` or ``Redis`` for external "
+"caching. These applications offer persistence and shared storage and are "
+"useful for small-scale deployments and development."
+
+msgid "You cannot undo this action."
+msgstr "You cannot undo this action."
+
+msgid ""
+"Your new project will appear in the list of projects displayed under the :"
+"guilabel:`Projects` page of the dashboard. Projects are listed in "
+"alphabetical order, and you can check on the **Project ID**, **Domain "
+"name**, and status of the project in this section."
+msgstr ""
+"Your new project will appear in the list of projects displayed under the :"
+"guilabel:`Projects` page of the dashboard. Projects are listed in "
+"alphabetical order, and you can check on the **Project ID**, **Domain "
+"name**, and status of the project in this section."
+
+msgid ""
+"`*` Source `NIST SP 800-38E <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/"
+"nistspecialpublication800-38e.pdf>`_"
+msgstr ""
+"`*` Source `NIST SP 800-38E <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/"
+"nistspecialpublication800-38e.pdf>`_"
+
+msgid "aes-cbc-essiv"
+msgstr "aes-cbc-essiv"
+
+msgid "aes-xts-plain64 (Recommended)"
+msgstr "aes-xts-plain64 (Recommended)"
+
+msgid "back-end"
+msgstr "back-end"
+
+msgid "front-end (Recommended)"
+msgstr "front-end (Recommended)"
+
+msgid "hw:watchdog_action"
+msgstr "hw:watchdog_action"
+
+msgid "hw_rng:allowed"
+msgstr "hw_rng:allowed"
+
+msgid "hw_rng:rate_bytes"
+msgstr "hw_rng:rate_bytes"
+
+msgid "hw_rng:rate_period"
+msgstr "hw_rng:rate_period"
+
+msgid "luks (Recommended)"
+msgstr "luks (Recommended)"
+
+msgid "m1.large"
+msgstr "m1.large"
+
+msgid "m1.medium"
+msgstr "m1.medium"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+msgid "m1.xlarge"
+msgstr "m1.xlarge"
+
+msgid "plain"
+msgstr "plain"
+
+msgid "quota:cpu_limit"
+msgstr "quota:cpu_limit"
+
+msgid "quota:cpu_period"
+msgstr "quota:cpu_period"
+
+msgid "quota:cpu_quota"
+msgstr "quota:cpu_quota"
+
+msgid "quota:cpu_reservation"
+msgstr "quota:cpu_reservation"
+
+msgid "quota:cpu_shares"
+msgstr "quota:cpu_shares"
+
+msgid "quota:disk_read_bytes_sec"
+msgstr "quota:disk_read_bytes_sec"
+
+msgid "quota:disk_read_iops_sec"
+msgstr "quota:disk_read_iops_sec"
+
+msgid "quota:disk_total_bytes_sec"
+msgstr "quota:disk_total_bytes_sec"
+
+msgid "quota:disk_total_iops_sec"
+msgstr "quota:disk_total_iops_sec"
+
+msgid "quota:disk_write_bytes_sec"
+msgstr "quota:disk_write_bytes_sec"
+
+msgid "quota:disk_write_iops_sec"
+msgstr "quota:disk_write_iops_sec"
+
+msgid "quota:vif_inbound_average"
+msgstr "quota:vif_inbound_average"
+
+msgid "quota:vif_inbound_burst"
+msgstr "quota:vif_inbound_burst"
+
+msgid "quota:vif_inbound_peak"
+msgstr "quota:vif_inbound_peak"
+
+msgid "quota:vif_outbound_average"
+msgstr "quota:vif_outbound_average"
+
+msgid "quota:vif_outbound_burst"
+msgstr "quota:vif_outbound_burst"
+
+msgid "quota:vif_outbound_peak"
+msgstr "quota:vif_outbound_peak"

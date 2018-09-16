@@ -1,0 +1,117 @@
+# ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-08-27 11:37+0000\n"
+"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
+"Language-Team: Korean (South Korea)\n"
+"Language: ko_KR\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+msgid ""
+"A Python class representing a sub-navigation item (e.g. \"instances\") which "
+"contains all the necessary logic (views, forms, tests, etc.) for that "
+"interface."
+msgstr ""
+"하위 탐색항목(예: \"인스턴스\")를 나타내는 파이썬 클래스는 인스턴스에 필요한 "
+"모든 로직(보기, 양식, 테스트, 기타.)을 포함합니다."
+
+msgid ""
+"A Python class representing a top-level navigation item (e.g. \"project\") "
+"which provides a consistent API for Horizon-compatible applications."
+msgstr ""
+"최상위 탐색 항목(예: \"프로젝트\")을 나타내는 파이썬 클래스는 호라이즌 호환 "
+"응용프로그램에 일관된 API를 제공합니다."
+
+msgid "Contributor Docs"
+msgstr "컨트리뷰터 가이드"
+
+msgid "Dashboard"
+msgstr "대시보드"
+
+msgid ""
+"For a more in-depth look at Horizon and its architecture, see the :ref:"
+"`contributor-intro`."
+msgstr ""
+"호라이즌과 그 구조에 대한 깊이있게 살펴보려면 :ref:`contributor-intro`를 보세"
+"요."
+
+msgid ""
+"For those wishing to develop Horizon itself, or go in-depth with building "
+"your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes, the "
+"following documentation is provided."
+msgstr ""
+"호라이즌 자체를 개발하거나, 더 나아가 자신만의  :class:`~horizon.Dashboard`"
+"나  :class:`~horizon.Panel` 클래스를 만드려는 분들을 위해, 다음 문서가 제공됩"
+"니다."
+
+msgid "Glossary"
+msgstr "용어집"
+
+msgid "Horizon"
+msgstr "호라이즌"
+
+msgid ""
+"Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>`_, which provides a web based user interface "
+"to OpenStack services including Nova, Swift, Keystone, etc."
+msgstr ""
+"호라이즌은 canonical에서 구현한 `오픈스택의 대시보드  <https://github.com/"
+"openstack/horizon>`이고 _, 호라이즌은 노바, 스위프트, 키스톤  등의 오픈스택 "
+"서비스를 포함하는 웹 기반 사용자 인터페이스를 제공합니다."
+
+msgid "Horizon: The OpenStack Dashboard Project"
+msgstr "호라이즌: 오픈스택 대시보드 프로젝트"
+
+msgid "How to use Horizon in your own projects."
+msgstr "당신의 프로젝트에서 호라이즌을 사용하는 방법"
+
+msgid "Information"
+msgstr "정보"
+
+msgid "Introduction"
+msgstr "소개"
+
+msgid "Panel"
+msgstr "판넬"
+
+msgid "Project"
+msgstr "프로젝트"
+
+msgid "Release Notes"
+msgstr "릴리즈 노트"
+
+msgid "See https://docs.openstack.org/releasenotes/horizon/."
+msgstr "https://docs.openstack.org/releasenotes/horizon/ 를 보세요."
+
+msgid ""
+"The OpenStack dashboard project. Also the name of the top-level Python "
+"object which handles registration for the app."
+msgstr ""
+"오픈스택 대시보드 프로젝트. 또한 앱 등록을 다루는 최상위 파이썬 객체의 이름이"
+"기도 합니다."
+
+msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
+msgstr "시작하기 위해 무엇을 알아야할 지 배우려면, :ref:`quickstart`를 보세요."
+
+msgid ""
+"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
+"word."
+msgstr ""
+"키스톤에서 쓰이는 \"tenant\"라는 용어 대신 사용자에게 보여지는 단어로 사용됨."
+
+msgid "Using Horizon"
+msgstr "호라이즌 사용하기"

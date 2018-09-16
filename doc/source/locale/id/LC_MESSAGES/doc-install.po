@@ -1,0 +1,986 @@
+# suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-09-13 04:42+0000\n"
+"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ":ref:`install-customizing` describes how to customize horizon."
+msgstr ":ref:`install-customizing` menjelaskan cara menyesuaikan horizon."
+
+msgid ":ref:`install-settings` lists the available settings for horizon."
+msgstr ":ref:`install-settings` daftar pengaturan yang tersedia untuk horizon."
+
+msgid ""
+"ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "
+"development work, but is potentially insecure and should not be used in "
+"production. See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-"
+"hosts for further information."
+msgstr ""
+"ALLOWED_HOSTS juga bisa menjadi ['*'] untuk menerima semua host. Ini mungkin "
+"berguna untuk pekerjaan pengembangan, tetapi berpotensi tidak aman dan tidak "
+"boleh digunakan dalam produksi. Lihat https://docs.djangoproject.com/en/dev/"
+"ref/settings/#allowed-hosts untuk informasi lebih lanjut."
+
+msgid "Access the dashboard using a web browser at ``http://controller/``."
+msgstr "Akses dasbor menggunakan browser web di ``http://controller/``."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/dashboard``."
+msgstr ""
+"Akses dasbor menggunakan browser web di ``http://controller/dashboard``."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/horizon``."
+msgstr "Akses dasbor menggunakan browser web di ``http://controller/horizon``."
+
+msgid ""
+"Add the following line to ``/etc/apache2/conf-available/openstack-dashboard."
+"conf`` if not included."
+msgstr ""
+"Tambahkan baris berikut ke ``/etc/apache2/conf-available/openstack-dashboard."
+"conf`` jika tidak termasuk."
+
+msgid ""
+"Add the following line to ``/etc/httpd/conf.d/openstack-dashboard.conf`` if "
+"not included."
+msgstr ""
+"Tambahkan baris berikut ke ``/etc/httpd/conf.d/openstack-dashboard.conf`` "
+"jika tidak termasuk."
+
+msgid ""
+"After you install and configure the dashboard, you can complete the "
+"following tasks:"
+msgstr ""
+"Setelah Anda menginstal dan mengkonfigurasi dasbor, Anda dapat menyelesaikan "
+"tugas-tugas berikut:"
+
+msgid ""
+"All other services are optional. Horizon supports the following services as "
+"of the Queens release. If the keystone endpoint for a service is configured, "
+"horizon detects it and enables its support automatically."
+msgstr ""
+"Semua layanan lain bersifat opsional. Horizon mendukung layanan berikut pada "
+"rilis Queens. Jika titik akhir kunci untuk layanan dikonfigurasi, horizon "
+"mendeteksi dan memungkinkan dukungannya secara otomatis."
+
+msgid "Allow your hosts to access the dashboard:"
+msgstr "Izinkan host Anda mengakses dasbor:"
+
+msgid ""
+"An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ "
+"endpoint"
+msgstr ""
+"Endpoint akses `keystone <https://docs.openstack.org/keystone/latest/>` yang "
+"mudah diakses"
+
+msgid ""
+"Authenticate using ``admin`` or ``demo`` user and ``default`` domain "
+"credentials."
+msgstr ""
+"Otentikasi menggunakan ``admin`` atau ``demo`` pengguna dan ``default`` "
+"kredensial domain."
+
+msgid "BGPVPN Dashboard"
+msgstr "BGPVPN Dashboard"
+
+msgid "Blazar Dashboard"
+msgstr "Blazar Dashboard"
+
+msgid "Bug Tracker"
+msgstr "Bug Tracker"
+
+msgid ""
+"By default the apache configuration will launch a number of apache processes "
+"equal to the number of CPUs + 1 of the machine on which you launch the "
+"``make_web_conf`` command. If the target machine is not the same or if you "
+"want to specify the number of processes, add the ``--processes`` option"
+msgstr ""
+"Secara default, konfigurasi apache akan meluncurkan sejumlah proses apache "
+"yang sama dengan jumlah CPU + 1 dari mesin di mana Anda meluncurkan perintah "
+"``make_web_conf``. Jika mesin target tidak sama atau jika Anda ingin "
+"menentukan jumlah proses, tambahkan opsi ``--processes``"
+
+msgid "Cached Database"
+msgstr "Cached Database"
+
+msgid "Clone Horizon"
+msgstr "Clone Horizon"
+
+msgid "Cloudkitty Dashboard"
+msgstr "Cloudkitty Dashboard"
+
+msgid "Comment out any other session storage configuration."
+msgstr "Komentar tentang konfigurasi penyimpanan sesi lainnya."
+
+msgid ""
+"Compile translation message catalogs for internationalization. This step is "
+"not required if you do not need to support languages other than US English. "
+"GNU ``gettext`` tool is required to compile message catalogs."
+msgstr ""
+"Menyusun katalog pesan terjemahan untuk internasionalisasi. Langkah ini "
+"tidak diperlukan jika Anda tidak perlu mendukung bahasa selain Bahasa "
+"Inggris AS. Alat `gettext`` GNU diperlukan untuk mengkompilasi katalog pesan."
+
+msgid ""
+"Compress your static files by adding ``COMPRESS_OFFLINE = True`` to your "
+"``local_settings.py``, then run the following commands"
+msgstr ""
+"Kompres file statis Anda dengan menambahkan ``COMPRESS_OFFLINE = True`` ke "
+"``local_settings.py`` Anda, lalu jalankan perintah berikut"
+
+msgid "Configuration"
+msgstr "Konfigurasi"
+
+msgid "Configure API versions:"
+msgstr "Konfigurasikan API versions:"
+
+msgid ""
+"Configure ``Default`` as the default domain for users that you create via "
+"the dashboard:"
+msgstr ""
+"Konfigurasikan ``Default`` sebagai domain default untuk pengguna yang Anda "
+"buat melalui dashboard:"
+
+msgid ""
+"Configure ``user`` as the default role for users that you create via the "
+"dashboard:"
+msgstr ""
+"Mengkonfigurasi ``user`` sebagai peran default untuk pengguna yang Anda buat "
+"melalui dasbor:"
+
+msgid "Configure the ``memcached`` session storage service:"
+msgstr "Konfigurasikan layanan penyimpanan sesi `memcached``:"
+
+msgid ""
+"Configure the dashboard to use OpenStack services on the ``controller`` node:"
+msgstr ""
+"Konfigurasikan dasbor untuk menggunakan layanan OpenStack pada simpul "
+"``controller ``:"
+
+msgid "Configure the web server:"
+msgstr "Konfigurasikan server web:"
+
+msgid "Congress Dashboard"
+msgstr "Congress Dashboard"
+
+msgid ""
+"Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
+"idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
+"edit it. As a minimum, the follow settings will need to be modified:"
+msgstr ""
+"Buat ``openstack_dashboard/local/local_settings.py``. Itu biasanya ide yang "
+"baik untuk menyalin ``openstack_dashboard/local/local_settings.py.example``` "
+"dan mengeditnya. Minimal, pengaturan berikut perlu dimodifikasi:"
+
+msgid ""
+"Currently, Horizon plugins are responsible for their own compatibility. "
+"Check the individual repos for information on support."
+msgstr ""
+"Saat ini, plugin Horizon bertanggung jawab atas kompatibilitasnya sendiri. "
+"Periksa repositori individual untuk informasi tentang dukungan."
+
+msgid ""
+"Customize your dashboard. For details, see :doc:`/admin/customize-configure`."
+msgstr ""
+"Sesuaikan dasbor Anda. Untuk detailnya, lihat :doc:`/admin/customize-"
+"configure`."
+
+msgid "Database"
+msgstr "Database"
+
+msgid ""
+"Database-backed sessions are scalable (using an appropriate database "
+"strategy), persistent, and can be made high-concurrency and highly-available."
+msgstr ""
+"Sesi yang didukung database bersifat skalabel (menggunakan strategi basis "
+"data yang sesuai), persisten, dan dapat dibuat konkurensi tinggi dan sangat "
+"tersedia."
+
+msgid ""
+"Default configuration files vary by distribution. You might need to add "
+"these sections and options rather than modifying existing sections and "
+"options. Also, an ellipsis (``...``) in the configuration snippets indicates "
+"potential default configuration options that you should retain."
+msgstr ""
+"File konfigurasi default bervariasi berdasarkan distribusi. Anda mungkin "
+"perlu menambahkan bagian dan opsi ini daripada memodifikasi bagian dan opsi "
+"yang ada. Juga, ellipsis (``...``) di cuplikan konfigurasi menunjukkan opsi "
+"konfigurasi standar potensial yang harus Anda pertahankan."
+
+msgid "Deployment"
+msgstr "Deployment"
+
+msgid "Designate Dashboard"
+msgstr "Designate Dashboard"
+
+msgid "Django 1.11 or 2.0"
+msgstr "Django 1.11 or 2.0"
+
+msgid "Django 1.8 to 1.10 are no longer supported since Rocky release."
+msgstr "Django 1.8 hingga 1.10 tidak lagi didukung sejak Rocky rilis."
+
+msgid ""
+"Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
+"section."
+msgstr ""
+"Jangan mengedit parameter ``ALLOWED_HOSTS`` di bawah bagian konfigurasi "
+"Ubuntu."
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings.py`` file and complete "
+"the following actions:"
+msgstr ""
+"Edit file ``/etc/openstack-dashboard/local_settings.py`` dan selesaikan "
+"tindakan berikut:"
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings`` file and complete the "
+"following actions:"
+msgstr ""
+"Edit file ``/etc/openstack-dashboard/local_settings`` dan selesaikan "
+"tindakan berikut:"
+
+msgid ""
+"Edit the ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
+"local_settings.py`` file and complete the following actions:"
+msgstr ""
+"Edit file  ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
+"local_settings.py`` dan selesaikan tindakan berikut:"
+
+msgid "Enable support for domains:"
+msgstr "Aktifkan dukungan untuk domain:"
+
+msgid "Enable the Identity API version 3:"
+msgstr "Aktifkan  Identity API version 3:"
+
+msgid "Enable the above configuration and restart the web server"
+msgstr "Aktifkan konfigurasi di atas dan mulai ulang server web"
+
+msgid ""
+"External caching using an application such as memcached offers persistence "
+"and shared storage, and can be very useful for small-scale deployment and/or "
+"development. However, for distributed and high-availability scenarios "
+"memcached has inherent problems which are beyond the scope of this "
+"documentation."
+msgstr ""
+"Eksternal caching menggunakan aplikasi seperti memcached menawarkan "
+"persisten dan penyimpanan bersama, dan bisa sangat berguna untuk penyebaran "
+"skala kecil dan/atau pengembangan. Namun, untuk skenario yang "
+"didistribusikan dan ketersediaan tinggi memcached memiliki masalah yang "
+"melekat yang berada di luar lingkup dokumentasi ini."
+
+msgid "Finalize installation"
+msgstr "Finalisasi instalasi"
+
+msgid ""
+"For details about browsers that support noVNC, see `README <https://github."
+"com/novnc/noVNC/blob/master/README.md>`__."
+msgstr ""
+"Untuk detail tentang browser yang mendukung noVNC, lihat `README <https://"
+"github.com/novnc/noVNC/blob/master/README.md>`__."
+
+msgid ""
+"For more information regarding configuring logging in Horizon, please read "
+"the `Django logging directive`_ and the `Python logging directive`_ "
+"documentation. Horizon is built on Python and Django."
+msgstr ""
+"Untuk informasi lebih lanjut tentang mengkonfigurasi penebangan di Horizon, "
+"silakan baca 'Django logging directive`_ dan dokumentasi `Python "
+"loggingiveive__. Horizon dibangun di atas Python dan Django."
+
+msgid "For the system dependencies, see :doc:`system-requirements`."
+msgstr "Untuk dependensi sistem, lihat :doc:`system-requirements`."
+
+msgid "Freezer Web UI"
+msgstr "Freezer Web UI"
+
+msgid "Group Based Policy UI"
+msgstr "Group Based Policy UI"
+
+msgid "Heat Dashboard"
+msgstr "Heat Dashboard"
+
+msgid ""
+"Horizon also supports many other OpenStack services via plugins. For more "
+"information, see the :ref:`install-plugin-registry`."
+msgstr ""
+"Horizon juga mendukung banyak layanan OpenStack lainnya melalui plugin. "
+"Untuk informasi lebih lanjut, lihat the :ref:`install-plugin-registry`."
+
+msgid ""
+"Horizon also uses a number of 3rd-party clients which log separately. The "
+"log level for these can still be controlled through Horizon's ``LOGGING`` "
+"config, however behaviors may vary beyond Horizon's control."
+msgstr ""
+"Horizon juga menggunakan sejumlah klien pihak ketiga yang masuk secara "
+"terpisah. Tingkat log untuk ini masih dapat dikontrol melalui konfigurasi "
+"``LOGGING``  Horizon, namun perilaku dapat bervariasi di luar kendali "
+"Horizon."
+
+msgid "Horizon plugins"
+msgstr "Horizon plugins"
+
+msgid ""
+"Horizon uses `Django's sessions framework`_ for handling session data. There "
+"are numerous session backends available, which are selected through the "
+"``SESSION_ENGINE`` setting in your ``local_settings.py`` file."
+msgstr ""
+"Horizon menggunakan `Django's sessions framework`_ untuk menangani data "
+"sesi. Ada banyak sesi backend yang tersedia, yang dipilih melalui pengaturan "
+"``SESSION_ENGINE`` di file ``local_settings.py`` Anda."
+
+msgid ""
+"Horizon usually syncs with `Django's Roadmap <https://www.djangoproject.com/"
+"weblog/2015/jun/25/roadmap/>`__ and basically supports maintained versions "
+"of Django as of the feature freeze of each OpenStack release."
+msgstr ""
+"Horizon biasanya disinkronkan dengan `Django's Roadmap <https://www."
+"djangoproject.com/weblog/2015/jun/25/roadmap/>`__ dan pada dasarnya "
+"mendukung versi Django yang telah dipelihara sebagai fitur pembekuan dari "
+"setiap rilis OpenStack."
+
+msgid ""
+"Horizons uses Django's logging configuration mechanism, which can be "
+"customized by altering the ``LOGGING`` dictionary in ``local_settings.py``. "
+"By default, Horizon's logging example sets the log level to ``INFO``."
+msgstr ""
+"Horizons menggunakan mekanisme konfigurasi Django's logging, yang dapat "
+"dikustomisasi dengan mengubah kamus ``LOGGING`` di ``local_settings.py``. "
+"Secara default, contoh Horizon's logging menyetel tingkat log ke `` INFO``."
+
+msgid ""
+"If you chose networking option 1, disable support for layer-3 networking "
+"services:"
+msgstr ""
+"Jika Anda memilih opsi jaringan 1, nonaktifkan dukungan untuk layanan "
+"jaringan layer-3:"
+
+msgid ""
+"In the Dashboard configuration section, allow your hosts to access Dashboard:"
+msgstr "Di bagian konfigurasi Dasbor, izinkan host Anda mengakses Dasbor:"
+
+msgid ""
+"In the commands below, substitute \"<release>\" for your version of choice, "
+"such as \"ocata\" or \"pike\"."
+msgstr ""
+"Dalam perintah di bawah ini, gantikan \"<release>\" untuk versi pilihan "
+"Anda, seperti \"ocata\" atau \"pike\"."
+
+msgid "Install and configure components"
+msgstr "Instal dan konfigurasi komponen"
+
+msgid "Install and configure for Debian"
+msgstr "Instal dan konfigurasikan untuk Debian"
+
+msgid "Install and configure for Red Hat Enterprise Linux and CentOS"
+msgstr "Instal dan konfigurasikan untuk Red Hat Enterprise Linux dan CentOS"
+
+msgid "Install and configure for Ubuntu"
+msgstr "Instal dan konfigurasikan untuk Ubuntu"
+
+msgid "Install and configure for openSUSE and SUSE Linux Enterprise"
+msgstr "Instal dan konfigurasikan untuk openSUSE dan SUSE Linux Enterprise"
+
+msgid "Install the horizon python module into your system"
+msgstr "Instal modul horizon python ke dalam sistem Anda"
+
+msgid "Install the packages:"
+msgstr "Instal paket:"
+
+msgid "Installation"
+msgstr "Pemasangan"
+
+msgid "Installation Guide"
+msgstr "Petunjuk pemasangan"
+
+msgid "Installing from Packages"
+msgstr "Memasang dari Paket"
+
+msgid "Installing from Source"
+msgstr "Menginstal dari Sumber (source)"
+
+msgid "Ironic UI"
+msgstr "Ironic UI"
+
+msgid "Karbor Dashboard"
+msgstr "Karbor Dashboard"
+
+msgid "Logging"
+msgstr "Logging"
+
+msgid "Magnum UI"
+msgstr "Magnum UI"
+
+msgid "Manila UI"
+msgstr "Manila UI"
+
+msgid "Manual installation"
+msgstr "Pemasangan manual"
+
+msgid "Memcached"
+msgstr "Memcached"
+
+msgid "Memcached service running and accessible"
+msgstr "Layanan memcached berjalan dan dapat diakses"
+
+msgid "Mistral Dashboard"
+msgstr "Mistral Dashboard"
+
+msgid "Monasca UI"
+msgstr "Monasca UI"
+
+msgid "Murano Dashboard"
+msgstr "Murano Dashboard"
+
+msgid "Neutron FWaaS Dashboard"
+msgstr "Neutron FWaaS Dashboard"
+
+msgid "Neutron LBaaS Dashboard"
+msgstr "Neutron LBaaS Dashboard"
+
+msgid "Neutron VPNaaS Dashboard"
+msgstr "Neutron VPNaaS Dashboard"
+
+msgid "Next Steps"
+msgstr "Langkah selanjutnya"
+
+msgid "Next steps"
+msgstr "Langkah selanjutnya"
+
+msgid "Octavia Dashboard"
+msgstr "Octavia Dashboard"
+
+msgid "Optionally, configure the time zone:"
+msgstr "Secara opsional, konfigurasikan zona waktu:"
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Plugin Registry"
+msgstr "Plugin Registry"
+
+msgid ""
+"Provide users with a public IP address, a username, and a password so they "
+"can access the dashboard through a web browser. In case of any SSL "
+"certificate connection problems, point the server IP address to a domain "
+"name, and give users access."
+msgstr ""
+"Berikan pengguna dengan alamat IP publik, nama pengguna, dan kata sandi "
+"sehingga mereka dapat mengakses dasbor melalui browser web. Jika ada masalah "
+"sambungan sertifikat SSL, arahkan alamat IP server ke nama domain, dan "
+"berikan akses kepada pengguna."
+
+msgid "Python 2.7 or 3.5"
+msgstr "Python 2.7 or 3.5"
+
+msgid "Python memcached module installed"
+msgstr "Modul Python memcached terpasang"
+
+msgid "Reload the web server configuration:"
+msgstr "Muat ulang konfigurasi server web:"
+
+msgid ""
+"Replace ``TIME_ZONE`` with an appropriate time zone identifier. For more "
+"information, see the `list of time zones <https://en.wikipedia.org/wiki/"
+"List_of_tz_database_time_zones>`__."
+msgstr ""
+"Ganti ``TIME_ZONE`` dengan pengenal zona waktu yang sesuai. Untuk informasi "
+"lebih lanjut, lihat `list of time zones <https://en.wikipedia.org/wiki/"
+"List_of_tz_database_time_zones>`__."
+
+msgid "Requirements:"
+msgstr "Persyaratan:"
+
+msgid "Respond to prompts for web server configuration."
+msgstr "Tanggapi permintaan untuk konfigurasi server web."
+
+msgid "Restart the web server and session storage service:"
+msgstr "Restart server web dan layanan penyimpanan sesi:"
+
+msgid "Sahara Dashboard"
+msgstr "Sahara Dashboard"
+
+msgid "Same as above but if you want SSL support"
+msgstr "Sama seperti di atas tetapi jika Anda menginginkan dukungan SSL"
+
+msgid "Searchlight UI"
+msgstr "Searchlight UI"
+
+msgid "Senlin Dashboard"
+msgstr "Senlin Dashboard"
+
+msgid "Session Storage"
+msgstr "Session Storage"
+
+msgid "Set to ``False``"
+msgstr "Setel ke ``False``"
+
+msgid ""
+"Set to the IP of your Keystone endpoint. You may also need to alter "
+"``OPENSTACK_KEYSTONE_URL``"
+msgstr ""
+"Atur ke IP endpoint Keystone Anda. Anda mungkin juga perlu mengubah "
+"``OPENSTACK_KEYSTONE_URL``"
+
+msgid "Set to your domain name(s)"
+msgstr "Setel nama domain Anda (s)"
+
+msgid ""
+"Set up a web server with WSGI support. For example, install Apache web "
+"server on Ubuntu"
+msgstr ""
+"Siapkan server web dengan dukungan WSGI. Sebagai contoh, instal server web "
+"Apache di Ubuntu"
+
+msgid "Set up session storage. For details, see :doc:`/admin/sessions`."
+msgstr ""
+"Siapkan penyimpanan sesi. Untuk detailnya, lihat :doc:`/admin/sessions`."
+
+msgid "Settings"
+msgstr "Pengaturan"
+
+msgid "Solum Dashboard"
+msgstr "Solum Dashboard"
+
+msgid "Static Assets"
+msgstr "Static Assets"
+
+msgid "System Requirements"
+msgstr "Persyaratan sistem"
+
+msgid "Tacker UI"
+msgstr "Tacker UI"
+
+msgid "The Queens release of horizon has the following dependencies."
+msgstr "The Queens rilis horizon memiliki dependensi berikut."
+
+msgid ""
+"The ``systemctl restart`` command starts each service if not currently "
+"running."
+msgstr ""
+"Perintah ``systemctl restart` `akan memulai setiap layanan jika tidak sedang "
+"berjalan."
+
+msgid ""
+"The automatic configuration process generates a self-signed SSL certificate. "
+"Consider obtaining an official certificate for production environments."
+msgstr ""
+"Proses konfigurasi otomatis menghasilkan sertifikat SSL yang ditandatangani "
+"sendiri. Pertimbangkan untuk mendapatkan sertifikat resmi untuk lingkungan "
+"produksi."
+
+msgid ""
+"The downside to this approach is that database-backed sessions are one of "
+"the slower session storages, and incur a high overhead under heavy usage. "
+"Proper configuration of your database deployment can also be a substantial "
+"undertaking and is far beyond the scope of this documentation."
+msgstr ""
+"Kelemahan dari pendekatan ini adalah bahwa sesi yang didukung database "
+"adalah salah satu penyimpanan sesi yang lebih lambat, dan menimbulkan biaya "
+"overhead yang tinggi di bawah penggunaan berat. Konfigurasi yang tepat dari "
+"penyebaran basis data Anda juga dapat menjadi pekerjaan substansial dan jauh "
+"di luar lingkup dokumentasi ini."
+
+msgid ""
+"The following steps in the \"Configuration\" section are optional, but "
+"highly recommended in production."
+msgstr ""
+"Langkah-langkah berikut di bagian \"Configuration\" adalah opsional, tetapi "
+"sangat dianjurkan dalam produksi."
+
+msgid ""
+"The only core service required by the dashboard is the Identity service. You "
+"can use the dashboard in combination with other services, such as Image "
+"service, Compute, and Networking. You can also use the dashboard in "
+"environments with stand-alone services such as Object Storage."
+msgstr ""
+"Satu-satunya layanan inti yang dibutuhkan oleh dasbor adalah layanan "
+"Identity. Anda dapat menggunakan dasbor dalam kombinasi dengan layanan lain, "
+"seperti layanan Image, Compute, dan Networking. Anda juga dapat menggunakan "
+"dasbor di lingkungan dengan layanan yang berdiri sendiri seperti Object "
+"Storage."
+
+msgid ""
+"Then configure the web server to host OpenStack dashboard via WSGI. For "
+"apache2 web server, you may need to create ``/etc/apache2/sites-available/"
+"horizon.conf``. The template in DevStack is a good example of the file. "
+"http://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-"
+"horizon.template Or you can automatically generate an apache configuration "
+"file. If you previously generated an ``openstack_dashboard/horizon_wsgi.py`` "
+"file it will use that, otherwise will default to using ``openstack_dashboard/"
+"wsgi.py``"
+msgstr ""
+"Kemudian konfigurasikan server web untuk meng-host dashboard OpenStack "
+"melalui WSGI. Untuk server web apache2, Anda mungkin perlu membuat ``/etc/"
+"apache2/sites-available/horizon.conf``. Template di DevStack adalah contoh "
+"file yang bagus. http://git.openstack.org/cgit/openstack-dev/devstack/tree/"
+"files/apache-horizon.template Atau Anda dapat secara otomatis menghasilkan "
+"file konfigurasi apache. Jika sebelumnya Anda menghasilkan file "
+"``openstack_dashboard/horizon_wsgi.py`` maka ia akan menggunakannya, jika "
+"tidak, akan secara default menggunakan ``openstack_dashboard/wsgi.py``"
+
+msgid ""
+"There are a number of horizon plugins for various useful features. You can "
+"get dashboard supports for them by installing corresponding horizon plugins."
+msgstr ""
+"Ada sejumlah plugin horizon untuk berbagai fitur yang bermanfaat. Anda bisa "
+"mendapatkan dukungan dashboard untuk mereka dengan menginstal plugin horizon "
+"yang sesuai."
+
+msgid ""
+"There are two modes of installation. One using ``/horizon`` as the URL, "
+"keeping your default vhost and only adding an Alias directive: this is the "
+"default. The other mode will remove the default Apache vhost and install the "
+"dashboard on the webroot. It was the only available option before the "
+"Liberty release. If you prefer to set the Apache configuration manually,  "
+"install the ``openstack-dashboard`` package instead of ``openstack-dashboard-"
+"apache``."
+msgstr ""
+"Ada dua mode pemasangan. Satu menggunakan ``/horizon`` sebagai URL, menjaga "
+"vhost default Anda dan hanya menambahkan direktif Alias: ini adalah default. "
+"Mode lainnya akan menghapus vhost Apache default dan menginstal dasbor di "
+"webroot. Itu adalah satu-satunya pilihan yang tersedia sebelum rilis "
+"Liberty. Jika Anda lebih suka mengatur konfigurasi Apache secara manual, "
+"instal paket ``openstack-dashboard` ` dan bukan ``openstack-dashboard-"
+"apache``."
+
+msgid ""
+"This page covers the basic installation of horizon in a production "
+"environment. If you are looking for a developer environment, see :ref:"
+"`quickstart`."
+msgstr ""
+"Halaman ini mencakup pemasangan horizon dasar dalam lingkungan produksi. "
+"Jika Anda mencari lingkungan pengembang, lihat :ref:`quickstart`."
+
+msgid ""
+"This section assumes proper installation, configuration, and operation of "
+"the Identity service using the Apache HTTP server and Memcached service."
+msgstr ""
+"Bagian ini mengasumsikan instalasi, konfigurasi, dan pengoperasian layanan "
+"Identity yang benar menggunakan server HTTP Apache dan layanan Memcache."
+
+msgid ""
+"This section contains a small summary of the critical settings required to "
+"run horizon. For more details, please refer to :ref:`install-settings`."
+msgstr ""
+"Bagian ini berisi ringkasan kecil dari pengaturan kritis yang diperlukan "
+"untuk menjalankan horizon. Untuk lebih jelasnya, silakan merujuk :ref:"
+"`install-settings`."
+
+msgid ""
+"This section describes how to install and configure the dashboard on the "
+"controller node."
+msgstr ""
+"Bagian ini menjelaskan cara menginstal dan mengkonfigurasi dasbor pada "
+"simpul pengontrol."
+
+msgid ""
+"To mitigate the performance issues of database queries, you can also "
+"consider using Django's ``cached_db`` session backend which utilizes both "
+"your database and caching infrastructure to perform write-through caching "
+"and efficient retrieval. You can enable this hybrid setting by configuring "
+"both your database and cache as discussed above and then using"
+msgstr ""
+"Untuk mengurangi masalah kinerja query database, Anda juga dapat "
+"mempertimbangkan untuk menggunakan backend sesi ``cached_db`` Django yang "
+"memanfaatkan database dan infrastruktur cache untuk melakukan cache write-"
+"through dan pengambilan yang efisien. Anda dapat mengaktifkan pengaturan "
+"hibrida ini dengan mengkonfigurasi database dan cache Anda seperti yang "
+"dibahas di atas dan kemudian menggunakan"
+
+msgid ""
+"To use the VNC client with the dashboard, the browser must support HTML5 "
+"Canvas and HTML5 WebSockets."
+msgstr ""
+"Untuk menggunakan klien VNC dengan dasbor, browser harus mendukung HTML5 "
+"Canvas dan HTML5 WebSockets."
+
+msgid "Translations"
+msgstr "Translations (terjemahan)"
+
+msgid "TripleO UI"
+msgstr "TripleO UI"
+
+msgid "Trove Dashboard"
+msgstr "Trove Dashboard"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Verify operation for Debian"
+msgstr "Verifikasi operasi untuk Debian"
+
+msgid "Verify operation for Red Hat Enterprise Linux and CentOS"
+msgstr "Verifikasi operasi untuk Red Hat Enterprise Linux dan CentOS"
+
+msgid "Verify operation for Ubuntu"
+msgstr "Verifikasi operasi untuk Ubuntu"
+
+msgid "Verify operation for openSUSE and SUSE Linux Enterprise"
+msgstr "Verifikasi operasi untuk openSUSE dan SUSE Linux Enterprise"
+
+msgid "Verify operation of the dashboard."
+msgstr "Verifikasi pengoperasian dasbor."
+
+msgid "Vitrage Dashboard"
+msgstr "Vitrage Dashboard"
+
+msgid "Watcher Dashboard"
+msgstr "Watcher Dashboard"
+
+msgid ""
+"You can either use the provided ``openstack_dashboard/wsgi.py`` or generate "
+"a ``openstack_dashboard/horizon_wsgi.py`` file with the following command "
+"(which detects if you use a virtual environment or not to automatically "
+"build an adapted WSGI file)"
+msgstr ""
+"Anda dapat menggunakan ``openstack_dashboard/wsgi.py`` atau menghasilkan "
+"file ``openstack_dashboard/horizon_wsgi.py`` dengan perintah berikut (yang "
+"mendeteksi jika Anda menggunakan lingkungan virtual atau tidak secara "
+"otomatis membangun file WSGI yang disesuaikan )"
+
+msgid "Your OpenStack environment now includes the dashboard."
+msgstr "Lingkungan OpenStack Anda sekarang termasuk dasbor."
+
+msgid "Zaqar UI"
+msgstr "Zaqar UI"
+
+msgid "Zun UI"
+msgstr "Zun UI"
+
+msgid "``ALLOWED_HOSTS``"
+msgstr "``ALLOWED_HOSTS``"
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See `Django documentation <https://docs.djangoproject."
+"com/en/dev/ref/settings/#allowed-hosts>`_ for further information."
+msgstr ""
+"``ALLOWED_HOSTS`` juga bisa ``['*']`` menerima semua host. Ini mungkin "
+"berguna untuk pekerjaan pengembangan, tetapi berpotensi tidak aman dan tidak "
+"boleh digunakan dalam produksi. Lihat `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ untuk informasi "
+"lebih lanjut."
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See the `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ for further "
+"information."
+msgstr ""
+"``ALLOWED_HOSTS`` juga bisa `` ['*'] `` menerima semua host. Ini mungkin "
+"berguna untuk pekerjaan pengembangan, tetapi berpotensi tidak aman dan tidak "
+"boleh digunakan dalam produksi. Lihat `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ untuk informasi "
+"lebih lanjut."
+
+msgid "``DEBUG``"
+msgstr "``DEBUG``"
+
+msgid "``OPENSTACK_HOST``"
+msgstr "``OPENSTACK_HOST``"
+
+msgid "`cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage"
+msgstr "`cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage"
+
+msgid "`glance <https://docs.openstack.org/glance/latest/>`_: Image Management"
+msgstr ""
+"`glance <https://docs.openstack.org/glance/latest/>`_: Image Management"
+
+msgid "`neutron <https://docs.openstack.org/neutron/latest/>`_: Networking"
+msgstr "`neutron <https://docs.openstack.org/neutron/latest/>`_: Networking"
+
+msgid "`nova <https://docs.openstack.org/nova/latest/>`_: Compute"
+msgstr "`nova <https://docs.openstack.org/nova/latest/>`_: Compute"
+
+msgid "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
+msgstr "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
+
+msgid "https://github.com/openstack/blazar-dashboard"
+msgstr "https://github.com/openstack/blazar-dashboard"
+
+msgid "https://github.com/openstack/cloudkitty-dashboard"
+msgstr "https://github.com/openstack/cloudkitty-dashboard"
+
+msgid "https://github.com/openstack/congress-dashboard"
+msgstr "https://github.com/openstack/congress-dashboard"
+
+msgid "https://github.com/openstack/designate-dashboard"
+msgstr "https://github.com/openstack/designate-dashboard"
+
+msgid "https://github.com/openstack/freezer-web-ui"
+msgstr "https://github.com/openstack/freezer-web-ui"
+
+msgid "https://github.com/openstack/group-based-policy-ui"
+msgstr "https://github.com/openstack/group-based-policy-ui"
+
+msgid "https://github.com/openstack/heat-dashboard"
+msgstr "https://github.com/openstack/heat-dashboard"
+
+msgid "https://github.com/openstack/ironic-ui"
+msgstr "https://github.com/openstack/ironic-ui"
+
+msgid "https://github.com/openstack/karbor-dashboard"
+msgstr "https://github.com/openstack/karbor-dashboard"
+
+msgid "https://github.com/openstack/magnum-ui"
+msgstr "https://github.com/openstack/magnum-ui"
+
+msgid "https://github.com/openstack/manila-ui"
+msgstr "https://github.com/openstack/manila-ui"
+
+msgid "https://github.com/openstack/mistral-dashboard"
+msgstr "https://github.com/openstack/mistral-dashboard"
+
+msgid "https://github.com/openstack/monasca-ui"
+msgstr "https://github.com/openstack/monasca-ui"
+
+msgid "https://github.com/openstack/murano-dashboard"
+msgstr "https://github.com/openstack/murano-dashboard"
+
+msgid "https://github.com/openstack/networking-bgpvpn"
+msgstr "https://github.com/openstack/networking-bgpvpn"
+
+msgid "https://github.com/openstack/neutron-fwaas-dashboard"
+msgstr "https://github.com/openstack/neutron-fwaas-dashboard"
+
+msgid "https://github.com/openstack/neutron-lbaas-dashboard"
+msgstr "https://github.com/openstack/neutron-lbaas-dashboard"
+
+msgid "https://github.com/openstack/neutron-vpnaas-dashboard"
+msgstr "https://github.com/openstack/neutron-vpnaas-dashboard"
+
+msgid "https://github.com/openstack/octavia-dashboard"
+msgstr "https://github.com/openstack/octavia-dashboard"
+
+msgid "https://github.com/openstack/sahara-dashboard"
+msgstr "https://github.com/openstack/sahara-dashboard"
+
+msgid "https://github.com/openstack/searchlight-ui"
+msgstr "https://github.com/openstack/searchlight-ui"
+
+msgid "https://github.com/openstack/senlin-dashboard"
+msgstr "https://github.com/openstack/senlin-dashboard"
+
+msgid "https://github.com/openstack/solum-dashboard"
+msgstr "https://github.com/openstack/solum-dashboard"
+
+msgid "https://github.com/openstack/tacker-horizon"
+msgstr "https://github.com/openstack/tacker-horizon"
+
+msgid "https://github.com/openstack/tripleo-ui/"
+msgstr "https://github.com/openstack/tripleo-ui/"
+
+msgid "https://github.com/openstack/trove-dashboard"
+msgstr "https://github.com/openstack/trove-dashboard"
+
+msgid "https://github.com/openstack/vitrage-dashboard"
+msgstr "https://github.com/openstack/vitrage-dashboard"
+
+msgid "https://github.com/openstack/watcher-dashboard"
+msgstr "https://github.com/openstack/watcher-dashboard"
+
+msgid "https://github.com/openstack/zaqar-ui"
+msgstr "https://github.com/openstack/zaqar-ui"
+
+msgid "https://github.com/openstack/zun-ui"
+msgstr "https://github.com/openstack/zun-ui"
+
+msgid "https://launchpad.net/bgpvpn"
+msgstr "https://launchpad.net/bgpvpn"
+
+msgid "https://launchpad.net/blazar"
+msgstr "https://launchpad.net/blazar"
+
+msgid "https://launchpad.net/cloudkitty"
+msgstr "https://launchpad.net/cloudkitty"
+
+msgid "https://launchpad.net/congress"
+msgstr "https://launchpad.net/congress"
+
+msgid "https://launchpad.net/designate-dashboard"
+msgstr "https://launchpad.net/designate-dashboard"
+
+msgid "https://launchpad.net/freezer"
+msgstr "https://launchpad.net/freezer"
+
+msgid "https://launchpad.net/group-based-policy-ui"
+msgstr "https://launchpad.net/group-based-policy-ui"
+
+msgid "https://launchpad.net/ironic-ui"
+msgstr "https://launchpad.net/ironic-ui"
+
+msgid "https://launchpad.net/karbor-dashboard"
+msgstr "https://launchpad.net/karbor-dashboard"
+
+msgid "https://launchpad.net/magnum-ui"
+msgstr "https://launchpad.net/magnum-ui"
+
+msgid "https://launchpad.net/manila-ui"
+msgstr "https://launchpad.net/manila-ui"
+
+msgid "https://launchpad.net/mistral"
+msgstr "https://launchpad.net/mistral"
+
+msgid "https://launchpad.net/monasca"
+msgstr "https://launchpad.net/monasca"
+
+msgid "https://launchpad.net/murano"
+msgstr "https://launchpad.net/murano"
+
+msgid "https://launchpad.net/neutron-fwaas-dashboard"
+msgstr "https://launchpad.net/neutron-fwaas-dashboard"
+
+msgid "https://launchpad.net/neutron-vpnaas-dashboard"
+msgstr "https://launchpad.net/neutron-vpnaas-dashboard"
+
+msgid "https://launchpad.net/senlin-dashboard"
+msgstr "https://launchpad.net/senlin-dashboard"
+
+msgid "https://launchpad.net/solum"
+msgstr "https://launchpad.net/solum"
+
+msgid "https://launchpad.net/tacker"
+msgstr "https://launchpad.net/tacker"
+
+msgid "https://launchpad.net/tripleo"
+msgstr "https://launchpad.net/tripleo"
+
+msgid "https://launchpad.net/trove-dashboard"
+msgstr "https://launchpad.net/trove-dashboard"
+
+msgid "https://launchpad.net/vitrage-dashboard"
+msgstr "https://launchpad.net/vitrage-dashboard"
+
+msgid "https://launchpad.net/watcher-dashboard"
+msgstr "https://launchpad.net/watcher-dashboard"
+
+msgid "https://launchpad.net/zaqar-ui"
+msgstr "https://launchpad.net/zaqar-ui"
+
+msgid "https://launchpad.net/zun-ui"
+msgstr "https://launchpad.net/zun-ui"
+
+msgid "https://storyboard.openstack.org/#!/project/907"
+msgstr "https://storyboard.openstack.org/#!/project/907"
+
+msgid "https://storyboard.openstack.org/#!/project/909"
+msgstr "https://storyboard.openstack.org/#!/project/909"
+
+msgid "https://storyboard.openstack.org/#!/project/936"
+msgstr "https://storyboard.openstack.org/#!/project/936"
+
+msgid "https://storyboard.openstack.org/#!/project/992"
+msgstr "https://storyboard.openstack.org/#!/project/992"

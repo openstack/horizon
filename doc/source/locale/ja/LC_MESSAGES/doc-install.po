@@ -1,0 +1,729 @@
+# Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-08-14 09:34+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ""
+"ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "
+"development work, but is potentially insecure and should not be used in "
+"production. See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-"
+"hosts for further information."
+msgstr ""
+"ALLOWED_HOSTS は、すべてのホストを受け付けるために ['*'] にできます。これは、"
+"開発用途に有用かもしれません。潜在的なセキュリティ問題があるため、本番環境で"
+"は使用すべきではありません。詳細は https://docs.djangoproject.com/en/dev/ref/"
+"settings/#allowed-hosts を参照してください。"
+
+msgid "Access the dashboard using a web browser at ``http://controller/``."
+msgstr "ウェブブラウザーを使用して ``http://controller/`` にアクセスします。"
+
+msgid ""
+"After you install and configure the dashboard, you can complete the "
+"following tasks:"
+msgstr ""
+"ダッシュボードをインストールして設定すると、以下の作業が行えるようになりま"
+"す。"
+
+msgid "Allow your hosts to access the dashboard:"
+msgstr "すべてのホストからのダッシュボードへのアクセスを許可します。"
+
+msgid ""
+"An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ "
+"endpoint"
+msgstr ""
+"アクセス可能な `keystone <https://docs.openstack.org/keystone/latest/>`_ エン"
+"ドポイント"
+
+msgid ""
+"Authenticate using ``admin`` or ``demo`` user and ``default`` domain "
+"credentials."
+msgstr ""
+"``admin`` ユーザーまたは ``demo`` ユーザーと ``default`` ドメインのクレデン"
+"シャルで認証を行います。"
+
+msgid "BGPVPN Dashboard"
+msgstr "BGPVPN Dashboard"
+
+msgid "Blazar Dashboard"
+msgstr "Blazar Dashboard"
+
+msgid "Bug Tracker"
+msgstr "バグ管理システム"
+
+msgid "Cached Database"
+msgstr "キャッシュ付きデータベース"
+
+msgid "Clone Horizon"
+msgstr "horizon を取得します。"
+
+msgid "Cloudkitty Dashboard"
+msgstr "Cloudkitty Dashboard"
+
+msgid "Comment out any other session storage configuration."
+msgstr "それ以外のすべてのセッションストレージ設定をコメントアウトします。"
+
+msgid "Configuration"
+msgstr "設定"
+
+msgid "Configure API versions:"
+msgstr "API バージョンを設定します。"
+
+msgid ""
+"Configure ``Default`` as the default domain for users that you create via "
+"the dashboard:"
+msgstr ""
+"ダッシュボード経由で作成するユーザーのデフォルトドメインとして ``Default`` を"
+"設定します。"
+
+msgid ""
+"Configure ``user`` as the default role for users that you create via the "
+"dashboard:"
+msgstr ""
+"ダッシュボード経由で作成するユーザーのデフォルトロールとして ``user`` を設定"
+"します。"
+
+msgid "Configure the ``memcached`` session storage service:"
+msgstr "``memcached`` セッションストレージサービスを設定します。"
+
+msgid ""
+"Configure the dashboard to use OpenStack services on the ``controller`` node:"
+msgstr ""
+"``controller`` ノードの OpenStack のサービスを使用するように、ダッシュボード"
+"を設定します。"
+
+msgid "Configure the web server:"
+msgstr "ウェブサーバーを設定します。"
+
+msgid "Congress Dashboard"
+msgstr "Congress Dashboard"
+
+msgid ""
+"Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
+"idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
+"edit it. As a minimum, the follow settings will need to be modified:"
+msgstr ""
+"``openstack_dashboard/local/local_settings.py`` を作成します。通常は  "
+"``openstack_dashboard/local/local_settings.py.example`` をコピーして編集する"
+"のがよいでしょう。最低限、以下を変更する必要があります。"
+
+msgid "Database"
+msgstr "データベース"
+
+msgid ""
+"Default configuration files vary by distribution. You might need to add "
+"these sections and options rather than modifying existing sections and "
+"options. Also, an ellipsis (``...``) in the configuration snippets indicates "
+"potential default configuration options that you should retain."
+msgstr ""
+"設定ファイルのデフォルトは、ディストリビューションにより異なります。これらの"
+"既存のセクションとオプションを編集するのではなく、追加する必要があるかもしれ"
+"ません。また、設定のスニペットにある 省略 (``...``) は、保持すべきデフォルト"
+"の設定オプションを意味します。"
+
+msgid "Designate Dashboard"
+msgstr "Designate Dashboard"
+
+msgid "Django 1.11 or 2.0"
+msgstr "Django 1.11 または 2.0"
+
+msgid ""
+"Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
+"section."
+msgstr ""
+"Ubuntu 設定セクションの中にある ``ALLOWED_HOSTS`` パラメーターは編集してはい"
+"けません。"
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings.py`` file and complete "
+"the following actions:"
+msgstr ""
+"``/etc/openstack-dashboard/local_settings.py`` ファイルを編集し、以下の作業を"
+"すべて行います。"
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings`` file and complete the "
+"following actions:"
+msgstr ""
+"``/etc/openstack-dashboard/local_settings`` ファイルを編集し、以下の作業をす"
+"べて行います。"
+
+msgid ""
+"Edit the ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
+"local_settings.py`` file and complete the following actions:"
+msgstr ""
+"``/srv/www/openstack-dashboard/openstack_dashboard/local/local_settings.py`` "
+"ファイルを編集し、以下の作業をすべて行います。"
+
+msgid "Enable support for domains:"
+msgstr "ドメインのサポートを有効にします。"
+
+msgid "Enable the Identity API version 3:"
+msgstr "Identity API バージョン 3 を有効にします。"
+
+msgid "Finalize installation"
+msgstr "インストールの最終作業"
+
+msgid ""
+"For details about browsers that support noVNC, see `README <https://github."
+"com/novnc/noVNC/blob/master/README.md>`__."
+msgstr ""
+"noVNC をサポートするブラウザーの詳細は、`README <https://github.com/novnc/"
+"noVNC/blob/master/README.md>`__ を参照してください。"
+
+msgid "For the system dependencies, see :doc:`system-requirements`."
+msgstr ""
+"システム要件については :ref:`こちら <system-requirements>` を参照してくださ"
+"い。"
+
+msgid "Freezer Web UI"
+msgstr "Freezer Web UI"
+
+msgid "Group Based Policy UI"
+msgstr "Group Based Policy UI"
+
+msgid "Heat Dashboard"
+msgstr "Heat Dashboard"
+
+msgid "Horizon plugins"
+msgstr "horizon プラグイン"
+
+msgid ""
+"If you chose networking option 1, disable support for layer-3 networking "
+"services:"
+msgstr ""
+"ネットワークオプション 1 を選択した場合、レイヤー 3 ネットワークサービスのサ"
+"ポートを無効にします。"
+
+msgid ""
+"In the Dashboard configuration section, allow your hosts to access Dashboard:"
+msgstr ""
+"Dashboard の設定セクションにおいて、ホストからの Dashboard へのアクセスを許可"
+"します。"
+
+msgid ""
+"In the commands below, substitute \"<release>\" for your version of choice, "
+"such as \"ocata\" or \"pike\"."
+msgstr ""
+"以下のコマンドでは、 \"<release>\" を使用するバージョンにあわせて \"ocata\" "
+"や \"pike\" などに置き換えてください。"
+
+msgid "Install and configure components"
+msgstr "コンポーネントのインストールと設定"
+
+msgid "Install and configure for Debian"
+msgstr "インストールと設定 (Debian)"
+
+msgid "Install and configure for Red Hat Enterprise Linux and CentOS"
+msgstr "インストールと設定 (Red Hat Enterprise Linux, CentOS)"
+
+msgid "Install and configure for Ubuntu"
+msgstr "インストールと設定 (Ubuntu)"
+
+msgid "Install and configure for openSUSE and SUSE Linux Enterprise"
+msgstr "インストールと設定 (openSUSE, SUSE Linux Enterprise)"
+
+msgid "Install the horizon python module into your system"
+msgstr "システムに horizon の python モジュールをインストールします。"
+
+msgid "Install the packages:"
+msgstr "パッケージをインストールします。"
+
+msgid "Installation"
+msgstr "インストール"
+
+msgid "Installation Guide"
+msgstr "インストールガイド"
+
+msgid "Installing from Packages"
+msgstr "パッケージからのインストール"
+
+msgid "Installing from Source"
+msgstr "ソースからのインストール"
+
+msgid "Ironic UI"
+msgstr "Ironic UI"
+
+msgid "Karbor Dashboard"
+msgstr "Karbor Dashboard"
+
+msgid "Logging"
+msgstr "ログ"
+
+msgid "Magnum UI"
+msgstr "Magnum UI"
+
+msgid "Manila UI"
+msgstr "Manila UI"
+
+msgid "Manual installation"
+msgstr "手動でのインストール"
+
+msgid "Memcached"
+msgstr "memcached"
+
+msgid "Memcached service running and accessible"
+msgstr "memcached サービスが動作していてアクセスできること"
+
+msgid "Mistral Dashboard"
+msgstr "Mistral Dashboard"
+
+msgid "Monasca UI"
+msgstr "Monasca UI"
+
+msgid "Murano Dashboard"
+msgstr "Murano Dashboard"
+
+msgid "Neutron FWaaS Dashboard"
+msgstr "Neutron FWaaS Dashboard"
+
+msgid "Neutron LBaaS Dashboard"
+msgstr "Neutron LBaaS Dashboard"
+
+msgid "Neutron VPNaaS Dashboard"
+msgstr "Neutron VPNaaS Dashboard"
+
+msgid "Next Steps"
+msgstr "次の手順"
+
+msgid "Next steps"
+msgstr "次の手順"
+
+msgid "Octavia Dashboard"
+msgstr "Octavia Dashboard"
+
+msgid "Optionally, configure the time zone:"
+msgstr "必要であれば、タイムゾーンを設定します。"
+
+msgid "Plugin"
+msgstr "プラグイン"
+
+msgid "Plugin Registry"
+msgstr "プラグイン一覧"
+
+msgid ""
+"Provide users with a public IP address, a username, and a password so they "
+"can access the dashboard through a web browser. In case of any SSL "
+"certificate connection problems, point the server IP address to a domain "
+"name, and give users access."
+msgstr ""
+"ユーザーがウェブブラウザー経由でダッシュボードにアクセスするためのパブリック "
+"IP アドレス、ユーザー名、パスワードのユーザーへの通知。接続で SSL 証明書に関"
+"する問題がある場合、サーバーの IP アドレスがドメイン名を指すようにして、ユー"
+"ザーがドメイン名にアクセスするようにします。"
+
+msgid "Python 2.7 or 3.5"
+msgstr "Python 2.7 または 3.5"
+
+msgid "Python memcached module installed"
+msgstr "python の memcached モジュールがインストールされていること"
+
+msgid "Reload the web server configuration:"
+msgstr "ウェブサーバーの設定を再読み込みします。"
+
+msgid ""
+"Replace ``TIME_ZONE`` with an appropriate time zone identifier. For more "
+"information, see the `list of time zones <https://en.wikipedia.org/wiki/"
+"List_of_tz_database_time_zones>`__."
+msgstr ""
+"``TIME_ZONE`` を適切なタイムゾーン識別子に置き換えてください。詳細は `タイム"
+"ゾーン一覧 <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>`__ "
+"を参照してください。"
+
+msgid "Requirements:"
+msgstr "要件:"
+
+msgid "Respond to prompts for web server configuration."
+msgstr "ウェブサーバー設定のプロンプトに答えます。"
+
+msgid "Restart the web server and session storage service:"
+msgstr "ウェブサーバーとセッションストレージサービスを再起動します。"
+
+msgid "Sahara Dashboard"
+msgstr "Sahara Dashboard"
+
+msgid "Searchlight UI"
+msgstr "Searchlight UI"
+
+msgid "Senlin Dashboard"
+msgstr "Senlin Dashboard"
+
+msgid "Session Storage"
+msgstr "セッションストレージ"
+
+msgid "Set to ``False``"
+msgstr "``False`` に設定します。"
+
+msgid ""
+"Set to the IP of your Keystone endpoint. You may also need to alter "
+"``OPENSTACK_KEYSTONE_URL``"
+msgstr ""
+"keystone エンドポイントの IP アドレスに設定します。 "
+"``OPENSTACK_KEYSTONE_URL`` の変更も必要な場合があります。"
+
+msgid "Set to your domain name(s)"
+msgstr "使用するドメイン名に設定します。"
+
+msgid "Solum Dashboard"
+msgstr "Solum Dashboard"
+
+msgid "Static Assets"
+msgstr "静的なファイル"
+
+msgid "System Requirements"
+msgstr "システム要件"
+
+msgid "Tacker UI"
+msgstr "Tacker UI"
+
+msgid ""
+"The ``systemctl restart`` command starts each service if not currently "
+"running."
+msgstr ""
+"``systemctl restart`` コマンドは、動作していない場合、各サービスを開始しま"
+"す。"
+
+msgid ""
+"The automatic configuration process generates a self-signed SSL certificate. "
+"Consider obtaining an official certificate for production environments."
+msgstr ""
+"自動設定プロセスにより、自己署名 SSL 証明書が生成されます。本番環境向けに公式"
+"な証明書を取得することを検討してください。"
+
+msgid ""
+"The only core service required by the dashboard is the Identity service. You "
+"can use the dashboard in combination with other services, such as Image "
+"service, Compute, and Networking. You can also use the dashboard in "
+"environments with stand-alone services such as Object Storage."
+msgstr ""
+"ダッシュボードにより必要となるコアサービスは、Identity サービスのみです。"
+"Image サービス、Compute サービス、Networking サービスなどの他のサービスと組み"
+"合わせて、ダッシュボードを使用できます。また、Object Storage サービスのような"
+"単独のサービスを持つ環境でダッシュボードを使用することもできます。"
+
+msgid ""
+"There are two modes of installation. One using ``/horizon`` as the URL, "
+"keeping your default vhost and only adding an Alias directive: this is the "
+"default. The other mode will remove the default Apache vhost and install the "
+"dashboard on the webroot. It was the only available option before the "
+"Liberty release. If you prefer to set the Apache configuration manually,  "
+"install the ``openstack-dashboard`` package instead of ``openstack-dashboard-"
+"apache``."
+msgstr ""
+"2 種類のインストール方法があります。 1 つは、ダッシュボードの URL として ``/"
+"horizon`` を使用する方法で、デフォルトの vhost はそのままにして、Alias ディレ"
+"クティブを追加するだけです。これがデフォルトのインストール方法です。もう 1 つ"
+"の方法は、デフォルトの Apache vhost を削除し、ダッシュボードをトップ階層にイ"
+"ンストールします。 Liberty リリースより前では、この方法しかありませんでし"
+"た。 Apache の設定を手動で行いたい場合は、 ``openstack-dashboard-apache`` の"
+"代わりに ``openstack-dashboard`` パッケージをインストールしてください。"
+
+msgid ""
+"This page covers the basic installation of horizon in a production "
+"environment. If you are looking for a developer environment, see :ref:"
+"`quickstart`."
+msgstr ""
+"このページでは、本番環境に horizon をインストールする基本的な手順を説明しま"
+"す。開発環境の情報を探している場合は :ref:`クイックスタート <quickstart>` を"
+"参照してください。"
+
+msgid ""
+"This section contains a small summary of the critical settings required to "
+"run horizon. For more details, please refer to :ref:`install-settings`."
+msgstr ""
+"ここでは、 horizon を動かすのに必要不可欠な最低限の設定のみを説明します。詳細"
+"な設定は :ref:`install-settings` を参照してください。"
+
+msgid ""
+"This section describes how to install and configure the dashboard on the "
+"controller node."
+msgstr ""
+"このセクションでは、コントローラーノードにダッシュボードのインストールと設定"
+"の方法を説明します。"
+
+msgid ""
+"To use the VNC client with the dashboard, the browser must support HTML5 "
+"Canvas and HTML5 WebSockets."
+msgstr ""
+"ダッシュボードで VNC クライアントを使用する場合、ブラウザーが HTML5 Canvas "
+"と HTML5 WebSockets をサポートしている必要があります。"
+
+msgid "Translations"
+msgstr "翻訳"
+
+msgid "TripleO UI"
+msgstr "TripleO UI"
+
+msgid "Trove Dashboard"
+msgstr "Trove Dashboard"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Verify operation for Debian"
+msgstr "動作検証 (Debian)"
+
+msgid "Verify operation for Red Hat Enterprise Linux and CentOS"
+msgstr "動作検証 (Red Hat Enterprise Linux, CentOS)"
+
+msgid "Verify operation for Ubuntu"
+msgstr "動作検証 (Ubuntu)"
+
+msgid "Verify operation for openSUSE and SUSE Linux Enterprise"
+msgstr "動作検証 (openSUSE, SUSE Linux Enterprise)"
+
+msgid "Verify operation of the dashboard."
+msgstr "ダッシュボードの動作を検証します。"
+
+msgid "Vitrage Dashboard"
+msgstr "Vitrage Dashboard"
+
+msgid "Watcher Dashboard"
+msgstr "Watcher Dashboard"
+
+msgid "Your OpenStack environment now includes the dashboard."
+msgstr "OpenStack 環境にダッシュボードが追加されました。"
+
+msgid "Zaqar UI"
+msgstr "Zaqar UI"
+
+msgid "Zun UI"
+msgstr "Zun UI"
+
+msgid "``ALLOWED_HOSTS``"
+msgstr "``ALLOWED_HOSTS``"
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See `Django documentation <https://docs.djangoproject."
+"com/en/dev/ref/settings/#allowed-hosts>`_ for further information."
+msgstr ""
+"``ALLOWED_HOSTS`` は、すべてのホストを受け付けるために ``['*']`` にできます。"
+"これは、開発用途に有用かもしれません。潜在的なセキュリティ問題があるため、本"
+"番環境では使用すべきではありません。詳細は `Django documentation <https://"
+"docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ を参照してくださ"
+"い。"
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See the `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ for further "
+"information."
+msgstr ""
+"``ALLOWED_HOSTS`` は、すべてのホストを受け付けるために ``['*']`` にできます。"
+"これは、開発用途に有用かもしれません。潜在的なセキュリティ問題があるため、本"
+"番環境では使用すべきではありません。詳細は `Django documentation <https://"
+"docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ を参照してくださ"
+"い。"
+
+msgid "``DEBUG``"
+msgstr "``DEBUG``"
+
+msgid "``OPENSTACK_HOST``"
+msgstr "``OPENSTACK_HOST``"
+
+msgid "`cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage"
+msgstr ""
+"`cinder <https://docs.openstack.org/cinder/latest/>`_: ブロックストレージ"
+
+msgid "`glance <https://docs.openstack.org/glance/latest/>`_: Image Management"
+msgstr "`glance <https://docs.openstack.org/glance/latest/>`_: イメージ管理"
+
+msgid "`neutron <https://docs.openstack.org/neutron/latest/>`_: Networking"
+msgstr "`neutron <https://docs.openstack.org/neutron/latest/>`_: ネットワーク"
+
+msgid "`nova <https://docs.openstack.org/nova/latest/>`_: Compute"
+msgstr "`nova <https://docs.openstack.org/nova/latest/>`_: コンピュート"
+
+msgid "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
+msgstr ""
+"`swift <https://docs.openstack.org/swift/latest/>`_: オブジェクトストレージ"
+
+msgid "https://github.com/openstack/blazar-dashboard"
+msgstr "https://github.com/openstack/blazar-dashboard"
+
+msgid "https://github.com/openstack/cloudkitty-dashboard"
+msgstr "https://github.com/openstack/cloudkitty-dashboard"
+
+msgid "https://github.com/openstack/congress-dashboard"
+msgstr "https://github.com/openstack/congress-dashboard"
+
+msgid "https://github.com/openstack/designate-dashboard"
+msgstr "https://github.com/openstack/designate-dashboard"
+
+msgid "https://github.com/openstack/freezer-web-ui"
+msgstr "https://github.com/openstack/freezer-web-ui"
+
+msgid "https://github.com/openstack/group-based-policy-ui"
+msgstr "https://github.com/openstack/group-based-policy-ui"
+
+msgid "https://github.com/openstack/heat-dashboard"
+msgstr "https://github.com/openstack/heat-dashboard"
+
+msgid "https://github.com/openstack/ironic-ui"
+msgstr "https://github.com/openstack/ironic-ui"
+
+msgid "https://github.com/openstack/karbor-dashboard"
+msgstr "https://github.com/openstack/karbor-dashboard"
+
+msgid "https://github.com/openstack/magnum-ui"
+msgstr "https://github.com/openstack/magnum-ui"
+
+msgid "https://github.com/openstack/manila-ui"
+msgstr "https://github.com/openstack/manila-ui"
+
+msgid "https://github.com/openstack/mistral-dashboard"
+msgstr "https://github.com/openstack/mistral-dashboard"
+
+msgid "https://github.com/openstack/monasca-ui"
+msgstr "https://github.com/openstack/monasca-ui"
+
+msgid "https://github.com/openstack/murano-dashboard"
+msgstr "https://github.com/openstack/murano-dashboard"
+
+msgid "https://github.com/openstack/networking-bgpvpn"
+msgstr "https://github.com/openstack/networking-bgpvpn"
+
+msgid "https://github.com/openstack/neutron-fwaas-dashboard"
+msgstr "https://github.com/openstack/neutron-fwaas-dashboard"
+
+msgid "https://github.com/openstack/neutron-lbaas-dashboard"
+msgstr "https://github.com/openstack/neutron-lbaas-dashboard"
+
+msgid "https://github.com/openstack/neutron-vpnaas-dashboard"
+msgstr "https://github.com/openstack/neutron-vpnaas-dashboard"
+
+msgid "https://github.com/openstack/octavia-dashboard"
+msgstr "https://github.com/openstack/octavia-dashboard"
+
+msgid "https://github.com/openstack/sahara-dashboard"
+msgstr "https://github.com/openstack/sahara-dashboard"
+
+msgid "https://github.com/openstack/searchlight-ui"
+msgstr "https://github.com/openstack/searchlight-ui"
+
+msgid "https://github.com/openstack/senlin-dashboard"
+msgstr "https://github.com/openstack/senlin-dashboard"
+
+msgid "https://github.com/openstack/solum-dashboard"
+msgstr "https://github.com/openstack/solum-dashboard"
+
+msgid "https://github.com/openstack/tacker-horizon"
+msgstr "https://github.com/openstack/tacker-horizon"
+
+msgid "https://github.com/openstack/tripleo-ui/"
+msgstr "https://github.com/openstack/tripleo-ui/"
+
+msgid "https://github.com/openstack/trove-dashboard"
+msgstr "https://github.com/openstack/trove-dashboard"
+
+msgid "https://github.com/openstack/vitrage-dashboard"
+msgstr "https://github.com/openstack/vitrage-dashboard"
+
+msgid "https://github.com/openstack/watcher-dashboard"
+msgstr "https://github.com/openstack/watcher-dashboard"
+
+msgid "https://github.com/openstack/zaqar-ui"
+msgstr "https://github.com/openstack/zaqar-ui"
+
+msgid "https://github.com/openstack/zun-ui"
+msgstr "https://github.com/openstack/zun-ui"
+
+msgid "https://launchpad.net/bgpvpn"
+msgstr "https://launchpad.net/bgpvpn"
+
+msgid "https://launchpad.net/blazar"
+msgstr "https://launchpad.net/blazar"
+
+msgid "https://launchpad.net/cloudkitty"
+msgstr "https://launchpad.net/cloudkitty"
+
+msgid "https://launchpad.net/congress"
+msgstr "https://launchpad.net/congress"
+
+msgid "https://launchpad.net/designate-dashboard"
+msgstr "https://launchpad.net/designate-dashboard"
+
+msgid "https://launchpad.net/freezer"
+msgstr "https://launchpad.net/freezer"
+
+msgid "https://launchpad.net/group-based-policy-ui"
+msgstr "https://launchpad.net/group-based-policy-ui"
+
+msgid "https://launchpad.net/ironic-ui"
+msgstr "https://launchpad.net/ironic-ui"
+
+msgid "https://launchpad.net/karbor-dashboard"
+msgstr "https://launchpad.net/karbor-dashboard"
+
+msgid "https://launchpad.net/magnum-ui"
+msgstr "https://launchpad.net/magnum-ui"
+
+msgid "https://launchpad.net/manila-ui"
+msgstr "https://launchpad.net/manila-ui"
+
+msgid "https://launchpad.net/mistral"
+msgstr "https://launchpad.net/mistral"
+
+msgid "https://launchpad.net/monasca"
+msgstr "https://launchpad.net/monasca"
+
+msgid "https://launchpad.net/murano"
+msgstr "https://launchpad.net/murano"
+
+msgid "https://launchpad.net/neutron-fwaas-dashboard"
+msgstr "https://launchpad.net/neutron-fwaas-dashboard"
+
+msgid "https://launchpad.net/neutron-vpnaas-dashboard"
+msgstr "https://launchpad.net/neutron-vpnaas-dashboard"
+
+msgid "https://launchpad.net/senlin-dashboard"
+msgstr "https://launchpad.net/senlin-dashboard"
+
+msgid "https://launchpad.net/solum"
+msgstr "https://launchpad.net/solum"
+
+msgid "https://launchpad.net/tacker"
+msgstr "https://launchpad.net/tacker"
+
+msgid "https://launchpad.net/tripleo"
+msgstr "https://launchpad.net/tripleo"
+
+msgid "https://launchpad.net/trove-dashboard"
+msgstr "https://launchpad.net/trove-dashboard"
+
+msgid "https://launchpad.net/vitrage-dashboard"
+msgstr "https://launchpad.net/vitrage-dashboard"
+
+msgid "https://launchpad.net/watcher-dashboard"
+msgstr "https://launchpad.net/watcher-dashboard"
+
+msgid "https://launchpad.net/zaqar-ui"
+msgstr "https://launchpad.net/zaqar-ui"
+
+msgid "https://launchpad.net/zun-ui"
+msgstr "https://launchpad.net/zun-ui"
+
+msgid "https://storyboard.openstack.org/#!/project/907"
+msgstr "https://storyboard.openstack.org/#!/project/907"
+
+msgid "https://storyboard.openstack.org/#!/project/909"
+msgstr "https://storyboard.openstack.org/#!/project/909"
+
+msgid "https://storyboard.openstack.org/#!/project/936"
+msgstr "https://storyboard.openstack.org/#!/project/936"
+
+msgid "https://storyboard.openstack.org/#!/project/992"
+msgstr "https://storyboard.openstack.org/#!/project/992"

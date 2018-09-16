@@ -28,15 +28,16 @@
 # Artem <amikhalev90@gmail.com>, 2017. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2017. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-30 08:52+0000\n"
+"POT-Creation-Date: 2018-09-15 05:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-03 12:35+0000\n"
+"PO-Revision-Date: 2018-09-09 07:48+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -1103,6 +1104,11 @@ msgid ""
 msgstr ""
 "Контроль доступа к инстансу с помощью ключевой пары, групп безопасности и "
 "других механизмов."
+
+msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
+msgstr ""
+"Механизм Cookies может быть выключен. Убедитесь, что cookies разрешены и "
+"попробуйте снова."
 
 msgid "Copy Data"
 msgstr "Копирование данных"
@@ -5169,6 +5175,9 @@ msgstr "Группы безопасности"
 msgid "Security group rule already exists."
 msgstr "Это правило группы безопасности уже существует."
 
+msgid "Security group rule quota exceeded."
+msgstr "Квота на правила группы безопасности исчерпана."
+
 msgid "Segmentation ID"
 msgstr "ID сегмента"
 
@@ -6089,6 +6098,9 @@ msgid ""
 msgstr ""
 "Имя физической сети на которой реализована виртуальная сеть. Укажите одну из "
 "физических сетей определенных в вашей установке neutron."
+
+msgid "The new availability zone can't be empty"
+msgstr "Новая зона доступности не может быть пустой"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Физический механизм, с помощью которого реализуется виртуальная сеть."

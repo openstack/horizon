@@ -1,0 +1,2280 @@
+# Andi Chandler <andi@gowling.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-07-11 09:37+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"Language-Team: English (United Kingdom)\n"
+"Language: en_GB\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "**CIDR**: ``0.0.0.0/0``"
+msgstr "**CIDR**: ``0.0.0.0/0``"
+
+msgid "**Dashboard — Create Image**"
+msgstr "**Dashboard — Create Image**"
+
+msgid "**Direction**: ``Ingress``"
+msgstr "**Direction**: ``Ingress``"
+
+msgid "**Figure: Admin tab**"
+msgstr "**Figure: Admin tab**"
+
+msgid "**Figure: Project tab**"
+msgstr "**Figure: Project tab**"
+
+msgid "**Figure:Identity tab**"
+msgstr "**Figure:Identity tab**"
+
+msgid "**Figure:Settings tab**"
+msgstr "**Figure:Settings tab**"
+
+msgid "**Remote**: ``CIDR``"
+msgstr "**Remote**: ``CIDR``"
+
+msgid "**Rule**: ``All ICMP``"
+msgstr "**Rule**: ``All ICMP``"
+
+msgid "**Rule**: ``SSH``"
+msgstr "**Rule**: ``SSH``"
+
+msgid "**To copy an object from one container to another**"
+msgstr "**To copy an object from one container to another**"
+
+msgid "**To create a metadata-only object without a file**"
+msgstr "**To create a metadata-only object without a file**"
+
+msgid "**To create a pseudo-folder**"
+msgstr "**To create a pseudo-folder**"
+
+msgid "**To edit an object**"
+msgstr "**To edit an object**"
+
+msgid ":guilabel:`API Access`: View API endpoints."
+msgstr ":guilabel:`API Access`: View API endpoints."
+
+msgid ":guilabel:`Admin State`: The state to start the network in."
+msgstr ":guilabel:`Admin State`: The state to start the network in."
+
+msgid ":guilabel:`Allocation Pools`: Specify IP address pools."
+msgstr ":guilabel:`Allocation Pools`: Specify IP address pools."
+
+msgid ":guilabel:`Architecture`"
+msgstr ":guilabel:`Architecture`"
+
+msgid ""
+":guilabel:`Availability Zone`: Select the Availability Zone from the list. "
+"By default, this value is set to the availability zone given by the cloud "
+"provider (for example, ``us-west`` or ``apac-south``). For some cases, it "
+"could be ``nova``."
+msgstr ""
+":guilabel:`Availability Zone`: Select the Availability Zone from the list. "
+"By default, this value is set to the availability zone given by the cloud "
+"provider (for example, ``us-west`` or ``apac-south``). For some cases, it "
+"could be ``nova``."
+
+msgid ":guilabel:`Backups`: View, create, edit, and delete backups."
+msgstr ":guilabel:`Backups`: View, create, edit, and delete backups."
+
+msgid ""
+":guilabel:`Binding Host`: The ID of the host where the port is allocated."
+msgstr ""
+":guilabel:`Binding Host`: The ID of the host where the port is allocated."
+
+msgid ""
+":guilabel:`Binding VNIC Type`: Select the VNIC type that is bound to the "
+"neutron port."
+msgstr ""
+":guilabel:`Binding VNIC Type`: Select the VNIC type that is bound to the "
+"Neutron port."
+
+msgid ""
+":guilabel:`Block Storage Services`: View a list of all Block Storage "
+"services."
+msgstr ""
+":guilabel:`Block Storage Services`: View a list of all Block Storage "
+"services."
+
+msgid ":guilabel:`Change Password`: Change the password of the user."
+msgstr ":guilabel:`Change Password`: Change the password of the user."
+
+msgid ":guilabel:`Compute Services`: View a list of all Compute services."
+msgstr ":guilabel:`Compute Services`: View a list of all Compute services."
+
+msgid ":guilabel:`Configuration` tab"
+msgstr ":guilabel:`Configuration` tab"
+
+msgid ""
+":guilabel:`Consistency Group Snapshots`: View, create, edit, and delete "
+"consistency group snapshots."
+msgstr ""
+":guilabel:`Consistency Group Snapshots`: View, create, edit, and delete "
+"consistency group snapshots."
+
+msgid ""
+":guilabel:`Consistency Groups`: View, create, edit, and delete consistency "
+"groups."
+msgstr ""
+":guilabel:`Consistency Groups`: View, create, edit, and delete consistency "
+"groups."
+
+msgid ":guilabel:`Containers`: Create and manage containers and objects."
+msgstr ":guilabel:`Containers`: Create and manage containers and objects."
+
+msgid ":guilabel:`Copy Data`"
+msgstr ":guilabel:`Copy Data`"
+
+msgid ":guilabel:`Create Subnet`: Select this check box to create a subnet"
+msgstr ":guilabel:`Create Subnet`: Select this check box to create a subnet"
+
+msgid ":guilabel:`DNS Name Servers`: Specify a name for the DNS server."
+msgstr ":guilabel:`DNS Name Servers`: Specify a name for the DNS server."
+
+msgid ""
+":guilabel:`Defaults`: View default quota values. Quotas are hard-coded in "
+"OpenStack Compute and define the maximum allowable size and number of "
+"resources."
+msgstr ""
+":guilabel:`Defaults`: View default quota values. Quotas are hard-coded in "
+"OpenStack Compute and define the maximum allowable size and number of "
+"resources."
+
+msgid ""
+":guilabel:`Description`: Optionally, provide a brief description for the "
+"volume."
+msgstr ""
+":guilabel:`Description`: Optionally, provide a brief description for the "
+"volume."
+
+msgid ""
+":guilabel:`Destination Container`: Choose the destination container from the "
+"list."
+msgstr ""
+":guilabel:`Destination Container`: Choose the destination container from the "
+"list."
+
+msgid ""
+":guilabel:`Destination object name`: Enter a name for the object in the new "
+"container."
+msgstr ""
+":guilabel:`Destination object name`: Enter a name for the object in the new "
+"container."
+
+msgid ":guilabel:`Details` tab"
+msgstr ":guilabel:`Details` tab"
+
+msgid ":guilabel:`Device ID`: Device ID attached to the port."
+msgstr ":guilabel:`Device ID`: Device ID attached to the port."
+
+msgid ":guilabel:`Device Owner`: Device owner attached to the port."
+msgstr ":guilabel:`Device Owner`: Device owner attached to the port."
+
+msgid ""
+":guilabel:`Disable Gateway`: Select this check box to disable a gateway IP "
+"address."
+msgstr ""
+":guilabel:`Disable Gateway`: Select this check box to disable a gateway IP "
+"address."
+
+msgid ":guilabel:`Enable DHCP`: Select this check box to enable DHCP."
+msgstr ":guilabel:`Enable DHCP`: Select this check box to enable DHCP."
+
+msgid ":guilabel:`Flavor` tab"
+msgstr ":guilabel:`Flavour` tab"
+
+msgid ""
+":guilabel:`Flavors`: View, create, edit, view extra specifications for, and "
+"delete flavors. A flavor is the size of an instance."
+msgstr ""
+":guilabel:`Flavors`: View, create, edit, view extra specifications for, and "
+"delete flavours. A flavour is the size of an instance."
+
+msgid ""
+":guilabel:`Floating IPs`: Allocate an IP address for a project or release it."
+msgstr ""
+":guilabel:`Floating IPs`: Allocate an IP address for a project or release it."
+
+msgid ""
+":guilabel:`Floating IPs`: Allocate an IP address to or release it from a "
+"project."
+msgstr ""
+":guilabel:`Floating IPs`: Allocate an IP address to or release it from a "
+"project."
+
+msgid ":guilabel:`Format`"
+msgstr ":guilabel:`Format`"
+
+msgid ""
+":guilabel:`Gateway IP`: Specify an IP address for a specific gateway. This "
+"parameter is optional."
+msgstr ""
+":guilabel:`Gateway IP`: Specify an IP address for a specific gateway. This "
+"parameter is optional."
+
+msgid ""
+":guilabel:`Host Aggregates`: View, create, and edit host aggregates. View "
+"the list of availability zones."
+msgstr ""
+":guilabel:`Host Aggregates`: View, create, and edit host aggregates. View "
+"the list of availability zones."
+
+msgid ":guilabel:`Host Routes`: Specify the IP address of host routes."
+msgstr ":guilabel:`Host Routes`: Specify the IP address of host routes."
+
+msgid ":guilabel:`Hypervisors`: View the hypervisor summary."
+msgstr ":guilabel:`Hypervisors`: View the hypervisor summary."
+
+msgid ":guilabel:`IP Version`: Select IPv4 or IPv6."
+msgstr ":guilabel:`IP Version`: Select IPv4 or IPv6."
+
+msgid ":guilabel:`Image Description`"
+msgstr ":guilabel:`Image Description`"
+
+msgid ":guilabel:`Image File` or :guilabel:`Image Location`"
+msgstr ":guilabel:`Image File` or :guilabel:`Image Location`"
+
+msgid ":guilabel:`Image Metadata`"
+msgstr ":guilabel:`Image Metadata`"
+
+msgid ":guilabel:`Image Name`"
+msgstr ":guilabel:`Image Name`"
+
+msgid ":guilabel:`Image Source`"
+msgstr ":guilabel:`Image Source`"
+
+msgid ""
+":guilabel:`Images`: View images and instance snapshots created by project "
+"users, plus any images that are publicly available. Create, edit, and delete "
+"images, and launch instances from images and snapshots."
+msgstr ""
+":guilabel:`Images`: View images and instance snapshots created by project "
+"users, plus any images that are publicly available. Create, edit, and delete "
+"images, and launch instances from images and snapshots."
+
+msgid ""
+":guilabel:`Images`: View, create, edit properties for, and delete custom "
+"images."
+msgstr ""
+":guilabel:`Images`: View, create, edit properties for, and delete custom "
+"images."
+
+msgid ""
+":guilabel:`Instances`: View, launch, create a snapshot from, stop, pause, or "
+"reboot instances, or connect to them through VNC."
+msgstr ""
+":guilabel:`Instances`: View, launch, create a snapshot from, stop, pause, or "
+"reboot instances, or connect to them through VNC."
+
+msgid ""
+":guilabel:`Instances`: View, pause, resume, suspend, migrate, soft or hard "
+"reboot, and delete running instances that belong to users of some, but not "
+"all, projects. Also, view the log for an instance or access an instance "
+"through VNC."
+msgstr ""
+":guilabel:`Instances`: View, pause, resume, suspend, migrate, soft or hard "
+"reboot, and delete running instances that belong to users of some, but not "
+"all, projects. Also, view the log for an instance or access an instance "
+"through VNC."
+
+msgid ":guilabel:`Key Pair` tab"
+msgstr ":guilabel:`Key Pair` tab"
+
+msgid ""
+":guilabel:`Key Pairs`: View, create, edit, import, and delete key pairs."
+msgstr ""
+":guilabel:`Key Pairs`: View, create, edit, import, and delete key pairs."
+
+msgid ""
+":guilabel:`Metadata Definitions`: Import namespace and view the metadata "
+"information."
+msgstr ""
+":guilabel:`Metadata Definitions`: Import namespace and view the metadata "
+"information."
+
+msgid ":guilabel:`Metadata` tab"
+msgstr ":guilabel:`Metadata` tab"
+
+msgid ":guilabel:`Minimum Disk (GB)`"
+msgstr ":guilabel:`Minimum Disk (GB)`"
+
+msgid ":guilabel:`Minimum RAM (MB)`"
+msgstr ":guilabel:`Minimum RAM (MB)`"
+
+msgid ":guilabel:`Name`: Specify name to identify the port."
+msgstr ":guilabel:`Name`: Specify name to identify the port."
+
+msgid ":guilabel:`Network Address`: Specify the IP address for the subnet."
+msgstr ":guilabel:`Network Address`: Specify the IP address for the subnet."
+
+msgid ":guilabel:`Network Agents`: View the network agents."
+msgstr ":guilabel:`Network Agents`: View the network agents."
+
+msgid ":guilabel:`Network Name`: Specify a name to identify the network."
+msgstr ":guilabel:`Network Name`: Specify a name to identify the network."
+
+msgid ":guilabel:`Network Ports` tab"
+msgstr ":guilabel:`Network Ports` tab"
+
+msgid ":guilabel:`Network Topology`: View the network topology."
+msgstr ":guilabel:`Network Topology`: View the network topology."
+
+msgid ":guilabel:`Network` tab"
+msgstr ":guilabel:`Network` tab"
+
+msgid ":guilabel:`Networks` tab"
+msgstr ":guilabel:`Networks` tab"
+
+msgid ":guilabel:`Networks`: Create and manage public and private networks."
+msgstr ":guilabel:`Networks`: Create and manage public and private networks."
+
+msgid ""
+":guilabel:`Networks`: View, create, edit properties for, and delete networks."
+msgstr ""
+":guilabel:`Networks`: View, create, edit properties for, and delete networks."
+
+msgid ":guilabel:`Overview`: View basic reports."
+msgstr ":guilabel:`Overview`: View basic reports."
+
+msgid ":guilabel:`Overview`: View reports for the project."
+msgstr ":guilabel:`Overview`: View reports for the project."
+
+msgid ""
+":guilabel:`Path`: Specify a path in which the new copy should be stored "
+"inside of the selected container."
+msgstr ""
+":guilabel:`Path`: Specify a path in which the new copy should be stored "
+"inside of the selected container."
+
+msgid ""
+":guilabel:`Projects`: View, create, assign users to, remove users from, and "
+"delete projects."
+msgstr ""
+":guilabel:`Projects`: View, create, assign users to, remove users from, and "
+"delete projects."
+
+msgid ":guilabel:`Protected`"
+msgstr ":guilabel:`Protected`"
+
+msgid ":guilabel:`Routers`: Create and manage routers."
+msgstr ":guilabel:`Routers`: Create and manage routers."
+
+msgid ""
+":guilabel:`Routers`: View, create, edit properties for, and delete routers."
+msgstr ""
+":guilabel:`Routers`: View, create, edit properties for, and delete routers."
+
+msgid ":guilabel:`Security Groups` tab"
+msgstr ":guilabel:`Security Groups` tab"
+
+msgid ""
+":guilabel:`Security Groups`: View, create, edit, and delete security groups "
+"and security group rules.."
+msgstr ""
+":guilabel:`Security Groups`: View, create, edit, and delete security groups "
+"and security group rules.."
+
+msgid ":guilabel:`Services`: View a list of the services."
+msgstr ":guilabel:`Services`: View a list of the services."
+
+msgid ""
+":guilabel:`Shared`: Share the network with other projects. Non admin users "
+"are not allowed to set shared option."
+msgstr ""
+":guilabel:`Shared`: Share the network with other projects. Non admin users "
+"are not allowed to set shared option."
+
+msgid ":guilabel:`Size (GB)`: The size of the volume in gibibytes (GiB)."
+msgstr ":guilabel:`Size (GB)`: The size of the volume in gibibytes (GiB)."
+
+msgid ":guilabel:`Snapshots`: View, create, edit, and delete volume snapshots."
+msgstr ""
+":guilabel:`Snapshots`: View, create, edit, and delete volume snapshots."
+
+msgid ":guilabel:`Snapshots`: View, manage, and delete volume snapshots."
+msgstr ":guilabel:`Snapshots`: View, manage, and delete volume snapshots."
+
+msgid ":guilabel:`Source` tab"
+msgstr ":guilabel:`Source` tab"
+
+msgid ":guilabel:`Subnet Details` tab"
+msgstr ":guilabel:`Subnet Details` tab"
+
+msgid ":guilabel:`Subnet Name`: Specify a name for the subnet."
+msgstr ":guilabel:`Subnet Name`: Specify a name for the subnet."
+
+msgid ":guilabel:`Subnet` tab"
+msgstr ":guilabel:`Subnet` tab"
+
+msgid ""
+":guilabel:`System Information`: Use the following tabs to view the service "
+"information:"
+msgstr ""
+":guilabel:`System Information`: Use the following tabs to view the service "
+"information:"
+
+msgid ":guilabel:`Type`: Leave this field blank."
+msgstr ":guilabel:`Type`: Leave this field blank."
+
+msgid ":guilabel:`User Settings`: View and manage dashboard settings."
+msgstr ":guilabel:`User Settings`: View and manage dashboard settings."
+
+msgid ":guilabel:`Users`: View, create, enable, disable, and delete users."
+msgstr ":guilabel:`Users`: View, create, enable, disable, and delete users."
+
+msgid ":guilabel:`Visibility`"
+msgstr ":guilabel:`Visibility`"
+
+msgid ":guilabel:`Volume Name`: Specify a name for the volume."
+msgstr ":guilabel:`Volume Name`: Specify a name for the volume."
+
+msgid ":guilabel:`Volume Source`: Select one of the following options:"
+msgstr ":guilabel:`Volume Source`: Select one of the following options:"
+
+msgid ""
+":guilabel:`Volume Types`: View, create, manage, and delete volume types."
+msgstr ""
+":guilabel:`Volume Types`: View, create, manage, and delete volume types."
+
+msgid ":guilabel:`Volumes`: View, create, edit, and delete volumes."
+msgstr ":guilabel:`Volumes`: View, create, edit, and delete volumes."
+
+msgid ":guilabel:`Volumes`: View, create, manage, and delete volumes."
+msgstr ":guilabel:`Volumes`: View, create, manage, and delete volumes."
+
+msgid "?"
+msgstr "?"
+
+msgid ""
+"A key pair belongs to an individual user, not to a project. To share a key "
+"pair across multiple users, each user needs to import that key pair."
+msgstr ""
+"A key pair belongs to an individual user, not to a project. To share a key "
+"pair across multiple users, each user needs to import that key pair."
+
+msgid "A message indicates whether the action was successful."
+msgstr "A message indicates whether the action was successful."
+
+msgid ""
+"A slash (/) character is used as the delimiter for pseudo-folders in Object "
+"Storage."
+msgstr ""
+"A slash (/) character is used as the delimiter for pseudo-folders in Object "
+"Storage."
+
+msgid ""
+"A virtual machine image, referred to in this document simply as an image, is "
+"a single file that contains a virtual disk that has a bootable operating "
+"system installed on it. Images are used to create virtual machine instances "
+"within the cloud. For information about creating image files, see the "
+"`OpenStack Virtual Machine Image Guide <https://docs.openstack.org/image-"
+"guide/>`_."
+msgstr ""
+"A virtual machine image, referred to in this document simply as an image, is "
+"a single file that contains a virtual disk that has a bootable operating "
+"system installed on it. Images are used to create virtual machine instances "
+"within the cloud. For information about creating image files, see the "
+"`OpenStack Virtual Machine Image Guide <https://docs.openstack.org/image-"
+"guide/>`_."
+
+msgid "Activate the ports that you want to assign to the instance."
+msgstr "Activate the ports that you want to assign to the instance."
+
+msgid "Activate the security groups that you want to assign to the instance."
+msgstr "Activate the security groups that you want to assign to the instance."
+
+msgid "Add Metadata items to your instance."
+msgstr "Add Metadata items to your instance."
+
+msgid "Add a key pair"
+msgstr "Add a key pair"
+
+msgid "Add a rule to the default security group"
+msgstr "Add a rule to the default security group"
+
+msgid ""
+"Administrative users can use the :guilabel:`Admin` tab to view usage and to "
+"manage instances, volumes, flavors, images, networks, and so on."
+msgstr ""
+"Administrative users can use the :guilabel:`Admin` tab to view usage and to "
+"manage instances, volumes, flavours, images, networks, and so on."
+
+msgid ""
+"After the server is built, if you change the server name in the API or "
+"change the host name directly, the names are not updated in the dashboard."
+msgstr ""
+"After the server is built, if you change the server name in the API or "
+"change the host name directly, the names are not updated in the dashboard."
+
+msgid ""
+"After you create one or more volumes, you can attach them to instances. You "
+"can attach a volume to one instance at a time."
+msgstr ""
+"After you create one or more volumes, you can attach them to instances. You "
+"can attach a volume to one instance at a time."
+
+msgid "Allocate a floating IP address to an instance"
+msgstr "Allocate a floating IP address to an instance"
+
+msgid ""
+"As a cloud end user, you can use the OpenStack dashboard to provision your "
+"own resources within the limits set by administrators. You can modify the "
+"examples provided in this section to create other types and sizes of server "
+"instances."
+msgstr ""
+"As a cloud end user, you can use the OpenStack dashboard to provision your "
+"own resources within the limits set by administrators. You can modify the "
+"examples provided in this section to create other types and sizes of server "
+"instances."
+
+msgid ""
+"Ask the cloud operator for the host name or public IP address from which you "
+"can access the dashboard, and for your user name and password. If the cloud "
+"supports multi-domain model, you also need to ask for your domain name."
+msgstr ""
+"Ask the cloud operator for the host name or public IP address from which you "
+"can access the dashboard, and for your user name and password. If the cloud "
+"supports multi-domain model, you also need to ask for your domain name."
+
+msgid "Assign a name to the virtual machine."
+msgstr "Assign a name to the virtual machine."
+
+msgid "At the prompt, type ``yes``."
+msgstr "At the prompt, type ``yes``."
+
+msgid "Attach a volume to an instance"
+msgstr "Attach a volume to an instance"
+
+msgid "Availability Zone"
+msgstr "Availability Zone"
+
+msgid "Available Metadata"
+msgstr "Available Metadata"
+
+msgid ""
+"Based on your selection for :guilabel:`Image Source`, you either enter the "
+"location URL of the image in the :guilabel:`Image Location` field, or browse "
+"for the image file on your file  system and add it."
+msgstr ""
+"Based on your selection for :guilabel:`Image Source`, you either enter the "
+"location URL of the image in the :guilabel:`Image Location` field, or browse "
+"for the image file on your file  system and add it."
+
+msgid ""
+"Before you launch an instance, you should add security group rules to enable "
+"users to ping and use SSH to connect to the instance. Security groups are "
+"sets of IP filter rules that define networking access and are applied to all "
+"instances within a project. To do so, you either add rules to the default "
+"security group :ref:`security_groups_add_rule` or add a new security group "
+"with rules."
+msgstr ""
+"Before you launch an instance, you should add security group rules to enable "
+"users to ping and use SSH to connect to the instance. Security groups are "
+"sets of IP filter rules that define networking access and are applied to all "
+"instances within a project. To do so, you either add rules to the default "
+"security group :ref:`security_groups_add_rule` or add a new security group "
+"with rules."
+
+msgid "Boot from image"
+msgstr "Boot from image"
+
+msgid "Boot from image (creates a new volume)"
+msgstr "Boot from image (creates a new volume)"
+
+msgid "Boot from snapshot"
+msgstr "Boot from snapshot"
+
+msgid "Boot from volume"
+msgstr "Boot from volume"
+
+msgid "Boot from volume snapshot (creates a new volume)"
+msgstr "Boot from volume snapshot (creates a new volume)"
+
+msgid "Broken: Essential functionality not working (link to bug in the notes)"
+msgstr "Broken: Essential functionality not working (link to bug in the notes)"
+
+msgid "Browse to and select the file that you want to upload."
+msgstr "Browse to and select the file that you want to upload."
+
+msgid ""
+"By default, this value is set to the availability zone given by the cloud "
+"provider (for example, ``us-west`` or ``apac-south``). For some cases, it "
+"could be ``nova``."
+msgstr ""
+"By default, this value is set to the availability zone given by the cloud "
+"provider (for example, ``us-west`` or ``apac-south``). For some cases, it "
+"could be ``nova``."
+
+msgid "Change the description of the image."
+msgstr "Change the description of the image."
+
+msgid "Change the format of the image."
+msgstr "Change the format of the image."
+
+msgid "Change the metadata of the image."
+msgstr "Change the metadata of the image."
+
+msgid "Change the minimum RAM  of the image."
+msgstr "Change the minimum RAM  of the image."
+
+msgid "Change the minimum disk of the image."
+msgstr "Change the minimum disk of the image."
+
+msgid "Change the name of the image."
+msgstr "Change the name of the image."
+
+msgid ""
+"Choose the image source from the dropdown list. Your choices are :guilabel:"
+"`Image Location` and :guilabel:`Image File`."
+msgstr ""
+"Choose the image source from the dropdown list. Your choices are :guilabel:"
+"`Image Location` and :guilabel:`Image File`."
+
+msgid "Choose the pool from which to pick the IP address."
+msgstr "Choose the pool from which to pick the IP address."
+
+msgid "Chrome"
+msgstr "Chrome"
+
+msgid "Clear the :guilabel:`Private` button to make the image private."
+msgstr "Clear the :guilabel:`Private` button to make the image private."
+
+msgid "Click :guilabel:`Add Interface`."
+msgstr "Click :guilabel:`Add Interface`."
+
+msgid "Click :guilabel:`Add`."
+msgstr "Click :guilabel:`Add`."
+
+msgid "Click :guilabel:`Allocate IP To Project`."
+msgstr "Click :guilabel:`Allocate IP To Project`."
+
+msgid "Click :guilabel:`Allocate IP`."
+msgstr "Click :guilabel:`Allocate IP`."
+
+msgid "Click :guilabel:`Associate`."
+msgstr "Click :guilabel:`Associate`."
+
+msgid "Click :guilabel:`Attach Volume`."
+msgstr "Click :guilabel:`Attach Volume`."
+
+msgid "Click :guilabel:`Container`."
+msgstr "Click :guilabel:`Container`."
+
+msgid "Click :guilabel:`Copy Object`."
+msgstr "Click :guilabel:`Copy Object`."
+
+msgid "Click :guilabel:`Create Image`."
+msgstr "Click :guilabel:`Create Image`."
+
+msgid "Click :guilabel:`Create Key Pair`."
+msgstr "Click :guilabel:`Create Key Pair`."
+
+msgid "Click :guilabel:`Create Network`."
+msgstr "Click :guilabel:`Create Network`."
+
+msgid "Click :guilabel:`Create Port`."
+msgstr "Click :guilabel:`Create Port`."
+
+msgid "Click :guilabel:`Create Pseudo-folder`."
+msgstr "Click :guilabel:`Create Pseudo-folder`."
+
+msgid "Click :guilabel:`Create Router`."
+msgstr "Click :guilabel:`Create Router`."
+
+msgid "Click :guilabel:`Create Volume`."
+msgstr "Click :guilabel:`Create Volume`."
+
+msgid "Click :guilabel:`Create`."
+msgstr "Click :guilabel:`Create`."
+
+msgid "Click :guilabel:`Delete Images`."
+msgstr "Click :guilabel:`Delete Images`."
+
+msgid "Click :guilabel:`Delete Volumes` and confirm your choice."
+msgstr "Click :guilabel:`Delete Volumes` and confirm your choice."
+
+msgid "Click :guilabel:`Detach Volume` and confirm your changes."
+msgstr "Click :guilabel:`Detach Volume` and confirm your changes."
+
+msgid "Click :guilabel:`Edit Image`."
+msgstr "Click :guilabel:`Edit Image`."
+
+msgid "Click :guilabel:`Edit Volume`."
+msgstr "Click :guilabel:`Edit Volume`."
+
+msgid "Click :guilabel:`Import Key Pair`."
+msgstr "Click :guilabel:`Import Key Pair`."
+
+msgid "Click :guilabel:`Launch Instance`."
+msgstr "Click :guilabel:`Launch Instance`."
+
+msgid "Click :guilabel:`Update Object`."
+msgstr "Click :guilabel:`Update Object`."
+
+msgid "Click :guilabel:`Upload File`."
+msgstr "Click :guilabel:`Upload File`."
+
+msgid "Click :guilabel:`Upload Object`."
+msgstr "Click :guilabel:`Upload Object`."
+
+msgid ""
+"Click on the :guilabel:`Network Name` of the network in which the port has "
+"to be created."
+msgstr ""
+"Click on the :guilabel:`Network Name` of the network in which the port has "
+"to be created."
+
+msgid ""
+"Click the :guilabel:`Floating IPs` tab, which shows the floating IP "
+"addresses allocated to instances."
+msgstr ""
+"Click the :guilabel:`Floating IPs` tab, which shows the floating IP "
+"addresses allocated to instances."
+
+msgid ""
+"Click the :guilabel:`Key Pairs` tab, which shows the key pairs that are "
+"available for this project."
+msgstr ""
+"Click the :guilabel:`Key Pairs` tab, which shows the key pairs that are "
+"available for this project."
+
+msgid ""
+"Click the :guilabel:`Settings` button from the user drop down menu at the "
+"top right of any page, you will see the :guilabel:`Settings` tab."
+msgstr ""
+"Click the :guilabel:`Settings` button from the user drop down menu at the "
+"top right of any page, you will see the :guilabel:`Settings` tab."
+
+msgid "Click the :guilabel:`Upload File` icon."
+msgstr "Click the :guilabel:`Upload File` icon."
+
+msgid ""
+"Click the menu button and choose :guilabel:`Copy` from the dropdown list."
+msgstr ""
+"Click the menu button and choose :guilabel:`Copy` from the dropdown list."
+
+msgid ""
+"Click the menu button and choose :guilabel:`Edit` from the dropdown list."
+msgstr ""
+"Click the menu button and choose :guilabel:`Edit` from the dropdown list."
+
+msgid "Compute tab"
+msgstr "Compute tab"
+
+msgid "Configure access and security for instances"
+msgstr "Configure access and security for instances"
+
+msgid "Confirm your changes."
+msgstr "Confirm your changes."
+
+msgid "Connect to your instance by using SSH"
+msgstr "Connect to your instance by using SSH"
+
+msgid "Copy the IP address for your instance."
+msgstr "Copy the IP address for your instance."
+
+msgid "Count"
+msgstr "Count"
+
+msgid "Create a container"
+msgstr "Create a container"
+
+msgid "Create a network"
+msgstr "Create a network"
+
+msgid "Create a port"
+msgstr "Create a port"
+
+msgid "Create a router"
+msgstr "Create a router"
+
+msgid "Create a snapshot from a volume"
+msgstr "Create a snapshot from a volume"
+
+msgid "Create a volume"
+msgstr "Create a volume"
+
+msgid "Create an instance snapshot"
+msgstr "Create an instance snapshot"
+
+msgid "Create and manage networks"
+msgstr "Create and manage networks"
+
+msgid "Create and manage object containers"
+msgstr "Create and manage object containers"
+
+msgid "Create and manage volumes"
+msgstr "Create and manage volumes"
+
+msgid "Create at least one key pair for each project."
+msgstr "Create at least one key pair for each project."
+
+msgid "Customization Script Source"
+msgstr "Customisation Script Source"
+
+msgid "Delete a volume"
+msgstr "Delete a volume"
+
+msgid "Delete an image"
+msgstr "Delete an image"
+
+msgid ""
+"Deletion of images is permanent and **cannot** be reversed. Only users with "
+"the appropriate permissions can delete images."
+msgstr ""
+"Deletion of images is permanent and **cannot** be reversed. Only users with "
+"the appropriate permissions can delete images."
+
+msgid ""
+"Depending on your role, you may have permission to upload and manage virtual "
+"machine images. Operators might restrict the upload and management of images "
+"to cloud administrators or operators only. If you have the appropriate "
+"privileges, you can use the dashboard to upload and manage images in the "
+"admin project."
+msgstr ""
+"Depending on your role, you may have permission to upload and manage virtual "
+"machine images. Operators might restrict the upload and management of images "
+"to cloud administrators or operators only. If you have the appropriate "
+"privileges, you can use the dashboard to upload and manage images in the "
+"admin project."
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Detach a volume from an instance"
+msgstr "Detach a volume from an instance"
+
+msgid "Edit a volume"
+msgstr "Edit a volume"
+
+msgid "Enter a brief description of the image."
+msgstr "Enter a brief description of the image."
+
+msgid "Enter a name for the image."
+msgstr "Enter a name for the image."
+
+msgid "Enter a name for the object."
+msgstr "Enter a name for the object."
+
+msgid "Enter a name for the pseudo-folder."
+msgstr "Enter a name for the pseudo-folder."
+
+msgid "Enter the following values:"
+msgstr "Enter the following values:"
+
+msgid ""
+"Enter the name of the device from which the volume is accessible by the "
+"instance."
+msgstr ""
+"Enter the name of the device from which the volume is accessible by the "
+"instance."
+
+msgid "Firefox"
+msgstr "Firefox"
+
+msgid "Flavor"
+msgstr "Flavour"
+
+msgid "Follow this procedure to update an existing image."
+msgstr "Follow this procedure to update an existing image."
+
+msgid "Follow this procedure to upload an image to a project:"
+msgstr "Follow this procedure to upload an image to a project:"
+
+msgid ""
+"For details on creating images, see `Creating images manually <https://docs."
+"openstack.org/image-guide/create-images-manually.html>`_ in the *OpenStack "
+"Virtual Machine Image Guide*."
+msgstr ""
+"For details on creating images, see `Creating images manually <https://docs."
+"openstack.org/image-guide/create-images-manually.html>`_ in the *OpenStack "
+"Virtual Machine Image Guide*."
+
+msgid ""
+"From the :guilabel:`Admin` tab, you can access the following category to "
+"complete these tasks:"
+msgstr ""
+"From the :guilabel:`Admin` tab, you can access the following category to "
+"complete these tasks:"
+
+msgid ""
+"From the :guilabel:`Project` tab, you can access the following categories:"
+msgstr ""
+"From the :guilabel:`Project` tab, you can access the following categories:"
+
+msgid ""
+"From the :guilabel:`Project` tab, you can view and manage the resources in a "
+"selected project, including instances and images. You can select the project "
+"from the drop-down menu at the top left. If the cloud supports multi-domain "
+"model, you can also select the domain from this menu."
+msgstr ""
+"From the :guilabel:`Project` tab, you can view and manage the resources in a "
+"selected project, including instances and images. You can select the project "
+"from the drop-down menu at the top left. If the cloud supports multi-domain "
+"model, you can also select the domain from this menu."
+
+msgid "Go to the :guilabel:`Ports` tab and click :guilabel:`Create Port`."
+msgstr "Go to the :guilabel:`Ports` tab and click :guilabel:`Create Port`."
+
+msgid "Good"
+msgstr "Good"
+
+msgid ""
+"Good: Moderately tested, should look nice and work fine, maybe a few visual "
+"hiccups"
+msgstr ""
+"Good: Moderately tested, should look nice and work fine, maybe a few visual "
+"hiccups"
+
+msgid ""
+"Horizon is primarily tested and supported on the latest version of Firefox "
+"and the latest version of Chrome. Issues related to IE, Safari and Opera "
+"will also be considered."
+msgstr ""
+"Horizon is primarily tested and supported on the latest version of Firefox "
+"and the latest version of Chrome. Issues related to IE, Safari and Opera "
+"will also be considered."
+
+msgid ""
+"However, in addition to the fixed IP address, a floating IP address can also "
+"be attached to an instance. Unlike fixed IP addresses, floating IP addresses "
+"can have their associations modified at any time, regardless of the state of "
+"the instances involved. This procedure details the reservation of a floating "
+"IP address from an existing pool of addresses and the association of that "
+"address with a specific instance."
+msgstr ""
+"However, in addition to the fixed IP address, a floating IP address can also "
+"be attached to an instance. Unlike fixed IP addresses, floating IP addresses "
+"can have their associations modified at any time, regardless of the state of "
+"the instances involved. This procedure details the reservation of a floating "
+"IP address from an existing pool of addresses and the association of that "
+"address with a specific instance."
+
+msgid "IE 10 and below"
+msgstr "IE 10 and below"
+
+msgid "IE 11"
+msgstr "IE 11"
+
+msgid ""
+"If a certificate warning appears when you try to access the URL for the "
+"first time, a self-signed certificate is in use, which is not considered "
+"trustworthy by default. Verify the certificate or add an exception in the "
+"browser to bypass the warning."
+msgstr ""
+"If a certificate warning appears when you try to access the URL for the "
+"first time, a self-signed certificate is in use, which is not considered "
+"trustworthy by default. Verify the certificate or add an exception in the "
+"browser to bypass the warning."
+
+msgid ""
+"If the image uses a static root password or a static key set (neither is "
+"recommended), you do not need to provide a key pair to launch the instance."
+msgstr ""
+"If the image uses a static root password or a static key set (neither is "
+"recommended), you do not need to provide a key pair to launch the instance."
+
+msgid ""
+"If you are logged in as an administrator, the :guilabel:`Project` tab (:ref:"
+"`dashboard-project-tab`) and :guilabel:`Admin` tab (:ref:`dashboard-admin-"
+"tab`) and :guilabel:`Identity` tab (:ref:`dashboard-identity-tab`) are "
+"displayed."
+msgstr ""
+"If you are logged in as an administrator, the :guilabel:`Project` tab (:ref:"
+"`dashboard-project-tab`) and :guilabel:`Admin` tab (:ref:`dashboard-admin-"
+"tab`) and :guilabel:`Identity` tab (:ref:`dashboard-identity-tab`) are "
+"displayed."
+
+msgid ""
+"If you are logged in as an end user, the :guilabel:`Project` tab (:ref:"
+"`dashboard-project-tab`) and :guilabel:`Identity` tab (:ref:`dashboard-"
+"identity-tab`) are displayed."
+msgstr ""
+"If you are logged in as an end user, the :guilabel:`Project` tab (:ref:"
+"`dashboard-project-tab`) and :guilabel:`Identity` tab (:ref:`dashboard-"
+"identity-tab`) are displayed."
+
+msgid ""
+"If you are using the Dashboard from a Windows computer, use PuTTYgen to load "
+"the ``*.pem`` file and convert and save it as ``*.ppk``. For more "
+"information see the `WinSCP web page for PuTTYgen <https://winscp.net/eng/"
+"docs/ui_puttygen>`__."
+msgstr ""
+"If you are using the Dashboard from a Windows computer, use PuTTYgen to load "
+"the ``*.pem`` file and convert and save it as ``*.ppk``. For more "
+"information see the `WinSCP web page for PuTTYgen <https://winscp.net/eng/"
+"docs/ui_puttygen>`__."
+
+msgid ""
+"If you choose not to set the :guilabel:`IP Address` value, then by default "
+"OpenStack Networking uses the first host IP address in the subnet."
+msgstr ""
+"If you choose not to set the :guilabel:`IP Address` value, then by default "
+"OpenStack Networking uses the first host IP address in the subnet."
+
+msgid ""
+"If you choose this option, a new field for :guilabel:`Image Name` displays. "
+"You can select the image from the list."
+msgstr ""
+"If you choose this option, a new field for :guilabel:`Image Name` displays. "
+"You can select the image from the list."
+
+msgid ""
+"If you choose this option, a new field for :guilabel:`Instance Snapshot` "
+"displays. You can select the snapshot from the list."
+msgstr ""
+"If you choose this option, a new field for :guilabel:`Instance Snapshot` "
+"displays. You can select the snapshot from the list."
+
+msgid ""
+"If you choose this option, a new field for :guilabel:`Volume` displays. You "
+"can select the volume from the list."
+msgstr ""
+"If you choose this option, a new field for :guilabel:`Volume` displays. You "
+"can select the volume from the list."
+
+msgid ""
+"If you did not provide a key pair, security groups, or rules, users can "
+"access the instance only from inside the cloud through VNC. Even pinging the "
+"instance is not possible without an ICMP rule configured."
+msgstr ""
+"If you did not provide a key pair, security groups, or rules, users can "
+"access the instance only from inside the cloud through VNC. Even pinging the "
+"instance is not possible without an ICMP rule configured."
+
+msgid ""
+"If you have generated a key pair with an external tool, you can import it "
+"into OpenStack. The key pair can be used for multiple instances that belong "
+"to a project. For more information, see the section :ref:"
+"`dashboard_import_keypair`."
+msgstr ""
+"If you have generated a key pair with an external tool, you can import it "
+"into OpenStack. The key pair can be used for multiple instances that belong "
+"to a project. For more information, see the section :ref:"
+"`dashboard_import_keypair`."
+
+msgid ""
+"If you have not created any security groups, you can assign only the default "
+"security group to the instance."
+msgstr ""
+"If you have not created any security groups, you can assign only the default "
+"security group to the instance."
+
+msgid "Image Name"
+msgstr "Image Name"
+
+msgid ""
+"Image that you have copied to a persistent volume. The instance launches "
+"from the volume, which is provided by the ``cinder-volume`` API through "
+"iSCSI."
+msgstr ""
+"Image that you have copied to a persistent volume. The instance launches "
+"from the volume, which is provided by the ``cinder-volume`` API through "
+"iSCSI."
+
+msgid ""
+"Image: If you choose this option, a new field for :guilabel:`Use image as a "
+"source` displays. You can select the image from the list."
+msgstr ""
+"Image: If you choose this option, a new field for :guilabel:`Use image as a "
+"source` displays. You can select the image from the list."
+
+msgid "Images uploaded to the Image service."
+msgstr "Images uploaded to the Image service."
+
+msgid "Import a key pair"
+msgstr "Import a key pair"
+
+msgid ""
+"In OpenStack Object Storage, containers provide storage for objects in a "
+"manner similar to a Windows folder or Linux file directory, though they "
+"cannot be nested. An object in OpenStack consists of the file to be stored "
+"in the container and any accompanying metadata."
+msgstr ""
+"In OpenStack Object Storage, containers provide storage for objects in a "
+"manner similar to a Windows folder or Linux file directory, though they "
+"cannot be nested. An object in OpenStack consists of the file to be stored "
+"in the container and any accompanying metadata."
+
+msgid "In the :guilabel:`Actions` column, click :guilabel:`Create Snapshot`."
+msgstr "In the :guilabel:`Actions` column, click :guilabel:`Create Snapshot`."
+
+msgid "In the :guilabel:`Actions` column, click :guilabel:`Edit Volume`."
+msgstr "In the :guilabel:`Actions` column, click :guilabel:`Edit Volume`."
+
+msgid ""
+"In the :guilabel:`Actions` column, click the menu button and then select :"
+"guilabel:`Edit Image` from the list."
+msgstr ""
+"In the :guilabel:`Actions` column, click the menu button and then select :"
+"guilabel:`Edit Image` from the list."
+
+msgid ""
+"In the :guilabel:`Add Interface` dialog box, select a :guilabel:`Subnet`."
+msgstr ""
+"In the :guilabel:`Add Interface` dialog box, select a :guilabel:`Subnet`."
+
+msgid "In the :guilabel:`Add Rule` dialog box, enter the following values:"
+msgstr "In the :guilabel:`Add Rule` dialogue box, enter the following values:"
+
+msgid ""
+"In the :guilabel:`Confirm Delete Images` dialog box, click :guilabel:`Delete "
+"Images` to confirm the deletion."
+msgstr ""
+"In the :guilabel:`Confirm Delete Images` dialog box, click :guilabel:`Delete "
+"Images` to confirm the deletion."
+
+msgid ""
+"In the :guilabel:`Copy Object` launch dialog box, enter the following values:"
+msgstr ""
+"In the :guilabel:`Copy Object` launch dialogue box, enter the following "
+"values:"
+
+msgid ""
+"In the :guilabel:`Create Container` dialog box, enter a name for the "
+"container, and then click :guilabel:`Create`."
+msgstr ""
+"In the :guilabel:`Create Container` dialogue box, enter a name for the "
+"container, and then click :guilabel:`Create`."
+
+msgid ""
+"In the :guilabel:`Create Key Pair` dialog box, enter a name for your key "
+"pair, and click :guilabel:`Create Key Pair`."
+msgstr ""
+"In the :guilabel:`Create Key Pair` dialogue box, enter a name for your key "
+"pair, and click :guilabel:`Create Key Pair`."
+
+msgid ""
+"In the :guilabel:`Create Network` dialog box, specify the following values."
+msgstr ""
+"In the :guilabel:`Create Network` dialogue box, specify the following values."
+
+msgid ""
+"In the :guilabel:`Create Port` dialog box, specify the following values."
+msgstr ""
+"In the :guilabel:`Create Port` dialogue box, specify the following values."
+
+msgid ""
+"In the :guilabel:`Create Router` dialog box, specify a name for the router "
+"and :guilabel:`External Network`, and click :guilabel:`Create Router`."
+msgstr ""
+"In the :guilabel:`Create Router` dialogue box, specify a name for the router "
+"and :guilabel:`External Network`, and click :guilabel:`Create Router`."
+
+msgid ""
+"In the :guilabel:`Create Snapshot` dialog box, enter a name for the "
+"snapshot, and click :guilabel:`Create Snapshot`."
+msgstr ""
+"In the :guilabel:`Create Snapshot` dialogue box, enter a name for the "
+"snapshot, and click :guilabel:`Create Snapshot`."
+
+msgid ""
+"In the :guilabel:`Edit Image` dialog box, you can perform various actions. "
+"For example:"
+msgstr ""
+"In the :guilabel:`Edit Image` dialogue box, you can perform various actions. "
+"For example:"
+
+msgid ""
+"In the :guilabel:`Edit Volume` dialog box, update the name and description "
+"of the volume."
+msgstr ""
+"In the :guilabel:`Edit Volume` dialogue box, update the name and description "
+"of the volume."
+
+msgid "In the :guilabel:`Floating IPs` list, click :guilabel:`Associate`."
+msgstr "In the :guilabel:`Floating IPs` list, click :guilabel:`Associate`."
+
+msgid ""
+"In the :guilabel:`Import Key Pair` dialog box, enter the name of your key "
+"pair, copy the public key into the :guilabel:`Public Key` box, and then "
+"click :guilabel:`Import Key Pair`."
+msgstr ""
+"In the :guilabel:`Import Key Pair` dialog box, enter the name of your key "
+"pair, copy the public key into the :guilabel:`Public Key` box, and then "
+"click :guilabel:`Import Key Pair`."
+
+msgid ""
+"In the :guilabel:`Launch Instance` dialog box, specify the following values:"
+msgstr ""
+"In the :guilabel:`Launch Instance` dialogue box, specify the following "
+"values:"
+
+msgid ""
+"In the :guilabel:`Manage Floating IP Associations` dialog box, choose the "
+"following options:"
+msgstr ""
+"In the :guilabel:`Manage Floating IP Associations` dialogue box, choose the "
+"following options:"
+
+msgid ""
+"In the :guilabel:`Manage Volume Attachments` dialog box, select an instance."
+msgstr ""
+"In the :guilabel:`Manage Volume Attachments` dialogue box, select an "
+"instance."
+
+msgid ""
+"In the :guilabel:`Port to be associated` field, select a port from the list."
+msgstr ""
+"In the :guilabel:`Port to be associated` field, select a port from the list."
+
+msgid "In the actions column, click :guilabel:`Create Snapshot`."
+msgstr "In the actions column, click :guilabel:`Create Snapshot`."
+
+msgid ""
+"In the address bar, enter the host name or IP address for the dashboard, for "
+"example, ``https://ipAddressOrHostName/``."
+msgstr ""
+"In the address bar, enter the host name or IP address for the dashboard, for "
+"example, ``https://ipAddressOrHostName/``."
+
+msgid ""
+"In the dialog box that opens, enter a snapshot name and a brief description."
+msgstr ""
+"In the dialogue box that opens, enter a snapshot name and a brief "
+"description."
+
+msgid "In the dialog box that opens, enter or select the following values."
+msgstr "In the dialogue box that opens, enter or select the following values."
+
+msgid "In the menu list in the actions column, select the state."
+msgstr "In the menu list in the actions column, select the state."
+
+msgid "Instance Boot Source"
+msgstr "Instance Boot Source"
+
+msgid "Instance Name"
+msgstr "Instance Name"
+
+msgid "Instance Snapshot"
+msgstr "Instance Snapshot"
+
+msgid "Instance snapshot that you took."
+msgstr "Instance snapshot that you took."
+
+msgid ""
+"Instances are virtual machines that run inside the cloud. You can launch an "
+"instance from the following sources:"
+msgstr ""
+"Instances are virtual machines that run inside the cloud. You can launch an "
+"instance from the following sources:"
+
+msgid "Instances will now accept all incoming ICMP packets."
+msgstr "Instances will now accept all incoming ICMP packets."
+
+msgid ""
+"Instances will now have SSH port 22 open for requests from any IP address."
+msgstr ""
+"Instances will now have SSH port 22 open for requests from any IP address."
+
+msgid "Is should work good with Webkit"
+msgstr "Is should work good with Webkit"
+
+msgid ""
+"It is also possible to SSH into an instance without an SSH keypair, if the "
+"administrator has enabled root password injection.  For more information "
+"about root password injection, see `Injecting the administrator password "
+"<https://docs.openstack.org/nova/latest/admin/admin-password-injection."
+"html>`_ in the *OpenStack Administrator Guide*."
+msgstr ""
+"It is also possible to SSH into an instance without an SSH keypair, if the "
+"administrator has enabled root password injection.  For more information "
+"about root password injection, see `Injecting the administrator password "
+"<https://docs.openstack.org/nova/latest/admin/admin-password-injection."
+"html>`_ in the *OpenStack Administrator Guide*."
+
+msgid "Key Pair"
+msgstr "Key Pair"
+
+msgid ""
+"Key pairs are SSH credentials that are injected into an instance when it is "
+"launched. To use key pair injection, the image that the instance is based on "
+"must contain the ``cloud-init`` package. Each project should have at least "
+"one key pair. For more information, see the section :ref:`keypair_add`."
+msgstr ""
+"Key pairs are SSH credentials that are injected into an instance when it is "
+"launched. To use key pair injection, the image that the instance is based on "
+"must contain the ``cloud-init`` package. Each project should have at least "
+"one key pair. For more information, see the section :ref:`keypair_add`."
+
+msgid "Launch an instance"
+msgstr "Launch an instance"
+
+msgid "Launch and manage instances"
+msgstr "Launch and manage instances"
+
+msgid "Leave this field empty."
+msgstr "Leave this field empty."
+
+msgid "Legend:"
+msgstr "Legend:"
+
+msgid "Log in to the dashboard"
+msgstr "Log in to the dashboard"
+
+msgid "Log in to the dashboard."
+msgstr "Log in to the dashboard."
+
+msgid "MS Edge"
+msgstr "MS Edge"
+
+msgid "Manage an instance"
+msgstr "Manage an instance"
+
+msgid "Manage an object"
+msgstr "Manage an object"
+
+msgid "Network tab"
+msgstr "Network tab"
+
+msgid ""
+"Networking in OpenStack is complex. This section provides the basic "
+"instructions for creating a network and a router. For detailed information "
+"about managing networks, refer to the `OpenStack Networking Guide <https://"
+"docs.openstack.org/neutron/latest/admin/>`__."
+msgstr ""
+"Networking in OpenStack is complex. This section provides the basic "
+"instructions for creating a network and a router. For detailed information "
+"about managing networks, refer to the `OpenStack Networking Guide <https://"
+"docs.openstack.org/neutron/latest/admin/>`__."
+
+msgid ""
+"No source, empty volume: Creates an empty volume. An empty volume does not "
+"contain a file system or a partition table."
+msgstr ""
+"No source, empty volume: Creates an empty volume. An empty volume does not "
+"contain a file system or a partition table."
+
+msgid "No: Not supported"
+msgstr "No: Not supported"
+
+msgid "Not supported."
+msgstr "Not supported."
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Now you can log in to the instance and mount, format, and use the disk."
+msgstr ""
+"Now you can log in to the instance and mount, format, and use the disk."
+
+msgid "Object Store tab"
+msgstr "Object Store tab"
+
+msgid ""
+"On the :guilabel:`Log In` page, enter your user name and password, and "
+"click :guilabel:`Sign In`. If the cloud supports multi-domain model, you "
+"also need to enter your domain name."
+msgstr ""
+"On the :guilabel:`Log In` page, enter your user name and password, and "
+"click :guilabel:`Sign In`. If the cloud supports multi-domain model, you "
+"also need to enter your domain name."
+
+msgid "On the :guilabel:`Project` tab, click :guilabel:`Networks` category."
+msgstr "On the :guilabel:`Project` tab, click :guilabel:`Networks` category."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and click :"
+"guilabel:`Images` category."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and click :"
+"guilabel:`Images` category."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and click :"
+"guilabel:`Instances` category."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and click :"
+"guilabel:`Instances` category."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and click :"
+"guilabel:`Overview` category."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and click :"
+"guilabel:`Overview` category."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Instances` category."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Instances` category."
+
+msgid "On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab."
+msgstr "On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Network` tab and click :"
+"guilabel:`Networks` category."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Network` tab and click :"
+"guilabel:`Networks` category."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Network` tab and click :"
+"guilabel:`Routers` category."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Network` tab and click :"
+"guilabel:`Routers` category."
+
+msgid "On the :guilabel:`Project` tab, open the :guilabel:`Network` tab."
+msgstr "On the :guilabel:`Project` tab, open the :guilabel:`Network` tab."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Network` tab. The :"
+"guilabel:`Security Groups` tab shows the security groups that are available "
+"for this project."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Network` tab. The :"
+"guilabel:`Security Groups` tab shows the security groups that are available "
+"for this project."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Object Store` tab and "
+"click :guilabel:`Containers` category."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Object Store` tab and "
+"click :guilabel:`Containers` category."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and click :"
+"guilabel:`Volumes` category."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and click :"
+"guilabel:`Volumes` category."
+
+msgid ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and click "
+"the :guilabel:`Volumes` category."
+msgstr ""
+"On the :guilabel:`Project` tab, open the :guilabel:`Volumes` tab and click "
+"the :guilabel:`Volumes` category."
+
+msgid ""
+"On the :guilabel:`Router Details` page, click the :guilabel:`Interfaces` "
+"tab, then click :guilabel:`Add Interface`."
+msgstr ""
+"On the :guilabel:`Router Details` page, click the :guilabel:`Interfaces` "
+"tab, then click :guilabel:`Add Interface`."
+
+msgid "On the :guilabel:`Routers` tab, click the name of the router."
+msgstr "On the :guilabel:`Routers` tab, click the name of the router."
+
+msgid "Open a web browser that has JavaScript and cookies enabled."
+msgstr "Open a web browser that has JavaScript and cookies enabled."
+
+msgid "OpenStack Dashboard User Documentation"
+msgstr "OpenStack Dashboard User Documentation"
+
+msgid ""
+"OpenStack Object Storage (swift) is used for redundant, scalable data "
+"storage using clusters of standardized servers to store petabytes of "
+"accessible data. It is a long-term storage system for large amounts of "
+"static data which can be retrieved and updated."
+msgstr ""
+"OpenStack Object Storage (Swift) is used for redundant, scalable data "
+"storage using clusters of standardised servers to store petabytes of "
+"accessible data. It is a long-term storage system for large amounts of "
+"static data which can be retrieved and updated."
+
+msgid ""
+"OpenStack Object Storage provides a distributed, API-accessible storage "
+"platform that can be integrated directly into an application or used to "
+"store any type of file, including VM images, backups, archives, or media "
+"files. In the OpenStack dashboard, you can only manage containers and "
+"objects."
+msgstr ""
+"OpenStack Object Storage provides a distributed, API-accessible storage "
+"platform that can be integrated directly into an application or used to "
+"store any type of file, including VM images, backups, archives, or media "
+"files. In the OpenStack dashboard, you can only manage containers and "
+"objects."
+
+msgid "OpenStack dashboard — Admin tab"
+msgstr "OpenStack dashboard — Admin tab"
+
+msgid "OpenStack dashboard — Identity tab"
+msgstr "OpenStack dashboard — Identity tab"
+
+msgid "OpenStack dashboard — Project tab"
+msgstr "OpenStack dashboard — Project tab"
+
+msgid "OpenStack dashboard — Settings tab"
+msgstr "OpenStack dashboard — Settings tab"
+
+msgid "Opera"
+msgstr "Opera"
+
+msgid ""
+"Optionally, in the :guilabel:`Add Interface` dialog box, set an :guilabel:"
+"`IP Address` for the router interface for the selected subnet."
+msgstr ""
+"Optionally, in the :guilabel:`Add Interface` dialogue box, set an :guilabel:"
+"`IP Address` for the router interface for the selected subnet."
+
+msgid "Overview tab"
+msgstr "Overview tab"
+
+msgid "Poor"
+msgstr "Poor"
+
+msgid "Poor: Doesn't look good"
+msgstr "Poor: Doesn't look good"
+
+msgid "Ports"
+msgstr "Ports"
+
+msgid ""
+"Projects are organizational units in the cloud and are also known as tenants "
+"or accounts. Each user is a member of one or more projects. Within a "
+"project, a user creates and manages instances."
+msgstr ""
+"Projects are organisational units in the cloud and are also known as tenants "
+"or accounts. Each user is a member of one or more projects. Within a "
+"project, a user creates and manages instances."
+
+msgid ""
+"Pseudo-folders are similar to folders in your desktop operating system. They "
+"are virtual collections defined by a common prefix on the object's name."
+msgstr ""
+"Pseudo-folders are similar to folders in your desktop operating system. They "
+"are virtual collections defined by a common prefix on the object's name."
+
+msgid "Respond to the prompt to download the key pair."
+msgstr "Respond to the prompt to download the key pair."
+
+msgid "Safari"
+msgstr "Safari"
+
+msgid "Save the ``*.pem`` file locally."
+msgstr "Save the ``*.pem`` file locally."
+
+msgid "Security Groups"
+msgstr "Security Groups"
+
+msgid ""
+"Security groups are a kind of cloud firewall that define which incoming "
+"network traffic is forwarded to instances."
+msgstr ""
+"Security groups are a kind of cloud firewall that define which incoming "
+"network traffic is forwarded to instances."
+
+msgid "Select a volume from which to create a snapshot."
+msgstr "Select a volume from which to create a snapshot."
+
+msgid "Select an instance."
+msgstr "Select an instance."
+
+msgid "Select the :guilabel:`Public` button to make the image public."
+msgstr "Select the :guilabel:`Public` button to make the image public."
+
+msgid "Select the appropriate project from the drop down menu at the top left."
+msgstr ""
+"Select the appropriate project from the drop down menu at the top left."
+
+msgid "Select the appropriate project from the drop-down menu at the top left."
+msgstr ""
+"Select the appropriate project from the drop-down menu at the top left."
+
+msgid "Select the check boxes for the volumes that you want to delete."
+msgstr "Select the check boxes for the volumes that you want to delete."
+
+msgid "Select the container in which you want to store your object."
+msgstr "Select the container in which you want to store your object."
+
+msgid "Select the default security group and click :guilabel:`Manage Rules`."
+msgstr "Select the default security group and click :guilabel:`Manage Rules`."
+
+msgid "Select the image format (for example, QCOW2) for the image."
+msgstr "Select the image format (for example, QCOW2) for the image."
+
+msgid "Select the image that you want to edit."
+msgstr "Select the image that you want to edit."
+
+msgid "Select the images that you want to delete."
+msgstr "Select the images that you want to delete."
+
+msgid "Select the instance from which to create a snapshot."
+msgstr "Select the instance from which to create a snapshot."
+
+msgid "Select the volume and click :guilabel:`Manage Attachments`."
+msgstr "Select the volume and click :guilabel:`Manage Attachments`."
+
+msgid ""
+"Select the volume or volume snapshot from which to boot. Enter a device "
+"name. Enter ``vda`` for KVM images or ``xvda`` for Xen images."
+msgstr ""
+"Select the volume or volume snapshot from which to boot. Enter a device "
+"name. Enter ``vda`` for KVM images or ``xvda`` for Xen images."
+
+msgid "Select the volume that you want to edit."
+msgstr "Select the volume that you want to edit."
+
+msgid ""
+"Select the volume to add to an instance and click :guilabel:`Manage "
+"Attachments`."
+msgstr ""
+"Select the volume to add to an instance and click :guilabel:`Manage "
+"Attachments`."
+
+msgid ""
+"Select this check box to ensure that only users with permissions can delete "
+"the image. ``Yes`` or ``No``."
+msgstr ""
+"Select this check box to ensure that only users with permissions can delete "
+"the image. ``Yes`` or ``No``."
+
+msgid "Selected Networks"
+msgstr "Selected Networks"
+
+msgid ""
+"Server names are not guaranteed to be unique when created so you could have "
+"two instances with the same host name."
+msgstr ""
+"Server names are not guaranteed to be unique when created so you could have "
+"two instances with the same host name."
+
+msgid ""
+"Snapshot: If you choose this option, a new field for :guilabel:`Use snapshot "
+"as a source` displays. You can select the snapshot from the list."
+msgstr ""
+"Snapshot: If you choose this option, a new field for :guilabel:`Use snapshot "
+"as a source` displays. You can select the snapshot from the list."
+
+msgid "Specify a customization script that runs after your instance launches."
+msgstr "Specify a customisation script that runs after your instance launches."
+
+msgid "Specify a key pair."
+msgstr "Specify a key pair."
+
+msgid ""
+"Specify the architecture. For example, ``i386`` for a 32-bit architecture or "
+"``x86_64`` for a 64-bit architecture."
+msgstr ""
+"Specify the architecture. For example, ``i386`` for a 32-bit architecture or "
+"``x86_64`` for a 64-bit architecture."
+
+msgid "Specify the size of the instance to launch."
+msgstr "Specify the size of the instance to launch."
+
+msgid ""
+"Specify this option to add resource metadata. The glance Metadata Catalog "
+"provides a list of metadata image definitions. (Note: Not all cloud "
+"providers enable this feature.)"
+msgstr ""
+"Specify this option to add resource metadata. The glance Metadata Catalogue "
+"provides a list of metadata image definitions. (Note: Not all cloud "
+"providers enable this feature.)"
+
+msgid "Specify this option to copy image data to the Image service."
+msgstr "Specify this option to copy image data to the Image service."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Supported Browsers"
+msgstr "Supported Browsers"
+
+msgid "System tab"
+msgstr "System tab"
+
+msgid "The :guilabel:`Create An Image` dialog box appears."
+msgstr "The :guilabel:`Create An Image` dialogue box appears."
+
+msgid ""
+"The :guilabel:`Create Pseudo-Folder in Container` ``<name>`` dialog box is "
+"displayed. ``<name>`` is the name of the container to which you are "
+"uploading the object."
+msgstr ""
+"The :guilabel:`Create Pseudo-Folder in Container` ``<name>`` dialogue box is "
+"displayed. ``<name>`` is the name of the container to which you are "
+"uploading the object."
+
+msgid "The :guilabel:`Edit Object` dialog box is displayed."
+msgstr "The :guilabel:`Edit Object` dialogue box is displayed."
+
+msgid ""
+"The :guilabel:`IP Address` field is filled automatically, but you can add a "
+"new IP address by clicking the :guilabel:`+` button."
+msgstr ""
+"The :guilabel:`IP Address` field is filled automatically, but you can add a "
+"new IP address by clicking the :guilabel:`+` button."
+
+msgid "The :guilabel:`Images` category shows the instance snapshot."
+msgstr "The :guilabel:`Images` category shows the instance snapshot."
+
+msgid ""
+"The :guilabel:`Router Name` and :guilabel:`Router ID` fields are "
+"automatically updated."
+msgstr ""
+"The :guilabel:`Router Name` and :guilabel:`Router ID` fields are "
+"automatically updated."
+
+msgid ""
+"The :guilabel:`Upload File To Container: <name>` dialog box appears. "
+"``<name>`` is the name of the container to which you are uploading the "
+"object."
+msgstr ""
+"The :guilabel:`Upload File To Container: <name>` dialogue box appears. "
+"``<name>`` is the name of the container to which you are uploading the "
+"object."
+
+msgid ""
+"The :guilabel:`Upload Object To Container`: ``<name>`` dialog box is "
+"displayed."
+msgstr ""
+"The :guilabel:`Upload Object To Container`: ``<name>`` dialogue box is "
+"displayed."
+
+msgid "The Compute database registers the public key of the key pair."
+msgstr "The Compute database registers the public key of the key pair."
+
+msgid "The Dashboard lists the key pair on the :guilabel:`Key Pairs` tab."
+msgstr "The Dashboard lists the key pair on the :guilabel:`Key Pairs` tab."
+
+msgid ""
+"The OpenStack Networking service provides a scalable system for managing the "
+"network connectivity within an OpenStack cloud deployment. It can easily and "
+"quickly react to changing network needs (for example, creating and assigning "
+"new IP addresses)."
+msgstr ""
+"The OpenStack Networking service provides a scalable system for managing the "
+"network connectivity within an OpenStack cloud deployment. It can easily and "
+"quickly react to changing network needs (for example, creating and assigning "
+"new IP addresses)."
+
+msgid "The access permission for the image. ``Public`` or ``Private``."
+msgstr "The access permission for the image. ``Public`` or ``Private``."
+
+msgid ""
+"The actual device name might differ from the volume name because of "
+"hypervisor settings."
+msgstr ""
+"The actual device name might differ from the volume name because of "
+"hypervisor settings."
+
+msgid "The dashboard is generally installed on the controller node."
+msgstr "The dashboard is generally installed on the controller node."
+
+msgid ""
+"The dashboard shows the instance to which the volume is now attached and the "
+"device name."
+msgstr ""
+"The dashboard shows the instance to which the volume is now attached and the "
+"device name."
+
+msgid ""
+"The dashboard shows the instances with its name, its private and floating IP "
+"addresses, size, status, task, power state, and so on."
+msgstr ""
+"The dashboard shows the instances with its name, its private and floating IP "
+"addresses, size, status, task, power state, and so on."
+
+msgid "The dashboard shows the network on the :guilabel:`Networks` tab."
+msgstr "The dashboard shows the network on the :guilabel:`Networks` tab."
+
+msgid "The dashboard shows the new volume snapshot in Volume Snapshots tab."
+msgstr "The dashboard shows the new volume snapshot in Volume Snapshots tab."
+
+msgid "The dashboard shows the volume on the :guilabel:`Volumes` tab."
+msgstr "The dashboard shows the volume on the :guilabel:`Volumes` tab."
+
+msgid ""
+"The flavor is selected based on the size of the image selected for launching "
+"an instance. For example, while creating an image, if you have entered the "
+"value in the :guilabel:`Minimum RAM (MB)` field as 2048, then on selecting "
+"the image, the default flavor is ``m1.small``."
+msgstr ""
+"The flavour is selected based on the size of the image selected for "
+"launching an instance. For example, while creating an image, if you have "
+"entered the value in the :guilabel:`Minimum RAM (MB)` field as 2048, then on "
+"selecting the image, the default flavour is ``m1.small``."
+
+msgid ""
+"The image is queued to be uploaded. It might take some time before the "
+"status changes from Queued to Active."
+msgstr ""
+"The image is queued to be uploaded. It might take some time before the "
+"status changes from Queued to Active."
+
+msgid "The instance starts on a compute node in the cloud."
+msgstr "The instance starts on a compute node in the cloud."
+
+msgid "The list shows all the instances with their fixed IP addresses."
+msgstr "The list shows all the instances with their fixed IP addresses."
+
+msgid ""
+"The name you assign here becomes the initial host name of the server. If the "
+"name is longer than 63 characters, the Compute service truncates it "
+"automatically to ensure dnsmasq works correctly."
+msgstr ""
+"The name you assign here becomes the initial host name of the server. If the "
+"name is longer than 63 characters, the Compute service truncates it "
+"automatically to ensure dnsmasq works correctly."
+
+msgid "The new port is now displayed in the :guilabel:`Ports` list."
+msgstr "The new port is now displayed in the :guilabel:`Ports` list."
+
+msgid "The new router is now displayed in the :guilabel:`Routers` tab."
+msgstr "The new router is now displayed in the :guilabel:`Routers` tab."
+
+msgid ""
+"The top of the window displays your user name. You can also access the :"
+"guilabel:`Settings` tab (:ref:`dashboard-settings-tab`) or sign out of the "
+"dashboard."
+msgstr ""
+"The top of the window displays your user name. You can also access the :"
+"guilabel:`Settings` tab (:ref:`dashboard-settings-tab`) or sign out of the "
+"dashboard."
+
+msgid "The user name is ``ubuntu`` for the Ubuntu cloud images on TryStack."
+msgstr "The user name is ``ubuntu`` for the Ubuntu cloud images on TryStack."
+
+msgid ""
+"The visible tabs and functions in the dashboard depend on the access "
+"permissions, or roles, of the user you are logged in as."
+msgstr ""
+"The visible tabs and functions in the dashboard depend on the access "
+"permissions, or roles, of the user you are logged in as."
+
+msgid "There're some bugs but most"
+msgstr "There're some bugs but most"
+
+msgid "There're some bugs but most of features work"
+msgstr "There're some bugs but most of features work"
+
+msgid ""
+"This field changes based on your previous selection. If you have chosen to "
+"launch an instance using a snapshot, the :guilabel:`Instance Snapshot` field "
+"displays. Select the snapshot name from the dropdown list."
+msgstr ""
+"This field changes based on your previous selection. If you have chosen to "
+"launch an instance using a snapshot, the :guilabel:`Instance Snapshot` field "
+"displays. Select the snapshot name from the dropdown list."
+
+msgid ""
+"This field changes based on your previous selection. If you have chosen to "
+"launch an instance using a volume, the :guilabel:`Volume` field displays. "
+"Select the volume name from the dropdown list. If you want to delete the "
+"volume on instance delete, check the :guilabel:`Delete Volume on Instance "
+"Delete` option."
+msgstr ""
+"This field changes based on your previous selection. If you have chosen to "
+"launch an instance using a volume, the :guilabel:`Volume` field displays. "
+"Select the volume name from the dropdown list. If you want to delete the "
+"volume on instance delete, check the :guilabel:`Delete Volume on Instance "
+"Delete` option."
+
+msgid ""
+"This field changes based on your previous selection. If you have chosen to "
+"launch an instance using an image, the :guilabel:`Image Name` field "
+"displays. Select the image name from the dropdown list."
+msgstr ""
+"This field changes based on your previous selection. If you have chosen to "
+"launch an instance using an image, the :guilabel:`Image Name` field "
+"displays. Select the image name from the dropdown list."
+
+msgid ""
+"This page aims to informally document what that means for different "
+"releases, everyone is warmly encouraged to update this page based on the "
+"versions they've tested with."
+msgstr ""
+"This page aims to informally document what that means for different "
+"releases, everyone is warmly encouraged to update this page based on the "
+"versions they've tested with."
+
+msgid ""
+"This procedure can be adjusted as necessary to add additional security group "
+"rules to a project, if your cloud requires them."
+msgstr ""
+"This procedure can be adjusted as necessary to add additional security group "
+"rules to a project, if your cloud requires them."
+
+msgid ""
+"This procedure enables SSH and ICMP (ping) access to instances. The rules "
+"apply to all instances within a given project, and should be set for every "
+"project unless there is a reason to prohibit SSH or ICMP access to the "
+"instances."
+msgstr ""
+"This procedure enables SSH and ICMP (ping) access to instances. The rules "
+"apply to all instances within a given project, and should be set for every "
+"project unless there is a reason to prohibit SSH or ICMP access to the "
+"instances."
+
+msgid ""
+"To accept requests from a particular range of IP addresses, specify the IP "
+"address block in the :guilabel:`CIDR` box."
+msgstr ""
+"To accept requests from a particular range of IP addresses, specify the IP "
+"address block in the :guilabel:`CIDR` box."
+
+msgid ""
+"To add a network to the instance, click the :guilabel:`+` in the :guilabel:"
+"`Available` field."
+msgstr ""
+"To add a network to the instance, click the :guilabel:`+` in the :guilabel:"
+"`Available` field."
+
+msgid "To add an ICMP rule, click :guilabel:`Add Rule`."
+msgstr "To add an ICMP rule, click :guilabel:`Add Rule`."
+
+msgid "To allow SSH access, click :guilabel:`Add Rule`."
+msgstr "To allow SSH access, click :guilabel:`Add Rule`."
+
+msgid ""
+"To boot a Xen image from a volume, the image you launch in must be the same "
+"type, fully virtualized or paravirtualized, as the one on the volume."
+msgstr ""
+"To boot a Xen image from a volume, the image you launch in must be the same "
+"type, fully virtualised or paravirtualised, as the one on the volume."
+
+msgid ""
+"To change its permissions so that only you can read and write to the file, "
+"run the following command:"
+msgstr ""
+"To change its permissions so that only you can read and write to the file, "
+"run the following command:"
+
+msgid ""
+"To connect a private network to the newly created router, perform the "
+"following steps:"
+msgstr ""
+"To connect a private network to the newly created router, perform the "
+"following steps:"
+
+msgid ""
+"To delete a container, click the :guilabel:`More` button and select :"
+"guilabel:`Delete Container`."
+msgstr ""
+"To delete a container, click the :guilabel:`More` button and select :"
+"guilabel:`Delete Container`."
+
+msgid ""
+"To delete an object, click the :guilabel:`More button` and select :guilabel:"
+"`Delete Object`."
+msgstr ""
+"To delete an object, click the :guilabel:`More button` and select :guilabel:"
+"`Delete Object`."
+
+msgid ""
+"To delete an object, click the menu button and select :guilabel:`Delete "
+"Object`."
+msgstr ""
+"To delete an object, click the menu button and select :guilabel:`Delete "
+"Object`."
+
+msgid ""
+"To disassociate an IP address from an instance, click the :guilabel:"
+"`Disassociate` button."
+msgstr ""
+"To disassociate an IP address from an instance, click the :guilabel:"
+"`Disassociate` button."
+
+msgid "To download a summary, click :guilabel:`Download CSV Summary`."
+msgstr "To download a summary, click :guilabel:`Download CSV Summary`."
+
+msgid ""
+"To launch an instance from the snapshot, select the snapshot and click :"
+"guilabel:`Launch`. Proceed with launching an instance."
+msgstr ""
+"To launch an instance from the snapshot, select the snapshot and click :"
+"guilabel:`Launch`. Proceed with launching an instance."
+
+msgid ""
+"To launch multiple instances, enter a value greater than ``1``. The default "
+"is ``1``."
+msgstr ""
+"To launch multiple instances, enter a value greater than ``1``. The default "
+"is ``1``."
+
+msgid "To make the key pair known to SSH, run the :command:`ssh-add` command."
+msgstr "To make the key pair known to SSH, run the :command:`ssh-add` command."
+
+msgid ""
+"To query the instance usage for a month, select a month and click :guilabel:"
+"`Submit`."
+msgstr ""
+"To query the instance usage for a month, select a month and click :guilabel:"
+"`Submit`."
+
+msgid ""
+"To release the floating IP address back into the floating IP pool, click "
+"the :guilabel:`Release Floating IP` option in the :guilabel:`Actions` column."
+msgstr ""
+"To release the floating IP address back into the floating IP pool, click "
+"the :guilabel:`Release Floating IP` option in the :guilabel:`Actions` column."
+
+msgid ""
+"To select the volume from which to launch, launch an instance from an "
+"arbitrary image on the volume. The arbitrary image that you select does not "
+"boot. Instead, it is replaced by the image on the volume that you choose in "
+"the next steps."
+msgstr ""
+"To select the volume from which to launch, launch an instance from an "
+"arbitrary image on the volume. The arbitrary image that you select does not "
+"boot. Instead, it is replaced by the image on the volume that you choose in "
+"the next steps."
+
+msgid ""
+"To use SSH to connect to your instance, use the downloaded keypair file."
+msgstr ""
+"To use SSH to connect to your instance, use the downloaded keypair file."
+
+msgid ""
+"To use the Virtual Network Computing (VNC) client for the dashboard, your "
+"browser must support HTML5 Canvas and HTML5 WebSockets. The VNC client is "
+"based on noVNC. For details, see `noVNC: HTML5 VNC Client <https://github."
+"com/novnc/noVNC/blob/master/README.md>`__. For a list of supported browsers, "
+"see `Browser support <https://github.com/novnc/noVNC/wiki/Browser-"
+"support>`__."
+msgstr ""
+"To use the Virtual Network Computing (VNC) client for the dashboard, your "
+"browser must support HTML5 Canvas and HTML5 WebSockets. The VNC client is "
+"based on noVNC. For details, see `noVNC: HTML5 VNC Client <https://github."
+"com/novnc/noVNC/blob/master/README.md>`__. For a list of supported browsers, "
+"see `Browser support <https://github.com/novnc/noVNC/wiki/Browser-"
+"support>`__."
+
+msgid "Track usage for instances"
+msgstr "Track usage for instances"
+
+msgid "Update an image"
+msgstr "Update an image"
+
+msgid "Upload an image"
+msgstr "Upload an image"
+
+msgid "Upload an object"
+msgstr "Upload an object"
+
+msgid "Upload and manage images"
+msgstr "Upload and manage images"
+
+msgid ""
+"Use the :command:`ssh` command to make a secure connection to the instance. "
+"For example:"
+msgstr ""
+"Use the :command:`ssh` command to make a secure connection to the instance. "
+"For example:"
+
+msgid ""
+"Using this option, you can boot from a volume snapshot and create a new "
+"volume by choosing :guilabel:`Volume Snapshot` from a list and adding a :"
+"guilabel:`Device Name` for your volume. Click the :guilabel:`Delete Volume "
+"on Instance Delete` option to delete the volume on deleting the instance."
+msgstr ""
+"Using this option, you can boot from a volume snapshot and create a new "
+"volume by choosing :guilabel:`Volume Snapshot` from a list and adding a :"
+"guilabel:`Device Name` for your volume. Click the :guilabel:`Delete Volume "
+"on Instance Delete` option to delete the volume on deleting the instance."
+
+msgid "Very good"
+msgstr "Very good"
+
+msgid "Very good: Very well tested, should work as expected"
+msgstr "Very good: Very well tested, should work as expected"
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "Volume tab"
+msgstr "Volume tab"
+
+msgid ""
+"Volume: If you choose this option, a new field for :guilabel:`Use volume as "
+"a source` displays. You can select the volume from the list. Options to use "
+"a snapshot or a volume as the source for a volume are displayed only if "
+"there are existing snapshots or volumes."
+msgstr ""
+"Volume: If you choose this option, a new field for :guilabel:`Use volume as "
+"a source` displays. You can select the volume from the list. Options to use "
+"a snapshot or a volume as the source for a volume are displayed only if "
+"there are existing snapshots or volumes."
+
+msgid ""
+"Volumes are block storage devices that you attach to instances to enable "
+"persistent storage. You can attach a volume to a running instance or detach "
+"a volume and attach it to another instance at any time. You can also create "
+"a snapshot from or delete a volume. Only administrative users can create "
+"volume types."
+msgstr ""
+"Volumes are block storage devices that you attach to instances to enable "
+"persistent storage. You can attach a volume to a running instance or detach "
+"a volume and attach it to another instance at any time. You can also create "
+"a snapshot from or delete a volume. Only administrative users can create "
+"volume types."
+
+msgid ""
+"When adding a rule, you must specify the protocol used with the destination "
+"port or source port."
+msgstr ""
+"When adding a rule, you must specify the protocol used with the destination "
+"port or source port."
+
+msgid ""
+"When an instance is created in OpenStack, it is automatically assigned a "
+"fixed IP address in the network to which the instance is assigned. This IP "
+"address is permanently associated with the instance until the instance is "
+"terminated."
+msgstr ""
+"When an instance is created in OpenStack, it is automatically assigned a "
+"fixed IP address in the network to which the instance is assigned. This IP "
+"address is permanently associated with the instance until the instance is "
+"terminated."
+
+msgid ""
+"When an instance is created in OpenStack, it is automatically assigned a "
+"fixed IP address in the network to which the instance is assigned. This IP "
+"address is permanently associated with the instance until the instance is "
+"terminated. However, in addition to the fixed IP address, a floating IP "
+"address can also be attached to an instance. Unlike fixed IP addresses, "
+"floating IP addresses are able to have their associations modified at any "
+"time, regardless of the state of the instances involved."
+msgstr ""
+"When an instance is created in OpenStack, it is automatically assigned a "
+"fixed IP address in the network to which the instance is assigned. This IP "
+"address is permanently associated with the instance until the instance is "
+"terminated. However, in addition to the fixed IP address, a floating IP "
+"address can also be attached to an instance. Unlike fixed IP addresses, "
+"floating IP addresses are able to have their associations modified at any "
+"time, regardless of the state of the instances involved."
+
+msgid ""
+"When running QEMU without support for the hardware virtualization, set "
+"``cpu_mode=\"none\"`` alongside ``virt_type=qemu`` in ``/etc/nova/nova-"
+"compute.conf`` to solve the following error:"
+msgstr ""
+"When running QEMU without support for the hardware virtualization, set "
+"``cpu_mode=\"none\"`` alongside ``virt_type=qemu`` in ``/etc/nova/nova-"
+"compute.conf`` to solve the following error:"
+
+msgid ""
+"When you delete an instance, the data in its attached volumes is not deleted."
+msgstr ""
+"When you delete an instance, the data in its attached volumes is not deleted."
+
+msgid "When you launch an instance from a volume, note the following steps:"
+msgstr "When you launch an instance from a volume, note the following steps:"
+
+msgid ""
+"When you launch an instance from an image, OpenStack creates a local copy of "
+"the image on the compute node where the instance starts."
+msgstr ""
+"When you launch an instance from an image, OpenStack creates a local copy of "
+"the image on the compute node where the instance starts."
+
+msgid ""
+"With this option, you can boot from an image and create a volume by entering "
+"the :guilabel:`Device Size` and :guilabel:`Device Name` for your volume. "
+"Click the :guilabel:`Delete Volume on Instance Delete` option to delete the "
+"volume on deleting the instance."
+msgstr ""
+"With this option, you can boot from an image and create a volume by entering "
+"the :guilabel:`Device Size` and :guilabel:`Device Name` for your volume. "
+"Click the :guilabel:`Delete Volume on Instance Delete` option to delete the "
+"volume on deleting the instance."
+
+msgid ""
+"You can also launch an instance from the :guilabel:`Images` or :guilabel:"
+"`Volumes` category when you launch an instance from an image or a volume "
+"respectively."
+msgstr ""
+"You can also launch an instance from the :guilabel:`Images` or :guilabel:"
+"`Volumes` category when you launch an instance from an image or a volume "
+"respectively."
+
+msgid ""
+"You can also use the :command:`openstack` and :command:`glance` command-line "
+"clients or the Image service to manage images."
+msgstr ""
+"You can also use the :command:`openstack` and :command:`glance` command-line "
+"clients or the Image service to manage images."
+
+msgid "You can assign a brief description of the virtual machine."
+msgstr "You can assign a brief description of the virtual machine."
+
+msgid ""
+"You can create a new object in container without a file available and can "
+"upload the file later when it is ready. This temporary object acts a place-"
+"holder for a new object, and enables the user to share object metadata and "
+"URL info in advance."
+msgstr ""
+"You can create a new object in container without a file available and can "
+"upload the file later when it is ready. This temporary object acts a place-"
+"holder for a new object, and enables the user to share object metadata and "
+"URL info in advance."
+
+msgid ""
+"You can extend a volume by using the :guilabel:`Extend Volume` option "
+"available in the :guilabel:`More` dropdown list and entering the new value "
+"for volume size."
+msgstr ""
+"You can extend a volume by using the :guilabel:`Extend Volume` option "
+"available in the :guilabel:`More` dropdown list and entering the new value "
+"for volume size."
+
+msgid ""
+"You can resize or rebuild an instance. You can also choose to view the "
+"instance console log, edit instance or the security groups. Depending on the "
+"current state of the instance, you can pause, resume, suspend, soft or hard "
+"reboot, or terminate it."
+msgstr ""
+"You can resize or rebuild an instance. You can also choose to view the "
+"instance console log, edit instance or the security groups. Depending on the "
+"current state of the instance, you can pause, resume, suspend, soft or hard "
+"reboot, or terminate it."
+
+msgid ""
+"You can track usage for instances for each project. You can track costs per "
+"month by showing meters like number of vCPUs, disks, RAM, and uptime for all "
+"your instances."
+msgstr ""
+"You can track usage for instances for each project. You can track costs per "
+"month by showing meters like number of vCPUs, disks, RAM, and uptime for all "
+"your instances."
+
+msgid ""
+"You can view the status of a volume in the Volumes tab of the dashboard. The "
+"volume is either Available or In-Use."
+msgstr ""
+"You can view the status of a volume in the Volumes tab of the dashboard. The "
+"volume is either Available or In-Use."
+
+msgid ""
+"You do not have to specify a subnet when you create a network, but if you do "
+"not specify a subnet, the network can not be attached to an instance."
+msgstr ""
+"You do not have to specify a subnet when you create a network, but if you do "
+"not specify a subnet, the network can not be attached to an instance."
+
+msgid "You have successfully created a container."
+msgstr "You have successfully created a container."
+
+msgid ""
+"You have successfully created the router. You can view the new topology from "
+"the :guilabel:`Network Topology` tab."
+msgstr ""
+"You have successfully created the router. You can view the new topology from "
+"the :guilabel:`Network Topology` tab."
+
+msgid "You have successfully uploaded an object to the container."
+msgstr "You have successfully uploaded an object to the container."
+
+msgid "Your options are:"
+msgstr "Your options are:"
+
+msgid ""
+"``<name>`` is the name of the container to which you are uploading the "
+"object."
+msgstr ""
+"``<name>`` is the name of the container to which you are uploading the "
+"object."
+
+msgid "of features work"
+msgstr "of features work"

@@ -21,11 +21,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-07 04:25+0000\n"
+"POT-Creation-Date: 2018-09-15 05:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-08 09:02+0000\n"
+"PO-Revision-Date: 2018-09-13 08:04+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -620,6 +620,9 @@ msgstr "Nombre"
 msgid "Create Container"
 msgstr "Créer un conteneur"
 
+msgid "Create Domain"
+msgstr "Créer un domaine"
+
 msgid "Create Folder"
 msgstr "Créer un dossier"
 
@@ -1179,6 +1182,9 @@ msgstr "Groupe"
 #, python-format
 msgid "Group %s was successfully created."
 msgstr "Le groupe %s a été créé avec succès."
+
+msgid "Group updated successfully."
+msgstr "Le groupe a été mis à jour avec succès."
 
 msgid "Groups"
 msgstr "Groupes"
@@ -2825,7 +2831,7 @@ msgstr[1] "Impossible de supprimer les variétés: %s."
 #, python-format
 msgid "Unable to delete Group: %s."
 msgid_plural "Unable to delete Groups: %s."
-msgstr[0] "Impossible de supprimer le groupe : %s."
+msgstr[0] "Impossible de supprimer le groupe : %s"
 msgstr[1] "Impossible de supprimer les groupes : %s."
 
 #, python-format
@@ -3560,6 +3566,12 @@ msgstr ""
 "métadonnée est de 255 caractères."
 
 msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr ""
+"Vous pouvez copier des objets. Vous devez créer un conteneur de destination "
+"avant la copie."
+
+msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3602,8 +3614,7 @@ msgstr[1] ""
 #, python-format
 msgid "You have selected \"%s\". Deleted group is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
-msgstr[0] ""
-"Vous avez sélectionné \"%s\". Un groupe supprimé n'est pas récupérable."
+msgstr[0] "Vous avez sélectionné \"%s\". Un groupe supprimé est irrécupérable."
 msgstr[1] ""
 "Vous avez sélectionné \"%s\". Les groupes supprimés ne sont pas récupérables."
 

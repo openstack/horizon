@@ -16,12 +16,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-07 04:25+0000\n"
+"POT-Creation-Date: 2018-09-15 05:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-08 08:32+0000\n"
-"Last-Translator: Boxiang Zhu <zhu.boxiang@99cloud.net>\n"
+"PO-Revision-Date: 2018-08-13 01:52+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -255,6 +255,9 @@ msgid ""
 "to instances."
 msgstr "管理员建立可以绑定到实例的浮动IP池。"
 
+msgid "Affinity"
+msgstr "关联"
+
 msgid "Alerts"
 msgstr "提醒"
 
@@ -350,6 +353,9 @@ msgstr "Animated"
 
 msgid "Another action"
 msgstr "另一操作"
+
+msgid "Anti Affinity"
+msgstr "不关联"
 
 msgid "Any Availability Zone"
 msgstr "任何可用域"
@@ -499,6 +505,10 @@ msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "确定删除 flavor"
 
+msgid "Confirm Delete Group"
+msgid_plural "Confirm Delete Groups"
+msgstr[0] "确认删除组"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "确认删除镜像"
@@ -506,6 +516,10 @@ msgstr[0] "确认删除镜像"
 msgid "Confirm Delete Key Pair"
 msgid_plural "Confirm Delete Key Pairs"
 msgstr[0] "确认删除密钥对"
+
+msgid "Confirm Delete Policy"
+msgid_plural "Confirm Delete Policies"
+msgstr[0] "确认删除策略"
 
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
@@ -522,6 +536,9 @@ msgstr[0] "确认删除中继"
 msgid "Confirm Delete User"
 msgid_plural "Confirm Delete Users"
 msgstr[0] "确认删除用户"
+
+msgid "Confirm Password"
+msgstr "确认密码"
 
 msgid "Connecting"
 msgstr "连接中"
@@ -562,11 +579,23 @@ msgstr "内容类型"
 msgid "Contextual alternatives"
 msgstr "上下文替代"
 
+msgid "Copy"
+msgstr "复制"
+
 msgid "Copy Data"
 msgstr "复制数据"
 
+msgid "Copy Object"
+msgstr "复制对象"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "复制对象: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
 msgid "Copy Private Key to Clipboard"
 msgstr "把私钥复制到剪贴板"
+
+msgid "Copying"
+msgstr "复制"
 
 msgid "Could not decrypt the password"
 msgstr "不能解密密码"
@@ -580,11 +609,17 @@ msgstr "数量"
 msgid "Create Container"
 msgstr "创建容器"
 
+msgid "Create Domain"
+msgstr "创建域"
+
 msgid "Create Folder"
 msgstr "创建目录"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "在 {$ ctrl.model.container.name $} 中创建目录"
+
+msgid "Create Group"
+msgstr "创建组"
 
 msgid "Create Image"
 msgstr "创建镜像"
@@ -600,6 +635,9 @@ msgstr "创建新卷"
 
 msgid "Create Role"
 msgstr "创建角色"
+
+msgid "Create Server Group"
+msgstr "创建服务器组"
 
 msgid "Create Subnet"
 msgstr "创建子网"
@@ -735,6 +773,13 @@ msgstr[0] "删除 flavor"
 msgid "Delete Flavors"
 msgstr "删除 flavor"
 
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "删除组"
+
+msgid "Delete Groups"
+msgstr "删除组"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "删除镜像"
@@ -757,6 +802,13 @@ msgstr "删除密钥对"
 
 msgid "Delete Network"
 msgstr "删除网络"
+
+msgid "Delete Policies"
+msgstr "删除策略"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "删除策略"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -804,6 +856,11 @@ msgid_plural "Deleted Flavors: %s."
 msgstr[0] "删除 flavor： %s."
 
 #, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "删除组：%s。"
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "已删除的镜像： %s"
@@ -819,6 +876,11 @@ msgid_plural "Deleted Roles: %s."
 msgstr[0] "删除角色：%s。"
 
 #, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "删除服务器组：%s。"
+
+#, python-format
 msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
 msgstr[0] "删除中继：%s。"
@@ -827,6 +889,11 @@ msgstr[0] "删除中继：%s。"
 msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
 msgstr[0] "删除用户：%s。"
+
+#, python-format
+msgid "Deleted policy: %s."
+msgid_plural "Deleted policies: %s."
+msgstr[0] "删除的策略：%s。"
 
 msgid "Deleting"
 msgstr "删除中"
@@ -839,6 +906,12 @@ msgstr "描述"
 
 msgid "Description lists"
 msgstr "描述列表"
+
+msgid "Destination Container"
+msgstr "目标容器"
+
+msgid "Destination Object"
+msgstr "目标对象"
 
 msgid "Details"
 msgstr "详情"
@@ -894,6 +967,10 @@ msgstr "Docker"
 msgid "Domain"
 msgstr "域"
 
+#, python-format
+msgid "Domain %s was successfully created."
+msgstr "域 %s 已被成功创建。"
+
 msgid "Domain ID"
 msgstr "域ID"
 
@@ -905,6 +982,11 @@ msgstr "域名"
 
 msgid "Domains"
 msgstr "域"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr "域可以把不同组织的用户及使用的基础设施进行分离."
 
 msgid "Done"
 msgstr "完成"
@@ -935,6 +1017,9 @@ msgstr "编辑文件"
 
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "编辑文件: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Group"
+msgstr "编辑组"
 
 msgid "Edit Image"
 msgstr "编辑镜像"
@@ -1108,6 +1193,13 @@ msgstr "全局操作："
 
 msgid "Group"
 msgstr "组"
+
+#, python-format
+msgid "Group %s was successfully created."
+msgstr "组 %s 已被成功创建。"
+
+msgid "Group updated successfully."
+msgstr "组已被成功更新。"
 
 msgid "Groups"
 msgstr "组"
@@ -1318,6 +1410,9 @@ msgstr ""
 
 msgid "Instance"
 msgstr "实例"
+
+msgid "Instance ID"
+msgstr "实例 ID"
 
 msgid "Instance Name"
 msgstr "实例名称"
@@ -1763,6 +1858,10 @@ msgstr "OVA - 开放式虚拟设备"
 
 msgid "Object"
 msgstr "对象"
+
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "对象 %(path)s 已被复制。"
 
 msgid "Object Count"
 msgstr "对象数量"
@@ -2252,6 +2351,13 @@ msgstr "发送邀请"
 msgid "Separated link"
 msgstr "隔离的链接"
 
+msgid "Server Group"
+msgstr "服务器组"
+
+#, python-format
+msgid "Server Group %s was successfully created."
+msgstr "服务器组 %s 已被成功创建。"
+
 msgid "Server Groups"
 msgstr "服务器组"
 
@@ -2306,6 +2412,12 @@ msgstr "小输入"
 
 msgid "Snapshot"
 msgstr "快照"
+
+msgid "Soft Affinity"
+msgstr "软关联"
+
+msgid "Soft Anti Affinity"
+msgstr "软不关联"
 
 msgid "Someone famous in"
 msgstr "Someone famous in"
@@ -2618,6 +2730,12 @@ msgstr ""
 "这个命令生成一对密钥：一个私钥 (cloud.key)\n"
 "和一个公钥(cloud.key.pub)。"
 
+msgid "This container does not exist."
+msgstr "这个容器不存在。"
+
+msgid "This field is required."
+msgstr "此项必填。"
+
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
@@ -2775,6 +2893,9 @@ msgstr "无法创建项目。"
 msgid "Unable to create the role."
 msgstr "无法创建角色。"
 
+msgid "Unable to create the server group."
+msgstr "无法创建服务器组。"
+
 msgid "Unable to create the server snapshot."
 msgstr "无法创建服务器快照。"
 
@@ -2799,6 +2920,11 @@ msgid_plural "Unable to delete Flavors: %s."
 msgstr[0] "无法删除 flavor：%s。"
 
 #, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "无法删除组：%s。"
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "无法删除镜像： %s 。"
@@ -2814,6 +2940,11 @@ msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "无法删除角色：%s。"
 
 #, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "无法删除服务器组：%s。"
+
+#, python-format
 msgid "Unable to delete Trunk: %s."
 msgid_plural "Unable to delete Trunks: %s."
 msgstr[0] "无法删除中继：%s。"
@@ -2822,6 +2953,11 @@ msgstr[0] "无法删除中继：%s。"
 msgid "Unable to delete User: %s."
 msgid_plural "Unable to delete Users: %s."
 msgstr[0] "无法删除用户：%s。"
+
+#, python-format
+msgid "Unable to delete policy: %s."
+msgid_plural "Unable to delete policies: %s."
+msgstr[0] "无法删除策略：%s。"
 
 msgid "Unable to delete the container."
 msgstr "无法删除容器。"
@@ -2867,6 +3003,10 @@ msgstr "无法删除角色。"
 
 msgid "Unable to delete the roles."
 msgstr "无法删除角色。"
+
+#, python-format
+msgid "Unable to delete the server group with id %(id)s"
+msgstr "无法删除 id 为 %(id)s 的服务器组"
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
@@ -3106,6 +3246,9 @@ msgstr "无法获取角色。"
 
 msgid "Unable to retrieve the security groups."
 msgstr "无法获取安全组。"
+
+msgid "Unable to retrieve the server group."
+msgstr "无法获取服务器组。"
 
 msgid "Unable to retrieve the server."
 msgstr "无法获取服务器。"
@@ -3494,12 +3637,26 @@ msgstr ""
 "键值对的集合。每个实例的键或值的长度不能超过255字节。"
 
 msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr "您可以复制对象。在复制前需要创建目标容器。"
+
+msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "当您的实例使用下面选项启动后，您可以定制它。\n"
 "\"定制脚本\"与其它系统中的\"用户数据\"类似."
+
+msgid ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
+msgstr ""
+"您可以在目标对象项中使用 '/' 指定文件目录。\n"
+"          例如，需要复制目录名为 'folder1' 下的目标，需要使用  'folder1/"
+"[your object name]' 的格式指定目标对象。"
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "
@@ -3512,6 +3669,12 @@ msgstr ""
 "scheduler hint。"
 
 #, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] "您已经选定了“%s”。删除服务器组的操作无法恢复。"
+
+#, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
 msgstr[0] "你已经选定了“%s”。删除中继的操作无法恢复。"
@@ -3522,6 +3685,11 @@ msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "已选择 \"%s\"。删除 flavor 不可恢复。"
 
 #, python-format
+msgid "You have selected \"%s\". Deleted group is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
+msgstr[0] "您已经选定了“%s”。删除组的操作无法恢复。"
+
+#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "您选择了“%s”。删除的镜像均无法恢复。"
@@ -3530,6 +3698,11 @@ msgstr[0] "您选择了“%s”。删除的镜像均无法恢复。"
 msgid "You have selected \"%s\". Deleted key pair is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
 msgstr[0] "您选择了“%s”。密钥对删除后无法恢复。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted policy is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted policies are not recoverable."
+msgstr[0] "您选择了 \"%s\"。删除的策略将无法恢复。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."

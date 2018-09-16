@@ -3,19 +3,17 @@
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
-# Shu Muto <shu.mutow@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-07 04:25+0000\n"
+"POT-Creation-Date: 2018-09-15 05:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-07-30 03:18+0000\n"
-"Last-Translator: Shu Muto <shu.mutow@gmail.com>\n"
+"PO-Revision-Date: 2018-09-13 08:05+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -266,7 +264,7 @@ msgstr ""
 "ンスタンスに関連付けることができます。"
 
 msgid "Affinity"
-msgstr "親和性"
+msgstr "affinity"
 
 msgid "Alerts"
 msgstr "アラート"
@@ -374,7 +372,7 @@ msgid "Another action"
 msgstr "別のアクション"
 
 msgid "Anti Affinity"
-msgstr "反親和性"
+msgstr "anti-affinity"
 
 msgid "Any Availability Zone"
 msgstr "すべてのアベイラビリティーゾーン"
@@ -2467,10 +2465,10 @@ msgid "Snapshot"
 msgstr "スナップショット"
 
 msgid "Soft Affinity"
-msgstr "弱親和性"
+msgstr "soft-affinity"
 
 msgid "Soft Anti Affinity"
-msgstr "弱反親和性"
+msgstr "soft-anti-affinity"
 
 msgid "Someone famous in"
 msgstr "有名人の名前"
@@ -3756,10 +3754,9 @@ msgid ""
 "'folder1', you need to specify destination object like 'folder1/[your object "
 "name]'."
 msgstr ""
-"送信先オブジェクトのフィールドで、「/」を使用してフォルダーを指定できます。例"
-"えば、オブジェクトを「folder1」フォルダーの配下にコピーしたい場合は、"
-"「foler1/[オブジェクト名]」のように送信先オブジェクトを指定する必要がありま"
-"す。"
+"宛先オブジェクトのフィールドで、「/」を使用してフォルダーを指定できます。例え"
+"ば、オブジェクトを「folder1」フォルダーの配下にコピーしたい場合は、「foler1/"
+"[オブジェクト名]」のように宛先オブジェクトを指定する必要があります。"
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "

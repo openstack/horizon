@@ -1,0 +1,121 @@
+# suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-08-22 04:20+0000\n"
+"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+msgid ""
+"A Python class representing a sub-navigation item (e.g. \"instances\") which "
+"contains all the necessary logic (views, forms, tests, etc.) for that "
+"interface."
+msgstr ""
+"Kelas Python yang mewakili item sub-navigation (mis. \"Instance\") yang "
+"berisi semua logika yang diperlukan (tampilan, forms, tes, dll.) Untuk "
+"antarmuka tersebut."
+
+msgid ""
+"A Python class representing a top-level navigation item (e.g. \"project\") "
+"which provides a consistent API for Horizon-compatible applications."
+msgstr ""
+"Kelas Python yang mewakili item navigasi tingkat atas (misalnya \"project\") "
+"yang menyediakan API yang konsisten untuk aplikasi yang kompatibel dengan "
+"Horizon."
+
+msgid "Contributor Docs"
+msgstr "Dokumen Kontributor"
+
+msgid "Dashboard"
+msgstr "Dasbor"
+
+msgid ""
+"For a more in-depth look at Horizon and its architecture, see the :ref:"
+"`contributor-intro`."
+msgstr ""
+"Untuk melihat lebih mendalam pada Horizon dan arsitekturnya, lihat  :ref:"
+"`contributor-intro`."
+
+msgid ""
+"For those wishing to develop Horizon itself, or go in-depth with building "
+"your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes, the "
+"following documentation is provided."
+msgstr ""
+"Bagi mereka yang ingin mengembangkan Horizon itu sendiri, atau pergi lebih "
+"dalam dengan membangun sendiri kelas :class:`~horizon.Dashboard` atau :class:"
+"`~horizon.Panel`, dokumentasi berikut ini disediakan."
+
+msgid "Glossary"
+msgstr "Glosarium"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid ""
+"Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>`_, which provides a web based user interface "
+"to OpenStack services including Nova, Swift, Keystone, etc."
+msgstr ""
+"Horizon adalah implementasi canonical dari `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>` _, yang menyediakan antarmuka pengguna "
+"berbasis web untuk layanan OpenStack termasuk Nova, Swift, Keystone, dll."
+
+msgid "Horizon: The OpenStack Dashboard Project"
+msgstr "Horizon: Proyek Dasbor OpenStack"
+
+msgid "How to use Horizon in your own projects."
+msgstr "Cara menggunakan Horizon di proyek Anda sendiri."
+
+msgid "Information"
+msgstr "Informasi"
+
+msgid "Introduction"
+msgstr "Pengantar"
+
+msgid "Panel"
+msgstr "Panel"
+
+msgid "Project"
+msgstr "Project"
+
+msgid "Release Notes"
+msgstr "Catatan Rilis"
+
+msgid "See https://docs.openstack.org/releasenotes/horizon/."
+msgstr "Lihat https://docs.openstack.org/releasenotes/horizon/."
+
+msgid ""
+"The OpenStack dashboard project. Also the name of the top-level Python "
+"object which handles registration for the app."
+msgstr ""
+"Proyek dashboard OpenStack. Juga nama objek top-level Python yang menangani "
+"pendaftaran untuk aplikasi."
+
+msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
+msgstr ""
+"Untuk mempelajari apa yang perlu Anda ketahui untuk memulai, lihat :ref:"
+"`quickstart`."
+
+msgid ""
+"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
+"word."
+msgstr ""
+"Digunakan dalam teks user-facing menggantikan istilah \"Tenant\" yang "
+"merupakan kata kunci Keystone."
+
+msgid "Using Horizon"
+msgstr "Menggunakan Horizon"

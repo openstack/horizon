@@ -1,0 +1,117 @@
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-07-13 07:06+0000\n"
+"Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+msgid ""
+"A Python class representing a sub-navigation item (e.g. \"instances\") which "
+"contains all the necessary logic (views, forms, tests, etc.) for that "
+"interface."
+msgstr ""
+"Python-klaso reprezentanta sub-navigan eron (ekz. \"aperojn\"), kiu enhavas "
+"ĉiujn necesajn logikojn (vidojn, formojn, provojn ktp) por tiu interfaco."
+
+msgid ""
+"A Python class representing a top-level navigation item (e.g. \"project\") "
+"which provides a consistent API for Horizon-compatible applications."
+msgstr ""
+"Python-klaso reprezentanta supro-nivelan navigadan elementon (ekz. \"projekto"
+"\") kiu provizas koheran API por Horizon-kongruaj aplikoj."
+
+msgid "Contributor Docs"
+msgstr "Kontribuanto Dokumentoj"
+
+msgid "Dashboard"
+msgstr "Stirpanelo"
+
+msgid ""
+"For a more in-depth look at Horizon and its architecture, see the :ref:"
+"`contributor-intro`."
+msgstr ""
+"Por pli profunde rigardi Horizon kaj ĝian arkitekturon, vidu la: ref: "
+"'contributor-intro`."
+
+msgid ""
+"For those wishing to develop Horizon itself, or go in-depth with building "
+"your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes, the "
+"following documentation is provided."
+msgstr ""
+"Por tiuj kiuj deziras disvolvigi Horizon mem, aŭ eklerni kiel profunde "
+"konstrui vian propran :class: ~horizon.Dashboard` aŭ :class:` ~horizon."
+"Panel` klasoj, la sekva dokumentado estas provizita."
+
+msgid "Glossary"
+msgstr "Glosaro"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid ""
+"Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>`_, which provides a web based user interface "
+"to OpenStack services including Nova, Swift, Keystone, etc."
+msgstr ""
+"Horizonto estas la kanona realigo de la `OpenStack Stirpanelo <https://"
+"github.com/openstack/horizon> `_, kiu provizas interretan uzanto interfacon "
+"al servoj de OpenStack inkluzive de Nova, Swift, Keystone, ktp."
+
+msgid "Horizon: The OpenStack Dashboard Project"
+msgstr "Horizon: La OpenStack Stirpanela Projekto"
+
+msgid "How to use Horizon in your own projects."
+msgstr "Kiel uzi Horizon en viaj propraj projektoj."
+
+msgid "Information"
+msgstr "Informo"
+
+msgid "Introduction"
+msgstr "Enkonduko"
+
+msgid "Panel"
+msgstr "Panelo"
+
+msgid "Project"
+msgstr "Projekto"
+
+msgid "Release Notes"
+msgstr "Eldonaj Notoj"
+
+msgid "See https://docs.openstack.org/releasenotes/horizon/."
+msgstr "Vidu https://docs.openstack.org/releasenotes/horizon/."
+
+msgid ""
+"The OpenStack dashboard project. Also the name of the top-level Python "
+"object which handles registration for the app."
+msgstr ""
+"La OpenStack panelo projekto. Ankaŭ la nomo de la supro-nivela Python "
+"objekto kiu traktas registriĝon por la programo."
+
+msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
+msgstr "Por lerni kion vi bezonas scii por ekiri, vidu la: ref: `quickstart '."
+
+msgid ""
+"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
+"word."
+msgstr ""
+"Uzata en teksto por uzantoj anstataŭ la termino \"Tenanto\", kiu estas la "
+"vorto de Keystone."
+
+msgid "Using Horizon"
+msgstr "Uzanta Horizon"

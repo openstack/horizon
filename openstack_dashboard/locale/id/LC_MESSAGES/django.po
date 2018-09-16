@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-06-13 03:11+0000\n"
+"POT-Creation-Date: 2018-09-15 05:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-13 07:45+0000\n"
+"PO-Revision-Date: 2018-08-21 02:38+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -415,6 +415,13 @@ msgstr ""
 "dapat ditambahkan ke grup konsistensi yang sama hanya jika mereka "
 "berhubungan dengan back end yang sama."
 
+msgid ""
+"Add volume types to this group. Multiple volume types can be added to the "
+"same group only if they are associated with same back end."
+msgstr ""
+"Tambahkan jenis volume ke grup ini. Beberapa jenis volume dapat ditambahkan "
+"ke grup yang sama hanya jika mereka terkait dengan back end yang sama."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Menambah, mengubah atau menghapus QoS Spec yang terkait dengan tipe volume "
@@ -422,6 +429,9 @@ msgstr ""
 
 msgid "Add/Remove Consistency Group Volumes"
 msgstr "Add/Remove Consistency Group Volumes"
+
+msgid "Add/Remove Group Volumes"
+msgstr "Tambah/Hapus Volume Grup"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Tambah/Hapus host kedalam Kelompok"
@@ -434,6 +444,13 @@ msgstr ""
 "Menambah/menghapus volume ke/dari grup konsistensi ini. Hanya volume yang "
 "terkait dengan jenis volume ditugaskan ke grup konsistensi ini akan tersedia "
 "untuk seleksi."
+
+msgid ""
+"Add/remove volumes to/from this group. Only volumes associated with the "
+"volume type(s) assigned to this group will be available for selection."
+msgstr ""
+"Tambahkan/hapus volume ke/dari grup ini. Hanya volume yang terkait dengan "
+"jenis volume yang ditetapkan untuk grup ini yang akan tersedia untuk dipilih."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -645,6 +662,9 @@ msgstr "Setidaknya satu jaringan harus ditentukan."
 msgid "At least one volume type must be assigned to a consistency group."
 msgstr "Setidaknya satu tipe volume harus ditetapkan ke grup konsistensi."
 
+msgid "At least one volume type must be assigned to a group."
+msgstr "Setidaknya satu jenis volume harus ditetapkan ke grup."
+
 msgid "Attach Interface"
 msgstr "Attach Interface (memasang antarmuka)"
 
@@ -751,6 +771,10 @@ msgid "Available"
 msgstr "Available"
 
 msgctxt "Current status of Consistency Group Snapshot"
+msgid "Available"
+msgstr "Available"
+
+msgctxt "Current status of Volume Group"
 msgid "Available"
 msgstr "Available"
 
@@ -949,6 +973,13 @@ msgstr ""
 "Periksalah &quot;Delete Volumes&quot; box untuk juga menghapus volume yang "
 "terkait dengan grup konsistensi ini."
 
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this group."
+msgstr ""
+"Periksa  &quot;Delete Volumes&quot; kotak untuk juga menghapus semua volume "
+"yang terkait dengan grup ini."
+
 msgid "Checksum"
 msgstr "Checksum"
 
@@ -1040,12 +1071,22 @@ msgstr "Klik disini untuk menampilkan hanya konsol"
 msgid "Clone Consistency Group"
 msgstr "Men-clone Consistency Group"
 
+msgid "Clone Group"
+msgstr "Clone Group"
+
 msgid ""
 "Clone each of the volumes in the source Consistency Group, and then add them "
 "to a newly created Consistency Group."
 msgstr ""
 "Mengkloning masing-masing volume dalam sumber Konsistensi Group, dan "
 "kemudian menambahkan mereka ke Konsistensi Grup yang baru dibuat."
+
+msgid ""
+"Clone each of the volumes in the source Group, and then add them to a newly "
+"created Group."
+msgstr ""
+"Menggandakan setiap volume di Grup sumber, lalu menambahkannya ke Grup yang "
+"baru dibuat."
 
 msgid "Close"
 msgstr "Tutup"
@@ -1221,6 +1262,9 @@ msgstr "Membuat Flavor"
 msgid "Create Group"
 msgstr "Create Group"
 
+msgid "Create Group Snapshot"
+msgstr "Buat Snapshot Grup"
+
 msgid "Create Host Aggregate"
 msgstr "Membuat Kelompok Host"
 
@@ -1297,6 +1341,9 @@ msgstr "Buat cadangan volume"
 msgid "Create Volume Consistency Group"
 msgstr "Buat grup konsistensi volume "
 
+msgid "Create Volume Group"
+msgstr "Create Volume Group"
+
 msgid "Create Volume Snapshot"
 msgstr "Buat Volume Snapshot"
 
@@ -1321,6 +1368,13 @@ msgid ""
 msgstr ""
 "Buat Konsistensi Grup yang akan berisi volume yang baru dibuat kloning dari "
 "masing-masing snapshot dalam sumber Konsistensi Grup Snapshot."
+
+msgid ""
+"Create a Group that will contain newly created volumes cloned from each of "
+"the snapshots in the source Group Snapshot."
+msgstr ""
+"Buat Grup yang akan berisi volume yang baru dibuat yang dikloning dari "
+"masing-masing foto di Snapshot Grup sumber."
 
 msgid "Create a Metadata Namespace"
 msgstr "Create a Metadata Namespace (buat namespace metadata)"
@@ -1378,6 +1432,9 @@ msgid "Create a snapshot for each volume contained in the Consistency Group."
 msgstr ""
 "Membuat snapshot untuk setiap volume yang terkandung dalam Grup Konsistensi."
 
+msgid "Create a snapshot for each volume contained in the Group."
+msgstr "Buat cuplikan untuk setiap volume yang ada di Grup."
+
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -1421,6 +1478,9 @@ msgstr "Dibuat proyek baru \"%s\"."
 
 msgid "Created new volume consistency group"
 msgstr "Membuat grup konsistensi volume yang baru"
+
+msgid "Created new volume group"
+msgstr "Membuat grup volume baru"
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -1474,6 +1534,10 @@ msgstr ""
 "Membuat enkripsi untuk tipe volume menyebabkan semua volume dengan tipe "
 "volume yang akan dienkripsi. Informasi enkripsi tidak dapat ditambahkan ke "
 "suatu tipe volume jika volume sedang digunakan dengan tipe volume itu."
+
+#, python-format
+msgid "Creating group snapshot \"%s\"."
+msgstr "Membuat snapshot grup \"%s\"."
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -1543,6 +1607,9 @@ msgstr ""
 
 msgid "DNS Assignment"
 msgstr "DNS Assignment"
+
+msgid "DNS Domain"
+msgstr "DNS Domain"
 
 msgid "DNS Name"
 msgstr "DNS Name"
@@ -1884,6 +1951,10 @@ msgstr "Menghapus"
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
 msgstr "Deleting grup konsistensi volume \"%s\""
+
+#, python-format
+msgid "Deleting volume group \"%s\""
+msgstr "Menghapus grup volume \"%s\""
 
 msgid "Description"
 msgstr "Deskripsi"
@@ -2429,6 +2500,10 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "Error (kesalahan)"
 
+msgctxt "Current status of Volume Group"
+msgid "Error"
+msgstr "Error"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Error (kesalahan)"
@@ -2513,8 +2588,14 @@ msgstr "Kesalahan penulisan zipfile:  %(exc)s"
 msgid "Errors occurred in deleting consistency group."
 msgstr "Kesalahan terjadi pada menghapus grup konsistensi."
 
+msgid "Errors occurred in deleting group."
+msgstr "Kesalahan terjadi dalam menghapus grup."
+
 msgid "Errors occurred in removing volumes from consistency group."
 msgstr "Kesalahan terjadi dalam menghilangkan volume dari grup konsistensi."
+
+msgid "Errors occurred in removing volumes from group."
+msgstr "Kesalahan terjadi dalam menghapus volume dari grup."
 
 msgid "Ether Type"
 msgstr "Ether Type"
@@ -3008,6 +3089,9 @@ msgstr "Group ID"
 msgid "Group ID ="
 msgstr "Group ID ="
 
+msgid "Group Information"
+msgstr "Informasi Grup"
+
 msgid "Group Management"
 msgstr "Manajemen grup"
 
@@ -3020,8 +3104,18 @@ msgstr "Group Members"
 msgid "Group Name ="
 msgstr "Group Name ="
 
+msgid "Group Type"
+msgstr "Group Type"
+
 msgid "Group has been updated successfully."
 msgstr "Kelompok telah berhasil diperbarui."
+
+msgid ""
+"Group which the new volume belongs to. Choose 'No group' if the new volume "
+"belongs to no group."
+msgstr ""
+"Kelompok yang memiliki volume baru. Pilih 'No group' jika volume baru milik "
+"grup tidak ada."
 
 msgid "Groups"
 msgstr "Groups"
@@ -3068,6 +3162,9 @@ msgstr[0] "Hard Rebooted Instance"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Hard Rebooting"
+
+msgid "Has Snapshots"
+msgstr "Has Snapshots"
 
 msgid "Help"
 msgstr "Bantuan"
@@ -3374,6 +3471,10 @@ msgid "In-use"
 msgstr "In-use"
 
 msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "In-use"
+
+msgctxt "Current status of Volume Group"
 msgid "In-use"
 msgstr "In-use"
 
@@ -3926,6 +4027,9 @@ msgstr ""
 msgid "Modify the name and description of a volume consistency group."
 msgstr "Memodifikasi nama dan deskripsi dari grup konsistensi volume."
 
+msgid "Modify the name and description of a volume group."
+msgstr "Ubah nama dan deskripsi grup volume."
+
 msgid "Modify volume type name, description, and public status."
 msgstr "Memodifikasi nama tipe volume, deskripsi, dan status publik."
 
@@ -4160,6 +4264,9 @@ msgstr "Tidak ada kolam IP mengambang tersedia"
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "Tidak ada kolam IP mengambang dengan IPv4 subnet yang tersedia"
 
+msgid "No group"
+msgstr "No group"
+
 msgid "No groups found."
 msgstr "Grup tidak ditemukan."
 
@@ -4256,6 +4363,9 @@ msgstr "Tidak ada pengguna yang ditemukan."
 
 msgid "No users."
 msgstr "Tidak ada pengguna."
+
+msgid "No valid group type"
+msgstr "Tidak ada tipe grup yang valid"
 
 msgid "No volume snapshots available"
 msgstr "Tidak ada snapshot volume yang tersedia"
@@ -4910,6 +5020,9 @@ msgstr[0] "Remove User"
 msgid "Remove Volumes from Consistency Group"
 msgstr "Hapus Volume dari Consistency Group"
 
+msgid "Remove Volumes from Group"
+msgstr "Hapus Volume dari Grup"
+
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Removed User"
@@ -4925,6 +5038,13 @@ msgstr ""
 #, python-format
 msgid "Removing volumes from volume consistency group \"%s\""
 msgstr "Menghapus volume dari grup konsistensi volume \"%s\""
+
+#, python-format
+msgid "Removing volumes from volume group \"%s\""
+msgstr "Menghapus volume dari grup volume \"%s\""
+
+msgid "Replication Status"
+msgstr "Status Replikasi"
 
 msgid "Report Bug"
 msgstr "Report Bug"
@@ -5372,6 +5492,9 @@ msgstr "Pilih sebuah instance untuk melampirkan."
 msgid "Select format"
 msgstr "Pilih format"
 
+msgid "Select group type"
+msgstr "Pilih jenis grup"
+
 msgid "Select network"
 msgstr "Pilih jaringan"
 
@@ -5625,6 +5748,9 @@ msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
 "Snapshots hanya dapat dibuat untuk Konsistensi Grup yang berisi volume."
+
+msgid "Snapshots can only be created for Groups that contain volumes."
+msgstr "Foto hanya dapat dibuat untuk Grup yang berisi volume."
 
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
@@ -6208,6 +6334,10 @@ msgid "The name \"%s\" is already used by another flavor."
 msgstr "Nama \"%s\" sudah digunakan pada flavor lainnya."
 
 #, python-format
+msgid "The name \"%s\" is already used by another group."
+msgstr "Nama \"%s\" sudah digunakan oleh grup lain."
+
+#, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Nama \"%s\" sudah digunakan oleh kelompok host lainnya."
 
@@ -6368,6 +6498,13 @@ msgid ""
 msgstr ""
 "Tindakan ini akan membatalkan penetapan semua volume yang saat ini "
 "terkandung dalam grup konsistensi ini."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"group."
+msgstr ""
+"Tindakan ini akan membatalkan penetapan semua volume yang saat ini "
+"terkandung dalam grup ini."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -6618,6 +6755,12 @@ msgstr "Tidak dapat mengkloning grup konsistensi."
 msgid "Unable to clone empty consistency group."
 msgstr "Tidak dapat mengkloning grup konsistensi kosong."
 
+msgid "Unable to clone empty group."
+msgstr "Tidak dapat mengkloning grup kosong."
+
+msgid "Unable to clone group."
+msgstr "Tidak dapat mengkloning grup."
+
 msgid "Unable to connect to Neutron."
 msgstr "Tidak dapat terhubung dengan Neutron."
 
@@ -6654,6 +6797,12 @@ msgstr "Tidak dapat membuat pilihan \"%s\"."
 
 msgid "Unable to create flavor."
 msgstr "Tidak dapat membuat pilihan."
+
+msgid "Unable to create group due to exceeding volume quota limit."
+msgstr "Tidak dapat membuat grup karena melebihi batas kuota volume."
+
+msgid "Unable to create group snapshot."
+msgstr "Tidak dapat membuat snapshot grup."
 
 msgid "Unable to create group."
 msgstr "Tidak dapat membuat kelompok."
@@ -6712,6 +6861,9 @@ msgstr "Tidak dapat membuat snapshot."
 
 msgid "Unable to create snapshot. Consistency group must contain volumes."
 msgstr "Tidak dapat membuat snapshot. Grup konsistensi harus berisi volume."
+
+msgid "Unable to create snapshot. group must contain volumes."
+msgstr "Tidak dapat membuat snapshot. grup harus berisi volume."
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "Tidak dapat membuat snapshot karena melebihi batas snapshot kuota."
@@ -6789,6 +6941,9 @@ msgstr "Tidak dapat memisahkan IP mengambang."
 msgid "Unable to display consistency group."
 msgstr "Tidak dapat menampilkan grup konsistensi."
 
+msgid "Unable to display group."
+msgstr "Tidak dapat menampilkan grup."
+
 msgid "Unable to edit spec."
 msgstr "Tidak dapat mengedit spec."
 
@@ -6838,6 +6993,9 @@ msgstr "Tidak bisa mendapatkan konsol instance \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Gagal mendapatkan daftar flavor."
+
+msgid "Unable to get group list"
+msgstr "Tidak dapat memperoleh daftar grup"
 
 msgid "Unable to get host aggregate list"
 msgstr "Gagal mendapatkan daftar kelompok host."
@@ -6898,6 +7056,9 @@ msgstr "Tidak dapat memuat konsol. Muat ulang halaman untuk mencoba lagi."
 
 msgid "Unable to load the specified consistency group."
 msgstr "Tidak dapat memuat grup konsistensi yang ditentukan."
+
+msgid "Unable to load the specified group."
+msgstr "Tidak dapat memuat grup spesifik."
 
 #, python-format
 msgid "Unable to load the specified image. %s"
@@ -7138,14 +7299,29 @@ msgstr "Tidak dapat mengambil daftar IP mengambang."
 msgid "Unable to retrieve floating IP pools."
 msgstr "Tidak dapat mengambil kolam IP mengambang."
 
+msgid "Unable to retrieve group details."
+msgstr "Tidak dapat mengambil detail grup."
+
+msgid "Unable to retrieve group information."
+msgstr "Tidak dapat mengambil informasi grup."
+
 msgid "Unable to retrieve group list."
 msgstr "Tidak dapat mengambil daftar grup."
 
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "Tidak dapat mengambil daftar grup. Silahkan mencoba kembali."
 
+msgid "Unable to retrieve group snapshot details."
+msgstr "Tidak dapat mengambil detail snapshot grup."
+
+msgid "Unable to retrieve group types."
+msgstr "Tidak dapat mengambil tipe grup."
+
 msgid "Unable to retrieve group users."
 msgstr "Tidak dapat mengambil pengguna group."
+
+msgid "Unable to retrieve group."
+msgstr "Tidak dapat mengambil grup."
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "Tidak dapat mengambil daftar kelompok hosts."
@@ -7347,6 +7523,9 @@ msgstr "Tidak dapat mengambil instance."
 msgid "Unable to retrieve the project information of the image."
 msgstr "Tidak dapat mengambil informasi proyek dari image."
 
+msgid "Unable to retrieve the volume group list."
+msgstr "Tidak dapat mengambil daftar grup volume."
+
 msgid "Unable to retrieve the volume type list."
 msgstr "Tidak dapat mengambil daftar jenis volume."
 
@@ -7391,6 +7570,12 @@ msgstr "Tidak dapat mengambil rincian volume."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Tidak dapat mengambil rincian enkripsi volume."
+
+msgid "Unable to retrieve volume groups"
+msgstr "Tidak dapat mengambil grup volume"
+
+msgid "Unable to retrieve volume groups."
+msgstr "Tidak dapat mengambil grup volume."
 
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
@@ -7551,6 +7736,9 @@ msgstr "Tidak dapat memperbarui pengguna."
 msgid "Unable to update volume consistency group."
 msgstr "Tidak dapat memperbarui group konsistensi volume."
 
+msgid "Unable to update volume group."
+msgstr "Tidak dapat memperbarui grup volume."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Tidak dapat memperbarui status snapshot volume."
 
@@ -7569,6 +7757,9 @@ msgstr "Tidak dapat memperbarui volume."
 
 msgid "Unable to update volumes for consistency group"
 msgstr "Tidak dapat memperbarui volume untuk grup konsistensi"
+
+msgid "Unable to update volumes for group"
+msgstr "Tidak dapat memperbarui volume untuk grup"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7742,6 +7933,9 @@ msgstr "Subnet diperbarui \"%s\"."
 msgid "Updated volumes for consistency group \"%s\"."
 msgstr "volume diperbarui untuk grup konsistensi \"%s\"."
 
+msgid "Updated volumes for group."
+msgstr "Volume yang diperbarui untuk grup."
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Updating Password (memperbarui password)"
@@ -7760,6 +7954,10 @@ msgstr "Updating volume \"%s\""
 #, python-format
 msgid "Updating volume consistency group \"%s\""
 msgstr "Memperbarui grup konsistensi volume \"%s\""
+
+#, python-format
+msgid "Updating volume group \"%s\""
+msgstr "Memperbarui grup volume \"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -7798,6 +7996,9 @@ msgstr "Use Server Default"
 
 msgid "Use a consistency group as source"
 msgstr "Gunakan grup konsistensi sebagai sumber"
+
+msgid "Use a group as source"
+msgstr "Gunakan grup sebagai sumber"
 
 msgid "Use a volume as source"
 msgstr "Gunakan volume sebagai sumber"
@@ -8081,6 +8282,22 @@ msgstr ""
 "\n"
 "Satu group konsistensi dapat mendukung lebih dari satu jenis volume, tetapi "
 "hanya dapat berisi volume yang diselenggarakan oleh back end yang sama."
+
+msgid "Volume groups can not be deleted if they contain volumes."
+msgstr "Kelompok volume tidak dapat dihapus jika berisi volume."
+
+msgid ""
+"Volume groups provide a mechanism for creating snapshots of multiple volumes "
+"at the same point-in-time to ensure data consistency\n"
+"\n"
+"A volume group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"Kelompok volume menyediakan mekanisme untuk membuat snapshot dari beberapa "
+"volume pada point-in-time yang sama untuk memastikan konsistensi data\n"
+"\n"
+"Kelompok volume dapat mendukung lebih dari satu jenis volume, tetapi hanya "
+"dapat berisi volume yang dihosting oleh ujung belakang yang sama."
 
 msgid "Volume is Unencrypted"
 msgstr "Volume is Unencrypted"
