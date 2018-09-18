@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-08-10 07:29+0000\n"
+"POT-Creation-Date: 2018-09-16 12:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-09 11:47+0000\n"
+"PO-Revision-Date: 2018-09-17 08:30+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -5022,6 +5022,9 @@ msgstr "In Warteschlange"
 msgid "Quota Name"
 msgstr "Kontingentname"
 
+msgid "Quota exceeded for creating snapshots"
+msgstr "Kontingent zum erstellen von Schattenkopien überschritten"
+
 msgid "Quota exceeded for resource router."
 msgstr "Kontingent für die Ressource Router überschritten."
 
@@ -5399,6 +5402,9 @@ msgstr "Rolle erfolgreich aktualisiert."
 
 msgid "Roles"
 msgstr "Rollen"
+
+msgid "Roles from Groups"
+msgstr "Rollen der Gruppen"
 
 msgid "Root Disk"
 msgstr "Root-Festplatte"
@@ -7199,6 +7205,12 @@ msgstr "Konsistenzgruppe kann nicht angezeigt werden."
 
 msgid "Unable to display group."
 msgstr "Gruppe kann nicht angezeigt werden."
+
+msgid "Unable to display the groups of this project."
+msgstr "Gruppen dieses Projekts können nicht angezeigt werden."
+
+msgid "Unable to display the users of this project."
+msgstr "Benutzer dieses Projekts können nicht angezeigt werden."
 
 msgid "Unable to edit spec."
 msgstr "Die Spezifikation kann nicht bearbeitet werden."
