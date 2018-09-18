@@ -1,0 +1,12 @@
+---
+features:
+  - |
+    [:bug:`1785263`] Modify the project detail view in a multi tabbed view,
+    composed of:
+
+    * ``Overview`` tab displaying general information about the project.
+    * ``Users`` tab displaying all users which have roles on the project (and
+      their roles on it), including users which have roles on the project throw
+      their membership to a group.
+    * ``Group`` tab displaying all groups which have roles on the project (and
+      their roles on it).
