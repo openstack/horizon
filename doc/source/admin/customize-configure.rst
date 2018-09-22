@@ -294,10 +294,6 @@ The standard installation uses a non-encrypted HTTP channel.
                   'keystoneclient': {
                       'handlers': ['console'],
                       'propagate': False,
-                  },
-                  'nose.plugins.manager': {
-                      'handlers': ['console'],
-                      'propagate': False,
                   }
               }
       }
