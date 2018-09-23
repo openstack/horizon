@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-15 05:12+0000\n"
+"POT-Creation-Date: 2018-09-21 05:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-21 02:38+0000\n"
+"PO-Revision-Date: 2018-09-19 04:44+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -778,6 +778,10 @@ msgctxt "Current status of Volume Group"
 msgid "Available"
 msgstr "Available"
 
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Available"
+msgstr "Tersedia"
+
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr "Tersedia"
@@ -1534,6 +1538,10 @@ msgstr ""
 "Membuat enkripsi untuk tipe volume menyebabkan semua volume dengan tipe "
 "volume yang akan dienkripsi. Informasi enkripsi tidak dapat ditambahkan ke "
 "suatu tipe volume jika volume sedang digunakan dengan tipe volume itu."
+
+#, python-format
+msgid "Creating group \"%s\"."
+msgstr "Creating group \"%s\"."
 
 #, python-format
 msgid "Creating group snapshot \"%s\"."
@@ -2504,6 +2512,10 @@ msgctxt "Current status of Volume Group"
 msgid "Error"
 msgstr "Error"
 
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Error"
+msgstr "Error"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Error (kesalahan)"
@@ -3079,6 +3091,9 @@ msgstr "Go"
 msgid "Graph"
 msgstr "Graph (grafik)"
 
+msgid "Group"
+msgstr "Group"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Kelompok \"%s\" berhasil dibuat."
@@ -3101,8 +3116,17 @@ msgstr "Group Management: {{ group.name }}"
 msgid "Group Members"
 msgstr "Group Members"
 
+msgid "Group Name"
+msgstr "Nama grup"
+
 msgid "Group Name ="
 msgstr "Group Name ="
+
+msgid "Group Snapshot"
+msgstr "Snapshot Grup"
+
+msgid "Group Snapshots"
+msgstr "Group Snapshots"
 
 msgid "Group Type"
 msgstr "Group Type"
@@ -3367,15 +3391,6 @@ msgstr ""
 "status) di bawah ini."
 
 msgid ""
-"If no container name is provided, a default container named volumebackups "
-"will be provisioned for you. Backups will be the same size as the volume "
-"they originate from."
-msgstr ""
-"Jika tidak ada nama kontainer yang disediakan, default container named "
-"volumebackups akan ditetapkan untuk Anda. Backup akan menjadi ukuran yang "
-"sama dengan volume mereka berasal dari."
-
-msgid ""
 "If you don't specify an IP address here, the gateway's IP address of the "
 "selected subnet will be used as the IP address of the newly created "
 "interface of the router. If the gateway's IP address is in use, you must use "
@@ -3475,6 +3490,10 @@ msgid "In-use"
 msgstr "In-use"
 
 msgctxt "Current status of Volume Group"
+msgid "In-use"
+msgstr "In-use"
+
+msgctxt "Current status of Volume Group Snapshot"
 msgid "In-use"
 msgstr "In-use"
 
@@ -4852,6 +4871,9 @@ msgstr "Queued"
 msgid "Quota Name"
 msgstr "Nama Kuota"
 
+msgid "Quota exceeded for creating snapshots"
+msgstr "Kuota terlampaui untuk membuat snapshot"
+
 msgid "Quota exceeded for resource router."
 msgstr "Kuota melebihi untuk router sumber daya."
 
@@ -5220,6 +5242,9 @@ msgstr "Peran berhasil diperbarui."
 
 msgid "Roles"
 msgstr "Roles (peran)"
+
+msgid "Roles from Groups"
+msgstr "Peran dari Grup"
 
 msgid "Root Disk"
 msgstr "Root Disk"
@@ -6798,6 +6823,10 @@ msgstr "Tidak dapat membuat pilihan \"%s\"."
 msgid "Unable to create flavor."
 msgstr "Tidak dapat membuat pilihan."
 
+#, python-format
+msgid "Unable to create group \"%s\" from snapshot."
+msgstr "Tidak dapat membuat grup \"%s\" dari snapshot."
+
 msgid "Unable to create group due to exceeding volume quota limit."
 msgstr "Tidak dapat membuat grup karena melebihi batas kuota volume."
 
@@ -6943,6 +6972,12 @@ msgstr "Tidak dapat menampilkan grup konsistensi."
 
 msgid "Unable to display group."
 msgstr "Tidak dapat menampilkan grup."
+
+msgid "Unable to display the groups of this project."
+msgstr "Tidak dapat menampilkan grup proyek ini."
+
+msgid "Unable to display the users of this project."
+msgstr "Tidak dapat menampilkan pengguna proyek ini."
 
 msgid "Unable to edit spec."
 msgstr "Tidak dapat mengedit spec."
@@ -7299,6 +7334,9 @@ msgstr "Tidak dapat mengambil daftar IP mengambang."
 msgid "Unable to retrieve floating IP pools."
 msgstr "Tidak dapat mengambil kolam IP mengambang."
 
+msgid "Unable to retrieve group"
+msgstr "Tidak dapat mengambil grup"
+
 msgid "Unable to retrieve group details."
 msgstr "Tidak dapat mengambil detail grup."
 
@@ -7313,6 +7351,9 @@ msgstr "Tidak dapat mengambil daftar grup. Silahkan mencoba kembali."
 
 msgid "Unable to retrieve group snapshot details."
 msgstr "Tidak dapat mengambil detail snapshot grup."
+
+msgid "Unable to retrieve group snapshots."
+msgstr "Tidak dapat mengambil snapshot grup."
 
 msgid "Unable to retrieve group types."
 msgstr "Tidak dapat mengambil tipe grup."
@@ -7571,6 +7612,9 @@ msgstr "Tidak dapat mengambil rincian volume."
 msgid "Unable to retrieve volume encryption details."
 msgstr "Tidak dapat mengambil rincian enkripsi volume."
 
+msgid "Unable to retrieve volume group snapshots."
+msgstr "Tidak dapat mengambil snapshot grup volume."
+
 msgid "Unable to retrieve volume groups"
 msgstr "Tidak dapat mengambil grup volume"
 
@@ -7652,6 +7696,9 @@ msgstr "Tidak dapat mengambil informasi ikatan volume/instance"
 
 msgid "Unable to retrieve volumes availability zones."
 msgstr "Tidak dapat mengambil zona ketersediaan volume."
+
+msgid "Unable to retrieve volumes."
+msgstr "Tidak dapat mengambil volume."
 
 msgid "Unable to set Domain Context."
 msgstr "Tidak dapat mengatur (set)  Domain Context."
@@ -8159,13 +8206,6 @@ msgstr "Volume Backup:"
 
 msgid "Volume Backups"
 msgstr "Volume Backups (cadangan volume)"
-
-msgid ""
-"Volume Backups are stored using the Object Storage service. You must have "
-"this service activated in order to create a backup."
-msgstr ""
-"Backup Volume disimpan menggunakan layanan Object Storage. Anda harus "
-"memiliki layanan ini diaktifkan untuk membuat cadangan."
 
 msgid "Volume Consistency Groups"
 msgstr "Grup konsistensi volume "

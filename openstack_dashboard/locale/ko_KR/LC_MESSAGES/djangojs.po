@@ -13,6 +13,7 @@
 # ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
+# Soonyeul Park <ardentpark@gmail.com>, 2018. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2018. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2018. #zanata
@@ -20,12 +21,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-07 04:25+0000\n"
+"POT-Creation-Date: 2018-09-21 04:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-07-28 03:35+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2018-09-22 08:29+0000\n"
+"Last-Translator: Soonyeul Park <ardentpark@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -150,6 +151,27 @@ msgid ""
 msgstr ""
 "공개된 컨테이너는 공개 URL을 가진 사람이 컨테이너 오브젝트에 접근할 수 있습니"
 "다."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"  you to organize your data. You can think of a container as a folder in\n"
+"  Windows® or a directory in UNIX®. The primary difference between a\n"
+"  container and these other file system concepts is that containers cannot "
+"be\n"
+"  nested. You can, however, create an unlimited number of containers within\n"
+"  your account. Data must be stored in a container so you must have at "
+"least\n"
+"  one container defined in your account prior to uploading data."
+msgstr ""
+"컨테이너는 데이터를 위한 저장 공간이며 데이터를 조직화하는 방법을 제공합니"
+"다.\n"
+"당신은 컨테이너를 Windows® 의 폴더나 UNIX® 의 디렉터리로 생각할 수 있습니"
+"다.\n"
+"컨테이너와 이러한 다른 파일 시스템 개념의 주요한 차이는 컨테이너는 중첩할 수 "
+"없다는 것입니다.\n"
+"그러나 계정 내에 무제한의 컨테이너를 만들 수 있습니다.\n"
+"데이터는 컨테이너에 저장되어야 하며 데이터를 업로드하기 전에 계정에 적어도 "
+"한 컨테이너 이상은 정의되어 있어야 합니다."
 
 msgid "A container with that name exists."
 msgstr "컨테이너 이름이 존재합니다."
@@ -527,6 +549,10 @@ msgstr "설정 드라이브"
 msgid "Confirm Delete"
 msgstr "삭제 확인"
 
+msgid "Confirm Delete Domain"
+msgid_plural "Confirm Delete Domains"
+msgstr[0] "도메인 삭제 확인"
+
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "Flavor 삭제 확인"
@@ -789,6 +815,13 @@ msgstr "삭제"
 msgid "Delete Container"
 msgstr "컨테이너 삭제"
 
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "도메인 삭제"
+
+msgid "Delete Domains"
+msgstr "도메인 삭제"
+
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $}에서 파일 삭제"
 
@@ -915,6 +948,11 @@ msgstr[0] "Trunk 삭제: %s"
 msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
 msgstr[0] "사용자 삭제됨: %s."
+
+#, python-format
+msgid "Deleted domain: %s."
+msgid_plural "Deleted domains: %s."
+msgstr[0] "도메인 삭제: %s."
 
 #, python-format
 msgid "Deleted policy: %s."
@@ -1526,6 +1564,17 @@ msgstr ""
 "키 페어는 인스턴스가 구동된 후 로그인하는 방법에 대한 것입니다.\n"
 " 인식하고자 하는 키 페어 이름을 선택하고 SSH 공개키를 제공된 공간에\n"
 " 붙여넣기합니다."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, dashes and\n"
+"  underscores."
+msgstr ""
+"키 쌍은 시작된 후 인스턴스에 로그인 하는 방법입니다.\n"
+"인식할 키 쌍 이름을 선택하십시오\n"
+"이름은 영숫자, 공백, 대시, \n"
+"그리고 밑줄만 포함합니다."
 
 #, python-format
 msgid "Key pair %(name)s was successfully created."
@@ -3018,9 +3067,18 @@ msgid_plural "Unable to delete Users: %s."
 msgstr[0] "사용자를 삭제할 수 없습니다: %s."
 
 #, python-format
+msgid "Unable to delete domain: %s."
+msgid_plural "Unable to delete domains: %s."
+msgstr[0] "도메인을 삭제할 수 없습니다: %s."
+
+#, python-format
 msgid "Unable to delete policy: %s."
 msgid_plural "Unable to delete policies: %s."
 msgstr[0] "정책을 삭제할 수 없습니다: %s"
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "%(id)s의 qos 정책을 삭제할 수 없습니다."
 
 msgid "Unable to delete the container."
 msgstr "컨테이너를 삭제할 수 없습니다."
@@ -3285,6 +3343,10 @@ msgstr "네트워크들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the nova services."
 msgstr "Nova 서비스들을 찾지 못했습니다."
+
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "ID가 %(id)s인 정책을 검색할 수 없습니다."
 
 msgid "Unable to retrieve the ports."
 msgstr "포트 번호들을 찾지 못했습니다."
@@ -3690,6 +3752,10 @@ msgid "Yes"
 msgstr "예"
 
 #, python-format
+msgid "You are not allowed to delete domains: %s"
+msgstr "도메인을 삭제하는 것이 허가되지 않았습니다: %s"
+
+#, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "이미지를 삭제할 수 없습니다: %s"
 
@@ -3750,6 +3816,11 @@ msgstr[0] "\"%s\" 를 선택하셨습니다. 서버 그룹을 삭제하면 되�
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
 msgstr[0] "\"%s\"를 선택했습니다. 삭제된 Trunk는 복구할 수 없습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] "\"%s\"를 선택하였습니다. 삭제한 도메인은 복구할 수 없습니다."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."

@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-15 05:12+0000\n"
+"POT-Creation-Date: 2018-09-21 04:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-21 02:40+0000\n"
+"PO-Revision-Date: 2018-09-19 04:57+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -140,6 +140,29 @@ msgid ""
 msgstr ""
 "Public Container akan mengizinkan orang dengan Public URL  untuk mendapatkan "
 "akses ke objek Anda dalam container."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"  you to organize your data. You can think of a container as a folder in\n"
+"  Windows® or a directory in UNIX®. The primary difference between a\n"
+"  container and these other file system concepts is that containers cannot "
+"be\n"
+"  nested. You can, however, create an unlimited number of containers within\n"
+"  your account. Data must be stored in a container so you must have at "
+"least\n"
+"  one container defined in your account prior to uploading data."
+msgstr ""
+"Kontainer adalah kompartemen penyimpanan untuk data Anda dan menyediakan "
+"cara untuk\n"
+"   Anda mengatur data Anda. Anda dapat menganggap kontainer sebagai folder\n"
+"   Windows® atau direktori di UNIX®. Perbedaan utama antara a\n"
+"   kontainer dan konsep-konsep sistem file lainnya adalah bahwa kontainer "
+"tidak bisa\n"
+"   bersarang. Anda dapat, bagaimanapun, membuat jumlah kontainer dalam "
+"jumlah yang tidak terbatas\n"
+"   akun Anda. Data harus disimpan dalam kontainer sehingga Anda harus "
+"memiliki setidaknya\n"
+"   satu kontainer didefinisikan dalam akun Anda sebelum mengunggah data."
 
 msgid "A container with that name exists."
 msgstr "Container dengan nama yang ada."
@@ -527,6 +550,10 @@ msgstr "Drive konfigurasi"
 msgid "Confirm Delete"
 msgstr "Konfirmasi penghapuskan"
 
+msgid "Confirm Delete Domain"
+msgid_plural "Confirm Delete Domains"
+msgstr[0] "Confirm Delete Domain"
+
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "Confirm Delete Flavor"
@@ -792,6 +819,13 @@ msgstr "Hapus"
 msgid "Delete Container"
 msgstr "Hapus Kontainer"
 
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "Delete Domain"
+
+msgid "Delete Domains"
+msgstr "Hapus Domain"
+
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Hapus File di {$ ctrl.model.container.name $}"
 
@@ -918,6 +952,11 @@ msgstr[0] "Deleted Trunk: %s."
 msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
 msgstr[0] "Deleted User: %s."
+
+#, python-format
+msgid "Deleted domain: %s."
+msgid_plural "Deleted domains: %s."
+msgstr[0] "Deleted domain: %s."
 
 #, python-format
 msgid "Deleted policy: %s."
@@ -1547,6 +1586,19 @@ msgstr ""
 "   Pilih nama pasangan kunci yang akan Anda kenali dan tempel kunci publik "
 "SSH Anda ke dalam\n"
 "   ruang yang disediakan."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, dashes and\n"
+"  underscores."
+msgstr ""
+"  Key Pairs (pasangan kunci) adalah cara Anda masuk ke instance Anda setelah "
+"diluncurkan.\n"
+"   Pilih nama pasangan kunci yang akan Anda kenali.\n"
+"   Nama hanya dapat menyertakan karakter alfanumerik, spasi, tanda hubung, "
+"dan\n"
+"   menggarisbawahi."
 
 #, python-format
 msgid "Key pair %(name)s was successfully created."
@@ -3077,9 +3129,18 @@ msgid_plural "Unable to delete Users: %s."
 msgstr[0] "Unable to delete User: %s."
 
 #, python-format
+msgid "Unable to delete domain: %s."
+msgid_plural "Unable to delete domains: %s."
+msgstr[0] "Unable to delete domain: %s."
+
+#, python-format
 msgid "Unable to delete policy: %s."
 msgid_plural "Unable to delete policies: %s."
 msgstr[0] "Unable to delete policy: %s."
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "Tidak dapat menghapus kebijakan qos %(id)s"
 
 msgid "Unable to delete the container."
 msgstr "Tidak dapat menghapus kontainer."
@@ -3344,6 +3405,10 @@ msgstr "Tidak dapat mengambil jaringan."
 
 msgid "Unable to retrieve the nova services."
 msgstr "Tidak dapat mengambil layanan nova."
+
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "Tidak dapat mengambil kebijakan dengan ID %(id)s"
 
 msgid "Unable to retrieve the ports."
 msgstr "Tidak dapat mengambil port."
@@ -3752,6 +3817,10 @@ msgid "Yes"
 msgstr "Ya"
 
 #, python-format
+msgid "You are not allowed to delete domains: %s"
+msgstr "Anda tidak diizinkan untuk menghapus domain: %s"
+
+#, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "Anda tidak diizinkan untuk menghapus image: %s"
 
@@ -3819,6 +3888,11 @@ msgstr[0] "You have selected \"%s\". Deleted Server Group is not recoverable."
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
 msgstr[0] "You have selected \"%s\". Deleted Trunk is not recoverable."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted domain is not recoverable."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
