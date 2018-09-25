@@ -34,7 +34,6 @@ from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 from horizon import exceptions
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized
-from horizon.utils.memoized import memoized_with_request
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import microversions
@@ -209,15 +208,16 @@ def get_auth_params_from_request(request):
     )
 
 
-@memoized_with_request(get_auth_params_from_request)
-def cinderclient(request_auth_params, version=None):
+@memoized
+def cinderclient(request, version=None):
     if version is None:
         api_version = VERSIONS.get_active_version()
         version = api_version['version']
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
 
-    username, token_id, tenant_id, cinder_urls, auth_url = request_auth_params
+    (username, token_id, tenant_id, cinder_urls,
+        auth_url) = get_auth_params_from_request(request)
     version = base.Version(version)
     if version == 2:
         service_names = ('volumev2', 'volume')
@@ -1015,15 +1015,16 @@ def availability_zone_list(request, detailed=False):
 
 
 @profiler.trace
-@memoized_with_request(cinderclient)
-def list_extensions(cinder_api):
+@memoized
+def list_extensions(request):
+    cinder_api = cinderclient(request)
     return tuple(cinder_list_extensions.ListExtManager(cinder_api).show_all())
 
 
-@memoized_with_request(list_extensions)
-def extension_supported(extensions, extension_name):
+@memoized
+def extension_supported(request, extension_name):
     """This method will determine if Cinder supports a given extension name."""
-    for extension in extensions:
+    for extension in list_extensions(request):
         if extension.name == extension_name:
             return True
     return False

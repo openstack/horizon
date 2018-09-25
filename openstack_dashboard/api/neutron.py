@@ -35,7 +35,6 @@ import six
 from horizon import exceptions
 from horizon import messages
 from horizon.utils.memoized import memoized
-from horizon.utils.memoized import memoized_with_request
 from openstack_dashboard.api import base
 from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
@@ -806,9 +805,9 @@ def get_auth_params_from_request(request):
     )
 
 
-@memoized_with_request(get_auth_params_from_request)
-def neutronclient(request_auth_params):
-    token_id, neutron_url, auth_url = request_auth_params
+@memoized
+def neutronclient(request):
+    token_id, neutron_url, auth_url = get_auth_params_from_request(request)
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     c = neutron_client.Client(token=token_id,
@@ -1785,12 +1784,13 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
 
 
 @profiler.trace
-@memoized_with_request(neutronclient)
-def list_extensions(neutron_api):
+@memoized
+def list_extensions(request):
     """List neutron extensions.
 
     :param request: django request object
     """
+    neutron_api = neutronclient(request)
     try:
         extensions_list = neutron_api.list_extensions()
     except exceptions.ServiceCatalogException:
