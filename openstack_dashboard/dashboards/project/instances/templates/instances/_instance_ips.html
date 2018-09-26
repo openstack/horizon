@@ -1,19 +1,9 @@
 {% load i18n %}
+<ul class="list-unstyled">
 {% for ip_group, ips in ip_groups.items %}
     {% if ip_groups.keys|length > 1 %}
-    <h4>{{ ip_group }}</h4>
+    <li><b>{{ ip_group }}</b>
     {% endif %}
-    <ul class="list-unstyled">
-    {% for address in ips.non_floating %}
-        <li>{{ address.addr }}</li>
-    {% endfor %}
-    </ul>
-    {% if ips.floating|length > 0 %}
-        <h5>{% trans 'Floating IPs:' %}</h5>
-        <ul class="list-unstyled">
-        {% for address in ips.floating %}
-             <li>{{ address.addr }}</li>
-        {% endfor %}
-        </ul>
-    {% endif %}
+    {{ ips|join:", " }}</li>
 {% endfor %}
+</ul>
