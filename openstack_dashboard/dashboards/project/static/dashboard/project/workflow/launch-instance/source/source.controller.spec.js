@@ -121,6 +121,30 @@
         expect(ctrl.currentBootSource).toBe('image');
       });
 
+      it('defaults source should not be flushed when allowed boot sources change if it ' +
+        'is included in them',
+        function() {
+          scope.launchContext = { imageId: 'imageSnapshot-1' };
+          deferred.resolve();
+
+          $browser.defer.flush();
+
+          // The boot source is set
+          expect(scope.model.newInstanceSpec.source_type.type).toBe('snapshot');
+          expect(ctrl.currentBootSource).toBe('snapshot');
+
+          // Change the allowed boot sources
+          scope.model.allowedBootSources = [{type: 'image', label: 'Image'},
+            {type: 'snapshot', label: 'Snapshot'}];
+
+          scope.$apply();
+
+          // The boot source has not been flushed
+          expect(scope.model.newInstanceSpec.source_type.type).toBe('snapshot');
+          expect(ctrl.currentBootSource).toBe('snapshot');
+        }
+      );
+
       describe('facets', function() {
         it('should set facets for search by default', function() {
           expect(ctrl.sourceFacets).toBeDefined();
