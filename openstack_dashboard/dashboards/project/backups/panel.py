@@ -14,6 +14,8 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from openstack_dashboard import api
+
 import horizon
 
 
@@ -24,3 +26,7 @@ class Backups(horizon.Panel):
         ('openstack.services.volume', 'openstack.services.volumev2'),
     )
     policy_rules = (("volume", "backup:get_all"),)
+
+    @staticmethod
+    def can_register():
+        return api.cinder.volume_backup_supported(None)
