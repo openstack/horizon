@@ -17,13 +17,15 @@
 
   angular
     .module('horizon.framework', [
+      'ngRoute',
       'horizon.framework.conf',
       'horizon.framework.util',
       'horizon.framework.widgets'
     ])
     .config(config)
     .run(run)
-    .factory('horizon.framework.redirect', httpRedirectLogin)
+    .factory('horizon.framework.redirect', redirect)
+    .config(registerNotFound)
     .constant('horizon.framework.events', {
       FORCE_LOGOUT: 'FORCE_LOGOUT'
     });
@@ -74,7 +76,7 @@
     // Global http error handler
     // if user is not authorized, log user out
     // this can happen when session expires
-    $httpProvider.interceptors.push(httpRedirectLogin);
+    $httpProvider.interceptors.push(redirect);
     $httpProvider.interceptors.push(stripAjaxHeaderForCORS);
 
     stripAjaxHeaderForCORS.$inject = [];
@@ -115,7 +117,7 @@
     }
   }
 
-  httpRedirectLogin.$inject = [
+  redirect.$inject = [
     '$q',
     '$rootScope',
     '$window',
@@ -123,7 +125,7 @@
     'horizon.framework.widgets.toast.service'
   ];
 
-  function httpRedirectLogin($q, $rootScope, $window, frameworkEvents, toastService) {
+  function redirect($q, $rootScope, $window, frameworkEvents, toastService) {
     return {
       responseError: function (error) {
         if (error.status === 401) {
@@ -135,6 +137,9 @@
           handleRedirectMessage(msg2, $rootScope, $window, frameworkEvents, toastService);
         }
         return $q.reject(error);
+      },
+      notFound: function() {
+        $window.location.href = $window.WEBROOT + 'not_found';
       }
     };
   }
@@ -147,6 +152,23 @@
       $rootScope.$broadcast(frameworkEvents.FORCE_LOGOUT, msg);
     }
     $window.location.replace($window.WEBROOT + 'auth/logout');
+  }
+
+  registerNotFound.$inject = [
+    '$routeProvider'
+  ];
+
+  /**
+   * @name registerNotFound
+   * @param {Object} $routeProvider
+   * @description Routes to "not_found".
+   * @returns {undefined} Returns nothing
+   */
+  function registerNotFound($routeProvider) {
+    // if identifier not specified for "ngdetails"
+    $routeProvider.when('/ngdetails/:resourceType', {
+      redirectTo: "/not_found"
+    });
   }
 
 })();

@@ -22,6 +22,7 @@
 
   controller.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.framework.redirect',
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.util.navigations.service',
     'horizon.framework.widgets.modal-wait-spinner.service',
@@ -32,6 +33,7 @@
 
   function controller(
     registry,
+    redirect,
     resultService,
     navigationsService,
     spinnerService,
@@ -41,13 +43,17 @@
   ) {
     var ctrl = this;
 
+    if (!registry.resourceTypes[$routeParams.type]) {
+      redirect.notFound();
+    }
     ctrl.resourceType = registry.getResourceType($routeParams.type);
     ctrl.context = {};
     ctrl.context.identifier = ctrl.resourceType.parsePath($routeParams.path);
     ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
-    ctrl.context.loadPromise.then(loadData);
+    ctrl.context.loadPromise.then(loadData, loadDataError);
     ctrl.defaultTemplateUrl = registry.getDefaultDetailsTemplateUrl();
     ctrl.resultHandler = actionResultHandler;
+    ctrl.pageNotFound = redirect.notFound;
 
     checkRoutedByDjango(ctrl.resourceType);
 
@@ -87,6 +93,12 @@
       ctrl.resourceType.initActions();
       ctrl.itemData = response.data;
       ctrl.itemName = ctrl.resourceType.itemName(response.data);
+    }
+
+    function loadDataError(error) {
+      if (error.status === 404) {
+        redirect.notFound();
+      }
     }
 
     function loadIndexView() {

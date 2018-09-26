@@ -18,7 +18,7 @@
   'use strict';
 
   describe('RoutedDetailsViewController', function() {
-    var ctrl, deferred, $timeout, $q, actionResultService, navigationsService;
+    var ctrl, deferred, $timeout, $q, service, redirect, actionResultService, navigationsService;
 
     beforeEach(module('horizon.framework.widgets.details'));
     beforeEach(inject(function($injector, $controller, _$q_, _$timeout_) {
@@ -26,7 +26,8 @@
       deferred = $q.defer();
       $timeout = _$timeout_;
 
-      var service = {
+      service = {
+        resourceTypes: {'OS::Glance::Image': {}},
         getResourceType: function() {
           return {
             load: function() { return deferred.promise; },
@@ -39,6 +40,11 @@
         getDefaultDetailsTemplateUrl: angular.noop
       };
 
+      redirect = {
+        responseError: angular.noop,
+        notFound: angular.noop
+      };
+
       actionResultService = {
         getIdsOfType: function() { return []; }
       };
@@ -46,11 +52,14 @@
       navigationsService = {
         expandNavigationByUrl: function() { return ['Project', 'Compute', 'Images']; },
         setBreadcrumb: angular.noop,
-        getActivePanelUrl: function() { return 'project/fancypanel'; }
+        getActivePanelUrl: function() { return 'project/fancypanel'; },
+        nav: true,
+        isNavigationExists: function() { return navigationsService.nav; }
       };
 
       ctrl = $controller("RoutedDetailsViewController", {
         'horizon.framework.conf.resource-type-registry.service': service,
+        'horizon.framework.redirect': redirect,
         'horizon.framework.util.actions.action-result.service': actionResultService,
         'horizon.framework.util.navigations.service': navigationsService,
         'horizon.framework.widgets.modal-wait-spinner.service': {
@@ -62,7 +71,32 @@
           path: '1234'
         }
       });
+      spyOn(redirect, 'notFound');
     }));
+
+    describe('RoutedDetailsViewController', function() {
+      beforeEach(inject(function($controller) {
+        service.resourceTypes = {};
+        ctrl = $controller("RoutedDetailsViewController", {
+          'horizon.framework.conf.resource-type-registry.service': service,
+          'horizon.framework.redirect': redirect,
+          'horizon.framework.util.actions.action-result.service': actionResultService,
+          'horizon.framework.util.navigations.service': navigationsService,
+          'horizon.framework.widgets.modal-wait-spinner.service': {
+            showModalSpinner: angular.noop,
+            hideModalSpinner: angular.noop
+          },
+          '$routeParams': {
+            type: 'not exist',
+            path: 'xxxx'
+          }
+        });
+      }));
+
+      it('call redirect.notFound when resource type is not registered', function() {
+        expect(redirect.notFound).toHaveBeenCalled();
+      });
+    });
 
     it('sets resourceType', function() {
       expect(ctrl.resourceType).toBeDefined();
@@ -77,6 +111,18 @@
       expect(ctrl.itemData).toBeUndefined();
       $timeout.flush();
       expect(ctrl.itemData).toEqual({some: 'data'});
+    });
+
+    it('call redirect.notFound when item not found', function() {
+      deferred.reject({status: 404});
+      $timeout.flush();
+      expect(redirect.notFound).toHaveBeenCalled();
+    });
+
+    it('does not call redirect.notFound when server error occurred', function() {
+      deferred.reject({status: 500});
+      $timeout.flush();
+      expect(redirect.notFound).not.toHaveBeenCalled();
     });
 
     it('sets itemName when item loads', function() {
