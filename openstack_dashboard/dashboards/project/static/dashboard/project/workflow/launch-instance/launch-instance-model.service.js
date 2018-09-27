@@ -203,6 +203,7 @@
         source: [],
         create_volume_default: true,
         // REQUIRED for JS logic
+        hide_create_volume: false,
         vol_create: false,
         // May be null
         vol_device_name: 'vda',
@@ -296,6 +297,9 @@
       if ('create_volume' in defaults) {
         // Append "_default" to distinguish from the 'vol_create' item
         model.newInstanceSpec.create_volume_default = defaults.create_volume;
+      }
+      if ('hide_create_volume' in defaults) {
+        model.newInstanceSpec.hide_create_volume = defaults.hide_create_volume;
       }
     }
 

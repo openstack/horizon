@@ -1965,6 +1965,10 @@ LAUNCH_INSTANCE_DEFAULTS
 
     Added the ``create_volume`` option.
 
+.. versionchanged:: 15.0.0(Stein)
+
+    Added the ``hide_create_volume`` option.
+
 Default:
 
 .. code-block:: python
@@ -1972,6 +1976,7 @@ Default:
     {
         "config_drive": False,
         "create_volume": True,
+        "hide_create_volume": False,
         "disable_image": False,
         "disable_instance_snapshot": False,
         "disable_volume": False,
@@ -2001,6 +2006,17 @@ Default: ``True``
 
 This setting allows you to specify the default value for the option of creating
 a new volume in the workflow for image and instance snapshot sources.
+
+hide_create_volume
+##################
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``False``
+
+This setting allow your to hide the "Create New Volume" option and rely on the
+default value you select with ``create_volume`` to be the most suitable for your
+users.
 
 disable_image
 #############
