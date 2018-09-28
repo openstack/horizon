@@ -24,7 +24,8 @@
       getActivePanelUrl: getActivePanelUrl,
       collapseAllNavigation: collapseAllNavigation,
       expandNavigationByUrl: expandNavigationByUrl,
-      setBreadcrumb: setBreadcrumb
+      setBreadcrumb: setBreadcrumb,
+      isNavigationExists: isNavigationExists
     };
 
     /* get URL for active panel on navigation side bar */
@@ -104,6 +105,11 @@
         newItem.text(item);
         breadcrumb.append(newItem);
       });
+    }
+
+    /* check whether navigation exists from url */
+    function isNavigationExists(url) {
+      return angular.element("a.openstack-panel[href='" + url + "']").length ? true : false;
     }
   }
 })();

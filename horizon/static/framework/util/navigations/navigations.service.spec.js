@@ -158,6 +158,18 @@
       });
     });
 
+    describe('isNavigationExists', function() {
+      it('returns true if navigation for specified URL exists', function() {
+        var result = service.isNavigationExists('/project/images/');
+        expect(result).toEqual(true);
+      });
+
+      it('returns false if navigation for specified URL does not exist', function() {
+        var result = service.isNavigationExists('/not/found/');
+        expect(result).toEqual(false);
+      });
+    });
+
   });
 
 })();
