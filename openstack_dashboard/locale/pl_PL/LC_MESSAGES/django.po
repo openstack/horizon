@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-21 05:00+0000\n"
+"POT-Creation-Date: 2018-09-29 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2183,9 +2183,6 @@ msgstr "Pływający adres IP"
 
 msgid "Floating IPs"
 msgstr "Pływające adresy IP"
-
-msgid "Floating IPs:"
-msgstr "Pływające adresy IP:"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "

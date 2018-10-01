@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-21 05:00+0000\n"
+"POT-Creation-Date: 2018-09-29 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2909,9 +2909,6 @@ msgstr "Dirección IP flotante"
 
 msgid "Floating IPs"
 msgstr "IPs flotantes"
-
-msgid "Floating IPs:"
-msgstr "IPs flotantes:"
 
 #, python-format
 msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
