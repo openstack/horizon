@@ -60,7 +60,8 @@ def login(request, template_name=None, extra_context=None, **kwargs):
     if request.method == 'POST':
         auth_type = request.POST.get('auth_type', 'credentials')
         if utils.is_websso_enabled() and auth_type != 'credentials':
-            auth_url = request.POST.get('region')
+            auth_url = getattr(settings, 'WEBSSO_KEYSTONE_URL',
+                               request.POST.get('region'))
             url = utils.get_websso_url(request, auth_url, auth_type)
             return shortcuts.redirect(url)
 
