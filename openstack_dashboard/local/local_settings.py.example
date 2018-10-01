@@ -247,6 +247,14 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 # variable.
 #WEBSSO_DEFAULT_REDIRECT_LOGOUT = None
 
+# If set this URL will be used for web single-sign-on authentication
+# instead of OPENSTACK_KEYSTONE_URL. This is needed in the deployment
+# scenarios where network segmentation is used per security requirement.
+# In this case, the controllers are not reachable from public network.
+# Therefore, user's browser will not be able to access OPENSTACK_KEYSTONE_URL
+# if it is set to the internal endpoint.
+#WEBSSO_KEYSTONE_URL = "http://keystone-public.example.com/v3"
+
 # The Keystone Provider drop down uses Keystone to Keystone federation
 # to switch between Keystone service providers.
 # Set display name for Identity Provider (dropdown display name)
