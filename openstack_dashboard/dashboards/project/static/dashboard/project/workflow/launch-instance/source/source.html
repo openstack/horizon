@@ -24,7 +24,7 @@
 
     <div ng-if="(model.newInstanceSpec.source_type.type === 'image' ||
                  model.newInstanceSpec.source_type.type === 'snapshot') &&
-                model.allowCreateVolumeFromImage">
+                model.allowCreateVolumeFromImage && !model.newInstanceSpec.hide_create_volume">
       <div class="col-xs-6">
         <div class="form-group">
           <label for="vol-create" translate>Create New Volume</label><br/>

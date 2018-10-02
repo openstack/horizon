@@ -160,6 +160,7 @@
           settings = {
             LAUNCH_INSTANCE_DEFAULTS: {
               create_volume: true,
+              hide_create_volume: false,
               config_drive: false,
               disable_image: false,
               disable_instance_snapshot: false,
@@ -512,6 +513,22 @@
           expect(model.newInstanceSpec.create_volume_default).toBe(false);
         });
 
+        it('should default hide_create_volume to false if setting not provided', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.hide_create_volume;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.hide_create_volume).toBe(false);
+        });
+
+        it('should default hide_create_volume to true based on setting', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.hide_create_volume = true;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.hide_create_volume).toBe(true);
+        });
+
         it('should not set availability zone if the zone list is empty', function () {
           spyOn(novaApi, 'getAvailabilityZones').and.callFake(function () {
             var deferred = $q.defer();
@@ -825,7 +842,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(22);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(23);
         });
 
         it('sets availability zone to null', function() {

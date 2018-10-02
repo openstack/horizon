@@ -1,0 +1,7 @@
+---
+features:
+  - Added a new ``hide_create_volume`` setting under the
+    ``LAUNCH_INSTANCE_DEFAULTS`` dict. This allows you to hide the
+    "Create New Volume" option in the "Launch Instance" form and instead rely
+    on the default value you select with ``create_volume`` is the best suitable
+    option for your users.
