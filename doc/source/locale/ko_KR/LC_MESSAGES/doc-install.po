@@ -1,0 +1,972 @@
+# Soonyeul Park <ardentpark@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 14.0.0.0rc2.dev124\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-02 10:04-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-10-03 04:28+0000\n"
+"Last-Translator: Soonyeul Park <ardentpark@gmail.com>\n"
+"Language-Team: Korean (South Korea)\n"
+"Language: ko_KR\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ":ref:`install-customizing` describes how to customize horizon."
+msgstr ":ref:`install-customizing` 어떻게 horizon을 커스터마이즈하는지 기술"
+
+msgid ":ref:`install-settings` lists the available settings for horizon."
+msgstr ":ref:`install-settings` horizon을 위한 가능한 설정 목록"
+
+msgid ""
+"ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "
+"development work, but is potentially insecure and should not be used in "
+"production. See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-"
+"hosts for further information."
+msgstr ""
+"ALLOWED_HOSTS 에서는 모든 호스트를 허용하기 위해 ['*'] 로 설정할 수도 있습니"
+"다. 이는 개발 작업에서는 유용하겠지만, 잠재적인 보안 위협이 있기에 프로덕션 "
+"환경에서 사용해서는 안됩니다. 더 자세한 정보는 https://docs.djangoproject."
+"com/en/dev/ref/settings/#allowed-hosts 를 살펴봅니다."
+
+msgid "Access the dashboard using a web browser at ``http://controller/``."
+msgstr ""
+"``http://controller/`` 로 웹 브라우저를 이용하여 대시보드에 접근할 수 있습니"
+"다."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/dashboard``."
+msgstr ""
+"``http://controller/dashboard`` 로 웹 브라우저를 이용하여 대시보드에 접근할 "
+"수 있습니다."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/horizon/``."
+msgstr ""
+"``http://controller/horizon`` 로 웹 브라우저를 이용하여 대시보드에 접근할 수 "
+"있습니다."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/horizon``."
+msgstr ""
+"``http://controller/horizon`` 로 웹 브라우저를 이용하여 대시보드에 접근할 수 "
+"있습니다."
+
+msgid ""
+"Add the following line to ``/etc/apache2/conf-available/openstack-dashboard."
+"conf`` if not included."
+msgstr ""
+"포함되지 않았다면 ``/etc/apache2/conf-available/openstack-dashboard.conf`` "
+"을 다음 행에 추가하십시오."
+
+msgid ""
+"Add the following line to ``/etc/httpd/conf.d/openstack-dashboard.conf`` if "
+"not included."
+msgstr ""
+"포함되지 않았다면 ``/etc/httpd/conf.d/openstack-dashboard.conf`` 을 다음 행"
+"에 추가하십시오."
+
+msgid ""
+"After you install and configure the dashboard, you can complete the "
+"following tasks:"
+msgstr "대시보드를 설치 및 구성 후, 다음 작업들을 완료할 수 있습니다:"
+
+msgid ""
+"All other services are optional. Horizon supports the following services as "
+"of the Queens release. If the keystone endpoint for a service is configured, "
+"horizon detects it and enables its support automatically."
+msgstr ""
+"다른 모든 서비스는 선택 사항입니다. Horizon은 Queens 릴리즈에서 다음의 서비스"
+"들을 지원합니다. 서비스를 위한 keystone endpoint 가 구성되면, horizon은 자동"
+"으로 탐지하고 지원을 활성화합니다."
+
+msgid "Allow your hosts to access the dashboard:"
+msgstr "호스트가 대시보드에 접근하도록 허용하십시오:"
+
+msgid ""
+"An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ "
+"endpoint"
+msgstr ""
+"접근 가능한 `keystone <https://docs.openstack.org/keystone/latest/>`_ "
+"endpoint"
+
+msgid ""
+"Authenticate using ``admin`` or ``demo`` user and ``default`` domain "
+"credentials."
+msgstr ""
+"``admin`` 이나 ``demo`` 사용자 계정 및 ``default`` 도메인 credential을 사용하"
+"여 인증합니다."
+
+msgid "BGPVPN Dashboard"
+msgstr "BGPVPN Dashboard"
+
+msgid "Blazar Dashboard"
+msgstr "Blazar Dashboard"
+
+msgid "Bug Tracker"
+msgstr "Bug Tracker"
+
+msgid ""
+"By default the apache configuration will launch a number of apache processes "
+"equal to the number of CPUs + 1 of the machine on which you launch the "
+"``make_web_conf`` command. If the target machine is not the same or if you "
+"want to specify the number of processes, add the ``--processes`` option"
+msgstr ""
+"기본적으로 apache 구성은 ``make_web_conf`` 명령을 실행하는 시스템의 CPU 수 + "
+"1개의 apache 프로세스를 실행합니다. 대상 머신이 같지 않거나 프로세스 수를 지"
+"정하기를 원하는 경우, ``--processes`` 옵션을 추가하십시오"
+
+msgid "Cached Database"
+msgstr "캐시된 데이터베이스"
+
+msgid "Clone Horizon"
+msgstr "Horizon 복제"
+
+msgid "Cloudkitty Dashboard"
+msgstr "Cloudkitty Dashboard"
+
+msgid "Comment out any other session storage configuration."
+msgstr "다른 세션 스토리지 구성을 주석으로 처리하십시오."
+
+msgid ""
+"Compile translation message catalogs for internationalization. This step is "
+"not required if you do not need to support languages other than US English. "
+"GNU ``gettext`` tool is required to compile message catalogs."
+msgstr ""
+"국제화를 위한 번역 메시지 카탈로그를 컴파일 하십시오. 이 단계는 영어 외의 언"
+"어를 지원할 필요가 없으면 요구되지 않습니다. 메시지 카탈로그를 컴파일 하기 위"
+"해서는 GNU ``gettext`` 도구가 필요합니다."
+
+msgid ""
+"Compress your static files by adding ``COMPRESS_OFFLINE = True`` to your "
+"``local_settings.py``, then run the following commands"
+msgstr ""
+"``COMPRESS_OFFLINE=True`` 를 ``local_settings.py`` 에 추가하여 정적 파일을 압"
+"축한 후, 다음의 명령을 실행하십시오."
+
+msgid "Configuration"
+msgstr "구성"
+
+msgid "Configure API versions:"
+msgstr "API 버전을 구성하십시오:"
+
+msgid ""
+"Configure ``Default`` as the default domain for users that you create via "
+"the dashboard:"
+msgstr ""
+"대시보드를 통해 생성한 사용자의 기본 도메인을 ``Default`` 로 구성하십시오:"
+
+msgid ""
+"Configure ``user`` as the default role for users that you create via the "
+"dashboard:"
+msgstr "대시보드를 통해 생성한 사용자의 기본 역할을 ``user`` 로 구성하십시오:"
+
+msgid "Configure the ``memcached`` session storage service:"
+msgstr "``memcached`` 세션 스토리지 서비스를 구성하십시오:"
+
+msgid ""
+"Configure the dashboard to use OpenStack services on the ``controller`` node:"
+msgstr ""
+"컨트롤러 노드에서 OpenStack 서비스를 사용하도록 대시보드를 구성하십시오:"
+
+msgid "Configure the web server:"
+msgstr "웹 서버 구성:"
+
+msgid "Congress Dashboard"
+msgstr "Congress Dashboard"
+
+msgid ""
+"Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
+"idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
+"edit it. As a minimum, the follow settings will need to be modified:"
+msgstr ""
+"``openstack_dashboard/local/local_settings.py``를 생성하십시오. "
+"``openstack_dashboard/local/local_settings.py.example`` 을 복사하고 편집하는 "
+"것을 권장합니다. 적어도, 다음의 설정들은 수정될 필요가 있습니다."
+
+msgid ""
+"Currently, Horizon plugins are responsible for their own compatibility. "
+"Check the individual repos for information on support."
+msgstr ""
+"현재, Horizon 플러그인은 자체 호환성을 유지합니다. 지원에 대한 정보를 개별 저"
+"장소에서 확인하십시오."
+
+msgid ""
+"Customize your dashboard. For details, see :doc:`/admin/customize-configure`."
+msgstr ""
+"대시보드를 커스터마이징하십시오. 자세한 사항은 :doc:`/admin/customize-"
+"configure` 를 참조하십시오."
+
+msgid "Database"
+msgstr "데이터베이스"
+
+msgid ""
+"Database-backed sessions are scalable (using an appropriate database "
+"strategy), persistent, and can be made high-concurrency and highly-available."
+msgstr ""
+"데이터베이스 기반 세션은 확장 가능하며(적절한 데이터베이스 전략을 사용하여), "
+"지속적이고, 고병행성과 고가용성을 제공할 수 있습니다."
+
+msgid ""
+"Default configuration files vary by distribution. You might need to add "
+"these sections and options rather than modifying existing sections and "
+"options. Also, an ellipsis (``...``) in the configuration snippets indicates "
+"potential default configuration options that you should retain."
+msgstr ""
+"디폴트 구성 파일을 배포판에 따라 달라집니다. 기존 섹션 및 옵션을 변경하는 것 "
+"보다는 해당 섹션과 옵션을 추가해야 할 수도 있습니다. 또한 구성 내용 조각 중 "
+"생략 (``...``) 부분은 유지될 필요성이 있는 디폴트 구성 옵션을 가리킵니다. "
+
+msgid "Deployment"
+msgstr "배포"
+
+msgid "Designate Dashboard"
+msgstr "Designate Dashboard"
+
+msgid "Django 1.11 or 2.0"
+msgstr "Django 1.11 or 2.0"
+
+msgid "Django 1.8 to 1.10 are no longer supported since Rocky release."
+msgstr "Django 1.8 to 1.10 are no longer supported since Rocky release."
+
+msgid ""
+"Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
+"section."
+msgstr "Ubuntu 구성 섹션에서 ``ALLOWED_HOSTS`` 매개변수를 편집하지 마십시오."
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings.py`` file and complete "
+"the following actions:"
+msgstr ""
+"``/etc/openstack-dashboard/local_settings.py`` 파일을 편집하고 다음의 작업을 "
+"완료하십시오:"
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings`` file and complete the "
+"following actions:"
+msgstr ""
+"``/etc/openstack-dashboard/local_settings`` 파일을 수정하고 다음 동작을 실행"
+"합니다:"
+
+msgid ""
+"Edit the ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
+"local_settings.py`` file and complete the following actions:"
+msgstr ""
+"``/srv/www/openstack-dashboard/openstack_dashboard/local/local_settings.py`` "
+"파일을 수정하고 다음 동작을 실행합니다:"
+
+msgid "Enable support for domains:"
+msgstr "도메인 지원을 사용 가능하게 하십시오:"
+
+msgid "Enable the Identity API version 3:"
+msgstr "Identity API 버전 3를 사용 가능하게 하십시오:"
+
+msgid "Enable the above configuration and restart the web server"
+msgstr "위의 구성을 활성화하고 웹 서버를 다시 시작하십시오."
+
+msgid ""
+"External caching using an application such as memcached offers persistence "
+"and shared storage, and can be very useful for small-scale deployment and/or "
+"development. However, for distributed and high-availability scenarios "
+"memcached has inherent problems which are beyond the scope of this "
+"documentation."
+msgstr ""
+"memcached와 같은 애플리케이션을 사용하는 외부 캐싱은 지속성과 공유 저장소를 "
+"제공하며, 소규모 배포 및 개발에서 매우 유용할 수 있습니다. 그러나, 분산된 고"
+"가용성 시나리오에서 memcached는 이 문서의 범위를 벗어나는 내재된 문제를 갖고 "
+"있습니다."
+
+msgid "Finalize installation"
+msgstr "설치 마무리"
+
+msgid ""
+"For details about browsers that support noVNC, see `README <https://github."
+"com/novnc/noVNC/blob/master/README.md>`__."
+msgstr ""
+"noVNC를 지원하는 브라우저에 대한 자세한 내용은, `README <https://github.com/"
+"novnc/noVNC/blob/master/README.md>`__ 을 참조하십시오."
+
+msgid ""
+"For more information regarding configuring logging in Horizon, please read "
+"the `Django logging directive`_ and the `Python logging directive`_ "
+"documentation. Horizon is built on Python and Django."
+msgstr ""
+"Horizon에서 로깅을 구성하는 것에 관한 추가 정보에 대해서는, `Django logging "
+"directive`_ 와 `Python logging directive`_ 문서를 읽어보십시오. Horizon은 "
+"Python과 Django를 기반으로 합니다."
+
+msgid "For the system dependencies, see :doc:`system-requirements`."
+msgstr "시스템 의존성은, :doc:`system-requirements` 를 참조하십시오."
+
+msgid "Freezer Web UI"
+msgstr "Freezer Web UI"
+
+msgid "Group Based Policy UI"
+msgstr "Group Based Policy UI"
+
+msgid "Heat Dashboard"
+msgstr "Heat Dashboard"
+
+msgid ""
+"Horizon also supports many other OpenStack services via plugins. For more "
+"information, see the :ref:`install-plugin-registry`."
+msgstr ""
+"Horizon은 또한 플러그인을 통해 많은 다른 OpenStack 서비스를 지원합니다. 보다 "
+"자세한 정보는 :ref:`install-plugin-registry` 을 참조하십시오."
+
+msgid ""
+"Horizon also uses a number of 3rd-party clients which log separately. The "
+"log level for these can still be controlled through Horizon's ``LOGGING`` "
+"config, however behaviors may vary beyond Horizon's control."
+msgstr ""
+"Horizon은 또한 별도로 기록하는 다수의 서드파티 클라이언트를 사용합니다. 이러"
+"한 로그 레벨은 여전히 Horizon의 ``LOGGING`` 구성에서 제어되지만, 동작은 "
+"Horizon의 제어를 벗어날 수도 있습니다."
+
+msgid "Horizon plugins"
+msgstr "Horizon 플러그인"
+
+msgid ""
+"Horizon uses `Django's sessions framework`_ for handling session data. There "
+"are numerous session backends available, which are selected through the "
+"``SESSION_ENGINE`` setting in your ``local_settings.py`` file."
+msgstr ""
+"Horizon은 세션 데이터를 처리하기 위해 `Django's sessions framework`_ 를 사용"
+"합니다. ``local_settings.py`` 파일의 ``SESSION_ENGINE`` 설정을 통해 선택된 사"
+"용 가능한 많은 세션 백엔드들이 있습니다."
+
+msgid ""
+"Horizon usually syncs with `Django's Roadmap <https://www.djangoproject.com/"
+"weblog/2015/jun/25/roadmap/>`__ and basically supports maintained versions "
+"of Django as of the feature freeze of each OpenStack release."
+msgstr ""
+"Horizon은 보통 `Django의 로드맵 <https://www.djangoproject.com/weblog/2015/"
+"jun/25/roadmap/>`__ 과 동기화하고 각 OpenStack 릴리즈의 기능 동결을 위해 기본"
+"적으로 Django의 유지 보수되는 버전을 지원합니다."
+
+msgid ""
+"Horizons uses Django's logging configuration mechanism, which can be "
+"customized by altering the ``LOGGING`` dictionary in ``local_settings.py``. "
+"By default, Horizon's logging example sets the log level to ``INFO``."
+msgstr ""
+"Horizon은 Django의 ``local_settings.py`` 의 ``LOGGING`` 사전을 변경하여 커스"
+"터마이즈 될 수 있는 로깅 구성 매커니즘을 사용합니다. 기본적으로, Horizon의 로"
+"깅 예시는 ``INFO`` 로그 레벨로 설정합니다."
+
+msgid ""
+"If you chose networking option 1, disable support for layer-3 networking "
+"services:"
+msgstr ""
+"네트워킹 옵션 1을 선택한 경우, 3계층 네트워킹 서비스에 대한 지원을 사용 불가"
+"능하게 하십시오:"
+
+msgid ""
+"In the Dashboard configuration section, allow your hosts to access Dashboard:"
+msgstr ""
+"대시보드 구성 섹션에서, 호스트가 대시보드로 접근할 수 있도록 허용하십시오:"
+
+msgid ""
+"In the commands below, substitute \"<release>\" for your version of choice, "
+"such as \"ocata\" or \"pike\"."
+msgstr ""
+"아래 명령에서, \\\"ocata\\\" 또는 \\\"pike\\\" 와 같은 선택한 버전을 \\"
+"\"<release>\\\" 로 대체하십시오. "
+
+msgid "Install and configure components"
+msgstr "구성요소 설치와 구성"
+
+msgid "Install and configure for Debian"
+msgstr "Debian을 위한 설치와 구성"
+
+msgid "Install and configure for Red Hat Enterprise Linux and CentOS"
+msgstr "Red Hat Enterprise Linux와 CentOS를 위한 설치와 구성"
+
+msgid "Install and configure for Ubuntu"
+msgstr "Ubuntu를 위한 설치와 구성"
+
+msgid "Install and configure for openSUSE and SUSE Linux Enterprise"
+msgstr "openSUSE와 SUSE Linux Enterprise를 위한 설치와 구성"
+
+msgid "Install the horizon python module into your system"
+msgstr "horizon python 모듈을 시스템에 설치"
+
+msgid "Install the packages:"
+msgstr "패키지 설치:"
+
+msgid "Installation"
+msgstr "설치"
+
+msgid "Installation Guide"
+msgstr "설치 가이드"
+
+msgid "Installing from Packages"
+msgstr "패키지에서 설치"
+
+msgid "Installing from Source"
+msgstr "소스에서 설치"
+
+msgid "Ironic UI"
+msgstr "Ironic UI"
+
+msgid "Karbor Dashboard"
+msgstr "Karbor Dashboard"
+
+msgid "Logging"
+msgstr "로깅"
+
+msgid "Magnum UI"
+msgstr "Magnum UI"
+
+msgid "Manila UI"
+msgstr "Manila UI"
+
+msgid "Manual installation"
+msgstr "수동 설치"
+
+msgid "Memcached"
+msgstr "Memcached"
+
+msgid "Memcached service running and accessible"
+msgstr "Mencached 서비스 실행과 접근 가능성"
+
+msgid "Mistral Dashboard"
+msgstr "Mistral Dashboard"
+
+msgid "Monasca UI"
+msgstr "Monasca UI"
+
+msgid "Murano Dashboard"
+msgstr "Murano Dashboard"
+
+msgid "Neutron FWaaS Dashboard"
+msgstr "Neutron FWaaS Dashboard"
+
+msgid "Neutron LBaaS Dashboard"
+msgstr "Neutron LBaaS Dashboard"
+
+msgid "Neutron VPNaaS Dashboard"
+msgstr "Neutron VPNaaS Dashboard"
+
+msgid "Next Steps"
+msgstr "다음 단계"
+
+msgid "Next steps"
+msgstr "다음 단계"
+
+msgid "Octavia Dashboard"
+msgstr "Octavia Dashboard"
+
+msgid "Optionally, configure the time zone:"
+msgstr "선택적으로, 표준 시간대를 구성하십시오:"
+
+msgid "Plugin"
+msgstr "플러그인"
+
+msgid "Plugin Registry"
+msgstr "플러그인 레지스트리"
+
+msgid ""
+"Provide users with a public IP address, a username, and a password so they "
+"can access the dashboard through a web browser. In case of any SSL "
+"certificate connection problems, point the server IP address to a domain "
+"name, and give users access."
+msgstr ""
+"사용자에게 공용 IP 주소, 사용자 이름, 암호를 제공하여 웹 브라우저를 통해 대시"
+"보드를 액세스 가능하도록 합니다. SSL 인증서 접속 문제가 있는 경우, 서버 IP 주"
+"소를 도메인 이름으로 가리키도록 하고, 사용자에게 액세스를 부여합니다."
+
+msgid "Python 2.7 or 3.5"
+msgstr "Python 2.7 or 3.5"
+
+msgid "Python memcached module installed"
+msgstr "Python memcached 모듈 설치"
+
+msgid "Reload the web server configuration:"
+msgstr "웹 서버 구성을 다시 로드하십시오:"
+
+msgid ""
+"Replace ``TIME_ZONE`` with an appropriate time zone identifier. For more "
+"information, see the `list of time zones <https://en.wikipedia.org/wiki/"
+"List_of_tz_database_time_zones>`__."
+msgstr ""
+"``TIME_ZONE`` 을 적절한 시간대 식별자로 교체하십시오. 자세한 정보는 `표준 시"
+"간대 목록 <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>`__` "
+"을 참조하십시오."
+
+msgid "Requirements:"
+msgstr "요구사항:"
+
+msgid "Respond to prompts for web server configuration."
+msgstr "웹 서버 구성을 위한 프롬프트에 응답하십시오."
+
+msgid "Restart the web server and session storage service:"
+msgstr "웹 서버와 세션 스토리지 서비스를 재시작하십시오:"
+
+msgid "Sahara Dashboard"
+msgstr "Sahara Dashboard"
+
+msgid "Same as above but if you want SSL support"
+msgstr "위와 같지만 SSL 지원이 필요한 경우"
+
+msgid "Searchlight UI"
+msgstr "Searchlight UI"
+
+msgid "Senlin Dashboard"
+msgstr "Senlin Dashboard"
+
+msgid "Session Storage"
+msgstr "세션 저장소"
+
+msgid "Set to ``False``"
+msgstr "``False`` 로 설정"
+
+msgid ""
+"Set to the IP of your Keystone endpoint. You may also need to alter "
+"``OPENSTACK_KEYSTONE_URL``"
+msgstr ""
+"Keystone endpoint의 IP를 설정하십시오. 또한 ``OPENSTACK_KEYSTONE_URL`` 을 변"
+"경해야 할 수도 있습니다."
+
+msgid "Set to your domain name(s)"
+msgstr "도메인 이름으로 설정"
+
+msgid ""
+"Set up a web server with WSGI support. For example, install Apache web "
+"server on Ubuntu"
+msgstr ""
+"WSGI를 지원하는 웹 서버를 설치하십시오. 예를 들어, Ubuntu 에 Apache 웹 서버"
+"를 설치하십시오."
+
+msgid "Set up session storage. For details, see :doc:`/admin/sessions`."
+msgstr ""
+"세션 스토리지를 설정하십시오. 자세한 사항은 :doc:`/admin/sessions` 를 참조하"
+"십시오."
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "Solum Dashboard"
+msgstr "Solum Dashboard"
+
+msgid "Static Assets"
+msgstr "정적 자산"
+
+msgid "System Requirements"
+msgstr "시스템 요구사항"
+
+msgid "Tacker UI"
+msgstr "Tacker UI"
+
+msgid "The Queens release of horizon has the following dependencies."
+msgstr "The Queens release of horizon has the following dependencies."
+
+msgid ""
+"The ``systemctl restart`` command starts each service if not currently "
+"running."
+msgstr ""
+"``systemctl restart`` 명령은 현재 실행 중이 아니면 각 서비스를 시작합니다."
+
+msgid ""
+"The automatic configuration process generates a self-signed SSL certificate. "
+"Consider obtaining an official certificate for production environments."
+msgstr ""
+"자동 구성 프로세스는 자체 서명된 SSL 인증서를 생성합니다. 제품 환경을 위한 공"
+"식 인증서를 가져오는 것을 고려하십시오."
+
+msgid ""
+"The downside to this approach is that database-backed sessions are one of "
+"the slower session storages, and incur a high overhead under heavy usage. "
+"Proper configuration of your database deployment can also be a substantial "
+"undertaking and is far beyond the scope of this documentation."
+msgstr ""
+"이 접근법의 단점은 데이터베이스 기반 세션이 느린 세션 저장소 중 하나이며 대량"
+"으로 사용시 높은 오버헤드를 초래한다는 것입니다. 데이터베이스 배포의 적절한 "
+"구성은 상당히 힘들 수 있으며 이 문서의 범위를 훨씬 벗어납니다."
+
+msgid ""
+"The following steps in the \"Configuration\" section are optional, but "
+"highly recommended in production."
+msgstr ""
+"다음의 \\\"구성\\\" 섹션은 선택 사항이지만, 제품 환경에서 매우 권장됩니다."
+
+msgid ""
+"The only core service required by the dashboard is the Identity service. You "
+"can use the dashboard in combination with other services, such as Image "
+"service, Compute, and Networking. You can also use the dashboard in "
+"environments with stand-alone services such as Object Storage."
+msgstr ""
+"대시보드에서 요구하는 유일한 핵심 서비스는 Identity 서비스입니다. 대시보드를 "
+"이미지 서비스, 컴퓨트, 그리고 네트워킹과 같은 다른 서비스와 함께 결합하여 사"
+"용할 수 있습니다. 또한 개체 저장소와 같은 독립형 서비스 환경에서도 대시보드"
+"를 사용할 수 있습니다."
+
+msgid ""
+"Then configure the web server to host OpenStack dashboard via WSGI. For "
+"apache2 web server, you may need to create ``/etc/apache2/sites-available/"
+"horizon.conf``. The template in DevStack is a good example of the file. "
+"http://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-"
+"horizon.template Or you can automatically generate an apache configuration "
+"file. If you previously generated an ``openstack_dashboard/horizon_wsgi.py`` "
+"file it will use that, otherwise will default to using ``openstack_dashboard/"
+"wsgi.py``"
+msgstr ""
+"그리고, WSGI를 통해 OpenStack 대시보드를 호스팅하도록 웹 서버를 구성하십시"
+"오. apache2 웹 서버의 경우, ``/etc/apache2/sites-available/horizon.conf`` 생"
+"성이 필요할 수 있습니다. DevStack의 템플릿은 해당 파일의 좋은 예시입니다. "
+"http://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-"
+"horizon.template 또는 자동으로 apache 구성 파일을 생성할 수 있습니다. 이전에 "
+"``openstack_dashboard/horizon_wsgi.py`` 파일을 생성하였다면 그것을 사용하고, "
+"그렇지 않다면 기본적으로 ``openstack_dashboard/wsgi.py`` 를 사용합니다."
+
+msgid ""
+"There are a number of horizon plugins for various useful features. You can "
+"get dashboard supports for them by installing corresponding horizon plugins."
+msgstr ""
+"다양한 유용한 기능을 위한 많은 horizon 플러그인이 있습니다. 해당 horizon 플러"
+"그인을 설치하여 대시보드 지원을 받을 수 있습니다."
+
+msgid ""
+"There are two modes of installation. One using ``/horizon`` as the URL, "
+"keeping your default vhost and only adding an Alias directive: this is the "
+"default. The other mode will remove the default Apache vhost and install the "
+"dashboard on the webroot. It was the only available option before the "
+"Liberty release. If you prefer to set the Apache configuration manually,  "
+"install the ``openstack-dashboard`` package instead of ``openstack-dashboard-"
+"apache``."
+msgstr ""
+"두 가지 모드의 설치가 있습니다. 하나는 ``/horizon``을 URL로 사용하여, 기본 "
+"vhost를 유지하고 Alias 지시문을 추가합니다: 기본값입니다. 다른 하나는 기본 "
+"Apache vhost를 제거하고 webroot에 대시보드를 설치합니다. 이는 Liberty 릴리즈 "
+"이전의 유일한 가용 옵션이었습니다. Apache 구성을 수동으로 설정하기를 선호한다"
+"면, ``openstack-dashboard-apache`` 대신에 ``openstack-dashboard`` 패키지를 설"
+"치하십시오."
+
+msgid ""
+"This page covers the basic installation of horizon in a production "
+"environment. If you are looking for a developer environment, see :ref:"
+"`quickstart`."
+msgstr ""
+"이 페이지는 제품 환경에서의 horizon 기본 설치를 다루고 있습니다. 개발 환경을 "
+"찾는 경우, :ref:`quickstart`를 참조하십시오."
+
+msgid ""
+"This section assumes proper installation, configuration, and operation of "
+"the Identity service using the Apache HTTP server and Memcached service."
+msgstr ""
+"이 섹션은 Apache HTTP 서버와 Memcached 서비스를 사용하여 Identity 서비스를 올"
+"바르게 설치, 구성 및 운영한다고 가정합니다."
+
+msgid ""
+"This section contains a small summary of the critical settings required to "
+"run horizon. For more details, please refer to :ref:`install-settings`."
+msgstr ""
+"이 섹션은 horizon을 실행하는 데 필요한 중요 설정들에 대한 간단한 요약을 포함"
+"하고 있습니다. 더 자세한 사항은, :ref:`install-settings` 를 참조하십시오."
+
+msgid ""
+"This section describes how to install and configure the dashboard on the "
+"controller node."
+msgstr ""
+"이 섹션에서는 컨트롤 노드에 대시보드를 설치하고 구성하는 방법을 기술합니다."
+
+msgid ""
+"To mitigate the performance issues of database queries, you can also "
+"consider using Django's ``cached_db`` session backend which utilizes both "
+"your database and caching infrastructure to perform write-through caching "
+"and efficient retrieval. You can enable this hybrid setting by configuring "
+"both your database and cache as discussed above and then using"
+msgstr ""
+"데이터베이스 쿼리의 성능 문제를 완화하기 위하여, 동시 기록 캐싱과 효율적인 검"
+"색을 수행하기 위해 데이터베이스와 캐싱 인프라를 모두 사용하는  Django의 "
+"``cached_db`` 세션 백엔드 사용을 고려할 수 있습니다. 위에서 논의한 대로 데이"
+"터베이스와 캐시를 모두 구성하는 하이브리드 설정을 활성화하여 사용할 수 있습니"
+"다."
+
+msgid ""
+"To use the VNC client with the dashboard, the browser must support HTML5 "
+"Canvas and HTML5 WebSockets."
+msgstr ""
+"대시보드에서 VNC 클라이언트를 사용하려면, HTML5 Cnavas와 HTML5 WebSocket을 브"
+"라우저에서 지원해야 합니다."
+
+msgid "Translations"
+msgstr "번역"
+
+msgid "TripleO UI"
+msgstr "TripleO UI"
+
+msgid "Trove Dashboard"
+msgstr "Trove Dashboard"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Verify operation for Debian"
+msgstr "Debian을 위한 동작 검증"
+
+msgid "Verify operation for Red Hat Enterprise Linux and CentOS"
+msgstr "Red Hat Enterprise Linux와 CentOS를 위한 동작 검증"
+
+msgid "Verify operation for Ubuntu"
+msgstr "Ubuntu를 위한 동작 검증"
+
+msgid "Verify operation for openSUSE and SUSE Linux Enterprise"
+msgstr "openSUSE와 SUSE Linux Enterprise를 위한 동작 검증"
+
+msgid "Verify operation of the dashboard."
+msgstr "대시보드의 동작을 검증하십시오."
+
+msgid "Vitrage Dashboard"
+msgstr "Vitrage Dashboard"
+
+msgid "Watcher Dashboard"
+msgstr "Watcher Dashboard"
+
+msgid ""
+"You can either use the provided ``openstack_dashboard/wsgi.py`` or generate "
+"a ``openstack_dashboard/horizon_wsgi.py`` file with the following command "
+"(which detects if you use a virtual environment or not to automatically "
+"build an adapted WSGI file)"
+msgstr ""
+"다음의 명령을 통해 제공된 ``openstack_dashboard/wsgi.py`` 를 사용하거나 "
+"``openstack_dashboard/horizon_wsgi.py`` 파일을 생성할 수 있습니다. (가상 환경"
+"을 사용하거나 적용된 WSGI 파일을 자동으로 구축하지 않으면 감지합니다)"
+
+msgid "Your OpenStack environment now includes the dashboard."
+msgstr "OpenStack 환경은 이제 대시보드를 포함합니다."
+
+msgid "Zaqar UI"
+msgstr "Zaqar UI"
+
+msgid "Zun UI"
+msgstr "Zun UI"
+
+msgid "``ALLOWED_HOSTS``"
+msgstr "``ALLOWED_HOSTS``"
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See `Django documentation <https://docs.djangoproject."
+"com/en/dev/ref/settings/#allowed-hosts>`_ for further information."
+msgstr ""
+"``ALLOWED_HOSTS`` 에서는 모든 호스트를 허용하기 위해 ``['*']`` 로 설정할 수"
+"도 있습니다. 이는 개발 작업에서는 유용하겠지만, 잠재적인 보안 위협이 있기에 "
+"프로덕션 환경에서 사용해서는 안됩니다. 더 자세한 정보는 `Django "
+"documentation <https://docs.djangoproject.com/en/dev/ref/settings/#allowed-"
+"hosts>`_ 를 살펴봅니다."
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See the `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ for further "
+"information."
+msgstr ""
+"``ALLOWED_HOSTS`` 는 또한 모든 호스트에 접근하기 위해 ``['*']`` 가 될 수 있습"
+"니다. 이는 개발 작업에 유용할 수 있지만, 잠재적으로 불안전하므로 제품에서 사"
+"용하면 안됩니다. 자세한 정보는 `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ 을 참조하십시오."
+
+msgid "``DEBUG``"
+msgstr "``DEBUG``"
+
+msgid "``OPENSTACK_HOST``"
+msgstr "``OPENSTACK_HOST``"
+
+msgid "`cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage"
+msgstr "`cinder <https://docs.openstack.org/cinder/latest/>`_: 블록 스토리지"
+
+msgid "`glance <https://docs.openstack.org/glance/latest/>`_: Image Management"
+msgstr "`glance <https://docs.openstack.org/glance/latest/>`_: 이미지 관리"
+
+msgid "`neutron <https://docs.openstack.org/neutron/latest/>`_: Networking"
+msgstr "`neutron <https://docs.openstack.org/neutron/latest/>`_: 네트워킹"
+
+msgid "`nova <https://docs.openstack.org/nova/latest/>`_: Compute"
+msgstr "`nova <https://docs.openstack.org/nova/latest/>`_: 컴퓨팅"
+
+msgid "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
+msgstr "`swift <https://docs.openstack.org/swift/latest/>`_: 오브젝트 스토리지"
+
+msgid "https://github.com/openstack/blazar-dashboard"
+msgstr "https://github.com/openstack/blazar-dashboard"
+
+msgid "https://github.com/openstack/cloudkitty-dashboard"
+msgstr "https://github.com/openstack/cloudkitty-dashboard"
+
+msgid "https://github.com/openstack/congress-dashboard"
+msgstr "https://github.com/openstack/congress-dashboard"
+
+msgid "https://github.com/openstack/designate-dashboard"
+msgstr "https://github.com/openstack/designate-dashboard"
+
+msgid "https://github.com/openstack/freezer-web-ui"
+msgstr "https://github.com/openstack/freezer-web-ui"
+
+msgid "https://github.com/openstack/group-based-policy-ui"
+msgstr "https://github.com/openstack/group-based-policy-ui"
+
+msgid "https://github.com/openstack/heat-dashboard"
+msgstr "https://github.com/openstack/heat-dashboard"
+
+msgid "https://github.com/openstack/ironic-ui"
+msgstr "https://github.com/openstack/ironic-ui"
+
+msgid "https://github.com/openstack/karbor-dashboard"
+msgstr "https://github.com/openstack/karbor-dashboard"
+
+msgid "https://github.com/openstack/magnum-ui"
+msgstr "https://github.com/openstack/magnum-ui"
+
+msgid "https://github.com/openstack/manila-ui"
+msgstr "https://github.com/openstack/manila-ui"
+
+msgid "https://github.com/openstack/mistral-dashboard"
+msgstr "https://github.com/openstack/mistral-dashboard"
+
+msgid "https://github.com/openstack/monasca-ui"
+msgstr "https://github.com/openstack/monasca-ui"
+
+msgid "https://github.com/openstack/murano-dashboard"
+msgstr "https://github.com/openstack/murano-dashboard"
+
+msgid "https://github.com/openstack/networking-bgpvpn"
+msgstr "https://github.com/openstack/networking-bgpvpn"
+
+msgid "https://github.com/openstack/neutron-fwaas-dashboard"
+msgstr "https://github.com/openstack/neutron-fwaas-dashboard"
+
+msgid "https://github.com/openstack/neutron-lbaas-dashboard"
+msgstr "https://github.com/openstack/neutron-lbaas-dashboard"
+
+msgid "https://github.com/openstack/neutron-vpnaas-dashboard"
+msgstr "https://github.com/openstack/neutron-vpnaas-dashboard"
+
+msgid "https://github.com/openstack/octavia-dashboard"
+msgstr "https://github.com/openstack/octavia-dashboard"
+
+msgid "https://github.com/openstack/sahara-dashboard"
+msgstr "https://github.com/openstack/sahara-dashboard"
+
+msgid "https://github.com/openstack/searchlight-ui"
+msgstr "https://github.com/openstack/searchlight-ui"
+
+msgid "https://github.com/openstack/senlin-dashboard"
+msgstr "https://github.com/openstack/senlin-dashboard"
+
+msgid "https://github.com/openstack/solum-dashboard"
+msgstr "https://github.com/openstack/solum-dashboard"
+
+msgid "https://github.com/openstack/tacker-horizon"
+msgstr "https://github.com/openstack/tacker-horizon"
+
+msgid "https://github.com/openstack/tripleo-ui/"
+msgstr "https://github.com/openstack/tripleo-ui/"
+
+msgid "https://github.com/openstack/trove-dashboard"
+msgstr "https://github.com/openstack/trove-dashboard"
+
+msgid "https://github.com/openstack/vitrage-dashboard"
+msgstr "https://github.com/openstack/vitrage-dashboard"
+
+msgid "https://github.com/openstack/watcher-dashboard"
+msgstr "https://github.com/openstack/watcher-dashboard"
+
+msgid "https://github.com/openstack/zaqar-ui"
+msgstr "https://github.com/openstack/zaqar-ui"
+
+msgid "https://github.com/openstack/zun-ui"
+msgstr "https://github.com/openstack/zun-ui"
+
+msgid "https://launchpad.net/bgpvpn"
+msgstr "https://launchpad.net/bgpvpn"
+
+msgid "https://launchpad.net/blazar"
+msgstr "https://launchpad.net/blazar"
+
+msgid "https://launchpad.net/cloudkitty"
+msgstr "https://launchpad.net/cloudkitty"
+
+msgid "https://launchpad.net/congress"
+msgstr "https://launchpad.net/congress"
+
+msgid "https://launchpad.net/designate-dashboard"
+msgstr "https://launchpad.net/designate-dashboard"
+
+msgid "https://launchpad.net/freezer"
+msgstr "https://launchpad.net/freezer"
+
+msgid "https://launchpad.net/group-based-policy-ui"
+msgstr "https://launchpad.net/group-based-policy-ui"
+
+msgid "https://launchpad.net/ironic-ui"
+msgstr "https://launchpad.net/ironic-ui"
+
+msgid "https://launchpad.net/karbor-dashboard"
+msgstr "https://launchpad.net/karbor-dashboard"
+
+msgid "https://launchpad.net/magnum-ui"
+msgstr "https://launchpad.net/magnum-ui"
+
+msgid "https://launchpad.net/manila-ui"
+msgstr "https://launchpad.net/manila-ui"
+
+msgid "https://launchpad.net/mistral"
+msgstr "https://launchpad.net/mistral"
+
+msgid "https://launchpad.net/monasca"
+msgstr "https://launchpad.net/monasca"
+
+msgid "https://launchpad.net/murano"
+msgstr "https://launchpad.net/murano"
+
+msgid "https://launchpad.net/neutron-fwaas-dashboard"
+msgstr "https://launchpad.net/neutron-fwaas-dashboard"
+
+msgid "https://launchpad.net/neutron-vpnaas-dashboard"
+msgstr "https://launchpad.net/neutron-vpnaas-dashboard"
+
+msgid "https://launchpad.net/senlin-dashboard"
+msgstr "https://launchpad.net/senlin-dashboard"
+
+msgid "https://launchpad.net/solum"
+msgstr "https://launchpad.net/solum"
+
+msgid "https://launchpad.net/tacker"
+msgstr "https://launchpad.net/tacker"
+
+msgid "https://launchpad.net/tripleo"
+msgstr "https://launchpad.net/tripleo"
+
+msgid "https://launchpad.net/trove-dashboard"
+msgstr "https://launchpad.net/trove-dashboard"
+
+msgid "https://launchpad.net/vitrage-dashboard"
+msgstr "https://launchpad.net/vitrage-dashboard"
+
+msgid "https://launchpad.net/watcher-dashboard"
+msgstr "https://launchpad.net/watcher-dashboard"
+
+msgid "https://launchpad.net/zaqar-ui"
+msgstr "https://launchpad.net/zaqar-ui"
+
+msgid "https://launchpad.net/zun-ui"
+msgstr "https://launchpad.net/zun-ui"
+
+msgid "https://storyboard.openstack.org/#!/project/907"
+msgstr "https://storyboard.openstack.org/#!/project/907"
+
+msgid "https://storyboard.openstack.org/#!/project/909"
+msgstr "https://storyboard.openstack.org/#!/project/909"
+
+msgid "https://storyboard.openstack.org/#!/project/936"
+msgstr "https://storyboard.openstack.org/#!/project/936"
+
+msgid "https://storyboard.openstack.org/#!/project/992"
+msgstr "https://storyboard.openstack.org/#!/project/992"
+
+msgid "https://storyboard.openstack.org/#!/project/openstack/searchlight-ui"
+msgstr "https://storyboard.openstack.org/#!/project/openstack/searchlight-ui"
