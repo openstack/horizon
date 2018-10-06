@@ -157,10 +157,6 @@ LOGGING = {
             'handlers': ['test'],
             'propagate': False,
         },
-        'nose.plugins.manager': {
-            'handlers': ['null'],
-            'propagate': False,
-        },
         'selenium': {
             'handlers': ['null'],
             'propagate': False,

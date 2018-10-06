@@ -8,14 +8,11 @@
 .environment_version
 .selenium_log
 .coverage*
-.noseids
 .DS_STORE
 .DS_Store
 /cover
 coverage.xml
 coverage-karma
-nosetests.xml
-*nose_results.html
 pep8.txt
 pylint.txt
 # Files created by releasenotes build
