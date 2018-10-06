@@ -2,15 +2,106 @@
 [MASTER]
 # Add <file or directory> to the black list. It should be a base name, not a
 # path. You may set this option multiple times.
-ignore=test
+ignore=test,tests,tests.py,local_settings.py
 
 [Messages Control]
-# NOTE(justinsb): We might want to have a 2nd strict pylintrc in future
-# C0111: Don't require docstrings on every method
-# W0511: TODOs in code comments are fine.
-# W0142: *args and **kwargs are fine.
-# W0622: Redefining id is fine.
-disable=C0111,W0511,W0142,W0622
+disable=
+# "F" Fatal errors that prevent further processing
+# "I" Informational noise
+ locally-disabled,
+# "E" Error for important programming issues (likely bugs)
+ access-member-before-definition,
+ assignment-from-no-return,
+ bad-super-call,
+ import-error,
+ logging-too-few-args,
+ method-hidden,
+ misplaced-bare-raise,
+ no-member,
+ no-name-in-module,
+ not-an-iterable,
+ not-callable,
+ raising-non-exception,
+ redundant-keyword-arg,
+ undefined-all-variable,
+ unexpected-keyword-arg,
+# "W" Warnings for stylistic problems or minor programming issues
+ arguments-differ,
+ attribute-defined-outside-init,
+ bad-indentation,
+ broad-except,
+ cell-var-from-loop,
+ dangerous-default-value,
+ deprecated-method,  # TODO
+ exec-used,
+ fixme,
+ keyword-arg-before-vararg,  # TODO
+ logging-not-lazy,
+ pointless-string-statement,
+ protected-access,
+ raising-format-tuple,
+ redefined-builtin,
+ redefined-outer-name,
+ reimported,
+ signature-differs,
+ super-init-not-called,
+ undefined-loop-variable,
+ unidiomatic-typecheck,
+ unnecessary-pass,
+ unused-argument,
+ unused-import,
+ unused-wildcard-import,
+ useless-else-on-loop,
+ useless-super-delegation,
+ using-constant-test,
+ wildcard-import,
+# "C" Coding convention violations
+ abstract-method,
+ anomalous-backslash-in-string,
+ bad-builtin,
+ bad-continuation,
+ bad-mcs-classmethod-argument,
+ deprecated-lambda,
+ expression-not-assigned,
+ global-statement,
+ invalid-name,
+ len-as-condition,
+ line-too-long,
+ misplaced-comparison-constant,
+ missing-docstring,
+ no-method-argument,
+ superfluous-parens,
+ too-many-lines,
+ try-except-raise,
+ ungrouped-imports,
+ unused-variable,
+ wrong-import-order,  # TODO
+# "R" Refactor recommendations
+ chained-comparison,
+ comparison-with-itself,
+ consider-using-dict-comprehension,
+ consider-using-in,
+ consider-using-set-comprehension,
+ cyclic-import,  # TODO
+ duplicate-code,
+ inconsistent-return-statements,  # TODO
+ interface-not-implemented,
+ no-else-return,
+ no-self-use,
+ redefined-argument-from-local,
+ simplifiable-if-expression,
+ simplifiable-if-statement,
+ too-many-ancestors,
+ too-many-arguments,
+ too-many-branches,
+ too-many-function-args,
+ too-many-instance-attributes,
+ too-many-locals,
+ too-many-nested-blocks,
+ too-many-return-statements,
+ too-many-statements,
+ trailing-comma-tuple,
+ useless-object-inheritance
 
 [Basic]
 # Variable names can be 1 to 31 characters long, with lowercase and underscores
@@ -29,6 +120,10 @@ module-rgx=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+)|(keystone-[a-z0-9_-]+))$
 # Don't require docstrings on tests.
 no-docstring-rgx=((__.*__)|([tT]est.*)|setUp|tearDown)$
 
+[Format]
+# Maximum number of characters on a single line.
+max-line-length=80
+
 [Design]
 max-public-methods=100
 min-public-methods=0
@@ -40,3 +135,11 @@ max-args=6
 # you should avoid to define new builtins when possible.
 # _ is used by our localization
 additional-builtins=_
+
+[typecheck]
+# List of module names for which member attributes should not be checked
+ignored-modules=six.moves,_MovedItems
+
+[reports]
+# Tells whether to display a full report or only the messages
+reports=no

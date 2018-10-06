@@ -590,7 +590,7 @@ def server_list_paged(request,
         search_opts['project_id'] = request.user.tenant_id
 
     if search_opts.pop('paginate', False):
-        reversed_order = sort_dir is "asc"
+        reversed_order = sort_dir == "asc"
         LOG.debug("Notify received on deleted server: %r",
                   ('server_deleted' in request.session))
         deleted = request.session.pop('server_deleted',
