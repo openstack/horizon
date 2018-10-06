@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-10-02 15:04+0000\n"
+"POT-Creation-Date: 2018-10-05 10:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-03 08:01+0000\n"
+"PO-Revision-Date: 2018-10-05 08:43+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
@@ -756,6 +756,10 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "Disponível"
 
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Available"
+msgstr "Disponível"
+
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr "Disponível"
@@ -1288,6 +1292,9 @@ msgstr "Criar Backup do Volume"
 
 msgid "Create Volume Consistency Group"
 msgstr "Criar Grupo de Consistência de Volumes"
+
+msgid "Create Volume Group"
+msgstr "Criar Grupo de Volume"
 
 msgid "Create Volume Snapshot"
 msgstr "Criar Snapshot de Volume"
@@ -2508,6 +2515,10 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "Erro"
 
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Error"
+msgstr "Erro"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Erro"
@@ -3073,6 +3084,9 @@ msgstr "Vai"
 msgid "Graph"
 msgstr "Gráfico"
 
+msgid "Group"
+msgstr "Grupo"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Grupo \"%s\" foi criado com sucesso."
@@ -3100,6 +3114,9 @@ msgstr "Nome do Grupo ="
 
 msgid "Group Snapshot"
 msgstr "Snapshot de Grupo"
+
+msgid "Group Snapshots"
+msgstr "Snapshots de Grupo"
 
 msgid "Group has been updated successfully."
 msgstr "Grupo atualizado com sucesso."
@@ -3450,6 +3467,10 @@ msgid "In-use"
 msgstr "Em uso"
 
 msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "Em uso"
+
+msgctxt "Current status of Volume Group Snapshot"
 msgid "In-use"
 msgstr "Em uso"
 
@@ -4827,6 +4848,9 @@ msgstr "Na fila"
 msgid "Quota Name"
 msgstr "Nome de Cota"
 
+msgid "Quota exceeded for creating snapshots"
+msgstr "Cota excedida para criação de snapshots"
+
 msgid "Quota exceeded for resource router."
 msgstr "Quota excedida para router de recursos."
 
@@ -5189,6 +5213,9 @@ msgstr "Papel atualizado com sucesso."
 
 msgid "Roles"
 msgstr "Papéis"
+
+msgid "Roles from Groups"
+msgstr "Papéis de Grupos"
 
 msgid "Root Disk"
 msgstr "Disco Raiz"
@@ -6917,6 +6944,12 @@ msgstr "Não é possível desassociar IP flutuante."
 msgid "Unable to display consistency group."
 msgstr "Impossível mostrar grupo de consistência."
 
+msgid "Unable to display the groups of this project."
+msgstr "Não é possível exibir os grupos deste projeto."
+
+msgid "Unable to display the users of this project."
+msgstr "Não é possível exibir os usuários deste projeto."
+
 msgid "Unable to edit spec."
 msgstr "Não é possível editar especificação."
 
@@ -7272,6 +7305,12 @@ msgstr "Não foi possível recuperar a lista de IPs flutuantes."
 msgid "Unable to retrieve floating IP pools."
 msgstr "Não foi possível obter os pools de endereço IP flutuante."
 
+msgid "Unable to retrieve group"
+msgstr "Não é possível recuperar grupo."
+
+msgid "Unable to retrieve group information."
+msgstr "Não é possível recuperar informações de grupo."
+
 msgid "Unable to retrieve group list."
 msgstr "Não é possível recuperar lista de grupo."
 
@@ -7536,6 +7575,12 @@ msgstr "Não foi possível recuperar detalhes do volume."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Não foi possível obter detalhes do volume criptografado."
+
+msgid "Unable to retrieve volume group snapshots."
+msgstr "Não é possível recuperar snapshots de grupo de volume."
+
+msgid "Unable to retrieve volume groups."
+msgstr "Não é possível recuperar grupos de volumes."
 
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
