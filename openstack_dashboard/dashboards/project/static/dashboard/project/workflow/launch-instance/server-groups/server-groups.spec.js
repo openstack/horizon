@@ -33,8 +33,7 @@
         ctrl = $controller(
           'LaunchInstanceServerGroupsController',
           {
-            launchInstanceModel: model,
-            'horizon.dashboard.project.workflow.launch-instance.basePath': ''
+            launchInstanceModel: model
           });
       }));
 
@@ -50,10 +49,6 @@
         expect(ctrl.tableData.allocated).toEqual([ 'server group 1' ]);
         expect(ctrl.tableData.displayedAvailable).toEqual([]);
         expect(ctrl.tableData.displayedAllocated).toEqual([]);
-      });
-
-      it('defines table details template', function() {
-        expect(ctrl.tableDetails).toBeDefined();
       });
 
       it('defines table help', function() {
