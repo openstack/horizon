@@ -216,6 +216,11 @@ SESSION_COOKIE_MAX_SIZE = 4093
 #                https://bugs.launchpad.net/horizon/+bug/1349463
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
+# MEMOIZED_MAX_SIZE_DEFAULT allows setting a global default to help control
+# memory usage when caching. It should at least be 2 x the number of threads
+# with a little bit of extra buffer.
+MEMOIZED_MAX_SIZE_DEFAULT = 25
+
 CSRF_FAILURE_VIEW = 'openstack_dashboard.views.csrf_failure'
 
 LANGUAGES = (
