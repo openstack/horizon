@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-07 04:25+0000\n"
+"POT-Creation-Date: 2018-10-09 01:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-25 09:13+0000\n"
+"PO-Revision-Date: 2018-10-09 10:19+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -136,6 +136,25 @@ msgid ""
 msgstr ""
 "Publika Entenilo permesas iu ajn kun Publika URL ricevi aliron al al "
 "objektoj en la entenilo. "
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"  you to organize your data. You can think of a container as a folder in\n"
+"  Windows® or a directory in UNIX®. The primary difference between a\n"
+"  container and these other file system concepts is that containers cannot "
+"be\n"
+"  nested. You can, however, create an unlimited number of containers within\n"
+"  your account. Data must be stored in a container so you must have at "
+"least\n"
+"  one container defined in your account prior to uploading data."
+msgstr ""
+"Entenilo estas stokado por viaj datumoj kaj provizas manieron por vi "
+"organizi viajn datumojn. Vi povas pensi pri entenilo kiel dosierujo Windows® "
+"aŭ dosierujo en UNIX®. La primara diferenco inter a entenilo kaj ĉi tiuj "
+"aliaj dosieraj konceptoj estas ke enteniloj ne povas esti ingita. Vi povas "
+"krei senliman nombron da enteniloj ene via konto. Datumoj devas esti stokita "
+"en entenilo do vi devas havi almenaŭ unu entenilo difinita en via konto "
+"antaŭ alŝuti datumojn."
 
 msgid "A container with that name exists."
 msgstr "Entenilo kun tiu nomo ne ekzistas."
@@ -536,6 +555,11 @@ msgid_plural "Confirm Delete Key Pairs"
 msgstr[0] "Konfirmu Forigu Ŝlosilparon"
 msgstr[1] "Konfirmu Forigu Ŝlosilparojn"
 
+msgid "Confirm Delete Policy"
+msgid_plural "Confirm Delete Policies"
+msgstr[0] "Konfirmu Forigu  Regularon"
+msgstr[1] "Konfirmu Forigu  Regularojn"
+
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "Konfirmu Forigu Rolon"
@@ -816,6 +840,14 @@ msgstr "Forigu Ŝlosilo Paroj"
 msgid "Delete Network"
 msgstr "Forigu reton"
 
+msgid "Delete Policies"
+msgstr "Forigu Regularojn"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "Forigu Regularon"
+msgstr[1] "Forigu Regularojn"
+
 msgid "Delete Role"
 msgid_plural "Delete Roles"
 msgstr[0] "Forigu Rolon"
@@ -902,6 +934,18 @@ msgid_plural "Deleted Users: %s."
 msgstr[0] "Forigita Uzanto: %s."
 msgstr[1] "Forigitaj Uzantoj: %s."
 
+#, python-format
+msgid "Deleted domain: %s."
+msgid_plural "Deleted domains: %s."
+msgstr[0] "Forigita domajno: %s."
+msgstr[1] "Forigitaj domajnoj: %s."
+
+#, python-format
+msgid "Deleted policy: %s."
+msgid_plural "Deleted policies: %s."
+msgstr[0] "Forigita regularo: %s."
+msgstr[1] "Forigitaj regularoj: %s."
+
 msgid "Deleting"
 msgstr "Forigi"
 
@@ -985,6 +1029,13 @@ msgstr "Domajno Nomo"
 
 msgid "Domains"
 msgstr "Domajnoj"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr ""
+"Domajnoj provizas apartigon inter uzantoj kaj infrastrukturo uzita de aliaj "
+"organisacioj."
 
 msgid "Done"
 msgstr "Finita"
@@ -1494,6 +1545,16 @@ msgstr ""
 " Elektu ŝlosilparo nomon kiun vi rekonos kaj alglui vian SSH publikan "
 "ŝlosilon en la \n"
 "      spaco provizita."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, dashes and\n"
+"  underscores."
+msgstr ""
+"Ŝlosilaj Paroj estas kiel vi ensalutas al via apero post kiam ĝi estas "
+"lanĉita. Elektu ŝlosilpara nomon, kiun vi rekonos. Nomoj nur povas inkludi "
+"karakterojn litercifera, spacoj, streketoj kaj substrekoj."
 
 #, python-format
 msgid "Key pair %(name)s was successfully created."
@@ -3004,6 +3065,18 @@ msgid_plural "Unable to delete Users: %s."
 msgstr[0] "Neeblas forigi Uzanton: %s."
 msgstr[1] "Neeblas forigi Uzantojn: %s."
 
+#, python-format
+msgid "Unable to delete domain: %s."
+msgid_plural "Unable to delete domains: %s."
+msgstr[0] "Neeblas forigi domajnon: %s."
+msgstr[1] "Neeblas forigi domajnojn: %s."
+
+#, python-format
+msgid "Unable to delete policy: %s."
+msgid_plural "Unable to delete policies: %s."
+msgstr[0] "Neeblas forigi regularon: %s."
+msgstr[1] "Neeblas forigi regularojn: %s."
+
 msgid "Unable to delete the container."
 msgstr "Neeblas forigi la entenilon."
 
@@ -3741,6 +3814,12 @@ msgstr[0] "Vi selektis \"%s\". Forigita Trunko ne estas restaŭrebla."
 msgstr[1] "Vi selektis \"%s\". Forigitaj Trunkoj ne estas restaŭreblaj."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] "Vi selektis \"%s\". Forigita domajno ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj domajnoj ne estas restaŭreblaj."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "Vi selektis \"%s\". Forigita variaĵo ne estas restaŭrebla."
@@ -3757,6 +3836,12 @@ msgid "You have selected \"%s\". Deleted key pair is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
 msgstr[0] "Vi selektis \"%s\". Forigita Ŝlosilparo ne estas restaŭrebla."
 msgstr[1] "Vi selektis \"%s\". Forigitaj Ŝlosilparoj ne estas restaŭreblaj."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted policy is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted policies are not recoverable."
+msgstr[0] "Vi selektis \"%s\". Forigita regularo ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj regularoj ne estas restaŭreblaj."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."
