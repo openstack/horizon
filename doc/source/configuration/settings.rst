@@ -1565,6 +1565,20 @@ Default: ``None``
 Allows to specify a callback to the IdP to cleanup the SSO resources.
 Once the user logs out it will redirect to the IdP log out method.
 
+WEBSSO_KEYSTONE_URL
+-----------------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: None
+
+The full auth URL for the Keystone endpoint used for web single-sign-on
+authentication. Use this when ``OPENSTACK_KEYSTONE_URL`` is set to an internal
+Keystone endpoint and is not reachable from the external network where the
+identity provider lives. This URL will take precedence over
+``OPENSTACK_KEYSTONE_URL`` if the login choice is an external
+identity provider (IdP).
+
 Neutron
 -------
 
