@@ -566,10 +566,11 @@ def user_verify_admin_password(request, admin_password):
 @profiler.trace
 def user_update_own_password(request, origpassword, password):
     client = keystoneclient(request, admin=False)
-    client.user_id = request.user.id
     if VERSIONS.active < 3:
+        client.user_id = request.user.id
         return client.users.update_own_password(origpassword, password)
     else:
+        client.users.client.session.auth.user_id = request.user.id
         return client.users.update_password(origpassword, password)
 
 
