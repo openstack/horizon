@@ -6,6 +6,8 @@
     <dd>{{ instance.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ instance.id }}</dd>
+     <dt>{% trans "Physical Host Name" %}</dt>
+    <dd>{{ instance.hypervisor_hostname }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ instance.status_label|title }}</dd>
     <dt>{% trans "Availability Zone" %}</dt>
