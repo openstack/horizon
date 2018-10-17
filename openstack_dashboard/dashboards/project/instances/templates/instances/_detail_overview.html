@@ -6,8 +6,16 @@
     <dd>{{ instance.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ instance.id }}</dd>
-     <dt>{% trans "Physical Host Name" %}</dt>
-    <dd>{{ instance.hypervisor_hostname }}</dd>
+    <dt>{% trans "Physical Host Name" %}</dt>
+    <dd>
+    {% if site and instance.hypervisor_hostname %}
+     <a target="blank" href="https://www.chameleoncloud.org/hardware/node/sites/{{ site }}/clusters/chameleon/nodes/{{ instance.hypervisor_hostname }}/">
+       {{ instance.hypervisor_hostname }}
+     </a>
+    {% else %}
+     {{ instance.hypervisor_hostname }}
+    {% endif %}
+    </dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ instance.status_label|title }}</dd>
     <dt>{% trans "Availability Zone" %}</dt>
