@@ -55,7 +55,7 @@ Install and configure components
 
 
 
-2. Edit the
+3. Edit the
    ``/etc/openstack-dashboard/local_settings.py``
    file and complete the following actions:
 
