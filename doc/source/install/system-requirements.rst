@@ -2,7 +2,7 @@
 System Requirements
 ===================
 
-The Queens release of horizon has the following dependencies.
+The Stein release of horizon has the following dependencies.
 
 * Python 2.7 or 3.5
 * Django 1.11 or 2.0
@@ -16,7 +16,7 @@ The Queens release of horizon has the following dependencies.
 * An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ endpoint
 
 * All other services are optional.
-  Horizon supports the following services as of the Queens release.
+  Horizon supports the following services as of the Stein release.
   If the keystone endpoint for a service is configured,
   horizon detects it and enables its support automatically.
 

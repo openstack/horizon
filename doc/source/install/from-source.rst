@@ -14,7 +14,9 @@ Installation
 .. note::
 
   In the commands below, substitute "<release>" for your version of choice,
-  such as "ocata" or "pike".
+  such as "queens" or "rocky".
+
+  If you use the development version, replace "stable/<release>" with "master".
 
 #. Clone Horizon
 
