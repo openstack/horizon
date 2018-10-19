@@ -13,6 +13,8 @@
 # limitations under the License.
 """API over the keystone service."""
 
+import copy
+
 from django.conf import settings
 import django.http
 from django.views import generic
@@ -542,7 +544,14 @@ class ServiceCatalog(generic.View):
     @rest_utils.ajax()
     def get(self, request):
         """Return the service catalog associated with the current user."""
-        return request.user.service_catalog
+        catalog = copy.deepcopy(request.user.service_catalog)
+        for record in catalog:
+            for endpoint in record['endpoints']:
+                if endpoint['interface'] != 'public':
+                    record['endpoints'].remove(endpoint)
+            if not record['endpoints']:
+                catalog.remove(record)
+        return catalog
 
 
 @urls.register

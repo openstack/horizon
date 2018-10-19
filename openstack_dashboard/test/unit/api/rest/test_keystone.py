@@ -15,7 +15,6 @@
 from django.conf import settings
 import mock
 from oslo_serialization import jsonutils
-import six
 
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import keystone
@@ -688,13 +687,70 @@ class KeystoneRestTestCase(test.TestCase):
     #
     def test_service_catalog_get(self):
         request = self.mock_rest_request()
+        request.user = mock.MagicMock(**{'service_catalog': [
+                {'endpoints': [
+                    {'url': 'http://cool_url/image',
+                     'interface': 'admin',
+                     'region': 'RegionOne',
+                     'region_id': 'RegionOne',
+                     'id': 'test'},
+                    {'url': 'http://cool_url/image',
+                     'interface': 'public',
+                     'region': 'RegionOne',
+                     'region_id': 'RegionOne',
+                     'id': 'test'},
+                    {'url': 'http://cool_url/image',
+                     'interface': 'internal',
+                     'region': 'RegionOne',
+                     'region_id': 'RegionOne',
+                     'id': 'test'}],
+                    'type': 'image',
+                    'id': '2b5bc2e59b094f898a43f5e8ce446240',
+                    'name': 'glance'},
+                {'endpoints': [
+                    {'url': 'http://cool_url/volume/v2/test',
+                     'interface': 'public',
+                     'region': 'RegionOne',
+                     'region_id': 'RegionOne',
+                     'id': '29a629afb80547ea9baa4266e97b4cb5'},
+                    {'url': 'http://cool_url/volume/v2/test',
+                     'interface': 'admin',
+                     'region': 'RegionOne',
+                     'region_id': 'RegionOne',
+                     'id': '29a629afb80547ea9baa4266e97b4cb5'}],
+                    'type': 'volumev2',
+                    'id': '55ef272cfa714e54b8f2046c157b027d',
+                    'name': 'cinderv2'},
+                {'endpoints': [
+                    {'url': 'http://cool_url/compute/v2/check',
+                     'interface': 'internal',
+                     'region': 'RegionOne',
+                     'region_id': 'RegionOne',
+                     'id': 'e8c440e025d94355ab82c78cc2062129'}],
+                    'type': 'compute_legacy',
+                    'id': 'b7f1d3f4119643508d5ca2325eb8af87',
+                    'name': 'nova_legacy'}]})
         response = keystone.ServiceCatalog().get(request)
         self.assertStatusCode(response, 200)
-        content = jsonutils.dumps(request.user.service_catalog,
-                                  sort_keys=settings.DEBUG)
-        if six.PY3:
-            content = content.encode('utf-8')
-        self.assertEqual(content, response.content)
+        content = [{'endpoints': [
+                    {'url': 'http://cool_url/image',
+                     'interface': 'public',
+                     'region': 'RegionOne',
+                     'region_id': 'RegionOne',
+                     'id': 'test'}],
+                    'type': 'image',
+                    'id': '2b5bc2e59b094f898a43f5e8ce446240',
+                    'name': 'glance'},
+                   {'endpoints': [
+                    {'url': 'http://cool_url/volume/v2/test',
+                     'interface': 'public',
+                     'region': 'RegionOne',
+                     'region_id': 'RegionOne',
+                     'id': '29a629afb80547ea9baa4266e97b4cb5'}],
+                    'type': 'volumev2',
+                    'id': '55ef272cfa714e54b8f2046c157b027d',
+                    'name': 'cinderv2'}]
+        self.assertEqual(content, jsonutils.loads(response.content))
 
     #
     # User Session
