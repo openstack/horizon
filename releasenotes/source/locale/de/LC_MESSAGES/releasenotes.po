@@ -3,17 +3,18 @@
 # Frank Kloeker <eumel@arcor.de>, 2017. #zanata
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 # Alexander Loew <alexander.loew@innovo-cloud.de>, 2018. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 00:02+0000\n"
+"POT-Creation-Date: 2018-10-16 08:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-17 08:35+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2018-10-21 05:46+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -341,6 +342,16 @@ msgstr ""
 "ID an, die den Vergleich mit anderen Dienstanbietern ermöglicht "
 "``KEYSTONE_PROVIDER_IDP_ID``. [`blueprint k2k-horizon <https://blueprints."
 "launchpad.net/horizon/+spec/k2k-horizon>`_]."
+
+msgid ""
+"Added a locked status column on admin/project instances table. It will show "
+"a locked or unlocked icon if nova API 2.9 or above is used. The locked "
+"status is also available on instance details panel."
+msgstr ""
+"Spalte für den Gesperrt Status in der admin/project Instanzentabelle "
+"hinzugefügt. Sie zeigt ein gesperrt oder entsperrt Icon wenn nova API 2.9 "
+"oder höher verwendet wird. Der Gesperrt Status ist auch im Instanzendetail-"
+"Panel verfügbar."
 
 msgid ""
 "Added a new ``ANGULAR FEATURES`` dictionary to the settings. This allows "
