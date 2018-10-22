@@ -1105,6 +1105,8 @@ class DataTableOptions(object):
         # Set self.filter if we have any FilterActions
         filter_actions = [action for action in self.table_actions if
                           issubclass(action, FilterAction)]
+        batch_actions = [action for action in self.table_actions if
+                         issubclass(action, BatchAction)]
         if len(filter_actions) > 1:
             raise NotImplementedError("Multiple filter actions are not "
                                       "currently supported.")
@@ -1137,7 +1139,7 @@ class DataTableOptions(object):
                                       len(self.row_actions) > 0)
         self.multi_select = getattr(options,
                                     'multi_select',
-                                    len(self.table_actions) > 0)
+                                    len(batch_actions) > 0)
 
         # Set runtime table defaults; not configurable.
         self.has_prev_data = False
@@ -1301,6 +1303,16 @@ class DataTable(object):
 
         self.needs_summary_row = any([col.summation
                                       for col in self.columns.values()])
+        # For multi-process, we need to set the multi_column to be visible
+        # or hidden each time.
+        # Example: first process the multi_column visible but second
+        # process the column is hidden. Updating row by ajax will
+        # make the bug#1799151
+        if request.GET.get('action') == 'row_update':
+            bound_actions = self.get_table_actions()
+            batch_actions = [action for action in bound_actions
+                             if isinstance(action, BatchAction)]
+            self.set_multiselect_column_visibility(bool(batch_actions))
 
     def __str__(self):
         return six.text_type(self._meta.verbose_name)
@@ -1570,7 +1582,7 @@ class DataTable(object):
         if self._meta.table_actions_menu_label:
             extra_context['table_actions_menu_label'] = \
                 self._meta.table_actions_menu_label
-        self.set_multiselect_column_visibility(len(batch_actions) > 0)
+        self.set_multiselect_column_visibility(bool(batch_actions))
         return table_actions_template.render(extra_context, self.request)
 
     def render_row_actions(self, datum, row=False):

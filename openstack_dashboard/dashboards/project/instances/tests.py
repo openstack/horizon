@@ -5181,7 +5181,8 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
     @helpers.create_mocks({api.nova: ("server_get",
                                       "flavor_get",
                                       "extension_supported",
-                                      "is_feature_available"),
+                                      "is_feature_available",
+                                      "tenant_absolute_limits"),
                            api.network: ('servers_update_addresses',)})
     def test_row_update(self):
         server = self.servers.first()
@@ -5220,7 +5221,8 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
     @helpers.create_mocks({api.nova: ("server_get",
                                       "flavor_get",
                                       'is_feature_available',
-                                      "extension_supported"),
+                                      "extension_supported",
+                                      "tenant_absolute_limits"),
                            api.network: ('servers_update_addresses',)})
     def test_row_update_instance_error(self):
         server = self.servers.first()
@@ -5280,7 +5282,8 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
     @helpers.create_mocks({api.nova: ("server_get",
                                       "flavor_get",
                                       'is_feature_available',
-                                      "extension_supported"),
+                                      "extension_supported",
+                                      "tenant_absolute_limits"),
                            api.network: ('servers_update_addresses',)})
     def test_row_update_flavor_not_found(self):
         server = self.servers.first()

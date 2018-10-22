@@ -687,7 +687,10 @@ class BatchAction(Action):
     def _allowed(self, request, datum=None):
         # Override the default internal action method to prevent batch
         # actions from appearing on tables with no data.
-        if not self.table.data and not datum:
+        # Updating single row of table by ajax prove that there is one
+        # data at least.
+        action = request.GET.get('action')
+        if action != 'row_update' and not self.table.data and not datum:
             return False
         return super(BatchAction, self)._allowed(request, datum)
 
