@@ -266,15 +266,14 @@ def get_auth_params_from_request(request):
     )
 
 
-def _argconv_for_novaclient(request, version=None):
-    req_param = get_auth_params_from_request(request)
+def novaclient(request, version=None):
     if isinstance(version, api_versions.APIVersion):
         version = version.get_string()
-    return (req_param, version), {}
+    return cached_novaclient(request, version)
 
 
-@memoized.memoized_with_argconv(_argconv_for_novaclient)
-def novaclient(request_auth_params, version=None):
+@memoized.memoized
+def cached_novaclient(request, version=None):
     (
         username,
         token_id,
@@ -282,7 +281,7 @@ def novaclient(request_auth_params, version=None):
         project_domain_id,
         nova_url,
         auth_url
-    ) = request_auth_params
+    ) = get_auth_params_from_request(request)
     if version is None:
         version = VERSIONS.get_active_version()['version']
     c = nova_client.Client(version,
@@ -1066,11 +1065,12 @@ def interface_detach(request, server, port_id):
 
 
 @profiler.trace
-@memoized.memoized_with_request(novaclient)
-def list_extensions(nova_api):
+@memoized.memoized
+def list_extensions(request):
     """List all nova extensions, except the ones in the blacklist."""
     blacklist = set(getattr(settings,
                             'OPENSTACK_NOVA_EXTENSIONS_BLACKLIST', []))
+    nova_api = novaclient(request)
     return tuple(
         extension for extension in
         nova_list_extensions.ListExtManager(nova_api).show_all()
@@ -1078,22 +1078,15 @@ def list_extensions(nova_api):
     )
 
 
-# NOTE(amotoki): In Python 3, a tuple of the Extension classes
-# is not hashable. The return value must be a known premitive.
-# This converts the return value to a tuple of a string.
-def _list_extensions_wrap(request):
-    return tuple(e.name for e in list_extensions(request))
-
-
 @profiler.trace
-@memoized.memoized_with_request(_list_extensions_wrap, 1)
-def extension_supported(extension_name, supported_ext_names):
+@memoized.memoized
+def extension_supported(extension_name, request):
     """Determine if nova supports a given extension name.
 
     Example values for the extension_name include AdminActions, ConsoleOutput,
     etc.
     """
-    for ext in supported_ext_names:
+    for ext in list_extensions(request):
         if ext == extension_name:
             return True
     return False
