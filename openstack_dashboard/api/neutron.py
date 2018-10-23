@@ -1715,6 +1715,9 @@ def servers_update_addresses(request, servers, all_tenants=False):
         networks = list_resources_with_long_filters(
             network_list, 'id', frozenset([port.network_id for port in ports]),
             request=request)
+    except neutron_exc.NotFound as e:
+        LOG.error('Neutron resource does not exist. %s', e)
+        return
     except Exception as e:
         LOG.error('Unable to connect to Neutron: %s', e)
         error_message = _('Unable to connect to Neutron.')
