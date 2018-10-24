@@ -29,6 +29,7 @@ from django.template.defaultfilters import slugify
 from django.template.defaultfilters import truncatechars
 from django.template.loader import render_to_string
 from django import urls
+from django.utils import encoding
 from django.utils.html import escape
 from django.utils import http
 from django.utils.http import urlencode
@@ -730,6 +731,7 @@ class Cell(html.HTMLElement):
             # those columns where truncate is False leads to multiple errors
             # in unit tests
             data = getattr(datum, column.name, '') or ''
+            data = encoding.force_text(data)
             if len(data) > column.truncate:
                 self.attrs['data-toggle'] = 'tooltip'
                 self.attrs['title'] = data
