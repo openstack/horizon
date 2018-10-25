@@ -39,7 +39,8 @@ def form_data_subnet(subnet,
                      gateway_ip='', enable_dhcp=None,
                      allocation_pools=None,
                      dns_nameservers=None,
-                     host_routes=None):
+                     host_routes=None,
+                     no_gateway=None):
     def get_value(value, default):
         return default if value is None else value
 
@@ -50,7 +51,7 @@ def form_data_subnet(subnet,
 
     gateway_ip = subnet.gateway_ip if gateway_ip == '' else gateway_ip
     data['gateway_ip'] = gateway_ip or ''
-    data['no_gateway'] = (gateway_ip is None)
+    data['no_gateway'] = no_gateway or (gateway_ip is None)
 
     data['enable_dhcp'] = get_value(enable_dhcp, subnet.enable_dhcp)
     if data['ip_version'] == 6:
@@ -905,6 +906,50 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     def test_network_create_post_with_subnet_gw_inconsistent_w_snpool(self):
         self.test_network_create_post_with_subnet_gw_inconsistent(
             test_with_subnetpool=True)
+
+    @test.create_mocks({api.neutron: ('network_create',
+                                      'subnet_create',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
+    def test_network_create_post_with_subnet_ignore_error_msg_for_gateway(
+            self):
+        network = self.networks.first()
+        subnet = self.subnets.first()
+        params = {'name': network.name,
+                  'admin_state_up': network.admin_state_up,
+                  'shared': False}
+
+        self._stub_is_extension_supported({'network_availability_zone': False,
+                                           'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnetpools.list()
+        self.mock_network_create.return_value = network
+        self.mock_subnet_create.return_value = subnet
+
+        form_data = {'net_name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'shared': False,
+                     'with_subnet': True}
+        subnet_params = {'network_id': network.id,
+                         'name': subnet.name,
+                         'cidr': subnet.cidr,
+                         'ip_version': subnet.ip_version,
+                         'gateway_ip': None,
+                         'enable_dhcp': subnet.enable_dhcp}
+        form_data.update(form_data_subnet(subnet, allocation_pools=[],
+                                          no_gateway=True, gateway_ip="."))
+        url = reverse('horizon:project:networks:create')
+        res = self.client.post(url, form_data)
+        self.assertNoWorkflowErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_network_create.assert_called_once_with(
+            test.IsHttpRequest(), **params)
+        self.mock_subnet_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            **subnet_params)
+        self._check_is_extension_supported({'network_availability_zone': 1,
+                                            'subnet_allocation': 1})
 
     @test.create_mocks({api.neutron: ('network_get',)})
     def test_network_update_get(self):

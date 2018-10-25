@@ -385,6 +385,21 @@ class TestCase(horizon_helpers.TestCase):
         self.assertEqual(count, mocked_method.call_count)
         mocked_method.assert_has_calls([expected_call] * count)
 
+    def assertNoWorkflowErrors(self, response, context_name="workflow"):
+        """Checks for no workflow errors.
+
+        Asserts that the response either does not contain a workflow in its
+        context, or that if it does, that workflow has no errors.
+        """
+        context = getattr(response, "context", {})
+        if not context or context_name not in context:
+            return True
+        errors = [step.action._errors for step in
+                  response.context[context_name].steps]
+        self.assertEqual(
+            0, len(errors),
+            "Unexpected errors were found on the workflow: %s" % errors)
+
 
 class BaseAdminViewTests(TestCase):
     """Sets an active user with the "admin" role.
