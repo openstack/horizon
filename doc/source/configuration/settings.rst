@@ -1566,7 +1566,7 @@ Allows to specify a callback to the IdP to cleanup the SSO resources.
 Once the user logs out it will redirect to the IdP log out method.
 
 WEBSSO_KEYSTONE_URL
------------------------
+~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 15.0.0(Stein)
 
