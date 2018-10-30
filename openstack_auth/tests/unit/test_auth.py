@@ -16,6 +16,7 @@ import uuid
 from django.conf import settings
 from django.contrib import auth
 from django import test
+from django.test.utils import override_settings
 from django.urls import reverse
 from keystoneauth1 import exceptions as keystone_exceptions
 from keystoneauth1.identity import v2 as v2_auth
@@ -1192,6 +1193,25 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
 
         # POST to the page and redirect to keystone.
         response = self.client.post(url, form_data)
+        self.assertRedirects(response, redirect_url, status_code=302,
+                             target_status_code=404)
+
+    @override_settings(WEBSSO_KEYSTONE_URL='http://keystone-public:5000/v3')
+    def test_websso_redirect_using_websso_keystone_url(self):
+        origin = 'http://testserver/auth/websso/'
+        protocol = 'oidc'
+        redirect_url = ('%s/auth/OS-FEDERATION/identity_providers/%s'
+                        '/protocols/%s/websso?origin=%s' %
+                        (settings.WEBSSO_KEYSTONE_URL, self.idp_id,
+                         protocol, origin))
+
+        form_data = {'auth_type': self.idp_oidc_id,
+                     'region': settings.OPENSTACK_KEYSTONE_URL}
+        url = reverse('login')
+
+        # POST to the page and redirect to keystone.
+        response = self.client.post(url, form_data)
+        # verify that the request was sent back to WEBSSO_KEYSTONE_URL
         self.assertRedirects(response, redirect_url, status_code=302,
                              target_status_code=404)
 

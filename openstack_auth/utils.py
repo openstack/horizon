@@ -167,7 +167,8 @@ def get_websso_url(request, auth_url, websso_auth):
     :param request: Django http request object.
     :type request: django.http.HttpRequest
     :param auth_url: Keystone endpoint configured in the horizon setting.
-                     The value is derived from:
+                     If WEBSSO_KEYSTONE_URL is defined, its value will be
+                     used. Otherwise, the value is derived from:
                      - OPENSTACK_KEYSTONE_URL
                      - AVAILABLE_REGIONS
     :type auth_url: string

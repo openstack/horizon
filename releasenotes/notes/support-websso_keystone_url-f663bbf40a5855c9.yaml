@@ -1,0 +1,8 @@
+---
+fixes:
+  - |
+    [:bug:`1544703`] Add a new optional WEBSSO_KEYSTONE_URL property to
+    facilitate WEBSSO deployments where network segmentation is used per
+    security requirement. In this case, the controllers are not reachable
+    from public network. Therefore, user's browser will not be able to access
+    OPENSTACK_KEYSTONE_URL if it is set to the internal endpoint.
