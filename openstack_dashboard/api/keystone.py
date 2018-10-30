@@ -20,6 +20,8 @@
 import collections
 import logging
 
+from oslo_utils import uuidutils
+
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 import six
@@ -347,6 +349,9 @@ def is_domain_admin(request):
 # tenant commands.
 @profiler.trace
 def tenant_get(request, project, admin=True):
+    if not uuidutils.is_uuid_like(project):
+        raise keystone_exceptions.NotFound()
+
     manager = VERSIONS.get_project_manager(request, admin=admin)
     try:
         return manager.get(project)
@@ -466,6 +471,9 @@ def user_delete(request, user_id):
 
 @profiler.trace
 def user_get(request, user_id, admin=True):
+    if not uuidutils.is_uuid_like(user_id):
+        raise keystone_exceptions.NotFound()
+
     user = keystoneclient(request, admin=admin).users.get(user_id)
     return VERSIONS.upgrade_v2_user(user)
 
