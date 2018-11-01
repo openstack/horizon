@@ -408,10 +408,11 @@ class BaseAdminViewTests(TestCase):
         self.client.cookies[settings.SESSION_COOKIE_NAME] = store.session_key
 
 
-class APITestCase(TestCase):
-    def setUp(self):
-        super(APITestCase, self).setUp()
-        utils.patch_middleware_get_user()
+# NOTE(adriant): APITestCase was only needed for some openstack_auth
+# monkeypatching. With the new monkeypatch middleware from openstack_auth this
+# is not needed.
+# TODO(adriant): Clean up APITestCase usage in horizon plugins.
+APITestCase = TestCase
 
 
 # APIMockTestCase was introduced to support mox to mock migration smoothly
