@@ -425,7 +425,7 @@ class CreateForm(forms.SelfHandlingForm):
                                           availability_zone=az,
                                           source_volid=volume_id,
                                           group_id=data.get('group') or None)
-            message = _('Creating volume "%s"') % data['name']
+            message = _('Creating volume "%s"') % volume.name
             messages.info(request, message)
             return volume
         except ValidationError as e:
