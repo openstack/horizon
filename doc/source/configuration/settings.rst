@@ -809,6 +809,18 @@ This SESSION_TIMEOUT is a method to supercede the token timeout with a shorter
 horizon session timeout (in seconds).  So if your token expires in 60 minutes,
 a value of 1800 will log users out after 30 minutes.
 
+MEMOIZED_MAX_SIZE_DEFAULT
+-------------------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``"25"``
+
+MEMOIZED_MAX_SIZE_DEFAULT allows setting a global default to help control
+memory usage when caching. It should at least be 2 x the number of threads
+with a little bit of extra buffer.
+
+
 SHOW_KEYSTONE_V2_RC
 --------------------
 

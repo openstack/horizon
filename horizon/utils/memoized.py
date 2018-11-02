@@ -18,6 +18,8 @@ import threading
 import warnings
 import weakref
 
+from django.conf import settings
+
 
 class UnhashableKeyWarning(RuntimeWarning):
     """Raised when trying to memoize a function with an unhashable argument."""
@@ -46,65 +48,88 @@ def _get_key(args, kwargs, remove_callback):
     return weak_args, weak_kwargs
 
 
-def memoized(func):
+def memoized(func=None, max_size=None):
     """Decorator that caches function calls.
 
     Caches the decorated function's return value the first time it is called
     with the given arguments.  If called later with the same arguments, the
     cached value is returned instead of calling the decorated function again.
 
+    It operates as a LRU cache and keeps up to the max_size value of cached
+    items, always clearing oldest items first.
+
     The cache uses weak references to the passed arguments, so it doesn't keep
     them alive in memory forever.
     """
-    # The dictionary in which all the data will be cached. This is a separate
-    # instance for every decorated function, and it's stored in a closure of
-    # the wrapped function.
-    cache = {}
-    locks = collections.defaultdict(threading.Lock)
 
-    @functools.wraps(func)
-    def wrapped(*args, **kwargs):
-        # We need to have defined key early, to be able to use it in the
-        # remove() function, but we calculate the actual value of the key
-        # later on, because we need the remove() function for that.
-        key = None
+    def decorate(func):
 
-        def remove(ref):
-            """A callback to remove outdated items from cache."""
-            try:
-                # The key here is from closure, and is calculated later.
-                del cache[key]
-                del locks[key]
-            except KeyError:
-                # Some other weak reference might have already removed that
-                # key -- in that case we don't need to do anything.
-                pass
+        # The dictionary in which all the data will be cached. This is a
+        # separate instance for every decorated function, and it's stored in a
+        # closure of the wrapped function.
+        cache = collections.OrderedDict()
+        locks = collections.defaultdict(threading.Lock)
+        if max_size:
+            max_cache_size = max_size
+        else:
+            max_cache_size = getattr(settings, 'MEMOIZED_MAX_SIZE_DEFAULT', 25)
 
-        key = _get_key(args, kwargs, remove)
-        try:
-            with locks[key]:
+        @functools.wraps(func)
+        def wrapped(*args, **kwargs):
+            # We need to have defined key early, to be able to use it in the
+            # remove() function, but we calculate the actual value of the key
+            # later on, because we need the remove() function for that.
+            key = None
+
+            def remove(ref):
+                """A callback to remove outdated items from cache."""
                 try:
-                    # We want cache hit to be as fast as possible, and don't
-                    # really care much about the speed of a cache miss, because
-                    # it will only happen once and likely calls some external
-                    # API, database, or some other slow thing. That's why the
-                    # hit is in straightforward code, and the miss is in an
-                    # exception.
-                    value = cache[key]
+                    # The key here is from closure, and is calculated later.
+                    del cache[key]
+                    del locks[key]
                 except KeyError:
-                    value = cache[key] = func(*args, **kwargs)
-        except TypeError:
-            # The calculated key may be unhashable when an unhashable
-            # object, such as a list, is passed as one of the arguments. In
-            # that case, we can't cache anything and simply always call the
-            # decorated function.
-            warnings.warn(
-                "The key of %s %s is not hashable and cannot be memoized: %r\n"
-                % (func.__module__, func.__name__, key),
-                UnhashableKeyWarning, 2)
-            value = func(*args, **kwargs)
-        return value
-    return wrapped
+                    # Some other weak reference might have already removed that
+                    # key -- in that case we don't need to do anything.
+                    pass
+
+            key = _get_key(args, kwargs, remove)
+            try:
+                with locks[key]:
+                    try:
+                        # We want cache hit to be as fast as possible, and
+                        # don't really care much about the speed of a cache
+                        # miss, because it will only happen once and likely
+                        # calls some external API, database, or some other slow
+                        # thing. That's why the hit is in straightforward code,
+                        # and the miss is in an exception.
+                        # We also want to pop the key and reset it to make sure
+                        # the position it has in the order updates.
+                        value = cache[key] = cache.pop(key)
+                    except KeyError:
+                        value = cache[key] = func(*args, **kwargs)
+            except TypeError:
+                # The calculated key may be unhashable when an unhashable
+                # object, such as a list, is passed as one of the arguments. In
+                # that case, we can't cache anything and simply always call the
+                # decorated function.
+                warnings.warn(
+                    "The key of %s %s is not hashable and cannot be memoized: "
+                    "%r\n" % (func.__module__, func.__name__, key),
+                    UnhashableKeyWarning, 2)
+                value = func(*args, **kwargs)
+
+            while len(cache) > max_cache_size:
+                try:
+                    popped_tuple = cache.popitem(last=False)
+                    locks.pop(popped_tuple[0], None)
+                except KeyError:
+                    pass
+
+            return value
+        return wrapped
+    if func and callable(func):
+        return decorate(func)
+    return decorate
 
 # We can use @memoized for methods now too, because it uses weakref and so
 # it doesn't keep the instances in memory forever. We might want to separate
