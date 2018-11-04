@@ -626,7 +626,7 @@ users of Horizon. The format of the logs is configured via
 .. note::
 
   If you use this feature, you need to configure the logger setting like
-  a outputting path for operation log in ``local_settings.py``.
+  an outputting path for operation log in ``local_settings.py``.
 
 OPERATION_LOG_OPTIONS
 ---------------------
@@ -656,7 +656,7 @@ This setting controls the behavior of the operation log.
 * ``mask_fields`` is a list of keys of post data which should be masked from the
   point of view of security. Fields like ``password`` should be included.
   The fields specified in ``mask_fields`` are logged as ``********``.
-* ``target_methods`` is a request method which is logged to a operation log.
+* ``target_methods`` is a request method which is logged to an operation log.
   The valid methods are ``POST``, ``GET``, ``PUT``, ``DELETE``.
 * ``ignored_urls`` is a list of request URLs to be hidden from a log.
 * ``format`` defines the operation log format.
@@ -828,7 +828,7 @@ SHOW_KEYSTONE_V2_RC
 
 Default: ``True``
 
-Controls whether the keystone v2 openrc file is accessable from the user
+Controls whether the keystone v2 openrc file is accessible from the user
 menu and the api access panel.
 
 THEME_COLLECTION_DIR

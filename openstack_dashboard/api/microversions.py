@@ -52,7 +52,7 @@ def get_microversion_for_features(service, features, wrapper_class,
     """Retrieves that highest known functional microversion for features"""
     if not features:
         return None
-    # Convert a single feature string into a list for backward compatiblity.
+    # Convert a single feature string into a list for backward compatibility.
     if isinstance(features, str):
         features = [features]
     try:
