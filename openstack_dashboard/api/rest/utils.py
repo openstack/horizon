@@ -31,6 +31,7 @@ class AjaxError(Exception):
         self.http_status = http_status
         super(AjaxError, self).__init__(msg)
 
+
 http_errors = exceptions.UNAUTHORIZED + exceptions.NOT_FOUND + \
     exceptions.RECOVERABLE + (AjaxError, )
 
@@ -146,6 +147,7 @@ def ajax(authenticated=True, data_required=False,
 
         return _wrapped
     return decorator
+
 
 PARAM_MAPPING = {
     'None': None,

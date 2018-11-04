@@ -30,6 +30,7 @@ def _lazy_join(separator, strings):
     return separator.join([force_text(s)
                            for s in strings])
 
+
 lazy_join = lazy(_lazy_join, six.text_type)
 
 

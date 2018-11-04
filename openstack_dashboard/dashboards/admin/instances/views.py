@@ -150,9 +150,9 @@ class AdminIndexView(tables.DataTableView):
 
         instances = self._get_instances(search_opts)
         results = futurist_utils.call_functions_parallel(
-                (self._get_images, [tuple(instances)]),
-                self._get_flavors,
-                self._get_tenants)
+            (self._get_images, [tuple(instances)]),
+            self._get_flavors,
+            self._get_tenants)
         image_dict, flavor_dict, tenant_dict = results
 
         non_api_filter_info = (

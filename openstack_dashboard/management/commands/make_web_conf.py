@@ -139,6 +139,8 @@ def find_apache_log_dir():
         if os.path.exists(log_dir) and os.path.isdir(log_dir):
             return log_dir
     return DEFAULT_LOG_DIR
+
+
 context['LOGDIR'] = find_apache_log_dir()
 
 

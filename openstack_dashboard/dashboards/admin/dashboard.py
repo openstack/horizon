@@ -32,4 +32,5 @@ class Admin(horizon.Dashboard):
     else:
         permissions = (tuple(utils.get_admin_permissions()),)
 
+
 horizon.register(Admin)

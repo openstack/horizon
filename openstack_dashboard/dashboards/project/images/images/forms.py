@@ -43,6 +43,7 @@ IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
 class ImageURLField(forms.URLField):
     default_validators = [validators.URLValidator(schemes=["http", "https"])]
 
+
 if api.glance.get_image_upload_mode() == 'direct':
     FileField = forms.ExternalFileField
     CreateParent = six.with_metaclass(forms.ExternalUploadMeta,
