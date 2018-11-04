@@ -1,11 +1,13 @@
-{% load horizon %}{% jstemplate %}[% extends 'base.html' %]
+{% templatetag openblock %} load horizon {% templatetag closeblock %}
+{% templatetag openblock %} jstemplate {% templatetag closeblock %}
+{% templatetag openblock %} extends 'base.html' {% templatetag closeblock %}
 
-[% block sidebar %]
-  [% include 'horizon/common/_sidebar.html' %]
-[% endblock %]
+{% templatetag openblock %} block sidebar {% templatetag closeblock %}
+  {% templatetag openblock %} include 'horizon/common/_sidebar.html' {% templatetag closeblock %}
+{% templatetag openblock %} endblock {% templatetag closeblock %}
 
-[% block main %]
-    [% include "horizon/_messages.html" %]
-    [% block {{ dash_name }}_main %][% endblock %]
-[% endblock %]
-{% endjstemplate %}
+{% templatetag openblock %} block main {% templatetag closeblock %}
+  {% templatetag openblock %} include "horizon/_messages.html" {% templatetag closeblock %}
+  {% templatetag openblock %} block {{ dash_name }}_main {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}
+{% templatetag openblock %} endblock {% templatetag closeblock %}
+{% templatetag openblock %} endjstemplate {% templatetag closeblock %}
