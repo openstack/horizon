@@ -38,9 +38,9 @@
               <span class="fa fa-chevron-right" hz-expand-detail
                 title="{$ 'Click to see more details'|translate $}"></span>
             </td>
-            <td class="rsp-p1 word-break">{$ row.name $}</td>
+            <td class="rsp-p1 word-break">{$ row.name || row.id $}</td>
             <td class="rsp-p2">
-              <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
+              <div ng-repeat="subnet in row.subnets">{$ subnet.name || subnet.id $}</div>
             </td>
             <td class="rsp-p1">{$ row.shared | yesno $}</td>
             <td class="rsp-p1">{$ row.admin_state | decode:ctrl.networkAdminStates $}</td>
@@ -113,9 +113,9 @@
                 <span class="fa fa-chevron-right" hz-expand-detail
                   title="{$ 'Click to see more details'|translate $}"></span>
               </td>
-              <td class="rsp-p1 word-break">{$ row.name$}</td>
+              <td class="rsp-p1 word-break">{$ row.name || row.id $}</td>
               <td class="rsp-p2">
-                <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
+                <div ng-repeat="subnet in row.subnets">{$ subnet.name || subnet.id $}</div>
               </td>
               <td class="rsp-p1">{$ row.shared | yesno $}</td>
               <td class="rsp-p1">{$ row.admin_state | decode:ctrl.networkAdminStates $}</td>
