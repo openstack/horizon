@@ -32,6 +32,9 @@ IdentityGroup = [
                default='secretadmin',
                help="API key to use when authenticating.",
                secret=True),
+    cfg.StrOpt('domain',
+               default=None,
+               help="Domain name to use if required for login"),
     cfg.StrOpt('home_project',
                default='demo',
                help="Project to keep all objects belonging to a regular user."
