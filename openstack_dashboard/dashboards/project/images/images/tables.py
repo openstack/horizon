@@ -13,6 +13,7 @@
 #    under the License.
 
 from collections import defaultdict
+import json
 
 from django.conf import settings
 from django.template import defaultfilters as filters
@@ -245,7 +246,14 @@ def get_image_name(image):
 
 
 def get_image_type(image):
-    return getattr(image, "properties", {}).get("image_type", "image")
+    if not hasattr(image, 'properties'):
+        return 'image'
+    if image.properties.get('image_type'):
+        return image.properties.get('image_type')
+    if image.properties.get('block_device_mapping'):
+        block_device_mapping = image.properties.get('block_device_mapping')
+        return json.loads(block_device_mapping)[0].get('source_type')
+    return 'image'
 
 
 def get_format(image):

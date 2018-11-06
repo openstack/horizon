@@ -137,8 +137,12 @@
               {container_format: 'ari', properties: {}},
               {container_format: 'ami', properties: {}},
               {container_format: 'raw', properties: {}},
-              {container_format: 'ami', properties: {image_type: 'snapshot'}},
-              {container_format: 'raw', properties: {image_type: 'snapshot'}}
+              {container_format: 'ami', properties: {image_type: 'image'}},
+              {container_format: 'raw', properties: {image_type: 'image'}},
+              {container_format: 'ami', properties: {
+                block_device_mapping: '[{"source_type": "snapshot"}]'}},
+              {container_format: 'raw', properties: {
+                block_device_mapping: '[{"source_type": "snapshot"}]'}}
             ];
 
             var deferred = $q.defer();
@@ -183,12 +187,16 @@
         $provide.value('horizon.app.core.openstack-service-api.glance', {
           getImages: function() {
             var images = [
-              { container_format: 'aki', properties: {} },
-              { container_format: 'ari', properties: {} },
-              { container_format: 'ami', properties: {} },
-              { container_format: 'raw', properties: {} },
-              { container_format: 'ami', properties: { image_type: 'snapshot' } },
-              { container_format: 'raw', properties: { image_type: 'snapshot' } }
+              {container_format: 'aki', properties: {} },
+              {container_format: 'ari', properties: {} },
+              {container_format: 'ami', properties: {} },
+              {container_format: 'raw', properties: {} },
+              {container_format: 'ami', properties: {image_type: 'image'}},
+              {container_format: 'raw', properties: {image_type: 'image'}},
+              {container_format: 'ami', properties: {
+                block_device_mapping: '[{"source_type": "snapshot"}]'}},
+              {container_format: 'raw', properties: {
+                block_device_mapping: '[{"source_type": "snapshot"}]'}}
             ];
 
             var deferred = $q.defer();
@@ -422,7 +430,7 @@
           expect(model.initialized).toBe(true);
           expect(model.newInstanceSpec).toBeDefined();
 
-          expect(model.images.length).toBe(2);
+          expect(model.images.length).toBe(4);
           expect(model.imageSnapshots.length).toBe(2);
           expect(model.availabilityZones.length).toBe(3); // 2 + 1 for 'nova pick'
           expect(model.flavors.length).toBe(2);

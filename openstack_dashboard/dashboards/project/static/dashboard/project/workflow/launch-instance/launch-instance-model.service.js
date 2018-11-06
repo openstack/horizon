@@ -653,11 +653,21 @@
       return bootSourceTypes.NON_BOOTABLE_IMAGE_TYPES.indexOf(image.container_format) < 0;
     }
 
+    function getImageType(image) {
+      if (image === null || !angular.isDefined(image.properties) ||
+          !(angular.isDefined(image.properties.image_type) ||
+            angular.isDefined(image.properties.block_device_mapping))) {
+        return 'image';
+      }
+      return image.properties.image_type ||
+             angular.fromJson(image.properties.block_device_mapping)[0].source_type ||
+             'image';
+    }
+
     function onGetImages(data) {
       model.images.length = 0;
       push.apply(model.images, data.data.items.filter(function (image) {
-        return isBootableImageType(image) &&
-          (!image.properties || image.properties.image_type !== 'snapshot');
+        return isBootableImageType(image) && getImageType(image) !== 'snapshot';
       }));
       addAllowedBootSource(model.images, bootSourceTypes.IMAGE, gettext('Image'));
     }
@@ -665,8 +675,7 @@
     function onGetSnapshots(data) {
       model.imageSnapshots.length = 0;
       push.apply(model.imageSnapshots, data.data.items.filter(function (image) {
-        return isBootableImageType(image) &&
-          (image.properties && image.properties.image_type === 'snapshot');
+        return isBootableImageType(image) && getImageType(image) === 'snapshot';
       }));
 
       addAllowedBootSource(

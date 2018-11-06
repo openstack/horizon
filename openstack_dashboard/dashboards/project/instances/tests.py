@@ -80,8 +80,10 @@ class InstanceTestBase(helpers.ResetImageAPIVersionMixin,
         super(InstanceTestBase, self).setUp()
         if api.glance.VERSIONS.active < 2:
             self.versioned_images = self.images
+            self.versioned_snapshots = self.snapshots
         else:
             self.versioned_images = self.imagesV2
+            self.versioned_snapshots = self.snapshotsV2
 
 
 class InstanceTableTestMixin(object):
@@ -2262,6 +2264,111 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
     def test_launch_instance_get_with_only_one_network(self):
         self.test_launch_instance_get(only_one_network=True)
+
+    @helpers.create_mocks({api.nova: ('extension_supported',
+                                      'is_feature_available',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'server_group_list',
+                                      'availability_zone_list',),
+                           cinder: ('volume_snapshot_list',
+                                    'volume_list',),
+                           api.neutron: ('network_list',
+                                         'port_list_with_trunk_types',
+                                         'security_group_list',),
+                           api.glance: ('image_list_detailed',),
+                           quotas: ('tenant_quota_usages',)})
+    def test_launch_instance_get_images_snapshots(self,
+                                                  block_device_mapping_v2=True,
+                                                  only_one_network=False,
+                                                  disk_config=True,
+                                                  config_drive=True):
+        self._mock_extension_supported({
+            'BlockDeviceMappingV2Boot': block_device_mapping_v2,
+            'DiskConfig': disk_config,
+            'ConfigDrive': config_drive,
+            'ServerGroups': True,
+        })
+        self.mock_volume_list.return_value = []
+        self.mock_volume_snapshot_list.return_value = []
+        self._mock_glance_image_list_detailed(self.versioned_images.list() +
+                                              self.versioned_snapshots.list())
+        self.mock_network_list.side_effect = [
+            self.networks.list()[:1],
+            [] if only_one_network else self.networks.list()[1:],
+            self.networks.list()[:1],
+            self.networks.list()[1:],
+        ]
+        self.mock_port_list_with_trunk_types.return_value = self.ports.list()
+        self.mock_server_group_list.return_value = self.server_groups.list()
+        self.mock_tenant_quota_usages.return_value = self.limits['absolute']
+        self._mock_nova_lists()
+
+        url = reverse('horizon:project:instances:launch')
+        res = self.client.get(url)
+
+        image_sources = (res.context_data['workflow'].steps[0].
+                         action.fields['image_id'].choices)
+
+        snapshot_sources = (res.context_data['workflow'].steps[0].
+                            action.fields['instance_snapshot_id'].choices)
+
+        images = [image.id for image in self.versioned_images.list()]
+        snapshots = [s.id for s in self.versioned_snapshots.list()]
+
+        image_sources_ids = []
+        snapshot_sources_ids = []
+        for image in image_sources:
+            self.assertTrue(image[0] in images or image[0] == '')
+            if image[0] != '':
+                image_sources_ids.append(image[0])
+
+        for image in images:
+            self.assertIn(image, image_sources_ids)
+
+        for snapshot in snapshot_sources:
+            self.assertTrue(snapshot[0] in snapshots or snapshot[0] == '')
+            if snapshot[0] != '':
+                snapshot_sources_ids.append(snapshot[0])
+
+        for snapshot in snapshots:
+            self.assertIn(snapshot, snapshot_sources_ids)
+
+        self._check_extension_supported({
+            'BlockDeviceMappingV2Boot': 1,
+            'DiskConfig': 1,
+            'ConfigDrive': 1,
+            'ServerGroups': 1,
+        })
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_SEARCH_OPTS),
+            mock.call(helpers.IsHttpRequest(),
+                      search_opts=VOLUME_BOOTABLE_SEARCH_OPTS),
+        ])
+        self.mock_volume_snapshot_list.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            search_opts=SNAPSHOT_SEARCH_OPTS)
+        self._check_glance_image_list_detailed(count=5)
+        self.mock_network_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(),
+                      tenant_id=self.tenant.id, shared=False),
+            mock.call(helpers.IsHttpRequest(), shared=True),
+            mock.call(helpers.IsHttpRequest(),
+                      tenant_id=self.tenant.id, shared=False),
+            mock.call(helpers.IsHttpRequest(), shared=True),
+        ])
+        self.assertEqual(4, self.mock_network_list.call_count)
+        self.mock_port_list_with_trunk_types.assert_has_calls(
+            [mock.call(helpers.IsHttpRequest(),
+                       network_id=net.id, tenant_id=self.tenant.id)
+             for net in self.networks.list()])
+        self.mock_server_group_list.assert_called_once_with(
+            helpers.IsHttpRequest())
+        self.mock_tenant_quota_usages.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
+        self._check_nova_lists(flavor_count=2)
 
     @helpers.create_mocks({api.nova: ('extension_supported',
                                       'is_feature_available',

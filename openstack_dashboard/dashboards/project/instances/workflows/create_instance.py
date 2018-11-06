@@ -41,6 +41,8 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
 
+from openstack_dashboard.dashboards.project.images.images \
+    import tables as image_tables
 from openstack_dashboard.dashboards.project.images \
     import utils as image_utils
 from openstack_dashboard.dashboards.project.instances \
@@ -439,7 +441,7 @@ class SetInstanceDetailsAction(workflows.Action):
                                                   context.get('project_id'),
                                                   self._images_cache)
         for image in images:
-            if image.properties.get("image_type", '') != "snapshot":
+            if image_tables.get_image_type(image) != "snapshot":
                 image.bytes = getattr(
                     image, 'virtual_size', None) or image.size
                 image.volume_size = max(
@@ -461,7 +463,7 @@ class SetInstanceDetailsAction(workflows.Action):
                                                   self._images_cache)
         choices = [(image.id, image.name)
                    for image in images
-                   if image.properties.get("image_type", '') == "snapshot"]
+                   if image_tables.get_image_type(image) == "snapshot"]
         if choices:
             choices.sort(key=operator.itemgetter(1))
             choices.insert(0, ("", _("Select Instance Snapshot")))
