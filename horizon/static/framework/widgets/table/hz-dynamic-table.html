@@ -78,7 +78,7 @@
             </span>
           </td>
           <td ng-repeat="column in config.columns"
-            class="rsp-p{$ column.priority $}"
+            class="rsp-p{$ column.priority $} {$ column.classes $}"
             ng-if="columnAllowed(column)">
             <hz-cell table="table" column="column" item="item"></hz-cell>
           </td>

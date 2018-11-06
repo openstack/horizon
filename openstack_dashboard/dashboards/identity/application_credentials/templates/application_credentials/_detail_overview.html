@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd data-display="{{ application_credential.name }}">{{ application_credential.name }}</dd>
+    <dd data-display="{{ application_credential.name }}" class="word-wrap">{{ application_credential.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ application_credential.id }}</dd>
     <dt>{% trans "Project ID" %}</dt>
@@ -23,7 +23,7 @@
         <tbody>
         {% for role in application_credential.roles %}
           <tr>
-            <td>{{ role.name }}</td>
+            <td class="word-wrap">{{ role.name }}</td>
             <td>{{ role.id }}</td>
             <td>{{ role.domain_id | default:_("-") }}</td>
         {% endfor %}

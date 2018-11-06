@@ -49,7 +49,8 @@
       .append({
         id: 'name',
         priority: 1,
-        sortDefault: true
+        sortDefault: true,
+        classes: "word-wrap"
       })
       .append({
         id: 'id',

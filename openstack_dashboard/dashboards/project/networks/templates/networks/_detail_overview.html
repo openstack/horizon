@@ -3,7 +3,7 @@
 <div class="info detail">
   <dl class="dl-horizontal">
     <dt title="{% trans 'Name' %}">{% trans "Name" %}</dt>
-    <dd>{{ network.name|default:_("None") }}</dd>
+    <dd class="word-wrap">{{ network.name|default:_("None") }}</dd>
     <dt title="{% trans 'ID' %}">{% trans "ID" %}</dt>
     <dd data-display="{{ network.name_or_id }}">{{ network.id|default:_("None") }}</dd>
     <dt title="{% trans 'Project ID' %}">{% trans "Project ID" %}</dt>

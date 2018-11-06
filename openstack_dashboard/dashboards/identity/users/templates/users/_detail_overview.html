@@ -8,10 +8,10 @@
     {% endif %}
     {% if domain_name %}
       <dt>{% trans "Domain Name" %}</dt>
-      <dd>{{ domain_name }}</dd>
+      <dd class="word-wrap">{{ domain_name }}</dd>
     {% endif %}
     <dt>{% trans "User Name" %}</dt>
-    <dd data-display="{{ user.name|default:user.id }}">{{ user.name }}</dd>
+    <dd data-display="{{ user.name|default:user.id }}" class="word-wrap">{{ user.name }}</dd>
     {% if description %}
       <dt>{% trans "Description" %}</dt>
       <dd>{{ description }}</dd>
@@ -28,7 +28,7 @@
     <dd>{{ user.project_id }}</dd>
     {% if tenant_name %}
       <dt>{% trans "Primary Project Name" %}</dt>
-      <dd>{{ tenant_name }}</dd>
+      <dd class="word-wrap">{{ tenant_name }}</dd>
     {% endif %}
     {% if extras %}
       {% for key, value in extras.items %}

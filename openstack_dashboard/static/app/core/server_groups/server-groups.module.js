@@ -52,6 +52,7 @@
         id: 'name',
         priority: 1,
         sortDefault: true,
+        classes: "word-wrap",
         urlFunction: serverGroupsService.getDetailsPath
       })
       // The name is not unique, so we need to show the ID to

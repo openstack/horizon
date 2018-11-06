@@ -3,11 +3,11 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ port.name|default:_("None") }}</dd>
+    <dd class="word-wrap">{{ port.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd data-display="{{ port.name_or_id }}">{{ port.id|default:_("None") }}</dd>
     <dt>{% trans "Network Name" %}</dt>
-    <dd>{{ port.network_name|default:_("None") }}</dd>
+    <dd class="word-wrap">{{ port.network_name|default:_("None") }}</dd>
     <dt>{% trans "Network ID" %}</dt>
     <dd><a href="{{ port.network_url }}">{{ port.network_id|default:_("None") }}</a></dd>
     {% if port.tenant_id %}
@@ -25,7 +25,7 @@
       <dd>{{ port.port_security_enabled }}</dd>
     {% endif %}
     <dt>{% trans "DNS Name" %}</dt>
-    <dd>{{ port.dns_name|default:_("None") }}</dd>
+    <dd class="word-wrap">{{ port.dns_name|default:_("None") }}</dd>
     {% if port.mac_state %}
       <dt>{% trans "MAC Learning State" %}</dt>
       <dd>{{ port.mac_state }}</dd>
@@ -41,7 +41,7 @@
   {% for host in port.dns_assignment %}
     <dl class="dl-horizontal">
       <dt>{% trans "Hostname" %}</dt>
-      <dd>{{ host.hostname }}</dd>
+      <dd class="word-wrap">{{ host.hostname }}</dd>
       <dt>{% trans "IP Address" %}</dt>
       <dd>{{ host.ip_address }}</dd>
       <dt>{% trans "FQDN" %}</dt>
@@ -87,7 +87,7 @@
   <hr class="header_rule">
   <dl class="dl-horizontal">
     {% for group in port.security_groups %}
-      <dt>{{ group.name }}</dt>
+      <dt class="word-wrap">{{ group.name }}</dt>
       <dd>
         <ul class="list-unstyled">
         {% for rule in group.rules %}

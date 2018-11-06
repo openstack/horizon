@@ -1454,7 +1454,7 @@ class InstanceDetailTests(InstanceTestBase):
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("overview").get_id())
         res = self._get_instance_details(server, qs)
 
-        self.assertContains(res, "<dd>keyName</dd>", 1)
+        self.assertContains(res, '<dd class="word-wrap">keyName</dd>', 1)
         self.assertContains(res, "<dt>someMetaLabel</dt>", 1)
         self.assertContains(res, "<dd>someMetaData</dd>", 1)
         self.assertContains(res, "<dt>some&lt;b&gt;html&lt;/b&gt;label</dt>",
