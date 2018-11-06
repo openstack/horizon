@@ -35,7 +35,7 @@ class MessageTests(test.TestCase):
         self.assertItemsEqual(req.horizon['async_messages'], [expected])
         res = http.HttpResponse()
         res = middleware.HorizonMiddleware('dummy_get_response') \
-            .process_response(req, res)
+            ._process_response(req, res)
         self.assertEqual(json.dumps([expected]),
                          res['X-Horizon-Messages'])
 
@@ -50,6 +50,6 @@ class MessageTests(test.TestCase):
         self.assertItemsEqual(req.horizon['async_messages'], [expected])
         res = http.HttpResponse()
         res = middleware.HorizonMiddleware('dummy_get_response') \
-            .process_response(req, res)
+            ._process_response(req, res)
         self.assertEqual(json.dumps([expected]),
                          res['X-Horizon-Messages'])

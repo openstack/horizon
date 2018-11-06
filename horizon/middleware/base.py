@@ -47,12 +47,12 @@ class HorizonMiddleware(object):
         self.get_response = get_response
 
     def __call__(self, request):
-        self.process_request(request)
+        self._process_request(request)
         response = self.get_response(request)
-        response = self.process_response(request, response)
+        response = self._process_response(request, response)
         return response
 
-    def process_request(self, request):
+    def _process_request(self, request):
         """Adds data necessary for Horizon to function to the request."""
 
         request.horizon = {'dashboard': None,
@@ -147,11 +147,11 @@ class HorizonMiddleware(object):
             return shortcuts.redirect(exception.location)
 
     @staticmethod
-    def copy_headers(src, dst, headers):
+    def _copy_headers(src, dst, headers):
         for header in headers:
             dst[header] = src[header]
 
-    def process_response(self, request, response):
+    def _process_response(self, request, response):
         """Convert HttpResponseRedirect to HttpResponse if request is via ajax.
 
         This is to allow ajax request to redirect url.
@@ -189,8 +189,8 @@ class HorizonMiddleware(object):
                 redirect_response['X-Horizon-Location'] = response['location']
                 upload_url_key = 'X-File-Upload-URL'
                 if upload_url_key in response:
-                    self.copy_headers(response, redirect_response,
-                                      (upload_url_key, 'X-Auth-Token'))
+                    self._copy_headers(response, redirect_response,
+                                       (upload_url_key, 'X-Auth-Token'))
                 return redirect_response
             if queued_msgs:
                 # TODO(gabriel): When we have an async connection to the
