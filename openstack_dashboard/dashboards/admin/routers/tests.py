@@ -19,6 +19,7 @@ import mock
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.routers import tests as r_test
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
 INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
@@ -72,10 +73,13 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
     @test.create_mocks({api.neutron: ('router_list',
                                       'network_list',
                                       'is_extension_supported'),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_index(self):
         tenants = self.tenants.list()
+        quota_data = self.neutron_quota_usages.first()
         self.mock_router_list.return_value = self.routers.list()
+        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_tenant_list.return_value = [tenants, False]
         self.mock_is_extension_supported.return_value = True
         self._mock_external_network_list()
@@ -88,14 +92,20 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
 
         self.mock_router_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 2,
+            mock.call(test.IsHttpRequest(), targets=('router',)))
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), "router_availability_zone")
         self._check_mock_external_network_list()
 
     @test.create_mocks({api.neutron: ('router_list',
-                                      'is_extension_supported')})
+                                      'is_extension_supported'),
+                        quotas: ('tenant_quota_usages',)})
     def test_index_router_list_exception(self):
+        quota_data = self.neutron_quota_usages.first()
         self.mock_router_list.side_effect = self.exceptions.neutron
+        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_is_extension_supported.return_value = True
 
         res = self.client.get(self.INDEX_URL)
@@ -104,6 +114,9 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         self.assertEqual(len(res.context['table'].data), 0)
         self.assertMessageCount(res, error=1)
         self.mock_router_list.assert_called_once_with(test.IsHttpRequest())
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 2,
+            mock.call(test.IsHttpRequest(), targets=('router',)))
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), "router_availability_zone")
 
@@ -111,13 +124,16 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
                                       'router_list_on_l3_agent',
                                       'network_list',
                                       'is_extension_supported'),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_list_by_l3_agent(self):
         tenants = self.tenants.list()
+        quota_data = self.neutron_quota_usages.first()
         agent = self.agents.list()[1]
         self.mock_agent_list.return_value = [agent]
         self.mock_router_list_on_l3_agent.return_value = self.routers.list()
         self.mock_tenant_list.return_value = [tenants, False]
+        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_is_extension_supported.return_value = True
         self._mock_external_network_list()
 
@@ -134,6 +150,9 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         self.mock_router_list_on_l3_agent.assert_called_once_with(
             test.IsHttpRequest(), agent.id, search_opts=None)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 2,
+            mock.call(test.IsHttpRequest(), targets=('router',)))
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), "router_availability_zone")
         self._check_mock_external_network_list()
@@ -141,10 +160,13 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
     @test.create_mocks({api.neutron: ('router_list',
                                       'network_list',
                                       'is_extension_supported'),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_set_external_network_empty(self):
         router = self.routers.first()
+        quota_data = self.neutron_quota_usages.first()
         self.mock_router_list.return_value = [router]
+        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_is_extension_supported.return_value = True
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
         self._mock_external_network_list(alter_ids=True)
@@ -159,6 +181,9 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         self.assertMessageCount(res, error=1)
 
         self.mock_router_list.assert_called_once_with(test.IsHttpRequest())
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 2,
+            mock.call(test.IsHttpRequest(), targets=('router',)))
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), "router_availability_zone")
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
@@ -173,14 +198,17 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
                                       'port_list',
                                       'router_delete',
                                       'is_extension_supported'),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_router_delete(self):
         router = self.routers.first()
         tenants = self.tenants.list()
+        quota_data = self.neutron_quota_usages.first()
 
         self.mock_router_list.return_value = self.routers.list()
         self.mock_tenant_list.return_value = [tenants, False]
         self._mock_external_network_list(count=3)
+        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_is_extension_supported.return_value = True
         self.mock_port_list.return_value = []
         self.mock_router_delete.return_value = None
@@ -202,6 +230,9 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
             mock.call(test.IsHttpRequest()))
         self._check_mock_external_network_list(count=3)
         self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 4,
+            mock.call(test.IsHttpRequest(), targets=('router',)))
+        self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_extension_supported, 3,
             mock.call(test.IsHttpRequest(), 'router_availability_zone'))
         self.mock_port_list.assert_called_once_with(
@@ -215,15 +246,18 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
                                       'router_remove_interface',
                                       'router_delete',
                                       'is_extension_supported'),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_router_with_interface_delete(self):
         router = self.routers.first()
         ports = self.ports.list()
         tenants = self.tenants.list()
+        quota_data = self.neutron_quota_usages.first()
 
         self.mock_router_list.return_value = self.routers.list()
         self.mock_tenant_list.return_value = [tenants, False]
         self._mock_external_network_list(count=3)
+        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_is_extension_supported.return_value = True
         self.mock_port_list.return_value = ports
         self.mock_router_remove_interface.return_value = None
@@ -246,6 +280,9 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
             mock.call(test.IsHttpRequest()))
         self._check_mock_external_network_list(count=3)
         self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 4,
+            mock.call(test.IsHttpRequest(), targets=('router',)))
+        self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_extension_supported, 3,
             mock.call(test.IsHttpRequest(), 'router_availability_zone'))
         self.mock_port_list.assert_called_once_with(
@@ -257,9 +294,12 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         self.mock_router_delete.assert_called_once_with(
             test.IsHttpRequest(), router.id)
 
-    @test.create_mocks({api.neutron: ('is_extension_supported',)})
+    @test.create_mocks({api.neutron: ('is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
     @test.update_settings(FILTER_DATA_FIRST={'admin.routers': True})
     def test_routers_list_with_admin_filter_first(self):
+        quota_data = self.neutron_quota_usages.first()
+        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_is_extension_supported.return_value = True
 
         res = self.client.get(self.INDEX_URL)
@@ -267,14 +307,20 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         routers = res.context['table'].data
         self.assertItemsEqual(routers, [])
 
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 2,
+            mock.call(test.IsHttpRequest(), targets=('router',)))
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'router_availability_zone')
 
     @test.create_mocks({api.neutron: ('is_extension_supported',),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_routers_list_with_non_exist_tenant_filter(self):
         self.mock_is_extension_supported.return_value = True
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        quota_data = self.neutron_quota_usages.first()
+        self.mock_tenant_quota_usages.return_value = quota_data
 
         self.client.post(
             self.INDEX_URL,
@@ -286,9 +332,16 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         self.assertItemsEqual(routers, [])
 
         self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 2,
+            mock.call(test.IsHttpRequest(), targets=('router',)))
+        self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_extension_supported, 2,
             mock.call(test.IsHttpRequest(), "router_availability_zone"))
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+
+
+class RouterViewTests(r_test.RouterViewTests):
+    DASHBOARD = 'admin'
 
 
 class RouterTestsNoL3Agent(RouterTests):

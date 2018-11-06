@@ -119,6 +119,10 @@ class CreateForm(forms.SelfHandlingForm):
         try:
             params = {'name': data['name'],
                       'admin_state_up': data['admin_state_up']}
+            # NOTE: admin form allows to specify tenant_id.
+            # We have the logic here to simplify the logic.
+            if 'tenant_id' in data and data['tenant_id']:
+                params['tenant_id'] = data['tenant_id']
             if 'external_network' in data and data['external_network']:
                 params['external_gateway_info'] = {'network_id':
                                                    data['external_network']}

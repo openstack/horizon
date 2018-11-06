@@ -120,6 +120,13 @@ class DetailView(r_views.DetailView):
         return context
 
 
+class CreateView(r_views.CreateView):
+    form_class = rforms.CreateForm
+    template_name = 'project/routers/create.html'
+    success_url = reverse_lazy("horizon:admin:routers:index")
+    submit_url = reverse_lazy("horizon:admin:routers:create")
+
+
 class UpdateView(r_views.UpdateView):
     form_class = rforms.UpdateForm
     template_name = 'project/routers/update.html'

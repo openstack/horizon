@@ -23,6 +23,10 @@ class DeleteRouter(r_tables.DeleteRouter):
     redirect_url = "horizon:admin:routers:index"
 
 
+class CreateRouter(r_tables.CreateRouter):
+    url = "horizon:admin:routers:create"
+
+
 class EditRouter(r_tables.EditRouter):
     url = "horizon:admin:routers:update"
 
@@ -52,7 +56,8 @@ class RoutersTable(r_tables.RoutersTable):
         verbose_name = _("Routers")
         status_columns = ["status"]
         row_class = UpdateRow
-        table_actions = (DeleteRouter, AdminRoutersFilterAction)
+        table_actions = (CreateRouter, DeleteRouter,
+                         AdminRoutersFilterAction)
         row_actions = (EditRouter, DeleteRouter,)
         columns = ('tenant', 'name', 'status', 'distributed', 'ext_net',
                    'ha', 'availability_zones', 'admin_state',)
