@@ -1,9 +1,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 14.0.0.0rc2.dev108\n"
+"Project-Id-Version: horizon 15.0.0.0b2.dev33\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-21 00:00-0500\n"
+"POT-Creation-Date: 2018-11-06 17:10-0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,15 +68,6 @@ msgid ""
 msgstr ""
 "Setelah Anda menginstal dan mengkonfigurasi dasbor, Anda dapat menyelesaikan "
 "tugas-tugas berikut:"
-
-msgid ""
-"All other services are optional. Horizon supports the following services as "
-"of the Queens release. If the keystone endpoint for a service is configured, "
-"horizon detects it and enables its support automatically."
-msgstr ""
-"Semua layanan lain bersifat opsional. Horizon mendukung layanan berikut pada "
-"rilis Queens. Jika titik akhir kunci untuk layanan dikonfigurasi, horizon "
-"mendeteksi dan memungkinkan dukungannya secara otomatis."
 
 msgid "Allow your hosts to access the dashboard:"
 msgstr "Izinkan host Anda mengakses dasbor:"
@@ -374,13 +365,6 @@ msgid ""
 "In the Dashboard configuration section, allow your hosts to access Dashboard:"
 msgstr "Di bagian konfigurasi Dasbor, izinkan host Anda mengakses Dasbor:"
 
-msgid ""
-"In the commands below, substitute \"<release>\" for your version of choice, "
-"such as \"ocata\" or \"pike\"."
-msgstr ""
-"Dalam perintah di bawah ini, gantikan \"<release>\" untuk versi pilihan "
-"Anda, seperti \"ocata\" atau \"pike\"."
-
 msgid "Install and configure components"
 msgstr "Instal dan konfigurasi komponen"
 
@@ -565,9 +549,6 @@ msgstr "Persyaratan sistem"
 
 msgid "Tacker UI"
 msgstr "Tacker UI"
-
-msgid "The Queens release of horizon has the following dependencies."
-msgstr "The Queens rilis horizon memiliki dependensi berikut."
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "

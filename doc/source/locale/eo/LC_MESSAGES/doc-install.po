@@ -1,9 +1,9 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 14.0.0.0rc2.dev131\n"
+"Project-Id-Version: horizon 15.0.0.0b2.dev33\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-08 20:22-0500\n"
+"POT-Creation-Date: 2018-11-06 17:10-0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -66,15 +66,6 @@ msgid ""
 msgstr ""
 "Post kiam vi instalis kaj agordis la panelon, vi povas kompletigi la jenajn "
 "taskojn:"
-
-msgid ""
-"All other services are optional. Horizon supports the following services as "
-"of the Queens release. If the keystone endpoint for a service is configured, "
-"horizon detects it and enables its support automatically."
-msgstr ""
-"Ĉiuj aliaj servoj estas laŭvolaj. Horizon subtenas la sekvajn servojn de la "
-"Queens eldono. Se la keystone finpunkto por servo estas agordita, horizon "
-"detektas ĝin kaj ebligas ĝian subtenon aŭtomate."
 
 msgid "Allow your hosts to access the dashboard:"
 msgstr "Permesu al viaj gastigantoj aliri la stirpanelo: "
@@ -369,13 +360,6 @@ msgstr ""
 "En la agorda sekcio de la stirpanelo, permesu al viaj gastigantoj aliri la "
 "Stirpanelon:"
 
-msgid ""
-"In the commands below, substitute \"<release>\" for your version of choice, "
-"such as \"ocata\" or \"pike\"."
-msgstr ""
-"In the commands below, substitute \"<release>\" for your version of choice, "
-"such as \"ocata\" or \"pike\"."
-
 msgid "Install and configure components"
 msgstr "Instali kaj agordi komponentojn"
 
@@ -559,9 +543,6 @@ msgstr "Sistemaj Postuloj"
 
 msgid "Tacker UI"
 msgstr "Tacker UI"
-
-msgid "The Queens release of horizon has the following dependencies."
-msgstr "La Queens eldono de horizon havas la sekvajn dependecojn."
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
