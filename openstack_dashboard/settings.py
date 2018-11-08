@@ -110,6 +110,7 @@ OPENSTACK_IMAGE_BACKEND = {
 }
 
 MIDDLEWARE = (
+    'openstack_auth.middleware.OpenstackAuthMonkeyPatchMiddleware',
     'debreach.middleware.RandomCommentMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

@@ -17,8 +17,6 @@ from django.views import generic
 from openstack_auth import utils
 from openstack_auth import views
 
-utils.patch_middleware_get_user()
-
 
 urlpatterns = [
     url(r"^login/$", views.login, name='login'),
