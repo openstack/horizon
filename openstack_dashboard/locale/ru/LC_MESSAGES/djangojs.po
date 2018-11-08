@@ -14,19 +14,18 @@
 # Yulia Ryndenkova <yryndenkova@hystax.com>, 2016. #zanata
 # Artem <amikhalev90@gmail.com>, 2017. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2018. #zanata
 # Dmytriy Rabotjagov <noonedeadpunk@ya.ru>, 2018. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-11-06 23:10+0000\n"
+"POT-Creation-Date: 2018-11-07 09:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-05 09:18+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2018-11-07 08:51+0000\n"
+"Last-Translator: Dmytriy Rabotjagov <noonedeadpunk@ya.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -161,7 +160,7 @@ msgid ""
 "    You may select an existing key pair, import a key pair, or generate a "
 "new key pair."
 msgstr ""
-"Пара ключей позволяет войти в новый экземпляр по SSH.\n"
+"Ключевая пара позволяет войти в новый экземпляр по SSH.\n"
 "    Можно выбрать существующую пару ключей, импортировать пару ключей или "
 "сгенерировать её."
 
@@ -456,6 +455,18 @@ msgstr[0] "Подтвердите удаление образа"
 msgstr[1] "Подтвердите удаление образов"
 msgstr[2] "Подтвердите удаление образов"
 
+msgid "Confirm Delete Key Pair"
+msgid_plural "Confirm Delete Key Pairs"
+msgstr[0] "Подтвердите удаление ключевой пары"
+msgstr[1] "Подтвердите удаление ключевых пар"
+msgstr[2] "Подтвердите удаление ключевых пар"
+
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "Подтвердить удаление группы серверов"
+msgstr[1] "Подтвердить удаление групп серверов"
+msgstr[2] "Подтвердить удаление групп серверов"
+
 msgid "Connecting"
 msgstr "Подключение"
 
@@ -523,7 +534,7 @@ msgid "Create Image"
 msgstr "Создать образ"
 
 msgid "Create Key Pair"
-msgstr "Создать связку ключей"
+msgstr "Создать ключевую пару"
 
 msgid "Create Keypair"
 msgstr "Создать пару ключей"
@@ -655,6 +666,15 @@ msgstr "Удалить инстанс"
 msgid "Delete Interface"
 msgstr "Удалить интерфейс"
 
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "Удалить ключевую пару"
+msgstr[1] "Удалить ключевые пары"
+msgstr[2] "Удалить ключевые пары"
+
+msgid "Delete Key Pairs"
+msgstr "Удалить ключевые пары"
+
 msgid "Delete Network"
 msgstr "Удалить сеть"
 
@@ -665,7 +685,7 @@ msgid "Delete Server Group"
 msgid_plural "Delete Server Groups"
 msgstr[0] "Удалить группу серверов"
 msgstr[1] "Удалить группы серверов"
-msgstr[2] ""
+msgstr[2] "Удалить группы серверов"
 
 msgid "Delete Server Groups"
 msgstr "Удалить группу серверов"
@@ -685,6 +705,20 @@ msgid_plural "Deleted Images: %s."
 msgstr[0] "Удалено образов: %s."
 msgstr[1] "Удалено образов: %s."
 msgstr[2] "Удалено образов: %s."
+
+#, python-format
+msgid "Deleted Key Pair: %s."
+msgid_plural "Deleted Key Pairs: %s."
+msgstr[0] "Удалена ключевая пара: %s."
+msgstr[1] "Удалены ключевые пары: %s."
+msgstr[2] "Удалены ключевые пары: %s."
+
+#, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "Группа серверов удалена: %s."
+msgstr[1] "Группы серверов удалены: %s."
+msgstr[2] "Группы серверов удалены: %s."
 
 msgid "Deleting"
 msgstr "Удаление"
@@ -1063,7 +1097,10 @@ msgid "Impact on your quota"
 msgstr "Влияние на квоту"
 
 msgid "Import Key Pair"
-msgstr "Импортировать пару ключей"
+msgstr "Импортировать ключевую пару"
+
+msgid "Import Public Key"
+msgstr "Импортировать открытый ключ"
 
 msgid "Indicators"
 msgstr "Индикаторы"
@@ -1148,8 +1185,11 @@ msgstr "ИД ядра"
 msgid "Key Pair"
 msgstr "Ключевая пара"
 
+msgid "Key Pair Name"
+msgstr "Имя ключевой пары"
+
 msgid "Key Pairs"
-msgstr "Пары ключей"
+msgstr "Ключевые пары"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1157,7 +1197,7 @@ msgid ""
 "key into the\n"
 "      space provided."
 msgstr ""
-"Пары ключей позволяют подключаться к экземпляру после его запуска.\n"
+"Ключевые пары позволяют подключаться к экземпляру после его запуска.\n"
 "        Выберите легко узнаваемое имя для пары ключей и вставьте ваш \n"
 "        открытый ключ SSH в поле ниже."
 
@@ -1170,6 +1210,37 @@ msgstr ""
 "      Выберите узнаваемое имя пары ключей.\n"
 "      Имя может содержать только буквы, цифры, символ пробела и символ "
 "дефиса."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize and paste your SSH public key "
+"into the\n"
+"  space provided."
+msgstr ""
+"При помощи ключевой пары вы входите на инстанс, после того, как он будет "
+"запущен.\n"
+"  Выберите имя ключевой пары, которое вы запомните и вставьте ваш публичный "
+"SSH ключ в\n"
+"  соответствующее поле."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, dashes and\n"
+"  underscores."
+msgstr ""
+"При помощи ключевой пары вы входите на инстанс, после того, как он будет "
+"запущен.\n"
+"  Выберите имя ключевой пары, которое вы запомните.\n"
+"  Имя может состоять только из букв, цифр, пробелов, знаков дефиса и нижнего "
+"подчеркивания. "
+
+#, python-format
+msgid "Key pair %(name)s was successfully created."
+msgstr "Ключевая пара %(name)s была успешно создана."
+
+msgid "Key pair already exists."
+msgstr "Ключевая пара уже существует."
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr "Пара ключей уже существует или имя содержит недопустимые символы."
@@ -1762,6 +1833,20 @@ msgstr ""
 "Группы безопасности уникальны для проектов и не могут присутствовать в "
 "нескольких проектах."
 
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Network | Security "
+"Groups</b> view, then find the security group and click <b>Manage Rules</b>."
+msgstr ""
+"Группы безопасности задают набор правил, определяющих поведение сетевого "
+"трафика по направлению из/в инстанс. Пользователи могут добавлять "
+"дополнительные правила в существующие группы, что бы в дальнейшем определить "
+"политики доступа к инстансу. Для создания  дополнительных правил, зайдите в "
+"раздел <b>Сеть | Группы безопасности</b>, найдите нужную группу и нажмите "
+"<b>Управление правилами</b>."
+
 msgid "Segmentation ID"
 msgstr "ID сегмента"
 
@@ -1956,7 +2041,7 @@ msgstr "Успешно"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
-msgstr "Успешно импортирована связка ключей %(name)s."
+msgstr "Успешно импортирована ключевая пара %(name)s."
 
 msgid "Summary Template URL:"
 msgstr "Описание шаблона URL:"
@@ -2151,7 +2236,7 @@ msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
-"Есть два способа создания связок ключей. Для Linux систем,\n"
+"Есть два способа создания ключевых пар. Для Linux систем,\n"
 "  создайте связку ключей командой <samp>ssh-keygen</samp> :"
 
 msgid ""
@@ -2317,6 +2402,20 @@ msgid_plural "Unable to delete Images: %s."
 msgstr[0] "Не удалось удалить образ: %s."
 msgstr[1] "Не удалось удалить образы: %s."
 msgstr[2] "Не удалось удалить образы: %s."
+
+#, python-format
+msgid "Unable to delete Key Pair: %s."
+msgid_plural "Unable to delete Key Pairs: %s."
+msgstr[0] "Не удалось удалить ключевую пару: %s."
+msgstr[1] "Не удалось удалить ключевые пары: %s."
+msgstr[2] "Не удалось удалить ключевые пары: %s."
+
+#, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "Не удалось удалить группу серверов: %s."
+msgstr[1] "Не удалось удалить группы серверов: %s."
+msgstr[2] "Не удалось удалить группы серверов: %s."
 
 msgid "Unable to delete the container."
 msgstr "Не удаётся удалить контейнер."
@@ -2933,11 +3032,30 @@ msgstr ""
 "можете добавлять подсказки планировщика с выбранным вами ключом."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] ""
+"Вы выбрали \"%s\". Восстановить удаленную группу серверов невозможно."
+msgstr[1] ""
+"Вы выбрали \"%s\". Восстановить удаленные группы серверов невозможно."
+msgstr[2] ""
+"Вы выбрали \"%s\". Восстановить удаленные группы серверов невозможно."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
 msgstr[1] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
 msgstr[2] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted key pair is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
+msgstr[0] ""
+"Вы выбрали \"%s\". Восстановление удаленной ключевой пары невозможно"
+msgstr[1] "Вы выбрали \"%s\". Восстановление удаленных ключевых пар невозможно"
+msgstr[2] "Вы выбрали \"%s\". Восстановление удаленных ключевых пар невозможно"
 
 msgid "image"
 msgstr "изображение"

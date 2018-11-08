@@ -34,11 +34,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-10-25 19:11+0000\n"
+"POT-Creation-Date: 2018-11-07 09:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-25 02:34+0000\n"
+"PO-Revision-Date: 2018-11-07 08:09+0000\n"
 "Last-Translator: Dmytriy Rabotjagov <noonedeadpunk@ya.ru>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -206,6 +206,9 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> на %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> на %(volume_device)s"
+
+msgid "A brief description of the security group rule you are adding"
+msgstr "Краткое описание добавляемого правила группы безопасности"
 
 msgid "A local image to upload."
 msgstr "Локальный образ для загрузки."
@@ -710,8 +713,24 @@ msgstr "Имя зоны доступности"
 msgid "Availability Zones"
 msgstr "Зоны доступности"
 
+msgid ""
+"Availability Zones where the router may be scheduled. Leaving this unset is "
+"equivalent to selecting all Availability Zones"
+msgstr ""
+"Зоны доступности, где может быть запланировано создание роутера. Если "
+"оставить данное поле без выбора, то это будет эквивалентно выбору всех зон "
+"доступности."
+
 msgid "Availability zone"
 msgstr "Зона доступности"
+
+msgid ""
+"Availability zones where the DHCP agents may be scheduled. Leaving this "
+"unset is equivalent to selecting all availability zones"
+msgstr ""
+"Зоны доступности, где может быть запланировано создание DHCP агентов. Если "
+"оставить данное поле без выбора, то это будет эквивалентно выбору всех зон "
+"доступности."
 
 msgid "Available"
 msgstr "Доступно"
@@ -2076,11 +2095,17 @@ msgstr[2] "Пользователи отключены"
 msgid "Disabled compute service for host: %s."
 msgstr "Служба вычислительных ресурсов запрещена для узла: %s."
 
+msgid "Disassocaite"
+msgstr "Отвязать"
+
 msgid "Disassociate"
 msgstr "Снять назначение"
 
 msgid "Disassociate Floating IP"
 msgstr "Отвязать Назначаемый IP"
+
+msgid "Disassociate floating IP"
+msgstr "Отвязать назначаемый IP"
 
 msgid "Disk"
 msgstr "Диск"
@@ -2119,6 +2144,9 @@ msgstr "Docker"
 msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr "Docker"
+
+msgid "Domain"
+msgstr "Домен"
 
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
@@ -2197,6 +2225,9 @@ msgstr "Загрузить сводку в CSV"
 msgid "Download OpenStack RC File"
 msgstr "Загрузить файл OpenStack RC"
 
+msgid "Download openrc file"
+msgstr "Загрузить файл openrc"
+
 msgid "Download transfer credentials"
 msgstr "Загрузить учетные данные трансфера"
 
@@ -2270,6 +2301,9 @@ msgstr "Редактировать сеть"
 
 msgid "Edit Port"
 msgstr "Редактировать порт"
+
+msgid "Edit Port Security Groups"
+msgstr "Редактировать группы безопасности порта"
 
 msgid "Edit Project"
 msgstr "Редактировать проект"
@@ -2360,6 +2394,10 @@ msgstr "Включить режим HA"
 
 msgid "Enable SNAT"
 msgstr "Разрешить SNAT"
+
+msgid "Enable SNAT will only have an effect if an external network is set."
+msgstr ""
+"Разрешение SNAT будет работать только в случае, если имеется внешняя сеть."
 
 msgid "Enable Service"
 msgid_plural "Enable Services"
@@ -2557,6 +2595,9 @@ msgid ""
 msgstr ""
 "Эвакуировать инстансы с выбранного недоступного узла нв активный целевой узел"
 
+msgid "Example:"
+msgstr "Пример:"
+
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
 "tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
@@ -2574,6 +2615,12 @@ msgstr ""
 "Пример: Префикс 'hw:' добавлен к типу OS::Nova::Flavor для пространства имен "
 "топологии виртуальных CPU, таким образом свойства применяемые к типам "
 "инстансов будут иметь префикс 'hw:'."
+
+msgid "Expiration Date"
+msgstr "Дата окончания действия"
+
+msgid "Expiration Time"
+msgstr "Время окончания действия"
 
 msgid "Extend Volume"
 msgstr "Расширить диск"
@@ -2669,6 +2716,10 @@ msgid "Failed to create network %s"
 msgstr "Не удалось создать сеть %s"
 
 #, python-format
+msgid "Failed to create port \"%s\"."
+msgstr "Не удалось создать порт \"%s\"."
+
+#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Не удалось создать маршрутизатор \"%s\"."
 
@@ -2703,6 +2754,9 @@ msgstr "Не удалось эвакуировать инстансы: %s"
 
 msgid "Failed to get availability zone list."
 msgstr "Не удалось получить список зон доступности."
+
+msgid "Failed to get instance interfaces."
+msgstr "Не удалось получить интерфейсы инстанса."
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -3026,6 +3080,13 @@ msgstr "Имя группы ="
 
 msgid "Group has been updated successfully."
 msgstr "Группа была успешно изменена."
+
+msgid ""
+"Group which the new volume belongs to. Choose 'No group' if the new volume "
+"belongs to no group."
+msgstr ""
+"Группа, к которой будет относится новый диск. Выберите \"Нет группы\", если "
+"новый диск не относится к группам."
 
 msgid "Groups"
 msgstr "Группы"
@@ -3851,6 +3912,10 @@ msgid "Modified domain \"%s\"."
 msgstr "Домен «%s» изменён."
 
 #, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "Изменены права доступа к типу инстансов '%s\"."
+
+#, python-format
 msgid "Modified instance \"%s\"."
 msgstr "Изменен инстанс \"%s\"."
 
@@ -4481,6 +4546,9 @@ msgstr "Безопасность порта"
 
 msgid "Port Security Enabled"
 msgstr "Защита портов включена"
+
+msgid "Port Security Groups"
+msgstr "Группы безопасности порта"
 
 msgid "Port list can not be retrieved."
 msgstr "Не удалось получить список портов."
@@ -5202,6 +5270,24 @@ msgstr "Это правило группы безопасности уже су�
 msgid "Security group rule quota exceeded."
 msgstr "Квота на правила группы безопасности исчерпана."
 
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. After the security group is created, you can add rules "
+"to the security group."
+msgstr ""
+"Группы безопасности это наборы правил фильтрации IP адресов, которые "
+"применяются к сетевым интерфейсам виртуального сервера. Вы сможете добавить "
+"правила в группу безопасности после ее создания. "
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. You can edit the name and its description of the "
+"security group."
+msgstr ""
+"Группы безопасности это наборы правил фильтрации IP адресов, которые "
+"применяются к сетевым интерфейсам виртуального сервера. Вы можете "
+"редактировать имя и описание группы безопасности."
+
 msgid "Segmentation ID"
 msgstr "ID сегмента"
 
@@ -5793,6 +5879,10 @@ msgstr "Успешно удалена передача диска \"%s\""
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
 msgstr "Успешно снято назначение IP: %s"
+
+#, python-format
+msgid "Successfully disassociated floating IP %s"
+msgstr "Успешно отвязан назначаемый IP: %s"
 
 #, python-format
 msgid "Successfully imported public key: %s"
@@ -6647,6 +6737,10 @@ msgstr "Не удалось определить, поддерживается �
 msgid "Unable to determine if volume type encryption is supported."
 msgstr "Не удалось определить поддержку шифрования для типа дисков."
 
+#, python-format
+msgid "Unable to disassociate floating IP %s"
+msgstr "Не удаётся освободить назначаемый IP %s"
+
 msgid "Unable to disassociate floating IP."
 msgstr "Не удалось снять назначение плавающего IP."
 
@@ -6672,6 +6766,10 @@ msgid "Unable to get EC2 credentials"
 msgstr "Не удалось получить учетные данные EC2"
 
 #, python-format
+msgid "Unable to get MKS console for instance \"%s\"."
+msgstr "Не удалось получить MKS консоль для инстанса \"%s\"."
+
+#, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Не удалось получить RDP консоль для инстанса \"%s\"."
 
@@ -6691,6 +6789,10 @@ msgstr "Не удалось получить список служб cinder"
 
 msgid "Unable to get consistency group list"
 msgstr "Не удалось получить список групп согласования"
+
+#, python-format
+msgid "Unable to get console for instance \"%s\"."
+msgstr "Не удалось получить консоль для инстанса \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Не удалось получить список типов инстансов"
@@ -6775,6 +6877,10 @@ msgstr "Не удалось включить управление диском."
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "Не удалось изменить домен «%s»."
+
+#, python-format
+msgid "Unable to modify flavor access of \"%s\"."
+msgstr "Не удалось изменить права доступа к типу инстансов \"%s\"."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
