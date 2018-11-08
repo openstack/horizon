@@ -678,3 +678,22 @@ class UpdatePortView(port_views.UpdateView):
         initial = super(UpdatePortView, self).get_initial()
         initial['instance_id'] = self.kwargs['instance_id']
         return initial
+
+
+class RescueView(forms.ModalFormView):
+    form_class = project_forms.RescueInstanceForm
+    template_name = 'project/instances/rescue.html'
+    submit_label = _("Confirm")
+    submit_url = "horizon:project:instances:rescue"
+    success_url = reverse_lazy('horizon:project:instances:index')
+    page_title = _("Rescue Instance")
+
+    def get_context_data(self, **kwargs):
+        context = super(RescueView, self).get_context_data(**kwargs)
+        context["instance_id"] = self.kwargs['instance_id']
+        args = (self.kwargs['instance_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs["instance_id"]}

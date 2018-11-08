@@ -42,6 +42,10 @@ class AdminLogLink(project_tables.LogLink):
     url = "horizon:admin:instances:detail"
 
 
+class RescueInstance(project_tables.RescueInstance):
+    url = "horizon:admin:instances:rescue"
+
+
 class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "migrate"
     classes = ("btn-migrate",)
@@ -190,7 +194,9 @@ class AdminInstancesTable(tables.DataTable):
         table_actions = (project_tables.DeleteInstance,
                          AdminInstanceFilterAction)
         row_class = AdminUpdateRow
-        row_actions = (project_tables.ConfirmResize,
+        row_actions = (RescueInstance,
+                       project_tables.UnRescueInstance,
+                       project_tables.ConfirmResize,
                        project_tables.RevertResize,
                        AdminEditInstance,
                        AdminConsoleLink,

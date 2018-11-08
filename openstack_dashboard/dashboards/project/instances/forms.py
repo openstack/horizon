@@ -475,3 +475,39 @@ class Disassociate(forms.SelfHandlingForm):
                 _('Unable to disassociate floating IP %s') % fip.ip,
                 redirect=redirect)
         return True
+
+
+class RescueInstanceForm(forms.SelfHandlingForm):
+    image = forms.ChoiceField(
+        label=_("Select Image"),
+        widget=forms.ThemableSelectWidget(
+            attrs={'class': 'image-selector'},
+            data_attrs=('size', 'display-name'),
+            transform=_image_choice_title))
+    password = forms.CharField(label=_("Password"), max_length=255,
+                               required=False,
+                               widget=forms.PasswordInput(render_value=False))
+    failure_url = 'horizon:project:instances:index'
+
+    def __init__(self, request, *args, **kwargs):
+        super(RescueInstanceForm, self).__init__(request, *args, **kwargs)
+        images = image_utils.get_available_images(request,
+                                                  request.user.tenant_id)
+        choices = [(image.id, image) for image in images]
+        if not choices:
+            choices.insert(0, ("", _("No images available")))
+        self.fields['image'].choices = choices
+
+    def handle(self, request, data):
+        try:
+            api.nova.server_rescue(request, self.initial["instance_id"],
+                                   password=data["password"],
+                                   image=data["image"])
+            messages.success(request,
+                             _('Successfully rescued instance'))
+            return True
+        except Exception:
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request,
+                              _('Unable to rescue instance'),
+                              redirect=redirect)
