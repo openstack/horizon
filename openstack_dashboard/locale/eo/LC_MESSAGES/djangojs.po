@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-10-09 01:22+0000\n"
+"POT-Creation-Date: 2018-11-08 17:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-09 10:19+0000\n"
+"PO-Revision-Date: 2018-11-08 12:57+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -540,10 +540,20 @@ msgstr "Konfigura Diskilo "
 msgid "Confirm Delete"
 msgstr "Konfirmu Forigon"
 
+msgid "Confirm Delete Domain"
+msgid_plural "Confirm Delete Domains"
+msgstr[0] "Konfirmu Malfaru Domajnon"
+msgstr[1] "Konfirmu Malfaru Domajnojn"
+
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "Konfirmu Forigu Variaĵo"
 msgstr[1] "Konfirmu Forigu Variaĵojn"
+
+msgid "Confirm Delete Group"
+msgid_plural "Confirm Delete Groups"
+msgstr[0] "Konfirmu Forigi Grupon"
+msgstr[1] "Konfirmu Forigi Grupojn"
 
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
@@ -652,11 +662,17 @@ msgstr "Nombro"
 msgid "Create Container"
 msgstr "Kreu Entenilon"
 
+msgid "Create Domain"
+msgstr "Kreu Domajnon"
+
 msgid "Create Folder"
 msgstr "Kreu Dosiero"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Kreu Dosiero En: {$ ctrl.model.container.name $}"
+
+msgid "Create Group"
+msgstr "Kreu Grupon"
 
 msgid "Create Image"
 msgstr "Kreu Bildon"
@@ -804,6 +820,14 @@ msgstr "Forigu"
 msgid "Delete Container"
 msgstr "Forigu Entenilon"
 
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "Forigu Domajno"
+msgstr[1] "Forigu Domajnojn"
+
+msgid "Delete Domains"
+msgstr "Forigu Domajnojn"
+
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Forigu Dosieroj en {$ ctrl.model.container.name $}"
 
@@ -814,6 +838,14 @@ msgstr[1] "Forigu Variaĵojn"
 
 msgid "Delete Flavors"
 msgstr "Forigu Variaĵojn"
+
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "Forigu Grupon"
+msgstr[1] "Forigu Grupojn"
+
+msgid "Delete Groups"
+msgstr "Forigu Grupojn"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -897,6 +929,12 @@ msgid "Deleted Flavor: %s."
 msgid_plural "Deleted Flavors: %s."
 msgstr[0] "Forigita Variaĵo: %s."
 msgstr[1] "Forigitaj Variaĵoj: %s."
+
+#, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "Forigita Grupo: %s."
+msgstr[1] "Forigita Grupoj: %s."
 
 #, python-format
 msgid "Deleted Image: %s."
@@ -1018,6 +1056,10 @@ msgstr "Docker"
 msgid "Domain"
 msgstr "Domajno"
 
+#, python-format
+msgid "Domain %s was successfully created."
+msgstr "Domajno %s estis sukcese kreita."
+
 msgid "Domain ID"
 msgstr "Domajno ID"
 
@@ -1066,6 +1108,9 @@ msgstr "Redaktu Dosieron"
 
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "Reduktu Dosieron : {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Group"
+msgstr "Agordu Grupon"
 
 msgid "Edit Image"
 msgstr "Redaktu Bildon"
@@ -1243,6 +1288,13 @@ msgstr "Ĝeneralaj Agoj:"
 
 msgid "Group"
 msgstr "Grupo"
+
+#, python-format
+msgid "Group %s was successfully created."
+msgstr "Grupo %s estis sukcese kreita."
+
+msgid "Group updated successfully."
+msgstr "Grupo ĝisdatigita sukcese."
 
 msgid "Groups"
 msgstr "Grupoj"
@@ -3030,6 +3082,12 @@ msgstr[0] "Neeblas forigi Variaĵon: %s."
 msgstr[1] "Neeblas forigi Variaĵojn: %s."
 
 #, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "Neeblas forigi Grupon: %s."
+msgstr[1] "Neeblas forigi Grupojn: %s."
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "Neeblas forigi Bildon: %s."
@@ -3076,6 +3134,10 @@ msgid "Unable to delete policy: %s."
 msgid_plural "Unable to delete policies: %s."
 msgstr[0] "Neeblas forigi regularon: %s."
 msgstr[1] "Neeblas forigi regularojn: %s."
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "Neeblas forigi qos-regularon %(id)s"
 
 msgid "Unable to delete the container."
 msgstr "Neeblas forigi la entenilon."
@@ -3340,6 +3402,10 @@ msgstr "Neeblas ricevi la retojn."
 
 msgid "Unable to retrieve the nova services."
 msgstr "Neeblas ricevi la nova servojn."
+
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "Ne eblas recevi la regularo per ID %(id)s"
 
 msgid "Unable to retrieve the ports."
 msgstr "Neeblas ricevi la pordojn."
@@ -3747,6 +3813,10 @@ msgid "Yes"
 msgstr "Jes"
 
 #, python-format
+msgid "You are not allowed to delete domains: %s"
+msgstr "Vi ne rajtas forigi domajnojn: %s"
+
+#, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "Vi ne estas rajtigita forigi bildojn: %s"
 
@@ -3824,6 +3894,12 @@ msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "Vi selektis \"%s\". Forigita variaĵo ne estas restaŭrebla."
 msgstr[1] "Vi selektis \"%s\". Forigitaj variaĵoj ne estas restaŭreblaj."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted group is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
+msgstr[0] "Vi elektis \"%s\". Forigita grupo ne estas reakirebla."
+msgstr[1] "Vi elektis \"%s\". Forigita grupojn ne estas reakirebla."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."

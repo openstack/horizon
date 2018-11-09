@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-29 05:45+0000\n"
+"POT-Creation-Date: 2018-11-08 17:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-27 05:26+0000\n"
+"PO-Revision-Date: 2018-11-08 12:45+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -34,6 +34,33 @@ msgstr ""
 "\n"
 "      %(used)s of %(quota)s Uzita\n"
 "      "
+
+msgid ""
+"\n"
+"  If no container name is provided, a default container named volumebackups\n"
+"  will be provisioned for you.\n"
+"  Backups will be the same size as the volume they originate from.\n"
+"  "
+msgstr ""
+"\n"
+"  Se neniu entenilo nomo estas provizita, implicite defaulta entenilo nomita "
+"volumsekurkopio estos provizita por vi. Sekurkopioj estos de la sama "
+"grandeco kiel la volumo de kiu ili devenas.\n"
+"  "
+
+msgid ""
+"\n"
+"  Volume Backups are stored using one of cinder-backup drivers\n"
+"  (object storage service, Ceph, NFS, etc ...).\n"
+"  You must have one of these services activated in order to create a "
+"backup.\n"
+"  "
+msgstr ""
+"\n"
+"Volumaj Savkopioj estas konservita per unu el la cinder-sekurkopio peliloj "
+"(objektmemorila servo, Ceph, NFS, ktp ...). Vi devas havi unu el ĉi tiuj "
+"servoj aktivigitaj por krei sekurkopion.\n"
+"  "
 
 msgid " - End"
 msgstr "- Fino"
@@ -1605,6 +1632,9 @@ msgstr ""
 msgid "DNS Assignment"
 msgstr "DNS Atribuo"
 
+msgid "DNS Domain"
+msgstr "DNSa Domajno"
+
 msgid "DNS Name"
 msgstr "DNS Nomo"
 
@@ -2847,6 +2877,9 @@ msgstr "Malsukcesis to evakui instancojn: %s"
 msgid "Failed to get availability zone list."
 msgstr "Malsukcesis trovi disponebleca zono listo."
 
+msgid "Failed to get instance interfaces."
+msgstr "Malsukcesis akiri aperajn interfacojn."
+
 #, python-format
 msgid "Failed to get mapping list %s"
 msgstr "Malsukcesis recevi mapiga listo %s"
@@ -3177,6 +3210,9 @@ msgstr "Grupo Nomo"
 msgid "Group Name ="
 msgstr "Grupo Nomo ="
 
+msgid "Group Snapshot"
+msgstr "Grupa Savkopio"
+
 msgid "Group Snapshots"
 msgstr "Grupo Savkopioj"
 
@@ -3185,6 +3221,13 @@ msgstr "Grupo Tipo"
 
 msgid "Group has been updated successfully."
 msgstr "Grupo sukcese ĝisdatigita."
+
+msgid ""
+"Group which the new volume belongs to. Choose 'No group' if the new volume "
+"belongs to no group."
+msgstr ""
+"Grupo, al kiu apartenas la nova volumo. Elektu 'Neniu grupo' se la nova "
+"volumo apartenas al neniu grupo."
 
 msgid "Groups"
 msgstr "Grupoj"
@@ -4322,6 +4365,9 @@ msgstr "Neniuj glitaj IP Komunaĵoj disponeblaj"
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "Neniu glidanta IP Komunaĵoj kun IPv4 subreto disponebla"
 
+msgid "No group"
+msgstr "Neniu grupo"
+
 msgid "No groups found."
 msgstr "Neniuj grupoj trovitaj."
 
@@ -4417,6 +4463,9 @@ msgstr "Neniuj uzantoj trovita."
 
 msgid "No users."
 msgstr "Neniuj uzantoj."
+
+msgid "No valid group type"
+msgstr "Neniu valida grupa tipo"
 
 msgid "No volume snapshots available"
 msgstr "Neniuj volumo savkopiojn disponeblaj."
@@ -4904,6 +4953,9 @@ msgstr "Envicigita"
 msgid "Quota Name"
 msgstr "Kvota Nomo"
 
+msgid "Quota exceeded for creating snapshots"
+msgstr "Kotizo transpasita por krei savkopiojn"
+
 msgid "Quota exceeded for resource router."
 msgstr "Kvota transpasita por risurco enkursigilo. "
 
@@ -5276,6 +5328,9 @@ msgstr "Rolon sukcese ĝisdatigita."
 
 msgid "Roles"
 msgstr "Roloj"
+
+msgid "Roles from Groups"
+msgstr "Roloj de Grupoj"
 
 msgid "Root Disk"
 msgstr "Radika Disko"
@@ -7008,6 +7063,12 @@ msgstr "Neeblas vidigi kohereco grupon."
 msgid "Unable to display group."
 msgstr "Neeblas vidigi grupon."
 
+msgid "Unable to display the groups of this project."
+msgstr "Ne eblas montri la grupojn de ĉi tiu projekto."
+
+msgid "Unable to display the users of this project."
+msgstr "Ne eblas montri la uzantojn de ĉi tiu projekto."
+
 msgid "Unable to edit spec."
 msgstr "Neeblas redakti specifon."
 
@@ -7375,11 +7436,17 @@ msgstr "Neeblas ricevi grupo listo. Bonvolu provu denove poste."
 msgid "Unable to retrieve group snapshot details."
 msgstr "Neeblas ricevi grupo savkopio detajlojn."
 
+msgid "Unable to retrieve group snapshots."
+msgstr "Ne eblas ricevi grupajn savkopiojn."
+
 msgid "Unable to retrieve group types."
 msgstr "Neeblas ricevi grupo tipojn."
 
 msgid "Unable to retrieve group users."
 msgstr "Neeblas ricevi grupo uzantoj."
+
+msgid "Unable to retrieve group."
+msgstr "Ne eblas ricevi grupon."
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "Neebla trovi servilo agregato listo."
@@ -7580,6 +7647,9 @@ msgstr "Neeblas ricevi la aperon."
 msgid "Unable to retrieve the project information of the image."
 msgstr "Neeblas ricevi projekto informojn de bildigo."
 
+msgid "Unable to retrieve the volume group list."
+msgstr "Ne eblas ricevi la volumgrupa liston."
+
 msgid "Unable to retrieve the volume type list."
 msgstr "Neeblas ricevi volumo tipo liston."
 
@@ -7627,6 +7697,9 @@ msgstr "Neeblas ricevi volumo ĉifrado detajlojn."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Neeblas ricevi volumo grupo savkopiojn."
+
+msgid "Unable to retrieve volume groups"
+msgstr "Neeblas ricevi volumgrupojn"
 
 msgid "Unable to retrieve volume groups."
 msgstr "Neeblas ricevi volumo grupojn."
@@ -7705,6 +7778,9 @@ msgstr "Neeblas ricevi volomo/apero aldonaĵo informon."
 
 msgid "Unable to retrieve volumes availability zones."
 msgstr "Neebla ricevi volumoj disponeblaj zonojn."
+
+msgid "Unable to retrieve volumes."
+msgstr "Ne eblas ricevi volumojn."
 
 msgid "Unable to set Domain Context."
 msgstr "Neeblas agordi Domajno Kuntekston."
