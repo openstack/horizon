@@ -1171,7 +1171,7 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
                         (settings.OPENSTACK_KEYSTONE_URL, protocol, origin))
 
         form_data = {'auth_type': protocol,
-                     'region': settings.OPENSTACK_KEYSTONE_URL}
+                     'region': 'default'}
         url = reverse('login')
 
         # POST to the page and redirect to keystone.
@@ -1188,7 +1188,7 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
                          protocol, origin))
 
         form_data = {'auth_type': self.idp_oidc_id,
-                     'region': settings.OPENSTACK_KEYSTONE_URL}
+                     'region': 'default'}
         url = reverse('login')
 
         # POST to the page and redirect to keystone.
@@ -1206,7 +1206,7 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
                          protocol, origin))
 
         form_data = {'auth_type': self.idp_oidc_id,
-                     'region': settings.OPENSTACK_KEYSTONE_URL}
+                     'region': 'default'}
         url = reverse('login')
 
         # POST to the page and redirect to keystone.

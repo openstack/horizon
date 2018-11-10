@@ -28,6 +28,13 @@ from openstack_auth import utils
 LOG = logging.getLogger(__name__)
 
 
+def get_region_endpoint(region_id):
+    if region_id == "default":
+        return settings.OPENSTACK_KEYSTONE_URL
+    all_regions = getattr(settings, 'AVAILABLE_REGIONS', [])
+    return all_regions[int(region_id)][0]
+
+
 class Login(django_auth_forms.AuthenticationForm):
     """Form used for logging in a user.
 
@@ -125,14 +132,11 @@ class Login(django_auth_forms.AuthenticationForm):
         password = self.cleaned_data.get('password')
         domain = self.cleaned_data.get('domain', default_domain)
         region_id = self.cleaned_data.get('region')
-        if region_id == "default":
-            region = settings.OPENSTACK_KEYSTONE_URL
-        else:
-            all_regions = getattr(settings, 'AVAILABLE_REGIONS', [])
-            try:
-                region = all_regions[int(region_id)][0]
-            except (ValueError, IndexError, TypeError):
-                raise forms.ValidationError("Invalid region %r" % region_id)
+        try:
+            region = get_region_endpoint(region_id)
+        except (ValueError, IndexError, TypeError):
+            raise forms.ValidationError("Invalid region %r" % region_id)
+        self.cleaned_data['region'] = region
 
         if not (username and password):
             # Don't authenticate, just let the other validators handle it.
