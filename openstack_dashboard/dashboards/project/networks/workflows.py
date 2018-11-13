@@ -316,6 +316,8 @@ class CreateSubnetInfoAction(workflows.Action):
             msg = _('Specify IP address of gateway or '
                     'check "Disable Gateway" checkbox.')
             raise forms.ValidationError(msg)
+        if no_gateway and 'gateway_ip' in self._errors:
+            del self._errors['gateway_ip']
 
     def clean(self):
         cleaned_data = super(CreateSubnetInfoAction, self).clean()
