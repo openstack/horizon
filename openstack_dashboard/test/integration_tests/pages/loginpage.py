@@ -21,6 +21,7 @@ from openstack_dashboard.test.integration_tests.pages.project.compute import \
 
 
 class LoginPage(pageobject.PageObject):
+    _login_domain_field_locator = (by.By.ID, 'id_domain')
     _login_username_field_locator = (by.By.ID, 'id_username')
     _login_password_field_locator = (by.By.ID, 'id_password')
     _login_submit_button_locator = (by.By.CSS_SELECTOR,
@@ -34,6 +35,10 @@ class LoginPage(pageobject.PageObject):
     def is_login_page(self):
         return (self.is_the_current_page() and
                 self._is_element_visible(*self._login_submit_button_locator))
+
+    @property
+    def domain(self):
+        return self._get_elements(*self._login_domain_field_locator)
 
     @property
     def username(self):
@@ -67,6 +72,8 @@ class LoginPage(pageobject.PageObject):
                               self._press_enter_on_login_button)
 
     def _do_login(self, user, password, login_method):
+        if self.conf.identity.domain:
+            self.domain[0].send_keys(self.conf.identity.domain)
         if user == self.conf.identity.admin_username:
             if password is None:
                 password = self.conf.identity.admin_password
