@@ -97,7 +97,8 @@
           </div>
         </div>
         <ul class="list-group metadata-list-group" ng-form="ctrl.metadataForm" ng-cloak>
-          <li ng-repeat="item in existingList = (ctrl.tree.flatTree | filter:{$:ctrl.filterText.existing, added:true, leaf:'!false'} | orderBy:'leaf.name')"
+          <li ng-repeat="item in existingList = (ctrl.tree.flatTree | filter:{added:true, leaf:'!false'} | orderBy:'leaf.name')"
+	      ng-show="(ctrl.tree.flatTree | filter:{$:ctrl.filterText.existing}).indexOf(item) >= 0"
               ng-class="{'active': ctrl.tree.selected===item}"
               ng-class-odd="'dark-stripe'"
               ng-class-even="'light-stripe'"
