@@ -304,11 +304,13 @@ class DataTableView(MultiTableView):
                 filter_string = self.table.get_filter_string().strip()
                 if filter_field and filter_string:
                     filter_map = filters_map.get(filter_field, {})
-                    # We use the filter_string given by the user and
-                    # look for valid values in the filter_map that's why
-                    # we apply lower()
-                    filters[filter_field] = filter_map.get(
-                        filter_string.lower(), filter_string)
+                    filters[filter_field] = filter_string
+                    for k, v in filter_map.items():
+                        # k is django.utils.functional.__proxy__
+                        # and could not be searched in dict
+                        if filter_string.lower() == k:
+                            filters[filter_field] = v
+                            break
         return filters
 
 
