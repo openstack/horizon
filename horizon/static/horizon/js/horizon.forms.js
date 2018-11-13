@@ -365,25 +365,28 @@ horizon.forms.getSpinnerValue = function(val, defaultVal) {
   return isNaN(val) ? defaultVal : val;
 };
 
-horizon.forms.checkSpinnerValue = function($input) {
-  var val = $input.attr('value');
-  var max = horizon.forms.getSpinnerValue($input.attr('max'), Number.MAX_SAFE_INTEGER);
-  var min = horizon.forms.getSpinnerValue($input.attr('min'), 0);
+horizon.forms.checkSpinnerValue = function($inputs) {
+  $inputs.each(function (index, input) {
+    var $input = $(input);
+    var val = $input.attr('value');
+    var max = horizon.forms.getSpinnerValue($input.attr('max'), Number.MAX_SAFE_INTEGER);
+    var min = horizon.forms.getSpinnerValue($input.attr('min'), 0);
 
-  var $parent = $input.parents('.themable-spinner');
-  var $up = $parent.find('.spinner-up');
-  var $down = $parent.find('.spinner-down');
+    var $parent = $input.parents('.themable-spinner');
+    var $up = $parent.find('.spinner-up');
+    var $down = $parent.find('.spinner-down');
 
-  $parent.find('.themable-spinner-btn').removeAttr('disabled');
-  if (val <= min) {
+    $parent.find('.themable-spinner-btn').removeAttr('disabled');
+    if (val <= min) {
 
-    // Disable if we've hit the min
-    $down.attr('disabled', true);
-  } else if (val >= max) {
+      // Disable if we've hit the min
+      $down.attr('disabled', true);
+    } else if (val >= max) {
 
-    // Disable if we've hit the max
-    $up.attr('disabled', true);
-  }
+      // Disable if we've hit the max
+      $up.attr('disabled', true);
+    }
+  });
 };
 
 horizon.forms.init_themable_spinner = function ($elem) {
