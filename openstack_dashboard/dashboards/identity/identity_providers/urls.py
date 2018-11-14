@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^(?P<identity_provider_id>[^/]+)/detail/$',
         views.DetailView.as_view(), name='detail'),
     url(r'^(?P<identity_provider_id>[^/]+)/detail/'
-        '\?tab=idp_details__protocols$',
+        r'\?tab=idp_details__protocols$',
         views.DetailView.as_view(),
         name='protocols_tab'),
     url(r'^(?P<identity_provider_id>[^/]+)/update/$',

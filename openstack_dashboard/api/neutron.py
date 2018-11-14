@@ -1841,6 +1841,7 @@ def is_router_enabled(request):
     return (is_enabled_by_config('enable_router') and
             is_extension_supported(request, 'router'))
 
+
 # FEATURE_MAP is used to define:
 # - related neutron extension name (key: "extension")
 # - corresponding dashboard config (key: "config")

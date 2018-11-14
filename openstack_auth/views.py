@@ -198,7 +198,7 @@ def logout(request, login_url=None, **kwargs):
             utils.get_websso_default_redirect_logout()):
         auth_user.unset_session_user_variables(request)
         return django_http.HttpResponseRedirect(
-                   utils.get_websso_default_redirect_logout())
+            utils.get_websso_default_redirect_logout())
     else:
         return django_auth_views.logout_then_login(request,
                                                    login_url=login_url,

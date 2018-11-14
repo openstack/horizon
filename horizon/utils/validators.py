@@ -76,6 +76,7 @@ def validate_metadata(value):
             if not len(keyval) == 2 or not keyval[0]:
                 raise ValidationError(error_msg)
 
+
 # Same as POSIX [:print:]. Accordingly, diacritics are disallowed.
 PRINT_REGEX = re.compile(r'^[\x20-\x7E]*$')
 

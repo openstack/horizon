@@ -33,11 +33,11 @@ class GlanceApiTests(test.APIMockTestCase):
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @mock.patch.object(api.glance, 'glanceclient')
     def test_long_url(self, mock_glanceclient):
-        servers = self.servers.list()*100
-        api_images = self.images_api.list()*100
+        servers = self.servers.list() * 100
+        api_images = self.images_api.list() * 100
         instances_img_ids = [instance.image.get('id') for instance in
                              servers if hasattr(instance, 'image')]
-        expected_images = self.images.list()*100
+        expected_images = self.images.list() * 100
         glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
         mock_images_list.return_value = iter(api_images)

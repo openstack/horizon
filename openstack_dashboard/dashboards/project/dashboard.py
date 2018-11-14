@@ -26,4 +26,5 @@ class Project(horizon.Dashboard):
         has_project = request.user.token.project.get('id') is not None
         return super(Project, self).can_access(context) and has_project
 
+
 horizon.register(Project)

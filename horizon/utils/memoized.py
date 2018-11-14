@@ -131,6 +131,7 @@ def memoized(func=None, max_size=None):
         return decorate(func)
     return decorate
 
+
 # We can use @memoized for methods now too, because it uses weakref and so
 # it doesn't keep the instances in memory forever. We might want to separate
 # them in the future, however.
