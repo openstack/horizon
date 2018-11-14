@@ -6,6 +6,6 @@ features:
     list of keystone domains to choose from at login. This should NOT be enabled
     for public clouds, as advertising enabled domains to unauthenticated users
     irresponsibly exposes private information. This is useful for private clouds
-    that sit behind a corprate firewall and that have a small number of domains
+    that sit behind a corporate firewall and that have a small number of domains
     mapped to known corporate structures, such as an LDAP directory, Active
     Directory domains, geopgraphical regions or business units.
