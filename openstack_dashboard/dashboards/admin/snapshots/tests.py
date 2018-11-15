@@ -20,7 +20,6 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.admin.snapshots import forms
 from openstack_dashboard.dashboards.admin.snapshots import tables
 
 INDEX_URL = 'horizon:admin:snapshots:index'
@@ -222,14 +221,6 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), volume.id)
         self.mock_volume_snapshot_get.assert_called_once_with(
             test.IsHttpRequest(), snapshot.id)
-
-    def test_get_snapshot_status_choices_without_current(self):
-        current_status = 'available'
-        status_choices = forms.populate_status_choices(current_status,
-                                                       forms.STATUS_CHOICES)
-        self.assertEqual(len(status_choices), len(forms.STATUS_CHOICES))
-        self.assertNotIn(current_status,
-                         [status[0] for status in status_choices])
 
     @test.create_mocks({cinder: ('volume_snapshot_get',)})
     def test_update_volume_status_get(self):
