@@ -28,6 +28,15 @@ class PolicyLoaderTestCase(test.TestCase):
         self.assertIn('identity', enforcer)
         self.assertIn('compute', enforcer)
 
+    def test_nonexisting_policy_file_load(self):
+        policy_files = {
+            'dinosaur': 'no_godzilla.json',
+        }
+        policy.reset()
+        with self.settings(POLICY_FILES=policy_files):
+            enforcer = policy._get_enforcer()
+            self.assertEqual(0, len(enforcer))
+
     def test_policy_reset(self):
         policy._get_enforcer()
         self.assertEqual(2, len(policy._ENFORCER))
