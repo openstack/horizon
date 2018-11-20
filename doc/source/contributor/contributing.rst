@@ -36,7 +36,7 @@ Second, you'll need to take care of a couple administrative tasks:
 
 Whew! Got all that? Okay! You're good to go.
 
-.. _`OpenStack Contributor License Agreement`: http://wiki.openstack.org/CLA
+.. _`OpenStack Contributor License Agreement`: https://wiki.openstack.org/CLA
 .. _`Horizon Developers`: https://launchpad.net/~horizon
 .. _`instructions for setting up git-review`: https://docs.openstack.org/infra/manual/developers.html#development-workflow
 
@@ -475,8 +475,8 @@ To make a new release of the package, you need to:
 .. _documentation: http://xstatic.rtfd.org/en/latest/packaging.html
 .. _xstatic-release: https://pypi.org/project/xstatic-release/
 .. _`Create a new repository under OpenStack`: https://docs.openstack.org/infra/manual/creators.html
-.. _`request a release`: http://git.openstack.org/cgit/openstack/releases/tree/README.rst
-.. _`releases repository`: http://git.openstack.org/cgit/openstack/releases
+.. _`request a release`: https://git.openstack.org/cgit/openstack/releases/tree/README.rst
+.. _`releases repository`: https://git.openstack.org/cgit/openstack/releases
 .. _`Set up PyPi`: https://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
 .. _global-requirements: https://github.com/openstack/requirements/blob/master/global-requirements.txt
 
