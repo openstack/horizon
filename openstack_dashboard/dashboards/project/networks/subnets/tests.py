@@ -336,7 +336,7 @@ class NetworkSubnetTests(test.TestCase):
         res = self.client.post(url, form_data)
 
         expected_msg = 'Network Address and IP version are inconsistent.'
-        self.assertFormErrors(res, 1, expected_msg)
+        self.assertWorkflowErrors(res, 1, expected_msg)
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
         self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),

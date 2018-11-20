@@ -665,7 +665,7 @@ class NetworkTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
 
-        self.assertFormErrors(res, 1)
+        self.assertWorkflowErrors(res, 1)
         self.assertContains(res, "1 through 4094")
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
@@ -698,7 +698,7 @@ class NetworkTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
 
-        self.assertFormErrors(res, 1)
+        self.assertWorkflowErrors(res, 1)
         self.assertContains(res, "1 through %s" % ((2 ** 32) - 1))
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
@@ -734,7 +734,7 @@ class NetworkTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
 
-        self.assertFormErrors(res, 1)
+        self.assertWorkflowErrors(res, 1)
         self.assertContains(res, "10 through 20")
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())

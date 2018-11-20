@@ -400,6 +400,34 @@ class TestCase(horizon_helpers.TestCase):
             0, len(errors),
             "Unexpected errors were found on the workflow: %s" % errors)
 
+    def assertWorkflowErrors(self, response, count=0, message=None,
+                             context_name="workflow"):
+        """Check for workflow errors.
+
+        Asserts that the response does contain a workflow in its
+        context, and that workflow has errors, if count were given,
+        it must match the exact numbers of errors
+        """
+        context = getattr(response, "context", {})
+        self.assertIn(context_name, context,
+                      msg="The response did not contain a workflow.")
+        errors = {}
+        for step in response.context[context_name].steps:
+            errors.update(step.action._errors)
+        if count:
+            self.assertEqual(
+                count, len(errors),
+                "%d errors were found on the workflow, %d expected" %
+                (len(errors), count))
+            if message and message not in six.text_type(errors):
+                self.fail("Expected message not found, instead found: %s"
+                          % ["%s: %s" % (key, [e for e in field_errors]) for
+                             (key, field_errors) in errors.items()])
+        else:
+            self.assertGreater(
+                len(errors), 0,
+                "No errors were found on the workflow")
+
 
 class BaseAdminViewTests(TestCase):
     """Sets an active user with the "admin" role.
