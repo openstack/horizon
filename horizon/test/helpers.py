@@ -133,7 +133,7 @@ class TestCase(django_test.TestCase):
         # A dummy get_response function (which is not callable) is passed
         # because middlewares below are used only to populate request attrs.
         middleware.HorizonMiddleware('dummy_get_response') \
-            .process_request(self.request)
+            ._process_request(self.request)
         AuthenticationMiddleware('dummy_get_response') \
             .process_request(self.request)
         os.environ["HORIZON_TEST_RUN"] = "True"

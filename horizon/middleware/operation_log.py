@@ -81,10 +81,10 @@ class OperationLogMiddleware(object):
 
     def __call__(self, request):
         response = self.get_response(request)
-        response = self.process_response(request, response)
+        response = self._process_response(request, response)
         return response
 
-    def process_response(self, request, response):
+    def _process_response(self, request, response):
         """Log user operation."""
         log_format = self._get_log_format(request)
         if not log_format:
