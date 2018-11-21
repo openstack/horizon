@@ -296,6 +296,9 @@ def update_pagination(entities, page_size, marker, sort_dir):
     elif marker is not None:
         has_prev_data = True
 
+    if sort_dir == 'asc':
+        entities.reverse()
+
     return entities, has_more_data, has_prev_data
 
 
