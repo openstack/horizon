@@ -300,6 +300,11 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.network_qos.panel.NetworkQoS.can_access'),
         'return_value': True,
     },
+    'rbac_policies': {
+        'method': ('openstack_dashboard.dashboards.admin'
+                   '.rbac_policies.panel.RBACPolicies.can_access'),
+        'return_value': True,
+    },
     'server_groups': {
         'method': ('openstack_dashboard.dashboards.project'
                    '.server_groups.panel.ServerGroups.can_access'),

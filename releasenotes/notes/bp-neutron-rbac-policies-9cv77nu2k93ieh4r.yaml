@@ -1,0 +1,11 @@
+---
+features:
+  - >
+    [`blueprint neutron-rbac-policies <https://blueprints.launchpad.net/horizon/+spec/rbac-policies>`_]
+    This blueprint adds RBAC policies panel to the Admin Network group.
+    This panel will be enabled by default when the RBAC extension is
+    enabled. Remove this panel by setting "'enable_rbac_policy': False"
+    in 'local_settings.py'. RBAC policy supports the control of two
+    resources: networks and qos policies, because qos policies is
+    an extension function of neutron, need to enable this extension
+    if wants to use it.

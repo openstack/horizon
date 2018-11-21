@@ -1988,3 +1988,59 @@ def list_availability_zones(request, resource=None, state=None):
         az_list = [az for az in az_list if az['state'] == state]
 
     return sorted(az_list, key=lambda zone: zone['name'])
+
+
+class RBACPolicy(NeutronAPIDictWrapper):
+    """Wrapper for neutron RBAC Policy."""
+
+
+def rbac_policy_create(request, **kwargs):
+    """Create a RBAC Policy.
+
+    :param request: request context
+    :param target_tenant: target tenant of the policy
+    :param tenant_id: owner tenant of the policy(Not recommended)
+    :param object_type: network or qos_policy
+    :param object_id: object id of policy
+    :param action: access_as_shared or access_as_external
+    :return: RBACPolicy object
+    """
+    body = {'rbac_policy': kwargs}
+    rbac_policy = neutronclient(request).create_rbac_policy(
+        body=body).get('rbac_policy')
+    return RBACPolicy(rbac_policy)
+
+
+def rbac_policy_list(request, **kwargs):
+    """List of RBAC Policies."""
+    policies = neutronclient(request).list_rbac_policies(
+        **kwargs).get('rbac_policies')
+    return [RBACPolicy(p) for p in policies]
+
+
+def rbac_policy_update(request, policy_id, **kwargs):
+    """Update a RBAC Policy.
+
+    :param request: request context
+    :param policy_id: target policy id
+    :param target_tenant: target tenant of the policy
+    :return: RBACPolicy object
+    """
+    body = {'rbac_policy': kwargs}
+    rbac_policy = neutronclient(request).update_rbac_policy(
+        policy_id, body=body).get('rbac_policy')
+    return RBACPolicy(rbac_policy)
+
+
+@profiler.trace
+def rbac_policy_get(request, policy_id, **kwargs):
+    """Get RBAC policy for a given policy id."""
+    policy = neutronclient(request).show_rbac_policy(
+        policy_id, **kwargs).get('rbac_policy')
+    return RBACPolicy(policy)
+
+
+@profiler.trace
+def rbac_policy_delete(request, policy_id):
+    """Delete RBAC policy for a given policy id."""
+    neutronclient(request).delete_rbac_policy(policy_id)
