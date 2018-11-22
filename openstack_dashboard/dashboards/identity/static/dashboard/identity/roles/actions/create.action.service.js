@@ -85,7 +85,7 @@
 
     function perform() {
       getRoles();
-      var model = {name: ''};
+      var model = {};
 
       var config = {
         title: gettext('Create Role'),
