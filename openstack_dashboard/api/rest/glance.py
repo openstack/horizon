@@ -105,6 +105,9 @@ class ImageProperties(generic.View):
 
         This method returns HTTP 204 (no content) on success.
         """
+        if "os_hidden" in request.DATA['updated']:
+            request.DATA['updated']['os_hidden'] = (
+                request.DATA['updated']['os_hidden'] == "true")
         api.glance.image_update_properties(
             request, image_id, request.DATA.get('removed'),
             **request.DATA['updated']
