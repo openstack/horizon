@@ -37,8 +37,8 @@ We need the request object to get the user, so we'll slightly modify the
 existing django.contrib.auth.get_user method. To do so we update the
 auth middleware to point to our overridden method.
 
-Calling the "patch_middleware_get_user" method somewhere like our urls.py
-file takes care of hooking it in appropriately.
+Calling "patch_middleware_get_user" is done in our custom middleware at
+"openstack_auth.middleware" to monkeypatch the code in before it is needed.
 """
 
 

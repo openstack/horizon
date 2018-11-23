@@ -60,6 +60,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE = (
+    'openstack_auth.middleware.OpenstackAuthMonkeyPatchMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
