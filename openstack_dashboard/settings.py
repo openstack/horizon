@@ -108,6 +108,7 @@ OPENSTACK_IMAGE_BACKEND = {
 }
 
 MIDDLEWARE_CLASSES = (
+    'openstack_auth.middleware.OpenstackAuthMonkeyPatchMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
