@@ -116,29 +116,7 @@ Create at least one key pair for each project.
 #. In the :guilabel:`Create Key Pair` dialog box, enter a name for your
    key pair, and click :guilabel:`Create Key Pair`.
 
-#. Respond to the prompt to download the key pair.
-
-.. _dashboard_import_keypair:
-
-Import a key pair
-~~~~~~~~~~~~~~~~~
-
-#. Log in to the dashboard.
-
-#. Select the appropriate project from the drop down menu at the top left.
-
-#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab.
-
-#. Click the :guilabel:`Key Pairs` tab, which shows the key pairs that
-   are available for this project.
-
-#. Click :guilabel:`Import Key Pair`.
-
-#. In the :guilabel:`Import Key Pair` dialog box, enter the name of your
-   key pair, copy the public key into the :guilabel:`Public Key` box,
-   and then click :guilabel:`Import Key Pair`.
-
-#. Save the ``*.pem`` file locally.
+#. The private key will be downloaded automatically.
 
 #. To change its permissions so that only you can read and write to the
    file, run the following command:
@@ -159,6 +137,26 @@ Import a key pair
    .. code-block:: console
 
       $ ssh-add yourPrivateKey.pem
+
+.. _dashboard_import_keypair:
+
+Import a key pair
+~~~~~~~~~~~~~~~~~
+
+#. Log in to the dashboard.
+
+#. Select the appropriate project from the drop down menu at the top left.
+
+#. On the :guilabel:`Project` tab, open the :guilabel:`Compute` tab.
+
+#. Click the :guilabel:`Key Pairs` tab, which shows the key pairs that
+   are available for this project.
+
+#. Click :guilabel:`Import Key Pair`.
+
+#. In the :guilabel:`Import Key Pair` dialog box, enter the name of your
+   key pair, copy the public key into the :guilabel:`Public Key` box,
+   and then click :guilabel:`Import Key Pair`.
 
 The Compute database registers the public key of the key pair.
 
