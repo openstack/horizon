@@ -96,7 +96,7 @@ read the `Django logging directive`_ and the `Python logging directive`_
 documentation. Horizon is built on Python and Django.
 
 .. _Django logging directive: https://docs.djangoproject.com/en/dev/topics/logging
-.. _Python logging directive: http://docs.python.org/2/library/logging.html
+.. _Python logging directive: https://docs.python.org/2/library/logging.html
 
 Session Storage
 ---------------

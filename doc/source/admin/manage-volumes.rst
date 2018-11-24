@@ -111,7 +111,7 @@ volumes.
 |                    |                       |size would only be 128-bits*|
 +--------------------+-----------------------+----------------------------+
 
-`*` Source `NIST SP 800-38E <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38e.pdf>`_
+`*` Source `NIST SP 800-38E <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38e.pdf>`_
 
 .. note::
 
