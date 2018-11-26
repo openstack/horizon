@@ -136,7 +136,8 @@ class CreateForm(forms.SelfHandlingForm):
             if (self.ha_allowed and data['ha'] != 'server_default'):
                 params['ha'] = (data['ha'] == 'enabled')
             router = api.neutron.router_create(request, **params)
-            message = _('Router %s was successfully created.') % data['name']
+            message = (_('Router %s was successfully created.') %
+                       router.name_or_id)
             messages.success(request, message)
             return router
         except Exception as exc:
@@ -196,7 +197,7 @@ class UpdateForm(forms.SelfHandlingForm):
             router = api.neutron.router_update(request,
                                                self.initial['router_id'],
                                                **params)
-            msg = _('Router %s was successfully updated.') % data['name']
+            msg = _('Router %s was successfully updated.') % router.name_or_id
             messages.success(request, msg)
             return router
         except Exception as exc:
