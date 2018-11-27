@@ -62,10 +62,6 @@ class VolumeTableMixIn(object):
                 cinder.volume_list_paged(self.request, marker=marker,
                                          search_opts=search_opts,
                                          sort_dir=sort_dir, paginate=True)
-
-            if sort_dir == "asc":
-                volumes.reverse()
-
             return volumes
         except Exception:
             exceptions.handle(self.request,

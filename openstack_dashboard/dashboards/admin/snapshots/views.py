@@ -75,8 +75,7 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
 
         else:
             snapshots = []
-        return sorted(snapshots,
-                      key=lambda snapshot: snapshot.tenant_name or '')
+        return snapshots
 
 
 class UpdateStatusView(forms.ModalFormView):
