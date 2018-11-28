@@ -4,6 +4,10 @@
     {% if ip_groups.keys|length > 1 %}
     <li><b>{{ ip_group }}</b>
     {% endif %}
-    {{ ips|join:", " }}</li>
+    {% if ips|length > 0 %}
+      {{ ips|join:", " }}</li>
+    {% else %}
+      {% trans "(No IP address)" %}
+    {% endif %}
 {% endfor %}
 </ul>

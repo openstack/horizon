@@ -1771,11 +1771,14 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
     for port in instance_ports:
         network_name = network_names.get(port.network_id)
         if network_name is not None:
-            for fixed_ip in port.fixed_ips:
-                addresses[network_name].append(
-                    _format_address(port.mac_address,
-                                    fixed_ip['ip_address'],
-                                    u'fixed'))
+            if port.fixed_ips:
+                for fixed_ip in port.fixed_ips:
+                    addresses[network_name].append(
+                        _format_address(port.mac_address,
+                                        fixed_ip['ip_address'],
+                                        u'fixed'))
+            else:
+                addresses[network_name] = []
             port_fips = floating_ips.get(port.id, [])
             for fip in port_fips:
                 addresses[network_name].append(

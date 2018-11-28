@@ -71,9 +71,17 @@
       {% for network, ip_list in instance.addresses.items %}
         <dt>{{ network|title }}</dt>
         <dd>
-          {% for ip in ip_list %}
-            {% if not forloop.last %}{{ ip.addr }},&nbsp;{% else %}{{ ip.addr }}{% endif %}
-          {% endfor %}
+          {% if ip_list|length > 0 %}
+            {% for ip in ip_list %}
+              {% if not forloop.last %}
+                {{ ip.addr }},&nbsp;
+              {% else %}
+                {{ ip.addr }}
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% trans "(No IP address)" %}
+          {% endif %}
         </dd>
       {% endfor %}
     </dl>
