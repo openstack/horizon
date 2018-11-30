@@ -54,12 +54,15 @@ class EditUserLink(policy.PolicyTargetMixin, tables.LinkAction):
         return api.keystone.keystone_can_edit_user()
 
 
-class ChangePasswordLink(tables.LinkAction):
+class ChangePasswordLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "change_password"
     verbose_name = _("Change Password")
     url = "horizon:identity:users:change_password"
     classes = ("ajax-modal",)
     icon = "key"
+    policy_rules = (("identity", "identity:update_user"),)
+    policy_target_attrs = (("user_id", "id"),
+                           ("target.user.domain_id", "domain_id"))
 
     def allowed(self, request, user):
         return api.keystone.keystone_can_edit_user()

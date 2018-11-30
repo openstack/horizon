@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fixed a bug where non-admin users would be shown the "Change Password"
+    button for users listed under the Identity panel.
