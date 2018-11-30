@@ -496,6 +496,7 @@ class APITestCase(TestCase):
         LOG.warning("APITestCase has been deprecated in favor of mock usage "
                     "and will be removed at the beginning of 'Stein' release. "
                     "Please convert your to use APIMockTestCase instead.")
+        utils.patch_middleware_get_user()
 
         def fake_keystoneclient(request, admin=False):
             """Returns the stub keystoneclient.
