@@ -1,13 +1,13 @@
 # Andi Chandler <andi@gowling.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Project-Id-Version: horizon 15.0.0.0b2.dev79\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"POT-Creation-Date: 2018-11-29 02:54-0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-07-11 09:37+0000\n"
+"PO-Revision-Date: 2018-11-27 12:24+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -1546,14 +1546,8 @@ msgstr ""
 "Pseudo-folders are similar to folders in your desktop operating system. They "
 "are virtual collections defined by a common prefix on the object's name."
 
-msgid "Respond to the prompt to download the key pair."
-msgstr "Respond to the prompt to download the key pair."
-
 msgid "Safari"
 msgstr "Safari"
-
-msgid "Save the ``*.pem`` file locally."
-msgstr "Save the ``*.pem`` file locally."
 
 msgid "Security Groups"
 msgstr "Security Groups"
@@ -1823,6 +1817,9 @@ msgstr "The new port is now displayed in the :guilabel:`Ports` list."
 
 msgid "The new router is now displayed in the :guilabel:`Routers` tab."
 msgstr "The new router is now displayed in the :guilabel:`Routers` tab."
+
+msgid "The private key will be downloaded automatically."
+msgstr "The private key will be downloaded automatically."
 
 msgid ""
 "The top of the window displays your user name. You can also access the :"

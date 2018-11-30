@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-10-10 11:59+0000\n"
+"POT-Creation-Date: 2018-11-29 08:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-10 09:23+0000\n"
+"PO-Revision-Date: 2018-11-23 06:07+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
@@ -794,6 +794,10 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "Disponível"
 
+msgctxt "Current status of Volume Group"
+msgid "Available"
+msgstr "Disponível"
+
 msgctxt "Current status of Volume Group Snapshot"
 msgid "Available"
 msgstr "Disponível"
@@ -1084,6 +1088,9 @@ msgstr "Clique aqui para mostrar somente o console"
 msgid "Clone Consistency Group"
 msgstr "Clonar Grupo de Consistência"
 
+msgid "Clone Group"
+msgstr "Clonar Grupo"
+
 msgid ""
 "Clone each of the volumes in the source Consistency Group, and then add them "
 "to a newly created Consistency Group."
@@ -1266,6 +1273,9 @@ msgstr "Criar Sabor"
 
 msgid "Create Group"
 msgstr "Criar Grupo"
+
+msgid "Create Group Snapshot"
+msgstr "Criar Snapshot do Grupo"
 
 msgid "Create Host Aggregate"
 msgstr "Criar Agregado de Host"
@@ -2579,6 +2589,10 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "Erro"
 
+msgctxt "Current status of Volume Group"
+msgid "Error"
+msgstr "Erro"
+
 msgctxt "Current status of Volume Group Snapshot"
 msgid "Error"
 msgstr "Erro"
@@ -3167,6 +3181,9 @@ msgstr "ID do Grupo"
 msgid "Group ID ="
 msgstr "ID do Grupo ="
 
+msgid "Group Information"
+msgstr "Informações do Grupo"
+
 msgid "Group Management"
 msgstr "Gerenciamento de Grupo"
 
@@ -3241,6 +3258,9 @@ msgstr[1] "Instâncias Reiniciadas à força"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Reinicialização a Frio"
+
+msgid "Has Snapshots"
+msgstr "Possui Snapshots"
 
 msgid "Help"
 msgstr "Ajuda"
@@ -3542,6 +3562,10 @@ msgstr "Em uso"
 msgctxt "Current status of Consistency Group Snapshot"
 msgid "In-use"
 msgstr "Em uso"
+
+msgctxt "Current status of Volume Group"
+msgid "In-use"
+msgstr "Em Uso"
 
 msgctxt "Current status of Volume Group Snapshot"
 msgid "In-use"
@@ -4438,6 +4462,9 @@ msgstr "Nenhum usuário encontrado."
 msgid "No users."
 msgstr "Nenhum usuário."
 
+msgid "No valid group type"
+msgstr "Tipo do grupo não é válido"
+
 msgid "No volume snapshots available"
 msgstr "Nenhum snapshot de volume disponível"
 
@@ -5103,6 +5130,9 @@ msgstr[1] "Remover Usuários"
 msgid "Remove Volumes from Consistency Group"
 msgstr "Remover volumes do Grupo de Consistência"
 
+msgid "Remove Volumes from Group"
+msgstr "Remover Volumes do Grupo"
+
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Usuário Removido"
@@ -5576,6 +5606,9 @@ msgstr "Selecione uma instância onde anexar."
 
 msgid "Select format"
 msgstr "Selecione o formato"
+
+msgid "Select group type"
+msgstr "Selecione o tipo do grupo"
 
 msgid "Select network"
 msgstr "Selecione a rede"
@@ -6241,14 +6274,6 @@ msgstr ""
 "O <strong>Contole de Localização</strong> é o serviço hipotético onde a "
 "criptografia é realizada (exemplo, front-end=Nova). O valor padrão é 'front-"
 "end.'"
-
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"O  <strong>Key Size</strong> é o tamanho da chave de criptografia, em bits "
-"(por exemplo, 128, 256). Se o campo é deixado em branco, o padrão do "
-"provedor será utilizado."
 
 msgid ""
 "The <strong>Provider</strong> is the encryption provider format (e.g. 'luks' "
@@ -7053,6 +7078,9 @@ msgstr "Não é possível desassociar IP flutuante."
 msgid "Unable to display consistency group."
 msgstr "Impossível mostrar grupo de consistência."
 
+msgid "Unable to display group."
+msgstr "Impossível mostrar grupo"
+
 msgid "Unable to display the groups of this project."
 msgstr "Não é possível exibir os grupos deste projeto."
 
@@ -7420,6 +7448,9 @@ msgstr "Não foi possível obter os pools de endereço IP flutuante."
 msgid "Unable to retrieve group"
 msgstr "Não é possível recuperar grupo."
 
+msgid "Unable to retrieve group details."
+msgstr "Não é possível obter detalhes do grupo."
+
 msgid "Unable to retrieve group information."
 msgstr "Não é possível recuperar informações de grupo."
 
@@ -7436,6 +7467,9 @@ msgstr "Não é possível obter os detalhes do snapshot de grupo."
 
 msgid "Unable to retrieve group snapshots."
 msgstr "Não foi possível obter os snapshots de grupo."
+
+msgid "Unable to retrieve group types."
+msgstr "Não é possível obter os tipos de grupos."
 
 msgid "Unable to retrieve group users."
 msgstr "Não é possível recuperar usuários do grupo."
