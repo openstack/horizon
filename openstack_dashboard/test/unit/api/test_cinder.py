@@ -417,7 +417,7 @@ class CinderApiTests(test.APIMockTestCase):
 
         ret_val = api.cinder.tenant_absolute_limits(self.request)
 
-        for key in expected_results.keys():
+        for key in expected_results:
             self.assertEqual(expected_results[key], ret_val[key])
 
         mock_limit.assert_called_once()

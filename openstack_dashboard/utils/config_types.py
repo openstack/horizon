@@ -127,7 +127,7 @@ class Literal(types.ConfigType):
                 for value in result.values():
                     self.validate(value, spec_value)
                 spec_key = next(iter(spec.keys()))
-                for key in result.keys():
+                for key in result:
                     self.validate(key, spec_key)
         if isinstance(spec, list):
             if not isinstance(result, list):

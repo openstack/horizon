@@ -209,7 +209,7 @@ class Registry(object):
             raise ValueError('Only %s classes or subclasses may be '
                              'unregistered.' % self._registerable_class)
 
-        if cls not in self._registry.keys():
+        if cls not in self._registry:
             raise NotRegistered('%s is not registered' % cls)
 
         del self._registry[cls]
