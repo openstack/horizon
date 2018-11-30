@@ -466,6 +466,7 @@ class APITestCase(TestCase):
     """
     def setUp(self):
         super(APITestCase, self).setUp()
+        utils.patch_middleware_get_user()
 
         def fake_keystoneclient(request, admin=False):
             """Returns the stub keystoneclient.
