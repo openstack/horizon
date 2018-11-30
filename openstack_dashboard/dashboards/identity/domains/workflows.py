@@ -327,7 +327,7 @@ class UpdateDomain(workflows.Workflow):
                                                domain=domain_id)
             users_dict = {user.id: user.name for user in all_users}
 
-            for user_id in users_roles.keys():
+            for user_id in users_roles:
                 # Don't remove roles if the user isn't in the domain
                 if user_id not in users_dict:
                     users_to_modify -= 1

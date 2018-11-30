@@ -55,7 +55,7 @@ def _get_enforcer():
         _ENFORCER = {}
         policy_files = getattr(settings, 'POLICY_FILES', {})
         policy_dirs = getattr(settings, 'POLICY_DIRS', {})
-        for service in policy_files.keys():
+        for service in policy_files:
             conf = _get_policy_conf(policy_file=policy_files[service],
                                     policy_dirs=policy_dirs.get(service, []))
             enforcer = policy.Enforcer(conf)

@@ -359,7 +359,7 @@ class ComputeApiTests(test.APIMockTestCase):
 
         ret_val = api.nova.tenant_absolute_limits(self.request, reserved=True)
 
-        for key in expected_results.keys():
+        for key in expected_results:
             self.assertEqual(expected_results[key], ret_val[key])
         novaclient.limits.get.assert_called_once_with(reserved=True,
                                                       tenant_id=None)
