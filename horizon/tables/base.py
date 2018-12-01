@@ -1171,7 +1171,7 @@ class DataTableOptions(object):
 
 class DataTableMetaclass(type):
     """Metaclass to add options to DataTable class and collect columns."""
-    def __new__(mcs, name, bases, attrs):
+    def __new__(cls, name, bases, attrs):
         # Process options from Meta
         class_name = name
         dt_attrs = {}
@@ -1243,7 +1243,7 @@ class DataTableMetaclass(type):
             opts._filter_action = actions_dict[opts._filter_action.name]
 
         # Create our new class!
-        return type.__new__(mcs, name, bases, dt_attrs)
+        return type.__new__(cls, name, bases, dt_attrs)
 
 
 @six.python_2_unicode_compatible

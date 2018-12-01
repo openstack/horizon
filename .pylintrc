@@ -43,7 +43,6 @@ disable=
  anomalous-backslash-in-string,
  bad-builtin,
  bad-continuation,
- bad-mcs-classmethod-argument,
  deprecated-lambda,
  expression-not-assigned,
  global-statement,
