@@ -33,9 +33,6 @@ class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
     with_subnet = forms.BooleanField(initial=True, required=False,
                                      widget=forms.HiddenInput())
 
-    def __init__(self, request, *args, **kwargs):
-        super(CreateSubnetInfoAction, self).__init__(request, *args, **kwargs)
-
     class Meta(object):
         name = _("Subnet")
         help_text = _('Create a subnet associated with the network. '

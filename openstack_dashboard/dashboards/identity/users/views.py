@@ -110,9 +110,6 @@ class UpdateView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:identity:users:index')
     page_title = _("Update User")
 
-    def dispatch(self, *args, **kwargs):
-        return super(UpdateView, self).dispatch(*args, **kwargs)
-
     @memoized.memoized_method
     def get_object(self):
         try:

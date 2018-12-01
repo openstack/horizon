@@ -78,9 +78,6 @@ class Image(base.APIResourceWrapper):
     _ext_attrs = {"file", "locations", "schema", "tags", "virtual_size",
                   "kernel_id", "ramdisk_id", "image_url"}
 
-    def __init__(self, apiresource):
-        super(Image, self).__init__(apiresource)
-
     def __getattribute__(self, attr):
         # Because Glance v2 treats custom properties as normal
         # attributes, we need to be more flexible than the resource

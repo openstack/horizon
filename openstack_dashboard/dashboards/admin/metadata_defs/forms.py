@@ -59,9 +59,6 @@ class CreateNamespaceForm(forms.SelfHandlingForm):
     public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
-    def __init__(self, request, *args, **kwargs):
-        super(CreateNamespaceForm, self).__init__(request, *args, **kwargs)
-
     def clean(self):
         data = super(CreateNamespaceForm, self).clean()
 
@@ -116,9 +113,6 @@ class CreateNamespaceForm(forms.SelfHandlingForm):
 
 
 class ManageResourceTypesForm(forms.SelfHandlingForm):
-    def __init__(self, request, *args, **kwargs):
-        super(ManageResourceTypesForm, self).__init__(request, *args, **kwargs)
-
     def handle(self, request, context):
         namespace_name = self.initial['id']
         current_names = self.get_names(self.initial['resource_types'])
@@ -153,9 +147,6 @@ class UpdateNamespaceForm(forms.SelfHandlingForm):
 
     public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
-
-    def __init__(self, request, *args, **kwargs):
-        super(UpdateNamespaceForm, self).__init__(request, *args, **kwargs)
 
     def handle(self, request, data):
         try:
