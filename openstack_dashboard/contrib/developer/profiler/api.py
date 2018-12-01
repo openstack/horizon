@@ -89,7 +89,7 @@ def list_traces(request):
 def get_trace(request, trace_id):
     def rec(_data, level=0):
         _data['level'] = level
-        _data['is_leaf'] = not len(_data['children'])
+        _data['is_leaf'] = not _data['children']
         _data['visible'] = True
         _data['childrenVisible'] = True
         finished = _data['info']['finished']

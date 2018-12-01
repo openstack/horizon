@@ -258,7 +258,7 @@ class QuotaSet(Sequence):
 
     def get(self, key, default=None):
         match = [quota for quota in self.items if quota.name == key]
-        return match.pop() if len(match) else Quota(key, default)
+        return match.pop() if match else Quota(key, default)
 
     def add(self, other):
         return self.__add__(other)

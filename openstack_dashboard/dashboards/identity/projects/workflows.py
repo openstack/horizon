@@ -752,7 +752,7 @@ class UpdateProject(workflows.Workflow):
                                     if role.name.lower() in _admin_roles]
         admin_roles = [role for role in current_role_ids
                        if role in available_admin_role_ids]
-        if len(admin_roles):
+        if admin_roles:
             removing_admin = any([role in current_role_ids
                                   for role in admin_roles])
         else:

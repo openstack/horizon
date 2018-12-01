@@ -238,7 +238,7 @@ class CreateNetwork(forms.SelfHandlingForm):
             network_type_choices = [
                 (net_type, self.provider_types[net_type]['display_name'])
                 for net_type in supported_provider_types]
-            if len(network_type_choices) == 0:
+            if not network_type_choices:
                 self._hide_provider_network_type()
             else:
                 self.fields['network_type'].choices = network_type_choices

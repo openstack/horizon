@@ -54,8 +54,7 @@ class IndexView(tables.DataTableView):
             # selected, then search criteria must be provided and
             # return an empty list
             filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-            if filter_first.get('identity.groups', False) \
-                    and len(filters) == 0:
+            if filter_first.get('identity.groups', False) and not filters:
                 self._needs_filter_first = True
                 return groups
 

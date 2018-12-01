@@ -905,7 +905,7 @@ class Workflow(html.HTMLElement):
 
     def verify_integrity(self):
         provided_keys = self.contributions | set(self.context_seed.keys())
-        if len(self.depends_on - provided_keys):
+        if self.depends_on - provided_keys:
             raise exceptions.NotAvailable(
                 _("The current user has insufficient permission to complete "
                   "the requested task."))

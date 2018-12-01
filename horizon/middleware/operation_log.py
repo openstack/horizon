@@ -182,7 +182,7 @@ class OperationLogMiddleware(object):
 
         # when a file uploaded (E.g create image)
         files = request.FILES.values()
-        if len(list(files)) > 0:
+        if list(files):
             filenames = ', '.join(
                 [up_file.name for up_file in files])
             params['file_name'] = filenames

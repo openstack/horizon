@@ -59,8 +59,7 @@ def show_endpoints(datanum):
     if 'endpoints' in datanum:
         template_name = 'admin/info/_cell_endpoints_v2.html'
         context = None
-        if (len(datanum['endpoints']) > 0 and
-                "publicURL" in datanum['endpoints'][0]):
+        if (datanum['endpoints'] and "publicURL" in datanum['endpoints'][0]):
             context = datanum['endpoints'][0]
         else:
             # this is a keystone v3 version of endpoints

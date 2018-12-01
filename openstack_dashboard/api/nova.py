@@ -602,14 +602,14 @@ def server_list_paged(request,
         servers = [Server(s, request)
                    for s in nova_client.servers.list(detailed, search_opts)]
         if view_marker == 'possibly_deleted':
-            if len(servers) == 0:
+            if not servers:
                 view_marker = 'head_deleted'
                 search_opts['sort_dir'] = 'desc'
                 reversed_order = False
                 servers = [Server(s, request)
                            for s in nova_client.servers.list(detailed,
                                                              search_opts)]
-            if len(servers) == 0:
+            if not servers:
                 view_marker = 'tail_deleted'
                 search_opts['sort_dir'] = 'asc'
                 reversed_order = True

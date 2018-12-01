@@ -519,7 +519,7 @@ class Dashboard(Registry, HorizonComponent):
                 panel_groups.append((panel_group.slug, panel_group))
 
         # Deal with leftovers (such as add-on registrations)
-        if len(registered):
+        if registered:
             slugs = [panel.slug for panel in registered.values()]
             new_group = PanelGroup(self,
                                    slug="other",
@@ -769,7 +769,7 @@ class Site(Registry, HorizonComponent):
                 dashboard = self._registered(item)
                 dashboards.append(dashboard)
                 registered.pop(dashboard.__class__)
-            if len(registered):
+            if registered:
                 extra = sorted(registered.values())
                 dashboards.extend(extra)
             return dashboards
@@ -785,7 +785,7 @@ class Site(Registry, HorizonComponent):
         """
         if self.default_dashboard:
             return self._registered(self.default_dashboard)
-        elif len(self._registry):
+        elif self._registry:
             return self.get_dashboards()[0]
         else:
             raise NotRegistered("No dashboard modules have been registered.")

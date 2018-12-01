@@ -149,7 +149,7 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
             else:
                 search_opts = {'consistentcygroup_id': data['cgroup_id']}
                 volumes = cinder.volume_list(request, search_opts=search_opts)
-                if len(volumes) == 0:
+                if not volumes:
                     msg = _('Unable to create snapshot. Consistency group '
                             'must contain volumes.')
 
@@ -208,7 +208,7 @@ class CloneCGroupForm(forms.SelfHandlingForm):
 
             search_opts = {'consistentcygroup_id': data['cgroup_id']}
             volumes = cinder.volume_list(request, search_opts=search_opts)
-            if len(volumes) == 0:
+            if not volumes:
                 msg = _('Unable to clone empty consistency group.')
 
             exceptions.handle(request,
