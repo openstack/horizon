@@ -676,9 +676,9 @@ class Workflow(html.HTMLElement):
         # registered and ordered.
         self.context = WorkflowContext(self)
         context_seed = context_seed or {}
-        clean_seed = dict([(key, val)
-                           for key, val in context_seed.items()
-                           if key in self.contributions | self.depends_on])
+        clean_seed = dict((key, val)
+                          for key, val in context_seed.items()
+                          if key in self.contributions | self.depends_on)
         self.context_seed = clean_seed
         self.context.update(clean_seed)
 

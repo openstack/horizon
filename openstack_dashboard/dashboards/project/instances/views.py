@@ -73,7 +73,7 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
         # Gather our flavors to correlate our instances to them
         try:
             flavors = api.nova.flavor_list(self.request)
-            return dict([(str(flavor.id), flavor) for flavor in flavors])
+            return dict((str(flavor.id), flavor) for flavor in flavors)
         except Exception:
             exceptions.handle(self.request, ignore=True)
             return {}
@@ -83,7 +83,7 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
         try:
             # TODO(gabriel): Handle pagination.
             images = api.glance.image_list_detailed(self.request)[0]
-            return dict([(str(image.id), image) for image in images])
+            return dict((str(image.id), image) for image in images)
         except Exception:
             exceptions.handle(self.request, ignore=True)
             return {}

@@ -79,9 +79,7 @@ disable=
 # "R" Refactor recommendations
  chained-comparison,
  comparison-with-itself,
- consider-using-dict-comprehension,
  consider-using-in,
- consider-using-set-comprehension,
  cyclic-import,  # TODO
  duplicate-code,
  inconsistent-return-statements,  # TODO

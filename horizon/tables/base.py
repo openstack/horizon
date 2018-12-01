@@ -653,8 +653,8 @@ class Row(html.HTMLElement):
     def status(self):
         column_names = self.table._meta.status_columns
         if column_names:
-            statuses = dict([(column_name, self.cells[column_name].status) for
-                             column_name in column_names])
+            statuses = dict((column_name, self.cells[column_name].status) for
+                            column_name in column_names)
             return self.table.calculate_row_status(statuses)
 
     @property

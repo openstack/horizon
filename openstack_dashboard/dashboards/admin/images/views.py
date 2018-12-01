@@ -107,7 +107,7 @@ class IndexView(tables.DataTableView):
                 msg = _('Unable to retrieve project list.')
                 exceptions.handle(self.request, msg)
 
-            tenant_dict = dict([(t.id, t.name) for t in tenants])
+            tenant_dict = dict((t.id, t.name) for t in tenants)
 
             for image in images:
                 image.tenant_name = tenant_dict.get(image.owner)

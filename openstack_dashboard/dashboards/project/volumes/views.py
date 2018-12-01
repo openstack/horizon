@@ -88,7 +88,7 @@ class VolumeTableMixIn(object):
                 self.request, search_opts=search_opts)
             if snapshots:
                 # extract out the volume ids
-                volume_ids = set([(s.volume_id) for s in snapshots])
+                volume_ids = set(s.volume_id for s in snapshots)
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve snapshot list."))

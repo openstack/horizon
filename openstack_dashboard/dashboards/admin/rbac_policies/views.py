@@ -57,7 +57,7 @@ class IndexView(tables.DataTableView):
             msg = _("Unable to retrieve information about the "
                     "policies' networks.")
             exceptions.handle(self.request, msg)
-        return dict([(n.id, n.name) for n in networks])
+        return dict((n.id, n.name) for n in networks)
 
     def _get_qos_policies(self):
         qos_policies = []
@@ -69,7 +69,7 @@ class IndexView(tables.DataTableView):
             msg = _("Unable to retrieve information about the "
                     "policies' qos policies.")
             exceptions.handle(self.request, msg)
-        return dict([(q.id, q.name) for q in qos_policies])
+        return dict((q.id, q.name) for q in qos_policies)
 
     def get_data(self):
         try:

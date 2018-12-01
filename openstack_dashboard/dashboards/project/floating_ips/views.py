@@ -110,7 +110,7 @@ class IndexView(tables.DataTableView):
             floating_ip_pools = []
             exceptions.handle(self.request,
                               _('Unable to retrieve floating IP pools.'))
-        pool_dict = dict([(obj.id, obj.name) for obj in floating_ip_pools])
+        pool_dict = dict((obj.id, obj.name) for obj in floating_ip_pools)
 
         attached_instance_ids = [ip.instance_id for ip in floating_ips
                                  if ip.instance_id is not None]
@@ -126,7 +126,7 @@ class IndexView(tables.DataTableView):
                 exceptions.handle(self.request,
                                   _('Unable to retrieve instance list.'))
 
-            instances_dict = dict([(obj.id, obj.name) for obj in instances])
+            instances_dict = dict((obj.id, obj.name) for obj in instances)
 
         for ip in floating_ips:
             ip.instance_name = instances_dict.get(ip.instance_id)
