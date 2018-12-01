@@ -183,7 +183,6 @@ class BasePlugin(object):
                     keystone_exceptions.AuthorizationFailure):
                 LOG.info('Attempted scope to project %s failed, will attempt '
                          'to scope to another project.', project.name)
-                pass
             else:
                 break
 
@@ -231,7 +230,6 @@ class BasePlugin(object):
                     keystone_exceptions.AuthorizationFailure):
                 LOG.info('Attempted scope to domain %s failed, will attempt '
                          'to scope to another domain.', domain_name)
-                pass
             else:
                 if len(domains) > 1:
                     LOG.info("More than one valid domain found for user %s,"

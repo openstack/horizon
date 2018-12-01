@@ -23,7 +23,6 @@ from oslo_concurrency import lockutils
 
 class FilePermissionError(Exception):
     """The key file permissions are insecure."""
-    pass
 
 
 def generate_key(key_length=64):

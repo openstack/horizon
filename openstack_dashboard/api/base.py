@@ -317,9 +317,8 @@ def get_url_for_service(service, region, endpoint_type):
                 if endpoint.get('interface') == interface:
                     return endpoint.get('url')
         except (IndexError, KeyError):
-            """it could be that the current endpoint just doesn't match the
-            type, continue trying the next one
-            """
+            # it could be that the current endpoint just doesn't match the
+            # type, continue trying the next one
             pass
     return None
 
