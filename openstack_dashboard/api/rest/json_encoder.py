@@ -58,6 +58,9 @@ class NaNJSONEncoder(json.JSONEncoder):
             # and/or platform-specific, so do tests which don't depend on the
             # internals.
 
+            # NOTE: In Python, NaN == NaN returns False and it can be used
+            # to detect NaN.
+            # pylint: disable=comparison-with-itself
             if o != o:
                 text = self.nan_str
             elif o == _inf:

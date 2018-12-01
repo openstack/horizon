@@ -56,9 +56,6 @@ disable=
  unused-variable,
  wrong-import-order,  # TODO
 # "R" Refactor recommendations
- chained-comparison,
- comparison-with-itself,
- consider-using-in,
  cyclic-import,  # TODO
  duplicate-code,
  inconsistent-return-statements,  # TODO

@@ -390,7 +390,7 @@ class AddRule(forms.SelfHandlingForm):
         rule_menu = cleaned_data.get('rule_menu')
         if rule_menu == 'icmp':
             self._clean_rule_icmp(cleaned_data, rule_menu)
-        elif rule_menu == 'tcp' or rule_menu == 'udp':
+        elif rule_menu in ('tcp', 'udp'):
             self._clean_rule_tcp_udp(cleaned_data, rule_menu)
         elif rule_menu == 'custom':
             self._clean_rule_custom(cleaned_data, rule_menu)

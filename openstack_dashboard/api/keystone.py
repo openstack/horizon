@@ -899,7 +899,7 @@ def get_default_role(request):
             roles = []
             exceptions.handle(request)
         for role in roles:
-            if role.id == default or role.name == default:
+            if default in (role.id, role.name):
                 DEFAULT_ROLE = role
                 break
     return DEFAULT_ROLE
