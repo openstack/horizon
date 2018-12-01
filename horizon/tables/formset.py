@@ -56,9 +56,9 @@ class FormsetRow(horizon_tables.Row):
             # on this, because it sets self.cells to [], but later expects a
             # OrderedDict. We just fill self.cells with empty Cells.
             cells = []
-            for column in self.table.columns.values():
-                cell = self.table._meta.cell_class(None, column, self)
-                cells.append((column.name or column.auto, cell))
+            for col in self.table.columns.values():
+                cell = self.table._meta.cell_class(None, col, self)
+                cells.append((col.name or col.auto, cell))
             self.cells = collections.OrderedDict(cells)
 
     def render(self):

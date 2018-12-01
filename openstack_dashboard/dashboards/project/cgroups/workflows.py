@@ -311,24 +311,26 @@ class CreateCGroupWorkflow(workflows.Workflow):
         backend_name = None
         invalid_backend = False
         for selected_vol_type in selected_vol_types:
-            if not invalid_backend:
-                for vol_type in vol_types:
-                    if selected_vol_type == vol_type.id:
-                        if (hasattr(vol_type, "extra_specs") and
-                                'volume_backend_name' in vol_type.extra_specs):
-                            vol_type_backend = \
-                                vol_type.extra_specs['volume_backend_name']
-                            if vol_type_backend is None:
-                                invalid_backend = True
-                                break
-                            if backend_name is None:
-                                backend_name = vol_type_backend
-                            if vol_type_backend != backend_name:
-                                invalid_backend = True
-                                break
-                        else:
-                            invalid_backend = True
-                            break
+            if invalid_backend:
+                continue
+            for vol_type in vol_types:
+                if selected_vol_type != vol_type.id:
+                    continue
+                if (hasattr(vol_type, "extra_specs") and
+                        'volume_backend_name' in vol_type.extra_specs):
+                    vol_type_backend = \
+                        vol_type.extra_specs['volume_backend_name']
+                    if vol_type_backend is None:
+                        invalid_backend = True
+                        break
+                    if backend_name is None:
+                        backend_name = vol_type_backend
+                    if vol_type_backend != backend_name:
+                        invalid_backend = True
+                        break
+                else:
+                    invalid_backend = True
+                    break
 
         if invalid_backend:
             msg = _('All selected volume types must be associated '
