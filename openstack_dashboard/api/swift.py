@@ -201,18 +201,18 @@ def swift_get_container(request, container_name, with_data=True):
 
 @profiler.trace
 @safe_swift_exception
-def swift_create_container(request, name, metadata=({})):
+def swift_create_container(request, name, metadata=None):
     if swift_container_exists(request, name):
         raise exceptions.AlreadyExists(name, 'container')
-    headers = _metadata_to_header(metadata)
+    headers = _metadata_to_header(metadata or {})
     swift_api(request).put_container(name, headers=headers)
     return Container({'name': name})
 
 
 @profiler.trace
 @safe_swift_exception
-def swift_update_container(request, name, metadata=({})):
-    headers = _metadata_to_header(metadata)
+def swift_update_container(request, name, metadata=None):
+    headers = _metadata_to_header(metadata or {})
     swift_api(request).post_container(name, headers=headers)
     return Container({'name': name})
 

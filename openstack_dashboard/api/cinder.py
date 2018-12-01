@@ -225,8 +225,9 @@ def cinderclient(request, version=None):
         service_names = ('volumev3', 'volume')
     else:
         service_names = ('volume',)
-    for name, cinder_url in cinder_urls:
+    for name, _url in cinder_urls:
         if name in service_names:
+            cinder_url = _url
             break
     else:
         raise exceptions.ServiceCatalogException(

@@ -39,8 +39,6 @@ from openstack_dashboard.dashboards.admin.networks.subnets \
 from openstack_dashboard.dashboards.admin.networks \
     import tables as networks_tables
 from openstack_dashboard.dashboards.admin.networks import workflows
-from openstack_dashboard.dashboards.project.networks import views \
-    as project_view
 
 
 class IndexView(tables.DataTableView):
@@ -130,7 +128,7 @@ class IndexView(tables.DataTableView):
         return filters
 
 
-class CreateView(project_view.CreateView):
+class CreateView(user_views.CreateView):
     workflow_class = workflows.CreateNetwork
 
 

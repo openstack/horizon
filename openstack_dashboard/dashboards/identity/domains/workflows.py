@@ -472,8 +472,9 @@ class UpdateDomain(workflows.Workflow):
             for role in available_roles:
                 groups_added = 0
                 field_name = member_step.get_member_field_name(role.id)
+                domain_group_ids = [x.id for x in domain_groups]
                 for group_id in data[field_name]:
-                    if not filter(lambda x: group_id == x.id, domain_groups):
+                    if group_id not in domain_group_ids:
                         api.keystone.add_group_role(request,
                                                     role=role.id,
                                                     group=group_id,

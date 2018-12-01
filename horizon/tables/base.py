@@ -351,7 +351,7 @@ class Column(html.HTMLElement):
 
         if summation is not None and summation not in self.summation_methods:
             raise ValueError(
-                "Summation method %(summation)s must be one of %(keys)s.",
+                "Summation method %(summation)s must be one of %(keys)s." %
                 {'summation': summation,
                  'keys': ", ".join(self.summation_methods.keys())})
         self.summation = summation
