@@ -475,7 +475,7 @@ class TableTab(Tab):
         need to define a corresponding ``get_{{ table_name }}_data`` method
         as with :class:`~horizon.tables.MultiTableView`.
     """
-    table_classes = None
+    table_classes = []
 
     def __init__(self, tab_group, request):
         super(TableTab, self).__init__(tab_group, request)

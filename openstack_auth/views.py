@@ -210,7 +210,7 @@ def logout(request, login_url=None, **kwargs):
 def switch(request, tenant_id, redirect_field_name=auth.REDIRECT_FIELD_NAME):
     """Switches an authenticated user from one project to another."""
     LOG.debug('Switching to tenant %s for user "%s".',
-              (tenant_id, request.user.username))
+              tenant_id, request.user.username)
 
     endpoint, __ = utils.fix_auth_url_version_prefix(request.user.endpoint)
     session = utils.get_session()
@@ -268,7 +268,7 @@ def switch_region(request, region_name,
     if region_name in request.user.available_services_regions:
         request.session['services_region'] = region_name
         LOG.debug('Switching services region to %s for user "%s".',
-                  (region_name, request.user.username))
+                  region_name, request.user.username)
 
     redirect_to = request.GET.get(redirect_field_name, '')
     if not is_safe_url(url=redirect_to, host=request.get_host()):

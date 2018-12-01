@@ -10,14 +10,10 @@ disable=
 # "I" Informational noise
  locally-disabled,
 # "E" Error for important programming issues (likely bugs)
- assignment-from-no-return,
  import-error,
- logging-too-few-args,
  method-hidden,
  misplaced-bare-raise,
  no-member,
- no-name-in-module,
- not-an-iterable,
  not-callable,
  raising-non-exception,
  redundant-keyword-arg,

@@ -236,6 +236,6 @@ class BasePlugin(object):
                 if len(domains) > 1:
                     LOG.info("More than one valid domain found for user %s,"
                              " scoping to %s",
-                             (unscoped_auth_ref.user_id, domain_name))
+                             unscoped_auth_ref.user_id, domain_name)
                 break
         return domain_auth, domain_auth_ref

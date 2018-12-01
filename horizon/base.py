@@ -107,7 +107,7 @@ class NotRegistered(Exception):
 
 @python_2_unicode_compatible
 class HorizonComponent(object):
-    policy_rules = None
+    policy_rules = tuple()
 
     def __init__(self):
         super(HorizonComponent, self).__init__()
