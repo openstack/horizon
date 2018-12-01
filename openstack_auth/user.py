@@ -264,10 +264,7 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
     @property
     def is_authenticated(self):
         """Checks for a valid authentication."""
-        if (self.token is not None and utils.is_token_valid(self.token)):
-            return True
-        else:
-            return False
+        return self.token is not None and utils.is_token_valid(self.token)
 
     @property
     def is_anonymous(self):

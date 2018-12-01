@@ -64,7 +64,7 @@ class CreateSubnet(project_workflows.CreateSubnet):
             request, data,
             network=network,
             tenant_id=network.tenant_id)
-        return True if subnet else False
+        return bool(subnet)
 
 
 class UpdateSubnetInfoAction(project_workflows.UpdateSubnetInfoAction):

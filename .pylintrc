@@ -70,8 +70,6 @@ disable=
  no-else-return,
  no-self-use,
  redefined-argument-from-local,
- simplifiable-if-expression,
- simplifiable-if-statement,
  too-many-ancestors,
  too-many-arguments,
  too-many-branches,
