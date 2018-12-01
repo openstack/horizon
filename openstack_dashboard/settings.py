@@ -478,6 +478,7 @@ if not SECRET_KEY:
         LOCAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                   'local')
 
+    # pylint: disable=ungrouped-imports
     from horizon.utils import secret_key
     SECRET_KEY = secret_key.generate_or_read_from_file(os.path.join(LOCAL_PATH,
                                                        '.secret_key_store'))

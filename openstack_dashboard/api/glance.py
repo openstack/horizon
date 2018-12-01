@@ -44,13 +44,14 @@ LOG = logging.getLogger(__name__)
 VERSIONS = base.APIVersionManager("image", preferred_version=2)
 
 try:
+    # pylint: disable=ungrouped-imports
     from glanceclient.v2 import client as glance_client_v2
     VERSIONS.load_supported_version(2, {"client": glance_client_v2,
                                         "version": 2})
 except ImportError:
     pass
-
 try:
+    # pylint: disable=ungrouped-imports
     from glanceclient.v1 import client as glance_client_v1
     VERSIONS.load_supported_version(1, {"client": glance_client_v1,
                                         "version": 1})

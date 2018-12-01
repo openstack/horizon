@@ -72,12 +72,14 @@ VERSIONS = IdentityAPIVersionManager(
 
 # Import from oldest to newest so that "preferred" takes correct precedence.
 try:
+    # pylint: disable=ungrouped-imports
     from keystoneclient.v2_0 import client as keystone_client_v2
     VERSIONS.load_supported_version(2.0, {"client": keystone_client_v2})
 except ImportError:
     pass
 
 try:
+    # pylint: disable=ungrouped-imports
     from keystoneclient.v3 import client as keystone_client_v3
     VERSIONS.load_supported_version(3, {"client": keystone_client_v3})
 except ImportError:

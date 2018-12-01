@@ -42,17 +42,11 @@ disable=
  bad-builtin,
  bad-continuation,
  deprecated-lambda,
- expression-not-assigned,
  global-statement,
  invalid-name,
- line-too-long,
- misplaced-comparison-constant,
  missing-docstring,
- no-method-argument,
  superfluous-parens,
  too-many-lines,
- try-except-raise,
- ungrouped-imports,
  unused-variable,
  wrong-import-order,  # TODO
 # "R" Refactor recommendations

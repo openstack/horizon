@@ -41,7 +41,7 @@ def get_available_images(request, project_id=None, images_cache=None):
         try:
             images, _more, _prev = glance.image_list_detailed(
                 request, filters=public)
-            [public_images.append(image) for image in images]
+            public_images += images
             images_cache['public_images'] = public_images
         except Exception:
             exceptions.handle(request,
@@ -72,7 +72,7 @@ def get_available_images(request, project_id=None, images_cache=None):
         try:
             images, _more, _prev = glance.image_list_detailed(
                 request, filters=community)
-            [community_images.append(image) for image in images]
+            community_images += images
             images_cache['community_images'] = community_images
         except Exception:
             exceptions.handle(request,

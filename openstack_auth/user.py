@@ -331,11 +331,11 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
                         regions.append(region)
         return regions
 
-    def save(*args, **kwargs):
+    def save(self, *args, **kwargs):
         # Presume we can't write to Keystone.
         pass
 
-    def delete(*args, **kwargs):
+    def delete(self, *args, **kwargs):
         # Presume we can't write to Keystone.
         pass
 

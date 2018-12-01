@@ -59,7 +59,8 @@ class BaseUsage(object):
 
     def get_instances(self):
         instance_list = []
-        [instance_list.extend(u.server_usages) for u in self.usage_list]
+        for u in self.usage_list:
+            instance_list.extend(u.server_usages)
         return instance_list
 
     def get_date_range(self):

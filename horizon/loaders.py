@@ -40,6 +40,7 @@ class TemplateLoader(filesystem_loader.Loader):
                     yield Origin(name=name,
                                  template_name=template_name,
                                  loader=self)
+                # pylint: disable=try-except-raise
                 except UnicodeDecodeError:
                     # The template dir name wasn't valid UTF-8.
                     raise

@@ -57,6 +57,7 @@ CONSUMER_CHOICES = (
 VERSIONS = base.APIVersionManager("volume", preferred_version='3')
 
 try:
+    # pylint: disable=ungrouped-imports
     from cinderclient.v2 import client as cinder_client_v2
     VERSIONS.load_supported_version('2', {"client": cinder_client_v2,
                                           "version": '2'})
