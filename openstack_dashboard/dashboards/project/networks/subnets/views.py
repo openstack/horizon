@@ -52,8 +52,7 @@ class CreateView(DefaultSubnetWorkflowMixin, workflows.WorkflowView):
 
     def get_initial(self):
         network = self.get_object()
-        return {"network_id": self.kwargs['network_id'],
-                "network_name": network.name_or_id,
+        return {"network": network,
                 "dns_nameservers": self.get_default_dns_servers()}
 
 
