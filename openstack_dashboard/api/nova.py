@@ -723,6 +723,18 @@ def server_metadata_delete(request, instance_id, keys):
 
 
 @profiler.trace
+def server_rescue(request, instance_id, password=None, image=None):
+    novaclient(request).servers.rescue(instance_id,
+                                       password=password,
+                                       image=image)
+
+
+@profiler.trace
+def server_unrescue(request, instance_id):
+    novaclient(request).servers.unrescue(instance_id)
+
+
+@profiler.trace
 def tenant_quota_get(request, tenant_id):
     return QuotaSet(novaclient(request).quotas.get(tenant_id))
 

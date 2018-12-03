@@ -175,6 +175,49 @@ class SoftRebootInstance(RebootInstance):
             return True
 
 
+class RescueInstance(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "rescue"
+    verbose_name = _("Rescue Instance")
+    classes = ("btn-rescue", "ajax-modal")
+    url = "horizon:project:instances:rescue"
+
+    def get_link_url(self, datum):
+        instance_id = self.table.get_object_id(datum)
+        return urls.reverse(self.url, args=[instance_id])
+
+    def allowed(self, request, instance):
+        return instance.status in ACTIVE_STATES
+
+
+class UnRescueInstance(tables.BatchAction):
+    name = 'unrescue'
+    classes = ("btn-unrescue",)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Unrescue Instance",
+            u"Unrescue Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Unrescued Instance",
+            u"Unrescued Instances",
+            count
+        )
+
+    def action(self, request, obj_id):
+        api.nova.server_unrescue(request, obj_id)
+
+    def allowed(self, request, instance=None):
+        if instance:
+            return instance.status == "RESCUE"
+        return False
+
+
 class TogglePause(tables.BatchAction):
     name = "pause"
     icon = "pause"
@@ -1263,6 +1306,7 @@ class InstancesTable(tables.DataTable):
                        EditInstanceSecurityGroups,
                        EditPortSecurityGroups,
                        ConsoleLink, LogLink,
+                       RescueInstance, UnRescueInstance,
                        TogglePause, ToggleSuspend, ToggleShelve,
                        ResizeLink, LockInstance, UnlockInstance,
                        SoftRebootInstance, RebootInstance,

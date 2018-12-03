@@ -5023,6 +5023,66 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             cleaned,
             precleaned)
 
+    def _server_rescue_post(self, server_id, image_id,
+                            password=None):
+        form_data = {'instance_id': server_id,
+                     'image': image_id}
+        if password is not None:
+            form_data["password"] = password
+        url = reverse('horizon:project:instances:rescue',
+                      args=[server_id])
+        return self.client.post(url, form_data)
+
+    @helpers.create_mocks({api.nova: ('server_rescue',),
+                           api.glance: ('image_list_detailed',)})
+    def test_rescue_instance_post(self):
+        server = self.servers.first()
+        image = self.images.first()
+        password = u'testpass'
+        self._mock_glance_image_list_detailed(self.images.list())
+        self.mock_server_rescue.return_value = []
+        res = self._server_rescue_post(server.id, image.id,
+                                       password=password)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self._check_glance_image_list_detailed(count=3)
+        self.mock_server_rescue.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id, image=image.id,
+            password=password)
+
+    @helpers.create_mocks({api.nova: ('server_list',
+                                      'flavor_list',
+                                      'server_unrescue',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_unrescue_instance(self):
+        servers = self.servers.list()
+        server = servers[0]
+        server.status = "RESCUE"
+
+        self.mock_server_list.return_value = [servers, False]
+        self.mock_servers_update_addresses.return_value = None
+        self.mock_flavor_list.return_value = self.flavors.list()
+        self.mock_image_list_detailed.return_value = (self.images.list(),
+                                                      False, False)
+        self.mock_server_unrescue.return_value = None
+
+        formData = {'action': 'instances__unrescue__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        search_opts = {'marker': None, 'paginate': True}
+        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
+                                                      search_opts=search_opts)
+        self.mock_servers_update_addresses.assert_called_once_with(
+            helpers.IsHttpRequest(), servers)
+        self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
+        self.mock_image_list_detailed.assert_called_once_with(
+            helpers.IsHttpRequest())
+        self.mock_server_unrescue.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
+
 
 class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
     @helpers.create_mocks({api.nova: ("server_get",

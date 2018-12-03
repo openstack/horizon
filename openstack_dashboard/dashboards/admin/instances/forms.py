@@ -21,6 +21,8 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.instances \
+    import forms as project_forms
 
 
 class LiveMigrateForm(forms.SelfHandlingForm):
@@ -78,3 +80,7 @@ class LiveMigrateForm(forms.SelfHandlingForm):
                 msg = _('Failed to live migrate instance to a new host.')
             redirect = reverse('horizon:admin:instances:index')
             exceptions.handle(request, msg, redirect=redirect)
+
+
+class RescueInstanceForm(project_forms.RescueInstanceForm):
+    failure_url = 'horizon:admin:instances:index'

@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    [:blueprint:`instance-rescue-horizon-support`]
+    Support instance rescue feature

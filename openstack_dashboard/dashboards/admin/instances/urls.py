@@ -35,4 +35,5 @@ urlpatterns = [
     url(INSTANCES % 'rdp', views.rdp, name='rdp'),
     url(INSTANCES % 'live_migrate', views.LiveMigrateView.as_view(),
         name='live_migrate'),
+    url(INSTANCES % 'rescue', views.RescueView.as_view(), name='rescue'),
 ]

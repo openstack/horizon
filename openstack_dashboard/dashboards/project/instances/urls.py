@@ -57,4 +57,5 @@ urlpatterns = [
         ),
     url(r'^(?P<instance_id>[^/]+)/ports/(?P<port_id>[^/]+)/update$',
         views.UpdatePortView.as_view(), name='update_port'),
+    url(INSTANCES % 'rescue', views.RescueView.as_view(), name='rescue'),
 ]

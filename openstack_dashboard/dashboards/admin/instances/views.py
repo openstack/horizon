@@ -247,3 +247,13 @@ class DetailView(views.DetailView):
     def _get_actions(self, instance):
         table = project_tables.AdminInstancesTable(self.request)
         return table.render_row_actions(instance)
+
+
+class RescueView(views.RescueView):
+    form_class = project_forms.RescueInstanceForm
+    submit_url = "horizon:admin:instances:rescue"
+    success_url = reverse_lazy('horizon:admin:instances:index')
+    template_name = 'admin/instances/rescue.html'
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs["instance_id"]}
