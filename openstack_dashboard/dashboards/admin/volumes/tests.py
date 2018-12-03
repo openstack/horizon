@@ -24,8 +24,6 @@ from openstack_dashboard.dashboards.project.volumes \
     import tables as volume_tables
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.admin.snapshots import forms
-
 
 DETAIL_URL = ('horizon:admin:volumes:detail')
 INDEX_URL = reverse('horizon:admin:volumes:index')
@@ -364,14 +362,6 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_volume_migrate.assert_called_once_with(
             test.IsHttpRequest(), volume.id, host, False)
         self.assertRedirectsNoFollow(res, INDEX_URL)
-
-    def test_get_volume_status_choices_without_current(self):
-        current_status = 'available'
-        status_choices = forms.populate_status_choices(current_status,
-                                                       forms.STATUS_CHOICES)
-        self.assertEqual(len(status_choices), len(forms.STATUS_CHOICES))
-        self.assertNotIn(current_status,
-                         [status[0] for status in status_choices])
 
     @test.create_mocks({api.cinder: ['volume_get']})
     def test_update_volume_status_get(self):
