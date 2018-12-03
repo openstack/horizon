@@ -5,13 +5,19 @@ System Requirements
 The Stein release of horizon has the following dependencies.
 
 * Python 2.7 or 3.5
+
+  * Python 3.6 support is experimental.
+  * Python 3.7 (or later versions if any) support will be considered
+    along with the OpenStack community support policy.
+
 * Django 1.11 or 2.0
 
   * Django 1.8 to 1.10 are no longer supported since Rocky release.
   * Horizon usually syncs with
     `Django's Roadmap <https://www.djangoproject.com/weblog/2015/jun/25/roadmap/>`__
-    and basically supports maintained versions of Django
+    and supports LTS (long term support) versions of Django
     as of the feature freeze of each OpenStack release.
+    Supports for other maintained Django versions are optional and best-effort.
 
 * An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ endpoint
 
