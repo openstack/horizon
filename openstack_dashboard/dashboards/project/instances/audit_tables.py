@@ -34,6 +34,9 @@ class AuditTable(tables.DataTable):
         ("reboot", pgettext_lazy("Action log of an instance", u"Reboot")),
         ("stop", pgettext_lazy("Action log of an instance", u"Stop")),
         ("start", pgettext_lazy("Action log of an instance", u"Start")),
+        ("shelve", pgettext_lazy("Action log of an instance", u"Shelve")),
+        ("unshelve", pgettext_lazy("Action log of an instance", u"Unshelve")),
+        ("migrate", pgettext_lazy("Action log of an instance", u"Migrate")),
     )
 
     request_id = tables.Column('request_id',
