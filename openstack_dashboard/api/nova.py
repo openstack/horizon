@@ -1087,7 +1087,7 @@ def extension_supported(extension_name, request):
     etc.
     """
     for ext in list_extensions(request):
-        if ext == extension_name:
+        if ext.name == extension_name:
             return True
     return False
 
