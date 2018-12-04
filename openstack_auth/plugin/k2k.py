@@ -70,7 +70,8 @@ class K2KAuthPlugin(base.BasePlugin):
             self, unscoped_idp_auth)
         try:
             scoped_idp_auth, __ = self.get_project_scoped_auth(
-                unscoped_idp_auth, unscoped_auth_ref)
+                unscoped_idp_auth, unscoped_auth_ref,
+                recent_project=kwargs['recent_project'])
         except exceptions.KeystoneAuthException as idp_excp:
             idp_exception = idp_excp
 
