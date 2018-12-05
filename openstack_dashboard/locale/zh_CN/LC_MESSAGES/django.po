@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-11-29 08:54+0000\n"
+"POT-Creation-Date: 2018-12-03 15:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1318,16 +1318,6 @@ msgstr "创建映射"
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "为卷类型创建新的\"扩展规格\"键值对。"
 
-#, python-format
-msgid ""
-"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
-"Valid key names are expected in the QoS specs. The acceptable values for key "
-"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
-msgstr ""
-"为 QoS Spec \"%(qos_spec_name)s\" 创建一个新的 \"spec\" 键-值对。 QoS spec 需"
-"要有效的键名，可以接受的键值是 <tt>\"minIOPS\"、\"maxIOPS\" 和 \"burstIOPS"
-"\"</tt>。"
-
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the following steps of this wizard."
@@ -2490,9 +2480,6 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "疏散实例从宕机的主机到可用的目标主机"
 
-msgid "Example:"
-msgstr "例如："
-
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
 "tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
@@ -2710,10 +2697,6 @@ msgstr "实例 \"%s\" 执行所请求操作失败，实例处于错误状态。"
 #, python-format
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "无法从卷类型通道中移除项目%(project)s"
-
-#, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "获取网络 %s 的子网失败"
 
 #, python-format
 msgid "Failed to set gateway: %s"
@@ -3474,15 +3457,6 @@ msgstr "认证所用的密钥对"
 
 msgid "Key-Value Pairs"
 msgstr "键值对"
-
-msgid "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "键为 : burstIOPS，它的值为 :5000 (大于 minIOPS 的值)"
-
-msgid "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "键为 : maxIOPS，它的值是为 : 5000 (大于 minIOPS 的值)"
-
-msgid "Key: minIOPS and Value:20 (number value less than maxIOPS)"
-msgstr "键为: minIOPS，它的值为 : 20 (小于 maxIOPS 的值)"
 
 msgctxt "Current status of an Image"
 msgid "Killed"

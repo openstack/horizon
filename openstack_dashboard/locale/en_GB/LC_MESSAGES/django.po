@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-11-29 08:54+0000\n"
+"POT-Creation-Date: 2018-12-03 15:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-27 12:25+0000\n"
+"PO-Revision-Date: 2018-12-04 03:27+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -821,6 +821,9 @@ msgstr "Available Types"
 msgid "Available networks"
 msgstr "Available networks"
 
+msgid "Back-End Example:"
+msgstr "Back-End Example:"
+
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Backing Up"
@@ -1149,6 +1152,9 @@ msgstr ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 
+msgid "Confirm"
+msgstr "Confirm"
+
 msgid "Confirm Admin Password"
 msgstr "Confirm Admin Password"
 
@@ -1419,12 +1425,12 @@ msgstr "Create a new \"extra spec\" key-value pair for a volume type."
 #, python-format
 msgid ""
 "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
-"Valid key names are expected in the QoS specs. The acceptable values for key "
-"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
 msgstr ""
 "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
-"Valid key names are expected in the QoS specs. The acceptable values for key "
-"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
 
 msgid "Create a new application credential."
 msgstr "Create a new application credential."
@@ -2709,9 +2715,6 @@ msgid ""
 msgstr ""
 "Evacuate the servers from the selected down host to an active target host."
 
-msgid "Example:"
-msgstr "Example:"
-
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
 "tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
@@ -2949,10 +2952,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Failed to remove project %(project)s from volume type access."
 
 #, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "Failed to retrieve network %s for a subnet"
-
-#, python-format
 msgid "Failed to set gateway: %s"
 msgstr "Failed to set gateway: %s"
 
@@ -3144,6 +3143,9 @@ msgstr "From here you can update the default compute quotas (max limits)."
 
 msgid "From here you can update the default volume quotas (max limits)."
 msgstr "From here you can update the default volume quotas (max limits)."
+
+msgid "Front-End Example:"
+msgstr "Front-End Example:"
 
 msgid "GB"
 msgstr "GB"
@@ -3767,14 +3769,23 @@ msgstr "Key pair to use for authentication."
 msgid "Key-Value Pairs"
 msgstr "Key-Value Pairs"
 
-msgid "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
+msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
 
-msgid "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
+msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
 
-msgid "Key: minIOPS and Value:20 (number value less than maxIOPS)"
-msgstr "Key: minIOPS and Value:20 (number value less than maxIOPS)"
+msgid "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
+msgstr "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
+
+msgid "Key: size_iops_sec and Value: 16"
+msgstr "Key: size_iops_sec and Value: 16"
+
+msgid "Key: total_bytes_sec_max and Value: 512000"
+msgstr "Key: total_bytes_sec_max and Value: 512000"
+
+msgid "Key: total_iops_sec and Value: 5000"
+msgstr "Key: total_iops_sec and Value: 5000"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -4014,6 +4025,10 @@ msgstr "MidoNet"
 msgid "MidoNet Uplink"
 msgstr "MidoNet Uplink"
 
+msgid "Migrate"
+msgstr "Migrate"
+
+msgctxt "Action log of an instance"
 msgid "Migrate"
 msgstr "Migrate"
 
@@ -5178,6 +5193,9 @@ msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Rescue"
 
+msgid "Rescue Instance"
+msgstr "Rescue Instance"
+
 msgctxt "Current status of an Instance"
 msgid "Rescued"
 msgstr "Rescued"
@@ -5747,6 +5765,10 @@ msgstr "Shared Storage"
 msgid "Shared with Project"
 msgstr "Shared with Project"
 
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "Shelve"
+
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
 msgstr[0] "Shelve Instance"
@@ -6113,6 +6135,9 @@ msgstr "Successfully modified QoS Spec consumer."
 
 msgid "Successfully recreated ec2 credentials."
 msgstr "Successfully recreated ec2 credentials."
+
+msgid "Successfully rescued instance"
+msgstr "Successfully rescued instance"
 
 #, python-format
 msgid ""
@@ -6525,6 +6550,13 @@ msgstr ""
 "The requested instance(s) cannot be launched as your quota will be exceeded: "
 "Available: %(avail)s, Requested: %(req)s."
 
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+
 msgid "The specified floating IP no longer exists."
 msgstr "The specified Floating IP no longer exists."
 
@@ -6674,6 +6706,15 @@ msgstr ""
 
 msgid "This volume type is used by one or more volumes."
 msgstr "This volume type is used by one or more volumes."
+
+msgid ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
+msgstr ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
 
 msgid "Time Since Created"
 msgstr "Time Since Created"
@@ -7243,6 +7284,9 @@ msgid ""
 msgstr ""
 "Unable to register identity provider. Please check that the Identity "
 "Provider ID and Remote IDs provided are not already in use."
+
+msgid "Unable to rescue instance"
+msgstr "Unable to rescue instance"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -7948,6 +7992,16 @@ msgid_plural "Unregistered Identity Providers"
 msgstr[0] "Unregistered Identity Provider"
 msgstr[1] "Unregistered Identity Providers"
 
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "Unrescue Instance"
+msgstr[1] "Unrescue Instances"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "Unrescued Instance"
+msgstr[1] "Unrescued Instances"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Unrescuing"
@@ -7957,6 +8011,10 @@ msgstr "Unrestricted"
 
 msgid "Unrestricted (dangerous)"
 msgstr "Unrestricted (dangerous)"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "Unshelve"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -8633,6 +8691,13 @@ msgstr ""
 
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "You may have mistyped the address or the page may have moved."
+
+msgid ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
+msgstr ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
 
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "You may optionally set a password on the rebuilt instance."

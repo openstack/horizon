@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-11-29 08:54+0000\n"
+"POT-Creation-Date: 2018-12-03 15:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1286,10 +1286,6 @@ msgid ""
 msgstr ""
 "প্রোজেক্ত মেম্বর %s শেমদোক-শেমজিন তৌবা, প্রোজেক্ত গ্রুপশীং অপদেত তৌবা অমসুং প্রোজেক্ত "
 "ক্যুওতাশীং অপদেত তৌবা মায় পাক্ত্রে।"
-
-#, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "সবনেত অমগী নেতৱার্ক %s রিত্রিভ তৌবা মায় পাক্ত্রে"
 
 #, python-format
 msgid "Failed to update network %s"

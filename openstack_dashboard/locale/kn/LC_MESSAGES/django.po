@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-11-29 08:54+0000\n"
+"POT-Creation-Date: 2018-12-03 15:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1354,10 +1354,6 @@ msgid ""
 msgstr ""
 "%s ಪರಿಯೋಜನೆಯ ಅಂಗಗಳನ್ನು ಮಾರ್ಪಡಿಸಲು, ಪರಿಯೋಜನೆ ಗುಂಪುಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ಮತ್ತು "
 "ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ."
-
-#, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "ಒಂದು ಸಬ್‌ನೆಟ್‌ಗಾಗಿ %s ಜಾಲಬಂಧವನ್ನು ಪಡೆಯಲು ವಿಫಲಗೊಂಡಿದೆ"
 
 #, python-format
 msgid "Failed to update network %s"

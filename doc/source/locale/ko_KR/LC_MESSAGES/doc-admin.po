@@ -1,0 +1,2093 @@
+# Gye Hyun James Kim <pnuskgh@gmail.com>, 2018. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
+# Jongwon Lee <tothebinaryworld@gmail.com>, 2018. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 15.0.0.0b2.dev104\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-03 09:06-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-12-02 09:31+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"Language-Team: Korean (South Korea)\n"
+"Language: ko_KR\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "**Bandwidth I/O**"
+msgstr "**I/O 대역폭**"
+
+msgid "**CPU limits**"
+msgstr "**CPU 제한**"
+
+msgid "**Dashboard — Create Flavor**"
+msgstr "**대시보드 — Flavor 생성**"
+
+msgid "**Disk tuning**"
+msgstr "**Disk 튜닝**"
+
+msgid "**Encryption Options**"
+msgstr "** 암호화 옵션 **"
+
+msgid "**Ephemeral Disk (GB)**"
+msgstr "**Ephemeral 디스크 (GB)**"
+
+msgid "**Example After**"
+msgstr "**이후 예제**"
+
+msgid "**Example Before**"
+msgstr "**이전 예제**"
+
+msgid "**Figure Dashboard — Create Image**"
+msgstr "**Figure Dashboard — Create Image**"
+
+msgid "**Figure Dashboard — Instance Actions**"
+msgstr "**Figure 대시보드—인스턴스 액션**"
+
+msgid "**ID**"
+msgstr "**ID**"
+
+msgid "**Name**"
+msgstr "**이름**"
+
+msgid "**Optional metadata keys**"
+msgstr "**옵션 메타데이터 키**"
+
+msgid "**Quota Descriptions**"
+msgstr "**Quota 설명**"
+
+msgid "**RAM (MB)**"
+msgstr "**RAM (MB)**"
+
+msgid "**RX/TX Factor**"
+msgstr "**RX/TX Factor**"
+
+msgid "**Random-number generator**"
+msgstr "**로마 숫자 생성기**"
+
+msgid "**Root Disk (GB)**"
+msgstr "Root 디스크 (GB)"
+
+msgid "**Swap Disk (MB)**"
+msgstr "** 스왑 디스크 (MB) **"
+
+msgid "**VCPUs**"
+msgstr "**VCPUs**"
+
+msgid "**Watchdog behavior**"
+msgstr "**Watchdog behavior**"
+
+msgid "1"
+msgstr "1"
+
+msgid "160"
+msgstr "160"
+
+msgid "16384"
+msgstr "16384"
+
+msgid "2"
+msgstr "2"
+
+msgid "20"
+msgstr "20"
+
+msgid "2048"
+msgstr "2048"
+
+msgid "256"
+msgstr "256"
+
+msgid "4"
+msgstr "4"
+
+msgid "40"
+msgstr "40"
+
+msgid "4096"
+msgstr "4096"
+
+msgid "512"
+msgstr "512"
+
+msgid ""
+"512 (Recommended for aes-xts-plain64. 256 should be used for aes-cbc-essiv)"
+msgstr "512 (aes-xts-plain64에 권장. aes-cbc-essiv에는 256을 사용해야 합니다.)"
+
+msgid "8"
+msgstr "8"
+
+msgid "80"
+msgstr "80"
+
+msgid "8192"
+msgstr "8192"
+
+msgid ":guilabel:`Architecture`"
+msgstr ":guilabel:`Architecture`"
+
+msgid ""
+":guilabel:`Availability Zone`: The cloud provider defines the default "
+"availability zone, such as ``us-west``, ``apac-south``, or ``nova``. You can "
+"target the host aggregate, as follows:"
+msgstr ""
+":guilabel:`Availability Zone` : 클라우드 공급자는``us-west``, ``apac-"
+"south``,  ``nova``과 같은 기본 가용성 영역을 정의합니다. 다음과 같이 호스트 "
+"aggregate를 대상으로 지정할 수 있습니다."
+
+msgid ""
+":guilabel:`Block Storage Services`: Displays information specific to the "
+"Block Storage service. Both host and zone are listed for each service, as "
+"well as its activation status."
+msgstr ""
+":guilabel:`Block Storage Services`: 블록 스토리지 서비스에 대한 정보를 표시합"
+"니다. 호스트 및 영역 모두 각 서비스의 활성화 상태와 함께 나열됩니다."
+
+msgid ""
+":guilabel:`Compute Services`: Displays information specific to the Compute "
+"service. Both host and zone are listed for each service, as well as its "
+"activation status."
+msgstr ""
+":guilabel:`Compute 서비스`: Compute 서비스에 한정된 정보를 보여줍니다. 두 호"
+"스트와 존은 각 서비스뿐만 아니라, 서비스의 활성화 상태도 나열합니다."
+
+msgid ":guilabel:`Copy Data`"
+msgstr ":guilabel:`Copy Data`"
+
+msgid ":guilabel:`Description`"
+msgstr ":guilabel:`Description`"
+
+msgid ":guilabel:`Format`"
+msgstr ":guilabel:`Format`"
+
+msgid ":guilabel:`Image File` or :guilabel:`Image Location`"
+msgstr ":guilabel:`이미지 파일` or :guilabel:`이미지 위치`"
+
+msgid ":guilabel:`Image Source`"
+msgstr ":guilabel:`Image Source`"
+
+msgid ":guilabel:`Minimum Disk (GB)`"
+msgstr ":guilabel:`Minimum Disk (GB)`"
+
+msgid ":guilabel:`Minimum RAM (MB)`"
+msgstr ":guilabel:`Minimum RAM (MB)`"
+
+msgid ":guilabel:`Name`"
+msgstr ":guilabel:`Name`"
+
+msgid ":guilabel:`Name`: The host aggregate name."
+msgstr ":guilabel:`Name`:호스트 집합 이름"
+
+msgid ""
+":guilabel:`Network Agents`: Displays the network agents active within the "
+"cluster, such as L3 and DHCP agents, and the status of each agent."
+msgstr ""
+":guilabel:`Network Agents`: L3 및 DHCP 에이전트와 같이 클러스터 내에서 활성 "
+"상태인 네트워크 에이전트와 각 에이전트의 상태를 표시합니다."
+
+msgid ":guilabel:`Protected`"
+msgstr ":guilabel:`Protected`"
+
+msgid ":guilabel:`Public`"
+msgstr ":guilabel:`Public`"
+
+msgid ""
+":guilabel:`Services`: Displays the internal name and the public OpenStack "
+"name for each service, the host on which the service runs, and whether or "
+"not the service is enabled."
+msgstr ""
+":guilabel:`Services` : 각 서비스의 내부 이름과 공용 OpenStack 이름, 서비스가 "
+"실행되는 호스트, 서비스의 사용 여부를 표시합니다."
+
+msgid "A message indicates whether the action succeeded."
+msgstr "메시지는 작업이 성공했는지 여부를 나타냅니다."
+
+msgid ""
+"A role is a personality that a user assumes to perform a specific set of "
+"operations. A role includes a set of rights and privileges. A user assumes "
+"that role inherits those rights and privileges."
+msgstr ""
+"역할은 사용자가 특정 작업 집합을 수행한다고 가정하는 특성입니다. 역할은 권리"
+"와 권한을 포함합니다. 사용자는 역할이 해당 권리와 권한을 상속 받았다고 가정합"
+"니다."
+
+msgid ""
+"Add a line to include your newly created style sheet. For example, ``custom."
+"css`` file:"
+msgstr ""
+"새로 추가한 스타일시트에 한줄을 포함합니다. 예로 들면 ``custom.css`` 파일:"
+
+msgid "Add a new project"
+msgstr "새로운 프로젝트 추가"
+
+msgid "Add a new user"
+msgstr "새 사용자 추가"
+
+msgid ""
+"Adjust the :guilabel:`Domain Name`, :guilabel:`User Name`, :guilabel:"
+"`Description`, :guilabel:`Email`, and :guilabel:`Primary Project`."
+msgstr ""
+" :guilabel:`Domain Name`, :guilabel:`User Name`, :guilabel:`Description`, :"
+"guilabel:`Email`, :guilabel:`Primary Project` 를 조정합니다."
+
+msgid "Administration Guide"
+msgstr "운영 가이드"
+
+msgid ""
+"After architecting and implementing the core OpenStack services and other "
+"required services, combined with the Dashboard service steps below, users "
+"and administrators can use the OpenStack dashboard. Refer to the :doc:"
+"`OpenStack User Documentation </user/index>` chapter of the OpenStack End "
+"User Guide for further instructions on logging in to the Dashboard."
+msgstr ""
+"아래의 대시보드 서비스 단계와 함께 핵심 OpenStack 서비스 및 기타 필수 서비스"
+"를 설계 및 구현한 후 사용자와 관리자가 OpenStack 대시보드를 사용할 수 있습니"
+"다. 대시보드에 로그인하는 방법에 대한 자세한 지침은 OpenStack 최종 사용자 설"
+"명서의 :doc:`OpenStack User Documentation </user/index>` 장을 참조하십시오."
+
+msgid ""
+"After configuring the ``local_settings.py`` file as shown, you can run the :"
+"command:`manage.py syncdb` command to populate this newly created database."
+msgstr ""
+"그림과 같이``local_settings.py`` 파일을 구성한 후 :command:`manage.py "
+"syncdb`  명령을 실행하여 새로 생성된 데이터베이스를 채울 수 있습니다."
+
+msgid ""
+"Allows easier import and migration of imported encrypted volumes, and allows "
+"access key to be changed without re-encrypting the volume"
+msgstr ""
+"임포트하고 암호화된 볼륨을 쉽게 가져오고 이동할 수 있으며 볼륨을 다시 암호화"
+"하지 않고 액세스 키를 변경할 수 있음"
+
+msgid ""
+"As an administrative user, you can create and manage images for the projects "
+"to which you belong. You can also create and manage images for users in all "
+"projects to which you have access."
+msgstr ""
+"관리 사용자는 자신이 속한 프로젝트의 이미지를 생성하고 관리할 수 있습니다. 또"
+"한 액세스 권한이 있는 모든 프로젝트에서 사용자의 이미지를 생성하고 관리할 수 "
+"있습니다."
+
+msgid ""
+"As an administrative user, you can manage instances for users in various "
+"projects. You can view, terminate, edit, perform a soft or hard reboot, "
+"create a snapshot from, and migrate instances. You can also view the logs "
+"for instances or launch a VNC console for an instance."
+msgstr ""
+"관리자로서 다양한 프로젝트에서 사용자의 인스턴스를 관리할 수 있습니다. 소프"
+"트 또는 하드 재부팅을 확인, 종료, 편집, 수행하고, 스냅샷을 생성하고, 인스턴스"
+"를 이동시킬 수 있습니다. 또한 인스턴스에 대한 로그를 보거나 VNC 콘솔을 시작"
+"할 수도 있습니다."
+
+msgid ""
+"As an administrative user, you can manage volumes and volume types for users "
+"in various projects. You can create and delete volume types, and you can "
+"view and delete volumes. Note that a volume can be encrypted by using the "
+"steps outlined below."
+msgstr ""
+"관리 사용자는 다양한 프로젝트에서 사용자의 볼륨 및 볼륨 타입을 관리할 수 있습"
+"니다. 볼륨 타입을 생성하고 삭제할 수 있으며 볼륨을 보고 삭제할 수 있습니다. "
+"아래에 설명된 단계를 사용하여 볼륨을 암호화할 수 있습니다."
+
+msgid ""
+"As an administrative user, you can view information for OpenStack services."
+msgstr "관리자로서 OpenStack 서비스에 대한 정보를 볼 수 있습니다."
+
+msgid ""
+"As of Newton, there are no default flavors.  The following table lists the "
+"default flavors for Mitaka and earlier."
+msgstr ""
+"Newton에 관해서, default flavors가 없습니다. 아래 테이블은 Mitaka와 이전의 "
+"default flavors를 나열합니다."
+
+msgid ""
+"Assign hosts to the aggregate using the :guilabel:`Manage Hosts within "
+"Aggregate` tab in the same dialog box."
+msgstr ""
+"동일한 대화상자의 :guilabel:`Manage Hosts within Aggregate` 탭을 사용하여 "
+"Aggregate에 호스트를 할당합니다."
+
+msgid ""
+"Based on your selection, there is an :guilabel:`Image File` or :guilabel:"
+"`Image Location` field. You can include the location URL or browse for the "
+"image file on your file system and add it."
+msgstr ""
+"선택한 항목에 따라  :guilabel:`Image File` 또는 :guilabel:`Image Location` 필"
+"드가 있습니다. 위치 URL을 포함하거나 파일 시스템에서 이미지 파일을 찾아 추가"
+"할 수 있습니다."
+
+msgid "Block Storage"
+msgstr "블록 스토리지"
+
+msgid ""
+"By default, the help URL points to https://docs.openstack.org. To change "
+"this, edit the following attribute in ``local_settings.py``:"
+msgstr ""
+"기본으로 도움말 URL은 https://docs.openstack.org 입니다. 이를 변경하려면 "
+"``local_settings.py``에서 다음 속성을 편집하십시오:"
+
+msgid "Cached database"
+msgstr "캐시된 데이터베이스"
+
+msgid ""
+"Change the colors and image file names as appropriate. Ensure the relative "
+"directory paths are the same. The following example file shows you how to "
+"customize your CSS file:"
+msgstr ""
+"색상과 이미지 파일을 적절하게 변경하십시오. 디렉토리 상대 경로가 동일한지 확"
+"인 하십시오. 아래 예시는 CSS 파일을 어떻게 커스터마이징 하는지 보여 줍니다. "
+
+msgid ""
+"Choose the image source from the dropdown list. Your choices are :guilabel:"
+"`Image Location` and :guilabel:`Image File`."
+msgstr ""
+"드롭다운 목록에서 이미지 소스를 선택합니다. 그 선택은 :guilabel:`Image "
+"Location` 과  :guilabel:`Image File`입니다."
+
+msgid "Cipher"
+msgstr "암호화 방식"
+
+msgid ""
+"Click :guilabel:`Create Encryption` in the Actions column of the newly "
+"created volume type."
+msgstr ""
+"새로 생성된 볼륨 유형의 작업 열에서 :guilabel:`Create Encryption`을 클릭합니"
+"다."
+
+msgid "Click :guilabel:`Create Flavor`."
+msgstr ":guilabel:`Create Flavor` 클릭."
+
+msgid "Click :guilabel:`Create Host Aggregate`."
+msgstr ":guilabel:`Create Host Aggregate` 클릭."
+
+msgid ""
+"Click :guilabel:`Create Image`, which opens the :guilabel:`Create An Image` "
+"window."
+msgstr ""
+"  :guilabel:`Create Image`를 클릭해서 :guilabel:`Create An Image`창을 엽니다."
+
+msgid "Click :guilabel:`Create Image`."
+msgstr ":guilabel:`Create Image` 클릭."
+
+msgid "Click :guilabel:`Create Project`."
+msgstr ":guilabel:`Create Project` 클릭."
+
+msgid ""
+"Click :guilabel:`Create Snapshot`. The Dashboard shows the instance snapshot "
+"in the :guilabel:`Images` category."
+msgstr ""
+":guilabel:`Create Snapshot` 을 클릭합니다. 대시보드는 :guilabel:`Images` 카테"
+"고리에 인스턴스 스냅샷을 표시합니다."
+
+msgid "Click :guilabel:`Create User`."
+msgstr ":guilabel:`Create User` 클릭"
+
+msgid "Click :guilabel:`Create Volume Type Encryption`."
+msgstr ":guilabel:`Create Volume Type Encryption` 클릭."
+
+msgid "Click :guilabel:`Create Volume Type` button to confirm your changes."
+msgstr ""
+":guilabel: `Create Volume Type` 버튼을 클릭하여 변환한 값을 반영합니다."
+
+msgid "Click :guilabel:`Delete Flavors`."
+msgstr ":guilabel:`Delete Flavors` 클릭."
+
+msgid "Click :guilabel:`Delete Images`."
+msgstr "Click :guilabel:`Delete Images`."
+
+msgid "Click :guilabel:`Delete Volume Types` button."
+msgstr ":guilabel:`Delete Volume Types` 버튼 클릭."
+
+msgid "Click :guilabel:`Delete Volumes` button."
+msgstr ":guilabel:`Delete Volumes` 버튼 클릭."
+
+msgid "Click :guilabel:`Download CSV Summary` to download a CSV summary."
+msgstr "CSV 요약 다운로드를 위해 :guilabel:`Download CSV Summary` 클릭"
+
+msgid "Click :guilabel:`Edit Image`."
+msgstr "Click :guilabel:`Edit Image`."
+
+msgid "Click :guilabel:`Save`."
+msgstr ":guilabel:`Save` 클릭."
+
+msgid "Click on the :guilabel:`Delete Projects` push button."
+msgstr ":guilabel:`Delete Projects` 버튼 클릭."
+
+msgid "Click on the :guilabel:`Delete Users` push button."
+msgstr ":guilabel:`Delete Users` 버튼 클릭."
+
+msgid ""
+"Click on the :guilabel:`Identity` label on the left column, and click :"
+"guilabel:`Projects`."
+msgstr ""
+"왼쪽 열에 있는:guilabel:`Identity` 레이블을 클릭하고  :guilabel:`Projects` "
+"를 클릭합니다."
+
+msgid ""
+"Click on the :guilabel:`Identity` label on the left column, and click :"
+"guilabel:`Users`."
+msgstr ""
+"왼쪽 열에 있는 :guilabel:`Identity` 레이블을 클릭하고 :guilabel:`Users` 를 클"
+"릭합니다."
+
+msgid "Click the :guilabel:`Create Role` button to confirm your changes."
+msgstr ":guilabel: `Create Role` 버튼을 크릭하여 변환한 값을 반영합니다."
+
+msgid "Click the :guilabel:`Create Role` button."
+msgstr ":guilabel: `Create Role` 버튼을 클릭합니다."
+
+msgid "Click the :guilabel:`Create User` push button."
+msgstr ":guilabel:`Create User` 버튼 클릭."
+
+msgid "Click the :guilabel:`Edit` button."
+msgstr ":guilable:`Edit` 버튼을 클릭합니다."
+
+msgid "Click the :guilabel:`Update Defaults` button."
+msgstr ":guilabel:`Update Defaults` 버튼 클릭."
+
+msgid "Click the :guilabel:`Update Role` button to confirm your changes."
+msgstr ":guilabel:`Update Role` 버튼을 클릭하여 변경 사항을 확인하십시오."
+
+msgid ""
+"Click the :guilabel:`Volume Types` tab, and click :guilabel:`Create Volume "
+"Type` button. In the :guilabel:`Create Volume Type` window, enter a name for "
+"the volume type."
+msgstr ""
+" :guilabel:`Volume Types`탭을 클릭하고 :guilabel:`Create Volume Type`버튼을 "
+"클릭합니다. :guilabel:`Create Volume Type` 창에 볼륨 타입의 이름을 입력합니"
+"다."
+
+msgid ""
+"Click the :guilabel:`Volume Types` tab, select the volume type or types that "
+"you want to delete."
+msgstr ""
+":guilabel:`Volume Types`탭을 클릭하고, 삭제하고 싶은 볼륨 타입이나 타입들을 "
+"선택하세요."
+
+msgid ""
+"Click the :guilabel:`Volumes` tab, Select the volume or volumes that you "
+"want to delete."
+msgstr ""
+":guilabel:`Volumes` 탭을 클릭하고, 삭제하고 싶은 볼륨 타입이나 타입들을 선택"
+"하세요."
+
+msgid "Comments"
+msgstr "코멘트"
+
+msgid "Compute"
+msgstr "Compute"
+
+msgid "Configure the Dashboard"
+msgstr "대시보드 구성"
+
+msgid "Configure the Dashboard for HTTP"
+msgstr "HTTP에 대한 대시보드를 설정하십시오"
+
+msgid "Configure the Dashboard for HTTPS"
+msgstr "HTTP"
+
+msgid ""
+"Configure the encrypted volume by setting the parameters below from "
+"available options (see table):"
+msgstr ""
+"아래 매개 변수를 사용 가능한 옵션에서 설정하여 암호화된 볼륨을 구성합니다(표 "
+"참조):"
+
+msgid ""
+"Configuring the Dashboard for HTTPS also requires enabling SSL for the noVNC "
+"proxy service. On the controller node, add the following additional options "
+"to the ``[DEFAULT]`` section of the ``/etc/nova/nova.conf`` file:"
+msgstr ""
+"HTTPS용 대시보드를 구성하려면 noVNC 프록시 서비스에 대해 SSL을 사용하도록 설"
+"정해야 합니다. 컨트롤러 노드에서 ``/etc/nova/nova.conf`` 파일의 "
+"``[DEFAULT]`` 부분에 다음과 같은 추가 옵션을 추가합니다"
+
+msgid "Content bytes allowed for each injected file."
+msgstr "각 첨부한 파일들에 충분한 바이트가 허용됩니다."
+
+msgid "Control Location"
+msgstr "제어 위치"
+
+msgid "Control the state of an instance"
+msgstr "인스턴스 상태 조절"
+
+msgid "Cookies"
+msgstr "쿠키"
+
+msgid ""
+"Create a CSS style sheet in ``/usr/share/openstack-dashboard/"
+"openstack_dashboard/static/dashboard/scss/``."
+msgstr ""
+"CSS 스타일 시트를 ``/usr/share/openstack-dashboard/openstack_dashboard/"
+"static/dashboard/scss/`` 에 생성합니다."
+
+msgid ""
+"Create a MySQL user for the newly created dash database that has full "
+"control of the database. Replace DASH\\_DBPASS with a password for the new "
+"user."
+msgstr ""
+"데이터베이스를 완전히 제어하는 새로 생성된 대시 데이터베이스에 대한 MySQL 사"
+"용자를 생성하십시오.  DASH\\_DBPASS를 새 사용자의 암호로 바꿉니다."
+
+msgid "Create a role"
+msgstr "역할 생성"
+
+msgid "Create a volume type"
+msgstr "볼륨 타입 생성"
+
+msgid ""
+"Create a volume type using the steps above for :ref:`create-a-volume-type`."
+msgstr ""
+" :ref:`create-a-volume-type` 에 대해 위의 단계를 사용하여 볼륨 타입을 생성합"
+"니다."
+
+msgid "Create an encrypted volume type"
+msgstr "암호화된 볼륨 타입 생성"
+
+msgid "Create and manage host aggregates"
+msgstr "호스트 Aggregate 생성 및 관리"
+
+msgid "Create and manage images"
+msgstr "이미지 생성과 관리"
+
+msgid "Create and manage roles"
+msgstr "역할 생성과 관리"
+
+msgid "Create flavors"
+msgstr "Flavor 생성"
+
+msgid "Create images"
+msgstr "이미지 생성"
+
+msgid "Create instance snapshots"
+msgstr "인스턴스 스냅샷 생성"
+
+msgid ""
+"Create two PNG logo files with transparent backgrounds using the following "
+"sizes:"
+msgstr ""
+"다음 크기를 사용하여 투명 배경을 갖는 두 개의 PNG 로고 파일을 생성합니다:"
+
+msgid "Customize and configure the Dashboard"
+msgstr "대시보 사용자 정의와 설정"
+
+msgid "Customize the Dashboard"
+msgstr "대시보드 사용자 정의"
+
+msgid ""
+"Database-backed sessions are scalable, persistent, and can be made high-"
+"concurrency and highly available."
+msgstr ""
+"데이터베이스 지원 세션은 확장 가능하고 지속적이며 높은 통화와 높은 가용성을 "
+"제공할 수 있습니다."
+
+msgid "Defines the number of"
+msgstr "숫자를 정의하세요"
+
+msgid "Delete a new user"
+msgstr "새 사용자 삭제"
+
+msgid "Delete a project"
+msgstr "프로젝트 삭제"
+
+msgid "Delete a role"
+msgstr "역할 삭제"
+
+msgid "Delete flavors"
+msgstr "Flavors 삭제"
+
+msgid "Delete images"
+msgstr "이미지 삭제"
+
+msgid "Delete volume types"
+msgstr "볼륨 타입 삭제"
+
+msgid "Delete volumes"
+msgstr "볼륨 삭제"
+
+msgid ""
+"Depending on the current state of the instance, you can perform various "
+"actions on the instance. For example, pause, un-pause, suspend, resume, soft "
+"or hard reboot, or terminate (actions in red are dangerous)."
+msgstr ""
+"인스턴스의 현재 상태에 따라 다양한 작업을 수행할 수 있습니다. 예를 들어 일시 "
+"중지, 실행 재개, 보류, 계속, 소프트 또는 하드 재부팅 또는 종료(빨간색 동작은 "
+"위험)가 있습니다."
+
+msgid "Disk (in GB)"
+msgstr "디스크 (GB)"
+
+msgid ""
+"Each node can have multiple aggregates and each aggregate can have multiple "
+"key-value pairs. You can assign the same key-value pair to multiple "
+"aggregates."
+msgstr ""
+"각 노드는 여러 Aggregate를 가질 수 있으며 각 Aggregate에는 여러 개의 키-값 쌍"
+"이 있을 수 있습니다. 여러 Aggregate에 동일한 키-값 쌍을 할당할 수 있습니다."
+
+msgid "Edit a role"
+msgstr "역할 수정"
+
+msgid ""
+"Edit the ``openstack-dashboard.conf`` file as shown in the **Example After**:"
+msgstr ""
+"``openstack-dashboard.conf`` 파일을 **Example After**: 에서 처럼 편집하세요."
+
+msgid "Enable or disable a user"
+msgstr "사용자 활성화 또는 비활성화"
+
+msgid ""
+"Enable this hybrid setting by configuring both your database and cache, as "
+"discussed previously. Then, set the following value:"
+msgstr ""
+"앞서 설명한 대로 데이터베이스와 캐시를 모두 구성하여 이 하이브리드 설정을 사"
+"용하도록 합니다. 그 후, 다음 값을 설정하십시오:"
+
+msgid "Encryption parameters"
+msgstr "암호화 매개변수"
+
+msgid "Enter ``quit`` at the ``mysql>`` prompt to exit MySQL."
+msgstr "MySQL을 종료하려면 ``mysql>`` 프롬프트에서 ``quit`` 을 입력하세요."
+
+msgid ""
+"Enter a :guilabel:`Domain Name`, the :guilabel:`Username`, and a :guilabel:"
+"`password` for the new user. Enter an email for the new user, and specify "
+"which :guilabel:`Primary Project` they belong to. Leave the :guilabel:"
+"`Domain ID` field set at *default*. You can also enter a decription for the "
+"new user."
+msgstr ""
+"새 사용자에 대해 :guilabel:`Domain Name` ,  :guilabel:`Username` 및 :"
+"guilabel:`password`를 입력합니다. 새 사용자에 대한 이메일을 입력하고 소속"
+"된  :guilabel:`Primary Project`를 지정합니다. :guilabel:`Domain ID` 필드를 "
+"*default* 로 설정합니다. 또한 새 사용자에 대한 decription을 입력할 수도 있습"
+"니다."
+
+msgid "Enter a brief description of the image."
+msgstr "이미지에 대한 간단한 설명을 입력하세요."
+
+msgid "Enter a name for the image."
+msgstr "이미지의 이름을 입력하세요."
+
+msgid "Enter the MySQL root user's password when prompted."
+msgstr "MySQL 루트 사용자의 암호를 물어보면 입력하세요."
+
+msgid ""
+"Enter the Project name and description. Leave the :guilabel:`Domain ID` "
+"field set at *default*."
+msgstr ""
+"프로젝트 이름과 설명을 입력하세요. :guilabel:`Domain ID` 필드를 *default*로 "
+"두세요."
+
+msgid "Enter the amount of RAM to use, in megabytes."
+msgstr "사용하기 위한 RAM의 용량을 메가바이트 단위로 입력하세요."
+
+msgid ""
+"Enter the amount of disk space in gigabytes to use for the ephemeral "
+"partition. If unspecified, the value is 0 by default."
+msgstr ""
+"임시 파티션에 사용할 디스크 공간(GB)을 입력합니다. 지정되지 않은 경우 기본값"
+"은 0입니다."
+
+msgid ""
+"Enter the amount of disk space in gigabytes to use for the root (/) "
+"partition."
+msgstr ""
+"root(/) 파티션을 위해 사용할 디스크 용랴을 기가바이트 단위로 입력하세요."
+
+msgid ""
+"Enter the amount of swap space (in megabytes) to use. If unspecified, the "
+"default is 0."
+msgstr ""
+"사용할 스왑 공간의 크기(MB)를 입력합니다. 지정되지 않은 경우 기본값은 0입니"
+"다."
+
+msgid "Enter the flavor name."
+msgstr "이미지 이름을 입력합니다."
+
+msgid "Enter the number of virtual CPUs to use."
+msgstr "사용할 가상 CPU 수를 입력 합니다."
+
+msgid ""
+"Ephemeral disks offer machine local disk storage linked to the lifecycle of "
+"a VM instance. When a VM is terminated, all data on the ephemeral disk is "
+"lost. Ephemeral disks are not included in any snapshots."
+msgstr ""
+"임시 디스크는 VM 인스턴스의 수명 주기에 연결된 머신 로컬 디스크 스토리지를 제"
+"공합니다. VM이 종료되면 임시 디스크의 모든 데이터가 사라집니다. 임시 디스크"
+"는 스냅샷에 포함되지 않습니다."
+
+msgid "Flavor"
+msgstr "Flavor"
+
+msgid ""
+"For details about image creation, see the `Virtual Machine Image Guide "
+"<https://docs.openstack.org/image-guide/>`_."
+msgstr ""
+"이미지 생성에 대한 자세한 정보는, `Virtual Machine Image Guide <https://docs."
+"openstack.org/image-guide/>`_ 를 살펴봅니다."
+
+msgid ""
+"For information about supporting metadata keys, see the the Compute service "
+"documentation."
+msgstr ""
+"메타데이터 키 지원에 대한 자세한 내용은 컴퓨팅 서비스 설명서를 참조하십시오."
+
+msgid ""
+"For information about using the Dashboard to launch instances as an end "
+"user, see the :doc:`OpenStack End User Guide </user/launch-instances>`."
+msgstr ""
+"대시보드를 사용하여 인스턴스를 최종 사용자로 시작하는 방법에 대한 자세한 내용"
+"은 :doc:`OpenStack End User Guide </user/launch-instances>` 를 참조하십시오."
+
+msgid ""
+"For information on configuring HTTPS or HTTP, see :ref:`configure_dashboard`."
+msgstr ""
+"HTTPS 나 HTTP 요구사항에 대한 정보는 `configure_dashboard`를 살펴보세요."
+
+msgid "From the drop-down list in the Actions column, select the state."
+msgstr "작업 열의 드롭다운 목록에서 상태를 선택합니다."
+
+msgid "Gigabytes"
+msgstr "기가바이트"
+
+msgid "HTML title"
+msgstr "HTML 제목"
+
+msgid "Help URL"
+msgstr "도움말 URL"
+
+msgid ""
+"Host aggregates enable administrative users to assign key-value pairs to "
+"groups of machines."
+msgstr ""
+"호스트 Aggregate를 사용하면 관리 사용자가 머신 그룹에 키 값 쌍을 할당할 수 있"
+"습니다."
+
+msgid ""
+"However, database-backed sessions are one of the slower session storages and "
+"incur a high overhead under heavy usage. Proper configuration of your "
+"database deployment can also be a substantial undertaking and is far beyond "
+"the scope of this documentation."
+msgstr ""
+"어쨌든, 데이터베이스 기반 세션이 느린 세션 저장소 중 하나이며 대량으로 사용"
+"시 높은 오버헤드를 초래합니다. 데이터베이스 배포의 적절한 구성은 상당히 힘들 "
+"수 있으며 이 문서의 범위를 훨씬 벗어납니다."
+
+msgid ""
+"If you try to access the Dashboard through HTTP, the browser redirects you "
+"to the HTTPS page."
+msgstr ""
+"여러분이 HTTP를 통해 대시보드에 접근하려고 시도하면, 브라우저는 당신을 HTTPS "
+"페이지로 재할당합니다."
+
+msgid ""
+"If you use Django 1.4 or later, the ``signed_cookies`` back end avoids "
+"server load and scaling problems."
+msgstr ""
+"Django 1.4 이상을 사용하는 경우``signed_cookies``의 백엔드는 서버 로드 및 확"
+"장 문제를 방지합니다."
+
+msgid ""
+"In OpenStack, a flavor defines the compute, memory, and storage capacity of "
+"a virtual server, also known as an instance. As an administrative user, you "
+"can create, edit, and delete flavors."
+msgstr ""
+"오픈스택에서, flavor는 컴퓨트, 메모리, 가상 서버의 용량을 정의하고 인스턴스"
+"로 알려져 있습니다. 관리 유저로써, 여러분은 flavor를 생성하고, 편집하고, 삭제"
+"할 수 있습니다."
+
+msgid ""
+"In the :guilabel:`Add/Remove Hosts to Aggregate` dialog box, click **+** to "
+"assign a host to an aggregate. Click **-** to remove a host that is assigned "
+"to an aggregate."
+msgstr ""
+" :guilabel:`Add/Remove Hosts to Aggregate` 대화상자에서 **+**를 클릭하여 "
+"Aggregate에 호스트를 할당합니다. Aggregate에 할당된 호스트를 제거하려면 **-**"
+"를 클릭합니다."
+
+msgid ""
+"In the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Flavors` category."
+msgstr ""
+":guilabel:`Admin`탭에서,  :guilabel:`Compute`탭을 열고,   :guilabel:`Flavors`"
+"카테고리를 클릭하세요."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Flavors` window, click :guilabel:`Delete "
+"Flavors` to confirm the deletion. You cannot undo this action."
+msgstr ""
+":guilabel:`Confirm Delete Flavors` 창에서, guilabel:`Delete Flavors`을 삭제 "
+"확인을 위해 클릭하세요. 이 작업은 실행 취소할 수 없습니다."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Images` window, click :guilabel:`Delete "
+"Images` to confirm the deletion."
+msgstr ""
+":guilabel:`Confirm Delete Images` 창에서 삭제 확인을 위한 :guilabel:`Delete "
+"Images` 를 클릭합니다."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Roles` window, click :guilabel:`Delete "
+"Roles` to confirm the deletion."
+msgstr ""
+":guilabel:`Confirm Delete Roles` 창에서 :guilabel:`Delete Roles`를 클릭하여 "
+"삭제가 되었는지 확인합니다."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Volume Types` window, click the :guilabel:"
+"`Delete Volume Types` button to confirm the action."
+msgstr ""
+" :guilabel:`Confirm Delete Volume Types` 창에서 :guilabel:`Delete Volume "
+"Types` 버튼을 클릭하여 동작을 확인합니다."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Volumes` window, click the :guilabel:"
+"`Delete Volumes` button to confirm the action."
+msgstr ""
+":guilabel:`Confirm Delete Volumes` 창에서 :guilabel:`Delete Volumes` 를 클릭"
+"하여 삭제가 되었는지 확인합니다."
+
+msgid ""
+"In the :guilabel:`Create An Image` window, enter or select the following "
+"values:"
+msgstr ":guilabel:`Create An Image` 창에서 다음 값을 입력하거나 선택합니다."
+
+msgid ""
+"In the :guilabel:`Create Flavor` window, enter or select the parameters for "
+"the flavor in the :guilabel:`Flavor Information` tab."
+msgstr ""
+":guilabel: `Create Snapshot` 윈도우에서 :guilabel:`Flavor Information`탭에 있"
+"는 flavor를 위한 인자를 입력하거나 선택하세요."
+
+msgid ""
+"In the :guilabel:`Create Host Aggregate` dialog box, enter or select the "
+"following values on the :guilabel:`Host Aggregate Information` tab:"
+msgstr ""
+":guilabel:`Create Host Aggregate` 대화 상자에서  :guilabel:`Host Aggregate "
+"Information` 탭에 다음의 값을 입력하거나 선택하세요."
+
+msgid "In the :guilabel:`Create Role` window, enter a name for the role."
+msgstr ":guilabel: `Create Role` 윈도우에서 역할에 대한 이름을 입력합니다."
+
+msgid ""
+"In the :guilabel:`Create Snapshot` window, enter a name for the snapshot."
+msgstr ""
+":guilabel: `Create Snapshot` 윈도우에서 스냅샷에 대한 이름을 입력합니다."
+
+msgid ""
+"In the :guilabel:`Edit Flavor` window, you can change the flavor name, "
+"VCPUs, RAM, root disk, ephemeral disk, and swap disk values."
+msgstr ""
+":guilabel:`Edit Flavor` 창에서  flavor 이름, VCPU, RAM, 루트 디스크, 임시 디"
+"스크 및 스왑 디스크 값을 변경할 수 있습니다."
+
+msgid ""
+"In the :guilabel:`Edit Host Aggregate` dialog box, you can change the name "
+"and availability zone for the aggregate."
+msgstr ""
+" :guilabel:`Edit Host Aggregate` 대화상자에서 Aggregate의 이름 및 가용성 영역"
+"을 변경할 수 있습니다."
+
+msgid "In the :guilabel:`Edit Image` window, you can change the image name."
+msgstr " :guilabel:`Edit Image` 창에서 이미지 이름을 변경할 수 있습니다."
+
+msgid ""
+"In the :guilabel:`Flavor Access` tab, you can control access to the flavor "
+"by moving projects from the :guilabel:`All Projects` column to the :guilabel:"
+"`Selected Projects` column."
+msgstr ""
+":guilabel:`Flavor Access`탭에서, :guilabel:`Selected Projects`의  :guilabel:"
+"`All Projects`의 프로젝트를 이동하는 것을 통해 flavor에 접근하는 것을 컨트롤 "
+"할 수있습니다."
+
+msgid ""
+"In the :guilabel:`Update Default Quotas` window, you can edit the default "
+"quota values."
+msgstr ""
+":guilabel:`Update Default Quotas` 창에서 기본 할당량 값을 편집할 수 있습니다."
+
+msgid ""
+"In the :guilabel:`Update Flavor Metadata` window, you can customize some "
+"metadata keys, then add it to this flavor and set them values."
+msgstr ""
+":guilabel:`Update Flavor Metadata`창에서 일부 메타데이터 키를 사용자 정의한 "
+"후 이 flavor에 추가하여 값을 설정할 수 있습니다."
+
+msgid "In the :guilabel:`Update Role` window, enter a new name for the role."
+msgstr ":guilabel:`Update Role` 창에서 역할에 대한 새로운 이름을 입력하십시오."
+
+msgid "In the ``local_settings.py`` file, change these options:"
+msgstr " ``local_settings.py`` 파일에서 다음 옵션을 변경합니다."
+
+msgid "In the ``local_settings.py`` file, update the following options:"
+msgstr "``local_settings.py`` 파일에서, 다음 옵션들을 업데이트하세요:"
+
+msgid ""
+"In this configuration, the Apache HTTP Server listens on port 443 and "
+"redirects all non-secure requests to the HTTPS protocol. The secured section "
+"defines the private key, public key, and certificate to use."
+msgstr ""
+"이 구성에서, 아파치 HTTP 서버는 port 443번에서 listen하고 HTTPS 프로토콜로 "
+"온 모든 안전하지 않은 요청을 재할당합니다. 안전한 섹션은 private 키, 공개키, "
+"증명서로 사용이 가능합니다."
+
+msgid "Initialize and configure the database"
+msgstr "데이터베이스 초기화 및 구성"
+
+msgid "Injected File Content Bytes"
+msgstr "첨부한 파일 콘텐츠 바이트"
+
+msgid "Injected Files"
+msgstr "첨부한 파일들"
+
+msgid "Injected files allowed for each project."
+msgstr "각 프로젝트에 첨부한 파일들이 허용됩니다."
+
+msgid "Instance cores allowed for each project."
+msgstr "각 프로젝트에 허용된 인스턴스 코어"
+
+msgid "Instances"
+msgstr "인스턴스"
+
+msgid "Instances allowed for each project."
+msgstr "각 프로젝트에 인스턴스가 허용됩니다."
+
+msgid "Key Size (bits)"
+msgstr "키 크기 (비트)"
+
+msgid "Keypairs"
+msgstr "Keypairs"
+
+msgid "Leave this field empty."
+msgstr "필드를 비우세요."
+
+msgid "Less disk overhead than LUKS"
+msgstr "LUKS보다 디스크 오버헤드 감소"
+
+msgid "Local memory cache"
+msgstr "로컬 메모리 캐시"
+
+msgid ""
+"Local memory storage is the quickest and easiest session back end to set up, "
+"as it has no external dependencies whatsoever. It has the following "
+"significant drawbacks:"
+msgstr ""
+"로컬 메모리 스토리지는 외부 종속성이 없기 때문에 세션 백엔드에서 가장 빠르고 "
+"쉽게 설정할 수 있습니다. 그것은 다음과 같은 중요한 단점을 가집니다:"
+
+msgid ""
+"Locate the User you would like to update, and select the :guilabel:`Edit` "
+"push button under the :guilabel:`Actions` column."
+msgstr ""
+"업데이트할 사용자를 찾은 후 :guilabel:`Actions`열에서  :guilabel:`Edit` 푸시 "
+"버튼을 선택합니다."
+
+msgid ""
+"Locate the User you would like to update, and select the arrow to the right "
+"of the :guilabel:`Edit` push button. This will open a drop down menu."
+msgstr ""
+"업데이트할 사용자를 찾고 :guilabel:`Edit` 푸시 버튼의 오른쪽에 있는 화살표를 "
+"선택합니다. 그러면 드롭다운 메뉴가 열립니다."
+
+msgid ""
+"Locate the project you wish to update, and under the :guilabel:`Actions` "
+"column click on the drop down arrow next to the :guilabel:`Manage Members` "
+"push button. The :guilabel:`Update Project` window will open."
+msgstr ""
+"업데이트할 프로젝트를 찾고  :guilabel:`Actions` 열에서 :guilabel:`Manage "
+"Members` 푸시 버튼 옆에 있는 드롭다운 화살표를 클릭합니다. 그러면 :guilabel:"
+"`Update Project` 창이 열립니다."
+
+msgid ""
+"Log in to the Dashboard and select the :guilabel:`admin` project from the "
+"drop-down list."
+msgstr ""
+"대시보드에 로그인하고 드롭다운 목록에서 :guilable: `admin` 프로젝트를 선택합"
+"니다."
+
+msgid ""
+"Log in to the dashboard and select the :guilabel:`Identity` project from the "
+"drop-down list."
+msgstr ""
+"대시보드에 로그인하고 드롭다운 목록에서 :guilable: `identity` 프로젝트를 선택"
+"합니다."
+
+msgid ""
+"Log in to the dashboard and select the :guilabel:`admin` project from the "
+"drop-down list."
+msgstr ""
+"대시보드에 로그인하고 드롭다운 목록에서 :guilable: `admin` 프로젝트를 선택합"
+"니다."
+
+msgid "Log into the OpenStack Dashboard as the Admin user."
+msgstr "관리 사용자로 OpenStack 대시보드에 로그인합니다."
+
+msgid "Logged in banner: 216 x 35"
+msgstr "배너 속 로그: 216 x 35"
+
+msgid "Login screen: 365 x 50"
+msgstr "로그인 화면: 365 x 50"
+
+msgid "Logo"
+msgstr "로고"
+
+msgid "Logo and site colors"
+msgstr "로고와 사이트 테마"
+
+msgid "Logo link"
+msgstr "로고 링크"
+
+msgid "Manage flavors"
+msgstr "Flavor 관리"
+
+msgid "Manage instances"
+msgstr "인스턴스 관리"
+
+msgid "Manage projects and users"
+msgstr "프로젝트, 사용자 관리"
+
+msgid "Manage volumes and volume types"
+msgstr "볼륨과 볼륨 타입 관리"
+
+msgid "Memcached"
+msgstr "Memcached"
+
+msgid ""
+"Memcached is a high-performance and distributed memory object caching system "
+"providing in-memory key-value store for small chunks of arbitrary data."
+msgstr ""
+"Memcached는 소규모의 임의 데이터 청크를 위한 메모리 내 키 값 저장소를 제공하"
+"는 고성능 분산 메모리 개체 캐싱 시스템입니다."
+
+msgid "Memcached service running and accessible."
+msgstr "memcached 서비스가 실행중이며 접근할 수 있습니다."
+
+msgid "Metadata Items"
+msgstr "메타데이터 항목"
+
+msgid "Metadata items allowed for each instance."
+msgstr "인스턴스당 허용되는 메타데이터 아이템들"
+
+msgid "No persistence after a process terminates."
+msgstr "프로세스를 멈춘 후에 남아있는 프로세스가 없습니다."
+
+msgid "No shared storage across processes or workers."
+msgstr "프로세스나 작업 단위간의 공유 저장소가 없습니다."
+
+msgid ""
+"Note: On the command line, type 'cryptsetup benchmark' for additional options"
+msgstr ""
+"참고: 명령줄에서 추가 옵션을 보려면'cryptsetup benchmark' 를 입력하십시오."
+
+msgid "Number of keypairs."
+msgstr "keypairs 개수"
+
+msgid ""
+"On Ubuntu, restart the ``nova-api`` service to ensure that the API server "
+"can connect to the Dashboard without error."
+msgstr ""
+"우분투에서, API 서버가 오류 없이 대시보드에 연결하도록 하기 위해 ``nova-"
+"api`` 서비스를 재시작하세요."
+
+msgid ""
+"On the :guilabel:`Admin tab`, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category."
+msgstr ""
+" :guilabel:`Admin` 탭에서 :guilabel:`Compute` 탭을 열고 :guilabel:`Images` 카"
+"테고리를 클릭합니다."
+
+msgid "On the :guilabel:`Admin` tab, click the :guilabel:`Overview` category."
+msgstr ":guilabel: `Admin` 탭에서 :guilable: `Overview` 카테고리를 클릭합니다."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Host Aggregates` category."
+msgstr ""
+" :guilabel:`Admin` 탭에서  :guilabel:`Compute`탭을 열고 :guilabel:`Host "
+"Aggregates` 카테고리를 클릭하세요."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category."
+msgstr ""
+" :guilabel:`Admin` 탭에서 :guilabel:`Compute` 탭을 열고 :guilabel:`Images` 카"
+"테고리를 클릭합니다."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category. The images that you can administer for "
+"cloud users appear on this page."
+msgstr ""
+":guilabel:`Admin` 탭에서 :guilabel:`Compute` 탭을 열고 :guilabel:`Images` 카"
+"테고리를 클릭합니다. 클라우드 사용자를 위해 관리할 수 있는 이미지가 이 페이지"
+"에 나타납니다."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Instances` category."
+msgstr ""
+" :guilabel:`Admin` 탭에서 :guilabel:`Compute` 탭을 열고  :guilabel:`Compute` "
+"카테고리를 클릭합니다."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
+"guilabel:`Defaults` category."
+msgstr ""
+":guilabel: `Admin` 탭에서, :guilabel:`System` 탭을 열고 :guilabel: "
+"`Defaults` 카테고리를 클릭합니다."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
+"guilabel:`System Information` category."
+msgstr ""
+":guilabel: `Admin` 탭에서, :guilabel:'System' 탭을 열고 :guilabel: `System "
+"Information` 카테고리를 클릭합니다."
+
+msgid "On the :guilabel:`Admin` tab, open the :guilabel:`Volume` tab."
+msgstr ":guilabel: `Admin` 탭에서 :guilable: `Volume` 카테고리를 클릭합니다."
+
+msgid "On the :guilabel:`Identity` tab, click the :guilabel:`Roles` category."
+msgstr ":guilabel: `Identity` 탭에서 :guilable: `Roles` 카테고리를 클릭합니다."
+
+msgid ""
+"On the compute nodes, ensure the ``nonvncproxy_base_url`` option points to a "
+"URL with an HTTPS scheme:"
+msgstr ""
+"compute nodes에서,  ``nonvncproxy_base_url``옵션이 HTTPS 형식의 URL인지 확실"
+"히 하세요."
+
+msgid ""
+"Once you have the Dashboard installed, you can customize the way it looks "
+"and feels to suit the needs of your environment, your project, or your "
+"business."
+msgstr ""
+"대시보드를 설치했다면 프로젝트, 비즈니스 등의 필요한 환경에 따라 마음껏 커스"
+"터마이징 할 수 있습니다."
+
+msgid ""
+"Only projects in the :guilabel:`Selected Projects` column can use the "
+"flavor. If there are no projects in the right column, all projects can use "
+"the flavor."
+msgstr ""
+":guilabel: `Selected Projects` 에 있는 프로젝트만 이 flavor을 사용할 수 있습"
+"니다. 오른쪽 열에 프로젝트가 없다면 모든 프로젝트에서 이 flavor을 사용할 수 "
+"있습니다."
+
+msgid "Open the following HTML template in an editor of your choice:"
+msgstr "다음 HTML 템플릿을 선호하는 편집기로 엽니다:"
+
+msgid ""
+"OpenStack Identity service defines a user's role on a project, but it is "
+"completely up to the individual service to define what that role means. This "
+"is referred to as the service's policy. To get details about what the "
+"privileges for each role are, refer to the ``policy.json`` file available "
+"for each service in the ``/etc/SERVICE/policy.json`` file. For example, the "
+"policy defined for OpenStack Identity service is defined in the ``/etc/"
+"keystone/policy.json`` file."
+msgstr ""
+"OpenStack Identity 서비스는 프로젝트에서 사용자 역할을 정의하지만, 해당 역할"
+"에 대한 의미를 정의하는 것은 개별 서비스에서 설정을 해주어야합니다. 이것을 서"
+"비스 정책이라고 합니다. 각 역할에서의 권한에 대한 자세한 내용을 확인하기위해 "
+"``/etc/SERVICE/policy.json`` 파일에서 각 서비스에서 사용할 수 있는 정책을 "
+"``policy.json`` 파일을 참조하십시오. 예를 들어, OpenStack Identity 서비스에 "
+"정의된 정책은  ``/etc/keystone/policy.json`` 파일에 정의되어있습니다."
+
+msgid ""
+"OpenStack administrators can create projects, and create accounts for new "
+"users using the OpenStack Dasboard. Projects own specific resources in your "
+"OpenStack environment. You can associate users with roles, projects, or both."
+msgstr ""
+"OpenStack 관리자는 OpenStack 대시보드를 사용하여 프로젝트를 생성하고 새 사용"
+"자에 대한 계정을 생성할 수 있습니다.프로젝트는 OpenStack 환경에서 특정 리소스"
+"를 소유하게 됩니다. 사용자를 역할, 프로젝트 또는 두개를 함께 연결할 수 있습니"
+"다."
+
+msgid ""
+"Optional property allows servers with a different bandwidth to be created "
+"with the RX/TX Factor. The default value is 1. That is, the new bandwidth is "
+"the same as that of the attached network."
+msgstr ""
+"옵션 속성을 사용하면 대역폭이 다른 서버를 RX/TX 팩터로 생성할 수 있습니다. 기"
+"본값은 1입니다. 즉, 새 대역폭은 연결된 네트워크의 대역폭과 동일합니다."
+
+msgid "Parameter options"
+msgstr "매개변수 옵션"
+
+msgid "Provider"
+msgstr "공급자"
+
+msgid "Python module ``python-memcached`` installed."
+msgstr "파이썬 모듈 ``python-memcached`` 가 설치되었습니다."
+
+msgid "Python modules ``redis`` and ``django-redis`` installed."
+msgstr "파이썬 모듈 ``redis`` 와 ``django-redis`` 설치합니다."
+
+msgid "Quota Name"
+msgstr "할당량 이름"
+
+msgid "RAM (MB)"
+msgstr "RAM (MB)"
+
+msgid "RAM (in MB)"
+msgstr "RAM (MB)"
+
+msgid "RAM megabytes allowed for each instance."
+msgstr "인스턴스당 허용되는 RAM 메가바이트"
+
+msgid "Redis"
+msgstr "Redis"
+
+msgid ""
+"Redis is an open source, BSD licensed, advanced key-value store. It is often "
+"referred to as a data structure server."
+msgstr ""
+"Redis는 오픈 소스, BSD 라이센스, 고급 키 값 저장소입니다. 종종 데이터 구조 서"
+"버라고 합니다."
+
+msgid "Redis service running and accessible."
+msgstr "Redis 서비스가 실행중이며 접근할 수 있습니다."
+
+msgid "Requirements:"
+msgstr "요구사항:"
+
+msgid "Restart Apache for this change to take effect."
+msgstr "해당 변경 사항을 적용하기 위해 Apache를 재시작합니다."
+
+msgid "Restart ``memcached``."
+msgstr "Memcached 서비스를 재시작합니다:"
+
+msgid "Restart the Apache HTTP Server."
+msgstr "Apache HTTP 서버를 재시작합니다."
+
+msgid "Restart the Apache service."
+msgstr "Apache 서비스를 재시작합니다."
+
+msgid "Security Group Rules"
+msgstr "보안 그룹 규칙"
+
+msgid "Security Groups"
+msgstr "보안 그룹"
+
+msgid "Security group rules allowed for each project."
+msgstr "각 프로젝트에 허용된 보안 그룹 규칙"
+
+msgid "Security groups allowed for each project."
+msgstr "각 프로젝트에 허용된 보안 그룹"
+
+msgid "See NIST reference below to see advantages*"
+msgstr "장점을 보려면 아래의 NIST 참조를 참조하십시오.*"
+
+msgid ""
+"See the Django `cookie-based sessions <https://docs.djangoproject.com/en/dev/"
+"topics/http/sessions/#using-cookie-based-sessions>`__ documentation."
+msgstr ""
+"Django `cookie-based sessions <https://docs.djangoproject.com/en/dev/topics/"
+"http/sessions/#using-cookie-based-sessions>`__ 문서를 보세요."
+
+msgid "Select :guilabel:`Disable User`."
+msgstr ":guilabel:`Disable User` 클릭"
+
+msgid ""
+"Select a month and click :guilabel:`Submit` to query the instance usage for "
+"that month."
+msgstr ""
+"월을 선택하고  :guilabel:`Submit` 을 클릭하여 해당 월의 인스턴스 사용량을 쿼"
+"리합니다."
+
+msgid ""
+"Select an instance to create a snapshot from it. From the Actions drop-down "
+"list, select :guilabel:`Create Snapshot`."
+msgstr ""
+"스냅샷을 생성할 인스턴스를 선택합니다. 작업 드롭다운 목록에서  :guilabel:"
+"`Create Snapshot` 을 선택합니다."
+
+msgid ""
+"Select the :guilabel:`Create Project` push button. The :guilabel:`Create "
+"Project` window will open."
+msgstr ""
+" :guilabel:`Create Project` 푸시 버튼을 선택합니다.  :guilabel:`Create "
+"Project`생성 창이 열립니다."
+
+msgid ""
+"Select the :guilabel:`Public` check box to make the image public. Clear this "
+"check box to make the image private. You cannot change the :guilabel:`Kernel "
+"ID`, :guilabel:`Ramdisk ID`, or :guilabel:`Architecture` attributes for an "
+"image."
+msgstr ""
+" :guilabel:`Public` 체크박스를 선택하여 이미지를 공개합니다. 이미지를 비공개"
+"로 만들려면 이 체크박스 선택을 취소합니다. 이미지에 대한 :guilabel:`Kernel "
+"ID`,:guilabel:`Ramdisk ID` 또는:guilabel:`Architecture` 특성을 변경할 수 없습"
+"니다."
+
+msgid ""
+"Select the :guilabel:`admin` project from the drop-down list at the top of "
+"the page."
+msgstr ""
+"페이지 상단의 드롭다운 목록에서 :guilabel:`admin` 프로젝트를 선택합니다."
+
+msgid ""
+"Select the checkbox to the left of the project you would like to delete."
+msgstr "삭제할 프로젝트의 왼쪽 체크박스를 선택하세요."
+
+msgid "Select the checkbox to the left of the user you would like to delete."
+msgstr "삭제할 사용자의 왼쪽 체크박스를 선택하세요."
+
+msgid "Select the flavor that you want to edit. Click :guilabel:`Edit Flavor`."
+msgstr "편집할 flavor을 선택합니다.  :guilabel:`Edit Flavor`을 클릭합니다."
+
+msgid ""
+"Select the flavor that you want to update. In the drop-down list, click :"
+"guilabel:`Update Metadata` or click :guilabel:`No` or :guilabel:`Yes` in "
+"the :guilabel:`Metadata` column."
+msgstr ""
+"업데이트하길 원하는 flavor을 선택하세요. 드롭다운 목록에서 :guilabel:`Update "
+"Metadata` 을 클릭하거나,  :guilabel:`Metadata` 안에 있는 :guilabel:`No` 혹"
+"은  :guilabel:`Yes`을 클릭하세요."
+
+msgid "Select the flavors that you want to delete."
+msgstr "삭제할 Flavors를 선택하십시오."
+
+msgid "Select the image format."
+msgstr "이미지 포맷 선택."
+
+msgid "Select the images that you want to delete."
+msgstr "삭제할 이미지를 선택하십시오."
+
+msgid "Select the images that you want to edit. Click :guilabel:`Edit Image`."
+msgstr "편집할 이미지를 선택합니다. :guilabel:`Edit Image` 를 클릭합니다."
+
+msgid "Select the instance for which you want to change the state."
+msgstr "상태를 변경할 인스턴스를 선택합니다."
+
+msgid ""
+"Select the role you want to delete and click the :guilabel:`Delete Roles` "
+"button."
+msgstr ":guilabel:`Update Role`버튼을 클릭하여 변경 사항을 확인하십시오."
+
+msgid ""
+"Select this option to ensure that only users with permissions can delete it."
+msgstr "권한을 가진 사용자만 삭제할 수 있도록 하려면 이 옵션을 선택합니다."
+
+msgid "Select this option to make the image public to all users."
+msgstr "이미지를 모든 사용자에게 공개하려면 이 옵션을 선택합니다."
+
+msgid "Service"
+msgstr "서비스"
+
+msgid ""
+"Set the HTML title, which appears at the top of the browser window, by "
+"adding the following line to ``local_settings.py``:"
+msgstr ""
+"다음 줄을 ``local_settings.py`` 에 추가하여, 브라우저 창 상단에 보이는 HTML "
+"제목을 설정합니다:"
+
+msgid "Set up session storage for the Dashboard"
+msgstr "대시보드의 세션 스토리지를 설정하세요."
+
+msgid "Site colors"
+msgstr "사이트 테마"
+
+msgid "Snapshots"
+msgstr "스냅샷들"
+
+msgid "Specifies the encryption algorithm."
+msgstr "암호 알고리즘을 지정하세요."
+
+msgid "Specifies the encryption key size."
+msgstr "암호 키 사이즈를 지정하세요."
+
+msgid "Specifies the encryption provider format."
+msgstr "암호화 공급자 타입을 지정하세요."
+
+msgid ""
+"Specifies whether the encryption is from the front end (nova) or the back "
+"end (cinder)."
+msgstr ""
+"암호화가 프런트 엔드(nova)에서 왔는지 백엔드(cinder)에서 왔는지 여부를 지정합"
+"니다."
+
+msgid ""
+"Specify the architecture. For example, ``i386`` for a 32-bit architecture or "
+"``x86_64`` for a 64-bit architecture."
+msgstr ""
+"아키텍처를 지정하십시오. 예를 들어, 32비트 아키텍처의 경우``i386`` 이고 64비"
+"트 아키텍처의 경우 ``x86_64``입니다."
+
+msgid ""
+"Specify the host for your Identity service endpoint in the ``local_settings."
+"py`` file with the ``OPENSTACK_HOST`` setting."
+msgstr ""
+"``OPENSTACK_HOST``설정인 ``local_settings.py``파일에서 아이덴티티 서비스 종단"
+"점의 호스트를 지정합니다."
+
+msgid "Specify this option to copy image data to the Image service."
+msgstr "이미지 데이터를 이미지 서비스로 복사하려면 이 옵션을 지정합니다."
+
+msgid "Start the MySQL command-line client."
+msgstr "MySQL 커맨드 라인 클라이언트를 시작합니다."
+
+msgid ""
+"The Dashboard uses `Django sessions framework <https://docs.djangoproject."
+"com/en/dev/topics/http/sessions/>`__ to handle user session data. However, "
+"you can use any available session back end. You customize the session back "
+"end through the ``SESSION_ENGINE`` setting in your ``local_settings.py`` "
+"file."
+msgstr ""
+"대시보드는 `Django sessions framework <https://docs.djangoproject.com/en/dev/"
+"topics/http/sessions/>`__ 을 사용하여 사용자 세션 데이터를 처리합니다. 그러"
+"나 사용 가능한 세션 백엔드를 사용할 수 있습니다. 사용자는 ``local_settings."
+"py`` 의``SESSION_ENGINE`` 설정을 통해 세션 백엔드를 사용자 지정합니다"
+
+msgid ""
+"The OpenStack Dashboard is a web-based interface that allows you to manage "
+"OpenStack resources and services. The Dashboard allows you to interact with "
+"the OpenStack Compute cloud controller using the OpenStack APIs. For more "
+"information about installing and configuring the Dashboard, see the :doc:`/"
+"install/index` for your operating system."
+msgstr ""
+"오픈스택 대시보드는 웹 기반 인터페이스로써 여러분이 오픈스택 자원과 서비스를 "
+"관리하도록 허락합니다. 대시보드는 여러분이 오픈스택 API를 이용한 오픈스택 "
+"Compute 클라우드 컨트롤러에 상호작용하도록 허락합니다. 대시보드를 설치하고 알"
+"아보기 위한 더 많은 정보를 위해 여러분의 운영 체제에서 :doc:`/install/index`"
+"를 보세요."
+
+msgid ""
+"The OpenStack Dashboard on Ubuntu installs the ``openstack-dashboard-ubuntu-"
+"theme`` package by default. If you do not want to use this theme, remove it "
+"and its dependencies:"
+msgstr ""
+"우분투 환경에서의 오픈스택 대시보드는 ``openstack-dashboard-ubuntu-theme`` 패"
+"키지를 기본적으로 설치합니다. 테마 사용을 원치 않으면,  해당 패키지와 그에 따"
+"른 의존 패키지를 삭제하십시오."
+
+msgid ""
+"The biggest downside is that it places session data into storage on the "
+"user's machine and transports it over the wire. It also limits the quantity "
+"of session data that can be stored."
+msgstr ""
+"가장 큰 단점은 세션 데이터를 사용자의 컴퓨터에 있는 스토리지에 저장하여 무선"
+"으로 전송하는 것입니다. 또한 저장할 수 있는 세션 데이터의 양이 제한됩니다."
+
+msgid ""
+"The dashboard does not show all possible project quotas. To view and update "
+"the quotas for a service, use its command-line client. See `OpenStack "
+"Administrator Guide <https://docs.openstack.org/admin-guide/cli-set-quotas."
+"html>`_."
+msgstr ""
+"대시보드에는 가능한 모든 프로젝트 할당량이 표시되지 않습니다. 서비스의 할당량"
+"을 보고 업데이트하려면 해당 커맨드라인 클라이언트를 사용하십시오. `OpenStack "
+"Administrator Guide <https://docs.openstack.org/admin-guide/cli-set-quotas."
+"html>`_ 을 참조하십시오."
+
+msgid "The default quota values are displayed."
+msgstr "기본 할당량 값이 표시됩니다."
+
+msgid ""
+"The encryption occurs within nova so that the data transmitted over the "
+"network is encrypted"
+msgstr ""
+"Nova 내에서 암호화되므로 네트워크를 통해 전송되는 데이터가 암호화됩니다."
+
+msgid "The following Dashboard content can be customized to suit your needs:"
+msgstr "아래의 대시보드 내용은 필요게 맞게끔 커스터마이징 할 수 있습니다."
+
+msgid "The following example shows this setting:"
+msgstr "아래 예시는 이와 같은 설정 값을 보여 줍니다."
+
+msgid "The following output is returned:"
+msgstr "다음 출력값이 반환됩니다:"
+
+msgid ""
+"The following section on configuring the Dashboard for a secure HTTPS "
+"deployment, or a HTTP deployment, uses concrete examples to ensure the "
+"procedure is clear. The file path varies by distribution, however. If "
+"needed, you can also configure the VNC window size in the Dashboard."
+msgstr ""
+"다음 섹션에서는 보안 HTTPS 배포 또는 HTTP 배포를 위해 대시보드를 구성하는 방"
+"법에 대해 구체적인 예를 사용하여 명확하게 설명합니다. 그러나 파일 경로는 배포"
+"에 따라 다릅니다. 필요한 경우 대시보드에서 VNC 창 크기를 조정할 수도 있습니"
+"다."
+
+msgid ""
+"The following sections describe the pros and cons of each option as it "
+"pertains to deploying the Dashboard."
+msgstr "다음 섹션에서는 대시보드 배포와 관련된 각 옵션의 장단점을 설명합니다."
+
+msgid ""
+"The following table describes the Compute and Block Storage service quotas:"
+msgstr "다음 표에서는 컴퓨팅 및 블록 스토리지 서비스 할당량을 설명합니다:"
+
+msgid ""
+"The image is queued to be uploaded. It might take several minutes before the "
+"status changes from ``Queued`` to ``Active``."
+msgstr ""
+"업로드할 이미지가 큐에 추가됩니다. 이 상태가``Queued`` 에서 ``Active`` 로 변"
+"하기까지는 몇 분 정도 걸릴 수도 있다."
+
+msgid ""
+"The local memory back end is enabled as the default for Horizon solely "
+"because it has no dependencies. It is not recommended for production use, or "
+"even for serious development work."
+msgstr ""
+"로컬 메모리 백엔드는 종속성이 없기 때문에 Horizon의 기본값으로 사용됩니다. 그"
+"것은 생산용이나 어려운 개발 작업에는 권장되지 않습니다."
+
+msgid ""
+"The logo also acts as a hyperlink. The default behavior is to redirect to "
+"``horizon:user_home``. To change this, add the following attribute to "
+"``local_settings.py``:"
+msgstr ""
+"로고는 하이퍼링크로 동작합니다. 기본 동작 방식은 ``horizon:user_home`` 로 리"
+"다이렉션합니다. 이를 변경하기 위해서는, 다음 속성을 ``local_settings.py`` 에 "
+"추가합니다:"
+
+msgid ""
+"The new user will then appear in the list of projects displayed under the :"
+"guilabel:`Users` page of the dashboard. You can check on the **User Name**, "
+"**User ID**, **Domain name**, and the User status in this section."
+msgstr ""
+"그러면 새 사용자가 대시보드의 :guilabel:`Users` 페이지에 표시되는 프로젝트 목"
+"록에 나타납니다. **User Name**, **User ID**, **Domain name** 및 사용자 상태"
+"를 이 섹션에서 확인할 수 있습니다."
+
+msgid ""
+"The other options require that HTTPS is enabled; these options defend "
+"against cross-site scripting."
+msgstr ""
+"HTTPS를 사용가능하게 하는 다른 옵션들의 필요 조건은;옵션들이 cross-site "
+"scripting을 방어하는 조건입니다."
+
+msgid ""
+"The pros of this engine are that it requires no additional dependencies or "
+"infrastructure overhead, and it scales indefinitely as long as the quantity "
+"of session data being stored fits into a normal cookie."
+msgstr ""
+"이 엔진의 장점은 추가적인 종속성이나 인프라 오버헤드가 필요하지 않으며, 저장"
+"되는 세션 데이터의 양이 일반 쿠키에 적합한 한 무한 확장됩니다."
+
+msgid ""
+"The scheduler uses this information to make scheduling decisions. For "
+"information, see `Scheduling <https://docs.openstack.org/nova/latest/admin/"
+"configuration/schedulers.html>`__."
+msgstr ""
+"스케줄러는 이 정보를 사용하여 스케줄링 결정을 내립니다. 자세한 내용은"
+"`Scheduling <https://docs.openstack.org/nova/latest/admin/configuration/"
+"schedulers.html>`__. 을 참조하십시오."
+
+msgid ""
+"The service catalog configuration in the Identity service determines whether "
+"a service appears in the Dashboard. For the full listing, see :ref:`install-"
+"settings`."
+msgstr ""
+"ID 서비스의 서비스 카탈로그 구성에 따라 대시보드에 서비스가 표시되는지 여부"
+"가 결정됩니다. 전체 목록에서 다음을 참조하십시오:`install-settings`."
+
+msgid ""
+"The table below provides a few alternatives available for creating encrypted "
+"volumes."
+msgstr ""
+"아래 표에는 암호화된 볼륨을 생성할 수 있는 몇 가지 대안이 나와 있습니다."
+
+msgid ""
+"This back end stores session data in a cookie, which is stored by the user's "
+"browser. The back end uses a cryptographic signing technique to ensure "
+"session data is not tampered with during transport. This is not the same as "
+"encryption; session data is still readable by an attacker."
+msgstr ""
+"이 백엔드는 사용자의 브라우저에 의해 저장되는 쿠키에 세션 데이터를 저장합니"
+"다. 백엔드는 암호화 서명 기술을 사용하여 전송하는 동안 세션 데이터가 손상되"
+"지 않도록 합니다. 이는 암호화와 다릅니다. 세션 데이터는 여전히 공격자가 읽을 "
+"수 있습니다."
+
+msgid ""
+"This could be selected if a cinder plug-in supporting an encrypted back-end "
+"block storage device becomes available in the future. TLS or other network "
+"encryption would also be needed to protect data as it traverses the network"
+msgstr ""
+"암호화된 백엔드 블록 저장 장치를 지원하는 cinder 플러그인을 나중에 사용할 수 "
+"있게 되면 이 옵션을 선택할 수 있습니다. 네트워크를 통과할 때 데이터를 보호하"
+"기 위해 TLS 또는 기타 네트워크 암호화도 필요합니다."
+
+msgid ""
+"This example uses the ``http://openstack.example.com`` domain. Use a domain "
+"that fits your current setup."
+msgstr ""
+"이 예제는``http://openstack.example.com`` 도메인을 사용합니다. 당신의 현재 설"
+"정에 맞는 도메인을 사용하세요."
+
+msgid "This guide focuses on the ``local_settings.py`` file."
+msgstr "본 가이드는 ``local_settings.py`` 파일을 집중적으로 다룹니다."
+
+msgid ""
+"To assign a host to the aggregate, click **+** for the host. The host moves "
+"from the :guilabel:`All available hosts` list to the :guilabel:`Selected "
+"hosts` list."
+msgstr ""
+"Aggregate에 호스트를 할당하려면 호스트에 대해 **+**를 클릭합니다. 호스트가  :"
+"guilabel:`All available hosts` 목록에서  :guilabel:`Selected hosts`  목록으"
+"로 이동합니다."
+
+msgid ""
+"To avoid a warning when you restart Apache on Ubuntu, create a ``blackhole`` "
+"directory in the Dashboard directory, as follows."
+msgstr ""
+"우분투에서 아파치를 재시작할 때 경고를 피하려면, 다음과 같이 대시보드 디렉토"
+"리에 ``blackhole`` 디렉토리를 생성하세요."
+
+msgid "To configure the MySQL database, create the dash database."
+msgstr "MySQL 데이터베이스를 구성하려면 대시 데이터베이스를 생성하십시오."
+
+msgid "To create a host aggregate"
+msgstr "호스트 집합 생성"
+
+msgid ""
+"To create and manage images as an administrator for other users, use the "
+"following procedures."
+msgstr ""
+"다른 사용자의 관리자로 이미지를 만들고 관리하려면 다음 절차를 사용합니다."
+
+msgid ""
+"To create and manage images in specified projects as an end user, see the :"
+"doc:`upload and manage images with Dashboard in OpenStack End User Guide </"
+"user/manage-images>` and `manage images with CLI in OpenStack End User Guide "
+"<https://docs.openstack.org/glance/latest/admin/manage-images.html>`_."
+msgstr ""
+"지정된 프로젝트에서 이미지를 최종 사용자로 생성 및 관리하려면 :doc:`upload "
+"and manage images with Dashboard in OpenStack End User Guide </user/manage-"
+"images>` 및 `manage images with CLI in OpenStack End User Guide <https://"
+"docs.openstack.org/glance/latest/admin/manage-images.html>`_ 를 참조하십시오."
+
+msgid ""
+"To create and manage ports, see the :doc:`/user/create-networks` section of "
+"the OpenStack End User Guide."
+msgstr ""
+"port를 생성하고 관리하려면, OpenStack End User Guide에서 :doc:`/user/create-"
+"networks`섹션을 확인하세요."
+
+msgid ""
+"To delete host aggregates, locate the host aggregate that you want to edit "
+"in the table. Click :guilabel:`More` and select :guilabel:`Delete Host "
+"Aggregate`."
+msgstr ""
+"호스트 Aggregate를 삭제하려면 테이블에서 편집할 호스트 Aggregate를 찾습니"
+"다. :guilabel:`More` 를 클릭하고 :guilabel:`Delete Host Aggregate`을 선택합니"
+"다."
+
+msgid "To deploy the dashboard, see the :doc:`/install/index`."
+msgstr "대시보드를 설치하려면, :doc:`/install/index`를 보세요."
+
+msgid ""
+"To edit host aggregates, select the host aggregate that you want to edit. "
+"Click :guilabel:`Edit Host Aggregate`."
+msgstr ""
+"호스트  Aggregate를 편집하려면 편집할 호스트  Aggregate를 선택하세요. :"
+"guilabel:`Edit Host Aggregate`을 클릭하세요."
+
+msgid "To enable HTTPS, the ``USE_SSL = True`` option is required."
+msgstr "HTTPS를 활성화하려면, ``USE_SSL = True``옵션이 필요합니다."
+
+msgid ""
+"To launch an instance from the snapshot, select the snapshot and click :"
+"guilabel:`Launch`. For information about launching instances, see the :doc:"
+"`OpenStack End User Guide </user/launch-instances>`."
+msgstr ""
+"스냅샷에서 인스턴스를 시작하려면 스냅샷을 선택하고:guilabel:`Launch` 를 클릭"
+"합니다. 인스턴스 시작에 대한 자세한 내용은 :doc:`OpenStack End User Guide </"
+"user/launch-instances>` 를 참조하십시오."
+
+msgid ""
+"To launch instances with the dashboard as an end user, see the :doc:`/user/"
+"launch-instances` in the OpenStack End User Guide."
+msgstr ""
+"엔드 사용자로써 대시보드에 인스턴스를 실행하려면, OpenStack End User Guide에"
+"서 `/user/launch-instances`를 확인하세요."
+
+msgid "To manage host aggregates"
+msgstr "호스트 집합 관리"
+
+msgid ""
+"To manage hosts, locate the host aggregate that you want to edit in the "
+"table. Click :guilabel:`More` and select :guilabel:`Manage Hosts`."
+msgstr ""
+"호스트를 관리하려면 테이블에서 편집할 호스트 Aggregate를 찾습니다.  :"
+"guilabel:`More` 를 클릭하고:guilabel:`Manage Hosts` 를 선택합니다."
+
+msgid ""
+"To mitigate the performance issues of database queries, you can use the "
+"Django ``cached_db`` session back end, which utilizes both your database and "
+"caching infrastructure to perform write-through caching and efficient "
+"retrieval."
+msgstr ""
+"데이터베이스 쿼리의 성능 문제를 완화하기 위해 데이터베이스와 캐싱 인프라를 모"
+"두 사용하여 write-through  캐싱 및 효율적인 검색을 수행하는 Django "
+"``cached_db`` 세션 백엔드를 사용할 수 있습니다."
+
+msgid ""
+"To prevent system capacities from being exhausted without notification, you "
+"can set up quotas. Quotas are operational limits. For example, the number of "
+"gigabytes allowed for each project can be controlled so that cloud resources "
+"are optimized. Quotas can be enforced at both the project and the project-"
+"user level."
+msgstr ""
+"알림 없이 시스템 용량이 소진되지 않도록 할당량을 설정할 수 있습니다. 할당량"
+"은 운영상의 제한입니다. 예를 들어 각 프로젝트에 허용되는 기가바이트 수를 제어"
+"하여 클라우드 리소스를 최적화할 수 있습니다. 할당량은 프로젝트 및 프로젝트-유"
+"저 레벨 모두에서 적용할 수 있습니다."
+
+msgid ""
+"To reactivate a disabled user, select :guilabel:`Enable User` under the drop "
+"down menu."
+msgstr ""
+"비활성화된 사용자를 재활성화하려면 드롭다운 메뉴에서:guilabel:`Enable User` "
+"를 선택합니다."
+
+msgid ""
+"To see further information and CLI instructions, see `Create an encrypted "
+"volume type <https://docs.openstack.org/cinder/latest/configuration/block-"
+"storage/volume-encryption.html#create-an-encrypted-volume-type>`__ in the "
+"OpenStack Block Storage Configuration Guide."
+msgstr ""
+"자세한 내용과 CLI 지침을 보려면 OpenStack 블록 스토리지 구성 가이드에서 "
+"`Create an encrypted volume type <https://docs.openstack.org/cinder/latest/"
+"configuration/block-storage/volume-encryption.html#create-an-encrypted-"
+"volume-type>`__ 를 참조하십시오."
+
+msgid ""
+"To view your changes, reload your Dashboard. If necessary, go back and "
+"modify your CSS file as appropriate."
+msgstr ""
+"변경 사항을 보려면, 대시보드를 다시 로드합니다. 필요하다면 뒤로 돌아가 CSS 파"
+"일을 적절히 수정합니다."
+
+msgid "Track usage"
+msgstr "사용률 추적"
+
+msgid ""
+"Typically, you change quotas when a project needs more than ten volumes or 1 "
+"|nbsp| TB on a compute node."
+msgstr ""
+"일반적으로 컴퓨팅 노드에서 프로젝트에 10개 이상의 볼륨 또는 1 |nbsp| TB가 필"
+"요할 때 할당량을 변경할 수 있습니다."
+
+msgid ""
+"Unique ID (integer or UUID) for the new flavor. If specifying 'auto', a UUID "
+"will be automatically generated."
+msgstr ""
+"새로운 flavor를 위한 고유 ID(integer or UUID)입니다. 'auto'를 지정하면, UUID"
+"는 자동으로 생성됩니다."
+
+msgid "Update Metadata"
+msgstr "메타데이터 업데이트"
+
+msgid "Update a project"
+msgstr "프로젝트 업데이트"
+
+msgid "Update a user"
+msgstr "사용자 업데이트"
+
+msgid "Update flavors"
+msgstr "Flavors 업그레이드"
+
+msgid "Update images"
+msgstr "이미지 업데이트"
+
+msgid "Update project quotas"
+msgstr "프로젝트 quotas 업데이트"
+
+msgid ""
+"Update the name of the project, enable the project, or disable the project "
+"as needed."
+msgstr ""
+"프로젝트의 이름을 업데이트하고, 필요하다면 프로젝트를 활성화하거나 비활성화하"
+"세요."
+
+msgid ""
+"Upload your new images to ``/usr/share/openstack-dashboard/"
+"openstack_dashboard/static/dashboard/img/``."
+msgstr ""
+"새로운 이미지를 ``/usr/share/openstack-dashboard/openstack_dashboard/static/"
+"dashboard/img/`` 에 업로드합니다."
+
+msgid ""
+"Use the :guilabel:`Overview` category to track usage of instances for each "
+"project."
+msgstr ""
+":guilabel:`Overview` 카테고리를 사용하여 각 프로젝트의 인스턴스 사용량을 추적"
+"합니다."
+
+msgid ""
+"Using the Dashboard, you can view default Compute and Block Storage quotas "
+"for new projects, as well as update quotas for existing projects."
+msgstr ""
+"대시보드를 사용하여 새 프로젝트의 기본 컴퓨팅 및 블록 스토리지 할당량을 확인"
+"하고 기존 프로젝트의 할당량을 업데이트할 수 있습니다."
+
+msgid ""
+"Using the command-line interface, you can manage quotas for `the OpenStack "
+"Compute service <https://docs.openstack.org/nova/latest/admin/quotas."
+"html>`__, `the OpenStack Block Storage service <https://docs.openstack.org/"
+"cinder/latest/cli/cli-set-quotas.html>`__, and the OpenStack Networking "
+"service (For CLI details, see `OpenStackClient CLI reference <https://docs."
+"openstack.org/python-openstackclient/latest/cli/command-objects/quota."
+"html>`_). Additionally, you can update Compute service quotas for project "
+"users."
+msgstr ""
+"커맨드 라인 인터페이스를 사용하여  `the OpenStack Compute service <https://"
+"docs.openstack.org/nova/latest/admin/quotas.html>`__, `the OpenStack Block "
+"Storage service <https://docs.openstack.org/cinder/latest/cli/cli-set-quotas."
+"html>`__, 그리고 OpenStack 네트워킹 서비스 (CLI의 세부사항에 대한 것은"
+"`OpenStackClient CLI reference <https://docs.openstack.org/python-"
+"openstackclient/latest/cli/command-objects/quota.html>`_ 을 참조하십시오)에 "
+"대한 할당량을 관리할 수 있습니다. 또한 프로젝트 사용자의 컴퓨팅 서비스 할당량"
+"을 업데이트할 수 있습니다."
+
+msgid "Using the dashboard, you can edit only the name assigned to a role."
+msgstr "대시보드를 사용할 경우, 역할에 할당된 이름만 편집할 수 있습니다."
+
+msgid ""
+"Using this selection for aes-xts, the underlying key size would only be 128-"
+"bits*"
+msgstr ""
+"aes-xts에 대해 이 선택 항목을 사용하면 기본 키 크기는 128비트만 됩니다*"
+
+msgid ""
+"Using this selection for aes-xts, the underlying key size would only be 256-"
+"bits*"
+msgstr ""
+"aes-xts에 대해 이 선택 항목을 사용하면 기본 키 크기는 256비트만 됩니다*"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "View and manage quotas"
+msgstr "할당량을 살펴보고 관리합니다."
+
+msgid "View default project quotas"
+msgstr "기본 프로젝트 quota를 나타냅니다"
+
+msgid "View services information"
+msgstr "서비스 정보 보기"
+
+msgid "View the following information on these tabs:"
+msgstr "이번 탭에서 다음 정보를 봅니다:"
+
+msgid "Volume gigabytes allowed for each project."
+msgstr "각 프로젝트에 볼륨 기가바이트가 허용됩니다."
+
+msgid "Volume snapshots allowed for each project."
+msgstr "각 프로젝트에 허용된 볼륨 스냅샷"
+
+msgid "Volumes"
+msgstr "볼륨들"
+
+msgid "Volumes allowed for each project."
+msgstr "각 프로젝트에 허용된 볼륨"
+
+msgid ""
+"Volumes are the Block Storage devices that you attach to instances to enable "
+"persistent storage. Users can attach a volume to a running instance or "
+"detach a volume and attach it to another instance at any time. For "
+"information about using the dashboard to create and manage volumes as an end "
+"user, see the :doc:`OpenStack End User Guide </user/manage-volumes>`."
+msgstr ""
+"볼륨은 영구 스토리지를 사용하도록 설정하기 위해 인스턴스에 연결하는 블록 스토"
+"리지 장치입니다. 사용자는 언제든지 볼륨을 실행 중인 인스턴스에 연결하거나 볼"
+"륨을 분리하여 다른 인스턴스에 연결할 수 있습니다. 대시보드를 사용하여 볼륨을 "
+"생성하고 관리하는 방법에 대한 자세한 내용은 :doc:`OpenStack End User Guide </"
+"user/manage-volumes>` 을 참조하십시오"
+
+msgid ""
+"When the host aggregate is exposed as an availability zone, select the "
+"availability zone when you launch an instance."
+msgstr ""
+"호스트 Aggregate가 가용성 영역으로 표시되는 경우 인스턴스를 시작할 때 가용성 "
+"영역을 선택합니다."
+
+msgid ""
+"When the host aggregate is not exposed as an availability zone, select a "
+"flavor and its extra specs to target the host aggregate."
+msgstr ""
+"호스트 Aggregate가 가용성 영역으로 표시되지 않는 경우 호스트 애그리게이트를 "
+"대상으로 하는 flavor와 추가 사양을 선택합니다."
+
+msgid "When you delete a volume type, volumes of that type are not deleted."
+msgstr "볼륨 타입을 지울 때, 그 타입의 볼륨은 지워지지 않습니다."
+
+msgid ""
+"When you delete an instance, the data of its attached volumes is not "
+"destroyed."
+msgstr "인스턴스를 삭제할 때 연결된 볼륨의 데이터는 삭제되지 않습니다."
+
+msgid ""
+"You can add one host to one or more aggregates. To add a host to an existing "
+"aggregate, edit the aggregate."
+msgstr ""
+"하나 이상의 Aggregate에 호스트를 추가할 수 있습니다. 기존 Aggregate에 호스트"
+"를 추가하려면 Aggregate를 편집하십시오."
+
+msgid ""
+"You can also configure the Dashboard for a secure HTTPS deployment, or an "
+"HTTP deployment. The standard OpenStack installation uses a non-encrypted "
+"HTTP channel, but you can enable SSL support for the Dashboard."
+msgstr ""
+"HTTP 운용 또는 안전한 HTTPS 운용으로 대시보드를 구성할 수 있습니다. 표준 오픈"
+"스택 설치는 암호화 되지 않은 HTTP 채널을 사용하지만 대시보드에 대한 SSL 설정"
+"을 활성화 할 수 있습니다."
+
+msgid ""
+"You can configure the Dashboard for a secured HTTPS deployment. While the "
+"standard installation uses a non-encrypted HTTP channel, you can enable SSL "
+"support for the Dashboard."
+msgstr ""
+"여러분은 안전한 HTTPS 운용으로 대시보드를 구성할 수 있습니다. 표준 설치가 암"
+"호화되지않은 HTTP 채널을 사용하면, 여러분은 대시보드에 SSL_support를 사용할 "
+"수 있습니다."
+
+msgid ""
+"You can configure the Dashboard for a simple HTTP deployment. The standard "
+"installation uses a non-encrypted HTTP channel."
+msgstr ""
+"간단한 HTTP 운용으로 대시보드를 설정할 수 있습니다. 표준 설치는 암호화 하지 "
+"않은 HTTP 채널을 사용합니다."
+
+msgid ""
+"You can sort the table by clicking on either the :guilabel:`Quota Name` or :"
+"guilabel:`Limit` column headers."
+msgstr ""
+" :guilabel:`Quota Name` 또는 :guilabel:`Limit` 열 머리글을 클릭하여 테이블을 "
+"정렬할 수 있습니다."
+
+msgid ""
+"You can track costs per month by showing meters like number of VCPUs, disks, "
+"RAM, and uptime of all your instances."
+msgstr ""
+"VCPU 수, 디스크, RAM, 모든 인스턴스의 가동 시간 등의 미터를 표시하면 매월 비"
+"용을 추적할 수 있습니다."
+
+msgid ""
+"You can use applications such as ``Memcached`` or ``Redis`` for external "
+"caching. These applications offer persistence and shared storage and are "
+"useful for small-scale deployments and development."
+msgstr ""
+"외부 캐시에 ``Memcached``또는  ``Redis`` 와 같은 응용 프로그램을 사용할 수 있"
+"습니다. 이러한 애플리케이션은 지속성과 공유 스토리지를 제공하며 소규모 구현 "
+"및 개발에 유용합니다."
+
+msgid "You cannot undo this action."
+msgstr "이 작업은 실행 취소 할 수 없습니다."
+
+msgid ""
+"Your new project will appear in the list of projects displayed under the :"
+"guilabel:`Projects` page of the dashboard. Projects are listed in "
+"alphabetical order, and you can check on the **Project ID**, **Domain "
+"name**, and status of the project in this section."
+msgstr ""
+"새 프로젝트가 대시보드의:guilabel:`Projects` 페이지에 표시되는 프로젝트 목록"
+"에 나타납니다. 프로젝트는 알파벳 순서로 나열되며, 이 섹션에서 **Project "
+"ID**, **Domain name** 및 프로젝트 상태를 확인할 수 있습니다."
+
+msgid ""
+"`*` Source `NIST SP 800-38E <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/"
+"nistspecialpublication800-38e.pdf>`_"
+msgstr ""
+"`*` Source `NIST SP 800-38E <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/"
+"nistspecialpublication800-38e.pdf>`_"
+
+msgid "aes-cbc-essiv"
+msgstr "aes-cbc-essiv"
+
+msgid "aes-xts-plain64 (Recommended)"
+msgstr "aes-xts-plain64(권장)"
+
+msgid "back-end"
+msgstr "백-엔드"
+
+msgid "front-end (Recommended)"
+msgstr "프론트-엔드(권장)"
+
+msgid "hw:watchdog_action"
+msgstr "hw:watchdog_action"
+
+msgid "hw_rng:allowed"
+msgstr "hw_rng:allowed"
+
+msgid "hw_rng:rate_bytes"
+msgstr "hw_rng:rate_bytes"
+
+msgid "hw_rng:rate_period"
+msgstr "hw_rng:rate_period"
+
+msgid "luks (Recommended)"
+msgstr "luks(권장)"
+
+msgid "m1.large"
+msgstr "m1.large"
+
+msgid "m1.medium"
+msgstr "m1.medium"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+msgid "m1.xlarge"
+msgstr "m1.xlarge"
+
+msgid "plain"
+msgstr "plain"
+
+msgid "quota:cpu_limit"
+msgstr "quota:cpu_limit"
+
+msgid "quota:cpu_period"
+msgstr "quota:cpu_period"
+
+msgid "quota:cpu_quota"
+msgstr "quota:cpu_quota"
+
+msgid "quota:cpu_reservation"
+msgstr "quota:cpu_reservation"
+
+msgid "quota:cpu_shares"
+msgstr "quota:cpu_shares"
+
+msgid "quota:disk_read_bytes_sec"
+msgstr "quota:disk_read_bytes_sec"
+
+msgid "quota:disk_read_iops_sec"
+msgstr "quota:disk_read_iops_sec"
+
+msgid "quota:disk_total_bytes_sec"
+msgstr "quota:disk_total_bytes_sec"
+
+msgid "quota:disk_total_iops_sec"
+msgstr "quota:disk_total_iops_sec"
+
+msgid "quota:disk_write_bytes_sec"
+msgstr "quota:disk_write_bytes_sec"
+
+msgid "quota:disk_write_iops_sec"
+msgstr "quota:disk_write_iops_sec"
+
+msgid "quota:vif_inbound_average"
+msgstr "quota:vif_inbound_average"
+
+msgid "quota:vif_inbound_burst"
+msgstr "quota:vif_inbound_burst"
+
+msgid "quota:vif_inbound_peak"
+msgstr "quota:vif_inbound_peak"
+
+msgid "quota:vif_outbound_average"
+msgstr "quota:vif_outbound_average"
+
+msgid "quota:vif_outbound_burst"
+msgstr "quota:vif_outbound_burst"
+
+msgid "quota:vif_outbound_peak"
+msgstr "quota:vif_outbound_peak"

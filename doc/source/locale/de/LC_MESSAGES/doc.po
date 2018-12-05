@@ -1,0 +1,123 @@
+# Reik Keutterling <spielkind@gmail.com>, 2018. #zanata
+# Robert Simai <robert.simai@suse.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 15.0.0.0b2.dev104\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-03 09:06-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-12-03 10:58+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+msgid ""
+"A Python class representing a sub-navigation item (e.g. \"instances\") which "
+"contains all the necessary logic (views, forms, tests, etc.) for that "
+"interface."
+msgstr ""
+"Eine Python Klasse, die Sub-Navigationspunkte (z.B. \"Instanzen\") "
+"repräsentiert und die notwendige Logik (views, forms, tests, etc.) für das "
+"Interface enthält."
+
+msgid ""
+"A Python class representing a top-level navigation item (e.g. \"project\") "
+"which provides a consistent API for Horizon-compatible applications."
+msgstr ""
+"Eine Python Klasse, die top-level Navigationspunkte  (z.B. \"Projekt\") "
+"repräsentiert und eine konsistente API für Horizon-kompatible Applikationen "
+"bereitstellt."
+
+msgid "Contributor Docs"
+msgstr "Mitarbeiterdokumentation"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid ""
+"For a more in-depth look at Horizon and its architecture, see the :ref:"
+"`contributor-intro`."
+msgstr ""
+"Für einen tieferen Einblick in Horizon und seine Architektur siehe the :ref:"
+"`contributor-intro`."
+
+msgid ""
+"For those wishing to develop Horizon itself, or go in-depth with building "
+"your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes, the "
+"following documentation is provided."
+msgstr ""
+"Zur Entwicklung von Horizon oder wenn Sie tiefer in die Erstellung  eigener :"
+"class:`~horizon.Dashboard` oder :class:`~horizon.Panel` Klassen stellen wir "
+"die folgende Dokumentation bereit."
+
+msgid "Glossary"
+msgstr "Glossar"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid ""
+"Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>`_, which provides a web based user interface "
+"to OpenStack services including Nova, Swift, Keystone, etc."
+msgstr ""
+"Horizon ist die standardkonforme Implementierung des `OpenStack Dashboard "
+"<https://github.com/openstack/horizon>`_, welches ein webbasiertes "
+"Benutzerinterface zu den OpenStack-Diensten wie Nova, Swift, Keystone, etc. "
+"bereitstellt."
+
+msgid "Horizon: The OpenStack Dashboard Project"
+msgstr "Horizon: Das OpenStack Dashboard Projekt"
+
+msgid "How to use Horizon in your own projects."
+msgstr "Verwendung von Horizon in eigenen Projekten"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Introduction"
+msgstr "Einführung"
+
+msgid "Panel"
+msgstr "Panel"
+
+msgid "Project"
+msgstr "Projekt"
+
+msgid "Release Notes"
+msgstr "Versionshinweise"
+
+msgid "See https://docs.openstack.org/releasenotes/horizon/."
+msgstr "Siehe https://docs.openstack.org/releasenotes/horizon/."
+
+msgid ""
+"The OpenStack dashboard project. Also the name of the top-level Python "
+"object which handles registration for the app."
+msgstr ""
+"Das OpenStack Dashboard Projekt. Ebenso der Name des top-level Python "
+"Objektes, das die Registrierung der App regelt."
+
+msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
+msgstr ""
+"Für einen Überblick über das erforderliche Wissen siehe the :ref:"
+"`quickstart`."
+
+msgid ""
+"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
+"word."
+msgstr ""
+"In vom Benutzer sichtbaren Text an Stelle des Wortes \"Mandant\" verwendet, "
+"dem Keystone-Begriff."
+
+msgid "Using Horizon"
+msgstr "Verwendung von Horizon"

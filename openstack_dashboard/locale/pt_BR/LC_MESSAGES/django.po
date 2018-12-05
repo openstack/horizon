@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-11-29 08:54+0000\n"
+"POT-Creation-Date: 2018-12-03 15:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1407,17 +1407,6 @@ msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Cria um par de valor-chave de \"expecificação extra\" para um tipo de volume."
 
-#, python-format
-msgid ""
-"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
-"Valid key names are expected in the QoS specs. The acceptable values for key "
-"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
-msgstr ""
-"Criar um novo \"spec\" par de valor chave para QoS Spec \"%(qos_spec_name)s"
-"\". Nomes de chaves válidas são esperados em QoS specs. Os valores "
-"aceitáveis para a chave são <tt>\"minIOPS\", \"maxIOPS\" e \"burstIOPS\"</"
-"tt>."
-
 msgid "Create a new application credential."
 msgstr "Criar uma nova credencial de aplicação."
 
@@ -2701,9 +2690,6 @@ msgid ""
 msgstr ""
 "Evacua os servidor do host selecionado abaixo para um host destino ativo."
 
-msgid "Example:"
-msgstr "Exemplo:"
-
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
 "tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
@@ -2939,10 +2925,6 @@ msgstr ""
 #, python-format
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Falha ao remover  projeto %(project)s  do acesso de tipo de volume."
-
-#, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "Falha ao recuperar rede %s para uma sub-rede"
 
 #, python-format
 msgid "Failed to set gateway: %s"
@@ -3768,15 +3750,6 @@ msgstr "Par de Chaves para usar para a autenticação"
 
 msgid "Key-Value Pairs"
 msgstr "Par de Valores-Chave"
-
-msgid "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "Chave: burstIOPS e Value:5000 (valor numérico maior que minIOPS)"
-
-msgid "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "Chave: maxIOPS e Valor:5000 (valor numérico maior que minIOPS)"
-
-msgid "Key: minIOPS and Value:20 (number value less than maxIOPS)"
-msgstr "Chave: minIOPS e Valor:20 (valor numérico inferior a maxIOPS)"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
