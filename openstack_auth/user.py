@@ -12,14 +12,11 @@
 # limitations under the License.
 
 import datetime
-import hashlib
 import logging
 
-from django.conf import settings
 from django.contrib.auth import models
 from django.db import models as db_models
 from keystoneauth1 import exceptions as keystone_exceptions
-from keystoneclient.common import cms as keystone_cms
 import six
 
 from openstack_auth import utils
@@ -97,17 +94,6 @@ class Token(object):
         # Token-related attributes
         self.id = auth_ref.auth_token
         self.unscoped_token = unscoped_token
-        if self._is_pki_token(self.id):
-            algorithm = getattr(settings, 'OPENSTACK_TOKEN_HASH_ALGORITHM',
-                                'md5')
-            hasher = hashlib.new(algorithm)
-            hasher.update(self.id.encode('utf-8'))
-            self.id = hasher.hexdigest()
-            # Only hash unscoped token if needed
-            if self._is_pki_token(self.unscoped_token):
-                hasher = hashlib.new(algorithm)
-                hasher.update(self.unscoped_token.encode('utf-8'))
-                self.unscoped_token = hasher.hexdigest()
         self.expires = auth_ref.expires
 
         # Project-related attributes
@@ -130,13 +116,6 @@ class Token(object):
         self.is_federated = auth_ref.is_federated
         self.roles = [{'name': role} for role in auth_ref.role_names]
         self.serviceCatalog = auth_ref.service_catalog.catalog
-
-    def _is_pki_token(self, token):
-        """Determines if this is a pki-based token (pki or pkiz)"""
-        if token is None:
-            return False
-        return (keystone_cms.is_ans1_token(token) or
-                keystone_cms.is_pkiz(token))
 
 
 class User(models.AbstractBaseUser, models.AnonymousUser):
