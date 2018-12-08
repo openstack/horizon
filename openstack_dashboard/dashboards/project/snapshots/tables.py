@@ -56,7 +56,7 @@ class LaunchSnapshotNG(LaunchSnapshot):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(LaunchSnapshot, self).__init__(attrs, **kwargs)
+        super(LaunchSnapshotNG, self).__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         url = reverse(self.url)

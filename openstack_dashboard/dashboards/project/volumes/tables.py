@@ -74,7 +74,7 @@ class LaunchVolumeNG(LaunchVolume):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(LaunchVolume, self).__init__(attrs, **kwargs)
+        super(LaunchVolumeNG, self).__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         url = reverse(self.url)

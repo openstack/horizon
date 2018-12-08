@@ -67,7 +67,7 @@ class LaunchImageNG(LaunchImage):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(LaunchImage, self).__init__(attrs, **kwargs)
+        super(LaunchImageNG, self).__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         imageId = self.table.get_object_id(datum)
