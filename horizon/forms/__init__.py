@@ -77,7 +77,7 @@ __all__ = [
     'DateTimeField', 'TimeField', 'RegexField', 'EmailField', 'FileField',
     'ImageField', 'URLField', 'BooleanField', 'NullBooleanField',
     'ChoiceField', 'MultipleChoiceField', 'ComboField', 'MultiValueField',
-    'FloatField', 'DecimalField', 'SplitDateTimeField', 'IPAddressField',
+    'FloatField', 'DecimalField', 'SplitDateTimeField',
     'GenericIPAddressField', 'FilePathField', 'SlugField', 'TypedChoiceField',
     'TypedMultipleChoiceField',
 
