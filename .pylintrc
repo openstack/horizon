@@ -10,7 +10,6 @@ disable=
 # "I" Informational noise
  locally-disabled,
 # "E" Error for important programming issues (likely bugs)
- import-error,
  method-hidden,
  misplaced-bare-raise,
  no-member,

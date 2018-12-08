@@ -13,7 +13,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-# pylint: disable=no-name-in-module
+# pylint: disable=no-name-in-module,import-error
 from distutils.command import install
 
 
