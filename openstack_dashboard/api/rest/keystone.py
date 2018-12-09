@@ -135,7 +135,7 @@ class User(generic.View):
         This method returns HTTP 204 (no content) on success.
         """
         if id == 'current':
-            raise django.http.HttpResponseNotFound('current')
+            return django.http.HttpResponseNotFound('current')
         api.keystone.user_delete(request, id)
 
     @rest_utils.ajax(data_required=True)
@@ -255,7 +255,7 @@ class Role(generic.View):
         This method returns HTTP 204 (no content) on success.
         """
         if id == 'default':
-            raise django.http.HttpResponseNotFound('default')
+            return django.http.HttpResponseNotFound('default')
         api.keystone.role_delete(request, id)
 
     @rest_utils.ajax(data_required=True)
@@ -355,7 +355,7 @@ class Domain(generic.View):
         This method returns HTTP 204 (no content) on success.
         """
         if id == 'default':
-            raise django.http.HttpResponseNotFound('default')
+            return django.http.HttpResponseNotFound('default')
         api.keystone.domain_delete(request, id)
 
     @rest_utils.ajax(data_required=True)

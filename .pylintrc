@@ -13,7 +13,6 @@ disable=
  method-hidden,
  no-member,
  not-callable,
- raising-non-exception,
 # "W" Warnings for stylistic problems or minor programming issues
  arguments-differ,
  attribute-defined-outside-init,
