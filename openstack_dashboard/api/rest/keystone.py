@@ -456,7 +456,6 @@ class Projects(generic.View):
             raise rest_utils.AjaxError(400, '"name" is required')
         new_project = api.keystone.tenant_create(
             request,
-            kwargs.pop('name'),
             **kwargs
         )
         return rest_utils.CreatedResponse(

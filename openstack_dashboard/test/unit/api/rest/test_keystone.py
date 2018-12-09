@@ -606,6 +606,7 @@ class KeystoneRestTestCase(test.TestCase):
             '"domain_id": "domain123", "description": "sekrit", '
             '"enabled": false}',
             {
+                'name': 'bob',
                 'description': 'sekrit',
                 'domain': 'domain123',
                 'enabled': False
@@ -616,6 +617,7 @@ class KeystoneRestTestCase(test.TestCase):
         self._test_project_create(
             '{"name": "bob"}',
             {
+                'name': 'bob',
                 'description': None,
                 'domain': None,
                 'enabled': True
@@ -623,7 +625,7 @@ class KeystoneRestTestCase(test.TestCase):
         )
 
     @test.create_mocks({api.keystone: ['tenant_create']})
-    def _test_project_create(self, supplied_body, expected_call):
+    def _test_project_create(self, supplied_body, expected_args):
         request = self.mock_rest_request(body=supplied_body)
         self.mock_tenant_create.return_value.id = 'project123'
         self.mock_tenant_create.return_value.to_dict.return_value = {
@@ -636,8 +638,8 @@ class KeystoneRestTestCase(test.TestCase):
                          '/api/keystone/projects/project123')
         self.assertEqual(response.json,
                          {"id": "project123", "name": "bob"})
-        self.mock_tenant_create.assert_called_once_with(request, 'bob',
-                                                        **expected_call)
+        self.mock_tenant_create.assert_called_once_with(request,
+                                                        **expected_args)
 
     @test.create_mocks({api.keystone: ['tenant_delete']})
     def test_project_delete_many(self):
