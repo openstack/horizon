@@ -203,6 +203,8 @@ def check_message(keywords, message):
     exc_type, exc_value, exc_traceback = sys.exc_info()
     if set(str(exc_value).split(" ")).issuperset(set(keywords)):
         exc_value.message = message
+        # NOTE: This function is intended to call inside an except clause.
+        # pylint: disable=misplaced-bare-raise
         raise
 
 
