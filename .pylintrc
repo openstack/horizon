@@ -14,7 +14,6 @@ disable=
  no-member,
  not-callable,
  raising-non-exception,
- unexpected-keyword-arg,
 # "W" Warnings for stylistic problems or minor programming issues
  arguments-differ,
  attribute-defined-outside-init,

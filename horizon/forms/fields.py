@@ -573,8 +573,6 @@ class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
                 if id_:
                     attrs_plus['id'] += '_{}'.format(i)
                 sub_ul_renderer = self.__class__(
-                    name=self.name,
-                    value=self.value,
                     attrs=attrs_plus,
                     choices=choice_label,
                 )

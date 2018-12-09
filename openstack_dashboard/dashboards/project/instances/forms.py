@@ -454,8 +454,8 @@ class Disassociate(forms.SelfHandlingForm):
         fips = [fip for fip in self.fips if fip.id == fip_id]
         if not fips:
             messages.error(request,
-                           _("The specified floating IP no longer exists."),
-                           redirect=redirect)
+                           _("The specified floating IP no longer exists."))
+            raise exceptions.Http302(redirect)
         fip = fips[0]
         try:
             if data['is_release']:
