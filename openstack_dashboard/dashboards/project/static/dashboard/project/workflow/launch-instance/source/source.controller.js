@@ -525,7 +525,7 @@
 
       if (source && ctrl.currentBootSource === bootSourceTypes.IMAGE ||
           source && ctrl.currentBootSource === bootSourceTypes.INSTANCE_SNAPSHOT ) {
-        var imageGb = source.size * 1e-9;
+        var imageGb = source.size / 1073741824.0;
         var imageDisk = source.min_disk;
         ctrl.minVolumeSize = Math.ceil(Math.max(imageGb, imageDisk));
         if ($scope.model.newInstanceSpec.vol_size < ctrl.minVolumeSize) {
