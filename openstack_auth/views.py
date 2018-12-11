@@ -292,6 +292,7 @@ def switch_keystone_provider(request, keystone_provider=None,
     base_token = request.session.get('k2k_base_unscoped_token', None)
     k2k_auth_url = request.session.get('k2k_auth_url', None)
     keystone_providers = request.session.get('keystone_providers', None)
+    recent_project = request.COOKIES.get('recent_project')
 
     if not base_token or not k2k_auth_url:
         msg = _('K2K Federation not setup for this session')
@@ -316,7 +317,7 @@ def switch_keystone_provider(request, keystone_provider=None,
 
         unscoped_auth = current_plugin.get_plugin(
             auth_url=k2k_auth_url, service_provider=keystone_provider,
-            plugins=plugins, token=base_token)
+            plugins=plugins, token=base_token, recent_project=recent_project)
 
     try:
         # Switch to identity provider using token auth
