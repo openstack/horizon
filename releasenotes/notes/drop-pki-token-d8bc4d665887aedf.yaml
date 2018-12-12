@@ -1,0 +1,10 @@
+---
+upgrade:
+  - |
+    PKI token support has been dropped from horizon. PKI token was removed
+    from keystone in Ocata release which was released two years ago.
+    It is a good timing to drop its support.
+
+    ``OPENSTACK_TOKEN_HASH_ALGORITHM`` setting was removed because it was
+    used only for PKI token check. Unless you use PKI token before upgrading,
+    there is no affect and you can safely drop it from your local_settings.py.

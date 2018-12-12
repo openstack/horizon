@@ -1346,18 +1346,6 @@ The full URL for the Keystone endpoint used for authentication. Unless you
 are using HTTPS, running your Keystone server on a nonstandard port, or using
 a nonstandard URL scheme you shouldn't need to touch this setting.
 
-OPENSTACK_TOKEN_HASH_ALGORITHM
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 2014.2(Juno)
-
-Default: ``"md5"``
-
-The hash algorithm to use for authentication tokens. This must match the hash
-algorithm that the identity (Keystone) server and the auth_token middleware
-are using. Allowed values are the algorithms supported by Python's hashlib
-library.
-
 PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
