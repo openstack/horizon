@@ -69,7 +69,7 @@
     <hr class="header_rule">
     <dl class="dl-horizontal">
       {% for network, ip_list in instance.addresses.items %}
-        <dt>{{ network|title }}</dt>
+        <dt>{{ network }}</dt>
         <dd>
           {% if ip_list|length > 0 %}
             {% for ip in ip_list %}

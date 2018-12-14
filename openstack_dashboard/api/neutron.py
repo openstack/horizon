@@ -1735,7 +1735,8 @@ def servers_update_addresses(request, servers, all_tenants=False):
         ports_floating_ips[fip.port_id].append(fip)
 
     # Map network id to its name
-    network_names = dict(((network.id, network.name) for network in networks))
+    network_names = dict((network.id, network.name_or_id)
+                         for network in networks)
 
     for server in servers:
         try:
