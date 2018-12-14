@@ -89,7 +89,7 @@ code. At the very least, a non-minified version should be present next to the
 minified version. Also, be aware of potential security issues with minifiers.
 This `blog post`_ explains it very well.
 
-.. _`blog post`: https://zyan.scripts.mit.edu/blog/backdooring-js/
+.. _`blog post`: https://diracdeltas.github.io/blog/backdooring-js/
 
 
 Component version

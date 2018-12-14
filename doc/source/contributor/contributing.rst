@@ -7,7 +7,7 @@ open source works!
 
 Before you dive into writing patches, here are some of the basics:
 
-* Project page: http://launchpad.net/horizon
+* Project page: https://launchpad.net/horizon
 * Bug tracker: https://bugs.launchpad.net/horizon
 * Source code: https://github.com/openstack/horizon
 * Code review: https://review.openstack.org/#q,status:open+project:openstack/horizon,n,z
@@ -169,7 +169,7 @@ We follow PEP8_ for all our Python code, and use ``pep8.py`` (available
 via the shortcut ``tox -e pep8``) to validate that our code
 meets proper Python style guidelines.
 
-.. _PEP8: http://www.python.org/dev/peps/pep-0008/
+.. _PEP8: https://www.python.org/dev/peps/pep-0008/
 
 Django
 ------
@@ -472,7 +472,7 @@ To make a new release of the package, you need to:
     mechanism. Simply fix the error, increment the build number and release the
     newer package.
 
-.. _documentation: http://xstatic.rtfd.org/en/latest/packaging.html
+.. _documentation: https://xstatic.readthedocs.io/en/latest/packaging.html
 .. _xstatic-release: https://pypi.org/project/xstatic-release/
 .. _`Create a new repository under OpenStack`: https://docs.openstack.org/infra/manual/creators.html
 .. _`request a release`: https://git.openstack.org/cgit/openstack/releases/tree/README.rst
