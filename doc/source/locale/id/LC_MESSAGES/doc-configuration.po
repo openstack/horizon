@@ -1,9 +1,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev33\n"
+"Project-Id-Version: horizon 15.0.0.0b2.dev122\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 17:10-0600\n"
+"POT-Creation-Date: 2018-12-12 15:48-0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -708,9 +708,6 @@ msgstr "Default: ``\"legacy\"``"
 
 msgid "Default: ``\"localkeystone\"``"
 msgstr "Default: ``\"localkeystone\"``"
-
-msgid "Default: ``\"md5\"``"
-msgstr "Default: ``\"md5\"``"
 
 msgid "Default: ``\"off\"``"
 msgstr "Default: ``\"off\"``"
@@ -1566,9 +1563,6 @@ msgstr "OPENSTACK_SSL_CACERT"
 msgid "OPENSTACK_SSL_NO_VERIFY"
 msgstr "OPENSTACK_SSL_NO_VERIFY"
 
-msgid "OPENSTACK_TOKEN_HASH_ALGORITHM"
-msgstr "OPENSTACK_TOKEN_HASH_ALGORITHM"
-
 msgid "OPERATION_LOG_ENABLED"
 msgstr "OPERATION_LOG_ENABLED"
 
@@ -2056,17 +2050,6 @@ msgstr ""
 "menggunakan HTTPS, menjalankan server Keystone Anda pada port tidak standar, "
 "atau menggunakan skema URL tidak standar Anda tidak perlu menyentuh "
 "pengaturan ini."
-
-msgid ""
-"The hash algorithm to use for authentication tokens. This must match the "
-"hash algorithm that the identity (Keystone) server and the auth_token "
-"middleware are using. Allowed values are the algorithms supported by "
-"Python's hashlib library."
-msgstr ""
-"Algoritma hash yang digunakan untuk token otentikasi. Ini harus cocok dengan "
-"algoritma hash yang server identitas (Keystone) dan middleware auth_token "
-"gunakan. Nilai yang dibolehkan adalah algoritma yang didukung oleh pustaka "
-"hashlib Python."
 
 msgid ""
 "The hostname of the Keystone server used for authentication if you only have "
