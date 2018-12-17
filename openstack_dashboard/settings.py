@@ -185,7 +185,7 @@ INSTALLED_APPS = [
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
-AUTHENTICATION_URLS = ['openstack_auth.urls']
+AUTHENTICATION_URLS = ['openstack_dashboard.cc_web_sso_urls','openstack_auth.urls',]
 AUTH_USER_MODEL = 'openstack_auth.User'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
 
@@ -375,9 +375,9 @@ OPENSTACK_IMAGE_FORMATS = [fmt for (fmt, name)
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'
 if LOGIN_URL is None:
-    LOGIN_URL = WEBROOT + 'auth/login/'
+    LOGIN_URL = 'http://localhost:8888/sso/horizon/' #WEBROOT + 'auth/login/'
 if LOGOUT_URL is None:
-    LOGOUT_URL = WEBROOT + 'auth/logout/'
+    LOGOUT_URL = WEBROOT + 'auth/ccwebsso/logout/'
 if LOGIN_REDIRECT_URL is None:
     LOGIN_REDIRECT_URL = WEBROOT
 

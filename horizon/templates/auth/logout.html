@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Logged-Out" %}{% endblock %}
+
+{% block body_id %}splash{% endblock %}
+
+{% block content %}
+  {% include 'auth/_logout.html' %}
+{% endblock %}
+
+{% block footer %}
+  {% include '_login_footer.html' %}
+{% endblock %}

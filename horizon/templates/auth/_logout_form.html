@@ -1,0 +1,45 @@
+{% load i18n %}
+
+{% block pre_login %}
+<form id="" class="ng-pristine ng-valid ng-scope"
+      method="POST"
+      action="{% url 'login' %}"
+      autocomplete="off"
+      ng-controller="hzLoginController">
+  {% csrf_token %}
+{% endblock %}
+
+  <div class="panel panel-default">
+<style>
+.login .login-title {
+    display: block;
+    clear: both;
+    text-align: center;
+}
+</style>
+    <div class="panel-heading">
+    {% block login_header %}
+      <h3 class="login-title">
+        {% trans 'You are logged out of Horizon' %}
+      </h3>
+    {% endblock %}
+    </div>
+
+    <div class="panel-body">
+        <span>You may still be logged in to Chameleon Portal, to sign out of the portal, please go to the sign out page </span>
+        <a href="www.chameleoncloud.org/logout">here</a>.
+    </div>
+
+    <div class="panel-footer">
+      {% block login_footer %}
+        <button id="loginBtn" type="submit" class="btn btn-primary pull-right">
+          <span >{% trans "Sign In" %}</span>
+        </button>
+        <div class="clearfix"></div>
+      {% endblock %}
+    </div>
+  </div>
+
+{% block post_login%}
+</form>
+{% endblock %}

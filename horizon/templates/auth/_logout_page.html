@@ -1,0 +1,21 @@
+{% extends 'auth/_logout_form.html' %}
+{% load i18n %}
+
+{% block pre_login %}
+  <div class="container login">
+    <div class="row">
+      <div class="col-xs-11 col-sm-8 col-md-6 col-lg-5 horizontal-center">
+        {{ block.super }}
+{% endblock %}
+
+{% block login_header %}
+  {% include 'auth/_splash.html' %}
+  {{ block.super }}
+{% endblock %}
+
+{% block post_login %}
+      {{ block.super }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
