@@ -18,7 +18,7 @@
     <dd>{{ instance.availability_zone|default:_("-") }}</dd>
     <dt>{% trans "Created" %}</dt>
     <dd>{{ instance.created|parse_isotime }}</dd>
-    <dt>{% trans "Time Since Created" %}</dt>
+    <dt>{% trans "Age" %}</dt>
     <dd>{{ instance.created|parse_isotime|timesince }}</dd>
     {% if instance.host_server %}
       <dt>{% trans "Host" %}</dt>

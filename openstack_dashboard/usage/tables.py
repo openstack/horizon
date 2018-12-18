@@ -83,7 +83,7 @@ class ProjectUsageTable(BaseUsageTable):
                              verbose_name=_("Instance Name"),
                              link=get_instance_link)
     uptime = tables.Column('uptime_at',
-                           verbose_name=_("Time since created"),
+                           verbose_name=_("Age"),
                            filters=(filters.timesince_sortable,),
                            attrs={'data-type': 'timesince'})
 
