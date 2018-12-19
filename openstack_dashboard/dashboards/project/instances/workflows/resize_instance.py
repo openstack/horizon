@@ -15,6 +15,7 @@
 
 import json
 
+from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
@@ -96,7 +97,10 @@ class ResizeInstance(workflows.Workflow):
     default_steps = (SetFlavorChoice, create_instance.SetAdvanced)
 
     def format_status_message(self, message):
-        return message % self.context.get('name', 'unknown instance')
+        if "%s" in message:
+            return message % self.context.get('name', 'unknown instance')
+        else:
+            return message
 
     @sensitive_variables('context')
     def handle(self, request, context):
@@ -106,6 +110,6 @@ class ResizeInstance(workflows.Workflow):
         try:
             api.nova.server_resize(request, instance_id, flavor, disk_config)
             return True
-        except Exception:
-            exceptions.handle(request)
+        except Exception as e:
+            self.failure_message = encoding.force_text(e)
             return False
