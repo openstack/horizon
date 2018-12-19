@@ -1,14 +1,14 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev79\n"
+"Project-Id-Version: horizon 15.0.0.0b2.dev131\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 02:54-0600\n"
+"POT-Creation-Date: 2018-12-19 02:24-0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-04 07:28+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2018-12-19 08:10+0000\n"
+"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -1822,6 +1822,9 @@ msgstr "Port baru tidak ditampilkan dalam daftar :guilabel:`Ports`."
 
 msgid "The new router is now displayed in the :guilabel:`Routers` tab."
 msgstr "Router baru sekarang ditampilkan dalam tab :guilabel:`Routers`."
+
+msgid "The private key will be downloaded automatically."
+msgstr "Kunci privat akan diunduh secara otomatis."
 
 msgid ""
 "The top of the window displays your user name. You can also access the :"
