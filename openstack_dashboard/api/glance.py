@@ -457,8 +457,8 @@ def create_image_metadata(data):
     meta = {'protected': data.get('protected', False),
             'disk_format': data.get('disk_format', 'raw'),
             'container_format': data.get('container_format', 'bare'),
-            'min_disk': data.get('min_disk', 0),
-            'min_ram': data.get('min_ram', 0),
+            'min_disk': data.get('min_disk') or 0,
+            'min_ram': data.get('min_ram') or 0,
             'name': data.get('name', '')}
 
     # Glance does not really do anything with container_format at the
