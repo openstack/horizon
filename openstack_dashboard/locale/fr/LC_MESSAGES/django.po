@@ -26,12 +26,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-12-03 15:06+0000\n"
+"POT-Creation-Date: 2018-12-19 08:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-13 08:04+0000\n"
-"Last-Translator: François Magimel <magimel.francois@gmail.com>\n"
+"PO-Revision-Date: 2018-12-19 08:31+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -54,6 +54,33 @@ msgid ""
 msgstr ""
 "\n"
 "%(used)s sur %(quota)s utilisés."
+
+msgid ""
+"\n"
+"  If no container name is provided, a default container named volumebackups\n"
+"  will be provisioned for you.\n"
+"  Backups will be the same size as the volume they originate from.\n"
+"  "
+msgstr ""
+"\n"
+"Si aucun nom de conteneur n'est précisé, un conteneur par défaut nommé "
+"volumebackups sera créé pour vous.\n"
+"La taille d'un backup est identique à celle du volume dont il est issu."
+
+msgid ""
+"\n"
+"  Volume Backups are stored using one of cinder-backup drivers\n"
+"  (object storage service, Ceph, NFS, etc ...).\n"
+"  You must have one of these services activated in order to create a "
+"backup.\n"
+"  "
+msgstr ""
+"\n"
+"  Les backups de volume sont stockés en utilisant un des drivers de cinder-"
+"backup\n"
+"  (service stockage objet, Ceph, NFS, etc ...).\n"
+"  Un de ces services doit être activé afin de créer un backup.\n"
+"  "
 
 msgid " - End"
 msgstr "- Fin"
@@ -176,6 +203,9 @@ msgstr "%sGio"
 msgid "%sMB"
 msgstr "%sMo"
 
+msgid "(No IP address)"
+msgstr "(pas d'adresse IP)"
+
 msgid "(Quota exceeded)"
 msgstr "(Quota dépassé)"
 
@@ -195,6 +225,17 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> sur %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> sur %(volume_device)s"
+
+msgid ""
+"<b>Warning:</b> If you change security groups here, the change will be "
+"applied to all interfaces of the instance. If you have multiple interfaces "
+"on this instance and apply different security groups per port, use \"Edit "
+"Port Security Groups\" action instead."
+msgstr ""
+"<b>Avertissement:</b> Si vous modifiez ici les groupes de sécurité, la "
+"modification sera appliquée à toutes les interfaces de l'instance. Si cette "
+"instance possède plusieurs interfaces et plusieurs groupes de sécurité par "
+"port, utilisez plutôt \"Editer les groupes de sécurité de port\"."
 
 msgid "A brief description of the security group rule you are adding"
 msgstr ""
@@ -427,6 +468,13 @@ msgstr ""
 "volume peuvent être ajoutés au même groupe de cohérence uniquement s'ils "
 "sont associés au même back-end."
 
+msgid ""
+"Add volume types to this group. Multiple volume types can be added to the "
+"same group only if they are associated with same back end."
+msgstr ""
+"Ajouter des types de volume à ce groupe. Plusieurs types de volume peuvent "
+"être ajoutés au même groupe seulement si ils sont associés au même backend."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Ajouter, modifier ou supprimer la Spec QoS associée à ce type de volume."
@@ -630,6 +678,19 @@ msgstr "Tous"
 
 msgid "Any Availability Zone"
 msgstr "Toutes les zones de disponibilité"
+
+msgid "Application Credential Details"
+msgstr "Détails de l'identifiant d'application"
+
+msgid "Application Credential Name ="
+msgstr "Nom d'identifiant d'application="
+
+msgid "Application Credentials"
+msgstr "Identifiants d'application"
+
+#, python-format
+msgid "Application credential name \"%s\" is already used."
+msgstr "Le nom d'identifiant d'application \"%s\" est déjà utilisé."
 
 msgid "Architecture"
 msgstr "Architecture"
@@ -959,6 +1020,13 @@ msgstr ""
 "Sélectionnez la case &quot;Supprimer les volumes&quot; pour supprimer "
 "également les volumes associés à ce groupe de cohérence."
 
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this group."
+msgstr ""
+"Cocher la case &quot;Supprimer les Volumes&quot; pour également supprimer "
+"tous les volumes associés à ce groupe."
+
 msgid "Checksum"
 msgstr "Somme de contrôle"
 
@@ -1061,6 +1129,13 @@ msgstr ""
 "Cloner chaque volume du groupe de cohérence source puis ajouter les à un "
 "groupe de cohérence nouvellement créé."
 
+msgid ""
+"Clone each of the volumes in the source Group, and then add them to a newly "
+"created Group."
+msgstr ""
+"Cloner chaque volume du groupe source puis ajouter les à un groupe "
+"nouvellement créé."
+
 msgid "Close"
 msgstr "Fermer"
 
@@ -1082,6 +1157,9 @@ msgstr "Compute"
 msgid "Compute Host"
 msgstr "Hôte Compute"
 
+msgid "Compute Quotas"
+msgstr "Quotas Compute"
+
 msgid "Compute Services"
 msgstr "Services Compute"
 
@@ -1095,6 +1173,9 @@ msgstr ""
 "Configurer OpenStack pour écrire les métadonnées sur un disque de "
 "configuration spécifique qui sera attaché à l'instance au moment de son "
 "lancement."
+
+msgid "Confirm"
+msgstr "Confirmer"
 
 msgid "Confirm Admin Password"
 msgstr "Confirmer le Mot de Passe Admnistrateur"
@@ -1202,6 +1283,9 @@ msgstr "Créer"
 
 msgid "Create An Image"
 msgstr "Créer une image"
+
+msgid "Create Application Credential"
+msgstr "Créer un identifiant d'application"
 
 msgid "Create Backup"
 msgstr "Créer une sauvegarde"
@@ -1355,6 +1439,9 @@ msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Créer une nouvelle paire clé-valeur \"extra spec\" pour un type de volume."
 
+msgid "Create a new application credential."
+msgstr "Créer un nouvel identifiant d'application."
+
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the following steps of this wizard."
@@ -1425,6 +1512,9 @@ msgstr "Nouveau projet \"%s\" créé."
 
 msgid "Created new volume consistency group"
 msgstr "Nouveau groupe de cohérence de volume créé"
+
+msgid "Created new volume group"
+msgstr "Nouveau groupe de volumes créé"
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -1603,6 +1693,11 @@ msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "Supprimer"
 msgstr[1] "Supprimer"
+
+msgid "Delete Application Credential"
+msgid_plural "Delete Application Credentials"
+msgstr[0] "Supprimer un identifiant d'application"
+msgstr[1] "Supprimer des identifiants d'application"
 
 msgid "Delete Consistency Group"
 msgstr "Supprimer un groupe de cohérence"
@@ -1787,6 +1882,11 @@ msgstr "Supprimée"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Supprimée"
+
+msgid "Deleted Application Credential"
+msgid_plural "Deleted Application Credentialss"
+msgstr[0] "Identifiant d'application supprimé"
+msgstr[1] "Identifiants d'application supprimés"
 
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
@@ -2314,6 +2414,9 @@ msgstr "Modifier le réseau"
 msgid "Edit Port"
 msgstr "Éditer le port"
 
+msgid "Edit Port Security Groups"
+msgstr "Editer les groupes de sécurité de port"
+
 msgid "Edit Project"
 msgstr "Éditer le projet"
 
@@ -2649,6 +2752,9 @@ msgstr ""
 "Exemple : le préfixe 'hw:' est ajouté à OS::Nova::Flavor pour l'espace nom "
 "de la topologie du CPU virtuel pour que les propriétés puissent être "
 "précédées de « hw: » quand elles s'appliquent aux gabarits."
+
+msgid "Expiration"
+msgstr "Expiration"
 
 msgid "Expiration Date"
 msgstr "Date d'expiration"
@@ -3061,6 +3167,15 @@ msgstr "Ici, vous pouvez allouer une IP flottante à un projet."
 msgid "From here you can create a snapshot of a volume."
 msgstr "D'ici, vous pouvez créer un instantané de volume."
 
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr ""
+"Ici, vous pouvez mettre à jour les quotas de compute par défaut (limites "
+"max)."
+
+msgid "From here you can update the default volume quotas (max limits)."
+msgstr ""
+"Ici, vous pouvez mettre à jour les quotas de volume par défaut (limites max)."
+
 msgid "GB"
 msgstr "Go"
 
@@ -3122,6 +3237,9 @@ msgstr "Nom du groupe"
 
 msgid "Group Name ="
 msgstr "Nom du groupe ="
+
+msgid "Group Snapshot"
+msgstr "Instantané de groupe"
 
 msgid "Group Snapshots"
 msgstr "Groupe d'instantanés"
@@ -3188,6 +3306,9 @@ msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Redémarrage matériel en cours"
 
+msgid "Has Snapshots"
+msgstr "Possède des instantanés"
+
 msgid "Help"
 msgstr "Aide"
 
@@ -3195,7 +3316,7 @@ msgid "High Availability Mode"
 msgstr "Mode Haute Disponibilté"
 
 msgid "High Availability Status"
-msgstr "Status de la haute disponibilité"
+msgstr "Statut de la haute disponibilité"
 
 msgid "Home"
 msgstr "Accueil"
@@ -3381,6 +3502,10 @@ msgid ""
 msgstr ""
 "Si \"Pas de Type de Volume\" est sélectionner, le volume sera créé sans type "
 "de volume."
+
+msgid "If checked, the selected floating IP will be released at the same time."
+msgstr ""
+"Si cochée, les IP flottantes sélectionnées seront relâchées simultanément."
 
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
@@ -3858,7 +3983,7 @@ msgid "Manage Specs"
 msgstr "Gérer les Spécifications"
 
 msgid "Manage Volume"
-msgstr "Volume géré"
+msgstr "Gérer un volume"
 
 msgid "Manage Volume Attachments"
 msgstr "Gérer les attachements de volume"
@@ -3931,6 +4056,10 @@ msgstr "MidoNet"
 msgid "MidoNet Uplink"
 msgstr "Liaison MidoNet"
 
+msgid "Migrate"
+msgstr "Migrer"
+
+msgctxt "Action log of an instance"
 msgid "Migrate"
 msgstr "Migrer"
 
@@ -4158,6 +4287,9 @@ msgstr "QoS Réseau"
 msgid "Network QoS Policies"
 msgstr "Stratégies QoS Réseau"
 
+msgid "Network Quotas"
+msgstr "Quotas Réseau"
+
 msgid "Network Topology"
 msgstr "Topologie du réseau"
 
@@ -4379,6 +4511,9 @@ msgstr "Aucun utilisateur trouvé."
 
 msgid "No users."
 msgstr "Aucun utilisateur."
+
+msgid "No valid group type"
+msgstr "Aucun type de groupe valide"
 
 msgid "No volume snapshots available"
 msgstr "Pas de instantané de volume disponible"
@@ -4632,6 +4767,13 @@ msgstr "Réseau physique"
 msgid "Physical Network:"
 msgstr "Réseau Physique :"
 
+msgid ""
+"Please capture the application credential ID and secret in order to provide "
+"them to your application."
+msgstr ""
+"Merci de capturer l'ID de l'identifiant d'application ainsi que le secret "
+"afin de les fournir à votre application."
+
 msgid "Please note: "
 msgstr "Merci de noter :"
 
@@ -4865,6 +5007,9 @@ msgstr "En attente"
 msgid "Quota Name"
 msgstr "Nom du quota"
 
+msgid "Quota exceeded for creating snapshots"
+msgstr "Quota dépassé pour la création d'instantanés."
+
 msgid "Quota exceeded for resource router."
 msgstr "Quota dépassé pour le router de la ressource."
 
@@ -4889,6 +5034,9 @@ msgstr "RAM (utilisée)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM (Disponible : %(avail)s, Demandée : %(req)s)"
+
+msgid "RBAC Policies"
+msgstr "Stratégies RBAC"
 
 msgid "RX/TX Factor"
 msgstr "Facteur RX/TX "
@@ -5056,6 +5204,9 @@ msgstr "Retrait de volumes du groupe de cohérence \"%s\" en cours"
 #, python-format
 msgid "Removing volumes from volume group \"%s\""
 msgstr "Retrait de volumes du groupe de volumes \"%s\""
+
+msgid "Replication Status"
+msgstr "Statut de la réplication"
 
 msgid "Report Bug"
 msgstr "Rapporter un bug"
@@ -5368,6 +5519,9 @@ msgstr "Donnée de Script "
 
 msgid "Script File"
 msgstr "Fichier de Script"
+
+msgid "Secret"
+msgstr "Secret"
 
 msgid "Security Group"
 msgstr "Groupe de sécurité"
@@ -6194,8 +6348,8 @@ msgid ""
 "transfer."
 msgstr ""
 "La clé d'autorisation ne sera plus disponible une fois la page fermée. Vous "
-"devez la capture dès maintenant ou le télécharger, ou bien vous ne pourrez "
-"pas l'utiliser pour le transfert."
+"devez la capturer dès maintenant ou la télécharger, ou bien vous ne pourrez "
+"pas utiliser le transfert."
 
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "Le code ICMP n'est pas dans l'intervalle (-1, 255)"
@@ -6262,6 +6416,13 @@ msgstr ""
 
 msgid "The admin password is incorrect."
 msgstr "Le mot de passe de l'administrateur est incorrect."
+
+msgid ""
+"The application credential will be created for the currently selected "
+"project."
+msgstr ""
+"L'identifiant d'application sera créé pour le projet actuellement "
+"sélectionné."
 
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
@@ -6513,6 +6674,11 @@ msgid ""
 msgstr ""
 "Cette action désassignera tous les volumes contenus dans ce groupe de "
 "cohérence."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"group."
+msgstr "Cette action désassignera tous les volumes contenus dans ce groupe."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -6768,10 +6934,10 @@ msgstr ""
 "flottantes."
 
 msgid "Unable to clone consistency group."
-msgstr "Impossible de cloner le groupe de consistence."
+msgstr "Impossible de cloner le groupe de cohérence."
 
 msgid "Unable to clone empty consistency group."
-msgstr "Impossible de cloner groupe de consistence vide."
+msgstr "Impossible de cloner un groupe de cohérence vide."
 
 msgid "Unable to clone empty group."
 msgstr "Impossible de cloner un groupe vide."
@@ -6784,6 +6950,9 @@ msgstr "Impossible de se connecter à Neutron"
 
 msgid "Unable to create QoS Spec."
 msgstr "Incapable de créer la Spécification QoS."
+
+msgid "Unable to create application credential."
+msgstr "Impossible de créer l'identifiant d'application."
 
 #, python-format
 msgid "Unable to create consistency group \"%s\" from snapshot."
@@ -6816,6 +6985,9 @@ msgstr "Impossible de créer le gabarit."
 #, python-format
 msgid "Unable to create group \"%s\" from snapshot."
 msgstr "Impossible de créer le groupe \"%s\" depuis l'instantané."
+
+msgid "Unable to create group due to exceeding volume quota limit."
+msgstr "Création du groupe impossible car le quota est atteint."
 
 msgid "Unable to create group snapshot."
 msgstr "Impossible de créer un instantané du groupe."
@@ -6970,6 +7142,12 @@ msgstr "Impossible d'afficher le groupe de cohérence."
 msgid "Unable to display group."
 msgstr "Impossible d'afficher le groupe."
 
+msgid "Unable to display the groups of this project."
+msgstr "Impossible d'afficher les groupes de ce projet."
+
+msgid "Unable to display the users of this project."
+msgstr "Impossible d'afficher les utilisateurs de ce projet."
+
 msgid "Unable to edit spec."
 msgstr "Incapable d'éditer la spécification."
 
@@ -7005,6 +7183,9 @@ msgstr "Impossible d'ouvrir une console SPICE pour l'instance \"%s\"."
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Impossible d'ouvrir une console VNC pour l'instance \"%s\"."
 
+msgid "Unable to get cinder quota info."
+msgstr "Impossible de récupérer les infos de quotas de cinder."
+
 msgid "Unable to get cinder services list."
 msgstr "Impossible d'obtenir la liste des services Cinder."
 
@@ -7034,6 +7215,12 @@ msgstr "Impossible d'obtenir les informations des agents réseau."
 
 msgid "Unable to get network agents list."
 msgstr "Impossible d'obtenir la liste des agents réseau."
+
+msgid "Unable to get neutron quota info."
+msgstr "Impossible de récupérer les infos de quotas de neutron."
+
+msgid "Unable to get nova quota info."
+msgstr "Impossible de récupérer les infos de quotas de nova."
 
 msgid "Unable to get nova services list."
 msgstr "Impossible d'obtenir la liste des services Nova."
@@ -7205,6 +7392,12 @@ msgstr "Impossible de récupérer la liste des agents."
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "Impossible de récupérer le réseau externe \"%s\"."
 
+msgid "Unable to retrieve application credential details."
+msgstr "impossible de récupérer les détails de l'identifiant d'application."
+
+msgid "Unable to retrieve application credential list."
+msgstr "Impossible de récupérer la liste des identifiants d'application."
+
 msgid "Unable to retrieve attachment information."
 msgstr "Impossible de récupérer les informations d'attachement."
 
@@ -7233,6 +7426,12 @@ msgstr "Impossible d’extraire les informations du groupe de cohérence."
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr ""
 "Impossible d’extraire les détails de l'instantané du groupe de cohérence."
+
+msgid "Unable to retrieve default compute quotas."
+msgstr "impossible de récupérer les quotas de compute par défaut."
+
+msgid "Unable to retrieve default volume quotas."
+msgstr "impossible de récupérer les quotas de volume par défaut."
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -7311,6 +7510,9 @@ msgstr "Impossible de récupérer la liste d'IP flottantes."
 msgid "Unable to retrieve floating IP pools."
 msgstr "Impossible de récupérer les pools d'IP flottantes."
 
+msgid "Unable to retrieve group"
+msgstr "Impossible de récupérer le groupe."
+
 msgid "Unable to retrieve group details."
 msgstr "Impossible de récupérer les détails du groupe."
 
@@ -7323,6 +7525,12 @@ msgstr "Impossible de récupérer la liste des groupes."
 msgid "Unable to retrieve group list. Please try again later."
 msgstr ""
 "Impossible de récupérer la liste des groupes. Veuillez réessayer plus tard."
+
+msgid "Unable to retrieve group snapshot details."
+msgstr "Impossible de récupérer les détails de l'instantané de groupe."
+
+msgid "Unable to retrieve group snapshots."
+msgstr "Impossible de récupérer les instantanés du groupe."
 
 msgid "Unable to retrieve group types."
 msgstr "Impossible de récupérer les types de groupe."
@@ -7587,8 +7795,14 @@ msgstr "Impossible de récupérer les détails du volume."
 msgid "Unable to retrieve volume encryption details."
 msgstr "Impossible de récupérer les détails de chiffrement du volume."
 
+msgid "Unable to retrieve volume group snapshots."
+msgstr "Impossible de récupérer les instantanés de groupe de volumes."
+
 msgid "Unable to retrieve volume groups"
 msgstr "Impossible de récupérer les groupes de volumes"
+
+msgid "Unable to retrieve volume groups."
+msgstr "Impossible de récupérer les groupes de volumes."
 
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
@@ -7670,6 +7884,9 @@ msgstr ""
 msgid "Unable to retrieve volumes availability zones."
 msgstr "Impossible d'extraire les zones de disponibilité de volumes."
 
+msgid "Unable to retrieve volumes."
+msgstr "Impossible de récupérer les volumes."
+
 msgid "Unable to set Domain Context."
 msgstr "Impossible de définir le contexte du domaine."
 
@@ -7689,8 +7906,14 @@ msgstr "Impossible de trier les gabarits de l'instance."
 msgid "Unable to unmanage volume."
 msgstr "Impossible de ne pas gérer le volume."
 
+msgid "Unable to update default compute quotas."
+msgstr "Impossible de mettre à jour les quotas de compute par défaut."
+
 msgid "Unable to update default quotas."
 msgstr "Impossible de mettre à jour les quotas par défaut."
+
+msgid "Unable to update default volume quotas."
+msgstr "impossible de mettre à jour les quotas de volume par défaut."
 
 msgid "Unable to update encrypted volume type."
 msgstr "Impossible de mettre à jour le volume chiffré."
@@ -7943,6 +8166,9 @@ msgstr "Sous-réseau \"%s\" a été mis à jour."
 #, python-format
 msgid "Updated volumes for consistency group \"%s\"."
 msgstr "Mise à jour du volume de groupe de consistence \"%s\"."
+
+msgid "Updated volumes for group."
+msgstr "Volumes du groupe mis à jour."
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -8200,6 +8426,9 @@ msgstr "Nom du volume"
 msgid "Volume Name ="
 msgstr "Nom de volume ="
 
+msgid "Volume Quotas"
+msgstr "Quotas Volume"
+
 msgid "Volume Snapshot"
 msgstr " Instantané du volume"
 
@@ -8288,6 +8517,20 @@ msgid "Volume groups can not be deleted if they contain volumes."
 msgstr ""
 "Les groupes de volumes ne peuvent être supprimés si ils contiennent des "
 "volumes."
+
+msgid ""
+"Volume groups provide a mechanism for creating snapshots of multiple volumes "
+"at the same point-in-time to ensure data consistency\n"
+"\n"
+"A volume group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"Les groupes de volumes fournissent un mécanisme pour créer des instantanés "
+"de volumes multiples simultanément afin de garantir la cohérence des "
+"données\n"
+"\n"
+"Un groupe de volumes peut supporter plusieurs types de volume mais il ne "
+"peut contenir que des volumes associés au même backend."
 
 msgid "Volume is Unencrypted"
 msgstr "Volume n'est pas chiffré"
@@ -8490,6 +8733,17 @@ msgstr ""
 msgid "You have selected:"
 msgstr "Vous avez sélectionné : "
 
+msgid ""
+"You may give the application credential an expiration. The expiration will "
+"be in UTC. If you provide an expiration date with no expiration time, the "
+"time will be assumed to be 00:00:00. If you provide an expiration time with "
+"no expiration date, the date will be assumed to be today."
+msgstr ""
+"Vous pouvez donner une date d'expiration à votre identifiant d'application. "
+"Cette date sera interprétée en UTC. Si vous ne précisez pas d'heure, celle-"
+"ci sera supposée être 00:00:00. Si vous ne précisez pas de date, celle-ci "
+"sera supposée être celle du jour."
+
 msgid "You may have mistyped the address or the page may have moved."
 msgstr ""
 "Vous avez peut-être mal orthographié l'adresse ou la page a été déplacée."
@@ -8498,6 +8752,16 @@ msgid "You may optionally set a password on the rebuilt instance."
 msgstr ""
 "Vous pouvez éventuellement définir un mot de passe sur l'instance "
 "reconstruite."
+
+msgid ""
+"You may provide your own secret, or one will be generated for you. Once your "
+"application credential is created, the secret will be revealed once. If you "
+"lose the secret, you will have to generate a new application credential."
+msgstr ""
+"Vous pouvez fournir votre propre secret ou utiliser celui qui est généré "
+"pour vous. Une fois votre identifiant d'application créé, le secret vous "
+"sera montré une seule fois. Si vous le perdez, vous devrez créer un nouvel "
+"identifiant d'application."
 
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
@@ -8538,6 +8802,9 @@ msgstr ""
 "sous la forme d'un groupe source (groupe de sécurité). Choisir un groupe de "
 "sécurité comme source autorise n'importe quelle instance de ce groupe à "
 "accéder à n'importe quelle autre instance au travers de cette règle."
+
+msgid "Your Application Credential"
+msgstr "Votre identifiant d'application"
 
 #, python-format
 msgid "Your image %s has been queued for creation."

@@ -26,16 +26,17 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 # Boxiang Zhu <zhu.boxiang@99cloud.net>, 2018. #zanata
 # Tony <tfu@redhat.com>, 2018. #zanata
+# vuuv <froms2008@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-12-03 15:06+0000\n"
+"POT-Creation-Date: 2018-12-19 08:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-10 01:10+0000\n"
-"Last-Translator: Tony <tfu@redhat.com>\n"
+"PO-Revision-Date: 2018-12-19 05:35+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -58,6 +59,31 @@ msgid ""
 msgstr ""
 "\n"
 "      %(quota)s中的%(used)s 已被使用"
+
+msgid ""
+"\n"
+"  If no container name is provided, a default container named volumebackups\n"
+"  will be provisioned for you.\n"
+"  Backups will be the same size as the volume they originate from.\n"
+"  "
+msgstr ""
+"\n"
+"如果不提供容器名字，默认会使用 volumebackups 来作为名字。\n"
+"备份会跟它们原来的卷大小一样。"
+
+msgid ""
+"\n"
+"  Volume Backups are stored using one of cinder-backup drivers\n"
+"  (object storage service, Ceph, NFS, etc ...).\n"
+"  You must have one of these services activated in order to create a "
+"backup.\n"
+"  "
+msgstr ""
+"\n"
+"  卷备份将使用某个cinder备份驱动\n"
+"  (对象存储服务, Ceph, NFS, 等……)存储。\n"
+"  为了创建备份您需要启用上述的某个服务。\n"
+"  "
 
 msgid " - End"
 msgstr " - 结束"
@@ -601,6 +627,9 @@ msgstr "任何"
 msgid "Any Availability Zone"
 msgstr "任何可用域"
 
+msgid "Application Credential Details"
+msgstr "应用程序凭证详情"
+
 msgid "Application Credential Name ="
 msgstr "应用程序名 ="
 
@@ -762,6 +791,9 @@ msgstr "可用类型"
 msgid "Available networks"
 msgstr "可用网络"
 
+msgid "Back-End Example:"
+msgstr "后端示例:"
+
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "备份中"
@@ -848,6 +880,15 @@ msgstr "创建"
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "建立中"
+
+msgid ""
+"By default, for security reasons, application credentials are forbidden from "
+"being used for creating additional application credentials or keystone "
+"trusts. If your application credential needs to be able to perform these "
+"actions, check \"unrestricted\"."
+msgstr ""
+"默认情况下，出于安全考虑，禁止将应用程序凭据用于创建其他应用程序凭据或"
+"keystone信任。 如果需要您的应用程序凭据能够执行这些操作，请勾选“未限制”。"
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -1045,6 +1086,9 @@ msgstr "计算"
 
 msgid "Compute Host"
 msgstr "计算主机"
+
+msgid "Compute Quotas"
+msgstr "计算配额"
 
 msgid "Compute Services"
 msgstr "计算服务"
@@ -1317,6 +1361,18 @@ msgstr "创建映射"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "为卷类型创建新的\"扩展规格\"键值对。"
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
+msgstr ""
+"为 QoS Spec \"%(qos_spec_name)s\" 创建一个新的 \"spec\" 键-值对。 QoS spec 需"
+"要有效的键名。查阅Cinder文档了解支持的前端键名及后端键名。"
+
+msgid "Create a new application credential."
+msgstr "创建新的应用程序凭证。"
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -2037,6 +2093,9 @@ msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "域"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "域 \"%s\" 在可以被删除前必须被停止。"
@@ -2109,6 +2168,12 @@ msgstr "下载 CSV 摘要"
 
 msgid "Download OpenStack RC File"
 msgstr "下载 OpenStack RC 文件"
+
+msgid "Download clouds.yaml"
+msgstr "下载 clouds.yaml"
+
+msgid "Download openrc file"
+msgstr "下载 openrc 文件"
 
 msgid "Download transfer credentials"
 msgstr "下载转让凭证"
@@ -2497,11 +2562,17 @@ msgstr ""
 "示例：在虚拟 CPU 拓扑命名空间中，OS::Nova::Flavor 会使用 “hw:” 前缀，这样在更"
 "新实例类型的元数据时相应的属性都会加上 “hw:” 的前缀。"
 
+msgid "Expiration"
+msgstr "过期"
+
 msgid "Expiration Date"
 msgstr "过期日期"
 
 msgid "Expiration Time"
 msgstr "过期时间"
+
+msgid "Expires"
+msgstr "过期"
 
 msgid "Extend Volume"
 msgstr "扩展卷"
@@ -2880,6 +2951,15 @@ msgstr "从这里可以为一个特定项目分配一个浮动 IP。"
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "为一个卷创建一个快照"
+
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr "在这里您可以更新默认计算配额(上限)。"
+
+msgid "From here you can update the default volume quotas (max limits)."
+msgstr "在这里您可以更新默认卷配额(上限)。"
+
+msgid "Front-End Example:"
+msgstr "前端示例:"
 
 msgid "GB"
 msgstr "GB"
@@ -3458,6 +3538,24 @@ msgstr "认证所用的密钥对"
 msgid "Key-Value Pairs"
 msgstr "键值对"
 
+msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "键: burstIOPS 及值: 5000 (数值应大于 minIOPS)"
+
+msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "键: maxIOPS 及值: 5000 (数值应大于 minIOPS)"
+
+msgid "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
+msgstr "键: minIOPS 及值: 20 (数值应小于 maxIOPS)"
+
+msgid "Key: size_iops_sec and Value: 16"
+msgstr "键: size_iops_sec 及值: 16"
+
+msgid "Key: total_bytes_sec_max and Value: 512000"
+msgstr "键: total_bytes_sec_max 及值: 512000"
+
+msgid "Key: total_iops_sec and Value: 5000"
+msgstr "键: total_iops_sec 及值: 5000"
+
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "已杀死"
@@ -3693,6 +3791,10 @@ msgstr "MidoNet Uplink"
 msgid "Migrate"
 msgstr "迁移"
 
+msgctxt "Action log of an instance"
+msgid "Migrate"
+msgstr "迁移"
+
 msgid "Migrate Host"
 msgstr "迁移主机"
 
@@ -3906,6 +4008,9 @@ msgstr "网络 QoS"
 
 msgid "Network QoS Policies"
 msgstr "网络 QoS 策略"
+
+msgid "Network Quotas"
+msgstr "网络配额"
 
 msgid "Network Topology"
 msgstr "网络拓扑"
@@ -4368,6 +4473,11 @@ msgstr "物理网络"
 msgid "Physical Network:"
 msgstr "物理网络:"
 
+msgid ""
+"Please capture the application credential ID and secret in order to provide "
+"them to your application."
+msgstr "请记录下应用程序凭证 ID 和密码，以供您的应用程序使用。"
+
 msgid "Please note: "
 msgstr "请注意："
 
@@ -4589,6 +4699,9 @@ msgstr "已排队"
 msgid "Quota Name"
 msgstr "配额名称"
 
+msgid "Quota exceeded for creating snapshots"
+msgstr "在创建快照时超出配额"
+
 msgid "Quota exceeded for resource router."
 msgstr "路由器资源超出配额"
 
@@ -4611,6 +4724,9 @@ msgstr "内存(已用)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "内存 (可用: %(avail)s, 已请求: %(req)s)"
+
+msgid "RBAC Policies"
+msgstr "RBAC 策略"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 因子"
@@ -4796,13 +4912,20 @@ msgstr "把备份 %(backup_name)s 恢复到卷（id: %(volume_id)s）的请求�
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "请求的快照会超过配额的限制。"
 
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "救援"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
-msgstr "恢复"
+msgstr "救援"
+
+msgid "Rescue Instance"
+msgstr "救援云主机"
 
 msgctxt "Current status of an Instance"
 msgid "Rescued"
-msgstr "拯救"
+msgstr "已救援"
 
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
@@ -4942,6 +5065,9 @@ msgstr "角色更新成功。"
 
 msgid "Roles"
 msgstr "角色"
+
+msgid "Roles from Groups"
+msgstr "组角色"
 
 msgid "Root Disk"
 msgstr "根磁盘"
@@ -5349,6 +5475,10 @@ msgstr "共享存储"
 msgid "Shared with Project"
 msgstr "和Project共享"
 
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "搁置"
+
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
 msgstr[0] "废弃实例"
@@ -5699,6 +5829,9 @@ msgstr "成功更改QoS规格消费者。"
 msgid "Successfully recreated ec2 credentials."
 msgstr "重新创建EC2凭据成功。"
 
+msgid "Successfully rescued instance"
+msgstr "云主机成功进入救援模式"
+
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
@@ -5835,6 +5968,13 @@ msgstr ""
 "的是 Nova ）。默认值是“前端”。"
 
 msgid ""
+"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
+"g., 256). If the field is left empty, the provider default will be used."
+msgstr ""
+"<strong>密钥长度</strong>是加密密钥的大小，单位为比特(例如256). 如果为空，将"
+"会使用生成器的默认值。"
+
+msgid ""
 "The <strong>Provider</strong> is the encryption provider format (e.g. 'luks' "
 "or 'plain')."
 msgstr "<strong>供应商</strong>是供应商加密格式（例如 'luks' 或 'plain'）。"
@@ -5915,6 +6055,19 @@ msgstr ""
 
 msgid "The admin password is incorrect."
 msgstr "管理员密码不正确。"
+
+msgid ""
+"The application credential secret will not be available after closing this "
+"page, so you must capture it now or download it. If you lose this secret, "
+"you must generate a new application credential."
+msgstr ""
+"在关闭本页面后，应用程序凭证密码将不再可见，因此您必须记录或下载它。如果您丢"
+"失了密码，则需要创建一个新的应用程序凭证。"
+
+msgid ""
+"The application credential will be created for the currently selected "
+"project."
+msgstr "创建的应用程序凭证将适用于当前选择的项目。"
 
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
@@ -6040,6 +6193,11 @@ msgid ""
 "Available: %(avail)s, Requested: %(req)s."
 msgstr ""
 "请求的云主机不能启动，因为超出您的配额：可用: %(avail)s, 请求: %(req)s."
+
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr "救援模式仅用于紧急目的，例如系统故障或无法访问时。"
 
 msgid "The specified floating IP no longer exists."
 msgstr "指定的浮动 IP 已不存在。"
@@ -6177,6 +6335,14 @@ msgstr ""
 
 msgid "This volume type is used by one or more volumes."
 msgstr "该卷类型还有卷在使用."
+
+msgid ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
+msgstr ""
+"这将关闭你的云主机并挂载系统盘到一个临时的云主机. 然后就可以连上服务器, 修复"
+"系统配置或者恢复数据."
 
 msgid "Time Since Created"
 msgstr "创建后的时间"
@@ -6548,7 +6714,7 @@ msgstr "无法判断卷类型是否支持加密。"
 
 #, python-format
 msgid "Unable to disassociate floating IP %s"
-msgstr "无法取消关联浮动 IP %s"
+msgstr "无法解除关联浮动 IP %s"
 
 msgid "Unable to disassociate floating IP."
 msgstr "无法将浮动IP解除绑定"
@@ -6558,6 +6724,12 @@ msgstr "无法显示一致性组"
 
 msgid "Unable to display group."
 msgstr "无法显示组"
+
+msgid "Unable to display the groups of this project."
+msgstr "无法显示此项目的组。"
+
+msgid "Unable to display the users of this project."
+msgstr "无法显示此项目的用户。"
 
 msgid "Unable to edit spec."
 msgstr "无法编辑规格"
@@ -6593,6 +6765,9 @@ msgstr "无法获得实例 \"%s\" 的SPICE控制台"
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "无法获得实例 \"%s\" 的VNC控制台"
 
+msgid "Unable to get cinder quota info."
+msgstr "无法获得 cinder 配额信息。"
+
 msgid "Unable to get cinder services list."
 msgstr "无法获取Cinder服务列表"
 
@@ -6621,6 +6796,12 @@ msgstr "无法获取网络代理信息。"
 
 msgid "Unable to get network agents list."
 msgstr "无法获取网络代理列表。"
+
+msgid "Unable to get neutron quota info."
+msgstr "无法获得 neutron 配额信息。"
+
+msgid "Unable to get nova quota info."
+msgstr "无法获得 nova 配额信息。"
 
 msgid "Unable to get nova services list."
 msgstr "无法查询nova服务列表。"
@@ -6723,6 +6904,9 @@ msgid ""
 "Provider ID and Remote IDs provided are not already in use."
 msgstr "无法注册身份提供者。请检查身份提供ID与远端提供ID是否还在使用。"
 
+msgid "Unable to rescue instance"
+msgstr "无法救援云主机"
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "无法为实例 \"%s\" 调整大小。"
@@ -6787,6 +6971,12 @@ msgstr "无法获取agent列表。"
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "无法获取外部网络\"%s\"."
 
+msgid "Unable to retrieve application credential details."
+msgstr "无法获取应用程序凭证详情。"
+
+msgid "Unable to retrieve application credential list."
+msgstr "无法获取应用程序凭证列表。"
+
 msgid "Unable to retrieve attachment information."
 msgstr "无法获取连接信息"
 
@@ -6816,6 +7006,9 @@ msgstr "无法检索一致性组快照详情"
 
 msgid "Unable to retrieve default compute quotas."
 msgstr "无法获取默认的计算配额"
+
+msgid "Unable to retrieve default volume quotas."
+msgstr "无法获得默认卷配额。"
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -7259,8 +7452,14 @@ msgstr "无法对实例类型排序."
 msgid "Unable to unmanage volume."
 msgstr "无法不管理卷。"
 
+msgid "Unable to update default compute quotas."
+msgstr "无法更新默认计算配额信息。"
+
 msgid "Unable to update default quotas."
 msgstr "无法更新默认配额。"
+
+msgid "Unable to update default volume quotas."
+msgstr "无法更新默认卷配额"
 
 msgid "Unable to update encrypted volume type."
 msgstr "无法更新加密的卷类型"
@@ -7391,12 +7590,31 @@ msgid "Unregistered Identity Provider"
 msgid_plural "Unregistered Identity Providers"
 msgstr[0] "不能注册身份提供者"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "停止救援"
+
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "停止救援云主机"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "已停止救援的云主机"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "正在取消拯救"
 
+msgid "Unrestricted"
+msgstr "未限制"
+
 msgid "Unrestricted (dangerous)"
 msgstr "未限制（危险）"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "取消搁置"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -7762,6 +7980,9 @@ msgstr "卷名称"
 msgid "Volume Name ="
 msgstr "Volume Name ="
 
+msgid "Volume Quotas"
+msgstr "卷配额"
+
 msgid "Volume Snapshot"
 msgstr "卷快照"
 
@@ -8030,16 +8251,46 @@ msgstr ""
 msgid "You have selected:"
 msgstr "您已经选择："
 
+msgid ""
+"You may give the application credential an expiration. The expiration will "
+"be in UTC. If you provide an expiration date with no expiration time, the "
+"time will be assumed to be 00:00:00. If you provide an expiration time with "
+"no expiration date, the date will be assumed to be today."
+msgstr ""
+"您可以为应用程序设置过期时间。过期时间使用 UTC 时区。如果您只提供了日期而没有"
+"时间，则时间为 00:00:00 。如果您只提供了时间而没有日期，则日期为今天。"
+
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "您可能输入了错误的地址，或者该页面被删除了"
+
+msgid ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
+msgstr "可选: 你可以为救援云主机的服务器选择镜像及设置密码."
 
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "在重建实例时您可以选择设定密码。"
 
 msgid ""
+"You may provide your own secret, or one will be generated for you. Once your "
+"application credential is created, the secret will be revealed once. If you "
+"lose the secret, you will have to generate a new application credential."
+msgstr ""
+"您可以选择使用自己的密码，或由系统自动生成。在应用程序凭证被创建后，密码只会"
+"显示一次。如果您丢掉了密码，则需要创建一个新的应用程序凭证。"
+
+msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
 msgstr "您可以通过使用网关配置动作稍后重置网关，但网关IP可能改变。"
+
+msgid ""
+"You may select one or more roles for this application credential. If you do "
+"not select any, all of the roles you have assigned on the current project "
+"will be applied to the application credential."
+msgstr ""
+"您可以为这个应用程序凭证选择一个或多个角色。如果不选，则应用程序凭证使用当前"
+"项目分配给您的所有角色。"
 
 msgid "You may update the editable properties of your network here."
 msgstr "在此可以更新网络的可编辑属性"
@@ -8069,6 +8320,12 @@ msgstr ""
 "您必须指定允许通过该规则的流量来源。可以通过以下两种方式实现：IP地址块(CIDR)"
 "或者来源地址组(安全组)。如果选择一个安全组作为来访源地址，则该安全组中的任何"
 "实例都被允许使用该规则访问任一其它实例。"
+
+msgid "Your Application Credential"
+msgstr "您的应用程序凭证"
+
+msgid "Your application credential"
+msgstr "您的应用程序凭证"
 
 #, python-format
 msgid "Your image %s has been queued for creation."
