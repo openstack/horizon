@@ -21,11 +21,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-15 05:12+0000\n"
+"POT-Creation-Date: 2018-12-19 10:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-13 08:04+0000\n"
+"PO-Revision-Date: 2018-12-19 10:37+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -147,6 +147,27 @@ msgid ""
 msgstr ""
 "Un conteneur public autorise quiconque disposant de l'URL publique à accéder "
 "à vos objets dans le conteneur."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"  you to organize your data. You can think of a container as a folder in\n"
+"  Windows® or a directory in UNIX®. The primary difference between a\n"
+"  container and these other file system concepts is that containers cannot "
+"be\n"
+"  nested. You can, however, create an unlimited number of containers within\n"
+"  your account. Data must be stored in a container so you must have at "
+"least\n"
+"  one container defined in your account prior to uploading data."
+msgstr ""
+"Un conteneur est un lieu de stockage pour vos données et un moyen de les\n"
+" les organiser. Vous pouvez assimiler un conteneur à un dossier  Windows® ou "
+"à un répertoire UNIX®.\n"
+" La principale différence entre un conteneur et ces concepts de systèmes de "
+"fichiers est l'impossibilité\n"
+" d'imbriquer des conteneurs . Néanmoins, il est possible de créer un nombre "
+"illimité de conteneurs.\n"
+" Les données doivent être stockées dans des conteneurs, il vous faut donc "
+"créer au moins un conteneur avant de charger des données."
 
 msgid "A container with that name exists."
 msgstr "Un conteneur du même nom existe déjà."
@@ -513,6 +534,11 @@ msgstr "Disque de configuration"
 msgid "Confirm Delete"
 msgstr "Confirmer la suppression"
 
+msgid "Confirm Delete Domain"
+msgid_plural "Confirm Delete Domains"
+msgstr[0] "Confirmer la suppression du domaine"
+msgstr[1] "Confirmer la suppression des domaines"
+
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "Confirmer la suppression de la variété"
@@ -533,10 +559,20 @@ msgid_plural "Confirm Delete Key Pairs"
 msgstr[0] "Confirmez la suppression de la paire de clés"
 msgstr[1] "Confirmez la suppression des paires de clés"
 
+msgid "Confirm Delete Policy"
+msgid_plural "Confirm Delete Policies"
+msgstr[0] "Confirmer la suppression de la stratégie"
+msgstr[1] "Confirmer la suppression des stratégies"
+
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "Confirmation de la suppression du rôle"
 msgstr[1] "Confirmation de la suppression des rôles"
+
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "Confirmer la suppression du groupe de serveurs"
+msgstr[1] "Confirmer la suppression des groupes de serveurs"
 
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
@@ -775,6 +811,14 @@ msgstr "Supprimer"
 msgid "Delete Container"
 msgstr "Supprimer le conteneur"
 
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "Supprimer le domaine"
+msgstr[1] "Supprimer les domaines"
+
+msgid "Delete Domains"
+msgstr "Supprimer les domaines"
+
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Supprimer les fichiers dans {$ ctrl.model.container.name $}"
 
@@ -819,6 +863,14 @@ msgstr "Supprimer les paires de clés"
 msgid "Delete Network"
 msgstr "Supprimer le réseau"
 
+msgid "Delete Policies"
+msgstr "Supprimer les stratégies"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "Supprimer la stratégie"
+msgstr[1] "Supprimer les stratégies"
+
 msgid "Delete Role"
 msgid_plural "Delete Roles"
 msgstr[0] "Supprimer le rôle"
@@ -829,6 +881,11 @@ msgstr "Supprimer les rôles"
 
 msgid "Delete Router"
 msgstr "Supprimer le routeur"
+
+msgid "Delete Server Group"
+msgid_plural "Delete Server Groups"
+msgstr[0] "Supprimer le groupe de serveurs"
+msgstr[1] "Supprimer les groupes de serveurs"
 
 msgid "Delete Server Groups"
 msgstr "Supprimer un groupe de serveur"
@@ -889,6 +946,12 @@ msgstr[0] "Rôle supprimé: %s"
 msgstr[1] "Rôles supprimés: %s"
 
 #, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "Groupe de serveurs supprimé : %s."
+msgstr[1] "Groupes de serveurs supprimés : %s."
+
+#, python-format
 msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
 msgstr[0] "Joncteur %s supprimé"
@@ -899,6 +962,18 @@ msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
 msgstr[0] "Utilisateur supprimé: %s."
 msgstr[1] "Utilisateurs supprimés: %s;"
+
+#, python-format
+msgid "Deleted domain: %s."
+msgid_plural "Deleted domains: %s."
+msgstr[0] "Domaine supprimé : %s."
+msgstr[1] "Domaines supprimés : %s."
+
+#, python-format
+msgid "Deleted policy: %s."
+msgid_plural "Deleted policies: %s."
+msgstr[0] "Stratégie supprimée : %s."
+msgstr[1] "Stratégies supprimées : %s."
 
 msgid "Deleting"
 msgstr "Suppression"
@@ -2121,6 +2196,9 @@ msgstr "Rôle"
 msgid "Role %s was successfully created."
 msgstr "Le rôle %s a été créé avec succès."
 
+msgid "Role already exists."
+msgstr "Le rôle existe déjà."
+
 msgid "Role updated successfully."
 msgstr "Rôle mis à jour avec succès."
 
@@ -2291,6 +2369,10 @@ msgstr "Lien séparé"
 
 msgid "Server Group"
 msgstr "Groupe de serveur"
+
+#, python-format
+msgid "Server Group %s was successfully created."
+msgstr "Le groupe de serveurs %s a été créé avec succès."
 
 msgid "Server Groups"
 msgstr "Groupes de serveurs"
@@ -2870,6 +2952,22 @@ msgid_plural "Unable to delete Users: %s."
 msgstr[0] "Impossible de supprimer l'utilisateur: %s."
 msgstr[1] "Impossible de supprimer les utilisateurs: %s."
 
+#, python-format
+msgid "Unable to delete domain: %s."
+msgid_plural "Unable to delete domains: %s."
+msgstr[0] "Impossible de supprimer le domaine : %s."
+msgstr[1] "Impossible de supprimer les domaines : %s."
+
+#, python-format
+msgid "Unable to delete policy: %s."
+msgid_plural "Unable to delete policies: %s."
+msgstr[0] "Impossible de supprimer la stratégie : %s"
+msgstr[1] "Impossible de supprimer les stratégies : %s"
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "Impossible de récupérer la stratégie qos ayant l'ID %(id)s"
+
 msgid "Unable to delete the container."
 msgstr "Impossible de supprimer le conteneur."
 
@@ -3136,6 +3234,10 @@ msgstr "Impossible de récupérer les réseaux."
 
 msgid "Unable to retrieve the nova services."
 msgstr "Impossible de récupérer les services Nova."
+
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "Impossible de récupérer la stratégie ayant l'ID %(id)s"
 
 msgid "Unable to retrieve the ports."
 msgstr "Impossible de récupérer les ports."
@@ -3547,6 +3649,10 @@ msgid "Yes"
 msgstr "Oui"
 
 #, python-format
+msgid "You are not allowed to delete domains: %s"
+msgstr "Vous n'êtes pas autorisé à supprimer les domaines: %s "
+
+#, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "Vous n'êtes pas autorisé à supprimer les images : %s"
 
@@ -3594,12 +3700,32 @@ msgstr ""
 "la clé de votre choix."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] ""
+"Vous avez sélectionné \"%s\". Le groupe de serveurs supprimé ne sera pas "
+"récupérable."
+msgstr[1] ""
+"Vous avez sélectionné \"%s\". Les groupes de serveurs supprimés ne seront "
+"pas récupérables."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
 msgstr[0] ""
 "Vous avez sélectionné \"%s\". Le joncteur supprimé ne sera pas récupérable."
 msgstr[1] ""
 "Vous avez sélectionné \"%s\". Les joncteurs supprimés ne seront pas "
+"récupérables."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] ""
+"Vous avez sélectionné \"%s\". Le domaine supprimé n'est pas récupérable."
+msgstr[1] ""
+"Vous avez sélectionné \"%s\". Les domaines supprimés ne sont pas "
 "récupérables."
 
 #, python-format
@@ -3635,6 +3761,15 @@ msgstr[0] ""
 msgstr[1] ""
 "Vous avez sélectionné \"%s\". Les paires de clés supprimées sont "
 "irrécupérables."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted policy is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted policies are not recoverable."
+msgstr[0] ""
+"Vous avez sélectionné \"%s\". Une stratégie supprimée n'est pas récupérable."
+msgstr[1] ""
+"Vous avez sélectionné \"%s\". Les stratégies supprimées ne sont pas "
+"récupérables."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."
