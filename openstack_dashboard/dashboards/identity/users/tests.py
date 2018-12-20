@@ -864,7 +864,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'identity/users/_detail_overview.html')
         self.assertEqual(res.context['user'].name, user.name)
         self.assertEqual(res.context['user'].id, user.id)
-        self.assertEqual(res.context['tenant_name'], tenant.name)
+        self.assertEqual(res.context['project_name'], tenant.name)
 
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
         self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
@@ -914,7 +914,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'identity/users/_detail_overview.html')
         self.assertEqual(res.context['user'].name, user.name)
         self.assertEqual(res.context['user'].id, user.id)
-        self.assertEqual(res.context['tenant_name'], tenant.name)
+        self.assertEqual(res.context['project_name'], tenant.name)
 
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
         self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
