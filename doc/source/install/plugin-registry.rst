@@ -88,9 +88,6 @@ Plugin Registry
    * - Tacker UI
      - https://github.com/openstack/tacker-horizon
      - https://launchpad.net/tacker
-   * - TripleO UI
-     - https://github.com/openstack/tripleo-ui/
-     - https://launchpad.net/tripleo
    * - Trove Dashboard
      - https://github.com/openstack/trove-dashboard
      - https://launchpad.net/trove-dashboard
