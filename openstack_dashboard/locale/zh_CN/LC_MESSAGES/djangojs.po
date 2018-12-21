@@ -12,16 +12,18 @@
 # Tony <tfu@redhat.com>, 2017. #zanata
 # Boxiang Zhu <zhu.boxiang@99cloud.net>, 2018. #zanata
 # Tony <tfu@redhat.com>, 2018. #zanata
+# vuuv <froms2008@gmail.com>, 2018. #zanata
+# yongxiangwang <wangyxv@163.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-15 05:12+0000\n"
+"POT-Creation-Date: 2018-12-20 10:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-13 01:52+0000\n"
-"Last-Translator: Tony <tfu@redhat.com>\n"
+"PO-Revision-Date: 2018-12-20 10:41+0000\n"
+"Last-Translator: yongxiangwang <wangyxv@163.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -137,6 +139,22 @@ msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
 "your objects in the container."
 msgstr "一个公有容器会允许任何人通过公共 URL 去使用您容器里面的对象。"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"  you to organize your data. You can think of a container as a folder in\n"
+"  Windows® or a directory in UNIX®. The primary difference between a\n"
+"  container and these other file system concepts is that containers cannot "
+"be\n"
+"  nested. You can, however, create an unlimited number of containers within\n"
+"  your account. Data must be stored in a container so you must have at "
+"least\n"
+"  one container defined in your account prior to uploading data."
+msgstr ""
+"容器是您数据的存储室，为您提供一种方式去管理数据。您可以认为容器是Windows®中"
+"的文件夹或者是UNIX®中的目录。在容器和这些文件系统概念之间的主要不同点是容器无"
+"法嵌套。但是，您可以在您的账号下创建无限个容器。数据必须存储在容器中，所以您"
+"在上传数据前必须在您的账号下定义至少一个容器。"
 
 msgid "A container with that name exists."
 msgstr "使用相同名称的容器已存在。"
@@ -501,6 +519,10 @@ msgstr "配置驱动"
 msgid "Confirm Delete"
 msgstr "确认删除"
 
+msgid "Confirm Delete Domain"
+msgid_plural "Confirm Delete Domains"
+msgstr[0] "确认删除域"
+
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "确定删除 flavor"
@@ -763,6 +785,13 @@ msgstr "删除"
 msgid "Delete Container"
 msgstr "删除容器"
 
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "删除域"
+
+msgid "Delete Domains"
+msgstr "删除域"
+
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "在 {$ ctrl.model.container.name $} 中删除文件"
 
@@ -889,6 +918,11 @@ msgstr[0] "删除中继：%s。"
 msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
 msgstr[0] "删除用户：%s。"
+
+#, python-format
+msgid "Deleted domain: %s."
+msgid_plural "Deleted domains: %s."
+msgstr[0] "已删除的域：%s。"
 
 #, python-format
 msgid "Deleted policy: %s."
@@ -1491,6 +1525,16 @@ msgid ""
 msgstr ""
 "在您启动了实例后使用密钥对进行登录。\n"
 "选择一个容易辨识的密钥对名称并将您的SSH公钥粘贴到空白处。"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, dashes and\n"
+"  underscores."
+msgstr ""
+"密钥对是您在实例启动后登陆进去的一种方式。\n"
+"选择一个您易于辨识的密钥对名字，\n"
+"名字只能由半角的字母、空格、破折号和下划线组成。"
 
 #, python-format
 msgid "Key pair %(name)s was successfully created."
@@ -2171,6 +2215,9 @@ msgstr "角色"
 #, python-format
 msgid "Role %s was successfully created."
 msgstr "角色 %s 创建成功。"
+
+msgid "Role already exists."
+msgstr "角色已经存在。"
 
 msgid "Role updated successfully."
 msgstr "已成功更新角色。"
@@ -2955,9 +3002,18 @@ msgid_plural "Unable to delete Users: %s."
 msgstr[0] "无法删除用户：%s。"
 
 #, python-format
+msgid "Unable to delete domain: %s."
+msgid_plural "Unable to delete domains: %s."
+msgstr[0] "不能删除域：%s。"
+
+#, python-format
 msgid "Unable to delete policy: %s."
 msgid_plural "Unable to delete policies: %s."
 msgstr[0] "无法删除策略：%s。"
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "无法删除qos策略%(id)s"
 
 msgid "Unable to delete the container."
 msgstr "无法删除容器。"
@@ -3678,6 +3734,11 @@ msgstr[0] "您已经选定了“%s”。删除服务器组的操作无法恢复�
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
 msgstr[0] "你已经选定了“%s”。删除中继的操作无法恢复。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] "您已经选了“%s”，删除的域无法恢复"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
