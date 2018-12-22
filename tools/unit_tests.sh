@@ -37,7 +37,7 @@ if [ -n "$subset" ]; then
   fi
 else
   $testcommand horizon --settings=horizon.test.settings --verbosity 2 $tagarg $posargs
-  horizon_tests=0
+  horizon_tests=$?
   $testcommand openstack_dashboard --settings=openstack_dashboard.test.settings --verbosity 2 $tagarg $posargs
   openstack_dashboard_tests=$?
   $testcommand openstack_auth --settings=openstack_auth.tests.settings --verbosity 2 $tagarg $posargs
