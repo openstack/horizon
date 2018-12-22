@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-12-03 15:06+0000\n"
+"POT-Creation-Date: 2018-12-21 14:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-30 11:33+0000\n"
+"PO-Revision-Date: 2018-12-21 08:05+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -192,6 +192,9 @@ msgstr "%s GiB"
 #, python-format
 msgid "%sMB"
 msgstr "%s MB"
+
+msgid "(No IP address)"
+msgstr "(Keine IP-Adresse)"
 
 msgid "(Quota exceeded)"
 msgstr "(Kontingent überschritten)"
@@ -842,6 +845,9 @@ msgstr "Verfügbare Typen"
 msgid "Available networks"
 msgstr "Verfügbare Netzwerke"
 
+msgid "Back-End Example:"
+msgstr "Backend Beispiel:"
+
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Sichern"
@@ -1177,6 +1183,9 @@ msgstr ""
 "Konfigurieren Sie OpenStack, um Metadaten auf ein spezielles "
 "Konfigurationslaufwerk zu schreiben, das beim Start einer Instanz mit ihr "
 "verbunden wird."
+
+msgid "Confirm"
+msgstr "Bestätigen"
 
 msgid "Confirm Admin Password"
 msgstr "Administratorpasswort bestätigen"
@@ -3193,6 +3202,9 @@ msgstr ""
 "Hier können Sie Standard-Datenträger-kontingente (maximale Limits) "
 "aktualisieren."
 
+msgid "Front-End Example:"
+msgstr "Frontend Beispiel:"
+
 msgid "GB"
 msgstr "GB"
 
@@ -4066,6 +4078,10 @@ msgstr "MidoNet"
 msgid "MidoNet Uplink"
 msgstr "MidoNet Uplink"
 
+msgid "Migrate"
+msgstr "Migriere"
+
+msgctxt "Action log of an instance"
 msgid "Migrate"
 msgstr "Migriere"
 
