@@ -35,7 +35,6 @@ def _get_policy_conf(policy_file, policy_dirs=None):
     # Passing [] is required. Otherwise oslo.config looks up sys.argv.
     conf([])
     policy_opts.set_defaults(conf)
-    policy_file = os.path.join(_BASE_PATH, policy_file)
     conf.set_default('policy_file', policy_file, 'oslo_policy')
     # Policy Enforcer has been updated to take in a policy directory
     # as a config option. However, the default value in is set to
@@ -43,10 +42,17 @@ def _get_policy_conf(policy_file, policy_dirs=None):
     # value to empty list for now.
     if policy_dirs is None:
         policy_dirs = []
-    policy_dirs = [os.path.join(_BASE_PATH, policy_dir)
-                   for policy_dir in policy_dirs]
     conf.set_default('policy_dirs', policy_dirs, 'oslo_policy')
     return conf
+
+
+def _get_policy_file_with_full_path(service):
+    policy_files = getattr(settings, 'POLICY_FILES', {})
+    policy_file = os.path.join(_BASE_PATH, policy_files[service])
+    policy_dirs = getattr(settings, 'POLICY_DIRS', {}).get(service, [])
+    policy_dirs = [os.path.join(_BASE_PATH, policy_dir)
+                   for policy_dir in policy_dirs]
+    return policy_file, policy_dirs
 
 
 def _get_enforcer():
@@ -54,19 +60,21 @@ def _get_enforcer():
     if not _ENFORCER:
         _ENFORCER = {}
         policy_files = getattr(settings, 'POLICY_FILES', {})
-        policy_dirs = getattr(settings, 'POLICY_DIRS', {})
-        for service in policy_files:
-            conf = _get_policy_conf(policy_file=policy_files[service],
-                                    policy_dirs=policy_dirs.get(service, []))
+        for service in policy_files.keys():
+            policy_file, policy_dirs = _get_policy_file_with_full_path(service)
+            conf = _get_policy_conf(policy_file, policy_dirs)
             enforcer = policy.Enforcer(conf)
-            # Ensure enforcer.policy_path is populated.
             enforcer.load_rules()
-            if os.path.isfile(enforcer.policy_path):
+            # Ensure enforcer.rules is populated.
+            if enforcer.rules:
                 LOG.debug("adding enforcer for service: %s", service)
                 _ENFORCER[service] = enforcer
             else:
-                LOG.warning("policy file for service: %s not found at %s",
-                            (service, enforcer.policy_path))
+                locations = policy_file
+                if policy_dirs:
+                    locations += ' and files under %s' % policy_dirs
+                LOG.warning("No policy rules for service '%s' in %s",
+                            service, locations)
     return _ENFORCER
 
 
