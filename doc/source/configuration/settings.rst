@@ -820,6 +820,25 @@ MEMOIZED_MAX_SIZE_DEFAULT allows setting a global default to help control
 memory usage when caching. It should at least be 2 x the number of threads
 with a little bit of extra buffer.
 
+SHOW_OPENRC_FILE
+----------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default:: ``True``
+
+Controls whether the keystone openrc file is accesible from the user
+menu and the api access panel.
+
+SHOW_OPENSTACK_CLOUDS_YAML
+--------------------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default:: ``True``
+
+Controls whether clouds.yaml is accesible from the user
+menu and the api access panel.
 
 SHOW_KEYSTONE_V2_RC
 --------------------

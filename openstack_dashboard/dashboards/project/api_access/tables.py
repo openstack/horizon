@@ -51,6 +51,9 @@ class DownloadCloudsYaml(tables.LinkAction):
     icon = "download"
     url = "horizon:project:api_access:clouds.yaml"
 
+    def allowed(self, request, datum=None):
+        return settings.SHOW_OPENSTACK_CLOUDS_YAML
+
 
 class DownloadOpenRC(tables.LinkAction):
     name = "download_openrc"
@@ -68,7 +71,8 @@ class DownloadOpenRC(tables.LinkAction):
             self.verbose_name = _("OpenStack RC File (Identity API v3)")
 
     def allowed(self, request, datum=None):
-        return utils.get_keystone_version() >= 3
+        return (settings.SHOW_OPENRC_FILE and
+                utils.get_keystone_version() >= 3)
 
 
 class DownloadOpenRCv2(tables.LinkAction):
