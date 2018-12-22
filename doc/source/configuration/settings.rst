@@ -826,7 +826,16 @@ SHOW_KEYSTONE_V2_RC
 
 .. versionadded:: 13.0.0(Queens)
 
-Default: ``True``
+.. versionchanged:: 15.0.0(Stein)
+
+    The default value is changed from ``True`` to ``False``
+    in favor of the deprecation of keystone v2 API support in horizon.
+
+.. deprecated:: 15.0.0(Stein)
+
+    This option will be dropped in 16.0.0(Train) release.
+
+Default: ``False``
 
 Controls whether the keystone v2 openrc file is accessible from the user
 menu and the api access panel.
@@ -858,7 +867,21 @@ USER_MENU_LINKS
 
 .. versionadded:: 13.0.0(Queens)
 
-Default::
+Default (when ``SHOW_KEYSTONE_V2_RC`` is ``False``):
+
+.. code-block:: python
+
+  [
+    {'name': _('OpenStack RC File'),
+     'icon_classes': ['fa-download', ],
+     'url': 'horizon:project:api_access:openrc',
+     'external': False,
+     }
+  ]
+
+Default (when ``SHOW_KEYSTONE_V2_RC`` is ``True``):
+
+.. code-block:: python
 
   [
     {'name': _('OpenStack RC File v2'),

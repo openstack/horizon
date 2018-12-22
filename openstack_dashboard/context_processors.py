@@ -88,7 +88,7 @@ def openstack(request):
 
     user_menu_links = getattr(settings, "USER_MENU_LINKS", [])
 
-    if not getattr(settings, "SHOW_KEYSTONE_V2_RC", True):
+    if not getattr(settings, "SHOW_KEYSTONE_V2_RC", False):
         user_menu_links = [
             link for link in user_menu_links
             if 'horizon:project:api_access:openrcv2' != link['url']]

@@ -307,16 +307,9 @@ SECURITY_GROUP_RULES = {
 
 ADD_INSTALLED_APPS = []
 
-USER_MENU_LINKS = [
-    {'name': _('OpenStack RC File v2'),
-     'icon_classes': ['fa-download', ],
-     'url': 'horizon:project:api_access:openrcv2'
-     },
-    {'name': _('OpenStack RC File v3'),
-     'icon_classes': ['fa-download', ],
-     'url': 'horizon:project:api_access:openrc'
-     }
-]
+# NOTE: The default value of USER_MENU_LINKS will be set after loading
+# local_settings if it is not configured.
+USER_MENU_LINKS = None
 
 # 'key', 'label', 'path'
 AVAILABLE_THEMES = [
@@ -346,7 +339,7 @@ CSRF_COOKIE_AGE = None
 
 COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
 
-SHOW_KEYSTONE_V2_RC = True
+SHOW_KEYSTONE_V2_RC = False
 
 # Dictionary of currently available angular features
 ANGULAR_FEATURES = {
@@ -419,6 +412,21 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
 # be sent as JSON to the client-side (Angular).
 OPENSTACK_IMAGE_FORMATS = [fmt for (fmt, name)
                            in OPENSTACK_IMAGE_BACKEND['image_formats']]
+
+if USER_MENU_LINKS is None:
+    USER_MENU_LINKS = []
+    if SHOW_KEYSTONE_V2_RC:
+        USER_MENU_LINKS.append({
+            'name': _('OpenStack RC File v2'),
+            'icon_classes': ['fa-download', ],
+            'url': 'horizon:project:api_access:openrcv2',
+        })
+    USER_MENU_LINKS.append({
+        'name': (_('OpenStack RC File v3') if SHOW_KEYSTONE_V2_RC
+                 else _('OpenStack RC File')),
+        'icon_classes': ['fa-download', ],
+        'url': 'horizon:project:api_access:openrc',
+    })
 
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'
