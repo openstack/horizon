@@ -484,9 +484,14 @@ class TableTab(Tab):
             raise NotImplementedError("You must define a table_class "
                                       "attribute on %s" % class_name)
         # Instantiate our table classes but don't assign data yet
-        table_instances = [(table._meta.name,
-                            table(request, **tab_group.kwargs))
-                           for table in self.table_classes]
+        if self._allowed:
+            table_instances = [(table._meta.name,
+                                table(request, **tab_group.kwargs))
+                               for table in self.table_classes]
+        else:
+            # When a corresponding tab is not allowed, there is no need to
+            # instantiate table classes (Related to bug 1791296).
+            table_instances = []
         self._tables = OrderedDict(table_instances)
         self._table_data_loaded = False
 
