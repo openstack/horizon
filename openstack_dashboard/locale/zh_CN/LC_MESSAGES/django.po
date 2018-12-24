@@ -31,11 +31,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-12-19 08:24+0000\n"
+"POT-Creation-Date: 2018-12-23 11:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-19 05:35+0000\n"
+"PO-Revision-Date: 2018-12-24 04:57+0000\n"
 "Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
@@ -200,6 +200,9 @@ msgstr "%sGiB"
 #, python-format
 msgid "%sMB"
 msgstr "%s MB"
+
+msgid "(No IP address)"
+msgstr "(无 IP 地址)"
 
 msgid "(Quota exceeded)"
 msgstr "(配额用尽)"
@@ -777,6 +780,10 @@ msgctxt "Current status of Volume Group"
 msgid "Available"
 msgstr "可用"
 
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Available"
+msgstr "可用"
+
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr "可用"
@@ -1100,6 +1107,9 @@ msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "配置将元数据写入指定的配置驱动器中，在实例创建时进行连接。"
+
+msgid "Confirm"
+msgstr "确认"
 
 msgid "Confirm Admin Password"
 msgstr "确认管理员密码"
@@ -1490,6 +1500,10 @@ msgid ""
 msgstr ""
 "为一个卷类型创建加密后，使用此类型的所有卷都会被加密。若卷类型当前正在被卷使"
 "用，则无法添加加密信息。"
+
+#, python-format
+msgid "Creating group \"%s\"."
+msgstr "创建组 \"%s\"。"
 
 #, python-format
 msgid "Creating group snapshot \"%s\"."
@@ -2442,6 +2456,10 @@ msgctxt "Current status of Volume Group"
 msgid "Error"
 msgstr "错误"
 
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Error"
+msgstr "错误"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "错误"
@@ -2991,6 +3009,9 @@ msgstr "Go"
 msgid "Graph"
 msgstr "图表"
 
+msgid "Group"
+msgstr "组"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "组 \"%s\" 已经成功创建。"
@@ -3013,8 +3034,17 @@ msgstr "组管理: {{ group.name }}"
 msgid "Group Members"
 msgstr "组成员"
 
+msgid "Group Name"
+msgstr "组名"
+
 msgid "Group Name ="
 msgstr "组名="
+
+msgid "Group Snapshot"
+msgstr "组快照"
+
+msgid "Group Snapshots"
+msgstr "组快照"
 
 msgid "Group Type"
 msgstr "组类型"
@@ -3355,6 +3385,10 @@ msgid "In-use"
 msgstr "正在使用"
 
 msgctxt "Current status of Volume Group"
+msgid "In-use"
+msgstr "正在使用"
+
+msgctxt "Current status of Volume Group Snapshot"
 msgid "In-use"
 msgstr "正在使用"
 
@@ -3855,6 +3889,10 @@ msgstr "最低内存(MB)"
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "已修改域 \"%s\"。"
+
+#, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "已修改 flavor 访问  \"%s\"。"
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -6580,6 +6618,10 @@ msgstr "无法创建实例类型\"%s\"。"
 msgid "Unable to create flavor."
 msgstr "无法创建实例类型。"
 
+#, python-format
+msgid "Unable to create group \"%s\" from snapshot."
+msgstr "无法从快照创建组 \"%s\"。"
+
 msgid "Unable to create group due to exceeding volume quota limit."
 msgstr "由于超过卷配额限制，无法创建组"
 
@@ -7081,6 +7123,9 @@ msgstr "无法获取浮动IP列表。"
 msgid "Unable to retrieve floating IP pools."
 msgstr "无法获取浮动IP池。"
 
+msgid "Unable to retrieve group"
+msgstr "无法获取组。"
+
 msgid "Unable to retrieve group details."
 msgstr "无法获取组详情。"
 
@@ -7095,6 +7140,9 @@ msgstr "无法获取组列表。稍后请重试。"
 
 msgid "Unable to retrieve group snapshot details."
 msgstr "无法获取组快照详情。"
+
+msgid "Unable to retrieve group snapshots."
+msgstr "无法获取组快照。"
 
 msgid "Unable to retrieve group types."
 msgstr "无法获得组类型。"
@@ -7352,6 +7400,9 @@ msgstr "无法获取卷详情。"
 msgid "Unable to retrieve volume encryption details."
 msgstr "无法获取卷加密详情。"
 
+msgid "Unable to retrieve volume group snapshots."
+msgstr "无法获取卷组快照。"
+
 msgid "Unable to retrieve volume groups"
 msgstr "无法获取卷组。"
 
@@ -7432,6 +7483,9 @@ msgstr "无法获取卷/实例连接信息"
 
 msgid "Unable to retrieve volumes availability zones."
 msgstr "无法获取卷可用域。"
+
+msgid "Unable to retrieve volumes."
+msgstr "无法获取卷。"
 
 msgid "Unable to set Domain Context."
 msgstr "无法设定域上下文。"

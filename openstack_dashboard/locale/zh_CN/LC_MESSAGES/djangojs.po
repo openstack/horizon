@@ -18,12 +18,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-12-20 10:12+0000\n"
+"POT-Creation-Date: 2018-12-23 11:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-20 10:41+0000\n"
-"Last-Translator: yongxiangwang <wangyxv@163.com>\n"
+"PO-Revision-Date: 2018-12-24 04:58+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -3279,6 +3279,10 @@ msgstr "无法获取网络。"
 msgid "Unable to retrieve the nova services."
 msgstr "无法获取nova服务。"
 
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "无法获取 id 为 %(id)s 的策略"
+
 msgid "Unable to retrieve the ports."
 msgstr "无法获取端口。"
 
@@ -3675,6 +3679,10 @@ msgstr "XS"
 
 msgid "Yes"
 msgstr "是"
+
+#, python-format
+msgid "You are not allowed to delete domains: %s"
+msgstr "您不被允许删除域： %s"
 
 #, python-format
 msgid "You are not allowed to delete images: %s"
