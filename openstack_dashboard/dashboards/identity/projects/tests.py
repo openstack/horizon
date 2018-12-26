@@ -1270,7 +1270,7 @@ class UsageViewTests(test.BaseAdminViewTests):
 
         self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
         hdr = ('Instance Name,VCPUs,RAM (MB),Disk (GB),Usage (Hours),'
-               'Time since created (Seconds),State')
+               'Age (Seconds),State')
         self.assertContains(res, '%s\r\n' % hdr)
 
         self.assert_mock_multiple_calls_with_same_arguments(

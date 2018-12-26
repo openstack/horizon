@@ -182,7 +182,7 @@ class AdminInstancesTable(tables.DataTable):
                           verbose_name=_("Power State"),
                           display_choices=project_tables.POWER_DISPLAY_CHOICES)
     created = tables.Column("created",
-                            verbose_name=_("Time since created"),
+                            verbose_name=_("Age"),
                             filters=(filters.parse_isotime,
                                      filters.timesince_sortable),
                             attrs={'data-type': 'timesince'})
