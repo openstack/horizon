@@ -7,6 +7,7 @@
    :maxdepth: 2
 
    intro
+   policy
    quickstart
    contributing
    testing
