@@ -1012,6 +1012,88 @@ class UsersViewTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), user=user, include_subtree=False,
             include_names=True)
 
+    @test.create_mocks({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_get',
+                                       'group_list')})
+    def test_detail_view_groups_tab(self):
+        """Test the groups tab of the detail view ."""
+        domain = self._get_default_domain()
+        user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
+        groups = self.groups.list()
+
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
+        self.mock_group_list.return_value = groups
+
+        # Url of the role assignment tab of the detail view
+        url = USER_DETAIL_URL % [user.id]
+        detail_view = tabs.UserDetailTabs(self.request, user=user)
+        group_tab_link = "?%s=%s" % (detail_view.param_name,
+                                     detail_view.get_tab("groups").get_id())
+        url += group_tab_link
+
+        res = self.client.get(url)
+
+        # Check the template expected has been used
+        self.assertTemplateUsed(res, "horizon/common/_detail_table.html")
+
+        # Check the table contains the good data
+        groups_expected = groups
+        groups_observed = res.context["table"].data
+        self.assertItemsEqual(groups_expected, groups_observed)
+
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     user=user.id)
+
+    @test.create_mocks({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_get',
+                                       'group_list')})
+    def test_detail_view_groups_tab_with_exception(self):
+        """Test the groups tab of the detail view .
+
+        The table is displayed empty and an error message pop if the groups
+        request fails.
+        """
+        domain = self._get_default_domain()
+        user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
+
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
+        self.mock_group_list.side_effect = self.exceptions.keystone
+
+        # Url of the role assignment tab of the detail view
+        url = USER_DETAIL_URL % [user.id]
+        detail_view = tabs.UserDetailTabs(self.request, user=user)
+        group_tab_link = "?%s=%s" % (detail_view.param_name,
+                                     detail_view.get_tab("groups").get_id())
+        url += group_tab_link
+
+        res = self.client.get(url)
+
+        # Check the groups table is empty
+        self.assertEqual(res.context["table"].data, [])
+        # Check one error message is displayed
+        self.assertMessageCount(res, error=1)
+
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     user=user.id)
+
     @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',
                                        'tenant_list',)})
