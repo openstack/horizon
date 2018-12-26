@@ -798,6 +798,16 @@ in `AVAILABLE_THEMES`_, but a brander may wish to simply inherit from an
 existing theme and not allow that parent theme to be selected by the user.
 ``SELECTABLE_THEMES`` takes the exact same format as ``AVAILABLE_THEMES``.
 
+SESSION_REFRESH
+---------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``True``
+
+Control whether the SESSION_TIMEOUT period is refreshed due to activity. If
+False, SESSION_TIMEOUT acts as a hard limit.
+
 SESSION_TIMEOUT
 ---------------
 
@@ -805,9 +815,14 @@ SESSION_TIMEOUT
 
 Default: ``"3600"``
 
-This SESSION_TIMEOUT is a method to supercede the token timeout with a shorter
-horizon session timeout (in seconds).  So if your token expires in 60 minutes,
-a value of 1800 will log users out after 30 minutes.
+This SESSION_TIMEOUT is a method to supercede the token timeout with a
+shorter horizon session timeout (in seconds). If SESSION_REFRESH is True (the
+default) SESSION_TIMEOUT acts like an idle timeout rather than being a hard
+limit, but will never exceed the token expiry. If your token expires in 60
+minutes, a value of 1800 will log users out after 30 minutes of inactivity,
+or 60 minutes with activity. Setting SESSION_REFRESH to False will make
+SESSION_TIMEOUT act like a hard limit on session times.
+
 
 MEMOIZED_MAX_SIZE_DEFAULT
 -------------------------

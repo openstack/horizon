@@ -203,9 +203,17 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
 
-# SESSION_TIMEOUT is a method to supersede the token timeout with a shorter
-# horizon session timeout (in seconds).  So if your token expires in 60
-# minutes, a value of 1800 will log users out after 30 minutes
+# Control whether the SESSION_TIMEOUT period is refreshed due to activity. If
+# False, SESSION_TIMEOUT acts as a hard limit.
+SESSION_REFRESH = True
+
+# This SESSION_TIMEOUT is a method to supercede the token timeout with a
+# shorter horizon session timeout (in seconds). If SESSION_REFRESH is True (the
+# default) SESSION_TIMEOUT acts like an idle timeout rather than being a hard
+# limit, but will never exceed the token expiry. If your token expires in 60
+# minutes, a value of 1800 will log users out after 30 minutes of inactivity,
+# or 60 minutes with activity. Setting SESSION_REFRESH to False will make
+# SESSION_TIMEOUT act like a hard limit on session times.
 SESSION_TIMEOUT = 3600
 
 # When using cookie-based sessions, log error when the session cookie exceeds
