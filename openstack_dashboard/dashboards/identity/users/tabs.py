@@ -13,7 +13,12 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tabs
+
+from openstack_dashboard import api
+from openstack_dashboard.dashboards.identity.users.role_assignments \
+    import tables as role_assignments_tables
 
 
 class OverviewTab(tabs.Tab):
@@ -29,6 +34,33 @@ class OverviewTab(tabs.Tab):
         return {"user": self.tab_group.kwargs['user']}
 
 
+class RoleAssignmentsTab(tabs.TableTab):
+    """Role assignment of the user to domain/project."""
+    table_classes = (role_assignments_tables.RoleAssignmentsTable,)
+    name = _("Role assignments")
+    slug = "roleassignments"
+    template_name = "horizon/common/_detail_table.html"
+    preload = False
+
+    def get_roleassignmentstable_data(self):
+        user = self.tab_group.kwargs['user']
+
+        try:
+            # Get all the roles of the user
+            user_roles = api.keystone.role_assignments_list(
+                self.request, user=user, include_subtree=False,
+                include_names=True)
+
+            return user_roles
+
+        except Exception:
+            exceptions.handle(
+                self.request,
+                _("Unable to display the role assignments of this user."))
+
+        return []
+
+
 class UserDetailTabs(tabs.DetailTabsGroup):
     slug = "user_details"
-    tabs = (OverviewTab,)
+    tabs = (OverviewTab, RoleAssignmentsTab,)

@@ -922,6 +922,96 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      user.project_id)
 
+    @test.create_mocks({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_get',
+                                       'role_assignments_list')})
+    def test_detail_view_role_assignments_tab(self):
+        """Test the role assignments tab of the detail view ."""
+        domain = self._get_default_domain()
+        user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
+        role_assignments = self.role_assignments.filter(user={'id': user.id})
+
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
+        self.mock_role_assignments_list.return_value = role_assignments
+
+        # Url of the role assignment tab of the detail view
+        url = USER_DETAIL_URL % [user.id]
+        detail_view = tabs.UserDetailTabs(self.request, user=user)
+        role_assignments_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("roleassignments").get_id()
+        )
+        url += role_assignments_tab_link
+
+        res = self.client.get(url)
+
+        # Check the template expected has been used
+        self.assertTemplateUsed(res,
+                                "horizon/common/_detail_table.html")
+
+        # Check the table contains the expected data
+        role_assignments_expected = role_assignments
+        role_assignments_observed = res.context["table"].data
+        self.assertItemsEqual(role_assignments_expected,
+                              role_assignments_observed)
+
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
+        self.mock_role_assignments_list.assert_called_once_with(
+            test.IsHttpRequest(), user=user, include_subtree=False,
+            include_names=True)
+
+    @test.create_mocks({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_get',
+                                       'role_assignments_list')})
+    def test_detail_view_role_assignments_tab_with_exception(self):
+        """Test the role assignments tab with exception.
+
+        The table is displayed empty and an error message pop if the role
+        assignment request fails.
+        """
+        domain = self._get_default_domain()
+        user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
+
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
+        self.mock_role_assignments_list.side_effect = self.exceptions.keystone
+
+        # Url of the role assignment tab of the detail view
+        url = USER_DETAIL_URL % [user.id]
+        detail_view = tabs.UserDetailTabs(self.request, user=user)
+        role_assignments_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("roleassignments").get_id()
+        )
+        url += role_assignments_tab_link
+
+        res = self.client.get(url)
+
+        # Check the role assignment table is empty
+        self.assertEqual(res.context["table"].data, [])
+        # Check one error message is displayed
+        self.assertMessageCount(res, error=1)
+
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
+        self.mock_role_assignments_list.assert_called_once_with(
+            test.IsHttpRequest(), user=user, include_subtree=False,
+            include_names=True)
+
     @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',
                                        'tenant_list',)})
