@@ -925,18 +925,35 @@ class UsersViewTests(test.BaseAdminViewTests):
     @test.create_mocks({api.keystone: ('domain_get',
                                        'user_get',
                                        'tenant_get',
-                                       'role_assignments_list')})
+                                       'role_assignments_list',
+                                       'group_list')})
     def test_detail_view_role_assignments_tab(self):
         """Test the role assignments tab of the detail view ."""
         domain = self._get_default_domain()
         user = self.users.get(id="1")
         tenant = self.tenants.get(id=user.project_id)
-        role_assignments = self.role_assignments.filter(user={'id': user.id})
+        user_role_assignments = self.role_assignments.filter(
+            user={'id': user.id})
+        user_group = self.groups.first()
+        group_role_assignments = self.role_assignments.filter(
+            group={'id': user_group.id})
 
         self.mock_domain_get.return_value = domain
         self.mock_user_get.return_value = user
         self.mock_tenant_get.return_value = tenant
-        self.mock_role_assignments_list.return_value = role_assignments
+        self.mock_group_list.return_value = [user_group]
+
+        def _role_assignments_list_side_effect(request, user=None, group=None,
+                                               include_subtree=False,
+                                               include_names=True):
+            # role assignments should be called twice, once with the user and
+            # another one with the group.
+            if group:
+                return group_role_assignments
+            return user_role_assignments
+
+        self.mock_role_assignments_list.side_effect = \
+            _role_assignments_list_side_effect
 
         # Url of the role assignment tab of the detail view
         url = USER_DETAIL_URL % [user.id]
@@ -954,7 +971,8 @@ class UsersViewTests(test.BaseAdminViewTests):
                                 "horizon/common/_detail_table.html")
 
         # Check the table contains the expected data
-        role_assignments_expected = role_assignments
+        role_assignments_expected = user_role_assignments
+        role_assignments_expected.extend(group_role_assignments)
         role_assignments_observed = res.context["table"].data
         self.assertItemsEqual(role_assignments_expected,
                               role_assignments_observed)
@@ -964,9 +982,13 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=False)
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      user.project_id)
-        self.mock_role_assignments_list.assert_called_once_with(
-            test.IsHttpRequest(), user=user, include_subtree=False,
-            include_names=True)
+        # role assignments should be called twice, once with the user and
+        # another one with the group.
+        calls = [mock.call(test.IsHttpRequest(), user=user,
+                           include_subtree=False, include_names=True),
+                 mock.call(test.IsHttpRequest(), group=user_group,
+                           include_subtree=False, include_names=True), ]
+        self.mock_role_assignments_list.assert_has_calls(calls)
 
     @test.create_mocks({api.keystone: ('domain_get',
                                        'user_get',

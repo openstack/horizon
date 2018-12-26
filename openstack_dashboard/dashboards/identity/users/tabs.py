@@ -47,20 +47,39 @@ class RoleAssignmentsTab(tabs.TableTab):
     def get_roleassignmentstable_data(self):
         user = self.tab_group.kwargs['user']
 
+        role_assignments = []
+
         try:
             # Get all the roles of the user
-            user_roles = api.keystone.role_assignments_list(
+            role_assignments = api.keystone.role_assignments_list(
                 self.request, user=user, include_subtree=False,
                 include_names=True)
-
-            return user_roles
 
         except Exception:
             exceptions.handle(
                 self.request,
                 _("Unable to display the role assignments of this user."))
+        else:
+            # Find all the role assignments through the groups of the user
+            try:
+                user_groups = api.keystone.group_list(
+                    self.request, user=user.id)
 
-        return []
+                # Get the role for each group of the user:
+                for group in user_groups:
+                    group_role_assignments = api.keystone. \
+                        role_assignments_list(
+                            self.request, group=group, include_subtree=False,
+                            include_names=True)
+
+                    role_assignments.extend(group_role_assignments)
+
+            except Exception:
+                exceptions.handle(
+                    self.request,
+                    _("Unable to display role assignment through groups."))
+
+        return role_assignments
 
 
 class GroupsTab(tabs.TableTab):
