@@ -109,7 +109,11 @@ horizon.modals.init_wizard = function () {
     }
 
     // Clear old errors.
-    $form.find('div.row div.alert-danger').parent().remove();
+    if ($form.find('div.row div.alert-danger').siblings().length == 0) {
+      $form.find('div.row div.alert-danger').parent().remove();
+    } else {
+      $form.find('div.row div.alert-danger').remove();
+    }
     $form.find('.form-group.has-error').each(function () {
       var $group = $(this);
       $group.removeClass('has-error');
