@@ -597,6 +597,20 @@ horizon.datatables.add_table_checkboxes = function($parent) {
   });
 };
 
+horizon.datatables.update_header_checkbox = function(table) {
+  var $multi_select_checkbox = table.find('.multi-select-header');
+
+  var $checkboxes = table.find('tbody tr:visible .table-row-multi-select');
+  if ($checkboxes.length == 0) {
+    $multi_select_checkbox.prop('checked', false);
+    $multi_select_checkbox.attr('disabled', true);
+  } else {
+    $multi_select_checkbox.removeAttr('disabled');
+    var not_checked = $checkboxes.not(':checked').length;
+    $multi_select_checkbox.prop('checked', not_checked == 0);
+  }
+};
+
 horizon.datatables.set_table_query_filter = function (parent) {
   horizon.datatables.qs = {};
   $(parent).find('table').each(function (index, elm) {
@@ -634,6 +648,7 @@ horizon.datatables.set_table_query_filter = function (parent) {
           horizon.datatables.update_footer_count(table);
           horizon.datatables.add_no_results_row(table);
           horizon.datatables.fix_row_striping(table);
+          horizon.datatables.update_header_checkbox(table);
         },
         prepareQuery: function (val) {
           return new RegExp(horizon.string.escapeRegex(val), "i");
