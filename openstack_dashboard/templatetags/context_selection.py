@@ -86,9 +86,10 @@ def show_project_list(context):
     request = context['request']
     projects = sorted(context['authorized_tenants'],
                       key=lambda project: project.name.lower())
+    panel = request.horizon.get('panel')
     context = {'projects': projects[:max_proj],
                'project_id': request.user.project_id,
-               'page_url': request.horizon.get('panel').get_absolute_url()}
+               'page_url': panel.get_absolute_url() if panel else None}
     return context
 
 
@@ -98,10 +99,11 @@ def show_region_list(context):
     if 'request' not in context:
         return {}
     request = context['request']
+    panel = request.horizon.get('panel')
     context = {'region_name': request.user.services_region,
                'regions': sorted(request.user.available_services_regions,
                                  key=lambda x: (x or '').lower()),
-               'page_url': request.horizon.get('panel').get_absolute_url()}
+               'page_url': panel.get_absolute_url() if panel else None}
     return context
 
 
