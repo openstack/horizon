@@ -21,6 +21,7 @@ from horizon.utils import secret_key
 
 from openstack_dashboard import enabled
 from openstack_dashboard import exceptions
+from openstack_dashboard import theme_settings
 from openstack_dashboard.utils import settings as settings_utils
 
 # this is used to protect from client XSS attacks, but it's worth
@@ -60,14 +61,8 @@ AVAILABLE_THEMES = [
         'themes/material'
     ),
 ]
-
-SELECTABLE_THEMES = [
-    (
-        'default',
-        pgettext_lazy('Default style theme', 'Default'),
-        'themes/default'
-    ),
-]
+AVAILABLE_THEMES, SELECTABLE_THEMES, DEFAULT_THEME = \
+    theme_settings.get_available_themes(AVAILABLE_THEMES, 'default', None)
 
 # Theme Static Directory
 THEME_COLLECTION_DIR = 'themes'
