@@ -1,0 +1,18 @@
+---
+deprecations:
+  - Keystone v2 API support in horizon will be dropped in Train release.
+    It was was removed from keystone in Queens release.
+  - Cinder consistency group support in horizon will be dropped in
+    Train release or later. It was deprecated in Pike release in Cinder
+    and was superseded by the generic group feature.
+    Horizon supports the generic group since Rocky release.
+  - Volume v2 API support is now deprecated. The API has been marked
+    as deprecated in cinder in favor of volume v3 API. Horizon will
+    drop volume v2 API support in a same release where cinder drops it.
+  - Glance v1 API support is now deprecated and will be dropped in
+    Train release at earliest. It was removed from glance in Rokcy release.
+  - Nova-network support will be dropped in Train release completely.
+    Horizon dropped nova-network floating IP and security gruop supports
+    in Queens release, but we still supports operations on server instances
+    created with nova-network. This deprecation means such support will be
+    dropped in the near future and horizon will assume neutron is deployed.
