@@ -1,0 +1,10 @@
+---
+upgrade:
+  - |
+    The default value of ``SHOW_KEYSTONE_V2_RC`` setting is changed to
+    ``False`` in favor of the deprecation of keystone v2 API support
+    in horizon.
+deprecations:
+  - |
+    ``SHOW_KEYSTONE_V2_RC`` setting is deprecated in favor of the deprecation
+    of keystone v2 API support in horizon.

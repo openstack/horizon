@@ -54,10 +54,18 @@ class DownloadCloudsYaml(tables.LinkAction):
 
 class DownloadOpenRC(tables.LinkAction):
     name = "download_openrc"
-    verbose_name = _("OpenStack RC File (Identity API v3)")
-    verbose_name_plural = _("OpenStack RC File (Identity API v3)")
+    verbose_name = _("OpenStack RC File")
+    verbose_name_plural = _("OpenStack RC File")
     icon = "download"
     url = "horizon:project:api_access:openrc"
+
+    def __init__(self, attrs=None, **kwargs):
+        super(DownloadOpenRC, self).__init__(attrs, **kwargs)
+        # When keystone v2 RC file is enabled, we need to show
+        # the version information of keystone API.
+        # Note that we don't need to care verbose_name_plural here.
+        if getattr(settings, 'SHOW_KEYSTONE_V2_RC', False):
+            self.verbose_name = _("OpenStack RC File (Identity API v3)")
 
     def allowed(self, request, datum=None):
         return utils.get_keystone_version() >= 3

@@ -112,7 +112,7 @@ WEBROOT = '/'
 # Toggle showing the openrc file for Keystone V2.
 # If set to false the link will be removed from the user dropdown menu
 # and the API Access page
-#SHOW_KEYSTONE_V2_RC = True
+#SHOW_KEYSTONE_V2_RC = False
 
 # If provided, a "Report Bug" link will be displayed in the site header
 # which links to the value of this setting (ideally a URL containing
