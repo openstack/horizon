@@ -47,6 +47,7 @@
     vars:
       devstack_localrc:
         TEMPEST_PLUGINS: "'{{ ansible_user_dir }}/src/git.openstack.org/openstack/tempest-horizon'"
+        USE_PYTHON3: true
       devstack_services:
         horizon: true
         tempest: true
