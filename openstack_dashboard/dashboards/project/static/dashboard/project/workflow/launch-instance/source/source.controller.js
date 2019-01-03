@@ -162,7 +162,11 @@
     };
 
     // Map Visibility data so we can decode true/false to Public/Private
-    var _visibilitymap = { true: gettext('Public'), false: gettext('Private') };
+    var _visibilitymap = { 'public': gettext('Public'),
+                           'private': gettext('Private'),
+                           'shared': gettext('Shared'),
+                           'community': gettext('Community')
+    };
 
     // Mapping for dynamic table data
     var tableBodyCellsMap = {
@@ -171,14 +175,14 @@
         { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
         { key: 'size', filter: bytesFilter, classList: ['number'] },
         { key: 'disk_format', filter: diskFormatFilter, filterRawData: true },
-        { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap }
+        { key: 'visibility', filter: decodeFilter, filterArg: _visibilitymap }
       ],
       snapshot: [
         { key: 'name', classList: ['hi-light', 'word-break'] },
         { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
         { key: 'size', filter: bytesFilter, classList: ['number'] },
         { key: 'disk_format', filter: diskFormatFilter, filterRawData: true },
-        { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap }
+        { key: 'visibility', filter: decodeFilter, filterArg: _visibilitymap }
       ],
       volume: [
         { key: 'name', classList: ['hi-light', 'word-break'] },
@@ -273,11 +277,13 @@
       },
       visibility: {
         label: gettext('Visibility'),
-        name: 'is_public',
+        name: 'visibility',
         singleton: true,
         options: [
-          { label: gettext('Public'), key: 'true' },
-          { label: gettext('Private'), key: 'false' }
+          { label: gettext('Public'), key: 'public' },
+          { label: gettext('Private'), key: 'private' },
+          { label: gettext('Shared With Project'), key: 'shared' },
+          { label: gettext('Community'), key: 'community' }
         ]
       },
       volumeType: {

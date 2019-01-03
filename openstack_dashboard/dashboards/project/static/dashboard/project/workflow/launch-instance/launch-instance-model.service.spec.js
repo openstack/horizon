@@ -430,8 +430,8 @@
           expect(model.initialized).toBe(true);
           expect(model.newInstanceSpec).toBeDefined();
 
-          expect(model.images.length).toBe(4);
-          expect(model.imageSnapshots.length).toBe(2);
+          expect(model.images.length).toBe(12);
+          expect(model.imageSnapshots.length).toBe(4);
           expect(model.availabilityZones.length).toBe(3); // 2 + 1 for 'nova pick'
           expect(model.flavors.length).toBe(2);
           expect(model.keypairs.length).toBe(2);

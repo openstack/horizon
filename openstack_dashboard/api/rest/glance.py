@@ -67,7 +67,8 @@ class Image(generic.View):
         :param min_disk: (optional) the minimum disk size
              for the image to boot with
         :param min_ram: (optional) the minimum ram for the image to boot with
-        :param visibility: (required) takes 'public', 'shared', and 'private'
+        :param visibility: (required) takes 'public', 'shared', 'private' and
+             'community'
         :param protected: (required) true if the image is protected
 
         Any parameters not listed above will be assigned as custom properties
@@ -202,7 +203,8 @@ class Images(generic.View):
         :param min_disk: (optional) the minimum disk size
              for the image to boot with
         :param min_ram: (optional) the minimum ram for the image to boot with
-        :param visibility: (required) takes 'public', 'private', and 'shared'
+        :param visibility: (required) takes 'public', 'private', 'shared', and
+             'community'
         :param protected: (required) true if the image is protected
         :param import_data: (optional) true to copy the image data
             to the image service or use it from the current location

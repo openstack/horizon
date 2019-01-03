@@ -493,7 +493,8 @@ def create_image_metadata(data):
     _handle_unknown_properties(data, properties)
 
     if ('visibility' in data and
-            data['visibility'] not in ['public', 'private', 'shared']):
+            data['visibility'] not in ['public', 'private', 'community',
+                                       'shared']):
         raise KeyError('invalid visibility option: %s' % data['visibility'])
     _normalize_is_public_filter(data)
 

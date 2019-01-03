@@ -399,7 +399,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
     def test_image_detail_custom_props_get_v1(self):
-        image = self.images.list()[8]
+        image = self.images.list()[9]
 
         self._test_image_detail_custom_props_get(image)
 

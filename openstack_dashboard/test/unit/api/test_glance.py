@@ -191,7 +191,7 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
 
-    @override_settings(API_RESULT_PAGE_SIZE=9)
+    @override_settings(API_RESULT_PAGE_SIZE=10)
     @mock.patch.object(api.glance, 'glanceclient')
     def test_image_list_detailed_pagination_equal_page_size(self,
                                                             mock_glanceclient):

@@ -186,6 +186,22 @@ def data(TEST):
                   'min_ram': 0}
     private_image3 = images.Image(images.ImageManager(None), image_dict)
 
+    # A community image. Not public and not local tenant, but visibility
+    # is set as 'community'
+    image_dict = {'id': '13682b34-fb85-4fe5-bd65-1e16305b45c9',
+                  'name': 'community_image 1',
+                  'status': "active",
+                  'size': 10 * 1024 ** 3,
+                  'virtual_size': None,
+                  'min_disk': 0,
+                  'owner': 'someothertenant',
+                  'container_format': 'aki',
+                  'is_public': False,
+                  'protected': False,
+                  'min_ram': 0,
+                  'visibility': 'community'}
+    community_image = images.Image(images.ImageManager(None), image_dict)
+
     # A shared image. Not public and not local tenant.
     image_dict = {'id': 'c8756975-7a3b-4e43-b7f7-433576112849',
                   'name': 'shared_image 1',
@@ -244,7 +260,8 @@ def data(TEST):
 
     TEST.images_api.add(public_image, private_image, protected_image,
                         public_image2, private_image2, private_image3,
-                        shared_image1, official_image1, multi_prop_image)
+                        community_image, shared_image1, official_image1,
+                        multi_prop_image)
 
     TEST.images.add(api.glance.Image(public_image),
                     api.glance.Image(private_image),
@@ -252,6 +269,7 @@ def data(TEST):
                     api.glance.Image(public_image2),
                     api.glance.Image(private_image2),
                     api.glance.Image(private_image3),
+                    api.glance.Image(community_image),
                     api.glance.Image(shared_image1),
                     api.glance.Image(official_image1),
                     api.glance.Image(multi_prop_image))
