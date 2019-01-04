@@ -102,9 +102,7 @@
 
     function perform() {
       getKeypairs();
-      model = {
-        name: ""
-      };
+      model = {};
       var config = {
         "title": caption,
         "submitText": caption,

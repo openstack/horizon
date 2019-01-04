@@ -109,7 +109,6 @@
     function perform() {
       getKeypairs();
       model = {
-        name: "",
         public_key: ""
       };
       var config = {
