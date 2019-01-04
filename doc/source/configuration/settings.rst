@@ -1671,6 +1671,7 @@ Default:
         'enable_ha_router': False,
         'enable_ipv6': True,
         'enable_quotas': False,
+        'enable_rbac_policy': True,
         'enable_router': True,
         'extra_provider_types': {},
         'physical_networks': [],
@@ -1774,6 +1775,16 @@ Default: ``False``
 Enable support for Neutron quotas feature. To make this feature work
 appropriately, you need to use Neutron plugins with quotas extension support
 and quota_driver should be DbQuotaDriver (default config).
+
+enable_rbac_policy
+##################
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``True``
+
+Set this to True to enable RBAC Policies panel that provide the ability for
+users to use RBAC function. This option only affects when Neutron is enabled.
 
 enable_router
 #############

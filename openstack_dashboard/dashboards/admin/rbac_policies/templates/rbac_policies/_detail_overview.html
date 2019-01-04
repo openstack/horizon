@@ -1,0 +1,18 @@
+{% load i18n sizeformat %}
+
+<div class="info detail">
+  <dl class="dl-horizontal">
+    <dt title="{% trans 'ID' %}">{% trans "ID" %}</dt>
+    <dd>{{ rbac_policy.id|default:_("None") }}</dd>
+    <dt title="{% trans 'Project ID' %}">{% trans "Project ID" %}</dt>
+    <dd>{{ rbac_policy.project_id|default:_("-") }}</dd>
+    <dt title="{% trans 'Object Type' %}">{% trans "Object Type" %}</dt>
+    <dd>{{ rbac_policy.object_type|default:_("Unknown") }}</dd>
+    <dt title="{% trans 'Object ID' %}">{% trans "Object ID" %}</dt>
+    <dd>{{ rbac_policy.object_id|default:_("Unknown") }}</dd>
+    <dt title="{% trans 'Action' %}">{% trans "Action" %}</dt>
+    <dd>{{ rbac_policy.action|default:_("Unknown") }}</dd>
+    <dt title="{% trans 'Target Tenant' %}">{% trans "Target Tenant" %}</dt>
+    <dd>{{ rbac_policy.target_tenant|default:_("None") }}</dd>
+  </dl>
+</div>

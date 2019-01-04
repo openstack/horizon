@@ -45,6 +45,7 @@ def data(TEST):
     TEST.neutron_quota_usages = utils.TestDataContainer()
     TEST.ip_availability = utils.TestDataContainer()
     TEST.qos_policies = utils.TestDataContainer()
+    TEST.rbac_policies = utils.TestDataContainer()
     TEST.tp_ports = utils.TestDataContainer()
     TEST.neutron_availability_zones = utils.TestDataContainer()
 
@@ -66,6 +67,7 @@ def data(TEST):
     TEST.api_monitors = utils.TestDataContainer()
     TEST.api_extensions = utils.TestDataContainer()
     TEST.api_ip_availability = utils.TestDataContainer()
+    TEST.api_rbac_policies = utils.TestDataContainer()
     TEST.api_qos_policies = utils.TestDataContainer()
     TEST.api_tp_trunks = utils.TestDataContainer()
     TEST.api_tp_ports = utils.TestDataContainer()
@@ -772,6 +774,26 @@ def data(TEST):
                     'tenant_id': '1'}
     TEST.api_qos_policies.add(policy_dict1)
     TEST.qos_policies.add(neutron.QoSPolicy(policy_dict1))
+
+    # rbac policies
+    rbac_policy_dict = {"project_id": "1",
+                        "object_type": "network",
+                        "id": "7f27e61a-9863-448a-a769-eb922fdef3f8",
+                        "object_id": "82288d84-e0a5-42ac-95be-e6af08727e42",
+                        "target_tenant": "2",
+                        "action": "access_as_external",
+                        "tenant_id": "1"}
+    TEST.api_rbac_policies.add(rbac_policy_dict)
+    TEST.rbac_policies.add(neutron.RBACPolicy(rbac_policy_dict))
+    rbac_policy_dict1 = {"project_id": "1",
+                         "object_type": "qos_policy",
+                         "id": "7f27e61a-9863-448a-a769-eb922fdef3f8",
+                         "object_id": "a21dcd22-7189-cccc-aa32-22adafaf16a7",
+                         "target_tenant": "2",
+                         "action": "access_as_shared",
+                         "tenant_id": "1"}
+    TEST.api_rbac_policies.add(rbac_policy_dict1)
+    TEST.rbac_policies.add(neutron.RBACPolicy(rbac_policy_dict1))
 
     # TRUNKPORT
     #
