@@ -84,8 +84,8 @@ Code that isn't shared beyond a single dashboard is placed in
 enabled or disabled using Horizon's plugin mechanism. Therefore no dashboards
 other than ``mydashboard`` can safely use this code.
 
-The ``openstack_dashboard/dashboards/static`` directory structure determines
-how the code is deployed and matches the module structure.
+The ``openstack_dashboard/dashboards/mydashboard/static`` directory structure
+determines how the code is deployed and matches the module structure.
 For example:
 ::
 
