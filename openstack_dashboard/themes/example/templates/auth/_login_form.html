@@ -1,0 +1,9 @@
+{% extends "auth/_login_form.html" %}
+
+{% block login_footer %}
+  {% comment %}
+    You MUST have block.super because that includes the login button.
+  {% endcomment %}
+ {{ block.super }}
+  <p>My custom login form footer</p>
+{% endblock %}
