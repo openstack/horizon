@@ -2,7 +2,7 @@
 testcommand="${1} ${2}/manage.py test"
 posargs="${@:3}"
 
-tagarg="--exclude-tag selenium --exclude-tag integration"
+tagarg="--exclude-tag selenium --exclude-tag integration --exclude-tag plugin-test"
 
 if [[ -n "${WITH_SELENIUM}" ]]
 then
@@ -34,6 +34,8 @@ if [ -n "$subset" ]; then
     $testcommand --settings=openstack_dashboard.test.settings --verbosity 2 $tagarg $posargs
   elif [ $project == "openstack_auth" ]; then
     $testcommand --settings=openstack_auth.tests.settings --verbosity 2 $tagarg $posargs
+  elif [ $project == "plugin-test" ]; then
+    $testcommand --settings=openstack_dashboard.test.settings --verbosity 2 --tag plugin-test openstack_dashboard.test.test_plugins
   fi
 else
   $testcommand horizon --settings=horizon.test.settings --verbosity 2 $tagarg $posargs
@@ -42,9 +44,11 @@ else
   openstack_dashboard_tests=$?
   $testcommand openstack_auth --settings=openstack_auth.tests.settings --verbosity 2 $tagarg $posargs
   auth_tests=$?
+  $testcommand --settings=openstack_dashboard.test.settings --verbosity 2 --tag plugin-test openstack_dashboard.test.test_plugins
+  plugin_tests=$?
   # we have to tell tox if either of these test runs failed
   if [[ $horizon_tests != 0 || $openstack_dashboard_tests != 0 || \
-    $auth_tests != 0 ]]; then
+    $auth_tests != 0 || $plugin_tests != 0 ]]; then
     exit 1;
   fi
 fi

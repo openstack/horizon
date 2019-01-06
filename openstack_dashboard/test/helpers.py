@@ -537,6 +537,13 @@ def my_custom_sort(flavor):
     return sort_order[flavor.name]
 
 
+# TODO(amotoki): Investigate a way to run PluginTestCase with the main
+# unit tests. Currently we fail to find a way to clean up urlpatterns and
+# Site registry touched by setUp() cleanly. As a workaround, we run
+# PluginTestCase as a separate test process. Hopefully this workaround has gone
+# in future. For more detail, see bug 1809983 and
+# https://review.openstack.org/#/c/627640/.
+@tag('plugin-test')
 class PluginTestCase(TestCase):
     """Test case for testing plugin system of Horizon.
 
