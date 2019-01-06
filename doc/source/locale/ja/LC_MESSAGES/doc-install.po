@@ -1,9 +1,9 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev33\n"
+"Project-Id-Version: horizon 15.0.0.0b2.dev188\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 17:10-0600\n"
+"POT-Creation-Date: 2019-01-05 09:24-0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -454,9 +454,6 @@ msgstr ""
 msgid "Translations"
 msgstr "翻訳"
 
-msgid "TripleO UI"
-msgstr "TripleO UI"
-
 msgid "Trove Dashboard"
 msgstr "Trove Dashboard"
 
@@ -616,9 +613,6 @@ msgstr "https://github.com/openstack/solum-dashboard"
 msgid "https://github.com/openstack/tacker-horizon"
 msgstr "https://github.com/openstack/tacker-horizon"
 
-msgid "https://github.com/openstack/tripleo-ui/"
-msgstr "https://github.com/openstack/tripleo-ui/"
-
 msgid "https://github.com/openstack/trove-dashboard"
 msgstr "https://github.com/openstack/trove-dashboard"
 
@@ -690,9 +684,6 @@ msgstr "https://launchpad.net/solum"
 
 msgid "https://launchpad.net/tacker"
 msgstr "https://launchpad.net/tacker"
-
-msgid "https://launchpad.net/tripleo"
-msgstr "https://launchpad.net/tripleo"
 
 msgid "https://launchpad.net/trove-dashboard"
 msgstr "https://launchpad.net/trove-dashboard"

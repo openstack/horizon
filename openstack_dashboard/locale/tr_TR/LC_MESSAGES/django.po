@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-12-26 19:24+0000\n"
+"POT-Creation-Date: 2019-01-05 15:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2159,6 +2159,9 @@ msgstr "İsim Uzayı Özniteliklerini Düzenle"
 
 msgid "Edit Network"
 msgstr "Ağ Değiştir"
+
+msgid "Edit Policy"
+msgstr "İlke Düzenle"
 
 msgid "Edit Port"
 msgstr "Bağlantı Noktası Düzenle"
