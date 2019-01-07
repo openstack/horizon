@@ -10,29 +10,47 @@ from django.views.decorators.debug import sensitive_post_parameters
 from openstack_auth import utils
 from openstack_auth import exceptions
 from openstack_auth import user as auth_user
-# from openstack_auth import views
+from django.conf import settings
+import six
 
 LOG = logging.getLogger(__name__)
+
+@sensitive_post_parameters()
+@csrf_protect
+@never_cache
+def login(request, template_name=None, extra_context=None, **kwargs):
+    if not request.user.is_authenticated():
+        host = getattr(settings, 'SSO_CALLBACK_HOST', None)
+        cc_portal_url = getattr(settings, 'CHAMELEON_PORTAL_SSO_URL', None)
+        if(host is None or cc_portal_url is None):
+            LOG.error('Misconfigured CC Portal SSO, settings:, '
+                + 'CHAMELEON_PORTAL_SSO_URL: ' + str(cc_portal_url) + ', SSO_CALLBACK_HOST: ' + str(host))
+            raise Exception('SSO Login Error')
+        next = ''
+        if request.GET.get('next'):
+            next = '&next=' + request.GET.get('next')
+        login_url = cc_portal_url + '?host=' + host
+        return django_http.HttpResponseRedirect(login_url)
+    return openstack_auth.views.login(request, template_name=None, extra_context=None, **kwargs)
 
 @sensitive_post_parameters()
 @csrf_exempt
 @never_cache
 def cc_websso(request):
-    print('######################## HTTP_REFERER= ' + request.META['HTTP_REFERER'])
     """Logs a user in using a token from Keystone's POST."""
     request.META['HTTP_REFERER'] = settings.OPENSTACK_KEYSTONE_URL
     referer = settings.OPENSTACK_KEYSTONE_URL
     LOG.info(referer)
     auth_url = utils.clean_up_auth_url(referer)
-    LOG.info('auth url: ' + auth_url)
     token = request.POST.get('token')
     LOG.info('token: ' + token)
     try:
-        request.user = auth.authenticate(request=request, auth_url=auth_url,
-                                         token=token)
+        request.user = auth.authenticate(request=request, auth_url=auth_url, token=token)
     except exceptions.KeystoneAuthException as exc:
+        # logger.error('Login failed: %s' % six.text_type(exc))
+        # raise exc
         msg = 'Login failed: %s' % six.text_type(exc)
-        res = django_http.HttpResponseRedirect(settings.LOGIN_URL)
+        res = django_http.HttpResponseRedirect(settings.LOGOUT_URL)
         res.set_cookie('logout_reason', msg, max_age=10)
         return res
 

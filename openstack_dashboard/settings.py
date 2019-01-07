@@ -375,9 +375,9 @@ OPENSTACK_IMAGE_FORMATS = [fmt for (fmt, name)
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'
 if LOGIN_URL is None:
-    LOGIN_URL = 'http://localhost:8888/sso/horizon/' #WEBROOT + 'auth/login/'
+    LOGIN_URL = WEBROOT + 'auth/login/'
 if LOGOUT_URL is None:
-    LOGOUT_URL = WEBROOT + 'auth/ccwebsso/logout/'
+    LOGOUT_URL = WEBROOT + 'auth/logout/'
 if LOGIN_REDIRECT_URL is None:
     LOGIN_REDIRECT_URL = WEBROOT
 

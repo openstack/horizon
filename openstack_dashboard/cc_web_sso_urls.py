@@ -7,7 +7,7 @@ utils.patch_middleware_get_user()
 
 
 urlpatterns = [
-    url(r"^login/$", views.login, name='login'),
+    url(r"^login/$", cc_websso_views.login, name='login'),
     url(r"^logout/$", cc_websso_views.logout, name='logout'),
     url(r'^switch/(?P<tenant_id>[^/]+)/$', views.switch,
         name='switch_tenants'),
@@ -20,7 +20,6 @@ urlpatterns = [
 ]
 
 if utils.is_websso_enabled():
-    print('IN virtualenv LOGIN urls.py')
     urlpatterns.append(url(r"^websso/$", views.websso, name='websso'))
 
 if utils.is_websso_enabled():
