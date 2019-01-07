@@ -657,8 +657,8 @@ class UpdateForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         volume_id = self.initial['volume_id']
         try:
-            cinder.volume_update(request, volume_id, data['name'],
-                                 data['description'])
+            volume = cinder.volume_update(request, volume_id, data['name'],
+                                          data['description'])
         except Exception:
             redirect = reverse("horizon:project:volumes:index")
             exceptions.handle(request,
@@ -676,7 +676,8 @@ class UpdateForm(forms.SelfHandlingForm):
                                   _('Unable to set bootable flag on volume.'),
                                   redirect=redirect)
 
-        message = _('Updating volume "%s"') % data['name']
+        name_or_id = volume["volume"]["name"] or volume["volume"]["id"]
+        message = _('Updating volume "%s"') % name_or_id
         messages.info(request, message)
         return True
 
