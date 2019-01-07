@@ -92,6 +92,7 @@ class LaunchVolumeNG(LaunchVolume):
 class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
     help_text = _("Deleted volumes are not recoverable. "
                   "All data stored in the volume will be removed.")
+    default_message_level = "info"
 
     @staticmethod
     def action_present(count):

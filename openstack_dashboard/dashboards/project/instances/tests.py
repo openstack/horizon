@@ -5047,7 +5047,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         res = self.client.post(next_page_url, formData)
 
         self.assertRedirectsNoFollow(res, next_page_url)
-        self.assertMessageCount(success=1)
+        self.assertMessageCount(info=1)
 
         search_opts = {'marker': servers[page_size - 1].id, 'paginate': True}
         self.mock_server_list_paged.assert_called_once_with(

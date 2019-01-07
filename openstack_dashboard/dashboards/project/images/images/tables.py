@@ -85,6 +85,7 @@ class DeleteImage(tables.DeleteAction):
     # NOTE: The bp/add-batchactions-help-text
     # will add appropriate help text to some batch/delete actions.
     help_text = _("Deleted images are not recoverable.")
+    default_message_level = "info"
 
     @staticmethod
     def action_present(count):

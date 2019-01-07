@@ -83,6 +83,7 @@ def is_deleting(instance):
 class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
     policy_rules = (("compute", "os_compute_api:servers:delete"),)
     help_text = _("Deleted instances are not recoverable.")
+    default_message_level = "info"
 
     @staticmethod
     def action_present(count):

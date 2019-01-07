@@ -657,6 +657,7 @@ class BatchAction(Action):
     """
 
     help_text = _("This action cannot be undone.")
+    default_message_level = "success"
 
     def __init__(self, **kwargs):
         super(BatchAction, self).__init__(**kwargs)
@@ -798,8 +799,7 @@ class BatchAction(Action):
                     'Action %(action)s Failed for %(reason)s', {
                         'action': action_description, 'reason': ex})
 
-        # Begin with success message class, downgrade to info if problems.
-        success_message_level = messages.success
+        success_message_level = getattr(messages, self.default_message_level)
         if action_not_allowed:
             msg = _('You are not allowed to %(action)s: %(objs)s')
             params = {"action":
