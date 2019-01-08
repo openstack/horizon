@@ -501,6 +501,74 @@ class NetworkPortTests(test.TestCase):
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest(), tenant_id='1')
 
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'security_group_list',
+                                      'is_extension_supported')})
+    def test_port_create_post_designated_subnet(self):
+        network = self.networks.first()
+        port = self.ports.first()
+        self.mock_network_get.return_value = self.networks.first()
+        self._stub_is_extension_supported({'binding': False,
+                                           'mac-learning': False,
+                                           'port-security': False})
+        self.mock_security_group_list.return_value = \
+            self.security_groups.list()
+        form_data = {'network_id': port.network_id,
+                     'network_name': network.name,
+                     'name': port.name,
+                     'admin_state': port.admin_state_up,
+                     'device_id': port.device_id,
+                     'device_owner': port.device_owner,
+                     'specify_ip': 'subnet_id',
+                     'subnet_id': "",
+                     'mac_address': port.mac_address}
+        url = reverse('horizon:project:networks:addport',
+                      args=[port.network_id])
+        res = self.client.post(url, form_data)
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "This field is required.")
+        self._check_is_extension_supported({'binding': 1,
+                                            'mac-learning': 1,
+                                            'port-security': 1})
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id='1')
+        self.mock_network_get.assert_called_with(test.IsHttpRequest(),
+                                                 network.id)
+
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'security_group_list',
+                                      'is_extension_supported')})
+    def test_port_create_post_designated_fixed_ip(self):
+        network = self.networks.first()
+        port = self.ports.first()
+        self.mock_network_get.return_value = self.networks.first()
+        self._stub_is_extension_supported({'binding': False,
+                                           'mac-learning': False,
+                                           'port-security': False})
+        self.mock_security_group_list.return_value = \
+            self.security_groups.list()
+        form_data = {'network_id': port.network_id,
+                     'network_name': network.name,
+                     'name': port.name,
+                     'admin_state': port.admin_state_up,
+                     'device_id': port.device_id,
+                     'device_owner': port.device_owner,
+                     'specify_ip': 'fixed_ip',
+                     'fixed_ip': "",
+                     'mac_address': port.mac_address}
+        url = reverse('horizon:project:networks:addport',
+                      args=[port.network_id])
+        res = self.client.post(url, form_data)
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "This field is required.")
+        self._check_is_extension_supported({'binding': 1,
+                                            'mac-learning': 1,
+                                            'port-security': 1})
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id='1')
+        self.mock_network_get.assert_called_with(test.IsHttpRequest(),
+                                                 network.id)
+
     def test_port_create_post_exception(self):
         self._test_port_create_post_exception()
 
