@@ -1,0 +1,110 @@
+# Horace Li <haoyang@openstack.org>, 2019. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 15.0.0.0b2.dev191\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-07 04:22-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2019-01-07 12:56+0000\n"
+"Last-Translator: Horace Li <haoyang@openstack.org>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh_CN\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+msgid ""
+"A Python class representing a sub-navigation item (e.g. \"instances\") which "
+"contains all the necessary logic (views, forms, tests, etc.) for that "
+"interface."
+msgstr ""
+"表示一个子导航项 (例如“实例”)的一个 Python 类，它包含该接口的所有必要逻辑（视"
+"图，表单，测试等）。"
+
+msgid ""
+"A Python class representing a top-level navigation item (e.g. \"project\") "
+"which provides a consistent API for Horizon-compatible applications."
+msgstr ""
+"表示一个顶层导航项 (例如“项目”) 的一个 Python 类，它为 Horizon 兼容的应用提供"
+"了一致的API。"
+
+msgid "Contributor Docs"
+msgstr "贡献者文档"
+
+msgid "Dashboard"
+msgstr "仪表板"
+
+msgid ""
+"For a more in-depth look at Horizon and its architecture, see the :ref:"
+"`contributor-intro`."
+msgstr "有关Horizon及其架构的更深入了解，参阅： :ref:`quickstart`。"
+
+msgid ""
+"For those wishing to develop Horizon itself, or go in-depth with building "
+"your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes, the "
+"following documentation is provided."
+msgstr ""
+"对于那些希望开发 Horizon 本身的开发者，或者想深入了解构建自己的 :class:"
+"`~horizon.Dashboard` 或者 :class:`~horizon.Panel` 类，以下文档被提供。"
+
+msgid "Glossary"
+msgstr "术语表"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid ""
+"Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>`_, which provides a web based user interface "
+"to OpenStack services including Nova, Swift, Keystone, etc."
+msgstr ""
+"Horizon 是 `OpenStack 仪表板 <https://github.com/openstack/horizon>`_ 的规范"
+"实现，它为 OpenStack 服务，包括 Nova，Swift，Keystone 等，提供了基于网络的用"
+"户界面。"
+
+msgid "Horizon: The OpenStack Dashboard Project"
+msgstr "Horizon：OpenStack 仪表板项目"
+
+msgid "How to use Horizon in your own projects."
+msgstr "如何在你自己的项目中使用 Horizon"
+
+msgid "Information"
+msgstr "信息"
+
+msgid "Introduction"
+msgstr "介绍"
+
+msgid "Panel"
+msgstr "面板"
+
+msgid "Project"
+msgstr "项目"
+
+msgid "Release Notes"
+msgstr "发行说明"
+
+msgid "See https://docs.openstack.org/releasenotes/horizon/."
+msgstr "参见 https://docs.openstack.org/releasenotes/horizon/。"
+
+msgid ""
+"The OpenStack dashboard project. Also the name of the top-level Python "
+"object which handles registration for the app."
+msgstr "OpenStack 仪表板项目。也是处理应用注册的顶层 Python 对象的名字。"
+
+msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
+msgstr "要了解你需要了解的内容，参阅： :ref:`quickstart`。"
+
+msgid ""
+"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
+"word."
+msgstr "被使用在面向用户的文本里代替 Keystone 的术语“租户”。"
+
+msgid "Using Horizon"
+msgstr "使用 Horizon"
