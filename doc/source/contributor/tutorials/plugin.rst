@@ -154,8 +154,8 @@ _31000_myplugin.py::
 
 ..  Note ::
 
-  Currently, AUTO_DISCOVER_STATIC_FILES = True will only discover JavaScript files,
-  not SCSS files.
+  Currently, ``AUTO_DISCOVER_STATIC_FILES = True`` will only discover
+  JavaScript files, not SCSS files.
 
 my_rest_api.py
 --------------
@@ -242,8 +242,7 @@ AngularJS section below.::
     {% block title %}{% trans "My plugin" %}{% endblock %}
 
     {% block page_header %}
-      {% include "horizon/common/_domain_page_header.html"
-        with title=_("My Panel") %}
+      {% include "horizon/common/_domain_page_header.html" with title=_("My Panel") %}
     {% endblock page_header %}
 
     {% block main %}
@@ -296,7 +295,7 @@ setup.cfg
     author = myname
     author_email = myemail
     home-page = https://docs.openstack.org/horizon/latest/
-    classifiers = [
+    classifier =
         Environment :: OpenStack
         Framework :: Django
         Intended Audience :: Developers
@@ -306,6 +305,7 @@ setup.cfg
         Programming Language :: Python
         Programming Language :: Python :: 2
         Programming Language :: Python :: 2.7
+        Programming Language :: Python :: 3
         Programming Language :: Python :: 3.5
 
     [files]
@@ -343,16 +343,15 @@ panel.
     {% endblock page_header %}
 
     {% block main %}
-      <ng-include
-        src="'{{ STATIC_URL }}dashboard/identity/myplugin/mypanel/mypanel.html'">
+      <ng-include src="'{{ STATIC_URL }}dashboard/identity/myplugin/mypanel/mypanel.html'">
       </ng-include>
     {% endblock %}
 
 This template contains both Django and AngularJS code. Angular is denoted by
-{$..$} while Django is denoted by {{..}} and {%..%}. This template gets
-processed twice, once by Django on the server-side and once more by Angular on
-the client-side. This means that the expressions in {{..}} and {%..%} are
-substituted with values by the time it reaches your Angular template.
+``{$..$}`` while Django is denoted by ``{{..}}`` and ``{%..%}``. This template
+gets processed twice, once by Django on the server-side and once more by Angular
+on the client-side. This means that the expressions in ``{{..}}`` and ``{%..%}``
+are substituted with values by the time it reaches your Angular template.
 
 What you chose to include in ``block main`` is entirely up to you. Since you are
 creating an Angular plugin, we recommend that you keep everything in this
