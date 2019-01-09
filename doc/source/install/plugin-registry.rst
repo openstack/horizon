@@ -93,7 +93,7 @@ Plugin Registry
      - https://launchpad.net/trove-dashboard
    * - Vitrage Dashboard
      - https://github.com/openstack/vitrage-dashboard
-     - https://launchpad.net/vitrage-dashboard
+     - https://storyboard.openstack.org/#!/project/openstack/vitrage-dashboard
    * - Watcher Dashboard
      - https://github.com/openstack/watcher-dashboard
      - https://launchpad.net/watcher-dashboard
