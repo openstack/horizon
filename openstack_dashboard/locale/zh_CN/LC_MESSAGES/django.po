@@ -27,16 +27,17 @@
 # Boxiang Zhu <zhu.boxiang@99cloud.net>, 2018. #zanata
 # Tony <tfu@redhat.com>, 2018. #zanata
 # vuuv <froms2008@gmail.com>, 2018. #zanata
+# Horace Li <haoyang@openstack.org>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-01-05 15:24+0000\n"
+"POT-Creation-Date: 2019-01-08 18:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-24 04:57+0000\n"
-"Last-Translator: vuuv <froms2008@gmail.com>\n"
+"PO-Revision-Date: 2019-01-09 05:21+0000\n"
+"Last-Translator: Horace Li <haoyang@openstack.org>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -330,7 +331,7 @@ msgstr "运行中"
 
 msgctxt "Current status of an Image"
 msgid "Active"
-msgstr "运行中"
+msgstr "可用的"
 
 msgctxt "Current status of an Instance"
 msgid "Active"
@@ -4393,6 +4394,9 @@ msgstr "打开端口/端口范围："
 
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profiler"
+
+msgid "OpenStack RC File"
+msgstr "OpenStack RC 文件"
 
 msgid "OpenStack RC File (Identity API v2.0)"
 msgstr "OpenStack RC 文件（认证API v2.0）"
