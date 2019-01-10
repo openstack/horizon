@@ -185,7 +185,7 @@ INSTALLED_APPS = [
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
-AUTHENTICATION_URLS = ['openstack_dashboard.cc_web_sso_urls','openstack_auth.urls',]
+AUTHENTICATION_URLS = ['openstack_auth.urls',]
 AUTH_USER_MODEL = 'openstack_auth.User'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
 

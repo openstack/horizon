@@ -10,7 +10,6 @@ from django.views.decorators.debug import sensitive_post_parameters
 from openstack_auth import utils
 from openstack_auth import exceptions
 from openstack_auth import user as auth_user
-from django.conf import settings
 import six
 
 LOG = logging.getLogger(__name__)
@@ -21,15 +20,16 @@ LOG = logging.getLogger(__name__)
 def login(request, template_name=None, extra_context=None, **kwargs):
     if not request.user.is_authenticated():
         host = getattr(settings, 'SSO_CALLBACK_HOST', None)
-        cc_portal_url = getattr(settings, 'CHAMELEON_PORTAL_SSO_URL', None)
+        cc_portal_url = getattr(settings, 'CHAMELEON_PORTAL_SSO_BASE_URL', None) + getattr(settings, 'CHAMELEON_PORTAL_SSO_LOGIN_PATH', None)
         if(host is None or cc_portal_url is None):
             LOG.error('Misconfigured CC Portal SSO, settings:, '
                 + 'CHAMELEON_PORTAL_SSO_URL: ' + str(cc_portal_url) + ', SSO_CALLBACK_HOST: ' + str(host))
             raise Exception('SSO Login Error')
-        next = ''
-        if request.GET.get('next'):
-            next = '&next=' + request.GET.get('next')
         login_url = cc_portal_url + '?host=' + host
+        if request.GET.get('next'):
+            login_url += '&next=' + request.GET.get('next')
+        if getattr(settings, 'WEBROOT', None) and getattr(settings, 'WEBROOT', None) != '/':
+            login_url += '&webroot=' + getattr(settings, 'WEBROOT', '')
         return django_http.HttpResponseRedirect(login_url)
     return openstack_auth.views.login(request, template_name=None, extra_context=None, **kwargs)
 
@@ -77,6 +77,9 @@ def logout(request, login_url=None, **kwargs):
     msg = 'Logging out user "%(username)s".' % \
         {'username': request.user.username}
     LOG.info(msg)
+    cc_logout_url = getattr(settings, 'CHAMELEON_PORTAL_SSO_BASE_URL', 'https://www.chameleoncloud.org') \
+        + getattr(settings, 'CHAMELEON_PORTAL_SSO_LOGOUT_PATH', '/logout/')
+    extra_context = {'cc_logout_url': cc_logout_url}
 
     """ Securely logs a user out. """
-    return django_auth_views.logout(request, template_name='auth/logout.html')
+    return django_auth_views.logout(request, template_name='auth/logout.html', extra_context=extra_context)
