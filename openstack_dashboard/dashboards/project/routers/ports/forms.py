@@ -26,6 +26,7 @@ LOG = logging.getLogger(__name__)
 
 
 class AddInterface(forms.SelfHandlingForm):
+    use_required_attribute = False
     subnet_id = forms.ThemableChoiceField(label=_("Subnet"))
     ip_address = forms.IPField(
         label=_("IP Address (optional)"), required=False, initial="",
