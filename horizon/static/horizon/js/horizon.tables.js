@@ -85,8 +85,12 @@ horizon.datatables = {
                 .addClass('progress progress-striped active')
                 .appendTo($container);
 
+              // Incomplete progress bar addition
+              $width = $new_row.find('[percent]:first').attr('percent') || "100%";
+
               $(document.createElement('div'))
                 .addClass('progress-bar')
+                .css("width", $width)
                 .appendTo($progress);
 
               // if action/confirm is required, show progress-bar with "?"

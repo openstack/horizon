@@ -88,6 +88,15 @@ TEST_DATA_7 = (
                'not wrapped optional'),
 )
 
+TEST_DATA_8 = (
+    FakeObject('1', 'object_1', 'value_1',
+               'started', 'optional_1', 'excluded_1'),
+    FakeObject('2', 'object_1', 'value_1',
+               'half', 'optional_1', 'excluded_1'),
+    FakeObject('3', 'object_1', 'value_1',
+               'finished', 'optional_1', 'excluded_1'),
+)
+
 
 class MyLinkAction(tables.LinkAction):
     name = "login"
@@ -123,6 +132,14 @@ class MyRowSelectable(tables.Row):
 
     def can_be_selected(self, datum):
         return datum.value != 'DELETED'
+
+
+class MyRowSortable(tables.Row):
+    ajax = True
+
+    @classmethod
+    def get_data(cls, request, obj_id):
+        return TEST_DATA_8[0]
 
 
 class MyRow(tables.Row):
@@ -300,6 +317,23 @@ class MyTable(tables.DataTable):
                          MyBatchActionWithHelpText)
         row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction,
                        MyBatchActionWithHelpText)
+
+
+class MyProgressTable(MyTable):
+    tooltip_dict = {'started': {'percent': '10%'},
+                    'half': {'percent': '50%'},
+                    'finished': {'percent': '100%'}}
+    status = tables.Column('status', truncate=35,
+                           status=True,
+                           cell_attributes_getter=tooltip_dict.get)
+
+    class Meta(object):
+        name = "my_table"
+        verbose_name = "My Table"
+        status_columns = ["status"]
+        columns = ('id', 'name', 'value', 'optional', 'status')
+        row_class = MyRowSortable
+        column_class = MyColumn
 
 
 class TableWithColumnsPolicy(tables.DataTable):
@@ -714,6 +748,31 @@ class DataTableTests(test.TestCase):
         self.assertContains(resp_optional, 'not wrapped optional', 1)
         self.assertNotContains(resp_optional, '<ul>')
         self.assertNotContains(resp_optional, '</ul>')
+
+    def test_progress_bar_rendering(self):
+        self.table = MyProgressTable(self.request, TEST_DATA_8)
+        row = self.table.get_rows()[0]
+        status_cell0 = row.cells['status']
+        row = self.table.get_rows()[1]
+        status_cell1 = row.cells['status']
+        row = self.table.get_rows()[2]
+        status_cell2 = row.cells['status']
+
+        # Check if is cell is rendered correctly.
+        status_cell0_rendered = status_cell0.render()
+        resp = http.HttpResponse(status_cell0_rendered)
+        self.assertContains(resp, 'warning', 1)
+        self.assertContains(resp, 'percent="10%"', 1)
+
+        status_cell1_rendered = status_cell1.render()
+        resp = http.HttpResponse(status_cell1_rendered)
+        self.assertContains(resp, 'warning', 1)
+        self.assertContains(resp, 'percent="50%"', 1)
+
+        status_cell2_rendered = status_cell2.render()
+        resp = http.HttpResponse(status_cell2_rendered)
+        self.assertContains(resp, 'warning', 1)
+        self.assertContains(resp, 'percent="100%"', 1)
 
     def test_inline_edit_mod_checkbox_with_label(self):
         class TempTable(MyTable):
