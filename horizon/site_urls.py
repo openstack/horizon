@@ -19,6 +19,8 @@
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
+from django.utils import timezone
+from django.views.decorators.http import last_modified
 from django.views.generic import TemplateView
 from django.views import i18n
 
@@ -29,10 +31,13 @@ urlpatterns = [
     url(r'^home/$', views.user_home, name='user_home')
 ]
 
+last_modified_date = timezone.now()
+
 # Client-side i18n URLconf.
 urlpatterns.extend([
     url(r'^i18n/js/(?P<packages>\S+?)/$',
-        i18n.JavaScriptCatalog.as_view(),
+        last_modified(lambda req, **kw: last_modified_date)(
+            i18n.JavaScriptCatalog.as_view()),
         name='jsi18n'),
     url(r'^i18n/setlang/$',
         i18n.set_language,
