@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import functools
-
 from django.urls import reverse
 from django.utils.http import urlunquote
 import mock
@@ -25,33 +23,15 @@ VOLUME_GROUPS_SNAP_INDEX_URL = urlunquote(reverse(
     'horizon:project:vg_snapshots:index'))
 
 
-def create_mocks(target, methods):
-    def wrapper(function):
-        @functools.wraps(function)
-        def wrapped(inst, *args, **kwargs):
-            for method in methods:
-                if isinstance(method, str):
-                    method_mocked = method
-                    attr_name = method
-                else:
-                    method_mocked = method[0]
-                    attr_name = method[1]
-                m = mock.patch.object(target, method_mocked)
-                setattr(inst, 'mock_%s' % attr_name, m.start())
-            return function(inst, *args, **kwargs)
-        return wrapped
-    return wrapper
-
-
 class VolumeGroupTests(test.TestCase):
-    @create_mocks(cinder, [
+    @test.create_mocks({cinder: [
         'extension_supported',
         'availability_zone_list',
         'volume_type_list',
         'group_list',
         'group_type_list',
         'group_create',
-    ])
+    ]})
     def test_create_group(self):
         group = self.cinder_groups.first()
         volume_types = self.cinder_volume_types.list()
@@ -97,14 +77,14 @@ class VolumeGroupTests(test.TestCase):
             description=formData['description'],
             availability_zone=formData['availability_zone'])
 
-    @create_mocks(cinder, [
+    @test.create_mocks({cinder: [
         'extension_supported',
         'availability_zone_list',
         'volume_type_list',
         'group_list',
         'group_type_list',
         'group_create',
-    ])
+    ]})
     def test_create_group_exception(self):
         group = self.cinder_groups.first()
         volume_types = self.cinder_volume_types.list()
@@ -151,7 +131,7 @@ class VolumeGroupTests(test.TestCase):
             description=formData['description'],
             availability_zone=formData['availability_zone'])
 
-    @create_mocks(cinder, ['group_get', 'group_delete'])
+    @test.create_mocks({cinder: ['group_get', 'group_delete']})
     def test_delete_group(self):
         group = self.cinder_groups.first()
 
@@ -170,7 +150,7 @@ class VolumeGroupTests(test.TestCase):
                                                        group.id,
                                                        delete_volumes=False)
 
-    @create_mocks(cinder, ['group_get', 'group_delete'])
+    @test.create_mocks({cinder: ['group_get', 'group_delete']})
     def test_delete_group_delete_volumes_flag(self):
         group = self.cinder_consistencygroups.first()
         formData = {'delete_volumes': True}
@@ -190,7 +170,7 @@ class VolumeGroupTests(test.TestCase):
                                                        group.id,
                                                        delete_volumes=True)
 
-    @create_mocks(cinder, ['group_get', 'group_delete'])
+    @test.create_mocks({cinder: ['group_get', 'group_delete']})
     def test_delete_group_exception(self):
         group = self.cinder_groups.first()
         formData = {'delete_volumes': False}
@@ -216,10 +196,10 @@ class VolumeGroupTests(test.TestCase):
     def test_update_group_remove_vol(self):
         self._test_update_group_add_remove_vol(add=False)
 
-    @create_mocks(cinder, ['volume_list',
-                           'volume_type_list',
-                           'group_get',
-                           'group_update'])
+    @test.create_mocks({cinder: ['volume_list',
+                                 'volume_type_list',
+                                 'group_get',
+                                 'group_update']})
     def _test_update_group_add_remove_vol(self, add=True):
         group = self.cinder_groups.first()
         volume_types = self.cinder_volume_types.list()
@@ -271,7 +251,7 @@ class VolumeGroupTests(test.TestCase):
                 add_volumes=[],
                 remove_volumes=assigned_volume_ids)
 
-    @create_mocks(cinder, ['group_get', 'group_update'])
+    @test.create_mocks({cinder: ['group_get', 'group_update']})
     def test_update_group_name_and_description(self):
         group = self.cinder_groups.first()
         formData = {'name': 'test VG-new',
@@ -293,7 +273,7 @@ class VolumeGroupTests(test.TestCase):
             formData['name'],
             formData['description'])
 
-    @create_mocks(cinder, ['group_get', 'group_update'])
+    @test.create_mocks({cinder: ['group_get', 'group_update']})
     def test_update_group_with_exception(self):
         group = self.cinder_groups.first()
         formData = {'name': 'test VG-new',
@@ -315,11 +295,11 @@ class VolumeGroupTests(test.TestCase):
             formData['name'],
             formData['description'])
 
-    @mock.patch.object(cinder, 'group_get')
-    def test_detail_view_with_exception(self, mock_group_get):
+    @test.create_mocks({cinder: ['group_get']})
+    def test_detail_view_with_exception(self):
         group = self.cinder_groups.first()
 
-        mock_group_get.side_effect = self.exceptions.cinder
+        self.mock_group_get.side_effect = self.exceptions.cinder
 
         url = reverse('horizon:project:volume_groups:detail',
                       args=[group.id])
@@ -327,10 +307,10 @@ class VolumeGroupTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        mock_group_get.assert_called_once_with(
+        self.mock_group_get.assert_called_once_with(
             test.IsHttpRequest(), group.id)
 
-    @create_mocks(cinder, ['group_snapshot_create'])
+    @test.create_mocks({cinder: ['group_snapshot_create']})
     def test_create_snapshot(self):
         group = self.cinder_groups.first()
         group_snapshot = self.cinder_group_snapshots.first()
@@ -351,8 +331,7 @@ class VolumeGroupTests(test.TestCase):
             formData['name'],
             formData['description'])
 
-    @create_mocks(cinder, ['group_get',
-                           'group_create_from_source'])
+    @test.create_mocks({cinder: ['group_get', 'group_create_from_source']})
     def test_create_clone(self):
         group = self.cinder_groups.first()
         formData = {
