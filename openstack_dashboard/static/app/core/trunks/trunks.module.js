@@ -62,6 +62,7 @@
         id: 'name_or_id',
         priority: 1,
         sortDefault: true,
+        classes: "word-wrap",
         urlFunction: trunksService.getDetailsPath
       })
       .append({

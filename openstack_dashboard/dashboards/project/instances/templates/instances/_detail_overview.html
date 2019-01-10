@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd data-display="{{ instance.name|default:instance.id }}">{{ instance.name }}</dd>
+    <dd data-display="{{ instance.name|default:instance.id }}" class="word-wrap">{{ instance.name }}</dd>
     <dt>{% trans "Description" %}</dt>
     <dd>{{ instance.description|default:_("-") }}</dd>
     <dt>{% trans "ID" %}</dt>
@@ -46,7 +46,7 @@
   <dl class="dl-horizontal">
     {% if instance.full_flavor %}
       <dt>{% trans "Flavor Name" %}</dt>
-      <dd>{{ instance.full_flavor.name }}</dd>
+      <dd class="word-wrap">{{ instance.full_flavor.name }}</dd>
       <dt>{% trans "Flavor ID" %}</dt>
       <dd>{{ instance.full_flavor.id }}</dd>
       <dt>{% trans "RAM" %}</dt>
@@ -90,7 +90,7 @@
     <hr class="header_rule">
     <dl class="dl-horizontal">
       {% for group in instance.security_groups %}
-        <dt>{{ group.name }}</dt>
+        <dt class="word-wrap">{{ group.name }}</dt>
         <dd>
           <ul class="list-unstyled">
           {% for rule in group.rules %}
@@ -111,11 +111,11 @@
       <dt>{% trans "Key Name" %}</dt>
       {% trans "None" as default_key_name %}
       {% with formatted_default_key_name="<em>"|add:default_key_name|add:"</em>" %}
-        <dd>{{ instance.key_name|default:formatted_default_key_name }}</dd>
+        <dd class="word-wrap">{{ instance.key_name|default:formatted_default_key_name }}</dd>
       {% endwith %}
       {% if instance.image %}
         <dt>{% trans "Image Name" %}</dt>
-        <dd>
+        <dd class="word-wrap">
         {% if instance.image_name %}
           <a href="{{ instance.image_url }}">{{ instance.image_name }}</a>
         {% else %}
@@ -141,7 +141,7 @@
     <dl class="dl-horizontal">
     {% for volume in instance.volumes %}
         <dt>{% trans "Attached To" %}</dt>
-        <dd>
+        <dd class="word-wrap">
             {% url instance.volume_url volume.id as volume_url %}
             {% blocktrans trimmed with volume_label=volume.name|default:volume.id volume_device=volume.device %}
             <a href="{{ volume_url }}">{{ volume_label }}</a> on {{ volume_device }}

@@ -89,6 +89,7 @@
         id: 'name',
         priority: 1,
         sortDefault: true,
+        classes: "word-wrap",
         urlFunction: imagesService.getDetailsPath
       })
       .append({

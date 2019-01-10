@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd data-display="{{ router.name_or_id }}">{{ router.name|default:_("None") }}</dd>
+    <dd data-display="{{ router.name_or_id }}" class="word-wrap">{{ router.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ router.id }}</dd>
     <dt>{% trans "Description" %}</dt>
