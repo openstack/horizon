@@ -19,6 +19,7 @@ from django.core.cache import caches
 from django.core.cache.utils import make_template_fragment_key
 from django.dispatch import receiver
 from django import template
+import six
 
 register = template.Library()
 
@@ -112,8 +113,14 @@ def angular_templates(context):
             result.extend(finder.find(relative_path, True))
         path = result[-1]
         try:
-            with open(path) as template_file:
-                angular_templates[template_static_path] = template_file.read()
+            if six.PY3:
+                with open(path, encoding='utf-8') as template_file:
+                    angular_templates[template_static_path] = template_file.\
+                        read()
+            else:
+                with open(path) as template_file:
+                    angular_templates[template_static_path] = template_file.\
+                        read()
         except (OSError, IOError):
             # Failed to read template, leave the template dictionary blank
             # If the caller is using this dictionary to pre-populate a cache
