@@ -1,6 +1,6 @@
 <div ng-repeat="toast in toast.get()">
   <div class="alert alert-{$ ::toast.type $}">
     <a class="close" ng-click="toast.cancel($index)"><span class="fa fa-times"></span></a>
-    <div><strong>{$ toast.typeMsg $}: </strong>{$ toast.msg $}</div>
+    <div class="word-wrap"><strong>{$ toast.typeMsg $}: </strong>{$ toast.msg $}</div>
   </div>
 </div>
