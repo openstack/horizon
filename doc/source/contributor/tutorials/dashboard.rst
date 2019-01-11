@@ -71,8 +71,8 @@ structure that looks like the following::
     │   └── views.py
     ├── static
     │   └── mydashboard
-    │       ├── css
-    │       │   └── mydashboard.css
+    │       ├── scss
+    │       │   └── mydashboard.scss
     │       └── js
     │           └── mydashboard.js
     └── templates
@@ -134,7 +134,6 @@ As described above, the ``mypanel`` directory under
 
    mypanel
     ├── __init__.py
-    ├── models.py
     ├── panel.py
     ├── templates
     │   └── mypanel
