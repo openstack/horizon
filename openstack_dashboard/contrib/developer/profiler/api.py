@@ -22,6 +22,7 @@ from osprofiler.drivers.base import get_driver as profiler_get_driver
 from osprofiler import notifier
 from osprofiler import profiler
 from osprofiler import web
+import six
 from six.moves.urllib.parse import urlparse
 
 
@@ -78,9 +79,8 @@ def _get_engine(request):
 
 def list_traces(request):
     engine = _get_engine(request)
-    query = {"info.user_id": request.user.id}
-    fields = ['base_id', 'timestamp', 'info.request.path']
-    traces = engine.list_traces(query, fields)
+    fields = ['base_id', 'timestamp', 'info.request.path', 'info']
+    traces = engine.list_traces(fields)
     return [{'id': trace['base_id'],
              'timestamp': trace['timestamp'],
              'origin': trace['info']['request']['path']} for trace in traces]
@@ -118,6 +118,9 @@ def update_trace_headers(keys, **kwargs):
     trace_info.update(kwargs)
     p = profiler.get()
     trace_data = utils.signed_pack(trace_info, p.hmac_key)
+    if six.PY3:
+        trace_data = [key.decode() if isinstance(key, six.binary_type)
+                      else key for key in trace_data]
     return json.dumps({web.X_TRACE_INFO: trace_data[0],
                        web.X_TRACE_HMAC: trace_data[1]})
 
