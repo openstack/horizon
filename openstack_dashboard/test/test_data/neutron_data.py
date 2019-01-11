@@ -550,6 +550,16 @@ def data(TEST):
             'tenant_id': secgroup['tenant_id'],
             'description': 'Ingress HTTP from SG #1',
         }
+        rule_ip_proto = {
+            'id': uuidutils.generate_uuid(),
+            'direction': u'ingress', 'ethertype': u'IPv4',
+            'port_range_min': None, 'port_range_max': None,
+            'protocol': u'99', 'remote_group_id': None,
+            'remote_ip_prefix': u'0.0.0.0/24',
+            'security_group_id': secgroup['id'],
+            'tenant_id': secgroup['tenant_id'],
+            'description': 'Ingress custom IP protocol 99',
+        }
         rule_all_tcp = {
             'id': uuidutils.generate_uuid(),
             'direction': u'egress', 'ethertype': u'IPv4',
@@ -563,7 +573,8 @@ def data(TEST):
 
         rules = []
         if not default_only:
-            rules += [rule_tcp_80, rule_icmp, rule_group, rule_all_tcp]
+            rules += [rule_tcp_80, rule_icmp, rule_group, rule_all_tcp,
+                      rule_ip_proto]
         rules += [rule_egress_ipv4, rule_egress_ipv6]
         secgroup['security_group_rules'] = rules
 

@@ -432,9 +432,9 @@ class SecurityGroupManager(object):
         """
         if not cidr:
             cidr = None
-        if from_port < 0:
+        if isinstance(from_port, int) and from_port < 0:
             from_port = None
-        if to_port < 0:
+        if isinstance(to_port, int) and to_port < 0:
             to_port = None
         if isinstance(ip_protocol, int) and ip_protocol < 0:
             ip_protocol = None

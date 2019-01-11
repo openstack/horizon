@@ -1250,9 +1250,17 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
     def test_security_group_rule_create_without_desc(self):
         self._test_security_group_rule_create(with_desc=False)
 
-    def _test_security_group_rule_create(self, with_desc):
-        sg_rule = [r for r in self.api_security_group_rules.list()
-                   if r['protocol'] == 'tcp' and r['remote_ip_prefix']][0]
+    def test_security_group_rule_create_with_custom_protocol(self):
+        self._test_security_group_rule_create(custom_ip_proto=True)
+
+    def _test_security_group_rule_create(self, with_desc=False,
+                                         custom_ip_proto=False):
+        if custom_ip_proto:
+            sg_rule = [r for r in self.api_security_group_rules.list()
+                       if r['protocol'] == '99'][0]
+        else:
+            sg_rule = [r for r in self.api_security_group_rules.list()
+                       if r['protocol'] == 'tcp' and r['remote_ip_prefix']][0]
         sg_id = sg_rule['security_group_id']
         secgroup = [sg for sg in self.api_security_groups.list()
                     if sg['id'] == sg_id][0]
