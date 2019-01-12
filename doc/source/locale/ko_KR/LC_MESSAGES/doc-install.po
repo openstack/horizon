@@ -2,9 +2,9 @@
 # Soonyeul Park <ardentpark@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev188\n"
+"Project-Id-Version: horizon 15.0.0.0b2.dev218\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-05 09:24-0600\n"
+"POT-Creation-Date: 2019-01-11 10:46-0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -933,9 +933,6 @@ msgstr "https://launchpad.net/tacker"
 
 msgid "https://launchpad.net/trove-dashboard"
 msgstr "https://launchpad.net/trove-dashboard"
-
-msgid "https://launchpad.net/vitrage-dashboard"
-msgstr "https://launchpad.net/vitrage-dashboard"
 
 msgid "https://launchpad.net/watcher-dashboard"
 msgstr "https://launchpad.net/watcher-dashboard"

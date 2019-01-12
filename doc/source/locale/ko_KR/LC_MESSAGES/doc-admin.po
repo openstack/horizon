@@ -4,9 +4,9 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev131\n"
+"Project-Id-Version: horizon 15.0.0.0b2.dev218\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-19 02:24-0600\n"
+"POT-Creation-Date: 2019-01-11 10:46-0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -247,13 +247,6 @@ msgstr ""
 "를 설계 및 구현한 후 사용자와 관리자가 OpenStack 대시보드를 사용할 수 있습니"
 "다. 대시보드에 로그인하는 방법에 대한 자세한 지침은 OpenStack 최종 사용자 설"
 "명서의 :doc:`OpenStack User Documentation </user/index>` 장을 참조하십시오."
-
-msgid ""
-"After configuring the ``local_settings.py`` file as shown, you can run the :"
-"command:`manage.py syncdb` command to populate this newly created database."
-msgstr ""
-"그림과 같이``local_settings.py`` 파일을 구성한 후 :command:`manage.py "
-"syncdb`  명령을 실행하여 새로 생성된 데이터베이스를 채울 수 있습니다."
 
 msgid ""
 "Allows easier import and migration of imported encrypted volumes, and allows "
@@ -1496,9 +1489,6 @@ msgstr "아래의 대시보드 내용은 필요게 맞게끔 커스터마이징 
 
 msgid "The following example shows this setting:"
 msgstr "아래 예시는 이와 같은 설정 값을 보여 줍니다."
-
-msgid "The following output is returned:"
-msgstr "다음 출력값이 반환됩니다:"
 
 msgid ""
 "The following section on configuring the Dashboard for a secure HTTPS "
