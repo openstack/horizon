@@ -348,6 +348,8 @@ CSRF_COOKIE_AGE = None
 COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
 
 SHOW_KEYSTONE_V2_RC = False
+SHOW_OPENRC_FILE = True
+SHOW_OPENSTACK_CLOUDS_YAML = True
 
 # Dictionary of currently available angular features
 ANGULAR_FEATURES = {
@@ -429,12 +431,13 @@ if USER_MENU_LINKS is None:
             'icon_classes': ['fa-download', ],
             'url': 'horizon:project:api_access:openrcv2',
         })
-    USER_MENU_LINKS.append({
-        'name': (_('OpenStack RC File v3') if SHOW_KEYSTONE_V2_RC
-                 else _('OpenStack RC File')),
-        'icon_classes': ['fa-download', ],
-        'url': 'horizon:project:api_access:openrc',
-    })
+    if SHOW_OPENRC_FILE:
+        USER_MENU_LINKS.append({
+            'name': (_('OpenStack RC File v3') if SHOW_KEYSTONE_V2_RC
+                     else _('OpenStack RC File')),
+            'icon_classes': ['fa-download', ],
+            'url': 'horizon:project:api_access:openrc',
+        })
 
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'

@@ -114,6 +114,14 @@ WEBROOT = '/'
 # and the API Access page
 #SHOW_KEYSTONE_V2_RC = False
 
+# Controls whether the keystone openrc file is accesible from the user
+# menu and the api access panel.
+SHOW_OPENRC_FILE = True
+
+# Controls whether clouds.yaml is accesible from the user
+# menu and the api access panel.
+SHOW_OPENSTACK_CLOUDS_YAML = True
+
 # If provided, a "Report Bug" link will be displayed in the site header
 # which links to the value of this setting (ideally a URL containing
 # information on how to report issues).

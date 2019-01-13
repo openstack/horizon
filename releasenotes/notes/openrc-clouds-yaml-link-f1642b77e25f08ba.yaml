@@ -1,0 +1,10 @@
+---
+features:
+  - |
+    [:bug:`1795851`] Operators now can control whether the links of
+    "Download OpenRC" and "Download clouds.yaml" are displayed or not
+    via new settings ``SHOW_OPENRC_FILE`` and ``SHOW_OPENSTACK_CLOUDS_YAML``.
+    ``openrc`` and ``clouds.yaml`` files provided by horizon now assume
+    the basic simple deployment and do not cover keystone authentication
+    like saml2, openid and so on. The default ``openrc`` and ``clouds.yaml``
+    from horizon do not make sense for such environments.
