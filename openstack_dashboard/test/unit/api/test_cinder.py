@@ -394,8 +394,7 @@ class CinderApiTests(test.APIMockTestCase):
         qos_associations_mock.assert_called_once_with(qos_specs_only_one[0].id)
         self.assertEqual(associate_spec, qos_specs_only_one[0].name)
 
-    @mock.patch.object(api.cinder,
-                       '_cinderclient_with_limits_project_id_query')
+    @mock.patch.object(api.cinder, '_cinderclient_with_features')
     def test_absolute_limits_with_negative_values(self, mock_cinderclient):
         values = {"maxTotalVolumes": -1, "totalVolumesUsed": -1}
         expected_results = {"maxTotalVolumes": float("inf"),
@@ -422,7 +421,8 @@ class CinderApiTests(test.APIMockTestCase):
             self.assertEqual(expected_results[key], ret_val[key])
 
         mock_limit.assert_called_once()
-        mock_cinderclient.assert_called_once_with(self.request)
+        mock_cinderclient.assert_called_once_with(
+            self.request, ['limits_project_id_query'], message=test.IsA(str))
 
     @mock.patch.object(api.cinder, 'cinderclient')
     def test_pool_list(self, mock_cinderclient):

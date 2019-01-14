@@ -259,15 +259,31 @@ def get_microversion(request, features):
     else:
         return None
     min_ver, max_ver = cinder_client.get_server_version(cinder_url)
-    return (microversions.get_microversion_for_features(
-        'cinder', features, api_versions.APIVersion, min_ver, max_ver))
+    return microversions.get_microversion_for_features(
+        'cinder', features, api_versions.APIVersion, min_ver, max_ver)
 
 
-def _cinderclient_with_generic_groups(request):
-    version = get_microversion(request, 'groups')
+def _cinderclient_with_features(request, features,
+                                raise_exc=False, message=False):
+    version = get_microversion(request, features)
+    if version is None:
+        if message:
+            versions = microversions.get_requested_versions('cinder', features)
+            if message is True:
+                message = ('Insufficient microversion for cinder feature(s) '
+                           '%(features)s. One of the following API '
+                           'microversion(s) is required: %(versions).')
+            LOG.warning(message,
+                        {'features': features, 'versions': versions})
+        if raise_exc:
+            raise microversions.MicroVersionNotFound(features)
     if version is not None:
         version = version.get_string()
     return cinderclient(request, version=version)
+
+
+def _cinderclient_with_generic_groups(request):
+    return _cinderclient_with_features(request, 'groups')
 
 
 def version_get():
@@ -986,23 +1002,15 @@ def qos_specs_list(request):
     return [QosSpecs(s) for s in qos_spec_list(request)]
 
 
-def _cinderclient_with_limits_project_id_query(request):
-    version = get_microversion(request, ['limits_project_id_query'])
-    if version is None:
-        cinder_microversions = microversions.MICROVERSION_FEATURES['cinder']
-        LOG.warning('Insufficient microversion for GET limits with '
-                    'project_id query. One of the following API micro '
-                    'version is required: %s',
-                    cinder_microversions['limits_project_id_query'])
-    else:
-        version = version.get_string()
-    return cinderclient(request, version=version)
-
-
 @profiler.trace
 @memoized
 def tenant_absolute_limits(request, tenant_id=None):
-    _cinderclient = _cinderclient_with_limits_project_id_query(request)
+    _cinderclient = _cinderclient_with_features(
+        request, ['limits_project_id_query'],
+        message=('Insufficient microversion for GET limits with '
+                 'project_id query. One of the following API micro '
+                 'version is required: %(versions)s. '
+                 'This causes bug 1810309 on updating quotas.'))
     limits = _cinderclient.limits.get(tenant_id=tenant_id).absolute
     limits_dict = {}
     for limit in limits:
@@ -1097,11 +1105,12 @@ def pool_list(request, detailed=False):
 
 @profiler.trace
 def message_list(request, search_opts=None):
-    version = get_microversion(request, ['message_list'])
-    if version is None:
-        LOG.warning("insufficient microversion for message_list")
+    try:
+        c_client = _cinderclient_with_features(request, ['message_list'],
+                                               raise_exc=True, message=True)
+    except microversions.MicroVersionNotFound:
+        LOG.warning("Insufficient microversion for message_list")
         return []
-    c_client = cinderclient(request, version=version)
     return c_client.messages.list(search_opts)
 
 
