@@ -26,56 +26,54 @@ from openstack_dashboard import api
 LOG = logging.getLogger(__name__)
 
 
-# Predefined provider types.
-ACTIONS = [
+ACTION_OBJECT_TYPE_LIST = [
     {
-        'name': 'access_as_shared',
-        'value': _('Access as Shared')
+        'choice': 'shared_network',
+        'label': _("Shared Network"),
+        'object_type': 'network',
+        'action': 'access_as_shared',
     },
     {
-        'name': 'access_as_external',
-        'value': _('Access as External')
-    }
-]
-
-# Predefined provider object types.
-OBJECT_TYPES = [
+        'choice': 'external_network',
+        'label': _("External Network"),
+        'object_type': 'network',
+        'action': 'access_as_external',
+    },
     {
-        'name': 'network',
-        'value': _('Network')
+        'choice': 'shared_qos_policy',
+        'label': _("Shared QoS Policy"),
+        'object_type': 'qos_policy',
+        'action': 'access_as_shared',
     }
 ]
-
-QOS_POLICY_TYPE = {
-    'name': 'qos_policy',
-    'value': _('QoS Policy')
-}
 
 
 class CreatePolicyForm(forms.SelfHandlingForm):
     target_tenant = forms.ThemableChoiceField(label=_("Target Project"))
-    object_type = forms.ThemableChoiceField(
-        label=_("Object Type"),
+    action_object_type = forms.ThemableChoiceField(
+        label=_("Action and Object Type"),
         widget=forms.ThemableSelectWidget(
             attrs={
                 'class': 'switchable',
-                'data-slug': 'object_type'
+                'data-slug': 'action_object_type'
             }))
     network_id = forms.ThemableChoiceField(
         label=_("Network"),
         widget=forms.ThemableSelectWidget(attrs={
             'class': 'switched',
-            'data-switch-on': 'object_type',
+            'data-switch-on': 'action_object_type',
+            'data-action_object_type-shared_network': _('Network'),
+            'data-action_object_type-external_network': _('Network'),
         }),
         required=False)
     qos_policy_id = forms.ThemableChoiceField(
         label=_("QoS Policy"),
         widget=forms.ThemableSelectWidget(attrs={
             'class': 'switched',
-            'data-switch-on': 'object_type',
+            'data-switch-on': 'action_object_type',
+            'data-action_object_type-shared_qos_policy': _('QoS Policy'),
         }),
         required=False)
-    action = forms.ThemableChoiceField(label=_("Action"))
 
     def __init__(self, request, *args, **kwargs):
         super(CreatePolicyForm, self).__init__(request, *args, **kwargs)
@@ -85,48 +83,47 @@ class CreatePolicyForm(forms.SelfHandlingForm):
         for tenant in tenants:
             tenant_choices.append((tenant.id, tenant.name))
         self.fields['target_tenant'].choices = tenant_choices
-        action_choices = [('', _("Select an action"))]
-        for action in ACTIONS:
-            action_choices.append((action['name'],
-                                   action['value']))
-        self.fields['action'].choices = action_choices
-        network_choices = []
+
         networks = api.neutron.network_list(request)
-        for network in networks:
-            network_choices.append((network.id, network.name))
+        network_choices = [(network.id, network.name)
+                           for network in networks]
+        network_choices.insert(0, ('', _("Select a network")))
         self.fields['network_id'].choices = network_choices
 
         # If enable QoS Policy
-        if api.neutron.is_extension_supported(request, extension_alias='qos'):
+        qos_supported = api.neutron.is_extension_supported(
+            request, extension_alias='qos')
+        if qos_supported:
             qos_policies = api.neutron.policy_list(request)
             qos_choices = [(qos_policy['id'], qos_policy['name'])
                            for qos_policy in qos_policies]
+            qos_choices.insert(0, ('', _("Select a QoS policy")))
             self.fields['qos_policy_id'].choices = qos_choices
-            if QOS_POLICY_TYPE not in OBJECT_TYPES:
-                OBJECT_TYPES.append(QOS_POLICY_TYPE)
 
-        object_type_choices = [('', _("Select an object type"))]
-        for object_type in OBJECT_TYPES:
-            object_type_choices.append((object_type['name'],
-                                        object_type['value']))
-        self.fields['object_type'].choices = object_type_choices
+        action_object_type_choices = [('', _("Select action and object type"))]
+        for x in ACTION_OBJECT_TYPE_LIST:
+            if x['choice'] == 'shared_qos_policy' and not qos_supported:
+                continue
+            action_object_type_choices.append((x['choice'], x['label']))
+        self.fields['action_object_type'].choices = action_object_type_choices
 
-        # Register object types which required
-        self.fields['network_id'].widget.attrs.update(
-            {'data-object_type-network': _('Network')})
-        self.fields['qos_policy_id'].widget.attrs.update(
-            {'data-object_type-qos_policy': _('QoS Policy')})
+    def _get_action_and_object_type(self, action_object_type):
+        _map = dict((x['choice'], x) for x in ACTION_OBJECT_TYPE_LIST)
+        selected = _map[action_object_type]
+        return (selected['action'], selected['object_type'])
 
     def handle(self, request, data):
         try:
+            action, object_type = self._get_action_and_object_type(
+                data['action_object_type'])
             params = {
                 'target_tenant': data['target_tenant'],
-                'action': data['action'],
-                'object_type': data['object_type'],
+                'action': action,
+                'object_type': object_type,
             }
-            if data['object_type'] == 'network':
+            if object_type == 'network':
                 params['object_id'] = data['network_id']
-            elif data['object_type'] == 'qos_policy':
+            elif object_type == 'qos_policy':
                 params['object_id'] = data['qos_policy_id']
 
             rbac_policy = api.neutron.rbac_policy_create(request, **params)
@@ -147,6 +144,7 @@ class UpdatePolicyForm(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(UpdatePolicyForm, self).__init__(request, *args, **kwargs)
         tenant_choices = [('', _("Select a project"))]
+        tenant_choices.append(("*", "*"))
         tenants, has_more = api.keystone.tenant_list(request)
         for tenant in tenants:
             tenant_choices.append((tenant.id, tenant.name))
