@@ -968,10 +968,24 @@ def qos_specs_list(request):
     return [QosSpecs(s) for s in qos_spec_list(request)]
 
 
+def _cinderclient_with_limits_project_id_query(request):
+    version = get_microversion(request, ['limits_project_id_query'])
+    if version is None:
+        cinder_microversions = microversions.MICROVERSION_FEATURES['cinder']
+        LOG.warning('Insufficient microversion for GET limits with '
+                    'project_id query. One of the following API micro '
+                    'version is required: %s',
+                    cinder_microversions['limits_project_id_query'])
+    else:
+        version = version.get_string()
+    return cinderclient(request, version=version)
+
+
 @profiler.trace
 @memoized
 def tenant_absolute_limits(request, tenant_id=None):
-    limits = cinderclient(request).limits.get(tenant_id=tenant_id).absolute
+    _cinderclient = _cinderclient_with_limits_project_id_query(request)
+    limits = _cinderclient.limits.get(tenant_id=tenant_id).absolute
     limits_dict = {}
     for limit in limits:
         if limit.value < 0:
