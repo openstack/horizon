@@ -85,13 +85,13 @@ class IndexView(tables.DataTableView):
                 exceptions.handle(
                     self.request,
                     _('Unable to retrieve instance list.'))
-            instances_dict = dict([(obj.id, obj.name) for obj in instances])
+            instances_dict = dict((obj.id, obj.name) for obj in instances)
 
             tenants = get_tenant_list(self.request)
             tenant_dict = OrderedDict([(t.id, t) for t in tenants])
 
             pools = get_floatingip_pools(self.request)
-            pool_dict = dict([(obj.id, obj.name) for obj in pools])
+            pool_dict = dict((obj.id, obj.name) for obj in pools)
 
             for ip in floating_ips:
                 ip.instance_name = instances_dict.get(ip.instance_id)

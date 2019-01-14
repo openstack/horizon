@@ -87,7 +87,7 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
         # Gather our tenants to correlate against IDs
         try:
             tenants, __ = api.keystone.tenant_list(self.request)
-            return dict([(t.id, t) for t in tenants])
+            return dict((t.id, t) for t in tenants)
         except Exception:
             msg = _('Unable to retrieve instance project information.')
             exceptions.handle(self.request, msg)
@@ -112,7 +112,7 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
         # Gather our flavors to correlate against IDs
         try:
             flavors = api.nova.flavor_list(self.request)
-            return dict([(str(flavor.id), flavor) for flavor in flavors])
+            return dict((str(flavor.id), flavor) for flavor in flavors)
         except Exception:
             msg = _("Unable to retrieve flavor list.")
             exceptions.handle(self.request, msg)

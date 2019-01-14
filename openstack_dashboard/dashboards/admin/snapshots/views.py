@@ -62,7 +62,7 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
                 msg = _('Unable to retrieve volume project information.')
                 exceptions.handle(self.request, msg)
 
-            tenant_dict = dict([(t.id, t) for t in tenants])
+            tenant_dict = dict((t.id, t) for t in tenants)
             for snapshot in snapshots:
                 volume = volumes.get(snapshot.volume_id)
                 tenant_id = getattr(volume,

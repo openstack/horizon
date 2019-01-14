@@ -687,13 +687,13 @@ class FloatingIpManager(object):
         else:
             router_ports = [p for p in ports
                             if p.device_owner in ROUTER_INTERFACE_OWNERS]
-        reachable_subnets = set([p.fixed_ips[0]['subnet_id']
-                                 for p in router_ports
-                                 if p.device_id in gw_routers])
+        reachable_subnets = set(p.fixed_ips[0]['subnet_id']
+                                for p in router_ports
+                                if p.device_id in gw_routers)
         # we have to include any shared subnets as well because we may not
         # have permission to see the router interface to infer connectivity
-        shared = set([s.id for n in network_list(self.request, shared=True)
-                      for s in n.subnets])
+        shared = set(s.id for n in network_list(self.request, shared=True)
+                     for s in n.subnets)
         return reachable_subnets | shared
 
     @profiler.trace
@@ -1012,7 +1012,7 @@ def network_list(request, **params):
     networks = neutronclient(request).list_networks(**params).get('networks')
     # Get subnet list to expand subnet info in network list.
     subnets = subnet_list(request)
-    subnet_dict = dict([(s['id'], s) for s in subnets])
+    subnet_dict = dict((s['id'], s) for s in subnets)
     # Expand subnet list from subnet_id to values.
     for n in networks:
         # Due to potential timing issues, we can't assume the subnet_dict data
@@ -1328,14 +1328,14 @@ def port_list_with_trunk_types(request, **params):
     if 'tenant_id' in params:
         trunk_filters['tenant_id'] = params['tenant_id']
     trunks = neutronclient(request).list_trunks(**trunk_filters)['trunks']
-    parent_ports = set([t['port_id'] for t in trunks])
+    parent_ports = set(t['port_id'] for t in trunks)
     # Create a dict map for child ports (port ID to trunk info)
-    child_ports = dict([(s['port_id'],
-                         {'trunk_id': t['id'],
-                          'segmentation_type': s['segmentation_type'],
-                          'segmentation_id': s['segmentation_id']})
-                        for t in trunks
-                        for s in t['sub_ports']])
+    child_ports = dict((s['port_id'],
+                        {'trunk_id': t['id'],
+                         'segmentation_type': s['segmentation_type'],
+                         'segmentation_id': s['segmentation_id']})
+                       for t in trunks
+                       for s in t['sub_ports'])
 
     def _get_port_info(port):
         if port['id'] in parent_ports:
