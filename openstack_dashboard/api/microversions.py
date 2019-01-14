@@ -39,7 +39,8 @@ MICROVERSION_FEATURES = {
     "cinder": {
         "groups": ["3.27", "3.43", "3.48"],
         "consistency_groups": ["2.0", "3.10"],
-        "message_list": ["3.5", "3.29"]
+        "message_list": ["3.5", "3.29"],
+        "limits_project_id_query": ["3.43", "3.50", "3.55"],
     }
 }
 
