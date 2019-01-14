@@ -1,14 +1,15 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-06-24 20:11+0000\n"
+"POT-Creation-Date: 2019-01-03 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-25 09:13+0000\n"
+"PO-Revision-Date: 2019-01-13 05:33+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -548,6 +549,11 @@ msgid_plural "Confirm Delete Flavors"
 msgstr[0] "Konfirmu Forigu Variaĵo"
 msgstr[1] "Konfirmu Forigu Variaĵojn"
 
+msgid "Confirm Delete Group"
+msgid_plural "Confirm Delete Groups"
+msgstr[0] "Konfirmu Forigi Grupon"
+msgstr[1] "Konfirmu Forigi Grupojn"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Konfirmu Forigu Bildon"
@@ -557,6 +563,11 @@ msgid "Confirm Delete Key Pair"
 msgid_plural "Confirm Delete Key Pairs"
 msgstr[0] "Konfirmu Forigu Ŝlosilparon"
 msgstr[1] "Konfirmu Forigu Ŝlosilparojn"
+
+msgid "Confirm Delete Policy"
+msgid_plural "Confirm Delete Policies"
+msgstr[0] "Konfirmu Forigu  Regularon"
+msgstr[1] "Konfirmu Forigu  Regularojn"
 
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
@@ -650,11 +661,17 @@ msgstr "Nombro"
 msgid "Create Container"
 msgstr "Kreu Entenilon"
 
+msgid "Create Domain"
+msgstr "Kreu Domajnon"
+
 msgid "Create Folder"
 msgstr "Kreu Dosiero"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Kreu Dosiero En: {$ ctrl.model.container.name $}"
+
+msgid "Create Group"
+msgstr "Kreu Grupon"
 
 msgid "Create Image"
 msgstr "Kreu Bildon"
@@ -813,6 +830,14 @@ msgstr[1] "Forigu Variaĵojn"
 msgid "Delete Flavors"
 msgstr "Forigu Variaĵojn"
 
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "Forigu Grupon"
+msgstr[1] "Forigu Grupojn"
+
+msgid "Delete Groups"
+msgstr "Forigu Grupojn"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "Forigu Bildon"
@@ -837,6 +862,14 @@ msgstr "Forigu Ŝlosilo Paroj"
 
 msgid "Delete Network"
 msgstr "Forigu reton"
+
+msgid "Delete Policies"
+msgstr "Forigu Regularojn"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "Forigu Regularon"
+msgstr[1] "Forigu Regularojn"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -889,6 +922,12 @@ msgstr[0] "Forigita Variaĵo: %s."
 msgstr[1] "Forigitaj Variaĵoj: %s."
 
 #, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "Forigita Grupo: %s."
+msgstr[1] "Forigitaj Grupoj: %s."
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Forigita Bildo: %s."
@@ -923,6 +962,12 @@ msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
 msgstr[0] "Forigita Uzanto: %s."
 msgstr[1] "Forigitaj Uzantoj: %s."
+
+#, python-format
+msgid "Deleted policy: %s."
+msgid_plural "Deleted policies: %s."
+msgstr[0] "Forigita regularo: %s."
+msgstr[1] "Forigitaj regularoj: %s."
 
 msgid "Deleting"
 msgstr "Forigi"
@@ -996,6 +1041,10 @@ msgstr "Docker"
 msgid "Domain"
 msgstr "Domajno"
 
+#, python-format
+msgid "Domain %s was successfully created."
+msgstr "Domajno %s estis sukcese kreita."
+
 msgid "Domain ID"
 msgstr "Domajno ID"
 
@@ -1007,6 +1056,13 @@ msgstr "Domajno Nomo"
 
 msgid "Domains"
 msgstr "Domajnoj"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr ""
+"Domajnoj provizas apartigon inter uzantoj kaj infrastrukturo uzita de aliaj "
+"organizacioj."
 
 msgid "Done"
 msgstr "Finita"
@@ -1037,6 +1093,9 @@ msgstr "Redaktu Dosieron"
 
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "Reduktu Dosieron : {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Group"
+msgstr "Agordu Grupon"
 
 msgid "Edit Image"
 msgstr "Redaktu Bildon"
@@ -1214,6 +1273,13 @@ msgstr "Ĝeneralaj Agoj:"
 
 msgid "Group"
 msgstr "Grupo"
+
+#, python-format
+msgid "Group %s was successfully created."
+msgstr "Grupo %s estis sukcese kreita."
+
+msgid "Group updated successfully."
+msgstr "Grupo ĝisdatigita sukcese."
 
 msgid "Groups"
 msgstr "Grupoj"
@@ -3001,6 +3067,12 @@ msgstr[0] "Neeblas forigi Variaĵon: %s."
 msgstr[1] "Neeblas forigi Variaĵojn: %s."
 
 #, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "Neeblas forigi Grupon: %s."
+msgstr[1] "Neeblas forigi Grupojn: %s."
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "Neeblas forigi Bildon: %s."
@@ -3035,6 +3107,12 @@ msgid "Unable to delete User: %s."
 msgid_plural "Unable to delete Users: %s."
 msgstr[0] "Neeblas forigi Uzanton: %s."
 msgstr[1] "Neeblas forigi Uzantojn: %s."
+
+#, python-format
+msgid "Unable to delete policy: %s."
+msgid_plural "Unable to delete policies: %s."
+msgstr[0] "Neeblas forigi regularon: %s."
+msgstr[1] "Neeblas forigi regularojn: %s."
 
 msgid "Unable to delete the container."
 msgstr "Neeblas forigi la entenilon."
@@ -3782,6 +3860,12 @@ msgstr[0] "Vi selektis \"%s\". Forigita variaĵo ne estas restaŭrebla."
 msgstr[1] "Vi selektis \"%s\". Forigitaj variaĵoj ne estas restaŭreblaj."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted group is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
+msgstr[0] "Vi elektis \"%s\". Forigita grupo ne estas reakirebla."
+msgstr[1] "Vi elektis \"%s\". Forigita grupojn ne estas reakirebla."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "Vi selektis \"%s\". Forigita bildo ne estas restaŭrebla."
@@ -3792,6 +3876,12 @@ msgid "You have selected \"%s\". Deleted key pair is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
 msgstr[0] "Vi selektis \"%s\". Forigita Ŝlosilparo ne estas restaŭrebla."
 msgstr[1] "Vi selektis \"%s\". Forigitaj Ŝlosilparoj ne estas restaŭreblaj."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted policy is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted policies are not recoverable."
+msgstr[0] "Vi selektis \"%s\". Forigita regularo ne estas restaŭrebla."
+msgstr[1] "Vi selektis \"%s\". Forigitaj regularoj ne estas restaŭreblaj."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."

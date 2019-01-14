@@ -1,14 +1,15 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-06-26 13:27+0000\n"
+"POT-Creation-Date: 2019-01-03 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-27 05:26+0000\n"
+"PO-Revision-Date: 2019-01-13 05:36+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -1605,6 +1606,9 @@ msgstr ""
 msgid "DNS Assignment"
 msgstr "DNS Atribuo"
 
+msgid "DNS Domain"
+msgstr "DNS Domajno"
+
 msgid "DNS Name"
 msgstr "DNS Nomo"
 
@@ -2847,6 +2851,9 @@ msgstr "Malsukcesis to evakui instancojn: %s"
 msgid "Failed to get availability zone list."
 msgstr "Malsukcesis trovi disponebleca zono listo."
 
+msgid "Failed to get instance interfaces."
+msgstr "Malsukcesis akiri apero interfacojn."
+
 #, python-format
 msgid "Failed to get mapping list %s"
 msgstr "Malsukcesis recevi mapiga listo %s"
@@ -3180,6 +3187,9 @@ msgstr "Grupo Nomo"
 msgid "Group Name ="
 msgstr "Grupo Nomo ="
 
+msgid "Group Snapshot"
+msgstr "Grupo Savkopio"
+
 msgid "Group Snapshots"
 msgstr "Grupo Savkopioj"
 
@@ -3188,6 +3198,13 @@ msgstr "Grupo Tipo"
 
 msgid "Group has been updated successfully."
 msgstr "Grupo sukcese ĝisdatigita."
+
+msgid ""
+"Group which the new volume belongs to. Choose 'No group' if the new volume "
+"belongs to no group."
+msgstr ""
+"Grupo, al kiu apartenas la nova volumo. Elektu 'Neniu grupo' se la nova "
+"volumo apartenas al neniu grupo."
 
 msgid "Groups"
 msgstr "Grupoj"
@@ -4334,6 +4351,9 @@ msgstr "Neniuj glitaj IP Komunaĵoj disponeblaj"
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "Neniu glidanta IP Komunaĵoj kun IPv4 subreto disponebla"
 
+msgid "No group"
+msgstr "Neniu grupo"
+
 msgid "No groups found."
 msgstr "Neniuj grupoj trovitaj."
 
@@ -4429,6 +4449,9 @@ msgstr "Neniuj uzantoj trovita."
 
 msgid "No users."
 msgstr "Neniuj uzantoj."
+
+msgid "No valid group type"
+msgstr "Neniu valida grupo tipo"
 
 msgid "No volume snapshots available"
 msgstr "Neniuj volumo savkopiojn disponeblaj."
@@ -7387,11 +7410,17 @@ msgstr "Neeblas ricevi grupo listo. Bonvolu provu denove poste."
 msgid "Unable to retrieve group snapshot details."
 msgstr "Neeblas ricevi grupo savkopio detajlojn."
 
+msgid "Unable to retrieve group snapshots."
+msgstr "Ne eblas ricevi grupo savkopiojn."
+
 msgid "Unable to retrieve group types."
 msgstr "Neeblas ricevi grupo tipojn."
 
 msgid "Unable to retrieve group users."
 msgstr "Neeblas ricevi grupo uzantoj."
+
+msgid "Unable to retrieve group."
+msgstr "Neeblas ricevi grupon."
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "Neebla trovi servilo agregato listo."
@@ -7592,6 +7621,9 @@ msgstr "Neeblas ricevi la aperon."
 msgid "Unable to retrieve the project information of the image."
 msgstr "Neeblas ricevi projekto informojn de bildigo."
 
+msgid "Unable to retrieve the volume group list."
+msgstr "Neeblas ricevi la volumgrupo liston."
+
 msgid "Unable to retrieve the volume type list."
 msgstr "Neeblas ricevi volumo tipo liston."
 
@@ -7639,6 +7671,9 @@ msgstr "Neeblas ricevi volumo ĉifrado detajlojn."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Neeblas ricevi volumo grupo savkopiojn."
+
+msgid "Unable to retrieve volume groups"
+msgstr "Neeblas ricevi volumgrupojn"
 
 msgid "Unable to retrieve volume groups."
 msgstr "Neeblas ricevi volumo grupojn."
@@ -7717,6 +7752,9 @@ msgstr "Neeblas ricevi volomo/apero aldonaĵo informon."
 
 msgid "Unable to retrieve volumes availability zones."
 msgstr "Neebla ricevi volumoj disponeblaj zonojn."
+
+msgid "Unable to retrieve volumes."
+msgstr "Ne eblas ricevi volumojn."
 
 msgid "Unable to set Domain Context."
 msgstr "Neeblas agordi Domajno Kuntekston."
