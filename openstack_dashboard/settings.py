@@ -198,7 +198,14 @@ AUTHENTICATION_URLS = ['openstack_auth.urls']
 AUTH_USER_MODEL = 'openstack_auth.User'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    },
+}
+
 SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False

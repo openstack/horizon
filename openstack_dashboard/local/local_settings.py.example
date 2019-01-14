@@ -153,19 +153,15 @@ SECRET_KEY = secret_key.generate_or_read_from_file(
 
 # We recommend you use memcached for development; otherwise after every reload
 # of the django development server, you will have to login again. To use
-# memcached set CACHES to something like
+# memcached set CACHES to something like below.
+# For more information, see
+# https://docs.djangoproject.com/en/1.11/topics/http/sessions/.
 #CACHES = {
 #    'default': {
 #        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
 #        'LOCATION': '127.0.0.1:11211',
 #    },
 #}
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-    },
-}
 
 # Send email to the console by default
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
