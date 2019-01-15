@@ -50,7 +50,7 @@ class PasswordMixin(forms.SelfHandlingForm):
 
     def clean(self):
         '''Check to make sure password fields match.'''
-        data = super(forms.Form, self).clean()
+        data = super(PasswordMixin, self).clean()
         if 'password' in data and 'confirm_password' in data:
             if data['password'] != data['confirm_password']:
                 raise ValidationError(_('Passwords do not match.'))

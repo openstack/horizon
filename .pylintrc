@@ -12,7 +12,6 @@ disable=
 # "E" Error for important programming issues (likely bugs)
  access-member-before-definition,
  assignment-from-no-return,
- bad-super-call,
  import-error,
  logging-too-few-args,
  method-hidden,
