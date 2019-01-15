@@ -373,8 +373,7 @@ In this template, redefine ``block css``. (Don't forget to include
     {% endblock %}
 
 The custom stylesheets then reside in the dashboard's own ``static`` folder
-``openstack_dashboard/dashboards/my_custom_dashboard/static/
-my_custom_dashboard/scss/my_custom_dashboard.scss``.
+``openstack_dashboard/dashboards/my_custom_dashboard/static/my_custom_dashboard/scss/my_custom_dashboard.scss``.
 
 All dashboard's templates have to inherit from dashboard's base.html::
 
@@ -388,14 +387,14 @@ Custom Javascript
 Similarly to adding custom styling (see above), it is possible to include
 custom javascript files.
 
-All Horizon's javascript files are listed in the ``openstack_dashboard/
-templates/horizon/_scripts.html`` partial template, which is included in
-Horizon's base template in ``block js``.
+All Horizon's javascript files are listed in the
+``openstack_dashboard/templates/horizon/_scripts.html``
+partial template, which is included in Horizon's base template in ``block js``.
 
 To add custom javascript files, create an ``_scripts.html`` partial template in
-your dashboard ``openstack_dashboard/dashboards/my_custom_dashboard/
-templates/my_custom_dashboard/_scripts.html`` which extends
-``horizon/_scripts.html``. In this template override the
+your dashboard
+``openstack_dashboard/dashboards/my_custom_dashboard/templates/my_custom_dashboard/_scripts.html``
+which extends ``horizon/_scripts.html``. In this template override the
 ``block custom_js_files`` including your custom javascript files::
 
     {% extends 'horizon/_scripts.html' %}
