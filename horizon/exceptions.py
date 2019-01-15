@@ -345,6 +345,7 @@ def handle(request, message=None, redirect=None, ignore=False,
         ret = handle_recoverable(request, user_message, redirect, ignore,
                                  escalate, handled, force_silence, force_log,
                                  log_method, log_entry, log_level)
+        # pylint: disable=using-constant-test
         if ret:
             return ret
 

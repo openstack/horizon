@@ -407,6 +407,7 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
             if filename.endswith(".py"):
                 try:
                     with open(os.path.join(dirpath, filename)) as f:
+                        # pylint: disable=exec-used
                         exec(f.read())
                 except Exception as e:
                     _LOG.exception(

@@ -902,9 +902,9 @@ class UpdateProject(workflows.Workflow):
             for role in available_roles:
                 groups_added = 0
                 field_name = member_step.get_member_field_name(role.id)
+                project_group_ids = [x.id for x in project_groups]
                 for group_id in data[field_name]:
-                    if not list(filter(lambda x: group_id == x.id,
-                                       project_groups)):
+                    if group_id not in project_group_ids:
                         api.keystone.add_group_role(request,
                                                     role=role.id,
                                                     group=group_id,

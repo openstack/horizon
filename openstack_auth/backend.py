@@ -86,6 +86,19 @@ class KeystoneBackend(object):
         else:
             return None
 
+    def _get_auth_backend(self, auth_url, **kwargs):
+        for plugin in self.auth_plugins:
+            unscoped_auth = plugin.get_plugin(auth_url=auth_url, **kwargs)
+            if unscoped_auth:
+                return plugin, unscoped_auth
+        else:
+            msg = _('No authentication backend could be determined to '
+                    'handle the provided credentials.')
+            LOG.warning('No authentication backend could be determined to '
+                        'handle the provided credentials. This is likely a '
+                        'configuration error that should be addressed.')
+            raise exceptions.KeystoneAuthException(msg)
+
     def authenticate(self, auth_url=None, **kwargs):
         """Authenticates a user via the Keystone Identity API."""
         LOG.debug('Beginning user authentication')
@@ -100,18 +113,7 @@ class KeystoneBackend(object):
                         "version to use by Horizon. Using v3 endpoint for "
                         "authentication.")
 
-        for plugin in self.auth_plugins:
-            unscoped_auth = plugin.get_plugin(auth_url=auth_url, **kwargs)
-
-            if unscoped_auth:
-                break
-        else:
-            msg = _('No authentication backend could be determined to '
-                    'handle the provided credentials.')
-            LOG.warning('No authentication backend could be determined to '
-                        'handle the provided credentials. This is likely a '
-                        'configuration error that should be addressed.')
-            raise exceptions.KeystoneAuthException(msg)
+        plugin, unscoped_auth = self._get_auth_backend(auth_url, **kwargs)
 
         # the recent project id a user might have set in a cookie
         recent_project = None
