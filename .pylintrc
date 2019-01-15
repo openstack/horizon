@@ -10,7 +10,6 @@ disable=
 # "I" Informational noise
  locally-disabled,
 # "E" Error for important programming issues (likely bugs)
- access-member-before-definition,
  assignment-from-no-return,
  import-error,
  logging-too-few-args,

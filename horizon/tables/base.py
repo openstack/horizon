@@ -843,6 +843,7 @@ class Cell(html.HTMLElement):
         """Gets the status for the column based on the cell's data."""
         # Deal with status column mechanics based in this cell's data
         if hasattr(self, '_status'):
+            # pylint: disable=access-member-before-definition
             return self._status
 
         if self.column.status or \
