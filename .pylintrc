@@ -22,7 +22,6 @@ disable=
  not-callable,
  raising-non-exception,
  redundant-keyword-arg,
- undefined-all-variable,
  unexpected-keyword-arg,
 # "W" Warnings for stylistic problems or minor programming issues
  arguments-differ,
