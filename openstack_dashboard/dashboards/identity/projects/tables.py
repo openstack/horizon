@@ -180,7 +180,7 @@ class DeleteTenantsAction(policy.PolicyTargetMixin, tables.DeleteAction):
         )
 
     policy_rules = (("identity", "identity:delete_project"),)
-    policy_target_attrs = ("target.project.domain_id", "domain_id"),
+    policy_target_attrs = (("target.project.domain_id", "domain_id"),)
 
     def allowed(self, request, project):
         if api.keystone.is_multi_domain_enabled() \
