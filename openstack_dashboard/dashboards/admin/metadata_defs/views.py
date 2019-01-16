@@ -118,8 +118,7 @@ class UpdateView(forms.ModalFormView):
 
     def get_initial(self):
         namespace = self._get_object()
-        visibility = \
-            True if namespace['visibility'] == 'public' else False
+        visibility = namespace['visibility'] == 'public'
         return {'namespace_id': namespace['namespace'],
                 'public': visibility,
                 'protected': namespace['protected'],

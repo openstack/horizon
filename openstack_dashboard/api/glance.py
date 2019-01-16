@@ -630,10 +630,7 @@ class Namespace(BaseGlanceMetadefAPIResourceWrapper):
 
     @property
     def public(self):
-        if getattr(self._apiresource, 'visibility') == 'public':
-            return True
-        else:
-            return False
+        return getattr(self._apiresource, 'visibility') == 'public'
 
 
 def filter_properties_target(namespaces_iter,

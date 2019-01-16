@@ -106,10 +106,7 @@ class JSONMessage(object):
 
 
 def _is_path(path):
-    if os.path.exists(path) and os.path.isdir(path):
-        return True
-    else:
-        return False
+    return os.path.exists(path) and os.path.isdir(path)
 
 
 def _get_processed_messages(messages_path):

@@ -78,7 +78,7 @@ class CreateSubnet(network_workflows.CreateNetwork):
         network = self.context_seed['network']
         # network argument is required to show error message correctly.
         subnet = self._create_subnet(request, data, network=network)
-        return True if subnet else False
+        return bool(subnet)
 
 
 class UpdateSubnetInfoAction(CreateSubnetInfoAction):
@@ -202,4 +202,4 @@ class UpdateSubnet(network_workflows.CreateNetwork):
 
     def handle(self, request, data):
         subnet = self._update_subnet(request, data)
-        return True if subnet else False
+        return bool(subnet)
