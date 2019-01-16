@@ -201,7 +201,6 @@ class TabGroup(html.HTMLElement):
         is the fallback handler. By default it's a no-op, but it exists
         to make redirecting or raising exceptions possible for subclasses.
         """
-        pass
 
     def _set_active_tab(self):
         marked_active = None
@@ -456,7 +455,6 @@ class Tab(html.HTMLElement):
 
         The default behavior is to ignore POST data.
         """
-        pass
 
 
 class TableTab(Tab):

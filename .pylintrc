@@ -32,7 +32,6 @@ disable=
  signature-differs,
  super-init-not-called,
  unidiomatic-typecheck,
- unnecessary-pass,
  unused-argument,
  unused-wildcard-import,
  useless-else-on-loop,

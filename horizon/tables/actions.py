@@ -147,7 +147,6 @@ class BaseAction(html.HTMLElement):
 
         By default this method is a no-op.
         """
-        pass
 
     def get_default_classes(self):
         """Returns a list of the default classes for the action.

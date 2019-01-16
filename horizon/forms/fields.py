@@ -406,13 +406,11 @@ class ThemableDynamicChoiceField(DynamicChoiceField):
 
 class DynamicTypedChoiceField(DynamicChoiceField, fields.TypedChoiceField):
     """Simple mix of ``DynamicChoiceField`` and ``TypedChoiceField``."""
-    pass
 
 
 class ThemableDynamicTypedChoiceField(ThemableDynamicChoiceField,
                                       fields.TypedChoiceField):
     """Simple mix of ``ThemableDynamicChoiceField`` & ``TypedChoiceField``."""
-    pass
 
 
 class ThemableCheckboxInput(widgets.CheckboxInput):

@@ -41,7 +41,6 @@ class HorizonReporterFilter(SafeExceptionReporterFilter):
 
 class HorizonException(Exception):
     """Base exception class for distinguishing our own exception classes."""
-    pass
 
 
 class Http302(HorizonException):
@@ -149,17 +148,14 @@ class GetFileError(HorizonException):
 
 class ConfigurationError(HorizonException):
     """Exception to be raised when invalid settings have been provided."""
-    pass
 
 
 class NotAvailable(HorizonException):
     """Exception to be raised when something is not available."""
-    pass
 
 
 class WorkflowError(HorizonException):
     """Exception to be raised when something goes wrong in a workflow."""
-    pass
 
 
 class WorkflowValidationError(HorizonException):
@@ -168,12 +164,10 @@ class WorkflowValidationError(HorizonException):
     It is raised if required data is missing,
     or existing data is not valid.
     """
-    pass
 
 
 class MessageFailure(HorizonException):
     """Exception raised during message notification."""
-    pass
 
 
 class HandledException(HorizonException):
