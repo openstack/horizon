@@ -123,7 +123,7 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
 
     def handle_endtag(self, tag):
         if self.in_translate:
-            if len(self.inner_tags) > 0:
+            if self.inner_tags:
                 tag = self.inner_tags.pop()
                 self.data += "</%s>" % tag
                 return

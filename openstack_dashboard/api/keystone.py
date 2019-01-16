@@ -634,7 +634,7 @@ def group_list(request, domain=None, project=None, user=None, filters=None):
         project_groups = []
         for group in groups:
             roles = roles_for_group(request, group=group.id, project=project)
-            if roles and len(roles) > 0:
+            if roles:
                 project_groups.append(group)
         groups = project_groups
     return groups

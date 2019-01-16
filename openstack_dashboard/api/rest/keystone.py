@@ -56,7 +56,7 @@ class Users(generic.View):
 
         filters = rest_utils.parse_filters_kwargs(request,
                                                   self.client_keywords)[0]
-        if len(filters) == 0:
+        if not filters:
             filters = None
 
         result = api.keystone.user_list(
@@ -420,7 +420,7 @@ class Projects(generic.View):
 
         filters = rest_utils.parse_filters_kwargs(request,
                                                   self.client_keywords)[0]
-        if len(filters) == 0:
+        if not filters:
             filters = None
 
         paginate = request.GET.get('paginate') == 'true'

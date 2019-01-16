@@ -235,10 +235,10 @@ class CreateSubnetInfoAction(workflows.Action):
             # Populate data-fields for switching the prefixlen field
             # when user selects a subnetpool other than
             # "Provider default pool"
-            for (id, name) in self.fields['subnetpool'].choices:
-                if not len(id):
+            for (id_, name) in self.fields['subnetpool'].choices:
+                if not id_:
                     continue
-                key = 'data-subnetpool-' + id
+                key = 'data-subnetpool-' + id_
                 self.fields['prefixlen'].widget.attrs[key] = \
                     _('Network Mask')
         else:
@@ -555,9 +555,9 @@ class CreateNetwork(workflows.Workflow):
                 params['gateway_ip'] = None
             elif data['gateway_ip']:
                 params['gateway_ip'] = data['gateway_ip']
-            if 'subnetpool' in data and len(data['subnetpool']):
+            if 'subnetpool' in data and data['subnetpool']:
                 params['subnetpool_id'] = data['subnetpool']
-                if 'prefixlen' in data and len(data['prefixlen']):
+                if 'prefixlen' in data and data['prefixlen']:
                     params['prefixlen'] = data['prefixlen']
 
             self._setup_subnet_parameters(params, data)

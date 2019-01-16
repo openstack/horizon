@@ -496,7 +496,7 @@ class Column(html.HTMLElement):
         data = [self.get_raw_data(datum) for datum in self.table.data]
         data = [raw_data for raw_data in data if raw_data is not None]
 
-        if len(data):
+        if data:
             try:
                 summation = summation_function(data)
                 for filter_func in self.filters:

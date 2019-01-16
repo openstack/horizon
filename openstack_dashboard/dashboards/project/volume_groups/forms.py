@@ -136,7 +136,7 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
                 search_opts = {'group_id': group_id}
                 volumes = cinder.volume_list(request,
                                              search_opts=search_opts)
-                if len(volumes) == 0:
+                if not volumes:
                     msg = _('Unable to create snapshot. '
                             'group must contain volumes.')
 
@@ -190,7 +190,7 @@ class CloneGroupForm(forms.SelfHandlingForm):
 
             search_opts = {'group_id': group_id}
             volumes = cinder.volume_list(request, search_opts=search_opts)
-            if len(volumes) == 0:
+            if not volumes:
                 msg = _('Unable to clone empty group.')
 
             exceptions.handle(request,

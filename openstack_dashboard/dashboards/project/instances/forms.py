@@ -347,7 +347,7 @@ class AttachInterface(forms.SelfHandlingForm):
 
         choices = [('network', _("by Network (and IP address)"))]
         ports = instance_utils.port_field_data(request, with_network=True)
-        if len(ports) > 0:
+        if ports:
             self.fields['port'].choices = ports
             choices.append(('port', _("by Port")))
 

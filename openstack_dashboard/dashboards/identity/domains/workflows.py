@@ -368,7 +368,7 @@ class UpdateDomain(workflows.Workflow):
                 ]
                 admin_role_ids = [role for role in current_role_ids
                                   if role in available_admin_role_ids]
-                if len(admin_role_ids):
+                if admin_role_ids:
                     removing_admin = any([role in current_role_ids
                                           for role in admin_role_ids])
                 else:
