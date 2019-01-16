@@ -218,22 +218,22 @@ class BasePlugin(object):
         # for keystone.
         domain_auth = None
         domain_auth_ref = None
-        for domain_name in domains:
+        for _name in domains:
             token = unscoped_auth_ref.auth_token
             domain_auth = utils.get_token_auth_plugin(
                 auth_url,
                 token,
-                domain_name=domain_name)
+                domain_name=_name)
             try:
                 domain_auth_ref = domain_auth.get_access(session)
             except (keystone_exceptions.ClientException,
                     keystone_exceptions.AuthorizationFailure):
                 LOG.info('Attempted scope to domain %s failed, will attempt '
-                         'to scope to another domain.', domain_name)
+                         'to scope to another domain.', _name)
             else:
                 if len(domains) > 1:
                     LOG.info("More than one valid domain found for user %s,"
                              " scoping to %s",
-                             unscoped_auth_ref.user_id, domain_name)
+                             unscoped_auth_ref.user_id, _name)
                 break
         return domain_auth, domain_auth_ref
