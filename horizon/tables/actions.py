@@ -51,7 +51,7 @@ class BaseActionMetaClass(type):
     parameters for the initializer of the object. The object is then
     initialized clean way. Similar principle is used in DataTableMetaclass.
     """
-    def __new__(mcs, name, bases, attrs):
+    def __new__(cls, name, bases, attrs):
         # Options of action are set as class attributes, loading them.
         options = {}
         if attrs:
@@ -74,7 +74,7 @@ class BaseActionMetaClass(type):
         # instantiating of the specific Action.
         attrs['base_options'] = options
 
-        return type.__new__(mcs, name, bases, attrs)
+        return type.__new__(cls, name, bases, attrs)
 
     def __call__(cls, *args, **kwargs):
         cls.base_options.update(kwargs)

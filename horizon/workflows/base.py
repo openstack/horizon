@@ -61,22 +61,21 @@ class WorkflowContext(dict):
 
 
 class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
-    def __new__(mcs, name, bases, attrs):
+    def __new__(cls, name, bases, attrs):
         # Pop Meta for later processing
         opts = attrs.pop("Meta", None)
         # Create our new class
-        cls = super(ActionMetaclass, mcs).__new__(mcs, name, bases, attrs)
+        cls_ = super(ActionMetaclass, cls).__new__(cls, name, bases, attrs)
         # Process options from Meta
-        cls.name = getattr(opts, "name", name)
-        cls.slug = getattr(opts, "slug", slugify(name))
-        cls.permissions = getattr(opts, "permissions", ())
-        cls.policy_rules = getattr(opts, "policy_rules", ())
-        cls.progress_message = getattr(opts,
-                                       "progress_message",
-                                       _("Processing..."))
-        cls.help_text = getattr(opts, "help_text", "")
-        cls.help_text_template = getattr(opts, "help_text_template", None)
-        return cls
+        cls_.name = getattr(opts, "name", name)
+        cls_.slug = getattr(opts, "slug", slugify(name))
+        cls_.permissions = getattr(opts, "permissions", ())
+        cls_.policy_rules = getattr(opts, "policy_rules", ())
+        cls_.progress_message = getattr(opts, "progress_message",
+                                        _("Processing..."))
+        cls_.help_text = getattr(opts, "help_text", "")
+        cls_.help_text_template = getattr(opts, "help_text_template", None)
+        return cls_
 
 
 @six.python_2_unicode_compatible
@@ -482,10 +481,10 @@ class Step(object):
 
 
 class WorkflowMetaclass(type):
-    def __new__(mcs, name, bases, attrs):
-        super(WorkflowMetaclass, mcs).__new__(mcs, name, bases, attrs)
+    def __new__(cls, name, bases, attrs):
+        super(WorkflowMetaclass, cls).__new__(cls, name, bases, attrs)
         attrs["_cls_registry"] = []
-        return type.__new__(mcs, name, bases, attrs)
+        return type.__new__(cls, name, bases, attrs)
 
 
 class UpdateMembersStep(Step):

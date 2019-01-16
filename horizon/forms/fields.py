@@ -624,7 +624,7 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
     process form clean() phase as usual. Actual file upload happens entirely
     on client-side.
     """
-    def __new__(mcs, name, bases, attrs):
+    def __new__(cls, name, bases, attrs):
         def get_double_name(name):
             suffix = '__hidden'
             slen = len(suffix)
@@ -649,5 +649,5 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
                 new_attrs[new_attr_name] = hidden_field
                 meth_name = 'clean_' + new_attr_name
                 new_attrs[meth_name] = make_clean_method(new_attr_name)
-        return super(ExternalUploadMeta, mcs).__new__(
-            mcs, name, bases, new_attrs)
+        return super(ExternalUploadMeta, cls).__new__(
+            cls, name, bases, new_attrs)
