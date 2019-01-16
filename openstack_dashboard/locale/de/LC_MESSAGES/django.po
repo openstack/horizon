@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-01-11 16:46+0000\n"
+"POT-Creation-Date: 2019-01-15 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -322,12 +322,6 @@ msgstr "Datenträgertransfer annehmen"
 
 msgid "Access & Security"
 msgstr "Zugriff & Sicherheit"
-
-msgid "Access as External"
-msgstr "Zugriff als Extern"
-
-msgid "Access as Shared"
-msgstr "Zugriff als Geteilt"
 
 msgid "Action"
 msgstr "Aktion"
@@ -5798,17 +5792,11 @@ msgstr "Wählen Sie einen Datenträger für die Wiederherstellung."
 msgid "Select an IP address"
 msgstr "IP-Adresse wählen"
 
-msgid "Select an action"
-msgstr "Wählen Sie eine Aktion"
-
 msgid "Select an instance"
 msgstr "Instanz auswählen"
 
 msgid "Select an instance to attach to."
 msgstr "Wählen Sie eine Instanz zum Anhängen aus."
-
-msgid "Select an object type"
-msgstr "Wählen Sie einen Objekttyp"
 
 msgid "Select format"
 msgstr "Format auswählen"

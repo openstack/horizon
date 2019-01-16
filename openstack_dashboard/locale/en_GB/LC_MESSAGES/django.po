@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-01-11 16:46+0000\n"
+"POT-Creation-Date: 2019-01-15 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-01-11 04:44+0000\n"
+"PO-Revision-Date: 2019-01-15 12:20+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -314,17 +314,14 @@ msgstr "Accept Volume Transfer"
 msgid "Access & Security"
 msgstr "Access & Security"
 
-msgid "Access as External"
-msgstr "Access as External"
-
-msgid "Access as Shared"
-msgstr "Access as Shared"
-
 msgid "Action"
 msgstr "Action"
 
 msgid "Action Log"
 msgstr "Action Log"
+
+msgid "Action and Object Type"
+msgstr "Action and Object Type"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -5649,11 +5646,17 @@ msgstr "Select Volume Snapshot"
 msgid "Select a New Flavor"
 msgstr "Select a New Flavour"
 
+msgid "Select a QoS policy"
+msgstr "Select a QoS policy"
+
 msgid "Select a floating IP to disassociate"
 msgstr "Select a Floating IP to disassociate"
 
 msgid "Select a key pair"
 msgstr "Select a key pair"
+
+msgid "Select a network"
+msgstr "Select a network"
 
 msgid "Select a new QoS spec"
 msgstr "Select a new QoS spec"
@@ -5700,20 +5703,17 @@ msgstr "Select a volume to detach from this instance."
 msgid "Select a volume to restore to."
 msgstr "Select a volume to restore to."
 
+msgid "Select action and object type"
+msgstr "Select action and object type"
+
 msgid "Select an IP address"
 msgstr "Select an IP address"
-
-msgid "Select an action"
-msgstr "Select an action"
 
 msgid "Select an instance"
 msgstr "Select an instance"
 
 msgid "Select an instance to attach to."
 msgstr "Select an instance to attach to."
-
-msgid "Select an object type"
-msgstr "Select an object type"
 
 msgid "Select format"
 msgstr "Select format"
@@ -5854,6 +5854,12 @@ msgstr "Shared"
 
 msgid "Shared ="
 msgstr "Shared ="
+
+msgid "Shared Network"
+msgstr "Shared Network"
+
+msgid "Shared QoS Policy"
+msgstr "Shared QoS Policy"
 
 msgid "Shared Storage"
 msgstr "Shared Storage"
