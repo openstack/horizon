@@ -11,7 +11,6 @@ disable=
  locally-disabled,
 # "E" Error for important programming issues (likely bugs)
  method-hidden,
- misplaced-bare-raise,
  no-member,
  not-callable,
  raising-non-exception,
