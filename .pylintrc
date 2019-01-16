@@ -35,7 +35,6 @@ disable=
  unused-argument,
  unused-wildcard-import,
  useless-else-on-loop,
- useless-super-delegation,
  wildcard-import,
 # "C" Coding convention violations
  abstract-method,

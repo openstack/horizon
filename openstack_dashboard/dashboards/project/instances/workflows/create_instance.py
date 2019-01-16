@@ -663,9 +663,6 @@ class CustomizeAction(workflows.Action):
             'data-scriptsource-raw': _('Script Data')}),
         required=False)
 
-    def __init__(self, *args):
-        super(CustomizeAction, self).__init__(*args)
-
     def clean(self):
         cleaned = super(CustomizeAction, self).clean()
 

@@ -29,9 +29,6 @@ class AddProtocolView(forms.ModalFormView):
     success_url = "horizon:identity:identity_providers:protocols_tab"
     page_title = _("Create Protocol")
 
-    def __init__(self):
-        super(AddProtocolView, self).__init__()
-
     def get_success_url(self):
         return reverse(self.success_url,
                        args=(self.kwargs['identity_provider_id'],))
