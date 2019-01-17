@@ -41,7 +41,7 @@ class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
 
     def clean(self):
         cleaned_data = workflows.Action.clean(self)
-        self._check_subnet_data(cleaned_data)
+        self._check_subnet_data(cleaned_data, with_network_form=False)
         return cleaned_data
 
 
@@ -114,7 +114,8 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
 
     def clean(self):
         cleaned_data = workflows.Action.clean(self)
-        self._check_subnet_data(cleaned_data, is_create=False)
+        self._check_subnet_data(cleaned_data, is_create=False,
+                                with_network_form=False)
         return cleaned_data
 
 

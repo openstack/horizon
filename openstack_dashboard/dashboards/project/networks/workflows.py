@@ -279,7 +279,8 @@ class CreateSubnetInfoAction(workflows.Action):
                         'allowed': range_str})
                 raise forms.ValidationError(msg)
 
-    def _check_subnet_data(self, cleaned_data, is_create=True):
+    def _check_subnet_data(self, cleaned_data, is_create=True,
+                           with_network_form=True):
         cidr = cleaned_data.get('cidr')
         ip_version = int(cleaned_data.get('ip_version'))
         gateway_ip = cleaned_data.get('gateway_ip')
@@ -293,8 +294,11 @@ class CreateSubnetInfoAction(workflows.Action):
                     '"Network Address".')
             raise forms.ValidationError(msg)
         if not cidr and address_source != 'subnetpool':
-            msg = _('Specify "Network Address" or '
-                    'clear "Create Subnet" checkbox in previous step.')
+            if with_network_form:
+                msg = _('Specify "Network Address" or '
+                        'clear "Create Subnet" checkbox in previous step.')
+            else:
+                msg = _("Specify network address")
             raise forms.ValidationError(msg)
         if cidr:
             subnet = netaddr.IPNetwork(cidr)
