@@ -23,6 +23,10 @@ class Developer(horizon.Dashboard):
     slug = "developer"
     default_panel = "theme_preview"
 
+    def allowed(self, context):
+        if not getattr(settings, 'DEBUG', False):
+            return False
+        return super(Developer, self).allowed(context)
 
-if getattr(settings, 'DEBUG', False):
-    horizon.register(Developer)
+
+horizon.register(Developer)
