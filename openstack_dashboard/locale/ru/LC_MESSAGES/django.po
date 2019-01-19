@@ -30,15 +30,16 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 # Dmytriy Rabotjagov <noonedeadpunk@ya.ru>, 2018. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2018. #zanata
+# Dmytriy Rabotjagov <noonedeadpunk@ya.ru>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-01-05 15:24+0000\n"
+"POT-Creation-Date: 2019-01-18 13:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-09 01:53+0000\n"
+"PO-Revision-Date: 2019-01-17 05:59+0000\n"
 "Last-Translator: Dmytriy Rabotjagov <noonedeadpunk@ya.ru>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -186,6 +187,9 @@ msgstr "%s ГиБ"
 #, python-format
 msgid "%sMB"
 msgstr "%s МБ"
+
+msgid "(No IP address)"
+msgstr "(Нет IP адреса)"
 
 msgid "(Quota exceeded)"
 msgstr "(Превышена квота)"
@@ -445,6 +449,13 @@ msgstr ""
 "Добавить типы томов в группу согласования. В группу можно добавлять только "
 "типы томов, связанные с одной и той же базовой системой."
 
+msgid ""
+"Add volume types to this group. Multiple volume types can be added to the "
+"same group only if they are associated with same back end."
+msgstr ""
+"Добавить типы дисков в эту группу. Несколько типов дисков можно добавить в "
+"одну группу только если они связаны с одним и тем же бекендом."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Добавить, изменить или удалить спецификацию QoS связанную с данными типом "
@@ -452,6 +463,9 @@ msgstr ""
 
 msgid "Add/Remove Consistency Group Volumes"
 msgstr "Добавить или удалить тома группы согласования"
+
+msgid "Add/Remove Group Volumes"
+msgstr "Добавить/удалить группу дисков"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Добавить/удалить узлы в агрегаторе"
@@ -463,6 +477,13 @@ msgid ""
 msgstr ""
 "Добавить типы томов в группу согласования или удалить их из группы. Можно "
 "выбирать только типы томов, связанные с этой группой согласования."
+
+msgid ""
+"Add/remove volumes to/from this group. Only volumes associated with the "
+"volume type(s) assigned to this group will be available for selection."
+msgstr ""
+"Добавить/удалить диски в/из этой группы. Для выбора доступны только диски "
+"связанные с типом дисков, который был назначен для группы."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -589,6 +610,10 @@ msgstr "Выделите сетевой адрес из пула"
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Выделить назначаемый IP из указанного пула назначаемых IP."
 
+msgctxt "Label in the limit summary"
+msgid "Allocated"
+msgstr "Выделено"
+
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Выделен плавающий IP %(ip)s."
@@ -632,6 +657,9 @@ msgstr "Любой"
 msgid "Any Availability Zone"
 msgstr "Любая зона доступности"
 
+msgid "Application Credential Details"
+msgstr "Детали доступа для приложения"
+
 msgid "Application Credential Name ="
 msgstr "Имя доступа ="
 
@@ -669,6 +697,9 @@ msgstr "По крайней мере одна сеть должна быть у�
 msgid "At least one volume type must be assigned to a consistency group."
 msgstr ""
 "Как минимум один тип дисков должен быть назначен для группы согласования."
+
+msgid "At least one volume type must be assigned to a group."
+msgstr "Как минимум один тип дисков должен быть назначен группе."
 
 msgid "Attach Interface"
 msgstr "Подключить интерфейс"
@@ -780,6 +811,14 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "Доступен"
 
+msgctxt "Current status of Volume Group"
+msgid "Available"
+msgstr "Доступно"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Available"
+msgstr "Доступен"
+
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr "Доступен"
@@ -882,6 +921,17 @@ msgid "Building"
 msgstr "Создание"
 
 msgid ""
+"By default, for security reasons, application credentials are forbidden from "
+"being used for creating additional application credentials or keystone "
+"trusts. If your application credential needs to be able to perform these "
+"actions, check \"unrestricted\"."
+msgstr ""
+"По умолчанию, из соображений безопасности, доступам приложений не разрешено "
+"создавать дополнительные доступы приложений или доверенности в keystone. "
+"Если вашему приложению необходимы привилегии для подобных действий, выберите "
+"\"Без ограничений\""
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -934,6 +984,13 @@ msgstr "Изменить пароль"
 msgid "Change Volume Type"
 msgstr "Изменить тип диска"
 
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+msgstr ""
+"Изменить тип диска после его создания. Эквивалент команды <tt>openstack "
+"volume set --type</tt>."
+
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
 "Изменение пароля пользователя. Мы настоятельно рекомендуем использовать "
@@ -955,6 +1012,13 @@ msgid ""
 msgstr ""
 "Включите опцию &quot;Удалить диски&quot;, чтобы удалить все диски, связанные "
 "с этой группой согласованности."
+
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this group."
+msgstr ""
+"Включите опцию &quot;Удалить диски&quot;, чтобы также удалить диски, "
+"связанные с этой группой."
 
 msgid "Checksum"
 msgstr "Контрольная сумма"
@@ -1048,12 +1112,22 @@ msgstr "Нажмите сюда для показа только консоли"
 msgid "Clone Consistency Group"
 msgstr "Клонировать группу согласования"
 
+msgid "Clone Group"
+msgstr "Клонировать Группу"
+
 msgid ""
 "Clone each of the volumes in the source Consistency Group, and then add them "
 "to a newly created Consistency Group."
 msgstr ""
 "Клонируйте каждый диск в исходную Группу Целостности и затем добавьте их в "
 "новую созданную Группу Целостности"
+
+msgid ""
+"Clone each of the volumes in the source Group, and then add them to a newly "
+"created Group."
+msgstr ""
+"Клонируйте каждый диск в исходную группу, после чего добавьте их в новую "
+"группу."
 
 msgid "Close"
 msgstr "Закрыть"
@@ -1093,6 +1167,9 @@ msgid ""
 msgstr ""
 "Настройке OpenStack для записи метаданных в специальный конфигурационный "
 "диск, которые подключается к инстансу при загрузке."
+
+msgid "Confirm"
+msgstr "Подтвердить"
 
 msgid "Confirm Admin Password"
 msgstr "Подтвердите пароль администратора"
@@ -1231,6 +1308,9 @@ msgstr "Создать тип инстансов"
 msgid "Create Group"
 msgstr "Создать группу"
 
+msgid "Create Group Snapshot"
+msgstr "Создать снимок группы"
+
 msgid "Create Host Aggregate"
 msgstr "Создать агрегатор узлов"
 
@@ -1306,6 +1386,9 @@ msgstr "Создать резервную копию диска"
 msgid "Create Volume Consistency Group"
 msgstr "Создать группу согласования томов"
 
+msgid "Create Volume Group"
+msgstr "Создать Группу Дисков"
+
 msgid "Create Volume Snapshot"
 msgstr "Создать снимок диска"
 
@@ -1330,6 +1413,13 @@ msgid ""
 msgstr ""
 "Создайте Группу Целостности, которая будет содержать новые созданные диски "
 "клонированные из каждого снимка в исходном снимке Группы Целостности"
+
+msgid ""
+"Create a Group that will contain newly created volumes cloned from each of "
+"the snapshots in the source Group Snapshot."
+msgstr ""
+"Создайте Группу, которая будет содержать свежесозданные диски, клонированные "
+"с каждого из снимков в исходной Группе Снимков."
 
 msgid "Create a Metadata Namespace"
 msgstr "Создать пространство имен метаданных"
@@ -1377,6 +1467,9 @@ msgid "Create a snapshot for each volume contained in the Consistency Group."
 msgstr ""
 "Создайте снимок для каждого диска содержащегося в группе согласованности."
 
+msgid "Create a snapshot for each volume contained in the Group."
+msgstr "Создать снимок для каждого диска, находящегося в группе."
+
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -1420,6 +1513,9 @@ msgstr "Создан новый проект «%s»."
 
 msgid "Created new volume consistency group"
 msgstr "Новая группа согласования томов создана"
+
+msgid "Created new volume group"
+msgstr "Создать новую группу дисков"
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -1477,6 +1573,10 @@ msgstr ""
 #, python-format
 msgid "Creating group \"%s\"."
 msgstr "Создание группы \"%s\"."
+
+#, python-format
+msgid "Creating group snapshot \"%s\"."
+msgstr "Создание снимка группы \"%s\"."
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -1548,6 +1648,9 @@ msgstr ""
 
 msgid "DNS Assignment"
 msgstr "Присвоение DNS"
+
+msgid "DNS Domain"
+msgstr "DNS Домен"
 
 msgid "DNS Name"
 msgstr "Имя DNS"
@@ -2012,6 +2115,10 @@ msgstr "Удаление"
 msgid "Deleting volume consistency group \"%s\""
 msgstr "Удаление группы согласования дисков \"%s\""
 
+#, python-format
+msgid "Deleting volume group \"%s\""
+msgstr "Удаление группы дисков \"%s\""
+
 msgid "Description"
 msgstr "Описание"
 
@@ -2388,6 +2495,9 @@ msgstr "Редактировать публичные/защищённые ат�
 msgid "Edit QoS Spec Consumer"
 msgstr "Редактировать потребителя спецификации QoS"
 
+msgid "Edit Quotas"
+msgstr "Редактировать квоты"
+
 msgid "Edit Router"
 msgstr "Изменить маршрутизатор"
 
@@ -2581,6 +2691,14 @@ msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "Ошибка"
 
+msgctxt "Current status of Volume Group"
+msgid "Error"
+msgstr "Ошибка"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Error"
+msgstr "Ошибка"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Ошибка"
@@ -2666,8 +2784,14 @@ msgstr "Ошибка записи zip файла: %(exc)s"
 msgid "Errors occurred in deleting consistency group."
 msgstr "Ошибка при удалении группы согласования."
 
+msgid "Errors occurred in deleting group."
+msgstr "При удалении группы возникли ошибки."
+
 msgid "Errors occurred in removing volumes from consistency group."
 msgstr "Ошибка при удалении дисков из группы согласования."
+
+msgid "Errors occurred in removing volumes from group."
+msgstr "При удалении дисков из группы возникли ошибки."
 
 msgid "Ether Type"
 msgstr "Тип сети"
@@ -2706,6 +2830,9 @@ msgstr "Дата окончания действия"
 
 msgid "Expiration Time"
 msgstr "Время окончания действия"
+
+msgid "Expires"
+msgstr "Окончание действия"
 
 msgid "Extend Volume"
 msgstr "Расширить диск"
@@ -3140,6 +3267,9 @@ msgstr "Выполнить"
 msgid "Graph"
 msgstr "Граф"
 
+msgid "Group"
+msgstr "Группа"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Группа «%s» была успешно создана."
@@ -3149,6 +3279,9 @@ msgstr "ID группы"
 
 msgid "Group ID ="
 msgstr "ID группы ="
+
+msgid "Group Information"
+msgstr "Информация о группе"
 
 msgid "Group Management"
 msgstr "Управление группами"
@@ -3167,6 +3300,12 @@ msgstr "Имя группы ="
 
 msgid "Group Snapshot"
 msgstr "Снимок Групп"
+
+msgid "Group Snapshots"
+msgstr "Снимки Групп"
+
+msgid "Group Type"
+msgstr "Тип группы"
 
 msgid "Group has been updated successfully."
 msgstr "Группа была успешно изменена."
@@ -3227,6 +3366,9 @@ msgstr[2] "Инстансы перезагружены"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Принудительная перезагрузка"
+
+msgid "Has Snapshots"
+msgstr "Имеет Снимки"
 
 msgid "Help"
 msgstr "Помощь"
@@ -3425,6 +3567,17 @@ msgstr ""
 "состояния ниже."
 
 msgid ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
+msgstr ""
+"Если вы не укажите IP адрес здесь, IP адрес шлюза выбранной подсети будет "
+"использован как нового интерфейса роутера. Если IP адрес шлюза используется, "
+"вы должны использовать другой IP адрес, который принадлежит выбранной "
+"подсети."
+
+msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
 "be a valid and direct URL to the image binary; it must also be accessible to "
 "the Image Service. URLs that redirect or serve error pages will result in "
@@ -3510,6 +3663,14 @@ msgid "In-use"
 msgstr "Используется"
 
 msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "Используется"
+
+msgctxt "Current status of Volume Group"
+msgid "In-use"
+msgstr "Используется"
+
+msgctxt "Current status of Volume Group Snapshot"
 msgid "In-use"
 msgstr "Используется"
 
@@ -3921,6 +4082,9 @@ msgstr "Использование RAM"
 msgid "Message"
 msgstr "Сообщение"
 
+msgid "Messages"
+msgstr "Сообщения"
+
 msgid "Metadata"
 msgstr "Метаданные"
 
@@ -3941,6 +4105,10 @@ msgstr "восходящий канал MidoNet "
 
 msgid "Migrate"
 msgstr "Миграция"
+
+msgctxt "Action log of an instance"
+msgid "Migrate"
+msgstr "Мигрировать"
 
 msgid "Migrate Host"
 msgstr "Мигрировать хост"
@@ -4019,6 +4187,9 @@ msgstr "Изменен инстанс \"%s\"."
 msgid "Modified project \"%s\"."
 msgstr "Проект «%s» изменён."
 
+msgid "Modified quotas of project"
+msgstr "Изменены квоты проекта"
+
 #, python-format
 msgid "Modified volume type access: %s"
 msgstr "Изменен доступ к типу диска: %s"
@@ -4049,6 +4220,9 @@ msgstr "Изменить имя и описание снимка группы с
 
 msgid "Modify the name and description of a volume consistency group."
 msgstr "Изменить имя и описание группы согласованности дисков."
+
+msgid "Modify the name and description of a volume group."
+msgstr "Изменить имя и описание группы дисков."
 
 msgid "Modify volume type name, description, and public status."
 msgstr "Редактировать имя, описание и публичный статус типа дисков"
@@ -4284,6 +4458,9 @@ msgstr "Нет доступного пула назначаемых IP адре�
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "Нет доступных пулов назначаемых IP адресов с IPv4 подсетью."
 
+msgid "No group"
+msgstr "Нет группы"
+
 msgid "No groups found."
 msgstr "Группы не найдены."
 
@@ -4379,6 +4556,9 @@ msgstr "Пользователи не найдены."
 
 msgid "No users."
 msgstr "Нет пользователей."
+
+msgid "No valid group type"
+msgstr "Нет допустимых типов групп"
 
 msgid "No volume snapshots available"
 msgstr "Нет доступных снимков дисков"
@@ -4476,6 +4656,9 @@ msgstr "Скопируйте/Вставьте ваш личный ключ"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+msgid "Object"
+msgstr "Объект"
+
 msgid "Object Store"
 msgstr "Хранилище Объектов"
 
@@ -4505,6 +4688,9 @@ msgstr "Открываемый Порт/Диапазон портов:"
 
 msgid "OpenStack Profiler"
 msgstr "Профилировщик"
+
+msgid "OpenStack RC File"
+msgstr "OpenStack RC-файл"
 
 msgid "OpenStack RC File (Identity API v2.0)"
 msgstr "Файл OpenStack RC (Identity API v2.0)"
@@ -4546,6 +4732,28 @@ msgstr "Владелец"
 
 msgid "Owner of the device attached to the port"
 msgstr "Владелец устройства подключенного к порту"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
+"request accept</tt> command."
+msgstr ""
+"Смена владельца диска может быть осуществлена с одного проекта на другой. "
+"Для того, что бы принять трансфер необходимо получить ID трансфера и ключ "
+"авторизации на проекте источнике. Это эквивалентно команде <tt>openstack "
+"volume transfer request accept</tt>."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>openstack volume "
+"transfer create</tt> command."
+msgstr ""
+"Смена владельца диска может быть осуществлена с одного проекта на другой. "
+"Как только трансфер диска был инициирован на проекте источнике, он может "
+"быть \"подтвержден\" проектом получателем. Это эквивалентно команде "
+"<tt>openstack volume transfer create</tt>."
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
@@ -4609,6 +4817,13 @@ msgstr "Физическая сеть"
 
 msgid "Physical Network:"
 msgstr "Физическая сеть:"
+
+msgid ""
+"Please capture the application credential ID and secret in order to provide "
+"them to your application."
+msgstr ""
+"Пожалуйста, сохраните ID доступа и секретный ключ для того, чтобы "
+"предоставить их вашему приложению."
 
 msgid "Please note: "
 msgstr "Обратите внимание:"
@@ -5017,6 +5232,9 @@ msgstr[2] "Удалить пользователей"
 msgid "Remove Volumes from Consistency Group"
 msgstr "Удалить диски из группы согласования"
 
+msgid "Remove Volumes from Group"
+msgstr "Удалить Диск из Группы"
+
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Пользователь удален"
@@ -5033,6 +5251,13 @@ msgstr ""
 #, python-format
 msgid "Removing volumes from volume consistency group \"%s\""
 msgstr "Удаление дисков из группы согласования \"%s\""
+
+#, python-format
+msgid "Removing volumes from volume group \"%s\""
+msgstr "Удаление дисков из группы дисков \"%s\""
+
+msgid "Replication Status"
+msgstr "Статус репликации"
 
 msgid "Report Bug"
 msgstr "Сообщить об ошибке"
@@ -5059,6 +5284,10 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Запрошенный снимок превысит допустимую квоту."
 
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "Восстановление"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Восстановление"
@@ -5070,6 +5299,10 @@ msgstr "Восстановлен"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Восстановление"
+
+msgctxt "Current status of a Volume"
+msgid "Reserved"
+msgstr "Зарезервировано"
 
 msgid "Resize"
 msgstr "Изменение типа инстансов"
@@ -5429,6 +5662,9 @@ msgstr "Выбрать снимок диска"
 msgid "Select a New Flavor"
 msgstr "Выберите новый тип инстансов"
 
+msgid "Select a floating IP to disassociate"
+msgstr "Выберите назначаемый IP для отсоединения"
+
 msgid "Select a key pair"
 msgstr "Выберите ключевую пару"
 
@@ -5488,6 +5724,9 @@ msgstr "Выбрать инстанс для подключения."
 
 msgid "Select format"
 msgstr "Выберите формат"
+
+msgid "Select group type"
+msgstr "Выберите тип группы"
 
 msgid "Select network"
 msgstr "Выберите сеть"
@@ -5629,6 +5868,10 @@ msgstr "Общее хранилище"
 msgid "Shared with Project"
 msgstr "Общие с проектом"
 
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "Архивировать"
+
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
 msgstr[0] "Архивировать инстанс"
@@ -5749,6 +5992,9 @@ msgid ""
 msgstr ""
 "Снимок может быть сделан только для группы согласованности содержащей диски."
 
+msgid "Snapshots can only be created for Groups that contain volumes."
+msgstr "Снимки могут быть сделаны только для группы, в которой имеются диски."
+
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr "Получение снимка"
@@ -5781,6 +6027,9 @@ msgstr ""
 
 msgid "Something went wrong!"
 msgstr "Что-то пошло не так!"
+
+msgid "Sorry, the page you were looking for does not exist"
+msgstr "Извините, страница, которую вы ищите, не существует"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -5983,6 +6232,10 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "Успешно снято назначение IP: %s"
 
 #, python-format
+msgid "Successfully disassociated and released floating IP %s"
+msgstr "Успешно отвязан и освобожден назначаемый IP: %s"
+
+#, python-format
 msgid "Successfully disassociated floating IP %s"
 msgstr "Успешно отвязан назначаемый IP: %s"
 
@@ -6144,6 +6397,14 @@ msgstr ""
 "(пример: front-end=Nova). Значение по умолчанию 'front-end'."
 
 msgid ""
+"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
+"g., 256). If the field is left empty, the provider default will be used."
+msgstr ""
+"<strong>Размер ключа</strong> это размер ключа шифрования в битах (напр. "
+"256). Если поле остановлено пустым, будет использовано значение по умолчанию "
+"для провайдера."
+
+msgid ""
 "The <strong>Provider</strong> is the encryption provider format (e.g. 'luks' "
 "or 'plain')."
 msgstr ""
@@ -6234,6 +6495,16 @@ msgid "The admin password is incorrect."
 msgstr "Неверный пароль администратора."
 
 msgid ""
+"The application credential secret will not be available after closing this "
+"page, so you must capture it now or download it. If you lose this secret, "
+"you must generate a new application credential."
+msgstr ""
+"Секретный ключ доступа приложения будет недоступен после закрытия этой "
+"страницы, поэтому вам необходимо скопировать или загрузить его. Если "
+"секретный ключ будет утерян, вам придется сгенерировать новые доступы для "
+"приложения."
+
+msgid ""
 "The application credential will be created for the currently selected "
 "project."
 msgstr "Детали для приложения будут созданы для текущего проекта."
@@ -6313,6 +6584,10 @@ msgid "The name \"%s\" is already used by another flavor."
 msgstr "Имя «%s» уже занято другим типом инстансов."
 
 #, python-format
+msgid "The name \"%s\" is already used by another group."
+msgstr "Имя \"%s\" уже используется другой группой."
+
+#, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Имя «%s» уже используется другим агрегатором узлов."
 
@@ -6380,6 +6655,9 @@ msgstr ""
 "Запрашиваемые инстансы не могут быть запущены, так как будет превышена "
 "квота : Доступно: %(avail)s, Требуется: %(req)s."
 
+msgid "The specified floating IP no longer exists."
+msgstr "Указанный назначаемый IP более не существует."
+
 msgid "The specified port is invalid."
 msgstr "Указан неверный порт."
 
@@ -6428,6 +6706,9 @@ msgstr "Размер тома не может быть меньше размер
 msgid "The volume size cannot be less than the source volume size (%sGiB)"
 msgstr "Размер тома не может быть меньше исходного размера тома (%s ГиБ)"
 
+msgid "The way to specify an interface"
+msgstr "Способ указания интерфейса"
+
 msgid "Theme Preview"
 msgstr "Предпросмортр темы"
 
@@ -6468,6 +6749,11 @@ msgid ""
 msgstr ""
 "Это действие отменит назначение всех дисков которые содержатся в группе "
 "согласованности."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"group."
+msgstr "Это действие отсоединит все диски которые содержатся в данной группе. "
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -6710,6 +6996,12 @@ msgstr "Не удалось клонировать группу согласов
 msgid "Unable to clone empty consistency group."
 msgstr "Не удалось клонировать пустую группу согласования."
 
+msgid "Unable to clone empty group."
+msgstr "Не удалось клонировать пустую группу."
+
+msgid "Unable to clone group."
+msgstr "Не удалось клонировать группу."
+
 msgid "Unable to connect to Neutron."
 msgstr "Невозможно подключиться к Neutron."
 
@@ -6749,6 +7041,12 @@ msgstr "Не удалось создать тип инстансов."
 #, python-format
 msgid "Unable to create group \"%s\" from snapshot."
 msgstr "Не удалось создать группу \"%s\" из снимка."
+
+msgid "Unable to create group due to exceeding volume quota limit."
+msgstr "Не удалось создать группу по причине превышения дисковых лимитов."
+
+msgid "Unable to create group snapshot."
+msgstr "Не удалось создать снимок группы."
 
 msgid "Unable to create group."
 msgstr "Не удалось создать группу."
@@ -6808,6 +7106,9 @@ msgstr "Не удалось создать снимок."
 msgid "Unable to create snapshot. Consistency group must contain volumes."
 msgstr ""
 "Не удалось создать снимок. Группа согласования должна содержать в себе диски."
+
+msgid "Unable to create snapshot. group must contain volumes."
+msgstr "Не удалось создать снимок. Группа должна содержать диски"
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "Не удалось создать снимки по причине превышения лимита."
@@ -6885,6 +7186,9 @@ msgstr "Не удалось снять назначение плавающего
 msgid "Unable to display consistency group."
 msgstr "Не удалось отобразить группу согласования"
 
+msgid "Unable to display group."
+msgstr "Не удалось отобразить группу."
+
 msgid "Unable to edit spec."
 msgstr "Не удалось изменить параметр."
 
@@ -6934,6 +7238,9 @@ msgstr "Не удалось получить консоль для инстан�
 
 msgid "Unable to get flavor list"
 msgstr "Не удалось получить список типов инстансов"
+
+msgid "Unable to get group list"
+msgstr "Не удалось получить список групп"
 
 msgid "Unable to get host aggregate list"
 msgstr "Не удалось получить список агрегаторов узлов."
@@ -6995,6 +7302,9 @@ msgstr "Не удалось загрузить консоль. Попробуй�
 msgid "Unable to load the specified consistency group."
 msgstr "Не удалось загрузить указанную группу согласования."
 
+msgid "Unable to load the specified group."
+msgstr "Не удалось загрузить указанную группу."
+
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "Не удалось загрузить указанный образ. %s"
@@ -7027,6 +7337,9 @@ msgstr "Не удалось изменить инстанс \"%s\"."
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Не удалось изменить проект «%s»."
+
+msgid "Unable to modify quotas of project"
+msgstr "Не удалось изменить квоты проекта"
 
 #, python-format
 msgid "Unable to parse IP address %s."
@@ -7082,6 +7395,9 @@ msgstr "Не удалось проверить состояние MAC Learning"
 #, python-format
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "Невозможно получить информацию Сети для инстанса \"%s\"."
+
+msgid "Unable to retrieve Neutron quota information."
+msgstr "Не удалось получить информацию о квотах Neutron."
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Не удалось получить зоны доступности Nova."
@@ -7228,17 +7544,35 @@ msgstr "Не удаётся получить список плавающих IP-
 msgid "Unable to retrieve floating IP pools."
 msgstr "Не удалось получить пулы плавающих IP."
 
+msgid "Unable to retrieve group"
+msgstr "Не удалось получить группу"
+
+msgid "Unable to retrieve group details."
+msgstr "Не удалось получить детали группы"
+
+msgid "Unable to retrieve group information."
+msgstr "Не удалось получить информацию о группе."
+
 msgid "Unable to retrieve group list."
 msgstr "Не удалось получить список групп."
 
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "Не удалось получить список групп. Повторите попытку позже."
 
+msgid "Unable to retrieve group snapshot details."
+msgstr "Не удалось получить детали снимков группы."
+
 msgid "Unable to retrieve group snapshots."
 msgstr "Не удалось получить снимки группы."
 
+msgid "Unable to retrieve group types."
+msgstr "Не удалось получить типы груп"
+
 msgid "Unable to retrieve group users."
 msgstr "Не удалось получить список пользователей группы."
+
+msgid "Unable to retrieve group."
+msgstr "Не удалось получить группу."
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "Не удалось получить список агрегаторов узлов."
@@ -7314,6 +7648,9 @@ msgstr "Не удалось получить список ключевых па�
 msgid "Unable to retrieve key pairs."
 msgstr "Не удалось получить ключевую пару"
 
+msgid "Unable to retrieve limits information."
+msgstr "Не удалось получить информацию об ограничениях."
+
 msgid "Unable to retrieve list of security groups"
 msgstr "Не удалось получить список групп безопасности"
 
@@ -7364,6 +7701,9 @@ msgstr "Не удалось получить информацию о проек�
 
 msgid "Unable to retrieve project list."
 msgstr "Не удалось получить список проектов."
+
+msgid "Unable to retrieve project quotas."
+msgstr "Невозможно получить квоты проекта."
 
 msgid "Unable to retrieve protocol list."
 msgstr "Невозможно получить список протоколов."
@@ -7438,6 +7778,9 @@ msgstr "Не удалось получить инстанс."
 msgid "Unable to retrieve the project information of the image."
 msgstr "Для образа не удалось получить информацию о проекте."
 
+msgid "Unable to retrieve the volume group list."
+msgstr "Не удалось получить список групп дисков."
+
 msgid "Unable to retrieve the volume type list."
 msgstr "Не удалось получить список типов дисков."
 
@@ -7483,6 +7826,15 @@ msgstr "Не удалось получить информацию о диске.
 msgid "Unable to retrieve volume encryption details."
 msgstr "Не удалось получить информацию о шифровании диска."
 
+msgid "Unable to retrieve volume group snapshots."
+msgstr "Не удалось получить снимки группы дисков."
+
+msgid "Unable to retrieve volume groups"
+msgstr "Не удалось получить группы дисков"
+
+msgid "Unable to retrieve volume groups."
+msgstr "Не удалось получить группы дисков."
+
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "Не удалось получить информацию о диске для диска: \"%s\""
@@ -7500,8 +7852,14 @@ msgstr "Не удалось получить список дисков инст�
 msgid "Unable to retrieve volume list."
 msgstr "Не удалось получить список дисков."
 
+msgid "Unable to retrieve volume messages."
+msgstr "Не удалось получить сообщения диска."
+
 msgid "Unable to retrieve volume project information."
 msgstr "Не удалось получить информацию о проекте диска."
+
+msgid "Unable to retrieve volume quota information."
+msgstr "Не удалось получить информацию о дисковых квотах."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Не удалось получить снимок диска"
@@ -7639,6 +7997,9 @@ msgstr "Не удалось обновить пользователя."
 msgid "Unable to update volume consistency group."
 msgstr "Не удалось обновить группу согласования томов."
 
+msgid "Unable to update volume group."
+msgstr "Не удалось обновить группу диска."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Не удалось обновить статус снимка диска"
 
@@ -7657,6 +8018,9 @@ msgstr "Не удалось обновить диск."
 
 msgid "Unable to update volumes for consistency group"
 msgstr " Не удалось обновить диски в группе согласования"
+
+msgid "Unable to update volumes for group"
+msgstr "Не удалось обновить диски в группе"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7717,12 +8081,23 @@ msgstr[0] "Незарегистрированный провайдер иден�
 msgstr[1] "Незарегистрированные провайдеры идентификации"
 msgstr[2] "Незарегистрированные провайдеры идентификации"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "Выйти из режима восстановления"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Откат восстановления"
 
+msgid "Unrestricted"
+msgstr "Без ограничений (небезопасно)"
+
 msgid "Unrestricted (dangerous)"
 msgstr "Без ограничений (небезопасно)"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "Разархивировать"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -7839,6 +8214,9 @@ msgstr "Обновленная подсеть \"%s\"."
 msgid "Updated volumes for consistency group \"%s\"."
 msgstr "Обновлены диски в группе согласования \"%s\"."
 
+msgid "Updated volumes for group."
+msgstr "Диски в группе обновлены"
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Обновление пароля"
@@ -7857,6 +8235,10 @@ msgstr "Обновление диска \"%s\""
 #, python-format
 msgid "Updating volume consistency group \"%s\""
 msgstr "Обновление группы согласования томов \"%s\""
+
+#, python-format
+msgid "Updating volume group \"%s\""
+msgstr "Обновление группы диска \"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -7896,6 +8278,9 @@ msgstr "Использовать сервер по умолчанию"
 msgid "Use a consistency group as source"
 msgstr "Использовать группу согласования как источник"
 
+msgid "Use a group as source"
+msgstr "Используйте группу, как источник"
+
 msgid "Use a volume as source"
 msgstr "Использовать диск как ресурс"
 
@@ -7904,6 +8289,10 @@ msgstr "Использовать образ как источник"
 
 msgid "Use snapshot as a source"
 msgstr "Использовать снимок как источник"
+
+msgctxt "Label in the limit summary"
+msgid "Used"
+msgstr "Использовано"
 
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
@@ -8145,6 +8534,14 @@ msgstr "Тип дисков: %(volume_type_name)s"
 msgid "Volume Types"
 msgstr "Типы Дисков"
 
+#, python-format
+msgid ""
+"Volume cannot be extended to %(req)iGiB as the maximum size it can be "
+"extended to is %(max_size)iGiB."
+msgstr ""
+"Диск не может быть расширен до %(req)iGiB, так как максимальный размер, до "
+"которого его можно расширить %(max_size)iGiB."
+
 msgid "Volume consistency groups can not be deleted if they contain volumes."
 msgstr "Удалить группы согласованности нельзя удалить если они содержат диски."
 
@@ -8160,6 +8557,22 @@ msgstr ""
 "\n"
 "Группа согласования поддерживает несколько типов томов, но все ее тома "
 "должны находиться в одной и той же базовой системе."
+
+msgid "Volume groups can not be deleted if they contain volumes."
+msgstr "Группы дисков не могут быть удалены, если в них имеются диски."
+
+msgid ""
+"Volume groups provide a mechanism for creating snapshots of multiple volumes "
+"at the same point-in-time to ensure data consistency\n"
+"\n"
+"A volume group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"Группы дисков предоставляют механизм для создания снимков нескольких дисков "
+"в один момент времени, что бы обеспечить целостность данных.\n"
+"\n"
+"Группа дисков поддерживает более одного типа дисков, но может содержать "
+"только диски, расположенные на одном бекенде."
 
 msgid "Volume is Unencrypted"
 msgstr "Диск не зашифрован"
@@ -8354,6 +8767,17 @@ msgstr ""
 msgid "You have selected:"
 msgstr "Вы выбрали:"
 
+msgid ""
+"You may give the application credential an expiration. The expiration will "
+"be in UTC. If you provide an expiration date with no expiration time, the "
+"time will be assumed to be 00:00:00. If you provide an expiration time with "
+"no expiration date, the date will be assumed to be today."
+msgstr ""
+"Вы можете задать время окончания доступа приложения. Время окончания будет "
+"по UTC.  Если вы зададите дату окончания без времени, время будет "
+"установлено в 00:00:00. Если вы предоставите время окончания без даты, то "
+"будет установлена сегодняшняя дата."
+
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "Ошибка в адресе страницы, или страница была перемещена."
 
@@ -8376,6 +8800,15 @@ msgid ""
 msgstr ""
 "Вы можете шлюз позже используя действие \"установить шлюз\", но IP-адрес "
 "шлюза может измениться. "
+
+msgid ""
+"You may select one or more roles for this application credential. If you do "
+"not select any, all of the roles you have assigned on the current project "
+"will be applied to the application credential."
+msgstr ""
+"Вы можете выбрать одну или несколько ролей для доступа приложения. Если вы "
+"не выберете роль, все ваши роли в рамках данного проекта будут применены к "
+"доступу приложения."
 
 msgid "You may update the editable properties of your network here."
 msgstr "Здесь вы можете обновить изменяемые свойства сети."
@@ -8409,6 +8842,9 @@ msgstr ""
 
 msgid "Your Application Credential"
 msgstr "Ваш доступ для приложения"
+
+msgid "Your application credential"
+msgstr "Ваши доступы для приложений"
 
 #, python-format
 msgid "Your image %s has been queued for creation."
