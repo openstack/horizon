@@ -48,12 +48,16 @@
             </div>
           </div>
           <div class="col-xs-6">
-            <div class="form-group">
+            <div class="form-group" ng-class="{'has-error':volumeForm['volume-size'].$invalid && volumeForm['volume-size'].$dirty}">
               <label for="volume-size" class="control-label">
                 <span translate>Size (GiB)</span>
                 <span class="hz-icon-required fa fa-asterisk"></span>
               </label>
               <input name="volume-size" class="form-control" id="volume-size" type="number" min="1" ng-required="true" ng-model="createVolumeCtrl.volume.size">
+              <p class="help-block alert alert-danger"
+                 ng-show="volumeForm['volume-size'].$invalid && volumeForm['volume-size'].$dirty">
+                 <translate>Volume size is required and must be positive integer</translate>
+              </p>
             </div>
           </div>
         </div>
