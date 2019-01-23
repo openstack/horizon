@@ -1,3 +1,5 @@
+# Copyright 2019 NEC Corporation
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -20,4 +22,13 @@ urlpatterns = [
     url(r'^(?P<group_id>[^/]+)$',
         views.DetailView.as_view(),
         name='detail'),
+    url(r'^(?P<group_id>[^/]+)/remove_volumese/$',
+        views.RemoveVolumesView.as_view(),
+        name='remove_volumes'),
+    url(r'^(?P<group_id>[^/]+)/delete/$',
+        views.DeleteView.as_view(),
+        name='delete'),
+    url(r'^(?P<group_id>[^/]+)/manage/$',
+        views.ManageView.as_view(),
+        name='manage'),
 ]

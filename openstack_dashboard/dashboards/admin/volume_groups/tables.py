@@ -1,3 +1,5 @@
+# Copyright 2019 NEC Corporation
+#
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -14,10 +16,22 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 from openstack_dashboard.dashboards.project.volume_groups \
-    import tables as volume_groups_tables
+    import tables as project_tables
 
 
-class GroupsTable(volume_groups_tables.GroupsTable):
+class DeleteGroup(project_tables.DeleteGroup):
+    url = "horizon:admin:volume_groups:delete"
+
+
+class RemoveAllVolumes(project_tables.RemoveAllVolumes):
+    url = "horizon:admin:volume_groups:remove_volumes"
+
+
+class ManageVolumes(project_tables.ManageVolumes):
+    url = "horizon:admin:volume_groups:manage"
+
+
+class GroupsTable(project_tables.GroupsTable):
     # TODO(vishalmanchanda): Add Project Info.column in table
     name = tables.WrappingColumn("name_or_id",
                                  verbose_name=_("Name"),
@@ -27,5 +41,12 @@ class GroupsTable(volume_groups_tables.GroupsTable):
         name = "volume_groups"
         verbose_name = _("Volume Groups")
         table_actions = (
-            volume_groups_tables.GroupsFilterAction,
+            project_tables.GroupsFilterAction,
         )
+        row_actions = (
+            ManageVolumes,
+            RemoveAllVolumes,
+            DeleteGroup,
+        )
+        row_class = project_tables.UpdateRow
+        status_columns = ("status",)

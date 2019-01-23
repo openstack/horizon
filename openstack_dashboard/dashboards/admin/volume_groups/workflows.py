@@ -12,18 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.urls import reverse
-
 from openstack_dashboard.dashboards.project.volume_groups \
-    import tabs as project_tabs
+    import workflows as project_workflows
+
+INDEX_URL = "horizon:admin:volume_groups:index"
 
 
-class OverviewTab(project_tabs.OverviewTab):
-    template_name = ("admin/volume_groups/_detail_overview.html")
-
-    def get_redirect_url(self):
-        return reverse('horizon:admin:volume_groups:index')
-
-
-class GroupsDetailTabs(project_tabs.GroupsDetailTabs):
-    tabs = (OverviewTab,)
+class UpdateGroupWorkflow(project_workflows.UpdateGroupWorkflow):
+    success_url = INDEX_URL

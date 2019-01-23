@@ -1,3 +1,5 @@
+# Copyright 2019 NEC Corporation
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -11,6 +13,7 @@
 #    under the License.
 
 from django.urls import reverse
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -19,15 +22,19 @@ from horizon import tables
 from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.admin.volume_groups \
-    import tables as volume_group_tables
+    import forms as admin_forms
 from openstack_dashboard.dashboards.admin.volume_groups \
-    import tabs as volume_group_tabs
+    import tables as admin_tables
+from openstack_dashboard.dashboards.admin.volume_groups \
+    import tabs as admin_tabs
+from openstack_dashboard.dashboards.admin.volume_groups \
+    import workflows as admin_workflows
 from openstack_dashboard.dashboards.project.volume_groups \
-    import views as volume_groups_views
+    import views as project_views
 
 
 class IndexView(tables.DataTableView):
-    table_class = volume_group_tables.GroupsTable
+    table_class = admin_tables.GroupsTable
     page_title = _("Groups")
 
     def get_data(self):
@@ -47,12 +54,30 @@ class IndexView(tables.DataTableView):
         return groups
 
 
-class DetailView(volume_groups_views.DetailView):
-    tab_group_class = volume_group_tabs.GroupsDetailTabs
+class RemoveVolumesView(project_views.RemoveVolumesView):
+    template_name = 'admin/volume_groups/remove_vols.html'
+    form_class = admin_forms.RemoveVolsForm
+    success_url = reverse_lazy('horizon:admin:volume_groups:index')
+    submit_url = "horizon:admin:volume_groups:remove_volumes"
+
+
+class DeleteView(project_views.DeleteView):
+    template_name = 'admin/volume_groups/delete.html'
+    form_class = admin_forms.DeleteForm
+    success_url = reverse_lazy('horizon:admin:volume_groups:index')
+    submit_url = "horizon:admin:volume_groups:delete"
+
+
+class ManageView(project_views.ManageView):
+    workflow_class = admin_workflows.UpdateGroupWorkflow
+
+
+class DetailView(project_views.DetailView):
+    tab_group_class = admin_tabs.GroupsDetailTabs
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        table = volume_group_tables.GroupsTable(self.request)
+        table = admin_tables.GroupsTable(self.request)
         context["actions"] = table.render_row_actions(context["group"])
         return context
 
