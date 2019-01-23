@@ -1,0 +1,10 @@
+---
+- hosts: all
+  roles:
+    - run-devstack
+    - test-setup
+    - ensure-tox
+    - role: bindep
+      bindep_profile: selenium
+      become: true
+    - setup-selenium-tests

@@ -12,6 +12,7 @@
 
 import random
 
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -62,6 +63,7 @@ class TestSecuritygroup(helpers.TestCase):
         self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(page.is_port_present(self.RULE_PORT))
 
+    @decorators.skip_because(bugs=['1792028'])
     def test_securitygroup_create_delete(self):
         """tests the security group creation and deletion functionalities:
 
@@ -74,6 +76,7 @@ class TestSecuritygroup(helpers.TestCase):
         self._create_securitygroup()
         self._delete_securitygroup()
 
+    @decorators.skip_because(bugs=['1792028'])
     def test_managerules_create_delete_by_row(self):
         """tests the manage rules creation and deletion functionalities:
 
@@ -92,6 +95,7 @@ class TestSecuritygroup(helpers.TestCase):
         self._delete_rule_by_row_action()
         self._delete_securitygroup()
 
+    @decorators.skip_because(bugs=['1792028'])
     def test_managerules_create_delete_by_table(self):
         """tests the manage rules creation and deletion functionalities:
 

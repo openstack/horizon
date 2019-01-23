@@ -25,6 +25,23 @@
       tox_envlist: selenium-headless
 
 - job:
+    name: horizon-integration-tests
+    parent: devstack
+    pre-run: playbooks/horizon-devstack-integration/pre.yaml
+    run: playbooks/horizon-devstack-integration/run.yaml
+    post-run: playbooks/horizon-devstack-integration/post.yaml
+    roles:
+      - zuul: openstack-infra/devstack
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+    vars:
+      devstack_services:
+        horizon: true
+      tox_envlist: py27integration
+
+- job:
     name: horizon-dsvm-tempest-plugin
     parent: devstack-tempest
     required-projects:
@@ -85,6 +102,8 @@
       jobs:
         - horizon-openstack-tox-python3-django111
         - horizon-selenium-headless:
+            voting: false
+        - horizon-integration-tests:
             voting: false
         - horizon-dsvm-tempest-plugin
         - horizon-tox-bandit-baseline:

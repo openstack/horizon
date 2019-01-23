@@ -72,6 +72,7 @@ class TestRouters(helpers.TestCase):
             interfaces_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(interfaces_page.is_interface_present(interface_name))
 
+    @decorators.skip_because(bugs=['1792028'])
     def test_router_add_delete_interface(self):
         """Tests the router interface creation and deletion functionalities:
 
@@ -103,6 +104,7 @@ class TestRouters(helpers.TestCase):
 
         self._delete_router()
 
+    @decorators.skip_because(bugs=['1792028'])
     def test_router_delete_interface_by_row(self):
         """Tests the router interface creation and deletion by row action:
 
@@ -133,6 +135,7 @@ class TestRouters(helpers.TestCase):
 
         self._delete_router()
 
+    @decorators.skip_because(bugs=['1792028'])
     def test_router_overview_data(self):
         self._create_router()
 
@@ -159,6 +162,7 @@ class TestRouters(helpers.TestCase):
 class TestAdminRouters(helpers.AdminTestCase):
     ROUTER_NAME = helpers.gen_random_resource_name("router")
 
+    @decorators.skip_because(bugs=['1792028'])
     @decorators.services_required("neutron")
     def test_router_create_admin(self):
         """tests the router creation and deletion functionalities:
