@@ -75,14 +75,15 @@ def _get_openrc_credentials(request):
     keystone_url = api.base.url_for(request,
                                     'identity',
                                     endpoint_type='publicURL')
-    credentials = dict(tenant_id=request.user.tenant_id,
-                       tenant_name=request.user.tenant_name,
-                       auth_url=keystone_url,
-                       user=request.user,
-                       interface='public',
-                       os_endpoint_type='publicURL',
-                       region=getattr(request.user, 'services_region') or "")
-    return credentials
+    return {
+        'tenant_id': request.user.tenant_id,
+        'tenant_name': request.user.tenant_name,
+        'auth_url': keystone_url,
+        'user': request.user,
+        'interface': 'public',
+        'os_endpoint_type': 'publicURL',
+        'region': getattr(request.user, 'services_region') or "",
+    }
 
 
 def download_ec2_bundle(request):
@@ -126,9 +127,10 @@ def download_rc_file_v2(request):
 
 
 def download_rc_file(request):
-    template = 'project/api_access/openrc.sh.template'
-    context = _get_openrc_credentials(request)
+    template = getattr(settings, 'OPENRC_CUSTOM_TEMPLATE',
+                       'project/api_access/openrc.sh.template')
 
+    context = _get_openrc_credentials(request)
     # make v3 specific changes
     context['user_domain_name'] = request.user.user_domain_name
     try:
@@ -145,7 +147,9 @@ def download_rc_file(request):
 
 
 def download_clouds_yaml_file(request):
-    template = 'project/api_access/clouds.yaml.template'
+    template = getattr(settings, 'OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE',
+                       'project/api_access/clouds.yaml.template')
+
     context = _get_openrc_credentials(request)
     context['cloud_name'] = getattr(
         settings, "OPENSTACK_CLOUDS_YAML_NAME", 'openstack')

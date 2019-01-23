@@ -505,6 +505,34 @@ OpenStack dashboard to use a specific API version for a given service API.
             "compute": 2
         }
 
+OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE
+-------------------------------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``None``
+
+Example:: ``my-clouds.yaml.template``
+
+A template name for a custom user's ``clouds.yaml`` file.
+``None`` means the default template for ``clouds.yaml`` is used.
+
+If the default template is not suitable for your deployment,
+you can provide your own clouds.yaml by specifying this setting.
+
+The default template is defined as `clouds.yaml.template
+<http://git.openstack.org/cgit/openstack/horizon/tree/openstack_dashboard/dashboards/project/api_access/templates/api_access/clouds.yaml.template>`__
+and available context parameters are found in ``_get_openrc_credentials()``
+and ``download_clouds_yaml_file()`` functions in
+`openstack_dashboard/dashboards/project/api_access/views.py
+<http://git.openstack.org/cgit/openstack/horizon/tree/openstack_dashboard/dashboards/project/api_access/views.py>`__.
+
+.. note::
+
+   Your template needs to be placed in the search paths of Django templates.
+   You may need to configure `ADD_TEMPLATE_DIRS`_ setting
+   to contain a path where your template exists.
+
 OPENSTACK_CLOUDS_YAML_NAME
 --------------------------
 
@@ -551,6 +579,37 @@ basic deployment.
 
 If you have multiple regions you should use the `AVAILABLE_REGIONS`_ setting
 instead.
+
+OPENRC_CUSTOM_TEMPLATE
+----------------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``None``
+
+Example:: ``my-openrc.sh.template``
+
+A template name for a custom user's ``openrc`` file.
+``None`` means the default template for ``openrc`` is used.
+
+If the default template is not suitable for your deployment,
+for example, if your deployment uses saml2, openid and so on
+for authentication, the default ``openrc`` would not be sufficient.
+You can provide your own clouds.yaml by specifying this setting.
+
+The default template is defined as `openrc.sh.template
+<http://git.openstack.org/cgit/openstack/horizon/tree/openstack_dashboard/dashboards/project/api_access/templates/api_access/openrc.sh.template>`__
+and available context parameters are found in ``_get_openrc_credentials()``
+and ``download_rc_file()`` functions in
+`openstack_dashboard/dashboards/project/api_access/views.py
+<http://git.openstack.org/cgit/openstack/horizon/tree/openstack_dashboard/dashboards/project/api_access/views.py>`__.
+
+.. note::
+
+   Your template needs to be placed in the search paths of Django templates.
+   Check ``TEMPLATES[0]['DIRS']``.
+   You may need to specify somewhere your template exist
+   to ``DIRS`` in ``TEMPLATES`` setting.
 
 OPENSTACK_PROFILER
 ------------------
@@ -845,6 +904,10 @@ Default:: ``True``
 Controls whether the keystone openrc file is accesible from the user
 menu and the api access panel.
 
+.. seealso::
+
+   `OPENRC_CUSTOM_TEMPLATE`_ to provide a custom ``openrc``.
+
 SHOW_OPENSTACK_CLOUDS_YAML
 --------------------------
 
@@ -854,6 +917,11 @@ Default:: ``True``
 
 Controls whether clouds.yaml is accesible from the user
 menu and the api access panel.
+
+.. seealso::
+
+   `OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE`_ to provide a custom
+   ``clouds.yaml``.
 
 SHOW_KEYSTONE_V2_RC
 --------------------
@@ -2456,6 +2524,15 @@ TEMPLATES
 Horizon's usage of the ``TEMPLATES`` involves 3 further settings below;
 it is generally advised to use those before attempting to alter the
 ``TEMPLATES`` setting itself.
+
+ADD_TEMPLATE_DIRS
+-----------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Template directories defined here will be added to ``DIRS`` option
+of Django ``TEMPLATES`` setting. It is useful when you would like to
+load deployment-specific templates.
 
 ADD_TEMPLATE_LOADERS
 ~~~~~~~~~~~~~~~~~~~~

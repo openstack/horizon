@@ -135,6 +135,7 @@ CACHED_TEMPLATE_LOADERS = [
 ]
 
 ADD_TEMPLATE_LOADERS = []
+ADD_TEMPLATE_DIRS = []
 
 TEMPLATES = [
     {
@@ -384,6 +385,8 @@ except ImportError:
 # configure templates
 if not TEMPLATES[0]['DIRS']:
     TEMPLATES[0]['DIRS'] = [os.path.join(ROOT_PATH, 'templates')]
+
+TEMPLATES[0]['DIRS'] += ADD_TEMPLATE_DIRS
 
 # configure template debugging
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
