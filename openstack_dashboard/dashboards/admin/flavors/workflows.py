@@ -27,11 +27,10 @@ from openstack_dashboard import api
 
 
 class CreateFlavorInfoAction(workflows.Action):
-    _flavor_id_regex = (r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-'
-                        r'[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9]+|auto$')
-    _flavor_id_help_text = _("Flavor ID should be UUID4 or integer. "
-                             "Leave this field blank or use 'auto' to set "
-                             "a random UUID4.")
+    _flavor_id_regex = (r'^[a-zA-Z0-9. _-]+$')
+    _flavor_id_help_text = _("flavor id can only contain alphanumeric "
+                             "characters, underscores, periods, hyphens, "
+                             "spaces.")
     name = forms.CharField(
         label=_("Name"),
         max_length=255)
@@ -39,6 +38,7 @@ class CreateFlavorInfoAction(workflows.Action):
                                  regex=_flavor_id_regex,
                                  required=False,
                                  initial='auto',
+                                 max_length=255,
                                  help_text=_flavor_id_help_text)
     vcpus = forms.IntegerField(label=_("VCPUs"),
                                min_value=1)
