@@ -223,7 +223,7 @@
     ];
 
     function createContainer() {
-      var model = {name: '', public: false};
+      var model = {public: false};
       var config = {
         title: gettext('Create Container'),
         schema: createContainerSchema,

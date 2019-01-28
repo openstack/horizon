@@ -206,7 +206,7 @@
       // when the modal is resolved, make sure create is called
       deferred.resolve();
       $rootScope.$apply();
-      expect(ctrl.createContainerAction).toHaveBeenCalledWith({name: '', public: false});
+      expect(ctrl.createContainerAction).toHaveBeenCalledWith({public: false});
     });
 
     it('should check for container existence - with presence', function test() {
