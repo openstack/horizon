@@ -616,10 +616,11 @@ class APITestCase(TestCase):
         return self.swiftclient
 
 
-# NOTE(adriant): APIMockTestCase was only needed for some openstack_auth
-# monkeypatching. With the new monkeypatch middleware from openstack_auth this
-# is not needed. This class is used by horizon plugins, so we cannot drop it.
-APIMockTestCase = TestCase
+class APIMockTestCase(TestCase):
+
+    def setUp(self):
+        super(APIMockTestCase, self).setUp()
+        utils.patch_middleware_get_user()
 
 
 # Need this to test both Glance API V1 and V2 versions
