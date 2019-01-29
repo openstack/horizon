@@ -95,6 +95,10 @@
                    ng-required="true"
                    ng-pattern="ctrl.validationRules.integer" ng-model="ctrl.image.min_disk"
                    placeholder="{$ 'The minimum disk size required to boot the image. If unspecified, this value defaults to 0 (no minimum).'|translate $}">
+            <p class="help-block alert alert-danger"
+               ng-show="imageForm.min_disk.$invalid && imageForm.min_disk.$dirty">
+              <translate>min disk is required and must be an integer not less than 0</translate>
+            </p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-3">
@@ -106,6 +110,10 @@
                    ng-required="true"
                    ng-pattern="ctrl.validationRules.integer" ng-model="ctrl.image.min_ram"
                    placeholder="{$ 'The minimum memory size required to boot the image. If unspecified, this value defaults to 0 (no minimum).'|translate $}">
+            <p class="help-block alert alert-danger"
+               ng-show="imageForm.min_ram.$invalid && imageForm.min_ram.$dirty">
+              <translate>min ram is required and must be an integer not less than 0</translate>
+            </p>
           </div>
         </div>
       </div>
