@@ -58,14 +58,14 @@ class FormMixinTests(test.TestCase):
             self.assertNotIn('add_to_field', context)
 
     def test_template_name_change_based_on_ajax_request(self):
-            view = self._prepare_view(
-                forms.views.ModalFormView,
-                dict(HTTP_X_REQUESTED_WITH='XMLHttpRequest'))
-            self.assertEqual('_' + view.template_name,
-                             view.get_template_names())
+        view = self._prepare_view(
+            forms.views.ModalFormView,
+            dict(HTTP_X_REQUESTED_WITH='XMLHttpRequest'))
+        self.assertEqual('_' + view.template_name,
+                         view.get_template_names())
 
-            view = self._prepare_view(forms.views.ModalFormView, {})
-            self.assertEqual(view.template_name, view.get_template_names())
+        view = self._prepare_view(forms.views.ModalFormView, {})
+        self.assertEqual(view.template_name, view.get_template_names())
 
 
 class TestForm(forms.SelfHandlingForm):

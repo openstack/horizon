@@ -288,7 +288,7 @@ class SelectWidget(widgets.Widget):
     def transform_option_label(self, option_label):
         if (not isinstance(option_label, (six.string_types, Promise)) and
                 callable(self.transform)):
-                    option_label = self.transform(option_label)
+            option_label = self.transform(option_label)
         return html.conditional_escape(force_text(option_label))
 
     def transform_option_html_attrs(self, option_label):

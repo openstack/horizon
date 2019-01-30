@@ -24,4 +24,4 @@ class OverviewTab(volume_groups_tabs.OverviewTab):
 
 
 class GroupsDetailTabs(volume_groups_tabs.GroupsDetailTabs):
-        tabs = (OverviewTab,)
+    tabs = (OverviewTab,)

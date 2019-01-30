@@ -817,7 +817,7 @@ def get_project_users_roles(request, project):
             # filter by project_id
             if ('project' in role_assignment.scope and
                     role_assignment.scope['project']['id'] == project):
-                    users_roles[user_id].append(role_id)
+                users_roles[user_id].append(role_id)
     return users_roles
 
 

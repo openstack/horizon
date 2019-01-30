@@ -73,14 +73,14 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
         self.line = self.getpos()[0]
         if tag == 'translate' or \
                 (attrs and 'translate' in [attr[0] for attr in attrs]):
-                self.in_translate = True
-                self.plural_form = ''
-                for attr, value in attrs:
-                    if attr == 'translate-plural':
-                        self.plural = True
-                        self.plural_form = value
-                    if attr == 'translate-comment':
-                        self.comments.append(value)
+            self.in_translate = True
+            self.plural_form = ''
+            for attr, value in attrs:
+                if attr == 'translate-plural':
+                    self.plural = True
+                    self.plural_form = value
+                if attr == 'translate-comment':
+                    self.comments.append(value)
         elif self.in_translate:
             s = tag
             if attrs:
