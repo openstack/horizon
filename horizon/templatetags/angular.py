@@ -112,7 +112,7 @@ def angular_templates(context):
             result.extend(finder.find(relative_path, True))
         path = result[-1]
         try:
-            with open(path, encoding='utf-8') as template_file:
+            with open(path) as template_file:
                 angular_templates[template_static_path] = template_file.read()
         except (OSError, IOError):
             # Failed to read template, leave the template dictionary blank
