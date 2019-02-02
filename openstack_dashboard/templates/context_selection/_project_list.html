@@ -5,7 +5,7 @@
   {% for project in projects %}
   <li>
     <a class="{% if project.enabled and project.id == project_id %} dropdown-selected{% endif %}"
-       href="{% url 'switch_tenants' project.id %}?next={{ page_url }}"
+       href="{% url 'switch_tenants' project.id %}{% if page_url %}?next={{ page_url }}{% endif %}"
        target="_self">
       <span class="fa fa-check dropdown-selected-icon"></span>
       <span class="dropdown-title">
