@@ -17,7 +17,7 @@ from oslo_config import cfg
 
 DashboardGroup = [
     cfg.StrOpt('dashboard_url',
-               default='http://localhost/',
+               default='http://localhost/dashboard/',
                help="Where the dashboard can be found"),
     cfg.StrOpt('help_url',
                default='https://docs.openstack.org/',
@@ -61,16 +61,14 @@ IdentityGroup = [
 
 ImageGroup = [
     cfg.StrOpt('panel_type',
-               default='legacy',
+               default='angular',
                help='type/version of images panel'),
     cfg.StrOpt('http_image',
                default='http://download.cirros-cloud.net/0.3.1/'
                        'cirros-0.3.1-x86_64-uec.tar.gz',
                help='http accessible image'),
     cfg.ListOpt('images_list',
-                default=['cirros-0.3.4-x86_64-uec',
-                         'cirros-0.3.4-x86_64-uec-kernel',
-                         'cirros-0.3.4-x86_64-uec-ramdisk'],
+                default=['cirros-0.3.5-x86_64-disk'],
                 help='default list of images')
 ]
 
@@ -90,10 +88,10 @@ SeleniumGroup = [
                default=10,
                help="Implicit wait timeout in seconds"),
     cfg.IntOpt('explicit_wait',
-               default=300,
+               default=90,
                help="Explicit wait timeout in seconds"),
     cfg.IntOpt('page_timeout',
-               default=30,
+               default=60,
                help="Page load timeout in seconds"),
     cfg.StrOpt('screenshots_directory',
                default="integration_tests_screenshots",
@@ -120,7 +118,7 @@ InstancesGroup = [
                default='nova',
                help="Zone to be selected for launch Instances"),
     cfg.StrOpt('image_name',
-               default='cirros-0.3.4-x86_64-uec (24.0 MB)',
+               default='cirros-0.3.5-x86_64-disk (12.7 MB)',
                help="Boot Source to be selected for launch Instances"),
     cfg.StrOpt('flavor',
                default='m1.tiny',
