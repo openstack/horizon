@@ -62,7 +62,7 @@ def login(request, template_name=None, extra_context=None, **kwargs):
             utils.is_websso_default_redirect()):
         protocol = utils.get_websso_default_redirect_protocol()
         region = utils.get_websso_default_redirect_region()
-        origin = request.build_absolute_uri('/auth/websso/')
+        origin = utils.build_absolute_uri(request, '/auth/websso/')
         url = ('%s/auth/OS-FEDERATION/websso/%s?origin=%s' %
                (region, protocol, origin))
         return shortcuts.redirect(url)
