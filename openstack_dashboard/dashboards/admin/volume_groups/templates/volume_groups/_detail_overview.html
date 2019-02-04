@@ -3,11 +3,13 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ group.name|default:_("-") }}</dd>
+    <dd class="word-wrap">{{ group.name|default:_("-") }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ group.id }}</dd>
     <dt>{% trans "Description" %}</dt>
     <dd>{{ group.description|default:_("-") }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ group.project_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ group.status|capfirst }}</dd>
     <dt>{% trans "Availability Zone" %}</dt>

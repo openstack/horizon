@@ -14,7 +14,11 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tables
+
+from openstack_dashboard.api import cinder
+from openstack_dashboard.api import keystone
 from openstack_dashboard.dashboards.project.volume_groups \
     import tables as project_tables
 
@@ -27,15 +31,31 @@ class RemoveAllVolumes(project_tables.RemoveAllVolumes):
     url = "horizon:admin:volume_groups:remove_volumes"
 
 
+class UpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, group_id):
+        groups = cinder.group_list_with_vol_type_names(request, group_id)
+        tenant_id = getattr(groups, 'project_id')
+        try:
+            tenant = keystone.tenant_get(request, tenant_id)
+            groups.tenant_name = getattr(tenant, "name")
+        except Exception:
+            msg = _('Unable to retrieve volume group project information.')
+            exceptions.handle(request, msg)
+
+        return groups
+
+
 class ManageVolumes(project_tables.ManageVolumes):
     url = "horizon:admin:volume_groups:manage"
 
 
 class GroupsTable(project_tables.GroupsTable):
-    # TODO(vishalmanchanda): Add Project Info.column in table
     name = tables.WrappingColumn("name_or_id",
                                  verbose_name=_("Name"),
                                  link="horizon:admin:volume_groups:detail")
+    project = tables.Column("tenant_name", verbose_name=_("Project"))
 
     class Meta(object):
         name = "volume_groups"
@@ -48,5 +68,7 @@ class GroupsTable(project_tables.GroupsTable):
             RemoveAllVolumes,
             DeleteGroup,
         )
-        row_class = project_tables.UpdateRow
+        row_class = UpdateRow
         status_columns = ("status",)
+        columns = ('project', 'name', 'description', 'status',
+                   'availability_zone', 'volume_type', 'has_snapshots',)

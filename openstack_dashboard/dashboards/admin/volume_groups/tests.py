@@ -17,7 +17,6 @@ from django.urls import reverse
 import mock
 
 from openstack_dashboard import api
-from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
 
@@ -26,13 +25,17 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 
 class AdminVolumeGroupTests(test.BaseAdminViewTests):
-    @test.create_mocks({api.cinder: ['group_list_with_vol_type_names',
-                                     'group_snapshot_list']})
+    @test.create_mocks({
+        api.keystone: ['tenant_list'],
+        api.cinder: ['group_list_with_vol_type_names',
+                     'group_snapshot_list']})
     def test_index(self):
         group = self.cinder_groups.list()
         vg_snapshot = self.cinder_group_snapshots.list()
+        tenants = self.tenants.list()
         self.mock_group_list_with_vol_type_names.return_value = group
         self.mock_group_snapshot_list.return_value = vg_snapshot
+        self.mock_tenant_list.return_value = [tenants, False]
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
@@ -41,12 +44,13 @@ class AdminVolumeGroupTests(test.BaseAdminViewTests):
         volume_groups = volume_groups_table.data
         self.assertEqual(len(volume_groups), 1)
 
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_list_with_vol_type_names.assert_called_once_with(
             test.IsHttpRequest(), {'all_tenants': 1})
         self.mock_group_snapshot_list.assert_called_once_with(
             test.IsHttpRequest())
 
-    @test.create_mocks({cinder: ['group_get', 'group_delete']})
+    @test.create_mocks({api.cinder: ['group_get', 'group_delete']})
     def test_delete_group(self):
         group = self.cinder_groups.first()
 
@@ -65,7 +69,7 @@ class AdminVolumeGroupTests(test.BaseAdminViewTests):
                                                        group.id,
                                                        delete_volumes=False)
 
-    @test.create_mocks({cinder: ['group_get', 'group_delete']})
+    @test.create_mocks({api.cinder: ['group_get', 'group_delete']})
     def test_delete_group_delete_volumes_flag(self):
         group = self.cinder_consistencygroups.first()
         formData = {'delete_volumes': True}
@@ -85,7 +89,7 @@ class AdminVolumeGroupTests(test.BaseAdminViewTests):
                                                        group.id,
                                                        delete_volumes=True)
 
-    @test.create_mocks({cinder: ['group_get', 'group_delete']})
+    @test.create_mocks({api.cinder: ['group_get', 'group_delete']})
     def test_delete_group_exception(self):
         group = self.cinder_groups.first()
         formData = {'delete_volumes': False}
@@ -111,10 +115,10 @@ class AdminVolumeGroupTests(test.BaseAdminViewTests):
     def test_update_group_remove_vol(self):
         self._test_update_group_add_remove_vol(add=False)
 
-    @test.create_mocks({cinder: ['volume_list',
-                                 'volume_type_list',
-                                 'group_get',
-                                 'group_update']})
+    @test.create_mocks({api.cinder: ['volume_list',
+                                     'volume_type_list',
+                                     'group_get',
+                                     'group_update']})
     def _test_update_group_add_remove_vol(self, add=True):
         group = self.cinder_groups.first()
         volume_types = self.cinder_volume_types.list()
@@ -166,9 +170,9 @@ class AdminVolumeGroupTests(test.BaseAdminViewTests):
                 add_volumes=[],
                 remove_volumes=assigned_volume_ids)
 
-    @test.create_mocks({cinder: ['group_get_with_vol_type_names',
-                                 'volume_list',
-                                 'group_snapshot_list']})
+    @test.create_mocks({api.cinder: ['group_get_with_vol_type_names',
+                                     'volume_list',
+                                     'group_snapshot_list']})
     def test_detail_view(self):
         group = self.cinder_groups.first()
         volumes = self.cinder_volumes.list()
@@ -193,7 +197,7 @@ class AdminVolumeGroupTests(test.BaseAdminViewTests):
         self.mock_group_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts=search_opts)
 
-    @test.create_mocks({cinder: ['group_get']})
+    @test.create_mocks({api.cinder: ['group_get']})
     def test_detail_view_with_exception(self):
         group = self.cinder_groups.first()
 
