@@ -1,3 +1,5 @@
+# Copyright 2019 NEC Corporation
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -11,6 +13,8 @@
 #    under the License.
 
 from django.urls import reverse
+
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
@@ -41,6 +45,126 @@ class AdminVolumeGroupTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), {'all_tenants': 1})
         self.mock_group_snapshot_list.assert_called_once_with(
             test.IsHttpRequest())
+
+    @test.create_mocks({cinder: ['group_get', 'group_delete']})
+    def test_delete_group(self):
+        group = self.cinder_groups.first()
+
+        self.mock_group_get.return_value = group
+        self.mock_group_delete.return_value = None
+
+        url = reverse('horizon:admin:volume_groups:delete',
+                      args=[group.id])
+        res = self.client.post(url)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_group_get.assert_called_once_with(test.IsHttpRequest(),
+                                                    group.id)
+        self.mock_group_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                       group.id,
+                                                       delete_volumes=False)
+
+    @test.create_mocks({cinder: ['group_get', 'group_delete']})
+    def test_delete_group_delete_volumes_flag(self):
+        group = self.cinder_consistencygroups.first()
+        formData = {'delete_volumes': True}
+
+        self.mock_group_get.return_value = group
+        self.mock_group_delete.return_value = None
+
+        url = reverse('horizon:admin:volume_groups:delete',
+                      args=[group.id])
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_group_get.assert_called_once_with(test.IsHttpRequest(),
+                                                    group.id)
+        self.mock_group_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                       group.id,
+                                                       delete_volumes=True)
+
+    @test.create_mocks({cinder: ['group_get', 'group_delete']})
+    def test_delete_group_exception(self):
+        group = self.cinder_groups.first()
+        formData = {'delete_volumes': False}
+
+        self.mock_group_get.return_value = group
+        self.mock_group_delete.side_effect = self.exceptions.cinder
+
+        url = reverse('horizon:admin:volume_groups:delete',
+                      args=[group.id])
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_group_get.assert_called_once_with(test.IsHttpRequest(),
+                                                    group.id)
+        self.mock_group_delete.assert_called_once_with(test.IsHttpRequest(),
+                                                       group.id,
+                                                       delete_volumes=False)
+
+    def test_update_group_add_vol(self):
+        self._test_update_group_add_remove_vol(add=True)
+
+    def test_update_group_remove_vol(self):
+        self._test_update_group_add_remove_vol(add=False)
+
+    @test.create_mocks({cinder: ['volume_list',
+                                 'volume_type_list',
+                                 'group_get',
+                                 'group_update']})
+    def _test_update_group_add_remove_vol(self, add=True):
+        group = self.cinder_groups.first()
+        volume_types = self.cinder_volume_types.list()
+        volumes = (self.cinder_volumes.list() +
+                   self.cinder_group_volumes.list())
+
+        group_voltype_names = [t.name for t in volume_types
+                               if t.id in group.volume_types]
+        compat_volumes = [v for v in volumes
+                          if v.volume_type in group_voltype_names]
+        compat_volume_ids = [v.id for v in compat_volumes]
+        assigned_volume_ids = [v.id for v in compat_volumes
+                               if getattr(v, 'group_id', None)]
+        add_volume_ids = [v.id for v in compat_volumes
+                          if v.id not in assigned_volume_ids]
+
+        new_volums = compat_volume_ids if add else []
+        formData = {
+            'default_add_volumes_to_group_role': 'member',
+            'add_volumes_to_group_role_member': new_volums,
+        }
+
+        self.mock_volume_list.return_value = volumes
+        self.mock_volume_type_list.return_value = volume_types
+        self.mock_group_get.return_value = group
+        self.mock_group_update.return_value = group
+
+        url = reverse('horizon:admin:volume_groups:manage',
+                      args=[group.id])
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_volume_list, 2,
+            mock.call(test.IsHttpRequest()))
+        self.mock_volume_type_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_group_get.assert_called_once_with(
+            test.IsHttpRequest(), group.id)
+        if add:
+            self.mock_group_update.assert_called_once_with(
+                test.IsHttpRequest(), group.id,
+                add_volumes=add_volume_ids,
+                remove_volumes=[])
+        else:
+            self.mock_group_update.assert_called_once_with(
+                test.IsHttpRequest(), group.id,
+                add_volumes=[],
+                remove_volumes=assigned_volume_ids)
 
     @test.create_mocks({cinder: ['group_get_with_vol_type_names',
                                  'volume_list',

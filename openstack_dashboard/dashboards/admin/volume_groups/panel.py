@@ -1,4 +1,4 @@
-# Copyright 2017 NEC Corporation
+# Copyright 2019 NEC Corporation
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -13,8 +13,8 @@
 #    under the License.
 
 from openstack_dashboard.dashboards.project.volume_groups \
-    import panel as volume_groups_panel
+    import panel as project_panel
 
 
-class VolumeGroups(volume_groups_panel.VolumeGroups):
+class VolumeGroups(project_panel.VolumeGroups):
     policy_rules = (("volume", "context_is_admin"),)

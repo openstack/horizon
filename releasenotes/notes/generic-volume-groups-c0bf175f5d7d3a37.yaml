@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    [:blueprint:`cinder-generic-volume-groups`]
+    Cinder generic groups is now supported for admin panel.
+    Admin is now able to view all groups for differenet users.

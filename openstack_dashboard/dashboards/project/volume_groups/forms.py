@@ -58,6 +58,8 @@ class UpdateForm(forms.SelfHandlingForm):
 
 
 class RemoveVolsForm(forms.SelfHandlingForm):
+    failure_url = 'horizon:project:volume_groups:index'
+
     def handle(self, request, data):
         group_id = self.initial['group_id']
         name = self.initial['name']
@@ -79,7 +81,7 @@ class RemoveVolsForm(forms.SelfHandlingForm):
             return True
 
         except Exception:
-            redirect = reverse("horizon:project:volume_groups:index")
+            redirect = reverse(self.failure_url)
             exceptions.handle(request,
                               _('Errors occurred in removing volumes '
                                 'from group.'),
@@ -89,6 +91,7 @@ class RemoveVolsForm(forms.SelfHandlingForm):
 class DeleteForm(forms.SelfHandlingForm):
     delete_volumes = forms.BooleanField(label=_("Delete Volumes"),
                                         required=False)
+    failure_url = 'horizon:project:volume_groups:index'
 
     def handle(self, request, data):
         group_id = self.initial['group_id']
@@ -103,7 +106,7 @@ class DeleteForm(forms.SelfHandlingForm):
             return True
 
         except Exception:
-            redirect = reverse("horizon:project:volume_groups:index")
+            redirect = reverse(self.failure_url)
             exceptions.handle(request, _('Errors occurred in deleting group.'),
                               redirect=redirect)
 
