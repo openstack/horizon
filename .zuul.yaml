@@ -73,6 +73,13 @@
       tox_envlist: all
 
 - job:
+    name: horizon-dsvm-tempest-plugin-py27
+    parent: horizon-dsvm-tempest-plugin
+    vars:
+      devstack_localrc:
+        USE_PYTHON3: false
+
+- job:
     # Security testing for known issues
     name: horizon-tox-bandit-baseline
     parent: openstack-tox
@@ -106,6 +113,7 @@
         - horizon-integration-tests:
             voting: false
         - horizon-dsvm-tempest-plugin
+        - horizon-dsvm-tempest-plugin-py27
         - horizon-tox-bandit-baseline:
             voting: false
     gate:
@@ -113,3 +121,4 @@
       jobs:
         - horizon-openstack-tox-python3-django111
         - horizon-dsvm-tempest-plugin
+        - horizon-dsvm-tempest-plugin-py27
