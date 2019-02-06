@@ -139,11 +139,13 @@ class CreateSubnetInfoAction(workflows.Action):
                                   required=False)
 
     cidr = forms.IPField(label=_("Network Address"),
-                         required=False,
                          initial="",
+                         error_messages={
+                             'required': _('Specify "Network Address" or '
+                                           'clear "Create Subnet" checkbox '
+                                           'in previous step.')},
                          widget=forms.TextInput(attrs={
                              'class': 'switched',
-                             'data-required-when-shown': 'true',
                              'data-switch-on': 'source',
                              'data-source-manual': _("Network Address"),
                          }),
@@ -202,13 +204,6 @@ class CreateSubnetInfoAction(workflows.Action):
     def __init__(self, request, context, *args, **kwargs):
         super(CreateSubnetInfoAction, self).__init__(request, context, *args,
                                                      **kwargs)
-        if 'with_subnet' in context:
-            self.fields['with_subnet'] = forms.BooleanField(
-                initial=context['with_subnet'],
-                required=False,
-                widget=forms.HiddenInput()
-            )
-
         if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
                        {}).get('enable_ipv6', True):
             self.fields['ip_version'].widget = forms.HiddenInput()
@@ -279,8 +274,7 @@ class CreateSubnetInfoAction(workflows.Action):
                         'allowed': range_str})
                 raise forms.ValidationError(msg)
 
-    def _check_subnet_data(self, cleaned_data, is_create=True,
-                           with_network_form=True):
+    def _check_subnet_data(self, cleaned_data):
         cidr = cleaned_data.get('cidr')
         ip_version = int(cleaned_data.get('ip_version'))
         gateway_ip = cleaned_data.get('gateway_ip')
@@ -293,14 +287,9 @@ class CreateSubnetInfoAction(workflows.Action):
                     '"Enter Network Address manually" and specify '
                     '"Network Address".')
             raise forms.ValidationError(msg)
-        if not cidr and address_source != 'subnetpool':
-            if with_network_form:
-                msg = _('Specify "Network Address" or '
-                        'clear "Create Subnet" checkbox in previous step.')
-            else:
-                msg = _("Specify network address")
-            raise forms.ValidationError(msg)
-        if cidr:
+        if address_source == 'subnetpool' and 'cidr' in self._errors:
+            del self._errors['cidr']
+        elif cidr:
             subnet = netaddr.IPNetwork(cidr)
             if subnet.version != ip_version:
                 msg = _('Network Address and IP version are inconsistent.')
@@ -316,18 +305,18 @@ class CreateSubnetInfoAction(workflows.Action):
             if netaddr.IPAddress(gateway_ip).version is not ip_version:
                 msg = _('Gateway IP and IP version are inconsistent.')
                 raise forms.ValidationError(msg)
-        if not is_create and not no_gateway and not gateway_ip:
-            msg = _('Specify IP address of gateway or '
-                    'check "Disable Gateway" checkbox.')
-            raise forms.ValidationError(msg)
         if no_gateway and 'gateway_ip' in self._errors:
             del self._errors['gateway_ip']
 
+    def _remove_fields_errors(self):
+        self._errors = {}
+
     def clean(self):
-        cleaned_data = super(CreateSubnetInfoAction, self).clean()
-        with_subnet = cleaned_data.get('with_subnet')
+        with_subnet = self.initial.get('with_subnet')
         if not with_subnet:
-            return cleaned_data
+            self._remove_fields_errors()
+            return None
+        cleaned_data = super(CreateSubnetInfoAction, self).clean()
         self._check_subnet_data(cleaned_data)
         return cleaned_data
 

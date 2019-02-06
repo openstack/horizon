@@ -32,6 +32,19 @@ LOG = logging.getLogger(__name__)
 class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
     with_subnet = forms.BooleanField(initial=True, required=False,
                                      widget=forms.HiddenInput())
+    cidr = forms.IPField(label=_("Network Address"),
+                         initial="",
+                         error_messages={
+                             'required': _("Specify network address")},
+                         widget=forms.TextInput(attrs={
+                             'class': 'switched',
+                             'data-switch-on': 'source',
+                             'data-source-manual': _("Network Address"),
+                         }),
+                         help_text=_("Network address in CIDR format "
+                                     "(e.g. 192.168.0.0/24, 2001:DB8::/48)"),
+                         version=forms.IPv4 | forms.IPv6,
+                         mask=True)
 
     class Meta(object):
         name = _("Subnet")
@@ -41,7 +54,7 @@ class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
 
     def clean(self):
         cleaned_data = workflows.Action.clean(self)
-        self._check_subnet_data(cleaned_data, with_network_form=False)
+        self._check_subnet_data(cleaned_data)
         return cleaned_data
 
 
@@ -105,6 +118,23 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
     ip_version = forms.ThemableChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
                                            widget=forms.HiddenInput(),
                                            label=_("IP Version"))
+    gateway_ip = forms.IPField(
+        label=_("Gateway IP"),
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'gateway_ip',
+            'data-source-manual': _("Gateway IP")
+        }),
+        initial="",
+        error_messages={
+            'required': _('Specify IP address of gateway or '
+                          'check "Disable Gateway" checkbox.')
+        },
+        help_text=_("IP address of Gateway (e.g. 192.168.0.254) "
+                    "If you do not want to use a gateway, "
+                    "check 'Disable Gateway' below."),
+        version=forms.IPv4 | forms.IPv6,
+        mask=False)
 
     class Meta(object):
         name = _("Subnet")
@@ -114,8 +144,7 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
 
     def clean(self):
         cleaned_data = workflows.Action.clean(self)
-        self._check_subnet_data(cleaned_data, is_create=False,
-                                with_network_form=False)
+        self._check_subnet_data(cleaned_data)
         return cleaned_data
 
 
