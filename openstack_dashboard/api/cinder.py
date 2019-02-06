@@ -1139,9 +1139,13 @@ def group_type_create(request, name, description=None, is_public=None):
 
 
 @profiler.trace
-def group_type_update(request, group_type_id, data):
+def group_type_update(request, group_type_id, name=None, description=None,
+                      is_public=None):
     client = _cinderclient_with_generic_groups(request)
-    return GroupType(client.group_types.update(group_type_id, **data))
+    return GroupType(client.group_types.update(group_type_id,
+                                               name,
+                                               description,
+                                               is_public))
 
 
 @profiler.trace
