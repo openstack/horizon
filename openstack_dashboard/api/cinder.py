@@ -35,9 +35,9 @@ from horizon import exceptions
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized
 
+from openstack_dashboard.api import _nova
 from openstack_dashboard.api import base
 from openstack_dashboard.api import microversions
-from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 LOG = logging.getLogger(__name__)
@@ -354,7 +354,7 @@ def volume_get(request, volume_id):
 
     for attachment in volume_data.attachments:
         if "server_id" in attachment:
-            instance = nova.server_get(request, attachment['server_id'])
+            instance = _nova.server_get(request, attachment['server_id'])
             attachment['instance_name'] = instance.name
         else:
             # Nova volume can occasionally send back error'd attachments
