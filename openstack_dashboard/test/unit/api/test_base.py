@@ -236,7 +236,7 @@ class ApiVersionTests(test.TestCase):
             self.fail("ConfigurationError raised inappropriately.")
 
 
-class ApiHelperTests(test.TestCase):
+class ApiHelperTests(test.APITestCase):
     """Tests for functions that don't use one of the api objects."""
 
     def test_url_for(self):
