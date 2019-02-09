@@ -56,6 +56,7 @@
   ) {
 
     var ctrl = this;
+    ctrl.volumeSizeError = gettext('Volume size is required and must be an integer');
 
     // Error text for invalid fields
     /*eslint-disable max-len */
@@ -539,10 +540,10 @@
         }
         var volumeSizeText = gettext('The volume size must be at least %(minVolumeSize)s GB');
         var volumeSizeObj = { minVolumeSize: ctrl.minVolumeSize };
-        ctrl.volumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
+        ctrl.minVolumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
       } else {
         ctrl.minVolumeSize = 0;
-        ctrl.volumeSizeError = gettext('Volume size is required and must be an integer');
+        ctrl.minVolumeSizeError = gettext('Volume size is required and must be an integer');
       }
     }
 
