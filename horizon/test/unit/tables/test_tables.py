@@ -500,7 +500,7 @@ class DataTableTests(test.TestCase):
         class TempTable(MyTable):
             class Meta(object):
                 columns = ('id',)
-                table_actions = (MyFilterAction, MyAction,)
+                table_actions = (MyFilterAction, MyAction, MyBatchAction)
                 row_actions = (MyAction, MyLinkAction,)
                 actions_column = False
         self.table = TempTable(self.request, TEST_DATA)
@@ -528,7 +528,7 @@ class DataTableTests(test.TestCase):
         class TempTable(MyTable):
             class Meta(object):
                 columns = ('id',)
-                table_actions = (MyFilterAction, MyAction,)
+                table_actions = (MyFilterAction, MyAction, MyBatchAction)
         self.table = TempTable(self.request, TEST_DATA)
         self.assertQuerysetEqual(self.table.columns.values(),
                                  ['<Column: multi_select>',
@@ -550,7 +550,7 @@ class DataTableTests(test.TestCase):
 
             class Meta(object):
                 name = "temp_table"
-                table_actions = (MyFilterAction, MyAction,)
+                table_actions = (MyFilterAction, MyAction, MyBatchAction)
                 row_actions = (MyAction, MyLinkAction,)
 
         self.table = TempTable(self.request, TEST_DATA)

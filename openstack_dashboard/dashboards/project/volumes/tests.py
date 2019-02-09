@@ -1137,7 +1137,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.assertEqual(res.status_code, 200)
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_limits.assert_called_once()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            mock_limits, 2,
+            mock.call(test.IsHttpRequest()))
 
         self.assertNotContains(res, 'Delete Volume')
         self.assertNotContains(res, 'delete')
@@ -1275,7 +1277,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                       content)
         self.assertNotIn('disabled', content)
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_limits.assert_called_once()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            mock_limits, 2,
+            mock.call(test.IsHttpRequest()))
 
     @mock.patch.object(cinder, 'tenant_absolute_limits')
     @mock.patch.object(cinder, 'volume_get')
@@ -1306,7 +1310,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertIn('disabled', content,
                       'The create snapshot button should be disabled')
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_limits.assert_called_once()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            mock_limits, 2,
+            mock.call(test.IsHttpRequest()))
 
     @test.create_mocks({
         api.nova: ['server_list'],
@@ -1504,7 +1510,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(volume.name, volume.id)
 
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_limits.assert_called_once()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            mock_limits, 2,
+            mock.call(test.IsHttpRequest()))
 
     @test.create_mocks({
         api.nova: ['server_get'],
@@ -1748,7 +1756,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertContains(res, 'retype')
 
         mock_get.assert_called_once_with(test.IsHttpRequest(), volume.id)
-        mock_limits.assert_called_once()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            mock_limits, 2,
+            mock.call(test.IsHttpRequest()))
 
     @test.create_mocks({
         cinder: ['volume_type_list',
