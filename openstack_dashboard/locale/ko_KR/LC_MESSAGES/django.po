@@ -22,16 +22,17 @@
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
 # Soonyeul Park <ardentpark@gmail.com>, 2018. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-01-05 15:24+0000\n"
+"POT-Creation-Date: 2019-02-09 09:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-06 10:52+0000\n"
-"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
+"PO-Revision-Date: 2019-02-10 04:07+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -149,6 +150,10 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
+msgid "%(role)s  (through group %(group)s)"
+msgstr "(%(group)s 그룹을 통해) %(role)s"
+
+#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s 백엔드)"
 
@@ -201,6 +206,9 @@ msgstr "%sGiB"
 #, python-format
 msgid "%sMB"
 msgstr "%sMB"
+
+msgid "(No IP address)"
+msgstr "(IP 주소 없음)"
 
 msgid "(Quota exceeded)"
 msgstr "(Quota 초과)"
@@ -322,6 +330,9 @@ msgstr "동작"
 
 msgid "Action Log"
 msgstr "액션 로그"
+
+msgid "Action and Object Type"
+msgstr "동작과 오브젝트 타입"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -544,6 +555,12 @@ msgid ""
 msgstr ""
 "인스턴스를 실행하고, 개인키를 사용하여 로그인하십시오(사용자 이름은 실행한 이"
 "미지에 따라 다를 수 있습니다):"
+
+msgid "Age"
+msgstr "기간 (Age)"
+
+msgid "Age (Seconds)"
+msgstr "기간 (Seconds)"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -828,6 +845,9 @@ msgstr "사용 가능한 유형"
 msgid "Available networks"
 msgstr "사용 가능한 네트워크"
 
+msgid "Back-End Example:"
+msgstr "백엔드 예제:"
+
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "백업"
@@ -925,6 +945,13 @@ msgstr ""
 "격 증명을 생성하거나 keystone 트러스트를 위해 사용하는 것이 금지되어 있습니"
 "다. 만약 응용 프로그램 자격 증명을 이러한 과정에서 수행하고자 하는 경우에는 "
 "\"제한 없음\" 을 선택합니다."
+
+msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"기본 설정으로 그룹 타입은 공개(public)으로 생성됩니다. 비공개(private) 그룹 "
+"타입을 만들려면 해당 필드를 선택하지 마십시오."
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -1149,6 +1176,9 @@ msgstr ""
 "부팅할때 인스턴스에 연결할 특별한 구성 드라이브에 대한 메타데이터를 작성하여 "
 "OpenStack을 구성합니다."
 
+msgid "Confirm"
+msgstr "확인"
+
 msgid "Confirm Admin Password"
 msgstr "관리자 비밀 번호 확인"
 
@@ -1253,6 +1283,9 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "생성"
 
+msgid "Create A RBAC Policy"
+msgstr "RBAC 정책 생성"
+
 msgid "Create An Image"
 msgstr "이미지 생성"
 
@@ -1289,6 +1322,9 @@ msgstr "그룹 생성"
 msgid "Create Group Snapshot"
 msgstr "그룹 스냅샷 생성"
 
+msgid "Create Group Type"
+msgstr "그룹 타입 생성"
+
 msgid "Create Host Aggregate"
 msgstr "호스트 집합 생성"
 
@@ -1321,6 +1357,9 @@ msgstr "프로토콜 생성"
 
 msgid "Create QoS Spec"
 msgstr "QOS 스펙 생성:"
+
+msgid "Create RBAC Policy"
+msgstr "RBAC 정책 생성"
 
 msgid "Create Role"
 msgstr "역할 생성"
@@ -1392,6 +1431,9 @@ msgstr ""
 "일관성 그룹 스냅샷 소스에 있는 각 스냅샷에서 복제되어서 새로 생성된 볼륨이 들"
 "어갈 일관성 그룹을 생성합니다."
 
+msgid "Create a Group Type"
+msgstr "그룹 타입 생성"
+
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
 "the snapshots in the source Group Snapshot."
@@ -1405,6 +1447,9 @@ msgstr "메타데이터 네임스페이스 생성"
 msgid "Create a New Volume"
 msgstr "새로운 볼륨 생성"
 
+msgid "Create a RBAC Policy"
+msgstr "RBAC 정책 생성"
+
 msgid "Create a Router"
 msgstr "라우터 생성"
 
@@ -1416,6 +1461,16 @@ msgstr "맵핑을 생성합니다."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "볼륨 타입에대한 새로운 \"추가 사양\" 키-값 페어를 생성합니다."
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
+msgstr ""
+"QoS 스펙 \"%(qos_spec_name)s\" 에 대한 새로운 \"spec\" 키-값 쌍을 만듭니다. "
+"유효한 키 이름은 QoS 스펙에서 가져옵니다. 지원되는 프론트엔드와 백엔드 키는 "
+"Cinder 문서를 참조하십시오."
 
 msgid "Create a new application credential."
 msgstr "새로운 어플리케이션 증명서 생성"
@@ -1694,6 +1749,10 @@ msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "그룹 삭제"
 
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "그룹 타입 삭제"
+
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "호스트 집합 삭제"
@@ -1741,6 +1800,10 @@ msgstr[0] "프로토콜 삭제"
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "QOS 스펙 삭제"
+
+msgid "Delete RBAC Policy"
+msgid_plural "Delete RBAC Policies"
+msgstr[0] "RBAC 정책 삭제"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -1846,6 +1909,10 @@ msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "그룹 삭제함"
 
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "그룹 타입 삭제됨"
+
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "호스트 집합 삭제함"
@@ -1889,6 +1956,13 @@ msgstr[0] "프로토콜 삭제함"
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "QOS 스펙 삭제함"
+
+msgid "Deleted RBAC Policy"
+msgid_plural "Deleted RBAC Policies"
+msgstr[0] "RBAC 정책 삭제됨"
+
+msgid "Deleted RBAC policy is not recoverable."
+msgstr "삭제된 RBAC 정책은 복구 할 수 없습니다."
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -2289,6 +2363,9 @@ msgstr "Flavor 편집"
 
 msgid "Edit Group"
 msgstr "그룹 편집"
+
+msgid "Edit Group Type"
+msgstr "그룹 타입 수정"
 
 msgid "Edit Host Aggregate"
 msgstr "호스트 집합 편집"
@@ -2741,6 +2818,9 @@ msgstr "Neutron의 \"auto_allocated_network\" 지원 여부에 대한 확인 실
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "Nova의 \"auto_allocated_network\" 지원 여부에 대한 확인 실패"
 
+msgid "Failed to create a rbac policy."
+msgstr "RBAC 정책을 생성하지 못했습니다."
+
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "네트워크 \"%(network)s\"를 생성하지 못하였습니다.: %(reason)s"
@@ -2871,6 +2951,10 @@ msgstr "네트워크 %s 업데이트를 하지 못하였습니다."
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "포트 %s를 업데이트하지 못했습니다."
+
+#, python-format
+msgid "Failed to update rbac policy %s"
+msgstr "RBAC 정책 업데이트를 하지 못했습니다: %s"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3043,6 +3127,9 @@ msgstr "네트워크에 대한 DHCP 에이전트를 여기서 추가할 수 있�
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "여기에서 유동 IP를 특정 프로젝트에 할당 가능합니다."
 
+msgid "From here you can create a rbac policy."
+msgstr "RBAC 정책을 여기서 생성할 수 있습니다."
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "여기서 볼륨 스냅샷을 생성할 수 있습니다."
 
@@ -3053,6 +3140,9 @@ msgstr ""
 msgid "From here you can update the default volume quotas (max limits)."
 msgstr ""
 "이 항목에서 당신은 기본 최대치 볼륨 할당량 값을 업데이트 할 수 있습니다."
+
+msgid "Front-End Example:"
+msgstr "프론트엔드 예제:"
 
 msgid "GB"
 msgstr "GB"
@@ -3124,8 +3214,33 @@ msgstr "그룹 스냅샷"
 msgid "Group Type"
 msgstr "그룹 타입"
 
+msgid "Group Types"
+msgstr "그룹 타입"
+
 msgid "Group has been updated successfully."
 msgstr "그룹을 성공적으로 업데이트 하였습니다."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"Extra Specs\" button "
+"to set up extra specs key-value pair(s) for that group type."
+msgstr ""
+"그룹 타입은 OpenStack에서 그룹 생성시 선택할 수 있는 타입이나 레이블입니다. "
+"볼륨에 사용할 스토리지 백엔드 드라이버의 기능 세트에 매핑됩니다. 예를 들어: "
+"\"Performance\", \"SSD\", \"Backup\" 등과 매핑된다고 보면 됩니다. <tt>cinder "
+"type-create</tt> 명령어와 동일합니다. 그룹 타입이 생성되면 \"추가 사양(Extra "
+"Specs)\" 버튼을 클릭하여 해당 그룹 타입에 대한 추가 사양에대한 키-값 쌍을 설"
+"정합니다."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "\"%s\" 그룹 타입 이름을 사용하고 있습니다."
+
+msgid "Group type name can not be empty."
+msgstr "그룹 타입 이름을 입력해주세요."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3301,6 +3416,13 @@ msgid ""
 msgstr ""
 "이 서브넷에 대한 DNS 네임 서버의 IP 주소 목록입니다. 한 줄에 하나의 항목입니"
 "다."
+
+msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"게이트웨이의 IP 주소 (예: 192.168.0.254). 만약 게이트웨이를 사용하지 않는다"
+"면, 아래의 '게이트웨이 사용 안함'을 선택하십시오."
 
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
@@ -3655,6 +3777,13 @@ msgid "Key Size (bits)"
 msgstr "키 크기 (비트)"
 
 msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+"키 이름에는 영문, 숫자, 밑줄(`_`), 마침표(`.`), 콜론(`:`), 하이픈(`-`)만 사용"
+"할 수 있습니다."
+
+msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 msgstr ""
@@ -3666,6 +3795,24 @@ msgstr "키 페어는 인증에 사용합니다."
 
 msgid "Key-Value Pairs"
 msgstr "키-값"
+
+msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Key: burstIOPS, Value: 5000 (minIOPS 값보다 큰 수)"
+
+msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Key: maxIOPS, Value: 5000 (minIOPS 값보다 큰 수)"
+
+msgid "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
+msgstr "Key: minIOPS, Value: 20 (maxIOPS 값보다 작은 수)"
+
+msgid "Key: size_iops_sec and Value: 16"
+msgstr "Key: size_iops_sec, Value: 16"
+
+msgid "Key: total_bytes_sec_max and Value: 512000"
+msgstr "Key: total_bytes_sec_max, Value: 512000"
+
+msgid "Key: total_iops_sec and Value: 5000"
+msgstr "Key: total_iops_sec, Value: 5000"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -3905,6 +4052,10 @@ msgstr "MidoNet 업링크"
 msgid "Migrate"
 msgstr "이동"
 
+msgctxt "Action log of an instance"
+msgid "Migrate"
+msgstr "이동"
+
 msgid "Migrate Host"
 msgstr "호스트 마이그레이션"
 
@@ -4001,6 +4152,9 @@ msgstr "Quotas 수정"
 
 msgid "Modify dashboard settings for your user."
 msgstr "사용자의 대시보드 설정을 수정합니다."
+
+msgid "Modify group type name, description, and public status."
+msgstr "그룹 타입에 대한 이름, 설명, 공개 상태를 수정합니다."
 
 msgid "Modify name and description of a volume."
 msgstr "볼륨의 이름과 설명을 수정합니다."
@@ -4176,6 +4330,9 @@ msgstr "새로운 크기 (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "새로운 이름을 입력하여 주십시오."
+
+msgid "New name conflicts with another group type."
+msgstr "새 이름이 다른 그룹 타입과 동일합니다."
 
 msgid "New name conflicts with another volume type."
 msgstr "다른 볼륨 형식의 이름과 동일합니다."
@@ -4444,8 +4601,17 @@ msgstr "또는 개인키를 복사 붙여넣기 하십시오."
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+msgid "Object"
+msgstr "오브젝트"
+
+msgid "Object ID"
+msgstr "오브젝트 ID"
+
 msgid "Object Store"
 msgstr "오브젝트 스토리지"
+
+msgid "Object Type"
+msgstr "오브젝트 타입"
 
 msgid "Old Flavor"
 msgstr "오래된 Flavor"
@@ -4472,6 +4638,9 @@ msgstr "열린 포트/포트 범위:"
 
 msgid "OpenStack Profiler"
 msgstr "OpenStack 프로파일러"
+
+msgid "OpenStack RC File"
+msgstr "OpenStack RC 파일"
 
 msgid "OpenStack RC File (Identity API v2.0)"
 msgstr "OpenStack RC File (Identity API v2.0)"
@@ -4546,6 +4715,9 @@ msgstr "암호"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Password"
+
+msgid "Password Expires At"
+msgstr "암호 만료일"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "비밀번호를 변경하였습니다. 다시 로그인 해주십시오."
@@ -4789,6 +4961,9 @@ msgstr "QCOW2 - QEMU Emulator"
 msgid "QOS Policy ID"
 msgstr "QOS 정책 ID"
 
+msgid "QoS Policy"
+msgstr "QoS 정책"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "이름 \"%s\"인 QoS 스펙이 이미 존재합니다."
@@ -4858,6 +5033,16 @@ msgstr "RAM(사용: %(avail)s, 요청: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC 정책"
+
+#, python-format
+msgid "RBAC Policy %s was successfully updated."
+msgstr "RBAC 정책 %s 를 업데이트 했습니다."
+
+msgid "RBAC Policy Details"
+msgstr "RBAC 정책 세부 정보"
+
+msgid "RBAC Policy was successfully created."
+msgstr "RBAC 정책을 생성하였습니다."
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 요인"
@@ -5048,9 +5233,16 @@ msgstr "%(volume_id)s 볼륨의 %(backup_name)s 백업 복구 요청을 제출�
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "요청된 스냅샷은 허용된 qouta를 초과 합니다."
 
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "응급 구조"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Rescue"
+
+msgid "Rescue Instance"
+msgstr "인스턴스 응급 구조(Rescue)"
 
 msgctxt "Current status of an Instance"
 msgid "Rescued"
@@ -5188,6 +5380,9 @@ msgstr "역할 이름"
 
 msgid "Role Name ="
 msgstr "역할 이름 ="
+
+msgid "Role assignments"
+msgstr "역할 할당"
 
 msgid "Role created successfully."
 msgstr "역할을 성공적으로 생성하였습니다"
@@ -5406,11 +5601,17 @@ msgstr "볼륨 스냅샷 선택"
 msgid "Select a New Flavor"
 msgstr "새로운 Flavor 선택"
 
+msgid "Select a QoS policy"
+msgstr "QoS 정책 선택"
+
 msgid "Select a floating IP to disassociate"
 msgstr "연결 끊을 Floating IP 선택"
 
 msgid "Select a key pair"
 msgstr "키 페어 선택"
+
+msgid "Select a network"
+msgstr "네트워크 선택"
 
 msgid "Select a new QoS spec"
 msgstr "새로운 QoS 스펙 선택"
@@ -5456,6 +5657,9 @@ msgstr "인스턴스에서 연결을 해제하기 위해 볼륨을 선택합니�
 
 msgid "Select a volume to restore to."
 msgstr "복구할 볼륨을 선택합니다."
+
+msgid "Select action and object type"
+msgstr "동작과 오브젝트 타입 선택"
 
 msgid "Select an IP address"
 msgstr "IP 주소 선택"
@@ -5604,11 +5808,21 @@ msgstr "공유"
 msgid "Shared ="
 msgstr "Shared ="
 
+msgid "Shared Network"
+msgstr "공유 네트워크"
+
+msgid "Shared QoS Policy"
+msgstr "공유 QoS 정책"
+
 msgid "Shared Storage"
 msgstr "공유 스토리지"
 
 msgid "Shared with Project"
 msgstr "프로젝트와 공유됨"
+
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "Shelve"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -5812,6 +6026,9 @@ msgstr "생성한 인터페이스에대한 IP 주소를 지정합니다 (예. 19
 msgid "Specify an image to upload to the Image Service."
 msgstr "이미지 서비스에 업로드할 이미지를 지정합니다."
 
+msgid "Specify network address"
+msgstr "네트워크 주소 지정"
+
 msgid "Specify the MAC address for the new port"
 msgstr "새 포트에 대한 MAC 주소를 지정합니다."
 
@@ -5932,6 +6149,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "볼륨 타입에 대한 암호화 생성 완료: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "그룹 타입을 성공적으로 생성하였습니다: %s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "보안 그룹을 성공적으로 생성하였습니다: %s"
 
@@ -5967,6 +6188,9 @@ msgstr "QoS 스펙 사용자를 수정했습니다."
 
 msgid "Successfully recreated ec2 credentials."
 msgstr "EC2 credential를 다시 만들었습니다."
+
+msgid "Successfully rescued instance"
+msgstr "인스턴스를 구조 하였습니다."
 
 #, python-format
 msgid ""
@@ -6004,6 +6228,9 @@ msgstr "집합 업데이트를 성공하였습니다: \"%s.\""
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "볼륨 타입에 대한 암호화 업데이트 완료: %s"
+
+msgid "Successfully updated group type."
+msgstr "그룹 타입 정보를 업데이트 하였습니다."
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6056,8 +6283,17 @@ msgstr "시스템"
 msgid "System Information"
 msgstr "시스템 정보"
 
+msgid "System Scope"
+msgstr "시스템 범위"
+
 msgid "Target Host"
 msgstr "타깃 호스트"
+
+msgid "Target Project"
+msgstr "대상 프로젝트"
+
+msgid "Target Tenant"
+msgstr "대상 Tenant"
 
 msgid "Task"
 msgstr "작업"
@@ -6363,6 +6599,13 @@ msgstr ""
 "할당된 quota 량을 초가하여 인스턴스를 실행할 수 없습니다: 사용가능: "
 "%(avail)s, 요청됨: %(req)s"
 
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr ""
+"응급 구조(rescue) 모드는 시스템 또는 접근 장애와 같은 응급 상황에서만 사용됩"
+"니다."
+
 msgid "The specified floating IP no longer exists."
 msgstr "지정된 Floating IP주소가 더 이상 존재하지 않습니다."
 
@@ -6505,6 +6748,15 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "이 볼륨 타입은 하나 혹은 그 이상의 볼륨에서 사용됩니다."
 
+msgid ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
+msgstr ""
+"그러면 인스턴스가 종료되고 루트(root) 디스크가 임시 서버에 마운트 됩니다. 이"
+"후 임시 서버로 접근이 가능합니다. 시스템 구성을 복구하거나, 데이터를 복원할 "
+"수 있습니다."
+
 msgid "Time since update"
 msgstr "업데이트 이후 시간"
 
@@ -6525,6 +6777,10 @@ msgstr ""
 
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "전체화면 모드에서 나가려면, 브라우저의 Back 버튼을 클릭하세요."
+
+msgid "To make group type private, uncheck this field."
+msgstr ""
+"그룹 타입을 비공개(private)로 생성하려면, 해당 필드를 선택하지 마십시오."
 
 msgid "To make volume type private, uncheck this field."
 msgstr "볼륨 타입을 사설로 만들기 위해, 이 항목을 선택 해제합니다."
@@ -6745,6 +7001,9 @@ msgstr "볼륨 제한 값 초과로 그룹을 생성할 수 없습니다."
 msgid "Unable to create group snapshot."
 msgstr "그룹 스냅샷 생성할 수 없습니다."
 
+msgid "Unable to create group type."
+msgstr "그룹 타입을 생성할 수 없습니다."
+
 msgid "Unable to create group."
 msgstr "그룹을 생성할 수 없습니다."
 
@@ -6804,6 +7063,10 @@ msgstr "스냅샷을 생성할 수 없습니다. 일관성 그룹에 볼륨이 �
 
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "스냅샷을 생성할 수 없습니다. 그룹에 볼륨이 있어야 합니다."
+
+#, python-format
+msgid "Unable to create snapshot: %s"
+msgstr "스냅샷을 생성할 수 없습니다: %s"
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "스냅샷 쿼터 제한 초과로 인해 스냅샷을 생성하지 못했습니다."
@@ -6884,8 +7147,17 @@ msgstr "일관성 그룹을 표시할 수 없습니다."
 msgid "Unable to display group."
 msgstr "그룹을 표시할 수 없습니다."
 
+msgid "Unable to display role assignment through groups."
+msgstr "그룹을 통해 역할 할당을 표시할 수 없습니다."
+
 msgid "Unable to display the groups of this project."
 msgstr "이 프로젝트의 그룹을 표시할 수 없습니다."
+
+msgid "Unable to display the groups of this user."
+msgstr "선택한 사용자의 그룹을 표시할 수 없습니다."
+
+msgid "Unable to display the role assignments of this user."
+msgstr "선택한 사용자에 대한 역할 할당을 표시할 수 없습니다."
 
 msgid "Unable to display the users of this project."
 msgstr "이 프로젝트의 사용자를 표시할 수 없습니다."
@@ -7067,6 +7339,9 @@ msgstr ""
 "Identity 공급자를 등록할 수 없습니다. 입력한 Identity 공급자 ID와 원격 ID를 "
 "이미 사용하고 있지는 않은지 확인합니다."
 
+msgid "Unable to rescue instance"
+msgstr "인스턴스를 구조하지 못했습니다."
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "인스턴스 \"%s\"의 크기 변경을 할 수 없습니다."
@@ -7121,6 +7396,9 @@ msgstr "QOS 스펙 목록을 찾지 못 했습니다."
 msgid "Unable to retrieve QoS specs"
 msgstr "QOS 사양을 검색할 수 없습니다."
 
+msgid "Unable to retrieve RBAC policies."
+msgstr "RBAC 정책을 찾을 수 없습니다."
+
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr "외부 네트워크 \"%s\" 목록을 찾지 못 했습니다."
@@ -7149,6 +7427,9 @@ msgstr "가용성 존에 대한 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve backup details."
 msgstr "백업에 대한 상세 정보를 찾지 못 했습니다."
+
+msgid "Unable to retrieve community images."
+msgstr "커뮤니티 이미지를 검색할 수 없습니다."
 
 msgid "Unable to retrieve compute host information."
 msgstr "Computer 호스트 정보를 찾지 못했습니다."
@@ -7265,6 +7546,16 @@ msgstr "그룹 스냅샷 세부 사항을 찾을 수 없습니다."
 msgid "Unable to retrieve group snapshots."
 msgstr "그룹 스냅샷을 찾지 못했습니다"
 
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "그룹 타입을 찾을 수 없습니다: \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "그룹 타입 이름을 찾을 수 없습니다."
+
+msgid "Unable to retrieve group type."
+msgstr "그룹 타입을 찾을 수 없습니다."
+
 msgid "Unable to retrieve group types."
 msgstr "그룹 타입을 찾을 수 없습니다."
 
@@ -7315,6 +7606,15 @@ msgstr "이미지를 찾지 못 했습니다."
 
 msgid "Unable to retrieve information about the networks' projects."
 msgstr "네트워크 프로젝트에 대한 정보를 찾지 못했습니다."
+
+msgid "Unable to retrieve information about the policies' networks."
+msgstr "정책' 네트워크에대한 정보를 찾을 수 없습니다."
+
+msgid "Unable to retrieve information about the policies' projects."
+msgstr "정책 프로젝트에 대한 정보를 찾을 수 없습니다."
+
+msgid "Unable to retrieve information about the policies' qos policies."
+msgstr "정책' QoS 정책에 대한 정보를 찾을 수 없습니다."
 
 msgid "Unable to retrieve instance action list."
 msgstr "인스턴스 작업 목록을 찾지 못 했습니다."
@@ -7411,6 +7711,9 @@ msgstr "공용 이미지를 찾지 못 했습니다."
 
 msgid "Unable to retrieve quota information."
 msgstr "Quota 정보를 찾지 못 했습니다."
+
+msgid "Unable to retrieve rbac policy details."
+msgstr "RBAC 정책 세부 정보를 찾을 수 없습니다."
 
 msgid "Unable to retrieve role list."
 msgstr "역할 목록을 찾지 못했습니다."
@@ -7641,6 +7944,9 @@ msgstr "디폴트 볼륨 쿼터(quota)를 업데이트할 수 없습니다."
 msgid "Unable to update encrypted volume type."
 msgstr "암호화된 볼륨 타입을 수정 할 수 없습니다."
 
+msgid "Unable to update group type."
+msgstr "그룹 타입 정보를 업데이트 하지 못하였습니다."
+
 msgid "Unable to update group."
 msgstr "그룹을 업데이트 할 수 없습니다."
 
@@ -7769,6 +8075,18 @@ msgid "Unregistered Identity Provider"
 msgid_plural "Unregistered Identity Providers"
 msgstr[0] "등록 취소된 Identity 공급자"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "응급 구조 해제"
+
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "인스턴스 구조 해제"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "인스턴스 구조 해제됨"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Unrescuing"
@@ -7778,6 +8096,10 @@ msgstr "제한 없음"
 
 msgid "Unrestricted (dangerous)"
 msgstr "제한 없음 (위험)"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "Unshelve"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -7833,6 +8155,9 @@ msgstr "메타데이터 업데이트"
 
 msgid "Update Network"
 msgstr "네트워크 업데이트"
+
+msgid "Update RBAC Policy"
+msgstr "RBAC 정책 업데이트"
 
 msgid "Update Role"
 msgstr "역할 업데이트"
@@ -8446,6 +8771,13 @@ msgstr ""
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "주소가 잘못되었거나 페이지가 이동했을 수 있습니다."
 
+msgid ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
+msgstr ""
+"선택 사항으로 이미지를 선택하거나, 복구 인스턴스 서버에 암호를 설정할 수 있습"
+"니다."
+
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "옵션으로 인스턴스 리빌드시 비밀번호를 설정할 수 있습니다."
 
@@ -8473,6 +8805,9 @@ msgstr ""
 "응용 프로그램 자격 증명을 위해 하나 또는 여러 역할을 선택할 수 있습니다. 아무"
 "것도 선택하지 않는 경우, 현재 프로젝트에 할당되었던 모든 역할이 해당 응용 프"
 "로그램 자격 증명으로 적용이 이루어질 것입니다."
+
+msgid "You may update the editable properties of the RBAC policy here."
+msgstr "RBAC 정책에서 편집 가능한 속성을 업데이트할 수 있습니다."
 
 msgid "You may update the editable properties of your network here."
 msgstr "여기서 네트워크의 편집 가능한 속성을 업데이트할 수 있습니다."
