@@ -204,47 +204,11 @@ class DetailView(tabs.TabView):
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         user = self.get_data()
-        tenant = self.get_tenant(user.project_id)
         table = project_tables.UsersTable(self.request)
-        domain_id = getattr(user, "domain_id", None)
-        domain_name = ''
-        if api.keystone.VERSIONS.active >= 3:
-            try:
-                if policy.check((("identity", "identity:get_domain"),),
-                                self.request):
-                    domain = api.keystone.domain_get(
-                        self.request, domain_id)
-                    domain_name = domain.name
-                else:
-                    domain = api.keystone.get_default_domain(self.request)
-                    domain_name = domain.get('name')
-            except Exception:
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve project domain.'))
-            context["description"] = getattr(user, "description", _("None"))
-            extra_info = getattr(settings, 'USER_TABLE_EXTRA_INFO', {})
-            context['extras'] = dict(
-                (display_key, getattr(user, key, ''))
-                for key, display_key in extra_info.items())
         context["user"] = user
-        if tenant:
-            context["tenant_name"] = tenant.name
-        context["domain_id"] = domain_id
-        context["domain_name"] = domain_name
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(user)
         return context
-
-    @memoized.memoized_method
-    def get_tenant(self, project_id):
-        tenant = None
-        if project_id:
-            try:
-                tenant = api.keystone.tenant_get(self.request, project_id)
-            except Exception as e:
-                LOG.error('Failed to get tenant %(project_id)s: %(reason)s',
-                          {'project_id': project_id, 'reason': e})
-        return tenant
 
     @memoized.memoized_method
     def get_data(self):

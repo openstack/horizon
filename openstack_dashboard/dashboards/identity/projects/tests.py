@@ -1286,12 +1286,14 @@ class UsageViewTests(test.BaseAdminViewTests):
 
 class DetailProjectViewTests(test.BaseAdminViewTests):
 
-    @test.create_mocks({api.keystone: ('tenant_get',),
+    @test.create_mocks({api.keystone: ('tenant_get', 'domain_get'),
                         quotas: ('enabled_quotas',)})
     def test_detail_view(self):
         project = self.tenants.first()
+        domain = self.domains.first()
 
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
 
         res = self.client.get(PROJECT_DETAIL_URL, args=[project.id])
@@ -1304,6 +1306,8 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({api.keystone: ('tenant_get',)})
@@ -1319,7 +1323,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
 
-    @test.create_mocks({api.keystone: ('tenant_get',),
+    @test.create_mocks({api.keystone: ('tenant_get', 'domain_get'),
                         quotas: ('enabled_quotas',)})
     def test_detail_view_overview_tab(self):
         """Test the overview tab of the detail view .
@@ -1327,8 +1331,10 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         Test the overview tab using directly the url targeting the tab.
         """
         project = self.tenants.first()
+        domain = self.domains.first()
 
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
 
         # Url of the overview tab of the detail view
@@ -1348,6 +1354,8 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
 
     def _get_users_in_group(self, group_id):
@@ -1375,6 +1383,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         return roles
 
     @test.create_mocks({api.keystone: ('tenant_get',
+                                       'domain_get',
                                        'user_list',
                                        'get_project_users_roles',
                                        'get_project_groups_roles',
@@ -1383,6 +1392,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                         quotas: ('enabled_quotas',)})
     def test_detail_view_users_tab(self):
         project = self.tenants.first()
+        domain = self.domains.first()
         users = self.users.filter(domain_id=project.domain_id)
         groups = self.groups.filter(domain_id=project.domain_id)
         role_assignments = self.role_assignments.filter(
@@ -1394,6 +1404,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         # Prepare mocks
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_role_list.return_value = self.roles.list()
 
@@ -1443,6 +1454,8 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
@@ -1456,13 +1469,16 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         self.mock_user_list.assert_has_calls(calls)
 
     @test.create_mocks({api.keystone: ("tenant_get",
+                                       "domain_get",
                                        "role_list",),
                         quotas: ('enabled_quotas',)})
     def test_detail_view_users_tab_exception(self):
         project = self.tenants.first()
+        domain = self.domains.first()
 
         # Prepare mocks
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_role_list.side_effect = self.exceptions.keystone
 
@@ -1483,16 +1499,20 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({api.keystone: ("tenant_get",
+                                       "domain_get",
                                        "get_project_groups_roles",
                                        "role_list",
                                        "group_list"),
                         quotas: ('enabled_quotas',)})
     def test_detail_view_groups_tab(self):
         project = self.tenants.first()
+        domain = self.domains.first()
         groups = self.groups.filter(domain_id=project.domain_id)
         role_assignments = self.role_assignments.filter(
             scope={'project': {'id': project.id}})
@@ -1501,6 +1521,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         # Prepare mocks
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_get_project_groups_roles.return_value = project_groups_roles
         self.mock_group_list.return_value = groups
@@ -1535,6 +1556,8 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
@@ -1542,13 +1565,16 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), project=project.id)
 
     @test.create_mocks({api.keystone: ("tenant_get",
+                                       "domain_get",
                                        "get_project_groups_roles"),
                         quotas: ('enabled_quotas',)})
     def test_detail_view_groups_tab_exception(self):
         project = self.tenants.first()
+        domain = self.domains.first()
 
         # Prepare mocks
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_get_project_groups_roles.side_effect = \
             self.exceptions.keystone
@@ -1570,6 +1596,8 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_get_project_groups_roles.assert_called_once_with(
             test.IsHttpRequest(), project=project.id)

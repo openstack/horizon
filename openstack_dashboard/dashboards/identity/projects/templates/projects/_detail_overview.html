@@ -2,14 +2,20 @@
 
 <div class="detail">
   <dl class="dl-horizontal">
-    <dt>{% trans "Project Name" %}</dt>
+    <dt>{% trans "Name" %}</dt>
     <dd data-display="{{ project.name|default:project.id }}">{{ project.name }}</dd>
-    <dt>{% trans "Project ID" %}</dt>
+    <dt>{% trans "ID" %}</dt>
     <dd>{{ project.id }}</dd>
+    {% if domain_name %}
+      <dt>{% trans "Domain Name" %}</dt>
+      <dd>{{ domain_name }}</dd>
+    {% endif %}
+    <dt>{% trans "Domain ID" %}</dt>
+    <dd>{{ project.domain_id }}</dd>
     <dt>{% trans "Enabled" %}</dt>
     <dd>{{ project.enabled|yesno|capfirst }}</dd>
     <dt>{% trans "Description" %}</dt>
-    <dd>{{ project.description|default:_("None") }}</dd>
+    <dd>{{ project.description|default:_("-") }}</dd>
     {% if extras %}
       {% for key, value in extras.items %}
         <dt>{{ key }}</dt>

@@ -10,7 +10,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -21,6 +23,10 @@ from openstack_dashboard.dashboards.identity.users.groups \
     import tables as groups_tables
 from openstack_dashboard.dashboards.identity.users.role_assignments \
     import tables as role_assignments_tables
+from openstack_dashboard import policy
+
+
+LOG = logging.getLogger(__name__)
 
 
 class OverviewTab(tabs.Tab):
@@ -32,8 +38,50 @@ class OverviewTab(tabs.Tab):
     slug = "overview"
     template_name = 'identity/users/_detail_overview.html'
 
+    def _get_domain_name(self, user):
+        domain_name = ''
+        if api.keystone.VERSIONS.active >= 3:
+            try:
+                if policy.check((("identity", "identity:get_domain"),),
+                                self.request):
+                    domain = api.keystone.domain_get(
+                        self.request, user.domain_id)
+                    domain_name = domain.name
+                else:
+                    domain = api.keystone.get_default_domain(self.request)
+                    domain_name = domain.get('name')
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve user domain.'))
+        return domain_name
+
+    def _get_project_name(self, user):
+        project_id = user.project_id
+        if not project_id:
+            return
+        try:
+            tenant = api.keystone.tenant_get(self.request, project_id)
+            return tenant.name
+        except Exception as e:
+            LOG.error('Failed to get tenant %(project_id)s: %(reason)s',
+                      {'project_id': project_id, 'reason': e})
+
+    def _get_extras(self, user):
+        if api.keystone.VERSIONS.active >= 3:
+            extra_info = getattr(settings, 'USER_TABLE_EXTRA_INFO', {})
+            return dict((display_key, getattr(user, key, ''))
+                        for key, display_key in extra_info.items())
+        else:
+            return {}
+
     def get_context_data(self, request):
-        return {"user": self.tab_group.kwargs['user']}
+        user = self.tab_group.kwargs['user']
+        return {
+            "user": user,
+            "domain_name": self._get_domain_name(user),
+            'extras': self._get_extras(user),
+            'project_name': self._get_project_name(user),
+        }
 
 
 class RoleAssignmentsTab(tabs.TableTab):
