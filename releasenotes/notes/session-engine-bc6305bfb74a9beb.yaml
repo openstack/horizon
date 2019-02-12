@@ -1,0 +1,22 @@
+---
+upgrade:
+  - |
+    The default value of ``SESSION_ENGINE`` is changed to
+    ``django.contrib.sessions.backends.cache``
+    so that a cache-based session backend is used.
+
+    The default cache back-end is set to the memcached backend
+    ``django.core.cache.backends.memcached.MemcachedCache``
+    from the local-memory backend
+    considering multi-process web server deployments.
+
+    They are settings which horizon recommends for a long time
+    but we have not use them by default.
+
+    If your deployment uses the signed-cookies as a session engine,
+    ensure that ``SESSION_ENGINE`` is configured to
+    ``django.contrib.sessions.backends.signed_cookies``
+    before upgrading horizon to Stein release.
+    If your deployment uses the cached session engine and
+    your cache backend depends on horizon default setting,
+    ensure to ``CACHES`` setting to use the local-memory backend.
