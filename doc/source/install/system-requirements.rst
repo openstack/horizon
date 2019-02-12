@@ -13,11 +13,7 @@ The Stein release of horizon has the following dependencies.
 * Django 1.11 or 2.0
 
   * Django 1.8 to 1.10 are no longer supported since Rocky release.
-  * Horizon usually syncs with
-    `Django's Roadmap <https://www.djangoproject.com/weblog/2015/jun/25/roadmap/>`__
-    and supports LTS (long term support) versions of Django
-    as of the feature freeze of each OpenStack release.
-    Supports for other maintained Django versions are optional and best-effort.
+  * Django support policy is documented at :doc:`/contributor/policy`.
 
 * An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ endpoint
 
