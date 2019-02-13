@@ -10,6 +10,8 @@
     <dt>{% trans "Description" %}</dt>
     <dd>{{ volume.description }}</dd>
     {% endif %}
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ volume.tenant_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ volume.status_label|capfirst }}</dd>
     <dt>{% trans "Group" %}</dt>

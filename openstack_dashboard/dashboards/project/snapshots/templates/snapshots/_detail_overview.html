@@ -10,6 +10,8 @@
     <dt>{% trans "Description" %}</dt>
     <dd>{{ snapshot.description }}</dd>
     {% endif %}
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ snapshot.project_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ snapshot.status|capfirst }}</dd>
     <dt>{% trans "Volume" %}</dt>

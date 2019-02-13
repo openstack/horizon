@@ -4,10 +4,12 @@
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd data-display="{{ instance.name|default:instance.id }}" class="word-wrap">{{ instance.name }}</dd>
-    <dt>{% trans "Description" %}</dt>
-    <dd>{{ instance.description|default:_("-") }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ instance.id }}</dd>
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ instance.description|default:_("-") }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ instance.tenant_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ instance.status_label|title }}</dd>
     {% if instance.locked != None %}
