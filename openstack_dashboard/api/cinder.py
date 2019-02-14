@@ -175,7 +175,8 @@ class VolumePool(base.APIResourceWrapper):
 class Group(base.APIResourceWrapper):
     _attrs = ['id', 'status', 'availability_zone', 'created_at', 'name',
               'description', 'group_type', 'volume_types',
-              'group_snapshot_id', 'source_group_id', 'replication_status']
+              'group_snapshot_id', 'source_group_id', 'replication_status',
+              'project_id']
 
 
 class GroupSnapshot(base.APIResourceWrapper):
