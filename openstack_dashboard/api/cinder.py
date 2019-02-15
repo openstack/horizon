@@ -96,6 +96,10 @@ class Volume(BaseCinderAPIResourceWrapper):
     def is_bootable(self):
         return self.bootable == 'true'
 
+    @property
+    def tenant_id(self):
+        return getattr(self, 'os-vol-tenant-attr:tenant_id', "")
+
 
 class VolumeSnapshot(BaseCinderAPIResourceWrapper):
 
@@ -103,6 +107,10 @@ class VolumeSnapshot(BaseCinderAPIResourceWrapper):
               'created_at', 'volume_id', 'group_snapshot_id',
               'os-extended-snapshot-attributes:project_id',
               'metadata']
+
+    @property
+    def project_id(self):
+        return getattr(self, 'os-extended-snapshot-attributes:project_id', "")
 
 
 class VolumeType(BaseCinderAPIResourceWrapper):

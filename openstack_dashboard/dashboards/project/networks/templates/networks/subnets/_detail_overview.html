@@ -6,6 +6,8 @@
     <dd class="word-wrap">{{ subnet.name|default:_("None") }}</dd>
     <dt title="{% trans 'ID' %}">{% trans "ID" %}</dt>
     <dd data-display="{{ subnet.name_or_id }}">{{subnet.id|default:_("None") }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ subnet.tenant_id|default:_("-") }}</dd>
     <dt title="{% trans 'Network Name' %}">{% trans "Network Name" %}</dt>
     <dd class="word-wrap">{{ subnet.network_name|default:_("None") }}</dd>
     <dt title="{% trans 'Network ID' %}">{% trans "Network ID" %}</dt>
