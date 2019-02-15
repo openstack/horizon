@@ -596,9 +596,12 @@ def user_update_tenant(request, user, project, admin=True):
 @profiler.trace
 def group_create(request, domain_id, name, description=None):
     manager = keystoneclient(request, admin=True).groups
-    return manager.create(domain=domain_id,
-                          name=name,
-                          description=description)
+    try:
+        return manager.create(domain=domain_id,
+                              name=name,
+                              description=description)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
 
 
 @profiler.trace
@@ -645,9 +648,12 @@ def group_list(request, domain=None, project=None, user=None, filters=None):
 @profiler.trace
 def group_update(request, group_id, name=None, description=None):
     manager = keystoneclient(request, admin=True).groups
-    return manager.update(group=group_id,
-                          name=name,
-                          description=description)
+    try:
+        return manager.update(group=group_id,
+                              name=name,
+                              description=description)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
 
 
 @profiler.trace
