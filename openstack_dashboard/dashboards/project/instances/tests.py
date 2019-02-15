@@ -5197,6 +5197,7 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
         self.mock_server_get.return_value = server
         self.mock_flavor_get.return_value = full_flavors[flavor_id]
         self.mock_servers_update_addresses.return_value = None
+        self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
 
         params = {'action': 'row_update',
                   'table': 'instances',
@@ -5217,6 +5218,8 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
                                                      flavor_id)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), [server])
+        self.mock_tenant_absolute_limits.assert_called_once_with(
+            helpers.IsHttpRequest(), reserved=True)
 
     @helpers.create_mocks({api.nova: ("server_get",
                                       "flavor_get",
@@ -5248,6 +5251,7 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
         self.mock_server_get.return_value = server
         self.mock_flavor_get.return_value = full_flavors[flavor_id]
         self.mock_servers_update_addresses.return_value = None
+        self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
 
         params = {'action': 'row_update',
                   'table': 'instances',
@@ -5278,6 +5282,8 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
                                                      flavor_id)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), [server])
+        self.mock_tenant_absolute_limits.assert_called_once_with(
+            helpers.IsHttpRequest(), reserved=True)
 
     @helpers.create_mocks({api.nova: ("server_get",
                                       "flavor_get",
@@ -5295,6 +5301,7 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
         self.mock_server_get.return_value = server
         self.mock_flavor_get.side_effect = self.exceptions.nova
         self.mock_servers_update_addresses.return_value = None
+        self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
 
         params = {'action': 'row_update',
                   'table': 'instances',
@@ -5316,6 +5323,8 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
                                                      server.flavor['id'])
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), [server])
+        self.mock_tenant_absolute_limits.assert_called_once_with(
+            helpers.IsHttpRequest(), reserved=True)
 
 
 class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
