@@ -1525,7 +1525,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             'enable_fip_topology_check': True,
         }
     )
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_floating_ip_target_list(self, mock_novaclient):
         ports = self.api_ports.list()
         # Port on the first subnet is connected to a router
@@ -1586,7 +1586,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.qclient.list_routers.assert_called_once_with()
         self.qclient.list_subnets.assert_called_once_with()
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def _test_target_floating_ip_port_by_instance(self, server, ports,
                                                   candidates, mock_novaclient):
         # list_ports and list_networks are called multiple times,

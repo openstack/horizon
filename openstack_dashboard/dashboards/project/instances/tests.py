@@ -5552,7 +5552,7 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @mock.patch.object(api.cinder, 'volume_list')
     @mock.patch.object(api.cinder, 'volume_get')
     @mock.patch.object(api.nova, 'get_microversion', return_value='2.60')
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_volume_attach_post_multiattach(
             self, mock_client, mock_get_microversion, mock_volume_get,
             mock_volume_list):
@@ -5580,7 +5580,7 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @mock.patch.object(api.cinder, 'volume_list')
     @mock.patch.object(api.cinder, 'volume_get')
     @mock.patch.object(api.nova, 'get_microversion', return_value=None)
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_volume_attach_post_multiattach_feature_not_available(
             self, mock_client, mock_get_microversion, mock_volume_get,
             mock_volume_list):
