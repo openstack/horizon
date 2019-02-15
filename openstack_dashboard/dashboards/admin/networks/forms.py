@@ -344,7 +344,8 @@ class UpdateNetwork(forms.SelfHandlingForm):
             network = api.neutron.network_update(request,
                                                  self.initial['network_id'],
                                                  **params)
-            msg = _('Network %s was successfully updated.') % data['name']
+            msg = (_('Network %s was successfully updated.') %
+                   network.name_or_id)
             messages.success(request, msg)
             return network
         except Exception as e:
