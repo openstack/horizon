@@ -446,6 +446,8 @@ if STATIC_URL is None:
 AVAILABLE_THEMES, SELECTABLE_THEMES, DEFAULT_THEME = (
     theme_settings.get_available_themes(
         AVAILABLE_THEMES,
+        CUSTOM_THEME_PATH,
+        DEFAULT_THEME_PATH,
         DEFAULT_THEME,
         SELECTABLE_THEMES
     )
