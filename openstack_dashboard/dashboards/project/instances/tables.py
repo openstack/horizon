@@ -1173,12 +1173,12 @@ def render_locked(instance):
     if not hasattr(instance, 'locked'):
         return ""
     if instance.locked:
-        icon_classes = "fa fa-fw fa-lock"
+        icon_classes = "fa mdi-lock"
         help_tooltip = _("This instance is currently locked. To enable more "
                          "actions on it, please unlock it by selecting Unlock "
                          "Instance from the actions menu.")
     else:
-        icon_classes = "fa fa-fw fa-unlock text-muted"
+        icon_classes = "fa mdi-lock-open-outline text-muted"
         help_tooltip = _("This instance is unlocked.")
 
     locked_status = ('<span data-toggle="tooltip" title="{}" class="{}">'
