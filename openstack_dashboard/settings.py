@@ -25,12 +25,14 @@ import warnings
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
+from horizon.utils.escape import monkeypatch_escape
+
+from openstack_dashboard import enabled
 from openstack_dashboard import exceptions
+from openstack_dashboard.local import enabled as local_enabled
 from openstack_dashboard import theme_settings
 from openstack_dashboard.utils import config
 from openstack_dashboard.utils import settings as settings_utils
-
-from horizon.utils.escape import monkeypatch_escape
 
 monkeypatch_escape()
 
@@ -72,7 +74,7 @@ HORIZON_CONFIG = {
         'types': ['alert-success', 'alert-info']
     },
     'bug_url': None,
-    'help_url': "http://docs.openstack.org",
+    'help_url': "https://docs.openstack.org/",
     'exceptions': {'recoverable': exceptions.RECOVERABLE,
                    'not_found': exceptions.NOT_FOUND,
                    'unauthorized': exceptions.UNAUTHORIZED},
@@ -107,7 +109,7 @@ OPENSTACK_IMAGE_BACKEND = {
     ]
 }
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'openstack_auth.middleware.OpenstackAuthMonkeyPatchMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -115,7 +117,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'horizon.middleware.OperationLogMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'horizon.middleware.HorizonMiddleware',
     'horizon.themes.ThemeMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -190,7 +191,6 @@ INSTALLED_APPS = [
     'openstack_auth',
 ]
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
 AUTHENTICATION_URLS = ['openstack_auth.urls']
 AUTH_USER_MODEL = 'openstack_auth.User'
@@ -223,6 +223,7 @@ LANGUAGES = (
     ('en', 'English'),
     ('en-au', 'Australian English'),
     ('en-gb', 'British English'),
+    ('eo', 'Esperanto'),
     ('es', 'Spanish'),
     ('fr', 'French'),
     ('id', 'Indonesian'),
@@ -260,18 +261,12 @@ DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
 POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
 # Map of local copy of service policy files
 POLICY_FILES = {
-    'orchestration': 'heat_policy.json', 
     'identity': 'keystone_policy.json',
     'compute': 'nova_policy.json',
     'volume': 'cinder_policy.json',
     'image': 'glance_policy.json',
     'network': 'neutron_policy.json',
 }
-
-OPENSTACK_HEAT_STACK = {
-    'enable_user_pass': True,
-}
-
 # Services for which horizon has extra policies are defined
 # in POLICY_DIRS by default.
 POLICY_DIRS = {
@@ -316,17 +311,13 @@ USER_MENU_LINKS = [
      }
 ]
 
-# Deprecated Theme Settings
-CUSTOM_THEME_PATH = None
-DEFAULT_THEME_PATH = None
-
 # 'key', 'label', 'path'
 AVAILABLE_THEMES = [
     (
-#        'default',
-#        pgettext_lazy('Default style theme', 'Default'),
-#        'themes/default'
-#    ), (
+        'default',
+        pgettext_lazy('Default style theme', 'Default'),
+        'themes/default'
+    ), (
         'material',
         pgettext_lazy("Google's Material Design style theme", "Material"),
         'themes/material'
@@ -446,26 +437,13 @@ if STATIC_URL is None:
 AVAILABLE_THEMES, SELECTABLE_THEMES, DEFAULT_THEME = (
     theme_settings.get_available_themes(
         AVAILABLE_THEMES,
-        CUSTOM_THEME_PATH,
-        DEFAULT_THEME_PATH,
         DEFAULT_THEME,
         SELECTABLE_THEMES
     )
 )
 
-if CUSTOM_THEME_PATH is not None:
-    _LOG.warning("CUSTOM_THEME_PATH has been deprecated.  Please convert "
-                 "your settings to make use of AVAILABLE_THEMES.")
-
-if DEFAULT_THEME_PATH is not None:
-    _LOG.warning("DEFAULT_THEME_PATH has been deprecated.  Please convert "
-                 "your settings to make use of AVAILABLE_THEMES.")
-
-# Discover all the directories that contain static files; at the same time
-# discover all the xstatic module entry points to embed in our HTML
-STATICFILES_DIRS = settings_utils.get_xstatic_dirs(
-    XSTATIC_MODULES, HORIZON_CONFIG)
-STATICFILES_DIRS += theme_settings.get_theme_static_dirs(
+# Discover all the directories that contain static files
+STATICFILES_DIRS = theme_settings.get_theme_static_dirs(
     AVAILABLE_THEMES, THEME_COLLECTION_DIR, ROOT_PATH)
 
 # Ensure that we always have a SECRET_KEY set, even when no local_settings.py
@@ -485,16 +463,11 @@ if not SECRET_KEY:
 settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
                                  THEME_COLLECTION_DIR, ROOT_PATH)
 
-
-# Load the pluggable dashboard settings
-import openstack_dashboard.enabled
-import openstack_dashboard.local.enabled
-
 INSTALLED_APPS = list(INSTALLED_APPS)  # Make sure it's mutable
 settings_utils.update_dashboards(
     [
-        openstack_dashboard.enabled,
-        openstack_dashboard.local.enabled,
+        enabled,
+        local_enabled,
     ],
     HORIZON_CONFIG,
     INSTALLED_APPS,
@@ -502,6 +475,13 @@ settings_utils.update_dashboards(
 INSTALLED_APPS[0:0] = ADD_INSTALLED_APPS
 
 NG_TEMPLATE_CACHE_AGE = NG_TEMPLATE_CACHE_AGE if not DEBUG else 0
+
+# Include xstatic_modules specified in plugin
+XSTATIC_MODULES += HORIZON_CONFIG['xstatic_modules']
+
+# Discover all the xstatic module entry points to embed in our HTML
+STATICFILES_DIRS += settings_utils.get_xstatic_dirs(
+    XSTATIC_MODULES, HORIZON_CONFIG)
 
 # This base context objects gets added to the offline context generator
 # for each theme configured.
@@ -519,12 +499,3 @@ if DEBUG:
 # Here comes the Django settings deprecation section. Being at the very end
 # of settings.py allows it to catch the settings defined in local_settings.py
 # or inside one of local_settings.d/ snippets.
-if 'HORIZON_IMAGES_ALLOW_UPLOAD' in globals():
-    message = 'The setting HORIZON_IMAGES_ALLOW_UPLOAD is deprecated in ' \
-              'Newton and will be removed in P release. Use the setting ' \
-              'HORIZON_IMAGES_UPLOAD_MODE instead.'
-    if not HORIZON_IMAGES_ALLOW_UPLOAD:
-        message += ' Keep in mind that HORIZON_IMAGES_ALLOW_UPLOAD set to ' \
-                   'False overrides the value of HORIZON_IMAGES_UPLOAD_MODE.'
-    _LOG.warning(message)
-
