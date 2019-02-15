@@ -201,6 +201,20 @@ class CreatePortInfoAction(workflows.Action):
                 for subnet in network.subnets
                 if isinstance(subnet, api.neutron.Subnet)]
 
+    def clean_subnet_id(self):
+        specify_ip = self.cleaned_data.get('specify_ip')
+        subnet_id = self.cleaned_data.get('subnet_id')
+        if specify_ip == "subnet_id" and not subnet_id:
+            raise forms.ValidationError(_("This field is required."))
+        return subnet_id
+
+    def clean_fixed_ip(self):
+        specify_ip = self.cleaned_data.get('specify_ip')
+        fixed_ip = self.cleaned_data.get('fixed_ip')
+        if specify_ip == "fixed_ip" and not fixed_ip:
+            raise forms.ValidationError(_("This field is required."))
+        return fixed_ip
+
     class Meta(object):
         name = _("Info")
         slug = 'create_info'
