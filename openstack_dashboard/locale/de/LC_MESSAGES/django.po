@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-01-15 18:25+0000\n"
+"POT-Creation-Date: 2019-02-14 07:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-01-11 02:46+0000\n"
+"PO-Revision-Date: 2019-02-14 10:57+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -328,6 +328,9 @@ msgstr "Aktion"
 
 msgid "Action Log"
 msgstr "Aktionslog"
+
+msgid "Action and Object Type"
+msgstr "Aktion und Objekttyp"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -1448,6 +1451,9 @@ msgstr ""
 "von den jeweiligen Schattenkopien der Quelle Konsistenzgruppen-"
 "Schattenkopien geklont werden."
 
+msgid "Create a Group Type"
+msgstr "Gruppentyp erstellen"
+
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
 "the snapshots in the source Group Snapshot."
@@ -1969,6 +1975,11 @@ msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "Gelöschte Gruppe"
 msgstr[1] "Gelöschte Gruppen"
+
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Gelöschter Gruppentyp"
+msgstr[1] "Gelöschte Gruppentypen"
 
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
@@ -3518,6 +3529,13 @@ msgstr ""
 "IP-Adressenliste der DNS-Server für dieses Subnetz. Ein Eintrag pro Zeile."
 
 msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"IP Adresse des Gateways (z.B. 192.168.0.254) Wenn Sie kein Gateway verwenden "
+"wollen markieren Sie unten 'Gateway deaktivieren'."
+
+msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
 "of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
 "2001:DB8::/48). If you use the default, leave blank. If you do not want to "
@@ -3883,6 +3901,13 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "Schlüsselgröße (Bit)"
+
+msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+"Schlüsselnamen dürfen nur alphanumerische Zeichen, Unterstriche, Punkte, "
+"Doppelpunkte und Bindestriche enthalten"
 
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
@@ -4963,12 +4988,6 @@ msgstr "Löschen des Abbildes verhindern."
 msgid "Primary Project"
 msgstr "Primäres Projekt"
 
-msgid "Primary Project ID"
-msgstr "Primäre Projekt-ID"
-
-msgid "Primary Project Name"
-msgstr "Primärer Projektname"
-
 msgid "Private Key File"
 msgstr "Private Schlüssel-Datei"
 
@@ -5738,11 +5757,17 @@ msgstr "Datenträgerschattenkopie auswählen"
 msgid "Select a New Flavor"
 msgstr "Neue Variante auswählen"
 
+msgid "Select a QoS policy"
+msgstr "QoS-Richtlinie auswählen"
+
 msgid "Select a floating IP to disassociate"
 msgstr "Floating IP zum Trennen auswählen"
 
 msgid "Select a key pair"
 msgstr "Wählen Sie ein Schlüsselpaar"
+
+msgid "Select a network"
+msgstr "Netzwerk auswählen"
 
 msgid "Select a new QoS spec"
 msgstr "Wählen Sie eine neue QoS Spezifikation"
@@ -5788,6 +5813,9 @@ msgstr "Wählen Sie einen Datenträger zum Ablösen von dieser Instanz aus."
 
 msgid "Select a volume to restore to."
 msgstr "Wählen Sie einen Datenträger für die Wiederherstellung."
+
+msgid "Select action and object type"
+msgstr "Aktion und Objekttyp auswählen"
 
 msgid "Select an IP address"
 msgstr "IP-Adresse wählen"
@@ -6168,6 +6196,9 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Wählen Sie ein Abbild zum Hochladen aus."
+
+msgid "Specify network address"
+msgstr "\"Netzwerkadresse\" angeben"
 
 msgid "Specify the MAC address for the new port"
 msgstr "Geben Sie die MAC-Adresse für den neuen Port an"
@@ -7262,6 +7293,10 @@ msgstr ""
 "Schattenkopie kann nicht erstellt werden. Die Gruppe muss Datenträger "
 "enthalten."
 
+#, python-format
+msgid "Unable to create snapshot: %s"
+msgstr "Schattenkopie kann nicht erzeugt werden: %s"
+
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr ""
 "Schattenkopien können nicht erstellt werden, da das Kontingent für "
@@ -7768,6 +7803,16 @@ msgstr "Konnte Gruppenschattenkopie-Details nicht abrufen."
 msgid "Unable to retrieve group snapshots."
 msgstr "Gruppen-Schattenkopie können nicht abgerufen werden."
 
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "Gruppentyp für \"%s\" kann nicht abrufen werden."
+
+msgid "Unable to retrieve group type name."
+msgstr "Name des Gruppentyps kann nicht abgerufen werden."
+
+msgid "Unable to retrieve group type."
+msgstr "Gruppentyp kann nicht abgerufen werden."
+
 msgid "Unable to retrieve group types."
 msgstr "Gruppentypen können nicht abgerufen werden."
 
@@ -8011,6 +8056,9 @@ msgstr "Benutzerdetails können nicht abgerufen werden."
 msgid "Unable to retrieve user domain role assignments."
 msgstr "Domänen-Rollenzuweisungen können nicht abgerufen werden."
 
+msgid "Unable to retrieve user domain."
+msgstr "Benutzerdomäne kann nicht abgerufen werden."
+
 msgid "Unable to retrieve user information."
 msgstr "Benutzerinformationen können nicht abgerufen werden."
 
@@ -8045,6 +8093,10 @@ msgstr "Datenträger Details können nicht abgerufen werden."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Verschlüsselungsdetails zum Datenträger können nicht abgerufen werden."
+
+msgid "Unable to retrieve volume group project information."
+msgstr ""
+"Gruppenprojektinformationen zum Datenträger können nicht aufgerufen werden."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Datenträgergruppen Schattenkopien können nicht abgerufen werden."

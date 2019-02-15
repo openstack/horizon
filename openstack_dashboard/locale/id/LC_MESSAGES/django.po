@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-01-05 15:24+0000\n"
+"POT-Creation-Date: 2019-02-14 07:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4761,12 +4761,6 @@ msgstr "Mencegah penghapusan image."
 
 msgid "Primary Project"
 msgstr "Proyek Utama"
-
-msgid "Primary Project ID"
-msgstr "Primary Project ID"
-
-msgid "Primary Project Name"
-msgstr "Primary Project Name"
 
 msgid "Private Key File"
 msgstr "Private Key File (file kunci private)"
