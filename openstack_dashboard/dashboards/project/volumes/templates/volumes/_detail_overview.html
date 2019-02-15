@@ -76,7 +76,7 @@
 
   <h4>{% trans "Metadata" %}</h4>
   <hr class="header_rule">
-  <dl class="dl-horizontal">
+  <dl class="dl-horizontal word-wrap">
   {% if volume.metadata.items %}
       {% for key, value in volume.metadata.items %}
           <dt>{{ key }}</dt>
