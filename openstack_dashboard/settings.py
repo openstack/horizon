@@ -313,15 +313,16 @@ USER_MENU_LINKS = [
 
 # 'key', 'label', 'path'
 AVAILABLE_THEMES = [
-    (
-        'default',
-        pgettext_lazy('Default style theme', 'Default'),
-        'themes/default'
-    ), (
+#    (
+#        'default',
+#        pgettext_lazy('Default style theme', 'Default'),
+#        'themes/default'
+#    ),
+     (
         'material',
         pgettext_lazy("Google's Material Design style theme", "Material"),
         'themes/material'
-    ),
+     ),
 ]
 
 # The default theme if no cookie is present
