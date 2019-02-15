@@ -11,7 +11,7 @@
     <dd>{{ snapshot.description }}</dd>
     {% endif %}
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ snapshot.status|capfirst }}</dd>
+    <dd>{{ snapshot.status|replace_underscores|capfirst }}</dd>
     <dt>{% trans "Volume" %}</dt>
     <dd class="word-wrap">
       <a href="{{ snapshot.volume_url }}">
