@@ -6,7 +6,7 @@
   <tr><th>{% trans 'RAM' %}</th><td>{{ size_ram }}</td></tr>
   <tr><th>{% trans 'Size' %}</th><td>{{ size_disk }}</td></tr>
 </table>
-" data-original-title="{% blocktrans %}Flavor Details: {{ name }}">{{ name }}{% endblocktrans %}</a>
+" data-original-title="{% blocktrans %}<span class='word-wrap'>Flavor Details: {{ name }}</span>">{{ name }}{% endblocktrans %}</a>
 <script type="text/javascript" charset="utf-8">
 $(function () {
   var $flavor = $("#flavor_details_{{ id }}");
