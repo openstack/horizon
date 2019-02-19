@@ -65,8 +65,7 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
             tenant_dict = dict((t.id, t) for t in tenants)
             for snapshot in snapshots:
                 volume = volumes.get(snapshot.volume_id)
-                tenant_id = getattr(volume,
-                                    'os-vol-tenant-attr:tenant_id', None)
+                tenant_id = snapshot.project_id
                 tenant = tenant_dict.get(tenant_id, None)
                 snapshot._volume = volume
                 snapshot.tenant_name = getattr(tenant, "name", None)
