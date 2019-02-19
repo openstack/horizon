@@ -152,6 +152,14 @@ class VolTypeExtraSpec(object):
         self.value = val
 
 
+class GroupTypeSpec(object):
+    def __init__(self, group_type_id, key, val):
+        self.group_type_id = group_type_id
+        self.id = key
+        self.key = key
+        self.value = val
+
+
 class QosSpec(object):
     def __init__(self, id, key, val):
         self.id = id
@@ -1155,15 +1163,27 @@ def group_type_delete(request, group_type_id):
 
 
 @profiler.trace
+def group_type_spec_list(request, group_type_id, raw=False):
+    group_type = group_type_get(request, group_type_id)
+    specs = group_type._apiresource.get_keys()
+    if raw:
+        return specs
+    return [GroupTypeSpec(group_type_id, key, value) for
+            key, value in specs.items()]
+
+
+@profiler.trace
 def group_type_spec_set(request, group_type_id, metadata):
-    client = _cinderclient_with_generic_groups(request)
-    client.group_types.set_keys(metadata)
+    group_type = group_type_get(request, group_type_id)
+    if not metadata:
+        return None
+    return group_type._apiresource.set_keys(metadata)
 
 
 @profiler.trace
 def group_type_spec_unset(request, group_type_id, keys):
-    client = _cinderclient_with_generic_groups(request)
-    client.group_types.unset_keys(keys)
+    group_type = group_type_get(request, group_type_id)
+    return group_type._apiresource.unset_keys(keys)
 
 
 @profiler.trace

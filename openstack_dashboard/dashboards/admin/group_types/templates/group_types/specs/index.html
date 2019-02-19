@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Group Type Specs" %}{% endblock %}
+
+{% block page_header %}
+  <h2>{% blocktrans with group_type_name=group_type.name %}Group Type: {{ group_type_name }}{% endblocktrans %}</h2>
+{% endblock page_header %}
+
+{% block main %}
+  {% include "admin/group_types/specs/_index.html" %}
+{% endblock %}

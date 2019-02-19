@@ -10,22 +10,13 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import include
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.group_types.specs \
-    import urls as specs_urls
-from openstack_dashboard.dashboards.admin.group_types \
     import views
 
-
 urlpatterns = [
-    url(r'^$', views.GroupTypesView.as_view(), name='index'),
-    url(r'^create_type$', views.CreateGroupTypeView.as_view(),
-        name='create_type'),
-    url(r'^(?P<type_id>[^/]+)/update_type/$',
-        views.EditGroupTypeView.as_view(),
-        name='update_type'),
-    url(r'^(?P<type_id>[^/]+)/specs/',
-        include((specs_urls, 'specs'))),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^create/$', views.CreateView.as_view(), name='create'),
+    url(r'^(?P<key>[^/]+)/edit/$', views.EditView.as_view(), name='edit'),
 ]

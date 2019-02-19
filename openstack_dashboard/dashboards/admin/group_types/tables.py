@@ -41,6 +41,15 @@ class EditGroupType(tables.LinkAction):
     policy_rules = (("volume", "group:group_types_manage"),)
 
 
+class GroupTypeSpecs(tables.LinkAction):
+    name = "specs"
+    verbose_name = _("View Specs")
+    url = "horizon:admin:group_types:specs:index"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("volume", "group:group_types_manage"),)
+
+
 class GroupTypesFilterAction(tables.FilterAction):
 
     def filter(self, table, group_types, filter_string):
@@ -118,6 +127,7 @@ class GroupTypesTable(tables.DataTable):
             DeleteGroupType,
         )
         row_actions = (
+            GroupTypeSpecs,
             EditGroupType,
             DeleteGroupType
         )
