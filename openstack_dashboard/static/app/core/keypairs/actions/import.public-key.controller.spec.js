@@ -23,12 +23,16 @@
       scope = _$rootScope_.$new();
       scope.schema = {
         properties: {
+          key_type: {
+            title: "Key Type"
+          },
           public_key: {
             title: 'Public Key'
           }
         }
       };
       scope.model = {
+        key_type: 'ssh',
         public_key: ''
       };
 

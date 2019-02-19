@@ -35,6 +35,8 @@ MICROVERSION_FEATURES = {
         "servergroup_user_info": ["2.13", "2.60"],
         "multiattach": ["2.60"],
         "auto_allocated_network": ["2.37", "2.42"],
+        "key_types": ["2.2", "2.9"],
+        "key_type_list": ["2.9"],
     },
     "cinder": {
         "groups": ["3.27", "3.43", "3.48", "3.58"],

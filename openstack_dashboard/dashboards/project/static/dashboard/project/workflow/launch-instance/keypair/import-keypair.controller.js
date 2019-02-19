@@ -45,10 +45,17 @@
 
     ctrl.submit = submit;
     ctrl.cancel = cancel;
-    ctrl.model = { name: '', public_key: '' };
+    ctrl.model = { name: '', public_key: '', key_type: 'ssh' };
     ctrl.path = basePath + 'keypair/';
     ctrl.title = gettext('Public Key');
+    ctrl.key_types = {
+      'ssh': gettext("SSH Key"),
+      'x509': gettext("X509 Certificate")
+    };
 
+    ctrl.onKeyTypeChange = function (keyType) {
+      ctrl.model.key_type = keyType;
+    };
     //////////
 
     function submit() {

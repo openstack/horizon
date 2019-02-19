@@ -22,6 +22,13 @@
       <input class="form-control" name="name" id="keypair-name"
              ng-model="ctrl.model.name"
              ng-required="true"/>
+      <label class="control-label required" translate>Key Type</label>
+      <span class="hz-icon-required fa fa-asterisk"></span>
+      <select class="form-control switchable ng-pristine ng-untouched ng-valid"
+              ng-model="key_type"
+              ng-options="val as label for (val, label) in ctrl.key_types"
+              name="key-type"
+              ng-change="ctrl.onKeyTypeChange(key_type)"></select>
     </div>
 
     <load-edit title="{$ ctrl.title $}"
