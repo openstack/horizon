@@ -332,8 +332,10 @@
 
     function successMessage() {
       var numberInstances = model.newInstanceSpec.instance_count;
-      var message = ngettext('%s instance launched.', '%s instances launched.', numberInstances);
-      toast.add('success', interpolate(message, [numberInstances]));
+      var message = ngettext('Scheduled of %s instance.',
+                             'Scheduled of %s instances.',
+                             numberInstances);
+      toast.add('info', interpolate(message, [numberInstances]));
     }
 
     function cleanNullProperties(finalSpec) {
