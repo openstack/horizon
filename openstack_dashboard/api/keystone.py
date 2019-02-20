@@ -1124,6 +1124,9 @@ def application_credential_create(request, name, secret=None,
                                   roles=None, unrestricted=False):
     user = request.user.id
     manager = keystoneclient(request).application_credentials
-    return manager.create(name=name, user=user, secret=secret,
-                          description=description, expires_at=expires_at,
-                          roles=roles, unrestricted=unrestricted)
+    try:
+        return manager.create(name=name, user=user, secret=secret,
+                              description=description, expires_at=expires_at,
+                              roles=roles, unrestricted=unrestricted)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
