@@ -86,7 +86,10 @@ To start the Horizon development server use the command below
     The default port for runserver is 8000 which might be already consumed by
     heat-api-cfn in DevStack. If running in DevStack
     ``tox -e runserver -- localhost:9000`` will start the test server at
-    ``http://localhost:9000``
+    ``http://localhost:9000``. If you use ``tox -e runserver`` for developments,
+    then configure ``SESSION_ENGINE`` to
+    ``django.contrib.sessions.backends.signed_cookies`` in
+    ``openstack_dashboard/local/local_settings.py`` file.
 
 Once the Horizon server is running, point a web browser to ``http://localhost``
 or to the IP and port the server is listening for. Enter your Keystone
