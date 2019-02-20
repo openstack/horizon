@@ -640,7 +640,6 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
             if isinstance(attr, ExternalFileField):
                 hidden_field = fields.CharField(widget=fields.HiddenInput,
                                                 required=False)
-                hidden_field.creation_counter = attr.creation_counter + 1000
                 new_attr_name = get_double_name(attr_name)
                 new_attrs[new_attr_name] = hidden_field
                 meth_name = 'clean_' + new_attr_name
