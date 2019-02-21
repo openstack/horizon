@@ -69,9 +69,9 @@ class UpdateMetadataAction(tables.LinkAction):
         super(UpdateMetadataAction, self).__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
-        image_id = self.table.get_object_id(datum)
+        aggregate_id = self.table.get_object_id(datum)
         self.attrs['ng-click'] = (
-            "modal.openMetadataModal('aggregate', '%s', true)" % image_id)
+            "modal.openMetadataModal('aggregate', '%s', true)" % aggregate_id)
         return "javascript:void(0);"
 
 
