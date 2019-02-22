@@ -17,7 +17,6 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tables
 
-from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 from openstack_dashboard.dashboards.project.volume_groups \
     import tables as project_tables
@@ -31,20 +30,20 @@ class RemoveAllVolumes(project_tables.RemoveAllVolumes):
     url = "horizon:admin:volume_groups:remove_volumes"
 
 
-class UpdateRow(tables.Row):
+class UpdateRow(project_tables.UpdateRow):
     ajax = True
 
     def get_data(self, request, group_id):
-        groups = cinder.group_list_with_vol_type_names(request, group_id)
-        tenant_id = getattr(groups, 'project_id')
+        group = super(UpdateRow, self).get_data(request, group_id)
+        tenant_id = getattr(group, 'project_id')
         try:
             tenant = keystone.tenant_get(request, tenant_id)
-            groups.tenant_name = getattr(tenant, "name")
+            group.tenant_name = getattr(tenant, "name")
         except Exception:
             msg = _('Unable to retrieve volume group project information.')
             exceptions.handle(request, msg)
 
-        return groups
+        return group
 
 
 class ManageVolumes(project_tables.ManageVolumes):

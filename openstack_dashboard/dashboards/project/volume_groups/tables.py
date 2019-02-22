@@ -10,8 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from cinderclient import exceptions as cinder_exc
-
 from django.template import defaultfilters as filters
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -107,13 +105,16 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, group_id):
+        group = cinder.group_get_with_vol_type_names(request, group_id)
+        search_opts = {'group_id': group_id}
         try:
-            return cinder.group_get_with_vol_type_names(request, group_id)
-        except cinder_exc.NotFound:
-            # NotFound error must be raised to make ajax UpdateRow work.
-            raise
+            group_snapshots = cinder.group_snapshot_list(
+                request, search_opts=search_opts)
+            group.has_snapshots = bool(group_snapshots)
         except Exception:
-            exceptions.handle(request, _('Unable to display group.'))
+            exceptions.handle(request, _('Unable to retrieve group details.'))
+            group.has_snapshots = False
+        return group
 
 
 class GroupsFilterAction(tables.FilterAction):
