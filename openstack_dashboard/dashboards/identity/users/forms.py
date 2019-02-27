@@ -265,7 +265,8 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
                 data['email'] = data['email']
             response = api.keystone.user_update(request, user, **data)
             messages.success(request,
-                             _('User has been updated successfully.'))
+                             _('User "%s" has been updated '
+                               'successfully.') % data['name'])
         except exceptions.Conflict:
             msg = _('User name "%s" is already used.') % data['name']
             messages.error(request, msg)
