@@ -46,6 +46,7 @@ from horizon.tables.actions import BatchAction
 from horizon.tables.actions import FilterAction
 from horizon.tables.actions import LinkAction
 from horizon.utils import html
+from horizon.utils import settings as utils_settings
 
 
 LOG = logging.getLogger(__name__)
@@ -380,7 +381,7 @@ class Column(html.HTMLElement):
         if not self.policy_rules:
             return True
 
-        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+        policy_check = utils_settings.import_setting("POLICY_CHECK_FUNCTION")
 
         if policy_check:
             return policy_check(self.policy_rules, request)
