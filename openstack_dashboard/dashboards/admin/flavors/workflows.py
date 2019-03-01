@@ -41,11 +41,14 @@ class CreateFlavorInfoAction(workflows.Action):
                                  max_length=255,
                                  help_text=_flavor_id_help_text)
     vcpus = forms.IntegerField(label=_("VCPUs"),
-                               min_value=1)
+                               min_value=1,
+                               max_value=2147483647)
     memory_mb = forms.IntegerField(label=_("RAM (MB)"),
-                                   min_value=1)
+                                   min_value=1,
+                                   max_value=2147483647)
     disk_gb = forms.IntegerField(label=_("Root Disk (GB)"),
-                                 min_value=0)
+                                 min_value=0,
+                                 max_value=2147483647)
     eph_gb = forms.IntegerField(label=_("Ephemeral Disk (GB)"),
                                 required=False,
                                 initial=0,
