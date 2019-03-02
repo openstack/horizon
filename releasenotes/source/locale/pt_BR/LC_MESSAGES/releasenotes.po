@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-22 16:03+0000\n"
+"POT-Creation-Date: 2019-02-27 16:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -90,9 +90,6 @@ msgstr "14.0.2"
 
 msgid "15.0.0.0b1"
 msgstr "15.0.0.0b1"
-
-msgid "15.0.0.0b1-208"
-msgstr "15.0.0.0b1-208"
 
 msgid "8.0.1"
 msgstr "8.0.1"
