@@ -10,6 +10,8 @@
     <dt>{% trans "Description" %}</dt>
     <dd>{{ vg_snapshot.description }}</dd>
     {% endif %}
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ vg_snapshot.project_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ vg_snapshot.status|capfirst }}</dd>
     <dt>{% trans "Group" %}</dt>

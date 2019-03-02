@@ -49,8 +49,25 @@ class IndexView(tables.DataTableView):
             groups = {}
             exceptions.handle(self.request,
                               _("Unable to retrieve volume groups."))
+
+        # Gather our tenants to correlate against Group IDs
+        try:
+            tenants, has_more = api.keystone.tenant_list(self.request)
+        except Exception:
+            tenants = []
+            msg = _('Unable to retrieve group snapshot project information.')
+            exceptions.handle(self.request, msg)
+
+        tenant_dict = dict((t.id, t) for t in tenants)
         for vg_snapshot in vg_snapshots:
             vg_snapshot.group = groups.get(vg_snapshot.group_id)
+            tenant_id = getattr(vg_snapshot, "project_id", None)
+            tenant = tenant_dict.get(tenant_id)
+
+            # NOTE: If horizon is using cinder API microversion below '3.58',
+            # it doesn't include any 'project id' information in group
+            # snapshot's object.
+            vg_snapshot.tenant_name = getattr(tenant, "name", None)
         return vg_snapshots
 
 

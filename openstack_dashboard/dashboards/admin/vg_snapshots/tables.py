@@ -14,14 +14,35 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tables
 
+from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.vg_snapshots  \
     import tables as project_tables
 
 
+class UpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, vg_snapshot_id):
+        vg_snapshot = api.cinder.group_snapshot_get(request, vg_snapshot_id)
+        vg_snapshot.group = api.cinder.group_get(request,
+                                                 vg_snapshot.group_id)
+        tenant_id = getattr(vg_snapshot.group, 'project_id')
+
+        try:
+            tenant = api.keystone.tenant_get(request, tenant_id)
+            vg_snapshot.tenant_name = getattr(tenant, "name")
+        except Exception:
+            msg = _('Unable to retrieve group snapshot project information.')
+            exceptions.handle(request, msg)
+
+        return vg_snapshot
+
+
 class GroupSnapshotsTable(project_tables.GroupSnapshotsTable):
-    # TODO(vishalmanchanda): Add Project Info.column in table
+    project = tables.Column("tenant_name", verbose_name=_("Project"))
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:admin:vg_snapshots:detail")
@@ -39,5 +60,7 @@ class GroupSnapshotsTable(project_tables.GroupSnapshotsTable):
         row_actions = (
             project_tables.DeleteGroupSnapshot,
         )
-        row_class = project_tables.UpdateRow
+        row_class = UpdateRow
         status_columns = ("status",)
+        columns = ('project', 'name', 'description', 'status',
+                   'group')

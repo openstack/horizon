@@ -189,7 +189,7 @@ class Group(base.APIResourceWrapper):
 
 class GroupSnapshot(base.APIResourceWrapper):
     _attrs = ['id', 'name', 'description', 'status', 'created_at',
-              'group_id', 'group_type_id']
+              'group_id', 'group_type_id', 'project_id']
 
 
 class GroupType(base.APIResourceWrapper):

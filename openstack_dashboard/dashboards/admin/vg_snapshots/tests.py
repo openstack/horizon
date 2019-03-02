@@ -26,13 +26,16 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 class AdminGroupSnapshotTests(test.BaseAdminViewTests):
     @test.create_mocks({
+        api.keystone: ['tenant_list'],
         api.cinder: ['group_list',
                      'group_snapshot_list']})
     def test_index(self):
         vg_snapshots = self.cinder_group_snapshots.list()
         groups = self.cinder_groups.list()
+        tenants = self.tenants.list()
         self.mock_group_snapshot_list.return_value = vg_snapshots
         self.mock_group_list.return_value = groups
+        self.mock_tenant_list.return_value = [tenants, False]
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
@@ -41,21 +44,25 @@ class AdminGroupSnapshotTests(test.BaseAdminViewTests):
         volume_vg_snapshots = volume_vg_snapshots_table.data
         self.assertEqual(len(volume_vg_snapshots), 1)
 
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), {'all_tenants': 1})
         self.mock_group_list.assert_called_once_with(
             test.IsHttpRequest(), {'all_tenants': 1})
 
     @test.create_mocks({
+        api.keystone: ['tenant_list'],
         api.cinder: ['group_list',
                      'group_snapshot_delete',
                      'group_snapshot_list']})
     def test_delete_group_snapshot(self):
         vg_snapshots = self.cinder_group_snapshots.list()
         vg_snapshot = self.cinder_group_snapshots.first()
+        tenants = self.tenants.list()
         self.mock_group_snapshot_list.return_value = vg_snapshots
         self.mock_group_snapshot_delete.return_value = None
         self.mock_group_list.return_value = self.cinder_groups.list()
+        self.mock_tenant_list.return_value = [tenants, False]
 
         form_data = {'action': 'volume_vg_snapshots__delete_vg_snapshot__%s'
                      % vg_snapshot.id}
@@ -74,15 +81,18 @@ class AdminGroupSnapshotTests(test.BaseAdminViewTests):
             mock.call(test.IsHttpRequest(), {'all_tenants': 1}))
 
     @test.create_mocks({
+        api.keystone: ['tenant_list'],
         api.cinder: ['group_list',
                      'group_snapshot_delete',
                      'group_snapshot_list']})
     def test_delete_group_snapshot_exception(self):
         vg_snapshots = self.cinder_group_snapshots.list()
         vg_snapshot = self.cinder_group_snapshots.first()
+        tenants = self.tenants.list()
         self.mock_group_snapshot_list.return_value = vg_snapshots
         self.mock_group_snapshot_delete.side_effect = self.exceptions.cinder
         self.mock_group_list.return_value = self.cinder_groups.list()
+        self.mock_tenant_list.return_value = [tenants, False]
 
         form_data = {'action': 'volume_vg_snapshots__delete_vg_snapshot__%s'
                      % vg_snapshot.id}
