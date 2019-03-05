@@ -103,9 +103,8 @@ class UserSettingsForm(forms.SelfHandlingForm):
         response = shortcuts.redirect(request.build_absolute_uri())
 
         lang_code = data['language']
-        if lang_code and translation.check_for_language(lang_code):
-            response = functions.save_config_value(
-                request, response, settings.LANGUAGE_COOKIE_NAME, lang_code)
+        response = functions.save_config_value(
+            request, response, settings.LANGUAGE_COOKIE_NAME, lang_code)
 
         response = functions.save_config_value(
             request, response, 'django_timezone',
