@@ -39,7 +39,7 @@
     vars:
       devstack_services:
         horizon: true
-      tox_envlist: py27integration
+      tox_envlist: integration
 
 - job:
     name: horizon-dsvm-tempest-plugin

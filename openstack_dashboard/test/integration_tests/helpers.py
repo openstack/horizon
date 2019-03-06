@@ -200,6 +200,9 @@ class BaseTestCase(testtools.TestCase):
 
         super(BaseTestCase, self).addOnException(wrapped_handler)
 
+    def __hash__(self):
+        return hash((type(self), self._testMethodName))
+
     def _configure_log(self):
         """Configure log to capture test logs include selenium logs.
 
