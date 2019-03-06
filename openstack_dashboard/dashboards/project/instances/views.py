@@ -81,9 +81,22 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
     def _get_images(self):
         # Gather our images to correlate our instances to them
         try:
+            # Community images have to be retrieved separately and merged,
+            # because their visibility has to be explicitly defined in the
+            # API call and the Glance API currently does not support filtering
+            # by multiple values in the visibility field.
             # TODO(gabriel): Handle pagination.
             images = api.glance.image_list_detailed(self.request)[0]
-            return dict((str(image.id), image) for image in images)
+            community_images = api.glance.image_list_detailed(
+                self.request, filters={'visibility': 'community'})[0]
+            image_map = {
+                image.id: image for image in images
+            }
+            # Images have to be filtered by their uuids; some users
+            # have default access to certain community images.
+            for image in community_images:
+                image_map.setdefault(image.id, image)
+            return image_map
         except Exception:
             exceptions.handle(self.request, ignore=True)
             return {}
