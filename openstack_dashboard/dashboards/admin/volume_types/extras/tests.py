@@ -54,7 +54,8 @@ class VolTypeExtrasTests(test.BaseAdminViewTests):
         self.mock_volume_type_extra_get.assert_called_once_with(
             test.IsHttpRequest(), vol_type.id)
 
-    @test.create_mocks({api.cinder: ('volume_type_extra_set', )})
+    @test.create_mocks({api.cinder: ('volume_type_extra_set',
+                                     'volume_type_extra_get')})
     def test_extra_create_post(self):
         vol_type = self.cinder_volume_types.first()
         create_url = reverse(
