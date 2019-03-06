@@ -185,6 +185,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         api.network: (
             'servers_update_addresses',
         ),
+        api.cinder: ('volume_list',),
     })
     def _get_index(self, use_servers_update_address=True):
         servers = self.servers.list()
@@ -268,6 +269,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                    'tenant_absolute_limits',
                    'flavor_list'),
         api.glance: ('image_list_detailed',),
+        api.cinder: ('volume_list',),
     })
     def test_index_server_list_exception(self):
         search_opts = {'marker': None, 'paginate': True}
@@ -306,6 +308,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
         api.network: ('servers_update_addresses',),
+        api.cinder: ('volume_list',),
     })
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
@@ -364,6 +367,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
         api.network: ('servers_update_addresses',),
+        api.cinder: ('volume_list',),
     })
     def test_index_with_instance_booted_from_volume(self):
         volume_server = self.servers.first()
@@ -447,7 +451,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'flavor_list',
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_delete_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -480,7 +485,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'flavor_list',
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_delete_instance_error_state(self):
         servers = self.servers.list()
         server = servers[0]
@@ -515,7 +521,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'flavor_list',
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_delete_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -551,7 +558,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_pause_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -590,7 +598,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_pause_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -629,7 +638,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_unpause_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -668,7 +678,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_unpause_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -706,7 +717,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'server_list_paged',
                                       'flavor_list',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_reboot_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -740,7 +752,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'server_list_paged',
                                       'flavor_list',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_reboot_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -774,7 +787,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'server_list_paged',
                                       'flavor_list',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_soft_reboot_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -810,7 +824,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_suspend_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -853,7 +868,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_suspend_instance_if_placed_on_2nd_page(self):
         page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 2)
         servers = self.servers.list()[:3]
@@ -897,7 +913,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_suspend_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -936,7 +953,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_resume_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -976,7 +994,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available'),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_resume_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -1016,7 +1035,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_shelve_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -1054,7 +1074,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_shelve_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -1093,7 +1114,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_unshelve_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -1133,7 +1155,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_unshelve_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -1173,7 +1196,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_lock_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -1214,7 +1238,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_lock_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -1257,7 +1282,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available'),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_unlock_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -1298,7 +1324,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                                       'extension_supported',
                                       'is_feature_available'),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_unlock_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -1812,6 +1839,7 @@ class InstanceTests(InstanceTestBase):
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
         api.network: ('servers_update_addresses',),
+        api.cinder: ('volume_list',),
     })
     def _test_instances_index_retrieve_password_action(self):
         servers = self.servers.list()
@@ -4107,6 +4135,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
         api.network: ('servers_update_addresses',),
+        api.cinder: ('volume_list',),
     })
     def test_launch_button_attributes(self):
         servers = self.servers.list()
@@ -4171,6 +4200,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
         api.network: ('servers_update_addresses',),
+        api.cinder: ('volume_list',),
     })
     def test_launch_button_disabled_when_quota_exceeded(self):
         servers = self.servers.list()
@@ -4360,6 +4390,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
         api.network: ('servers_update_addresses',),
+        api.cinder: ('volume_list',),
     })
     def test_index_options_after_migrate(self):
         servers = self.servers.list()
@@ -4936,6 +4967,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
         api.network: ('servers_update_addresses',),
+        api.cinder: ('volume_list',),
     })
     def test_index_form_action_with_pagination(self):
         # The form action on the next page should have marker
@@ -5022,7 +5054,8 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                       'flavor_list',
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_delete_instance_with_pagination(self):
         # Instance should be deleted from the next page.
 
@@ -5145,7 +5178,8 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                       'flavor_list',
                                       'server_unrescue',),
                            api.glance: ('image_list_detailed',),
-                           api.network: ('servers_update_addresses',)})
+                           api.network: ('servers_update_addresses',),
+                           api.cinder: ('volume_list',)})
     def test_unrescue_instance(self):
         servers = self.servers.list()
         server = servers[0]
