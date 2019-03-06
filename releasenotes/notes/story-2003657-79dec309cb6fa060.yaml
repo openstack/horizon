@@ -1,0 +1,6 @@
+---
+features:
+  - |
+      Added an upgrade_check management command, that checks the configuration
+      files for any settings that may potentially be problematic in the next
+      version. The command is available as ``./manage.py upgrade_check``.
