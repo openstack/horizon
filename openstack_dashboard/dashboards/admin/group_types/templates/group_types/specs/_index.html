@@ -1,0 +1,13 @@
+{% extends "horizon/common/_modal.html" %}
+{% load i18n %}
+
+{% block modal_id %}group_type_specs_modal{% endblock %}
+{% block modal-header %}{% trans "Group Type Specs" %}{% endblock %}
+
+{% block modal-body %}
+    {{ table.render }}
+{% endblock %}
+
+{% block modal-footer %}
+  <a href="{% url 'horizon:admin:group_types:index' %}" class="btn btn-default cancel">{% trans "Close" %}</a>
+{% endblock %}
