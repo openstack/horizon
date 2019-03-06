@@ -49,7 +49,7 @@ class UpdateRow(tables.Row):
             tenant = keystone.tenant_get(request, tenant_id)
             snapshot.tenant_name = getattr(tenant, "name")
         except Exception:
-            msg = _('Unable to retrieve volume project information.')
+            msg = _('Unable to retrieve volume snapshot project information.')
             exceptions.handle(request, msg)
 
         return snapshot

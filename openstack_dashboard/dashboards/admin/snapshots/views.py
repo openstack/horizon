@@ -59,7 +59,8 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
                 tenants, has_more = keystone.tenant_list(self.request)
             except Exception:
                 tenants = []
-                msg = _('Unable to retrieve volume project information.')
+                msg = _('Unable to retrieve project '
+                        'information of volume snapshots.')
                 exceptions.handle(self.request, msg)
 
             tenant_dict = dict((t.id, t) for t in tenants)
