@@ -1,4 +1,4 @@
-{% extends "project/volumes/_volume_limits.html" %}
+{% extends "project/volumes/_snapshot_limits.html" %}
 {% load i18n horizon humanize %}
 
 {% block title %}
@@ -10,11 +10,11 @@
 {% endblock %}
 
 {% block gigabytes_used %}
-  {{ usages.totalGigabytesUsed|intcomma }}
+  {{ usages.gigabytes.used|intcomma }}
 {% endblock %}
 
 {% block gigabytes_used_progress %}
-  "{{ usages.totalGigabytesUsed }}"
+  "{{ usages.gigabytes.used }}"
 {% endblock %}
 
 {% block type_title %}
@@ -22,11 +22,11 @@
 {% endblock %}
 
 {% block used %}
-  {{ usages.totalSnapshotsUsed|intcomma }}
+  {{ usages.snapshots.used|intcomma }}
 {% endblock %}
 
 {% block total %}
-  {{ usages.maxTotalSnapshots|intcomma|quota }}
+  {{ usages.snapshots.quota|intcomma|quota }}
 {% endblock %}
 
 {% block type_id %}
@@ -34,9 +34,9 @@
 {% endblock %}
 
 {% block total_progress %}
-  "{{ usages.maxTotalSnapshots }}"
+  "{{ usages.snapshots.quota }}"
 {% endblock %}
 
 {% block used_progress %}
-  "{{ usages.totalSnapshotsUsed }}"
+  "{{ usages.snapshots.used }}"
 {% endblock %}
