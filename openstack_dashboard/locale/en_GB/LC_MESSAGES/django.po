@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-22 16:05+0000\n"
+"POT-Creation-Date: 2019-03-06 22:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-02-04 06:47+0000\n"
+"PO-Revision-Date: 2019-03-06 02:55+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -940,6 +940,13 @@ msgstr ""
 "actions, check \"unrestricted\"."
 
 msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -1314,6 +1321,12 @@ msgstr "Create Group"
 msgid "Create Group Snapshot"
 msgstr "Create Group Snapshot"
 
+msgid "Create Group Type"
+msgstr "Create Group Type"
+
+msgid "Create Group Type Spec"
+msgstr "Create Group Type Spec"
+
 msgid "Create Host Aggregate"
 msgstr "Create Host Aggregate"
 
@@ -1420,6 +1433,9 @@ msgstr ""
 "Create a Consistency Group that will contain newly created volumes cloned "
 "from each of the snapshots in the source Consistency Group Snapshot."
 
+msgid "Create a Group Type"
+msgstr "Create a Group Type"
+
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
 "the snapshots in the source Group Snapshot."
@@ -1447,6 +1463,9 @@ msgstr "Create a mapping."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Create a new \"extra spec\" key-value pair for a volume type."
+
+msgid "Create a new \"group spec\" key-value pair for a group type."
+msgstr "Create a new \"group spec\" key-value pair for a group type."
 
 #, python-format
 msgid ""
@@ -1507,6 +1526,10 @@ msgstr "Created"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Created extra spec \"%s\"."
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "Created group type spec \"%s\"."
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1746,6 +1769,11 @@ msgid_plural "Delete Groups"
 msgstr[0] "Delete Group"
 msgstr[1] "Delete Groups"
 
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Delete Group Type"
+msgstr[1] "Delete Group Types"
+
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Delete Host Aggregate"
@@ -1934,6 +1962,11 @@ msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "Deleted Group"
 msgstr[1] "Deleted Groups"
+
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Deleted Group Type"
+msgstr[1] "Deleted Group Types"
 
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
@@ -2416,6 +2449,16 @@ msgstr "Edit Flavour"
 
 msgid "Edit Group"
 msgstr "Edit Group"
+
+msgid "Edit Group Type"
+msgstr "Edit Group Type"
+
+msgid "Edit Group Type Spec"
+msgstr "Edit Group Type Spec"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "Edit Group Type Spec Value: %s"
 
 msgid "Edit Host Aggregate"
 msgstr "Edit Host Aggregate"
@@ -3262,8 +3305,44 @@ msgstr "Group Snapshots"
 msgid "Group Type"
 msgstr "Group Type"
 
+msgid "Group Type Specs"
+msgstr "Group Type Specs"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "Group Type: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "Group Type: %(group_type_name)s "
+
+msgid "Group Types"
+msgstr "Group Types"
+
 msgid "Group has been updated successfully."
 msgstr "Group has been updated successfully."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"Extra Specs\" button "
+"to set up extra specs key-value pair(s) for that group type."
+msgstr ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"Extra Specs\" button "
+"to set up extra specs key-value pair(s) for that group type."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Group type name \"%s\" already exists."
+
+msgid "Group type name can not be empty."
+msgstr "Group type name can not be empty."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3442,6 +3521,13 @@ msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
 "IP address list of DNS name servers for this subnet. One entry per line."
+
+msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
 
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
@@ -4182,6 +4268,9 @@ msgstr "Modify Quotas"
 msgid "Modify dashboard settings for your user."
 msgstr "Modify dashboard settings for your user."
 
+msgid "Modify group type name, description, and public status."
+msgstr "Modify group type name, description, and public status."
+
 msgid "Modify name and description of a volume."
 msgstr "Modify name and description of a volume."
 
@@ -4358,6 +4447,9 @@ msgstr "New Size (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "New name cannot be empty."
+
+msgid "New name conflicts with another group type."
+msgstr "New name conflicts with another group type."
 
 msgid "New name conflicts with another volume type."
 msgstr "New name conflicts with another volume type."
@@ -5512,6 +5604,10 @@ msgid "Saved extra spec \"%s\"."
 msgstr "Saved extra spec \"%s\"."
 
 #, python-format
+msgid "Saved group spec \"%s\"."
+msgstr "Saved group spec \"%s\"."
+
+#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "Saved spec \"%s\"."
 
@@ -6199,6 +6295,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Successfully created encryption for volume type: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Successfully created group type: %s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "Successfully created security group: %s"
 
@@ -6274,6 +6374,9 @@ msgstr "Successfully updated aggregate: \"%s.\""
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Successfully updated encryption for volume type: %s"
+
+msgid "Successfully updated group type."
+msgstr "Successfully updated group type."
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6845,6 +6948,9 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "To exit the fullscreen mode, click the browser's back button."
 
+msgid "To make group type private, uncheck this field."
+msgstr "To make group type private, uncheck this field."
+
 msgid "To make volume type private, uncheck this field."
 msgstr "To make volume type private, uncheck this field."
 
@@ -7064,6 +7170,12 @@ msgstr "Unable to create group due to exceeding volume quota limit."
 msgid "Unable to create group snapshot."
 msgstr "Unable to create group snapshot."
 
+msgid "Unable to create group type spec."
+msgstr "Unable to create group type spec."
+
+msgid "Unable to create group type."
+msgstr "Unable to create group type."
+
 msgid "Unable to create group."
 msgstr "Unable to create group."
 
@@ -7221,6 +7333,9 @@ msgstr "Unable to display the role assignments of this user."
 
 msgid "Unable to display the users of this project."
 msgstr "Unable to display the users of this project."
+
+msgid "Unable to edit group type spec."
+msgstr "Unable to edit group type spec."
 
 msgid "Unable to edit spec."
 msgstr "Unable to edit spec."
@@ -7608,6 +7723,25 @@ msgstr "Unable to retrieve group snapshot details."
 msgid "Unable to retrieve group snapshots."
 msgstr "Unable to retrieve group snapshots."
 
+msgid "Unable to retrieve group type details."
+msgstr "Unable to retrieve group type details."
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "Unable to retrieve group type for: \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "Unable to retrieve group type name."
+
+msgid "Unable to retrieve group type spec details."
+msgstr "Unable to retrieve group type spec details."
+
+msgid "Unable to retrieve group type spec list."
+msgstr "Unable to retrieve group type spec list."
+
+msgid "Unable to retrieve group type."
+msgstr "Unable to retrieve group type."
+
 msgid "Unable to retrieve group types."
 msgstr "Unable to retrieve group types."
 
@@ -7746,6 +7880,9 @@ msgstr "Unable to retrieve project details."
 msgid "Unable to retrieve project domain."
 msgstr "Unable to retrieve project domain."
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr "Unable to retrieve project information of volume snapshots."
+
 msgid "Unable to retrieve project information."
 msgstr "Unable to retrieve project information."
 
@@ -7843,6 +7980,9 @@ msgstr "Unable to retrieve user details."
 msgid "Unable to retrieve user domain role assignments."
 msgstr "Unable to retrieve user domain role assignments."
 
+msgid "Unable to retrieve user domain."
+msgstr "Unable to retrieve user domain."
+
 msgid "Unable to retrieve user information."
 msgstr "Unable to retrieve user information."
 
@@ -7875,6 +8015,9 @@ msgstr "Unable to retrieve volume details."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Unable to retrieve volume encryption details."
+
+msgid "Unable to retrieve volume group project information."
+msgstr "Unable to retrieve volume group project information."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Unable to retrieve volume group snapshots."
@@ -7910,6 +8053,9 @@ msgstr "Unable to retrieve volume project information."
 
 msgid "Unable to retrieve volume quota information."
 msgstr "Unable to retrieve volume quota information."
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr "Unable to retrieve volume snapshot project information."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Unable to retrieve volume snapshot."
@@ -7993,6 +8139,9 @@ msgstr "Unable to update default volume quotas."
 
 msgid "Unable to update encrypted volume type."
 msgstr "Unable to update encrypted volume type."
+
+msgid "Unable to update group type."
+msgstr "Unable to update group type."
 
 msgid "Unable to update group."
 msgstr "Unable to update group."
@@ -8253,6 +8402,10 @@ msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Update the \"extra spec\" value for \"%(key)s\""
 
 #, python-format
+msgid "Update the \"group spec\" value for \"%(key)s\""
+msgstr "Update the \"group spec\" value for \"%(key)s\""
+
+#, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "Update the spec value for \"%(key)s\""
 
@@ -8474,6 +8627,9 @@ msgstr "View Log"
 
 msgid "View Routers"
 msgstr "View Routers"
+
+msgid "View Specs"
+msgstr "View Specs"
 
 msgid "View Usage"
 msgstr "View Usage"
@@ -8946,11 +9102,26 @@ msgstr "e.g. Yes / No"
 msgid "e.g. Yes/No"
 msgstr "e.g. Yes/No"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+"flavour id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+
 msgid "front-end"
 msgstr "front-end"
 
 msgid "instance"
 msgstr "instance"
+
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
 
 msgid "no"
 msgstr "no"
