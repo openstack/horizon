@@ -200,17 +200,16 @@
     check:
       jobs:
         - horizon-openstack-tox-python3-django111
-        - horizon-selenium-headless:
-            voting: false
-        - horizon-integration-tests:
-            voting: false
+        - horizon-selenium-headless
+        - horizon-integration-tests
         - horizon-dsvm-tempest-plugin
         - horizon-dsvm-tempest-plugin-py27
-        - horizon-tox-bandit-baseline:
-            voting: false
+        - horizon-tox-bandit-baseline
     gate:
       queue: horizon
       jobs:
         - horizon-openstack-tox-python3-django111
         - horizon-dsvm-tempest-plugin
         - horizon-dsvm-tempest-plugin-py27
+        - horizon-selenium-headless
+        - horizon-integration-tests
