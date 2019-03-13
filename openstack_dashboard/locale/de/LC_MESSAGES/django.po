@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-22 16:05+0000\n"
+"POT-Creation-Date: 2019-03-12 17:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3138,10 +3138,6 @@ msgstr "Varianten Auswahl"
 
 msgid "Flavor Details"
 msgstr "Varianten-Details"
-
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Variantendetails: %(name)s\">%(name)s"
 
 msgid "Flavor ID"
 msgstr "Variante ID"
@@ -7371,9 +7367,6 @@ msgstr "Floating IP kann nicht getrennt werden."
 
 msgid "Unable to display consistency group."
 msgstr "Konsistenzgruppe kann nicht angezeigt werden."
-
-msgid "Unable to display group."
-msgstr "Gruppe kann nicht angezeigt werden."
 
 msgid "Unable to display role assignment through groups."
 msgstr "Rollenzuweisungen durch Gruppen können nicht angezeigt werden."

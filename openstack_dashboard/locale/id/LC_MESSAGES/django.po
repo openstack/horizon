@@ -3,15 +3,16 @@
 # Sendy Aditya Suryana <sendzation@gmail.com>, 2017. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-22 16:05+0000\n"
+"POT-Creation-Date: 2019-03-12 17:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-19 08:05+0000\n"
+"PO-Revision-Date: 2019-03-12 08:11+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -129,6 +130,10 @@ msgstr "%(offset)s: %(label)s"
 #, python-format
 msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
+
+#, python-format
+msgid "%(role)s  (through group %(group)s)"
+msgstr "%(role)s  (through group %(group)s)"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -311,6 +316,9 @@ msgstr "Action (aksi)"
 
 msgid "Action Log"
 msgstr "Action Log"
+
+msgid "Action and Object Type"
+msgstr "Jenis Tindakan dan Objek"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -538,6 +546,12 @@ msgid ""
 msgstr ""
 "Setelah menjalankan instance, Anda masuk menggunakan private key ( nama user "
 "mungkin berbeda tergantung dengan image yang Anda dijalankan)  "
+
+msgid "Age"
+msgstr "Usia"
+
+msgid "Age (Seconds)"
+msgstr "Umur (Detik)"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -927,6 +941,13 @@ msgstr ""
 "centang \"unrestricted\"."
 
 msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"Secara default, tipe grup dibuat sebagai publik. Untuk membuat jenis grup "
+"pribadi, hapus centang field ini."
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -1268,6 +1289,9 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "Create (membuat)"
 
+msgid "Create A RBAC Policy"
+msgstr "Buat Kebijakan RBAC"
+
 msgid "Create An Image"
 msgstr "Membuat image"
 
@@ -1304,6 +1328,12 @@ msgstr "Create Group"
 msgid "Create Group Snapshot"
 msgstr "Buat Snapshot Grup"
 
+msgid "Create Group Type"
+msgstr "Buat Jenis Grup"
+
+msgid "Create Group Type Spec"
+msgstr "Buat Jenis Grup Spec"
+
 msgid "Create Host Aggregate"
 msgstr "Membuat Kelompok Host"
 
@@ -1336,6 +1366,9 @@ msgstr "Create Protocol"
 
 msgid "Create QoS Spec"
 msgstr "Create QoS Spec"
+
+msgid "Create RBAC Policy"
+msgstr "Buat Kebijakan RBAC"
 
 msgid "Create Role"
 msgstr "Create Role (buat peran)"
@@ -1408,6 +1441,9 @@ msgstr ""
 "Buat Konsistensi Grup yang akan berisi volume yang baru dibuat kloning dari "
 "masing-masing snapshot dalam sumber Konsistensi Grup Snapshot."
 
+msgid "Create a Group Type"
+msgstr "Buat Jenis Grup"
+
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
 "the snapshots in the source Group Snapshot."
@@ -1421,6 +1457,9 @@ msgstr "Create a Metadata Namespace (buat namespace metadata)"
 msgid "Create a New Volume"
 msgstr "Buat volume baru"
 
+msgid "Create a RBAC Policy"
+msgstr "Buat Kebijakan RBAC"
+
 msgid "Create a Router"
 msgstr "Create a Router (buat router)"
 
@@ -1432,6 +1471,9 @@ msgstr "Buat pemetaan."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Buat pasangan key-value \"extra spec\" baru untuk tipe volume."
+
+msgid "Create a new \"group spec\" key-value pair for a group type."
+msgstr "Buat pasangan key-value \"spec grup\" baru untuk tipe grup."
 
 #, python-format
 msgid ""
@@ -1493,6 +1535,10 @@ msgstr "Created"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Dibuat spesifikasi tambahan \"%s\"."
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "Dibuat spec tipe grup \"%s\"."
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1723,6 +1769,10 @@ msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "Delete Group"
 
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Delete Group Type"
+
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Delete Host Aggregate"
@@ -1770,6 +1820,10 @@ msgstr[0] "Delete Protocol"
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "Delete QoS Spec"
+
+msgid "Delete RBAC Policy"
+msgid_plural "Delete RBAC Policies"
+msgstr[0] "Delete RBAC Policy"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -1875,6 +1929,10 @@ msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "Deleted Group"
 
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Deleted Group Type"
+
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "Deleted Host Aggregate"
@@ -1918,6 +1976,13 @@ msgstr[0] "Deleted Protocol"
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "Deleted QoS Spec"
+
+msgid "Deleted RBAC Policy"
+msgid_plural "Deleted RBAC Policies"
+msgstr[0] "Deleted RBAC Policy"
+
+msgid "Deleted RBAC policy is not recoverable."
+msgstr "Kebijakan RBAC yang dihapus tidak dapat dipulihkan."
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -1997,6 +2062,12 @@ msgstr "Deleting grup konsistensi volume \"%s\""
 #, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "Menghapus grup volume \"%s\""
+
+msgid "Deprecated Settings"
+msgstr "Pengaturan usang"
+
+msgid "Deprecated settings: {}."
+msgstr "Pengaturan usang:{}."
 
 msgid "Description"
 msgstr "Deskripsi"
@@ -2322,6 +2393,16 @@ msgstr "Rubah Flavor"
 
 msgid "Edit Group"
 msgstr "Edit Group"
+
+msgid "Edit Group Type"
+msgstr "Edit Jenis Grup"
+
+msgid "Edit Group Type Spec"
+msgstr "Edit Spesifikasi Jenis Grup"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "Edit Nilai Spesifik Jenis Grup: %s"
 
 msgid "Edit Host Aggregate"
 msgstr "Merubah Kelompok Host"
@@ -2773,6 +2854,9 @@ msgstr "Gagal memeriksa apakah neutron mendukung \"auto_allocated_network\"."
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "Gagal memeriksa apakah nova mendukung \"auto_allocated_network\"."
 
+msgid "Failed to create a rbac policy."
+msgstr "Gagal membuat kebijakan rbac."
+
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "Gagal membuat jaringan \"%(network)s\": %(reason)s"
@@ -2905,6 +2989,10 @@ msgid "Failed to update port \"%s\"."
 msgstr "Gagal memperbarui port \"%s\"."
 
 #, python-format
+msgid "Failed to update rbac policy %s"
+msgstr "Gagal memperbarui kebijakan rbac %s"
+
+#, python-format
 msgid "Failed to update router %s"
 msgstr "Gagal memperbarui router %s"
 
@@ -2960,10 +3048,6 @@ msgstr "Flavor Choice (pilihan flavor)"
 
 msgid "Flavor Details"
 msgstr "Flavor Details"
-
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Flavor Details: %(name)s\">%(name)s"
 
 msgid "Flavor ID"
 msgstr "Flavor ID"
@@ -3070,6 +3154,9 @@ msgid "From here you can allocate a floating IP to a specific project."
 msgstr ""
 "Dari sini Anda dapat mengalokasikan IP mengambang untuk proyek tertentu."
 
+msgid "From here you can create a rbac policy."
+msgstr "Dari sini Anda dapat membuat kebijakan rbac."
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "Dari sini Anda dapat membuat snapshot dari volume."
 
@@ -3154,8 +3241,44 @@ msgstr "Group Snapshots"
 msgid "Group Type"
 msgstr "Group Type"
 
+msgid "Group Type Specs"
+msgstr "Spesifikasi Jenis Grup"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "Jenis Grup: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "Group Type: %(group_type_name)s "
+
+msgid "Group Types"
+msgstr "Jenis Grup"
+
 msgid "Group has been updated successfully."
 msgstr "Kelompok telah berhasil diperbarui."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"Extra Specs\" button "
+"to set up extra specs key-value pair(s) for that group type."
+msgstr ""
+"Jenis grup adalah jenis atau label yang dapat dipilih pada waktu pembuatan "
+"grup di OpenStack. Biasanya memetakan ke seperangkat kemampuan driver back-"
+"end penyimpanan yang akan digunakan untuk volume ini. Contoh: \"Performance"
+"\", \"SSD\", \"Backup\", dll. Ini setara dengan perintah <tt> cinder type-"
+"create </tt>. Setelah jenis grup dibuat, klik tombol \"Extra Specs\" untuk "
+"mengatur pasangan nilai kunci spesifikasi ekstra untuk jenis grup tersebut."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Nama tipe grup \"%s\" sudah ada."
+
+msgid "Group type name can not be empty."
+msgstr "Nama tipe grup tidak boleh kosong."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3335,6 +3458,13 @@ msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
 "Daftar alamat IP dari nameserver DNS untuk subnet ini. Satu entri per baris."
+
+msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"Alamat IP Gateway (misal 192.168.0.254) Jika Anda tidak ingin menggunakan "
+"gateway, centang 'Disable Gateway' di bawah ini."
 
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
@@ -3699,6 +3829,13 @@ msgid "Key Size (bits)"
 msgstr "Key Size (bits)"
 
 msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+"Nama kunci hanya dapat berisi karakter alfanumerik, garis bawah, titik, "
+"titik dua, dan tanda hubung"
+
+msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 msgstr ""
@@ -4031,6 +4168,9 @@ msgstr "Disk minimal (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "RAM minimal (MB)"
 
+msgid "Missing required settings: {}."
+msgstr "Pengaturan yang diperlukan tidak ada: {}."
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domain dimodifikasi \"%s\"."
@@ -4068,6 +4208,9 @@ msgstr "Modify Quotas"
 
 msgid "Modify dashboard settings for your user."
 msgstr "Memodifikasi pengaturan dashboard untuk pengguna Anda."
+
+msgid "Modify group type name, description, and public status."
+msgstr "Ubah nama jenis grup, deskripsi, dan status publik."
 
 msgid "Modify name and description of a volume."
 msgstr "Memodifikasi nama dan deskripsi dari volume."
@@ -4246,6 +4389,9 @@ msgstr "New Size (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "Nama baru tidak boleh kosong."
+
+msgid "New name conflicts with another group type."
+msgstr "Konflik nama baru dengan tipe grup lain."
 
 msgid "New name conflicts with another volume type."
 msgstr "Konflik nama baru dengan tipe volume lainnya."
@@ -4516,8 +4662,17 @@ msgstr "OR Copy/Paste your Private Key"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+msgid "Object"
+msgstr "Obyek"
+
+msgid "Object ID"
+msgstr "ID objek"
+
 msgid "Object Store"
 msgstr "Object Store (penyimpanan objek)"
+
+msgid "Object Type"
+msgstr "Jenis objek"
 
 msgid "Old Flavor"
 msgstr "Old Flavor"
@@ -4546,6 +4701,9 @@ msgstr "Open Port/Port Range (buka port/ kisaran port):"
 
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profiler"
+
+msgid "OpenStack RC File"
+msgstr "OpenStack RC File"
 
 msgid "OpenStack RC File (Identity API v2.0)"
 msgstr "OpenStack RC File (Identity API v2.0)"
@@ -4623,6 +4781,9 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Password"
 
+msgid "Password Expires At"
+msgstr "Kata Sandi Berakhir Pada"
+
 msgid "Password changed. Please log in again to continue."
 msgstr "Password telah berubah. Silahkan masuk kembali untuk melanjutkan."
 
@@ -4662,6 +4823,10 @@ msgstr "Pending Delete"
 
 msgid "Per Volume Size (GiB)"
 msgstr "Per Volume Size (GiB)"
+
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr ""
+"Lakukan pemeriksaan untuk melihat apakah aplikasi siap untuk ditingkatkan."
 
 msgid "Physical Network"
 msgstr "Jaringan fisik"
@@ -4859,6 +5024,9 @@ msgstr "QCOW2 - QEMU Emulator"
 msgid "QOS Policy ID"
 msgstr "QOS Policy ID"
 
+msgid "QoS Policy"
+msgstr "Kebijakan QoS"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "Nama QoS Spec \"%s\" sudah ada."
@@ -4929,6 +5097,16 @@ msgstr "RAM(Available: %(avail)s, Requested: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC Policies"
+
+#, python-format
+msgid "RBAC Policy %s was successfully updated."
+msgstr "Kebijakan RBAC %s berhasil diperbarui."
+
+msgid "RBAC Policy Details"
+msgstr "Detail Kebijakan RBAC"
+
+msgid "RBAC Policy was successfully created."
+msgstr "Kebijakan RBAC berhasil dibuat."
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Factor (faktor RX/TX)"
@@ -5123,6 +5301,9 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Snapshot yang diminta akan melebihi kuota diperbolehkan."
 
+msgid "Required Settings"
+msgstr "Pengaturan yang Diperlukan"
+
 msgctxt "Action log of an instance"
 msgid "Rescue"
 msgstr "Rescue"
@@ -5271,6 +5452,9 @@ msgstr "Role Name (nama peran)"
 msgid "Role Name ="
 msgstr "Role Name ="
 
+msgid "Role assignments"
+msgstr "Role assignments (tugas peran)"
+
 msgid "Role created successfully."
 msgstr "Peran berhasil dibuat."
 
@@ -5367,6 +5551,10 @@ msgstr "Menyimpan perubahan"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "Disimpan spesifikasi tambahan \"%s\"."
+
+#, python-format
+msgid "Saved group spec \"%s\"."
+msgstr "Spesifikasi grup yang disimpan \"%s\"."
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -5491,11 +5679,17 @@ msgstr "Select Volume Snapshot (pilih snapshot volume)"
 msgid "Select a New Flavor"
 msgstr "Select a New Flavor (pilih flavor baru)"
 
+msgid "Select a QoS policy"
+msgstr "Pilih kebijakan QoS"
+
 msgid "Select a floating IP to disassociate"
 msgstr "Pilih IP mengambang untuk memisahkan"
 
 msgid "Select a key pair"
 msgstr "Pilih sepasang kunci"
+
+msgid "Select a network"
+msgstr "Pilih jaringan"
 
 msgid "Select a new QoS spec"
 msgstr "Pilih QoS Spec baru"
@@ -5541,6 +5735,9 @@ msgstr "Pilih volume untuk melepaskan diri dari instance ini."
 
 msgid "Select a volume to restore to."
 msgstr "Pilih volume untuk mengembalikan."
+
+msgid "Select action and object type"
+msgstr "Pilih aksi dan tipe objek"
 
 msgid "Select an IP address"
 msgstr "Pilih alamat IP"
@@ -5692,6 +5889,12 @@ msgstr "Berbagi"
 
 msgid "Shared ="
 msgstr "Shared ="
+
+msgid "Shared Network"
+msgstr "Shared Network"
+
+msgid "Shared QoS Policy"
+msgstr "Kebijakan QoS Shared"
 
 msgid "Shared Storage"
 msgstr "Shared Storage"
@@ -5910,6 +6113,9 @@ msgstr "Menentukan alamat IP untuk antarmuka dibuat (misalnya 192.168.0.254)."
 msgid "Specify an image to upload to the Image Service."
 msgstr "Tentukan image yang akan diupload ke service Image"
 
+msgid "Specify network address"
+msgstr "Tentukan alamat jaringan"
+
 msgid "Specify the MAC address for the new port"
 msgstr "Tentukan MAC address untuk port baru"
 
@@ -6030,6 +6236,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Berhasil menciptakan enkripsi untuk tipe Volume: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Jenis grup yang berhasil dibuat: %s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "Berhasil membuat grup keamanan: %s"
 
@@ -6107,6 +6317,9 @@ msgstr "Sukses memperbaharui aggregate: \"%s.\""
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Enkripsi berhasil diperbarui untuk tipe Volume: %s"
 
+msgid "Successfully updated group type."
+msgstr "Jenis grup berhasil diperbarui."
+
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "grup keamanan berhasil diperbarui: %s"
@@ -6158,8 +6371,17 @@ msgstr "System (sistem)"
 msgid "System Information"
 msgstr "Informasi sistem"
 
+msgid "System Scope"
+msgstr "Lingkup Sistem"
+
 msgid "Target Host"
 msgstr "Target Host"
+
+msgid "Target Project"
+msgstr "Proyek Target"
+
+msgid "Target Tenant"
+msgstr "Tenant target"
 
 msgid "Task"
 msgstr "Tugas"
@@ -6426,6 +6648,9 @@ msgstr ""
 msgid "The new availability zone can't be empty"
 msgstr "Zona ketersediaan baru tidak boleh kosong"
 
+msgid "The output format"
+msgstr "Format output"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Mekanisme fisik dimana jaringan virtual diterapkan"
 
@@ -6661,6 +6886,9 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "Untuk keluar dari mode fullscreen, klik tombol kembali browser."
 
+msgid "To make group type private, uncheck this field."
+msgstr "Untuk membuat jenis grup pribadi, hapus centang field ini."
+
 msgid "To make volume type private, uncheck this field."
 msgstr "Untuk membuat private tipe volume, hapus centang (uncheck) field ini."
 
@@ -6884,6 +7112,12 @@ msgstr "Tidak dapat membuat grup karena melebihi batas kuota volume."
 msgid "Unable to create group snapshot."
 msgstr "Tidak dapat membuat snapshot grup."
 
+msgid "Unable to create group type spec."
+msgstr "Tidak dapat membuat spesifikasi tipe grup."
+
+msgid "Unable to create group type."
+msgstr "Tidak dapat membuat jenis grup."
+
 msgid "Unable to create group."
 msgstr "Tidak dapat membuat kelompok."
 
@@ -6944,6 +7178,10 @@ msgstr "Tidak dapat membuat snapshot. Grup konsistensi harus berisi volume."
 
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "Tidak dapat membuat snapshot. grup harus berisi volume."
+
+#, python-format
+msgid "Unable to create snapshot: %s"
+msgstr "Tidak dapat membuat snapshot: %s"
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "Tidak dapat membuat snapshot karena melebihi batas snapshot kuota."
@@ -7021,14 +7259,23 @@ msgstr "Tidak dapat memisahkan IP mengambang."
 msgid "Unable to display consistency group."
 msgstr "Tidak dapat menampilkan grup konsistensi."
 
-msgid "Unable to display group."
-msgstr "Tidak dapat menampilkan grup."
+msgid "Unable to display role assignment through groups."
+msgstr "Tidak dapat menampilkan penetapan peran melalui grup."
 
 msgid "Unable to display the groups of this project."
 msgstr "Tidak dapat menampilkan grup proyek ini."
 
+msgid "Unable to display the groups of this user."
+msgstr "Tidak dapat menampilkan grup pengguna ini."
+
+msgid "Unable to display the role assignments of this user."
+msgstr "Tidak dapat menampilkan penetapan peran pengguna ini."
+
 msgid "Unable to display the users of this project."
 msgstr "Tidak dapat menampilkan pengguna proyek ini."
+
+msgid "Unable to edit group type spec."
+msgstr "Tidak dapat mengedit spesifikasi tipe grup."
 
 msgid "Unable to edit spec."
 msgstr "Tidak dapat mengedit spec."
@@ -7266,6 +7513,9 @@ msgstr "Tidak dapat mengambil daftar spesifikasi QoS."
 msgid "Unable to retrieve QoS specs"
 msgstr "Tidak dapat mengambil spesifikasi QoS"
 
+msgid "Unable to retrieve RBAC policies."
+msgstr "Tidak dapat mengambil kebijakan RBAC."
+
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr "Tidak dapat mengambil daftar jaringan eksternal \"%s\"."
@@ -7294,6 +7544,9 @@ msgstr "Tidak dapat mengambil zona ketersediaan."
 
 msgid "Unable to retrieve backup details."
 msgstr "Tidak dapat mengambil rincian cadangan."
+
+msgid "Unable to retrieve community images."
+msgstr "Tidak dapat mengambil image komunitas."
 
 msgid "Unable to retrieve compute host information."
 msgstr "Tidak dapat mengambil informasi compute host"
@@ -7331,6 +7584,10 @@ msgstr "Tidak dapat mengambil rincian untuk pasangan kunci \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Tidak bisa mengambil rincian untuk jaringan \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for rbac_policy \"%s\"."
+msgstr "Tidak dapat mengambil detail untuk rbac_policy \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -7406,8 +7663,30 @@ msgstr "Tidak dapat mengambil daftar grup. Silahkan mencoba kembali."
 msgid "Unable to retrieve group snapshot details."
 msgstr "Tidak dapat mengambil detail snapshot grup."
 
+msgid "Unable to retrieve group snapshot project information."
+msgstr "Tidak dapat mengambil informasi proyek snapshot grup."
+
 msgid "Unable to retrieve group snapshots."
 msgstr "Tidak dapat mengambil snapshot grup."
+
+msgid "Unable to retrieve group type details."
+msgstr "Tidak dapat mengambil detail jenis grup."
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "Tidak dapat mengambil jenis grup untuk: \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "Tidak dapat mengambil nama jenis grup."
+
+msgid "Unable to retrieve group type spec details."
+msgstr "Tidak dapat mengambil detail spesifikasi jenis grup."
+
+msgid "Unable to retrieve group type spec list."
+msgstr "Tidak dapat mengambil daftar spesifikasi jenis grup."
+
+msgid "Unable to retrieve group type."
+msgstr "Tidak dapat mengambil jenis grup."
 
 msgid "Unable to retrieve group types."
 msgstr "Tidak dapat mengambil tipe grup."
@@ -7459,6 +7738,15 @@ msgstr "Tidak dapat mengambil image."
 
 msgid "Unable to retrieve information about the networks' projects."
 msgstr "Tidak dapat mengambil informasi tentang proyek jaringan."
+
+msgid "Unable to retrieve information about the policies' networks."
+msgstr "Tidak dapat mengambil informasi tentang jaringan kebijakan."
+
+msgid "Unable to retrieve information about the policies' projects."
+msgstr "Tidak dapat mengambil informasi tentang proyek kebijakan."
+
+msgid "Unable to retrieve information about the policies' qos policies."
+msgstr "Tidak dapat mengambil informasi tentang kebijakan qos kebijakan."
 
 msgid "Unable to retrieve instance action list."
 msgstr "Tidak dapat mengambil daftar tindakan instance."
@@ -7538,6 +7826,9 @@ msgstr "Tidak dapat mengambil rincian proyek."
 msgid "Unable to retrieve project domain."
 msgstr "Tidak dapat mengambil domain proyek."
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr "Tidak dapat mengambil informasi proyek snapshot volume."
+
 msgid "Unable to retrieve project information."
 msgstr "Tidak dapat mengambil informasi proyek."
 
@@ -7555,6 +7846,9 @@ msgstr "Tidak dapat mengambil image umum."
 
 msgid "Unable to retrieve quota information."
 msgstr "Tidak dapat mengambil informasi kuota."
+
+msgid "Unable to retrieve rbac policy details."
+msgstr "Tidak dapat mengambil detail kebijakan rbac."
 
 msgid "Unable to retrieve role list."
 msgstr "Tidak dapat mengambil daftar peran."
@@ -7633,6 +7927,9 @@ msgstr "Tidak dapat mengambil rincian pengguna."
 msgid "Unable to retrieve user domain role assignments."
 msgstr "Tidak dapat mengambil tugas peran pengguna domain."
 
+msgid "Unable to retrieve user domain."
+msgstr "Tidak dapat mengambil domain pengguna."
+
 msgid "Unable to retrieve user information."
 msgstr "Tidak dapat mengambil informasi pengguna."
 
@@ -7665,6 +7962,9 @@ msgstr "Tidak dapat mengambil rincian volume."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Tidak dapat mengambil rincian enkripsi volume."
+
+msgid "Unable to retrieve volume group project information."
+msgstr "Tidak dapat mengambil informasi proyek grup volume."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Tidak dapat mengambil snapshot grup volume."
@@ -7701,6 +8001,9 @@ msgstr "Tidak dapat mengambil informasi volume proyek"
 
 msgid "Unable to retrieve volume quota information."
 msgstr "Tidak dapat mengambil informasi kuota volume."
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr "Tidak dapat mengambil informasi proyek snapshot volume."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Tidak dapat mengambil snapshot volume"
@@ -7784,6 +8087,9 @@ msgstr "Tidak dapat memperbarui kuota volume default."
 
 msgid "Unable to update encrypted volume type."
 msgstr "Tidak dapat memperbarui tipe volume terenkripsi."
+
+msgid "Unable to update group type."
+msgstr "Tidak dapat memperbarui jenis grup."
 
 msgid "Unable to update group."
 msgstr "Tidak dapat memperbarui group."
@@ -7875,6 +8181,9 @@ msgstr "Tidak dapat memverifikasi ekstensi tipe VNIC di Neutron"
 msgid "Unknown"
 msgstr "Unknown (tidak diketahui)"
 
+msgid "Unknown Settings"
+msgstr "Pengaturan Tidak Dikenal"
+
 msgid "Unknown instance"
 msgstr "Instance tidak dikenal"
 
@@ -7883,6 +8192,9 @@ msgstr "Unknown instance (None)"
 
 msgid "Unknown resource type for detail API."
 msgstr "Tipe sumber daya yang tidak diketahui untuk detail API."
+
+msgid "Unknown settings: {}."
+msgstr "Pengaturan tidak dikenal: {}."
 
 msgid "Unknown volume (None)"
 msgstr "Volume tidak diketahui (Tidak)"
@@ -7994,6 +8306,9 @@ msgstr "Memperbaharui Metadata"
 msgid "Update Network"
 msgstr "Memperbarui jaringan"
 
+msgid "Update RBAC Policy"
+msgstr "Perbarui Kebijakan RBAC"
+
 msgid "Update Role"
 msgstr "Memperbaharui peran"
 
@@ -8031,6 +8346,10 @@ msgstr "Update Encrypted Volume Type"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Update \"extra spec\" nilai untuk \"%(key)s\""
+
+#, python-format
+msgid "Update the \"group spec\" value for \"%(key)s\""
+msgstr "Perbarui nilai \"group spec\" untuk \"%(key)s\""
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
@@ -8254,6 +8573,9 @@ msgstr "View Log (lihat log)"
 
 msgid "View Routers"
 msgstr "View Routers (melihat router)"
+
+msgid "View Specs"
+msgstr "Lihat Spesifikasi"
 
 msgid "View Usage"
 msgstr "Lihat penggunaan"
@@ -8657,6 +8979,11 @@ msgstr ""
 "Anda tidak memilih salah satu, semua peran yang telah Anda tetapkan pada "
 "proyek saat ini akan diterapkan pada kredensial aplikasi."
 
+msgid "You may update the editable properties of the RBAC policy here."
+msgstr ""
+"Anda dapat memperbarui properti yang dapat diedit dari kebijakan RBAC di "
+"sini."
+
 msgid "You may update the editable properties of your network here."
 msgstr ""
 "Anda dapat memperbarui properti yang dapat diedit dari jaringan Anda di sini."
@@ -8734,11 +9061,26 @@ msgstr "e.g. Yes / No"
 msgid "e.g. Yes/No"
 msgstr "misalnya Ya Tidak"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+"flavor id hanya dapat berisi karakter alfanumerik, garis bawah, titik, tanda "
+"hubung, spasi."
+
 msgid "front-end"
 msgstr "front-end"
 
 msgid "instance"
 msgstr "instance"
+
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"kunci dengan nama \"%s\" sudah ada. Gunakan Edit untuk memperbarui nilai, "
+"atau buat kunci dengan nama yang berbeda."
 
 msgid "no"
 msgstr "no (tidak)"

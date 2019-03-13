@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-22 16:05+0000\n"
+"POT-Creation-Date: 2019-03-12 17:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2859,10 +2859,6 @@ msgstr "实例类型选择"
 
 msgid "Flavor Details"
 msgstr "实例类型详情"
-
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "实例类型详情：%(name)s\">%(name)s"
 
 msgid "Flavor ID"
 msgstr "实例类型 ID"
@@ -6748,9 +6744,6 @@ msgstr "无法将浮动IP解除绑定"
 
 msgid "Unable to display consistency group."
 msgstr "无法显示一致性组"
-
-msgid "Unable to display group."
-msgstr "无法显示组"
 
 msgid "Unable to display the groups of this project."
 msgstr "无法显示此项目的组。"
