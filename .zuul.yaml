@@ -94,10 +94,64 @@
       - ^setup.cfg$
       - ^tools/.*$
 
+- project-template:
+    name: horizon-nodejs4-jobs
+    description: |
+      Run lint and test jobs using Node 4 for horizon plugins.
+    check:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 4
+            nodeset: ubuntu-xenial
+            required-projects:
+              openstack/horizon
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 4
+            nodeset: ubuntu-xenial
+            required-projects:
+              openstack/horizon
+    gate:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 4
+            nodeset: ubuntu-xenial
+            required-projects:
+              openstack/horizon
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 4
+            nodeset: ubuntu-xenial
+            required-projects:
+              openstack/horizon
+
+- project-template:
+    name: horizon-nodejs4-jobs-nonvoting
+    description: |
+      Run lint and test jobs using Node 4 for horizon plugins.
+    check:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 4
+            nodeset: ubuntu-xenial
+            required-projects:
+              openstack/horizon
+            voting: false
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 4
+            nodeset: ubuntu-xenial
+            required-projects:
+              openstack/horizon
+            voting: false
+
 - project:
     templates:
       - check-requirements
-      - nodejs4-jobs
+      - horizon-nodejs4-jobs
       - openstack-lower-constraints-jobs
       - openstack-python-jobs
       - openstack-python35-jobs
