@@ -565,21 +565,11 @@
 
       if (enabledImage || enabledSnapshot) {
         var filter = {status: 'active', sort_key: 'name', sort_dir: 'asc'};
-        var filterCommunity = angular.merge({}, filter, {visibility: 'community'});
-
-        var imagePromises = [
-          glanceAPI.getImages(filter),
-          glanceAPI.getImages(filterCommunity)
-        ];
-
-        $q.all(imagePromises).then(function getEnabledImages(data) {
-          if (enabledImage) {
-            onGetImages(data);
+        glanceAPI.getImages(filter).then(
+          function(data) {
+            onGetImageSources(data, enabledImage, enabledSnapshot);
           }
-          if (enabledSnapshot) {
-            onGetSnapshots(data);
-          }
-        });
+        );
       }
     }
 
@@ -673,29 +663,39 @@
              'image';
     }
 
-    function onGetImages(data) {
-      model.images.length = 0;
-      angular.forEach(data, function addData(data) {
-        push.apply(model.images, data.data.items.filter(function (image) {
-          return isBootableImageType(image) &&
-            (!image.properties || image.properties.image_type !== 'snapshot');
-        }));
-      });
-      addAllowedBootSource(model.images, bootSourceTypes.IMAGE, gettext('Image'));
+    function isValidImage(image) {
+      return isBootableImageType(image) &&
+             (!image.properties || image.properties.image_type !== 'snapshot');
     }
 
-    function onGetSnapshots(data) {
+    function isValidSnapshot(image) {
+      return getImageType(image) === 'snapshot' && isBootableImageType(image);
+    }
+
+    function onGetImageSources(data, enabledImage, enabledSnapshot) {
       model.imageSnapshots.length = 0;
-      angular.forEach(data, function addData(data) {
-        push.apply(model.imageSnapshots, data.data.items.filter(function (image) {
-          return isBootableImageType(image) && getImageType(image) === 'snapshot';
-        }));
+      model.images.length = 0;
+
+      angular.forEach(data.data.items, function(image) {
+        if (isValidSnapshot(image) && enabledSnapshot) {
+          model.imageSnapshots.push(image);
+        } else if (isValidImage(image) && enabledImage) {
+          model.images.push(image);
+        }
       });
-      addAllowedBootSource(
-        model.imageSnapshots,
-        bootSourceTypes.INSTANCE_SNAPSHOT,
-        gettext('Instance Snapshot')
-      );
+
+      if (enabledImage) {
+        addAllowedBootSource(
+          model.images, bootSourceTypes.IMAGE, gettext('Image')
+        );
+      }
+
+      if (enabledSnapshot) {
+        addAllowedBootSource(
+          model.imageSnapshots, bootSourceTypes.INSTANCE_SNAPSHOT,
+          gettext('Instance Snapshot')
+        );
+      }
     }
 
     function onGetVolumes(data) {

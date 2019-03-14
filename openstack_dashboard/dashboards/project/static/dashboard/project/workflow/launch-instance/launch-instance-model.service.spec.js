@@ -177,51 +177,6 @@
           VOLUME_SNAPSHOT = {type: 'volume_snapshot', label: 'Volume Snapshot'};
           INSTANCE_SNAPSHOT = {type: 'snapshot', label: 'Instance Snapshot'};
         });
-
-        $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
-      }));
-
-      beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
-
-      beforeEach(module(function($provide) {
-        $provide.value('horizon.app.core.openstack-service-api.glance', {
-          getImages: function() {
-            var images = [
-              {container_format: 'aki', properties: {} },
-              {container_format: 'ari', properties: {} },
-              {container_format: 'ami', properties: {} },
-              {container_format: 'raw', properties: {} },
-              {container_format: 'ami', properties: {image_type: 'image'}},
-              {container_format: 'raw', properties: {image_type: 'image'}},
-              {container_format: 'ami', properties: {
-                block_device_mapping: '[{"source_type": "snapshot"}]'}},
-              {container_format: 'raw', properties: {
-                block_device_mapping: '[{"source_type": "snapshot"}]'}}
-            ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: images } });
-
-            return deferred.promise;
-          },
-          getNamespaces: function() {
-            var namespaces = [ 'ns-1', 'ns-2' ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: namespaces } });
-
-            return deferred.promise;
-          }
-        });
-
-        beforeEach(function() {
-          settings = {
-            LAUNCH_INSTANCE_DEFAULTS: {
-              config_drive: false
-            }
-          };
-        });
-
         $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
 
         $provide.value('horizon.app.core.openstack-service-api.security-group', securityGroupApi);
@@ -430,14 +385,50 @@
           expect(model.initialized).toBe(true);
           expect(model.newInstanceSpec).toBeDefined();
 
-          expect(model.images.length).toBe(12);
-          expect(model.imageSnapshots.length).toBe(4);
-          expect(model.availabilityZones.length).toBe(3); // 2 + 1 for 'nova pick'
-          expect(model.flavors.length).toBe(2);
-          expect(model.keypairs.length).toBe(2);
-          expect(model.securityGroups.length).toBe(2);
-          expect(model.novaLimits.maxTotalInstances).toBe(10);
-          expect(model.novaLimits.totalInstancesUsed).toBe(0);
+          var expectedImages = [
+            {container_format: 'ami', properties: {}},
+            {container_format: 'raw', properties: {}},
+            {container_format: 'ami', properties: {image_type: 'image'}},
+            {container_format: 'raw', properties: {image_type: 'image'}}
+          ];
+          expect(model.images).toEqual(expectedImages);
+
+          var expectedSnapshots = [
+            {
+              container_format: 'ami',
+              properties: {block_device_mapping: '[{"source_type": "snapshot"}]'}
+            },
+            {
+              container_format: 'raw',
+              properties: {block_device_mapping: '[{"source_type": "snapshot"}]'}
+            }
+          ];
+          expect(model.imageSnapshots).toEqual(expectedSnapshots);
+
+          var expectedZones = [
+            {'label': 'Any Availability Zone', 'value': ''},
+            {'label': 'zone-1', 'value': 'zone-1'},
+            {'label': 'zone-2', 'value': 'zone-2'}
+          ];
+          expect(model.availabilityZones).toEqual(expectedZones);
+
+          var expectedFlavors = ['flavor-1', 'flavor-2'];
+          expect(model.flavors).toEqual(expectedFlavors);
+
+          var expectedKeypairs = [
+            {'name': 'key-1', id: 'li_keypair:key-1'},
+            {'name': 'key-2', id: 'li_keypair:key-2'}
+          ];
+          expect(model.keypairs).toEqual(expectedKeypairs);
+
+          var expectedSecurityGroups = [
+            {name: 'security-group-1'},
+            {name: 'security-group-2'}
+          ];
+          expect(model.securityGroups).toEqual(expectedSecurityGroups);
+
+          var expectedLimits = {maxTotalInstances: 10, totalInstancesUsed: 0};
+          expect(model.novaLimits).toEqual(expectedLimits);
         });
 
         it('should have networks & no volumes if neutron enabled & cinder disabled', function() {
