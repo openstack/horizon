@@ -37,6 +37,7 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
     page_title = _("Volume Snapshots")
 
     def get_data(self):
+        needs_gs = False
         if cinder.is_volume_service_enabled(self.request):
             try:
                 marker, sort_dir = self._get_marker()
@@ -54,6 +55,18 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
                 exceptions.handle(self.request, _("Unable to retrieve "
                                                   "volume snapshots."))
 
+            needs_gs = any(getattr(snapshot, 'group_snapshot_id', None)
+                           for snapshot in snapshots)
+            if needs_gs:
+                try:
+                    group_snapshots = cinder.group_snapshot_list(
+                        self.request, search_opts={'all_tenants': True})
+                    group_snapshots = dict((gs.id, gs) for gs
+                                           in group_snapshots)
+                except Exception:
+                    group_snapshots = {}
+                    exceptions.handle(self.request,
+                                      _("Unable to retrieve group snapshots."))
             # Gather our tenants to correlate against volume IDs
             try:
                 tenants, has_more = keystone.tenant_list(self.request)
@@ -66,6 +79,12 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
             tenant_dict = dict((t.id, t) for t in tenants)
             for snapshot in snapshots:
                 volume = volumes.get(snapshot.volume_id)
+                if needs_gs:
+                    group_snapshot = group_snapshots.get(
+                        snapshot.group_snapshot_id)
+                    snapshot.group_snapshot = group_snapshot
+                else:
+                    snapshot.group_snapshot = None
                 tenant_id = snapshot.project_id
                 tenant = tenant_dict.get(tenant_id, None)
                 snapshot._volume = volume

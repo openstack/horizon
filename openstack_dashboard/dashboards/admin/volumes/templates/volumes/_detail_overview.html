@@ -1,0 +1,126 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Name" %}</dt>
+    <dd data-display="{{ volume.name|default:volume.id }}" class="word-wrap">{{ volume.name }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ volume.id }}</dd>
+    {% if volume.description %}
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ volume.description }}</dd>
+    {% endif %}
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ volume.tenant_id|default:_("-") }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ volume.status_label|capfirst }}</dd>
+    <dt>{% trans "Group" %}</dt>
+    {% if group %}
+    <dd><a href="{% url 'horizon:admin:volume_groups:detail' volume.group_id %}">{{ group.name_or_id }}</a></dd>
+    {% else %}
+    <dd>{% trans "-" %}</dd>
+    {% endif %}
+  </dl>
+
+  <h4>{% trans "Specs" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Size" %}</dt>
+    <dd>{{ volume.size }} {% trans "GiB" %}</dd>
+    {% if volume.volume_type %}
+    <dt>{% trans "Type" %}</dt>
+    <dd>{{ volume.volume_type }}</dd>
+    {% endif %}
+    {% if volume.availabilty_zone %}
+    <dt>{% trans "Availability zone" %}</dt>
+    <dd>{{ volume.availability_zone }}</dd>
+    {% endif %}
+    <dt>{% trans "Bootable" %}</dt>
+    <dd>{{ volume.is_bootable|yesno|capfirst }}</dd>
+    <dt>{% trans "Encrypted" %}</dt>
+    {% if volume.encrypted %}
+    <dd><a href="{% url detail_url.encryption volume.id %}">{% trans "Yes" %}</a></dd>
+    {% else %}
+    <dd>{% trans "No" %}</dd>
+    {% endif %}
+    <dt>{% trans "Created" context "Created time" %}</dt>
+    <dd>{{ volume.created_at|parse_date }}</dd>
+  </dl>
+
+  <h4>{% trans "Attachments" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% for attachment in volume.attachments %}
+    <dt>{% trans "Attached To" %}</dt>
+    <dd class="word-wrap">
+      {% url detail_url.instance attachment.server_id as instance_url %}
+      {% blocktrans trimmed with instance_name=attachment.instance.name device=attachment.device %}
+      <a href="{{ instance_url }}">{{ instance_name }}</a> on {{ device }}
+      {% endblocktrans %}
+    </dd>
+  {% empty %}
+    <dt>{% trans "Attached To" %}</dt>
+    <dd><em>{% trans "Not attached" %}</em></dd>
+  {% endfor %}
+  </dl>
+
+{% if volume.volume_image_metadata %}
+  <h4>{% trans "Volume Source" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Image" %}</dt>
+    <dd class="word-wrap">
+      {% url detail_url.image volume.volume_image_metadata.image_id as image_url %}
+      <a href="{{ image_url }}">{{ volume.volume_image_metadata.image_name }}</a>
+    </dd>
+  </dl>
+{% endif %}
+
+  <h4>{% trans "Metadata" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% if volume.metadata.items %}
+      {% for key, value in volume.metadata.items %}
+          <dt>{{ key }}</dt>
+          <dd>{{ value }}</dd>
+      {% endfor %}
+  {% else %}
+      <dd>{% trans "None" %}</dd>
+  {% endif %}
+  </dl>
+
+{% if volume.transfer %}
+  <h4>{% trans "Volume Transfer" %}</h4>
+  <hr class="header_rule">
+  <dl>
+      <dt>{% trans "ID" %}</dt>
+      <dd>{{ volume.transfer.id }}</dd>
+  </dl>
+  <dl>
+      <dt>{% trans "Name" %}</dt>
+      <dd class="word-wrap">{{ volume.transfer.name }}</dd>
+  </dl>
+  <dl>
+      <dt>{% trans "Created" context "Created time" %}</dt>
+      <dd>{{ volume.transfer.created_at|parse_date }}</dd>
+  </dl>
+{% endif %}
+
+{% if volume.messages %}
+  <h4>{% trans "Messages" %}</h4>
+  <hr class="header_rule">
+  <div>
+  {% for m in volume.messages %}
+    <div class="alert
+      {% if m.message_level == 'ERROR' %}alert-danger
+      {% elif m.message_level == 'WARNING' %}alert-warning
+      {% elif m.message_level == 'INFO' %}alert-info
+      {% else %}alert-success
+      {% endif %}
+    ">
+      {{ m.user_message }}
+    </div>
+  {% endfor %}
+  </div>
+{% endif %}
+</div>
