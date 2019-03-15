@@ -94,38 +94,62 @@
       - ^setup.cfg$
       - ^tools/.*$
 
+- job:
+    name: nodejs4-npm-run-lint
+    parent: nodejs-npm-run-lint
+    description: |
+      Run lint using Node 4 for horizon plugins.
+    vars:
+      node_version: 4
+    nodeset: ubuntu-xenial
+    required-projects:
+      openstack/horizon
+
+- job:
+    name: nodejs4-npm-run-test
+    parent: nodejs-npm-run-test
+    description: |
+      Run test using Node 4 for horizon plugins.
+    vars:
+      node_version: 4
+    nodeset: ubuntu-xenial
+    required-projects:
+      openstack/horizon
+
+- job:
+    name: nodejs10-npm-run-lint
+    parent: nodejs-npm-run-lint
+    description: |
+      Run lint using Node 10 for horizon plugins.
+    vars:
+      node_version: 10
+    nodeset: ubuntu-bionic
+    required-projects:
+      openstack/horizon
+
+- job:
+    name: nodejs10-npm-run-test
+    parent: nodejs-npm-run-test
+    description: |
+      Run test using Node 10 for horizon plugins.
+    vars:
+      node_version: 10
+    nodeset: ubuntu-bionic
+    required-projects:
+      openstack/horizon
+
 - project-template:
     name: horizon-nodejs4-jobs
     description: |
       Run lint and test jobs using Node 4 for horizon plugins.
     check:
       jobs:
-        - nodejs-npm-run-lint:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-            required-projects:
-              openstack/horizon
-        - nodejs-npm-run-test:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-            required-projects:
-              openstack/horizon
+        - nodejs4-npm-run-lint
+        - nodejs4-npm-run-test
     gate:
       jobs:
-        - nodejs-npm-run-lint:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-            required-projects:
-              openstack/horizon
-        - nodejs-npm-run-test:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-            required-projects:
-              openstack/horizon
+        - nodejs4-npm-run-lint
+        - nodejs4-npm-run-test
 
 - project-template:
     name: horizon-nodejs4-jobs-nonvoting
@@ -133,19 +157,33 @@
       Run lint and test jobs using Node 4 for horizon plugins.
     check:
       jobs:
-        - nodejs-npm-run-lint:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-            required-projects:
-              openstack/horizon
+        - nodejs4-npm-run-lint:
             voting: false
-        - nodejs-npm-run-test:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-            required-projects:
-              openstack/horizon
+        - nodejs4-npm-run-test:
+            voting: false
+
+- project-template:
+    name: horizon-nodejs10-jobs
+    description: |
+      Run lint and test jobs using Node 10 (LTS) for horizon plugins.
+    check:
+      jobs:
+        - nodejs10-npm-run-lint
+        - nodejs10-npm-run-test
+    gate:
+      jobs:
+        - nodejs10-npm-run-lint
+        - nodejs10-npm-run-test
+
+- project-template:
+    name: horizon-nodejs10-jobs-nonvoting
+    description: |
+      Run lint and test jobs using Node 10 (LTS) for horizon plugins.
+    check:
+      jobs:
+        - nodejs10-npm-run-lint:
+            voting: false
+        - nodejs10-npm-run-test:
             voting: false
 
 - project:
