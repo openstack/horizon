@@ -11,17 +11,18 @@
 # Reik Keutterling <spielkind@gmail.com>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2018. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2019. #zanata
 # Robert Simai <robert.simai@suse.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-12 17:36+0000\n"
+"POT-Creation-Date: 2019-03-13 08:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-02-14 10:57+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2019-03-13 09:31+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -1344,6 +1345,9 @@ msgstr "Gruppe erstellen"
 msgid "Create Group Snapshot"
 msgstr "Gruppen-Schattenkopie erstellen"
 
+msgid "Create Group Type"
+msgstr "Gruppentyp erstellen"
+
 msgid "Create Host Aggregate"
 msgstr "Hostaggregat erstellen"
 
@@ -1786,6 +1790,11 @@ msgid_plural "Delete Groups"
 msgstr[0] "Gruppe löschen"
 msgstr[1] "Gruppen löschen"
 
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Gruppentyp löschen"
+msgstr[1] "Gruppentypen löschen"
+
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Hostaggregat löschen"
@@ -2135,6 +2144,12 @@ msgstr "Lösche Datenträger-Konsistenzgruppe \"%s\""
 msgid "Deleting volume group \"%s\""
 msgstr "Lösche Datenträgergruppe \"%s\""
 
+msgid "Deprecated Settings"
+msgstr "Überholte Einstellungen"
+
+msgid "Deprecated settings: {}."
+msgstr "Überholte Einstellungen: {}."
+
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -2466,6 +2481,9 @@ msgstr "Variante bearbeiten"
 
 msgid "Edit Group"
 msgstr "Gruppe bearbeiten"
+
+msgid "Edit Group Type"
+msgstr "Gruppentyp bearbeiten"
 
 msgid "Edit Host Aggregate"
 msgstr "Hostaggregat bearbeiten"
@@ -3332,8 +3350,18 @@ msgstr "Gruppen-Schattenkopien"
 msgid "Group Type"
 msgstr "Gruppentyp"
 
+msgid "Group Types"
+msgstr "Gruppentypen"
+
 msgid "Group has been updated successfully."
 msgstr "Gruppe wurde erfolgreich aktualisiert."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Gruppentypname \"%s\" ist schon vorhanden."
+
+msgid "Group type name can not be empty."
+msgstr "Der Gruppenname darf nicht leer sein."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -4235,6 +4263,9 @@ msgstr "Minimum Festplatte (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
 
+msgid "Missing required settings: {}."
+msgstr "Fehlende erforderliche Einstellungen: {}."
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domäne \"%s\" geändert."
@@ -4451,6 +4482,9 @@ msgstr "Neue Größe (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "Neuer Name darf nicht leer sein."
+
+msgid "New name conflicts with another group type."
+msgstr "Der neue Name kollidiert mit einem anderen Gruppentyp."
 
 msgid "New name conflicts with another volume type."
 msgstr "Neuer Name kollidiert mit einem anderen Datenträgertypen."
@@ -4883,6 +4917,10 @@ msgstr "Geplantes Löschen"
 
 msgid "Per Volume Size (GiB)"
 msgstr "Größe pro Datenträger (GiB)"
+
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr ""
+"Test ausführen um festzustellen, ob die Applikation bereit zum Upgrade ist."
 
 msgid "Physical Network"
 msgstr "Physikalisches Netzwerk"
@@ -5366,6 +5404,9 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr ""
 "Die angeforderte Schattenkopie würde das erlaubte Kontingent überschreiten."
+
+msgid "Required Settings"
+msgstr "Erforderliche Einstellungen"
 
 msgctxt "Action log of an instance"
 msgid "Rescue"
@@ -6311,6 +6352,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Verschlüsselung erfolgreich erstellt für Datenträgertyp: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Gruppentyp erfolgreich erstellt: %s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "Sicherheitsgruppe %s erfolgreich erstellt."
 
@@ -6388,6 +6433,9 @@ msgstr "Aggregat \"%s\" wurde erfolgreich aktualisiert."
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Erfolgreich Verschlüsselung aktualisiert für Datenträgertyp: %s"
+
+msgid "Successfully updated group type."
+msgstr "Gruppentyp erfolgreich aktualisiert."
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6729,6 +6777,9 @@ msgstr ""
 msgid "The new availability zone can't be empty"
 msgstr "Die neue Verfügbarkeitszone darf nicht leer sein"
 
+msgid "The output format"
+msgstr "Ausgabeformat"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr ""
 "Der physikalische Mechanismus, durch den das virtuelle Netzwerk "
@@ -6981,6 +7032,9 @@ msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Mit dem Zurück-Knopf des Browsers können Sie den Vollbildmodus verlassen."
 
+msgid "To make group type private, uncheck this field."
+msgstr "Entfernen Sie die Markierung, um den Gruppentyp auf Privat zu setzen."
+
 msgid "To make volume type private, uncheck this field."
 msgstr ""
 "Um den Datenträgertyp auf Privat zu setzen, entfernen Sie die Markierung."
@@ -7212,6 +7266,9 @@ msgstr ""
 
 msgid "Unable to create group snapshot."
 msgstr "Gruppen-Schattenkopie kann nicht erstellt werden."
+
+msgid "Unable to create group type."
+msgstr "Gruppentyp kann nicht erstellt werden."
 
 msgid "Unable to create group."
 msgstr "Gruppe kann nicht erstellt werden."
@@ -8208,6 +8265,9 @@ msgstr "Standard-Datenträger-Kontingente können nicht aktualisieren werden."
 msgid "Unable to update encrypted volume type."
 msgstr "Aktualisieren von verschlüsselten Datenträgertypen nicht möglich."
 
+msgid "Unable to update group type."
+msgstr "Gruppentyp kann nicht aktualisiert werden."
+
 msgid "Unable to update group."
 msgstr "Gruppe kann nicht aktualisiert werden."
 
@@ -8301,6 +8361,9 @@ msgstr "VNIC Typenerweiterung in Neutron kann nicht überprüft werden"
 msgid "Unknown"
 msgstr "Unbekannt"
 
+msgid "Unknown Settings"
+msgstr "Unbekannte Einstellungen"
+
 msgid "Unknown instance"
 msgstr "Unbekannte Instanz"
 
@@ -8309,6 +8372,9 @@ msgstr "Unbekannte Instanz (Keine)"
 
 msgid "Unknown resource type for detail API."
 msgstr "Unbekannter Ressourcentyp für Details-API"
+
+msgid "Unknown settings: {}."
+msgstr "Unbekannte Einstellungen: {}."
 
 msgid "Unknown volume (None)"
 msgstr "Unbekannter Datenträger (None)"
@@ -8692,6 +8758,9 @@ msgstr "Log anzeigen"
 
 msgid "View Routers"
 msgstr "Router ansehen"
+
+msgid "View Specs"
+msgstr "Spezifikationen betrachten"
 
 msgid "View Usage"
 msgstr "Auslastung anzeigen"
