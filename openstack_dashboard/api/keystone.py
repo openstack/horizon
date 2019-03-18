@@ -247,7 +247,7 @@ def domain_lookup(request):
             return dict((d.id, d.name) for d in domains)
         except Exception:
             LOG.warning("Pure project admin doesn't have a domain token")
-            return None
+            return {}
     else:
         domain = get_default_domain(request)
         return {domain.id: domain.name}
