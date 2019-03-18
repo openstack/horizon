@@ -815,15 +815,22 @@ class RetypeForm(forms.SelfHandlingForm):
             exceptions.handle(request, error_message, redirect=redirect_url)
 
         origin_type = self.initial['volume_type']
-        types_list = [(t.name, t.name)
-                      for t in volume_types
-                      if t.name != origin_type]
+        type_list = [(t.name,
+                      _("%s (current)") % t.name
+                      if origin_type == t.name else t.name)
+                     for t in volume_types]
 
-        if types_list:
-            types_list.insert(0, ("", _("Select a new volume type")))
-        else:
-            types_list.insert(0, ("", _("No other volume types available")))
-        self.fields['volume_type'].choices = sorted(types_list)
+        if not type_list:
+            type_list.insert(0, ("", _("No other volume types available")))
+        self.fields['volume_type'].choices = sorted(type_list)
+
+    def clean_volume_type(self):
+        volume_type = self.cleaned_data.get("volume_type")
+        if self.initial['volume_type'] == volume_type:
+            msg = _('The new type must be different from the '
+                    'current volume type.')
+            raise forms.ValidationError(msg)
+        return volume_type
 
     def handle(self, request, data):
         volume_id = self.initial['id']
