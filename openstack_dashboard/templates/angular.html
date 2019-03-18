@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block main %}
+{% if csrf_http %}
+  {% csrf_token %}
+{% endif %}
   <div ng-view></div>
   <ngdetails routed-by-django="{{ routed_by_django }}">
 {% endblock %}

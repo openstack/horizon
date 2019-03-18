@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -79,6 +80,7 @@ class AngularIndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(AngularIndexView, self).get_context_data(**kwargs)
         context["title"] = self.title
+        context["csrf_http"] = getattr(settings, 'CSRF_COOKIE_HTTPONLY', False)
         if self.page_title is None:
             context["page_title"] = self.title
         else:
@@ -100,6 +102,7 @@ class AngularDetailsView(generic.TemplateView):
         title = _("Horizon")
         context["title"] = title
         context["page_title"] = title
+        context["csrf_http"] = getattr(settings, 'CSRF_COOKIE_HTTPONLY', False)
         # set default dashboard and panel
         dashboard = horizon.get_default_dashboard()
         self.request.horizon['dashboard'] = dashboard
