@@ -4,16 +4,17 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 # Shu Muto <shu.mutow@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
+# Takashi Kuroda <tkuroda@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-15 05:12+0000\n"
+"POT-Creation-Date: 2019-03-16 18:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-13 08:04+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2019-03-18 12:56+0000\n"
+"Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -108,6 +109,11 @@ msgstr "循環参照 $refs"
 
 msgid "Click each item to get its description here."
 msgstr "説明を表示するには、それぞれのアイテムをクリックしてください。"
+
+msgid "Click here for filters or full text search."
+msgstr ""
+"フィルターを指定する、あるいはフルテキスト検索を行うにはここをクリックしてく"
+"ださい。"
 
 msgid "Click here to expand the row and view the errors."
 msgstr "行を展開してエラーを表示するには、ここをクリックしてください。"
