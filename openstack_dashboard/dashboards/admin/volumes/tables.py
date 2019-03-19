@@ -105,6 +105,10 @@ class VolumesTable(volumes_tables.VolumesTable):
     host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
     tenant = tables.Column(lambda obj: getattr(obj, 'tenant_name', None),
                            verbose_name=_("Project"))
+    group = volumes_tables.GroupNameColumn(
+        "name",
+        verbose_name=_("Group"),
+        link="horizon:admin:volume_groups:detail")
 
     class Meta(object):
         name = "volumes"
@@ -119,5 +123,5 @@ class VolumesTable(volumes_tables.VolumesTable):
                        UnmanageVolumeAction,
                        MigrateVolume,
                        volumes_tables.UpdateMetadata)
-        columns = ('tenant', 'host', 'name', 'size', 'status', 'volume_type',
-                   'attachments', 'bootable', 'encryption',)
+        columns = ('tenant', 'host', 'name', 'size', 'status', 'group',
+                   'volume_type', 'attachments', 'bootable', 'encryption',)

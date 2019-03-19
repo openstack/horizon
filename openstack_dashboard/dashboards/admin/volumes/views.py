@@ -100,6 +100,8 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
 
         def _task_get_volumes():
             volumes.extend(self._get_volumes(search_opts=filters))
+            # update group name for volumes
+            self._get_groups(volumes, search_opts={'all_tenants': True})
             attached_instance_ids.extend(
                 self._get_attached_instance_ids(volumes))
 

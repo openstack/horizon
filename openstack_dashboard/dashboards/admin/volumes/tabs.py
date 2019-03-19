@@ -15,10 +15,13 @@ from openstack_dashboard.dashboards.project.volumes import tabs as project_tabs
 
 
 class OverviewTab(project_tabs.OverviewTab):
+    template_name = ("admin/volumes/_detail_overview.html")
 
     def get_context_data(self, request):
+        volume = self.tab_group.kwargs['volume']
         return {
-            'volume': self.tab_group.kwargs['volume'],
+            'volume': volume,
+            'group': volume.group,
             'detail_url': {
                 'instance': 'horizon:admin:instances:detail',
                 'image': 'horizon:admin:images:detail',

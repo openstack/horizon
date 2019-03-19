@@ -79,7 +79,8 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             self.mock_volume_snapshot_list.assert_called_once()
 
         if with_groups:
-            self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
+            self.mock_group_list.assert_called_once_with(test.IsHttpRequest(),
+                                                         search_opts=None)
 
         self.mock_volume_backup_supported.assert_called_with(
             test.IsHttpRequest())

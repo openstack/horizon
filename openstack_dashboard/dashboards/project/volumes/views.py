@@ -104,13 +104,14 @@ class VolumeTableMixIn(object):
                     attached_instance_ids.append(server_id)
         return attached_instance_ids
 
-    def _get_groups(self, volumes):
+    def _get_groups(self, volumes, search_opts=None):
         needs_group = False
         if volumes and hasattr(volumes[0], 'group_id'):
             needs_group = True
         if needs_group:
             try:
-                groups_list = cinder.group_list(self.request)
+                groups_list = cinder.group_list(self.request,
+                                                search_opts=search_opts)
                 groups = dict((g.id, g) for g in groups_list)
             except Exception:
                 groups = {}

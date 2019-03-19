@@ -63,6 +63,10 @@ class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
         link="horizon:admin:volumes:detail")
     host = tables.Column("host_name", verbose_name=_("Host"))
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
+    group_snapshot = snapshots_tables.GroupSnapshotNameColumn(
+        "name",
+        verbose_name=_("Group Snapshot"),
+        link="horizon:admin:vg_snapshots:detail")
 
     class Meta(object):
         name = "volume_snapshots"
@@ -77,7 +81,7 @@ class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
         row_class = UpdateRow
         status_columns = ("status",)
         columns = ('tenant', 'host', 'name', 'description', 'size', 'status',
-                   'volume_name',)
+                   'group_snapshot', 'volume_name',)
 
 
 class VolumeDetailsSnapshotsTable(VolumeSnapshotsTable):
