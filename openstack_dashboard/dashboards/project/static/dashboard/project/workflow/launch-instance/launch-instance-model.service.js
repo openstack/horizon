@@ -731,11 +731,9 @@
     function setFinalSpecBootImageToVolume(finalSpec) {
       if (finalSpec.vol_create) {
         // Specify null to get Autoselection (not empty string)
-        var deviceName = finalSpec.vol_device_name ? finalSpec.vol_device_name : null;
         finalSpec.block_device_mapping_v2 = [];
         finalSpec.block_device_mapping_v2.push(
           {
-            'device_name': deviceName,
             'source_type': bootSourceTypes.IMAGE,
             'destination_type': bootSourceTypes.VOLUME,
             'delete_on_termination': finalSpec.vol_delete_on_instance_delete,
