@@ -48,7 +48,7 @@
               <span translate>Format</span>
               <span class="hz-icon-required fa fa-asterisk"></span>
             </label>
-            <select class="form-control switchable ng-pristine ng-untouched ng-valid" ng-required="true" id="imageForm-format" name="format" ng-model="ctrl.image_format" ng-options="key as label for (key, label) in ctrl.imageFormats" ng-change="ctrl.setFormats()">
+            <select class="form-control switchable ng-pristine ng-untouched ng-valid" ng-required="true" ng-disabled="ctrl.image.status !== 'queued'" id="imageForm-format" name="format" ng-model="ctrl.image_format" ng-options="key as label for (key, label) in ctrl.imageFormats" ng-change="ctrl.setFormats()">
             </select>
           </div>
         </div>
