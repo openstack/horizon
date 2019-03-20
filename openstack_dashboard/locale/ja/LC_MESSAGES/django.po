@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-16 18:29+0000\n"
+"POT-Creation-Date: 2019-03-19 11:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-18 06:12+0000\n"
+"PO-Revision-Date: 2019-03-20 12:43+0000\n"
 "Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -51,9 +51,9 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"  コンテナー名が指定されなかった場合、デフォルトでは volumebackups という\n"
-"  名前のコンテナーが作成されます。\n"
-"  バックアップはバックアップ対象のボリュームと同じ大きさになります。\n"
+"コンテナー名が指定されなかった場合、デフォルトでは volumebackups という\n"
+"名前のコンテナーが作成されます。\n"
+"バックアップはバックアップ対象のボリュームと同じ大きさになります。\n"
 "  "
 
 msgid ""
@@ -65,11 +65,11 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"  ボリュームバックアップは cinder-backup ドライバー (オブジェクトストレージ"
-"サービス、Ceph、NFS 等)\n"
-"  のいずれかを使って格納されます。\n"
-"  バックアップを作成するには、これらのサービスの 1 つを有効にしなければいけま"
-"せん。\n"
+"ボリュームバックアップは cinder-backup ドライバー (オブジェクトストレージサー"
+"ビス、Ceph、NFS 等)\n"
+"のいずれかを使って格納されます。\n"
+"バックアップを作成するには、これらのサービスの 1 つを有効にしなければいけませ"
+"ん。\n"
 "  "
 
 msgid " - End"
@@ -228,6 +228,10 @@ msgstr ""
 "インターフェースに変更が適用されます。このインスタンスが複数のインターフェー"
 "スを持ち、ポート毎に異なるセキュリティーグループが適用されている場合は、代わ"
 "りに「ポートのセキュリティーグループの編集」アクションを使用してください。"
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>フレーバーの詳細: %(name)s</span>\">%(name)s"
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "追加しようとしているセキュリティーグループルールの簡単な説明"
@@ -557,6 +561,9 @@ msgstr ""
 
 msgid "Age"
 msgstr "経過時間"
+
+msgid "Age (Seconds)"
+msgstr "経過時間 (秒)"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -1184,6 +1191,9 @@ msgstr ""
 "起動時にインスタンスに接続される特別なコンフィグドライブにメタデータを書き込"
 "むように OpenStack に指定します。"
 
+msgid "Confirm"
+msgstr "確認"
+
 msgid "Confirm Admin Password"
 msgstr "管理者パスワード (確認)"
 
@@ -1481,9 +1491,9 @@ msgid ""
 "Valid key names are expected in the QoS specs. Refer to Cinder documentation "
 "for the supported front-end and back-end keys."
 msgstr ""
-"QoS スペック \"%(qos_spec_name)s\" に新しいキーと値のペアを作成します。 QoS "
-"スペックでは、有効なキー名が必要です。サポートされるフロントエンドおよびバッ"
-"クエンドキーについては、Cinder のドキュメントを参照してください。"
+"QoS スペック \"%(qos_spec_name)s\" に新しいキーと値のペアを作成します。QoS ス"
+"ペックでは、有効なキー名が必要です。サポートされるフロントエンドおよびバック"
+"エンドキーについては、Cinder のドキュメントを参照してください。"
 
 msgid "Create a new application credential."
 msgstr "新しいアプリケーション認証情報を作成します。"
@@ -2064,6 +2074,12 @@ msgstr "ボリュームの整合性グループ \"%s\" を削除中"
 #, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "ボリュームグループ \"%s\" を削除中"
+
+msgid "Deprecated Settings"
+msgstr "非推奨となった設定"
+
+msgid "Deprecated settings: {}."
+msgstr "非推奨となった設定: {}"
 
 msgid "Description"
 msgstr "説明"
@@ -3217,6 +3233,10 @@ msgid "Group"
 msgstr "グループ"
 
 #, python-format
+msgid "Group \"%s\" already exists."
+msgstr "グループ \"%s\" はすでに存在します。"
+
+#, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "グループ \"%s\" が正常に作成されました。"
 
@@ -3279,8 +3299,8 @@ msgid ""
 "to set up extra specs key-value pair(s) for that group type."
 msgstr ""
 "グループ種別は OpenStack でグループを作成する際に選択する種別を示すラベルで"
-"す。通常、ボリューム種別は、作成するボリュームが使用する、バックエンドのスト"
-"レージドライバーが持つ機能セットにマッピングされます。例えば「性能」「SSD」"
+"す。通常、グループ種別は、作成するグループが使用する、バックエンドのストレー"
+"ジドライバーが持つ機能セットにマッピングされます。例えば「性能」、「SSD」、"
 "「バックアップ」などです。これは <tt>cinder type-create</tt> コマンドに相当し"
 "ます。グループ種別を作成した後は、「追加スペック」ボタンをクリックして、この"
 "グループ種別の追加スペックのキーと値のペアを設定します。"
@@ -3290,7 +3310,7 @@ msgid "Group type name \"%s\" already exists."
 msgstr "グループ種別 \"%s\" はすでに存在します。"
 
 msgid "Group type name can not be empty."
-msgstr "グループ種別名を空にすることはできません"
+msgstr "グループ種別名を空にすることはできません。"
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3468,6 +3488,13 @@ msgstr "新規ポートの IP アドレス"
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "このサブネットの DNS サーバーの IP アドレス一覧。1 行につき 1 項目。"
+
+msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"ゲートウェイの IP アドレス (例: 192.168.0.254)。ゲートウェイを使用する必要が"
+"なければ、下の「ゲートウェイなし」をチェックします。"
 
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
@@ -3829,8 +3856,8 @@ msgid ""
 "Key names can only contain alphanumeric characters, underscores, periods, "
 "colons and hyphens"
 msgstr ""
-"キー名に含めることができるのは、英数字、アンダースコアー、ピリオド、コロン、"
-"およびハイフンのみです。"
+"キー名に使用できるのは、英数字、アンダースコアー、ピリオド、コロン、およびハ"
+"イフンのみです。"
 
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
@@ -4102,6 +4129,10 @@ msgstr "MidoNet のアップリンク"
 msgid "Migrate"
 msgstr "マイグレーション"
 
+msgctxt "Action log of an instance"
+msgid "Migrate"
+msgstr "マイグレーション"
+
 msgid "Migrate Host"
 msgstr "ホストのマイグレーション"
 
@@ -4163,6 +4194,9 @@ msgstr "最小ディスク (GB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "最小メモリー (MB)"
+
+msgid "Missing required settings: {}."
+msgstr "必須の設定が定義されていません: {}"
 
 #, python-format
 msgid "Modified domain \"%s\"."
@@ -4815,6 +4849,11 @@ msgstr "削除待ち"
 msgid "Per Volume Size (GiB)"
 msgstr "1 ボリュームあたりのサイズ (GiB)"
 
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr ""
+"アプリケーションをアップグレードする準備が整っているかどうかの確認を実施しま"
+"す。"
+
 msgid "Physical Network"
 msgstr "物理ネットワーク"
 
@@ -5286,6 +5325,13 @@ msgstr ""
 "要求があったスナップショットを作成すると、許可されたクォータを超えてしまいま"
 "す。"
 
+msgid "Required Settings"
+msgstr "必須の設定"
+
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "レスキュー"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "レスキュー中"
@@ -5683,9 +5729,6 @@ msgstr "新しいホストを選択してください"
 msgid "Select a new status"
 msgstr "新しいステータスを選択してください"
 
-msgid "Select a new volume type"
-msgstr "新しいボリューム種別を選択してください"
-
 msgid "Select a pool"
 msgstr "プールを選択してください"
 
@@ -5877,6 +5920,10 @@ msgstr "共有ストレージ"
 
 msgid "Shared with Project"
 msgstr "プロジェクトと共有"
+
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "退避"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -6088,6 +6135,9 @@ msgstr ""
 msgid "Specify an image to upload to the Image Service."
 msgstr "イメージサービスにアップロードするイメージを指定します。"
 
+msgid "Specify network address"
+msgstr "ネットワークアドレスを指定してください。"
+
 msgid "Specify the MAC address for the new port"
 msgstr "新規ポートの MAC アドレスを指定します"
 
@@ -6249,6 +6299,9 @@ msgstr "QoS スペックの使用者を正常に更新しました。"
 msgid "Successfully recreated ec2 credentials."
 msgstr "EC2 認証情報の再作成に成功しました。"
 
+msgid "Successfully rescued instance"
+msgstr "インスタンスを正常にレスキューしました"
+
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
@@ -6286,7 +6339,7 @@ msgid "Successfully updated encryption for volume type: %s"
 msgstr "ボリューム種別の暗号化設定 %s を正常に更新しました。"
 
 msgid "Successfully updated group type."
-msgstr "グループ種別の更新に成功しました。"
+msgstr "グループ種別を正常に更新しました。"
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6615,6 +6668,12 @@ msgstr ""
 msgid "The new availability zone can't be empty"
 msgstr "アベイラビリティーゾーンは空にできません"
 
+msgid "The new type must be different from the current volume type."
+msgstr "新しい種別は現在のボリューム種別とは違うものでなければいけません。"
+
+msgid "The output format"
+msgstr "出力フォーマット"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "仮想ネットワークを実装する物理メカニズム"
 
@@ -6668,7 +6727,7 @@ msgid ""
 "The rescue mode is only for emergency purpose, for example in case of a "
 "system or access failure."
 msgstr ""
-"レスキューモードは、システム異常やアクセス障害の場合など、緊急用途に限りま"
+"レスキューモードは、システム異常やアクセス障害の場合などの緊急用途に限りま"
 "す。"
 
 msgid "The specified floating IP no longer exists."
@@ -7162,7 +7221,7 @@ msgstr ""
 
 #, python-format
 msgid "Unable to create snapshot: %s"
-msgstr "スナップショット %s を作成できません。"
+msgstr "スナップショットを作成できません: %s"
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr ""
@@ -7438,6 +7497,9 @@ msgid ""
 msgstr ""
 "認証プロバイダーを登録できません。指定した認証プロバイダーの ID と接続相手の "
 "ID がすでに使用されていないかどうかを確認してください。"
+
+msgid "Unable to rescue instance"
+msgstr "インスタンスをレスキューできません"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -8165,6 +8227,9 @@ msgstr "Neutron が仮想 NIC の種別の拡張機能に対応しているか�
 msgid "Unknown"
 msgstr "不明"
 
+msgid "Unknown Settings"
+msgstr "不明な設定"
+
 msgid "Unknown instance"
 msgstr "不明なインスタンス"
 
@@ -8173,6 +8238,9 @@ msgstr "不明なインスタンス"
 
 msgid "Unknown resource type for detail API."
 msgstr "詳細 API で不明なリソース種別が指定されました。"
+
+msgid "Unknown settings: {}."
+msgstr "不明な設定: {}"
 
 msgid "Unknown volume (None)"
 msgstr "不明なボリューム"
@@ -8203,6 +8271,18 @@ msgid "Unregistered Identity Provider"
 msgid_plural "Unregistered Identity Providers"
 msgstr[0] "認証プロバイダーが登録解除されました"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "レスキューからの復帰"
+
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "インスタンスのレスキューからの復帰"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "インスタンスをレスキューから復帰しました"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "アンレスキュー中"
@@ -8212,6 +8292,10 @@ msgstr "無制限"
 
 msgid "Unrestricted (dangerous)"
 msgstr "無制限 (危険)"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "復元"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -9023,8 +9107,8 @@ msgid ""
 "flavor id can only contain alphanumeric characters, underscores, periods, "
 "hyphens, spaces."
 msgstr ""
-"フレーバーの  ID に含めることができるのは、英数字、アンダースコアー、ピリオ"
-"ド、ハイフン、スペースのみです。"
+"フレーバーの  ID に使用できるのは、英数字、アンダースコアー、ピリオド、ハイフ"
+"ン、空白文字のみです。"
 
 msgid "front-end"
 msgstr "フロントエンド"
@@ -9038,7 +9122,7 @@ msgid ""
 "create key with different name."
 msgstr ""
 "名前が \"%s\" のキーはすでに存在します。編集 を使用して値を更新してください。"
-"あるいは、別の名前でキーを作成してください。"
+"あるいは、別の名前のキーを作成してください。"
 
 msgid "no"
 msgstr "いいえ"
