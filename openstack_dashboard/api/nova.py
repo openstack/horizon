@@ -380,13 +380,17 @@ def snapshot_create(request, instance_id, name):
 
 
 @profiler.trace
-def keypair_create(request, name):
-    return _nova.novaclient(request).keypairs.create(name)
+def keypair_create(request, name, key_type='ssh'):
+    microversion = get_microversion(request, 'key_types')
+    return _nova.novaclient(request, microversion).\
+        keypairs.create(name, key_type=key_type)
 
 
 @profiler.trace
-def keypair_import(request, name, public_key):
-    return _nova.novaclient(request).keypairs.create(name, public_key)
+def keypair_import(request, name, public_key, key_type='ssh'):
+    microversion = get_microversion(request, 'key_types')
+    return _nova.novaclient(request, microversion).\
+        keypairs.create(name, public_key, key_type)
 
 
 @profiler.trace
@@ -396,7 +400,8 @@ def keypair_delete(request, name):
 
 @profiler.trace
 def keypair_list(request):
-    return _nova.novaclient(request).keypairs.list()
+    microversion = get_microversion(request, 'key_type_list')
+    return _nova.novaclient(request, microversion).keypairs.list()
 
 
 @profiler.trace

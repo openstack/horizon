@@ -17,34 +17,29 @@
 
   /**
    * @ngdoc controller
-   * @name horizon.app.core.keypairs.actions.ImportPublicKeyController
+   * @name horizon.app.core.keypairs.actions.CreateKeyPairController
    * @ngController
    *
    * @description
-   * Controller for the loading public key file
+   * Controller for the create keypair
    */
   angular
     .module('horizon.app.core.keypairs.actions')
-    .controller('horizon.app.core.keypairs.actions.ImportPublicKeyController',
-      importPublicKeyController);
+    .controller('horizon.app.core.keypairs.actions.CreateKeypairController',
+      createKeypairController);
 
-  importPublicKeyController.$inject = [
+  createKeypairController.$inject = [
     '$scope'
   ];
 
-  function importPublicKeyController($scope) {
+  function createKeypairController($scope) {
     var ctrl = this;
-    ctrl.title = $scope.schema.properties.public_key.title;
     ctrl.key_types = {
       'ssh': gettext("SSH Key"),
       'x509': gettext("X509 Certificate")
     };
-    ctrl.public_key = "";
     ctrl.onKeyTypeChange = function (keyType) {
       $scope.model.key_type = keyType;
-    };
-    ctrl.onPublicKeyChange = function (publicKey) {
-      $scope.model.public_key = publicKey;
     };
   }
 })();

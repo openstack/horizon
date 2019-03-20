@@ -217,33 +217,45 @@ class NovaRestTestCase(test.TestCase):
 
     @test.create_mocks({api.nova: ['keypair_create']})
     def test_keypair_create(self):
-        request = self.mock_rest_request(body='''{"name": "Ni!"}''')
+        request = self.mock_rest_request(body='''{"name": "Ni!",
+                                                  "key_type": "ssh"}''')
         new = self.mock_keypair_create.return_value
-        new.to_dict.return_value = {'name': 'Ni!', 'public_key': 'sekrit'}
+        new.to_dict.return_value = {'name': 'Ni!',
+                                    'key_type': 'ssh',
+                                    'public_key': 'sekrit'}
         new.name = 'Ni!'
         with mock.patch.object(settings, 'DEBUG', True):
             response = nova.Keypairs().post(request)
         self.assertStatusCode(response, 201)
-        self.assertEqual({"name": "Ni!", "public_key": "sekrit"},
+        self.assertEqual({"name": "Ni!",
+                          "key_type": "ssh",
+                          "public_key": "sekrit"},
                          response.json)
         self.assertEqual('/api/nova/keypairs/Ni%21', response['location'])
-        self.mock_keypair_create.assert_called_once_with(request, 'Ni!')
+        self.mock_keypair_create.assert_called_once_with(request, 'Ni!', 'ssh')
 
     @test.create_mocks({api.nova: ['keypair_import']})
     def test_keypair_import(self):
         request = self.mock_rest_request(body='''
-            {"name": "Ni!", "public_key": "hi"}
+            {"name": "Ni!", "public_key": "hi", "key_type": "ssh"}
         ''')
         new = self.mock_keypair_import.return_value
-        new.to_dict.return_value = {'name': 'Ni!', 'public_key': 'hi'}
+        new.to_dict.return_value = {'name': 'Ni!',
+                                    'public_key': 'hi',
+                                    'key_type': 'ssh'}
         new.name = 'Ni!'
         with mock.patch.object(settings, 'DEBUG', True):
             response = nova.Keypairs().post(request)
         self.assertStatusCode(response, 201)
-        self.assertEqual({"name": "Ni!", "public_key": "hi"},
+        self.assertEqual({"name": "Ni!",
+                          "public_key": "hi",
+                          "key_type": "ssh"},
                          response.json)
         self.assertEqual('/api/nova/keypairs/Ni%21', response['location'])
-        self.mock_keypair_import.assert_called_once_with(request, 'Ni!', 'hi')
+        self.mock_keypair_import.assert_called_once_with(request,
+                                                         'Ni!',
+                                                         'hi',
+                                                         'ssh')
 
     @test.create_mocks({api.nova: ['keypair_get']})
     def test_keypair_get(self):

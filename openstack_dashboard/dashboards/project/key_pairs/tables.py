@@ -118,6 +118,7 @@ class KeyPairsTable(tables.DataTable):
     detail_link = "horizon:project:key_pairs:detail"
     name = tables.Column("name", verbose_name=_("Key Pair Name"),
                          link=detail_link)
+    key_type = tables.Column("type", verbose_name=_("Key Pair Type"))
     fingerprint = tables.Column("fingerprint", verbose_name=_("Fingerprint"))
 
     def get_object_id(self, keypair):

@@ -51,6 +51,10 @@
           title: gettext("Key Pair Name"),
           type: "string",
           pattern: "^[A-Za-z0-9 -_]+$"
+        },
+        "key_type": {
+          title: gettext("Key Type"),
+          type: "string"
         }
       }
     };
@@ -76,6 +80,10 @@
                   }
                 },
                 required: true
+              },
+              {
+                type: "template",
+                templateUrl: basePath + "actions/create.key-type.html"
               }
             ]
           }
@@ -102,7 +110,7 @@
 
     function perform() {
       getKeypairs();
-      model = {};
+      model = { key_type: 'ssh' };
       var config = {
         "title": caption,
         "submitText": caption,

@@ -46,8 +46,17 @@
     ctrl.generate = generate;
 
     ctrl.keypair = '';
+    ctrl.key_types = {
+      'ssh': gettext("SSH Key"),
+      'x509': gettext("X509 Certificate")
+    };
+    ctrl.key_type = 'ssh';
     ctrl.keypairExistsError = gettext('Keypair already exists or name contains bad characters.');
     ctrl.copyPrivateKey = copyPrivateKey;
+
+    ctrl.onKeyTypeChange = function (keyType) {
+      ctrl.key_type = keyType;
+    };
 
     /*
      * @ngdoc function
@@ -60,7 +69,7 @@
     }
 
     function generate() {
-      nova.createKeypair({name: ctrl.keypair}).then(onKeypairCreated);
+      nova.createKeypair({name: ctrl.keypair, key_type: ctrl.key_type}).then(onKeypairCreated);
 
       function onKeypairCreated(data) {
         ctrl.createdKeypair = data.data;

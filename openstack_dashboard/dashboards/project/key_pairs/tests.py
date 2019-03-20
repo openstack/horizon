@@ -104,29 +104,34 @@ class KeyPairTests(test.TestCase):
         public_key = "ssh-rsa ABCDEFGHIJKLMNOPQR\r\n" \
                      "STUVWXYZ1234567890\r" \
                      "XXYYZZ user@computer\n\n"
+        key_type = "ssh"
         self.mock_keypair_import.return_value = None
 
         formData = {'method': 'ImportKeypair',
                     'name': key1_name,
-                    'public_key': public_key}
+                    'public_key': public_key,
+                    'key_type': key_type}
         url = reverse('horizon:project:key_pairs:import')
         res = self.client.post(url, formData)
         self.assertMessageCount(res, success=1)
 
         self.mock_keypair_import.assert_called_once_with(
             test.IsHttpRequest(), key1_name,
-            public_key.replace("\r", "").replace("\n", ""))
+            public_key.replace("\r", "").replace("\n", ""),
+            key_type)
 
     @test.create_mocks({api.nova: ('keypair_import',)})
     def test_import_keypair_invalid_key(self):
         key_name = "new_key_pair"
         public_key = "ABCDEF"
+        key_type = "ssh"
 
         self.mock_keypair_import.side_effect = self.exceptions.nova
 
         formData = {'method': 'ImportKeypair',
                     'name': key_name,
-                    'public_key': public_key}
+                    'public_key': public_key,
+                    'key_type': key_type}
         url = reverse('horizon:project:key_pairs:import')
         res = self.client.post(url, formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
@@ -134,15 +139,17 @@ class KeyPairTests(test.TestCase):
         self.assertFormErrors(res, count=1, message=msg)
 
         self.mock_keypair_import.assert_called_once_with(
-            test.IsHttpRequest(), key_name, public_key)
+            test.IsHttpRequest(), key_name, public_key, key_type)
 
     def test_import_keypair_invalid_key_name(self):
         key_name = "invalid#key?name=!"
         public_key = "ABCDEF"
+        key_type = "ssh"
 
         formData = {'method': 'ImportKeypair',
                     'name': key_name,
-                    'public_key': public_key}
+                    'public_key': public_key,
+                    'key_type': key_type}
         url = reverse('horizon:project:key_pairs:import')
         res = self.client.post(url, formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
@@ -152,10 +159,12 @@ class KeyPairTests(test.TestCase):
     def test_import_keypair_space_key_name(self):
         key_name = " "
         public_key = "ABCDEF"
+        key_type = "ssh"
 
         formData = {'method': 'ImportKeypair',
                     'name': key_name,
-                    'public_key': public_key}
+                    'public_key': public_key,
+                    'key_type': key_type}
         url = reverse('horizon:project:key_pairs:import')
         res = self.client.post(url, formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
@@ -168,15 +177,18 @@ class KeyPairTests(test.TestCase):
         public_key = "ssh-rsa ABCDEFGHIJKLMNOPQR\r\n" \
                      "STUVWXYZ1234567890\r" \
                      "XXYYZZ user@computer\n\n"
+        key_type = "ssh"
         self.mock_keypair_import.return_value = None
 
         formData = {'method': 'ImportKeypair',
                     'name': key1_name,
-                    'public_key': public_key}
+                    'public_key': public_key,
+                    'key_type': key_type}
         url = reverse('horizon:project:key_pairs:import')
         res = self.client.post(url, formData)
         self.assertMessageCount(res, success=1)
 
         self.mock_keypair_import.assert_called_once_with(
             test.IsHttpRequest(), key1_name,
-            public_key.replace("\r", "").replace("\n", ""))
+            public_key.replace("\r", "").replace("\n", ""),
+            key_type)

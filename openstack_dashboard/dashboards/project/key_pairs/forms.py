@@ -41,16 +41,23 @@ class ImportKeypair(forms.SelfHandlingForm):
                             label=_("Key Pair Name"),
                             regex=KEYPAIR_NAME_REGEX,
                             error_messages=KEYPAIR_ERROR_MESSAGES)
+    key_type = forms.ChoiceField(label=_("Key Type"),
+                                 widget=forms.SelectWidget(),
+                                 choices=[('ssh', _("SSH Key")),
+                                          ('x509', _("X509 Certificate"))],
+                                 initial='ssh')
     public_key = forms.CharField(label=_("Public Key"),
                                  widget=forms.Textarea())
 
     def handle(self, request, data):
         try:
-            # Remove any new lines in the public key
-            data['public_key'] = NEW_LINES.sub("", data['public_key'])
+            # Remove any new lines in the ssh public key
+            if data['key_type'] == 'ssh':
+                data['public_key'] = NEW_LINES.sub("", data['public_key'])
             keypair = api.nova.keypair_import(request,
                                               data['name'],
-                                              data['public_key'])
+                                              data['public_key'],
+                                              data['key_type'])
             messages.success(request,
                              _('Successfully imported public key: %s')
                              % data['name'])

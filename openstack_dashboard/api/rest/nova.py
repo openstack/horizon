@@ -84,9 +84,12 @@ class Keypairs(generic.View):
         """
         if 'public_key' in request.DATA:
             new = api.nova.keypair_import(request, request.DATA['name'],
-                                          request.DATA['public_key'])
+                                          request.DATA['public_key'],
+                                          request.DATA['key_type'])
         else:
-            new = api.nova.keypair_create(request, request.DATA['name'])
+            new = api.nova.keypair_create(request,
+                                          request.DATA['name'],
+                                          request.DATA['key_type'])
         return rest_utils.CreatedResponse(
             '/api/nova/keypairs/%s' % utils_http.urlquote(new.name),
             new.to_dict()
