@@ -914,7 +914,6 @@
 
         it('sets volume options appropriately', function() {
           expect(model.newInstanceSpec.vol_create).toBe(false);
-          expect(model.newInstanceSpec.vol_device_name).toBe('vda');
           expect(model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
           expect(model.newInstanceSpec.vol_size).toBe(1);
         });
@@ -937,7 +936,6 @@
           model.newInstanceSpec.scheduler_hints = {};
           model.newInstanceSpec.vol_create = true;
           model.newInstanceSpec.vol_delete_on_instance_delete = true;
-          model.newInstanceSpec.vol_device_name = "volTestName";
           model.newInstanceSpec.vol_size = 10;
           model.newInstanceSpec.server_groups = [];
 
@@ -973,7 +971,6 @@
         it('should set final spec in format required for Block Device Mapping v2', function() {
           var finalSpec = model.createInstance();
           var expectedBlockDevice = [{
-            device_name: 'volTestName',
             source_type: 'image',
             destination_type: 'volume',
             delete_on_termination: true,
@@ -1005,8 +1002,6 @@
           model.newInstanceSpec.vol_delete_on_instance_delete = 'yep';
 
           var finalSpec = model.createInstance();
-          expect(finalSpec.block_device_mapping.volTestName)
-            .toBe('imAnID:vol::yep');
           expect(finalSpec.source_id).toBe('');
         });
 
@@ -1016,7 +1011,6 @@
 
           var finalSpec = model.createInstance();
           var expectedBlockDevice = [{
-            device_name: 'volTestName',
             source_type: 'image',
             destination_type: 'volume',
             delete_on_termination: true,
@@ -1034,8 +1028,6 @@
           model.newInstanceSpec.vol_delete_on_instance_delete = 'yep';
 
           var finalSpec = model.createInstance();
-          expect(finalSpec.block_device_mapping.volTestName)
-            .toBe('imAnID:snap::yep');
           expect(finalSpec.source_id).toBe('');
         });
 
@@ -1090,15 +1082,6 @@
           ];
 
           expect(finalSpec.nics).toEqual(finalNetworks);
-        });
-
-        it('provides null for device_name when falsy', function() {
-          model.newInstanceSpec.source_type.type = 'image';
-          model.newInstanceSpec.vol_device_name = false;
-          model.newInstanceSpec.vol_create = true;
-
-          var finalSpec = model.createInstance();
-          expect(finalSpec.block_device_mapping_v2[0].device_name).toBeNull();
         });
 
         it('should not have meta property if no metadata specified', function() {
