@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-12 17:36+0000\n"
+"POT-Creation-Date: 2019-03-19 11:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5069,9 +5069,6 @@ msgstr "Select a new host"
 
 msgid "Select a new status"
 msgstr "Select a new status"
-
-msgid "Select a new volume type"
-msgstr "Select a new volume type"
 
 msgid "Select a pool"
 msgstr "Select a pool"

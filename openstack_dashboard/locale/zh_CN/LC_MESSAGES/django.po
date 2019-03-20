@@ -28,16 +28,17 @@
 # Tony <tfu@redhat.com>, 2018. #zanata
 # vuuv <froms2008@gmail.com>, 2018. #zanata
 # Horace Li <haoyang@openstack.org>, 2019. #zanata
+# Tony <tfu@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-12 17:36+0000\n"
+"POT-Creation-Date: 2019-03-19 11:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-01-09 05:21+0000\n"
-"Last-Translator: Horace Li <haoyang@openstack.org>\n"
+"PO-Revision-Date: 2019-03-20 01:37+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -149,6 +150,10 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
+msgid "%(role)s  (through group %(group)s)"
+msgstr "%(role)s  (通过组 %(group)s)"
+
+#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s 后端)"
 
@@ -237,6 +242,10 @@ msgstr ""
 "果这个实例上有多个接口，不同接口适用不同的安全组，则使用\"编辑安全组\"进行操"
 "作。"
 
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>实例类型详情 : %(name)s</span>\">%(name)s"
+
 msgid "A brief description of the security group rule you are adding"
 msgstr "您添加的安全组规则的简单描述"
 
@@ -320,6 +329,9 @@ msgstr "动作"
 
 msgid "Action Log"
 msgstr "操作日志"
+
+msgid "Action and Object Type"
+msgstr "操作和对象类型"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -524,6 +536,12 @@ msgid ""
 "After launching an instance, you login using the private key (the username "
 "might be different depending on the image you launched):"
 msgstr "创建实例后，您使用私钥来登录实例(登录用户名取决于您所用的镜像)："
+
+msgid "Age"
+msgstr "时间"
+
+msgid "Age (Seconds)"
+msgstr "时间（秒）"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -899,6 +917,13 @@ msgstr ""
 "keystone信任。 如果需要您的应用程序凭据能够执行这些操作，请勾选“未限制”。"
 
 msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"默认情况下，组类型创建的时候设置为公共的。如果要创建一个私有类型的组，取消选"
+"中这个选项"
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -1206,11 +1231,14 @@ msgid "Crashed"
 msgstr "崩溃"
 
 msgid "Create"
-msgstr "已创建"
+msgstr "创建"
 
 msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "已创建"
+
+msgid "Create A RBAC Policy"
+msgstr "创建一个 RBAC 策略"
 
 msgid "Create An Image"
 msgstr "创建镜像"
@@ -1248,6 +1276,12 @@ msgstr "创建组"
 msgid "Create Group Snapshot"
 msgstr "创建组快照"
 
+msgid "Create Group Type"
+msgstr "创建组类型"
+
+msgid "Create Group Type Spec"
+msgstr "创建组类型规格"
+
 msgid "Create Host Aggregate"
 msgstr "创建主机聚合"
 
@@ -1280,6 +1314,9 @@ msgstr "创建协议"
 
 msgid "Create QoS Spec"
 msgstr "创建QoS规格"
+
+msgid "Create RBAC Policy"
+msgstr "创建 RBAC 策略"
 
 msgid "Create Role"
 msgstr "创建角色"
@@ -1350,6 +1387,9 @@ msgid ""
 msgstr ""
 "创建一个一致性组，它包括对源一致性组快照中的每个快照进行克隆所新创建的卷。"
 
+msgid "Create a Group Type"
+msgstr "创建一个组类型"
+
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
 "the snapshots in the source Group Snapshot."
@@ -1360,6 +1400,9 @@ msgstr "创建元数据命名空间"
 
 msgid "Create a New Volume"
 msgstr "创建一个新卷"
+
+msgid "Create a RBAC Policy"
+msgstr "创建一个 RBAC 策略"
 
 msgid "Create a Router"
 msgstr "新建路由"
@@ -1372,6 +1415,9 @@ msgstr "创建映射"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "为卷类型创建新的\"扩展规格\"键值对。"
+
+msgid "Create a new \"group spec\" key-value pair for a group type."
+msgstr "为一个组类型创建一个新的 \"group spec\" 键-值对。"
 
 #, python-format
 msgid ""
@@ -1425,6 +1471,10 @@ msgstr "创建时间"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "建立扩展规格\"%s\""
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "创建组类型规格 \"%s\"。"
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1648,6 +1698,10 @@ msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "删除组"
 
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "删除组类型"
+
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "删除主机聚合"
@@ -1695,6 +1749,10 @@ msgstr[0] "删除协议"
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "删除QoS规格"
+
+msgid "Delete RBAC Policy"
+msgid_plural "Delete RBAC Policies"
+msgstr[0] "删除 RBAC 策略"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -1800,6 +1858,10 @@ msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "已删除的组"
 
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "已删除的组类型"
+
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "已删除的主机聚合"
@@ -1843,6 +1905,13 @@ msgstr[0] "协议已删除"
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "已删除的QoS规格"
+
+msgid "Deleted RBAC Policy"
+msgid_plural "Deleted RBAC Policies"
+msgstr[0] "删除 RBAC 策略"
+
+msgid "Deleted RBAC policy is not recoverable."
+msgstr "D删除的 RBAC 策略将无法恢复。"
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -1920,6 +1989,12 @@ msgstr "删除一致性卷组\"%s\""
 #, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "删除卷组 \"%s\""
+
+msgid "Deprecated Settings"
+msgstr "过时的设置"
+
+msgid "Deprecated settings: {}."
+msgstr "过时的设置：{}。"
 
 msgid "Description"
 msgstr "描述"
@@ -2237,6 +2312,16 @@ msgstr "编辑实例类型"
 
 msgid "Edit Group"
 msgstr "编辑组"
+
+msgid "Edit Group Type"
+msgstr "编辑组类型"
+
+msgid "Edit Group Type Spec"
+msgstr "编辑组类型规格"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "编辑组类型规格值：%s"
 
 msgid "Edit Host Aggregate"
 msgstr "编辑主机聚合"
@@ -2679,6 +2764,9 @@ msgstr "检查 neutron 是否支持 \"auto_allocated_network\" 失败。"
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "检查 nova 是否支持 \"auto_allocated_network\" 失败。"
 
+msgid "Failed to create a rbac policy."
+msgstr "创建 rbac 策略失败。"
+
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "创建网络\"%(network)s\"失败: %(reason)s"
@@ -2802,6 +2890,10 @@ msgstr "网络 %s 更新失败。"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "更新端口 \"%s\"失败。"
+
+#, python-format
+msgid "Failed to update rbac policy %s"
+msgstr "更新 rbac 策略 %s 失败"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -2960,6 +3052,9 @@ msgstr "在这里您可以为该网络增加DHCP agent。"
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "从这里可以为一个特定项目分配一个浮动 IP。"
 
+msgid "From here you can create a rbac policy."
+msgstr "可以从这里创建一个 rbac 策略。"
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "为一个卷创建一个快照"
 
@@ -3006,6 +3101,10 @@ msgid "Group"
 msgstr "组"
 
 #, python-format
+msgid "Group \"%s\" already exists."
+msgstr "组 \"%s\" 已存在。"
+
+#, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "组 \"%s\" 已经成功创建。"
 
@@ -3042,8 +3141,43 @@ msgstr "组快照"
 msgid "Group Type"
 msgstr "组类型"
 
+msgid "Group Type Specs"
+msgstr "组类型规格"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "组类型：%(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "组类型：%(group_type_name)s "
+
+msgid "Group Types"
+msgstr "组类型"
+
 msgid "Group has been updated successfully."
 msgstr "组已经被成功更新。"
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"Extra Specs\" button "
+"to set up extra specs key-value pair(s) for that group type."
+msgstr ""
+"组类型是在 OpenStack 创建组的时候可以指定的一个类型或标签。它通常用来映射到这"
+"些卷所使用的存储后端驱动器的性能指标集合。例"
+"如，“Performance”、“SSD”、“Backup”等。这等同于<tt>cinder type-create</tt>命"
+"令。一旦组类型被创建，单击\" extra spec\"按钮以设置组类型的 extra spec  键值"
+"对。"
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "组类型名 \"%s\" 已存在。"
+
+msgid "Group type name can not be empty."
+msgstr "组类型名称不能为空。"
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3211,6 +3345,12 @@ msgstr "新端口的IP地址"
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "该子网的DNS服务器IP地址列表，每行一个。"
+
+msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"网关 IP 地址 (例如 192.168.0.254)。如果不需要使用网关，勾选下面的'禁用网关'。"
 
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
@@ -3555,6 +3695,11 @@ msgid "Key Size (bits)"
 msgstr "密钥大小(bits)"
 
 msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr "键名只能包含字母数字字符、下划线、句点、冒号和连字符。"
+
+msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 msgstr "密钥对名称只能包含字母，数字，下划线，空格以及连字符，但不能为空白"
@@ -3879,6 +4024,9 @@ msgstr "最小磁盘（GB）"
 msgid "Minimum RAM (MB)"
 msgstr "最低内存(MB)"
 
+msgid "Missing required settings: {}."
+msgstr "缺少必需的设置：{}。"
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "已修改域 \"%s\"。"
@@ -3916,6 +4064,9 @@ msgstr "修改配额"
 
 msgid "Modify dashboard settings for your user."
 msgstr "修改当前用户的界面设置"
+
+msgid "Modify group type name, description, and public status."
+msgstr "修改组类型名称、描述，以及公共状态。"
 
 msgid "Modify name and description of a volume."
 msgstr "修改卷的名称和描述"
@@ -4091,6 +4242,9 @@ msgstr "新大小(GiB)"
 
 msgid "New name cannot be empty."
 msgstr "新名称不能为空"
+
+msgid "New name conflicts with another group type."
+msgstr "新名称与另外一个组类型冲突。"
 
 msgid "New name conflicts with another volume type."
 msgstr "新名称与别的卷类型冲突"
@@ -4355,8 +4509,17 @@ msgstr "或者拷贝/粘贴您的私钥"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - 开源虚拟化应用"
 
+msgid "Object"
+msgstr "对象"
+
+msgid "Object ID"
+msgstr "对象 ID"
+
 msgid "Object Store"
 msgstr "对象存储"
+
+msgid "Object Type"
+msgstr "对象类型"
 
 msgid "Old Flavor"
 msgstr "旧的实例类型"
@@ -4461,6 +4624,9 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "密码"
 
+msgid "Password Expires At"
+msgstr "密码过期时间"
+
 msgid "Password changed. Please log in again to continue."
 msgstr "密码已更改，请重新登录。"
 
@@ -4500,6 +4666,9 @@ msgstr "等待删除"
 
 msgid "Per Volume Size (GiB)"
 msgstr "每个卷的大小 (GiB)"
+
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr "检查应用是否升级准备就绪"
 
 msgid "Physical Network"
 msgstr "物理网络"
@@ -4693,6 +4862,9 @@ msgstr "QCOW2 - QEMU 模拟器"
 msgid "QOS Policy ID"
 msgstr "QOS 策略 ID"
 
+msgid "QoS Policy"
+msgstr "QoS 策略"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "QoS Spec 名字 \"%s\" 已存在."
@@ -4755,6 +4927,16 @@ msgstr "内存 (可用: %(avail)s, 已请求: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC 策略"
+
+#, python-format
+msgid "RBAC Policy %s was successfully updated."
+msgstr "RBAC 策略 %s 已被成功更新。"
+
+msgid "RBAC Policy Details"
+msgstr "RBAC 策略详情"
+
+msgid "RBAC Policy was successfully created."
+msgstr "RBAC 策略被成功创建。"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 因子"
@@ -4940,6 +5122,9 @@ msgstr "把备份 %(backup_name)s 恢复到卷（id: %(volume_id)s）的请求�
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "请求的快照会超过配额的限制。"
 
+msgid "Required Settings"
+msgstr "必需的设置"
+
 msgctxt "Action log of an instance"
 msgid "Rescue"
 msgstr "救援"
@@ -5085,6 +5270,9 @@ msgstr "角色名称"
 msgid "Role Name ="
 msgstr "角色名="
 
+msgid "Role assignments"
+msgstr "角色分配"
+
 msgid "Role created successfully."
 msgstr "角色创建成功。"
 
@@ -5180,6 +5368,10 @@ msgstr "保存"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "保存扩展规格\"%s\"."
+
+#, python-format
+msgid "Saved group spec \"%s\"."
+msgstr "已保存组规格\"%s\"。"
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -5302,11 +5494,17 @@ msgstr "选择卷快照"
 msgid "Select a New Flavor"
 msgstr "选择一个新的实例类型"
 
+msgid "Select a QoS policy"
+msgstr "选择一个 QoS 策略"
+
 msgid "Select a floating IP to disassociate"
 msgstr "选择一个浮动 IP 来解除关联"
 
 msgid "Select a key pair"
 msgstr "选择一个密钥对"
+
+msgid "Select a network"
+msgstr "选择一个网络"
 
 msgid "Select a new QoS spec"
 msgstr "选择新的QoS规格"
@@ -5322,9 +5520,6 @@ msgstr "选择一个新的主机"
 
 msgid "Select a new status"
 msgstr "选择一个新的状态"
-
-msgid "Select a new volume type"
-msgstr "选择一个新卷类型"
 
 msgid "Select a pool"
 msgstr "选择一个资源池"
@@ -5352,6 +5547,9 @@ msgstr "选择一个要从实例中分离出来的卷"
 
 msgid "Select a volume to restore to."
 msgstr "选择一个卷用来恢复。"
+
+msgid "Select action and object type"
+msgstr "选择操作和对象类型"
 
 msgid "Select an IP address"
 msgstr "选择一个IP地址"
@@ -5496,6 +5694,12 @@ msgstr "共享的"
 
 msgid "Shared ="
 msgstr "共享的 ="
+
+msgid "Shared Network"
+msgstr "共享的 网络"
+
+msgid "Shared QoS Policy"
+msgstr "共享的 QoS 策略"
 
 msgid "Shared Storage"
 msgstr "共享存储"
@@ -5702,6 +5906,9 @@ msgstr "为创建的实例指定IP地址 (例如 192.168.0.254)."
 msgid "Specify an image to upload to the Image Service."
 msgstr "指定镜像上传到镜像服务"
 
+msgid "Specify network address"
+msgstr "指定网络地址"
+
 msgid "Specify the MAC address for the new port"
 msgstr "为新端口指定 MAC 地址"
 
@@ -5821,6 +6028,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "成功为卷类型: %s 创建了加密"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "成功创建组类型：%s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "安全组创建成功：%s"
 
@@ -5894,6 +6105,9 @@ msgstr "成功更新主机聚合：\"%s.\""
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "成功为卷类型: %s 更新了加密"
 
+msgid "Successfully updated group type."
+msgstr "成功更新组类型。"
+
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "成功更新安全组: %s"
@@ -5945,8 +6159,17 @@ msgstr "系统"
 msgid "System Information"
 msgstr "系统信息"
 
+msgid "System Scope"
+msgstr "系统范围"
+
 msgid "Target Host"
 msgstr "目标主机"
+
+msgid "Target Project"
+msgstr "目标项目"
+
+msgid "Target Tenant"
+msgstr "目标租户"
 
 msgid "Task"
 msgstr "任务"
@@ -6183,6 +6406,12 @@ msgstr "虚拟网络对应的物理网络的名称。指定一个在neutron环�
 msgid "The new availability zone can't be empty"
 msgstr "新的可用区域不能为空"
 
+msgid "The new type must be different from the current volume type."
+msgstr "新类型必须和当前类型不同。"
+
+msgid "The output format"
+msgstr "输出格式"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "实现虚拟网络的物理机制。"
 
@@ -6391,6 +6620,9 @@ msgstr ""
 
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "要退出全屏模式，请点击浏览器的后退按键"
+
+msgid "To make group type private, uncheck this field."
+msgstr "要创建私有类型的组，取消选中这个选项。"
 
 msgid "To make volume type private, uncheck this field."
 msgstr "建立私有类型的卷，取消选中这个选项"
@@ -6609,6 +6841,12 @@ msgstr "由于超过卷配额限制，无法创建组"
 msgid "Unable to create group snapshot."
 msgstr "无法创建组快照。"
 
+msgid "Unable to create group type spec."
+msgstr "无法创建组类型规格。"
+
+msgid "Unable to create group type."
+msgstr "无法创建组类型。"
+
 msgid "Unable to create group."
 msgstr "无法创建组。"
 
@@ -6668,6 +6906,10 @@ msgstr "无法创建快照。一致性组中必须包含卷"
 
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "无法创建快照，组中必须包含卷。"
+
+#, python-format
+msgid "Unable to create snapshot: %s"
+msgstr "无法创建快照：%s"
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "由于超过卷配额限制，无法创建一致性组"
@@ -6745,11 +6987,23 @@ msgstr "无法将浮动IP解除绑定"
 msgid "Unable to display consistency group."
 msgstr "无法显示一致性组"
 
+msgid "Unable to display role assignment through groups."
+msgstr "无法显示通过组的角色分配。"
+
 msgid "Unable to display the groups of this project."
 msgstr "无法显示此项目的组。"
 
+msgid "Unable to display the groups of this user."
+msgstr "无法显示这个用户的组。"
+
+msgid "Unable to display the role assignments of this user."
+msgstr "无法显示此用户的角色分配。"
+
 msgid "Unable to display the users of this project."
 msgstr "无法显示此项目的用户。"
+
+msgid "Unable to edit group type spec."
+msgstr "无法编辑组类型规格。"
 
 msgid "Unable to edit spec."
 msgstr "无法编辑规格"
@@ -6980,6 +7234,9 @@ msgstr "无法获取QoS规格列表。"
 msgid "Unable to retrieve QoS specs"
 msgstr "无法获取QoS规格"
 
+msgid "Unable to retrieve RBAC policies."
+msgstr "无法获取 RBAC 策略。"
+
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr "无法获取外部网络\"%s:列表"
@@ -7008,6 +7265,9 @@ msgstr "无法获取可用域。"
 
 msgid "Unable to retrieve backup details."
 msgstr "无法获取备份详情。"
+
+msgid "Unable to retrieve community images."
+msgstr "无法获取社区镜像。"
 
 msgid "Unable to retrieve compute host information."
 msgstr "无法获取计算节点信息。"
@@ -7045,6 +7305,10 @@ msgstr "无法获取密钥对 \"%s\" 的详情。"
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "无法获取网络\"%s\"的详情."
+
+#, python-format
+msgid "Unable to retrieve details for rbac_policy \"%s\"."
+msgstr "无法获取 rbac_policy \"%s\" 的详情。"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -7119,8 +7383,30 @@ msgstr "无法获取组列表。稍后请重试。"
 msgid "Unable to retrieve group snapshot details."
 msgstr "无法获取组快照详情。"
 
+msgid "Unable to retrieve group snapshot project information."
+msgstr "无法获取组快照项目信息。"
+
 msgid "Unable to retrieve group snapshots."
 msgstr "无法获取组快照。"
+
+msgid "Unable to retrieve group type details."
+msgstr "无法获取组类型的详情。"
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "无法为 \"%s\" 获取组类型"
+
+msgid "Unable to retrieve group type name."
+msgstr "无法获取组类型名称。"
+
+msgid "Unable to retrieve group type spec details."
+msgstr "无法获取组类型规格的详情。"
+
+msgid "Unable to retrieve group type spec list."
+msgstr "无法获取组类型规格列表。"
+
+msgid "Unable to retrieve group type."
+msgstr "无法获取组类型。"
 
 msgid "Unable to retrieve group types."
 msgstr "无法获得组类型。"
@@ -7172,6 +7458,15 @@ msgstr "无法获取镜像。"
 
 msgid "Unable to retrieve information about the networks' projects."
 msgstr "无法获取关于网络的项目信息。"
+
+msgid "Unable to retrieve information about the policies' networks."
+msgstr "无法获取策略的网络信息。"
+
+msgid "Unable to retrieve information about the policies' projects."
+msgstr "无法获得策略的项目信息。"
+
+msgid "Unable to retrieve information about the policies' qos policies."
+msgstr "无法获得策略的 qos 策略信息。"
 
 msgid "Unable to retrieve instance action list."
 msgstr "无法获取实例的操作日志列表"
@@ -7251,6 +7546,9 @@ msgstr "无法获取项目详情"
 msgid "Unable to retrieve project domain."
 msgstr "无法获取项目域信息。"
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr "无法获取卷快照的项目信息。"
+
 msgid "Unable to retrieve project information."
 msgstr "无法获取项目信息。"
 
@@ -7268,6 +7566,9 @@ msgstr "无法获取公共镜像。"
 
 msgid "Unable to retrieve quota information."
 msgstr "无法获取配额信息。"
+
+msgid "Unable to retrieve rbac policy details."
+msgstr "无法获取 rbac 策略详情。"
 
 msgid "Unable to retrieve role list."
 msgstr "无法获取角色列表。"
@@ -7345,6 +7646,9 @@ msgstr "无法获取用户详情。"
 msgid "Unable to retrieve user domain role assignments."
 msgstr "无法获取用户在域中的角色分配。"
 
+msgid "Unable to retrieve user domain."
+msgstr "无法获取用户域。"
+
 msgid "Unable to retrieve user information."
 msgstr "无法获取用户信息。"
 
@@ -7377,6 +7681,9 @@ msgstr "无法获取卷详情。"
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "无法获取卷加密详情。"
+
+msgid "Unable to retrieve volume group project information."
+msgstr "无法获取卷组项目信息。"
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "无法获取卷组快照。"
@@ -7412,6 +7719,9 @@ msgstr "无法获取卷项目信息。"
 
 msgid "Unable to retrieve volume quota information."
 msgstr "无法获取卷配额信息。"
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr "无法获取卷快照项目信息。"
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "无法获取卷快照"
@@ -7495,6 +7805,9 @@ msgstr "无法更新默认卷配额"
 
 msgid "Unable to update encrypted volume type."
 msgstr "无法更新加密的卷类型"
+
+msgid "Unable to update group type."
+msgstr "无法更新组类型。"
 
 msgid "Unable to update group."
 msgstr "无法更新组。"
@@ -7584,6 +7897,9 @@ msgstr "无法验证Neutron中的VNIC类型扩展。"
 msgid "Unknown"
 msgstr "未知"
 
+msgid "Unknown Settings"
+msgstr "未知的设置"
+
 msgid "Unknown instance"
 msgstr "未知实例"
 
@@ -7592,6 +7908,9 @@ msgstr "未知的实例名(None)"
 
 msgid "Unknown resource type for detail API."
 msgstr "详情 API 未知的资源类型。"
+
+msgid "Unknown settings: {}."
+msgstr "未知的设置： {}。"
 
 msgid "Unknown volume (None)"
 msgstr "未知卷（None）"
@@ -7703,6 +8022,9 @@ msgstr "更新元数据"
 msgid "Update Network"
 msgstr "更新网络"
 
+msgid "Update RBAC Policy"
+msgstr "更新 RBAC 策略"
+
 msgid "Update Role"
 msgstr "更新角色"
 
@@ -7738,6 +8060,10 @@ msgstr "更新加密卷类型"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "为\"%(key)s\"更新\"额外规格\"的值"
+
+#, python-format
+msgid "Update the \"group spec\" value for \"%(key)s\""
+msgstr "为 \"%(key)s\" 更新 \"group spec\" 的值"
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
@@ -7958,6 +8284,9 @@ msgstr "查看日志"
 
 msgid "View Routers"
 msgstr "查看路由器"
+
+msgid "View Specs"
+msgstr "查看规格"
 
 msgid "View Usage"
 msgstr "查看使用量"
@@ -8324,6 +8653,9 @@ msgstr ""
 "您可以为这个应用程序凭证选择一个或多个角色。如果不选，则应用程序凭证使用当前"
 "项目分配给您的所有角色。"
 
+msgid "You may update the editable properties of the RBAC policy here."
+msgstr "可以在这里更新可被编辑的 RBAC 策略属性。"
+
 msgid "You may update the editable properties of your network here."
 msgstr "在此可以更新网络的可编辑属性"
 
@@ -8397,11 +8729,22 @@ msgstr "例如，Yes / No"
 msgid "e.g. Yes/No"
 msgstr "例如，是/否"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr "实例类型  id 只能包含字母数字字符、下划线、句点、连字符和空格。"
+
 msgid "front-end"
 msgstr "前端"
 
 msgid "instance"
 msgstr "实例"
+
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr "名为 \"%s\" 的键已存在。使用编辑来更新这个值，或创建不同名称的键。"
 
 msgid "no"
 msgstr "否"

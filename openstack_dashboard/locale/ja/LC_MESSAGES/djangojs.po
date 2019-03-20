@@ -4,16 +4,17 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
+# Takashi Kuroda <tkuroda@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-22 16:05+0000\n"
+"POT-Creation-Date: 2019-03-19 11:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-13 08:05+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2019-03-20 01:31+0000\n"
+"Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -129,6 +130,28 @@ msgid ""
 msgstr ""
 "パブリックコンテナーでは、公開 URL を使って誰でもコンテナー内のオブジェクトへ"
 "アクセスすることができます。"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"  you to organize your data. You can think of a container as a folder in\n"
+"  Windows® or a directory in UNIX®. The primary difference between a\n"
+"  container and these other file system concepts is that containers cannot "
+"be\n"
+"  nested. You can, however, create an unlimited number of containers within\n"
+"  your account. Data must be stored in a container so you must have at "
+"least\n"
+"  one container defined in your account prior to uploading data."
+msgstr ""
+"コンテナーはデータのストレージの区画です。\n"
+"データを整理する手段を提供します。\n"
+"コンテナーは、Windows® のフォルダーや UNIX® のディレクトリーのように考えるこ"
+"とができます。\n"
+"コンテナーとこれらのファイルシステムの概念の主な違いは、コンテナーは入れ子に"
+"できないことです。\n"
+"ただし、アカウント内に無制限のコンテナーを作成することが可能です。\n"
+"データはコンテナーに保存する必要があります。\n"
+"そのため、データをアップロードする前に、少なくとも 1 つのコンテナーをアカウン"
+"トに定義する必要があります。"
 
 msgid "A container with that name exists."
 msgstr "その名前のコンテナーはすでにに存在します。"
@@ -516,6 +539,10 @@ msgstr "コンフィグドライブ"
 msgid "Confirm Delete"
 msgstr "削除の確認"
 
+msgid "Confirm Delete Domain"
+msgid_plural "Confirm Delete Domains"
+msgstr[0] "ドメイン削除の確認"
+
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "フレーバーの削除の確認"
@@ -780,6 +807,13 @@ msgstr "削除"
 msgid "Delete Container"
 msgstr "コンテナーの削除"
 
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "ドメインの削除"
+
+msgid "Delete Domains"
+msgstr "ドメインの削除"
+
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $} 内のファイルの削除"
 
@@ -906,6 +940,11 @@ msgstr[0] "トランク %s を削除しました。"
 msgid "Deleted User: %s."
 msgid_plural "Deleted Users: %s."
 msgstr[0] "ユーザー %s を削除しました。"
+
+#, python-format
+msgid "Deleted domain: %s."
+msgid_plural "Deleted domains: %s."
+msgstr[0] "ドメイン %s を削除しました。"
 
 #, python-format
 msgid "Deleted policy: %s."
@@ -1524,6 +1563,18 @@ msgstr ""
 "す。\n"
 "自分で認識できるキーペア名を付けて、\n"
 "SSH 公開鍵を指定された欄に貼り付けてください。"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, dashes and\n"
+"  underscores."
+msgstr ""
+"キーペアは、インスタンスの起動後にそのインスタンスにログインするために使用し"
+"ます。\n"
+"自分で認識できるキーペア名を付けてください。\n"
+"名前に使用できるのは、英数字、空白文字、ダッシュ、および\n"
+"アンダースコアーのみです。"
 
 #, python-format
 msgid "Key pair %(name)s was successfully created."
@@ -2205,6 +2256,9 @@ msgstr "ロール"
 msgid "Role %s was successfully created."
 msgstr "ロール %s が正常に作成されました。"
 
+msgid "Role already exists."
+msgstr "ロールはすでに存在します。"
+
 msgid "Role updated successfully."
 msgstr "ロールが正常に更新されました。"
 
@@ -2231,6 +2285,11 @@ msgstr "変更の保存"
 
 msgid "Saving"
 msgstr "保存中"
+
+#, python-format
+msgid "Scheduled of %s instance."
+msgid_plural "Scheduled of %s instances."
+msgstr[0] "%s 個のインスタンスの作成を予約しました。"
 
 msgid "Scheduler Hints"
 msgstr "スケジューラーヒント"
@@ -3037,9 +3096,18 @@ msgid_plural "Unable to delete Users: %s."
 msgstr[0] "ユーザーを削除できません: %s"
 
 #, python-format
+msgid "Unable to delete domain: %s."
+msgid_plural "Unable to delete domains: %s."
+msgstr[0] "ドメインを削除できません: %s"
+
+#, python-format
 msgid "Unable to delete policy: %s."
 msgid_plural "Unable to delete policies: %s."
 msgstr[0] "ポリシーを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "QoS ポリシー %(id)s を削除できません"
 
 msgid "Unable to delete the container."
 msgstr "コンテナーを削除できません。"
@@ -3304,6 +3372,10 @@ msgstr "ネットワーク一覧を取得できません。"
 
 msgid "Unable to retrieve the nova services."
 msgstr "Nova のサービスを取得できません。"
+
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "ID %(id)s のポリシーを取得できません"
 
 msgid "Unable to retrieve the ports."
 msgstr "ポートを取得できません。"
@@ -3630,6 +3702,9 @@ msgstr "ボリュームとスナップショットのクォータ (GiB)"
 msgid "Volume size is required and must be an integer"
 msgstr "ボリュームサイズは必須で、整数でなければなりません。"
 
+msgid "Volume size is required and must be positive integer"
+msgstr "ボリュームサイズは必須で、正の整数でなければなりません。"
+
 msgid "Volumes"
 msgstr "ボリューム"
 
@@ -3712,6 +3787,10 @@ msgid "Yes"
 msgstr "はい"
 
 #, python-format
+msgid "You are not allowed to delete domains: %s"
+msgstr "ドメインの削除は許可されていません: %s"
+
+#, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "イメージの削除は許可されていません: %s"
 
@@ -3776,6 +3855,11 @@ msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたトランクは元に戻せません。"
 
 #, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたドメインは元に戻せません。"
+
+#, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたフレーバーは元に戻せません。"
@@ -3818,6 +3902,12 @@ msgstr "イメージ"
 
 msgid "inherit"
 msgstr "inherit"
+
+msgid "min disk is required and must be an integer not less than 0"
+msgstr "最小ディスクは必須で、0 または正の整数でなければなりません。"
+
+msgid "min ram is required and must be an integer not less than 0"
+msgstr "最小メモリーは必須で、0 または正の整数でなければなりません。"
 
 #, python-format
 msgid "resource load failed: %s"
