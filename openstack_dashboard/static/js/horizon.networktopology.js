@@ -697,7 +697,7 @@ horizon.network_topology = {
         var device = self.find_by_id(port.device_id);
         var _network = self.find_by_id(port.network_id);
         if (angular.isDefined(device) && angular.isDefined(_network)) {
-          if (port.device_owner == 'compute:nova' || port.device_owner == 'compute:None') {
+          if (port.device_owner && port.device_owner.startsWith('compute:')) {
             _network.data.instances++;
             device.data.networks.push(_network.data);
             if (port.fixed_ips) {
@@ -727,7 +727,8 @@ horizon.network_topology = {
           }
           self.new_link(self.find_by_id(port.device_id), self.find_by_id(port.network_id));
           change = true;
-        } else if (angular.isDefined(_network) && port.device_owner == 'compute:nova') {
+        } else if (angular.isDefined(_network) &&
+                   port.device_owner && port.device_owner.startsWith('compute:')) {
           // Need to add a previously hidden node to the graph because it is
           // connected to more than 1 network
           if (_network.data.collapsed) {
