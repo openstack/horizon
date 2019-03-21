@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-19 11:03+0000\n"
+"POT-Creation-Date: 2019-03-20 15:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7821,9 +7821,6 @@ msgstr "Nombre de usuario ="
 
 msgid "User Settings"
 msgstr "Ajustes de usuario"
-
-msgid "User has been updated successfully."
-msgstr "Se ha actualizado el usuario correctamente."
 
 #, python-format
 msgid "User name \"%s\" is already used."

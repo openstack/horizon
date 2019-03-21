@@ -18,16 +18,17 @@
 # JF Taltavull <jftalta@gmail.com>, 2018. #zanata
 # Loic Nicolle <loic.nicolle@orange.com>, 2018. #zanata
 # Cecilia Di Maulo <cecidimaulo@gmail.com>, 2019. #zanata
+# Gael Rehault <gael_rehault@dell.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-22 16:05+0000\n"
+"POT-Creation-Date: 2019-03-20 15:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-01-07 11:17+0000\n"
-"Last-Translator: Cecilia Di Maulo <cecidimaulo@gmail.com>\n"
+"PO-Revision-Date: 2019-03-20 11:51+0000\n"
+"Last-Translator: Gael Rehault <gael_rehault@dell.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -338,6 +339,9 @@ msgstr ""
 "on lance une instance.  <b>Automatic</b> redimensionne le disque et y crée "
 "une partition unique. <b>Manuel</b> vous permet de créer plusieurs "
 "partitions sur le disque."
+
+msgid "An arbitrary description for the trunk."
+msgstr "Description pour le joncteur."
 
 msgid "An arbitrary name for the trunk. May not be unique."
 msgstr "Un nom arbitraire pour le joncteur. Peut ne pas être unique."
@@ -686,6 +690,9 @@ msgstr "Créer un groupe de serveur"
 
 msgid "Create Subnet"
 msgstr "Créer un sous-réseau"
+
+msgid "Create Trunk"
+msgstr "Créer le joncteur."
 
 msgid "Create User"
 msgstr "Créer un utilisateur"
@@ -1106,6 +1113,9 @@ msgstr "Éditer l'image"
 
 msgid "Edit Role"
 msgstr "Éditer le rôle"
+
+msgid "Edit Trunk"
+msgstr "Modifier le joncteur."
 
 msgid "Edit User"
 msgstr "Editer l'utilisateur"
@@ -1626,6 +1636,9 @@ msgstr "Chargement..."
 
 msgid "Loading ports... Please Wait"
 msgstr "Chargement des ports en cours...Veuillez patienter"
+
+msgid "Loading trunk... Please Wait"
+msgstr "Chargement du joncteur en cours...Veuillez patienter"
 
 msgid "Location"
 msgstr "Emplacement"
@@ -2218,6 +2231,9 @@ msgstr "ID de la règle"
 msgid "Rules"
 msgstr "Règles"
 
+msgid "SSH Key"
+msgstr "Clé SSH"
+
 msgid "STATUS"
 msgstr "STATUT"
 
@@ -2444,6 +2460,9 @@ msgstr "Quelqu'un de célèbre dans "
 
 msgid "Something else here"
 msgstr "Autre chose ici"
+
+msgid "Something wrong to change password."
+msgstr "Un problème est survenu en tentant de mofidier le mot de passe."
 
 msgid "Source"
 msgstr "Source"
@@ -2822,6 +2841,14 @@ msgstr "Total des Volumes"
 
 msgid "Trunk"
 msgstr "Joncteur"
+
+#, python-format
+msgid "Trunk %s was successfully created."
+msgstr "Le joncteur  %s a été créé avec succès."
+
+#, python-format
+msgid "Trunk %s was successfully edited."
+msgstr "Le joncteur %s a été mis à jour avec succès."
 
 msgid "Trunks"
 msgstr "Joncteurs"
@@ -3574,6 +3601,11 @@ msgid "Volume size is required and must be an integer"
 msgstr ""
 "La taille du volume est obligatoire et doit correspondre à un entier relatif"
 
+msgid "Volume size is required and must be positive integer"
+msgstr ""
+"La taille du volume est obligatoire et doit correspondre à nombre entier "
+"positif"
+
 msgid "Volumes"
 msgstr "Volumes"
 
@@ -3803,6 +3835,16 @@ msgstr "Votre formulaire en JavaScript"
 
 msgid "image"
 msgstr "image"
+
+msgid "min disk is required and must be an integer not less than 0"
+msgstr ""
+"La taille du volume est obligatoire et doit correspondre à un entier "
+"supérieure à 0"
+
+msgid "min ram is required and must be an integer not less than 0"
+msgstr ""
+"La taille de RAM minimale est obligatoire et doit correspondre à un entier "
+"supérieure à 0"
 
 #, python-format
 msgid "resource load failed: %s"

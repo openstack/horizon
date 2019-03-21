@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-19 11:03+0000\n"
+"POT-Creation-Date: 2019-03-20 15:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-20 01:31+0000\n"
+"PO-Revision-Date: 2019-03-21 02:15+0000\n"
 "Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1576,6 +1576,9 @@ msgstr ""
 "名前に使用できるのは、英数字、空白文字、ダッシュ、および\n"
 "アンダースコアーのみです。"
 
+msgid "Key Type"
+msgstr "鍵タイプ"
+
 #, python-format
 msgid "Key pair %(name)s was successfully created."
 msgstr "キーペア %(name)s が正常に作成されました。"
@@ -2273,6 +2276,9 @@ msgstr "ルール ID"
 
 msgid "Rules"
 msgstr "ルール"
+
+msgid "SSH Key"
+msgstr "SSH 鍵"
 
 msgid "STATUS"
 msgstr "ステータス"
@@ -3776,6 +3782,9 @@ msgstr ""
 "そのポートは使用可能です。他のユーザーがそのポートを使用するための準備が整っ"
 "ていない場合には、<b>管理状態</b>を <b>Down</b> に\n"
 "設定することができます。"
+
+msgid "X509 Certificate"
+msgstr "X509 証明書"
 
 msgid "XL Modal"
 msgstr "XL モーダル"
