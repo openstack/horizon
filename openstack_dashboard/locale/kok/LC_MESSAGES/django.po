@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-12 17:36+0000\n"
+"POT-Creation-Date: 2019-03-20 15:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4069,9 +4069,6 @@ msgstr "वापरप्याचे नाव"
 
 msgid "User Settings"
 msgstr "वापरपी स्थापितां"
-
-msgid "User has been updated successfully."
-msgstr "वापरपी यशस्विपणान सुदारला. "
 
 #, python-format
 msgid "User name \"%s\" is already used."

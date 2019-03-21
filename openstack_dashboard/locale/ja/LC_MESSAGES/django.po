@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-19 11:03+0000\n"
+"POT-Creation-Date: 2019-03-20 15:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-20 12:43+0000\n"
+"PO-Revision-Date: 2019-03-21 02:14+0000\n"
 "Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -3842,6 +3842,9 @@ msgstr "キーペア名"
 msgid "Key Pair Name ="
 msgstr "キーペア名 ="
 
+msgid "Key Pair Type"
+msgstr "キーペアタイプ"
+
 msgid "Key Pairs"
 msgstr "キーペア"
 
@@ -3851,6 +3854,9 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "キーサイズ (ビット)"
+
+msgid "Key Type"
+msgstr "鍵タイプ"
 
 msgid ""
 "Key names can only contain alphanumeric characters, underscores, periods, "
@@ -3868,6 +3874,14 @@ msgstr ""
 
 msgid "Key pair to use for authentication."
 msgstr "認証に使用するキーペア。"
+
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"名前が \"%s\" のキーはすでに存在します。編集 を使用して値を更新してください。"
+"あるいは、別の名前のキーを作成してください。"
 
 msgid "Key-Value Pairs"
 msgstr "キーと値のペア"
@@ -5562,6 +5576,9 @@ msgstr "SLAAC: アドレスを外部のルーターから取得"
 msgid "SNAT"
 msgstr "SNAT"
 
+msgid "SSH Key"
+msgstr "SSH 鍵"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH キーペアは ssh-keygen コマンドを使って生成できます。"
 
@@ -6136,7 +6153,7 @@ msgid "Specify an image to upload to the Image Service."
 msgstr "イメージサービスにアップロードするイメージを指定します。"
 
 msgid "Specify network address"
-msgstr "ネットワークアドレスを指定してください。"
+msgstr "ネットワークアドレスを指定してください"
 
 msgid "Specify the MAC address for the new port"
 msgstr "新規ポートの MAC アドレスを指定します"
@@ -8506,6 +8523,10 @@ msgid "User"
 msgstr "ユーザー"
 
 #, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "ユーザー \"%s\" が正常に更新されました。"
+
+#, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "ユーザー \"%s\" を作成しました。"
 
@@ -8533,9 +8554,6 @@ msgstr "ユーザー名 ="
 
 msgid "User Settings"
 msgstr "ユーザー設定"
-
-msgid "User has been updated successfully."
-msgstr "ユーザーが正常に更新されました。"
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -8889,6 +8907,9 @@ msgid ""
 msgstr ""
 "ボリュームの状態が「使用中」の場合、ボリュームをイメージにアップロードするに"
 "は「強制アップロード」にチェックを付けてください。"
+
+msgid "X509 Certificate"
+msgstr "X509 証明書"
 
 msgid "Yes"
 msgstr "はい"
