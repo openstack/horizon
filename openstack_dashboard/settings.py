@@ -289,7 +289,6 @@ POLICY_FILES = {
 # in POLICY_DIRS by default.
 POLICY_DIRS = {
     'compute': ['nova_policy.d'],
-    'volume': ['cinder_policy.d'],
 }
 
 SECRET_KEY = None

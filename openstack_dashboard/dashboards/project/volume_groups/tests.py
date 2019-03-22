@@ -152,7 +152,7 @@ class VolumeGroupTests(test.TestCase):
 
     @test.create_mocks({cinder: ['group_get', 'group_delete']})
     def test_delete_group_delete_volumes_flag(self):
-        group = self.cinder_consistencygroups.first()
+        group = self.cinder_groups.first()
         formData = {'delete_volumes': True}
 
         self.mock_group_get.return_value = group

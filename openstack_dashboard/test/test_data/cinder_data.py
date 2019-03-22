@@ -13,8 +13,6 @@
 #    under the License.
 
 from cinderclient.v2 import availability_zones
-from cinderclient.v2 import cgsnapshots
-from cinderclient.v2 import consistencygroups
 from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 from cinderclient.v2 import pools
 from cinderclient.v2 import qos_specs
@@ -55,9 +53,6 @@ def data(TEST):
     TEST.cinder_availability_zones = utils.TestDataContainer()
     TEST.cinder_volume_transfers = utils.TestDataContainer()
     TEST.cinder_pools = utils.TestDataContainer()
-    TEST.cinder_consistencygroups = utils.TestDataContainer()
-    TEST.cinder_cgroup_volumes = utils.TestDataContainer()
-    TEST.cinder_cg_snapshots = utils.TestDataContainer()
     TEST.cinder_groups = utils.TestDataContainer()
     TEST.cinder_group_types = utils.TestDataContainer()
     TEST.cinder_group_snapshots = utils.TestDataContainer()
@@ -455,49 +450,6 @@ def data(TEST):
 
     TEST.cinder_pools.add(pool1)
     TEST.cinder_pools.add(pool2)
-
-    # volume consistency groups
-    cgroup_1 = consistencygroups.Consistencygroup(
-        consistencygroups.ConsistencygroupManager(None),
-        {'id': u'1',
-         'name': u'cg_1',
-         'description': 'cg 1 description',
-         'volume_types': ['1'],
-         'volume_type_names': []})
-
-    cgroup_2 = consistencygroups.Consistencygroup(
-        consistencygroups.ConsistencygroupManager(None),
-        {'id': u'2',
-         'name': u'cg_2',
-         'description': 'cg 2 description',
-         'volume_types': ['1'],
-         'volume_type_names': []})
-
-    TEST.cinder_consistencygroups.add(cgroup_1)
-    TEST.cinder_consistencygroups.add(cgroup_2)
-
-    volume_for_consistency_group = volumes.Volume(
-        volumes.VolumeManager(None),
-        {'id': "11023e92-8008-4c8b-8059-7f2293ff3881",
-         'status': 'available',
-         'size': 40,
-         'name': 'Volume name',
-         'display_description': 'Volume description',
-         'created_at': '2014-01-27 10:30:00',
-         'volume_type': 'vol_type_1',
-         'attachments': [],
-         'consistencygroup_id': u'1'})
-    TEST.cinder_cgroup_volumes.add(api.cinder.Volume(
-        volume_for_consistency_group))
-
-    # volume consistency group snapshots
-    cg_snapshot_1 = cgsnapshots.Cgsnapshot(
-        cgsnapshots.CgsnapshotManager(None),
-        {'id': u'1',
-         'name': u'cg_ss_1',
-         'description': 'cg_ss 1 description',
-         'consistencygroup_id': u'1'})
-    TEST.cinder_cg_snapshots.add(cg_snapshot_1)
 
     group_type_1 = group_types.GroupType(
         group_types.GroupTypeManager(None),
