@@ -37,7 +37,7 @@ from openstack_dashboard.dashboards.project.volume_groups \
 CGROUP_INFO_FIELDS = ("name",
                       "description")
 
-INDEX_URL = "horizon:project:cgroups:index"
+INDEX_URL = "horizon:project:volume_groups:index"
 
 
 class IndexView(tables.DataTableView):
