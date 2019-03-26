@@ -103,11 +103,15 @@ py27dj18, py27dj19, py27dj110
 Runs the Python unit tests against Django 1.8, Django 1.9 and Django 1.10
 respectively
 
-
-py35
+py36
 ----
 
-Runs the Python unit tests with a Python 3.5 environment.
+Runs the Python unit tests with a Python 3.6 environment.
+
+py37
+----
+
+Runs the Python unit tests with a Python 3.7 environment.
 
 releasenotes
 ------------

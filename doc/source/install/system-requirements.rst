@@ -2,13 +2,9 @@
 System Requirements
 ===================
 
-The Stein release of horizon has the following dependencies.
+The Train release of horizon has the following dependencies.
 
-* Python 2.7 or 3.5
-
-  * Python 3.6 support is experimental.
-  * Python 3.7 (or later versions if any) support will be considered
-    along with the OpenStack community support policy.
+* Python 2.7, 3.6 or 3.7
 
 * Django 1.11 or 2.0
 
