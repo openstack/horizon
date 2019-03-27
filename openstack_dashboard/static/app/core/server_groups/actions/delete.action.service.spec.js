@@ -17,7 +17,7 @@
 
   describe('horizon.app.core.server_groups.actions.delete.service', function() {
 
-    var $scope, deferredModal, novaAPI, service;
+    var $scope, deferredModal, novaAPI, service, $location;
     var deleteModalService = {
       open: function () {
         deferredModal.resolve({
@@ -39,6 +39,7 @@
     beforeEach(inject(function($injector, _$rootScope_, $q) {
       $scope = _$rootScope_.$new();
       deferredModal = $q.defer();
+      $location = $injector.get("$location");
       novaAPI = $injector.get('horizon.app.core.openstack-service-api.nova');
       service = $injector.get('horizon.app.core.server_groups.actions.delete.service');
     }));
@@ -57,6 +58,8 @@
       it('should only delete server groups that are valid', testValids);
       it('should pass in a function that deletes a server group', testNova);
       it('should check the policy if the user is allowed to delete server group', testAllowed);
+      it('Should jump to the project server_groups page when deleting the server_groups',
+         testDeleteResult);
 
       ////////////
 
@@ -128,6 +131,23 @@
         var allowed = service.allowed();
         expect(allowed).toBeTruthy();
       }
+
+      function testDeleteResult() {
+        $location.path("ngdetails/OS::Nova::ServerGroup/1");
+        var servergroup = {id: 1, name: 'sg1'};
+        deferredModal.resolve({fail: [], pass:[{data:{"data": "", "status": "204"},
+                                                context:servergroup}]});
+        spyOn(novaAPI, 'deleteServerGroup').and.returnValue(deferredModal.promise);
+        service.perform(servergroup);
+        $scope.$apply();
+
+        var contextArg = deleteModalService.open.calls.argsFor(0)[2];
+        var deleteFunction = contextArg.deleteEntity;
+        deleteFunction(servergroup.id);
+        expect(novaAPI.deleteServerGroup).toHaveBeenCalledWith(servergroup.id, true);
+        expect($location.path()).toEqual("/project/server_groups");
+      }
+
     }); // end of delete modal
 
   }); // end of delete server group
