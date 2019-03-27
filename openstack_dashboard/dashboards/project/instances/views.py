@@ -125,12 +125,23 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
 
         return instances
 
+    def _get_volumes(self):
+        # Gather our volumes to get their image metadata for instance
+        try:
+            volumes = api.cinder.volume_list(self.request)
+            return dict((str(volume.id), volume) for volume in volumes)
+        except Exception:
+            exceptions.handle(self.request, ignore=True)
+            return {}
+
     def get_data(self):
         marker, sort_dir = self._get_marker()
         search_opts = self.get_filters({'marker': marker, 'paginate': True})
 
-        image_dict, flavor_dict = futurist_utils.call_functions_parallel(
-            self._get_images, self._get_flavors)
+        image_dict, flavor_dict, volume_dict = \
+            futurist_utils.call_functions_parallel(
+                self._get_images, self._get_flavors, self._get_volumes
+            )
 
         non_api_filter_info = (
             ('image_name', 'image', image_dict.values()),
@@ -155,6 +166,26 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
                     # until the call is deprecated in api itself
                     else:
                         instance.image['name'] = _("-")
+                # Otherwise trying to get image from volume metadata
+                else:
+                    instance_volumes = [
+                        attachment
+                        for volume in volume_dict.values()
+                        for attachment in volume.attachments
+                        if attachment['server_id'] == instance.id
+                    ]
+                    # Sorting attached volumes by device name (eg '/dev/sda')
+                    instance_volumes.sort(key=lambda attach: attach['device'])
+                    # While instance from volume is being created,
+                    # it does not have volumes
+                    if instance_volumes:
+                        # Getting volume object, which is as attached
+                        # as the first device
+                        boot_volume = volume_dict[instance_volumes[0]['id']]
+                        if hasattr(boot_volume, "volume_image_metadata"):
+                            instance.image = image_dict[
+                                boot_volume.volume_image_metadata['image_id']
+                            ]
 
             flavor_id = instance.flavor["id"]
             if flavor_id in flavor_dict:
