@@ -23,6 +23,7 @@
 
   deleteService.$inject = [
     '$q',
+    '$location',
     'horizon.app.core.openstack-service-api.neutron',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.app.core.trunks.resourceType',
@@ -32,6 +33,7 @@
 
   function deleteService(
     $q,
+    $location,
     neutron,
     policy,
     resourceType,
@@ -81,7 +83,16 @@
           actionResult.failed(resourceType, item.context.id);
         });
 
-        return actionResult.result;
+        var path = "admin/trunks";
+        if ($location.url().indexOf("admin") === -1) {
+          path = "project/trunks";
+        }
+        if ($location.url() !== path && actionResult.result.failed.length === 0 &&
+            actionResult.result.deleted.length > 0) {
+          $location.path(path);
+        } else {
+          return actionResult.result;
+        }
       }
     }
 
