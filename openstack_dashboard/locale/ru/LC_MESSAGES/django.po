@@ -36,11 +36,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-20 15:51+0000\n"
+"POT-Creation-Date: 2019-03-28 04:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-02 02:29+0000\n"
+"PO-Revision-Date: 2019-03-28 02:54+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -936,6 +936,13 @@ msgstr ""
 "\"Без ограничений\""
 
 msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"По умолчанию тип группы создается как публичный. Для создания приватного "
+"типа группы, cнимите флажок в этом поле."
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -1315,6 +1322,9 @@ msgstr "Создать группу"
 msgid "Create Group Snapshot"
 msgstr "Создать снимок группы"
 
+msgid "Create Group Type"
+msgstr "Создать тип группы"
+
 msgid "Create Host Aggregate"
 msgstr "Создать агрегатор узлов"
 
@@ -1420,6 +1430,9 @@ msgid ""
 msgstr ""
 "Создайте Группу Целостности, которая будет содержать новые созданные диски "
 "клонированные из каждого снимка в исходном снимке Группы Целостности"
+
+msgid "Create a Group Type"
+msgstr "Создать тип группы"
 
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
@@ -1744,6 +1757,12 @@ msgid_plural "Delete Groups"
 msgstr[0] "Удалить группу"
 msgstr[1] "Удалить группы"
 msgstr[2] "Удалить группы"
+
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Удалить тип группы"
+msgstr[1] "Удалить типы группы"
+msgstr[2] "Удалить типы группы"
 
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
@@ -2477,6 +2496,9 @@ msgstr "Изменить тип инстансов"
 
 msgid "Edit Group"
 msgstr "Редактировать группу"
+
+msgid "Edit Group Type"
+msgstr "Редактировать тип группы"
 
 msgid "Edit Host Aggregate"
 msgstr "Изменить агрегатор узлов"
@@ -3325,8 +3347,18 @@ msgstr "Снимки Групп"
 msgid "Group Type"
 msgstr "Тип группы"
 
+msgid "Group Types"
+msgstr "Типы групп"
+
 msgid "Group has been updated successfully."
 msgstr "Группа была успешно изменена."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Тип группы \"%s\" уже существует."
+
+msgid "Group type name can not be empty."
+msgstr "Имя типа группы не может быть пустым."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3869,6 +3901,13 @@ msgid "Key Size (bits)"
 msgstr "Размер Ключа (бит)"
 
 msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+"Имена ключей могут содержать только алфавитно-цифровые символы, символы "
+"подчеркивания, точки, двоеточия и дефисы."
+
+msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 msgstr ""
@@ -4402,6 +4441,9 @@ msgstr "Новый размер (ГиБ)"
 
 msgid "New name cannot be empty."
 msgstr "Новое имя не должно быть пустым."
+
+msgid "New name conflicts with another group type."
+msgstr "Новое имя конфликтует с другим типом группы."
 
 msgid "New name conflicts with another volume type."
 msgstr "Новое имя конфликтует с другим типом диска."
@@ -6247,6 +6289,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Успешно создано шифрование для типа дисков: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Успешно создан тип группы: %s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "Успешно создана группа безопасности: %s"
 
@@ -6318,6 +6364,9 @@ msgstr "Агрегатор «%s» успешно обновлен."
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Успешно изменено шифрование для типа дисков: %s"
+
+msgid "Successfully updated group type."
+msgstr "Успешно обновлен тип группы."
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6876,6 +6925,9 @@ msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Для выхода из полноэкранного режима нажмите на кнопку \"Назад\" в браузере."
 
+msgid "To make group type private, uncheck this field."
+msgstr "Чтобы сделать тип группы приватным снимите флажок в этом поле."
+
 msgid "To make volume type private, uncheck this field."
 msgstr "Чтобы сделать тип дисков частным снимите флаг в этом поле."
 
@@ -7096,6 +7148,9 @@ msgstr "Не удалось создать группу по причине пр
 
 msgid "Unable to create group snapshot."
 msgstr "Не удалось создать снимок группы."
+
+msgid "Unable to create group type."
+msgstr "Не удалось создать тип группы."
 
 msgid "Unable to create group."
 msgstr "Не удалось создать группу."
@@ -7611,6 +7666,16 @@ msgstr "Не удалось получить детали снимков гру�
 msgid "Unable to retrieve group snapshots."
 msgstr "Не удалось получить снимки группы."
 
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "Невозможно получить тип группы для: \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "Не удалось получить имя типа группы."
+
+msgid "Unable to retrieve group type."
+msgstr "Не удалось получить тип группы."
+
 msgid "Unable to retrieve group types."
 msgstr "Не удалось получить типы груп"
 
@@ -7989,6 +8054,9 @@ msgstr "Не удалось обновить дисковые квоты по у
 
 msgid "Unable to update encrypted volume type."
 msgstr "Невозможно изменить шифрования для данного типа диска."
+
+msgid "Unable to update group type."
+msgstr "Не удалось обновить тип группы."
 
 msgid "Unable to update group."
 msgstr "Не удалось изменить группу."
