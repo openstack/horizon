@@ -190,6 +190,7 @@
     templates:
       - check-requirements
       - horizon-nodejs4-jobs
+      - horizon-nodejs10-jobs
       - openstack-lower-constraints-jobs
       - openstack-python-jobs
       - openstack-python36-jobs
