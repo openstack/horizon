@@ -841,7 +841,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(23);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(22);
         });
 
         it('sets availability zone to null', function() {
