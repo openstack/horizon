@@ -1634,7 +1634,7 @@ msgstr[1] "Borrar Puertos"
 msgid "Delete Project"
 msgid_plural "Delete Projects"
 msgstr[0] "Eliminar Proyecto"
-msgstr[1] "Eleminar Proyectos "
+msgstr[1] "Eliminar Proyectos "
 
 msgid "Delete Protocol"
 msgid_plural "Delete Protocols"
