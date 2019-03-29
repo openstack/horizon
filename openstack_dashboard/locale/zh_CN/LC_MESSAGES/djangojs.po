@@ -19,11 +19,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-19 11:03+0000\n"
+"POT-Creation-Date: 2019-03-28 04:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-19 04:08+0000\n"
+"PO-Revision-Date: 2019-03-29 12:38+0000\n"
 "Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
@@ -1532,6 +1532,9 @@ msgstr ""
 "选择一个您易于辨识的密钥对名字，\n"
 "名字只能由半角的字母、空格、破折号和下划线组成。"
 
+msgid "Key Type"
+msgstr "密钥类型"
+
 #, python-format
 msgid "Key pair %(name)s was successfully created."
 msgstr "成功创建了密钥对%(name)s。"
@@ -2230,6 +2233,9 @@ msgstr "规则 ID"
 msgid "Rules"
 msgstr "规则"
 
+msgid "SSH Key"
+msgstr "SSH 密钥"
+
 msgid "STATUS"
 msgstr "状态"
 
@@ -2243,9 +2249,9 @@ msgid "Saving"
 msgstr "保存中"
 
 #, python-format
-msgid "Scheduled of %s instance."
-msgid_plural "Scheduled of %s instances."
-msgstr[0] "已调度的 %s 实例。"
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "已调度的创建 %s 实例。"
 
 msgid "Scheduler Hints"
 msgstr "scheduler hint"
@@ -3674,6 +3680,9 @@ msgstr ""
 "当接口的 <b>管理状态</b> 被设置为 <b>Up</b> 且没有 <b>所属设备</b>,\n"
 "    则此接口可用。\n"
 "如果该接口对他人而言并未准备就绪，您可以把 <b>管理状态</b> 设为 <b>Down</b>。"
+
+msgid "X509 Certificate"
+msgstr "X509 证书"
 
 msgid "XL Modal"
 msgstr "XL Modal"

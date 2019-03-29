@@ -7,16 +7,17 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 # Shu Muto <shu.mutow@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2019. #zanata
 # Takashi Kuroda <tkuroda@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-20 15:51+0000\n"
+"POT-Creation-Date: 2019-03-28 04:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-21 02:14+0000\n"
+"PO-Revision-Date: 2019-03-27 01:36+0000\n"
 "Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1154,6 +1155,10 @@ msgstr ""
 "ソースのボリュームグループ内の各ボリュームをクローン作成してから、新規作成し"
 "たボリュームグループに追加します。"
 
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "ボリュームグループ \"%s\" をクローン中"
+
 msgid "Close"
 msgstr "閉じる"
 
@@ -1450,7 +1455,7 @@ msgstr ""
 "て新規作成したボリュームが含まれる整合性グループを作成します。"
 
 msgid "Create a Group Type"
-msgstr "グループ種別を作成します"
+msgstr "グループ種別の作成"
 
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
@@ -2076,10 +2081,10 @@ msgid "Deleting volume group \"%s\""
 msgstr "ボリュームグループ \"%s\" を削除中"
 
 msgid "Deprecated Settings"
-msgstr "非推奨となった設定"
+msgstr "非推奨の設定"
 
 msgid "Deprecated settings: {}."
-msgstr "非推奨となった設定: {}"
+msgstr "非推奨の設定: {}"
 
 msgid "Description"
 msgstr "説明"
@@ -3293,17 +3298,17 @@ msgstr "グループが正常に更新されました。"
 msgid ""
 "Group type is a type or label that can be selected at group creation time in "
 "OpenStack. It usually maps to a set of capabilities of the storage back-end "
-"driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
 "\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
-"command. Once the group type gets created, click the \"Extra Specs\" button "
-"to set up extra specs key-value pair(s) for that group type."
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
 msgstr ""
 "グループ種別は OpenStack でグループを作成する際に選択する種別を示すラベルで"
 "す。通常、グループ種別は、作成するグループが使用する、バックエンドのストレー"
 "ジドライバーが持つ機能セットにマッピングされます。例えば「性能」、「SSD」、"
 "「バックアップ」などです。これは <tt>cinder type-create</tt> コマンドに相当し"
-"ます。グループ種別を作成した後は、「追加スペック」ボタンをクリックして、この"
-"グループ種別の追加スペックのキーと値のペアを設定します。"
+"ます。グループ種別を作成した後は、「スペックの表示」ボタンをクリックして、こ"
+"のグループ種別のスペックのキーと値のペアを設定します。"
 
 #, python-format
 msgid "Group type name \"%s\" already exists."
@@ -3843,7 +3848,7 @@ msgid "Key Pair Name ="
 msgstr "キーペア名 ="
 
 msgid "Key Pair Type"
-msgstr "キーペアタイプ"
+msgstr "キーペア種別"
 
 msgid "Key Pairs"
 msgstr "キーペア"
@@ -3856,7 +3861,7 @@ msgid "Key Size (bits)"
 msgstr "キーサイズ (ビット)"
 
 msgid "Key Type"
-msgstr "鍵タイプ"
+msgstr "鍵種別"
 
 msgid ""
 "Key names can only contain alphanumeric characters, underscores, periods, "

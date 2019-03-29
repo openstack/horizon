@@ -33,11 +33,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-20 15:51+0000\n"
+"POT-Creation-Date: 2019-03-28 04:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-20 01:37+0000\n"
+"PO-Revision-Date: 2019-03-29 12:37+0000\n"
 "Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
@@ -1098,6 +1098,10 @@ msgid ""
 "Clone each of the volumes in the source Group, and then add them to a newly "
 "created Group."
 msgstr "克隆源组中的每个卷，然后把它们添加到新创建的组中。"
+
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "克隆卷组 \"%s\"。"
 
 msgid "Close"
 msgstr "关闭"
@@ -3161,13 +3165,13 @@ msgstr "组已经被成功更新。"
 msgid ""
 "Group type is a type or label that can be selected at group creation time in "
 "OpenStack. It usually maps to a set of capabilities of the storage back-end "
-"driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
 "\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
-"command. Once the group type gets created, click the \"Extra Specs\" button "
-"to set up extra specs key-value pair(s) for that group type."
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
 msgstr ""
-"组类型是在 OpenStack 创建组的时候可以指定的一个类型或标签。它通常用来映射到这"
-"些卷所使用的存储后端驱动器的性能指标集合。例"
+"组类型是在 OpenStack 创建组的时候可以指定的一个类型或标签。它通常映射到这个组"
+"所使用的存储后端驱动器的性能指标集合。例"
 "如，“Performance”、“SSD”、“Backup”等。这等同于<tt>cinder type-create</tt>命"
 "令。一旦组类型被创建，单击\" extra spec\"按钮以设置组类型的 extra spec  键值"
 "对。"
@@ -3685,6 +3689,9 @@ msgstr "密钥对名称"
 msgid "Key Pair Name ="
 msgstr "密钥对名 ="
 
+msgid "Key Pair Type"
+msgstr "密钥对类型"
+
 msgid "Key Pairs"
 msgstr "密钥对"
 
@@ -3693,6 +3700,9 @@ msgstr "密钥对是用来登录您创建的实例的方式。"
 
 msgid "Key Size (bits)"
 msgstr "密钥大小(bits)"
+
+msgid "Key Type"
+msgstr "密钥类型"
 
 msgid ""
 "Key names can only contain alphanumeric characters, underscores, periods, "
@@ -3706,6 +3716,12 @@ msgstr "密钥对名称只能包含字母，数字，下划线，空格以及连
 
 msgid "Key pair to use for authentication."
 msgstr "认证所用的密钥对"
+
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr "名为 \"%s\" 的键已存在。使用编辑来更新这个值，或创建不同名称的键。"
 
 msgid "Key-Value Pairs"
 msgstr "键值对"
@@ -5355,6 +5371,9 @@ msgstr "SLAAC：地址是通过一个外部路由器发现的"
 
 msgid "SNAT"
 msgstr "SNAT"
+
+msgid "SSH Key"
+msgstr "SSH 密钥"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "可以使用 ssh-keygen 命令来生成SSH密钥对："
@@ -8171,6 +8190,10 @@ msgid "User"
 msgstr "用户"
 
 #, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "用户 \"%s\" 已被成功更新。"
+
+#, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "用户 \"%s\" 成功创建。"
 
@@ -8531,6 +8554,9 @@ msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
 "volume to an image."
 msgstr "当卷状态是\"in-use\"时，您可以用\"Force\"将卷上传到镜像中。"
+
+msgid "X509 Certificate"
+msgstr "X509 证书"
 
 msgid "Yes"
 msgstr "是"
