@@ -28,6 +28,9 @@
             ng-show="(ctrl.doesKeypairExist() || wizardForm.$invalid) && wizardForm.$dirty">
         {$ ctrl.keypairExistsError $}
       </span>
+    </div>
+
+    <div class="form-group">
       <label class="control-label required" translate>Key Type</label><span class="hz-icon-required fa fa-asterisk"></span>
       <select class="form-control switchable ng-pristine ng-untouched ng-valid"
               ng-model="key_type"
