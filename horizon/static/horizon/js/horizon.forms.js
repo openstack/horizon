@@ -630,29 +630,6 @@ horizon.addInitFunction(horizon.forms.init = function () {
     }
   });
 
-  // Handle field toggles for the Create Volume source type field
-  function update_volume_source_displayed_fields (field) {
-    var $this = $(field),
-      base_type = $this.val();
-
-    $this.find("option").each(function () {
-      if (this.value !== base_type) {
-        $("#id_" + this.value).closest(".form-group").hide();
-      } else {
-        $("#id_" + this.value).closest(".form-group").show();
-      }
-    });
-  }
-
-  $document.on('change', '#id_volume_source_type', function () {
-    update_volume_source_displayed_fields(this);
-  });
-
-  $('#id_volume_source_type').change();
-  horizon.modals.addModalInitFunction(function (modal) {
-    $(modal).find("#id_volume_source_type").change();
-  });
-
   /* Help tooltips */
 
   // Apply standard handler for everything but checkboxes.
