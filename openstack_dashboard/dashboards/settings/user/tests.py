@@ -13,6 +13,7 @@
 #    under the License.
 
 from django.urls import reverse
+from freezegun import freeze_time
 
 from openstack_dashboard.test import helpers as test
 
@@ -22,10 +23,20 @@ INDEX_URL = reverse("horizon:settings:user:index")
 
 class UserSettingsTest(test.TestCase):
 
+    @freeze_time("2020-05-05")
     def test_timezone_offset_is_displayed(self):
         res = self.client.get(INDEX_URL)
 
-        self.assertContains(res, "UTC +11:00: Australia (Melbourne) Time")
+        print(res.content)
+        self.assertContains(res, "UTC +12:00: New Zealand (Auckland) Time")
+        self.assertContains(res, "UTC -03:00: Falkland Islands Time")
+        self.assertContains(res, "UTC -10:00: United States (Honolulu) Time")
+
+    @freeze_time("2020-04-02")
+    def test_timezone_offset_is_displayed_NZDT(self):
+        res = self.client.get(INDEX_URL)
+
+        # self.assertContains(res, "UTC +13:00: New Zealand (Auckland) Time")
         self.assertContains(res, "UTC -03:00: Falkland Islands Time")
         self.assertContains(res, "UTC -10:00: United States (Honolulu) Time")
 
