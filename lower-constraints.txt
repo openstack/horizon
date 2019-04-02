@@ -2,7 +2,7 @@ alabaster==0.7.10
 amqp==2.1.1
 appdirs==1.4.0
 asn1crypto==0.23.0
-Babel==2.3.4
+Babel==2.6.0
 bandit==1.4.0
 cachetools==2.0.0
 cffi==1.14.0
@@ -29,6 +29,7 @@ eventlet==0.18.2
 extras==1.0.0
 fasteners==0.7.0
 fixtures==3.0.0
+freezegun==0.3.15
 futurist==1.2.0
 greenlet==0.4.10
 idna==2.6
@@ -89,7 +90,7 @@ pytest==5.3.5
 pytest-django==3.8.0
 pytest-html==2.0.1
 python-cinderclient==5.0.0
-python-dateutil==2.5.3
+python-dateutil==2.8.1
 python-glanceclient==2.8.0
 python-keystoneclient==3.22.0
 python-memcached==1.59
