@@ -21,7 +21,7 @@ from six.moves import html_parser
 
 # regex to find filter translation expressions
 filter_regex = re.compile(
-    r"""{\$\s*('([^']|\\')+'|"([^"]|\\")+")\s*\|\s*translate\s*\$}"""
+    r"""{\$\s*(::)?\s*('([^']|\\')+'|"([^"]|\\")+")\s*\|\s*translate\s*\$}"""
 )
 
 # browser innerHTML decodes some html entities automatically, so when
@@ -49,6 +49,8 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
     {$ 'content' | translate $}
         The string will be translated, minus expression handling (i.e. just
         bare strings are allowed.)
+    {$ ::'content' | translate $}
+        The string will be translated. As above.
     """
 
     def __init__(self):
@@ -94,7 +96,7 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
                 for match in filter_regex.findall(attr[1]):
                     if match:
                         self.strings.append(
-                            (self.line, u'gettext', match[0][1:-1], [])
+                            (self.line, u'gettext', match[1][1:-1], [])
                         )
 
     def handle_data(self, data):
@@ -103,7 +105,7 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
         else:
             for match in filter_regex.findall(data):
                 self.strings.append(
-                    (self.line, u'gettext', match[0][1:-1], [])
+                    (self.line, u'gettext', match[1][1:-1], [])
                 )
 
     def handle_entityref(self, name):
