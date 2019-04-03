@@ -266,12 +266,24 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
         self._test_generic_update_aggregate(form_data, aggregate)
 
-    def test_update_aggregate_fails_missing_fields(self):
+    def test_update_aggregate_fails_missing_name_field(self):
         aggregate = self.aggregates.first()
-        form_data = {'id': aggregate.id}
+        form_data = {'id': aggregate.id,
+                     'name': '',
+                     'availability_zone': aggregate.availability_zone}
 
         self._test_generic_update_aggregate(form_data, aggregate, 1,
                                             u'This field is required')
+
+    def test_update_aggregate_fails_missing_az_field(self):
+        aggregate = self.aggregates.first()
+        form_data = {'id': aggregate.id,
+                     'name': aggregate.name,
+                     'availability_zone': ''}
+
+        self._test_generic_update_aggregate(
+            form_data, aggregate, 1,
+            u'The new availability zone can&#39;t be empty')
 
 
 class ManageHostsTests(test.BaseAdminViewTests):
