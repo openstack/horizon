@@ -70,6 +70,12 @@ class RemoveInterface(policy.PolicyTargetMixin, tables.DeleteAction):
     failure_url = 'horizon:project:routers:detail'
     policy_rules = (("network", "remove_router_interface"),)
 
+    def allowed(self, request, datum=None):
+        if datum and datum.get('device_owner'):
+            if datum['device_owner'] == 'network:router_ha_interface':
+                return False
+        return True
+
     def delete(self, request, obj_id):
         try:
             router_id = self.table.kwargs['router_id']
