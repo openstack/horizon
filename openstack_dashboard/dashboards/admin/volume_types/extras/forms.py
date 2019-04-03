@@ -39,12 +39,13 @@ class CreateExtraSpec(forms.SelfHandlingForm):
         type_id = self.initial['type_id']
         extra_list = api.cinder.volume_type_extra_get(self.request,
                                                       type_id)
-        for extra in extra_list:
-            if extra.key.lower() == data['key'].lower():
-                error_msg = _('Key with name "%s" already exists. Use Edit to '
-                              'update the value, else create key with '
-                              'different name.') % data['key']
-                raise forms.ValidationError(error_msg)
+        if "key" in data:
+            for extra in extra_list:
+                if extra.key.lower() == data['key'].lower():
+                    error_msg = _('Key with name "%s" already exists. Use '
+                                  'Edit to update the value, else create key '
+                                  'with different name.') % data['key']
+                    raise forms.ValidationError(error_msg)
 
         return data
 
