@@ -324,7 +324,26 @@ horizon.addInitFunction(horizon.modals.init = function() {
         $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
       }
 
-      if (redirect_header) {
+      content_disposition = jqXHR.getResponseHeader("content-disposition");
+      if (content_disposition && content_disposition.lastIndexOf("attachment;") !== -1) {
+        // if the response was a file, we download the data
+        var file_name_regex = /(?:^|\s)filename=(.*?)(?:\s|$)/g;
+        var filename = file_name_regex.exec(content_disposition)[1];
+        var modal_attachment_link = document.createElement('a');
+        modal_attachment_link.setAttribute("id", "modal_attachment_link");
+        modal_attachment_link.setAttribute("style", "display:none");
+        var dataStr = "data:text/plain;charset=utf-8," + encodeURIComponent(data);
+        modal_attachment_link.setAttribute("href", dataStr);
+        modal_attachment_link.setAttribute("download", filename);
+        var modal_wrapper = document.getElementById("modal_wrapper");
+        modal_wrapper.appendChild(modal_attachment_link);
+        modal_attachment_link.click();
+        modal_attachment_link.remove();
+
+        if (redirect_header) {
+          location.href = redirect_header;
+        }
+      } else if (redirect_header) {
         location.href = redirect_header;
       } else if (add_to_field_header) {
         json_data = $.parseJSON(data);
