@@ -178,7 +178,7 @@ class CloneGroupForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         group_id = self.initial['group_id']
         try:
-            message = _('Creating consistency group "%s".') % data['name']
+            message = _('Cloning volume group "%s".') % data['name']
             group = cinder.group_create_from_source(
                 request,
                 data['name'],
