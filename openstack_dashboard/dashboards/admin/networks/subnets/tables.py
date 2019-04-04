@@ -156,6 +156,8 @@ class SubnetsTab(project_tabs_subnets_tab):
                 subnet_used_ips = subnet_usage.get("used_ips")
                 subnet_total_ips = subnet_usage.get("total_ips")
                 subnet_free_ips = subnet_total_ips - subnet_used_ips
+                if subnet_free_ips < 0:
+                    subnet_free_ips = 0
                 for item in subnets_dict:
                     id = item.get("id")
                     if id == subnet_id:
