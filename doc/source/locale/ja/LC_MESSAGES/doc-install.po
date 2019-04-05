@@ -1,9 +1,9 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev218\n"
+"Project-Id-Version: horizon 15.1.0.dev26\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 10:46-0600\n"
+"POT-Creation-Date: 2019-04-04 08:02-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -314,9 +314,6 @@ msgstr ""
 "IP アドレス、ユーザー名、パスワードのユーザーへの通知。接続で SSL 証明書に関"
 "する問題がある場合、サーバーの IP アドレスがドメイン名を指すようにして、ユー"
 "ザーがドメイン名にアクセスするようにします。"
-
-msgid "Python 2.7 or 3.5"
-msgstr "Python 2.7 または 3.5"
 
 msgid "Python memcached module installed"
 msgstr "python の memcached モジュールがインストールされていること"
