@@ -16,17 +16,18 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 # Dmytriy Rabotjagov <noonedeadpunk@ya.ru>, 2018. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2018. #zanata
+# Dmytriy Rabotjagov <noonedeadpunk@ya.ru>, 2019. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-28 04:48+0000\n"
+"POT-Creation-Date: 2019-04-04 15:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-28 03:05+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2019-04-04 12:21+0000\n"
+"Last-Translator: Dmytriy Rabotjagov <noonedeadpunk@ya.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -2292,9 +2293,10 @@ msgid ""
 "%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
 "a different %(sourceType)s source."
 msgstr ""
-"Для выбранного источника %(sourceType)s требуется разновидность с корневым "
-"диском размером не менее %(minDisk)s ГБ. Выберите разновидность с большим "
-"размером корневого диска или используйте другой источник %(sourceType)s."
+"Для выбранного источника \"%(sourceType)s\" требуется тип инстанса с "
+"корневым диском размером не менее %(minDisk)s ГБ. Выберите  тип инстанса с "
+"большим размером корневого диска или используйте другой источник "
+"%(sourceType)s."
 
 #, python-format
 msgid ""
@@ -2302,8 +2304,8 @@ msgid ""
 "%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
 "%(sourceType)s source."
 msgstr ""
-"Для выбранного источника %(sourceType)s требуется разновидность с объемом "
-"памяти не менее %(minRam)s МБ. Выберите разновидность с большим объемом "
+"Для выбранного источника \"%(sourceType)s\" требуется тип инстанса с объемом "
+"памяти не менее %(minRam)s МБ. Выберите  тип инстанса с большим объемом "
 "памяти или используйте другой источник %(sourceType)s."
 
 msgid "The size of the volume, in gibibytes (GiB)."
@@ -3205,7 +3207,7 @@ msgstr[1] "Вы выбрали \"%s\". Восстановление удален
 msgstr[2] "Вы выбрали \"%s\". Восстановление удаленных ключевых пар невозможно"
 
 msgid "image"
-msgstr "изображение"
+msgstr "образ"
 
 #, python-format
 msgid "resource load failed: %s"

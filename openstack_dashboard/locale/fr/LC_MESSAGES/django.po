@@ -26,11 +26,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-29 10:25+0000\n"
+"POT-Creation-Date: 2019-04-04 15:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-01 12:04+0000\n"
+"PO-Revision-Date: 2019-04-05 02:24+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -236,6 +236,10 @@ msgstr ""
 "modification sera appliquée à toutes les interfaces de l'instance. Si cette "
 "instance possède plusieurs interfaces et plusieurs groupes de sécurité par "
 "port, utilisez plutôt \"Editer les groupes de sécurité de port\"."
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>Détails du gabarit: %(name)s</span>\">%(name)s"
 
 msgid "A brief description of the security group rule you are adding"
 msgstr ""
@@ -1008,6 +1012,9 @@ msgstr "Impossible d'obtenir la console pour l'instance %s."
 msgid "Cannot specify both file and direct input."
 msgstr "Impossible d'indiquer à la fois le fichier et l'entrée directe."
 
+msgid "Center Topology"
+msgstr "Centrer la topologie"
+
 msgid "Centralized"
 msgstr "Centralisé"
 
@@ -1165,6 +1172,10 @@ msgid ""
 msgstr ""
 "Cloner chaque volume du groupe source puis ajouter les à un groupe "
 "nouvellement créé."
+
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "Clonage du groupe de volumes \"%s\"."
 
 msgid "Close"
 msgstr "Fermer"
@@ -5477,6 +5488,10 @@ msgstr "L'instantané demandé dépasserait le quota disponible."
 msgid "Required Settings"
 msgstr "Paramètres requis"
 
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "Secourir"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Mode Secours"
@@ -6875,6 +6890,13 @@ msgstr ""
 "L'instance demandée ne peut pas être lancée car vos quota seraient dépassés. "
 "Disponibles :  %(avail)s, nécessaires : %(req)s."
 
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr ""
+"Le mode secours est uniquement destiné aux cas d'urgence, par exemple un "
+"dysfonctionnement du système ou un problème d'accès."
+
 msgid "The specified floating IP no longer exists."
 msgstr "L'IP flottante spécifiée n'existe plus."
 
@@ -7742,6 +7764,9 @@ msgstr "Impossible de récupérer les zones de disponibilité."
 msgid "Unable to retrieve backup details."
 msgstr "Impossible de récupérer les détails de la sauvegarde."
 
+msgid "Unable to retrieve community images."
+msgstr "Impossible de récupérer les images de communauté."
+
 msgid "Unable to retrieve compute host information."
 msgstr "Impossible de récupérer les informations sur l'hôte Compute."
 
@@ -8435,6 +8460,11 @@ msgid "Unregistered Identity Provider"
 msgid_plural "Unregistered Identity Providers"
 msgstr[0] "Fournisseur d'identité n'a pas été enregistré"
 msgstr[1] "Fournisseurs d'identité n'ont pas été enregistrés"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "Instance non secourue"
+msgstr[1] "Instances non secourues"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"

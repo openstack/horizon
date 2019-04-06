@@ -19,16 +19,17 @@
 # Loic Nicolle <loic.nicolle@orange.com>, 2018. #zanata
 # Cecilia Di Maulo <cecidimaulo@gmail.com>, 2019. #zanata
 # Gael Rehault <gael_rehault@dell.com>, 2019. #zanata
+# JF Taltavull <jftalta@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-20 15:51+0000\n"
+"POT-Creation-Date: 2019-04-04 15:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-20 11:51+0000\n"
-"Last-Translator: Gael Rehault <gael_rehault@dell.com>\n"
+"PO-Revision-Date: 2019-04-05 02:38+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -1557,6 +1558,20 @@ msgstr ""
 "votre clé publique SSH\n"
 "  dans le champ prévu à cet effet."
 
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, dashes and\n"
+"  underscores."
+msgstr ""
+"Les paires de clés servent à vous connecter à votre instance après son "
+"lancement. Choisissez un nom de paire de clés dont vous pourrez vous "
+"souvenir. Ces noms ne peuvent contenir que des caractères alphanumériques, "
+"des espaces, des tirets et des soulignés."
+
+msgid "Key Type"
+msgstr "Type de clé"
+
 #, python-format
 msgid "Key pair %(name)s was successfully created."
 msgstr "La paire de clés %(name)s a été créée avec succès."
@@ -2246,6 +2261,12 @@ msgstr "Enregistrer les changements"
 msgid "Saving"
 msgstr "Enregistrement"
 
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "Création de %s instance planifiée."
+msgstr[1] "Création de %s instances planifiée."
+
 msgid "Scheduler Hints"
 msgstr "Scheduler Hints"
 
@@ -2716,6 +2737,13 @@ msgstr "Sélections personnalisables"
 
 msgid "There are no Availability Zones."
 msgstr "Aucune zone de disponibilité."
+
+msgid ""
+"There are no allowed boot\n"
+"      sources. If you think this is wrong please contact your administrator."
+msgstr ""
+"Aucune source d'amorçage autorisée. Si vous pensez qu'il s'agit d'une "
+"erreur, merci de contacter votre administrateur."
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -3680,6 +3708,9 @@ msgstr ""
 "définir <b>Admin State</b> \n"
 "sur <b>Down</b> si le port n'est pas prêt pour utilisation par d'autres "
 "utilisateurs."
+
+msgid "X509 Certificate"
+msgstr "Certificat X509"
 
 msgid "XL Modal"
 msgstr "Fenêtre modale XL"
