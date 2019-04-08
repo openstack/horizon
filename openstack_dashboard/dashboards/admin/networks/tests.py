@@ -588,7 +588,8 @@ class NetworkTests(test.BaseAdminViewTests):
                   'provider:network_type': 'local'}
         self.mock_network_create.assert_called_once_with(test.IsHttpRequest(),
                                                          **params)
-        subnet_params = {'name': subnet.name,
+        subnet_params = {'tenant_id': tenant_id,
+                         'name': subnet.name,
                          'network_id': subnet.network_id,
                          'cidr': subnet.cidr,
                          'enable_dhcp': subnet.enable_dhcp,

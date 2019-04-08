@@ -493,6 +493,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                   'admin_state_up': network.admin_state_up,
                   'shared': False}
         subnet_params = {'network_id': network.id,
+                         'tenant_id': network.tenant_id,
                          'name': subnet.name,
                          'cidr': subnet.cidr,
                          'ip_version': subnet.ip_version,
@@ -629,6 +630,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_subnet_create.assert_called_once_with(
             test.IsHttpRequest(),
             network_id=network.id,
+            tenant_id=network.tenant_id,
             name=subnet.name,
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
@@ -801,6 +803,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                   'admin_state_up': network.admin_state_up,
                   'shared': False}
         subnet_params = {'network_id': network.id,
+                         'tenant_id': network.tenant_id,
                          'name': subnet.name,
                          'cidr': cidr,
                          'ip_version': subnet.ip_version,
@@ -930,6 +933,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': False,
                      'with_subnet': True}
         subnet_params = {'network_id': network.id,
+                         'tenant_id': network.tenant_id,
                          'name': subnet.name,
                          'cidr': subnet.cidr,
                          'ip_version': subnet.ip_version,
