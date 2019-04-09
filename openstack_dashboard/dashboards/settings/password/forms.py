@@ -69,9 +69,9 @@ class PasswordForm(forms.SelfHandlingForm):
                 msg = _("Password changed. Please log in again to continue.")
                 utils.add_logout_reason(request, response, msg)
                 return response
-            except Exception:
+            except Exception as ex:
                 exceptions.handle(request,
-                                  _('Unable to change password.'))
+                                  _('Unable to change password: %s') % ex)
                 return False
         else:
             messages.error(request, _('Changing password is not supported.'))
