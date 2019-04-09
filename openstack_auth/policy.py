@@ -207,7 +207,6 @@ def _user_to_credentials(user):
     if not hasattr(user, "_credentials"):
         roles = [role['name'] for role in user.roles]
         user._credentials = {'user_id': user.id,
-                             'token': user.token,
                              'username': user.username,
                              'project_id': user.project_id,
                              'tenant_id': user.project_id,
