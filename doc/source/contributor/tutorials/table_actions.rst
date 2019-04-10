@@ -68,7 +68,7 @@ calling the nova api to create the snapshot.
 Create the ``forms.py`` file under the ``mypanel`` directory and add the
 following::
 
-    from django.core.urlresolvers import reverse
+    from django.urls import reverse
     from django.utils.translation import ugettext_lazy as _
 
     from horizon import exceptions
@@ -105,8 +105,8 @@ Open the ``views.py`` file under the ``mypanel`` directory and add the code
 for the CreateSnapshotView and the necessary imports. The complete
 file should now look something like this::
 
-    from django.core.urlresolvers import reverse
-    from django.core.urlresolvers import reverse_lazy
+    from django.urls import reverse
+    from django.urls import reverse_lazy
     from django.utils.translation import ugettext_lazy as _
 
     from horizon import tabs
