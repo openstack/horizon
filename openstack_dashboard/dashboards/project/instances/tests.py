@@ -890,7 +890,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                            api.network: ('servers_update_addresses',),
                            api.cinder: ('volume_list',)})
     def test_suspend_instance_if_placed_on_2nd_page(self):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 2)
+        page_size = settings.API_RESULT_PAGE_SIZE
         servers = self.servers.list()[:3]
 
         self.mock_extension_supported.return_value = True
@@ -4992,7 +4992,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         # The form action on the next page should have marker
         # object from the previous page last element.
 
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 2)
+        page_size = settings.API_RESULT_PAGE_SIZE
         servers = self.servers.list()[:3]
 
         self._mock_extension_supported({'AdminActions': True,
@@ -5076,7 +5076,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
     def test_delete_instance_with_pagination(self):
         # Instance should be deleted from the next page.
 
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 2)
+        page_size = settings.API_RESULT_PAGE_SIZE
         servers = self.servers.list()[:3]
         server = servers[-1]
 

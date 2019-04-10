@@ -93,7 +93,7 @@ class ConsoleTab(tabs.Tab):
 
     def get_context_data(self, request):
         instance = self.tab_group.kwargs['instance']
-        console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
+        console_type = settings.CONSOLE_TYPE
         console_url = None
         try:
             console_type, console_url = console.get_console(
@@ -112,7 +112,7 @@ class ConsoleTab(tabs.Tab):
     def allowed(self, request):
         # The ConsoleTab is available if settings.CONSOLE_TYPE is not set at
         # all, or if it's set to any value other than None or False.
-        return bool(getattr(settings, 'CONSOLE_TYPE', True))
+        return bool(settings.CONSOLE_TYPE)
 
 
 class AuditTab(tabs.TableTab):

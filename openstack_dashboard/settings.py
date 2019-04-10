@@ -91,28 +91,6 @@ HORIZON_CONFIG = {
     'integration_tests_support': INTEGRATION_TESTS_SUPPORT
 }
 
-# The OPENSTACK_IMAGE_BACKEND settings can be used to customize features
-# in the OpenStack Dashboard related to the Image service, such as the list
-# of supported image formats.
-OPENSTACK_IMAGE_BACKEND = {
-    'image_formats': [
-        ('', _('Select format')),
-        ('aki', _('AKI - Amazon Kernel Image')),
-        ('ami', _('AMI - Amazon Machine Image')),
-        ('ari', _('ARI - Amazon Ramdisk Image')),
-        ('docker', _('Docker')),
-        ('iso', _('ISO - Optical Disk Image')),
-        ('ova', _('OVA - Open Virtual Appliance')),
-        ('ploop', _('PLOOP - Virtuozzo/Parallels Loopback Disk')),
-        ('qcow2', _('QCOW2 - QEMU Emulator')),
-        ('raw', _('Raw')),
-        ('vdi', _('VDI - Virtual Disk Image')),
-        ('vhd', _('VHD - Virtual Hard Disk')),
-        ('vhdx', _('VHDX - Large Virtual Hard Disk')),
-        ('vmdk', _('VMDK - Virtual Machine Disk')),
-    ]
-}
-
 MIDDLEWARE = (
     'openstack_auth.middleware.OpenstackAuthMonkeyPatchMiddleware',
     'debreach.middleware.RandomCommentMiddleware',
@@ -270,12 +248,6 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Set OPENSTACK_CLOUDS_YAML_NAME to provide a nicer name for this cloud for
-# the clouds.yaml file than "openstack".
-OPENSTACK_CLOUDS_YAML_NAME = 'openstack'
-# If this cloud has a vendor profile in os-client-config, put it's name here.
-OPENSTACK_CLOUDS_YAML_PROFILE = ''
-
 DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
 
 POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
@@ -295,27 +267,6 @@ POLICY_DIRS = {
 
 SECRET_KEY = None
 LOCAL_PATH = None
-
-SECURITY_GROUP_RULES = {
-    'all_tcp': {
-        'name': _('All TCP'),
-        'ip_protocol': 'tcp',
-        'from_port': '1',
-        'to_port': '65535',
-    },
-    'all_udp': {
-        'name': _('All UDP'),
-        'ip_protocol': 'udp',
-        'from_port': '1',
-        'to_port': '65535',
-    },
-    'all_icmp': {
-        'name': _('All ICMP'),
-        'ip_protocol': 'icmp',
-        'from_port': '-1',
-        'to_port': '-1',
-    },
-}
 
 ADD_INSTALLED_APPS = []
 
@@ -350,9 +301,6 @@ POLICY_CHECK_FUNCTION = 'openstack_auth.policy.check'
 CSRF_COOKIE_AGE = None
 
 COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
-
-SHOW_OPENRC_FILE = True
-SHOW_OPENSTACK_CLOUDS_YAML = True
 
 # Dictionary of currently available angular features
 ANGULAR_FEATURES = {
@@ -430,6 +378,8 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
 # The purpose of OPENSTACK_IMAGE_FORMATS is to provide a simple object
 # that does not contain the lazy-loaded translations, so the list can
 # be sent as JSON to the client-side (Angular).
+# TODO(amotoki): Do we really need this here? Can't we calculate this
+# in openstack_dashboard.api.rest.config?
 OPENSTACK_IMAGE_FORMATS = [fmt for (fmt, name)
                            in OPENSTACK_IMAGE_BACKEND['image_formats']]
 

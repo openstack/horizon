@@ -557,8 +557,9 @@ class ConsoleLink(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, instance=None):
         # We check if ConsoleLink is allowed only if settings.CONSOLE_TYPE is
         # not set at all, or if it's set to any value other than None or False.
-        return bool(getattr(settings, 'CONSOLE_TYPE', True)) and \
-            instance.status in ACTIVE_STATES and not is_deleting(instance)
+        return (bool(settings.CONSOLE_TYPE) and
+                instance.status in ACTIVE_STATES and
+                not is_deleting(instance))
 
     def get_link_url(self, datum):
         base_url = super(ConsoleLink, self).get_link_url(datum)
@@ -660,10 +661,7 @@ class DecryptInstancePassword(tables.LinkAction):
     url = "horizon:project:instances:decryptpassword"
 
     def allowed(self, request, instance):
-        enable = getattr(settings,
-                         'OPENSTACK_ENABLE_PASSWORD_RETRIEVE',
-                         False)
-        return (enable and
+        return (settings.OPENSTACK_ENABLE_PASSWORD_RETRIEVE and
                 (instance.status in ACTIVE_STATES or
                  instance.status == 'SHUTOFF') and
                 not is_deleting(instance) and
@@ -1293,9 +1291,9 @@ class InstancesTable(tables.DataTable):
         row_class = UpdateRow
         table_actions_menu = (StartInstance, StopInstance, SoftRebootInstance)
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
             launch_actions = (LaunchLink,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+        if settings.LAUNCH_INSTANCE_NG_ENABLED:
             launch_actions = (LaunchLinkNG,) + launch_actions
         table_actions = launch_actions + (DeleteInstance,
                                           InstancesFilterAction)

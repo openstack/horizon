@@ -190,7 +190,7 @@ class UpdateMetadata(tables.LinkAction):
 
 
 def filter_tenants():
-    return getattr(settings, 'IMAGES_LIST_FILTER_TENANTS', [])
+    return settings.IMAGES_LIST_FILTER_TENANTS
 
 
 def filter_tenant_ids():
@@ -347,9 +347,9 @@ class ImagesTable(tables.DataTable):
         verbose_name = _("Images")
         table_actions = (OwnerFilter, CreateImage, DeleteImage,)
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
             launch_actions = (LaunchImage,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+        if settings.LAUNCH_INSTANCE_NG_ENABLED:
             launch_actions = (LaunchImageNG,) + launch_actions
         row_actions = launch_actions + (CreateVolumeFromImage,
                                         EditImage, UpdateMetadata,

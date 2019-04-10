@@ -149,22 +149,6 @@ OPENSTACK_NEUTRON_NETWORK['enable_distributed_router'] = False
 
 OPENSTACK_HYPERVISOR_FEATURES['can_set_password'] = True
 
-OPENSTACK_IMAGE_BACKEND = {
-    'image_formats': [
-        ('', 'Select format'),
-        ('aki', 'AKI - Amazon Kernel Image'),
-        ('ami', 'AMI - Amazon Machine Image'),
-        ('ari', 'ARI - Amazon Ramdisk Image'),
-        ('iso', 'ISO - Optical Disk Image'),
-        ('ploop', 'PLOOP - Virtuozzo/Parallels Loopback Disk'),
-        ('qcow2', 'QCOW2 - QEMU Emulator'),
-        ('raw', 'Raw'),
-        ('vdi', 'VDI'),
-        ('vhd', 'VHD'),
-        ('vmdk', 'VMDK')
-    ]
-}
-
 LOGGING['loggers'].update(
     {
         'openstack_dashboard': {
@@ -235,9 +219,6 @@ REST_API_SETTING_2 = 'bar'
 REST_API_SECURITY = 'SECURITY'
 REST_API_REQUIRED_SETTINGS = ['REST_API_SETTING_1']
 REST_API_ADDITIONAL_SETTINGS = ['REST_API_SETTING_2']
-
-ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
-
 
 # --------------------
 # Test-only settings

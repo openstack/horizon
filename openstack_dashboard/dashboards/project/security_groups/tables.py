@@ -217,7 +217,7 @@ def filter_protocol(protocol):
 
 
 def check_rule_template(port, ip_proto):
-    rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', {})
+    rules_dict = settings.SECURITY_GROUP_RULES
     if not rules_dict:
         return port
     templ_rule = [rule for rule in rules_dict.values()

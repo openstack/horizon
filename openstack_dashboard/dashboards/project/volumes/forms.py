@@ -40,8 +40,8 @@ from openstack_dashboard.dashboards.project.images import utils
 from openstack_dashboard.dashboards.project.instances import tables
 from openstack_dashboard.usage import quotas
 
-IMAGE_BACKEND_SETTINGS = getattr(settings, 'OPENSTACK_IMAGE_BACKEND', {})
-IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
+IMAGE_BACKEND_SETTINGS = settings.OPENSTACK_IMAGE_BACKEND
+IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS['image_formats']
 VALID_DISK_FORMATS = ('raw', 'vmdk', 'vdi', 'qcow2', 'vhd', 'vhdx')
 DEFAULT_CONTAINER_FORMAT = 'bare'
 

@@ -119,8 +119,7 @@ def download_ec2_bundle(request):
 
 
 def download_rc_file(request):
-    template = getattr(settings, 'OPENRC_CUSTOM_TEMPLATE',
-                       'project/api_access/openrc.sh.template')
+    template = settings.OPENRC_CUSTOM_TEMPLATE
 
     context = _get_openrc_credentials(request)
     # make v3 specific changes
@@ -139,17 +138,13 @@ def download_rc_file(request):
 
 
 def download_clouds_yaml_file(request):
-    template = getattr(settings, 'OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE',
-                       'project/api_access/clouds.yaml.template')
+    template = settings.OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE
 
     context = _get_openrc_credentials(request)
-    context['cloud_name'] = getattr(
-        settings, "OPENSTACK_CLOUDS_YAML_NAME", 'openstack')
-    context['profile'] = getattr(
-        settings, "OPENSTACK_CLOUDS_YAML_PROFILE", None)
+    context['cloud_name'] = settings.OPENSTACK_CLOUDS_YAML_NAME
+    context['profile'] = settings.OPENSTACK_CLOUDS_YAML_PROFILE
     context['regions'] = [
-        region_tuple[1] for region_tuple in getattr(
-            settings, "AVAILABLE_REGIONS", [])
+        region_tuple[1] for region_tuple in settings.AVAILABLE_REGIONS
     ]
 
     if utils.get_keystone_version() >= 3:
