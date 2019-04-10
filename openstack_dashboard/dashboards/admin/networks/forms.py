@@ -169,15 +169,14 @@ class CreateNetwork(forms.SelfHandlingForm):
             is_extension_supported = False
 
         if is_extension_supported:
-            neutron_settings = getattr(settings,
-                                       'OPENSTACK_NEUTRON_NETWORK', {})
+            neutron_settings = settings.OPENSTACK_NEUTRON_NETWORK
             self.seg_id_range = SEGMENTATION_ID_RANGE.copy()
-            seg_id_range = neutron_settings.get('segmentation_id_range')
+            seg_id_range = neutron_settings['segmentation_id_range']
             if seg_id_range:
                 self.seg_id_range.update(seg_id_range)
 
             self.provider_types = PROVIDER_TYPES.copy()
-            extra_provider_types = neutron_settings.get('extra_provider_types')
+            extra_provider_types = neutron_settings['extra_provider_types']
             if extra_provider_types:
                 self.provider_types.update(extra_provider_types)
 
@@ -188,8 +187,8 @@ class CreateNetwork(forms.SelfHandlingForm):
                 net_type for net_type in self.provider_types
                 if self.provider_types[net_type]['require_physical_network']]
 
-            supported_provider_types = neutron_settings.get(
-                'supported_provider_types', DEFAULT_PROVIDER_TYPES)
+            supported_provider_types = neutron_settings[
+                'supported_provider_types']
             if supported_provider_types == ['*']:
                 supported_provider_types = DEFAULT_PROVIDER_TYPES
 
@@ -214,9 +213,8 @@ class CreateNetwork(forms.SelfHandlingForm):
                          for network_type in self.nettypes_with_seg_id)
             self.fields['segmentation_id'].widget.attrs.update(attrs)
 
-            physical_networks = getattr(settings,
-                                        'OPENSTACK_NEUTRON_NETWORK', {}
-                                        ).get('physical_networks', [])
+            physical_networks = settings.OPENSTACK_NEUTRON_NETWORK[
+                'physical_networks']
 
             if physical_networks:
                 self.fields['physical_network'] = forms.ThemableChoiceField(

@@ -51,7 +51,7 @@ class GlobalOverview(usage.UsageView):
 
     def get_context_data(self, **kwargs):
         context = super(GlobalOverview, self).get_context_data(**kwargs)
-        context['monitoring'] = getattr(settings, 'EXTERNAL_MONITORING', [])
+        context['monitoring'] = settings.EXTERNAL_MONITORING
         return context
 
     def get_data(self):

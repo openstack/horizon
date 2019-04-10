@@ -65,9 +65,9 @@ class IndexView(tables.DataTableView):
             return images
         filters = self.get_filters()
 
-        filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-        if filter_first.get('admin.images', False) and \
-                len(filters) == len(self.DEFAULT_FILTERS):
+        filter_first = settings.FILTER_DATA_FIRST
+        if (filter_first['admin.images'] and
+                len(filters) == len(self.DEFAULT_FILTERS)):
             self._prev = False
             self._more = False
             self._needs_filter_first = True

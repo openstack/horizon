@@ -26,6 +26,26 @@ ENABLE_CLIENT_TOKEN = True
 # form to verify that it is indeed the admin logged-in who wants to change
 # the password.
 ENFORCE_PASSWORD_CHECK = False
+
+EXTERNAL_MONITORING = []
+
+# To allow operators to require users provide a search criteria first
+# before loading any data into the views, set the following dict
+# attributes to True in each one of the panels you want to enable this feature.
+# Follow the convention <dashboard>.<view>
+FILTER_DATA_FIRST = {
+    'admin.instances': False,
+    'admin.images': False,
+    'admin.networks': False,
+    'admin.routers': False,
+    'admin.volumes': False,
+    'identity.application_credentials': False,
+    'identity.groups': False,
+    'identity.projects': False,
+    'identity.roles': False,
+    'identity.users': False,
+}
+
 # Set to 'legacy' or 'direct' to allow users to upload images to glance via
 # Horizon server. When enabled, a file form field will appear on the create
 # image form. If set to 'off', there will be no file form field on the create
@@ -117,6 +137,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_ipv6': True,
     # TODO(amotoki): Change the default value to True? See local_settings.py
     'enable_quotas': False,
+    'enable_rbac_policy': True,
     'enable_router': True,
 
     # Default dns servers you would like to use when a subnet is
@@ -129,7 +150,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     # Set which provider network types are supported. Only the network types
     # in this list will be available to choose from when creating a network.
     # Network types include local, flat, vlan, gre, vxlan and geneve.
-    # 'supported_provider_types': ['*'],
+    'supported_provider_types': ['*'],
 
     # You can configure available segmentation ID range per network type
     # in your deployment.
@@ -137,6 +158,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     #     'vlan': [1024, 2048],
     #     'vxlan': [4094, 65536],
     # },
+    'segmentation_id_range': {},
 
     # You can define additional provider network types here.
     # 'extra_provider_types': {
@@ -146,6 +168,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     #         'require_segmentation_id': True,
     #     }
     # },
+    'extra_provider_types': {},
 
     # Set which VNIC types are supported for port binding. Only the VNIC
     # types in this list will be available to choose from when creating a

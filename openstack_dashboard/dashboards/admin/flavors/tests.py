@@ -161,7 +161,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
     @test.create_mocks({api.nova: ('flavor_list_paged',),
                         flavors.Flavor: ('get_keys',), })
     def test_index_form_action_with_pagination(self):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
+        page_size = settings.API_RESULT_PAGE_SIZE
         flavors_list = self.flavors.list()[:2]
         self.mock_flavor_list_paged.side_effect = [
             (flavors_list[:page_size], False, False),

@@ -30,10 +30,10 @@ class RBACPolicies(horizon.Panel):
 
     def allowed(self, context):
         request = context['request']
-        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+        network_config = settings.OPENSTACK_NEUTRON_NETWORK
         try:
             return (
-                network_config.get('enable_rbac_policy', True) and
+                network_config['enable_rbac_policy'] and
                 neutron.is_extension_supported(request,
                                                extension_alias='rbac-policies')
             )

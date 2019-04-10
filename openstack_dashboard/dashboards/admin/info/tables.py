@@ -187,8 +187,8 @@ class NetworkL3AgentRoutersLinkAction(tables.LinkAction):
     verbose_name = _("View Routers")
 
     def allowed(self, request, datum):
-        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-        if not network_config.get('enable_router', True):
+        network_config = settings.OPENSTACK_NEUTRON_NETWORK
+        if not network_config['enable_router']:
             return False
         # Determine whether this action is allowed for the current request.
         return datum.agent_type == "L3 agent"

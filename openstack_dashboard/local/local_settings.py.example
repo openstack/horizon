@@ -277,14 +277,21 @@ OPENSTACK_KEYSTONE_URL = "http://%s:5000/v3" % OPENSTACK_HOST
 # services provided by neutron. Options currently available are load
 # balancer service, security groups, quotas, VPN service.
 OPENSTACK_NEUTRON_NETWORK = {
-    'enable_router': True,
+    'enable_auto_allocated_network': False,
+    'enable_distributed_router': False,
+    'enable_fip_topology_check': True,
+    'enable_ha_router': False,
+    'enable_ipv6': True,
     # TODO(amotoki): Drop OPENSTACK_NEUTRON_NETWORK completely from here.
     # enable_quotas has the different default value here.
     'enable_quotas': True,
-    'enable_ipv6': True,
-    'enable_distributed_router': False,
-    'enable_ha_router': False,
-    'enable_fip_topology_check': True,
+    'enable_rbac_policy': True,
+    'enable_router': True,
+
+    'default_dns_nameservers': [],
+    'supported_provider_types': ['*'],
+    'segmentation_id_range': {},
+    'extra_provider_types': {},
     'supported_vnic_types': ['*'],
     'physical_networks': [],
 
@@ -693,22 +700,6 @@ SECURITY_GROUP_RULES = {
 # until today (if set to None). This setting should be used to limit the amount
 # of data fetched by default when rendering the Overview panel.
 #OVERVIEW_DAYS_RANGE = 1
-
-# To allow operators to require users provide a search criteria first
-# before loading any data into the views, set the following dict
-# attributes to True in each one of the panels you want to enable this feature.
-# Follow the convention <dashboard>.<view>
-#FILTER_DATA_FIRST = {
-#    'admin.instances': False,
-#    'admin.images': False,
-#    'admin.networks': False,
-#    'admin.routers': False,
-#    'admin.volumes': False,
-#    'identity.users': False,
-#    'identity.projects': False,
-#    'identity.groups': False,
-#    'identity.roles': False
-#}
 
 # Dict used to restrict user private subnet cidr range.
 # An empty list means that user input will not be restricted
