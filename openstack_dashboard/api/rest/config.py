@@ -24,8 +24,8 @@ from openstack_dashboard.api.rest import utils as rest_utils
 # settings that we allow to be retrieved via REST API
 # these settings are available to the client and are not secured.
 # *** THEY SHOULD BE TREATED WITH EXTREME CAUTION ***
-settings_required = getattr(settings, 'REST_API_REQUIRED_SETTINGS', [])
-settings_additional = getattr(settings, 'REST_API_ADDITIONAL_SETTINGS', [])
+settings_required = settings.REST_API_REQUIRED_SETTINGS
+settings_additional = settings.REST_API_ADDITIONAL_SETTINGS
 
 settings_allowed = settings_required + settings_additional
 
@@ -42,14 +42,15 @@ class Settings(generic.View):
     SPECIALS = {
         'HORIZON_IMAGES_UPLOAD_MODE': api.glance.get_image_upload_mode(),
         'HORIZON_ACTIVE_IMAGE_VERSION': str(api.glance.VERSIONS.active),
-        'IMAGES_ALLOW_LOCATION': getattr(settings, 'IMAGES_ALLOW_LOCATION',
-                                         False),
+        'IMAGES_ALLOW_LOCATION': settings.IMAGES_ALLOW_LOCATION,
         'AJAX_POLL_INTERVAL': settings.HORIZON_CONFIG.get(
             'ajax_poll_interval', 2500)
     }
 
     @rest_utils.ajax()
     def get(self, request):
+        # TODO(amotoki): Drop the default value of getattr.
+        # It will be unnecessary once all default settings are defined.
         plain_settings = {k: getattr(settings, k, None) for k
                           in settings_allowed if k not in self.SPECIALS}
         plain_settings.update(self.SPECIALS)

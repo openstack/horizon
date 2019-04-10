@@ -156,7 +156,7 @@ class User(generic.View):
         user = api.keystone.user_get(request, id)
 
         if 'password' in keys:
-            if getattr(settings, 'ENFORCE_PASSWORD_CHECK', False):
+            if settings.ENFORCE_PASSWORD_CHECK:
                 admin_password = request.DATA['admin_password']
                 if not api.keystone.user_verify_admin_password(request,
                                                                admin_password):
@@ -577,7 +577,7 @@ class UserSession(generic.View):
     def get(self, request):
         """Get the current user session."""
         res = {k: getattr(request.user, k, None) for k in self.allowed_fields}
-        if getattr(settings, 'ENABLE_CLIENT_TOKEN', True):
+        if settings.ENABLE_CLIENT_TOKEN:
             res['token'] = request.user.token.id
         return res
 

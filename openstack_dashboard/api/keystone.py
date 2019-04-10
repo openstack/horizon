@@ -45,8 +45,7 @@ from openstack_dashboard import policy
 
 LOG = logging.getLogger(__name__)
 DEFAULT_ROLE = None
-DEFAULT_DOMAIN = getattr(settings, 'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
-                         'Default')
+DEFAULT_DOMAIN = settings.OPENSTACK_KEYSTONE_DEFAULT_DOMAIN
 
 
 # Set up our data structure for managing Identity API versions, and
@@ -123,7 +122,7 @@ def _get_endpoint_url(request, endpoint_type, catalog=None):
                    "Keystone endpoint, but v3 is specified as the API version "
                    "to use by Horizon. Using v3 endpoint for authentication.")
     else:
-        auth_url = getattr(settings, 'OPENSTACK_KEYSTONE_URL')
+        auth_url = settings.OPENSTACK_KEYSTONE_URL
         url = request.session.get('region_endpoint', auth_url)
         message = ("The OPENSTACK_KEYSTONE_URL setting points to a v2.0 "
                    "Keystone endpoint, but v3 is specified as the API version "
@@ -176,9 +175,7 @@ def keystoneclient(request, admin=False):
             raise exceptions.NotAuthorized
         endpoint_type = 'adminURL'
     else:
-        endpoint_type = getattr(settings,
-                                'OPENSTACK_ENDPOINT_TYPE',
-                                'publicURL')
+        endpoint_type = settings.OPENSTACK_ENDPOINT_TYPE
 
     # Take care of client connection caching/fetching a new client.
     # Admin vs. non-admin clients are cached separately for token matching.
@@ -190,8 +187,8 @@ def keystoneclient(request, admin=False):
         conn = getattr(request, cache_attr)
     else:
         endpoint = _get_endpoint_url(request, endpoint_type)
-        verify = not getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-        cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+        verify = not settings.OPENSTACK_SSL_NO_VERIFY
+        cacert = settings.OPENSTACK_SSL_CACERT
         verify = verify and cacert
         LOG.debug("Creating a new keystoneclient connection to %s.", endpoint)
         remote_addr = request.environ.get('REMOTE_ADDR', '')
@@ -558,8 +555,8 @@ def user_verify_admin_password(request, admin_password):
     client = keystone_client_v2 if VERSIONS.active < 3 else keystone_client_v3
     try:
         endpoint = _get_endpoint_url(request, 'publicURL')
-        insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-        cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+        insecure = settings.OPENSTACK_SSL_NO_VERIFY
+        cacert = settings.OPENSTACK_SSL_CACERT
         client.Client(
             username=request.user.username,
             password=admin_password,
@@ -899,7 +896,7 @@ def get_default_role(request):
     to request. Supports lookup by name or id.
     """
     global DEFAULT_ROLE
-    default = getattr(settings, "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+    default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
     if default and DEFAULT_ROLE is None:
         try:
             roles = keystoneclient(request, admin=True).roles.list()
@@ -944,39 +941,34 @@ def delete_user_ec2_credentials(request, user_id, access_token):
 
 
 def keystone_can_edit_domain():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    can_edit_domain = backend_settings.get('can_edit_domain', True)
-    multi_domain_support = getattr(settings,
-                                   'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
-                                   False)
+    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
+    can_edit_domain = backend_settings['can_edit_domain']
+    multi_domain_support = settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT
     return can_edit_domain and multi_domain_support
 
 
 def keystone_can_edit_user():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    return backend_settings.get('can_edit_user', True)
+    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
+    return backend_settings['can_edit_user']
 
 
 def keystone_can_edit_project():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    return backend_settings.get('can_edit_project', True)
+    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
+    return backend_settings['can_edit_project']
 
 
 def keystone_can_edit_group():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    return backend_settings.get('can_edit_group', True)
+    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
+    return backend_settings['can_edit_group']
 
 
 def keystone_can_edit_role():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    return backend_settings.get('can_edit_role', True)
+    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
+    return backend_settings['can_edit_role']
 
 
 def keystone_backend_name():
-    if hasattr(settings, "OPENSTACK_KEYSTONE_BACKEND"):
-        return settings.OPENSTACK_KEYSTONE_BACKEND['name']
-    else:
-        return 'unknown'
+    return settings.OPENSTACK_KEYSTONE_BACKEND['name'] or 'unknown'
 
 
 def get_version():
@@ -985,11 +977,11 @@ def get_version():
 
 def is_multi_domain_enabled():
     return (VERSIONS.active >= 3 and
-            getattr(settings, 'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT', False))
+            settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT)
 
 
 def is_federation_management_enabled():
-    return getattr(settings, 'OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT', False)
+    return settings.OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT
 
 
 def identity_provider_create(request, idp_id, description=None,

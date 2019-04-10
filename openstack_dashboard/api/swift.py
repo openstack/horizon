@@ -32,7 +32,7 @@ from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 FOLDER_DELIMITER = "/"
-CHUNK_SIZE = getattr(settings, 'SWIFT_FILE_TRANSFER_CHUNK_SIZE', 512 * 1024)
+CHUNK_SIZE = settings.SWIFT_FILE_TRANSFER_CHUNK_SIZE
 # Swift ACL
 GLOBAL_READ_ACL = ".r:*"
 LIST_CONTENTS_ACL = ".rlistings"
@@ -119,8 +119,8 @@ def _metadata_to_header(metadata):
 
 def swift_api(request):
     endpoint = base.url_for(request, 'object-store')
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = settings.OPENSTACK_SSL_CACERT
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
     return swiftclient.client.Connection(None,
                                          request.user.username,
                                          None,
@@ -152,7 +152,7 @@ def swift_object_exists(request, container_name, object_name):
 @profiler.trace
 @safe_swift_exception
 def swift_get_containers(request, marker=None, prefix=None):
-    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    limit = settings.API_RESULT_LIMIT
     headers, containers = swift_api(request).get_account(limit=limit + 1,
                                                          marker=marker,
                                                          prefix=prefix,
@@ -236,7 +236,7 @@ def swift_delete_container(request, name):
 @safe_swift_exception
 def swift_get_objects(request, container_name, prefix=None, marker=None,
                       limit=None):
-    limit = limit or getattr(settings, 'API_RESULT_LIMIT', 1000)
+    limit = limit or settings.API_RESULT_LIMIT
     kwargs = dict(prefix=prefix,
                   marker=marker,
                   limit=limit + 1,

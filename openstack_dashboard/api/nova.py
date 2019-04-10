@@ -1011,8 +1011,7 @@ def interface_detach(request, server, port_id):
 @memoized.memoized
 def list_extensions(request):
     """List all nova extensions, except the ones in the blacklist."""
-    blacklist = set(getattr(settings,
-                            'OPENSTACK_NOVA_EXTENSIONS_BLACKLIST', []))
+    blacklist = set(settings.OPENSTACK_NOVA_EXTENSIONS_BLACKLIST)
     nova_api = _nova.novaclient(request)
     return tuple(
         extension for extension in
@@ -1037,8 +1036,8 @@ def extension_supported(extension_name, request):
 
 @profiler.trace
 def can_set_server_password():
-    features = getattr(settings, 'OPENSTACK_HYPERVISOR_FEATURES', {})
-    return features.get('can_set_password', False)
+    features = settings.OPENSTACK_HYPERVISOR_FEATURES
+    return features['can_set_password']
 
 
 @profiler.trace
@@ -1050,17 +1049,16 @@ def instance_action_list(request, instance_id):
 @profiler.trace
 def can_set_mount_point():
     """Return the Hypervisor's capability of setting mount points."""
-    hypervisor_features = getattr(
-        settings, "OPENSTACK_HYPERVISOR_FEATURES", {})
-    return hypervisor_features.get("can_set_mount_point", False)
+    hypervisor_features = settings.OPENSTACK_HYPERVISOR_FEATURES
+    return hypervisor_features["can_set_mount_point"]
 
 
 @profiler.trace
 def requires_keypair():
-    features = getattr(settings, 'OPENSTACK_HYPERVISOR_FEATURES', {})
-    return features.get('requires_keypair', False)
+    features = settings.OPENSTACK_HYPERVISOR_FEATURES
+    return features['requires_keypair']
 
 
 def can_set_quotas():
-    features = getattr(settings, 'OPENSTACK_HYPERVISOR_FEATURES', {})
-    return features.get('enable_quotas', True)
+    features = settings.OPENSTACK_HYPERVISOR_FEATURES
+    return features['enable_quotas']

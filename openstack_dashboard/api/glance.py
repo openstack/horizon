@@ -146,8 +146,8 @@ def glanceclient(request, version=None):
     api_version = VERSIONS.get_active_version()
 
     url = base.url_for(request, 'image')
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    cacert = settings.OPENSTACK_SSL_CACERT
 
     # TODO(jpichon): Temporarily keep both till we update the API calls
     # to stop hardcoding a version in this file. Once that's done we
@@ -329,7 +329,7 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
         Set this flag to True when it's necessary to get a reversed list of
         images from Glance (used for navigating the images list back in UI).
     """
-    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    limit = settings.API_RESULT_LIMIT
     page_size = utils.get_page_size(request)
 
     if paginate:
@@ -412,7 +412,7 @@ def image_update(request, image_id, **kwargs):
 
 
 def get_image_upload_mode():
-    mode = getattr(settings, 'HORIZON_IMAGES_UPLOAD_MODE', 'legacy')
+    mode = settings.HORIZON_IMAGES_UPLOAD_MODE
     if mode not in ('off', 'legacy', 'direct'):
         LOG.warning('HORIZON_IMAGES_UPLOAD_MODE has an unrecognized value of '
                     '"%s", reverting to default "legacy" value', mode)
@@ -701,7 +701,7 @@ def metadefs_namespace_list(request,
 
     if filters is None:
         filters = {}
-    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    limit = settings.API_RESULT_LIMIT
     page_size = utils.get_page_size(request)
 
     if paginate:

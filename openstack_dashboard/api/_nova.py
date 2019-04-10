@@ -35,8 +35,8 @@ VERSIONS = base.APIVersionManager("compute", preferred_version=2)
 VERSIONS.load_supported_version(1.1, {"client": nova_client, "version": 1.1})
 VERSIONS.load_supported_version(2, {"client": nova_client, "version": 2})
 
-INSECURE = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-CACERT = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+INSECURE = settings.OPENSTACK_SSL_NO_VERIFY
+CACERT = settings.OPENSTACK_SSL_CACERT
 
 
 class Server(base.APIResourceWrapper):

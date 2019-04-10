@@ -272,8 +272,6 @@ OPENSTACK_CLOUDS_YAML_NAME = 'openstack'
 # If this cloud has a vendor profile in os-client-config, put it's name here.
 OPENSTACK_CLOUDS_YAML_PROFILE = ''
 
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = '_member_'
-
 DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
 
 POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
@@ -371,6 +369,10 @@ XSTATIC_MODULES = settings_utils.BASE_XSTATIC_MODULES
 OPENSTACK_PROFILER = {
     'enabled': False
 }
+
+# Load default values
+# pylint: disable=wrong-import-position
+from openstack_dashboard.defaults import *  # noqa: F403,H303
 
 if not LOCAL_PATH:
     LOCAL_PATH = os.path.join(ROOT_PATH, 'local')

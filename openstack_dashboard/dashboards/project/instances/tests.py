@@ -2290,12 +2290,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
     def test_launch_instance_get_glance_v1(self):
         self.test_launch_instance_get()
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
     def test_launch_instance_get_without_password(self):
         self.test_launch_instance_get(expect_password_fields=False)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'requires_keypair': True})
     def test_launch_instance_required_key(self):
         flavor = self.flavors.first()
@@ -3960,7 +3960,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         ])
         self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
 
-    @override_settings(
+    @helpers.update_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': True},)
     def test_launch_form_instance_device_name_showed(self):
         self._test_launch_form_instance_show_device_name(
@@ -3969,7 +3969,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                 'attrs': {'id': 'id_device_name'}}
         )
 
-    @override_settings(
+    @helpers.update_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': True},
         OPENSTACK_API_VERSIONS={'image': 1}
     )
@@ -3980,7 +3980,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                 'attrs': {'id': 'id_device_name'}}
         )
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': False})
     def test_launch_form_instance_device_name_hidden(self):
         self._test_launch_form_instance_show_device_name(
