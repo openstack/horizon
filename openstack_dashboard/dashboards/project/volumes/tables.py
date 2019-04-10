@@ -472,6 +472,8 @@ class VolumesTableBase(tables.DataTable):
                                       u"Maintenance")),
         ("reserved", pgettext_lazy("Current status of a Volume",
                                    u"Reserved")),
+        ("awaiting-transfer", pgettext_lazy("Current status of a Volume",
+                                            u"Awaiting Transfer")),
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),
