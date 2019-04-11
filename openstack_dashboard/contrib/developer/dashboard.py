@@ -24,7 +24,7 @@ class Developer(horizon.Dashboard):
     default_panel = "theme_preview"
 
     def allowed(self, context):
-        if not getattr(settings, 'DEBUG', False):
+        if not settings.DEBUG:
             return False
         return super(Developer, self).allowed(context)
 

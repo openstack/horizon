@@ -19,7 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 import horizon
 
 
-if getattr(settings, 'OPENSTACK_PROFILER', {}).get('enabled', False):
+if settings.OPENSTACK_PROFILER['enabled']:
     class Profiler(horizon.Panel):
         name = _("OpenStack Profiler")
         slug = 'profiler'

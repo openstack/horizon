@@ -186,7 +186,7 @@ class ComputeApiTests(test.APIMockTestCase):
 
     @mock.patch.object(api._nova, 'novaclient')
     def test_server_list_pagination(self, mock_novaclient):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+        page_size = settings.API_RESULT_PAGE_SIZE
         servers = self.servers.list()
         novaclient = mock_novaclient.return_value
         self._mock_current_version(novaclient, '2.45')
@@ -210,7 +210,7 @@ class ComputeApiTests(test.APIMockTestCase):
     @override_settings(API_RESULT_PAGE_SIZE=1)
     @mock.patch.object(api._nova, 'novaclient')
     def test_server_list_pagination_more(self, mock_novaclient):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
+        page_size = settings.API_RESULT_PAGE_SIZE
         servers = self.servers.list()
         novaclient = mock_novaclient.return_value
         self._mock_current_version(novaclient, '2.45')
@@ -509,7 +509,7 @@ class ComputeApiTests(test.APIMockTestCase):
     @mock.patch.object(api._nova, 'novaclient')
     def _test_flavor_list_paged(self, mock_novaclient,
                                 reversed_order=False, paginate=True):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+        page_size = settings.API_RESULT_PAGE_SIZE
         flavors = self.flavors.list()
         order = 'asc' if reversed_order else 'desc'
         novaclient = mock_novaclient.return_value
@@ -534,7 +534,7 @@ class ComputeApiTests(test.APIMockTestCase):
     @override_settings(API_RESULT_PAGE_SIZE=1)
     @mock.patch.object(api._nova, 'novaclient')
     def test_flavor_list_pagination_more_and_prev(self, mock_novaclient):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
+        page_size = settings.API_RESULT_PAGE_SIZE
         flavors = self.flavors.list()
         marker = flavors[0].id
         novaclient = mock_novaclient.return_value

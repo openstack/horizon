@@ -31,14 +31,22 @@ monkeypatch_escape()
 # Load default values
 from openstack_dashboard.defaults import *  # noqa: F403,H303
 
-TEST_DIR = os.path.dirname(os.path.abspath(__file__))
+WEBROOT = '/'
 
+# The following need to Set explicitly
+# as they defaults to None in openstack_dashboard.defaults.
+# TODO(amotoki): Move them to a common function.
+LOGIN_URL = '/auth/login/'
+LOGOUT_URL = '/auth/logout/'
+LOGIN_ERROR = '/auth/error/'
+LOGIN_REDIRECT_URL = '/'
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+
+TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_PATH = os.path.abspath(os.path.join(TEST_DIR, ".."))
 MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
-MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'static'))
-STATIC_URL = '/static/'
-WEBROOT = '/'
 
 SECRET_KEY = secret_key.generate_or_read_from_file(
     os.path.join(tempfile.gettempdir(), '.secret_key_store'))
@@ -121,8 +129,6 @@ settings_utils.update_dashboards(
     HORIZON_CONFIG,
     INSTALLED_APPS,
 )
-
-OPENSTACK_PROFILER = {'enabled': False}
 
 settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
                                  THEME_COLLECTION_DIR, ROOT_PATH)

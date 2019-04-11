@@ -41,7 +41,7 @@ class BaseUsage(object):
 
     @property
     def first_day(self):
-        days_range = getattr(settings, 'OVERVIEW_DAYS_RANGE', 1)
+        days_range = settings.OVERVIEW_DAYS_RANGE
         if days_range:
             return self.today.date() - datetime.timedelta(days=days_range)
         else:

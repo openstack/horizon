@@ -30,7 +30,7 @@ from horizon.utils import functions
 
 
 class UserSettingsForm(forms.SelfHandlingForm):
-    max_value = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    max_value = settings.API_RESULT_LIMIT
     language = forms.ChoiceField(label=_("Language"))
     timezone = forms.ChoiceField(label=_("Timezone"))
     pagesize = forms.IntegerField(label=_("Items Per Page"),

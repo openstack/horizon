@@ -27,7 +27,7 @@ from six.moves.urllib.parse import urlparse
 
 
 ROOT_HEADER = 'PARENT_VIEW_TRACE_ID'
-PROFILER_SETTINGS = getattr(settings, 'OPENSTACK_PROFILER', {})
+PROFILER_SETTINGS = settings.OPENSTACK_PROFILER
 
 
 def init_notifier(connection_str, host="localhost"):
@@ -59,8 +59,8 @@ def _get_engine_kwargs(request, connection_str):
         # option
         'ceilometer': lambda req: {
             'endpoint': base.url_for(req, 'metering'),
-            'insecure': getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False),
-            'cacert': getattr(settings, 'OPENSTACK_SSL_CACERT', None),
+            'insecure': settings.OPENSTACK_SSL_NO_VERIFY,
+            'cacert': settings.OPENSTACK_SSL_CACERT,
             'token': (lambda: req.user.token.id),
             'ceilometer_api_version': '2'
         }
@@ -71,8 +71,7 @@ def _get_engine_kwargs(request, connection_str):
 
 
 def _get_engine(request):
-    connection_str = PROFILER_SETTINGS.get(
-        'receiver_connection_string', "mongodb://")
+    connection_str = PROFILER_SETTINGS['receiver_connection_string']
     kwargs = _get_engine_kwargs(request, connection_str)
     return profiler_get_driver(connection_str, **kwargs)
 
@@ -125,7 +124,7 @@ def update_trace_headers(keys, **kwargs):
                        web.X_TRACE_HMAC: trace_data[1]})
 
 
-if not PROFILER_SETTINGS.get('enabled', False):
+if not PROFILER_SETTINGS['enabled']:
     def trace(function):
         return function
 else:

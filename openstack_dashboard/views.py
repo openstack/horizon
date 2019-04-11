@@ -32,7 +32,7 @@ from horizon import notifications
 LOG = logging.getLogger(__name__)
 
 
-MESSAGES_PATH = getattr(settings, 'MESSAGES_PATH', None)
+MESSAGES_PATH = settings.MESSAGES_PATH
 
 
 def get_user_home(user):

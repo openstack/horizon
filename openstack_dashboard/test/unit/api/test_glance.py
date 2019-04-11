@@ -70,7 +70,7 @@ class GlanceApiTests(test.APIMockTestCase):
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
         filters = {}
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
@@ -95,7 +95,7 @@ class GlanceApiTests(test.APIMockTestCase):
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
         filters = {}
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
         sort_dir = 'asc'
         sort_key = 'min_disk'
 
@@ -125,7 +125,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # page_size images.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
@@ -165,7 +165,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # more, prev should return False.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
@@ -199,7 +199,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # page_size images. more, prev should return False
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
@@ -231,7 +231,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # Tests getting a second page with a marker.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
         marker = 'nonsense'
 
         api_images = self.images_api.list()[page_size:]
@@ -270,7 +270,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # Tests getting previous page with a marker.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
         marker = 'nonsense'
 
         api_images = self.images_api.list()[page_size:]
@@ -317,7 +317,7 @@ class GlanceApiTests(test.APIMockTestCase):
     @mock.patch.object(api.glance, 'glanceclient')
     def test_metadefs_namespace_list(self, mock_glanceclient):
         metadata_defs = self.metadata_defs.list()
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         glanceclient = mock_glanceclient.return_value
         mock_metadefs_list = glanceclient.metadefs_namespace.list
@@ -340,7 +340,7 @@ class GlanceApiTests(test.APIMockTestCase):
     def test_metadefs_namespace_list_with_properties_target(self,
                                                             mock_glanceclient):
         metadata_defs = self.metadata_defs.list()
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
         filters = {'resource_types': ['OS::Cinder::Volume'],
                    'properties_target': 'user'}
 

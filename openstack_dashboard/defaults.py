@@ -17,6 +17,32 @@ from django.utils.translation import ugettext_lazy as _
 # This must be configured
 # OPENSTACK_KEYSTONE_URL = 'http://localhost/identity/v3'
 
+# WEBROOT is the location relative to Webserver root
+# should end with a slash.
+WEBROOT = '/'
+# NOTE: The following are calculated baed on WEBROOT
+# after loading local_settings
+# LOGIN_URL = WEBROOT + 'auth/login/'
+# LOGOUT_URL = WEBROOT + 'auth/logout/'
+# LOGIN_ERROR = WEBROOT + 'auth/error/'
+LOGIN_URL = None
+LOGOUT_URL = None
+LOGIN_ERROR = None
+# NOTE: The following are calculated baed on WEBROOT
+# after loading local_settings
+# LOGIN_REDIRECT_URL can be used as an alternative for
+# HORIZON_CONFIG.user_home, if user_home is not set.
+# Do not set it to '/home/', as this will cause circular redirect loop
+# LOGIN_REDIRECT_URL = WEBROOT
+LOGIN_REDIRECT_URL = None
+
+# NOTE: The following are calculated baed on WEBROOT
+# after loading local_settings
+MEDIA_ROOT = None
+MEDIA_URL = None
+STATIC_ROOT = None
+STATIC_URL = None
+
 # Dict used to restrict user private subnet cidr range.
 # An empty list means that user input will not be restricted
 # for a corresponding IP version. By default, there is
@@ -42,6 +68,13 @@ API_RESULT_PAGE_SIZE = 20
 # ]
 AVAILABLE_REGIONS = []
 
+# Modules that provide /auth routes that can be used to handle different types
+# of user authentication. Add auth plugins that require extra route handling to
+# this list.
+AUTHENTICATION_URLS = [
+    'openstack_auth.urls',
+]
+
 # Set Console type:
 # valid options are "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL", "MKS"
 # or None. Set to None explicitly if you want to deactivate the console.
@@ -60,6 +93,17 @@ CONSOLE_TYPE = "AUTO"
 #     'reverse': False,
 # }
 CREATE_INSTANCE_FLAVOR_SORT = {}
+
+# DISALLOW_IFRAME_EMBED can be used to prevent Horizon from being embedded
+# within an iframe. Legacy browsers are still vulnerable to a Cross-Frame
+# Scripting (XFS) vulnerability, so this option allows extra security hardening
+# where iframes are not used in deployment. Default setting is True.
+# For more information see:
+# http://tinyurl.com/anticlickjack
+DISALLOW_IFRAME_EMBED = True
+
+# Specify a maximum number of items to display in a dropdown.
+DROPDOWN_MAX_ITEMS = 30
 
 ENABLE_CLIENT_TOKEN = True
 # Set this to True to display an 'Admin Password' field on the Change Password
@@ -136,9 +180,20 @@ LAUNCH_INSTANCE_DEFAULTS = {
     'enable_scheduler_hints': True,
 }
 
+# The absolute path to the directory where message files are collected.
+# The message file must have a .json file extension. When the user logins to
+# horizon, the message files collected are processed and displayed to the user.
+MESSAGES_PATH = None
+
 OPENRC_CUSTOM_TEMPLATE = 'project/api_access/openrc.sh.template'
 OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE = ('project/api_access/'
                                          'clouds.yaml.template')
+
+# The default date range in the Overview panel meters - either <today> minus N
+# days (if the value is integer N), or from the beginning of the current month
+# until today (if set to None). This setting should be used to limit the amount
+# of data fetched by default when rendering the Overview panel.
+OVERVIEW_DAYS_RANGE = 1
 
 # Projects and users can have extra attributes as defined by keystone v3.
 # Horizon has the ability to display these extra attributes via this setting.
@@ -186,6 +241,10 @@ SHOW_OPENSTACK_CLOUDS_YAML = True
 
 # The size of chunk in bytes for downloading objects from Swift
 SWIFT_FILE_TRANSFER_CHUNK_SIZE = 512 * 1024
+
+# NOTE: The default value of USER_MENU_LINKS will be set after loading
+# local_settings if it is not configured.
+USER_MENU_LINKS = None
 
 # Overrides for OpenStack API versions. Use this setting to force the
 # OpenStack dashboard to use a specific API version for a given service API.
@@ -362,6 +421,14 @@ OPENSTACK_IMAGE_BACKEND = {
 OPENSTACK_CLOUDS_YAML_NAME = 'openstack'
 # If this cloud has a vendor profile in os-client-config, put it's name here.
 OPENSTACK_CLOUDS_YAML_PROFILE = ''
+
+OPENSTACK_PROFILER = {
+    'enabled': False,
+    'facility_name': 'horizon',
+    'keys': [],
+    'receiver_connection_string': "mongodb://",
+    'notifier_connection_string': None,
+}
 
 # AngularJS requires some settings to be made available to
 # the client side. Some settings are required by in-tree / built-in horizon

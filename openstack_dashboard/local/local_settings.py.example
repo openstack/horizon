@@ -21,18 +21,6 @@ DEBUG = True
 # for more information
 #COMPRESS_OFFLINE = not DEBUG
 
-# WEBROOT is the location relative to Webserver root
-# should end with a slash.
-WEBROOT = '/'
-#LOGIN_URL = WEBROOT + 'auth/login/'
-#LOGOUT_URL = WEBROOT + 'auth/logout/'
-#LOGIN_ERROR = WEBROOT + 'auth/error/'
-#
-# LOGIN_REDIRECT_URL can be used as an alternative for
-# HORIZON_CONFIG.user_home, if user_home is not set.
-# Do not set it to '/home/', as this will cause circular redirect loop
-#LOGIN_REDIRECT_URL = WEBROOT
-
 # If horizon is running in production (DEBUG is False), set this
 # with the list of host/domain names that the application can serve.
 # For more information see:
@@ -50,11 +38,6 @@ WEBROOT = '/'
 # settings to better secure the cookies from security exploits
 #CSRF_COOKIE_SECURE = True
 #SESSION_COOKIE_SECURE = True
-
-# The absolute path to the directory where message files are collected.
-# The message file must have a .json file extension. When the user logins to
-# horizon, the message files collected are processed and displayed to the user.
-#MESSAGES_PATH=None
 
 # Set this to True if you want available domains displayed as a dropdown menu
 # on the login screen. It is strongly advised NOT to enable this for public
@@ -257,19 +240,9 @@ IMAGE_RESERVED_CUSTOM_PROPERTIES = []
 # The default number of lines displayed for instance console log.
 INSTANCE_LOG_LENGTH = 35
 
-# Specify a maximum number of items to display in a dropdown.
-DROPDOWN_MAX_ITEMS = 30
-
 # The timezone of the server. This should correspond with the timezone
 # of your entire OpenStack installation, and hopefully be in UTC.
 TIME_ZONE = "UTC"
-
-# Modules that provide /auth routes that can be used to handle different types
-# of user authentication. Add auth plugins that require extra route handling to
-# this list.
-#AUTHENTICATION_URLS = [
-#    'openstack_auth.urls',
-#]
 
 # The Horizon Policy Enforcement engine uses these values to load per service
 # policy rule files. The content of these files should match the files the
@@ -561,14 +534,6 @@ SECURITY_GROUP_RULES = {
 # See Metadata Definitions on:
 # https://docs.openstack.org/glance/latest/user/glancemetadefcatalogapi.html
 
-# DISALLOW_IFRAME_EMBED can be used to prevent Horizon from being embedded
-# within an iframe. Legacy browsers are still vulnerable to a Cross-Frame
-# Scripting (XFS) vulnerability, so this option allows extra security hardening
-# where iframes are not used in deployment. Default setting is True.
-# For more information see:
-# http://tinyurl.com/anticlickjack
-#DISALLOW_IFRAME_EMBED = True
-
 # Help URL can be made available for the client. To provide a help URL, edit the
 # following attribute to the URL of your choice.
 #HORIZON_CONFIG["help_url"] = "http://openstack.mycompany.org"
@@ -590,12 +555,6 @@ SECURITY_GROUP_RULES = {
 #        " [%(referer_url)s] [%(request_url)s] [%(message)s] [%(method)s]"
 #        " [%(http_status)s] [%(param)s]"),
 #}
-
-# The default date range in the Overview panel meters - either <today> minus N
-# days (if the value is integer N), or from the beginning of the current month
-# until today (if set to None). This setting should be used to limit the amount
-# of data fetched by default when rendering the Overview panel.
-#OVERVIEW_DAYS_RANGE = 1
 
 # Password will have an expiration date when using keystone v3 and enabling the
 # feature.
