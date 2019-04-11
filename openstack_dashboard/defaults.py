@@ -140,6 +140,22 @@ OPENRC_CUSTOM_TEMPLATE = 'project/api_access/openrc.sh.template'
 OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE = ('project/api_access/'
                                          'clouds.yaml.template')
 
+# Projects and users can have extra attributes as defined by keystone v3.
+# Horizon has the ability to display these extra attributes via this setting.
+# If you'd like to display extra data in the project or user tables, set the
+# corresponding dict key to the attribute name, followed by the display name.
+# For more information, see horizon's customization
+# (https://docs.openstack.org/horizon/latest/configuration/
+#  customizing.html#horizon-customization-module-overrides)
+# PROJECT_TABLE_EXTRA_INFO = {
+#    'phone_num': _('Phone Number'),
+# }
+PROJECT_TABLE_EXTRA_INFO = {}
+# USER_TABLE_EXTRA_INFO = {
+#    'phone_num': _('Phone Number'),
+# }
+USER_TABLE_EXTRA_INFO = {}
+
 SECURITY_GROUP_RULES = {
     'all_tcp': {
         'name': _('All TCP'),

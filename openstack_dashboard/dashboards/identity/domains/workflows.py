@@ -69,8 +69,7 @@ class UpdateDomainUsersAction(workflows.MembershipAction):
             default_role = api.keystone.get_default_role(self.request)
             # Default role is necessary to add members to a domain
             if default_role is None:
-                default = getattr(settings,
-                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
                 msg = (_('Could not find default role "%s" in Keystone') %
                        default)
                 raise exceptions.NotFound(msg)
@@ -168,8 +167,7 @@ class UpdateDomainGroupsAction(workflows.MembershipAction):
             default_role = api.keystone.get_default_role(self.request)
             # Default role is necessary to add members to a domain
             if default_role is None:
-                default = getattr(settings,
-                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
                 msg = (_('Could not find default role "%s" in Keystone') %
                        default)
                 raise exceptions.NotFound(msg)

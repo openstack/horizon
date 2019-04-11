@@ -183,7 +183,7 @@ class UpdateProjectView(workflows.WorkflowView):
 
             if keystone.VERSIONS.active >= 3:
                 # get extra columns info
-                ex_info = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+                ex_info = settings.PROJECT_TABLE_EXTRA_INFO
                 for ex_field in ex_info:
                     initial[ex_field] = getattr(project_info, ex_field, None)
 

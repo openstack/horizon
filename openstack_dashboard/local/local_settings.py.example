@@ -597,19 +597,6 @@ SECURITY_GROUP_RULES = {
 # of data fetched by default when rendering the Overview panel.
 #OVERVIEW_DAYS_RANGE = 1
 
-# Projects and users can have extra attributes as defined by keystone v3.
-# Horizon has the ability to display these extra attributes via this setting.
-# If you'd like to display extra data in the project or user tables, set the
-# corresponding dict key to the attribute name, followed by the display name.
-# For more information, see horizon's customization
-# (https://docs.openstack.org/horizon/latest/configuration/customizing.html#horizon-customization-module-overrides)
-#PROJECT_TABLE_EXTRA_INFO = {
-#   'phone_num': _('Phone Number'),
-#}
-#USER_TABLE_EXTRA_INFO = {
-#   'phone_num': _('Phone Number'),
-#}
-
 # Password will have an expiration date when using keystone v3 and enabling the
 # feature.
 # This setting allows you to set the number of days that the user will be alerted

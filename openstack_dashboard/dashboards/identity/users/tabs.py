@@ -68,7 +68,7 @@ class OverviewTab(tabs.Tab):
 
     def _get_extras(self, user):
         if api.keystone.VERSIONS.active >= 3:
-            extra_info = getattr(settings, 'USER_TABLE_EXTRA_INFO', {})
+            extra_info = settings.USER_TABLE_EXTRA_INFO
             return dict((display_key, getattr(user, key, ''))
                         for key, display_key in extra_info.items())
         else:
