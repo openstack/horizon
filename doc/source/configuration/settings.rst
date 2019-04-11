@@ -480,9 +480,8 @@ Default:
 .. code-block:: python
 
     {
-        "data-processing": 1.1,
         "identity": 3,
-        "volume": 2,
+        "volume": 3,
         "compute": 2
     }
 
@@ -499,9 +498,8 @@ OpenStack dashboard to use a specific API version for a given service API.
     .. code-block:: python
 
         OPENSTACK_API_VERSIONS = {
-            "data-processing": 1.1,
             "identity": 3,
-            "volume": 2,
+            "volume": 3,
             "compute": 2
         }
 

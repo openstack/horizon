@@ -64,10 +64,9 @@ WEBROOT = '/'
 # use of the decimal point, so valid options would be 2.0 or 3.
 # Minimum compute version to get the instance locked status is 2.9.
 #OPENSTACK_API_VERSIONS = {
-#    "data-processing": 1.1,
 #    "identity": 3,
 #    "image": 2,
-#    "volume": 2,
+#    "volume": 3,
 #    "compute": 2,
 #}
 
