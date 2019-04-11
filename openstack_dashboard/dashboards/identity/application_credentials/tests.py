@@ -47,7 +47,7 @@ class ApplicationCredentialViewTests(test.TestCase):
             'description': new_app_cred.description,
             'expires_at': new_app_cred.expires_at,
             'roles': None,
-            'unrestricted': None,
+            'unrestricted': False,
             'secret': None
         }
 
