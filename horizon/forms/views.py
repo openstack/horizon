@@ -192,7 +192,8 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
                 field_id = self.request.META[ADD_TO_FIELD_HEADER]
                 data = [self.get_object_id(handled),
                         self.get_object_display(handled)]
-                response = http.HttpResponse(json.dumps(data))
+                response = http.HttpResponse(
+                    json.dumps(data), content_type="text/plain")
                 response["X-Horizon-Add-To-Field"] = field_id
             elif isinstance(handled, http.HttpResponse):
                 return handled
