@@ -44,14 +44,8 @@ class KeystoneBackend(object):
     @property
     def auth_plugins(self):
         if self._auth_plugins is None:
-            plugins = getattr(
-                settings,
-                'AUTHENTICATION_PLUGINS',
-                ['openstack_auth.plugin.password.PasswordPlugin',
-                 'openstack_auth.plugin.token.TokenPlugin'])
-
+            plugins = settings.AUTHENTICATION_PLUGINS
             self._auth_plugins = [import_string(p)() for p in plugins]
-
         return self._auth_plugins
 
     def get_user(self, user_id):
@@ -174,7 +168,7 @@ class KeystoneBackend(object):
                 region_name = id_endpoint['region']
                 break
 
-        interface = getattr(settings, 'OPENSTACK_ENDPOINT_TYPE', 'public')
+        interface = settings.OPENSTACK_ENDPOINT_TYPE
 
         endpoint, url_fixed = utils.fix_auth_url_version_prefix(
             scoped_auth_ref.service_catalog.url_for(
@@ -215,7 +209,7 @@ class KeystoneBackend(object):
                     request.session['domain_token'] = domain_auth_ref
 
             request.user = user
-            timeout = getattr(settings, "SESSION_TIMEOUT", 3600)
+            timeout = settings.SESSION_TIMEOUT
             token_life = user.token.expires - datetime.datetime.now(pytz.utc)
             session_time = min(timeout, int(token_life.total_seconds()))
             request.session.set_expiry(session_time)

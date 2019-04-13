@@ -27,7 +27,7 @@ from openstack_auth import utils as auth_utils
 LOG = logging.getLogger(__name__)
 
 _ENFORCER = None
-_BASE_PATH = getattr(settings, 'POLICY_FILES_PATH', '')
+_BASE_PATH = settings.POLICY_FILES_PATH
 
 
 def _get_policy_conf(policy_file, policy_dirs=None):
@@ -47,9 +47,9 @@ def _get_policy_conf(policy_file, policy_dirs=None):
 
 
 def _get_policy_file_with_full_path(service):
-    policy_files = getattr(settings, 'POLICY_FILES', {})
+    policy_files = settings.POLICY_FILES
     policy_file = os.path.join(_BASE_PATH, policy_files[service])
-    policy_dirs = getattr(settings, 'POLICY_DIRS', {}).get(service, [])
+    policy_dirs = settings.POLICY_DIRS.get(service, [])
     policy_dirs = [os.path.join(_BASE_PATH, policy_dir)
                    for policy_dir in policy_dirs]
     return policy_file, policy_dirs
@@ -59,7 +59,7 @@ def _get_enforcer():
     global _ENFORCER
     if not _ENFORCER:
         _ENFORCER = {}
-        policy_files = getattr(settings, 'POLICY_FILES', {})
+        policy_files = settings.POLICY_FILES
         for service in policy_files.keys():
             policy_file, policy_dirs = _get_policy_file_with_full_path(service)
             conf = _get_policy_conf(policy_file, policy_dirs)

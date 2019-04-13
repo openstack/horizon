@@ -12,14 +12,23 @@
 
 """Default settings for openstack_dashboard"""
 
+import os
+
 from django.utils.translation import ugettext_lazy as _
 
-# This must be configured
-# OPENSTACK_KEYSTONE_URL = 'http://localhost/identity/v3'
+from openstack_auth.defaults import *  # noqa: F403,H303
 
-# WEBROOT is the location relative to Webserver root
-# should end with a slash.
-WEBROOT = '/'
+
+def _get_root_path():
+    return os.path.dirname(os.path.abspath(__file__))
+
+
+# -------------------------------------------
+# Override openstack_auth and Django settings
+# -------------------------------------------
+
+WEBROOT = '/'  # from openstack_auth
+
 # NOTE: The following are calculated baed on WEBROOT
 # after loading local_settings
 # LOGIN_URL = WEBROOT + 'auth/login/'
@@ -27,7 +36,7 @@ WEBROOT = '/'
 # LOGIN_ERROR = WEBROOT + 'auth/error/'
 LOGIN_URL = None
 LOGOUT_URL = None
-LOGIN_ERROR = None
+LOGIN_ERROR = None  # from openstack_auth
 # NOTE: The following are calculated baed on WEBROOT
 # after loading local_settings
 # LOGIN_REDIRECT_URL can be used as an alternative for
@@ -42,6 +51,42 @@ MEDIA_ROOT = None
 MEDIA_URL = None
 STATIC_ROOT = None
 STATIC_URL = None
+
+# The Horizon Policy Enforcement engine uses these values to load per service
+# policy rule files. The content of these files should match the files the
+# OpenStack services are using to determine role based access control in the
+# target installation.
+
+# Path to directory containing policy.json files
+POLICY_FILES_PATH = os.path.join(_get_root_path(), "conf")
+
+# Map of local copy of service policy files.
+# Please insure that your identity policy file matches the one being used on
+# your keystone servers. There is an alternate policy file that may be used
+# in the Keystone v3 multi-domain case, policy.v3cloudsample.json.
+# This file is not included in the Horizon repository by default but can be
+# found at
+# http://git.openstack.org/cgit/openstack/keystone/tree/etc/ \
+# policy.v3cloudsample.json
+# Having matching policy files on the Horizon and Keystone servers is essential
+# for normal operation. This holds true for all services and their policy files.
+POLICY_FILES = {
+    'identity': 'keystone_policy.json',
+    'compute': 'nova_policy.json',
+    'volume': 'cinder_policy.json',
+    'image': 'glance_policy.json',
+    'network': 'neutron_policy.json',
+}
+# Services for which horizon has extra policies are defined
+# in POLICY_DIRS by default.
+POLICY_DIRS = {
+    'compute': ['nova_policy.d'],
+    'volume': ['cinder_policy.d'],
+}
+
+# ----------------------------------------
+# openstack_dashboard settings
+# ----------------------------------------
 
 # Dict used to restrict user private subnet cidr range.
 # An empty list means that user input will not be restricted

@@ -69,8 +69,9 @@ def login(request):
         auth_type = request.POST.get('auth_type', 'credentials')
         if utils.is_websso_enabled() and auth_type != 'credentials':
             region_id = request.POST.get('region')
-            auth_url = getattr(settings, 'WEBSSO_KEYSTONE_URL',
-                               forms.get_region_endpoint(region_id))
+            auth_url = getattr(settings, 'WEBSSO_KEYSTONE_URL', None)
+            if auth_url is None:
+                auth_url = forms.get_region_endpoint(region_id)
             url = utils.get_websso_url(request, auth_url, auth_type)
             return shortcuts.redirect(url)
 
@@ -88,7 +89,7 @@ def login(request):
     initial = {}
     current_region = request.session.get('region_endpoint', None)
     requested_region = request.GET.get('region', None)
-    regions = dict(getattr(settings, "AVAILABLE_REGIONS", []))
+    regions = dict(settings.AVAILABLE_REGIONS)
     if requested_region in regions and requested_region != current_region:
         initial.update({'region': requested_region})
 
@@ -97,7 +98,7 @@ def login(request):
     else:
         form = functional.curry(forms.Login, initial=initial)
 
-    choices = getattr(settings, 'WEBSSO_CHOICES', ())
+    choices = settings.WEBSSO_CHOICES
     extra_context = {
         'redirect_field_name': auth.REDIRECT_FIELD_NAME,
         'csrf_failure': request.GET.get('csrf_failure'),
@@ -136,8 +137,7 @@ def login(request):
         request.session['region_endpoint'] = region
         request.session['region_name'] = region_name
         expiration_time = request.user.time_until_expiration()
-        threshold_days = getattr(
-            settings, 'PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS', -1)
+        threshold_days = settings.PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS
         if expiration_time is not None and \
                 expiration_time.days <= threshold_days:
             expiration_time = str(expiration_time).rsplit(':', 1)[0]
@@ -307,8 +307,7 @@ def switch_keystone_provider(request, keystone_provider=None,
         redirect_to = settings.LOGIN_REDIRECT_URL
 
     unscoped_auth_ref = None
-    keystone_idp_id = getattr(
-        settings, 'KEYSTONE_PROVIDER_IDP_ID', 'localkeystone')
+    keystone_idp_id = settings.KEYSTONE_PROVIDER_IDP_ID
 
     if keystone_provider == keystone_idp_id:
         current_plugin = plugin.TokenPlugin()

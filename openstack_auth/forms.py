@@ -31,7 +31,7 @@ LOG = logging.getLogger(__name__)
 def get_region_endpoint(region_id):
     if region_id == "default":
         return settings.OPENSTACK_KEYSTONE_URL
-    all_regions = getattr(settings, 'AVAILABLE_REGIONS', [])
+    all_regions = settings.AVAILABLE_REGIONS
     return all_regions[int(region_id)][0]
 
 
@@ -65,19 +65,13 @@ class Login(django_auth_forms.AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(Login, self).__init__(*args, **kwargs)
         fields_ordering = ['username', 'password', 'region']
-        if getattr(settings,
-                   'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
-                   False):
+        if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             last_domain = self.request.COOKIES.get('login_domain', None)
-            if getattr(settings,
-                       'OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN',
-                       False):
+            if settings.OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN:
                 self.fields['domain'] = forms.ChoiceField(
                     label=_("Domain"),
                     initial=last_domain,
-                    choices=getattr(settings,
-                                    'OPENSTACK_KEYSTONE_DOMAIN_CHOICES',
-                                    ()))
+                    choices=settings.OPENSTACK_KEYSTONE_DOMAIN_CHOICES)
             else:
                 self.fields['domain'] = forms.CharField(
                     initial=last_domain,
@@ -96,17 +90,17 @@ class Login(django_auth_forms.AuthenticationForm):
         # if websso is enabled and keystone version supported
         # prepend the websso_choices select input to the form
         if utils.is_websso_enabled():
-            initial = getattr(settings, 'WEBSSO_INITIAL_CHOICE', 'credentials')
+            initial = settings.WEBSSO_INITIAL_CHOICE
             self.fields['auth_type'] = forms.ChoiceField(
                 label=_("Authenticate using"),
-                choices=getattr(settings, 'WEBSSO_CHOICES', ()),
+                choices=settings.WEBSSO_CHOICES,
                 required=False,
                 initial=initial)
             # add auth_type to the top of the list
             fields_ordering.insert(0, 'auth_type')
 
         # websso is enabled, but keystone version is not supported
-        elif getattr(settings, 'WEBSSO_ENABLED', False):
+        elif settings.WEBSSO_ENABLED:
             msg = ("Websso is enabled but horizon is not configured to work " +
                    "with keystone version 3 or above.")
             LOG.warning(msg)
@@ -115,7 +109,7 @@ class Login(django_auth_forms.AuthenticationForm):
 
     @staticmethod
     def get_region_choices():
-        all_regions = getattr(settings, 'AVAILABLE_REGIONS', [])
+        all_regions = settings.AVAILABLE_REGIONS
         if all_regions:
             regions = [("%d" % i, name) for i, (url, name) in
                        enumerate(all_regions)]
@@ -125,9 +119,7 @@ class Login(django_auth_forms.AuthenticationForm):
 
     @sensitive_variables()
     def clean(self):
-        default_domain = getattr(settings,
-                                 'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
-                                 'Default')
+        default_domain = settings.OPENSTACK_KEYSTONE_DEFAULT_DOMAIN
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
         domain = self.cleaned_data.get('domain', default_domain)

@@ -49,8 +49,7 @@ class K2KAuthPlugin(base.BasePlugin):
         if utils.get_keystone_version() < 3 or not service_provider:
             return None
 
-        keystone_idp_id = getattr(settings, 'KEYSTONE_PROVIDER_IDP_ID',
-                                  'localkeystone')
+        keystone_idp_id = settings.KEYSTONE_PROVIDER_IDP_ID
         if service_provider == keystone_idp_id:
             return None
 

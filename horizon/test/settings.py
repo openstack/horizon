@@ -19,6 +19,7 @@
 import os
 import socket
 
+from openstack_auth.defaults import *  # noqa: F403,H303
 from openstack_dashboard.utils import settings as settings_utils
 
 socket.setdefaulttimeout(1)

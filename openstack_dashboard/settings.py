@@ -187,15 +187,6 @@ SESSION_COOKIE_SECURE = False
 # False, SESSION_TIMEOUT acts as a hard limit.
 SESSION_REFRESH = True
 
-# This SESSION_TIMEOUT is a method to supercede the token timeout with a
-# shorter horizon session timeout (in seconds). If SESSION_REFRESH is True (the
-# default) SESSION_TIMEOUT acts like an idle timeout rather than being a hard
-# limit, but will never exceed the token expiry. If your token expires in 60
-# minutes, a value of 1800 will log users out after 30 minutes of inactivity,
-# or 60 minutes with activity. Setting SESSION_REFRESH to False will make
-# SESSION_TIMEOUT act like a hard limit on session times.
-SESSION_TIMEOUT = 3600
-
 # When using cookie-based sessions, log error when the session cookie exceeds
 # the following size (common browsers drop cookies above a certain size):
 SESSION_COOKIE_MAX_SIZE = 4093
@@ -239,21 +230,6 @@ USE_L10N = True
 USE_TZ = True
 
 DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
-
-POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
-# Map of local copy of service policy files
-POLICY_FILES = {
-    'identity': 'keystone_policy.json',
-    'compute': 'nova_policy.json',
-    'volume': 'cinder_policy.json',
-    'image': 'glance_policy.json',
-    'network': 'neutron_policy.json',
-}
-# Services for which horizon has extra policies are defined
-# in POLICY_DIRS by default.
-POLICY_DIRS = {
-    'compute': ['nova_policy.d'],
-}
 
 SECRET_KEY = None
 LOCAL_PATH = None

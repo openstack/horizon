@@ -91,7 +91,7 @@ def is_token_valid(token, margin=None):
     if expiration is None:
         return False
     if margin is None:
-        margin = getattr(settings, 'TOKEN_TIMEOUT_MARGIN', 0)
+        margin = settings.TOKEN_TIMEOUT_MARGIN
     expiration = expiration - datetime.timedelta(seconds=margin)
     if settings.USE_TZ and timezone.is_naive(expiration):
         # Presumes that the Keystone is using UTC.
@@ -102,12 +102,12 @@ def is_token_valid(token, margin=None):
 # Helper for figuring out keystone version
 # Implementation will change when API version discovery is available
 def get_keystone_version():
-    return getattr(settings, 'OPENSTACK_API_VERSIONS', {}).get('identity', 3)
+    return settings.OPENSTACK_API_VERSIONS['identity']
 
 
 def get_session():
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    verify = getattr(settings, 'OPENSTACK_SSL_CACERT', True)
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    verify = settings.OPENSTACK_SSL_CACERT
 
     if insecure:
         verify = False
@@ -124,7 +124,7 @@ def get_keystone_client():
 
 def is_websso_enabled():
     """Websso is supported in Keystone version 3."""
-    websso_enabled = getattr(settings, 'WEBSSO_ENABLED', False)
+    websso_enabled = settings.WEBSSO_ENABLED
     keystonev3_plus = (get_keystone_version() >= 3)
     return websso_enabled and keystonev3_plus
 
@@ -134,28 +134,26 @@ def is_websso_default_redirect():
 
     As with websso, this is only supported in Keystone version 3.
     """
-    websso_default_redirect = getattr(settings,
-                                      'WEBSSO_DEFAULT_REDIRECT', False)
+    websso_default_redirect = settings.WEBSSO_DEFAULT_REDIRECT
     keystonev3_plus = (get_keystone_version() >= 3)
     return websso_default_redirect and keystonev3_plus
 
 
 def get_websso_default_redirect_protocol():
-    return getattr(settings, 'WEBSSO_DEFAULT_REDIRECT_PROTOCOL', None)
+    return settings.WEBSSO_DEFAULT_REDIRECT_PROTOCOL
 
 
 def get_websso_default_redirect_region():
-    return getattr(settings, 'WEBSSO_DEFAULT_REDIRECT_REGION',
-                   settings.OPENSTACK_KEYSTONE_URL)
+    return settings.WEBSSO_DEFAULT_REDIRECT_REGION
 
 
 def get_websso_default_redirect_logout():
-    return getattr(settings, 'WEBSSO_DEFAULT_REDIRECT_LOGOUT', None)
+    return settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT
 
 
 def build_absolute_uri(request, relative_url):
     """Ensure absolute_uri are relative to WEBROOT."""
-    webroot = getattr(settings, 'WEBROOT', '')
+    webroot = settings.WEBROOT
     if webroot.endswith("/") and relative_url.startswith("/"):
         webroot = webroot[:-1]
 
@@ -222,7 +220,7 @@ def get_websso_url(request, auth_url, websso_auth):
 
     """
     origin = build_absolute_uri(request, '/auth/websso/')
-    idp_mapping = getattr(settings, 'WEBSSO_IDP_MAPPING', {})
+    idp_mapping = settings.WEBSSO_IDP_MAPPING
     idp_id, protocol_id = idp_mapping.get(websso_auth,
                                           (None, websso_auth))
 
@@ -386,11 +384,9 @@ def default_services_region(service_catalog, request=None,
         if request:
             region_options.append(request.COOKIES.get('services_region'))
         if ks_endpoint:
-            default_service_regions = getattr(
-                settings, 'DEFAULT_SERVICE_REGIONS', {})
+            default_service_regions = settings.DEFAULT_SERVICE_REGIONS
             region_options.append(default_service_regions.get(ks_endpoint))
-        region_options.append(
-            getattr(settings, 'DEFAULT_SERVICE_REGIONS', {}).get('*'))
+        region_options.append(settings.DEFAULT_SERVICE_REGIONS.get('*'))
 
         for region in region_options:
             if region in available_regions:
@@ -425,7 +421,7 @@ def get_endpoint_region(endpoint):
 
 
 def using_cookie_backed_sessions():
-    engine = getattr(settings, 'SESSION_ENGINE', '')
+    engine = settings.SESSION_ENGINE
     return "signed_cookies" in engine
 
 
@@ -442,8 +438,7 @@ def get_admin_roles():
 
     """
     admin_roles = {role.lower() for role
-                   in getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_ROLES',
-                              ['admin'])}
+                   in settings.OPENSTACK_KEYSTONE_ADMIN_ROLES}
     return admin_roles
 
 
@@ -490,9 +485,7 @@ def get_client_ip(request):
     :returns: Possible client ip address
     :rtype: string
     """
-    _SECURE_PROXY_ADDR_HEADER = getattr(
-        settings, 'SECURE_PROXY_ADDR_HEADER', False
-    )
+    _SECURE_PROXY_ADDR_HEADER = settings.SECURE_PROXY_ADDR_HEADER
     if _SECURE_PROXY_ADDR_HEADER:
         return request.META.get(
             _SECURE_PROXY_ADDR_HEADER,
@@ -530,10 +523,8 @@ def store_initial_k2k_session(auth_url, request, scoped_auth_ref,
         providers = getattr(providers, '_service_providers', None)
 
     if providers:
-        keystone_idp_name = getattr(settings, 'KEYSTONE_PROVIDER_IDP_NAME',
-                                    'Local Keystone')
-        keystone_idp_id = getattr(
-            settings, 'KEYSTONE_PROVIDER_IDP_ID', 'localkeystone')
+        keystone_idp_name = settings.KEYSTONE_PROVIDER_IDP_NAME
+        keystone_idp_id = settings.KEYSTONE_PROVIDER_IDP_ID
         keystone_identity_provider = {'name': keystone_idp_name,
                                       'id': keystone_idp_id}
         # (edtubill) We will use the IDs as the display names

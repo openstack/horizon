@@ -39,20 +39,6 @@ DEBUG = True
 #CSRF_COOKIE_SECURE = True
 #SESSION_COOKIE_SECURE = True
 
-# Set this to True if you want available domains displayed as a dropdown menu
-# on the login screen. It is strongly advised NOT to enable this for public
-# clouds, as advertising enabled domains to unauthenticated customers
-# irresponsibly exposes private information. This should only be used for
-# private clouds where the dashboard sits behind a corporate firewall.
-#OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN = False
-
-# If OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN is enabled, this option can be used to
-# set the available domains to choose from. This is a list of pairs whose first
-# value is the domain name and the second is the display name.
-#OPENSTACK_KEYSTONE_DOMAIN_CHOICES = (
-#  ('Default', 'Default'),
-#)
-
 # If provided, a "Report Bug" link will be displayed in the site header
 # which links to the value of this setting (ideally a URL containing
 # information on how to report issues).
@@ -122,81 +108,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 OPENSTACK_HOST = "127.0.0.1"
 OPENSTACK_KEYSTONE_URL = "http://%s:5000/v3" % OPENSTACK_HOST
 
-# For setting the default service region on a per-endpoint basis. Note that the
-# default value for this setting is {}, and below is just an example of how it
-# should be specified.
-# A key of '*' is an optional global default if no other key matches.
-#DEFAULT_SERVICE_REGIONS = {
-#    '*': 'RegionOne'
-#    OPENSTACK_KEYSTONE_URL: 'RegionTwo'
-#}
-
-# Enables keystone web single-sign-on if set to True.
-#WEBSSO_ENABLED = False
-
-# Authentication mechanism to be selected as default.
-# The value must be a key from WEBSSO_CHOICES.
-#WEBSSO_INITIAL_CHOICE = "credentials"
-
-# The list of authentication mechanisms which include keystone
-# federation protocols and identity provider/federation protocol
-# mapping keys (WEBSSO_IDP_MAPPING). Current supported protocol
-# IDs are 'saml2' and 'oidc'  which represent SAML 2.0, OpenID
-# Connect respectively.
-# Do not remove the mandatory credentials mechanism.
-# Note: The last two tuples are sample mapping keys to a identity provider
-# and federation protocol combination (WEBSSO_IDP_MAPPING).
-#WEBSSO_CHOICES = (
-#    ("credentials", _("Keystone Credentials")),
-#    ("oidc", _("OpenID Connect")),
-#    ("saml2", _("Security Assertion Markup Language")),
-#    ("acme_oidc", "ACME - OpenID Connect"),
-#    ("acme_saml2", "ACME - SAML2"),
-#)
-
-# A dictionary of specific identity provider and federation protocol
-# combinations. From the selected authentication mechanism, the value
-# will be looked up as keys in the dictionary. If a match is found,
-# it will redirect the user to a identity provider and federation protocol
-# specific WebSSO endpoint in keystone, otherwise it will use the value
-# as the protocol_id when redirecting to the WebSSO by protocol endpoint.
-# NOTE: The value is expected to be a tuple formatted as: (<idp_id>, <protocol_id>).
-#WEBSSO_IDP_MAPPING = {
-#    "acme_oidc": ("acme", "oidc"),
-#    "acme_saml2": ("acme", "saml2"),
-#}
-
-# Enables redirection on login to the identity provider defined on
-# WEBSSO_DEFAULT_REDIRECT_PROTOCOL and WEBSSO_DEFAULT_REDIRECT_REGION
-#WEBSSO_DEFAULT_REDIRECT = False
-
-# Specifies the protocol to use for default redirection on login
-#WEBSSO_DEFAULT_REDIRECT_PROTOCOL = None
-
-# Specifies the region to which the connection will be established on login
-#WEBSSO_DEFAULT_REDIRECT_REGION = OPENSTACK_KEYSTONE_URL
-
-# Enables redirection on logout to the method specified on the identity provider.
-# Once logout the client will be redirected to the address specified in this
-# variable.
-#WEBSSO_DEFAULT_REDIRECT_LOGOUT = None
-
-# If set this URL will be used for web single-sign-on authentication
-# instead of OPENSTACK_KEYSTONE_URL. This is needed in the deployment
-# scenarios where network segmentation is used per security requirement.
-# In this case, the controllers are not reachable from public network.
-# Therefore, user's browser will not be able to access OPENSTACK_KEYSTONE_URL
-# if it is set to the internal endpoint.
-#WEBSSO_KEYSTONE_URL = "http://keystone-public.example.com/v3"
-
-# The Keystone Provider drop down uses Keystone to Keystone federation
-# to switch between Keystone service providers.
-# Set display name for Identity Provider (dropdown display name)
-#KEYSTONE_PROVIDER_IDP_NAME = "Local Keystone"
-# This id is used for only for comparison with the service provider IDs. This ID
-# should not match any service provider IDs.
-#KEYSTONE_PROVIDER_IDP_ID = "localkeystone"
-
 # The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
 # services provided by neutron. Options currently available are load
 # balancer service, security groups, quotas, VPN service.
@@ -243,32 +154,6 @@ INSTANCE_LOG_LENGTH = 35
 # The timezone of the server. This should correspond with the timezone
 # of your entire OpenStack installation, and hopefully be in UTC.
 TIME_ZONE = "UTC"
-
-# The Horizon Policy Enforcement engine uses these values to load per service
-# policy rule files. The content of these files should match the files the
-# OpenStack services are using to determine role based access control in the
-# target installation.
-
-# Path to directory containing policy.json files
-#POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
-
-# Map of local copy of service policy files.
-# Please insure that your identity policy file matches the one being used on
-# your keystone servers. There is an alternate policy file that may be used
-# in the Keystone v3 multi-domain case, policy.v3cloudsample.json.
-# This file is not included in the Horizon repository by default but can be
-# found at
-# https://opendev.org/openstack/keystone/src/branch/master/etc/ \
-# policy.v3cloudsample.json
-# Having matching policy files on the Horizon and Keystone servers is essential
-# for normal operation. This holds true for all services and their policy files.
-#POLICY_FILES = {
-#    'identity': 'keystone_policy.json',
-#    'compute': 'nova_policy.json',
-#    'volume': 'cinder_policy.json',
-#    'image': 'glance_policy.json',
-#    'network': 'neutron_policy.json',
-#}
 
 # Change this patch to the appropriate list of tuples containing
 # a key, label and static directory containing two files:
@@ -555,11 +440,3 @@ SECURITY_GROUP_RULES = {
 #        " [%(referer_url)s] [%(request_url)s] [%(message)s] [%(method)s]"
 #        " [%(http_status)s] [%(param)s]"),
 #}
-
-# Password will have an expiration date when using keystone v3 and enabling the
-# feature.
-# This setting allows you to set the number of days that the user will be alerted
-# prior to the password expiration.
-# Once the password expires keystone will deny the access and users must
-# contact an admin to change their password.
-#PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS = 0
