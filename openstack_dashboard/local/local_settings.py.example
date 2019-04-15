@@ -132,17 +132,6 @@ OPENSTACK_NEUTRON_NETWORK = {
 
 }
 
-# The OPENSTACK_HEAT_STACK settings can be used to disable password
-# field required while launching the stack.
-OPENSTACK_HEAT_STACK = {
-    'enable_user_pass': True,
-}
-
-# The IMAGE_RESERVED_CUSTOM_PROPERTIES setting is used to specify which image
-# custom properties should not be displayed in the Image Custom Properties
-# table.
-IMAGE_RESERVED_CUSTOM_PROPERTIES = []
-
 # A dictionary of default settings for create image modal.
 #CREATE_IMAGE_DEFAULTS = {
 #    'image_visibility': "public",
@@ -403,21 +392,6 @@ SECURITY_GROUP_RULES = {
         'to_port': '3389',
     },
 }
-
-# Deprecation Notice:
-#
-# The setting FLAVOR_EXTRA_KEYS has been deprecated.
-# Please load extra spec metadata into the Glance Metadata Definition Catalog.
-#
-# The sample quota definitions can be found in:
-# <glance_source>/etc/metadefs/compute-quota.json
-#
-# The metadata definition catalog supports CLI and API:
-#  $glance --os-image-api-version 2 help md-namespace-import
-#  $glance-manage db_load_metadefs <directory_with_definition_files>
-#
-# See Metadata Definitions on:
-# https://docs.openstack.org/glance/latest/user/glancemetadefcatalogapi.html
 
 # Help URL can be made available for the client. To provide a help URL, edit the
 # following attribute to the URL of your choice.
