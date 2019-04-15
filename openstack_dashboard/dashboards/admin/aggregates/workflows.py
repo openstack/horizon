@@ -43,7 +43,7 @@ class SetAggregateInfoAction(workflows.Action):
             aggregates = api.nova.aggregate_details_list(self.request)
         except Exception:
             msg = _('Unable to get host aggregate list')
-            exceptions.check_message(["Connection", "refused"], msg)
+            exceptions.handle(self.request, msg)
             raise
         if aggregates is not None:
             for aggregate in aggregates:

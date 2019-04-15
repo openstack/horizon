@@ -85,7 +85,7 @@ class CreateFlavorInfoAction(workflows.Action):
         except Exception:
             flavors = []
             msg = _('Unable to get flavor list')
-            exceptions.check_message(["Connection", "refused"], msg)
+            exceptions.handle(self.request, msg)
             raise
         if flavors is not None and name is not None:
             for flavor in flavors:

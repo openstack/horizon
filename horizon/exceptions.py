@@ -22,6 +22,7 @@ import sys
 
 import six
 
+from debtcollector import removals
 from django.core.management import color_style
 from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _
@@ -193,6 +194,7 @@ def error_color(msg):
     return color_style().ERROR_OUTPUT(msg)
 
 
+@removals.remove(message='Use exceptions.handle() instead', version='17.2.0')
 def check_message(keywords, message):
     """Checks an exception for given keywords and raises an error if found.
 
