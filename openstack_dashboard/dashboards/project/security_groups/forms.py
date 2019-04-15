@@ -230,17 +230,18 @@ class AddRule(forms.SelfHandlingForm):
                          mask=True,
                          widget=forms.TextInput(
                              attrs={'class': 'switched',
+                                    'data-required-when-shown': 'true',
                                     'data-switch-on': 'remote',
                                     'data-remote-cidr': _('CIDR')}))
 
-    security_group = forms.ChoiceField(label=_('Security Group'),
-                                       required=False,
-                                       widget=forms.ThemableSelectWidget(
-                                           attrs={
-                                               'class': 'switched',
-                                               'data-switch-on': 'remote',
-                                               'data-remote-sg': _('Security '
-                                                                   'Group')}))
+    security_group = forms.ChoiceField(
+        label=_('Security Group'),
+        required=False,
+        widget=forms.ThemableSelectWidget(attrs={
+            'class': 'switched',
+            'data-required-when-shown': 'true',
+            'data-switch-on': 'remote',
+            'data-remote-sg': _('Security Group')}))
     # When cidr is used ethertype is determined from IP version of cidr.
     # When source group, ethertype needs to be specified explicitly.
     ethertype = forms.ChoiceField(label=_('Ether Type'),
