@@ -345,7 +345,7 @@ def switch_keystone_provider(request, keystone_provider=None,
         request.session['k2k_base_unscoped_token'] = base_token
         request.session['k2k_auth_url'] = k2k_auth_url
         message = (
-            _('Switch to Keystone Provider "%(keystone_provider)s"'
+            _('Switch to Keystone Provider "%(keystone_provider)s" '
               'successful.') % {'keystone_provider': keystone_provider})
         messages.success(request, message)
 
