@@ -34,10 +34,10 @@ import glanceclient as glance_client
 import six
 from six.moves import _thread as thread
 
-from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
+from openstack_dashboard.utils import settings as utils
 
 # Python 3.8 removes the ability to import the abstract base classes from
 # 'collections', but 'collections.abc' is not present in Python 2.7

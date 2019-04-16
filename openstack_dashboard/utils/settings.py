@@ -17,7 +17,10 @@ import os
 import pkgutil
 import re
 
+from django.conf import settings
+
 from horizon.utils import file_discovery
+from horizon.utils import functions as utils
 from openstack_dashboard import theme_settings
 
 
@@ -368,3 +371,13 @@ def find_static_files(
 
     # Add the theme file info to the horizon config for use by template tags
     HORIZON_CONFIG['theme_static_files'] = theme_static_files
+
+
+def get_page_size(request):
+    return utils.get_config_value(request, 'API_RESULT_PAGE_SIZE',
+                                  settings.API_RESULT_PAGE_SIZE)
+
+
+def get_log_length(request):
+    return utils.get_config_value(request, 'INSTANCE_LOG_LENGTH',
+                                  settings.INSTANCE_LOG_LENGTH)

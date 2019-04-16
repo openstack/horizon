@@ -34,13 +34,13 @@ from novaclient.v2 import list_extensions as nova_list_extensions
 from novaclient.v2 import servers as nova_servers
 
 from horizon import exceptions as horizon_exceptions
-from horizon.utils import functions as utils
 from horizon.utils import memoized
 
 from openstack_dashboard.api import _nova
 from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard.contrib.developer.profiler import api as profiler
+from openstack_dashboard.utils import settings as utils
 
 LOG = logging.getLogger(__name__)
 

@@ -100,14 +100,6 @@ def save_config_value(request, response, key, value):
     return response
 
 
-def get_page_size(request):
-    return get_config_value(request, 'API_RESULT_PAGE_SIZE', 20)
-
-
-def get_log_length(request):
-    return get_config_value(request, 'INSTANCE_LOG_LENGTH', 35)
-
-
 def get_timezone(request):
     # Session and cookie store timezone as django_timezone.
     # In case there is no timezone neither in session nor in cookie,

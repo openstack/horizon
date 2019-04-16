@@ -32,13 +32,14 @@ from cinderclient import exceptions as cinder_exception
 from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
-from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized
 
 from openstack_dashboard.api import _nova
 from openstack_dashboard.api import base
 from openstack_dashboard.api import microversions
 from openstack_dashboard.contrib.developer.profiler import api as profiler
+from openstack_dashboard.utils import settings as utils
+
 
 LOG = logging.getLogger(__name__)
 
