@@ -132,14 +132,6 @@ OPENSTACK_NEUTRON_NETWORK = {
 
 }
 
-# A dictionary of default settings for create image modal.
-#CREATE_IMAGE_DEFAULTS = {
-#    'image_visibility': "public",
-#}
-
-# The default number of lines displayed for instance console log.
-INSTANCE_LOG_LENGTH = 35
-
 # The timezone of the server. This should correspond with the timezone
 # of your entire OpenStack installation, and hopefully be in UTC.
 TIME_ZONE = "UTC"

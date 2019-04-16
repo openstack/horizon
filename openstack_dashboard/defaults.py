@@ -125,6 +125,11 @@ AUTHENTICATION_URLS = [
 # or None. Set to None explicitly if you want to deactivate the console.
 CONSOLE_TYPE = "AUTO"
 
+# A dictionary of default settings for create image modal.
+CREATE_IMAGE_DEFAULTS = {
+    'image_visibility': "public",
+}
+
 # When launching an instance, the menu of available flavors is
 # sorted by RAM usage, ascending. If you would like a different sort order,
 # you can provide another flavor attribute as sorting key. Alternatively, you
@@ -197,6 +202,9 @@ IMAGE_CUSTOM_PROPERTY_TITLES = {
 }
 
 IMAGES_LIST_FILTER_TENANTS = []
+
+# The default number of lines displayed for instance console log.
+INSTANCE_LOG_LENGTH = 35
 
 # The Launch Instance user experience has been significantly enhanced.
 # You can choose whether to enable the new launch instance experience,
