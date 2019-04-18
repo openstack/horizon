@@ -104,8 +104,7 @@ def get_timezone(request):
     # Session and cookie store timezone as django_timezone.
     # In case there is no timezone neither in session nor in cookie,
     # use default value from settings file where it's called TIME_ZONE.
-    return get_config_value(request, 'django_timezone',
-                            getattr(settings, 'TIME_ZONE', 'UTC'))
+    return get_config_value(request, 'django_timezone', settings.TIME_ZONE)
 
 
 def get_language(request):

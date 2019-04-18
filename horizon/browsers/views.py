@@ -80,7 +80,7 @@ class AngularIndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(AngularIndexView, self).get_context_data(**kwargs)
         context["title"] = self.title
-        context["csrf_http"] = getattr(settings, 'CSRF_COOKIE_HTTPONLY', False)
+        context["csrf_http"] = settings.CSRF_COOKIE_HTTPONLY
         if self.page_title is None:
             context["page_title"] = self.title
         else:
@@ -102,7 +102,7 @@ class AngularDetailsView(generic.TemplateView):
         title = _("Horizon")
         context["title"] = title
         context["page_title"] = title
-        context["csrf_http"] = getattr(settings, 'CSRF_COOKIE_HTTPONLY', False)
+        context["csrf_http"] = settings.CSRF_COOKIE_HTTPONLY
         # set default dashboard and panel
         dashboard = horizon.get_default_dashboard()
         self.request.horizon['dashboard'] = dashboard

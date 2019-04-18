@@ -32,7 +32,7 @@ class HorizonScssFilter(DjangoScssFilter):
         # Add variables to the SCSS Global Namespace Here
         self.namespace.set_variable(
             '$static_url',
-            String(six.text_type(getattr(settings, 'STATIC_URL', '/static/')))
+            String(six.text_type(settings.STATIC_URL))
         )
 
     # Create a compiler with the right namespace

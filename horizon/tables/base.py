@@ -495,7 +495,7 @@ class Column(html.HTMLElement):
         except urls.NoReverseMatch:
             return self.link
 
-    if getattr(settings, 'INTEGRATION_TESTS_SUPPORT', False):
+    if settings.INTEGRATION_TESTS_SUPPORT:
         def get_default_attrs(self):
             attrs = super(Column, self).get_default_attrs()
             attrs.update({'data-selenium': self.name})
@@ -753,7 +753,7 @@ class Cell(html.HTMLElement):
             if len(data) > column.truncate:
                 self.attrs['data-toggle'] = 'tooltip'
                 self.attrs['title'] = data
-                if getattr(settings, 'INTEGRATION_TESTS_SUPPORT', False):
+                if settings.INTEGRATION_TESTS_SUPPORT:
                     self.attrs['data-selenium'] = data
         self.data = self.get_data(datum, column, row)
 

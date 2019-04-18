@@ -25,7 +25,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon.base import Horizon
 from horizon import conf
-from horizon.contrib import bootstrap_datepicker
 
 
 register = template.Library()
@@ -206,14 +205,13 @@ def load_config():
 
 @register.simple_tag
 def datepicker_locale():
-    locale_mapping = getattr(settings, 'DATEPICKER_LOCALES',
-                             bootstrap_datepicker.LOCALE_MAPPING)
+    locale_mapping = settings.DATEPICKER_LOCALES
     return locale_mapping.get(translation.get_language(), 'en')
 
 
 @register.simple_tag
 def template_cache_age():
-    return getattr(settings, 'NG_TEMPLATE_CACHE_AGE', 0)
+    return settings.NG_TEMPLATE_CACHE_AGE
 
 
 @register.tag

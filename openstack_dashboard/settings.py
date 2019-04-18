@@ -40,6 +40,10 @@ from openstack_dashboard.utils import settings as settings_utils
 
 monkeypatch_escape()
 
+# Load default values
+# pylint: disable=wrong-import-position
+from openstack_dashboard.defaults import *  # noqa: F403,H303
+
 _LOG = logging.getLogger(__name__)
 
 warnings.formatwarning = lambda message, category, *args, **kwargs: \
@@ -183,23 +187,10 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
 
-# Control whether the SESSION_TIMEOUT period is refreshed due to activity. If
-# False, SESSION_TIMEOUT acts as a hard limit.
-SESSION_REFRESH = True
-
-# When using cookie-based sessions, log error when the session cookie exceeds
-# the following size (common browsers drop cookies above a certain size):
-SESSION_COOKIE_MAX_SIZE = 4093
-
 # when doing upgrades, it may be wise to stick to PickleSerializer
 # NOTE(berendt): Check during the K-cycle if this variable can be removed.
 #                https://bugs.launchpad.net/horizon/+bug/1349463
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-
-# MEMOIZED_MAX_SIZE_DEFAULT allows setting a global default to help control
-# memory usage when caching. It should at least be 2 x the number of threads
-# with a little bit of extra buffer.
-MEMOIZED_MAX_SIZE_DEFAULT = 25
 
 CSRF_FAILURE_VIEW = 'openstack_dashboard.views.csrf_failure'
 
@@ -277,10 +268,6 @@ ANGULAR_FEATURES = {
 
 # Notice all customizable configurations should be above this line
 XSTATIC_MODULES = settings_utils.BASE_XSTATIC_MODULES
-
-# Load default values
-# pylint: disable=wrong-import-position
-from openstack_dashboard.defaults import *  # noqa: F403,H303
 
 if not LOCAL_PATH:
     LOCAL_PATH = os.path.join(ROOT_PATH, 'local')

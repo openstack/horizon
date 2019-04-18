@@ -37,8 +37,6 @@ from horizon.utils import settings as utils_settings
 
 LOG = logging.getLogger(__name__)
 
-# For Bootstrap integration; can be overridden in settings.
-ACTION_CSS_CLASSES = ()
 STRING_SEPARATOR = "__"
 
 
@@ -153,7 +151,7 @@ class BaseAction(html.HTMLElement):
 
         Defaults to ``["btn", "btn-default", "btn-sm"]``.
         """
-        return getattr(settings, "ACTION_CSS_CLASSES", ACTION_CSS_CLASSES)
+        return settings.ACTION_CSS_CLASSES
 
     def get_default_attrs(self):
         """Returns a list of the default HTML attributes for the action.

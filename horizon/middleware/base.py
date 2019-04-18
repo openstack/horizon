@@ -70,8 +70,8 @@ class HorizonMiddleware(object):
 
         # Since we know the user is present and authenticated, lets refresh the
         # session expiry if configured to do so.
-        if getattr(settings, "SESSION_REFRESH", True):
-            timeout = getattr(settings, "SESSION_TIMEOUT", 3600)
+        if settings.SESSION_REFRESH:
+            timeout = settings.SESSION_TIMEOUT
             token_life = request.user.token.expires - datetime.datetime.now(
                 pytz.utc)
             session_time = min(timeout, int(token_life.total_seconds()))
@@ -90,10 +90,8 @@ class HorizonMiddleware(object):
             settings.SESSION_ENGINE ==
             'django.contrib.sessions.backends.signed_cookies'
         ):
-            max_cookie_size = getattr(
-                settings, 'SESSION_COOKIE_MAX_SIZE', None)
-            session_cookie_name = getattr(
-                settings, 'SESSION_COOKIE_NAME', None)
+            max_cookie_size = settings.SESSION_COOKIE_MAX_SIZE
+            session_cookie_name = settings.SESSION_COOKIE_NAME
             session_key = request.COOKIES.get(session_cookie_name)
             if max_cookie_size is not None and session_key is not None:
                 cookie_size = sum((

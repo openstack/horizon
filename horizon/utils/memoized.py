@@ -72,7 +72,7 @@ def memoized(func=None, max_size=None):
         if max_size:
             max_cache_size = max_size
         else:
-            max_cache_size = getattr(settings, 'MEMOIZED_MAX_SIZE_DEFAULT', 25)
+            max_cache_size = settings.MEMOIZED_MAX_SIZE_DEFAULT
 
         @functools.wraps(func)
         def wrapped(*args, **kwargs):

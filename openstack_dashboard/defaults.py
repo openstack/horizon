@@ -16,16 +16,17 @@ import os
 
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth.defaults import *  # noqa: F403,H303
+# openstack_auth.default is imported in horizon.defaults.
+from horizon.defaults import *  # noqa: F403,H303
 
 
 def _get_root_path():
     return os.path.dirname(os.path.abspath(__file__))
 
 
-# -------------------------------------------
-# Override openstack_auth and Django settings
-# -------------------------------------------
+# ---------------------------------------------------
+# Override horizn, openstack_auth and Django settings
+# ---------------------------------------------------
 
 WEBROOT = '/'  # from openstack_auth
 
@@ -474,14 +475,6 @@ OPENSTACK_IMAGE_BACKEND = {
 OPENSTACK_CLOUDS_YAML_NAME = 'openstack'
 # If this cloud has a vendor profile in os-client-config, put it's name here.
 OPENSTACK_CLOUDS_YAML_PROFILE = ''
-
-OPENSTACK_PROFILER = {
-    'enabled': False,
-    'facility_name': 'horizon',
-    'keys': [],
-    'receiver_connection_string': "mongodb://",
-    'notifier_connection_string': None,
-}
 
 # AngularJS requires some settings to be made available to
 # the client side. Some settings are required by in-tree / built-in horizon

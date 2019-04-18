@@ -45,6 +45,5 @@ HORIZON_CONFIG = {
 
     'password_autocomplete': 'off',
 
-    'integration_tests_support':
-        getattr(settings, 'INTEGRATION_TESTS_SUPPORT', False)
+    'integration_tests_support': settings.INTEGRATION_TESTS_SUPPORT,
 }

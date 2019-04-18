@@ -47,7 +47,7 @@ class FiltersTests(test.TestCase):
 
         c = django.template.Context({'time': '2007-03-04T21:08:12'})
         t = django.template.Template('{{ time|parse_isotime:"test" }}')
-        output = u"March 4, 2007, 3:08 p.m."
+        output = u"March 4, 2007, 9:08 p.m."
 
         self.assertEqual(output, t.render(c))
 
