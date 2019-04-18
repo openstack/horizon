@@ -600,7 +600,8 @@ class CreateNetwork(workflows.Workflow):
         # If we do not need to create a subnet, return here.
         if not data['with_subnet']:
             return True
-        subnet = self._create_subnet(request, data, network, no_redirect=True)
+        subnet = self._create_subnet(request, data, network, no_redirect=True,
+                                     tenant_id=network.tenant_id)
         if subnet:
             return True
         else:
