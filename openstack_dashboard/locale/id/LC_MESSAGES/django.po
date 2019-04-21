@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-22 05:40+0000\n"
+"POT-Creation-Date: 2019-04-20 14:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2208,9 +2208,6 @@ msgstr[0] "Disabled User"
 #, python-format
 msgid "Disabled compute service for host: %s."
 msgstr "Layanan komputasi dinonaktifkan untuk inang: %s."
-
-msgid "Disassocaite"
-msgstr "Putuskan hubungan"
 
 msgid "Disassociate"
 msgstr "Disassociate"

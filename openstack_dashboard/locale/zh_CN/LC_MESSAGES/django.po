@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-28 15:55+0000\n"
+"POT-Creation-Date: 2019-04-20 14:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2139,9 +2139,6 @@ msgstr[0] "已禁用的用户"
 #, python-format
 msgid "Disabled compute service for host: %s."
 msgstr "关闭主机 %s 上的计算服务。"
-
-msgid "Disassocaite"
-msgstr "取消关联"
 
 msgid "Disassociate"
 msgstr "解除绑定"

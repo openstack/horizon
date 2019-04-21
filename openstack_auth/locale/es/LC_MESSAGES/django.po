@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-01 07:31+0000\n"
+"POT-Creation-Date: 2019-04-20 14:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "An error occurred authenticating. Please try again later."
@@ -60,12 +60,6 @@ msgstr "Región"
 #, python-format
 msgid "Service provider authentication failed. %s"
 msgstr "Ha fallado la autenticación del proveedor del servicio. %s"
-
-#, python-format
-msgid "Switch to Keystone Provider \"%(keystone_provider)s\"successful."
-msgstr ""
-"Se ha cambiado al proveedor de keystone \"%(keystone_provider)s\" "
-"correctamente."
 
 #, python-format
 msgid "Switch to project \"%(project_name)s\" successful."
