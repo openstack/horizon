@@ -925,7 +925,7 @@ def trunk_update(request, trunk_id, old_trunk, new_trunk):
     trunk. However it should not know anything about how the old and new are
     meant to be diffed and sent to neutron. We handle that here.
 
-    This code was adapted from Heat, see: https://review.openstack.org/442496
+    This code was adapted from Heat, see: https://review.opendev.org/442496
 
     Call #1) Update all changed properties but 'sub_ports'.
         PUT /v2.0/trunks/TRUNK_ID

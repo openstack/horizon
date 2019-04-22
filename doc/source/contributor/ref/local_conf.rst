@@ -70,7 +70,7 @@ see https://docs.openstack.org/devstack/latest/
     SWIFT_DATA_DIR=$DEST/data/swift
 
     # Enable Neutron
-    enable_plugin neutron https://git.openstack.org/openstack/neutron
+    enable_plugin neutron https://opendev.org/openstack/neutron
 
     # Enable the Trunks extension for Neutron
     enable_service q-trunk

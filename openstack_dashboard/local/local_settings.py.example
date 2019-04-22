@@ -529,7 +529,7 @@ TIME_ZONE = "UTC"
 # in the Keystone v3 multi-domain case, policy.v3cloudsample.json.
 # This file is not included in the Horizon repository by default but can be
 # found at
-# http://git.openstack.org/cgit/openstack/keystone/tree/etc/ \
+# https://opendev.org/openstack/keystone/src/branch/master/etc/ \
 # policy.v3cloudsample.json
 # Having matching policy files on the Horizon and Keystone servers is essential
 # for normal operation. This holds true for all services and their policy files.

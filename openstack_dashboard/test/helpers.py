@@ -542,7 +542,7 @@ def my_custom_sort(flavor):
 # Site registry touched by setUp() cleanly. As a workaround, we run
 # PluginTestCase as a separate test process. Hopefully this workaround has gone
 # in future. For more detail, see bug 1809983 and
-# https://review.openstack.org/#/c/627640/.
+# https://review.opendev.org/#/c/627640/.
 @tag('plugin-test')
 class PluginTestCase(TestCase):
     """Test case for testing plugin system of Horizon.

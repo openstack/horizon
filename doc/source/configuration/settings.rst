@@ -519,11 +519,11 @@ If the default template is not suitable for your deployment,
 you can provide your own clouds.yaml by specifying this setting.
 
 The default template is defined as `clouds.yaml.template
-<http://git.openstack.org/cgit/openstack/horizon/tree/openstack_dashboard/dashboards/project/api_access/templates/api_access/clouds.yaml.template>`__
+<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/templates/api_access/clouds.yaml.template>`__
 and available context parameters are found in ``_get_openrc_credentials()``
 and ``download_clouds_yaml_file()`` functions in
 `openstack_dashboard/dashboards/project/api_access/views.py
-<http://git.openstack.org/cgit/openstack/horizon/tree/openstack_dashboard/dashboards/project/api_access/views.py>`__.
+<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/views.py>`__.
 
 .. note::
 
@@ -596,11 +596,11 @@ for authentication, the default ``openrc`` would not be sufficient.
 You can provide your own clouds.yaml by specifying this setting.
 
 The default template is defined as `openrc.sh.template
-<http://git.openstack.org/cgit/openstack/horizon/tree/openstack_dashboard/dashboards/project/api_access/templates/api_access/openrc.sh.template>`__
+<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/templates/api_access/openrc.sh.template>`__
 and available context parameters are found in ``_get_openrc_credentials()``
 and ``download_rc_file()`` functions in
 `openstack_dashboard/dashboards/project/api_access/views.py
-<http://git.openstack.org/cgit/openstack/horizon/tree/openstack_dashboard/dashboards/project/api_access/views.py>`__.
+<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/views.py>`__.
 
 .. note::
 

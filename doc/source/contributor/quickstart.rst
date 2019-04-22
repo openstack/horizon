@@ -37,11 +37,11 @@ Setup
 =====
 
 To begin setting up a Horizon development environment simply clone the Horizon
-git repository from https://git.openstack.org/cgit/openstack/horizon
+git repository from https://opendev.org/openstack/horizon
 
 .. code-block:: console
 
-    $ git clone https://git.openstack.org/openstack/horizon
+    $ git clone https://opendev.org/openstack/horizon
 
 Next you will need to configure Horizon by adding a ``local_settings.py`` file.
 A good starting point is to use the example config with the following command,

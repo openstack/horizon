@@ -150,7 +150,7 @@ class Images(generic.View):
 
         Any additional request parameters will be passed through the API as
         filters. There are v1/v2 complications which are being addressed as a
-        separate work stream: https://review.openstack.org/#/c/150084/
+        separate work stream: https://review.opendev.org/#/c/150084/
         """
 
         filters, kwargs = rest_utils.parse_filters_kwargs(request,

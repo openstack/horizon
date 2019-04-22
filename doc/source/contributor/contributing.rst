@@ -10,7 +10,7 @@ Before you dive into writing patches, here are some of the basics:
 * Project page: https://launchpad.net/horizon
 * Bug tracker: https://bugs.launchpad.net/horizon
 * Source code: https://github.com/openstack/horizon
-* Code review: https://review.openstack.org/#q,status:open+project:openstack/horizon,n,z
+* Code review: https://review.opendev.org/#/q/project:openstack/horizon+status:open
 * Continuous integration:
   * Jenkins: https://jenkins.openstack.org
   * Zuul: http://status.openstack.org/zuul
@@ -475,8 +475,8 @@ To make a new release of the package, you need to:
 .. _documentation: https://xstatic.readthedocs.io/en/latest/packaging.html
 .. _xstatic-release: https://pypi.org/project/xstatic-release/
 .. _`Create a new repository under OpenStack`: https://docs.openstack.org/infra/manual/creators.html
-.. _`request a release`: https://git.openstack.org/cgit/openstack/releases/tree/README.rst
-.. _`releases repository`: https://git.openstack.org/cgit/openstack/releases
+.. _`request a release`: https://opendev.org/openstack/releases/src/branch/master/README.rst
+.. _`releases repository`: https://opendev.org/openstack/releases
 .. _`Set up PyPi`: https://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
 .. _global-requirements: https://github.com/openstack/requirements/blob/master/global-requirements.txt
 
@@ -522,8 +522,8 @@ xstatic release:
    upper-constraints version so that deployers / packagers who don't honor
    upper-constraints still get compatible versions of the packages.
 
-.. _upper-constraints.txt: https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt
-.. _new-release: https://review.openstack.org/#/q/status:open+project:openstack/requirements+branch:master+topic:new-release
+.. _upper-constraints.txt: https://opendev.org/openstack/requirements/raw/branch/master/upper-constraints.txt
+.. _new-release: https://review.opendev.org/#/q/status:open+project:openstack/requirements+branch:master+topic:new-release
 
 
 HTML

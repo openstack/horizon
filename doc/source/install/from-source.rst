@@ -22,14 +22,14 @@ Installation
 
    .. code-block:: console
 
-     $ git clone https://git.openstack.org/openstack/horizon -b stable/<release> --depth=1
+     $ git clone https://opendev.org/openstack/horizon -b stable/<release> --depth=1
      $ cd horizon
 
 #. Install the horizon python module into your system
 
    .. code-block:: console
 
-     $ sudo pip install -c https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/<release> .
+     $ sudo pip install -c https://opendev.org/openstack/requirements/raw/branch/stable/<release>/upper-constraints.txt .
 
 Configuration
 =============
@@ -185,7 +185,7 @@ Deployment
    For apache2 web server, you may need to create
    ``/etc/apache2/sites-available/horizon.conf``.
    The template in DevStack is a good example of the file.
-   https://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-horizon.template
+   https://opendev.org/openstack/devstack/src/branch/master/files/apache-horizon.template
    Or you can automatically generate an apache configuration file. If you
    previously generated an ``openstack_dashboard/horizon_wsgi.py`` file it will
    use that, otherwise will default to using ``openstack_dashboard/wsgi.py``

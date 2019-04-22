@@ -77,7 +77,7 @@ with Python 2.7 environment. Check ``requirements.txt`` in horizon
 repository to know which version of Django is actually used.
 
 All other dependencies are as defined by the upper-constraints file at
-https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt
+https://opendev.org/openstack/requirements/raw/branch/master/upper-constraints.txt
 
 You can run a subset of the tests by passing the test path as an argument to
 tox::
