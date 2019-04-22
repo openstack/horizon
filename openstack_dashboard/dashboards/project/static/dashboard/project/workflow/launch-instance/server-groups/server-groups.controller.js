@@ -34,6 +34,12 @@
    */
   function LaunchInstanceServerGroupsController(launchInstanceModel) {
     var ctrl = this;
+    ctrl.policies = {
+      'affinity': gettext('Affinity'),
+      'anti-affinity': gettext('Anti Affinity'),
+      'soft-anti-affinity': gettext('Soft Anti Affinity'),
+      'soft-affinity': gettext('Soft Affinity')
+    };
 
     ctrl.tableData = {
       available: launchInstanceModel.serverGroups,
