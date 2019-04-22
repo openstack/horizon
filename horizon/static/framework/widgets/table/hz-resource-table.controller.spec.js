@@ -18,7 +18,8 @@
   'use strict';
 
   describe('hz-generic-table controller', function() {
-    var ctrl, listFunctionDeferred, actionResultDeferred, needsFilterFirstFunctionDeferred, $scope;
+    var ctrl, listFunctionDeferred, actionResultDeferred,
+      needsFilterFirstFunctionDeferred, $scope, settingCall;
 
     beforeEach(module('horizon.framework.util'));
     beforeEach(module('horizon.framework.conf'));
@@ -65,9 +66,16 @@
       spyOn(resourceType, 'list').and.returnValue(listFunctionDeferred.promise);
       spyOn(registry, 'getResourceType').and.returnValue(resourceType);
 
+      var settings = {
+        getSetting: function() {
+          settingCall = $q.defer();
+          return settingCall.promise;
+        }
+      };
       ctrl = $controller('horizon.framework.widgets.table.ResourceTableController', {
         $scope: $scope,
-        'horizon.framework.conf.resource-type-registry.service': registry},
+        'horizon.framework.conf.resource-type-registry.service': registry,
+        'horizon.app.core.openstack-service-api.settings': settings},
         {resourceTypeName: 'OS::Test::Example'});
       $scope.ctrl = ctrl;
       $scope.$apply();

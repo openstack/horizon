@@ -132,7 +132,7 @@
         return {data: {items: response.data.items.map(modifyImage)}};
 
         function modifyImage(image) {
-          image.trackBy = image.id + image.updated_at;
+          image.trackBy = image.id + image.updated_at + image.status;
           image.apiVersion = version;
           image.visibility = $filter('imageVisibility')(image, projectId);
           image.name = image.name || image.id;

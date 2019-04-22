@@ -43,7 +43,9 @@ class Settings(generic.View):
         'HORIZON_IMAGES_UPLOAD_MODE': api.glance.get_image_upload_mode(),
         'HORIZON_ACTIVE_IMAGE_VERSION': str(api.glance.VERSIONS.active),
         'IMAGES_ALLOW_LOCATION': getattr(settings, 'IMAGES_ALLOW_LOCATION',
-                                         False)
+                                         False),
+        'AJAX_POLL_INTERVAL': settings.HORIZON_CONFIG.get(
+            'ajax_poll_interval', 2500)
     }
 
     @rest_utils.ajax()
