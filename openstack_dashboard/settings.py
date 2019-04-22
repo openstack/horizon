@@ -22,7 +22,6 @@ import os
 import sys
 import warnings
 
-from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 import openstack_auth
@@ -55,12 +54,6 @@ if ROOT_PATH not in sys.path:
     sys.path.append(ROOT_PATH)
 
 DEBUG = False
-
-SITE_BRANDING = 'OpenStack Dashboard'
-
-SELECTABLE_THEMES = None
-INTEGRATION_TESTS_SUPPORT = False
-NG_TEMPLATE_CACHE_AGE = 2592000
 
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
@@ -227,44 +220,9 @@ LOCAL_PATH = None
 
 ADD_INSTALLED_APPS = []
 
-# 'key', 'label', 'path'
-AVAILABLE_THEMES = [
-    (
-        'default',
-        pgettext_lazy('Default style theme', 'Default'),
-        'themes/default'
-    ), (
-        'material',
-        pgettext_lazy("Google's Material Design style theme", "Material"),
-        'themes/material'
-    ),
-]
-
-# The default theme if no cookie is present
-DEFAULT_THEME = 'default'
-
-# Theme Static Directory
-THEME_COLLECTION_DIR = 'themes'
-
-# Theme Cookie Name
-THEME_COOKIE_NAME = 'theme'
-
-POLICY_CHECK_FUNCTION = 'openstack_auth.policy.check'
-
 CSRF_COOKIE_AGE = None
 
 COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
-
-# Dictionary of currently available angular features
-ANGULAR_FEATURES = {
-    'images_panel': True,
-    'key_pairs_panel': True,
-    'flavors_panel': False,
-    'domains_panel': False,
-    'users_panel': False,
-    'groups_panel': False,
-    'roles_panel': True
-}
 
 # Notice all customizable configurations should be above this line
 XSTATIC_MODULES = settings_utils.BASE_XSTATIC_MODULES
@@ -401,8 +359,6 @@ settings_utils.update_dashboards(
 )
 INSTALLED_APPS[0:0] = ADD_INSTALLED_APPS
 
-NG_TEMPLATE_CACHE_AGE = NG_TEMPLATE_CACHE_AGE if not DEBUG else 0
-
 # Include xstatic_modules specified in plugin
 XSTATIC_MODULES += HORIZON_CONFIG['xstatic_modules']
 
@@ -416,7 +372,7 @@ HORIZON_COMPRESS_OFFLINE_CONTEXT_BASE = {
     'WEBROOT': WEBROOT,
     'STATIC_URL': STATIC_URL,
     'HORIZON_CONFIG': HORIZON_CONFIG,
-    'NG_TEMPLATE_CACHE_AGE': NG_TEMPLATE_CACHE_AGE,
+    'NG_TEMPLATE_CACHE_AGE': NG_TEMPLATE_CACHE_AGE if not DEBUG else 0,
 }
 
 if DEBUG:

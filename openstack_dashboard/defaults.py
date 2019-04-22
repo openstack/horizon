@@ -14,6 +14,7 @@
 
 import os
 
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 # openstack_auth.default is imported in horizon.defaults.
@@ -84,6 +85,27 @@ POLICY_DIRS = {
     'compute': ['nova_policy.d'],
     'volume': ['cinder_policy.d'],
 }
+POLICY_CHECK_FUNCTION = 'openstack_auth.policy.check'
+
+SITE_BRANDING = 'OpenStack Dashboard'
+NG_TEMPLATE_CACHE_AGE = 2592000
+
+
+# 'key', 'label', 'path'
+AVAILABLE_THEMES = [
+    (
+        'default',
+        pgettext_lazy('Default style theme', 'Default'),
+        'themes/default'
+    ), (
+        'material',
+        pgettext_lazy("Google's Material Design style theme", "Material"),
+        'themes/material'
+    ),
+]
+
+# None means to Use AVAILABLE_THEMES as the default value.
+SELECTABLE_THEMES = None
 
 # ----------------------------------------
 # openstack_dashboard settings
@@ -475,6 +497,17 @@ OPENSTACK_IMAGE_BACKEND = {
 OPENSTACK_CLOUDS_YAML_NAME = 'openstack'
 # If this cloud has a vendor profile in os-client-config, put it's name here.
 OPENSTACK_CLOUDS_YAML_PROFILE = ''
+
+# Dictionary of currently available angular features
+ANGULAR_FEATURES = {
+    'images_panel': True,
+    'key_pairs_panel': True,
+    'flavors_panel': False,
+    'domains_panel': False,
+    'users_panel': False,
+    'groups_panel': False,
+    'roles_panel': True
+}
 
 # AngularJS requires some settings to be made available to
 # the client side. Some settings are required by in-tree / built-in horizon

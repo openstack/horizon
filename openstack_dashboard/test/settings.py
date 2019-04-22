@@ -13,8 +13,6 @@
 import os
 import tempfile
 
-from django.utils.translation import pgettext_lazy
-
 from horizon.test.settings import *  # noqa: F403,H303
 from horizon.utils.escape import monkeypatch_escape
 from horizon.utils import secret_key
@@ -60,23 +58,8 @@ TEMPLATES[0]['OPTIONS']['context_processors'].append(
     'openstack_dashboard.context_processors.openstack'
 )
 
-# 'key', 'label', 'path'
-AVAILABLE_THEMES = [
-    (
-        'default',
-        pgettext_lazy('Default style theme', 'Default'),
-        'themes/default'
-    ), (
-        'material',
-        pgettext_lazy("Google's Material Design style theme", "Material"),
-        'themes/material'
-    ),
-]
 AVAILABLE_THEMES, SELECTABLE_THEMES, DEFAULT_THEME = \
     theme_settings.get_available_themes(AVAILABLE_THEMES, 'default', None)
-
-# Theme Static Directory
-THEME_COLLECTION_DIR = 'themes'
 
 COMPRESS_OFFLINE = False
 
@@ -111,11 +94,12 @@ HORIZON_CONFIG = {
     'js_files': [],
 }
 
-ANGULAR_FEATURES = {
-    'images_panel': False,  # Use the legacy panel so unit tests are still run
-    'flavors_panel': False,
-    'roles_panel': False,
-}
+# Use the legacy panel so unit tests are still run.
+# We need to set False for panels whose default implementation
+# is Angular-based.
+ANGULAR_FEATURES['images_panel'] = False
+ANGULAR_FEATURES['key_pairs_panel'] = False
+ANGULAR_FEATURES['roles_panel'] = False
 
 STATICFILES_DIRS = settings_utils.get_xstatic_dirs(
     settings_utils.BASE_XSTATIC_MODULES, HORIZON_CONFIG
@@ -216,6 +200,9 @@ POLICY_FILES = {
     'identity': 'keystone_policy.json',
     'compute': 'nova_policy.json'
 }
+# Tthe policy check is disabled by default in our test, and it is enabled
+# when we would like to test the policy check feature itself.
+POLICY_CHECK_FUNCTION = None
 
 # The openstack_auth.user.Token object isn't JSON-serializable ATM
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
