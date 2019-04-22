@@ -90,21 +90,33 @@ class CreateForm(forms.SelfHandlingForm):
     snapshot_source = forms.ChoiceField(
         label=_("Use snapshot as a source"),
         widget=forms.ThemableSelectWidget(
-            attrs={'class': 'snapshot-selector'},
+            attrs={'class': 'snapshot-selector switched',
+                   'data-switch-on': 'source',
+                   'data-source-snapshot_source':
+                       _("Use snapshot as a source"),
+                   'data-required-when-shown': 'true'},
             data_attrs=('size', 'name'),
             transform=lambda x: "%s (%s GiB)" % (x.name, x.size)),
         required=False)
     image_source = forms.ChoiceField(
         label=_("Use image as a source"),
         widget=forms.ThemableSelectWidget(
-            attrs={'class': 'image-selector'},
+            attrs={'class': 'image-selector switched',
+                   'data-switch-on': 'source',
+                   'data-source-image_source':
+                       _("Use image as a source"),
+                   'data-required-when-shown': 'true'},
             data_attrs=('size', 'name', 'min_disk'),
             transform=lambda x: "%s (%s)" % (x.name, filesizeformat(x.bytes))),
         required=False)
     volume_source = forms.ChoiceField(
         label=_("Use a volume as source"),
         widget=forms.ThemableSelectWidget(
-            attrs={'class': 'image-selector'},
+            attrs={'class': 'image-selector switched',
+                   'data-switch-on': 'source',
+                   'data-source-volume_source':
+                       _("Use a volume as source"),
+                   'data-required-when-shown': 'true'},
             data_attrs=('size', 'name'),
             transform=lambda x: "%s (%s GiB)" % (x.name, x.size)),
         required=False)
