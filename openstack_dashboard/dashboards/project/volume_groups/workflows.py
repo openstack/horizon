@@ -101,32 +101,6 @@ class AddGroupInfoAction(workflows.Action):
                       "same back end.")
         slug = "set_group_info"
 
-    def clean(self):
-        cleaned_data = super(AddGroupInfoAction, self).clean()
-        name = cleaned_data.get('name')
-
-        try:
-            groups = cinder.group_list(self.request)
-        except Exception:
-            msg = _('Unable to get group list')
-            exceptions.check_message(["Connection", "refused"], msg)
-            raise
-
-        if groups is not None and name is not None:
-            for group in groups:
-                if group.name.lower() == name.lower():
-                    # ensure new name has reasonable length
-                    formatted_name = name
-                    if len(name) > 20:
-                        formatted_name = name[:14] + "..." + name[-3:]
-                    raise forms.ValidationError(
-                        _('The name "%s" is already used by '
-                          'another group.')
-                        % formatted_name
-                    )
-
-        return cleaned_data
-
 
 class AddGroupInfoStep(workflows.Step):
     action_class = AddGroupInfoAction

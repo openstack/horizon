@@ -28,7 +28,6 @@ class VolumeGroupTests(test.TestCase):
         'extension_supported',
         'availability_zone_list',
         'volume_type_list',
-        'group_list',
         'group_type_list',
         'group_create',
     ]})
@@ -52,7 +51,6 @@ class VolumeGroupTests(test.TestCase):
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
         self.mock_volume_type_list.return_value = volume_types
-        self.mock_group_list.return_value = self.cinder_groups.list()
         self.mock_group_type_list.return_value = self.cinder_group_types.list()
         self.mock_group_create.return_value = group
 
@@ -67,7 +65,6 @@ class VolumeGroupTests(test.TestCase):
             test.IsHttpRequest())
         self.mock_volume_type_list.assert_called_once_with(
             test.IsHttpRequest())
-        self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_type_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_create.assert_called_once_with(
             test.IsHttpRequest(),
@@ -81,7 +78,6 @@ class VolumeGroupTests(test.TestCase):
         'extension_supported',
         'availability_zone_list',
         'volume_type_list',
-        'group_list',
         'group_type_list',
         'group_create',
     ]})
@@ -104,7 +100,6 @@ class VolumeGroupTests(test.TestCase):
         self.mock_availability_zone_list.return_value = \
             self.cinder_availability_zones.list()
         self.mock_volume_type_list.return_value = volume_types
-        self.mock_group_list.return_value = self.cinder_groups.list()
         self.mock_group_type_list.return_value = self.cinder_group_types.list()
         self.mock_group_create.side_effect = self.exceptions.cinder
 
@@ -121,7 +116,6 @@ class VolumeGroupTests(test.TestCase):
             test.IsHttpRequest())
         self.mock_volume_type_list.assert_called_once_with(
             test.IsHttpRequest())
-        self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_type_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_create.assert_called_once_with(
             test.IsHttpRequest(),
