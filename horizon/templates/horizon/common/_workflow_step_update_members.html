@@ -3,6 +3,7 @@
 <noscript><h3>{{ step }}</h3></noscript>
 
 <div class="membership {{ step.slug }}_membership dropdown_fix" data-show-roles="{{ step.show_roles }}">
+  {% include 'horizon/common/_form_errors.html' with form=form %}
   <div class="header">
     <div class="help_text">{{ step.get_help_text }}</div>
 
