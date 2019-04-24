@@ -147,6 +147,10 @@ class GroupsTable(tables.DataTable):
          pgettext_lazy("Current status of Volume Group", u"In-use")),
         ("error",
          pgettext_lazy("Current status of Volume Group", u"Error")),
+        ("updating",
+         pgettext_lazy("Current status of Volume Group", u"Updating")),
+        ("deleting",
+         pgettext_lazy("Current status of Volume Group", u"Deleting")),
     )
 
     name = tables.WrappingColumn("name_or_id",
