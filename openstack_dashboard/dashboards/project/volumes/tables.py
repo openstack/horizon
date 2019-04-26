@@ -33,6 +33,7 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
 
 DELETABLE_STATES = ("available", "error", "error_extending")
 
@@ -302,6 +303,22 @@ class AcceptTransfer(tables.LinkAction):
     icon = "exchange"
     policy_rules = (("volume", "volume:accept_transfer"),)
     ajax = True
+
+    def allowed(self, request, volume=None):
+        usages = quotas.tenant_quota_usages(request,
+                                            targets=('volumes', 'gigabytes'))
+        gb_available = usages['gigabytes']['available']
+        volumes_available = usages['volumes']['available']
+        if gb_available <= 0 or volumes_available <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ['disabled']
+                self.verbose_name = string_concat(self.verbose_name, ' ',
+                                                  _("(Quota exceeded)"))
+        else:
+            self.verbose_name = _("Accept Transfer")
+            classes = [c for c in self.classes if c != "disabled"]
+            self.classes = classes
+        return True
 
     def single(self, table, request, object_id=None):
         return HttpResponse(self.render())
