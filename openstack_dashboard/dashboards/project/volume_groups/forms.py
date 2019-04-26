@@ -28,17 +28,6 @@ class UpdateForm(forms.SelfHandlingForm):
                                   label=_("Description"),
                                   required=False)
 
-    def clean(self):
-        cleaned_data = super(UpdateForm, self).clean()
-        new_desc = cleaned_data.get('description')
-        old_desc = self.initial['description']
-        if old_desc and not new_desc:
-            error_msg = _("Description is required.")
-            self._errors['description'] = self.error_class([error_msg])
-            return cleaned_data
-
-        return cleaned_data
-
     def handle(self, request, data):
         group_id = self.initial['group_id']
 
