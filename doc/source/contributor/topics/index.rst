@@ -17,4 +17,5 @@ the following topic guides.
    javascript_testing
    styling
    translation
+   ini-based-configuration
    packaging
