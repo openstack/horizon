@@ -15,6 +15,7 @@ import logging
 
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from neutronclient.common import exceptions as neutron_exc
 
 from horizon import exceptions
 from horizon import forms
@@ -130,6 +131,10 @@ class CreatePolicyForm(forms.SelfHandlingForm):
             msg = _('RBAC Policy was successfully created.')
             messages.success(request, msg)
             return rbac_policy
+        except neutron_exc.OverQuotaClient:
+            redirect = reverse('horizon:admin:rbac_policies:index')
+            msg = _('rbac policy quota exceeded.')
+            exceptions.handle(request, msg, redirect=redirect)
         except Exception:
             redirect = reverse('horizon:admin:rbac_policies:index')
             msg = _('Failed to create a rbac policy.')
