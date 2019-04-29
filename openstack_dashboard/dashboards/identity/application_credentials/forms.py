@@ -94,7 +94,7 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
                 secret=data['secret'] or None,
                 expires_at=expiration or None,
                 roles=roles,
-                unrestricted=data['unrestricted'] or None
+                unrestricted=data['unrestricted']
             )
             self.request.session['application_credential'] = \
                 new_app_cred.to_dict()
