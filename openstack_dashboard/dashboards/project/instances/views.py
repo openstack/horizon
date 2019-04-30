@@ -182,7 +182,9 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
                         # Getting volume object, which is as attached
                         # as the first device
                         boot_volume = volume_dict[instance_volumes[0]['id']]
-                        if hasattr(boot_volume, "volume_image_metadata"):
+                        if (hasattr(boot_volume, "volume_image_metadata") and
+                                boot_volume.volume_image_metadata['image_id'] in
+                                image_dict):
                             instance.image = image_dict[
                                 boot_volume.volume_image_metadata['image_id']
                             ]
