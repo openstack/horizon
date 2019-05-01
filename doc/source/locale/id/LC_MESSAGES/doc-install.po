@@ -1,13 +1,14 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev344\n"
+"Project-Id-Version: horizon 15.0.1.dev4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-14 01:16-0600\n"
+"POT-Creation-Date: 2019-04-22 02:13-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-19 08:55+0000\n"
+"PO-Revision-Date: 2019-04-30 03:31+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -233,6 +234,10 @@ msgstr "Django 1.11 or 2.0"
 
 msgid "Django 1.8 to 1.10 are no longer supported since Rocky release."
 msgstr "Django 1.8 hingga 1.10 tidak lagi didukung sejak Rocky rilis."
+
+msgid "Django support policy is documented at :doc:`/contributor/policy`."
+msgstr ""
+"Kebijakan dukungan Django didokumentasikan di  :doc:`/contributor/policy`."
 
 msgid ""
 "Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
@@ -987,3 +992,7 @@ msgstr "https://storyboard.openstack.org/#!/project/992"
 
 msgid "https://storyboard.openstack.org/#!/project/openstack/searchlight-ui"
 msgstr "https://storyboard.openstack.org/#!/project/openstack/searchlight-ui"
+
+msgid "https://storyboard.openstack.org/#!/project/openstack/vitrage-dashboard"
+msgstr ""
+"https://storyboard.openstack.org/#!/project/openstack/vitrage-dashboard"

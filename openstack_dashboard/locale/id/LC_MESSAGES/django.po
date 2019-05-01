@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-28 04:48+0000\n"
+"POT-Creation-Date: 2019-04-22 07:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-12 08:11+0000\n"
+"PO-Revision-Date: 2019-04-30 02:40+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -222,6 +222,10 @@ msgstr ""
 "diterapkan ke semua antarmuka instance. Jika Anda memiliki beberapa "
 "antarmuka pada instance ini dan menerapkan grup keamanan berbeda per port, "
 "gunakan tindakan \"Edit Port Security Groups\" sebagai gantinya."
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "Deskripsi singkat tentang aturan grup keamanan yang Anda tambahkan"
@@ -1144,6 +1148,10 @@ msgid ""
 msgstr ""
 "Menggandakan setiap volume di Grup sumber, lalu menambahkannya ke Grup yang "
 "baru dibuat."
+
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "Kelompok volume kloning \"%s\"."
 
 msgid "Close"
 msgstr "Tutup"
@@ -3205,6 +3213,10 @@ msgid "Group"
 msgstr "Group"
 
 #, python-format
+msgid "Group \"%s\" already exists."
+msgstr "Group \"%s\" sudah ada."
+
+#, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Kelompok \"%s\" berhasil dibuat."
 
@@ -3257,6 +3269,21 @@ msgstr "Jenis Grup"
 
 msgid "Group has been updated successfully."
 msgstr "Kelompok telah berhasil diperbarui."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"Type grup adalah jenis atau label yang dapat dipilih pada waktu pembuatan "
+"grup di OpenStack. Biasanya memetakan ke serangkaian kemampuan driver back-"
+"end penyimpanan yang akan digunakan untuk grup ini. Contoh: \"Performance\", "
+"\"SSD\", \"Backup\", dll. Ini setara dengan perintah <tt> cinder type-create "
+"</tt>. Setelah jenis grup dibuat, klik tombol \"View Specs\" untuk mengatur "
+"pasangan nilai kunci untuk jenis grup itu."
 
 #, python-format
 msgid "Group type name \"%s\" already exists."
@@ -3802,6 +3829,9 @@ msgstr "Nama Key Pair (nama pasangan kunci)"
 msgid "Key Pair Name ="
 msgstr "Key Pair Name ="
 
+msgid "Key Pair Type"
+msgstr "Key Pair Type"
+
 msgid "Key Pairs"
 msgstr "Key Pair (pasangan kunci)"
 
@@ -3812,6 +3842,9 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "Key Size (bits)"
+
+msgid "Key Type"
+msgstr "Key Type"
 
 msgid ""
 "Key names can only contain alphanumeric characters, underscores, periods, "
@@ -3829,6 +3862,14 @@ msgstr ""
 
 msgid "Key pair to use for authentication."
 msgstr "Sepasang kunci yang digunakan untuk otentikasi."
+
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Kunci dengan nama \"%s\" sudah ada. Gunakan Edit untuk memperbarui nilai, "
+"jika tidak buat kunci dengan nama yang berbeda."
 
 msgid "Key-Value Pairs"
 msgstr "Key-Value Pairs (pasangan kunci-nilai)"
@@ -5524,6 +5565,9 @@ msgstr "SLAAC: Alamat yang ditemukan dari router eksternal"
 msgid "SNAT"
 msgstr "SNAT"
 
+msgid "SSH Key"
+msgstr "SSH Key"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "Pasangan kunci SSH dapat dihasilkan dengan perintah ssh-keygen:"
 
@@ -6629,6 +6673,9 @@ msgstr ""
 
 msgid "The new availability zone can't be empty"
 msgstr "Zona ketersediaan baru tidak boleh kosong"
+
+msgid "The new type must be different from the current volume type."
+msgstr "Jenis baru harus berbeda dari jenis volume saat ini."
 
 msgid "The output format"
 msgstr "Format output"
@@ -8442,6 +8489,10 @@ msgid "User"
 msgstr "User"
 
 #, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "Pengguna \"%s\" telah berhasil diperbarui."
+
+#, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "pemakai \"%s\" berhasil dibuat."
 
@@ -8820,6 +8871,9 @@ msgid ""
 msgstr ""
 "Ketika status volume \"in-use\",  Anda dapat menggunakan \"Force\" untuk "
 "meng-upload volume untuk image."
+
+msgid "X509 Certificate"
+msgstr "X509 Certificate"
 
 msgid "Yes"
 msgstr "Yes"
