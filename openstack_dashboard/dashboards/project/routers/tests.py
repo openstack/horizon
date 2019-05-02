@@ -1076,10 +1076,13 @@ class RouterRouteTestCase(object):
 
     @test.create_mocks({api.neutron: ('router_get',
                                       'router_update')})
-    def _test_router_addrouterroute(self, raise_error=False):
+    def _test_router_addrouterroute(self, ipv6=False, raise_error=False):
         pre_router = self.routers_with_routes.first()
         post_router = copy.deepcopy(pre_router)
-        route = {'nexthop': '10.0.0.5', 'destination': '40.0.1.0/24'}
+        if ipv6:
+            route = {'nexthop': 'fdb6:b88a:488e::5', 'destination': '2002::/64'}
+        else:
+            route = {'nexthop': '10.0.0.5', 'destination': '40.0.1.0/24'}
         post_router['routes'].insert(0, route)
         self.mock_router_get.return_value = pre_router
         if raise_error:
@@ -1110,6 +1113,16 @@ class RouterRouteTestCase(object):
     def test_router_addrouterroute_exception(self):
         if self.DASHBOARD == 'project':
             self._test_router_addrouterroute(raise_error=True)
+            self.assertMessageCount(error=1)
+
+    def test_router_addrouteripv6route(self):
+        if self.DASHBOARD == 'project':
+            self._test_router_addrouterroute(ipv6=True)
+            self.assertMessageCount(success=1)
+
+    def test_router_addrouteripv6route_exception(self):
+        if self.DASHBOARD == 'project':
+            self._test_router_addrouterroute(ipv6=True, raise_error=True)
             self.assertMessageCount(error=1)
 
     @test.create_mocks({api.neutron: ('router_get',

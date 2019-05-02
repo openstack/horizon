@@ -29,8 +29,13 @@ LOG = logging.getLogger(__name__)
 
 
 class AddRouterRoute(forms.SelfHandlingForm):
-    destination = forms.IPField(label=_("Destination CIDR"), mask=True)
-    nexthop = forms.IPField(label=_("Next Hop"))
+    destination = forms.IPField(
+        version=forms.IPv4 | forms.IPv6,
+        label=_("Destination CIDR"),
+        mask=True)
+    nexthop = forms.IPField(
+        version=forms.IPv4 | forms.IPv6,
+        label=_("Next Hop"))
     failure_url = 'horizon:project:routers:detail'
 
     def handle(self, request, data, **kwargs):
