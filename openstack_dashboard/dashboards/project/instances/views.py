@@ -155,39 +155,7 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
 
         # Loop through instances to get flavor info.
         for instance in instances:
-            if hasattr(instance, 'image'):
-                # Instance from image returns dict
-                if isinstance(instance.image, dict):
-                    image_id = instance.image.get('id')
-                    if image_id in image_dict:
-                        instance.image = image_dict[image_id]
-                    # In case image not found in image_dict, set name to empty
-                    # to avoid fallback API call to Glance in api/nova.py
-                    # until the call is deprecated in api itself
-                    else:
-                        instance.image['name'] = _("-")
-                # Otherwise trying to get image from volume metadata
-                else:
-                    instance_volumes = [
-                        attachment
-                        for volume in volume_dict.values()
-                        for attachment in volume.attachments
-                        if attachment['server_id'] == instance.id
-                    ]
-                    # Sorting attached volumes by device name (eg '/dev/sda')
-                    instance_volumes.sort(key=lambda attach: attach['device'])
-                    # While instance from volume is being created,
-                    # it does not have volumes
-                    if instance_volumes:
-                        # Getting volume object, which is as attached
-                        # as the first device
-                        boot_volume = volume_dict[instance_volumes[0]['id']]
-                        if (hasattr(boot_volume, "volume_image_metadata") and
-                                boot_volume.volume_image_metadata['image_id'] in
-                                image_dict):
-                            instance.image = image_dict[
-                                boot_volume.volume_image_metadata['image_id']
-                            ]
+            self._populate_image_info(instance, image_dict, volume_dict)
 
             flavor_id = instance.flavor["id"]
             if flavor_id in flavor_dict:
@@ -199,6 +167,45 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
                          flavor_id, instance.id)
 
         return instances
+
+    def _populate_image_info(self, instance, image_dict, volume_dict):
+        if not hasattr(instance, 'image'):
+            return
+        # Instance from image returns dict
+        if isinstance(instance.image, dict):
+            image_id = instance.image.get('id')
+            if image_id in image_dict:
+                instance.image = image_dict[image_id]
+            # In case image not found in image_dict, set name to empty
+            # to avoid fallback API call to Glance in api/nova.py
+            # until the call is deprecated in api itself
+            else:
+                instance.image['name'] = _("-")
+        # Otherwise trying to get image from volume metadata
+        else:
+            instance_volumes = [
+                attachment
+                for volume in volume_dict.values()
+                for attachment in volume.attachments
+                if attachment['server_id'] == instance.id
+            ]
+            # While instance from volume is being created,
+            # it does not have volumes
+            if not instance_volumes:
+                return
+            # Sorting attached volumes by device name (eg '/dev/sda')
+            instance_volumes.sort(key=lambda attach: attach['device'])
+            # Getting volume object, which is as attached
+            # as the first device
+            boot_volume = volume_dict[instance_volumes[0]['id']]
+            if hasattr(boot_volume, "volume_image_metadata"):
+                image_id = boot_volume.volume_image_metadata['image_id']
+                try:
+                    instance.image = image_dict[image_id]
+                except KeyError:
+                    # KeyError occurs when volume was created from image and
+                    # then this image is deleted.
+                    pass
 
 
 def process_non_api_filters(search_opts, non_api_filter_info):
