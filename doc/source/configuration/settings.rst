@@ -921,25 +921,6 @@ menu and the api access panel.
    `OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE`_ to provide a custom
    ``clouds.yaml``.
 
-SHOW_KEYSTONE_V2_RC
---------------------
-
-.. versionadded:: 13.0.0(Queens)
-
-.. versionchanged:: 15.0.0(Stein)
-
-    The default value is changed from ``True`` to ``False``
-    in favor of the deprecation of keystone v2 API support in horizon.
-
-.. deprecated:: 15.0.0(Stein)
-
-    This option will be dropped in 16.0.0(Train) release.
-
-Default: ``False``
-
-Controls whether the keystone v2 openrc file is accessible from the user
-menu and the api access panel.
-
 THEME_COLLECTION_DIR
 --------------------
 
@@ -967,29 +948,12 @@ USER_MENU_LINKS
 
 .. versionadded:: 13.0.0(Queens)
 
-Default (when ``SHOW_KEYSTONE_V2_RC`` is ``False``):
+Default:
 
 .. code-block:: python
 
   [
     {'name': _('OpenStack RC File'),
-     'icon_classes': ['fa-download', ],
-     'url': 'horizon:project:api_access:openrc',
-     'external': False,
-     }
-  ]
-
-Default (when ``SHOW_KEYSTONE_V2_RC`` is ``True``):
-
-.. code-block:: python
-
-  [
-    {'name': _('OpenStack RC File v2'),
-     'icon_classes': ['fa-download', ],
-     'url': 'horizon:project:api_access:openrcv2',
-     'external': False,
-     },
-    {'name': _('OpenStack RC File v3'),
      'icon_classes': ['fa-download', ],
      'url': 'horizon:project:api_access:openrc',
      'external': False,

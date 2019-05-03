@@ -1,0 +1,4 @@
+---
+upgrade:
+  - |
+    Deprecated ``SHOW_KEYSTONE_V2_RC`` since Stein release is removed.
