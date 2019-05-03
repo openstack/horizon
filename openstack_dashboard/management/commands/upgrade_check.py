@@ -166,7 +166,7 @@ def check_invalid_settings(dummy=None):
 
 @register_check(_("Deprecated Settings"))
 def check_deprecated_settings(dummy=None):
-    DEPRECATED_SETTINGS = {'ENABLE_FLAVOR_EDIT'}
+    DEPRECATED_SETTINGS = set()
     deprecated = []
     for setting in dir(settings):
         if not setting.isupper() or setting.startswith("_"):
