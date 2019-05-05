@@ -58,9 +58,11 @@ class CreatePortInfoAction(workflows.Action):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     initial=True,
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        initial=True,
+        required=False,
+        help_text=_("If checked, the port will be enabled."))
     device_id = forms.CharField(max_length=100, label=_("Device ID"),
                                 help_text=_("Device ID attached to the port"),
                                 required=False)
@@ -304,8 +306,10 @@ class UpdatePortInfoAction(workflows.Action):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        required=False,
+        help_text=_("If checked, the port will be enabled."))
 
     def __init__(self, request, *args, **kwargs):
         super(UpdatePortInfoAction, self).__init__(request, *args, **kwargs)

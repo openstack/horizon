@@ -34,8 +34,10 @@ LOG = logging.getLogger(__name__)
 
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        required=False,
+        help_text=_("If checked, the network will be enabled."))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     failure_url = 'horizon:project:networks:index'
 

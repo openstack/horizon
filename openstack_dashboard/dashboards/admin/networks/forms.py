@@ -118,9 +118,11 @@ class CreateNetwork(forms.SelfHandlingForm):
             'class': 'switched',
             'data-switch-on': 'network_type',
         }))
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     initial=True,
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        initial=True,
+        required=False,
+        help_text=_("If checked, the network will be enabled."))
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False, required=False)
     external = forms.BooleanField(label=_("External Network"),
@@ -329,8 +331,10 @@ class CreateNetwork(forms.SelfHandlingForm):
 
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        required=False,
+        help_text=_("If checked, the network will be enabled."))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     external = forms.BooleanField(label=_("External Network"), required=False)
     failure_url = 'horizon:admin:networks:index'
