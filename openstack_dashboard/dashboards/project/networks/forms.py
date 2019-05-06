@@ -64,6 +64,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
         except Exception as e:
             LOG.info('Failed to update network %(id)s: %(exc)s',
                      {'id': self.initial['network_id'], 'exc': e})
-            msg = _('Failed to update network %s') % data['name']
+            name_or_id = data['name'] or self.initial['network_id']
+            msg = _('Failed to update network %s') % name_or_id
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
