@@ -2,7 +2,6 @@
 # Gael Rehault <gael01@gmail.com>, 2015. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2015. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
-# Maxime Coquerel <max.coquerel@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # SOURDET Henri <hsourdet@gmail.com>, 2015. #zanata
@@ -27,11 +26,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-04-20 14:28+0000\n"
+"POT-Creation-Date: 2019-05-03 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-01-29 03:23+0000\n"
+"PO-Revision-Date: 2019-05-05 11:10+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -237,6 +236,10 @@ msgstr ""
 "modification sera appliquée à toutes les interfaces de l'instance. Si cette "
 "instance possède plusieurs interfaces et plusieurs groupes de sécurité par "
 "port, utilisez plutôt \"Editer les groupes de sécurité de port\"."
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>Détails du gabarit: %(name)s</span>\">%(name)s"
 
 msgid "A brief description of the security group rule you are adding"
 msgstr ""
@@ -964,6 +967,13 @@ msgstr ""
 "actions, alors cochez \"Sans restriction\"."
 
 msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"Par défaut, un type de groupe est créé public. Pour créer un type de groupe "
+"privé, décocher ce champ."
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -1001,6 +1011,9 @@ msgstr "Impossible d'obtenir la console pour l'instance %s."
 
 msgid "Cannot specify both file and direct input."
 msgstr "Impossible d'indiquer à la fois le fichier et l'entrée directe."
+
+msgid "Center Topology"
+msgstr "Centrer la topologie"
 
 msgid "Centralized"
 msgstr "Centralisé"
@@ -1159,6 +1172,10 @@ msgid ""
 msgstr ""
 "Cloner chaque volume du groupe source puis ajouter les à un groupe "
 "nouvellement créé."
+
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "Clonage du groupe de volumes \"%s\"."
 
 msgid "Close"
 msgstr "Fermer"
@@ -1344,6 +1361,12 @@ msgstr "Créer un Groupe"
 msgid "Create Group Snapshot"
 msgstr "Créer un instantané du groupe"
 
+msgid "Create Group Type"
+msgstr "Créer un type de groupe"
+
+msgid "Create Group Type Spec"
+msgstr "Créer une spec de type de groupe"
+
 msgid "Create Host Aggregate"
 msgstr "Créer un agrégat d'hôtes"
 
@@ -1450,6 +1473,9 @@ msgstr ""
 "Créer un groupe de cohérence qui contiendra les volumes fraichement clonés "
 "depuis chaque instantané du groupe de cohérence source."
 
+msgid "Create a Group Type"
+msgstr "Créer un type de groupe"
+
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
 "the snapshots in the source Group Snapshot."
@@ -1478,6 +1504,11 @@ msgstr "Créer un mapping"
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Créer une nouvelle paire clé-valeur \"extra spec\" pour un type de volume."
+
+msgid "Create a new \"group spec\" key-value pair for a group type."
+msgstr ""
+"Créer une nouvelle paire clé-valeur \"spec de groupe\" pour un type de "
+"groupe."
 
 #, python-format
 msgid ""
@@ -1540,6 +1571,10 @@ msgstr "Créé"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Spécification supplémentaire \"%s\" créée."
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "Spec de type de groupe %s\" créée."
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1783,6 +1818,11 @@ msgid_plural "Delete Groups"
 msgstr[0] "Supprimer le Groupe"
 msgstr[1] "Supprimer les Groupes"
 
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Supprimer le type de groupe"
+msgstr[1] "Supprimer les types de groupes"
+
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Supprimer l'Agrégation d'hôtes"
@@ -1974,6 +2014,11 @@ msgid_plural "Deleted Groups"
 msgstr[0] "Groupe Supprimé"
 msgstr[1] "Groupes Supprimés"
 
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Type de groupe supprimé"
+msgstr[1] "Types de groupes supprimés"
+
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "Agrégation d'hôtes supprimée"
@@ -2125,6 +2170,12 @@ msgstr "Suppression du groupe de cohérence de volume \"%s\""
 #, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "Suppression du groupe de volumes \"%s\""
+
+msgid "Deprecated Settings"
+msgstr "Paramètres obsolètes"
+
+msgid "Deprecated settings: {}."
+msgstr "Paramètres obsolètes : {}."
 
 msgid "Description"
 msgstr "Description"
@@ -2453,6 +2504,16 @@ msgstr "Éditer le gabarit"
 
 msgid "Edit Group"
 msgstr "Éditer un Groupe"
+
+msgid "Edit Group Type"
+msgstr "Editer le type de groupe"
+
+msgid "Edit Group Type Spec"
+msgstr "Editer la spec du type de groupe"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "Editer la valeur de la spec du type de groupe: %s"
 
 msgid "Edit Host Aggregate"
 msgstr "Éditer l'agrégat d'hôtes"
@@ -3286,6 +3347,10 @@ msgid "Group"
 msgstr "Groupe"
 
 #, python-format
+msgid "Group \"%s\" already exists."
+msgstr "Le groupe \"%s\" existe déjà."
+
+#, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Groupe \"%s\" créé avec succès. "
 
@@ -3322,8 +3387,29 @@ msgstr "Groupe d'instantanés"
 msgid "Group Type"
 msgstr "Type du groupe"
 
+msgid "Group Type Specs"
+msgstr "Specs du type de groupe"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "Type de groupe : %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "Type de groupe : %(group_type_name)s"
+
+msgid "Group Types"
+msgstr "Types de groupe"
+
 msgid "Group has been updated successfully."
 msgstr "Le Groupe a été mis à jour avec succès."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Le type de groupe \"%s\" existe déjà."
+
+msgid "Group type name can not be empty."
+msgstr "Le nom du type de groupe ne doit pas être vide."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3507,6 +3593,13 @@ msgid ""
 msgstr ""
 "Liste des adresses IP des serveurs DNS pour ce sous-réseau. Une seule "
 "adresse par ligne est permise."
+
+msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"Adresse IP de la passerelle (e.g. 192.168.0.254). Si vous ne souhaitez pas "
+"utiliser une passerelle, cochez \"Désactiver la passerelle\" ci-dessous."
 
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
@@ -3870,6 +3963,9 @@ msgstr "Nom de la paire de clés"
 msgid "Key Pair Name ="
 msgstr "Nom de la paire de clés ="
 
+msgid "Key Pair Type"
+msgstr "Type de paire de clés"
+
 msgid "Key Pairs"
 msgstr "Paires de clés"
 
@@ -3880,6 +3976,16 @@ msgstr ""
 msgid "Key Size (bits)"
 msgstr "Taille de la clé (bits)"
 
+msgid "Key Type"
+msgstr "Type de clé"
+
+msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+"Les noms de clés ne peuvent comporter que des caractères alphanumériques, "
+"des soulignés, des points, des deux-points ou des traits d'union."
+
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
@@ -3889,6 +3995,14 @@ msgstr ""
 
 msgid "Key pair to use for authentication."
 msgstr "Paire de clés à utiliser pour l'authentification."
+
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Une clé nommée \"%s\" existe déjà. Utiliser Editer pour mettre la valeur à "
+"jour ou bien créer une clé portant un nom différent."
 
 msgid "Key-Value Pairs"
 msgstr "Paires de clé-valeur"
@@ -4220,9 +4334,16 @@ msgstr "Espace disque minimal (Go)"
 msgid "Minimum RAM (MB)"
 msgstr "RAM minimale (Mo)"
 
+msgid "Missing required settings: {}."
+msgstr "Il manque des paramètres requis : {}."
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domaine \"%s\" modifié."
+
+#, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "Accès de gabarit de \"%s\" modifiés."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -4253,6 +4374,9 @@ msgstr "Éditer les quotas"
 
 msgid "Modify dashboard settings for your user."
 msgstr "Modifier les paramètres du dashboard."
+
+msgid "Modify group type name, description, and public status."
+msgstr "Modifier le nom du type de groupe, la description et le statut public."
 
 msgid "Modify name and description of a volume."
 msgstr "Modifier le nom et la description du volume."
@@ -4432,6 +4556,9 @@ msgstr "Nouvelle taille (Gio)"
 
 msgid "New name cannot be empty."
 msgstr "Le nouveau nom ne paeut pas être vide."
+
+msgid "New name conflicts with another group type."
+msgstr "Confilt de nom avec un autre type de groupe."
 
 msgid "New name conflicts with another volume type."
 msgstr "Le nouveau nom est en conflit avec un autre Type de Volume."
@@ -4825,6 +4952,9 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Mot de passe"
 
+msgid "Password Expires At"
+msgstr "Le mot de passe expire à"
+
 msgid "Password changed. Please log in again to continue."
 msgstr "Mot de passe modifié. Connectez-vous à nouveau pour poursuivre."
 
@@ -4866,6 +4996,11 @@ msgstr "Suppression de Mise en attente"
 
 msgid "Per Volume Size (GiB)"
 msgstr "Taille par Volume (Go)"
+
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr ""
+"Procédez à une vérification pour déterminer si l'application est prête pour "
+"la mise à niveau."
 
 msgid "Physical Network"
 msgstr "Réseau physique"
@@ -5347,13 +5482,23 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "L'instantané demandé dépasserait le quota disponible."
 
+msgid "Required Settings"
+msgstr "Paramètres requis"
+
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "Secourir"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Mode Secours"
 
+msgid "Rescue Instance"
+msgstr "Secourir l'instance"
+
 msgctxt "Current status of an Instance"
 msgid "Rescued"
-msgstr "Sauvée"
+msgstr "Secourue"
 
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
@@ -5490,6 +5635,9 @@ msgstr "Nom de Rôle"
 msgid "Role Name ="
 msgstr "Nom de rôle ="
 
+msgid "Role assignments"
+msgstr "Attributions du rôle"
+
 msgid "Role created successfully."
 msgstr "Rôle créé avec succès."
 
@@ -5571,6 +5719,9 @@ msgstr "SLAAC : Adresse détectée par un routeur externe"
 msgid "SNAT"
 msgstr "NAT de source"
 
+msgid "SSH Key"
+msgstr "Clé SSH"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr ""
 "Les paires de clés SSH peuvent être générées avec la commande ssh-keygen :"
@@ -5584,6 +5735,10 @@ msgstr "Sauvegarder les modifications"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "Spécification supplémentaire \"%s\" enregistrée."
+
+#, python-format
+msgid "Saved group spec \"%s\"."
+msgstr "Spec de groupe \"%s\" enregistrée."
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -6280,6 +6435,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Chiffrement réussi pour le volume : %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Type de groupe créé avec succès : %s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "Groupe de sécurité créé avec succès : %s"
 
@@ -6315,6 +6474,9 @@ msgstr "La Spécification QoS du Consommateur a été modifiée avec succès."
 
 msgid "Successfully recreated ec2 credentials."
 msgstr "Données d'identification ec2 recréées avec succès."
+
+msgid "Successfully rescued instance"
+msgstr "Instance secourue avec succès"
 
 #, python-format
 msgid ""
@@ -6353,6 +6515,9 @@ msgstr "l'agrégat \"%s\" a été mis a jour avec succès"
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Mise à jour du chiffrement réussi pour le volume : %s"
+
+msgid "Successfully updated group type."
+msgstr "Type de groupe mis à jour avec succès."
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6668,6 +6833,12 @@ msgstr ""
 msgid "The new availability zone can't be empty"
 msgstr "La nouvelle zone de disponibilité ne peut-être vide."
 
+msgid "The new type must be different from the current volume type."
+msgstr "Le nouveau type doit être différent du type de volume courant."
+
+msgid "The output format"
+msgstr "Format de sortie"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Le mécanisme physique par lequel le réseau virtuel est implémenté."
 
@@ -6715,6 +6886,13 @@ msgid ""
 msgstr ""
 "L'instance demandée ne peut pas être lancée car vos quota seraient dépassés. "
 "Disponibles :  %(avail)s, nécessaires : %(req)s."
+
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr ""
+"Le mode secours est uniquement destiné aux cas d'urgence, par exemple un "
+"dysfonctionnement du système ou un problème d'accès."
 
 msgid "The specified floating IP no longer exists."
 msgstr "L'IP flottante spécifiée n'existe plus."
@@ -6904,6 +7082,9 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Pour quitter le mode plein écran, cliquez sur le bouton retour du navigateur."
+
+msgid "To make group type private, uncheck this field."
+msgstr "Pour rendre privé un type de groupe, décocher ce champ."
 
 msgid "To make volume type private, uncheck this field."
 msgstr "Pour rendre ce type de volume privé, décochez ce champ."
@@ -7136,6 +7317,12 @@ msgstr "Création du groupe impossible car le quota est atteint."
 msgid "Unable to create group snapshot."
 msgstr "Impossible de créer un instantané du groupe."
 
+msgid "Unable to create group type spec."
+msgstr "Impossible de créer la spec de type de groupe."
+
+msgid "Unable to create group type."
+msgstr "Impossible de créer le type de groupe."
+
 msgid "Unable to create group."
 msgstr "Impossible de créer le groupe."
 
@@ -7200,6 +7387,10 @@ msgstr ""
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr ""
 "Impossible de créer un instantané. Le groupe doit contenir des volumes."
+
+#, python-format
+msgid "Unable to create snapshot: %s"
+msgstr "Impossible de créer l'instantané : %s"
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr ""
@@ -7289,8 +7480,14 @@ msgstr "Impossible d'afficher les groupes de ce projet."
 msgid "Unable to display the groups of this user."
 msgstr "Impossible d'afficher les groupes de cet utilisateur."
 
+msgid "Unable to display the role assignments of this user."
+msgstr "Impossible d'afficher les attributions de rôle de cet utilisateur."
+
 msgid "Unable to display the users of this project."
 msgstr "Impossible d'afficher les utilisateurs de ce projet."
+
+msgid "Unable to edit group type spec."
+msgstr "Impossible d'éditer la spec de type de groupe."
 
 msgid "Unable to edit spec."
 msgstr "Incapable d'éditer la spécification."
@@ -7433,6 +7630,10 @@ msgid "Unable to modify domain \"%s\"."
 msgstr "Impossible de modifier le domaine \"%s\"."
 
 #, python-format
+msgid "Unable to modify flavor access of \"%s\"."
+msgstr "Impossible de modifier les accès de gabarit de \"%s\"."
+
+#, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "Impossible de modifier l'instance \"%s\"."
 
@@ -7469,6 +7670,9 @@ msgid ""
 msgstr ""
 "Impossible d'enregistrer le fournisseur d'identité. Veuillez vérifier que le "
 "fournisseur d'identité et les IDs distants fournis ne sont pas déjà utilisés."
+
+msgid "Unable to rescue instance"
+msgstr "Impossible de secourir l'instance"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -7556,6 +7760,9 @@ msgstr "Impossible de récupérer les zones de disponibilité."
 
 msgid "Unable to retrieve backup details."
 msgstr "Impossible de récupérer les détails de la sauvegarde."
+
+msgid "Unable to retrieve community images."
+msgstr "Impossible de récupérer les images de communauté."
 
 msgid "Unable to retrieve compute host information."
 msgstr "Impossible de récupérer les informations sur l'hôte Compute."
@@ -7680,8 +7887,31 @@ msgstr ""
 msgid "Unable to retrieve group snapshot details."
 msgstr "Impossible de récupérer les détails de l'instantané de groupe."
 
+msgid "Unable to retrieve group snapshot project information."
+msgstr ""
+"Impossible de récupérer les informations de projet de l'instantané de groupe."
+
 msgid "Unable to retrieve group snapshots."
 msgstr "Impossible de récupérer les instantanés du groupe."
+
+msgid "Unable to retrieve group type details."
+msgstr "Impossible de récupérer les détails du type de groupe."
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "Impossible de récupérer le type de groupe pour : \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "Impossible de récupérer le nom du type de groupe."
+
+msgid "Unable to retrieve group type spec details."
+msgstr "Impossible de récupérer les détails de la spec du type de groupe."
+
+msgid "Unable to retrieve group type spec list."
+msgstr "Impossible de récupérer la liste des specs du type de groupe."
+
+msgid "Unable to retrieve group type."
+msgstr "Impossible de récupérer le type de groupe"
 
 msgid "Unable to retrieve group types."
 msgstr "Impossible de récupérer les types de groupe."
@@ -7812,6 +8042,10 @@ msgstr "Impossible de récupérer les détails du projet."
 msgid "Unable to retrieve project domain."
 msgstr "Impossible de récupérer le domaine du projet."
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr ""
+"Impossible de récupérer les informations de projet des instantanés du volume."
+
 msgid "Unable to retrieve project information."
 msgstr "Impossible de récupérer les informations du projet."
 
@@ -7913,6 +8147,9 @@ msgstr "Impossible de récupérer les détails de l'utiisateur."
 msgid "Unable to retrieve user domain role assignments."
 msgstr "Incapable de récupérer le domaine utilisateur d'affectation des rôles."
 
+msgid "Unable to retrieve user domain."
+msgstr "Impossible de récupérer le domaine de l'utilisateur."
+
 msgid "Unable to retrieve user information."
 msgstr "Impossible de récupérer les informations de l'utilisateur."
 
@@ -7948,6 +8185,10 @@ msgstr "Impossible de récupérer les détails du volume."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Impossible de récupérer les détails de chiffrement du volume."
+
+msgid "Unable to retrieve volume group project information."
+msgstr ""
+"Impossible de récupérer les informations de projet du groupe de volumes."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Impossible de récupérer les instantanés de groupe de volumes."
@@ -7985,6 +8226,10 @@ msgstr "Impossible de récupérer les informations du projet associé au volume.
 
 msgid "Unable to retrieve volume quota information."
 msgstr "Impossible de récupérer les informations de quotas volume."
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr ""
+"Impossible de récupérer les informations de projet de l'instantané du volume."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Impossible de récupérer l'instantané du volume."
@@ -8071,6 +8316,9 @@ msgstr "impossible de mettre à jour les quotas de volume par défaut."
 
 msgid "Unable to update encrypted volume type."
 msgstr "Impossible de mettre à jour le volume chiffré."
+
+msgid "Unable to update group type."
+msgstr "Impossible de mettre à jour le type de groupe."
 
 msgid "Unable to update group."
 msgstr "Impossible de mettre à jour le groupe."
@@ -8162,6 +8410,9 @@ msgstr "Impossible de vérifier l'extension Neutron VNIC types"
 msgid "Unknown"
 msgstr "Inconnu"
 
+msgid "Unknown Settings"
+msgstr "Paramètres inconnus"
+
 msgid "Unknown instance"
 msgstr "Instance inconnue"
 
@@ -8170,6 +8421,9 @@ msgstr "Instance inconnue (Aucune)"
 
 msgid "Unknown resource type for detail API."
 msgstr "Type de ressource inconnu pour le détail d'API."
+
+msgid "Unknown settings: {}."
+msgstr "Paramètres inconnus : {}."
 
 msgid "Unknown volume (None)"
 msgstr "Volume inconnu (Aucune)"
@@ -8203,6 +8457,11 @@ msgid "Unregistered Identity Provider"
 msgid_plural "Unregistered Identity Providers"
 msgstr[0] "Fournisseur d'identité n'a pas été enregistré"
 msgstr[1] "Fournisseurs d'identité n'ont pas été enregistrés"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "Instance non secourue"
+msgstr[1] "Instances non secourues"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
@@ -8313,6 +8572,10 @@ msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Mise à jour de la valeur \"extra spec\" pour \"%(key)s\""
 
 #, python-format
+msgid "Update the \"group spec\" value for \"%(key)s\""
+msgstr "Mettre à jour la valeur \"spec de groupe\" pour \"%(key)s\""
+
+#, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "Mise à jour de la valeur de spécification pour \"%(key)s\""
 
@@ -8419,6 +8682,10 @@ msgstr "IP utilisées"
 
 msgid "User"
 msgstr "Utilisateur"
+
+#, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "L'utilisateur \"%s\" a été mis à jour avec succès."
 
 #, python-format
 msgid "User \"%s\" was successfully created."
@@ -8532,6 +8799,9 @@ msgstr "Voir le journal"
 
 msgid "View Routers"
 msgstr "Voir les routeurs"
+
+msgid "View Specs"
+msgstr "Afficher les specs."
 
 msgid "View Usage"
 msgstr "Afficher l'utilisation"
@@ -8807,6 +9077,9 @@ msgstr ""
 "Quand le statut du volume est \"en cours d'utilisation\", vous pouvez "
 "utiliser \"Force\" pour charger le volume dans une image."
 
+msgid "X509 Certificate"
+msgstr "Certificat X509"
+
 msgid "Yes"
 msgstr "Oui"
 
@@ -9020,11 +9293,26 @@ msgstr "ex : Oui / Non"
 msgid "e.g. Yes/No"
 msgstr "ex : Oui/Non"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+"Un id de gabarit ne peut comporter que des caractères alphanumériques, des "
+"soulignés, des points, des traits d'union ou des espaces."
+
 msgid "front-end"
 msgstr "front-end"
 
 msgid "instance"
 msgstr "instance"
+
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Une clé portant le nom \"%s\" existe déjà. Utiliser Editer pour modifier la "
+"valeur ou bien créer une clé portant un nom différent."
 
 msgid "no"
 msgstr "non"

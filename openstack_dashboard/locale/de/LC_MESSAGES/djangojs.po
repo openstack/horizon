@@ -8,16 +8,17 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2018. #zanata
 # Reik Keutterling <spielkind@gmail.com>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2019. #zanata
 # Robert Simai <robert.simai@suse.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-22 16:05+0000\n"
+"POT-Creation-Date: 2019-05-03 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-02-14 10:59+0000\n"
+"PO-Revision-Date: 2019-05-03 02:19+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -1633,6 +1634,9 @@ msgstr ""
 "Die Namen dürfen nur alphanumerische Zeichen, Leerzeichen und Bindestriche "
 "und Unterstriche enthalten."
 
+msgid "Key Type"
+msgstr "Schlüsseltyp"
+
 #, python-format
 msgid "Key pair %(name)s was successfully created."
 msgstr "Schlüsselpaar %(name)s wurde erfolgreich erstellt."
@@ -2338,6 +2342,9 @@ msgstr "Regel ID"
 msgid "Rules"
 msgstr "Regeln"
 
+msgid "SSH Key"
+msgstr "SSH Schlüssel"
+
 msgid "STATUS"
 msgstr "STATUS"
 
@@ -2349,6 +2356,12 @@ msgstr "Änderungen speichern"
 
 msgid "Saving"
 msgstr "Speichern"
+
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "Geplante Erzeugung von %s Instanz."
+msgstr[1] "Geplante Erzeugung von %s Instanzen."
 
 msgid "Scheduler Hints"
 msgstr "Schedulerhinweise"
@@ -3860,6 +3873,9 @@ msgstr ""
 "    ist der Port für die Verwendung bereit. Sie können den <b>Admin-Status</"
 "b> auf <b>Inaktiv</b> setzen, wenn andere\n"
 "    Benutzer den Port noch nicht verwenden sollen. "
+
+msgid "X509 Certificate"
+msgstr "X509 Zertifikat"
 
 msgid "XL Modal"
 msgstr "XL Modal"

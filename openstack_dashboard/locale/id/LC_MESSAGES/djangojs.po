@@ -2,15 +2,16 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-22 16:05+0000\n"
+"POT-Creation-Date: 2019-05-03 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-19 08:08+0000\n"
+"PO-Revision-Date: 2019-04-30 02:45+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -1595,6 +1596,9 @@ msgstr ""
 "dan\n"
 "   menggarisbawahi."
 
+msgid "Key Type"
+msgstr "Key Type"
+
 #, python-format
 msgid "Key pair %(name)s was successfully created."
 msgstr "Key pair %(name)s berhasil dibuat."
@@ -2304,6 +2308,9 @@ msgstr "Rule ID"
 msgid "Rules"
 msgstr "Rules"
 
+msgid "SSH Key"
+msgstr "SSH Key"
+
 msgid "STATUS"
 msgstr "STATUS"
 
@@ -2315,6 +2322,11 @@ msgstr "Simpan perubahan"
 
 msgid "Saving"
 msgstr "Saving"
+
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "Scheduled creation of %s instance."
 
 msgid "Scheduler Hints"
 msgstr "Petunjuk penjadwalan"
@@ -3733,6 +3745,9 @@ msgstr "Volume dan Snapshot Quota (GiB)"
 msgid "Volume size is required and must be an integer"
 msgstr "Ukuran volume diperlukan dan harus integer"
 
+msgid "Volume size is required and must be positive integer"
+msgstr "Diperlukan ukuran volume dan harus bilangan integer positif"
+
 msgid "Volumes"
 msgstr "Volume"
 
@@ -3804,6 +3819,9 @@ msgstr ""
 "    maka port yang tersedia akan digunakan. Anda dapat mengatur <b>Admin "
 "State</b> ke <b>Down</b>\n"
 "jika Anda tidak siap untuk pengguna lain menggunakan port."
+
+msgid "X509 Certificate"
+msgstr "X509 Certificate"
 
 msgid "XL Modal"
 msgstr "XL Modal"
@@ -3935,6 +3953,13 @@ msgstr "image"
 
 msgid "inherit"
 msgstr "mewarisi"
+
+msgid "min disk is required and must be an integer not less than 0"
+msgstr ""
+"min disk diperlukan dan harus berupa bilangan bulat tidak kurang dari 0"
+
+msgid "min ram is required and must be an integer not less than 0"
+msgstr "min ram diperlukan dan harus bilangan bulat tidak kurang dari 0"
 
 #, python-format
 msgid "resource load failed: %s"
