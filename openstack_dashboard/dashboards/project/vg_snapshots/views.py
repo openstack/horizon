@@ -31,9 +31,6 @@ from openstack_dashboard.dashboards.project.vg_snapshots \
 from openstack_dashboard.dashboards.project.vg_snapshots \
     import tabs as vg_snapshot_tabs
 
-GROUP_INFO_FIELDS = ("name",
-                     "description")
-
 INDEX_URL = "horizon:project:vg_snapshots:index"
 
 
