@@ -275,16 +275,6 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.aggregates.panel.Aggregates.can_access'),
         'return_value': True,
     },
-    'cgroups': {
-        'method': ('openstack_dashboard.dashboards.project'
-                   '.cgroups.panel.CGroups.allowed'),
-        'return_value': True,
-    },
-    'cg_snapshots': {
-        'method': ('openstack_dashboard.dashboards.project'
-                   '.cg_snapshots.panel.CGSnapshots.allowed'),
-        'return_value': True,
-    },
     'domains': {
         'method': ('openstack_dashboard.dashboards.identity'
                    '.domains.panel.Domains.can_access'),
