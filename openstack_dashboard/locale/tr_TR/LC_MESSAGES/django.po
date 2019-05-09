@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-20 15:51+0000\n"
+"POT-Creation-Date: 2019-05-08 10:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -374,34 +374,13 @@ msgstr "Bu kümeye host ekle. Hostlar birden çok kümede olabilirler."
 msgid "Add static route to the router."
 msgstr "Yönlendiriciye sabit rota ekle."
 
-msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"Bu tutarlılık grubuna mantıksal sürücü türleri ekle. Birden fazla birim türü "
-"aynı tutarlılık grubuna yalnızca aynı arka uç ile ilişkilendirilirse "
-"eklenebilir."
-
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Bu Mantıksal Sürücüyle ilişkilendirilmiş QoS Özelliğini ekle, değiştir ya da "
 "sil."
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "Tutarlılık Grubu Mantıksal Sürücüler Ekle/Çıkar"
-
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Takıma İstemci Ekle/Çıkar"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr ""
-"Bu tutarlılık grubuna/grubundan mantıksal sürücü ekle/çıkar. Bu seçim için "
-"yalnızca bu tutarlılık grubuna atanmış mantıksal sürücü tür(ler)i olan "
-"birimler kullanılabilir."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -505,13 +484,6 @@ msgstr "Kullanılabilir tüm mantıksal sürücüler"
 msgid "All ports"
 msgstr "Tüm bağlantı noktaları"
 
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr ""
-"Seçili tüm mantıksal sürücü türleri aynı mantıksal sürücü arka uç ismiyle "
-"ilişkili olmalı."
-
 msgid "Allocate Floating IP"
 msgstr "Değişken IP Ayır"
 
@@ -594,9 +566,6 @@ msgstr "İlişkili Kaynak Türleri"
 msgid "At least one network must be specified."
 msgstr "En az bir ağ belirtilmelidir."
 
-msgid "At least one volume type must be assigned to a consistency group."
-msgstr "Tutarlılık grubuna en az bir mantıksal sürücü türü atanmalı."
-
 msgid "Attach Interface"
 msgstr "Arabirim Ekle"
 
@@ -677,14 +646,6 @@ msgstr "Kullanılabilir Bölgeler"
 msgid "Availability zone"
 msgstr "Kullanılırlık bölgesi"
 
-msgid "Available"
-msgstr "Uygun"
-
-msgctxt "Current status of Consistency Group"
-msgid "Available"
-msgstr "Uygun"
-
-msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "Uygun"
 
@@ -859,13 +820,6 @@ msgstr "Son Değişiklikler"
 msgid "Changing password is not supported."
 msgstr "Parola değiştirme desteklenmiyor."
 
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
-"associated with this consistency group."
-msgstr ""
-"Bu tutarlılık grubuyla ilişkili tüm mantıksal sürücüleri de silmek için "
-"&quot;Birimleri Sil&quot; kutusunu işaretleyin."
-
 msgid "Checksum"
 msgstr "Sağlama Toplamı"
 
@@ -954,16 +908,6 @@ msgstr[1] "Geçitler Temizlendi"
 msgid "Click here to show only console"
 msgstr "Yalnızca konsolu göstermek için buraya tıklayın"
 
-msgid "Clone Consistency Group"
-msgstr "Tutarlılık Grubunu Kopyala"
-
-msgid ""
-"Clone each of the volumes in the source Consistency Group, and then add them "
-"to a newly created Consistency Group."
-msgstr ""
-"Kaynak Tutarlılık Grubundaki her birimi kopyala, ardından yeni oluşturulan "
-"bir Tutarlılık Grubuna ekle."
-
 msgid "Close"
 msgstr "Kapat"
 
@@ -1024,21 +968,6 @@ msgstr "Yeniden Boyutlama/Göç'ü Doğrula ya da Geri Al"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Yeniden Boyutlama veya Göç Doğrulanıyor"
-
-msgid "Consistency Group"
-msgstr "Tutarlılık Grubu"
-
-msgid "Consistency Group Information"
-msgstr "Tutarlılık Grubu Bilgisi"
-
-msgid "Consistency Group Name"
-msgstr "Tutarlılık Grubu İsmi"
-
-msgid "Consistency Group Snapshots"
-msgstr "Tutarlılık Grubu Anlık Görüntüleri"
-
-msgid "Consistency Groups"
-msgstr "Tutarlılık Grupları"
 
 msgid "Console"
 msgstr "Uçbirim"
@@ -1102,12 +1031,6 @@ msgstr "İmaj Oluştur"
 
 msgid "Create Backup"
 msgstr "Yedek Oluştur"
-
-msgid "Create Consistency Group"
-msgstr "Tutarlılık Grubu Oluştur"
-
-msgid "Create Consistency Group Snapshot"
-msgstr "Tutarlılık Grubu Anlık Görüntüsü Oluştur"
 
 msgid "Create Domain"
 msgstr "Alan yarat"
@@ -1196,9 +1119,6 @@ msgstr "Mantıksal Sürücü Oluştur"
 msgid "Create Volume Backup"
 msgstr "Mantıksal Sürücü Yedeği Oluştur"
 
-msgid "Create Volume Consistency Group"
-msgstr "Mantıksal Sürücü Tutarlılık Grubu Oluştur"
-
 msgid "Create Volume Snapshot"
 msgstr "Mantıksal Sürücü Anlık Görüntüsü Oluştur"
 
@@ -1216,14 +1136,6 @@ msgstr "Mantıksal sürücü Türü Şifrelemesi Oluştur"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "Mantıksal Sürücü Türü Ek Özelliği Oluştur"
-
-msgid ""
-"Create a Consistency Group that will contain newly created volumes cloned "
-"from each of the snapshots in the source Consistency Group Snapshot."
-msgstr ""
-"Tutarlılık Grubu Anlık Görüntüsü kaynağındanki anlık görüntülerin her "
-"birinden kopyalanan yeni oluşturulmuş mantıksal sürücüleri içerecek "
-"Tutarlılık Grubu oluştur."
 
 msgid "Create a Metadata Namespace"
 msgstr "Metaveri İsim Uzayı Oluştur"
@@ -1264,10 +1176,6 @@ msgstr ""
 
 msgid "Create a project to organize users."
 msgstr "Kullanıcıları düzenlemek için bir proje oluşturun."
-
-msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr ""
-"Tutarlılık Grubundaki her bir mantıksal sürücü için anlık görüntü oluştur."
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -1310,9 +1218,6 @@ msgstr "Yeni istemci takımı \"%s\" oluşturuldu."
 msgid "Created new project \"%s\"."
 msgstr "\"%s\" yeni projesi oluşturuldu."
 
-msgid "Created new volume consistency group"
-msgstr "Yeni mantıksal sürücü tutarlılık grubu oluşturuldu"
-
 #, python-format
 msgid "Created spec \"%s\"."
 msgstr "\"%s\" özelliği oluşturuldu."
@@ -1348,14 +1253,6 @@ msgstr "Oluşturuluyor"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "Oluşturuluyor"
-
-#, python-format
-msgid "Creating consistency group \"%s\"."
-msgstr "Tutarlılık grubu \"%s\" oluşturuluyor."
-
-#, python-format
-msgid "Creating consistency group snapshot \"%s\"."
-msgstr "Tutarlılık grubu anlık görüntüsü \"%s\" oluşturuluyor."
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1476,9 +1373,6 @@ msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "Sil"
 msgstr[1] "Sil"
-
-msgid "Delete Consistency Group"
-msgstr "Tutarlılık Grubunu Sil"
 
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
@@ -1825,10 +1719,6 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Siliniyor"
 
-#, python-format
-msgid "Deleting volume consistency group \"%s\""
-msgstr "Mantıksal sürücü tutarlılık grubu \"%s\" siliniyor"
-
 msgid "Description"
 msgstr "Açıklama"
 
@@ -2120,9 +2010,6 @@ msgstr "Değiştir"
 msgid "Edit Access"
 msgstr "Erişimi Düzenle"
 
-msgid "Edit Consistency Group"
-msgstr "Tutarlılık Grubunu Düzenle"
-
 msgid "Edit Consumer"
 msgstr "Tüketiciyi Düzenle"
 
@@ -2336,14 +2223,6 @@ msgstr "Geçici Disk"
 msgid "Ephemeral Disk (GB)"
 msgstr "Geçici Disk (GB)"
 
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "Hata"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "Hata"
-
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Hata"
@@ -2424,12 +2303,6 @@ msgstr "İstemci ekleme ya da çıkarmada hata."
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "%(exc)s zipfile yazdırılamadı"
-
-msgid "Errors occurred in deleting consistency group."
-msgstr "Tutarlılık grubu silinirken hatalar oluştu."
-
-msgid "Errors occurred in removing volumes from consistency group."
-msgstr "Mantıksal sürücüler tutarlılık grubundan çıkarılırken hatalar oluştu."
 
 msgid "Ether Type"
 msgstr "Ether Türü"
@@ -3206,14 +3079,6 @@ msgstr "Anahtar Çiftini İçe Aktar"
 msgid "Import Namespace"
 msgstr "İsim Uzayı İçe Aktar"
 
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "Kullanımda"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "In-use"
-msgstr "Kullanımda"
-
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Kullanımda"
@@ -3726,14 +3591,6 @@ msgstr "Mantıksal sürücü adı ve tanımlamasını değiştir."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Anlık görüntünün ismini ve tanımlamasını değiştir."
-
-msgid "Modify the name and description of a volume consistency group snapshot."
-msgstr ""
-"Bir mantıksal sürücü tutarlılık grubu anlık görüntüsünün isim ve "
-"açıklamasını değiştir."
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr "Bir mantıksal sürücü tutarlılık grubunun isim ve tanımını değiştir."
 
 msgid "Modify volume type name, description, and public status."
 msgstr ""
@@ -4686,9 +4543,6 @@ msgid_plural "Remove Users"
 msgstr[0] "Kullanıcıyı Kaldır"
 msgstr[1] "Kullanıcıları Kaldır"
 
-msgid "Remove Volumes from Consistency Group"
-msgstr "Mantıksal Sürücüleri Tutarlılık Grubundan Çıkar"
-
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Kullanıcı Kaldırıldı"
@@ -4701,11 +4555,6 @@ msgstr ""
 "Anahtar çiftini kaldırmak OpenStack kaynaklarını öksüz bırakabilir. Başka "
 "bir yerde kullanılmadığından emin olmadan bir anahtar çiftini "
 "kaldırmamalısınız."
-
-#, python-format
-msgid "Removing volumes from volume consistency group \"%s\""
-msgstr ""
-"Mantıksal sürücüler \"%s\" mantıksal sürücü tutarlılık grubundan çıkarılıyor"
 
 msgid "Report Bug"
 msgstr "Hata Bildir"
@@ -5393,12 +5242,6 @@ msgstr "Anlık görüntü kaynağı belirtilmelidir"
 msgid "Snapshots"
 msgstr "Anlık Görüntüler"
 
-msgid ""
-"Snapshots can only be created for Consistency Groups that contain volumes."
-msgstr ""
-"Anlık görüntüler yalnızca mantıksal sürücüleri içeren Tutarlılık Gruplarında "
-"oluşturulabilir."
-
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr "Anlık görüntü alınıyor"
@@ -5925,10 +5768,6 @@ msgstr ""
 "değer 0 varsayılır (asgarisi yok)."
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr "\"%s\" ismi başka bir tutarlılık grubu tarafından kullanılıyor."
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "\"%s\" adı başka bir şablon tarafından kullanılıyor."
 
@@ -6078,13 +5917,6 @@ msgid ""
 msgstr ""
 "Bu eylem geri alınamaz. Mevcut EC2 kimlik bilgileri geri alınamayacak "
 "şekilde silinecek."
-
-msgid ""
-"This action will unassign all volumes that are currently contained in this "
-"consistency group."
-msgstr ""
-"Bu eylem bu tutarlılık grubundaki tüm mantıksal sürücülerin atamalarını "
-"kaldıracak."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr "Bu uygulama web tarayıcınızda JavaScript'in etkin olmasını istiyor."
@@ -6302,31 +6134,11 @@ msgstr ""
 "DHCP aracı zamanlayıcı eklentisinin desteklenip desteklenmediği kontrol "
 "edilemiyor"
 
-msgid "Unable to clone consistency group."
-msgstr "Tutarlılık grubu kopyalanamadı."
-
-msgid "Unable to clone empty consistency group."
-msgstr "Boş tutarlılık grubu kopyalanamadı."
-
 msgid "Unable to connect to Neutron."
 msgstr "Neutron'a bağlanılamıyor."
 
 msgid "Unable to create QoS Spec."
 msgstr "QoS Özelliği oluşturulamıyor."
-
-#, python-format
-msgid "Unable to create consistency group \"%s\" from snapshot."
-msgstr "\"%s\" tutarlılık grubu anlık görüntüden oluşturulamadı."
-
-msgid "Unable to create consistency group due to exceeding volume quota limit."
-msgstr ""
-"Mantıksal Sürücü kota sınırı aşıldığından tutarlılık grubu oluşturulamadı."
-
-msgid "Unable to create consistency group snapshot."
-msgstr "Tutarlılık grubu anlık görüntüsü oluşturulamadı."
-
-msgid "Unable to create consistency group."
-msgstr "Tutarlılık grubu oluşturulamadı."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -6396,10 +6208,6 @@ msgstr "Güvenlik grubu oluşturulamadı: %s"
 msgid "Unable to create snapshot."
 msgstr "Anlık görüntü oluşturulamadı."
 
-msgid "Unable to create snapshot. Consistency group must contain volumes."
-msgstr ""
-"Anlık görüntü oluşturulamadı. Tutarlılık grubu mantıksal sürücüleri içermeli."
-
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr ""
 "Anlık görüntü kota sınırının aşılması nedeniyle anlık görüntüler "
@@ -6453,9 +6261,6 @@ msgstr ""
 msgid "Unable to disassociate floating IP."
 msgstr "Değişken IP tahsisi kaldırılamadı."
 
-msgid "Unable to display consistency group."
-msgstr "Tutarlılık grubu görüntülenemiyor."
-
 msgid "Unable to edit spec."
 msgstr "Özellik düzenlenemedi."
 
@@ -6488,9 +6293,6 @@ msgstr "Sanal makine \"%s\" için VNC konsolu alınamıyor."
 
 msgid "Unable to get cinder services list."
 msgstr "Cinder servis listesi alınamadı."
-
-msgid "Unable to get consistency group list"
-msgstr "Tutarlılık grubu listesi alınamadı"
 
 msgid "Unable to get flavor list"
 msgstr "Şablon listesi alınamadı"
@@ -6527,9 +6329,6 @@ msgstr "Kullanılabilir mantıksal sürücü türleri alınamadı"
 msgid "Unable to get the available volumes"
 msgstr "Kullanılabilir mantıksal sürücüler alınamadı"
 
-msgid "Unable to get volume type list"
-msgstr "Mantıksal sürücü türü listesi alınamıyor"
-
 msgid "Unable to import key pair."
 msgstr "Anahtar çifti içe aktarılamıyor."
 
@@ -6546,9 +6345,6 @@ msgstr "Ağa sunan dhcp ajanları listelenemiyor."
 msgid "Unable to load console. Please reload page to try again."
 msgstr ""
 "Konsol yüklenemedi. Lütfen tekrar denemek için sayfayı yeniden yükleyin."
-
-msgid "Unable to load the specified consistency group."
-msgstr "Belirtilen tutarlılık grubu yüklenemedi."
 
 #, python-format
 msgid "Unable to load the specified image. %s"
@@ -6685,15 +6481,6 @@ msgstr "Hesap istemcisi bilgisi alınamadı."
 
 msgid "Unable to retrieve compute limit information."
 msgstr "Hesaplama limit bilgisi alınamıyor."
-
-msgid "Unable to retrieve consistency group details."
-msgstr "Tutarlılık grubu ayrıntıları alınamıyor."
-
-msgid "Unable to retrieve consistency group information."
-msgstr "Tutarlılık grubu bilgisi alınamadı."
-
-msgid "Unable to retrieve consistency group snapshot details."
-msgstr "Tutarlılık grubu anlık görüntü ayrıntıları alınamadı."
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -6999,12 +6786,6 @@ msgstr "Sürüm bilgisi alınamadı."
 msgid "Unable to retrieve volume backups."
 msgstr "Mantıksal sürücü yedekleri getirilemedi."
 
-msgid "Unable to retrieve volume consistency group snapshots."
-msgstr "Mantıksal sürücü tutarlılık grubu anlık görüntüleri alınamadı."
-
-msgid "Unable to retrieve volume consistency groups."
-msgstr "Mantıksal sürücü tutarlılık grupları alınamıyor."
-
 msgid "Unable to retrieve volume details."
 msgstr "Mantıksal sürücü detayları getirilemiyor."
 
@@ -7158,9 +6939,6 @@ msgstr "Kullanıcı parolası değiştirilemedi."
 msgid "Unable to update the user."
 msgstr "Kullanıcı güncellenemedi."
 
-msgid "Unable to update volume consistency group."
-msgstr "Mantıksal sürücü tutarlılık grubu güncellenemiyor."
-
 msgid "Unable to update volume snapshot status."
 msgstr "Mantıksal sürücü anlık görüntü durumu güncellenemedi."
 
@@ -7176,9 +6954,6 @@ msgstr "Mantıksal sürücü türü güncellenemiyor."
 
 msgid "Unable to update volume."
 msgstr "Mantıksal sürücü güncellenemiyor."
-
-msgid "Unable to update volumes for consistency group"
-msgstr "Tutarlılık grubu için mantıksal sürücüler güncellenemedi"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7350,10 +7125,6 @@ msgstr "Güncelleme saati"
 msgid "Updated subnet \"%s\"."
 msgstr "Alt ağ \"%s\" güncellendi."
 
-#, python-format
-msgid "Updated volumes for consistency group \"%s\"."
-msgstr "\"%s\" tutarlılık grubu için mantıksal sürücüler güncellendi."
-
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Parola Güncelleniyor"
@@ -7368,10 +7139,6 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Mnatıksal sürücü \"%s\" güncelleniyor"
-
-#, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "Mantıksal sürücü tutarlılık grubu \"%s\" güncelleniyor"
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -7407,9 +7174,6 @@ msgstr "Dönem Kullanım Raporu:"
 
 msgid "Use Server Default"
 msgstr "Sunucu Varsayılanını Kullan"
-
-msgid "Use a consistency group as source"
-msgstr "Bir tutarlılık grubunu kaynak olarak kullan"
 
 msgid "Use a volume as source"
 msgstr "Kaynak olarak bir birim kullan"
@@ -7566,9 +7330,6 @@ msgstr "Mantıksal Sürücü Yedeği:"
 msgid "Volume Backups"
 msgstr "Mantıksal Sürücü Yedekleri"
 
-msgid "Volume Consistency Groups"
-msgstr "Mantıksal Sürücü Tutarlılık Grupları"
-
 msgid "Volume Encryption Details"
 msgstr "Mantıksal Sürücü Şifreleme Ayrıntıları"
 
@@ -7650,25 +7411,6 @@ msgstr "Mantıksal Sürücü Türü: %(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "Mantıksal Sürücü Türleri"
-
-msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr ""
-"Mantıksal sürücü tutarlılık grupları mantıksal sürücüleri içeriyorlarsa "
-"silinemezler."
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"Mantıksal sürücü tutarlılık grupları birden fazla birimin zamanda-aynı-"
-"noktada anlık görüntülerini almak ve veri tutarlılığını sağlamak için "
-"mekanizmalar sağlarlar\n"
-"\n"
-"Bir tutarlılık grubu birden fazla birim türü destekleyebilir, ama yalnızca "
-"aynı arka uç tarafından sunulan birimleri içerebilir."
 
 msgid "Volume is Unencrypted"
 msgstr "Mantıksal Sürücü Şifrelenmemiş"

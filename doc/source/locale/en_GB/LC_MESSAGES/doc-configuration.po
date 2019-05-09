@@ -2,9 +2,9 @@
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.1.0.dev61\n"
+"Project-Id-Version: horizon 15.1.0.dev79\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 22:52-0500\n"
+"POT-Creation-Date: 2019-05-08 05:54-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1112,9 +1112,6 @@ msgstr ""
 msgid "ENABLE_CLIENT_TOKEN"
 msgstr "ENABLE_CLIENT_TOKEN"
 
-msgid "ENABLE_FLAVOR_EDIT"
-msgstr "ENABLE_FLAVOR_EDIT"
-
 msgid "ENFORCE_PASSWORD_CHECK"
 msgstr "ENFORCE_PASSWORD_CHECK"
 
@@ -1413,19 +1410,6 @@ msgstr "HORIZON_CONFIG"
 
 msgid "HORIZON_IMAGES_UPLOAD_MODE"
 msgstr "HORIZON_IMAGES_UPLOAD_MODE"
-
-msgid ""
-"Historically, Horizon has provided the ability to edit Flavors by deleting "
-"and creating a new one with the same information. This is not supported in "
-"the Nova API and causes unexpected issues and breakages. To avoid breaking "
-"standard deprecation procedure, this code is still in Horizon, but disabled "
-"by default. It will be removed during the 14.0.0 ('R') release cycle."
-msgstr ""
-"Historically, Horizon has provided the ability to edit Flavours by deleting "
-"and creating a new one with the same information. This is not supported in "
-"the Nova API and causes unexpected issues and breakages. To avoid breaking "
-"standard deprecation procedure, this code is still in Horizon, but disabled "
-"by default. It will be removed during the 14.0.0 ('R') release cycle."
 
 msgid ""
 "Horizon allows dashboards, panels and panel groups to be added without "
@@ -2351,13 +2335,6 @@ msgstr "SWIFT_FILE_TRANSFER_CHUNK_SIZE"
 msgid "See **Tabs** section of your variables file for variables to customize."
 msgstr ""
 "See **Tabs** section of your variables file for variables to customise."
-
-msgid ""
-"See `this email thread <http://lists.openstack.org/pipermail/openstack-"
-"dev/2017-August/120540.html>`_ for further information."
-msgstr ""
-"See `this email thread <http://lists.openstack.org/pipermail/openstack-"
-"dev/2017-August/120540.html>`_ for further information."
 
 msgid "See the ``example`` theme for a working theme that uses these blocks."
 msgstr "See the ``example`` theme for a working theme that uses these blocks."
@@ -3356,9 +3333,6 @@ msgstr "This setting enables the AngularJS Launch Instance workflow."
 
 msgid "This setting enables the Python Launch Instance workflow."
 msgstr "This setting enables the Python Launch Instance workflow."
-
-msgid "This setting enables the ability to edit flavors."
-msgstr "This setting enables the ability to edit flavours."
 
 msgid ""
 "This setting enables you to change the default number of lines displayed for "

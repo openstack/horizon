@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-04-20 14:28+0000\n"
+"POT-Creation-Date: 2019-05-08 10:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -443,14 +443,6 @@ msgid "Add static route to the router."
 msgstr "Добавить статический маршрут для маршрутизатора."
 
 msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"Добавить типы томов в группу согласования. В группу можно добавлять только "
-"типы томов, связанные с одной и той же базовой системой."
-
-msgid ""
 "Add volume types to this group. Multiple volume types can be added to the "
 "same group only if they are associated with same back end."
 msgstr ""
@@ -462,22 +454,11 @@ msgstr ""
 "Добавить, изменить или удалить спецификацию QoS связанную с данными типом "
 "дисков."
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "Добавить или удалить тома группы согласования"
-
 msgid "Add/Remove Group Volumes"
 msgstr "Добавить/удалить группу дисков"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Добавить/удалить узлы в агрегаторе"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr ""
-"Добавить типы томов в группу согласования или удалить их из группы. Можно "
-"выбирать только типы томов, связанные с этой группой согласования."
 
 msgid ""
 "Add/remove volumes to/from this group. Only volumes associated with the "
@@ -592,13 +573,6 @@ msgstr "Все доступные тома"
 msgid "All ports"
 msgstr "Все порты"
 
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr ""
-"Все выбранные типы томов должны быть связаны с одной и той же базовой "
-"системой для томов."
-
 msgid "Allocate Floating IP"
 msgstr "Выделить внешний IP"
 
@@ -697,10 +671,6 @@ msgstr "Связанные типы ресурсов"
 
 msgid "At least one network must be specified."
 msgstr "По крайней мере одна сеть должна быть указана."
-
-msgid "At least one volume type must be assigned to a consistency group."
-msgstr ""
-"Как минимум один тип дисков должен быть назначен для группы согласования."
 
 msgid "At least one volume type must be assigned to a group."
 msgstr "Как минимум один тип дисков должен быть назначен группе."
@@ -806,14 +776,6 @@ msgstr ""
 
 msgid "Available"
 msgstr "Доступно"
-
-msgctxt "Current status of Consistency Group"
-msgid "Available"
-msgstr "Доступна"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Available"
-msgstr "Доступен"
 
 msgctxt "Current status of Volume Group"
 msgid "Available"
@@ -1019,13 +981,6 @@ msgstr "Смена пароля не поддерживается."
 
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
-"associated with this consistency group."
-msgstr ""
-"Включите опцию &quot;Удалить диски&quot;, чтобы удалить все диски, связанные "
-"с этой группой согласованности."
-
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this group."
 msgstr ""
 "Включите опцию &quot;Удалить диски&quot;, чтобы также удалить диски, "
@@ -1120,18 +1075,8 @@ msgstr[2] "Шлюзы очищены"
 msgid "Click here to show only console"
 msgstr "Нажмите сюда для показа только консоли"
 
-msgid "Clone Consistency Group"
-msgstr "Клонировать группу согласования"
-
 msgid "Clone Group"
 msgstr "Клонировать Группу"
-
-msgid ""
-"Clone each of the volumes in the source Consistency Group, and then add them "
-"to a newly created Consistency Group."
-msgstr ""
-"Клонируйте каждый диск в исходную Группу Целостности и затем добавьте их в "
-"новую созданную Группу Целостности"
 
 msgid ""
 "Clone each of the volumes in the source Group, and then add them to a newly "
@@ -1209,21 +1154,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Подтверждение изменения типа или миграции"
 
-msgid "Consistency Group"
-msgstr "Группа согласования"
-
-msgid "Consistency Group Information"
-msgstr "Информация о группе согласования"
-
-msgid "Consistency Group Name"
-msgstr "Название группы согласования"
-
-msgid "Consistency Group Snapshots"
-msgstr "Снимки группы согласования"
-
-msgid "Consistency Groups"
-msgstr "Группы согласования"
-
 msgid "Console"
 msgstr "Консоль"
 
@@ -1294,12 +1224,6 @@ msgstr "Создать доступ для приложения"
 
 msgid "Create Backup"
 msgstr "Создать резервную копию"
-
-msgid "Create Consistency Group"
-msgstr "Создать группу согласования"
-
-msgid "Create Consistency Group Snapshot"
-msgstr "Создать снимок группы согласования"
 
 msgid "Create Domain"
 msgstr "Создать домен"
@@ -1400,9 +1324,6 @@ msgstr "Создать диск"
 msgid "Create Volume Backup"
 msgstr "Создать резервную копию диска"
 
-msgid "Create Volume Consistency Group"
-msgstr "Создать группу согласования томов"
-
 msgid "Create Volume Group"
 msgstr "Создать Группу Дисков"
 
@@ -1423,13 +1344,6 @@ msgstr "Создать шифрование для Типа Дисков"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "Создать доп. параметры типа дисков"
-
-msgid ""
-"Create a Consistency Group that will contain newly created volumes cloned "
-"from each of the snapshots in the source Consistency Group Snapshot."
-msgstr ""
-"Создайте Группу Целостности, которая будет содержать новые созданные диски "
-"клонированные из каждого снимка в исходном снимке Группы Целостности"
 
 msgid "Create a Group Type"
 msgstr "Создать тип группы"
@@ -1483,10 +1397,6 @@ msgstr ""
 msgid "Create a project to organize users."
 msgstr "Создать проект для систематизации пользователей"
 
-msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr ""
-"Создайте снимок для каждого диска содержащегося в группе согласованности."
-
 msgid "Create a snapshot for each volume contained in the Group."
 msgstr "Создать снимок для каждого диска, находящегося в группе."
 
@@ -1531,9 +1441,6 @@ msgstr "Создан новый агрегатор узлов «%s»."
 msgid "Created new project \"%s\"."
 msgstr "Создан новый проект «%s»."
 
-msgid "Created new volume consistency group"
-msgstr "Новая группа согласования томов создана"
-
 msgid "Created new volume group"
 msgstr "Создать новую группу дисков"
 
@@ -1572,14 +1479,6 @@ msgstr "Создается"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "Создается"
-
-#, python-format
-msgid "Creating consistency group \"%s\"."
-msgstr "Создание группы согласования \"%s\""
-
-#, python-format
-msgid "Creating consistency group snapshot \"%s\"."
-msgstr "Создание снимка группы согласования \"%s\"."
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1718,9 +1617,6 @@ msgid_plural "Delete Application Credentials"
 msgstr[0] "Удалить доступ для приложения"
 msgstr[1] "Удалить доступы для приложений"
 msgstr[2] "Удалить доступы для приложений"
-
-msgid "Delete Consistency Group"
-msgstr "Удалить группу согласования"
 
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
@@ -2153,10 +2049,6 @@ msgid "Deleting"
 msgstr "Удаление"
 
 #, python-format
-msgid "Deleting volume consistency group \"%s\""
-msgstr "Удаление группы согласования дисков \"%s\""
-
-#, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "Удаление группы дисков \"%s\""
 
@@ -2475,9 +2367,6 @@ msgstr "Изменить"
 msgid "Edit Access"
 msgstr "Редактировать доступ"
 
-msgid "Edit Consistency Group"
-msgstr "Изменить группу согласования"
-
 msgid "Edit Consumer"
 msgstr "Редактировать потребителя"
 
@@ -2724,14 +2613,6 @@ msgstr "Временный диск"
 msgid "Ephemeral Disk (GB)"
 msgstr "Временный диск(ГБ)"
 
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "Ошибка"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "Ошибка"
-
 msgctxt "Current status of Volume Group"
 msgid "Error"
 msgstr "Ошибка"
@@ -2822,14 +2703,8 @@ msgstr "Ошибка при добавлении или удалении узл�
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Ошибка записи zip файла: %(exc)s"
 
-msgid "Errors occurred in deleting consistency group."
-msgstr "Ошибка при удалении группы согласования."
-
 msgid "Errors occurred in deleting group."
 msgstr "При удалении группы возникли ошибки."
-
-msgid "Errors occurred in removing volumes from consistency group."
-msgstr "Ошибка при удалении дисков из группы согласования."
 
 msgid "Errors occurred in removing volumes from group."
 msgstr "При удалении дисков из группы возникли ошибки."
@@ -3705,14 +3580,6 @@ msgstr "Импортировать Пространство Имён"
 msgid "Import Public Key"
 msgstr "Импортировать открытый ключ"
 
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "Используется"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "In-use"
-msgstr "Используется"
-
 msgctxt "Current status of Volume Group"
 msgid "In-use"
 msgstr "Используется"
@@ -4268,12 +4135,6 @@ msgstr "Изменить имя и описание диска."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Изменить имя и описание снимка."
-
-msgid "Modify the name and description of a volume consistency group snapshot."
-msgstr "Изменить имя и описание снимка группы согласования томов."
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr "Изменить имя и описание группы согласованности дисков."
 
 msgid "Modify the name and description of a volume group."
 msgstr "Изменить имя и описание группы дисков."
@@ -5290,9 +5151,6 @@ msgstr[0] "Удалить пользователя"
 msgstr[1] "Удалить пользователей"
 msgstr[2] "Удалить пользователей"
 
-msgid "Remove Volumes from Consistency Group"
-msgstr "Удалить диски из группы согласования"
-
 msgid "Remove Volumes from Group"
 msgstr "Удалить Диск из Группы"
 
@@ -5308,10 +5166,6 @@ msgid ""
 msgstr ""
 "При удалении ключевой пары ресурсы OpenStack могут стать потерянными. "
 "Рекомендуется не удалять ключевую пару, если она где-либо используется."
-
-#, python-format
-msgid "Removing volumes from volume consistency group \"%s\""
-msgstr "Удаление дисков из группы согласования \"%s\""
 
 #, python-format
 msgid "Removing volumes from volume group \"%s\""
@@ -6060,11 +5914,6 @@ msgstr "Ресурс снимка должен быть указан"
 msgid "Snapshots"
 msgstr "Снимок"
 
-msgid ""
-"Snapshots can only be created for Consistency Groups that contain volumes."
-msgstr ""
-"Снимок может быть сделан только для группы согласованности содержащей диски."
-
 msgid "Snapshots can only be created for Groups that contain volumes."
 msgstr "Снимки могут быть сделаны только для группы, в которой имеются диски."
 
@@ -6656,10 +6505,6 @@ msgstr ""
 "0 (нет ограничения)."
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr "Имя «%s» уже используется другой группой согласования."
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "Имя «%s» уже занято другим типом инстансов."
 
@@ -6829,13 +6674,6 @@ msgid ""
 msgstr ""
 "Это действие невозможно отменить. Будут удалены идентификационные данные ec2 "
 "без возможности их восстановления."
-
-msgid ""
-"This action will unassign all volumes that are currently contained in this "
-"consistency group."
-msgstr ""
-"Это действие отменит назначение всех дисков которые содержатся в группе "
-"согласованности."
 
 msgid ""
 "This action will unassign all volumes that are currently contained in this "
@@ -7088,12 +6926,6 @@ msgstr ""
 "Не удалось очистить шлюз для роутера %(name)s. Наиболее вероятная причина, "
 "что шлюз необходим для одного или нескольких назначаемых IP."
 
-msgid "Unable to clone consistency group."
-msgstr "Не удалось клонировать группу согласования."
-
-msgid "Unable to clone empty consistency group."
-msgstr "Не удалось клонировать пустую группу согласования."
-
 msgid "Unable to clone empty group."
 msgstr "Не удалось клонировать пустую группу."
 
@@ -7108,19 +6940,6 @@ msgstr "Не удалось создать спецификацию QoS."
 
 msgid "Unable to create application credential."
 msgstr "Не удалось создать доступ для приложения."
-
-#, python-format
-msgid "Unable to create consistency group \"%s\" from snapshot."
-msgstr "Не удалось создать снимок группы согласования \"%s\"."
-
-msgid "Unable to create consistency group due to exceeding volume quota limit."
-msgstr "Не удалось создать группу согласования по причине превышения лимита."
-
-msgid "Unable to create consistency group snapshot."
-msgstr "Не удалось создать снимок группы согласования."
-
-msgid "Unable to create consistency group."
-msgstr "Не удалось создать группу согласования."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -7204,10 +7023,6 @@ msgstr "Не удалось создать группу безопасности
 msgid "Unable to create snapshot."
 msgstr "Не удалось создать снимок."
 
-msgid "Unable to create snapshot. Consistency group must contain volumes."
-msgstr ""
-"Не удалось создать снимок. Группа согласования должна содержать в себе диски."
-
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "Не удалось создать снимок. Группа должна содержать диски"
 
@@ -7284,9 +7099,6 @@ msgstr "Не удаётся освободить назначаемый IP %s"
 msgid "Unable to disassociate floating IP."
 msgstr "Не удалось снять назначение плавающего IP."
 
-msgid "Unable to display consistency group."
-msgstr "Не удалось отобразить группу согласования"
-
 msgid "Unable to edit spec."
 msgstr "Не удалось изменить параметр."
 
@@ -7326,9 +7138,6 @@ msgstr "Не удалось получить информацию о диско�
 
 msgid "Unable to get cinder services list."
 msgstr "Не удалось получить список служб cinder"
-
-msgid "Unable to get consistency group list"
-msgstr "Не удалось получить список групп согласования"
 
 #, python-format
 msgid "Unable to get console for instance \"%s\"."
@@ -7378,9 +7187,6 @@ msgstr "Не удалось получить доступные типы том�
 msgid "Unable to get the available volumes"
 msgstr "Не удалось получить доступные тома"
 
-msgid "Unable to get volume type list"
-msgstr "Не удалось получить список типов томов."
-
 msgid "Unable to import key pair."
 msgstr "Не удалось импортировать ключевую пару."
 
@@ -7396,9 +7202,6 @@ msgstr "Не удалось перечислить dhcp агенты на кот
 
 msgid "Unable to load console. Please reload page to try again."
 msgstr "Не удалось загрузить консоль. Попробуйте перезагрузить страницу."
-
-msgid "Unable to load the specified consistency group."
-msgstr "Не удалось загрузить указанную группу согласования."
 
 msgid "Unable to load the specified group."
 msgstr "Не удалось загрузить указанную группу."
@@ -7555,15 +7358,6 @@ msgstr "Не удалось получить информацию об узле 
 
 msgid "Unable to retrieve compute limit information."
 msgstr "Не удалось получить информацию о лимите вычислительных ресурсов"
-
-msgid "Unable to retrieve consistency group details."
-msgstr "Не удалось получить сведения о группе согласования."
-
-msgid "Unable to retrieve consistency group information."
-msgstr "Не удалось получить информацию о группе согласования."
-
-msgid "Unable to retrieve consistency group snapshot details."
-msgstr "Не удалось получить сведения о снимке группы согласования."
 
 msgid "Unable to retrieve default compute quotas."
 msgstr "Не удалось получить квоты по умолчанию для вычислительных ресурсов."
@@ -7922,12 +7716,6 @@ msgstr "Не удалось получить сведения о версии"
 msgid "Unable to retrieve volume backups."
 msgstr "Не удалось получить резервные копии диска."
 
-msgid "Unable to retrieve volume consistency group snapshots."
-msgstr "Не удалось получить снимки группы согласования дисков."
-
-msgid "Unable to retrieve volume consistency groups."
-msgstr "Не удалось получить группы согласования дисков."
-
 msgid "Unable to retrieve volume details."
 msgstr "Не удалось получить информацию о диске."
 
@@ -8105,9 +7893,6 @@ msgstr "Не удалось изменить пароль пользовател
 msgid "Unable to update the user."
 msgstr "Не удалось обновить пользователя."
 
-msgid "Unable to update volume consistency group."
-msgstr "Не удалось обновить группу согласования томов."
-
 msgid "Unable to update volume group."
 msgstr "Не удалось обновить группу диска."
 
@@ -8126,9 +7911,6 @@ msgstr "Невозможно обновить тип диска."
 
 msgid "Unable to update volume."
 msgstr "Не удалось обновить диск."
-
-msgid "Unable to update volumes for consistency group"
-msgstr " Не удалось обновить диски в группе согласования"
 
 msgid "Unable to update volumes for group"
 msgstr "Не удалось обновить диски в группе"
@@ -8321,10 +8103,6 @@ msgstr "Обновлено"
 msgid "Updated subnet \"%s\"."
 msgstr "Обновленная подсеть \"%s\"."
 
-#, python-format
-msgid "Updated volumes for consistency group \"%s\"."
-msgstr "Обновлены диски в группе согласования \"%s\"."
-
 msgid "Updated volumes for group."
 msgstr "Диски в группе обновлены"
 
@@ -8342,10 +8120,6 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Обновление диска \"%s\""
-
-#, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "Обновление группы согласования томов \"%s\""
 
 #, python-format
 msgid "Updating volume group \"%s\""
@@ -8385,9 +8159,6 @@ msgstr "Отчет об использовании за период:"
 
 msgid "Use Server Default"
 msgstr "Использовать сервер по умолчанию"
-
-msgid "Use a consistency group as source"
-msgstr "Использовать группу согласования как источник"
 
 msgid "Use a group as source"
 msgstr "Используйте группу, как источник"
@@ -8551,9 +8322,6 @@ msgstr "Резервная копия диска:"
 msgid "Volume Backups"
 msgstr "Резервные копии диска"
 
-msgid "Volume Consistency Groups"
-msgstr "Группы согласования томов"
-
 msgid "Volume Encryption Details"
 msgstr "Подробности шифрования диска."
 
@@ -8649,22 +8417,6 @@ msgid ""
 msgstr ""
 "Диск не может быть расширен до %(req)iGiB, так как максимальный размер, до "
 "которого его можно расширить %(max_size)iGiB."
-
-msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr "Удалить группы согласованности нельзя удалить если они содержат диски."
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"Группы согласования позволяют создавать моментальные копии нескольких томов "
-"в один и тот же момент времени, что гарантирует согласованность данных.\n"
-"\n"
-"Группа согласования поддерживает несколько типов томов, но все ее тома "
-"должны находиться в одной и той же базовой системе."
 
 msgid "Volume groups can not be deleted if they contain volumes."
 msgstr "Группы дисков не могут быть удалены, если в них имеются диски."

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-04-20 14:28+0000\n"
+"POT-Creation-Date: 2019-05-08 10:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -454,15 +454,6 @@ msgid "Add static route to the router."
 msgstr "静的ルートをルーターに追加します。"
 
 msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"ボリューム種別をこの整合性グループに追加します。同じバックエンドに関連付けら"
-"れている場合には、複数のボリューム種別を同じ整合性グループに追加することがで"
-"きます。"
-
-msgid ""
 "Add volume types to this group. Multiple volume types can be added to the "
 "same group only if they are associated with same back end."
 msgstr ""
@@ -474,23 +465,11 @@ msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "このボリューム種別に関連付けられている QoS スペックを追加、変更、削除します。"
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "整合性グループボリュームの追加/削除"
-
 msgid "Add/Remove Group Volumes"
 msgstr "ボリュームグループのボリュームの追加/削除"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "アグリゲートのホストの追加/削除"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr ""
-"この整合性グループにボリュームを追加または削除します。この整合性グループに割"
-"り当てられているボリューム種別に関連付けられたボリュームのみを選択することが"
-"できます。"
 
 msgid ""
 "Add/remove volumes to/from this group. Only volumes associated with the "
@@ -607,13 +586,6 @@ msgstr "利用可能な全ボリューム"
 msgid "All ports"
 msgstr "すべてのポート"
 
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr ""
-"選択したボリューム種別がすべて同じボリュームバックエンド名に関連付けられてい"
-"る必要があります。"
-
 msgid "Allocate Floating IP"
 msgstr "Floating IP の確保"
 
@@ -712,10 +684,6 @@ msgstr "関連リソース種別"
 
 msgid "At least one network must be specified."
 msgstr "ネットワークを少なくとも 1 つ指定する必要があります。"
-
-msgid "At least one volume type must be assigned to a consistency group."
-msgstr ""
-"整合性グループには、ボリューム種別を少なくとも 1 つ割り当てる必要があります。"
 
 msgid "At least one volume type must be assigned to a group."
 msgstr ""
@@ -819,14 +787,6 @@ msgstr ""
 "このネットワークの DHCP エージェントを配置できるアベイラビリティーゾーン。指"
 "定しなかった場合は、全アベイラビリティーゾーンを選択したのと同じになります。"
 
-msgid "Available"
-msgstr "利用可能"
-
-msgctxt "Current status of Consistency Group"
-msgid "Available"
-msgstr "利用可能"
-
-msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "利用可能"
 
@@ -1037,13 +997,6 @@ msgstr "パスワードの変更はサポートされていません。"
 
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
-"associated with this consistency group."
-msgstr ""
-"この整合性グループに関連付けられているボリュームも削除するには、&quot;ボ"
-"リュームの削除&quot; のボックスにチェックを付けてください。"
-
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this group."
 msgstr ""
 "このボリュームグループに関連付けられているボリュームも削除するには、&quot;ボ"
@@ -1133,18 +1086,8 @@ msgstr[0] "ゲートウェイを削除しました"
 msgid "Click here to show only console"
 msgstr "コンソールのみを表示するにはここをクリックします"
 
-msgid "Clone Consistency Group"
-msgstr "整合性グループのクローン作成"
-
 msgid "Clone Group"
 msgstr "ボリュームグループのクローン作成"
-
-msgid ""
-"Clone each of the volumes in the source Consistency Group, and then add them "
-"to a newly created Consistency Group."
-msgstr ""
-"ソースの整合性グループ内の各ボリュームをクローン作成してから、新規作成した整"
-"合性グループに追加します。"
 
 msgid ""
 "Clone each of the volumes in the source Group, and then add them to a newly "
@@ -1224,21 +1167,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "リサイズ/マイグレーションの確定中"
 
-msgid "Consistency Group"
-msgstr "整合性グループ"
-
-msgid "Consistency Group Information"
-msgstr "整合性グループの情報"
-
-msgid "Consistency Group Name"
-msgstr "整合性グループ名"
-
-msgid "Consistency Group Snapshots"
-msgstr "整合性グループのスナップショット"
-
-msgid "Consistency Groups"
-msgstr "整合性グループ"
-
 msgid "Console"
 msgstr "コンソール"
 
@@ -1312,12 +1240,6 @@ msgstr "アプリケーション認証情報の作成"
 
 msgid "Create Backup"
 msgstr "バックアップの作成"
-
-msgid "Create Consistency Group"
-msgstr "整合性グループの作成"
-
-msgid "Create Consistency Group Snapshot"
-msgstr "整合性グループのスナップショットの作成"
 
 msgid "Create Domain"
 msgstr "ドメインの作成"
@@ -1421,9 +1343,6 @@ msgstr "ボリュームの作成"
 msgid "Create Volume Backup"
 msgstr "ボリュームバックアップの作成"
 
-msgid "Create Volume Consistency Group"
-msgstr "ボリュームの整合性グループの作成"
-
 msgid "Create Volume Group"
 msgstr "ボリュームグループの作成"
 
@@ -1444,13 +1363,6 @@ msgstr "ボリューム種別の暗号化設定の作成"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "ボリューム種別の追加スペックの作成"
-
-msgid ""
-"Create a Consistency Group that will contain newly created volumes cloned "
-"from each of the snapshots in the source Consistency Group Snapshot."
-msgstr ""
-"ソースの整合性グループのスナップショット内の各スナップショットからクローンし"
-"て新規作成したボリュームが含まれる整合性グループを作成します。"
 
 msgid "Create a Group Type"
 msgstr "グループ種別の作成"
@@ -1520,9 +1432,6 @@ msgstr ""
 msgid "Create a project to organize users."
 msgstr "プロジェクトを作成して、ユーザーをまとめることができます。"
 
-msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr "整合性グループに含まれる各ボリュームのスナップショットを作成します。"
-
 msgid "Create a snapshot for each volume contained in the Group."
 msgstr ""
 "ボリュームグループに含まれる各ボリュームのスナップショットを作成します。"
@@ -1572,9 +1481,6 @@ msgstr "新しいホストアグリゲート \"%s\" が作成されました。"
 msgid "Created new project \"%s\"."
 msgstr "新規プロジェクト \"%s\" を作成しました。"
 
-msgid "Created new volume consistency group"
-msgstr "新しいボリュームの整合性グループを作成しました"
-
 msgid "Created new volume group"
 msgstr "新しいボリュームグループを作成しました"
 
@@ -1613,14 +1519,6 @@ msgstr "作成中"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "作成中"
-
-#, python-format
-msgid "Creating consistency group \"%s\"."
-msgstr "整合性グループ \"%s\" を作成します。"
-
-#, python-format
-msgid "Creating consistency group snapshot \"%s\"."
-msgstr "整合性グループのスナップショット \"%s\" を作成中"
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1755,9 +1653,6 @@ msgstr[0] "削除"
 msgid "Delete Application Credential"
 msgid_plural "Delete Application Credentials"
 msgstr[0] "アプリケーション認証情報の削除"
-
-msgid "Delete Consistency Group"
-msgstr "整合性グループの削除"
 
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
@@ -2071,10 +1966,6 @@ msgid "Deleting"
 msgstr "削除中"
 
 #, python-format
-msgid "Deleting volume consistency group \"%s\""
-msgstr "ボリュームの整合性グループ \"%s\" を削除中"
-
-#, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "ボリュームグループ \"%s\" を削除中"
 
@@ -2385,9 +2276,6 @@ msgstr "編集"
 msgid "Edit Access"
 msgstr "アクセス権の編集"
 
-msgid "Edit Consistency Group"
-msgstr "整合性グループの編集"
-
 msgid "Edit Consumer"
 msgstr "使用者の編集"
 
@@ -2632,14 +2520,6 @@ msgstr "一時ディスク"
 msgid "Ephemeral Disk (GB)"
 msgstr "一時ディスク (GB)"
 
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "エラー"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "エラー"
-
 msgctxt "Current status of Volume Group"
 msgid "Error"
 msgstr "エラー"
@@ -2729,14 +2609,8 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 msgid "Error writing zipfile: %(exc)s"
 msgstr "zip ファイルの書き込みに失敗しました: %(exc)s"
 
-msgid "Errors occurred in deleting consistency group."
-msgstr "整合性グループの削除でエラーが発生しました。"
-
 msgid "Errors occurred in deleting group."
 msgstr "ボリュームグループの削除でエラーが発生しました。"
-
-msgid "Errors occurred in removing volumes from consistency group."
-msgstr "整合性グループからのボリュームの削除でエラーが発生しました。"
 
 msgid "Errors occurred in removing volumes from group."
 msgstr "ボリュームグループからのボリュームの削除でエラーが発生しました。"
@@ -3664,14 +3538,6 @@ msgstr "名前空間のインポート"
 msgid "Import Public Key"
 msgstr "公開鍵のインポート"
 
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "使用中"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "In-use"
-msgstr "使用中"
-
 msgctxt "Current status of Volume Group"
 msgid "In-use"
 msgstr "使用中"
@@ -4258,12 +4124,6 @@ msgstr "ボリュームの名前と説明を変更します。"
 
 msgid "Modify the name and description of a snapshot."
 msgstr "スナップショットの名前と説明を変更します。"
-
-msgid "Modify the name and description of a volume consistency group snapshot."
-msgstr "ボリュームの整合性グループのスナップショットの名前と説明を変更します。"
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr "ボリュームの整合性グループの名前と説明を変更します。"
 
 msgid "Modify the name and description of a volume group."
 msgstr "ボリュームのボリュームグループの名前と説明を変更します。"
@@ -5283,9 +5143,6 @@ msgid "Remove User"
 msgid_plural "Remove Users"
 msgstr[0] "ユーザーの削除"
 
-msgid "Remove Volumes from Consistency Group"
-msgstr "整合性グループからのボリュームの削除"
-
 msgid "Remove Volumes from Group"
 msgstr "ボリュームグループからのボリュームの削除"
 
@@ -5300,10 +5157,6 @@ msgstr ""
 "キーペアを削除すると、OpenStack リソースが孤立する可能性があります。キーペア"
 "がどこでも使用されていないことが確認できない場合には、そのキーペアは削除すべ"
 "きではありません。"
-
-#, python-format
-msgid "Removing volumes from volume consistency group \"%s\""
-msgstr "ボリュームの整合性グループ \"%s\" からボリュームを削除中"
 
 #, python-format
 msgid "Removing volumes from volume group \"%s\""
@@ -6050,12 +5903,6 @@ msgstr "スナップショットを指定しなければいけません。"
 msgid "Snapshots"
 msgstr "スナップショット"
 
-msgid ""
-"Snapshots can only be created for Consistency Groups that contain volumes."
-msgstr ""
-"スナップショットを作成できるのは、ボリュームが含まれている整合性グループのみ"
-"です。"
-
 msgid "Snapshots can only be created for Groups that contain volumes."
 msgstr ""
 "スナップショットを作成できるのは、ボリュームが含まれているボリュームグループ"
@@ -6654,10 +6501,6 @@ msgstr ""
 "初期値は 0 (最小値なし) です。"
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr "\"%s\" という名前はすでに別の整合性グループで使用されています。"
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "\"%s\" という名前はすでに他のフレーバーにより使用されています。"
 
@@ -6832,13 +6675,6 @@ msgid ""
 msgstr ""
 "この操作は取り消せません。現在の EC2 認証情報は削除され、元に戻すことができな"
 "くなります。"
-
-msgid ""
-"This action will unassign all volumes that are currently contained in this "
-"consistency group."
-msgstr ""
-"このアクションにより、この整合性グループに現在含まれている全ボリュームの割り"
-"当てが解除されます。"
 
 msgid ""
 "This action will unassign all volumes that are currently contained in this "
@@ -7101,12 +6937,6 @@ msgstr ""
 "ルーター \"%(name)s\" のゲートウェイを削除できません。よくある原因は、この"
 "ゲートウェイを使用している Floating IP が存在することです。"
 
-msgid "Unable to clone consistency group."
-msgstr "整合性グループのクローンを作成できません。"
-
-msgid "Unable to clone empty consistency group."
-msgstr "空の整合性グループのクローンは作成できません。"
-
 msgid "Unable to clone empty group."
 msgstr "空のボリュームグループのクローンは作成できません。"
 
@@ -7121,20 +6951,6 @@ msgstr "QoS スペックを作成できません。"
 
 msgid "Unable to create application credential."
 msgstr "アプリケーション認証情報を作成できません。"
-
-#, python-format
-msgid "Unable to create consistency group \"%s\" from snapshot."
-msgstr "整合性グループ \"%s\" をスナップショットから作成できません"
-
-msgid "Unable to create consistency group due to exceeding volume quota limit."
-msgstr ""
-"ボリュームのクォータの上限を超えているため、整合性グループを作成できません。"
-
-msgid "Unable to create consistency group snapshot."
-msgstr "整合性グループのスナップショットを作成できません。"
-
-msgid "Unable to create consistency group."
-msgstr "整合性グループを作成できません。"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -7225,11 +7041,6 @@ msgstr "セキュリティーグループを作成できません: %s"
 msgid "Unable to create snapshot."
 msgstr "スナップショットを作成できません。"
 
-msgid "Unable to create snapshot. Consistency group must contain volumes."
-msgstr ""
-"スナップショットを作成できません。整合性グループにはボリュームが含まれる必要"
-"があります。"
-
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr ""
 "スナップショットを作成できません。ボリュームグループにはボリュームが含まれる"
@@ -7315,9 +7126,6 @@ msgstr "Floating IP %s の割り当てを解除できませんでした"
 msgid "Unable to disassociate floating IP."
 msgstr "Floating IP の割り当てを解除できません。"
 
-msgid "Unable to display consistency group."
-msgstr "整合性グループを表示できません。"
-
 msgid "Unable to display role assignment through groups."
 msgstr "グループからのロール割り当てを表示できません。"
 
@@ -7376,9 +7184,6 @@ msgstr "cinder のクォータ情報を取得できません。"
 msgid "Unable to get cinder services list."
 msgstr "Cinder のサービス一覧を取得できません。"
 
-msgid "Unable to get consistency group list"
-msgstr "整合性グループの一覧を取得できません"
-
 #, python-format
 msgid "Unable to get console for instance \"%s\"."
 msgstr "インスタンス \"%s\" のコンソールを取得できません。"
@@ -7427,9 +7232,6 @@ msgstr "利用可能なボリューム種別を取得できません"
 msgid "Unable to get the available volumes"
 msgstr "利用可能なボリュームを取得できません"
 
-msgid "Unable to get volume type list"
-msgstr "ボリューム種別の一覧を取得できません"
-
 msgid "Unable to import key pair."
 msgstr "キーペアをインポートできません。"
 
@@ -7448,9 +7250,6 @@ msgid "Unable to load console. Please reload page to try again."
 msgstr ""
 "コンソールをロードできません。もう一度試すには、ページを再読み込みしてくださ"
 "い。"
-
-msgid "Unable to load the specified consistency group."
-msgstr "指定した整合性グループをロードできません。"
 
 msgid "Unable to load the specified group."
 msgstr "指定したボリュームグループをロードできません。"
@@ -7612,15 +7411,6 @@ msgstr "コンピュートホストの情報を取得できません。"
 
 msgid "Unable to retrieve compute limit information."
 msgstr "コンピュートのリソース上限情報を取得できません。"
-
-msgid "Unable to retrieve consistency group details."
-msgstr "整合性グループの詳細を取得できません。"
-
-msgid "Unable to retrieve consistency group information."
-msgstr "整合性グループの情報を取得できません。"
-
-msgid "Unable to retrieve consistency group snapshot details."
-msgstr "整合性グループのスナップショットの詳細を取得できません。"
 
 msgid "Unable to retrieve default compute quotas."
 msgstr "コンピュートのデフォルトのクォータを取得できません。"
@@ -8011,12 +7801,6 @@ msgstr "バージョン情報を取得できません。"
 msgid "Unable to retrieve volume backups."
 msgstr "ボリュームバックアップ一覧を取得できません。"
 
-msgid "Unable to retrieve volume consistency group snapshots."
-msgstr "整合性グループのスナップショットの一覧を取得できません。"
-
-msgid "Unable to retrieve volume consistency groups."
-msgstr "ボリュームの整合性グループを取得できません。"
-
 msgid "Unable to retrieve volume details."
 msgstr "ボリュームの詳細を取得できません。"
 
@@ -8202,9 +7986,6 @@ msgstr "ユーザーのパスワードを更新できません。"
 msgid "Unable to update the user."
 msgstr "ユーザーを更新できません。"
 
-msgid "Unable to update volume consistency group."
-msgstr "ボリュームの整合性グループを更新できません。"
-
 msgid "Unable to update volume group."
 msgstr "ボリュームグループを更新できません。"
 
@@ -8223,9 +8004,6 @@ msgstr "ボリューム種別を更新できません。"
 
 msgid "Unable to update volume."
 msgstr "ボリュームを更新できません。"
-
-msgid "Unable to update volumes for consistency group"
-msgstr "整合性グループのボリュームを更新できません。"
 
 msgid "Unable to update volumes for group"
 msgstr "ボリュームグループのボリュームを更新できません。"
@@ -8427,10 +8205,6 @@ msgstr "最終更新"
 msgid "Updated subnet \"%s\"."
 msgstr "サブネット \"%s\" を更新しました。"
 
-#, python-format
-msgid "Updated volumes for consistency group \"%s\"."
-msgstr "整合性グループ \"%s\" のボリュームを更新しました。"
-
 msgid "Updated volumes for group."
 msgstr "ボリュームグループのボリュームを更新しました。"
 
@@ -8448,10 +8222,6 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "ボリューム \"%s\" を更新中"
-
-#, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "ボリュームの整合性グループ \"%s\" を更新中"
 
 #, python-format
 msgid "Updating volume group \"%s\""
@@ -8491,9 +8261,6 @@ msgstr "期間中の使用状況レポート:"
 
 msgid "Use Server Default"
 msgstr "デフォルト設定を使用"
-
-msgid "Use a consistency group as source"
-msgstr "整合性グループをソースとして使用する"
 
 msgid "Use a group as source"
 msgstr "ボリュームグループをソースとして使用する"
@@ -8662,9 +8429,6 @@ msgstr "ボリュームバックアップ:"
 msgid "Volume Backups"
 msgstr "ボリュームバックアップ"
 
-msgid "Volume Consistency Groups"
-msgstr "ボリュームの整合性グループ"
-
 msgid "Volume Encryption Details"
 msgstr "ボリュームの暗号化の詳細"
 
@@ -8760,24 +8524,6 @@ msgid ""
 msgstr ""
 "ボリュームを %(req)iGiB に拡張できません。拡張できる最大サイズは "
 "%(max_size)iGiB です。"
-
-msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr ""
-"ボリュームが含まれている場合には、ボリュームの整合性グループは削除できませ"
-"ん。"
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"ボリュームの整合性グループは、複数のボリュームスナップショットを同一時点に作"
-"成してデータの整合性を確保するためのメカニズムを提供します。\n"
-"\n"
-"整合性グループは、複数のボリューム種別をサポートすることが可能ですが、グルー"
-"プに入れることができるのは、同じバックエンドがホストするボリュームのみです。"
 
 msgid "Volume groups can not be deleted if they contain volumes."
 msgstr ""

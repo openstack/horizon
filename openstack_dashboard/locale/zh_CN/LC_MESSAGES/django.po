@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-04-20 14:28+0000\n"
+"POT-Creation-Date: 2019-05-08 10:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -448,14 +448,6 @@ msgid "Add static route to the router."
 msgstr "为路由器添加静态路由表."
 
 msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"给该一致性组增加卷类型。如果多种卷类型皆与同一个存储后端相关联则可都加入该一"
-"致性组。"
-
-msgid ""
 "Add volume types to this group. Multiple volume types can be added to the "
 "same group only if they are associated with same back end."
 msgstr ""
@@ -465,20 +457,11 @@ msgstr ""
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr "添加、修改、删除该卷类型所关联的 QoS 规格。"
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "添加/删除一致性组卷"
-
 msgid "Add/Remove Group Volumes"
 msgstr "添加/删除组卷"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "添加/删除聚合中的主机"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr "添加/删除 该一致性组内的卷。 仅可选择卷类型已指派给该一致性组的卷。"
 
 msgid ""
 "Add/remove volumes to/from this group. Only volumes associated with the "
@@ -587,11 +570,6 @@ msgstr "所有可用卷"
 msgid "All ports"
 msgstr "所有端口"
 
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr "所有选中的卷必须托管于同一个存储后端。"
-
 msgid "Allocate Floating IP"
 msgstr "分配浮动IP"
 
@@ -686,9 +664,6 @@ msgstr "关联的资源类型"
 
 msgid "At least one network must be specified."
 msgstr "至少选择一个网络"
-
-msgid "At least one volume type must be assigned to a consistency group."
-msgstr "至少为一致性组分配一种卷类型"
 
 msgid "At least one volume type must be assigned to a group."
 msgstr "至少为组分配一种卷类型。"
@@ -785,14 +760,6 @@ msgid ""
 "unset is equivalent to selecting all availability zones"
 msgstr "DHCP客户端会被规划到的可用域。如果不设置此项则等同于选择所有可用域。"
 
-msgid "Available"
-msgstr "可用"
-
-msgctxt "Current status of Consistency Group"
-msgid "Available"
-msgstr "可用"
-
-msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "可用"
 
@@ -997,11 +964,6 @@ msgstr "不支持修改密码。"
 
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
-"associated with this consistency group."
-msgstr "选中 &quot;删除卷&quot; 复选框也会删除与此一致性组相关联的卷。"
-
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
 "associated with this group."
 msgstr "选中 &quot;删除卷&quot; 复选框也会删除与该组相关联的所有卷。"
 
@@ -1084,16 +1046,8 @@ msgstr[0] "已清除网关"
 msgid "Click here to show only console"
 msgstr "点击此处只显示控制台"
 
-msgid "Clone Consistency Group"
-msgstr "克隆一致性组"
-
 msgid "Clone Group"
 msgstr "克隆组"
-
-msgid ""
-"Clone each of the volumes in the source Consistency Group, and then add them "
-"to a newly created Consistency Group."
-msgstr "克隆源一致性组中的每个卷，然后把它们添加到新创建的一致性组中。"
 
 msgid ""
 "Clone each of the volumes in the source Group, and then add them to a newly "
@@ -1169,21 +1123,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "正在确认 调整大小/迁移"
 
-msgid "Consistency Group"
-msgstr "一致性卷组"
-
-msgid "Consistency Group Information"
-msgstr "一致性组信息"
-
-msgid "Consistency Group Name"
-msgstr "一致的组名"
-
-msgid "Consistency Group Snapshots"
-msgstr "一致组快照"
-
-msgid "Consistency Groups"
-msgstr "一致组"
-
 msgid "Console"
 msgstr "控制台"
 
@@ -1253,12 +1192,6 @@ msgstr "创建应用程序凭证"
 
 msgid "Create Backup"
 msgstr "创建备份"
-
-msgid "Create Consistency Group"
-msgstr "创建一致性组"
-
-msgid "Create Consistency Group Snapshot"
-msgstr "创建一致性组快照"
 
 msgid "Create Domain"
 msgstr "创建域"
@@ -1362,9 +1295,6 @@ msgstr "创建卷"
 msgid "Create Volume Backup"
 msgstr "创建一个卷备份"
 
-msgid "Create Volume Consistency Group"
-msgstr "创建卷一致性组"
-
 msgid "Create Volume Group"
 msgstr "创建卷组"
 
@@ -1385,12 +1315,6 @@ msgstr "创建加密卷类型"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "创建卷类型扩展规格"
-
-msgid ""
-"Create a Consistency Group that will contain newly created volumes cloned "
-"from each of the snapshots in the source Consistency Group Snapshot."
-msgstr ""
-"创建一个一致性组，它包括对源一致性组快照中的每个快照进行克隆所新创建的卷。"
 
 msgid "Create a Group Type"
 msgstr "创建一个组类型"
@@ -1452,9 +1376,6 @@ msgstr "创建一个新用户，并设置相关的属性，例如该用户的主
 msgid "Create a project to organize users."
 msgstr "为组织用户创建一个项目"
 
-msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr "为一致性组中的每个卷创建快照"
-
 msgid "Create a snapshot for each volume contained in the Group."
 msgstr "为组中的每个卷创建快照。"
 
@@ -1501,9 +1422,6 @@ msgstr "已创建新的主机聚合 \"%s\"."
 msgid "Created new project \"%s\"."
 msgstr "创建项目\"%s\""
 
-msgid "Created new volume consistency group"
-msgstr "创建新的卷一致性组"
-
 msgid "Created new volume group"
 msgstr "创建新的卷组"
 
@@ -1540,14 +1458,6 @@ msgstr "创建中"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "创建中"
-
-#, python-format
-msgid "Creating consistency group \"%s\"."
-msgstr "创建一致的组名\"%s\"。"
-
-#, python-format
-msgid "Creating consistency group snapshot \"%s\"."
-msgstr "创建一致性组快照\"%s\""
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1675,9 +1585,6 @@ msgstr[0] "删除"
 msgid "Delete Application Credential"
 msgid_plural "Delete Application Credentials"
 msgstr[0] "删除应用程序凭证"
-
-msgid "Delete Consistency Group"
-msgstr "删除一致性组"
 
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
@@ -1988,10 +1895,6 @@ msgid "Deleting"
 msgstr "删除中"
 
 #, python-format
-msgid "Deleting volume consistency group \"%s\""
-msgstr "删除一致性卷组\"%s\""
-
-#, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "删除卷组 \"%s\""
 
@@ -2296,9 +2199,6 @@ msgstr "编辑"
 msgid "Edit Access"
 msgstr "编辑通道"
 
-msgid "Edit Consistency Group"
-msgstr "编辑一致性组"
-
 msgid "Edit Consumer"
 msgstr "编辑消费者"
 
@@ -2535,14 +2435,6 @@ msgstr "临时磁盘"
 msgid "Ephemeral Disk (GB)"
 msgstr "临时磁盘(GB)"
 
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "错误"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "错误"
-
 msgctxt "Current status of Volume Group"
 msgid "Error"
 msgstr "错误"
@@ -2632,14 +2524,8 @@ msgstr "增加或删除主机时出错"
 msgid "Error writing zipfile: %(exc)s"
 msgstr "zip文件写入出错：%(exc)s"
 
-msgid "Errors occurred in deleting consistency group."
-msgstr "删除一致性组时出错"
-
 msgid "Errors occurred in deleting group."
 msgstr "删除组时出错。"
-
-msgid "Errors occurred in removing volumes from consistency group."
-msgstr "在一致性卷组中移除卷时出错"
 
 msgid "Errors occurred in removing volumes from group."
 msgstr "在卷组中移除卷时出错。"
@@ -3511,14 +3397,6 @@ msgstr "导入命名空间"
 msgid "Import Public Key"
 msgstr "导入公钥"
 
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "正在使用"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "In-use"
-msgstr "正在使用"
-
 msgctxt "Current status of Volume Group"
 msgid "In-use"
 msgstr "正在使用"
@@ -4087,12 +3965,6 @@ msgstr "修改卷的名称和描述"
 
 msgid "Modify the name and description of a snapshot."
 msgstr "编辑快照的名称和描述"
-
-msgid "Modify the name and description of a volume consistency group snapshot."
-msgstr "修改卷，一致性组快照的名称和描述信息"
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr "修改卷一致性组名称和描述"
 
 msgid "Modify the name and description of a volume group."
 msgstr "修改卷组名称和描述。"
@@ -5085,9 +4957,6 @@ msgid "Remove User"
 msgid_plural "Remove Users"
 msgstr[0] "删除用户"
 
-msgid "Remove Volumes from Consistency Group"
-msgstr "从一致性组中移除卷"
-
 msgid "Remove Volumes from Group"
 msgstr "从组中移除卷"
 
@@ -5101,10 +4970,6 @@ msgid ""
 msgstr ""
 "移除密钥对将会使OpenStack资源孤立不可用。您不应该移除密钥对，除非您确定它不再"
 "在任何地方使用。"
-
-#, python-format
-msgid "Removing volumes from volume consistency group \"%s\""
-msgstr "从一致性卷组\"%s\"中移除卷"
 
 #, python-format
 msgid "Removing volumes from volume group \"%s\""
@@ -5835,10 +5700,6 @@ msgstr "快照源必须被指定"
 msgid "Snapshots"
 msgstr "快照"
 
-msgid ""
-"Snapshots can only be created for Consistency Groups that contain volumes."
-msgstr "只有包含卷的一致性组才可以创建快照"
-
 msgid "Snapshots can only be created for Groups that contain volumes."
 msgstr "只有包含卷的组才可以创建快照。"
 
@@ -6394,10 +6255,6 @@ msgid ""
 msgstr "启动镜像所需的最低内存大小。如果不指定， 默认值为 0 (没有限制)。"
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr "该名称\"%s\"已经被其他一致性组使用。"
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "名称 \"%s\" 已经被其他实例类型占用。"
 
@@ -6554,11 +6411,6 @@ msgid ""
 "This action cannot be undone. Current EC2 credentials will be deleted and "
 "not recoverable."
 msgstr "该操作无法撤销（undo），当前EC2凭据将被删除且无法恢复。"
-
-msgid ""
-"This action will unassign all volumes that are currently contained in this "
-"consistency group."
-msgstr "本操作会取消分配一致性组中包含的现有的所有卷"
 
 msgid ""
 "This action will unassign all volumes that are currently contained in this "
@@ -6800,12 +6652,6 @@ msgstr ""
 "无法为路由器 %(name)s 清除网关。最有可能的原因是，一个或多个浮动 IP 仍然需要"
 "网关。"
 
-msgid "Unable to clone consistency group."
-msgstr "无法克隆一致性组"
-
-msgid "Unable to clone empty consistency group."
-msgstr "无法克隆空一致性组"
-
 msgid "Unable to clone empty group."
 msgstr "无法克隆空的组"
 
@@ -6820,19 +6666,6 @@ msgstr "无法创建QoS规格。"
 
 msgid "Unable to create application credential."
 msgstr "无法创建应用程序凭证"
-
-#, python-format
-msgid "Unable to create consistency group \"%s\" from snapshot."
-msgstr "无法从snapshot中创建一致的组名\"%s\"。"
-
-msgid "Unable to create consistency group due to exceeding volume quota limit."
-msgstr "由于超过卷配额限制，无法创建一致性组"
-
-msgid "Unable to create consistency group snapshot."
-msgstr "无法创建一致性组快照"
-
-msgid "Unable to create consistency group."
-msgstr "无法创建一致性组"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -6918,9 +6751,6 @@ msgstr "无法创建安全组: %s"
 msgid "Unable to create snapshot."
 msgstr "无法创建快照。"
 
-msgid "Unable to create snapshot. Consistency group must contain volumes."
-msgstr "无法创建快照。一致性组中必须包含卷"
-
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "无法创建快照，组中必须包含卷。"
 
@@ -7001,9 +6831,6 @@ msgstr "无法解除关联浮动 IP %s"
 msgid "Unable to disassociate floating IP."
 msgstr "无法将浮动IP解除绑定"
 
-msgid "Unable to display consistency group."
-msgstr "无法显示一致性组"
-
 msgid "Unable to display role assignment through groups."
 msgstr "无法显示通过组的角色分配。"
 
@@ -7062,9 +6889,6 @@ msgstr "无法获得 cinder 配额信息。"
 msgid "Unable to get cinder services list."
 msgstr "无法获取Cinder服务列表"
 
-msgid "Unable to get consistency group list"
-msgstr "无法获取一致性组列表"
-
 #, python-format
 msgid "Unable to get console for instance \"%s\"."
 msgstr "无法获取实例 “%s” 的控制台。"
@@ -7113,9 +6937,6 @@ msgstr "无法获取可用卷类型"
 msgid "Unable to get the available volumes"
 msgstr "无法获取可用卷"
 
-msgid "Unable to get volume type list"
-msgstr "无法获取卷类型列表"
-
 msgid "Unable to import key pair."
 msgstr "无法导入密钥对。"
 
@@ -7131,9 +6952,6 @@ msgstr "无法列出DHCP Agent主持的网络"
 
 msgid "Unable to load console. Please reload page to try again."
 msgstr "无法加载控制台。请重新加载页面后再试一次"
-
-msgid "Unable to load the specified consistency group."
-msgstr "无法加载指定的一致性组"
 
 msgid "Unable to load the specified group."
 msgstr "无法加载指定的组"
@@ -7291,15 +7109,6 @@ msgstr "无法获取计算节点信息。"
 
 msgid "Unable to retrieve compute limit information."
 msgstr "无法获取计算限制信息。"
-
-msgid "Unable to retrieve consistency group details."
-msgstr "无法获取一致性组详情。"
-
-msgid "Unable to retrieve consistency group information."
-msgstr "无法检索一致性组信息"
-
-msgid "Unable to retrieve consistency group snapshot details."
-msgstr "无法检索一致性组快照详情"
 
 msgid "Unable to retrieve default compute quotas."
 msgstr "无法获取默认的计算配额"
@@ -7687,12 +7496,6 @@ msgstr "无法获取版本信息"
 msgid "Unable to retrieve volume backups."
 msgstr "无法获取卷备份。"
 
-msgid "Unable to retrieve volume consistency group snapshots."
-msgstr "无法检索一致性组卷快照"
-
-msgid "Unable to retrieve volume consistency groups."
-msgstr "无法获取卷一致性组。"
-
 msgid "Unable to retrieve volume details."
 msgstr "无法获取卷详情。"
 
@@ -7873,9 +7676,6 @@ msgstr "无法更新用户密码。"
 msgid "Unable to update the user."
 msgstr "无法更新此用户。"
 
-msgid "Unable to update volume consistency group."
-msgstr "无法更新卷一致性组。"
-
 msgid "Unable to update volume group."
 msgstr "无法更新卷组。"
 
@@ -7894,9 +7694,6 @@ msgstr "无法更新卷类型"
 
 msgid "Unable to update volume."
 msgstr "不能更新卷"
-
-msgid "Unable to update volumes for consistency group"
-msgstr "无法为一致性组更新卷"
 
 msgid "Unable to update volumes for group"
 msgstr "无法为组更新卷"
@@ -8096,10 +7893,6 @@ msgstr "已更新于"
 msgid "Updated subnet \"%s\"."
 msgstr "已更新子网\"%s\"."
 
-#, python-format
-msgid "Updated volumes for consistency group \"%s\"."
-msgstr "为一致性组\"%s\"更新卷"
-
 msgid "Updated volumes for group."
 msgstr "为组更新卷"
 
@@ -8115,10 +7908,6 @@ msgstr "无法更新加密的卷类型: 还未实现此功能."
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "正在更新卷\"%s\""
-
-#, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "正在更新卷一致性组\"%s\""
 
 #, python-format
 msgid "Updating volume group \"%s\""
@@ -8157,9 +7946,6 @@ msgstr "周期使用量报表："
 
 msgid "Use Server Default"
 msgstr "使用默认服务"
-
-msgid "Use a consistency group as source"
-msgstr "使用一致性组作为源"
 
 msgid "Use a group as source"
 msgstr "使用一个组作为源"
@@ -8328,9 +8114,6 @@ msgstr "卷备份:"
 msgid "Volume Backups"
 msgstr "卷备份"
 
-msgid "Volume Consistency Groups"
-msgstr "卷一致性组"
-
 msgid "Volume Encryption Details"
 msgstr "卷加密详情"
 
@@ -8424,20 +8207,6 @@ msgid ""
 "Volume cannot be extended to %(req)iGiB as the maximum size it can be "
 "extended to is %(max_size)iGiB."
 msgstr "卷无法扩展到%(req)iGiB，因为可扩展的最大容量是%(max_size)iGiB。"
-
-msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr "包含卷的一致性卷组无法被删除"
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"卷一致性组提供了一种同时为多个卷创建快照的机制以确保数据一致性。\n"
-"\n"
-"一个一致性组可以支持多种卷类型，但包含的卷皆须托管于同一个存储后端。"
 
 msgid "Volume groups can not be deleted if they contain volumes."
 msgstr "包含卷的组无法被删除。"

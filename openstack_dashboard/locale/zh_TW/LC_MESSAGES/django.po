@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-20 15:51+0000\n"
+"POT-Creation-Date: 2019-05-08 10:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -363,30 +363,11 @@ msgstr "加入主機到這個聚合裡。主機可以放在多個聚合裡。"
 msgid "Add static route to the router."
 msgstr "加入靜態路由到路由器。"
 
-msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"將雲硬碟類型新增至此一致性群組。僅當多種雲硬碟類型與同一後端相關聯時，才可以"
-"將這些雲硬碟類型新增至同一個一致性群組。"
-
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr "加入、更改或移除已聯結到此雲硬碟類型的 QoS 規格。"
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "新增/移除一致性群組雲硬碟"
-
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "加入/移除主機到聚合中"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr ""
-"向此一致性群組新增雲硬碟，或者從其中移除雲硬碟。只有與指派給此一致性群組之雲"
-"硬碟類型相關聯的雲硬碟，才將可供進行選取。"
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -486,11 +467,6 @@ msgstr "所有可用雲硬碟"
 msgid "All ports"
 msgstr "所有接口"
 
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr "所有選定的雲硬碟類型都必須與同一雲硬碟後端名稱相關聯。"
-
 msgid "Allocate Floating IP"
 msgstr "分配浮動 IP"
 
@@ -568,9 +544,6 @@ msgstr "已聯結的資源類型"
 
 msgid "At least one network must be specified."
 msgstr "最少要指定一組網路。"
-
-msgid "At least one volume type must be assigned to a consistency group."
-msgstr "至少一個雲硬碟需要被指定到一制性群組"
 
 msgid "Attach Interface"
 msgstr "附加網路卡"
@@ -651,14 +624,6 @@ msgstr "可用區域"
 msgid "Availability zone"
 msgstr "可用區域"
 
-msgid "Available"
-msgstr "可用"
-
-msgctxt "Current status of Consistency Group"
-msgid "Available"
-msgstr "可用"
-
-msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "可用"
 
@@ -831,11 +796,6 @@ msgstr "最後變更"
 msgid "Changing password is not supported."
 msgstr "不支援變更密碼。"
 
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
-"associated with this consistency group."
-msgstr "勾選「刪除磁區」方框，以同時刪除與此一致性群組相關聯的雲硬碟。"
-
 msgid "Checksum"
 msgstr "檢查碼"
 
@@ -915,14 +875,6 @@ msgstr[0] "已清除閘道"
 msgid "Click here to show only console"
 msgstr "點擊這裡以顯示單獨的主控臺"
 
-msgid "Clone Consistency Group"
-msgstr "複製一制性群組"
-
-msgid ""
-"Clone each of the volumes in the source Consistency Group, and then add them "
-"to a newly created Consistency Group."
-msgstr "複製來源一致性組中的每個雲硬碟，然後把它們添加到新創建的一致性組中。"
-
 msgid "Close"
 msgstr "關閉"
 
@@ -981,21 +933,6 @@ msgstr "等待確認或還原調整容量/轉移"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "正在確認調整容量或轉移"
-
-msgid "Consistency Group"
-msgstr "一致性群組"
-
-msgid "Consistency Group Information"
-msgstr "一致性群組資訊"
-
-msgid "Consistency Group Name"
-msgstr "一致性群組名稱"
-
-msgid "Consistency Group Snapshots"
-msgstr "一致性群組快照"
-
-msgid "Consistency Groups"
-msgstr "一致性群組"
 
 msgid "Console"
 msgstr "主控臺"
@@ -1057,12 +994,6 @@ msgstr "新增映像檔"
 
 msgid "Create Backup"
 msgstr "新增備份"
-
-msgid "Create Consistency Group"
-msgstr "新增一致性群組"
-
-msgid "Create Consistency Group Snapshot"
-msgstr "建立一致性群組快照。"
 
 msgid "Create Domain"
 msgstr "新增地域"
@@ -1151,9 +1082,6 @@ msgstr "新增雲硬碟"
 msgid "Create Volume Backup"
 msgstr "新增雲硬碟備份"
 
-msgid "Create Volume Consistency Group"
-msgstr "新增雲硬碟一致性群組"
-
 msgid "Create Volume Snapshot"
 msgstr "新增雲硬碟即時存檔"
 
@@ -1171,13 +1099,6 @@ msgstr "新增雲硬碟類型加密"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "新增雲硬碟類型的額外規格"
-
-msgid ""
-"Create a Consistency Group that will contain newly created volumes cloned "
-"from each of the snapshots in the source Consistency Group Snapshot."
-msgstr ""
-"創建一個一致性組，它包括對來源一致性組快照中的每個快照進行複製所新創建的雲硬"
-"碟。"
 
 msgid "Create a Metadata Namespace"
 msgstr "新增詮釋資料命名空間"
@@ -1212,9 +1133,6 @@ msgstr "新增新用戶並且設定包括主要的專案及角色等相關的屬
 
 msgid "Create a project to organize users."
 msgstr "新增專案以組織用戶。"
-
-msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr "建立一致性群組中的雲硬碟快照。"
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -1255,9 +1173,6 @@ msgstr "已新增新的主機聚合「%s」。"
 msgid "Created new project \"%s\"."
 msgstr "已新增新的專案「%s」。"
 
-msgid "Created new volume consistency group"
-msgstr "已新增新的雲硬碟一致性群組"
-
 #, python-format
 msgid "Created spec \"%s\"."
 msgstr "已新增額外的規格「%s」。"
@@ -1291,14 +1206,6 @@ msgstr "正在新增"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "正在新增"
-
-#, python-format
-msgid "Creating consistency group \"%s\"."
-msgstr "正在建立一致性群組 \"%s\" 。"
-
-#, python-format
-msgid "Creating consistency group snapshot \"%s\"."
-msgstr "正在建立一致性群組快照 \"%s\" 。"
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1413,9 +1320,6 @@ msgstr "預設值"
 msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "刪除"
-
-msgid "Delete Consistency Group"
-msgstr "刪除一致性群組"
 
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
@@ -1702,10 +1606,6 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "正在刪除"
 
-#, python-format
-msgid "Deleting volume consistency group \"%s\""
-msgstr "刪除雲硬碟一致性群組 \"%s\""
-
 msgid "Description"
 msgstr "描述"
 
@@ -1986,9 +1886,6 @@ msgstr "編輯"
 msgid "Edit Access"
 msgstr "編輯訪問權限"
 
-msgid "Edit Consistency Group"
-msgstr "編輯一致性群組"
-
 msgid "Edit Consumer"
 msgstr "編輯規範用戶"
 
@@ -2195,14 +2092,6 @@ msgstr "暫時性硬碟"
 msgid "Ephemeral Disk (GB)"
 msgstr "暫時性硬碟（GB）"
 
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "錯誤"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "錯誤"
-
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "錯誤"
@@ -2283,12 +2172,6 @@ msgstr "加入或移除主機時出錯。"
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "寫入 Zip 檔錯誤：%(exc)s"
-
-msgid "Errors occurred in deleting consistency group."
-msgstr "刪除雲硬碟一致性群組時發生錯誤"
-
-msgid "Errors occurred in removing volumes from consistency group."
-msgstr "從一致性群組移除雲硬碟時發生錯誤"
 
 msgid "Ether Type"
 msgstr "網路協定類型"
@@ -3027,14 +2910,6 @@ msgstr "匯入密鑰對"
 msgid "Import Namespace"
 msgstr "匯入命名空間"
 
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "使用中"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "In-use"
-msgstr "使用中"
-
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "使用中"
@@ -3535,12 +3410,6 @@ msgstr "更改雲硬碟的名稱及描述。"
 
 msgid "Modify the name and description of a snapshot."
 msgstr "更改即時存檔的名稱和描述。"
-
-msgid "Modify the name and description of a volume consistency group snapshot."
-msgstr "修改磁區一致性群組快照的名稱及說明。"
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr "修改雲硬碟一致性群組的名稱及說明。"
 
 msgid "Modify volume type name, description, and public status."
 msgstr "更改雲碟碟類型名稱、描述和公開狀態。"
@@ -4469,9 +4338,6 @@ msgid "Remove User"
 msgid_plural "Remove Users"
 msgstr[0] "移除用戶"
 
-msgid "Remove Volumes from Consistency Group"
-msgstr "從一致性群組移除雲硬碟"
-
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "已移除用戶"
@@ -4482,10 +4348,6 @@ msgid ""
 msgstr ""
 "移除金鑰對可孤立 OpenStack 資源。除非您確定某個金鑰對在所有位置均未使用，否則"
 "不應移除該金鑰對。"
-
-#, python-format
-msgid "Removing volumes from volume consistency group \"%s\""
-msgstr "從 \"%s\" 一致性群組移除雲硬碟"
 
 msgid "Report Bug"
 msgstr "回報錯誤"
@@ -5147,10 +5009,6 @@ msgstr "必須指定即時存檔來源"
 msgid "Snapshots"
 msgstr "即時存檔"
 
-msgid ""
-"Snapshots can only be created for Consistency Groups that contain volumes."
-msgstr "只能建立有雲硬碟的一致性群組的快照。"
-
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr "正在儲存即時存檔"
@@ -5643,10 +5501,6 @@ msgstr ""
 "值）。"
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr "名稱「%s」已被另一個一致性群組使用。"
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "「%s」這個名稱已經使用在其他的虛擬硬體樣板。"
 
@@ -5783,11 +5637,6 @@ msgid ""
 "This action cannot be undone. Current EC2 credentials will be deleted and "
 "not recoverable."
 msgstr "這個動作將無法回復。現行 EC2 憑證將予以刪除且不可回復。"
-
-msgid ""
-"This action will unassign all volumes that are currently contained in this "
-"consistency group."
-msgstr "這個動作將會將所有雲硬碟從這個一致性群組移除。"
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr "這個應用程式需要您啟用您網頁瀏覽器裡的 JavaScript。"
@@ -5992,30 +5841,11 @@ msgstr "無法為雲硬碟更換雲硬碟類型：「%s」"
 msgid "Unable to check if DHCP agent scheduler extension is supported"
 msgstr "無法檢查 DHCP agent scheduler 擴充套件是否支援"
 
-msgid "Unable to clone consistency group."
-msgstr "無法複製一致性群組"
-
-msgid "Unable to clone empty consistency group."
-msgstr "無法複製空的一致性群組"
-
 msgid "Unable to connect to Neutron."
 msgstr "無法與 Neutron 連線。"
 
 msgid "Unable to create QoS Spec."
 msgstr "無法新增 QoS 規格。"
-
-#, python-format
-msgid "Unable to create consistency group \"%s\" from snapshot."
-msgstr "無法從快照建立一致性群組 \"%s\""
-
-msgid "Unable to create consistency group due to exceeding volume quota limit."
-msgstr "無法建立一致性群組因為超過雲硬碟使用限制"
-
-msgid "Unable to create consistency group snapshot."
-msgstr "無法建立一致性群組快照"
-
-msgid "Unable to create consistency group."
-msgstr "無法新增一致性群組。"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -6085,9 +5915,6 @@ msgstr "無法新增安全性群組：%s"
 msgid "Unable to create snapshot."
 msgstr "無法新增即時存檔。"
 
-msgid "Unable to create snapshot. Consistency group must contain volumes."
-msgstr "無法建立快照。一致性群組需要有雲硬碟在內"
-
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "無法建立一致性群組快照因為超過快照使用限制"
 
@@ -6137,9 +5964,6 @@ msgstr "無法得知是否支援雲硬碟類型加密。"
 msgid "Unable to disassociate floating IP."
 msgstr "無法解除浮動 IP 的連結。"
 
-msgid "Unable to display consistency group."
-msgstr "無法顯示一致性群組。"
-
 msgid "Unable to edit spec."
 msgstr "無法編輯規格。"
 
@@ -6172,9 +5996,6 @@ msgstr "無法獲得雲實例「%s」的 VNC 主控臺。"
 
 msgid "Unable to get cinder services list."
 msgstr "無法獲得 Cinder 伺服器列表。"
-
-msgid "Unable to get consistency group list"
-msgstr "無法獲得一致性群組清單"
 
 msgid "Unable to get flavor list"
 msgstr "無法獲得虛擬硬體樣板的列表"
@@ -6211,9 +6032,6 @@ msgstr "無法獲得可用的雲硬碟類型"
 msgid "Unable to get the available volumes"
 msgstr "無法獲得可用的雲硬碟"
 
-msgid "Unable to get volume type list"
-msgstr "無法獲得雲硬碟類型清單"
-
 msgid "Unable to import key pair."
 msgstr "無法匯入密鑰對。"
 
@@ -6229,9 +6047,6 @@ msgstr "無法列出 DHCP 媒介所服務的網路。"
 
 msgid "Unable to load console. Please reload page to try again."
 msgstr "無法載入控制台。請重新整理此頁面後重試"
-
-msgid "Unable to load the specified consistency group."
-msgstr "無法載入指定的一致性群組"
 
 #, python-format
 msgid "Unable to load the specified image. %s"
@@ -6362,15 +6177,6 @@ msgstr "無法獲得運算主機資訊。"
 
 msgid "Unable to retrieve compute limit information."
 msgstr "無法獲得運算限制資訊。"
-
-msgid "Unable to retrieve consistency group details."
-msgstr "無法獲得一致性群組詳細資訊。"
-
-msgid "Unable to retrieve consistency group information."
-msgstr "無法擷取一致性群組詳細資料。"
-
-msgid "Unable to retrieve consistency group snapshot details."
-msgstr "無法擷取一致性群組快照詳細資料。"
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -6678,12 +6484,6 @@ msgstr "無法獲得版本資訊。"
 msgid "Unable to retrieve volume backups."
 msgstr "無法獲得雲硬碟備份。"
 
-msgid "Unable to retrieve volume consistency group snapshots."
-msgstr "無法獲得雲硬碟一致性群組快照。"
-
-msgid "Unable to retrieve volume consistency groups."
-msgstr "無法獲得雲硬碟一致性群組。"
-
 msgid "Unable to retrieve volume details."
 msgstr "無法獲得雲硬碟詳細資訊。"
 
@@ -6834,9 +6634,6 @@ msgstr "無法更新用戶密碼。"
 msgid "Unable to update the user."
 msgstr "無法更新用戶。"
 
-msgid "Unable to update volume consistency group."
-msgstr "無法更新雲硬碟一致性群組。"
-
 msgid "Unable to update volume snapshot status."
 msgstr "無法更新雲硬碟即時存檔狀態。"
 
@@ -6852,9 +6649,6 @@ msgstr "無法更新雲硬碟類型。"
 
 msgid "Unable to update volume."
 msgstr "無法更新雲硬碟。"
-
-msgid "Unable to update volumes for consistency group"
-msgstr "無法更新雲硬碟一致性群組。"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7016,10 +6810,6 @@ msgstr "已更新"
 msgid "Updated subnet \"%s\"."
 msgstr "已更新子網路「%s」。"
 
-#, python-format
-msgid "Updated volumes for consistency group \"%s\"."
-msgstr "從一致性群組 \"%s\" 更新雲硬碟"
-
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "正在更新密碼"
@@ -7032,10 +6822,6 @@ msgstr "未實作更新加密。無法更新已加密的雲硬碟類型。"
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "正在更新雲硬碟「%s」"
-
-#, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "正在更新雲硬碟一致性群組「%s」"
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -7072,9 +6858,6 @@ msgstr "針對時段所作的使用量報告："
 
 msgid "Use Server Default"
 msgstr "使用伺服器預設值"
-
-msgid "Use a consistency group as source"
-msgstr "使用一致性群組作為來源"
 
 msgid "Use a volume as source"
 msgstr "以雲硬碟為來源"
@@ -7229,9 +7012,6 @@ msgstr "雲硬碟備份："
 msgid "Volume Backups"
 msgstr "雲硬碟備份"
 
-msgid "Volume Consistency Groups"
-msgstr "雲硬碟一致性群組"
-
 msgid "Volume Encryption Details"
 msgstr "雲硬碟加密詳細資訊"
 
@@ -7313,21 +7093,6 @@ msgstr "雲硬碟類型：%(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "雲硬碟類型"
-
-msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr "含有雲硬碟一制性群組無法被刪除。"
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"雲硬碟一致性群組提供了一種機制，用來同時新增多個雲硬碟的即時存檔，以確保資料"
-"的一致性\n"
-"\n"
-"一致性群組可以支援多種雲硬碟類型，但它只能包含由同一後端進行管理的雲硬碟。"
 
 msgid "Volume is Unencrypted"
 msgstr "雲硬碟未加密"
