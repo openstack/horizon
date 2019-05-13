@@ -10,7 +10,7 @@
 hacking>=1.1.0 # Apache-2.0
 #
 astroid==2.1.0;python_version>='3.0' # LGPLv2.1
-bandit>=1.4.0 # Apache-2.0
+bandit!=1.6.0,>=1.4.0 # Apache-2.0
 coverage!=4.4,>=4.0 # Apache-2.0
 doc8>=0.6.0 # Apache-2.0
 flake8-import-order==0.12 # LGPLv3
