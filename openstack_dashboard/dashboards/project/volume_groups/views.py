@@ -34,9 +34,6 @@ from openstack_dashboard.dashboards.project.volume_groups \
 from openstack_dashboard.dashboards.project.volume_groups \
     import workflows as vol_group_workflows
 
-CGROUP_INFO_FIELDS = ("name",
-                      "description")
-
 INDEX_URL = "horizon:project:volume_groups:index"
 
 
