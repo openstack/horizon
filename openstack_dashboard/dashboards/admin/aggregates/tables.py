@@ -37,6 +37,11 @@ class DeleteAggregateAction(tables.DeleteAction):
             count
         )
 
+    def allowed(self, request, aggregate):
+        if aggregate and aggregate.hosts:
+            return False
+        return True
+
     def delete(self, request, obj_id):
         api.nova.aggregate_delete(request, obj_id)
 
