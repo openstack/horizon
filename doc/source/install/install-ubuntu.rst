@@ -184,9 +184,6 @@ Finalize installation
 
   .. code-block:: console
 
-     # service apache2 reload
+     # systemctl reload apache2.service
 
   .. end
-
-
-
