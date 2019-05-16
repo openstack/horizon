@@ -118,14 +118,6 @@ def download_ec2_bundle(request):
     return response
 
 
-def download_rc_file_v2(request):
-    template = 'project/api_access/openrc_v2.sh.template'
-    context = _get_openrc_credentials(request)
-    context['os_identity_api_version'] = 2
-    context['os_auth_version'] = 2
-    return _download_rc_file_for_template(request, context, template)
-
-
 def download_rc_file(request):
     template = getattr(settings, 'OPENRC_CUSTOM_TEMPLATE',
                        'project/api_access/openrc.sh.template')

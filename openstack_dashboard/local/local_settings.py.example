@@ -108,11 +108,6 @@ WEBROOT = '/'
 # or None. Set to None explicitly if you want to deactivate the console.
 #CONSOLE_TYPE = "AUTO"
 
-# Toggle showing the openrc file for Keystone V2.
-# If set to false the link will be removed from the user dropdown menu
-# and the API Access page
-#SHOW_KEYSTONE_V2_RC = False
-
 # Controls whether the keystone openrc file is accesible from the user
 # menu and the api access panel.
 SHOW_OPENRC_FILE = True
