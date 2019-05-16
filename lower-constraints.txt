@@ -3,6 +3,7 @@ amqp==2.1.1
 appdirs==1.4.0
 asn1crypto==0.23.0
 Babel==2.3.4
+bandit==1.4.0
 cachetools==2.0.0
 cffi==1.7.0
 chardet==3.0.4
