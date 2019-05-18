@@ -1,14 +1,15 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-20 15:51+0000\n"
+"POT-Creation-Date: 2019-05-04 18:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-08 12:45+0000\n"
+"PO-Revision-Date: 2019-05-17 01:58+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -532,6 +533,9 @@ msgstr ""
 "Post lanĉi aperon, vi ensalutas uzante privatan ŝlosilon (la uzanto nomo "
 "povas esti alia dependa de la bildo kiun vi lanĉis):"
 
+msgid "Age"
+msgstr "Aĝo"
+
 #, python-format
 msgid "Agent %s was successfully added."
 msgstr "Agento %s sukcese aldonita."
@@ -916,6 +920,13 @@ msgstr ""
 "\"."
 
 msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"Defaŭlte, grupo tipo estas kreita publike. Por krei privatan voluman tipon, "
+"malŝaltu tiun kampon."
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -1286,6 +1297,12 @@ msgstr "Kreu Grupo"
 msgid "Create Group Snapshot"
 msgstr "Kreu Grupo Savkopion"
 
+msgid "Create Group Type"
+msgstr "Kreu Grupo Tipo"
+
+msgid "Create Group Type Spec"
+msgstr "Kreu Grupotipo Specifon"
+
 msgid "Create Host Aggregate"
 msgstr "Kreu Servilo Agregato"
 
@@ -1389,6 +1406,9 @@ msgstr ""
 "Kreu kohereco grupo kiu enhavas novajn kreitajn volumojn klonitaj de ĉiu el "
 "la savkopiojn en la fonta Kohereco Grupo Savkopio."
 
+msgid "Create a Group Type"
+msgstr "Kreu Grupo Tipo"
+
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
 "the snapshots in the source Group Snapshot."
@@ -1413,6 +1433,9 @@ msgstr "Kreu mapigon."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Kreu novan \"ekstra spec\" klavo-valoro paro por volumo tipo."
+
+msgid "Create a new \"group spec\" key-value pair for a group type."
+msgstr "Kreu novan \"grupo spec\" klavo-valoro paron por grupo tipo."
 
 msgid "Create a new application credential."
 msgstr "Krei novan aplikado legitimaĵon."
@@ -1463,6 +1486,10 @@ msgstr "Kreita"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Kreita ekstra specifo \"%s\"."
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "Kreita gruptipo specifon \"%s\"."
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1702,6 +1729,11 @@ msgid_plural "Delete Groups"
 msgstr[0] "Forigu Grupon"
 msgstr[1] "Forigu Grupojn"
 
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Forigu Grupo Tipon"
+msgstr[1] "Forigu Grupo Tipojn"
+
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Forigi Servilo Agregato"
@@ -1885,6 +1917,11 @@ msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "Forigita Grupo"
 msgstr[1] "Forigitaj Grupoj"
+
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Forigita Grupo Tipo"
+msgstr[1] "Forigita Grupo Tipoj"
 
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
@@ -2359,6 +2396,16 @@ msgstr "Redaktu Variaĵo"
 
 msgid "Edit Group"
 msgstr "Redaktu Grupo"
+
+msgid "Edit Group Type"
+msgstr "Agordu Grupo Tipon"
+
+msgid "Edit Group Type Spec"
+msgstr "Agordu Grupo Tipo Specifon"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "Redaktu Gruptipo Specifo Valoron: %s"
 
 msgid "Edit Host Aggregate"
 msgstr "Redaktu Servilo Agregato"
@@ -3190,8 +3237,44 @@ msgstr "Grupo Savkopioj"
 msgid "Group Type"
 msgstr "Grupo Tipo"
 
+msgid "Group Type Specs"
+msgstr "Grupo Tipo Specifojn"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "Grupo Tipo: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "Grupo Tipo: %(group_type_name)s"
+
+msgid "Group Types"
+msgstr "Grupo Tipoj"
+
 msgid "Group has been updated successfully."
 msgstr "Grupo sukcese ĝisdatigita."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"Grupo tipo estas tipo aŭ etikedo kiu povas esti selektita je grupo kreanta "
+"tempo en OpenStack. Ĝi kutime mapigas al aro da kapabloj de la memoro back-"
+"end pelilo uzonta por tiun grupon. Ekzemploj: \"Rendimento\", \"SSD\", "
+"\"Sekurkopio\", ktp. Tiu estas ekvivalenta al <tt>cinder tipo-  krei</tt> "
+"komando. Kiam la grupo tipo estas kreita, kliku la \"Vidu Specifojn\" klavon "
+"por agordi specifajn klava-valoro paro(j)n por tiu grupo tipo."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Grupo tipo nomo \"%s\" jam ekzistas."
+
+msgid "Group type name can not be empty."
+msgstr "Grupo tipo nomo ne povas esti malplena."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3729,6 +3812,13 @@ msgid "Key Size (bits)"
 msgstr "Ŝlosilo Grando (bitoj)"
 
 msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+" Ŝlosilo nomoj nur enhavus  literciferajn signojn, substrekojn, punktojn "
+"kajdividstrekojn."
+
+msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 msgstr ""
@@ -4079,6 +4169,9 @@ msgstr "Modifu Kvotojn"
 msgid "Modify dashboard settings for your user."
 msgstr "Modifu stirpanelo  agordojn por la uzanto."
 
+msgid "Modify group type name, description, and public status."
+msgstr "Modifu grupo tipo nomo, priskribo, kaj publika stato."
+
 msgid "Modify name and description of a volume."
 msgstr "Modifu nomon kaj priskribon de volumo."
 
@@ -4254,6 +4347,9 @@ msgstr "Nova Grando (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "Nova nomo ne povas esti malplena."
+
+msgid "New name conflicts with another group type."
+msgstr "Nova nomo konfliktas kun alia grupo tipo."
 
 msgid "New name conflicts with another volume type."
 msgstr "Nova nomo konfliktas kun alia volumo tipo."
@@ -4553,6 +4649,9 @@ msgstr "Malferma Pordo/Pordo Intervalo:"
 
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profililo   "
+
+msgid "OpenStack RC File"
+msgstr "OpenStack RC Dosiero"
 
 msgid "OpenStack RC File (Identity API v2.0)"
 msgstr "OpenStack RC Dosiero (Identeco API v2.0)"
@@ -5373,6 +5472,10 @@ msgid "Saved extra spec \"%s\"."
 msgstr "Estas konservita ekstra specifo \"%s\"."
 
 #, python-format
+msgid "Saved group spec \"%s\"."
+msgstr "Konservis grupo specifon \"%s\"."
+
+#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "Estas konservita specifo \"%s\"."
 
@@ -6038,6 +6141,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Sukcese kreita ĉifradon por volumo tipo: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Sukcese kreita volumo tipon: %s   "
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "Sukcese kreita sekureco grupo: %s   "
 
@@ -6109,6 +6216,9 @@ msgstr "Sucese ĝisdatigita agregato: \"%s.\""
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Sukcese ĝisdatigita ĉifradon por volumo tipo: %s"
+
+msgid "Successfully updated group type."
+msgstr "Sukcese ĝisdatigita grupo tipon."
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6641,6 +6751,9 @@ msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Por eliri la plenekranan reĝimon; kliku la reen butonon de la retumilo."
 
+msgid "To make group type private, uncheck this field."
+msgstr "Por fari grupo tipo privatan, malselektu tiun kampon."
+
 msgid "To make volume type private, uncheck this field."
 msgstr "Por fari volumo tipo privatan, malselektu tiun kampon."
 
@@ -6860,6 +6973,12 @@ msgstr "Neeblas krei grupon pro transpasita volumo kvota limito."
 msgid "Unable to create group snapshot."
 msgstr "Neeblas krei grupo savkopion."
 
+msgid "Unable to create group type spec."
+msgstr "Neeblas krei gruptipo specifon."
+
+msgid "Unable to create group type."
+msgstr "Neeblas krei grupo tipo."
+
 msgid "Unable to create group."
 msgstr "Neeblas krei grupo."
 
@@ -7001,6 +7120,9 @@ msgstr "Ne eblas montri la grupojn de ĉi tiu projekto."
 
 msgid "Unable to display the users of this project."
 msgstr "Ne eblas montri la uzantojn de ĉi tiu projekto."
+
+msgid "Unable to edit group type spec."
+msgstr "Neeblas redakti gruptipo spec."
 
 msgid "Unable to edit spec."
 msgstr "Neeblas redakti specifon."
@@ -7371,6 +7493,25 @@ msgstr "Neeblas ricevi grupo savkopio detajlojn."
 
 msgid "Unable to retrieve group snapshots."
 msgstr "Ne eblas ricevi grupajn savkopiojn."
+
+msgid "Unable to retrieve group type details."
+msgstr "Neeblas ricevi gruptipo detajlojn."
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "Neeblas ricevi grupo tipo por: \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "Neeblas ricevi volumo tipo nomon."
+
+msgid "Unable to retrieve group type spec details."
+msgstr "Neeblas ricevi  gruptipo specifo detajlojn."
+
+msgid "Unable to retrieve group type spec list."
+msgstr "Neeblas ricevi  gruptipo specifo liston."
+
+msgid "Unable to retrieve group type."
+msgstr "Neeblas ricevi grupo tipon."
 
 msgid "Unable to retrieve group types."
 msgstr "Neeblas ricevi grupo tipojn."
@@ -7746,6 +7887,9 @@ msgstr "Neeblas ĝisdatigi defaŭlt volumajn kvotojn."
 msgid "Unable to update encrypted volume type."
 msgstr "Neeblas ĝisdatigi  ĉifrita volumo tipo."
 
+msgid "Unable to update group type."
+msgstr "Neeblas ĝisdatigi grupo tipo."
+
 msgid "Unable to update group."
 msgstr "Neeblas ĝisdatigi grupon."
 
@@ -7984,6 +8128,10 @@ msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Ĝisdatigu la \"ekstra spec\" valoro por \"%(key)s\""
 
 #, python-format
+msgid "Update the \"group spec\" value for \"%(key)s\""
+msgstr "Ĝisdatigu la \"group spec\" valoro por \"%(key)s\""
+
+#, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "Ĝisdatigu la spec valoro por \"%(key)s\""
 
@@ -8202,6 +8350,9 @@ msgstr "Vidu Protokolon  "
 
 msgid "View Routers"
 msgstr "Vidu enkursigilojn"
+
+msgid "View Specs"
+msgstr "Vidu  Specifojn"
 
 msgid "View Usage"
 msgstr "Vidu Uzaĵon"
@@ -8670,11 +8821,26 @@ msgstr "ekz. Jes / Ne"
 msgid "e.g. Yes/No"
 msgstr "ekz. Jes/Ne"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+" speco id nur enhavus  literciferajn signojn, substrekojn, punktojn,"
+"dividstrekojn, blankspacojn."
+
 msgid "front-end"
 msgstr "fasada"
 
 msgid "instance"
 msgstr "apero"
+
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"ŝlosilo kun nomo \"%s\" jam ekzistas. Uzu Agordo por ĝisdatigi la valoron, "
+"aŭ kreu ŝlosilon kun alia nomo."
 
 msgid "no"
 msgstr "ne"
