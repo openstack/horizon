@@ -633,7 +633,7 @@ in that dictionary are:
 * ``"notifier_connection_string"`` is a url to which trace messages are sent by
   Horizon. For other components it is usually the only URL specified in config,
   because other components act mostly as traces producers. Example:
-  ``"notifier_connection_string": "mongodb://%s' % OPENSTACK_HOST"``.
+  ``"notifier_connection_string": "mongodb://%s" % OPENSTACK_HOST``.
 * ``"receiver_connection_string"`` is a url from which traces are retrieved by
   Horizon, needed because Horizon is not only the traces producer, but also a
   consumer. Having 2 settings which usually contain the same value is legacy
