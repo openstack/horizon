@@ -122,7 +122,7 @@ Install and configure components
         OPENSTACK_API_VERSIONS = {
             "identity": 3,
             "image": 2,
-            "volume": 2,
+            "volume": 3,
         }
 
      .. end
