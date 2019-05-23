@@ -64,18 +64,38 @@ django.setup()
 # Add any Sphinx extension module names here, as strings.
 # They can be extensions coming with Sphinx (named 'sphinx.ext.*')
 # or your custom ones.
-extensions = ['sphinx.ext.autodoc',
-              'sphinx.ext.todo',
-              'sphinx.ext.coverage',
-              'sphinx.ext.viewcode',
-              'openstackdocstheme',
-              ]
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.extlinks',
+    'sphinx.ext.viewcode',
+    'openstackdocstheme',
+]
 
 # openstackdocstheme options
 repository_name = 'openstack/horizon'
 bug_project = 'horizon'
 bug_tag = 'documentation'
 html_last_updated_fmt = '%Y-%m-%d %H:%M'
+
+# Set aliases for extlinks
+# - generic launchpad bug - [:bug:`12345`]
+# - horizon blueprint - [:blueprint:`drop-nova-network`]
+extlinks = {
+    'opendev-repo': (
+        'https://opendev.org/%s',
+        '',
+    ),
+    'launchpad': (
+        'https://bugs.launchpad.net/%s',
+        'launchpad ',
+    ),
+    'storyboard': (
+        'https://storyboard.openstack.org/#!/project/%s',
+        'storyboard ',
+    ),
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
