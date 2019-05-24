@@ -2,9 +2,9 @@
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.1.0.dev79\n"
+"Project-Id-Version: horizon 15.1.0.dev115\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 05:54-0500\n"
+"POT-Creation-Date: 2019-05-22 00:06-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -818,13 +818,6 @@ msgstr ""
 "and the API access panel."
 
 msgid ""
-"Controls whether the keystone v2 openrc file is accessible from the user "
-"menu and the api access panel."
-msgstr ""
-"Controls whether the keystone v2 openrc file is accessible from the user "
-"menu and the API access panel."
-
-msgid ""
 "Controls whether unhandled exceptions should generate a generic 500 response "
 "or present the user with a pretty-formatted debug information page."
 msgstr ""
@@ -888,12 +881,6 @@ msgstr "DISALLOW_IFRAME_EMBED"
 
 msgid "DROPDOWN_MAX_ITEMS"
 msgstr "DROPDOWN_MAX_ITEMS"
-
-msgid "Default (when ``SHOW_KEYSTONE_V2_RC`` is ``False``):"
-msgstr "Default (when ``SHOW_KEYSTONE_V2_RC`` is ``False``):"
-
-msgid "Default (when ``SHOW_KEYSTONE_V2_RC`` is ``True``):"
-msgstr "Default (when ``SHOW_KEYSTONE_V2_RC`` is ``True``):"
 
 msgid ""
 "Default DNS servers you would like to use when a subnet is created. This is "
@@ -2314,9 +2301,6 @@ msgstr "SESSION_REFRESH"
 msgid "SESSION_TIMEOUT"
 msgstr "SESSION_TIMEOUT"
 
-msgid "SHOW_KEYSTONE_V2_RC"
-msgstr "SHOW_KEYSTONE_V2_RC"
-
 msgid "SHOW_OPENRC_FILE"
 msgstr "SHOW_OPENRC_FILE"
 
@@ -2721,13 +2705,6 @@ msgstr "The default value for this setting has been changed to ``False``"
 
 msgid "The default value for this setting has been changed to ``True``"
 msgstr "The default value for this setting has been changed to ``True``"
-
-msgid ""
-"The default value is changed from ``True`` to ``False`` in favor of the "
-"deprecation of keystone v2 API support in horizon."
-msgstr ""
-"The default value is changed from ``True`` to ``False`` in favour of the "
-"deprecation of Keystone v2 API support in Horizon."
 
 msgid ""
 "The directory location for the theme. The path must be relative to the "
@@ -3196,9 +3173,6 @@ msgstr ""
 "Plugins needing this level of monkey patching and flexibility should instead "
 "look for changing their __init__.py file and performing customisations "
 "through other means."
-
-msgid "This option will be dropped in 16.0.0(Train) release."
-msgstr "This option will be dropped in 16.0.0(Train) release."
 
 msgid ""
 "This setting allow your to hide the \"Create New Volume\" option and rely on "
@@ -4091,17 +4065,6 @@ msgstr ""
 "obtrusive manner for every component in the cloud. Example: ``\"keys\": "
 "[\"SECRET_KEY\", \"MORE_SECRET_KEY\"]``. For more details see `osprofiler "
 "documentation`_."
-
-msgid ""
-"``\"notifier_connection_string\"`` is a url to which trace messages are sent "
-"by Horizon. For other components it is usually the only URL specified in "
-"config, because other components act mostly as traces producers. Example: ``"
-"\"notifier_connection_string\": \"mongodb://%s' % OPENSTACK_HOST\"``."
-msgstr ""
-"``\"notifier_connection_string\"`` is a URL to which trace messages are sent "
-"by Horizon. For other components it is usually the only URL specified in "
-"config, because other components act mostly as traces producers. Example: ``"
-"\"notifier_connection_string\": \"mongodb://%s' % OPENSTACK_HOST\"``."
 
 msgid ""
 "``\"receiver_connection_string\"`` is a url from which traces are retrieved "
