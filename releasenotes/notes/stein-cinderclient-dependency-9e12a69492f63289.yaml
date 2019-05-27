@@ -1,0 +1,10 @@
+---
+upgrade:
+  - |
+    python-cinderclient ``>=4.0.1`` is now required to fix :bug:`1824017`.
+    Cinder API 3.55 or later does not accept additional properties but
+    python-cinderclient older than 4.0.0 sends additional properties like
+    used_id, status and so on. Horizon uses Cinder API 3.58 to create a volume,
+    and this means the volume creation fails if python-cinderclient <4.0.0
+    is used. To handle this, the minimum requirement of python-cinderclient
+    was bumped to 4.0.1.
