@@ -537,7 +537,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             filters={'visibility': 'shared', 'status': 'active'})
         self.mock_volume_create.assert_called_once_with(
             test.IsHttpRequest(), formData['size'], formData['name'],
-            formData['description'], '', metadata={}, snapshot_id=None,
+            formData['description'], None, metadata={}, snapshot_id=None,
             group_id=None, image_id=None, availability_zone=None,
             source_volid=volume.id)
         self.mock_group_list.assert_called_once_with(test.IsHttpRequest())

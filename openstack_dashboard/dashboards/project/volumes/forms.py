@@ -402,6 +402,7 @@ class CreateForm(forms.SelfHandlingForm):
                 # Create from volume
                 volume = self.get_volume(request, data["volume_source"])
                 volume_id = volume.id
+                volume_type = None
 
                 if data['size'] < volume.size:
                     error_message = (_('The volume size cannot be less than '
