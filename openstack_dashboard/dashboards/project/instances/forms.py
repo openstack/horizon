@@ -194,15 +194,18 @@ class AttachVolume(forms.SelfHandlingForm):
                                          "select a device name."))
     instance_id = forms.CharField(widget=forms.HiddenInput())
 
-    def __init__(self, *args, **kwargs):
-        super(AttachVolume, self).__init__(*args, **kwargs)
+    def __init__(self, request, *args, **kwargs):
+        super(AttachVolume, self).__init__(request, *args, **kwargs)
 
         # Populate volume choices
         volume_list = kwargs.get('initial', {}).get("volume_list", [])
         volumes = []
         for volume in volume_list:
             # Only show volumes that aren't attached to an instance already
-            if not volume.attachments:
+            # Or those with multiattach enabled
+            if (not volume.attachments or
+                    (getattr(volume, 'multiattach', False)) and
+                    api.nova.get_microversion(request, 'multiattach')):
                 volumes.append(
                     (volume.id, '%(name)s (%(id)s)'
                      % {"name": volume.name, "id": volume.id}))
@@ -239,7 +242,7 @@ class AttachVolume(forms.SelfHandlingForm):
                 msg = six.text_type(ex)
             else:
                 # Use a generic error message.
-                msg = _('Unable to attach volume.')
+                msg = _('Unable to attach volume: %s') % ex
             exceptions.handle(request, msg, redirect=redirect)
         return True
 

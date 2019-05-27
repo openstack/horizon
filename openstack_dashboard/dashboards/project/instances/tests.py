@@ -30,6 +30,7 @@ from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.http import urlencode
 import mock
+from novaclient import api_versions
 import six
 
 from horizon import exceptions
@@ -5664,6 +5665,58 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         # TODO(mriedem): Assert the actual error from the response but
         # the test helpers don't seem to handle this case.
         mock_client.assert_not_called()
+
+    @helpers.create_mocks({
+        api.cinder: ('volume_list',
+                     'volume_get',),
+        api.nova: ('get_microversion',),
+        api._nova: ('novaclient',),
+    })
+    def test_multiattach_volume_attach_to_multple_server(self):
+        # Tests that a multiattach volume must be attached with compute API
+        # microversion 2.60 and the feature is not available.
+        server1 = self.servers.list()[0]
+        server2 = self.servers.list()[1]
+        volumes = self.cinder_volumes.list()
+        volume = volumes[1]
+        volume.multiattach = True
+        self.mock_volume_list.return_value = volumes
+        self.mock_volume_get.return_value = volume
+        self.mock_get_microversion.return_value = api_versions.APIVersion(
+            '2.60')
+
+        form_data = {"volume": volume.id,
+                     "instance_id": server1.id,
+                     "device": None}
+
+        url = reverse('horizon:project:instances:attach_volume',
+                      args=[server1.id])
+
+        s1 = self.client.post(url, form_data)
+        self.assertNoFormErrors(s1)
+
+        form_data = {"volume": volume.id,
+                     "instance_id": server2.id,
+                     "device": None}
+
+        url = reverse('horizon:project:instances:attach_volume',
+                      args=[server2.id])
+
+        s2 = self.client.post(url, form_data)
+        self.assertNoFormErrors(s2)
+        self.mock_volume_list.assert_has_calls([
+            mock.call(helpers.IsHttpRequest()),
+            mock.call(helpers.IsHttpRequest())])
+        self.assertEqual(self.mock_volume_list.call_count, 2)
+        self.mock_volume_get.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(), volume.id)
+        ])
+        self.assertEqual(self.mock_volume_get.call_count, 2)
+        self.mock_get_microversion.assert_has_calls([
+            mock.call(helpers.IsHttpRequest(), 'multiattach')
+
+        ])
+        self.assertEqual(self.mock_get_microversion.call_count, 2)
 
     @helpers.create_mocks({api.nova: ('instance_volumes_list',)})
     def test_volume_detach_get(self):
