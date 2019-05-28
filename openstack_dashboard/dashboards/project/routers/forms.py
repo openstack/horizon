@@ -34,9 +34,11 @@ LOG = logging.getLogger(__name__)
 class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Router Name"),
                            required=False)
-    admin_state_up = forms.BooleanField(label=_("Enable Admin State"),
-                                        initial=True,
-                                        required=False)
+    admin_state_up = forms.BooleanField(
+        label=_("Enable Admin State"),
+        initial=True,
+        required=False,
+        help_text=_("If checked, the router will be enabled."))
     external_network = forms.ThemableChoiceField(label=_("External Network"),
                                                  required=False)
     enable_snat = forms.BooleanField(label=_("Enable SNAT"),
@@ -153,8 +155,10 @@ class CreateForm(forms.SelfHandlingForm):
 
 class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        required=False,
+        help_text=_("If checked, the router will be enabled."))
     mode = forms.ThemableChoiceField(label=_("Router Type"))
     ha = forms.BooleanField(label=_("High Availability Mode"), required=False)
 

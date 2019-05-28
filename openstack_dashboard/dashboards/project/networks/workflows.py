@@ -41,7 +41,7 @@ class CreateNetworkInfoAction(workflows.Action):
         label=_("Enable Admin State"),
         initial=True,
         required=False,
-        help_text=_("The state to start the network in."))
+        help_text=_("If checked, the network will be enabled."))
     shared = forms.BooleanField(label=_("Shared"), initial=False,
                                 required=False)
     with_subnet = forms.BooleanField(label=_("Create Subnet"),
