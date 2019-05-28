@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import re
+
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -20,9 +22,17 @@ from horizon import messages
 from openstack_dashboard import api
 
 
+KEY_NAME_REGEX = re.compile(r"^[a-zA-Z0-9-_:. /]+$", re.UNICODE)
+KEY_ERROR_MESSAGES = {
+    'invalid': _("The key must match the following the regex: "
+                 "'^[a-zA-Z0-9-_:. /]'")}
+
+
 class CreateKeyValuePair(forms.SelfHandlingForm):
     # this if for creating a spec key-value pair for an existing QOS Spec
-    key = forms.CharField(max_length=255, label=_("Key"))
+    key = forms.RegexField(max_length=255, label=_("Key"),
+                           regex=KEY_NAME_REGEX,
+                           error_messages=KEY_ERROR_MESSAGES)
     value = forms.CharField(max_length=255, label=_("Value"))
 
     def handle(self, request, data):
