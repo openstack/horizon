@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-22 05:05+0000\n"
+"POT-Creation-Date: 2019-05-28 08:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-05-14 03:35+0000\n"
+"PO-Revision-Date: 2019-05-28 12:11+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -1275,6 +1275,10 @@ msgstr "Membuat Kelompok Host"
 msgid "Create Image"
 msgstr "Membuat Image"
 
+msgctxt "Action log of an instance"
+msgid "Create Image"
+msgstr "Buat Image"
+
 msgid "Create Key Pair"
 msgstr "Create Key Pair (membuat pasangan kunci)"
 
@@ -1950,6 +1954,10 @@ msgstr ""
 "Volume dihapus tidak dapat dipulihkan. Semua data yang disimpan dalam volume "
 "akan dihapus."
 
+msgctxt "Current status of Volume Group"
+msgid "Deleting"
+msgstr "Deleting"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Penghapusan"
@@ -1974,9 +1982,6 @@ msgstr "Pengaturan usang:{}."
 
 msgid "Description"
 msgstr "Deskripsi"
-
-msgid "Description is required."
-msgstr "Keterangan diperlukan."
 
 msgid "Description:"
 msgstr "Deskripsi"
@@ -3830,6 +3835,10 @@ msgstr "Local Storage (total) (penyimpanan lokal (total))"
 
 msgid "Local Storage (used)"
 msgstr "Local Storage (used) (penyimpanan lokal (digunakan))"
+
+msgctxt "Action log of an instance"
+msgid "Lock"
+msgstr "Lock"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
@@ -7997,6 +8006,10 @@ msgstr "Pengaturan tidak dikenal: {}."
 msgid "Unknown volume (None)"
 msgstr "Volume tidak diketahui (Tidak)"
 
+msgctxt "Action log of an instance"
+msgid "Unlock"
+msgstr "Unlock"
+
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
 msgstr[0] "Unlock Instance"
@@ -8165,6 +8178,10 @@ msgstr "Subnet diperbarui \"%s\"."
 
 msgid "Updated volumes for group."
 msgstr "Volume yang diperbarui untuk grup."
+
+msgctxt "Current status of Volume Group"
+msgid "Updating"
+msgstr "Updating"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
