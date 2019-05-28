@@ -65,6 +65,7 @@ class CreatePolicyForm(forms.SelfHandlingForm):
             'data-switch-on': 'action_object_type',
             'data-action_object_type-shared_network': _('Network'),
             'data-action_object_type-external_network': _('Network'),
+            'data-required-when-shown': 'true',
         }),
         required=False)
     qos_policy_id = forms.ThemableChoiceField(
@@ -73,8 +74,21 @@ class CreatePolicyForm(forms.SelfHandlingForm):
             'class': 'switched',
             'data-switch-on': 'action_object_type',
             'data-action_object_type-shared_qos_policy': _('QoS Policy'),
+            'data-required-when-shown': 'true',
         }),
         required=False)
+
+    def clean(self):
+        cleaned_data = super(CreatePolicyForm, self).clean()
+        action_object_type = cleaned_data.get("action_object_type")
+        error_msg = _("This field is required.")
+        if action_object_type in ["shared_network", "external_network"]:
+            if not cleaned_data.get("network_id"):
+                self._errors['network_id'] = self.error_class([error_msg])
+        elif action_object_type == "shared_qos_policy":
+            if not cleaned_data.get("qos_policy_id"):
+                self._errors['qos_policy_id'] = self.error_class([error_msg])
+        return cleaned_data
 
     def __init__(self, request, *args, **kwargs):
         super(CreatePolicyForm, self).__init__(request, *args, **kwargs)

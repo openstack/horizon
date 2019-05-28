@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 from django.urls import reverse
+import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -118,3 +119,63 @@ class RBACPolicyTests(test.BaseAdminViewTests):
                   'object_id': qos_policy.id}
         self.mock_rbac_policy_create.assert_called_once_with(
             test.IsHttpRequest(), **params)
+
+    @test.create_mocks({api.neutron: ('network_list',
+                                      'is_extension_supported',),
+                        api.keystone: ('tenant_list',)})
+    def test_rbac_create_post_with_network_type_and_no_network_id(self):
+        tenants = self.tenants.list()
+        rbac_policy = self.rbac_policies.first()
+
+        self.mock_tenant_list.return_value = [tenants, False]
+        self.mock_network_list.return_value = self.networks.list()
+        self.mock_is_extension_supported.return_value = False
+
+        form_data = {'target_tenant': rbac_policy.target_tenant,
+                     'action_object_type': 'external_network',
+                     'network_id': None}
+        url = reverse('horizon:admin:rbac_policies:create')
+        res = self.client.post(url, form_data)
+
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "This field is required.")
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_list, 2, mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_network_list, 2, mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_extension_supported, 2,
+            mock.call(test.IsHttpRequest(), extension_alias='qos'))
+
+    @test.create_mocks({api.neutron: ('network_list',
+                                      'policy_list',
+                                      'is_extension_supported',),
+                        api.keystone: ('tenant_list',)})
+    def test_rbac_create_post_with_qos_policy_type_and_no_qos_policy_id(self):
+        tenants = self.tenants.list()
+        rbac_policy = self.rbac_policies.filter(object_type="qos_policy")[0]
+
+        self.mock_tenant_list.return_value = [tenants, False]
+        self.mock_network_list.return_value = self.networks.list()
+        self.mock_policy_list.return_value = self.qos_policies.list()
+        self.mock_is_extension_supported.return_value = True
+
+        form_data = {'target_tenant': rbac_policy.target_tenant,
+                     'action_object_type': 'shared_qos_policy',
+                     'qos_policy_id': None}
+        url = reverse('horizon:admin:rbac_policies:create')
+        res = self.client.post(url, form_data)
+
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "This field is required.")
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_list, 2, mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_network_list, 2, mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_policy_list, 2, mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_extension_supported, 2,
+            mock.call(test.IsHttpRequest(), extension_alias='qos'))
