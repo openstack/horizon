@@ -234,10 +234,6 @@ class VolumeDetailsSnapshotsTable(volume_tables.VolumesTableBase):
                         UpdateMetadata))
         row_class = UpdateRow
         status_columns = ("status",)
-        permissions = [
-            ('openstack.services.volume', 'openstack.services.volumev2',
-             'openstack.services.volumev3'),
-        ]
 
 
 class VolumeSnapshotsTable(VolumeDetailsSnapshotsTable):
