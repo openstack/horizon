@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    [`blueprint kubernetes-config-gen <https://blueprints.launchpad.net/horizon/+spec/kubernetes-config-gen>`_]
+    Horizon now supports the optional automatic generation of a Kubernetes
+    configuration file (kubeconfig) based on application credentials. Adds
+    a new download button for this purpose in the application credentials
+    creation dialog.

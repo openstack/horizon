@@ -28,6 +28,8 @@ urlpatterns = [
         views.CreateSuccessfulView.as_view(), name='success'),
     url(r'^download_openrc/$',
         views.download_rc_file, name='download_openrc'),
+    url(r'^download_kubeconfig/$',
+        views.download_kubeconfig_file, name='download_kubeconfig'),
     url(r'^download_clouds_yaml/$',
         views.download_clouds_yaml_file, name='download_clouds_yaml'),
 ]
