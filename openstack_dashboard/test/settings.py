@@ -28,6 +28,9 @@ from openstack_dashboard.utils import settings as settings_utils
 # enabling in our test setup to find any issues it might cause
 monkeypatch_escape()
 
+# Load default values
+from openstack_dashboard.defaults import *  # noqa: F403,H303
+
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 
 ROOT_PATH = os.path.abspath(os.path.join(TEST_DIR, ".."))
@@ -124,11 +127,6 @@ OPENSTACK_PROFILER = {'enabled': False}
 settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
                                  THEME_COLLECTION_DIR, ROOT_PATH)
 
-# Set to 'legacy' or 'direct' to allow users to upload images to glance via
-# Horizon server. When enabled, a file form field will appear on the create
-# image form. If set to 'off', there will be no file form field on the create
-# image form. See documentation for deployment considerations.
-HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
 IMAGES_ALLOW_LOCATION = True
 
 AVAILABLE_REGIONS = [
@@ -136,41 +134,20 @@ AVAILABLE_REGIONS = [
     ('http://remote:5000/v3', 'remote'),
 ]
 
-OPENSTACK_API_VERSIONS = {
-    "identity": 3,
-    "image": 2
-}
-
 OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v3"
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
 OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'test_domain'
 OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT = True
 
-OPENSTACK_KEYSTONE_BACKEND = {
-    'name': 'native',
-    'can_edit_user': True,
-    'can_edit_group': True,
-    'can_edit_project': True,
-    'can_edit_domain': True,
-    'can_edit_role': True
-}
+OPENSTACK_CINDER_FEATURES['enable_backup'] = True
 
-OPENSTACK_CINDER_FEATURES = {
-    'enable_backup': True,
-}
+OPENSTACK_NEUTRON_NETWORK['enable_router'] = True
+# network quota is Enabled in specific tests only
+OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
+OPENSTACK_NEUTRON_NETWORK['enable_distributed_router'] = False
 
-OPENSTACK_NEUTRON_NETWORK = {
-    'enable_router': True,
-    'enable_quotas': False,  # Enabled in specific tests only
-    'enable_distributed_router': False,
-}
-
-OPENSTACK_HYPERVISOR_FEATURES = {
-    'can_set_mount_point': False,
-    'can_set_password': True,
-}
+OPENSTACK_HYPERVISOR_FEATURES['can_set_password'] = True
 
 OPENSTACK_IMAGE_BACKEND = {
     'image_formats': [

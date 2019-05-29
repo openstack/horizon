@@ -54,8 +54,6 @@ class Version(object):
 class APIVersionManager(object):
     """Object to store and manage API versioning data and utility methods."""
 
-    SETTINGS_KEY = "OPENSTACK_API_VERSIONS"
-
     def __init__(self, service_type, preferred_version=None):
         self.service_type = service_type
         self.preferred = preferred_version
@@ -82,7 +80,7 @@ class APIVersionManager(object):
     def get_active_version(self):
         if self._active is not None:
             return self.supported[self._active]
-        key = getattr(settings, self.SETTINGS_KEY, {}).get(self.service_type)
+        key = settings.OPENSTACK_API_VERSIONS.get(self.service_type)
         if key is None:
             # TODO(gabriel): support API version discovery here; we'll leave
             # the setting in as a way of overriding the latest available
@@ -324,10 +322,8 @@ def get_url_for_service(service, region, endpoint_type):
 
 
 def url_for(request, service_type, endpoint_type=None, region=None):
-    endpoint_type = endpoint_type or getattr(settings,
-                                             'OPENSTACK_ENDPOINT_TYPE',
-                                             'publicURL')
-    fallback_endpoint_type = getattr(settings, 'SECONDARY_ENDPOINT_TYPE', None)
+    endpoint_type = endpoint_type or settings.OPENSTACK_ENDPOINT_TYPE
+    fallback_endpoint_type = settings.SECONDARY_ENDPOINT_TYPE
 
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)

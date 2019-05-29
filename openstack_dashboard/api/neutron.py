@@ -670,7 +670,7 @@ class FloatingIpManager(object):
                                       {'floatingip': update_dict})
 
     def _get_reachable_subnets(self, ports, fetch_router_ports=False):
-        if not is_enabled_by_config('enable_fip_topology_check', True):
+        if not is_enabled_by_config('enable_fip_topology_check'):
             # All subnets are reachable from external network
             return set(
                 p.fixed_ips[0]['subnet_id'] for p in ports if p.fixed_ips
@@ -788,8 +788,8 @@ class FloatingIpManager(object):
 
     def is_supported(self):
         """Returns True if floating IP feature is supported."""
-        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-        return network_config.get('enable_router', True)
+        network_config = settings.OPENSTACK_NEUTRON_NETWORK
+        return network_config['enable_router']
 
 
 def get_ipver_str(ip_version):
@@ -808,8 +808,8 @@ def get_auth_params_from_request(request):
 @memoized
 def neutronclient(request):
     token_id, neutron_url, auth_url = get_auth_params_from_request(request)
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    cacert = settings.OPENSTACK_SSL_CACERT
     c = neutron_client.Client(token=token_id,
                               auth_url=auth_url,
                               endpoint_url=neutron_url,
@@ -1026,7 +1026,7 @@ def _is_auto_allocated_network_supported(request):
     try:
         neutron_auto_supported = is_service_enabled(
             request, 'enable_auto_allocated_network',
-            'auto-allocated-topology', default=False)
+            'auto-allocated-topology')
     except Exception:
         exceptions.handle(request, _('Failed to check if neutron supports '
                                      '"auto_allocated_network".'))
@@ -1823,11 +1823,20 @@ def is_extension_supported(request, extension_alias):
         return False
 
 
+# TODO(amotoki): Clean up 'default' parameter because the default
+# values are pre-defined now, so 'default' argument is meaningless
+# in most cases.
 def is_enabled_by_config(name, default=True):
-    network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+    network_config = settings.OPENSTACK_NEUTRON_NETWORK
+    # NOTE(amotoki): This function is used by horizon plugins
+    # via is_service_enabled() function, so we need to keep .get()
+    # rather than [] dict operator.
     return network_config.get(name, default)
 
 
+# TODO(amotoki): Clean up 'default' parameter because the default
+# values are pre-defined now, so 'default' argument is meaningless
+# in most cases.
 @memoized
 def is_service_enabled(request, config_name, ext_name, default=True):
     return (is_enabled_by_config(config_name, default) and
@@ -1836,7 +1845,7 @@ def is_service_enabled(request, config_name, ext_name, default=True):
 
 @memoized
 def is_quotas_extension_supported(request):
-    return (is_enabled_by_config('enable_quotas', False) and
+    return (is_enabled_by_config('enable_quotas') and
             is_extension_supported(request, 'quotas'))
 
 
@@ -1898,7 +1907,7 @@ def get_feature_permission(request, feature, operation=None):
         defined in FEATURE_MAP[feature]['policies']
         It must be specified if FEATURE_MAP[feature] has 'policies'.
     """
-    network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+    network_config = settings.OPENSTACK_NEUTRON_NETWORK
     feature_info = FEATURE_MAP.get(feature)
     if not feature_info:
         raise ValueError("The requested feature '%(feature)s' is unknown. "
@@ -1908,6 +1917,8 @@ def get_feature_permission(request, feature, operation=None):
     # Check dashboard settings
     feature_config = feature_info.get('config')
     if feature_config:
+        # TODO(amotoki): Drop 'default' from FEATURE_MAP as it will be
+        # meaningless once all default settings are pre-defined.
         if not network_config.get(feature_config['name'],
                                   feature_config['default']):
             return False

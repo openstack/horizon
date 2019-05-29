@@ -219,8 +219,8 @@ def cinderclient(request, version=None):
     if version is None:
         api_version = VERSIONS.get_active_version()
         version = api_version['version']
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    cacert = settings.OPENSTACK_SSL_CACERT
 
     (username, token_id, tenant_id, cinder_urls,
         auth_url) = get_auth_params_from_request(request)
@@ -578,8 +578,8 @@ def volume_backup_supported(request):
     # backup is configured yet. This is a workaround until that
     # capability is available.
     # https://bugs.launchpad.net/cinder/+bug/1334856
-    cinder_config = getattr(settings, 'OPENSTACK_CINDER_FEATURES', {})
-    return cinder_config.get('enable_backup', False)
+    cinder_config = settings.OPENSTACK_CINDER_FEATURES
+    return cinder_config['enable_backup']
 
 
 @profiler.trace
