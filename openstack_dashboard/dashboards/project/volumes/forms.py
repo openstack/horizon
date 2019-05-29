@@ -538,7 +538,8 @@ class AttachForm(forms.SelfHandlingForm):
 
 
 class CreateSnapshotForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255, label=_("Snapshot Name"))
+    name = forms.CharField(max_length=255, label=_("Snapshot Name"),
+                           required=False)
     description = forms.CharField(max_length=255,
                                   widget=forms.Textarea(attrs={'rows': 4}),
                                   label=_("Description"),
@@ -557,18 +558,18 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
             volume = cinder.volume_get(request,
                                        data['volume_id'])
             force = False
-            message = _('Creating volume snapshot "%s".') % data['name']
+            message = _('Creating volume snapshot "%s".')
             if volume.status == 'in-use':
                 force = True
                 message = _('Forcing to create snapshot "%s" '
-                            'from attached volume.') % data['name']
+                            'from attached volume.')
             snapshot = cinder.volume_snapshot_create(request,
                                                      data['volume_id'],
                                                      data['name'],
                                                      data['description'],
                                                      force=force)
 
-            messages.info(request, message)
+            messages.info(request, message % snapshot.name)
             return snapshot
         except Exception as e:
             redirect = reverse("horizon:project:volumes:index")
