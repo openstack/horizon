@@ -16,9 +16,9 @@
           <div class="form-group required"
                ng-class="{'has-error':imageForm.name.$invalid && imageForm.name.$dirty}">
             <label class="control-label required" for="imageForm-name">
-              <translate>Image Name</translate><span class="hz-icon-required fa fa-asterisk"></span>
+              <translate>Image Name</translate>
             </label>
-            <input required id="imageForm-name" name="name"
+            <input id="imageForm-name" name="name"
                    type="text" class="form-control"
                    ng-model="ctrl.image.name"
                    ng-disabled="viewModel.isSubmitting"
