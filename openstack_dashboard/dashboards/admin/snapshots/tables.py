@@ -15,7 +15,6 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tables
 
-from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 
 from openstack_dashboard.dashboards.project.snapshots \
@@ -35,12 +34,11 @@ class UpdateVolumeSnapshotStatus(tables.LinkAction):
                      "update_snapshot_status"),)
 
 
-class UpdateRow(tables.Row):
+class UpdateRow(snapshots_tables.UpdateRow):
     ajax = True
 
     def get_data(self, request, snapshot_id):
-        snapshot = cinder.volume_snapshot_get(request, snapshot_id)
-        snapshot._volume = cinder.volume_get(request, snapshot.volume_id)
+        snapshot = super(UpdateRow, self).get_data(request, snapshot_id)
         snapshot.host_name = getattr(snapshot._volume,
                                      'os-vol-host-attr:host')
         tenant_id = getattr(snapshot._volume,
