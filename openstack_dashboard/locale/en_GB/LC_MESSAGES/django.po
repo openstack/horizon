@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-28 08:04+0000\n"
+"POT-Creation-Date: 2019-05-29 17:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6490,10 +6490,6 @@ msgid "The name \"%s\" is already used by another flavor."
 msgstr "The name \"%s\" is already used by another flavour."
 
 #, python-format
-msgid "The name \"%s\" is already used by another group."
-msgstr "The name \"%s\" is already used by another group."
-
-#, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "The name \"%s\" is already used by another host aggregate."
 
@@ -6577,9 +6573,6 @@ msgstr "The specified Floating IP no longer exists."
 
 msgid "The specified port is invalid."
 msgstr "The specified port is invalid."
-
-msgid "The state to start the network in."
-msgstr "The state to start the network in."
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -7151,9 +7144,6 @@ msgstr "Unable to get console for instance \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Unable to get flavour list"
-
-msgid "Unable to get group list"
-msgstr "Unable to get group list"
 
 msgid "Unable to get host aggregate list"
 msgstr "Unable to get host aggregate list"

@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-28 08:04+0000\n"
+"POT-Creation-Date: 2019-05-29 17:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6244,10 +6244,6 @@ msgid "The name \"%s\" is already used by another flavor."
 msgstr "名称 \"%s\" 已经被其他实例类型占用。"
 
 #, python-format
-msgid "The name \"%s\" is already used by another group."
-msgstr "\"%s\"已被其他组使用。"
-
-#, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "该名称\"%s\"已经被其他主机聚合使用。"
 
@@ -6320,9 +6316,6 @@ msgstr "指定的浮动 IP 已不存在。"
 
 msgid "The specified port is invalid."
 msgstr "指定端口不可用。"
-
-msgid "The state to start the network in."
-msgstr "状态是启动网络"
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -6880,9 +6873,6 @@ msgstr "无法获取实例 “%s” 的控制台。"
 
 msgid "Unable to get flavor list"
 msgstr "无法获取实例类型列表。"
-
-msgid "Unable to get group list"
-msgstr "无法获取组列表"
 
 msgid "Unable to get host aggregate list"
 msgstr "无法获取主机聚合列表"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-03-20 15:51+0000\n"
+"POT-Creation-Date: 2019-05-29 17:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3217,9 +3217,6 @@ msgstr "વિનંતી કરેલ ઉદાહરણ પોર્ટ પ�
 
 msgid "The specified port is invalid."
 msgstr "સ્પષ્ટ કરેલ પોર્ટ અમાન્ય છે."
-
-msgid "The state to start the network in."
-msgstr "રાજ્યમાં નેટવર્ક શરૂ કરવા માટે."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."

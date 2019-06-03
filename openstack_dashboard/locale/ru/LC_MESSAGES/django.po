@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-28 08:04+0000\n"
+"POT-Creation-Date: 2019-05-29 17:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6494,10 +6494,6 @@ msgid "The name \"%s\" is already used by another flavor."
 msgstr "Имя «%s» уже занято другим типом инстансов."
 
 #, python-format
-msgid "The name \"%s\" is already used by another group."
-msgstr "Имя \"%s\" уже используется другой группой."
-
-#, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Имя «%s» уже используется другим агрегатором узлов."
 
@@ -6577,9 +6573,6 @@ msgstr "Указанный назначаемый IP более не сущес�
 
 msgid "The specified port is invalid."
 msgstr "Указан неверный порт."
-
-msgid "The state to start the network in."
-msgstr "Состояние для начала в сети."
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -7130,9 +7123,6 @@ msgstr "Не удалось получить консоль для инстан�
 
 msgid "Unable to get flavor list"
 msgstr "Не удалось получить список типов инстансов"
-
-msgid "Unable to get group list"
-msgstr "Не удалось получить список групп"
 
 msgid "Unable to get host aggregate list"
 msgstr "Не удалось получить список агрегаторов узлов."
