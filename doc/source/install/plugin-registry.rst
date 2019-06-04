@@ -63,9 +63,6 @@ Plugin Registry
    * - Neutron FWaaS Dashboard
      - :opendev-repo:`openstack/neutron-fwaas-dashboard`
      - :launchpad:`neutron-fwaas-dashboard`
-   * - Neutron LBaaS Dashboard
-     - :opendev-repo:`openstack/neutron-lbaas-dashboard`
-     - :storyboard:`openstack/neutron-lbaas-dashboard`
    * - Neutron VPNaaS Dashboard
      - :opendev-repo:`openstack/neutron-vpnaas-dashboard`
      - :launchpad:`neutron-vpnaas-dashboard`
