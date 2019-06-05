@@ -16,6 +16,7 @@ from django import urls
 from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
+from six.moves.urllib import parse
 
 from horizon import tables
 
@@ -46,7 +47,7 @@ class DeleteKeyPairs(tables.DeleteAction):
         )
 
     def delete(self, request, obj_id):
-        api.nova.keypair_delete(request, obj_id)
+        api.nova.keypair_delete(request, parse.unquote(obj_id))
 
 
 class QuotaKeypairMixin(object):
@@ -122,7 +123,7 @@ class KeyPairsTable(tables.DataTable):
     fingerprint = tables.Column("fingerprint", verbose_name=_("Fingerprint"))
 
     def get_object_id(self, keypair):
-        return keypair.name
+        return parse.quote(keypair.name)
 
     class Meta(object):
         name = "keypairs"

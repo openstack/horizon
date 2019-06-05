@@ -19,6 +19,7 @@
 from django.urls import reverse
 import mock
 import six
+from six.moves.urllib import parse
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.key_pairs.forms \
@@ -58,7 +59,8 @@ class KeyPairTests(test.TestCase):
         self.mock_keypair_list.return_value = self.keypairs.list()
         self.mock_keypair_delete.return_value = None
 
-        formData = {'action': 'keypairs__delete__%s' % keypair.name}
+        keypair_name = parse.quote(keypair.name)
+        formData = {'action': 'keypairs__delete__%s' % keypair_name}
         res = self.client.post(INDEX_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
@@ -74,7 +76,8 @@ class KeyPairTests(test.TestCase):
         self.mock_keypair_list.return_value = self.keypairs.list()
         self.mock_keypair_delete.side_effect = self.exceptions.nova
 
-        formData = {'action': 'keypairs__delete__%s' % keypair.name}
+        keypair_name = parse.quote(keypair.name)
+        formData = {'action': 'keypairs__delete__%s' % keypair_name}
         res = self.client.post(INDEX_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
