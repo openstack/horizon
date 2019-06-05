@@ -27,5 +27,5 @@ class AdminFloatingIps(horizon.Panel):
 
     @staticmethod
     def can_register():
-        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-        return network_config.get('enable_router', True)
+        network_config = settings.OPENSTACK_NEUTRON_NETWORK
+        return network_config['enable_router']

@@ -51,8 +51,8 @@ class IndexView(tables.DataTableView):
             # If filter_first is set and if there are not other filters
             # selected, then search criteria must be provided
             # and return an empty list
-            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-            if filter_first.get('identity.roles', False) and not filters:
+            filter_first = settings.FILTER_DATA_FIRST
+            if filter_first['identity.roles'] and not filters:
                 self._needs_filter_first = True
                 return roles
 
