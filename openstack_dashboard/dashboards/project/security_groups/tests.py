@@ -286,15 +286,21 @@ class SecurityGroupsViewTests(test.TestCase):
             sec_group.description)
 
     @test.create_mocks({api.neutron: ('security_group_get',
-                                      'is_extension_supported')})
+                                      'is_extension_supported'),
+                        quotas: ('tenant_quota_usages',)})
     def test_detail_get(self):
         sec_group = self.security_groups.first()
+        quota_data = self.neutron_quota_usages.first()
+        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_security_group_get.return_value = sec_group
         self.mock_is_extension_supported.return_value = True
         res = self.client.get(self.detail_url)
         self.assertTemplateUsed(res, SG_DETAIL_TEMPLATE)
         self.mock_security_group_get.assert_called_once_with(
             test.IsHttpRequest(), sec_group.id)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 2,
+            mock.call(test.IsHttpRequest(), targets=('security_group_rule', )))
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'standard-attr-description')
 

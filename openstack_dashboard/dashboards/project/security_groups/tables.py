@@ -135,6 +135,19 @@ class CreateRule(tables.LinkAction):
     def get_link_url(self):
         return reverse(self.url, args=[self.table.kwargs['security_group_id']])
 
+    def allowed(self, request, security_group=None):
+        usages = quotas.tenant_quota_usages(request,
+                                            targets=('security_group_rule', ))
+
+        self.classes = [c for c in self.classes if c != "disabled"]
+        if usages['security_group_rule'].get('available', 1) <= 0:
+            self.classes.append("disabled")
+            self.verbose_name = _("Add Rule (Quota exceeded)")
+        else:
+            self.verbose_name = _("Add Rule")
+
+        return True
+
 
 class DeleteRule(tables.DeleteAction):
     @staticmethod
