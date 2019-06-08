@@ -446,3 +446,24 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertNotIn('properties', meta)
         self.assertEqual(meta['description'], form_data['description'])
         self.assertEqual(meta['architecture'], form_data['architecture'])
+
+    def test_create_image_metadata_vhd(self):
+        form_data = {
+            'name': u'OVF image',
+            'description': u'OVF image test',
+            'source_type': u'url',
+            'image_url': u'/',
+            'disk_format': u'vhd',
+            'architecture': u'x86-64',
+            'min_disk': 15,
+            'min_ram': 512,
+            'is_public': False,
+            'protected': False,
+            'is_copying': False
+        }
+        meta = api.glance.create_image_metadata(form_data)
+        self.assertEqual(meta['disk_format'], 'vhd')
+        self.assertEqual(meta['container_format'], 'ovf')
+        self.assertNotIn('properties', meta)
+        self.assertEqual(meta['description'], form_data['description'])
+        self.assertEqual(meta['architecture'], form_data['architecture'])

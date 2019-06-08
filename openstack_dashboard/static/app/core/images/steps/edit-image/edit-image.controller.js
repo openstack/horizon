@@ -113,6 +113,9 @@
         ctrl.image.container_format = 'docker';
         ctrl.image.disk_format = 'raw';
       }
+      if (ctrl.image_format === 'vhd') {
+        ctrl.image.container_format = 'ovf';
+      }
     }
 
   } // end of controller

@@ -481,6 +481,10 @@ def create_image_metadata(data):
         # 'raw' as the disk format and 'docker' as the container format.
         meta['disk_format'] = 'raw'
         meta['container_format'] = 'docker'
+    elif meta['disk_format'] == 'vhd':
+        # If the user wishes to upload a vhd using Horizon, then
+        # 'ovf' must be the container format
+        meta['container_format'] = 'ovf'
     elif meta['disk_format'] == 'ova':
         # If the user wishes to upload an OVA using Horizon, then
         # 'ova' must be the container format and 'vmdk' must be the disk

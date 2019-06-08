@@ -137,5 +137,14 @@
       expect(ctrl.image.container_format).toEqual('ari');
     });
 
+    it('should set container to ovf when disk format is vhd', function() {
+      setImagePromise({id: '1', disk_format: 'vhd', container_format: '',
+        is_public: false, properties: []});
+      var ctrl = createController();
+      $timeout.flush();
+
+      expect(ctrl.image.container_format).toEqual('ovf');
+    });
+
   });
 })();
