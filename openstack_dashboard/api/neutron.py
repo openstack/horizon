@@ -851,8 +851,16 @@ def list_resources_with_long_filters(list_method,
         # We consider only the filter condition from (filter_attr,
         # filter_values) and do not consider other filter conditions
         # which may be specified in **params.
-        if not isinstance(filter_values, (list, tuple, set, frozenset)):
+
+        # NOTE(pas-ha) this will produce a deprecation warning in Py37
+        # and will not work in Py38, and six.moves also does not support it
+        # (see https://github.com/benjaminp/six/issues/155).
+        # TODO(pas-ha) replace with collections.abc.Sequence
+        # after dropping py27 support in U release
+        if isinstance(filter_values, six.string_types):
             filter_values = [filter_values]
+        elif not isinstance(filter_values, collections.Sequence):
+            filter_values = list(filter_values)
 
         # Length of each query filter is:
         # <key>=<value>& (e.g., id=<uuid>)
