@@ -96,7 +96,7 @@ class K2KAuthPlugin(base.BasePlugin):
         We attempt to get the auth ref. If it fails and if the K2K auth plugin
         was being used then we will prepend a message saying that the error was
         on the service provider side.
-        :param: unscoped_auth: Keystone auth plugin for unscoped user
+        :param unscoped_auth: Keystone auth plugin for unscoped user
         :returns: keystoneclient.access.AccessInfo object
         """
         try:
