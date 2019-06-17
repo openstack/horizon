@@ -2,9 +2,9 @@
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.1.0.dev148\n"
+"Project-Id-Version: horizon 16.0.0.0b2.dev12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-29 12:58-0500\n"
+"POT-Creation-Date: 2019-06-14 11:13-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -448,9 +448,6 @@ msgstr "Murano Dashboard"
 
 msgid "Neutron FWaaS Dashboard"
 msgstr "Neutron FWaaS Dashboard"
-
-msgid "Neutron LBaaS Dashboard"
-msgstr "Neutron LBaaS Dashboard"
 
 msgid "Neutron VPNaaS Dashboard"
 msgstr "Neutron VPNaaS Dashboard"
