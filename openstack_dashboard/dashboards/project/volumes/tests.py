@@ -40,8 +40,7 @@ SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
 class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     @test.create_mocks({
         api.nova: ['server_get', 'server_list'],
-        api.cinder: ['volume_backup_list_paged',
-                     'volume_backup_supported',
+        api.cinder: ['volume_backup_supported',
                      'volume_snapshot_list',
                      'volume_list_paged',
                      'tenant_absolute_limits',
