@@ -139,6 +139,7 @@ class CreateSubnetInfoAction(workflows.Action):
                                   required=False)
 
     cidr = forms.IPField(label=_("Network Address"),
+                         required=False,
                          initial="",
                          error_messages={
                              'required': _('Specify "Network Address" or '
@@ -286,6 +287,10 @@ class CreateSubnetInfoAction(workflows.Action):
             msg = _('Specify "Address pool" or select '
                     '"Enter Network Address manually" and specify '
                     '"Network Address".')
+            raise forms.ValidationError(msg)
+        if not cidr and address_source != 'subnetpool':
+            msg = _('Specify "Network Address" or '
+                    'clear "Create Subnet" checkbox in previous step.')
             raise forms.ValidationError(msg)
         if address_source == 'subnetpool' and 'cidr' in self._errors:
             del self._errors['cidr']
