@@ -13,21 +13,8 @@
 from django.core import validators
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_dashboard.api import swift
-
 
 no_slash_validator = validators.RegexValidator(r'^(?u)[^/]+$',
                                                _("Slash is not an allowed "
                                                  "character."),
                                                code="noslash")
-no_begin_or_end_slash = validators.RegexValidator(r'^[^\/](?u).+[^\/]$',
-                                                  _("Slash is not allowed at "
-                                                    "the beginning or end of "
-                                                    "your string."),
-                                                  code="nobeginorendslash")
-
-
-def wrap_delimiter(name):
-    if name and not name.endswith(swift.FOLDER_DELIMITER):
-        return name + swift.FOLDER_DELIMITER
-    return name

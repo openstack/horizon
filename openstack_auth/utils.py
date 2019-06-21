@@ -30,8 +30,6 @@ from six.moves.urllib import parse as urlparse
 
 LOG = logging.getLogger(__name__)
 
-_TOKEN_TIMEOUT_MARGIN = getattr(settings, 'TOKEN_TIMEOUT_MARGIN', 0)
-
 """
 We need the request object to get the user, so we'll slightly modify the
 existing django.contrib.auth.get_user method. To do so we update the
