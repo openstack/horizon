@@ -34,7 +34,6 @@ from openstack_dashboard.dashboards.admin.metadata_defs \
 class CreateNamespaceForm(forms.SelfHandlingForm):
     source_type = forms.ChoiceField(
         label=_('Namespace Definition Source'),
-        required=False,
         choices=[('file', _('Metadata Definition File')),
                  ('raw', _('Direct Input'))],
         widget=forms.ThemableSelectWidget(
@@ -45,6 +44,7 @@ class CreateNamespaceForm(forms.SelfHandlingForm):
         help_text=_("A local metadata definition file to upload."),
         widget=forms.FileInput(
             attrs={'class': 'switched', 'data-switch-on': 'source',
+                   'data-required-when-shown': 'true',
                    'data-source-file': _('Metadata Definition File')}),
         required=False)
 
@@ -53,6 +53,7 @@ class CreateNamespaceForm(forms.SelfHandlingForm):
         help_text=_('The JSON formatted contents of a namespace.'),
         widget=forms.widgets.Textarea(
             attrs={'class': 'switched', 'data-switch-on': 'source',
+                   'data-required-when-shown': 'true',
                    'data-source-raw': _('Namespace JSON')}),
         required=False)
 
