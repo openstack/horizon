@@ -147,7 +147,10 @@ class CreateForm(forms.SelfHandlingForm):
             if exc.status_code == 409:
                 msg = _('Quota exceeded for resource router.')
             else:
-                msg = _('Failed to create router "%s".') % data['name']
+                if data["name"]:
+                    msg = _('Failed to create router "%s".') % data['name']
+                else:
+                    msg = _('Failed to create router.')
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
             return False
@@ -207,5 +210,6 @@ class UpdateForm(forms.SelfHandlingForm):
         except Exception as exc:
             LOG.info('Failed to update router %(id)s: %(exc)s',
                      {'id': self.initial['router_id'], 'exc': exc})
-            msg = _('Failed to update router %s') % data['name']
+            name_or_id = data['name'] or self.initial['router_id']
+            msg = _('Failed to update router %s') % name_or_id
             exceptions.handle(request, msg, redirect=self.redirect_url)
