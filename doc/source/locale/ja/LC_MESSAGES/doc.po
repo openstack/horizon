@@ -1,0 +1,21 @@
+# Akihiro Motoki <amotoki@gmail.com>, 2019. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 16.0.0.0b2.dev26\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-24 03:59-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2019-02-15 07:11+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "Glossary"
+msgstr "用語集"
+
+msgid "Horizon"
+msgstr "Horizon"

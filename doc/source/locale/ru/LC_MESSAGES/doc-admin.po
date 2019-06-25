@@ -1,0 +1,31 @@
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 16.0.0.0b2.dev26\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-24 03:59-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-08-04 09:05+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+msgid "Create a role"
+msgstr "Создать роль"
+
+msgid "Create and manage roles"
+msgstr "Создание и управление ролями."
+
+msgid "Delete a role"
+msgstr "Удалить роль"
+
+msgid "Edit a role"
+msgstr "Редактировать роль"
+
+msgid "You cannot undo this action."
+msgstr "Отменить действие невозможно."
