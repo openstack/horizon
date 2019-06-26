@@ -123,9 +123,9 @@ class VolumeType(BaseCinderAPIResourceWrapper):
 class VolumeBackup(BaseCinderAPIResourceWrapper):
 
     _attrs = ['id', 'name', 'description', 'container', 'size', 'status',
-              'created_at', 'volume_id', 'availability_zone']
+              'created_at', 'volume_id', 'availability_zone', 'snapshot_id']
     _volume = None
-
+    _snapshot = None
     @property
     def volume(self):
         return self._volume
@@ -133,6 +133,14 @@ class VolumeBackup(BaseCinderAPIResourceWrapper):
     @volume.setter
     def volume(self, value):
         self._volume = value
+
+    @property
+    def snapshot(self):
+        return self._snapshot
+
+    @snapshot.setter
+    def snapshot(self, value):
+        self._snapshot = value
 
 
 class QosSpecs(BaseCinderAPIResourceWrapper):
@@ -630,7 +638,8 @@ def volume_backup_create(request,
                          container_name,
                          name,
                          description,
-                         force=False):
+                         force=False,
+                         snapshot_id=None):
     # need to ensure the container name is not an empty
     # string, but pass None to get the container name
     # generated correctly
@@ -639,6 +648,7 @@ def volume_backup_create(request,
         container=container_name if container_name else None,
         name=name,
         description=description,
+        snapshot_id=snapshot_id,
         force=force)
     return VolumeBackup(backup)
 
