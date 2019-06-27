@@ -46,7 +46,7 @@
       - ^openstack_dashboard/dashboards/.*/tests.py$
     vars:
       devstack_localrc:
-        TEMPEST_PLUGINS: "'{{ ansible_user_dir }}/src/opendev.org/openstack/tempest-horizon'"
+        TEMPEST_PLUGINS: "{{ ansible_user_dir }}/src/opendev.org/openstack/tempest-horizon"
       devstack_services:
         horizon: true
         tempest: true
