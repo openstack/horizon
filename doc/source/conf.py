@@ -236,7 +236,7 @@ htmlhelp_basename = 'Horizondoc'
 # (source start file, target name, title, author, documentclass
 # [howto/manual]).
 latex_documents = [
-    ('index', 'Horizon.tex', u'Horizon Documentation',
+    ('index', 'doc-horizon.tex', u'Horizon Documentation',
      u'OpenStack Foundation', 'manual'),
 ]
 
@@ -258,8 +258,16 @@ latex_documents = [
 # latex_appendices = []
 
 # If false, no module index is generated.
-# latex_domain_indices = True
+latex_domain_indices = False
 
+latex_elements = {
+    'makeindex': '',
+    'printindex': '',
+    'preamble': r'\setcounter{tocdepth}{3}',
+}
+
+# Disable usage of xindy https://bugzilla.redhat.com/show_bug.cgi?id=1643664
+latex_use_xindy = False
 
 # -- Options for manual page output -------------------------------------------
 
