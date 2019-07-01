@@ -70,16 +70,6 @@ def sort_flavor_list(request, flavors, with_menu_label=True):
         return []
 
 
-def availability_zone_list(request):
-    """Utility method to retrieve a list of availability zones."""
-    try:
-        return api.nova.availability_zone_list(request)
-    except Exception:
-        exceptions.handle(request,
-                          _('Unable to retrieve Nova availability zones.'))
-        return []
-
-
 def server_group_list(request):
     """Utility method to retrieve a list of server groups."""
     try:
