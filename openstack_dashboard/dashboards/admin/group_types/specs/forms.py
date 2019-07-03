@@ -71,7 +71,7 @@ class EditSpec(forms.SelfHandlingForm):
             api.cinder.group_type_spec_set(request,
                                            group_type_id,
                                            {key: data['value']})
-            msg = _('Saved group spec "%s".') % key
+            msg = _('Saved group type spec "%s".') % key
             messages.success(request, msg)
             return True
         except Exception:
