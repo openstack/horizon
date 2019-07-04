@@ -224,9 +224,9 @@ class VolumeDetailsSnapshotsTable(volume_tables.VolumesTableBase):
         table_actions = (VolumeSnapshotsFilterAction, DeleteVolumeSnapshot,)
 
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
             launch_actions = (LaunchSnapshot,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+        if settings.LAUNCH_INSTANCE_NG_ENABLED:
             launch_actions = (LaunchSnapshotNG,) + launch_actions
 
         row_actions = ((CreateVolumeFromSnapshot,) + launch_actions +

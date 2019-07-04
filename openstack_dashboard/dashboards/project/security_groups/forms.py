@@ -269,7 +269,7 @@ class AddRule(forms.SelfHandlingForm):
         # parameter. If 'backend' is used, error message should be emitted.
         backend = 'neutron'
 
-        rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', [])
+        rules_dict = settings.SECURITY_GROUP_RULES
         common_rules = [
             (k, rules_dict[k]['name'])
             for k in rules_dict
@@ -296,8 +296,7 @@ class AddRule(forms.SelfHandlingForm):
             ('all', _('All ports')),
         ]
 
-        if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
-                       {}).get('enable_ipv6', True):
+        if not settings.OPENSTACK_NEUTRON_NETWORK['enable_ipv6']:
             self.fields['cidr'].version = forms.IPv4
             self.fields['ethertype'].widget = forms.TextInput(
                 attrs={'readonly': 'readonly'})

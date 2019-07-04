@@ -67,8 +67,8 @@ class DefaultSubnetWorkflowMixin(object):
 
     def get_default_dns_servers(self):
         # this returns the default dns servers to be used for new subnets
-        dns_default = "\n".join(getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
-                                        {}).get('default_dns_nameservers', ''))
+        dns_default = "\n".join(
+            settings.OPENSTACK_NEUTRON_NETWORK['default_dns_nameservers'])
         return dns_default
 
 

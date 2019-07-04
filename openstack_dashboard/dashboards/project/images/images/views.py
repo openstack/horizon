@@ -71,9 +71,7 @@ class CreateView(forms.ModalFormView):
         context = super(CreateView, self).get_context_data(**kwargs)
         upload_mode = api.glance.get_image_upload_mode()
         context['image_upload_enabled'] = upload_mode != 'off'
-        context['images_allow_location'] = getattr(settings,
-                                                   'IMAGES_ALLOW_LOCATION',
-                                                   False)
+        context['images_allow_location'] = settings.IMAGES_ALLOW_LOCATION
         return context
 
 

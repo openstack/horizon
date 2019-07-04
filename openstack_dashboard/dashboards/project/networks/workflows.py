@@ -205,8 +205,7 @@ class CreateSubnetInfoAction(workflows.Action):
     def __init__(self, request, context, *args, **kwargs):
         super(CreateSubnetInfoAction, self).__init__(request, context, *args,
                                                      **kwargs)
-        if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
-                       {}).get('enable_ipv6', True):
+        if not settings.OPENSTACK_NEUTRON_NETWORK['enable_ipv6']:
             self.fields['ip_version'].widget = forms.HiddenInput()
             self.fields['ip_version'].initial = 4
 
@@ -261,7 +260,7 @@ class CreateSubnetInfoAction(workflows.Action):
         if not self.check_subnet_range:
             return
 
-        allowed_cidr = getattr(settings, "ALLOWED_PRIVATE_SUBNET_CIDR", {})
+        allowed_cidr = settings.ALLOWED_PRIVATE_SUBNET_CIDR
         version_str = 'ipv%s' % ip_version
         allowed_ranges = allowed_cidr.get(version_str, [])
         if allowed_ranges:
@@ -381,8 +380,7 @@ class CreateSubnetDetailAction(workflows.Action):
     def __init__(self, request, context, *args, **kwargs):
         super(CreateSubnetDetailAction, self).__init__(request, context,
                                                        *args, **kwargs)
-        if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
-                       {}).get('enable_ipv6', True):
+        if not settings.OPENSTACK_NEUTRON_NETWORK['enable_ipv6']:
             self.fields['ipv6_modes'].widget = forms.HiddenInput()
 
     def populate_ipv6_modes_choices(self, request, context):

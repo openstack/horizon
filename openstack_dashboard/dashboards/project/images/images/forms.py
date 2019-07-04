@@ -36,8 +36,8 @@ from openstack_dashboard import api
 from openstack_dashboard import policy
 
 
-IMAGE_BACKEND_SETTINGS = getattr(settings, 'OPENSTACK_IMAGE_BACKEND', {})
-IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
+IMAGE_BACKEND_SETTINGS = settings.OPENSTACK_IMAGE_BACKEND
+IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS['image_formats']
 
 
 class ImageURLField(forms.URLField):
@@ -158,7 +158,7 @@ class CreateImageForm(CreateParent):
         if api.glance.VERSIONS.active >= 2:
             # NOTE: GlanceV2 doesn't support copy-from feature, sorry!
             self._hide_is_copying()
-            if not getattr(settings, 'IMAGES_ALLOW_LOCATION', False):
+            if not settings.IMAGES_ALLOW_LOCATION:
                 self._hide_url_source_type()
                 if (api.glance.get_image_upload_mode() == 'off' or not
                         policy.check((("image", "upload_image"),), request)):

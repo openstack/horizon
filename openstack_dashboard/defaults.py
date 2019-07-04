@@ -12,14 +12,54 @@
 
 """Default settings for openstack_dashboard"""
 
+from django.utils.translation import ugettext_lazy as _
+
 # This must be configured
 # OPENSTACK_KEYSTONE_URL = 'http://localhost/identity/v3'
+
+# Dict used to restrict user private subnet cidr range.
+# An empty list means that user input will not be restricted
+# for a corresponding IP version. By default, there is
+# no restriction for IPv4 or IPv6. To restrict
+# user private subnet cidr range set ALLOWED_PRIVATE_SUBNET_CIDR
+# to something like
+# ALLOWED_PRIVATE_SUBNET_CIDR = {
+#     'ipv4': ['10.0.0.0/8', '192.168.0.0/16'],
+#     'ipv6': ['fc00::/7']
+# }
+ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
 
 # The number of objects (Swift containers/objects or images) to display
 # on a single page before providing a paging element (a "more" link)
 # to paginate results.
 API_RESULT_LIMIT = 1000
 API_RESULT_PAGE_SIZE = 20
+
+# For multiple regions uncomment this configuration, and add (endpoint, title).
+# AVAILABLE_REGIONS = [
+#     ('http://cluster1.example.com:5000/v3', 'cluster1'),
+#     ('http://cluster2.example.com:5000/v3', 'cluster2'),
+# ]
+AVAILABLE_REGIONS = []
+
+# Set Console type:
+# valid options are "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL", "MKS"
+# or None. Set to None explicitly if you want to deactivate the console.
+CONSOLE_TYPE = "AUTO"
+
+# When launching an instance, the menu of available flavors is
+# sorted by RAM usage, ascending. If you would like a different sort order,
+# you can provide another flavor attribute as sorting key. Alternatively, you
+# can provide a custom callback method to use for sorting. You can also provide
+# a flag for reverse sort. For more info, see
+# http://docs.python.org/2/library/functions.html#sorted
+# CREATE_INSTANCE_FLAVOR_SORT = {
+#     'key': 'name',
+#      # or
+#     'key': my_awesome_callback_method,
+#     'reverse': False,
+# }
+CREATE_INSTANCE_FLAVOR_SORT = {}
 
 ENABLE_CLIENT_TOKEN = True
 # Set this to True to display an 'Admin Password' field on the Change Password
@@ -55,6 +95,78 @@ HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
 # If using Glance V2, this value should be False unless the Glance
 # configuration and policies allow setting locations.
 IMAGES_ALLOW_LOCATION = False
+
+# The IMAGE_CUSTOM_PROPERTY_TITLES settings is used to customize the titles for
+# image custom property attributes that appear on image detail pages.
+IMAGE_CUSTOM_PROPERTY_TITLES = {
+    "architecture": _("Architecture"),
+    "kernel_id": _("Kernel ID"),
+    "ramdisk_id": _("Ramdisk ID"),
+    "image_state": _("Euca2ools state"),
+    "project_id": _("Project ID"),
+    "image_type": _("Image Type"),
+}
+
+IMAGES_LIST_FILTER_TENANTS = []
+
+# The Launch Instance user experience has been significantly enhanced.
+# You can choose whether to enable the new launch instance experience,
+# the legacy experience, or both. The legacy experience will be removed
+# in a future release, but is available as a temporary backup setting to ensure
+# compatibility with existing deployments. Further development will not be
+# done on the legacy experience. Please report any problems with the new
+# experience via the Launchpad tracking system.
+#
+# Toggle LAUNCH_INSTANCE_LEGACY_ENABLED and LAUNCH_INSTANCE_NG_ENABLED to
+# determine the experience to enable.  Set them both to true to enable
+# both.
+LAUNCH_INSTANCE_LEGACY_ENABLED = False
+LAUNCH_INSTANCE_NG_ENABLED = True
+
+# A dictionary of settings which can be used to provide the default values for
+# properties found in the Launch Instance modal.
+LAUNCH_INSTANCE_DEFAULTS = {
+    'config_drive': False,
+    'create_volume': True,
+    'hide_create_volume': False,
+    'disable_image': False,
+    'disable_instance_snapshot': False,
+    'disable_volume': False,
+    'disable_volume_snapshot': False,
+    'enable_scheduler_hints': True,
+}
+
+OPENRC_CUSTOM_TEMPLATE = 'project/api_access/openrc.sh.template'
+OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE = ('project/api_access/'
+                                         'clouds.yaml.template')
+
+SECURITY_GROUP_RULES = {
+    'all_tcp': {
+        'name': _('All TCP'),
+        'ip_protocol': 'tcp',
+        'from_port': '1',
+        'to_port': '65535',
+    },
+    'all_udp': {
+        'name': _('All UDP'),
+        'ip_protocol': 'udp',
+        'from_port': '1',
+        'to_port': '65535',
+    },
+    'all_icmp': {
+        'name': _('All ICMP'),
+        'ip_protocol': 'icmp',
+        'from_port': '-1',
+        'to_port': '-1',
+    },
+}
+
+# Controls whether the keystone openrc file is accesible from the user
+# menu and the api access panel.
+SHOW_OPENRC_FILE = True
+# Controls whether clouds.yaml is accesible from the user
+# menu and the api access panel.
+SHOW_OPENSTACK_CLOUDS_YAML = True
 
 # The size of chunk in bytes for downloading objects from Swift
 SWIFT_FILE_TRANSFER_CHUNK_SIZE = 512 * 1024
@@ -146,6 +258,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     # The entries below are examples only, and are not appropriate for
     # real deployments
     # 'default_dns_nameservers': ["8.8.8.8", "8.8.4.4", "208.67.222.222"],
+    'default_dns_nameservers': [],
 
     # Set which provider network types are supported. Only the network types
     # in this list will be available to choose from when creating a network.
@@ -184,6 +297,12 @@ OPENSTACK_NEUTRON_NETWORK = {
     # e.g. ['default', 'test']
     'physical_networks': [],
 }
+
+# This settings controls whether IP addresses of servers are retrieved from
+# neutron in the project instance table. Setting this to ``False`` may mitigate
+# a performance issue in the project instance table in large deployments.
+OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES = True
+
 OPENSTACK_NOVA_EXTENSIONS_BLACKLIST = []
 # The Xen Hypervisor has the ability to set the mount point for volumes
 # attached to instances (other Hypervisors currently do not). Setting
@@ -195,6 +314,38 @@ OPENSTACK_HYPERVISOR_FEATURES = {
     'enable_quotas': True,
     'requires_keypair': False,
 }
+
+# Setting this to True, will add a new "Retrieve Password" action on instance,
+# allowing Admin session password retrieval/decryption.
+OPENSTACK_ENABLE_PASSWORD_RETRIEVE = False
+
+# The OPENSTACK_IMAGE_BACKEND settings can be used to customize features
+# in the OpenStack Dashboard related to the Image service, such as the list
+# of supported image formats.
+OPENSTACK_IMAGE_BACKEND = {
+    'image_formats': [
+        ('', _('Select format')),
+        ('aki', _('AKI - Amazon Kernel Image')),
+        ('ami', _('AMI - Amazon Machine Image')),
+        ('ari', _('ARI - Amazon Ramdisk Image')),
+        ('docker', _('Docker')),
+        ('iso', _('ISO - Optical Disk Image')),
+        ('ova', _('OVA - Open Virtual Appliance')),
+        ('ploop', _('PLOOP - Virtuozzo/Parallels Loopback Disk')),
+        ('qcow2', _('QCOW2 - QEMU Emulator')),
+        ('raw', _('Raw')),
+        ('vdi', _('VDI - Virtual Disk Image')),
+        ('vhd', _('VHD - Virtual Hard Disk')),
+        ('vhdx', _('VHDX - Large Virtual Hard Disk')),
+        ('vmdk', _('VMDK - Virtual Machine Disk')),
+    ]
+}
+
+# Set OPENSTACK_CLOUDS_YAML_NAME to provide a nicer name for this cloud for
+# the clouds.yaml file than "openstack".
+OPENSTACK_CLOUDS_YAML_NAME = 'openstack'
+# If this cloud has a vendor profile in os-client-config, put it's name here.
+OPENSTACK_CLOUDS_YAML_PROFILE = ''
 
 # AngularJS requires some settings to be made available to
 # the client side. Some settings are required by in-tree / built-in horizon

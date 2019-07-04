@@ -125,8 +125,7 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
         # nova network info cache is not synced. Precisely there is no
         # need to check IP addresses of all servers. It is sufficient to
         # fetch IP address information for servers recently updated.
-        if not getattr(settings,
-                       'OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES', True):
+        if not settings.OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES:
             return instances
         try:
             api.network.servers_update_addresses(self.request, instances)
@@ -263,8 +262,8 @@ class LaunchInstanceView(workflows.WorkflowView):
         initial = super(LaunchInstanceView, self).get_initial()
         initial['project_id'] = self.request.user.tenant_id
         initial['user_id'] = self.request.user.id
-        defaults = getattr(settings, 'LAUNCH_INSTANCE_DEFAULTS', {})
-        initial['config_drive'] = defaults.get('config_drive', False)
+        defaults = settings.LAUNCH_INSTANCE_DEFAULTS
+        initial['config_drive'] = defaults['config_drive']
         return initial
 
 
@@ -285,7 +284,7 @@ def console(request, instance_id):
 
 
 def auto_console(request, instance_id):
-    console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
+    console_type = settings.CONSOLE_TYPE
     try:
         instance = api.nova.server_get(request, instance_id)
         console_url = project_console.get_console(request, console_type,

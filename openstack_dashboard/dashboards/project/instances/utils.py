@@ -49,7 +49,7 @@ def sort_flavor_list(request, flavors, with_menu_label=True):
                         '"ram" instead.', sort_key)
             return getattr(flavor, 'ram')
     try:
-        flavor_sort = getattr(settings, 'CREATE_INSTANCE_FLAVOR_SORT', {})
+        flavor_sort = settings.CREATE_INSTANCE_FLAVOR_SORT
         sort_key = flavor_sort.get('key', 'ram')
         rev = flavor_sort.get('reverse', False)
         if not callable(sort_key):

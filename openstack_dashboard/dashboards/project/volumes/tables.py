@@ -567,9 +567,9 @@ class VolumesTable(VolumesTableBase):
                          VolumesFilterAction)
 
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
             launch_actions = (LaunchVolume,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+        if settings.LAUNCH_INSTANCE_NG_ENABLED:
             launch_actions = (LaunchVolumeNG,) + launch_actions
 
         row_actions = ((EditVolume, ExtendVolume,) +

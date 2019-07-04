@@ -214,8 +214,8 @@ class JSONView(View):
 
     @property
     def is_router_enabled(self):
-        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-        return network_config.get('enable_router', True)
+        network_config = settings.OPENSTACK_NEUTRON_NETWORK
+        return network_config['enable_router']
 
     def add_resource_url(self, view, resources):
         tenant_id = self.request.user.tenant_id
@@ -239,7 +239,7 @@ class JSONView(View):
         except Exception:
             servers = []
         data = []
-        console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
+        console_type = settings.CONSOLE_TYPE
         # lowercase of the keys will be used at the end of the console URL.
         for server in servers:
             server_data = {'name': server.name,
