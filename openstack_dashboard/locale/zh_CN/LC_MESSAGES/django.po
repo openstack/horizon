@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1344,9 +1344,6 @@ msgstr "创建映射"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "为卷类型创建新的\"扩展规格\"键值对。"
-
-msgid "Create a new \"group spec\" key-value pair for a group type."
-msgstr "为一个组类型创建一个新的 \"group spec\" 键-值对。"
 
 #, python-format
 msgid ""
@@ -5237,10 +5234,6 @@ msgid "Saved extra spec \"%s\"."
 msgstr "保存扩展规格\"%s\"."
 
 #, python-format
-msgid "Saved group spec \"%s\"."
-msgstr "已保存组规格\"%s\"。"
-
-#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "已保存规格\"%s\"."
 
@@ -5646,9 +5639,6 @@ msgstr "要创建的镜像大小"
 
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
-
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "字符串首尾不允许使用斜杠"
 
 msgid "Slash is not an allowed character."
 msgstr "斜杠是不允许的字符。"
@@ -6606,9 +6596,6 @@ msgstr "未能连接接口。"
 msgid "Unable to attach volume."
 msgstr "无法连接卷"
 
-msgid "Unable to change password."
-msgstr "无法修改密码。"
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "无法更改卷: \"%s\"的类型"
@@ -7020,9 +7007,6 @@ msgstr "无法从\"%s\"实例获取网络信息。"
 msgid "Unable to retrieve Neutron quota information."
 msgstr "无法获取 Neutron 配额信息。"
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "无法获取Nova可用区域。"
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "无法检索Nova主机组"
 
@@ -7247,9 +7231,6 @@ msgstr "无法获取镜像列表。"
 
 msgid "Unable to retrieve image."
 msgstr "无法获取镜像。"
-
-msgid "Unable to retrieve images"
-msgstr "无法获取镜像"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "无法获取当前项目拥有的镜像。"
@@ -7564,9 +7545,6 @@ msgstr "无法获取卷"
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "无法获取卷/实例连接信息"
 
-msgid "Unable to retrieve volumes availability zones."
-msgstr "无法获取卷可用域。"
-
 msgid "Unable to retrieve volumes."
 msgstr "无法获取卷。"
 
@@ -7849,10 +7827,6 @@ msgstr "更新加密卷类型"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "为\"%(key)s\"更新\"额外规格\"的值"
-
-#, python-format
-msgid "Update the \"group spec\" value for \"%(key)s\""
-msgstr "为 \"%(key)s\" 更新 \"group spec\" 的值"
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""

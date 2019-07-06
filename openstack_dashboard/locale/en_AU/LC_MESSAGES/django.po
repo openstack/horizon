@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5157,9 +5157,6 @@ msgstr "Size of image to launch."
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
 
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "Slash is not allowed at the beginning or end of your string."
-
 msgid "Slash is not an allowed character."
 msgstr "Slash is not an allowed character."
 
@@ -6070,9 +6067,6 @@ msgstr "Unable to attach interface."
 msgid "Unable to attach volume."
 msgstr "Unable to attach volume."
 
-msgid "Unable to change password."
-msgstr "Unable to change password."
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Unable to change the volume type for volume: \"%s\""
@@ -6367,9 +6361,6 @@ msgstr "Unable to retrieve MAC learning state"
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "Unable to retrieve Network information for instance \"%s\"."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Unable to retrieve Nova availability zones."
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Unable to retrieve Nova server groups."
 
@@ -6530,9 +6521,6 @@ msgstr "Unable to retrieve image list."
 
 msgid "Unable to retrieve image."
 msgstr "Unable to retrieve image."
-
-msgid "Unable to retrieve images"
-msgstr "Unable to retrieve images"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Unable to retrieve images for the current project."
@@ -6798,9 +6786,6 @@ msgstr "Unable to retrieve volume."
 
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Unable to retrieve volume/instance attachment information"
-
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Unable to retrieve volumes availability zones."
 
 msgid "Unable to set Domain Context."
 msgstr "Unable to set Domain Context."

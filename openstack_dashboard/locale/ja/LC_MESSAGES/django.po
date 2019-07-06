@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1395,10 +1395,6 @@ msgstr "マッピングの作成"
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "ボリューム種別に対する「追加スペック」のキーと値のペアを新規作成します。 "
-
-msgid "Create a new \"group spec\" key-value pair for a group type."
-msgstr ""
-"グループ種別に対する「グループスペック」のキーと値のペアを新規作成します。 "
 
 #, python-format
 msgid ""
@@ -5431,10 +5427,6 @@ msgid "Saved extra spec \"%s\"."
 msgstr "追加スペック \"%s\" を保存しました。"
 
 #, python-format
-msgid "Saved group spec \"%s\"."
-msgstr "グループスペック \"%s\" を保存しました。"
-
-#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "スペック \"%s\" を保存しました。"
 
@@ -5848,9 +5840,6 @@ msgstr "起動するイメージの容量"
 
 msgid "Size(GiB) ="
 msgstr "サイズ (GiB) ="
-
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "文字列の先頭または末尾にスラッシュを使用することはできません。"
 
 msgid "Slash is not an allowed character."
 msgstr "スラッシュ (/) は使用できません。"
@@ -6890,9 +6879,6 @@ msgstr "インターフェースを接続できません。"
 msgid "Unable to attach volume."
 msgstr "ボリュームを接続できません。"
 
-msgid "Unable to change password."
-msgstr "パスワードを変更できません。"
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "ボリューム \"%s\" のボリューム種別を変更できません。"
@@ -7322,9 +7308,6 @@ msgstr "インスタンス \"%s\" のネットワーク情報を取得できま�
 msgid "Unable to retrieve Neutron quota information."
 msgstr "Neutron のクォータ情報を取得できません。"
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Nova のアベイラビリティーゾーンを取得できません。"
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Nova のサーバーグループを取得できません。"
 
@@ -7550,9 +7533,6 @@ msgstr "イメージの一覧を取得できません。"
 
 msgid "Unable to retrieve image."
 msgstr "イメージ情報を取得できません。"
-
-msgid "Unable to retrieve images"
-msgstr "イメージ一覧を取得できません"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "このプロジェクトのイメージ一覧を取得できません。"
@@ -7870,9 +7850,6 @@ msgstr "ボリューム情報を取得できません。"
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "ボリューム / インスタンスの接続情報を取得できません。"
 
-msgid "Unable to retrieve volumes availability zones."
-msgstr "ボリュームアベイラビリティーゾーンを取得できません。"
-
 msgid "Unable to retrieve volumes."
 msgstr "ボリュームの一覧を取得できません。"
 
@@ -8161,10 +8138,6 @@ msgstr "ボリューム種別の暗号化設定の更新"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "「追加スペック」の \"%(key)s\" の値を更新します。"
-
-#, python-format
-msgid "Update the \"group spec\" value for \"%(key)s\""
-msgstr "「グループスペック」の \"%(key)s\" の値を更新します。"
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""

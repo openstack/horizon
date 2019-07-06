@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3320,9 +3320,6 @@ msgstr "IP સરનામું %s સાંકળવામાં અસમર�
 msgid "Unable to attach volume."
 msgstr "વોલ્યુમ જોડવામાં અસમર્થ."
 
-msgid "Unable to change password."
-msgstr "પાસવર્ડ બદલવાનું અક્ષમ"
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "વોલ્યુમ માટે વોલ્યુમ પ્રકાર બદલવામાં અક્ષમ: \"%s\""
@@ -3526,9 +3523,6 @@ msgstr ""
 
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "ન્યૂટ્રોનમાંથી IP સરનામાઓ મેળવવા માટે અસમર્થ."
-
-msgid "Unable to retrieve Nova availability zones."
-msgstr "નોવા ઉપલબ્ધતા ઝોન પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
 msgid "Unable to retrieve QoS Spec association."
 msgstr "QoS સ્પેક એસોસિયેશન પુનઃપ્રાપ્ત કરવામા અસમર્થ."

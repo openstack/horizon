@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5189,9 +5189,6 @@ msgstr "Başlatılacak imaj boyutu."
 msgid "Size(GiB) ="
 msgstr "Boyut(GiB) ="
 
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "Karakter dizinizin başında ya da sonunda bölü işaretine izin verilmez."
-
 msgid "Slash is not an allowed character."
 msgstr "Bölü işareti izin verilen bir karakter değil."
 
@@ -6104,9 +6101,6 @@ msgstr "Arabirim eklenemedi."
 msgid "Unable to attach volume."
 msgstr "Birim eklenemiyor."
 
-msgid "Unable to change password."
-msgstr "Parola değiştirilemiyor."
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Mantıksal sürücü türü değiştirilemedi: \"%s\""
@@ -6411,9 +6405,6 @@ msgstr "MAC öğrenme durumu alınamıyor"
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "\"%s\" sunucusu için Ağ bilgisi alınamadı."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Nova kullanılabilir alanlar alınamadı."
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Nova sunucu grupları alınamıyor."
 
@@ -6573,9 +6564,6 @@ msgstr "İmaj listesi alınamıyor."
 
 msgid "Unable to retrieve image."
 msgstr "İmaj getirilemedi."
-
-msgid "Unable to retrieve images"
-msgstr "İmajlar alınamadı"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Mevcut proje için imajlar alınamadı."
@@ -6843,9 +6831,6 @@ msgstr "Mantıksal sürücü alınamadı."
 
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Mantıksal sürücü/sunucu bağlanma bilgisi alınamadı"
-
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Mantıksal sürücünün kullanılırlık bölgeleri alınamıyor."
 
 msgid "Unable to set Domain Context."
 msgstr "Alan İçeriği ayarlanamıyor."

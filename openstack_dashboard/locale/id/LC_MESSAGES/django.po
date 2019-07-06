@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-06-14 16:13+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1403,9 +1403,6 @@ msgstr "Buat pemetaan."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Buat pasangan key-value \"extra spec\" baru untuk tipe volume."
-
-msgid "Create a new \"group spec\" key-value pair for a group type."
-msgstr "Buat pasangan key-value \"spec grup\" baru untuk tipe grup."
 
 #, python-format
 msgid ""
@@ -5444,10 +5441,6 @@ msgid "Saved extra spec \"%s\"."
 msgstr "Disimpan spesifikasi tambahan \"%s\"."
 
 #, python-format
-msgid "Saved group spec \"%s\"."
-msgstr "Spesifikasi grup yang disimpan \"%s\"."
-
-#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "Disimpan spec \"%s\"."
 
@@ -5862,9 +5855,6 @@ msgstr "Size of image to launch."
 
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
-
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "Slash tidak diperbolehkan pada awal atau akhir string Anda."
 
 msgid "Slash is not an allowed character."
 msgstr "Slash adalah karakter yang tidak diperbolehkan."
@@ -6898,9 +6888,6 @@ msgstr "Tidak dapat mengikatkan antarmuka."
 msgid "Unable to attach volume."
 msgstr "Tidak dapat mengkaitkan volume."
 
-msgid "Unable to change password."
-msgstr "Tidak dapat mengubah password"
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Tidak dapat mengubah jenis volume untuk volume: \"%s\""
@@ -7322,9 +7309,6 @@ msgstr "Tidak dapat mengambil informasi jaringan untuk instance \"%s\"."
 msgid "Unable to retrieve Neutron quota information."
 msgstr "Tidak dapat mengambil informasi kuota Neutron."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Tidak dapat mengambil zona ketersediaan Nova."
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Tidak dapat mengambil kelompok server Nova."
 
@@ -7549,9 +7533,6 @@ msgid "Unable to retrieve image list."
 msgstr "Tidak dapat mengambil list image"
 
 msgid "Unable to retrieve image."
-msgstr "Tidak dapat mengambil image"
-
-msgid "Unable to retrieve images"
 msgstr "Tidak dapat mengambil image"
 
 msgid "Unable to retrieve images for the current project."
@@ -7869,9 +7850,6 @@ msgstr "Tidak dapat mengambil volume."
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Tidak dapat mengambil informasi ikatan volume/instance"
 
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Tidak dapat mengambil zona ketersediaan volume."
-
 msgid "Unable to retrieve volumes."
 msgstr "Tidak dapat mengambil volume."
 
@@ -8162,10 +8140,6 @@ msgstr "Update Encrypted Volume Type"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Update \"extra spec\" nilai untuk \"%(key)s\""
-
-#, python-format
-msgid "Update the \"group spec\" value for \"%(key)s\""
-msgstr "Perbarui nilai \"group spec\" untuk \"%(key)s\""
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""

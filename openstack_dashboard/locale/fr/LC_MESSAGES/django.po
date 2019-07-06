@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1417,11 +1417,6 @@ msgstr "Créer un mapping"
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Créer une nouvelle paire clé-valeur \"extra spec\" pour un type de volume."
-
-msgid "Create a new \"group spec\" key-value pair for a group type."
-msgstr ""
-"Créer une nouvelle paire clé-valeur \"spec de groupe\" pour un type de "
-"groupe."
 
 #, python-format
 msgid ""
@@ -5569,10 +5564,6 @@ msgid "Saved extra spec \"%s\"."
 msgstr "Spécification supplémentaire \"%s\" enregistrée."
 
 #, python-format
-msgid "Saved group spec \"%s\"."
-msgstr "Spec de groupe \"%s\" enregistrée."
-
-#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "Spécification sauvegardée \"%s\"."
 
@@ -5995,11 +5986,6 @@ msgstr "Gabarit de l'image à lancer."
 
 msgid "Size(GiB) ="
 msgstr "Taille (Gio) ="
-
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr ""
-"La barre oblique (slash) n'est pas autorisée comme caractère de début ou de "
-"fin de chaîne."
 
 msgid "Slash is not an allowed character."
 msgstr "Le caractère Slash ('/')  n'est pas autorisé."
@@ -7035,9 +7021,6 @@ msgstr "Impossible d'attacher l'interface"
 msgid "Unable to attach volume."
 msgstr "Impossible d'attacher le volume"
 
-msgid "Unable to change password."
-msgstr "Impossible de changer le mot de passe."
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Incapable de changer le type de volume pour le volume : \"%s\""
@@ -7473,9 +7456,6 @@ msgstr "Impossible de récupérer l'information réseau pour l'instance \"%s\"."
 msgid "Unable to retrieve Neutron quota information."
 msgstr "Impossible de récupérer les informations de quotas Neutron."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Impossible de récupérer les zones de disponibilité Nova."
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Impossible de récupérer les groupes de serveurs Nova."
 
@@ -7709,9 +7689,6 @@ msgstr "Impossible de récupérer la liste des images."
 
 msgid "Unable to retrieve image."
 msgstr "Impossible de récupérer l'image."
-
-msgid "Unable to retrieve images"
-msgstr "Impossible de récupérer les images"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Impossible de récupérer les images pour le projet en cours."
@@ -8031,9 +8008,6 @@ msgid "Unable to retrieve volume/instance attachment information"
 msgstr ""
 "Impossible de récupérer les informations d'attachement du volume/instance"
 
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Impossible d'extraire les zones de disponibilité de volumes."
-
 msgid "Unable to retrieve volumes."
 msgstr "Impossible de récupérer les volumes."
 
@@ -8315,10 +8289,6 @@ msgstr "Mettre à jour un volume chiffré"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Mise à jour de la valeur \"extra spec\" pour \"%(key)s\""
-
-#, python-format
-msgid "Update the \"group spec\" value for \"%(key)s\""
-msgstr "Mettre à jour la valeur \"spec de groupe\" pour \"%(key)s\""
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""

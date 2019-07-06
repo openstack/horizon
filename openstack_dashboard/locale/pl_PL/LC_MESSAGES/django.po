@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4203,9 +4203,6 @@ msgstr "Rozmiar"
 msgid "Size of image to launch."
 msgstr "Rozmiar obrazu do uruchomienia."
 
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "Slash nie jest dozwolony na początku lub końcu ciągu znaków."
-
 msgid "Slash is not an allowed character."
 msgstr "Ukośnik nie jest dozwolony."
 
@@ -4916,9 +4913,6 @@ msgstr "Nie można dołączyć interfejsu."
 msgid "Unable to attach volume."
 msgstr "Nie można dołączyć wolumenu."
 
-msgid "Unable to change password."
-msgstr "Nie można zmienić hasła."
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Nie można zmienić typu wolumenu dla wolumenu: „%s”"
@@ -5164,9 +5158,6 @@ msgstr "Nie można pobrać adresu IP z Neutron."
 msgid "Unable to retrieve IP availability."
 msgstr "Nie można pobrać informacji o dostępności adresów IP."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Nie można pobrać stref dostępności Nova."
-
 msgid "Unable to retrieve QoS Spec association."
 msgstr "Nie można pobrać powiązań specyfikacji QoS."
 
@@ -5315,9 +5306,6 @@ msgstr "Nie można pobrać listy obrazów."
 
 msgid "Unable to retrieve image."
 msgstr "Nie można pobrać obrazu."
-
-msgid "Unable to retrieve images"
-msgstr "Nie można pobrać obrazów"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Nie można pobrać obrazów dla bieżącego projektu."
@@ -5562,9 +5550,6 @@ msgstr "Nie można pobrać wolumenu."
 
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Nie można pobrać informacji o powiązaniu wolumenu z instancją"
-
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Nie można pobrać stref dostępności volumenów."
 
 msgid "Unable to set Domain Context."
 msgstr "Nie można ustawić kontekstu domeny."

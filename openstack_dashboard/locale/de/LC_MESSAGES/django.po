@@ -16,12 +16,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-13 09:31+0000\n"
-"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
+"PO-Revision-Date: 2019-07-04 12:14+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -233,6 +233,10 @@ msgstr ""
 "Sicherheitsgruppen pro Port, dann benutzen Sie stattdessen die \"Port "
 "Sicherheitsgruppen bearbeiten\" Aktion."
 
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>Variantendetails: %(name)s</span>\">%(name)s"
+
 msgid "A brief description of the security group rule you are adding"
 msgstr "Eine kurze Beschreibung der hinzuzufügenden Sicherheitsgruppenregel"
 
@@ -394,6 +398,9 @@ msgstr "Routerroute hinzufügen"
 
 msgid "Add Rule"
 msgstr "Regel hinzufügen"
+
+msgid "Add Rule (Quota exceeded)"
+msgstr "Regel hinzufügen (Kontingent überschritten)"
 
 msgid "Add Static Route"
 msgstr "Statische Route hinzufügen"
@@ -819,6 +826,10 @@ msgstr "Verfügbare Typen"
 msgid "Available networks"
 msgstr "Verfügbare Netzwerke"
 
+msgctxt "Current status of a Volume"
+msgid "Awaiting Transfer"
+msgstr "Warte auf Transfer"
+
 msgid "Back-End Example:"
 msgstr "Backend Beispiel:"
 
@@ -919,6 +930,13 @@ msgstr ""
 "Hilfe von Applikations-Zugangsdaten weitere Applikations-Zugangsdaten oder "
 "Keystone Trusts erzeugt werden. Sofern dies mit Ihren Applikations-"
 "Zugangsdaten möglich sein soll, markieren Sie \"unbeschränkt\"."
+
+msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"Ohne weitere Einstellung wird der Gruppentyp als öffentlich erstellt. Für "
+"einen privaten Gruppentyp entfernen Sie die Markierung."
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -1101,6 +1119,10 @@ msgstr ""
 "Klone alle Datenträger in der Quellgruppe und füge sie der neu erzeugten "
 "Gruppe hinzu."
 
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "Klone Datenträgergruppe \"%s\"."
+
 msgid "Close"
 msgstr "Schließen"
 
@@ -1269,9 +1291,16 @@ msgstr "Gruppen-Schattenkopie erstellen"
 msgid "Create Group Type"
 msgstr "Gruppentyp erstellen"
 
+msgid "Create Group Type Spec"
+msgstr "Gruppentypspezifikation erstellen"
+
 msgid "Create Host Aggregate"
 msgstr "Hostaggregat erstellen"
 
+msgid "Create Image"
+msgstr "Abbild erstellen"
+
+msgctxt "Action log of an instance"
 msgid "Create Image"
 msgstr "Abbild erstellen"
 
@@ -1454,6 +1483,10 @@ msgstr "Erstellt"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Zusätzliche Spezifikation \"%s\" erstellt."
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "Gruppentypspezifikation \"%s\" erstellt."
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -2015,6 +2048,10 @@ msgstr ""
 "Gelöschte Datenträger können nicht wiederhergestellt werden. Alle auf dem "
 "Datenträger gespeicherten Daten werden entfernt."
 
+msgctxt "Current status of Volume Group"
+msgid "Deleting"
+msgstr "Lösche"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Löschen"
@@ -2363,6 +2400,13 @@ msgstr "Gruppe bearbeiten"
 msgid "Edit Group Type"
 msgstr "Gruppentyp bearbeiten"
 
+msgid "Edit Group Type Spec"
+msgstr "Gruppentypspezifikation bearbeiten"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "Gruppentypspezifikation Wert bearbeiten: %s"
+
 msgid "Edit Host Aggregate"
 msgstr "Hostaggregat bearbeiten"
 
@@ -2685,6 +2729,9 @@ msgstr "Fehler beim Entfernen von Datenträgern aus der Gruppe."
 msgid "Ether Type"
 msgstr "Netzwerktyp"
 
+msgid "Euca2ools state"
+msgstr "Euca2ools Status"
+
 msgid "Evacuate Host"
 msgstr "Host evakuieren"
 
@@ -2838,6 +2885,9 @@ msgstr "Port \"%s\" konnte nicht erstellt werden."
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Router \"%s\" konnte nicht angelegt werden."
+
+msgid "Failed to create router."
+msgstr "Fehler beim Erstellen des Routers."
 
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
@@ -3178,6 +3228,10 @@ msgid "Group"
 msgstr "Gruppe"
 
 #, python-format
+msgid "Group \"%s\" already exists."
+msgstr "Gruppe \"%s\" bereits vorhanden."
+
+#, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Gruppe \"%s\" wurde erfolgreich angelegt."
 
@@ -3213,6 +3267,17 @@ msgstr "Gruppen-Schattenkopien"
 
 msgid "Group Type"
 msgstr "Gruppentyp"
+
+msgid "Group Type Specs"
+msgstr "Gruppentypspezifikationen"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "Gruppentyp: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "Gruppentyp: %(group_type_name)s "
 
 msgid "Group Types"
 msgstr "Gruppentypen"
@@ -3482,6 +3547,15 @@ msgstr ""
 "Wenn \"Kein Datenträger-Typ\" ausgewählt ist, wird der Datenträger ohne "
 "Datenträger-Typ erstellt."
 
+msgid "If checked, the network will be enabled."
+msgstr "Wenn ausgewählt, wird das Netzwerk aktiviert."
+
+msgid "If checked, the port will be enabled."
+msgstr "Wenn ausgewählt, wird der Port aktiviert."
+
+msgid "If checked, the router will be enabled."
+msgstr "Wenn ausgewählt, wird der Router aktiviert."
+
 msgid "If checked, the selected floating IP will be released at the same time."
 msgstr "Falls markiert, wird die Floating IP gleichzeitig freigegeben."
 
@@ -3553,6 +3627,9 @@ msgstr "Abbild Schattenkopie wartet"
 
 msgid "Image Source"
 msgstr "Abbildquelle"
+
+msgid "Image Type"
+msgstr "Abbildtyp"
 
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
@@ -3764,6 +3841,9 @@ msgstr "Schlüsselpaar-Name"
 msgid "Key Pair Name ="
 msgstr "Schlüsselpaarname ="
 
+msgid "Key Pair Type"
+msgstr "Schlüsselpaar Typ"
+
 msgid "Key Pairs"
 msgstr "Schlüsselpaare"
 
@@ -3774,6 +3854,9 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "Schlüsselgröße (Bit)"
+
+msgid "Key Type"
+msgstr "Schlüsseltyp"
 
 msgid ""
 "Key names can only contain alphanumeric characters, underscores, periods, "
@@ -3885,6 +3968,10 @@ msgstr "Lokaler Speicher (insgesamt)"
 
 msgid "Local Storage (used)"
 msgstr "Lokaler Speicher (belegt)"
+
+msgctxt "Action log of an instance"
+msgid "Lock"
+msgstr "Sperren"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
@@ -4159,6 +4246,9 @@ msgstr "Kontingente bearbeiten"
 
 msgid "Modify dashboard settings for your user."
 msgstr "Verändern Sie Dashboard-Einstellungen für Ihren Benutzer."
+
+msgid "Modify group type name, description, and public status."
+msgstr "Ändern des Gruppentypnamens, Beschreibung und öffentlichem Status"
 
 msgid "Modify name and description of a volume."
 msgstr "Namen und Beschreibung eines Datenträgers ändern."
@@ -5474,6 +5564,9 @@ msgstr "SLAAC: Adresse vom externen Router erhalten"
 msgid "SNAT"
 msgstr "SNAT"
 
+msgid "SSH Key"
+msgstr "SSH Schlüssel"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH Schlüsselpaare können mit dem Kommando ssh-keygen erzeugt werden:"
 
@@ -5486,6 +5579,10 @@ msgstr "Änderungen speichern"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "Zusätzliche Spezifikation \"%s\" gespeichert."
+
+#, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "Gruppentypspezifikation gespeichert \"%s\"."
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -5825,6 +5922,12 @@ msgstr "Gemeinsam verwendet"
 msgid "Shared ="
 msgstr "Geteilt ="
 
+msgid "Shared Network"
+msgstr "Geteiltes Netzwerk"
+
+msgid "Shared QoS Policy"
+msgstr "Geteilte QoS-Richtlinie"
+
 msgid "Shared Storage"
 msgstr "Shared Storage"
 
@@ -5907,10 +6010,6 @@ msgstr "Größe des zu startenden Abbildes."
 
 msgid "Size(GiB) ="
 msgstr "Größe (GiB) ="
-
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr ""
-"Ein Schrägstrich ist weder an Anfang noch am Ende der Zeichenkette erlaubt."
 
 msgid "Slash is not an allowed character."
 msgstr "Der Schrägstrich (Slash) ist kein erlaubtes Zeichen."
@@ -6539,6 +6638,11 @@ msgstr ""
 msgid "The instance(s) will be shut off."
 msgstr "Die Instanz(en) wird (werden) heruntergefahren."
 
+msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
+msgstr ""
+"Der Schlüssel muss dem folgenden regulären Ausdruck entsprechen: '^[a-zA-"
+"Z0-9-_:. /]'"
+
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
@@ -6976,9 +7080,6 @@ msgstr "Schnittstelle konnte nicht hinzugefügt werden."
 msgid "Unable to attach volume."
 msgstr "Datenträger konnte nicht hinzugefügt werden."
 
-msgid "Unable to change password."
-msgstr "Es war nicht möglich das Passwort zu ändern."
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Datenträgertyp des Datenträgers kann nicht geändert werden: \"%s\""
@@ -7045,6 +7146,9 @@ msgstr ""
 
 msgid "Unable to create group snapshot."
 msgstr "Gruppen-Schattenkopie kann nicht erstellt werden."
+
+msgid "Unable to create group type spec."
+msgstr "Gruppentypspezifikation kann nicht erstellt werden."
 
 msgid "Unable to create group type."
 msgstr "Gruppentyp kann nicht erstellt werden."
@@ -7210,6 +7314,9 @@ msgstr "Rollenzuordnungen dieses Benutzers können nicht angezeigt werden."
 
 msgid "Unable to display the users of this project."
 msgstr "Benutzer dieses Projekts können nicht angezeigt werden."
+
+msgid "Unable to edit group type spec."
+msgstr "Gruppentypspezifikation kann nicht bearbeitet werden."
 
 msgid "Unable to edit spec."
 msgstr "Die Spezifikation kann nicht bearbeitet werden."
@@ -7418,9 +7525,6 @@ msgstr ""
 msgid "Unable to retrieve Neutron quota information."
 msgstr "Neutron-Kontingentinformationen können nicht abgerufen werden."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Nova-Verfügbarkeitszonen können nicht abgerufen werden."
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Nova Servergruppen können nicht abgerufen werden."
 
@@ -7595,12 +7699,21 @@ msgstr "Konnte Gruppenschattenkopie-Details nicht abrufen."
 msgid "Unable to retrieve group snapshots."
 msgstr "Gruppen-Schattenkopie können nicht abgerufen werden."
 
+msgid "Unable to retrieve group type details."
+msgstr "Gruppentyp Details können nicht abgerufen werden."
+
 #, python-format
 msgid "Unable to retrieve group type for: \"%s\""
 msgstr "Gruppentyp für \"%s\" kann nicht abrufen werden."
 
 msgid "Unable to retrieve group type name."
 msgstr "Name des Gruppentyps kann nicht abgerufen werden."
+
+msgid "Unable to retrieve group type spec details."
+msgstr "Gruppentypspezifikation Details können nicht abgerufen werden."
+
+msgid "Unable to retrieve group type spec list."
+msgstr "Gruppentypspezifikationsliste kann nicht abgerufen werden."
 
 msgid "Unable to retrieve group type."
 msgstr "Gruppentyp kann nicht abgerufen werden."
@@ -7643,9 +7756,6 @@ msgstr "Abbildliste kann nicht abgerufen werden."
 
 msgid "Unable to retrieve image."
 msgstr "Abbild kann nicht abgerufen werden."
-
-msgid "Unable to retrieve images"
-msgstr "Abbilder können nicht abgerufen werden"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Abbilder zum aktuellen Projekt können nicht abgerufen werden."
@@ -7971,9 +8081,6 @@ msgid "Unable to retrieve volume/instance attachment information"
 msgstr ""
 "Zuweisungsinformationen Datenträger/Instanz können nicht abgerufen werden."
 
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Datenträger-Verfügbarkeitszonen können nicht abgerufen werden."
-
 msgid "Unable to retrieve volumes."
 msgstr "Datenträger können nicht abgerufen werden."
 
@@ -8115,6 +8222,10 @@ msgstr "Unbekannte Einstellungen: {}."
 
 msgid "Unknown volume (None)"
 msgstr "Unbekannter Datenträger (None)"
+
+msgctxt "Action log of an instance"
+msgid "Unlock"
+msgstr "Entsperren"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
@@ -8289,6 +8400,10 @@ msgstr "Subnetz aktualisiert \"%s\"."
 msgid "Updated volumes for group."
 msgstr "Aktualisierte Datenträger für Gruppe."
 
+msgctxt "Current status of Volume Group"
+msgid "Updating"
+msgstr "Aktualisiere"
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Aktualisiere Passwort"
@@ -8368,6 +8483,10 @@ msgstr "Verwendete IPs"
 
 msgid "User"
 msgstr "Benutzer"
+
+#, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "Benutzer \"%s\" wurde erfolgreich aktualisiert."
 
 #, python-format
 msgid "User \"%s\" was successfully created."
@@ -8740,6 +8859,9 @@ msgstr ""
 "Sollte der Datenträgerstatus \"in Verwendung\" sein, können Sie \"Erzwingen"
 "\" verwenden, um das Hochladen des Datenträgers als Abbild zu erzwingen."
 
+msgid "X509 Certificate"
+msgstr "X509 Zertifikat"
+
 msgid "Yes"
 msgstr "Ja"
 
@@ -8960,14 +9082,32 @@ msgstr "z.B. Ja / Nein"
 msgid "e.g. Yes/No"
 msgstr "z.B. Ja/Nein"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+"Varianten ID darf nur alphanumerische Zeichen, Unterstriche, Punkte, "
+"Bindestriche und Leerzeichen enthalten."
+
 msgid "front-end"
 msgstr "Frontend"
 
 msgid "instance"
 msgstr "Instanz"
 
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Der Schlüssel mit dem Namen \"%s\" ist bereits vorhanden. Bearbeiten Sie den "
+"Wert oder erstellen Sie einen Schlüssel mit einem anderen Namen."
+
 msgid "no"
 msgstr "nein"
+
+msgid "rbac policy quota exceeded."
+msgstr "rbac Richtlinienkontingent überschritten."
 
 msgid "undefined"
 msgstr "undefiniert"

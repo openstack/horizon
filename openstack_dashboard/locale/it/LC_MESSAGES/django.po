@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4516,9 +4516,6 @@ msgstr "Dimensione (GiB)"
 msgid "Size of image to launch."
 msgstr "Dimensione dell'immagine da avviare."
 
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "La barra non è consentita all'inizio o alla fine della stringa."
-
 msgid "Slash is not an allowed character."
 msgstr "La barra non è un carattere consentito."
 
@@ -5275,9 +5272,6 @@ msgstr "Impossibile collegare l'interfaccia."
 msgid "Unable to attach volume."
 msgstr "Impossibile collegare il volume."
 
-msgid "Unable to change password."
-msgstr "Impossibile modificare la password."
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Impossibile modificare il tipo di volume per il volume: \"%s\""
@@ -5566,9 +5560,6 @@ msgstr "Impossibile richiamare gli indirizzi IP da Neutron."
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "Impossibile richiamare le informazioni di rete per l'istanza \"%s\"."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Impossibile richiamare le zone di disponibilità Nova."
-
 msgid "Unable to retrieve QoS Spec association."
 msgstr "Impossibile richiamare l'associazione della specifica QoS."
 
@@ -5724,9 +5715,6 @@ msgstr "Impossibile ottenere la lista delle immagini."
 
 msgid "Unable to retrieve image."
 msgstr "Impossibile richiamare l'immagine."
-
-msgid "Unable to retrieve images"
-msgstr "Impossibile richiamare le immagini"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Impossibile richiamare le immagini per il progetto corrente."
@@ -5986,9 +5974,6 @@ msgstr "Impossibile richiamare il volume."
 
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Impossibile richiamare le informazioni sull'allegato volume/istanza."
-
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Impossibile richiamare le zone di disponibilità dei volumi."
 
 msgid "Unable to set Domain Context."
 msgstr "Impossibile impostare il Contesto di Dominio."

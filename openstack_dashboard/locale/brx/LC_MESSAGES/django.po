@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-07-05 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3327,9 +3327,6 @@ msgstr "IP थं %s खौ लोगो लानो हायाखै"
 msgid "Unable to attach volume."
 msgstr "भलिउमखौ नांजाब होनो हायाखै"
 
-msgid "Unable to change password."
-msgstr "पासवार्ड सोलायनो हायाखै।"
-
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "भलिउमनि थाखाय भलिउम रोखोमखौ सोलायनो हायाखै: \"%s\""
@@ -3533,9 +3530,6 @@ msgstr ""
 
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "निउट्रन निफ्राय IP थंखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve Nova availability zones."
-msgstr "नभा मोननो हाथाव ओनसोलखौ मोनफिननो हायाखै"
 
 msgid "Unable to retrieve QoS Spec association."
 msgstr "QoS Spec गौथुमखौ मोनफिननो हायाखै।"
