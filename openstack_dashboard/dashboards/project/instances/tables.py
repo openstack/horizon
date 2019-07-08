@@ -17,6 +17,7 @@ import logging
 
 from django.conf import settings
 from django.http import HttpResponse
+from django import shortcuts
 from django import template
 from django.template.defaultfilters import title
 from django import urls
@@ -621,6 +622,7 @@ class ConfirmResize(policy.PolicyTargetMixin, tables.Action):
 
     def single(self, table, request, instance):
         api.nova.server_confirm_resize(request, instance)
+        return shortcuts.redirect(request.get_full_path())
 
 
 class RevertResize(policy.PolicyTargetMixin, tables.Action):
