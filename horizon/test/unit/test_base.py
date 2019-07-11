@@ -42,16 +42,15 @@ class MyDash(horizon.Dashboard):
     default_panel = "myslug"
 
 
+class MyOtherDash(horizon.Dashboard):
+    name = "My Other Dashboard"
+    slug = "mydash2"
+    default_panel = "myslug2"
+
+
 class MyPanel(horizon.Panel):
     name = "My Panel"
     slug = "myslug"
-    urls = 'horizon.test.test_dashboards.cats.kittens.urls'
-
-
-class AdminPanel(horizon.Panel):
-    name = "Admin Panel"
-    slug = "admin_panel"
-    permissions = ("horizon.test",)
     urls = 'horizon.test.test_dashboards.cats.kittens.urls'
 
 
@@ -163,6 +162,32 @@ class HorizonTests(BaseHorizonTests):
         self.assertEqual(2, len(base.Horizon._registry))
         with self.assertRaises(base.NotRegistered):
             horizon.get_dashboard(MyDash)
+
+    def test_registry_two_dashboards(self):
+        "Verify registration of 2 dashboards"
+
+        # Registration
+        self.assertEqual(2, len(base.Horizon._registry))
+        horizon.register(MyDash)
+        horizon.register(MyOtherDash)
+        self.assertEqual(4, len(base.Horizon._registry))
+
+        # Retrieval
+        self.assertQuerysetEqual(horizon.get_dashboards(),
+                                 ['<Dashboard: cats>',
+                                  '<Dashboard: dogs>',
+                                  '<Dashboard: mydash>',
+                                  '<Dashboard: mydash2>'])
+
+        # Removal
+        self.assertEqual(4, len(base.Horizon._registry))
+        horizon.unregister(MyDash)
+        horizon.unregister(MyOtherDash)
+        self.assertEqual(2, len(base.Horizon._registry))
+        with self.assertRaises(base.NotRegistered):
+            horizon.get_dashboard(MyDash)
+        with self.assertRaises(base.NotRegistered):
+            horizon.get_dashboard(MyOtherDash)
 
     def test_site(self):
         self.assertEqual("Horizon", str(base.Horizon))
