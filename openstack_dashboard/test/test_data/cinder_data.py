@@ -118,7 +118,8 @@ def data(TEST):
          'created_at': '2013-04-01 10:30:00',
          'volume_type': None,
          'bootable': 'true',
-         'attachments': [{"id": "1", "server_id": '1',
+         'attachments': [{"id": "21023e92-8008-1234-8059-7f2293ff3889",
+                          "server_id": '1',
                           "device": "/dev/hda"}]})
     volume_with_type = volumes.Volume(
         volumes.VolumeManager(None),
@@ -131,7 +132,8 @@ def data(TEST):
          'created_at': '2013-04-01 10:30:00',
          'volume_type': 'vol_type_2',
          'bootable': 'false',
-         'attachments': [{"id": "2", "server_id": '2',
+         'attachments': [{"id": "7dcb47fd-07d9-42c2-9647-be5eab799ebe",
+                          "server_id": '2',
                           "device": "/dev/hdb"}]})
     non_bootable_volume = volumes.Volume(
         volumes.VolumeManager(None),
@@ -143,7 +145,9 @@ def data(TEST):
          'created_at': '2013-04-01 10:30:00',
          'volume_type': None,
          'bootable': 'false',
-         'attachments': [{"id": "1", "server_id": '1',
+         'bootable': False,
+         'attachments': [{"id": "21023e92-8008-1234-8059-7f2293ff3890",
+                          "server_id": '1',
                           "device": "/dev/hda"}]})
 
     volume.bootable = 'true'

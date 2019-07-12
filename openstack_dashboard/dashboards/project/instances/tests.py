@@ -393,11 +393,27 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         api.cinder: ('volume_list',),
     })
     def test_index_with_instance_booted_from_volume(self):
-        volume_server = self.servers.first()
-        volume_server.image = ""
-        volume_server.image_name = "(not found)"
         servers = self.servers.list()
+        volume_server = servers[0]
+        # Override the server is booted from a volume.
+        volume_server.image = ""
+        # NOTE(amotoki): openstack_dashboard.api.nova.server_list should return
+        # a list of api.nova.Server instances, but the current test code
+        # returns a list of novaclient.v2.servers.Server instances.
+        # This leads to a situation that image_name property of api.nova.Server
+        # is not handled in our test case properly.
+        # TODO(amotoki): Refactor test_data/nova_data.py to use api.nova.Server
+        # (horizon API wrapper class).
+        volume_server = api.nova.Server(volume_server, self.request)
         servers[0] = volume_server
+
+        volumes = self.cinder_volumes.list()
+        # 3rd volume in the list is attached to server with ID 1.
+        volume = volumes[2]
+        base_image = self.images.get(name='private_image')
+        volume.volume_image_metadata = {
+            "image_id": base_image.id,
+        }
 
         self._mock_extension_supported({'AdminActions': True,
                                         'Shelve': True})
@@ -410,13 +426,14 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
         self.mock_floating_ip_supported.return_value = True
         self.mock_floating_ip_simple_associate_supported.return_value = True
+        self.mock_volume_list.return_value = volumes
 
         res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['instances_table'].data
         self.assertEqual(len(instances), len(servers))
-        self.assertContains(res, "(not found)")
+        self.assertContains(res, base_image.name)
 
         self._check_extension_supported({'AdminActions': 16,
                                          'Shelve': 4})
@@ -442,6 +459,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_floating_ip_simple_associate_supported, 4,
             mock.call(helpers.IsHttpRequest()))
+        self.mock_volume_list.assert_called_once_with(helpers.IsHttpRequest())
 
     def test_index_with_console_link(self):
         res = self._get_index()
