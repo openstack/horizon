@@ -2,7 +2,7 @@
 [MASTER]
 # Add <file or directory> to the black list. It should be a base name, not a
 # path. You may set this option multiple times.
-ignore=test,tests,tests.py,local_settings.py
+ignore=test,tests,tests.py,local_settings.py,horizon_wsgi.py
 
 [Messages Control]
 disable=
