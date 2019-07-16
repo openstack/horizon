@@ -18,7 +18,7 @@
 
 from django.conf import settings
 from django.template.defaultfilters import floatformat
-from django.utils import translation
+from django.utils.text import format_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -71,6 +71,7 @@ class GlobalOverview(usage.UsageView):
                 instance.project_name = getattr(project[0], "name", None)
             else:
                 deleted = _("Deleted")
-                instance.project_name = translation.string_concat(
-                    instance.tenant_id, " (", deleted, ")")
+                instance.project_name = format_lazy(
+                    '{tenant_id} ({deleted})',
+                    tenant_id=instance.tenant_id, deleted=deleted)
         return data

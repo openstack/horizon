@@ -23,9 +23,9 @@ from django.template.defaultfilters import title
 from django import urls
 from django.utils.http import urlencode
 from django.utils.safestring import mark_safe
+from django.utils.text import format_lazy
 from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 import netaddr
@@ -449,8 +449,10 @@ class LaunchLink(tables.LinkAction):
                     or ram_available <= 0:
                 if "disabled" not in self.classes:
                     self.classes = [c for c in self.classes] + ['disabled']
-                    self.verbose_name = string_concat(self.verbose_name, ' ',
-                                                      _("(Quota exceeded)"))
+                    self.verbose_name = format_lazy(
+                        '{verbose_name} {quota_exceeded}',
+                        verbose_name=self.verbose_name,
+                        quota_exceeded=_("(Quota exceeded)"))
             else:
                 self.verbose_name = _("Launch Instance")
                 classes = [c for c in self.classes if c != "disabled"]
@@ -772,7 +774,8 @@ def get_instance_error(instance):
     message = instance_fault_to_friendly_message(instance)
     preamble = _('Failed to perform requested operation on instance "%s", the '
                  'instance has an error status') % instance.name or instance.id
-    message = string_concat(preamble, ': ', message)
+    message = format_lazy('{preamble}: {message}',
+                          preamble=preamble, message=message)
     return message
 
 
