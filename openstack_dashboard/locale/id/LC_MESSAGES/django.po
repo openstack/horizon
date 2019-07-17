@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-07-05 10:05+0000\n"
+"POT-Creation-Date: 2019-07-11 08:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-06-17 05:58+0000\n"
+"PO-Revision-Date: 2019-07-16 06:00+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -1404,6 +1404,9 @@ msgstr "Buat pemetaan."
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Buat pasangan key-value \"extra spec\" baru untuk tipe volume."
 
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr "Buat pasangan \"group type spec\" key-value baru untuk tipe grup."
+
 #, python-format
 msgid ""
 "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
@@ -2618,6 +2621,9 @@ msgstr "Kesalahan terjadi dalam menghapus volume dari grup."
 msgid "Ether Type"
 msgstr "Ether Type"
 
+msgid "Euca2ools state"
+msgstr "Euca2ools state"
+
 msgid "Evacuate Host"
 msgstr "Evacuate Host (evacuate host)"
 
@@ -2760,6 +2766,9 @@ msgstr "Gagal membuat port \"%s\"."
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Gagal membuat router\"%s\"."
+
+msgid "Failed to create router."
+msgstr "Gagal membuat router."
 
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
@@ -3505,6 +3514,9 @@ msgstr "Image Snapshot Pending"
 
 msgid "Image Source"
 msgstr "Sumber Image"
+
+msgid "Image Type"
+msgstr "Image Type"
 
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
@@ -5441,6 +5453,10 @@ msgid "Saved extra spec \"%s\"."
 msgstr "Disimpan spesifikasi tambahan \"%s\"."
 
 #, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "Saved group type spec \"%s\"."
+
+#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "Disimpan spec \"%s\"."
 
@@ -6889,6 +6905,10 @@ msgid "Unable to attach volume."
 msgstr "Tidak dapat mengkaitkan volume."
 
 #, python-format
+msgid "Unable to change password: %s"
+msgstr "Tidak dapat mengubah password: %s"
+
+#, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Tidak dapat mengubah jenis volume untuk volume: \"%s\""
 
@@ -8140,6 +8160,10 @@ msgstr "Update Encrypted Volume Type"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Update \"extra spec\" nilai untuk \"%(key)s\""
+
+#, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "Update the \"group type spec\" value for \"%(key)s\""
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
