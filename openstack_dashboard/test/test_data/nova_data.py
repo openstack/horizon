@@ -158,7 +158,7 @@ def data(TEST):
     TEST.flavors = utils.TestDataContainer()
     TEST.flavor_access = utils.TestDataContainer()
     TEST.keypairs = utils.TestDataContainer()
-    TEST.volumes = utils.TestDataContainer()
+    TEST.nova_volumes = utils.TestDataContainer()
     TEST.quotas = utils.TestDataContainer()
     TEST.quota_usages = utils.TestDataContainer()
     TEST.usages = utils.TestDataContainer()
@@ -216,15 +216,10 @@ def data(TEST):
          "volume_type": None,
          "attachments": []})
 
-    volume.bootable = 'true'
-    nameless_volume.bootable = 'true'
-    attached_volume.bootable = 'true'
-    non_bootable_volume.bootable = 'false'
-
-    TEST.volumes.add(volume)
-    TEST.volumes.add(nameless_volume)
-    TEST.volumes.add(attached_volume)
-    TEST.volumes.add(non_bootable_volume)
+    TEST.nova_volumes.add(volume)
+    TEST.nova_volumes.add(nameless_volume)
+    TEST.nova_volumes.add(attached_volume)
+    TEST.nova_volumes.add(non_bootable_volume)
 
     # Flavors
     flavor_1 = flavors.Flavor(flavors.FlavorManager(None),

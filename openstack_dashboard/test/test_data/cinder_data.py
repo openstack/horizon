@@ -94,6 +94,7 @@ def data(TEST):
          'display_description': 'Volume description',
          'created_at': '2014-01-27 10:30:00',
          'volume_type': None,
+         'bootable': 'false',
          'attachments': []})
     nameless_volume = volumes.Volume(
         volumes.VolumeManager(None),
@@ -105,6 +106,7 @@ def data(TEST):
          "device": "/dev/hda",
          "created_at": '2010-11-21 18:34:25',
          "volume_type": 'vol_type_1',
+         'bootable': 'true',
          "attachments": []})
     other_volume = volumes.Volume(
         volumes.VolumeManager(None),
@@ -115,6 +117,7 @@ def data(TEST):
          'display_description': '',
          'created_at': '2013-04-01 10:30:00',
          'volume_type': None,
+         'bootable': 'true',
          'attachments': [{"id": "1", "server_id": '1',
                           "device": "/dev/hda"}]})
     volume_with_type = volumes.Volume(
@@ -127,6 +130,7 @@ def data(TEST):
          'display_description': '',
          'created_at': '2013-04-01 10:30:00',
          'volume_type': 'vol_type_2',
+         'bootable': 'false',
          'attachments': [{"id": "2", "server_id": '2',
                           "device": "/dev/hdb"}]})
     non_bootable_volume = volumes.Volume(
@@ -138,7 +142,7 @@ def data(TEST):
          'display_description': '',
          'created_at': '2013-04-01 10:30:00',
          'volume_type': None,
-         'bootable': False,
+         'bootable': 'false',
          'attachments': [{"id": "1", "server_id": '1',
                           "device": "/dev/hda"}]})
 

@@ -112,7 +112,7 @@ class VolumeBackupsViewTests(test.TestCase):
     @test.create_mocks({api.cinder: ('volume_backup_create',
                                      'volume_get')})
     def test_create_backup_available(self):
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         backup = self.cinder_volume_backups.first()
 
         self.mock_volume_get.return_value = volume
@@ -145,8 +145,8 @@ class VolumeBackupsViewTests(test.TestCase):
     @test.create_mocks({api.cinder: ('volume_backup_create',
                                      'volume_get')})
     def test_create_backup_in_use(self):
-        # The second volume in the cinder test volume data is in-use
-        volume = self.volumes.list()[1]
+        # The third volume in the cinder test volume data is in-use
+        volume = self.cinder_volumes.list()[2]
         backup = self.cinder_volume_backups.first()
 
         self.mock_volume_get.return_value = volume

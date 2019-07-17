@@ -188,7 +188,7 @@ class VolumeTests(test.BaseAdminViewTests):
 
     @test.create_mocks({api.cinder: ['volume_get', 'volume_reset_state']})
     def test_update_volume_status(self):
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         form_data = {'status': 'error'}
 
         self.mock_volume_reset_state.return_value = None
