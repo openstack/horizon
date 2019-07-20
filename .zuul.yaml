@@ -44,11 +44,11 @@
 - job:
     name: horizon-dsvm-tempest-plugin
     parent: devstack-tempest
-    required-projects:
+    required-projects: &base_required_projects
       - name: openstack/horizon
       - name: openstack/tempest
       - name: openstack/tempest-horizon
-    irrelevant-files:
+    irrelevant-files: &base_irrelevant_files
       - ^.*\.rst$
       - ^doc/.*$
       - ^releasenotes/.*$
@@ -61,7 +61,7 @@
       - ^openstack_auth/tests/.*$
       - ^openstack_dashboard/test/.*$
       - ^openstack_dashboard/dashboards/.*/tests.py$
-    vars:
+    vars: &base_vars
       devstack_localrc:
         TEMPEST_PLUGINS: "{{ ansible_user_dir }}/src/opendev.org/openstack/tempest-horizon"
         USE_PYTHON3: true
@@ -71,6 +71,13 @@
       tempest_concurrency: 2
       tempest_test_regex: horizon
       tox_envlist: all
+
+- job:
+    name: horizon-tempest-plugin-ipv6
+    parent: devstack-tempest-ipv6
+    required-projects: *base_required_projects
+    irrelevant-files: *base_irrelevant_files
+    vars: *base_vars
 
 - job:
     name: horizon-dsvm-tempest-plugin-py27
@@ -158,6 +165,7 @@
         - horizon-dsvm-tempest-plugin
         - horizon-dsvm-tempest-plugin-py27
         - horizon-tox-bandit-baseline
+        - horizon-tempest-plugin-ipv6
     gate:
       queue: horizon
       jobs:
@@ -166,3 +174,4 @@
         - horizon-dsvm-tempest-plugin-py27
         - horizon-selenium-headless
         - horizon-integration-tests
+        - horizon-tempest-plugin-ipv6
