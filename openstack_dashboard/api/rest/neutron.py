@@ -27,7 +27,7 @@ from openstack_dashboard.usage import quotas
 class Networks(generic.View):
     """API for Neutron Networks
 
-    http://developer.openstack.org/api-ref-networking-v2.html
+    https://docs.openstack.org/api-ref/network/v2/index.html
     """
     url_regex = r'neutron/networks/$'
 
@@ -79,7 +79,7 @@ class Networks(generic.View):
 class Subnets(generic.View):
     """API for Neutron Subnets
 
-    http://developer.openstack.org/api-ref-networking-v2.html#subnets
+    https://docs.openstack.org/api-ref/network/v2/index.html#subnets
     """
     url_regex = r'neutron/subnets/$'
 
@@ -126,7 +126,7 @@ class Subnets(generic.View):
 class Ports(generic.View):
     """API for Neutron Ports
 
-    http://developer.openstack.org/api-ref-networking-v2.html#ports
+    https://docs.openstack.org/api-ref/network/v2/index.html#ports
     """
     url_regex = r'neutron/ports/$'
 
