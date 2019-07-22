@@ -105,14 +105,14 @@ def get_keystone_version():
     return settings.OPENSTACK_API_VERSIONS['identity']
 
 
-def get_session():
+def get_session(**kwargs):
     insecure = settings.OPENSTACK_SSL_NO_VERIFY
     verify = settings.OPENSTACK_SSL_CACERT
 
     if insecure:
         verify = False
 
-    return session.Session(verify=verify)
+    return session.Session(verify=verify, **kwargs)
 
 
 def get_keystone_client():

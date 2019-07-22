@@ -35,6 +35,16 @@ def get_region_endpoint(region_id):
     return all_regions[int(region_id)][0]
 
 
+def get_region_choices():
+    all_regions = settings.AVAILABLE_REGIONS
+    if all_regions:
+        regions = [("%d" % i, name) for i, (url, name) in
+                   enumerate(all_regions)]
+    else:
+        regions = [("default", _("Default Region"))]
+    return regions
+
+
 class Login(django_auth_forms.AuthenticationForm):
     """Form used for logging in a user.
 
@@ -79,7 +89,7 @@ class Login(django_auth_forms.AuthenticationForm):
                     widget=forms.TextInput(attrs={"autofocus": "autofocus"}))
             self.fields['username'].widget = forms.widgets.TextInput()
             fields_ordering = ['domain', 'username', 'password', 'region']
-        self.fields['region'].choices = self.get_region_choices()
+        self.fields['region'].choices = get_region_choices()
         if len(self.fields['region'].choices) == 1:
             self.fields['region'].initial = self.fields['region'].choices[0][0]
             self.fields['region'].widget = forms.widgets.HiddenInput()
@@ -106,16 +116,6 @@ class Login(django_auth_forms.AuthenticationForm):
             LOG.warning(msg)
         self.fields = collections.OrderedDict(
             (key, self.fields[key]) for key in fields_ordering)
-
-    @staticmethod
-    def get_region_choices():
-        all_regions = settings.AVAILABLE_REGIONS
-        if all_regions:
-            regions = [("%d" % i, name) for i, (url, name) in
-                       enumerate(all_regions)]
-        else:
-            regions = [("default", _("Default Region"))]
-        return regions
 
     @sensitive_variables()
     def clean(self):
@@ -150,4 +150,81 @@ class Login(django_auth_forms.AuthenticationForm):
                      {'username': username, 'domain': domain,
                       'remote_ip': utils.get_client_ip(self.request)})
             raise forms.ValidationError(exc)
+        return self.cleaned_data
+
+
+class DummyAuth(object):
+    """A dummy Auth object
+
+    It is needed for _KeystoneAdapter to get the user_id from, but otherwise
+    behaves as if it doesn't exist (is falsy).
+    """
+    def __init__(self, user_id):
+        self.user_id = user_id
+
+    def __bool__(self):
+        return False
+
+
+class Password(forms.Form):
+    """Form used for changing user's password without having to log in."""
+    def __init__(self, *args, **kwargs):
+        super(Password, self).__init__(*args, **kwargs)
+        self.fields = collections.OrderedDict([
+            (
+                'region',
+                forms.ChoiceField(label=_("Region"), required=False)
+            ), (
+                'original_password',
+                forms.CharField(label=_("Original password"),
+                                widget=forms.PasswordInput(render_value=False))
+            ), (
+                'password',
+                forms.CharField(label=_("New password"),
+                                widget=forms.PasswordInput(render_value=False))
+            ), (
+                'confirm_password',
+                forms.CharField(label=_("Confirm password"),
+                                widget=forms.PasswordInput(render_value=False))
+            ),
+        ])
+        self.fields['region'].choices = get_region_choices()
+        if len(self.fields['region'].choices) == 1:
+            self.fields['region'].initial = self.fields['region'].choices[0][0]
+            self.fields['region'].widget = forms.widgets.HiddenInput()
+        elif len(self.fields['region'].choices) > 1:
+            self.fields['region'].initial = self.request.COOKIES.get(
+                'login_region')
+
+    @sensitive_variables('password', 'confirm_password', 'original_password')
+    def clean(self):
+        region_id = self.cleaned_data.get('region')
+        try:
+            region = get_region_endpoint(region_id)
+        except (ValueError, IndexError, TypeError):
+            raise forms.ValidationError("Invalid region %r" % region_id)
+        self.cleaned_data['region'] = region
+
+        password = self.cleaned_data.get('password')
+        original_password = self.cleaned_data.get('original_password')
+        confirm_password = self.cleaned_data.get('confirm_password')
+        if password != confirm_password:
+            raise forms.ValidationError(_('Passwords do not match.'))
+        if password == original_password:
+            raise forms.ValidationError(
+                _('Old password and new password must be different.'))
+
+        # Doing it here, to be able to raise ValidationError on failure.
+        user_id = self.initial['user_id']
+        session = utils.get_session(auth=DummyAuth(user_id))
+        Client = utils.get_keystone_client().Client
+        client = Client(session=session, user_id=user_id,
+                        auth_url=region, endpoint=region)
+        # This is needed so that keystoneclient doesn't try to authenticate.
+        client.users.client.endpoint_override = region
+        try:
+            client.users.update_password(original_password, password)
+        except Exception:
+            raise forms.ValidationError(
+                _("Unable to update the user password."))
         return self.cleaned_data

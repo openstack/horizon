@@ -26,6 +26,7 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
+from django.views.generic import edit as edit_views
 from keystoneauth1 import exceptions as keystone_exceptions
 import six
 
@@ -130,7 +131,7 @@ def login(request):
     # will erase it if we set it earlier.
     if request.user.is_authenticated:
         auth_user.set_session_from_user(request, request.user)
-        regions = dict(forms.Login.get_region_choices())
+        regions = dict(forms.get_region_choices())
         region = request.user.endpoint
         login_region = request.POST.get('region')
         region_name = regions.get(login_region)
@@ -353,3 +354,20 @@ def switch_keystone_provider(request, keystone_provider=None,
 
     response = shortcuts.redirect(redirect_to)
     return response
+
+
+class PasswordView(edit_views.FormView):
+    """Changes user's password when it's expired or otherwise inaccessible."""
+    template_name = 'auth/password.html'
+    form_class = forms.Password
+    success_url = settings.LOGIN_URL
+
+    def get_initial(self):
+        return {'user_id': self.kwargs['user_id']}
+
+    def form_valid(self, form):
+        # We have no session here, so regular messages don't work.
+        msg = _('Password changed. Please log in to continue.')
+        res = django_http.HttpResponseRedirect(self.success_url)
+        res.set_cookie('logout_reason', msg, max_age=10)
+        return res
