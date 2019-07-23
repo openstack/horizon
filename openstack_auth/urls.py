@@ -29,9 +29,13 @@ urlpatterns = [
     url(r'^switch_keystone_provider/(?P<keystone_provider>[^/]+)/$',
         views.switch_keystone_provider,
         name='switch_keystone_provider'),
-    url(r'^password/(?P<user_id>[^/]+)/$', views.PasswordView.as_view(),
-        name='password'),
 ]
+
+if utils.allow_expired_passowrd_change():
+    urlpatterns.append(
+        url(r'^password/(?P<user_id>[^/]+)/$', views.PasswordView.as_view(),
+            name='password')
+    )
 
 if utils.is_websso_enabled():
     urlpatterns += [

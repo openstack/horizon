@@ -117,6 +117,11 @@ def get_keystone_client():
     return client_v3
 
 
+def allow_expired_passowrd_change():
+    """Checks if users should be able to change their expired passwords."""
+    return getattr(settings, 'ALLOW_USERS_CHANGE_EXPIRED_PASSWORD', True)
+
+
 def is_websso_enabled():
     """Websso is supported in Keystone version 3."""
     return settings.WEBSSO_ENABLED

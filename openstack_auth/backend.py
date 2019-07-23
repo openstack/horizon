@@ -79,7 +79,7 @@ class KeystoneBackend(object):
                         "service appears to have expired before it was "
                         "issued. This may indicate a problem with either your "
                         "server or client configuration.")
-            raise exceptions.KeystoneAuthException(msg)
+            raise exceptions.KeystoneTokenExpiredException(msg)
         return True
 
     def _get_auth_backend(self, auth_url, **kwargs):
@@ -93,7 +93,7 @@ class KeystoneBackend(object):
             LOG.warning('No authentication backend could be determined to '
                         'handle the provided credentials. This is likely a '
                         'configuration error that should be addressed.')
-            raise exceptions.KeystoneAuthException(msg)
+            raise exceptions.KeystoneNoBackendException(msg)
 
     def authenticate(self, request, auth_url=None, **kwargs):
         """Authenticates a user via the Keystone Identity API."""
@@ -150,7 +150,7 @@ class KeystoneBackend(object):
             scoped_auth_ref = domain_auth_ref
         elif not scoped_auth_ref and not domain_auth_ref:
             msg = _('You are not authorized for any projects or domains.')
-            raise exceptions.KeystoneAuthException(msg)
+            raise exceptions.KeystoneNoProjectsException(msg)
 
         # Check expiry for our new scoped token.
         self._check_auth_expiry(scoped_auth_ref)
