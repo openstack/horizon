@@ -1457,7 +1457,7 @@ class InstanceDetailTests(InstanceTestBase):
     @helpers.create_mocks({api.neutron: ['is_extension_supported']})
     def test_instance_details_volumes(self):
         server = self.servers.first()
-        volumes = [self.volumes.list()[1]]
+        volumes = [self.nova_volumes.list()[1]]
         security_groups = self.security_groups.list()
 
         self.mock_is_extension_supported.return_value = False
@@ -1473,7 +1473,7 @@ class InstanceDetailTests(InstanceTestBase):
     @helpers.create_mocks({api.neutron: ['is_extension_supported']})
     def test_instance_details_volume_sorting(self):
         server = self.servers.first()
-        volumes = self.volumes.list()[1:3]
+        volumes = self.nova_volumes.list()[1:3]
         security_groups = self.security_groups.list()
 
         self.mock_is_extension_supported.return_value = False
@@ -2504,7 +2504,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': config_drive,
             'ServerGroups': True,
         })
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
@@ -2523,7 +2523,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         url = reverse('horizon:project:instances:launch')
         res = self.client.get(url)
 
-        bootable_volumes = [v.id for v in self.volumes.list()
+        bootable_volumes = [v.id for v in self.cinder_volumes.list()
                             if (v.bootable == 'true' and
                                 v.status == 'available')]
 
@@ -2730,7 +2730,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
@@ -2764,7 +2764,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': True,
             'ServerGroups': False,
         })
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
@@ -2862,7 +2862,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
@@ -2882,7 +2882,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ServerGroups': True,
         })
         self.mock_server_group_list.return_value = []
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
@@ -3384,10 +3384,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': True,
             'ServerGroups': False,
         })
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE)]
         self.mock_volume_snapshot_list.return_value = volumes
         self.mock_flavor_list.return_value = self.flavors.list()
@@ -3496,7 +3496,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
@@ -3512,7 +3512,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': True,
             'ServerGroups': False,
         })
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
@@ -3592,7 +3592,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
@@ -3613,7 +3613,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ServerGroups': True,
         })
         self.mock_server_group_list.return_value = self.server_groups.list()
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
@@ -3710,7 +3710,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            quotas: ('tenant_quota_usages',)})
     def _launch_form_instance(self, image, flavor, keypair=None):
         server = self.servers.first()
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
@@ -3725,7 +3725,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ConfigDrive': True,
             'ServerGroups': False,
         })
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
@@ -3837,7 +3837,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
@@ -3867,7 +3867,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             self.networks.list()[1:],
         ]
         self.mock_port_list_with_trunk_types.return_value = self.ports.list()
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
@@ -4050,7 +4050,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self._mock_glance_image_list_detailed(self.versioned_images.list())
         self._mock_neutron_network_and_port_list()
         self.mock_server_group_list.return_value = self.server_groups.list()
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []
@@ -4317,7 +4317,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             'ServerGroups': True,
         })
         self.mock_server_group_list.return_value = []
-        volumes = [v for v in self.volumes.list()
+        volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_snapshot_list.return_value = []

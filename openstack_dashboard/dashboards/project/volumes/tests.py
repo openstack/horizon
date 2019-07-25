@@ -1833,13 +1833,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'tenant_absolute_limits'],
     })
     def _test_encryption(self, encryption):
-        volumes = self.volumes.list()
+        volumes = self.cinder_volumes.list()
         for volume in volumes:
             volume.encrypted = encryption
         limits = self.cinder_limits['absolute']
 
         self.mock_volume_backup_supported.return_value = False
-        self.mock_volume_list_paged.return_value = [self.volumes.list(),
+        self.mock_volume_list_paged.return_value = [self.cinder_volumes.list(),
                                                     False, False]
         self.mock_volume_snapshot_list.return_value = \
             self.cinder_volume_snapshots.list()
@@ -1854,23 +1854,23 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         for row in rows:
             self.assertEqual(row.cells['encryption'].data, column_value)
 
-        self.assertEqual(8, self.mock_volume_backup_supported.call_count)
+        self.assertEqual(10, self.mock_volume_backup_supported.call_count)
         self.mock_volume_list_paged.assert_called_once_with(
             test.IsHttpRequest(), marker=None,
             sort_dir='desc', search_opts=None,
             paginate=True)
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts=None)
-        self.assertEqual(11, self.mock_tenant_absolute_limits.call_count)
+        self.assertEqual(13, self.mock_tenant_absolute_limits.call_count)
 
     @mock.patch.object(quotas, 'tenant_quota_usages')
     @mock.patch.object(cinder, 'volume_get')
     def test_extend_volume_with_size_out_of_quota(self, mock_get, mock_quotas):
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         usage_limit = self.cinder_quota_usages.first()
         usage_limit.add_quota(api.base.Quota('gigabytes', 100))
         usage_limit.tally('gigabytes', 20)
-        usage_limit.tally('volumes', len(self.volumes.list()))
+        usage_limit.tally('volumes', len(self.cinder_volumes.list()))
 
         formData = {'name': u'A Volume I Am Making',
                     'orig_size': volume.size,
@@ -1901,7 +1901,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         limits = self.cinder_limits['absolute']
 
         self.mock_volume_backup_supported.return_value = False
-        self.mock_volume_list_paged.return_value = [self.volumes.list(),
+        self.mock_volume_list_paged.return_value = [self.cinder_volumes.list(),
                                                     False, False]
         self.mock_volume_snapshot_list.return_value = []
         self.mock_server_list.return_value = [self.servers.list(), False]
@@ -1917,7 +1917,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             self.assertEqual('create_transfer' in actions,
                              vol.status == 'available')
 
-        self.assertEqual(8, self.mock_volume_backup_supported.call_count)
+        self.assertEqual(10, self.mock_volume_backup_supported.call_count)
         self.mock_volume_list_paged.assert_called_once_with(
             test.IsHttpRequest(), marker=None,
             sort_dir='desc', search_opts=None,
@@ -1926,12 +1926,12 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             test.IsHttpRequest(), search_opts=None)
         self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
                                                       search_opts=None)
-        self.assertEqual(11, self.mock_tenant_absolute_limits.call_count)
+        self.assertEqual(13, self.mock_tenant_absolute_limits.call_count)
 
     @mock.patch.object(cinder, 'transfer_get')
     @mock.patch.object(cinder, 'transfer_create')
     def test_create_transfer(self, mock_transfer_create, mock_transfer_get):
-        volumes = self.volumes.list()
+        volumes = self.cinder_volumes.list()
         volToTransfer = [v for v in volumes if v.status == 'available'][0]
         formData = {'volume_id': volToTransfer.id,
                     'name': u'any transfer name'}
@@ -2061,7 +2061,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         limits = self.cinder_limits['absolute']
 
         self.mock_volume_backup_supported.return_value = True
-        self.mock_volume_list_paged.return_value = [self.volumes.list(),
+        self.mock_volume_list_paged.return_value = [self.cinder_volumes.list(),
                                                     False, False]
         self.mock_volume_snapshot_list.return_value = []
         self.mock_server_list.return_value = [self.servers.list(), False]
@@ -2077,7 +2077,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             self.assertEqual('backups' in actions,
                              vol.status in ('available', 'in-use'))
 
-        self.assertEqual(8, self.mock_volume_backup_supported.call_count)
+        self.assertEqual(10, self.mock_volume_backup_supported.call_count)
         self.mock_volume_list_paged.assert_called_once_with(
             test.IsHttpRequest(), marker=None,
             sort_dir='desc', search_opts=None,
@@ -2086,4 +2086,4 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             test.IsHttpRequest(), search_opts=None)
         self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
                                                       search_opts=None)
-        self.assertEqual(8, self.mock_volume_backup_supported.call_count)
+        self.assertEqual(13, self.mock_tenant_absolute_limits.call_count)
