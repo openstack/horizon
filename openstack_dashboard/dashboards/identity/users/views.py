@@ -155,7 +155,7 @@ class UpdateView(forms.ModalFormView):
                 'email': getattr(user, 'email', None),
                 'description': getattr(user, 'description', None)}
         if api.keystone.VERSIONS.active >= 3:
-            for key in getattr(settings, 'USER_TABLE_EXTRA_INFO', {}):
+            for key in settings.USER_TABLE_EXTRA_INFO:
                 data[key] = getattr(user, key, None)
         return data
 

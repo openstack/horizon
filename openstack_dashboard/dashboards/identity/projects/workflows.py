@@ -241,7 +241,7 @@ class CreateProjectInfoAction(workflows.Action):
 
     def add_extra_fields(self):
         # add extra column defined by setting
-        EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+        EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
         for key, value in EXTRA_INFO.items():
             form = forms.CharField(label=value, required=False,)
             self.fields[key] = form
@@ -264,7 +264,7 @@ class CreateProjectInfo(workflows.Step):
     def __init__(self, workflow):
         super(CreateProjectInfo, self).__init__(workflow)
         if keystone.VERSIONS.active >= 3:
-            EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+            EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
             self.contributes += tuple(EXTRA_INFO.keys())
 
 
@@ -286,8 +286,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
             default_role = keystone.get_default_role(self.request)
             # Default role is necessary to add members to a project
             if default_role is None:
-                default = getattr(settings,
-                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
                 msg = (_('Could not find default role "%s" in Keystone') %
                        default)
                 raise exceptions.NotFound(msg)
@@ -384,8 +383,7 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
             default_role = api.keystone.get_default_role(self.request)
             # Default role is necessary to add members to a project
             if default_role is None:
-                default = getattr(settings,
-                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
                 msg = (_('Could not find default role "%s" in Keystone') %
                        default)
                 raise exceptions.NotFound(msg)
@@ -502,7 +500,7 @@ class CreateProject(workflows.Workflow):
         try:
             # add extra information
             if keystone.VERSIONS.active >= 3:
-                EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+                EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
                 kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
             else:
                 kwargs = {}
@@ -643,7 +641,7 @@ class UpdateProjectInfo(workflows.Step):
     def __init__(self, workflow):
         super(UpdateProjectInfo, self).__init__(workflow)
         if keystone.VERSIONS.active >= 3:
-            EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+            EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
             self.contributes += tuple(EXTRA_INFO.keys())
 
 
@@ -688,7 +686,7 @@ class UpdateProject(workflows.Workflow):
 
             # add extra information
             if keystone.VERSIONS.active >= 3:
-                EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+                EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
                 kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
             else:
                 kwargs = {}

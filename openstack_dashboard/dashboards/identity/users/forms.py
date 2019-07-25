@@ -97,7 +97,7 @@ class AddExtraColumnMixIn(object):
     def add_extra_fields(self, ordering=None):
         if api.keystone.VERSIONS.active >= 3:
             # add extra column defined by setting
-            EXTRA_INFO = getattr(settings, 'USER_TABLE_EXTRA_INFO', {})
+            EXTRA_INFO = settings.USER_TABLE_EXTRA_INFO
             for key, value in EXTRA_INFO.items():
                 self.fields[key] = forms.CharField(label=value,
                                                    required=False)
@@ -172,7 +172,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
 
             # add extra information
             if api.keystone.VERSIONS.active >= 3:
-                EXTRA_INFO = getattr(settings, 'USER_TABLE_EXTRA_INFO', {})
+                EXTRA_INFO = settings.USER_TABLE_EXTRA_INFO
                 kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
             else:
                 kwargs = {}
@@ -291,7 +291,7 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(ChangePasswordForm, self).__init__(request, *args, **kwargs)
 
-        if getattr(settings, 'ENFORCE_PASSWORD_CHECK', False):
+        if settings.ENFORCE_PASSWORD_CHECK:
             self.fields["admin_password"] = forms.CharField(
                 label=_("Admin Password"),
                 widget=forms.PasswordInput(render_value=False))
@@ -309,7 +309,7 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
         data.pop('confirm_password', None)
 
         # Verify admin password before changing user password
-        if getattr(settings, 'ENFORCE_PASSWORD_CHECK', False):
+        if settings.ENFORCE_PASSWORD_CHECK:
             admin_password = data.pop('admin_password')
             if not api.keystone.user_verify_admin_password(request,
                                                            admin_password):
