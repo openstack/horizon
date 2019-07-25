@@ -73,6 +73,7 @@ class PageTitleMixin(object):
 
 def trace(name):
     def decorator(func):
+        # TODO(amotoki): Move OPENSTACK_PROFILER setting to horizon.
         if getattr(settings, 'OPENSTACK_PROFILER', {}).get('enabled', False):
             return profiler.trace(name, info=None, hide_args=False,
                                   allow_multiple_trace=True)(func)

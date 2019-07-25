@@ -54,15 +54,6 @@ DEBUG = False
 
 SITE_BRANDING = 'OpenStack Dashboard'
 
-WEBROOT = '/'
-LOGIN_URL = None
-LOGOUT_URL = None
-LOGIN_ERROR = None
-LOGIN_REDIRECT_URL = None
-MEDIA_ROOT = None
-MEDIA_URL = None
-STATIC_ROOT = None
-STATIC_URL = None
 SELECTABLE_THEMES = None
 INTEGRATION_TESTS_SUPPORT = False
 NG_TEMPLATE_CACHE_AGE = 2592000
@@ -177,7 +168,6 @@ INSTALLED_APPS = [
 ]
 
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
-AUTHENTICATION_URLS = ['openstack_auth.urls']
 AUTH_USER_MODEL = 'openstack_auth.User'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
 
@@ -270,10 +260,6 @@ LOCAL_PATH = None
 
 ADD_INSTALLED_APPS = []
 
-# NOTE: The default value of USER_MENU_LINKS will be set after loading
-# local_settings if it is not configured.
-USER_MENU_LINKS = None
-
 # 'key', 'label', 'path'
 AVAILABLE_THEMES = [
     (
@@ -315,10 +301,6 @@ ANGULAR_FEATURES = {
 
 # Notice all customizable configurations should be above this line
 XSTATIC_MODULES = settings_utils.BASE_XSTATIC_MODULES
-
-OPENSTACK_PROFILER = {
-    'enabled': False
-}
 
 # Load default values
 # pylint: disable=wrong-import-position

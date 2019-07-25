@@ -50,7 +50,7 @@ def openstack(request):
             request.user.authorized_tenants if tenant.enabled]
 
     # Region context/support
-    available_regions = getattr(settings, 'AVAILABLE_REGIONS', [])
+    available_regions = settings.AVAILABLE_REGIONS
     regions = {'support': len(available_regions) > 1,
                'current': {'endpoint': request.session.get('region_endpoint'),
                            'name': request.session.get('region_name')},
@@ -84,19 +84,17 @@ def openstack(request):
     context['regions'] = regions
 
     # Adding webroot access
-    context['WEBROOT'] = getattr(settings, "WEBROOT", "/")
+    context['WEBROOT'] = settings.WEBROOT
 
-    user_menu_links = getattr(settings, "USER_MENU_LINKS", [])
-
-    context['USER_MENU_LINKS'] = user_menu_links
+    context['USER_MENU_LINKS'] = settings.USER_MENU_LINKS
 
     # Adding profiler support flag
-    profiler_settings = getattr(settings, 'OPENSTACK_PROFILER', {})
-    profiler_enabled = profiler_settings.get('enabled', False)
+    profiler_settings = settings.OPENSTACK_PROFILER
+    profiler_enabled = profiler_settings['enabled']
     context['profiler_enabled'] = profiler_enabled
     if profiler_enabled and 'profile_page' in request.COOKIES:
         index_view_id = request.META.get(profiler.ROOT_HEADER, '')
-        hmac_keys = profiler_settings.get('keys', [])
+        hmac_keys = profiler_settings['keys']
         context['x_trace_info'] = profiler.update_trace_headers(
             hmac_keys, parent_id=index_view_id)
 

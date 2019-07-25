@@ -136,7 +136,7 @@ def _apply_panel_mocks(patchers=None):
     """Global mocks on panels that get called on all views."""
     if patchers is None:
         patchers = {}
-    mocked_methods = getattr(settings, 'TEST_GLOBAL_MOCKS_ON_PANELS', {})
+    mocked_methods = settings.TEST_GLOBAL_MOCKS_ON_PANELS
     for name, mock_config in mocked_methods.items():
         method = mock_config['method']
         mock_params = {}
