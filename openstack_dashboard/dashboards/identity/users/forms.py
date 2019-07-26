@@ -18,6 +18,7 @@
 
 import collections
 import logging
+import re
 
 from django.conf import settings
 from django.forms import ValidationError
@@ -326,9 +327,18 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
                     redirect=False)
             messages.success(request,
                              _('User password has been updated successfully.'))
-        except Exception:
+        except Exception as exc:
             response = exceptions.handle(request, ignore=True)
-            messages.error(request, _('Unable to update the user password.'))
+            match = re.match((r'The password does not match the '
+                              r'requirements:(.*?) [(]HTTP 400[)]'), str(exc),
+                             re.UNICODE | re.MULTILINE)
+            if match:
+                info = match.group(1)
+                messages.error(request, _('The password does not match the '
+                                          'requirements: %s') % info)
+            else:
+                messages.error(request,
+                               _('Unable to update the user password.'))
 
         if isinstance(response, http.HttpResponse):
             return response
