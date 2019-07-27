@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-07-05 10:05+0000\n"
+"POT-Creation-Date: 2019-07-25 16:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5720,9 +5720,6 @@ msgstr "Nelze vytvořit specifikaci QoS."
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Nelze vytvořit doménu \"%s\"."
-
-msgid "Unable to create encrypted volume type."
-msgstr "Nelze vytvořit šifrovaný typ svazku."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
