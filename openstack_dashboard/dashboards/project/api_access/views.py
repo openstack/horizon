@@ -24,8 +24,6 @@ from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth import utils
-
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
@@ -131,9 +129,6 @@ def download_rc_file(request):
     except KeyError:
         project_domain_id = ''
     context['project_domain_id'] = project_domain_id
-    # sanity fix for removing v2.0 from the url if present
-    context['auth_url'], _ = utils.fix_auth_url_version_prefix(
-        context['auth_url'])
     context['os_identity_api_version'] = 3
     context['os_auth_version'] = 3
     return _download_rc_file_for_template(request, context, template)
@@ -150,14 +145,9 @@ def download_clouds_yaml_file(request):
         region_tuple[1] for region_tuple in settings.AVAILABLE_REGIONS
     ]
 
-    if utils.get_keystone_version() >= 3:
-        # make v3 specific changes
-        context['user_domain_name'] = request.user.user_domain_name
-        # sanity fix for removing v2.0 from the url if present
-        context['auth_url'], _ = utils.fix_auth_url_version_prefix(
-            context['auth_url'])
-        context['os_identity_api_version'] = 3
-        context['os_auth_version'] = 3
+    context['user_domain_name'] = request.user.user_domain_name
+    context['os_identity_api_version'] = 3
+    context['os_auth_version'] = 3
 
     return _download_rc_file_for_template(request, context, template,
                                           'clouds.yaml')

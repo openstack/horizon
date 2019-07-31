@@ -19,8 +19,6 @@ from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth import utils
-
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
@@ -121,7 +119,6 @@ def _get_context(request):
     auth_url = api.base.url_for(request,
                                 'identity',
                                 endpoint_type='publicURL')
-    auth_url, url_fixed = utils.fix_auth_url_version_prefix(auth_url)
     interface = 'public'
     region = getattr(request.user, 'services_region', '')
     app_cred = request.session['application_credential']

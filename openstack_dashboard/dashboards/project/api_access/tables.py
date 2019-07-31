@@ -16,8 +16,6 @@ from django.conf import settings
 from django.template.defaultfilters import title
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth import utils
-
 from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.api_access import forms
@@ -63,8 +61,7 @@ class DownloadOpenRC(tables.LinkAction):
     url = "horizon:project:api_access:openrc"
 
     def allowed(self, request, datum=None):
-        return (settings.SHOW_OPENRC_FILE and
-                utils.get_keystone_version() >= 3)
+        return settings.SHOW_OPENRC_FILE
 
 
 class ViewCredentials(tables.LinkAction):

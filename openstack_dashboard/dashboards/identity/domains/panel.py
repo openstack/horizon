@@ -30,9 +30,6 @@ class Domains(horizon.Panel):
         return keystone.VERSIONS.active >= 3
 
     def can_access(self, context):
-        if keystone.VERSIONS.active < 3:
-            return super(Domains, self).can_access(context)
-
         request = context['request']
         domain_token = request.session.get('domain_token')
         return super(Domains, self).can_access(context) and domain_token

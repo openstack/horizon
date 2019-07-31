@@ -128,7 +128,7 @@ def swift_api(request):
                                          preauthurl=endpoint,
                                          cacert=cacert,
                                          insecure=insecure,
-                                         auth_version="2.0")
+                                         auth_version="3")
 
 
 @profiler.trace

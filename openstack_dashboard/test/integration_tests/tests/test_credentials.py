@@ -15,7 +15,6 @@ from os.path import join
 from os import remove
 
 from horizon.test import firefox_binary
-from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 
 
@@ -40,27 +39,6 @@ class TestDownloadRCFile(helpers.AdminTestCase):
                 remove(join(self._directory, temporary_files[0]))
 
         self.addCleanup(cleanup)
-
-    @decorators.skip_because(bugs=['1792028'])
-    def test_download_rc_v2_file(self):
-        """This is a basic scenario test:
-
-        Steps:
-        1) Login to Horizon Dashboard as admin user
-        2) Navigate to Project > API Access tab
-        3) Click on "Download OpenStack RC File" dropdown button
-        4) Click on "OpenStack RC File (Identity API v2.0" button
-        5) File named by template "<tenant_name>-openrc.sh" must be downloaded
-        6) Check that username, tenant name and tenant id correspond to current
-        username, tenant name and tenant id
-        """
-        api_access_page = self.home_pg.\
-            go_to_project_apiaccesspage()
-        api_access_page.download_openstack_rc_file(
-            2, self._directory, self._openrc_template)
-        cred_dict = api_access_page.get_credentials_from_file(
-            2, self._directory, self._openrc_template)
-        self.assertEqual(cred_dict, self.actual_dict)
 
     def test_download_rc_v3_file(self):
         """This is a basic scenario test:

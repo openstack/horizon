@@ -149,11 +149,8 @@ class ModifyQuotas(tables.LinkAction):
     policy_rules = (('compute', "os_compute_api:os-quota-sets:update"),)
 
     def allowed(self, request, datum):
-        if api.keystone.VERSIONS.active < 3:
-            return True
-        else:
-            return (api.keystone.is_cloud_admin(request) and
-                    quotas.enabled_quotas(request))
+        return (api.keystone.is_cloud_admin(request) and
+                quotas.enabled_quotas(request))
 
     def get_link_url(self, project):
         step = 'update_quotas'
@@ -198,13 +195,10 @@ class DeleteTenantsAction(policy.PolicyTargetMixin, tables.DeleteAction):
 
 
 class TenantFilterAction(tables.FilterAction):
-    if api.keystone.VERSIONS.active < 3:
-        filter_type = "query"
-    else:
-        filter_type = "server"
-        filter_choices = (('name', _("Project Name ="), True),
-                          ('id', _("Project ID ="), True),
-                          ('enabled', _("Enabled ="), True, _('e.g. Yes/No')))
+    filter_type = "server"
+    filter_choices = (('name', _("Project Name ="), True),
+                      ('id', _("Project ID ="), True),
+                      ('enabled', _("Enabled ="), True, _('e.g. Yes/No')))
 
 
 class UpdateRow(tables.Row):

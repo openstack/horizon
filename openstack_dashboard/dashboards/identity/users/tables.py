@@ -21,7 +21,6 @@ from openstack_dashboard import policy
 
 ENABLE = 0
 DISABLE = 1
-KEYSTONE_V2_ENABLED = api.keystone.VERSIONS.active < 3
 
 
 class CreateUserLink(tables.LinkAction):
@@ -186,7 +185,6 @@ class UsersTable(tables.DataTable):
                                  form_field=forms.CharField(required=False))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
-                                hidden=KEYSTONE_V2_ENABLED,
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(attrs={'rows': 4}),
                                     required=False))

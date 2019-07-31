@@ -492,7 +492,7 @@ OpenStack dashboard to use a specific API version for a given service API.
 
     The version should be formatted as it appears in the URL for the
     service API. For example, the identity service APIs have inconsistent
-    use of the decimal point, so valid options would be "2.0" or "3".
+    use of the decimal point, so valid options would be "3".
     For example:
 
     .. code-block:: python
@@ -1313,7 +1313,7 @@ Default: ``["admin"]``
 
 The list of roles that have administrator privileges in this OpenStack
 installation. This check is very basic and essentially only works with
-keystone v2.0 and v3 with the default policy file. The setting assumes there
+keystone v3 with the default policy file. The setting assumes there
 is a common ``admin`` like role(s) across services. Example uses of this
 setting are:
 

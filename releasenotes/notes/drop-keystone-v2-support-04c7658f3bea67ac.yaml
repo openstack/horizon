@@ -1,0 +1,7 @@
+---
+upgrade:
+  - |
+    Keystone API V2 support has been dropped in Train release. Keystone V2 API
+    support was deprecated in Stein release. If you use Keystone V2 before, you
+    should update the `OPENSTACK_API_VERSIONS` configuration option to use
+    Keystone V3 API.
