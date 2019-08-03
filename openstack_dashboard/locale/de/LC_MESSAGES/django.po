@@ -11,17 +11,18 @@
 # Reik Keutterling <spielkind@gmail.com>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2019. #zanata
+# Robert Holling <r.holling@protonmail.ch>, 2019. #zanata
 # Robert Simai <robert.simai@suse.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-07-25 16:41+0000\n"
+"POT-Creation-Date: 2019-07-30 14:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-07-26 11:59+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2019-08-02 04:36+0000\n"
+"Last-Translator: Robert Holling <r.holling@protonmail.ch>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -212,6 +213,12 @@ msgstr ", Projektgruppen aktualisieren"
 
 msgid "-"
 msgstr "-"
+
+msgid "1 (icmp) should be specified for IPv4 instead of 58."
+msgstr "1 (icmp) sollte für IPv4 anstelle von 58 angegeben werden."
+
+msgid "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
+msgstr "58 (ipv6-icmp) sollte für IPv6 anstelle von 1 angegeben werden."
 
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
@@ -1424,6 +1431,11 @@ msgstr "Zuordnung erstellen."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Neues \"extra spec\" Schlüssel-Wert-Paar für Datenträgertyp erzeugen."
+
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr ""
+"Erzeugen Sie ein neues  \"group type spec\" Schlüsselpaar für einen "
+"Gruppentyp."
 
 #, python-format
 msgid ""
@@ -8412,6 +8424,10 @@ msgstr "Einen verschlüsselten Datenträgertyp aktualisieren"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Den \"extra spec\" Wert für \"%(key)s\" aktualisieren"
+
+#, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "Aktualisieren Sie für \"group type spec\" den Wert für \"%(key)s\""
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
