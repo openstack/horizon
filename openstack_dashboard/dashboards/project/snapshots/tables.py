@@ -101,6 +101,8 @@ class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
             # Can't delete snapshot if part of group snapshot
             if getattr(datum, 'group_snapshot_id', None):
                 return False
+            if datum.status == 'backing-up':
+                return False
         return True
 
 
@@ -140,6 +142,23 @@ class CreateVolumeFromSnapshot(tables.LinkAction):
         if volume and cinder.is_volume_service_enabled(request):
             return volume.status == "available"
         return False
+
+
+class CreateBackup(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "backups"
+    verbose_name = _("Create Backup")
+    url = "horizon:project:volumes:create_snapshot_backup"
+    classes = ("ajax-modal",)
+    policy_rules = (("volume", "backup:create"),)
+
+    def get_link_url(self, datum):
+        snap_id = self.table.get_object_id(datum)
+        url = reverse(self.url, args=(datum.volume_id, snap_id))
+        return url
+
+    def allowed(self, request, snapshot=None):
+        return (cinder.volume_backup_supported(request) and
+                snapshot.status == 'available')
 
 
 class UpdateMetadata(tables.LinkAction):
@@ -230,7 +249,7 @@ class VolumeDetailsSnapshotsTable(volume_tables.VolumesTableBase):
             launch_actions = (LaunchSnapshotNG,) + launch_actions
 
         row_actions = ((CreateVolumeFromSnapshot,) + launch_actions +
-                       (EditVolumeSnapshot, DeleteVolumeSnapshot,
+                       (EditVolumeSnapshot, DeleteVolumeSnapshot, CreateBackup,
                         UpdateMetadata))
         row_class = UpdateRow
         status_columns = ("status",)

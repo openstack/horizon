@@ -204,6 +204,7 @@ def data(TEST):
          'display_name': 'test snapshot',
          'display_description': 'volume snapshot',
          'size': 40,
+         'created_at': '2014-01-27 10:30:00',
          'status': 'available',
          'volume_id': '11023e92-8008-4c8b-8059-7f2293ff3887'})
     snapshot2 = vol_snaps.Snapshot(
@@ -212,6 +213,7 @@ def data(TEST):
          'name': '',
          'description': 'v2 volume snapshot description',
          'size': 80,
+         'created_at': '2014-01-27 10:30:00',
          'status': 'available',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
     snapshot3 = vol_snaps.Snapshot(
@@ -220,6 +222,7 @@ def data(TEST):
          'name': '',
          'description': 'v2 volume snapshot description 2',
          'size': 80,
+         'created_at': '2014-01-27 10:30:00',
          'status': 'available',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
     snapshot4 = vol_snaps.Snapshot(
@@ -228,6 +231,7 @@ def data(TEST):
          'name': '',
          'description': 'v2 volume snapshot with metadata description',
          'size': 80,
+         'created_at': '2014-01-27 10:30:00',
          'status': 'available',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234',
          'metadata': {'snapshot_meta_key': 'snapshot_meta_value'}})
@@ -269,6 +273,7 @@ def data(TEST):
          'size': 10,
          'status': 'available',
          'container_name': 'volumebackups',
+         'snapshot_id': None,
          'volume_id': '11023e92-8008-4c8b-8059-7f2293ff3887'})
 
     volume_backup2 = vol_backups.VolumeBackup(
@@ -278,6 +283,7 @@ def data(TEST):
          'description': 'volume backup 2',
          'size': 20,
          'status': 'available',
+         'snapshot_id': snapshot2.id,
          'container_name': 'volumebackups',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
 
@@ -287,6 +293,7 @@ def data(TEST):
          'name': 'backup3',
          'description': 'volume backup 3',
          'size': 20,
+         'snapshot_id': None,
          'status': 'available',
          'container_name': 'volumebackups',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})

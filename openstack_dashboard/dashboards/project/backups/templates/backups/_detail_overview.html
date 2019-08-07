@@ -20,6 +20,20 @@
       </a>
     </dd>
     {% endif %}
+    {% if backup.snapshot_id %}
+    <dt>{% trans "Snapshot" %}</dt>
+    {% if snapshot %}
+    <dd>
+     <a href="{% url 'horizon:project:snapshots:detail' backup.snapshot_id %}">
+        {{ snapshot.name }}
+     </a>
+    </dd>
+    {% elif backup.snapshot_id %}
+    <dd>
+    {{ backup.snapshot_id }}
+    {% endif %}
+    </dd>
+    {% endif %}
   </dl>
 
   <h4>{% trans "Specs" %}</h4>

@@ -48,8 +48,11 @@ class BackupsView(tables.DataTableView, tables.PagedTableMixin,
                     paginate=True)
             volumes = api.cinder.volume_list(self.request)
             volumes = dict((v.id, v) for v in volumes)
+            snapshots = api.cinder.volume_snapshot_list(self.request)
+            snapshots = dict((s.id, s) for s in snapshots)
             for backup in backups:
                 backup.volume = volumes.get(backup.volume_id)
+                backup.snapshot = snapshots.get(backup.snapshot_id)
         except Exception:
             backups = []
             exceptions.handle(self.request, _("Unable to retrieve "
@@ -73,6 +76,9 @@ class CreateBackupView(forms.ModalFormView):
         return context
 
     def get_initial(self):
+        if self.kwargs.get('snapshot_id'):
+            return {"volume_id": self.kwargs["volume_id"],
+                    "snapshot_id": self.kwargs["snapshot_id"]}
         return {"volume_id": self.kwargs["volume_id"]}
 
 
