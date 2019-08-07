@@ -392,7 +392,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         api.network: ('servers_update_addresses',),
         api.cinder: ('volume_list',),
     })
-    def test_index_with_instance_booted_from_volume(self):
+    def _test_index_with_instance_booted_from_volume(
+            self, volume_image_metadata, expected_image_name):
         servers = self.servers.list()
         volume_server = servers[0]
         # Override the server is booted from a volume.
@@ -410,10 +411,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         volumes = self.cinder_volumes.list()
         # 3rd volume in the list is attached to server with ID 1.
         volume = volumes[2]
-        base_image = self.images.get(name='private_image')
-        volume.volume_image_metadata = {
-            "image_id": base_image.id,
-        }
+        volume.volume_image_metadata = volume_image_metadata
 
         self._mock_extension_supported({'AdminActions': True,
                                         'Shelve': True})
@@ -433,7 +431,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['instances_table'].data
         self.assertEqual(len(instances), len(servers))
-        self.assertContains(res, base_image.name)
+        if expected_image_name:
+            self.assertContains(res, expected_image_name)
 
         self._check_extension_supported({'AdminActions': 16,
                                          'Shelve': 4})
@@ -460,6 +459,28 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             self.mock_floating_ip_simple_associate_supported, 4,
             mock.call(helpers.IsHttpRequest()))
         self.mock_volume_list.assert_called_once_with(helpers.IsHttpRequest())
+
+        return instances
+
+    def test_index_with_instance_booted_from_volume(self):
+        base_image = self.images.get(name='private_image')
+        image_metadata = {
+            "image_id": base_image.id
+        }
+        servers = self._test_index_with_instance_booted_from_volume(
+            image_metadata, expected_image_name=base_image.name)
+        self.assertEqual(base_image.name, servers[0].image.name)
+
+    def test_index_with_instance_booted_from_volume_no_image_info(self):
+        # Borrowed from bug #1834747
+        image_metadata = {
+            'hw_qemu_guest_agent': 'yes',
+            'hw_vif_multiqueue_enabled': 'true',
+            'os_require_quiesce': 'yes',
+        }
+        servers = self._test_index_with_instance_booted_from_volume(
+            image_metadata, expected_image_name=None)
+        self.assertEqual('', servers[0].image)
 
     def test_index_with_console_link(self):
         res = self._get_index()

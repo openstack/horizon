@@ -210,8 +210,12 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
             # Getting volume object, which is as attached
             # as the first device
             boot_volume = volume_dict[instance_volumes[0]['id']]
-            if hasattr(boot_volume, "volume_image_metadata"):
-                image_id = boot_volume.volume_image_metadata['image_id']
+            # There is a case where volume_image_metadata contains
+            # only fields other than 'image_id' (See bug 1834747),
+            # so we try to populate image information only when it is found.
+            volume_metadata = getattr(boot_volume, "volume_image_metadata", {})
+            image_id = volume_metadata.get('image_id')
+            if image_id:
                 try:
                     instance.image = image_dict[image_id]
                 except KeyError:
