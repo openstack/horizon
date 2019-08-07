@@ -292,11 +292,11 @@ class DetachVolume(forms.SelfHandlingForm):
                         '%(inst)s.') % {"vol": volume,
                                         "inst": instance_id}
             messages.info(request, message)
-        except Exception:
+        except Exception as ex:
             redirect = reverse('horizon:project:instances:index')
-            exceptions.handle(request,
-                              _("Unable to detach volume."),
-                              redirect=redirect)
+            exceptions.handle(
+                request, _("Unable to detach volume: %s") % ex,
+                redirect=redirect)
         return True
 
 
