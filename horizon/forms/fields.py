@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import collections
 import itertools
 import re
 
@@ -620,6 +621,15 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
     process form clean() phase as usual. Actual file upload happens entirely
     on client-side.
     """
+
+    @classmethod
+    def __prepare__(cls, name, bases):
+        # Required in python 3 to keep the form fields order.
+        # Without this method, the __new__(cls, name, bases, attrs) method
+        # receives a dict as attrs instead of OrderedDict.
+        # This method will be ignored by Python 2.
+        return collections.OrderedDict()
+
     def __new__(cls, name, bases, attrs):
         def get_double_name(name):
             suffix = '__hidden'
@@ -634,7 +644,8 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
                 return value
             return _clean_method
 
-        new_attrs = {}
+        # An OrderedDict is required in python 3 to keep the form fields order.
+        new_attrs = collections.OrderedDict()
         for attr_name, attr in attrs.items():
             new_attrs[attr_name] = attr
             if isinstance(attr, ExternalFileField):
