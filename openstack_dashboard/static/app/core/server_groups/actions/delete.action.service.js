@@ -20,6 +20,7 @@
     .factory('horizon.app.core.server_groups.actions.delete.service', deleteServerGroupService);
 
   deleteServerGroupService.$inject = [
+    '$location',
     'horizon.app.core.openstack-service-api.nova',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.app.core.server_groups.resourceType',
@@ -39,6 +40,7 @@
    * On cancel, do nothing.
    */
   function deleteServerGroupService(
+    $location,
     nova,
     policy,
     serverGroupResourceType,
@@ -77,7 +79,13 @@
       deleteModalResult.fail.forEach(function markFailed(item) {
         actionResult.failed(serverGroupResourceType, item.context.id);
       });
-      return actionResult.result;
+      var path = '/project/server_groups';
+      if ($location.url() !== path && actionResult.result.failed.length === 0 &&
+          actionResult.result.deleted.length > 0) {
+        $location.path(path);
+      } else {
+        return actionResult.result;
+      }
     }
 
     function labelize(count) {
