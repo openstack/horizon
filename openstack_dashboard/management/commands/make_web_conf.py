@@ -78,6 +78,9 @@ context = template.Context({
     'SSLKEY': '/etc/pki/tls/private/ca.key',
     'CACERT': None,
     'PROCESSES': multiprocessing.cpu_count() + 1,
+    'PY2': six.PY2,
+    'PY3': six.PY3,
+    'PYTHON_EXEC': sys.executable,
 })
 
 context['PROJECT_ROOT'] = os.path.dirname(context['PROJECT_PATH'])
