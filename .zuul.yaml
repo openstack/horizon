@@ -18,6 +18,15 @@
       - name: openstack/horizon
 
 - job:
+    name: horizon-openstack-tox-python3-django22
+    voting: false
+    parent: horizon-openstack-tox-base
+    vars:
+      tox_envlist: py3-dj22
+    required-projects:
+      - name: openstack/horizon
+
+- job:
     name: horizon-selenium-headless
     parent: horizon-openstack-tox-base
     pre-run: playbooks/horizon-selenium-headless/pre.yaml
@@ -160,6 +169,7 @@
     check:
       jobs:
         - horizon-openstack-tox-python3-django111
+        - horizon-openstack-tox-python3-django22
         - horizon-selenium-headless
         - horizon-integration-tests
         - horizon-dsvm-tempest-plugin
