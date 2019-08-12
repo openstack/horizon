@@ -274,7 +274,12 @@ def get_microversion(request, features):
             continue
     else:
         return None
-    min_ver, max_ver = cinder_client.get_server_version(cinder_url)
+
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    cacert = settings.OPENSTACK_SSL_CACERT
+
+    min_ver, max_ver = cinder_client.get_server_version(cinder_url,
+                                                        insecure, cacert)
     return microversions.get_microversion_for_features(
         'cinder', features, api_versions.APIVersion, min_ver, max_ver)
 
