@@ -34,6 +34,7 @@ def data(TEST):
     TEST.routers_with_rules = utils.TestDataContainer()
     TEST.routers_with_routes = utils.TestDataContainer()
     TEST.floating_ips = utils.TestDataContainer()
+    TEST.port_forwardings = utils.TestDataContainer()
     TEST.security_groups = utils.TestDataContainer()
     TEST.security_group_rules = utils.TestDataContainer()
     TEST.providers = utils.TestDataContainer()
@@ -63,6 +64,7 @@ def data(TEST):
     TEST.api_routers = utils.TestDataContainer()
     TEST.api_routers_with_routes = utils.TestDataContainer()
     TEST.api_floating_ips = utils.TestDataContainer()
+    TEST.api_port_forwardings = utils.TestDataContainer()
     TEST.api_security_groups = utils.TestDataContainer()
     TEST.api_security_group_rules = utils.TestDataContainer()
     TEST.api_pools = utils.TestDataContainer()
@@ -647,6 +649,7 @@ def data(TEST):
                 'id': '9012cd70-cfae-4e46-b71e-6a409e9e0063',
                 'fixed_ip_address': None,
                 'port_id': None,
+                'port_forwardings': [],
                 'router_id': None}
     TEST.api_floating_ips.add(fip_dict)
     fip_with_instance = copy.deepcopy(fip_dict)
@@ -659,6 +662,7 @@ def data(TEST):
                 'floating_ip_address': '172.16.88.228',
                 'floating_network_id': ext_net['id'],
                 'id': 'a97af8f2-3149-4b97-abbd-e49ad19510f7',
+                'port_forwardings': [],
                 'fixed_ip_address': assoc_port['fixed_ips'][0]['ip_address'],
                 'port_id': assoc_port['id'],
                 'router_id': router_dict['id']}
@@ -667,6 +671,46 @@ def data(TEST):
     fip_with_instance.update({'instance_id': '1',
                               'instance_type': 'compute'})
     TEST.floating_ips.add(neutron.FloatingIp(fip_with_instance))
+
+    # port forwardings
+
+    TEST.api_port_forwardings.add({
+        "protocol": "tcp",
+        "internal_ip_address": "10.0.0.11",
+        "internal_port": 25,
+        "internal_port_id": "1238be08-a2a8-4b8d-addf-fb5e2250e480",
+        "external_port": 2230,
+        "internal_port_range": "25:25",
+        "external_port_range": "2230:2230",
+        "description": "",
+        "id": "e0a0274e-4d19-4eab-9e12-9e77a8caf3ea"
+    })
+    TEST.api_port_forwardings.add({
+        "protocol": "tcp",
+        "internal_port": 80,
+        "external_port": 8080,
+        "internal_ip_address": "10.0.0.12",
+        "internal_port_range": "80:90",
+        "internal_port_id": "2057ec54-8be2-11eb-8dcd-0242ac130003",
+        "external_port_range": "8080:8090",
+        "description": "using port ranges",
+        "id": "0f23a90a-8be2-11eb-8dcd-0242ac130003"
+    })
+    TEST.api_port_forwardings.add({
+        "protocol": "tcp",
+        "internal_ip_address": "10.0.0.24",
+        "internal_port": 25,
+        "internal_port_id": "070ef0b2-0175-4299-be5c-01fea8cca522",
+        "external_port": 2229,
+        "internal_port_range": "25:25",
+        "external_port_range": "2229:2229",
+        "description": "Some description",
+        "id": "1798dc82-c0ed-4b79-b12d-4c3c18f90eb2"
+    })
+
+    TEST.port_forwardings.add(neutron.PortForwarding(
+        TEST.api_port_forwardings.first(), fip_dict['id']
+    ))
 
     # Security group.
 

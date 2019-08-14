@@ -20,6 +20,7 @@
 """
 Views for managing floating IPs.
 """
+import logging
 
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -40,6 +41,8 @@ from openstack_dashboard.dashboards.project.floating_ips \
     import tables as project_tables
 from openstack_dashboard.dashboards.project.floating_ips \
     import workflows as project_workflows
+
+LOG = logging.getLogger(__name__)
 
 
 class AssociateView(workflows.WorkflowView):
@@ -129,8 +132,20 @@ class IndexView(tables.DataTableView):
 
             instances_dict = dict((obj.id, obj.name) for obj in instances)
 
+        fip_pfw_enabled = (
+            api.neutron.is_extension_floating_ip_port_forwarding_supported(
+                self.request))
+
         for ip in floating_ips:
             ip.instance_name = instances_dict.get(ip.instance_id)
             ip.pool_name = pool_dict.get(ip.pool, ip.pool)
+            if fip_pfw_enabled:
+                try:
+                    pfws = api.neutron.floating_ip_port_forwarding_list(
+                        self.request, ip.id)
+                    ip.port_forwardings = pfws
+                except Exception as e:
+                    LOG.info("Error fetching port forwardings for floating IP"
+                             " %s: %s", ip.id, e)
 
         return floating_ips

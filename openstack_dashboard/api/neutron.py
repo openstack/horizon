@@ -510,13 +510,36 @@ class SecurityGroupManager(object):
 
 class FloatingIp(base.APIDictWrapper):
     _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id',
-              'instance_type', 'pool', 'dns_domain', 'dns_name']
+              'instance_type', 'pool', 'dns_domain', 'dns_name',
+              'port_forwardings']
 
     def __init__(self, fip):
         fip['ip'] = fip['floating_ip_address']
         fip['fixed_ip'] = fip['fixed_ip_address']
         fip['pool'] = fip['floating_network_id']
+        fip['port_forwardings'] = fip.get('portforwardings', {})
         super().__init__(fip)
+
+
+class PortForwarding(base.APIDictWrapper):
+    _attrs = ['id', 'floating_ip_id', 'protocol', 'internal_port_range',
+              'external_port_range', 'internal_ip_address',
+              'description', 'internal_port_id', 'external_ip_address']
+
+    def __init__(self, pfw, fip):
+        pfw['floating_ip_id'] = fip
+        port_forwarding = pfw
+        if 'port_forwarding' in pfw:
+            port_forwarding = pfw['port_forwarding']
+        port_forwarding['internal_port_range'] = ':'.join(
+            map(str, sorted(
+                map(int, set(port_forwarding.get(
+                    'internal_port_range', '').split(':'))))))
+        port_forwarding['external_port_range'] = ':'.join(
+            map(str, sorted(
+                map(int, set(port_forwarding.get(
+                    'external_port_range', '').split(':'))))))
+        super().__init__(pfw)
 
 
 class FloatingIpPool(base.APIDictWrapper):
@@ -542,6 +565,81 @@ class FloatingIpTarget(base.APIDictWrapper):
                   'port_id': port.id,
                   'instance_id': port.device_id}
         super().__init__(target)
+
+
+class PortForwardingManager(object):
+
+    def __init__(self, request):
+        self.request = request
+        self.client = neutronclient(request)
+
+    @profiler.trace
+    def list(self, floating_ip_id, **search_opts):
+        port_forwarding_rules = self.client.list_port_forwardings(
+            floating_ip_id, **search_opts)
+        port_forwarding_rules = port_forwarding_rules.get('port_forwardings')
+        LOG.debug("Portforwarding rules listed=%s", port_forwarding_rules)
+        return [PortForwarding(port_forwarding_rule, floating_ip_id)
+                for port_forwarding_rule in port_forwarding_rules]
+
+    @profiler.trace
+    def update(self, floating_ip_id, **params):
+        portforwarding_dict = self.create_port_forwarding_dict(**params)
+        portforwarding_id = params['portforwarding_id']
+        LOG.debug("Updating Portforwarding rule with id %s", portforwarding_id)
+        pfw = self.client.update_port_forwarding(
+            floating_ip_id,
+            portforwarding_id,
+            {'port_forwarding': portforwarding_dict}).get('port_forwarding')
+
+        return PortForwarding(pfw, floating_ip_id)
+
+    @profiler.trace
+    def create(self, floating_ip_id, **params):
+        portforwarding_dict = self.create_port_forwarding_dict(**params)
+        portforwarding_rule = self.client.create_port_forwarding(
+            floating_ip_id,
+            {'port_forwarding': portforwarding_dict}).get('port_forwarding')
+        LOG.debug("Created a Portforwarding rule to floating IP %s with id %s",
+                  floating_ip_id,
+                  portforwarding_rule['id'])
+        return PortForwarding(portforwarding_rule, floating_ip_id)
+
+    def create_port_forwarding_dict(self, **params):
+        portforwarding_dict = {}
+        if 'protocol' in params:
+            portforwarding_dict['protocol'] = str(params['protocol']).lower()
+        if 'internal_port' in params:
+            internal_port = str(params['internal_port'])
+            if ':' not in internal_port:
+                portforwarding_dict['internal_port'] = int(internal_port)
+            else:
+                portforwarding_dict['internal_port_range'] = internal_port
+        if 'external_port' in params:
+            external_port = str(params['external_port'])
+            if ':' not in external_port:
+                portforwarding_dict['external_port'] = int(external_port)
+            else:
+                portforwarding_dict['external_port_range'] = external_port
+        if 'internal_ip_address' in params:
+            portforwarding_dict['internal_ip_address'] = params[
+                'internal_ip_address']
+        if 'description' in params:
+            portforwarding_dict['description'] = params['description']
+        if 'internal_port_id' in params:
+            portforwarding_dict['internal_port_id'] = params['internal_port_id']
+        return portforwarding_dict
+
+    def delete(self, floating_ip_id, portforwarding_id):
+        self.client.delete_port_forwarding(floating_ip_id, portforwarding_id)
+        LOG.debug(
+            "The Portforwarding rule of floating IP %s with id %s was deleted",
+            floating_ip_id, portforwarding_id)
+
+    def get(self, floating_ip_id, portforwarding_id):
+        pfw = self.client.show_port_forwarding(floating_ip_id,
+                                               portforwarding_id)
+        return PortForwarding(pfw, portforwarding_id)
 
 
 class FloatingIpManager(object):
@@ -1956,6 +2054,26 @@ def tenant_floating_ip_list(request, all_tenants=False, **search_opts):
                                            **search_opts)
 
 
+def floating_ip_port_forwarding_list(request, fip):
+    return PortForwardingManager(request).list(fip)
+
+
+def floating_ip_port_forwarding_create(request, fip, **params):
+    return PortForwardingManager(request).create(fip, **params)
+
+
+def floating_ip_port_forwarding_update(request, fip, **params):
+    return PortForwardingManager(request).update(fip, **params)
+
+
+def floating_ip_port_forwarding_get(request, fip, pfw):
+    return PortForwardingManager(request).get(fip, pfw)
+
+
+def floating_ip_port_forwarding_delete(request, fip, pfw):
+    return PortForwardingManager(request).delete(fip, pfw)
+
+
 def tenant_floating_ip_get(request, floating_ip_id):
     return FloatingIpManager(request).get(floating_ip_id)
 
@@ -2176,6 +2294,18 @@ def is_extension_supported(request, extension_alias):
         if extension['alias'] == extension_alias:
             return True
     else:
+        return False
+
+
+@profiler.trace
+def is_extension_floating_ip_port_forwarding_supported(request):
+    try:
+        return is_extension_supported(
+            request, extension_alias='floating-ip-port-forwarding')
+    except Exception as e:
+        LOG.error("It was not possible to check if the "
+                  "floating-ip-port-forwarding extension is enabled in "
+                  "neutron. Port forwardings will not be enabled.: %s", e)
         return False
 
 

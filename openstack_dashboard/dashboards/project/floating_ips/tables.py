@@ -90,10 +90,58 @@ class ReleaseIPs(tables.BatchAction):
 
     def allowed(self, request, fip=None):
         policy_rules = (("network", "delete_floatingip"),)
-        return policy.check(policy_rules, request)
+
+        port_forwarding_occurrence = 0
+
+        if fip:
+            pwds = fip.port_forwardings
+            port_forwarding_occurrence = len(pwds)
+
+        return port_forwarding_occurrence == 0 and policy.check(policy_rules,
+                                                                request)
 
     def action(self, request, obj_id):
         api.neutron.tenant_floating_ip_release(request, obj_id)
+
+
+class ReleaseIPsPortForwarding(ReleaseIPs):
+    name = "release_floating_ip_portforwarding_rule"
+    help_text = _(
+        "This floating IP has port forwarding rules configured to it."
+        " Therefore,"
+        " you will need to remove all of these rules before being able"
+        " to release it.")
+
+    def __init__(self, **kwargs):
+        attributes = {"title": "Release Floating IP with port forwarding rules",
+                      "confirm-button-text": "Edit floating IP port"
+                                             " forwarding rules"}
+        super().__init__(attrs=attributes, **kwargs)
+
+    @staticmethod
+    def action_past(count):
+        return ngettext_lazy(
+            u"Successfully redirected",
+            u"Successfully redirected",
+            count
+        )
+
+    def allowed(self, request, fip=None):
+
+        policy_rules = (("network", "delete_floatingip_port_forwarding"),)
+        pwds = fip.port_forwardings
+        return (
+            len(pwds) > 0 and
+            policy.check(policy_rules, request) and
+            api.neutron.is_extension_floating_ip_port_forwarding_supported(
+                request)
+        )
+
+    def action(self, request, obj_id):
+        self.success_url = reverse(
+            'horizon:project:floating_ip_portforwardings:show') \
+            + '?floating_ip_id=' \
+            + str(obj_id)
 
 
 class AssociateIP(tables.LinkAction):
@@ -105,12 +153,67 @@ class AssociateIP(tables.LinkAction):
 
     def allowed(self, request, fip):
         policy_rules = (("network", "update_floatingip"),)
-        return not fip.port_id and policy.check(policy_rules, request)
+        pwds = fip.port_forwardings
+        return len(pwds) == 0 and not fip.port_id and policy.check(policy_rules,
+                                                                   request)
 
     def get_link_url(self, datum):
         base_url = reverse(self.url)
         params = urlencode({"ip_id": self.table.get_object_id(datum)})
         return "?".join([base_url, params])
+
+
+class ListAllFloatingIpPortForwardingRules(tables.LinkAction):
+    name = "List floating_ip_portforwardings_rules"
+    verbose_name = _("List all floating IP port forwarding rules")
+    url = "horizon:project:floating_ip_portforwardings:index"
+    classes = ("btn-edit",)
+    icon = "link"
+
+    def exists_floating_ip_with_port_forwarding_rules_configurable(self,
+                                                                   request):
+        floating_ips = api.neutron.tenant_floating_ip_list(request)
+        for floating_ip in floating_ips:
+            if not floating_ip.port_id:
+                return True
+
+        return False
+
+    def allowed(self, request, fip):
+        policy_rules = (("network", "get_floatingip_port_forwarding"),)
+        return (self.exists_floating_ip_with_port_forwarding_rules_configurable(
+                request) and policy.check(policy_rules, request) and
+                api.neutron.is_extension_floating_ip_port_forwarding_supported(
+                    request))
+
+
+class ConfigureFloatingIpPortForwarding(tables.Action):
+    name = "configure_floating_ip_portforwarding_rules"
+    verbose_name = _("Configure floating IP port forwarding rules")
+    classes = ("btn-edit",)
+    icon = "link"
+
+    def allowed(self, request, fip):
+        policy_rules = (("network", "get_floatingip_port_forwarding"),)
+        return (
+            not fip.port_id and
+            policy.check(policy_rules, request) and
+            api.neutron.is_extension_floating_ip_port_forwarding_supported(
+                request)
+        )
+
+    def single(self, table, request, obj_id):
+        fip = {}
+        try:
+            fip = table.get_object_by_id(filters.get_int_or_uuid(obj_id))
+        except Exception as ex:
+            err_msg = 'Unable to find a floating IP.'
+            LOG.debug(err_msg, ex)
+            exceptions.handle(request,
+                              _('Unable to find a floating IP.'))
+        return shortcuts.redirect(
+            reverse('horizon:project:floating_ip_portforwardings:show') +
+            '?floating_ip_id=' + str(fip.id))
 
 
 class DisassociateIP(tables.Action):
@@ -162,7 +265,6 @@ STATUS_DISPLAY_CHOICES = (
     ("down", pgettext_lazy("Current status of a Floating IP", "Down")),
     ("error", pgettext_lazy("Current status of a Floating IP", "Error")),
 )
-
 
 FLOATING_IPS_FILTER_CHOICES = (
     ('floating_ip_address', _('Floating IP Address ='), True),
@@ -224,5 +326,9 @@ class FloatingIPsTable(tables.DataTable):
     class Meta(object):
         name = "floating_ips"
         verbose_name = _("Floating IPs")
-        table_actions = (AllocateIP, ReleaseIPs, FloatingIPsFilterAction)
-        row_actions = (AssociateIP, DisassociateIP, ReleaseIPs)
+        table_actions = (
+            ListAllFloatingIpPortForwardingRules, AllocateIP, ReleaseIPs,
+            FloatingIPsFilterAction)
+        row_actions = (AssociateIP, DisassociateIP, ReleaseIPs,
+                       ReleaseIPsPortForwarding,
+                       ConfigureFloatingIpPortForwarding)

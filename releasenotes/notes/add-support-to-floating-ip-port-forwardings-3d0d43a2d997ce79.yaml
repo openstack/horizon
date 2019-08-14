@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    Add support to portforwardings in the Network Floating IPs dashboard.
+
+    Requires python-neutronclient >= 8.1.0
+
+    This feature is disabled by default.

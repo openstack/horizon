@@ -35,6 +35,13 @@ NAMESPACE = "horizon:project:floating_ips"
 
 class FloatingIpViewTests(test.TestCase):
 
+    def setUp(self):
+        super().setUp()
+        api_mock = mock.patch.object(
+            api.neutron,
+            'is_extension_floating_ip_port_forwarding_supported').start()
+        api_mock.return_value = True
+
     @test.create_mocks({api.neutron: ('floating_ip_target_list',
                                       'tenant_floating_ip_list')})
     def test_associate(self):
@@ -42,7 +49,6 @@ class FloatingIpViewTests(test.TestCase):
             self._get_fip_targets()
         self.mock_tenant_floating_ip_list.return_value = \
             self.floating_ips.list()
-
         url = reverse('%s:associate' % NAMESPACE)
         res = self.client.get(url)
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
@@ -91,6 +97,7 @@ class FloatingIpViewTests(test.TestCase):
             for ip in p.fixed_ips:
                 targets.append(api.neutron.FloatingIpTarget(
                     p, ip['ip_address'], server_dict.get(p.device_id)))
+                targets[-1].port_forwardings = []
         return targets
 
     @staticmethod
@@ -213,12 +220,14 @@ class FloatingIpViewTests(test.TestCase):
     @test.create_mocks({api.nova: ('server_list',),
                         api.neutron: ('floating_ip_disassociate',
                                       'floating_ip_pools_list',
+                                      'floating_ip_port_forwarding_list',
                                       'is_extension_supported',
                                       'tenant_floating_ip_list')})
     def test_disassociate_post(self):
         floating_ip = self.floating_ips.first()
 
         self.mock_is_extension_supported.return_value = False
+        self.mock_floating_ip_port_forwarding_list.return_value = []
         self.mock_server_list.return_value = [self.servers.list(), False]
         self.mock_tenant_floating_ip_list.return_value = \
             self.floating_ips.list()
@@ -243,6 +252,7 @@ class FloatingIpViewTests(test.TestCase):
 
     @test.create_mocks({api.nova: ('server_list',),
                         api.neutron: ('floating_ip_disassociate',
+                                      'floating_ip_port_forwarding_list',
                                       'floating_ip_pools_list',
                                       'is_extension_supported',
                                       'tenant_floating_ip_list')})
@@ -250,6 +260,7 @@ class FloatingIpViewTests(test.TestCase):
         floating_ip = self.floating_ips.first()
 
         self.mock_is_extension_supported.return_value = False
+        self.mock_floating_ip_port_forwarding_list.return_value = []
         self.mock_server_list.return_value = [self.servers.list(), False]
         self.mock_tenant_floating_ip_list.return_value = \
             self.floating_ips.list()
@@ -273,6 +284,7 @@ class FloatingIpViewTests(test.TestCase):
 
     @test.create_mocks({api.neutron: ('tenant_floating_ip_list',
                                       'is_extension_supported',
+                                      'floating_ip_port_forwarding_list',
                                       'floating_ip_pools_list'),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
@@ -283,6 +295,7 @@ class FloatingIpViewTests(test.TestCase):
 
         self.mock_is_extension_supported.return_value = False
         self.mock_tenant_floating_ip_list.return_value = floating_ips
+        self.mock_floating_ip_port_forwarding_list.return_value = []
         self.mock_floating_ip_pools_list.return_value = floating_pools
         self.mock_server_list.return_value = [self.servers.list(), False]
         self.mock_tenant_quota_usages.return_value = quota_data
@@ -298,9 +311,9 @@ class FloatingIpViewTests(test.TestCase):
         url = 'horizon:project:floating_ips:allocate'
         self.assertEqual(url, allocate_action.url)
 
-        self.mock_tenant_floating_ip_list.assert_called_once_with(
+        self.mock_tenant_floating_ip_list.assert_called_with(
             test.IsHttpRequest())
-        self.mock_floating_ip_pools_list.assert_called_once_with(
+        self.mock_floating_ip_pools_list.assert_called_with(
             test.IsHttpRequest())
         self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
                                                       detailed=False)
@@ -313,6 +326,7 @@ class FloatingIpViewTests(test.TestCase):
 
     @test.create_mocks({api.neutron: ('tenant_floating_ip_list',
                                       'is_extension_supported',
+                                      'floating_ip_port_forwarding_list',
                                       'floating_ip_pools_list'),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
@@ -324,6 +338,7 @@ class FloatingIpViewTests(test.TestCase):
 
         self.mock_is_extension_supported.return_value = False
         self.mock_tenant_floating_ip_list.return_value = floating_ips
+        self.mock_floating_ip_port_forwarding_list.return_value = []
         self.mock_floating_ip_pools_list.return_value = floating_pools
         self.mock_server_list.return_value = [self.servers.list(), False]
         self.mock_tenant_quota_usages.return_value = quota_data
@@ -337,9 +352,9 @@ class FloatingIpViewTests(test.TestCase):
         self.assertEqual('Allocate IP To Project (Quota exceeded)',
                          allocate_action.verbose_name)
 
-        self.mock_tenant_floating_ip_list.assert_called_once_with(
+        self.mock_tenant_floating_ip_list.assert_called_with(
             test.IsHttpRequest())
-        self.mock_floating_ip_pools_list.assert_called_once_with(
+        self.mock_floating_ip_pools_list.assert_called_with(
             test.IsHttpRequest())
         self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
                                                       detailed=False)

@@ -2321,6 +2321,81 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         self.qclient.update_port.assert_has_calls(expected_calls)
 
 
+class NeutronApiFloatingIpPortForwardingTest(test.APIMockTestCase):
+    def setUp(self):
+        super().setUp()
+        neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
+        self.client_mock = neutronclient.return_value
+
+    def test_port_forwarding_list(self):
+        pfws = {'port_forwardings': self.api_port_forwardings.list()}
+        self.client_mock.list_port_forwardings.return_value = pfws
+        response = api.neutron.floating_ip_port_forwarding_list(
+            self.request, 'fip')
+        for i in range(len(response)):
+            resp_val = response[i]
+            expected_val = pfws['port_forwardings'][i]
+            for attr in resp_val.to_dict():
+                self.assertEqual(getattr(resp_val, attr), expected_val[attr])
+
+        self.client_mock.list_port_forwardings.assert_called_once_with('fip')
+
+    def test_port_forwarding_get(self):
+        pfw = self.api_port_forwardings.first()
+        pfw_id = pfw['id']
+        self.client_mock.show_port_forwarding.return_value = pfw
+        response = api.neutron.floating_ip_port_forwarding_get(
+            self.request, 'fip', pfw_id)
+        for attr in response.to_dict():
+            self.assertEqual(getattr(response, attr), pfw[attr])
+        self.client_mock.show_port_forwarding.assert_called_once_with(
+            'fip', pfw_id)
+
+    def test_port_forwarding_create(self):
+        pfw_resp_mock = {'port_forwarding': self.api_port_forwardings.first()}
+        pfw_expected = self.port_forwardings.get().to_dict()
+        pfw = {
+            "protocol": "tcp",
+            "internal_ip_address": "10.0.0.24",
+            "internal_port": 25,
+            "internal_port_id": "070ef0b2-0175-4299-be5c-01fea8cca522",
+            "external_port": 2229,
+            "description": "Some description",
+        }
+        self.client_mock.create_port_forwarding.return_value = pfw_resp_mock
+        response = api.neutron.floating_ip_port_forwarding_create(
+            self.request, 'fip', **pfw)
+        for attr in response.to_dict():
+            self.assertEqual(getattr(response, attr), pfw_expected[attr])
+        self.client_mock.create_port_forwarding.assert_called_once_with(
+            'fip', {'port_forwarding': pfw})
+
+    def test_port_forwarding_update(self):
+        pfw_resp_mock = {'port_forwarding': self.api_port_forwardings.first()}
+        pfw_expected = self.port_forwardings.get().to_dict()
+        pfw_id = pfw_resp_mock['port_forwarding']['id']
+        pfw = {
+            "protocol": "tcp",
+            "internal_port": 25,
+            "description": "Some description",
+        }
+        self.client_mock.update_port_forwarding.return_value = pfw_resp_mock
+        response = api.neutron.floating_ip_port_forwarding_update(
+            self.request, 'fip', portforwarding_id=pfw_id, **pfw)
+        for attr in response.to_dict():
+            self.assertEqual(getattr(response, attr), pfw_expected[attr])
+        self.client_mock.update_port_forwarding.assert_called_once_with(
+            'fip', pfw_id, {'port_forwarding': pfw})
+
+    def test_port_forwarding_delete(self):
+        pfw_id = self.api_port_forwardings.first()['id']
+        self.client_mock.delete_port_forwarding.return_value = None
+        api.neutron.floating_ip_port_forwarding_delete(
+            self.request, 'fip', pfw_id)
+        self.client_mock.delete_port_forwarding.assert_called_once_with(
+            'fip', pfw_id)
+
+
 class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def setUp(self):

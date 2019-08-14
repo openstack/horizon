@@ -94,7 +94,8 @@ class AssociateIPAction(workflows.Action):
             exceptions.handle(self.request,
                               _('Unable to retrieve floating IP addresses.'),
                               redirect=redirect)
-        options = sorted([(ip.id, ip.ip) for ip in ips if not ip.port_id])
+        options = sorted([(ip.id, ip.ip) for ip in ips if
+                          not ip.port_id and len(ip.port_forwardings) == 0])
         if options:
             options.insert(0, ("", _("Select an IP address")))
         else:
@@ -124,7 +125,7 @@ class AssociateIPAction(workflows.Action):
         # The reason of specifying an empty tuple when q_instance_id is None
         # is to make memoized_method _get_target_list work. Two calls of
         # _get_target_list from here and __init__ must have a same arguments.
-        params = (q_instance_id, ) if q_instance_id else ()
+        params = (q_instance_id,) if q_instance_id else ()
         targets = self._get_target_list(*params)
         instances = sorted([(target.id, target.name) for target in targets],
                            # Sort FIP targets by server name for easy browsing
