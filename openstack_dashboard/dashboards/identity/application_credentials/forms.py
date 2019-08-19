@@ -104,9 +104,9 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
             msg = (_('Application credential name "%s" is already used.')
                    % data['name'])
             messages.error(request, msg)
-        except Exception:
-            exceptions.handle(request,
-                              _('Unable to create application credential.'))
+        except Exception as ex:
+            exceptions.handle(
+                request, _('Unable to create application credential: %s') % ex)
 
 
 class CreateSuccessfulForm(forms.SelfHandlingForm):
