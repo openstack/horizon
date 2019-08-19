@@ -496,6 +496,10 @@ def data(TEST):
                    'description': 'NotDefault',
                    'id': '443a4d7a-4bd2-4474-9a77-02b35c9f8c95',
                    'name': 'another_group'}
+    sec_group_empty = {'tenant_id': '1',
+                       'description': 'SG without rules',
+                       'id': 'f205f3bc-d402-4e40-b004-c62401e19b4b',
+                       'name': 'empty_group'}
 
     def add_rule_to_group(secgroup, default_only=True):
         rule_egress_ipv4 = {
@@ -557,18 +561,20 @@ def data(TEST):
     add_rule_to_group(sec_group_1, default_only=False)
     add_rule_to_group(sec_group_2)
     add_rule_to_group(sec_group_3)
+    # NOTE: sec_group_empty is a SG without rules,
+    # so we don't call add_rule_to_group.
 
-    groups = [sec_group_1, sec_group_2, sec_group_3]
+    groups = [sec_group_1, sec_group_2, sec_group_3, sec_group_empty]
     sg_name_dict = dict([(sg['id'], sg['name']) for sg in groups])
     for sg in groups:
         # Neutron API.
         TEST.api_security_groups.add(sg)
-        for rule in sg['security_group_rules']:
+        for rule in sg.get('security_group_rules', []):
             TEST.api_security_group_rules.add(copy.copy(rule))
         # OpenStack Dashboard internaly API.
         TEST.security_groups.add(
             neutron.SecurityGroup(copy.deepcopy(sg), sg_name_dict))
-        for rule in sg['security_group_rules']:
+        for rule in sg.get('security_group_rules', []):
             TEST.security_group_rules.add(
                 neutron.SecurityGroupRule(copy.copy(rule), sg_name_dict))
 
