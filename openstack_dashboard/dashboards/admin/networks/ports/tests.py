@@ -15,6 +15,7 @@
 
 import collections
 
+from django.test.utils import override_settings
 from django.urls import reverse
 
 import mock
@@ -613,3 +614,50 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self._check_is_extension_supported(
             {'network-ip-availability': 1,
              'mac-learning': 1})
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_mocks({api.neutron: ('port_get',
+                                      'network_get',
+                                      'is_extension_supported')})
+    def test_add_allowed_address_pair_button_shown(self):
+        port = self.ports.first()
+        url = reverse('horizon:project:networks:ports:addallowedaddresspairs',
+                      args=[port.id])
+        classes = 'btn data-table-action btn-default ajax-modal'
+        link_name = "Add Allowed Address Pair"
+
+        expected_string = \
+            '<a id="allowed_address_pairs__action_AddAllowedAddressPair" ' \
+            'class="%s" href="%s" title="Add Allowed Address Pair">' \
+            '<span class="fa fa-plus"></span> %s</a>' \
+            % (classes, url, link_name)
+
+        res = self.client.get(reverse('horizon:project:networks:ports:detail',
+                                      args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_mocks({api.neutron: ('port_get',
+                                      'network_get',
+                                      'port_update',
+                                      'is_extension_supported')})
+    def test_delete_address_pair_button_shown(self):
+        port = self.ports.first()
+        classes = 'data-table-action btn-danger btn'
+
+        expected_string = \
+            '<button data-batch-action="true" ' \
+            'id="allowed_address_pairs__action_delete" ' \
+            'class="%s" name="action" help_text="This action cannot be ' \
+            'undone." type="submit" value="allowed_address_pairs__delete">' \
+            '<span class="fa fa-trash"></span>' \
+            ' Delete</button>' \
+            % (classes)
+
+        res = self.client.get(reverse(
+            'horizon:project:networks:ports:detail', args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())
