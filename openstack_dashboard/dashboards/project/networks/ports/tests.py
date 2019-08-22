@@ -17,8 +17,12 @@ import copy
 
 from django.core.urlresolvers import reverse
 from django import http
+from django.test.utils import override_settings
 
+import mock
 from mox3.mox import IsA
+
+from openstack_auth import utils as auth_utils
 
 from horizon.workflows import views
 
@@ -263,6 +267,84 @@ class NetworkPortTests(test.TestCase):
         address_pairs = res.context['allowed_address_pairs_table'].data
         self.assertItemsEqual(port.allowed_address_pairs, address_pairs)
 
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'network_get',
+                                      'is_extension_supported')})
+    def test_add_allowed_address_pair_button_shown_to_network_owner(self):
+        port = self.ports.first()
+
+        api.neutron.port_get(IsA(http.HttpRequest), port.id) \
+            .AndReturn(port)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'allowed-address-pairs') \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning') \
+            .MultipleTimes().AndReturn(False)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:networks:ports:addallowedaddresspairs',
+                      args=[port.id])
+        classes = 'btn data-table-action btn-default ajax-modal'
+        link_name = "Add Allowed Address Pair"
+
+        expected_string = \
+            '<a id="allowed_address_pairs__action_AddAllowedAddressPair" ' \
+            'class="%s" href="%s" title="Add Allowed Address Pair">' \
+            '<span class="fa fa-plus"></span> %s</a>' \
+            % (classes, url, link_name)
+
+        res = self.client.get(reverse('horizon:project:networks:ports:detail',
+                                      args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'port_get',
+                                      'is_extension_supported',
+                                      'security_group_list',)})
+    def test_add_allowed_address_pair_button_disabled_to_other_tenant(self):
+        # Current user tenant_id is 1 so select port whose tenant_id is
+        # other than 1 for checking "Add Allowed Address Pair" button is not
+        # displayed on the screen.
+        user = auth_utils.get_user(self.request)
+
+        # select port such that tenant_id is different from user's tenant_id.
+        port = [p for p in self.ports.list()
+                if p.tenant_id != user.tenant_id][0]
+
+        api.neutron.port_get(IsA(http.HttpRequest), port.id) \
+            .AndReturn(port)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'allowed-address-pairs') \
+            .MultipleTimes().AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning') \
+            .MultipleTimes().AndReturn(False)
+        self.mox.ReplayAll()
+
+        with mock.patch('openstack_auth.utils.get_user', return_value=user):
+            url = reverse(
+                'horizon:project:networks:ports:addallowedaddresspairs',
+                args=[port.id])
+            classes = 'btn data-table-action btn-default ajax-modal'
+            link_name = "Add Allowed Address Pair"
+
+            expected_string = \
+                '<a id="allowed_address_pairs__action_AddAllowedAddressPair" ' \
+                'class="%s" href="%s" title="Add Allowed Address Pair">' \
+                '<span class="fa fa-plus"></span> %s</a>' \
+                % (classes, url, link_name)
+
+            res = self.client.get(reverse(
+                'horizon:project:networks:ports:detail', args=[port.id]))
+
+            self.assertNotIn(
+                expected_string, res.context_data['tab_group'].render())
+
     @test.create_stubs({api.neutron: ('port_get', 'port_update')})
     def test_port_add_allowed_address_pair(self):
         detail_path = 'horizon:project:networks:ports:detail'
@@ -318,6 +400,83 @@ class NetworkPortTests(test.TestCase):
         res = self.client.post(url, form_data)
         self.assertFormErrors(res, 1)
         self.assertContains(res, "Incorrect format for IP address")
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'network_get',
+                                      'is_extension_supported')})
+    def test_delete_address_pair_button_shown_to_network_owner(self):
+        port = self.ports.first()
+
+        api.neutron.port_get(IsA(http.HttpRequest), port.id) \
+            .AndReturn(port)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'allowed-address-pairs') \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning') \
+            .MultipleTimes().AndReturn(False)
+        self.mox.ReplayAll()
+
+        classes = 'data-table-action btn-danger btn'
+
+        expected_string = \
+            '<button data-batch-action="true" ' \
+            'id="allowed_address_pairs__action_delete" ' \
+            'class="%s" name="action" help_text="This action cannot be ' \
+            'undone." type="submit" value="allowed_address_pairs__delete">' \
+            '<span class="fa fa-trash"></span>' \
+            ' Delete</button>' \
+            % (classes)
+
+        res = self.client.get(reverse(
+            'horizon:project:networks:ports:detail', args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'port_get',
+                                      'is_extension_supported',
+                                      'security_group_list',)})
+    def test_delete_address_pair_button_disabled_to_other_tenant(self):
+        # Current user tenant_id is 1 so select port whose tenant_id is
+        # other than 1 for checking "Delete Allowed Address Pair" button is
+        # not displayed on the screen.
+        user = auth_utils.get_user(self.request)
+
+        # select port such that tenant_id is different from user's tenant_id.
+        port = [p for p in self.ports.list()
+                if p.tenant_id != user.tenant_id][0]
+
+        api.neutron.port_get(IsA(http.HttpRequest), port.id) \
+            .AndReturn(port)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'allowed-address-pairs') \
+            .MultipleTimes().AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning') \
+            .MultipleTimes().AndReturn(False)
+        self.mox.ReplayAll()
+
+        with mock.patch('openstack_auth.utils.get_user', return_value=user):
+            classes = 'data-table-action btn-danger btn'
+
+            expected_string = \
+                '<button data-batch-action="true" ' \
+                'id="allowed_address_pairs__action_delete" ' \
+                'class="%s" name="action" help_text="This action cannot be ' \
+                'undone." type="submit" ' \
+                'value="allowed_address_pairs__delete">' \
+                '<span class="fa fa-trash"></span>' \
+                ' Delete</button>' % (classes)
+
+            res = self.client.get(reverse(
+                'horizon:project:networks:ports:detail', args=[port.id]))
+
+            self.assertNotIn(
+                expected_string, res.context_data['tab_group'].render())
 
     @test.create_stubs({api.neutron: ('port_get', 'port_update',
                                       'is_extension_supported',)})
