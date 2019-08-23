@@ -27,6 +27,7 @@
       'horizon.framework.util.promise-toggle',
       'horizon.framework.util.q',
       'horizon.framework.util.tech-debt',
+      'horizon.framework.util.timezones',
       'horizon.framework.util.uuid',
       'horizon.framework.util.workflow',
       'horizon.framework.util.validators',

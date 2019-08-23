@@ -13,8 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from datetime import datetime
+
 from django.conf import settings
+from django.http import JsonResponse
 from django.views import generic
+import pytz
 
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import urls
@@ -55,3 +59,15 @@ class Settings(generic.View):
                           in settings_allowed if k not in self.SPECIALS}
         plain_settings.update(self.SPECIALS)
         return plain_settings
+
+
+@urls.register
+class Timezones(generic.View):
+    """API for timezone service."""
+    url_regex = r'timezones/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        zones = {tz: datetime.now(pytz.timezone(tz)).strftime('%z')
+                 for tz in pytz.common_timezones}
+        return JsonResponse({'timezone_dict': zones})

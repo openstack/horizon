@@ -59,11 +59,19 @@
       }));
 
       it('returns blank if nothing', function () {
-        expect(simpleDateFilter()).toBe('-');
+        simpleDateFilter().then(getResult);
+
+        function getResult(result) {
+          expect(result).toBe('-');
+        }
       });
 
       it('returns the expected time', function() {
-        expect(simpleDateFilter('2016-06-24T04:19:07')).toBe('6/24/16 4:19 AM');
+        simpleDateFilter().then(getResult);
+
+        function getResult(result) {
+          expect(result).toBe('9/3/19 9:19 AM');
+        }
       });
     });
 
@@ -74,11 +82,19 @@
       }));
 
       it('returns blank if nothing', function () {
-        expect(mediumDateFilter()).toBe('-');
+        mediumDateFilter().then(getResult);
+
+        function getResult(result) {
+          expect(result).toBe('-');
+        }
       });
 
       it('returns the expected time', function() {
-        expect(mediumDateFilter('2001-02-03T16:05:06')).toBe('Feb 3, 2001 4:05:06 PM');
+        mediumDateFilter().then(getResult);
+
+        function getResult(result) {
+          expect(result).toBe('Sep 3, 2019 9:19:07 AM');
+        }
       });
     });
 
