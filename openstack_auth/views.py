@@ -41,11 +41,6 @@ from openstack_auth.forms import Login  # noqa:F401
 from openstack_auth import user as auth_user
 from openstack_auth import utils
 
-try:
-    is_safe_url = http.is_safe_url
-except AttributeError:
-    is_safe_url = utils.is_safe_url
-
 
 LOG = logging.getLogger(__name__)
 
@@ -237,7 +232,8 @@ def switch(request, tenant_id, redirect_field_name=auth.REDIRECT_FIELD_NAME):
     # Ensure the user-originating redirection url is safe.
     # Taken from django.contrib.auth.views.login()
     redirect_to = request.GET.get(redirect_field_name, '')
-    if not is_safe_url(url=redirect_to, allowed_hosts=[request.get_host()]):
+    if not http.is_safe_url(url=redirect_to,
+                            allowed_hosts=[request.get_host()]):
         redirect_to = settings.LOGIN_REDIRECT_URL
 
     if auth_ref:
@@ -270,7 +266,8 @@ def switch_region(request, region_name,
                   region_name, request.user.username)
 
     redirect_to = request.GET.get(redirect_field_name, '')
-    if not is_safe_url(url=redirect_to, allowed_hosts=[request.get_host()]):
+    if not http.is_safe_url(url=redirect_to,
+                            allowed_hosts=[request.get_host()]):
         redirect_to = settings.LOGIN_REDIRECT_URL
 
     response = shortcuts.redirect(redirect_to)
@@ -299,7 +296,8 @@ def switch_keystone_provider(request, keystone_provider=None,
         raise exceptions.KeystoneAuthException(msg)
 
     redirect_to = request.GET.get(redirect_field_name, '')
-    if not is_safe_url(url=redirect_to, allowed_hosts=[request.get_host()]):
+    if not http.is_safe_url(url=redirect_to,
+                            allowed_hosts=[request.get_host()]):
         redirect_to = settings.LOGIN_REDIRECT_URL
 
     unscoped_auth_ref = None
