@@ -54,17 +54,6 @@ class KeystoneBackend(object):
 
         return self._auth_plugins
 
-    def check_auth_expiry(self, auth_ref, margin=None):
-        if not utils.is_token_valid(auth_ref, margin):
-            msg = _("The authentication token issued by the Identity service "
-                    "has expired.")
-            LOG.warning("The authentication token issued by the Identity "
-                        "service appears to have expired before it was "
-                        "issued. This may indicate a problem with either your "
-                        "server or client configuration.")
-            raise exceptions.KeystoneAuthException(msg)
-        return True
-
     def get_user(self, user_id):
         """Returns the current user from the session data.
 
@@ -87,6 +76,17 @@ class KeystoneBackend(object):
             return user
         else:
             return None
+
+    def _check_auth_expiry(self, auth_ref, margin=None):
+        if not utils.is_token_valid(auth_ref, margin):
+            msg = _("The authentication token issued by the Identity service "
+                    "has expired.")
+            LOG.warning("The authentication token issued by the Identity "
+                        "service appears to have expired before it was "
+                        "issued. This may indicate a problem with either your "
+                        "server or client configuration.")
+            raise exceptions.KeystoneAuthException(msg)
+        return True
 
     def _get_auth_backend(self, auth_url, **kwargs):
         for plugin in self.auth_plugins:
@@ -126,7 +126,7 @@ class KeystoneBackend(object):
         unscoped_auth_ref = plugin.get_access_info(unscoped_auth)
 
         # Check expiry for our unscoped auth ref.
-        self.check_auth_expiry(unscoped_auth_ref)
+        self._check_auth_expiry(unscoped_auth_ref)
 
         domain_name = kwargs.get('user_domain_name', None)
         domain_auth, domain_auth_ref = plugin.get_domain_scoped_auth(
@@ -161,7 +161,7 @@ class KeystoneBackend(object):
             raise exceptions.KeystoneAuthException(msg)
 
         # Check expiry for our new scoped token.
-        self.check_auth_expiry(scoped_auth_ref)
+        self._check_auth_expiry(scoped_auth_ref)
 
         # We want to try to use the same region we just logged into
         # which may or may not be the default depending upon the order
