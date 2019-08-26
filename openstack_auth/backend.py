@@ -33,6 +33,8 @@ LOG = logging.getLogger(__name__)
 KEYSTONE_CLIENT_ATTR = "_keystoneclient"
 
 
+# TODO(stephenfin): Subclass 'django.contrib.auth.backends.BaseBackend' once we
+# (only) support Django 3.0
 class KeystoneBackend(object):
     """Django authentication backend for use with ``django.contrib.auth``."""
 
@@ -99,7 +101,7 @@ class KeystoneBackend(object):
                         'configuration error that should be addressed.')
             raise exceptions.KeystoneAuthException(msg)
 
-    def authenticate(self, auth_url=None, **kwargs):
+    def authenticate(self, request, auth_url=None, **kwargs):
         """Authenticates a user via the Keystone Identity API."""
         LOG.debug('Beginning user authentication')
 
@@ -117,7 +119,6 @@ class KeystoneBackend(object):
 
         # the recent project id a user might have set in a cookie
         recent_project = None
-        request = kwargs.get('request')
         if request:
             # Grab recent_project found in the cookie, try to scope
             # to the last project used.
