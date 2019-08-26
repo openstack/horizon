@@ -300,7 +300,7 @@ class SelectWidget(widgets.Widget):
 
 class ThemableSelectWidget(SelectWidget):
     """Bootstrap base select field widget."""
-    def render(self, name, value, attrs=None, choices=()):
+    def render(self, name, value, attrs=None, renderer=None, choices=()):
         # NOTE(woodnt): Currently the "attrs" contents are being added to the
         #               select that's hidden.  It's unclear whether this is the
         #               desired behavior.  In some cases, the attribute should
@@ -419,7 +419,7 @@ class ThemableCheckboxInput(widgets.CheckboxInput):
 
     It is used to allow a custom checkbox experience.
     """
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         label_for = attrs.get('id', '')
 
         if not label_for:
@@ -481,7 +481,7 @@ class ChoiceInput(SubWidget):
     def __str__(self):
         return self.render()
 
-    def render(self, name=None, value=None, attrs=None):
+    def render(self, name=None, value=None, attrs=None, renderer=None):
         if self.id_for_label:
             label_for = html.format_html(' for="{}"', self.id_for_label)
         else:
@@ -535,7 +535,8 @@ class ThemableCheckboxChoiceInput(ChoiceInput):
             return self.choice_value in self.value
         return False
 
-    def render(self, name=None, value=None, attrs=None, choices=()):
+    def render(self, name=None, value=None, attrs=None, renderer=None,
+               choices=()):
         if self.id_for_label:
             label_for = html.format_html(' for="{}"', self.id_for_label)
         else:
@@ -554,7 +555,7 @@ class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
     outer_html = '<ul{id_attr}>{content}</ul>'
     inner_html = '<li>{choice_value}{sub_widgets}</li>'
 
-    def render(self, name=None, value=None, attrs=None):
+    def render(self, name=None, value=None, attrs=None, renderer=None):
         """Outputs a <ul> for this set of choice fields.
 
         If an id was given to the field, it is applied to the <ul> (each
