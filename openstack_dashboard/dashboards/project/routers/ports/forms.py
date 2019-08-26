@@ -54,7 +54,7 @@ class AddInterface(forms.SelfHandlingForm):
                                      for fixed_ip in port.fixed_ips]
         except Exception as e:
             LOG.info('Failed to get network list: %s', e)
-            msg = _('Failed to get network list: %s') % e
+            msg = _('Failed to get network list.')
             messages.error(request, msg)
             if router_id:
                 redirect = reverse(self.failure_url, args=[router_id])
@@ -170,7 +170,7 @@ class SetGatewayForm(forms.SelfHandlingForm):
             networks = api.neutron.network_list(request, **search_opts)
         except Exception as e:
             LOG.info('Failed to get network list: %s', e)
-            msg = _('Failed to get network list: %s') % e
+            msg = _('Failed to get network list.')
             messages.error(request, msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
@@ -198,6 +198,6 @@ class SetGatewayForm(forms.SelfHandlingForm):
         except Exception as e:
             LOG.info('Failed to set gateway to router %(id)s: %(exc)s',
                      {'id': self.initial['router_id'], 'exc': e})
-            msg = _('Failed to set gateway: %s') % e
+            msg = _('Failed to set gateway.')
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

@@ -495,8 +495,7 @@ class CreateNetwork(workflows.Workflow):
             return network
         except Exception as e:
             LOG.info('Failed to create network: %s', e)
-            msg = (_('Failed to create network "%(network)s": %(reason)s') %
-                   {"network": data['net_name'], "reason": e})
+            msg = _('Failed to create network "%s".') % data['net_name']
             redirect = self.get_failure_url()
             exceptions.handle(request, msg, redirect=redirect)
             return False
@@ -565,19 +564,18 @@ class CreateNetwork(workflows.Workflow):
             self.context['subnet_id'] = subnet.id
             LOG.debug('Subnet "%s" was successfully created.', data['cidr'])
             return subnet
-        except Exception as e:
+        except Exception:
             if network_name:
                 msg = _('Failed to create subnet "%(sub)s" for network '
-                        '"%(net)s": %(reason)s')
+                        '"%(net)s".')
             else:
-                msg = _('Failed to create subnet "%(sub)s": %(reason)s')
+                msg = _('Failed to create subnet "%(sub)s".')
             if no_redirect:
                 redirect = None
             else:
                 redirect = self.get_failure_url()
             exceptions.handle(request,
-                              msg % {"sub": data['cidr'], "net": network_name,
-                                     "reason": e},
+                              msg % {"sub": data['cidr'], "net": network_name},
                               redirect=redirect)
             return False
 

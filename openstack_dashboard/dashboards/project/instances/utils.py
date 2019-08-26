@@ -101,8 +101,8 @@ def network_field_data(request, include_empty_option=False, with_cidr=False,
         try:
             networks = api.neutron.network_list_for_tenant(
                 request, tenant_id, **extra_params)
-        except Exception as e:
-            msg = _('Failed to get network list {0}').format(e)
+        except Exception:
+            msg = _('Failed to get network list.')
             exceptions.handle(request, msg)
 
         _networks = []

@@ -76,8 +76,8 @@ class IndexView(tables.DataTableView):
                                                 **search_opts)
             ext_net_dict = OrderedDict((n['id'], n.name_or_id)
                                        for n in ext_nets)
-        except Exception as e:
-            msg = _('Unable to retrieve a list of external networks "%s".') % e
+        except Exception:
+            msg = _('Unable to retrieve a list of external networks.')
             exceptions.handle(self.request, msg)
             ext_net_dict = {}
         return ext_net_dict

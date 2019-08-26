@@ -57,6 +57,6 @@ class AddRouterRoute(forms.SelfHandlingForm):
             exceptions.handle(request, msg, redirect=redirect)
         except Exception as e:
             LOG.info('Failed to add route: %s', e)
-            msg = _('Failed to add route: %s') % e
+            msg = _('Failed to add route')
             redirect = reverse(self.failure_url, args=[router_id])
             exceptions.handle(request, msg, redirect=redirect)
