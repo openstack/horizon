@@ -158,6 +158,4 @@ class Login(django_auth_forms.AuthenticationForm):
                      {'username': username, 'domain': domain,
                       'remote_ip': utils.get_client_ip(self.request)})
             raise forms.ValidationError(exc)
-        if hasattr(self, 'check_for_test_cookie'):  # Dropped in django 1.7
-            self.check_for_test_cookie()
         return self.cleaned_data
