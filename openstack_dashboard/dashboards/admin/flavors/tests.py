@@ -431,9 +431,9 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         workflow_data = self._get_workflow_data(flavor)
         # Swap field empty
-        workflow_data['swap'] = None
+        del workflow_data['swap_mb']
         # Ephemeral field empty
-        workflow_data['eph'] = None
+        del workflow_data['eph_gb']
 
         url = reverse(constants.FLAVORS_CREATE_URL)
         res = self.client.post(url, workflow_data)

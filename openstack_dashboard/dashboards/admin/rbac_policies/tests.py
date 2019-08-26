@@ -131,9 +131,9 @@ class RBACPolicyTests(test.BaseAdminViewTests):
         self.mock_network_list.return_value = self.networks.list()
         self.mock_is_extension_supported.return_value = False
 
+        # note that 'network_id' is not included
         form_data = {'target_tenant': rbac_policy.target_tenant,
-                     'action_object_type': 'external_network',
-                     'network_id': None}
+                     'action_object_type': 'external_network'}
         url = reverse('horizon:admin:rbac_policies:create')
         res = self.client.post(url, form_data)
 
@@ -161,9 +161,9 @@ class RBACPolicyTests(test.BaseAdminViewTests):
         self.mock_policy_list.return_value = self.qos_policies.list()
         self.mock_is_extension_supported.return_value = True
 
+        # note that 'qos_policy_id' is not included
         form_data = {'target_tenant': rbac_policy.target_tenant,
-                     'action_object_type': 'shared_qos_policy',
-                     'qos_policy_id': None}
+                     'action_object_type': 'shared_qos_policy'}
         url = reverse('horizon:admin:rbac_policies:create')
         res = self.client.post(url, form_data)
 
