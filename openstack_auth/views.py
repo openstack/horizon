@@ -50,6 +50,7 @@ except AttributeError:
 LOG = logging.getLogger(__name__)
 
 
+# TODO(stephenfin): Migrate to CBV
 @sensitive_post_parameters()
 @csrf_protect
 @never_cache
@@ -152,6 +153,7 @@ def login(request):
     return res
 
 
+# TODO(stephenfin): Migrate to CBV
 @sensitive_post_parameters()
 @csrf_exempt
 @never_cache
@@ -179,6 +181,7 @@ def websso(request):
     return django_http.HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
 
 
+# TODO(stephenfin): Migrate to CBV
 def logout(request, login_url=None, **kwargs):
     """Logs out the user if he is logged in. Then redirects to the log-in page.
 
@@ -205,6 +208,7 @@ def logout(request, login_url=None, **kwargs):
                                                    **kwargs)
 
 
+# TODO(stephenfin): Migrate to CBV
 @login_required
 def switch(request, tenant_id, redirect_field_name=auth.REDIRECT_FIELD_NAME):
     """Switches an authenticated user from one project to another."""
@@ -256,6 +260,7 @@ def switch(request, tenant_id, redirect_field_name=auth.REDIRECT_FIELD_NAME):
     return response
 
 
+# TODO(stephenfin): Migrate to CBV
 @login_required
 def switch_region(request, region_name,
                   redirect_field_name=auth.REDIRECT_FIELD_NAME):
@@ -279,6 +284,7 @@ def switch_region(request, region_name,
     return response
 
 
+# TODO(stephenfin): Migrate to CBV
 @login_required
 def switch_keystone_provider(request, keystone_provider=None,
                              redirect_field_name=auth.REDIRECT_FIELD_NAME):

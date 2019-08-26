@@ -86,6 +86,7 @@ def _get_openrc_credentials(request):
     }
 
 
+# TODO(stephenfin): Migrate to CBV
 def download_ec2_bundle(request):
     tenant_name = request.user.tenant_name
 
@@ -118,6 +119,7 @@ def download_ec2_bundle(request):
     return response
 
 
+# TODO(stephenfin): Migrate to CBV
 def download_rc_file(request):
     template = settings.OPENRC_CUSTOM_TEMPLATE
 
@@ -137,6 +139,7 @@ def download_rc_file(request):
     return _download_rc_file_for_template(request, context, template)
 
 
+# TODO(stephenfin): Migrate to CBV
 def download_clouds_yaml_file(request):
     template = settings.OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE
 

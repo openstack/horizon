@@ -271,6 +271,7 @@ class LaunchInstanceView(workflows.WorkflowView):
         return initial
 
 
+# TODO(stephenfin): Migrate to CBV
 def console(request, instance_id):
     data = _('Unable to get log for instance "%s".') % instance_id
     tail = request.GET.get('length')
@@ -287,6 +288,7 @@ def console(request, instance_id):
     return http.HttpResponse(data.encode('utf-8'), content_type='text/plain')
 
 
+# TODO(stephenfin): Migrate to CBV
 def auto_console(request, instance_id):
     console_type = settings.CONSOLE_TYPE
     try:
@@ -300,6 +302,7 @@ def auto_console(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+# TODO(stephenfin): Migrate to CBV
 def vnc(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
@@ -311,6 +314,7 @@ def vnc(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+# TODO(stephenfin): Migrate to CBV
 def mks(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
@@ -322,6 +326,7 @@ def mks(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+# TODO(stephenfin): Migrate to CBV
 def spice(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
@@ -334,6 +339,7 @@ def spice(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+# TODO(stephenfin): Migrate to CBV
 def rdp(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
