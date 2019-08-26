@@ -26,7 +26,6 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.cache import cache_control
 from django.views.decorators.cache import never_cache
 from django.views import generic
 
@@ -683,10 +682,6 @@ class EncryptionDetailView(generic.TemplateView):
 
 
 class DownloadTransferCreds(generic.View):
-    # TODO(Itxaka): Remove cache_control in django >= 1.9
-    # https://code.djangoproject.com/ticket/13008
-    @method_decorator(cache_control(max_age=0, no_cache=True,
-                                    no_store=True, must_revalidate=True))
     @method_decorator(never_cache)
     def get(self, request, transfer_id, auth_key):
         try:
