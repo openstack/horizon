@@ -698,7 +698,8 @@ class DownloadTransferCreds(generic.View):
             'id': transfer_id,
             'auth_key': auth_key,
         }}
-        response = shortcuts.render_to_response(
+        response = shortcuts.render(
+            request,
             'project/volumes/download_transfer_creds.html',
             context, content_type='application/text')
         response['Content-Disposition'] = (
