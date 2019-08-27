@@ -39,6 +39,15 @@ from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 
+# Python 3.8 removes the ability to import the abstract base classes from
+# 'collections', but 'collections.abc' is not present in Python 2.7
+# TODO(stephenfin): Remove when we drop support for Python 2.7
+# pylint: disable=ungrouped-imports
+if hasattr(collections, 'abc'):
+    from collections.abc import Iterable
+else:
+    from collections import Iterable
+
 
 LOG = logging.getLogger(__name__)
 VERSIONS = base.APIVersionManager("image", preferred_version=2)
@@ -125,7 +134,7 @@ class Image(base.APIResourceWrapper):
         # for v2), self._apiresource is not iterable. In that case,
         # the properties are included in the apiresource dict, so
         # just return that dict.
-        if not isinstance(self._apiresource, collections.Iterable):
+        if not isinstance(self._apiresource, Iterable):
             return self._apiresource.to_dict()
         image_dict = super(Image, self).to_dict()
         image_dict['is_public'] = self.is_public

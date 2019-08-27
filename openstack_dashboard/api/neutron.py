@@ -40,6 +40,15 @@ from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 from openstack_dashboard import policy
 
+# Python 3.8 removes the ability to import the abstract base classes from
+# 'collections', but 'collections.abc' is not present in Python 2.7
+# TODO(stephenfin): Remove when we drop support for Python 2.7
+# pylint: disable=ungrouped-imports
+if hasattr(collections, 'abc'):
+    from collections.abc import Sequence
+else:
+    from collections import Sequence
+
 
 LOG = logging.getLogger(__name__)
 
@@ -854,14 +863,9 @@ def list_resources_with_long_filters(list_method,
         # filter_values) and do not consider other filter conditions
         # which may be specified in **params.
 
-        # NOTE(pas-ha) this will produce a deprecation warning in Py37
-        # and will not work in Py38, and six.moves also does not support it
-        # (see https://github.com/benjaminp/six/issues/155).
-        # TODO(pas-ha) replace with collections.abc.Sequence
-        # after dropping py27 support in U release
         if isinstance(filter_values, six.string_types):
             filter_values = [filter_values]
-        elif not isinstance(filter_values, collections.Sequence):
+        elif not isinstance(filter_values, Sequence):
             filter_values = list(filter_values)
 
         # Length of each query filter is:
