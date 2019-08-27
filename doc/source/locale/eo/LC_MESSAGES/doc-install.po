@@ -1,9 +1,9 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev218\n"
+"Project-Id-Version: horizon 15.1.1.dev5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 10:46-0600\n"
+"POT-Creation-Date: 2019-08-23 04:38-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -78,12 +78,6 @@ msgstr ""
 
 msgid "Allow your hosts to access the dashboard:"
 msgstr "Permesu al viaj gastigantoj aliri la stirpanelo: "
-
-msgid ""
-"An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ "
-"endpoint"
-msgstr ""
-"Alirebla `keystone <https://docs.openstack.org/keystone/latest/> `_ finpunkto"
 
 msgid ""
 "Authenticate using ``admin`` or ``demo`` user and ``default`` domain "
@@ -759,23 +753,6 @@ msgstr "``DEBUG``"
 
 msgid "``OPENSTACK_HOST``"
 msgstr "``OPENSTACK_HOST``"
-
-msgid "`cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage"
-msgstr "`cinder <https://docs.openstack.org/cinder/latest/>`_: Bloka Stokado"
-
-msgid "`glance <https://docs.openstack.org/glance/latest/>`_: Image Management"
-msgstr ""
-"`glance <https://docs.openstack.org/glance/latest/>`_: Bilda Mastrumado"
-
-msgid "`neutron <https://docs.openstack.org/neutron/latest/>`_: Networking"
-msgstr ""
-"`neutron <https://docs.openstack.org/neutron/latest/>`_: Retkonektado  "
-
-msgid "`nova <https://docs.openstack.org/nova/latest/>`_: Compute"
-msgstr "`nova <https://docs.openstack.org/nova/latest/>`_: Komputado"
-
-msgid "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
-msgstr "`swift <https://docs.openstack.org/swift/latest/>`_: Objekta Stokada"
 
 msgid "https://github.com/openstack/blazar-dashboard"
 msgstr "https://github.com/openstack/blazar-dashboard"
