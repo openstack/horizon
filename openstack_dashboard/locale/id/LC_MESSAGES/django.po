@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-07-25 16:41+0000\n"
+"POT-Creation-Date: 2019-08-22 20:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-07-25 05:05+0000\n"
+"PO-Revision-Date: 2019-08-23 02:40+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -38,6 +38,19 @@ msgstr ""
 "\n"
 "      %(used)s of %(quota)s Used\n"
 "      "
+
+msgid ""
+"\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
+msgstr ""
+"\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
 
 msgid ""
 "\n"
@@ -829,6 +842,9 @@ msgstr "Backup Name (nama cadangan)"
 
 msgid "Backup Size (GiB)"
 msgstr "Backup Size (GiB)"
+
+msgid "Backup Snapshot"
+msgstr "Backup Snapshot"
 
 msgid "Backups"
 msgstr "Backups"
@@ -4472,6 +4488,9 @@ msgstr "Tidak ada kelompok keamanan ditemukan."
 msgid "No server groups available"
 msgstr "Tidak ada kelompok server yang tersedia"
 
+msgid "No snapshot for this volume"
+msgstr "Tidak ada snapshot untuk volume ini"
+
 msgid "No snapshots available"
 msgstr "Tidak ada snapshot tersedia"
 
@@ -5663,6 +5682,9 @@ msgstr "Pilih jaringan"
 msgid "Select networks for your instance."
 msgstr "Pilih jaringan instance Anda."
 
+msgid "Select snapshot to backup (Optional)"
+msgstr "Pilih snapshot untuk dicadangkan (opsional)"
+
 msgid "Select source"
 msgstr "Select source (pilih sumber)"
 
@@ -6544,6 +6566,10 @@ msgstr "Jenis baru harus berbeda dari jenis volume saat ini."
 msgid "The output format"
 msgstr "Format output"
 
+#, python-format
+msgid "The password does not match the requirements: %s"
+msgstr "Kata sandi tidak sesuai dengan persyaratan: %s"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Mekanisme fisik dimana jaringan virtual diterapkan"
 
@@ -6911,6 +6937,10 @@ msgid "Unable to attach volume."
 msgstr "Tidak dapat mengkaitkan volume."
 
 #, python-format
+msgid "Unable to attach volume: %s"
+msgstr "Tidak dapat melampirkan volume: %s"
+
+#, python-format
 msgid "Unable to change password: %s"
 msgstr "Tidak dapat mengubah password: %s"
 
@@ -6949,8 +6979,9 @@ msgstr "Tidak dapat terhubung dengan Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "Tidak dapat membuat QoS Spec."
 
-msgid "Unable to create application credential."
-msgstr "Tidak dapat membuat kredensial aplikasi."
+#, python-format
+msgid "Unable to create application credential: %s"
+msgstr "Tidak dapat membuat kredensial aplikasi: %s"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -7105,6 +7136,10 @@ msgstr "Tidak dapat melepaskan antarmuka (interface)."
 msgid "Unable to detach volume."
 msgstr "Tidak dapat melepaskan volume."
 
+#, python-format
+msgid "Unable to detach volume: %s"
+msgstr "Tidak dapat melepaskan volume: %s"
+
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Tidak dapat menentukan apakah zona ketersediaan ekstensi didukung."
 
@@ -7147,6 +7182,12 @@ msgstr "Tidak dapat memperbesar volume."
 
 msgid "Unable to fetch EC2 credentials."
 msgstr "Tidak dapat mengambil mandat EC2."
+
+msgid "Unable to fetch snapshot"
+msgstr "Tidak dapat mengambil snapshot"
+
+msgid "Unable to fetch snapshots"
+msgstr "Tidak dapat mengambil snapshots"
 
 msgid "Unable to find default role."
 msgstr "Tidak dapat menemukan peran default."
