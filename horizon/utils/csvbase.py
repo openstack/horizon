@@ -12,9 +12,7 @@
 
 from __future__ import division
 
-from csv import DictWriter
-from csv import writer
-
+import csv
 
 from django.http import HttpResponse
 from django.http import StreamingHttpResponse
@@ -38,10 +36,11 @@ class CsvDataMixin(object):
         super(CsvDataMixin, self).__init__()
         if hasattr(self, "columns"):
             columns = [self.encode(col) for col in self.columns]
-            self.writer = DictWriter(self.out, columns)
+            self.writer = csv.DictWriter(self.out, columns,
+                                         quoting=csv.QUOTE_ALL)
             self.is_dict = True
         else:
-            self.writer = writer(self.out)
+            self.writer = csv.writer(self.out, quoting=csv.QUOTE_ALL)
             self.is_dict = False
 
     def write_csv_header(self):

@@ -362,7 +362,7 @@ def data(TEST):
     vals.update({"name": u'\u4e91\u89c4\u5219',
                  "status": "ACTIVE",
                  "tenant_id": tenant3.id,
-                "server_id": "3"})
+                 "server_id": "3"})
     server_3 = servers.Server(servers.ServerManager(None),
                               json.loads(SERVER_DATA % vals)['server'])
     vals.update({"name": "server_4",
@@ -370,7 +370,13 @@ def data(TEST):
                  "server_id": "4"})
     server_4 = servers.Server(servers.ServerManager(None),
                               json.loads(SERVER_DATA % vals)['server'])
-    TEST.servers.add(server_1, server_2, server_3, server_4)
+    vals.update({"name": "=cmd|' /C calc'!A0",
+                 "status": "PAUSED",
+                 "tenant_id": TEST.tenants.first().id,
+                 "server_id": "5"})
+    server_5 = servers.Server(servers.ServerManager(None),
+                              json.loads(SERVER_DATA % vals)['server'])
+    TEST.servers.add(server_1, server_2, server_3, server_4, server_5)
 
     # VNC Console Data
     console = {
@@ -425,6 +431,16 @@ def data(TEST):
     usage_obj_2 = usage.Usage(usage.UsageManager(None),
                               json.loads(USAGE_DATA % usage_2_vals))
     TEST.usages.add(usage_obj_2)
+
+    usage_3_vals = {"tenant_id": TEST.tenants.first(),
+                    "instance_name": server_5.name,
+                    "flavor_name": flavor_1.name,
+                    "flavor_vcpus": flavor_1.vcpus,
+                    "flavor_disk": flavor_1.disk,
+                    "flavor_ram": flavor_1.ram}
+    usage_obj_3 = usage.Usage(usage.UsageManager(None),
+                              json.loads(USAGE_DATA % usage_3_vals))
+    TEST.usages.add(usage_obj_3)
 
     # Availability Zones
     TEST.availability_zones.add(availability_zones.AvailabilityZone(

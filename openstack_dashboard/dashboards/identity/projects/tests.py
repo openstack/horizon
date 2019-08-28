@@ -1269,8 +1269,8 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'project/overview/usage.csv')
 
         self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
-        hdr = ('Instance Name,VCPUs,RAM (MB),Disk (GB),Usage (Hours),'
-               'Age (Seconds),State')
+        hdr = ('"Instance Name","VCPUs","RAM (MB)","Disk (GB)",'
+               '"Usage (Hours)","Age (Seconds)","State"')
         self.assertContains(res, '%s\r\n' % hdr)
 
         self.assert_mock_multiple_calls_with_same_arguments(
@@ -1282,6 +1282,29 @@ class UsageViewTests(test.BaseAdminViewTests):
                                                         start, end)
         else:
             self.mock_usage_get.assert_not_called()
+
+    @test.create_mocks({api.nova: ('usage_get',
+                                   'extension_supported')})
+    def test_usage_csv_quoting(self):
+        # Explicitly test the values of the third usage for correct quoting
+        usage_obj = api.nova.NovaUsage(self.usages.list()[2])
+        self.mock_usage_get.return_value = usage_obj
+
+        project_id = self.usages.list()[2].tenant_id
+        csv_url = reverse('horizon:identity:projects:usage',
+                          args=[project_id]) + "?format=csv"
+        res = self.client.get(csv_url)
+
+        self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
+        hdr = ('"Instance Name","VCPUs","RAM (MB)","Disk (GB)",'
+               '"Usage (Hours)","Age (Seconds)","State"')
+        self.assertContains(res, '%s\r\n' % hdr)
+        usage_1_quoted = ('"=cmd|\' /C calc\'!A0","1","512","0","122.87",'
+                          '"442321","Active"')
+        self.assertContains(res, '%s\r\n' % usage_1_quoted)
+        usage_2_quoted = ('"=cmd|\' /C calc\'!A0","1","512","0","2.61",'
+                          '"9367","Active"')
+        self.assertContains(res, '%s\r\n' % usage_2_quoted)
 
 
 class DetailProjectViewTests(test.BaseAdminViewTests):
