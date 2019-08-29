@@ -527,7 +527,7 @@
 
       /**
        * @ngdoc function
-       * @name setDefaultIndexUrl
+       * @name getDefaultIndexUrl
        * @param url
        * @description
        * This returns the defaultIndexUrl property on the resourceType.
