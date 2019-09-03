@@ -56,7 +56,7 @@
     });
 
     describe('when forbidden', function() {
-      it('should redirect to /auth/logout and add a forbidden toast message ', inject(
+      it('should add a forbidden toast message ', inject(
         function($http, $httpBackend, $window, $injector, $rootScope) {
           $window.WEBROOT = '/dashboard/';
           $httpBackend.when('GET', '/api').respond(403, '');
@@ -69,7 +69,6 @@
           $http.get('/api').error(function() {
             expect(toastService.add).toHaveBeenCalled();
             expect($rootScope.$broadcast).toHaveBeenCalled();
-            expect($window.location.replace).toHaveBeenCalledWith('/dashboard/auth/logout');
           });
           $httpBackend.flush();
         })
