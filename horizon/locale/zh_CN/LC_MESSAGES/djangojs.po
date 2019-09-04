@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-12-19 08:24+0000\n"
+"POT-Creation-Date: 2019-09-03 20:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -228,9 +228,6 @@ msgstr "结束"
 
 msgid "Flavor"
 msgstr "实例类型"
-
-msgid "Forbidden. Redirecting to login"
-msgstr "禁止。转到登录界面"
 
 msgid "Format validation failed"
 msgstr "格式验证失败"
