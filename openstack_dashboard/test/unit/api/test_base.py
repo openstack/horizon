@@ -83,25 +83,55 @@ class APIVersionTests(test.TestCase):
         self.assertEqual(api_base.Version('1.0'), version)
 
     def test_greater(self):
-        version1 = api_base.Version('1.0')
+        version10 = api_base.Version('1.0')
         version12 = api_base.Version('1.2')
         version120 = api_base.Version('1.20')
-        self.assertGreater(version12, version1)
+        self.assertGreater(version12, version10)
         self.assertGreater(version120, version12)
-        self.assertEqual(version12, 1)  # sic!
-        self.assertGreater(1.2, version1)
+        self.assertGreater(version12, 1)
+        self.assertGreater(1.2, version10)
         self.assertGreater(version120, 1.2)
         self.assertGreater('1.20', version12)
 
     def test_dict(self):
-        version1 = api_base.Version('1.0')
-        version1b = api_base.Version('1.0')
-        self.assertIn(version1, {version1b: 1})
+        test_dict = {api_base.Version('1.0'): 1}
+
+        self.assertIn(api_base.Version('1'), test_dict)
+        self.assertIn(api_base.Version('1.0'), test_dict)
+        self.assertIn(api_base.Version('1.0.0'), test_dict)
+        self.assertIn(api_base.Version(1), test_dict)
+        self.assertIn(api_base.Version(1.0), test_dict)
+
+        self.assertNotIn(api_base.Version('1.2'), test_dict)
+        self.assertNotIn(api_base.Version('1.20'), test_dict)
+
+        test_dict = {api_base.Version('1.2'): 1}
+        self.assertIn(api_base.Version('1.2'), test_dict)
+        self.assertIn(api_base.Version('1.2.0'), test_dict)
+        self.assertIn(api_base.Version(1.2), test_dict)
+
+        self.assertNotIn(api_base.Version('1'), test_dict)
+        self.assertNotIn(api_base.Version('1.0'), test_dict)
+        self.assertNotIn(api_base.Version('1.0.0'), test_dict)
+        self.assertNotIn(api_base.Version(1), test_dict)
+        self.assertNotIn(api_base.Version(1.0), test_dict)
+        self.assertNotIn(api_base.Version('1.20'), test_dict)
 
     def test_text(self):
-        version1 = api_base.Version('1.0')
-        self.assertEqual("1.0", str(version1))
-        self.assertEqual("Version('1.0')", repr(version1))
+        version10 = api_base.Version('1.0')
+        self.assertEqual("1.0", str(version10))
+        self.assertEqual("Version('1.0')", repr(version10))
+
+    def test_major_minor(self):
+        version1 = api_base.Version('1')
+        version10 = api_base.Version('1.0')
+        version120 = api_base.Version('1.20')
+        self.assertEqual(1, version1.major)
+        self.assertEqual(0, version1.minor)
+        self.assertEqual(1, version10.major)
+        self.assertEqual(0, version10.minor)
+        self.assertEqual(1, version120.major)
+        self.assertEqual(20, version120.minor)
 
 
 # Wrapper classes that only define _attrs don't need extra testing.

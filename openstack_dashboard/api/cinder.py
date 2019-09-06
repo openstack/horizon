@@ -233,9 +233,9 @@ def cinderclient(request, version=None):
     (username, token_id, tenant_id, cinder_urls,
         auth_url) = get_auth_params_from_request(request)
     version = base.Version(version)
-    if version == 2:
+    if version.major == 2:
         service_names = ('volumev2', 'volume')
-    elif version == 3:
+    elif version.major == 3:
         service_names = ('volumev3', 'volume')
     else:
         service_names = ('volume',)

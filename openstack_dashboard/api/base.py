@@ -32,23 +32,45 @@ __all__ = ('APIResourceWrapper', 'APIDictWrapper',
 
 @functools.total_ordering
 class Version(object):
+    """A class to handle API version.
+
+    The current OpenStack APIs use the versioning of "<major>.<minor>",
+    so this class supports this style only.
+    """
+    # NOTE(amotoki): The implementation depends on the semantic_version library
+    # but we don't care the patch version in this class.
+
     def __init__(self, version):
-        self.version = semantic_version.Version(str(version), partial=True)
+        # NOTE(amotoki):
+        # All comparisons should use self.sem_ver as we would like to
+        # compare versions in the semantic versioning way.
+        # self.orig_ver should be used only in __str__ and __repr__
+        # to keep the original version information.
+        self.orig_ver = str(version)
+        self.sem_ver = semantic_version.Version.coerce(str(version))
+
+    @property
+    def major(self):
+        return self.sem_ver.major
+
+    @property
+    def minor(self):
+        return self.sem_ver.minor
 
     def __eq__(self, other):
-        return self.version == Version(other).version
+        return self.sem_ver == Version(other).sem_ver
 
     def __lt__(self, other):
-        return self.version < Version(other).version
+        return self.sem_ver < Version(other).sem_ver
 
     def __repr__(self):
-        return "Version('%s')" % self.version
+        return "Version('%s')" % self.orig_ver
 
     def __str__(self):
-        return str(self.version)
+        return str(self.orig_ver)
 
     def __hash__(self):
-        return hash(str(self.version))
+        return hash(str(self.sem_ver))
 
 
 class APIVersionManager(object):
