@@ -376,7 +376,7 @@ class LinkAction(BaseAction):
 
     def render(self, **kwargs):
         action_dict = copy.copy(kwargs)
-        action_dict.update({"action": self, "is_single": True})
+        action_dict.update({"action": self, "is_single": True, "is_small": 0})
         return render_to_string("horizon/common/_data_table_action.html",
                                 action_dict)
 

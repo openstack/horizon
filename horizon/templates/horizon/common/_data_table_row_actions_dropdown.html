@@ -3,7 +3,7 @@
 {% spaceless %} {# This makes sure whitespace doesn't affect positioning for dropdown. #}
 
   {% if row_actions|length == 1 %}
-    {% include "horizon/common/_data_table_action.html" with action=row_actions.0 is_single=1 %}
+    {% include "horizon/common/_data_table_action.html" with action=row_actions.0 is_single=1 is_small=0 %}
   {% elif row_actions|length > 1 %}
     <div class="btn-group">
       {% for action in row_actions %}
@@ -15,7 +15,7 @@
           <ul class="dropdown-menu dropdown-menu-right row_actions">
         {% else %}
           <li>
-            {% include "horizon/common/_data_table_action.html" %}
+            {% include "horizon/common/_data_table_action.html" with is_small=0 %}
           </li>
         {% endif %}
         {% if forloop.last %}
