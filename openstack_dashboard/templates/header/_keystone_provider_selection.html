@@ -1,11 +1,3 @@
-{% if not_list %}
-  <div class="dropdown">
-{% else %}
-  <li class="dropdown">
-{% endif %}
+<li class="dropdown">
   {% include "horizon/common/_keystone_provider_selector.html" %}
-{% if not_list %}
-  </div>
-{% else %}
-  </li>
-{% endif %}
+</li>
