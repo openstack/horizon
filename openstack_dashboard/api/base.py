@@ -16,7 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import Sequence
+import collections
 import functools
 
 from django.conf import settings
@@ -24,6 +24,15 @@ import semantic_version
 import six
 
 from horizon import exceptions
+
+# Python 3.8 removes the ability to import the abstract base classes from
+# 'collections', but 'collections.abc' is not present in Python 2.7
+# TODO(stephenfin): Remove when we drop support for Python 2.7
+# pylint: disable=ungrouped-imports
+if hasattr(collections, 'abc'):
+    from collections.abc import Sequence
+else:
+    from collections import Sequence
 
 
 __all__ = ('APIResourceWrapper', 'APIDictWrapper',

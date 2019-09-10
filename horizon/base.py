@@ -52,6 +52,15 @@ from horizon.utils import settings as utils_settings
 DEFAULT_PANEL_GROUP = 'default'
 LOG = logging.getLogger(__name__)
 
+# Python 3.8 removes the ability to import the abstract base classes from
+# 'collections', but 'collections.abc' is not present in Python 2.7
+# TODO(stephenfin): Remove when we drop support for Python 2.7
+# pylint: disable=ungrouped-imports
+if hasattr(collections, 'abc'):
+    from collections.abc import Iterable
+else:
+    from collections import Iterable
+
 
 def _decorate_urlconf(urlpatterns, decorator, *args, **kwargs):
     for pattern in urlpatterns:
@@ -591,7 +600,7 @@ class Dashboard(Registry, HorizonComponent):
         default_created = False
         for panel_set in self.panels:
             # Instantiate PanelGroup classes.
-            if not isinstance(panel_set, collections.Iterable) and \
+            if not isinstance(panel_set, Iterable) and \
                     issubclass(panel_set, PanelGroup):
                 panel_group = panel_set(self)
             # Check for nested tuples, and convert them to PanelGroups
