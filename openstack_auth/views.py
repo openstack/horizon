@@ -161,7 +161,7 @@ def websso(request):
     auth_url = utils.clean_up_auth_url(referer)
     token = request.POST.get('token')
     try:
-        request.user = auth.authenticate(request=request, auth_url=auth_url,
+        request.user = auth.authenticate(request, auth_url=auth_url,
                                          token=token)
     except exceptions.KeystoneAuthException as exc:
         if utils.is_websso_default_redirect():
@@ -330,7 +330,7 @@ def switch_keystone_provider(request, keystone_provider=None,
     if unscoped_auth_ref:
         try:
             request.user = auth.authenticate(
-                request=request, auth_url=unscoped_auth.auth_url,
+                request, auth_url=unscoped_auth.auth_url,
                 token=unscoped_auth_ref.auth_token)
         except exceptions.KeystoneAuthException as exc:
             msg = 'Keystone provider switch failed: %s' % six.text_type(exc)
