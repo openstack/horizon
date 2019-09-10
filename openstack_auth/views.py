@@ -53,7 +53,7 @@ LOG = logging.getLogger(__name__)
 @sensitive_post_parameters()
 @csrf_protect
 @never_cache
-def login(request, template_name=None, extra_context=None, **kwargs):
+def login(request):
     """Logs a user in using the :class:`~openstack_auth.forms.Login` form."""
 
     # If the user enabled websso and the default redirect
@@ -101,27 +101,26 @@ def login(request, template_name=None, extra_context=None, **kwargs):
     else:
         form = functional.curry(forms.Login, initial=initial)
 
-    if extra_context is None:
-        extra_context = {'redirect_field_name': auth.REDIRECT_FIELD_NAME}
-
-    extra_context['csrf_failure'] = request.GET.get('csrf_failure')
-
     choices = getattr(settings, 'WEBSSO_CHOICES', ())
-    extra_context['show_sso_opts'] = (utils.is_websso_enabled() and
-                                      len(choices) > 1)
+    extra_context = {
+        'redirect_field_name': auth.REDIRECT_FIELD_NAME,
+        'csrf_failure': request.GET.get('csrf_failure'),
+        'show_sso_opts': utils.is_websso_enabled() and len(choices) > 1,
+    }
 
-    if not template_name:
-        if request.is_ajax():
-            template_name = 'auth/_login.html'
-            extra_context['hide'] = True
-        else:
-            template_name = 'auth/login.html'
+    if request.is_ajax():
+        template_name = 'auth/_login.html'
+        extra_context['hide'] = True
+    else:
+        template_name = 'auth/login.html'
 
-    res = django_auth_views.login(request,
-                                  template_name=template_name,
-                                  authentication_form=form,
-                                  extra_context=extra_context,
-                                  **kwargs)
+    res = django_auth_views.LoginView.as_view(
+        template_name=template_name,
+        redirect_field_name=auth.REDIRECT_FIELD_NAME,
+        form_class=form,
+        extra_context=extra_context,
+        redirect_authenticated_user=False)(request)
+
     # Save the region in the cookie, this is used as the default
     # selected region next time the Login form loads.
     if request.method == "POST":
