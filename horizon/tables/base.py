@@ -54,6 +54,15 @@ PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]
 STRING_SEPARATOR = "__"
 
 
+# 'getfullargspec' is Python 3-only, but 'getargspec' is deprecated for removal
+# in Python 3.6
+# TODO(stephenfin): Remove 'getargspec' when we drop support for Python 2.7
+if hasattr(inspect, 'getfullargspec'):
+    getargspec = inspect.getfullargspec
+else:
+    getargspec = inspect.getargspec
+
+
 @six.python_2_unicode_compatible
 class Column(html.HTMLElement):
     """A class which represents a single column in a :class:`.DataTable`.
@@ -470,7 +479,7 @@ class Column(html.HTMLElement):
                 return None
         obj_id = self.table.get_object_id(datum)
         if callable(self.link):
-            if 'request' in inspect.getargspec(self.link).args:
+            if 'request' in getargspec(self.link).args:
                 return self.link(datum, request=self.table.request)
             return self.link(datum)
         try:
