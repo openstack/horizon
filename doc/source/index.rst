@@ -68,5 +68,7 @@ Information
 
    glossary
 
-* :ref:`genindex`
-* :ref:`modindex`
+.. only:: html
+
+   * :ref:`genindex`
+   * :ref:`modindex`
