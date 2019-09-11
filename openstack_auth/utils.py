@@ -99,21 +99,6 @@ def is_token_valid(token, margin=None):
     return expiration > timezone.now()
 
 
-# From django.contrib.auth.views
-# Added in Django 1.4.3, 1.5b2
-# Vendored here for compatibility with old Django versions.
-def is_safe_url(url, host=None):
-    """Return ``True`` if the url is a safe redirection.
-
-    The safe redirection means that it doesn't point to a different host.
-    Always returns ``False`` on an empty url.
-    """
-    if not url:
-        return False
-    netloc = urlparse.urlparse(url)[1]
-    return not netloc or netloc == host
-
-
 # Helper for figuring out keystone version
 # Implementation will change when API version discovery is available
 def get_keystone_version():
