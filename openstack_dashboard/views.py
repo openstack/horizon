@@ -40,6 +40,7 @@ def get_user_home(user):
     return dashboard.get_absolute_url()
 
 
+# TODO(stephenfin): Migrate to CBV
 @django.views.decorators.vary.vary_on_cookie
 def splash(request):
     if not request.user.is_authenticated:
