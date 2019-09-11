@@ -19,7 +19,6 @@
 
 - job:
     name: horizon-openstack-tox-python3-django22
-    voting: false
     parent: horizon-openstack-tox-base
     vars:
       tox_envlist: py3-dj22
@@ -180,6 +179,7 @@
       queue: horizon
       jobs:
         - horizon-openstack-tox-python3-django111
+        - horizon-openstack-tox-python3-django22
         - horizon-dsvm-tempest-plugin
         - horizon-dsvm-tempest-plugin-py27
         - horizon-selenium-headless
