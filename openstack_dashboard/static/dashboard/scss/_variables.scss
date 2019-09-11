@@ -72,7 +72,7 @@ $members-list-border: 1px solid $gray-light !default;
 // TODO: These values are hardcoded lengths but they are actually
 // very dependant on the modal size set in the theme.  We need
 // to eventually readdress these and calculate them dynamically
-$members-list-item-width: 130px !default;
+$members-list-item-width: 80% !default;
 $members-list-item-max-width: 327px !default;
 $members-list-roles-width: 125px !default;
 
