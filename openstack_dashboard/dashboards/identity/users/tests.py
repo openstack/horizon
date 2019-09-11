@@ -127,6 +127,12 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'enabled': True,
                     'confirm_password': user.password,
                     'phone_num': phone_number}
+
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
+
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertNoFormErrors(res)
@@ -195,6 +201,12 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'project': self.tenant.id,
                     'role_id': self.roles.first().id,
                     'confirm_password': user.password}
+
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
+
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertNoFormErrors(res)
@@ -250,6 +262,11 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'role_id': self.roles.first().id,
                     'confirm_password': "doesntmatch"}
 
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
+
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
@@ -295,6 +312,11 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'project': self.tenant.id,
                     'role_id': self.roles.first().id,
                     'confirm_password': 'four'}
+
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
 
         res = self.client.post(USER_CREATE_URL, formData)
 
@@ -343,6 +365,11 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'project': self.tenant.id,
                     'role_id': self.roles.first().id,
                     'confirm_password': 'MoreThanEighteenChars'}
+
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
 
         res = self.client.post(USER_CREATE_URL, formData)
 

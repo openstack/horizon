@@ -5635,9 +5635,9 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.mock_instance_volume_attach.return_value = None
         volume = self.cinder_volumes.list()[1]
 
+        # note that 'device' is not passed
         form_data = {"volume": volume.id,
-                     "instance_id": server.id,
-                     "device": None}
+                     "instance_id": server.id}
 
         url = reverse('horizon:project:instances:attach_volume',
                       args=[server.id])
@@ -5647,7 +5647,7 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
         self.mock_volume_list.assert_called_once_with(helpers.IsHttpRequest())
         self.mock_instance_volume_attach.assert_called_once_with(
-            helpers.IsHttpRequest(), volume.id, server.id, str(None))
+            helpers.IsHttpRequest(), volume.id, server.id, None)
 
     @mock.patch.object(api.cinder, 'volume_list')
     @mock.patch.object(api.cinder, 'volume_get')
@@ -5665,9 +5665,9 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         mock_volume_list.return_value = volumes
         mock_volume_get.return_value = volume
 
+        # note that 'device' is not passed
         form_data = {"volume": volume.id,
-                     "instance_id": server.id,
-                     "device": None}
+                     "instance_id": server.id}
 
         url = reverse('horizon:project:instances:attach_volume',
                       args=[server.id])
@@ -5693,9 +5693,9 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         mock_volume_list.return_value = volumes
         mock_volume_get.return_value = volume
 
+        # note that 'device' is not passed
         form_data = {"volume": volume.id,
-                     "instance_id": server.id,
-                     "device": None}
+                     "instance_id": server.id}
 
         url = reverse('horizon:project:instances:attach_volume',
                       args=[server.id])
@@ -5724,9 +5724,9 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.mock_get_microversion.return_value = api_versions.APIVersion(
             '2.60')
 
+        # note that 'device' is not passed
         form_data = {"volume": volume.id,
-                     "instance_id": server1.id,
-                     "device": None}
+                     "instance_id": server1.id}
 
         url = reverse('horizon:project:instances:attach_volume',
                       args=[server1.id])
@@ -5734,9 +5734,9 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         s1 = self.client.post(url, form_data)
         self.assertNoFormErrors(s1)
 
+        # note that device is not passed
         form_data = {"volume": volume.id,
-                     "instance_id": server2.id,
-                     "device": None}
+                     "instance_id": server2.id}
 
         url = reverse('horizon:project:instances:attach_volume',
                       args=[server2.id])

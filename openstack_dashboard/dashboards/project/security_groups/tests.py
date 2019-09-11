@@ -568,10 +568,10 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mock_security_group_list.return_value = sec_group_list
         self.mock_is_extension_supported.return_value = True
 
+        # note that 'port' is not passed
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
                     'port_or_range': 'port',
-                    'port': None,
                     'rule_menu': rule.ip_protocol,
                     'cidr': rule.ip_range['cidr'],
                     'remote': 'cidr'}
@@ -608,10 +608,10 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertNoMessages()
         self.assertContains(res, "greater than or equal to")
 
+        # note that 'from_port' is not passed
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
                     'port_or_range': 'range',
-                    'from_port': None,
                     'to_port': rule.to_port,
                     'rule_menu': rule.ip_protocol,
                     'cidr': rule.ip_range['cidr'],
@@ -621,11 +621,11 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertContains(res, cgi.escape('"from" port number is invalid',
                                             quote=True))
 
+        # note that 'to_port' is not passed
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
                     'port_or_range': 'range',
                     'from_port': rule.from_port,
-                    'to_port': None,
                     'rule_menu': rule.ip_protocol,
                     'cidr': rule.ip_range['cidr'],
                     'remote': 'cidr'}
@@ -678,30 +678,6 @@ class SecurityGroupsViewTests(test.TestCase):
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
                     'port_or_range': 'port',
-                    'icmp_type': icmp_rule.from_port,
-                    'icmp_code': None,
-                    'rule_menu': icmp_rule.ip_protocol,
-                    'cidr': icmp_rule.ip_range['cidr'],
-                    'remote': 'cidr'}
-        res = self.client.post(self.edit_url, formData)
-        self.assertNoMessages()
-        self.assertContains(res, "The ICMP code not in range (-1, 255)")
-
-        formData = {'method': 'AddRule',
-                    'id': sec_group.id,
-                    'port_or_range': 'port',
-                    'icmp_type': None,
-                    'icmp_code': icmp_rule.to_port,
-                    'rule_menu': icmp_rule.ip_protocol,
-                    'cidr': icmp_rule.ip_range['cidr'],
-                    'remote': 'cidr'}
-        res = self.client.post(self.edit_url, formData)
-        self.assertNoMessages()
-        self.assertContains(res, "The ICMP type not in range (-1, 255)")
-
-        formData = {'method': 'AddRule',
-                    'id': sec_group.id,
-                    'port_or_range': 'port',
                     'icmp_type': -1,
                     'icmp_code': icmp_rule.to_port,
                     'rule_menu': icmp_rule.ip_protocol,
@@ -713,10 +689,10 @@ class SecurityGroupsViewTests(test.TestCase):
             res, "ICMP code is provided but ICMP type is missing.")
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_security_group_list, 10,
+            self.mock_security_group_list, 6,
             mock.call(test.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_is_extension_supported, 10,
+            self.mock_is_extension_supported, 6,
             mock.call(test.IsHttpRequest(), 'standard-attr-description'))
 
     @test.create_mocks({api.neutron: ('security_group_rule_create',
