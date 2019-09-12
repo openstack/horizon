@@ -155,10 +155,24 @@
         - nodejs10-npm-run-test:
             voting: false
 
+- project-template:
+    name: horizon-non-primary-django-jobs
+    description: |
+      Run unit tests with non-primary Django versions.
+    check:
+      jobs:
+        - horizon-openstack-tox-python3-django111
+        - horizon-openstack-tox-python3-django22
+    gate:
+      jobs:
+        - horizon-openstack-tox-python3-django111
+        - horizon-openstack-tox-python3-django22
+
 - project:
     templates:
       - check-requirements
       - horizon-nodejs10-jobs
+      - horizon-non-primary-django-jobs
       - openstack-lower-constraints-jobs
       - openstack-python-jobs
       - openstack-python3-train-jobs
@@ -167,8 +181,6 @@
       - release-notes-jobs-python3
     check:
       jobs:
-        - horizon-openstack-tox-python3-django111
-        - horizon-openstack-tox-python3-django22
         - horizon-selenium-headless
         - horizon-integration-tests
         - horizon-dsvm-tempest-plugin
@@ -178,8 +190,6 @@
     gate:
       queue: horizon
       jobs:
-        - horizon-openstack-tox-python3-django111
-        - horizon-openstack-tox-python3-django22
         - horizon-dsvm-tempest-plugin
         - horizon-dsvm-tempest-plugin-py27
         - horizon-selenium-headless
