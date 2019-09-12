@@ -40,4 +40,12 @@
   actions, check "unrestricted".
   {% endblocktrans %}
   </p>
+  <p>
+  {% if kubeconfig_enabled %}
+  {% blocktrans trimmed %}
+  You can optionally provide a Kubernetes Namespace. It will be included in the
+  kubeconfig file which can be downloaded from the next screen.
+  {% endblocktrans %}
+  {% endif %}
+  </p>
 {% endblock %}

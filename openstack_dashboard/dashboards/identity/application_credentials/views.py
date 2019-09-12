@@ -86,6 +86,11 @@ class CreateView(forms.ModalFormView):
         kwargs['next_view'] = CreateSuccessfulView
         return kwargs
 
+    def get_context_data(self, **kwargs):
+        context = super(CreateView, self).get_context_data(**kwargs)
+        context['kubeconfig_enabled'] = settings.KUBECONFIG_ENABLED
+        return context
+
 
 class CreateSuccessfulView(forms.ModalFormView):
     template_name = 'identity/application_credentials/success.html'
@@ -97,15 +102,20 @@ class CreateSuccessfulView(forms.ModalFormView):
     cancel_label = _("Close")
     download_openrc_label = _("Download openrc file")
     download_clouds_yaml_label = _("Download clouds.yaml")
+    download_kubeconfig_label = _("Download kubeconfig file")
 
     def get_context_data(self, **kwargs):
         context = super(CreateSuccessfulView, self).get_context_data(**kwargs)
         context['download_openrc_label'] = self.download_openrc_label
         context['download_clouds_yaml_label'] = self.download_clouds_yaml_label
+        context['download_kubeconfig_label'] = self.download_kubeconfig_label
         context['download_openrc_url'] = reverse(
             'horizon:identity:application_credentials:download_openrc')
         context['download_clouds_yaml_url'] = reverse(
             'horizon:identity:application_credentials:download_clouds_yaml')
+        if settings.KUBECONFIG_ENABLED:
+            context['download_kubeconfig_url'] = reverse(
+                'horizon:identity:application_credentials:download_kubeconfig')
         return context
 
     def get_initial(self):
@@ -125,12 +135,18 @@ def _get_context(request):
     interface = 'public'
     region = getattr(request.user, 'services_region', '')
     app_cred = request.session['application_credential']
-    context = dict(auth_url=auth_url,
-                   interface=interface,
-                   region=region,
-                   application_credential_id=app_cred['id'],
-                   application_credential_name=app_cred['name'],
-                   application_credential_secret=app_cred['secret'])
+    context = {
+        'auth_url': auth_url,
+        'interface': interface,
+        'region': region,
+        'user': request.user,
+        'application_credential_id': app_cred['id'],
+        'application_credential_name': app_cred['name'],
+        'application_credential_secret': app_cred['secret'],
+        'kubernetes_namespace': app_cred['kubernetes_namespace'],
+        'kubernetes_url': settings.KUBECONFIG_KUBERNETES_URL,
+        'kubernetes_certificate_authority_data':
+            settings.KUBECONFIG_CERTIFICATE_AUTHORITY_DATA}
     return context
 
 
@@ -164,6 +180,14 @@ def download_clouds_yaml_file(request):
     template = 'identity/application_credentials/clouds.yaml.template'
     filename = 'clouds.yaml'
     return _render_attachment(filename, template, context, request)
+
+
+def download_kubeconfig_file(request):
+    context = _get_context(request)
+    template = 'identity/application_credentials/kubeconfig.template'
+    filename = 'app-cred-%s-kubeconfig' % context['application_credential_name']
+    response = _render_attachment(filename, template, context, request)
+    return response
 
 
 class DetailView(views.HorizonTemplateView):

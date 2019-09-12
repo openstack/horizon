@@ -536,3 +536,11 @@ REST_API_REQUIRED_SETTINGS = [
 # and are not encrypted on the browser. This is an experimental API and
 # may be deprecated in the future without notice.
 REST_API_ADDITIONAL_SETTINGS = []
+
+# Kubernetes clusters can use Keystone as an external identity provider.
+# Horizon can generate a 'kubeconfig' file from the application credentials
+# control panel which can be used for authenticating with a Kubernetes cluster.
+# These settings control the kubeconfig parameters.
+KUBECONFIG_ENABLED = False
+KUBECONFIG_KUBERNETES_URL = ""
+KUBECONFIG_CERTIFICATE_AUTHORITY_DATA = ""

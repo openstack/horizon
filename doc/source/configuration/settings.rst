@@ -7,7 +7,7 @@ Settings Reference
 Introduction
 ============
 
-Horizon's settings broadly fall into three categories:
+Horizon's settings broadly fall into four categories:
 
 * `General Settings`_: this includes visual settings like the modal backdrop
   style, bug url and theme configuration, as well as settings that affect every
@@ -21,6 +21,8 @@ Horizon's settings broadly fall into three categories:
   should read the `Django settings documentation
   <https://docs.djangoproject.com/en/dev/topics/settings/>`_ to see the other
   options available to you.
+* `Other Settings`_: settings which do not fall into any of the above
+  categories.
 
 To modify your settings, you have two options:
 
@@ -2521,3 +2523,51 @@ Default: Absolute paths for `horizon/locale`, `openstack_auth/locale` and
 Django uses relative paths by default so it causes localization issues
 depending on your runtime settings. To avoid this we recommend to use absolute
 paths for directories with locales.
+
+Other Settings
+==============
+
+KUBECONFIG_ENABLED
+------------------
+
+.. versionadded:: TBD
+
+Default: ``False``
+
+Kubernetes clusters can use Keystone as an external identity provider.
+Horizon can generate a ``kubeconfig`` file from the application credentials
+control panel which can be used for authenticating with a Kubernetes cluster.
+This setting enables this behavior.
+
+.. seealso::
+
+   `KUBECONFIG_KUBERNETES_URL`_ and `KUBECONFIG_CERTIFICATE_AUTHORITY_DATA`_
+   to provide parameters for the ``kubeconfig`` file.
+
+KUBECONFIG_KUBERNETES_URL
+-------------------------
+
+.. versionadded:: TBD
+
+Default: ``""``
+
+A Kubernetes API endpoint URL to be included in the generated ``kubeconfig``
+file.
+
+.. seealso::
+
+   `KUBECONFIG_ENABLED`_ to enable the ``kubeconfig`` file generation.
+
+KUBECONFIG_CERTIFICATE_AUTHORITY_DATA
+-------------------------------------
+
+.. versionadded:: TBD
+
+Default: ``""``
+
+Kubernetes API endpoint certificate authority data to be included in the
+generated ``kubeconfig`` file.
+
+.. seealso::
+
+   `KUBECONFIG_ENABLED`_ to enable the ``kubeconfig`` file generation.

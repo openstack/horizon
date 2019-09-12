@@ -15,6 +15,8 @@
 import datetime
 import logging
 
+from django.conf import settings
+from django.forms import widgets
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
@@ -49,6 +51,10 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
         required=False)
     unrestricted = forms.BooleanField(label=_("Unrestricted (dangerous)"),
                                       required=False)
+    kubernetes_namespace = forms.CharField(max_length=255,
+                                           label=_("Kubernetes Namespace"),
+                                           initial="default",
+                                           required=False)
 
     def __init__(self, request, *args, **kwargs):
         self.next_view = kwargs.pop('next_view', None)
@@ -58,6 +64,8 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
         role_names = [role['name'] for role in role_list]
         role_choices = ((name, name) for name in role_names)
         self.fields['roles'].choices = role_choices
+        if not settings.KUBECONFIG_ENABLED:
+            self.fields['kubernetes_namespace'].widget = widgets.HiddenInput()
 
     # We have to protect the entire "data" dict because it contains the
     # secret string.
@@ -98,6 +106,8 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
             )
             self.request.session['application_credential'] = \
                 new_app_cred.to_dict()
+            (self.request.session['application_credential']
+                ['kubernetes_namespace']) = data['kubernetes_namespace']
             request.method = 'GET'
             return self.next_view.as_view()(request)
         except exceptions.Conflict:
