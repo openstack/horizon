@@ -237,7 +237,7 @@ class ApiVersionTests(test.TestCase):
         self.previous_settings = settings.OPENSTACK_API_VERSIONS
         settings.OPENSTACK_API_VERSIONS = {
             "data-processing": 1.1,
-            "identity": "2.0",
+            "identity": "3",
             "volume": 1
         }
         # Make sure cached data from other tests doesn't interfere

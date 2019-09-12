@@ -12,11 +12,9 @@
 
 import logging
 
-from keystoneauth1.identity import v2 as v2_auth
 from keystoneauth1.identity import v3 as v3_auth
 
 from openstack_auth.plugin import base
-from openstack_auth import utils
 
 LOG = logging.getLogger(__name__)
 
@@ -38,14 +36,8 @@ class PasswordPlugin(base.BasePlugin):
 
         LOG.debug('Attempting to authenticate for %s', username)
 
-        if utils.get_keystone_version() >= 3:
-            return v3_auth.Password(auth_url=auth_url,
-                                    username=username,
-                                    password=password,
-                                    user_domain_name=user_domain_name,
-                                    unscoped=True)
-
-        else:
-            return v2_auth.Password(auth_url=auth_url,
-                                    username=username,
-                                    password=password)
+        return v3_auth.Password(auth_url=auth_url,
+                                username=username,
+                                password=password,
+                                user_domain_name=user_domain_name,
+                                unscoped=True)

@@ -19,11 +19,9 @@ from django.conf import settings
 from django.contrib import auth
 from django.contrib.auth import models
 from django.utils import timezone
-from keystoneauth1.identity import v2 as v2_auth
 from keystoneauth1.identity import v3 as v3_auth
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint
-from keystoneclient.v2_0 import client as client_v2
 from keystoneclient.v3 import client as client_v3
 from six.moves.urllib import parse as urlparse
 
@@ -116,17 +114,12 @@ def get_session(**kwargs):
 
 
 def get_keystone_client():
-    if get_keystone_version() < 3:
-        return client_v2
-    else:
-        return client_v3
+    return client_v3
 
 
 def is_websso_enabled():
     """Websso is supported in Keystone version 3."""
-    websso_enabled = settings.WEBSSO_ENABLED
-    keystonev3_plus = (get_keystone_version() >= 3)
-    return websso_enabled and keystonev3_plus
+    return settings.WEBSSO_ENABLED
 
 
 def is_websso_default_redirect():
@@ -275,26 +268,24 @@ def _augment_url_with_version(auth_url):
     the identity URLs returned by Keystone might no longer contain API
     versions, leaving the version choice up to the user.
     """
-    if has_in_url_path(auth_url, ["/v2.0", "/v3"]):
+    if has_in_url_path(auth_url, ["/v3"]):
         return auth_url
 
-    if get_keystone_version() >= 3:
-        return url_path_append(auth_url, "/v3")
-    else:
-        return url_path_append(auth_url, "/v2.0")
+    return url_path_append(auth_url, "/v3")
 
 
 def fix_auth_url_version_prefix(auth_url):
     """Fix up the auth url if an invalid or no version prefix was given.
 
-    People still give a v2 auth_url even when they specify that they want v3
-    authentication. Fix the URL to say v3 in this case and add version if it is
+    Fix the URL to say v3 in this case and add version if it is
     missing entirely. This should be smarter and use discovery.
+    Until version discovery is implemented we need this method to get
+    everything working.
     """
     auth_url = _augment_url_with_version(auth_url)
 
     url_fixed = False
-    if get_keystone_version() >= 3 and has_in_url_path(auth_url, ["/v2.0"]):
+    if has_in_url_path(auth_url, ["/v2.0"]):
         url_fixed = True
         auth_url = url_path_replace(auth_url, "/v2.0", "/v3", 1)
 
@@ -312,21 +303,15 @@ def clean_up_auth_url(auth_url):
 
 
 def get_token_auth_plugin(auth_url, token, project_id=None, domain_name=None):
-    if get_keystone_version() >= 3:
-        if domain_name:
-            return v3_auth.Token(auth_url=auth_url,
-                                 token=token,
-                                 domain_name=domain_name,
-                                 reauthenticate=False)
-        else:
-            return v3_auth.Token(auth_url=auth_url,
-                                 token=token,
-                                 project_id=project_id,
-                                 reauthenticate=False)
-    else:
-        return v2_auth.Token(auth_url=auth_url,
+    if domain_name:
+        return v3_auth.Token(auth_url=auth_url,
                              token=token,
-                             tenant_id=project_id,
+                             domain_name=domain_name,
+                             reauthenticate=False)
+    else:
+        return v3_auth.Token(auth_url=auth_url,
+                             token=token,
+                             project_id=project_id,
                              reauthenticate=False)
 
 

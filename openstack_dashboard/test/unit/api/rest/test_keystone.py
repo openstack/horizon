@@ -29,10 +29,10 @@ class KeystoneRestTestCase(test.TestCase):
     @test.create_mocks({api.keystone: ['get_version']})
     def test_version_get(self):
         request = self.mock_rest_request()
-        self.mock_get_version.return_value = '2.0'
+        self.mock_get_version.return_value = '3'
         response = keystone.Version().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.json, {"version": "2.0"})
+        self.assertEqual(response.json, {"version": "3"})
         self.mock_get_version.assert_called_once_with()
 
     #

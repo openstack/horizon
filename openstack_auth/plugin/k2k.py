@@ -44,10 +44,8 @@ class K2KAuthPlugin(base.BasePlugin):
 
         # Avoid mutable default arg for plugins
         plugins = plugins or []
-
-        # service_provider being None prevents infinite recursion
-        if utils.get_keystone_version() < 3 or not service_provider:
-            return None
+        if not service_provider:
+            return
 
         keystone_idp_id = settings.KEYSTONE_PROVIDER_IDP_ID
         if service_provider == keystone_idp_id:

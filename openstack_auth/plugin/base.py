@@ -15,7 +15,6 @@ import logging
 
 from django.utils.translation import ugettext_lazy as _
 from keystoneauth1 import exceptions as keystone_exceptions
-from keystoneclient.v2_0 import client as v2_client
 from keystoneclient.v3 import client as v3_client
 import six
 
@@ -82,16 +81,11 @@ class BasePlugin(object):
                   or v3 keystoneclient projects objects.
         """
         try:
-            if self.keystone_version >= 3:
-                client = v3_client.Client(session=session, auth=auth_plugin)
-                if auth_ref.is_federated:
-                    return client.federation.projects.list()
-                else:
-                    return client.projects.list(user=auth_ref.user_id)
-
+            client = v3_client.Client(session=session, auth=auth_plugin)
+            if auth_ref.is_federated:
+                return client.federation.projects.list()
             else:
-                client = v2_client.Client(session=session, auth=auth_plugin)
-                return client.tenants.list()
+                return client.projects.list(user=auth_ref.user_id)
 
         except (keystone_exceptions.ClientException,
                 keystone_exceptions.AuthorizationFailure):
@@ -100,11 +94,8 @@ class BasePlugin(object):
 
     def list_domains(self, session, auth_plugin, auth_ref=None):
         try:
-            if self.keystone_version >= 3:
-                client = v3_client.Client(session=session, auth=auth_plugin)
-                return client.auth.domains()
-            else:
-                return []
+            client = v3_client.Client(session=session, auth=auth_plugin)
+            return client.auth.domains()
         except (keystone_exceptions.ClientException,
                 keystone_exceptions.AuthorizationFailure):
             msg = _('Unable to retrieve authorized domains.')
@@ -203,8 +194,6 @@ class BasePlugin(object):
         session = utils.get_session()
         auth_url = unscoped_auth.auth_url
 
-        if utils.get_keystone_version() < 3:
-            return None, None
         if domain_name:
             domains = [domain_name]
         else:

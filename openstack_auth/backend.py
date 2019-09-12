@@ -149,9 +149,7 @@ class KeystoneBackend(object):
             scoped_auth = domain_auth
             scoped_auth_ref = domain_auth_ref
         elif not scoped_auth_ref and not domain_auth_ref:
-            msg = _('You are not authorized for any projects.')
-            if utils.get_keystone_version() >= 3:
-                msg = _('You are not authorized for any projects or domains.')
+            msg = _('You are not authorized for any projects or domains.')
             raise exceptions.KeystoneAuthException(msg)
 
         # Check expiry for our new scoped token.
@@ -170,16 +168,10 @@ class KeystoneBackend(object):
 
         interface = settings.OPENSTACK_ENDPOINT_TYPE
 
-        endpoint, url_fixed = utils.fix_auth_url_version_prefix(
-            scoped_auth_ref.service_catalog.url_for(
-                service_type='identity',
-                interface=interface,
-                region_name=region_name))
-        if url_fixed:
-            LOG.warning("The Keystone URL in service catalog points to a v2.0 "
-                        "Keystone endpoint, but v3 is specified as the API "
-                        "version to use by Horizon. Using v3 endpoint for "
-                        "authentication.")
+        endpoint = scoped_auth_ref.service_catalog.url_for(
+            service_type='identity',
+            interface=interface,
+            region_name=region_name)
 
         # If we made it here we succeeded. Create our User!
         unscoped_token = unscoped_auth_ref.auth_token
