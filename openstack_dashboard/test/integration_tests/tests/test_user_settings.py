@@ -10,7 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -20,8 +19,8 @@ class TestDashboardHelp(helpers.TestCase):
         """Verifies Help link redirects to the right URL."""
 
         self.home_pg.go_to_help_page()
-        self.home_pg._wait_until(
-            lambda _: self.home_pg.is_nth_window_opened(2))
+        self.home_pg._wait_until(lambda _: self.home_pg.is_nth_window_opened(2)
+                                 )
         self.home_pg.switch_window()
         self.home_pg.is_help_page()
 
@@ -50,14 +49,28 @@ class TestPasswordChange(helpers.TestCase):
 
     def _reset_password(self):
         passwordchange_page = self.home_pg.go_to_settings_changepasswordpage()
-        passwordchange_page.reset_to_default_password(self.NEW_PASSWORD)
+        # Per unique_last_password policy, we need to do unique password reset
+        # before resetting default password.
+        unique_last_password_count = int(
+            self.CONFIG.identity.unique_last_password_count)
+        old_password = int(self.NEW_PASSWORD)
+        for x in range(1, unique_last_password_count):
+            new_password = old_password + 1
+            passwordchange_page = self.home_pg.\
+                go_to_settings_changepasswordpage()
+            passwordchange_page.change_password(
+                str(old_password), str(new_password))
+            self.home_pg = self.login_pg.login(
+                user=self.TEST_USER_NAME, password=new_password)
+            old_password = new_password
+        passwordchange_page = self.home_pg.go_to_settings_changepasswordpage()
+        passwordchange_page.reset_to_default_password(old_password)
 
     def _login(self):
         self.login_pg.login()
         self.assertTrue(self.home_pg.is_logged_in,
                         "Failed to login with default password")
 
-    @decorators.skip_because(bugs=['1776678'])
     def test_password_change(self):
         # Changes the password, verifies it was indeed changed and
         # resets to default password.
@@ -67,15 +80,14 @@ class TestPasswordChange(helpers.TestCase):
             passwordchange_page.change_password(self.TEST_PASSWORD,
                                                 self.NEW_PASSWORD)
 
-            self.home_pg = self.login_pg.login(user=self.TEST_USER_NAME,
-                                               password=self.NEW_PASSWORD)
+            self.home_pg = self.login_pg.login(
+                user=self.TEST_USER_NAME, password=self.NEW_PASSWORD)
             self.assertTrue(self.home_pg.is_logged_in,
                             "Failed to login with new password")
         finally:
             self._reset_password()
             self._login()
 
-    @decorators.skip_because(bugs=['1776678'])
     def test_show_message_after_logout(self):
         # Ensure an informational message is shown on the login page
         # after the user is logged out.
@@ -88,8 +100,8 @@ class TestPasswordChange(helpers.TestCase):
                 self.login_pg.is_logout_reason_displayed(),
                 "The logout reason message was not found on the login page")
         finally:
-            self.login_pg.login(user=self.TEST_USER_NAME,
-                                password=self.NEW_PASSWORD)
+            self.login_pg.login(
+                user=self.TEST_USER_NAME, password=self.NEW_PASSWORD)
             self._reset_password()
             self._login()
 
@@ -103,13 +115,14 @@ class TestUserSettings(helpers.TestCase):
 
         user_settings = (("Language", changed_settings["language"], language),
                          ("Timezone", changed_settings["timezone"], timezone),
-                         ("Pagesize", changed_settings["pagesize"], pagesize),
-                         ("Loglines", changed_settings["loglines"], loglines))
+                         ("Pagesize", changed_settings["pagesize"],
+                          pagesize), ("Loglines", changed_settings["loglines"],
+                                      loglines))
 
         for (setting, expected, observed) in user_settings:
-            self.assertEqual(expected, observed,
-                             "expected %s: %s, instead found: %s"
-                             % (setting, expected, observed))
+            self.assertEqual(
+                expected, observed, "expected %s: %s, instead found: %s" %
+                (setting, expected, observed))
 
     def test_user_settings_change(self):
         """tests the user's settings options:
@@ -121,7 +134,6 @@ class TestUserSettings(helpers.TestCase):
         * verifies all changes were successfully executed
         """
         settings_page = self.home_pg.go_to_settings_usersettingspage()
-
         settings_page.change_language("es")
         self.assertTrue(
             settings_page.find_message_and_dismiss(messages.SUCCESS))
@@ -146,8 +158,12 @@ class TestUserSettings(helpers.TestCase):
         self.assertFalse(
             settings_page.find_message_and_dismiss(messages.ERROR))
 
-        changed_settings = {"language": "es", "timezone": "Asia/Jerusalem",
-                            "pagesize": "30", "loglines": "50"}
+        changed_settings = {
+            "language": "es",
+            "timezone": "Asia/Jerusalem",
+            "pagesize": "30",
+            "loglines": "50"
+        }
         self.verify_user_settings_change(settings_page, changed_settings)
 
         settings_page.return_to_default_settings()

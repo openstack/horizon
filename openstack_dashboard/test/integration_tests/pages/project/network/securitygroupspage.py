@@ -25,7 +25,8 @@ class SecurityGroupsTable(tables.TableRegion):
     def create_group(self, create_button):
         create_button.click()
         return forms.FormRegion(
-            self.driver, self.conf,
+            self.driver,
+            self.conf,
             field_mappings=self.CREATE_SECURITYGROUP_FORM_FIELDS)
 
     @tables.bind_table_action('delete')
@@ -61,6 +62,8 @@ class SecuritygroupsPage(basepage.BaseNavigationPage):
         if description is not None:
             create_securitygroups_form.description.text = description
         create_securitygroups_form.submit()
+        if 'Manage Security Group Rules' in self.driver.title:
+            return ManageRulesPage(self.driver, self.conf)
 
     def delete_securitygroup(self, name):
         row = self._get_row_with_securitygroup_name(name)
