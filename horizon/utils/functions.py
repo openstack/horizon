@@ -100,6 +100,15 @@ def save_config_value(request, response, key, value):
     return response
 
 
+def get_page_size(request):
+    # NOTE(amotoki): The default value is defined in
+    # openstack_dashboard/defaults.py. To aviod circular reference,
+    # the hardcoded value 20 is used here.
+    # TODO(amotoki): Decide where API_RESULT_PAGE_SIZE should be defined,
+    # horizon or openstack_dashboard.
+    return get_config_value(request, 'API_RESULT_PAGE_SIZE', 20)
+
+
 def get_timezone(request):
     # Session and cookie store timezone as django_timezone.
     # In case there is no timezone neither in session nor in cookie,
