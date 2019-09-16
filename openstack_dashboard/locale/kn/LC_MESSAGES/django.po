@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-07-25 16:41+0000\n"
+"POT-Creation-Date: 2019-09-13 12:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4123,10 +4123,6 @@ msgstr "ಬಳಕೆದಾರ"
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "\"%s\" ಪಾತ್ರವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ರಚಿಸಲಾಗಿದೆ."
-
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "ಆ ಪರಿಯೋಜನೆಗಾಗಿ %s ಬಳಕೆದಾರನ ಯಾವುದೆ ಪಾತ್ರವನ್ನು ಸೂಚಿಸಲಾಗಿಲ್ಲ."
 
 msgid "User Credentials Details"
 msgstr "ಕ್ರೆಡೆಂಶಿಯಲ್‌ ವಿವರಗಳನ್ನು ನೋಡಿ"

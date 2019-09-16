@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-19 01:16-0500\n"
+"POT-Creation-Date: 2019-09-13 12:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -361,9 +361,6 @@ msgstr "Bereitstellung"
 
 msgid "Designate Dashboard"
 msgstr "Designate Dashboard"
-
-msgid "Django 1.11 or 2.0"
-msgstr "Django 1.11 oder 2.0"
 
 msgid "Django 1.8 to 1.10 are no longer supported since Rocky release."
 msgstr ""

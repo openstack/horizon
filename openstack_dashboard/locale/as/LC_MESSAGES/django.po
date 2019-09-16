@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-07-25 16:41+0000\n"
+"POT-Creation-Date: 2019-09-13 12:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4073,10 +4073,6 @@ msgstr "ব্যৱহাৰকৰ্তা"
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "\"%s\" ব্যৱহাৰকৰ্তা সফলতাৰে তৈয়াৰ কৰা হল."
-
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "উক্ত প্ৰক্ষেপটোৰ বাবে %s ব্যৱহাৰকৰ্তাৰ কোনো ৰোল বাখ্যা কৰা হোৱা নাই."
 
 msgid "User Credentials Details"
 msgstr "ব্যৱহাৰকৰ্তা পৰিচয়পত্ৰবোৰৰ পূংখানুপূংখ বিৱৰণ"
