@@ -19,14 +19,14 @@
 # Nickolay Smirnov <nsmirnov@hystax.com>, 2016. #zanata
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
-# Dmytriy Rabotjagov <noonedeadpunk@ya.ru>, 2018. #zanata
+# Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2018. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2018. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-27 16:34+0000\n"
+"POT-Creation-Date: 2019-09-12 16:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -242,9 +242,6 @@ msgstr "Закончить"
 
 msgid "Flavor"
 msgstr "Тип инстанса"
-
-msgid "Forbidden. Redirecting to login"
-msgstr "Доступ запрещен. Перенаправление на вход в систему."
 
 msgid "Format validation failed"
 msgstr "Валидация формата закончилась неудачей"
