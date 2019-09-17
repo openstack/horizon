@@ -18,11 +18,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2019-09-16 12:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-18 08:25+0000\n"
+"PO-Revision-Date: 2019-09-16 09:35+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -2376,6 +2376,9 @@ msgstr "OpenStack RC-Datei herunterladen"
 msgid "Download clouds.yaml"
 msgstr "clouds.yaml herunternladen"
 
+msgid "Download kubeconfig file"
+msgstr "kubeconfig Datei herunterladen"
+
 msgid "Download openrc file"
 msgstr "openrc-Datei herunterladen"
 
@@ -3953,6 +3956,9 @@ msgstr "Schlüssel: total_iops_sec und Wert: 5000"
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Beendet"
+
+msgid "Kubernetes Namespace"
+msgstr "Kubernetes Namensraum"
 
 msgid "L3 Agent"
 msgstr "L3 Agent"
@@ -6758,6 +6764,10 @@ msgstr "Der neue Typ muss sich vom aktuellen Datenträgertyp unterscheiden."
 msgid "The output format"
 msgstr "Ausgabeformat"
 
+#, python-format
+msgid "The password does not match the requirements: %s"
+msgstr "Das Passwort entspricht nicht den Anforderungen: %s"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr ""
 "Der physikalische Mechanismus, durch den das virtuelle Netzwerk "
@@ -7188,6 +7198,10 @@ msgstr "Keine Verbindung zu Neutron."
 
 msgid "Unable to create QoS Spec."
 msgstr "QoS Spezifikationen können nicht erzeugt werden."
+
+#, python-format
+msgid "Unable to create application credential: %s"
+msgstr "Applikations-Zugangsdaten können nicht erstellt werden: %s"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
