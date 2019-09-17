@@ -10,6 +10,7 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import datetime
 import logging
 
 from django.conf import settings
@@ -139,8 +140,9 @@ def login(request):
         request.session['region_name'] = region_name
         expiration_time = request.user.time_until_expiration()
         threshold_days = settings.PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS
-        if expiration_time is not None and \
-                expiration_time.days <= threshold_days:
+        if (expiration_time is not None and
+                expiration_time.days <= threshold_days and
+                expiration_time > datetime.timedelta(0)):
             expiration_time = str(expiration_time).rsplit(':', 1)[0]
             msg = (_('Please consider changing your password, it will expire'
                      ' in %s minutes') %
