@@ -772,6 +772,35 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         self.assertContains(response, 'option value="Default"')
         settings.OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN = False
 
+    def test_password_expired(self):
+        user = self.data.user
+        form_data = self.get_form_data(user)
+
+        class ExpiredException(keystone_exceptions.Unauthorized):
+            http_status = 401
+            message = ("The password is expired and needs to be changed"
+                       " for user: %s." % user.id)
+
+        exc = ExpiredException()
+        self._mock_client_password_auth_failure(user.name, user.password, exc)
+        self.mox.ReplayAll()
+
+        url = reverse('login')
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+
+        # This fails with TemplateDoesNotExist for some reason.
+        # self.assertRedirects(response, reverse('password', args=[user.id]))
+        # so instead we check for the redirect manually:
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, "/password/%s/" % user.id)
+
 
 class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
                                OpenStackAuthFederatedTestsMixin,

@@ -12,6 +12,7 @@
 
 import abc
 import logging
+import re
 
 from django.utils.translation import ugettext_lazy as _
 from keystoneauth1 import exceptions as keystone_exceptions
@@ -90,7 +91,7 @@ class BasePlugin(object):
         except (keystone_exceptions.ClientException,
                 keystone_exceptions.AuthorizationFailure):
             msg = _('Unable to retrieve authorized projects.')
-            raise exceptions.KeystoneAuthException(msg)
+            raise exceptions.KeystoneRetrieveProjectsException(msg)
 
     def list_domains(self, session, auth_plugin, auth_ref=None):
         try:
@@ -99,7 +100,7 @@ class BasePlugin(object):
         except (keystone_exceptions.ClientException,
                 keystone_exceptions.AuthorizationFailure):
             msg = _('Unable to retrieve authorized domains.')
-            raise exceptions.KeystoneAuthException(msg)
+            raise exceptions.KeystoneRetrieveDomainsException(msg)
 
     def get_access_info(self, keystone_auth):
         """Get the access info from an unscoped auth
@@ -118,12 +119,21 @@ class BasePlugin(object):
         except keystone_exceptions.ConnectFailure as exc:
             LOG.error(str(exc))
             msg = _('Unable to establish connection to keystone endpoint.')
-            raise exceptions.KeystoneAuthException(msg)
+            raise exceptions.KeystoneConnectionException(msg)
         except (keystone_exceptions.Unauthorized,
                 keystone_exceptions.Forbidden,
                 keystone_exceptions.NotFound) as exc:
-            LOG.debug(str(exc))
-            raise exceptions.KeystoneAuthException(_('Invalid credentials.'))
+            msg = str(exc)
+            LOG.debug(msg)
+            match = re.match(r"The password is expired and needs to be changed"
+                             r" for user: ([^.]*)[.].*", msg)
+            if match:
+                exc = exceptions.KeystonePassExpiredException(
+                    _('Password expired.'))
+                exc.user_id = match.group(1)
+                raise exc
+            msg = _('Invalid credentials.')
+            raise exceptions.KeystoneCredentialsException(msg)
         except (keystone_exceptions.ClientException,
                 keystone_exceptions.AuthorizationFailure) as exc:
             msg = _("An error occurred authenticating. "

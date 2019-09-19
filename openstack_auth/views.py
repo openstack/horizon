@@ -19,6 +19,7 @@ from django.contrib.auth import views as django_auth_views
 from django.contrib import messages
 from django import http as django_http
 from django import shortcuts
+from django.urls import reverse
 from django.utils import functional
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
@@ -112,12 +113,18 @@ def login(request):
     else:
         template_name = 'auth/login.html'
 
-    res = django_auth_views.LoginView.as_view(
-        template_name=template_name,
-        redirect_field_name=auth.REDIRECT_FIELD_NAME,
-        form_class=form,
-        extra_context=extra_context,
-        redirect_authenticated_user=False)(request)
+    try:
+        res = django_auth_views.LoginView.as_view(
+            template_name=template_name,
+            redirect_field_name=auth.REDIRECT_FIELD_NAME,
+            form_class=form,
+            extra_context=extra_context,
+            redirect_authenticated_user=False)(request)
+    except exceptions.KeystonePassExpiredException as exc:
+        res = django_http.HttpResponseRedirect(
+            reverse('password', args=[exc.user_id]))
+        msg = _("Your password has expired. Please set a new password.")
+        res.set_cookie('logout_reason', msg, max_age=10)
 
     # Save the region in the cookie, this is used as the default
     # selected region next time the Login form loads.

@@ -144,6 +144,15 @@ class Login(django_auth_forms.AuthenticationForm):
                      '"%(domain)s", remote address %(remote_ip)s.',
                      {'username': username, 'domain': domain,
                       'remote_ip': utils.get_client_ip(self.request)})
+        except exceptions.KeystonePassExpiredException as exc:
+            LOG.info('Login failed for user "%(username)s" using domain '
+                     '"%(domain)s", remote address %(remote_ip)s: password'
+                     ' expired.',
+                     {'username': username, 'domain': domain,
+                      'remote_ip': utils.get_client_ip(self.request)})
+            if utils.allow_expired_passowrd_change():
+                raise
+            raise forms.ValidationError(exc)
         except exceptions.KeystoneAuthException as exc:
             LOG.info('Login failed for user "%(username)s" using domain '
                      '"%(domain)s", remote address %(remote_ip)s.',
