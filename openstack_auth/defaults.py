@@ -72,6 +72,11 @@ SECURE_PROXY_ADDR_HEADER = False
 # contact an admin to change their password.
 PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS = -1
 
+# Horizon can prompt the user to change their password when it is expired
+# or required to be changed on first use. This is enabled by default, but
+# can be disabled if not desired.
+ALLOW_USERS_CHANGE_EXPIRED_PASSWORD = True
+
 OPENSTACK_KEYSTONE_ADMIN_ROLES = ['admin']
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False
 # Set this to True if you want available domains displayed as a dropdown menu

@@ -1183,6 +1183,19 @@ supported image formats.
 Keystone
 --------
 
+ALLOW_USERS_CHANGE_EXPIRED_PASSWORD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 16.0.0(Train)
+
+Default: ``True``
+
+When enabled, this setting lets users change their password after it has
+expired or when it is required to be changed on first use. Disabling it will
+force such users to either use the command line interface to change their
+password, or contact the system administrator.
+
+
 AUTHENTICATION_PLUGINS
 ~~~~~~~~~~~~~~~~~~~~~~
 
