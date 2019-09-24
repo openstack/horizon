@@ -18,33 +18,13 @@ see https://docs.openstack.org/devstack/latest/
 
     [[local|localrc]]
 
-    ADMIN_PASSWORD=secret
-    DATABASE_PASSWORD=$ADMIN_PASSWORD
-    RABBIT_PASSWORD=$ADMIN_PASSWORD
-    SERVICE_PASSWORD=$ADMIN_PASSWORD
+    ADMIN_PASSWORD="secretadmin"
+    DATABASE_PASSWORD="secretdatabase"
+    RABBIT_PASSWORD="secretrabbit"
+    SERVICE_PASSWORD="secretservice"
 
-    # Recloning will ensure that your stack is up to date. The downside
-    # is overhead on restarts and potentially losing a stable environment.
-    # If set to `yes`, will reclone all repos every time stack.sh is run.
-    # The default is `no`.
-    #
-    # RECLONE=yes
-
-    # By default `stack.sh` will only install Python packages if no version is
-    # currently installed, or the current version does not match a specified
-    # requirement. If `PIP_UPGRADE` is set to `True` then existing required
-    # Python packages will be upgraded to the most recent version that matches
-    # requirements. This is generally recommended, as most of OpenStack is
-    # tested on latest packages, rather than older versions. The default is
-    # False.
-    #
-    # PIP_UPGRADE=TRUE
-
-    # Set `OFFLINE` to `True` to configure `stack.sh` to run cleanly without
-    # Internet access. `stack.sh` must have been previously run with Internet
-    # access to install prerequisites and fetch repositories.
-    #
-    # OFFLINE=True
+    # For DevStack configuration options, see:
+    # https://docs.openstack.org/devstack/latest/configuration.html
 
     # Note: there are several network setting changes that may be
     # required to get networking properly configured in your environment.
@@ -52,12 +32,6 @@ see https://docs.openstack.org/devstack/latest/
     # For a more detailed treatment of devstack network configuration
     # options, please see:
     # https://docs.openstack.org/devstack/latest/guides.html
-
-    # Horizon is enabled by default in Devstack, but since we're developing
-    # it's advised to use a separate clone. To disable horizon in DevStack,
-    # speeding up stack time, use:
-    #
-    # disable_service horizon
 
     ### Supported Services
     # The following panels and plugins are part of the Horizon tree
