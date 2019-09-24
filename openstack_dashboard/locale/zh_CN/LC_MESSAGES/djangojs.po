@@ -20,12 +20,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-09-20 14:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-29 03:02+0000\n"
-"Last-Translator: Franco Tseng <francotseng18@gmail.com>\n"
+"PO-Revision-Date: 2019-09-23 02:22+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -690,6 +690,10 @@ msgstr "创建的密钥对：%s"
 
 msgid "Creating"
 msgstr "创建中"
+
+#, python-format
+msgid "Creating volume %s"
+msgstr "创建卷 \"%s\""
 
 msgid "Custom Properties"
 msgstr "定制属性"
@@ -2412,6 +2416,9 @@ msgstr "服务器组"
 #, python-format
 msgid "Server Group %s was successfully created."
 msgstr "服务器组 %s 已被成功创建。"
+
+msgid "Server Group Members"
+msgstr "服务器组成员"
 
 msgid "Server Groups"
 msgstr "服务器组"
