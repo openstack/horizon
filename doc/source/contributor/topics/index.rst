@@ -19,3 +19,4 @@ the following topic guides.
    translation
    ini-based-configuration
    packaging
+   devstack

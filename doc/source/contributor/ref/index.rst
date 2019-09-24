@@ -1,8 +1,9 @@
-=============
-API Reference
-=============
+================
+Module Reference
+================
 
-In-depth documentation for Horizon framework and its APIs.
+Horizon Framework
+-----------------
 
 .. toctree::
    :maxdepth: 1
@@ -17,10 +18,9 @@ In-depth documentation for Horizon framework and its APIs.
    decorators
    exceptions
    test
-   local_conf
 
-Auth API Reference
-==================
+openstack_auth Module
+---------------------
 
 .. toctree::
    :maxdepth: 2

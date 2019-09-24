@@ -1,11 +1,8 @@
 .. _local-conf:
 
-==========
-local.conf
-==========
-
-Configuring DevStack for Horizon
-================================
+====================
+DevStack for Horizon
+====================
 
 Place the following content into ``devstack/local.conf`` to start the services
 that Horizon supports in DevStack when ``stack.sh`` is run. If you need to use
