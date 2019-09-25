@@ -15,6 +15,7 @@ from django.conf import settings
 from openstack_dashboard.api import base
 from openstack_dashboard import policy
 from openstack_dashboard.usage import quotas
+from openstack_dashboard.utils import settings as setting_utils
 
 
 def _quota_exceeded(request, quota):
@@ -28,8 +29,6 @@ def get_context(request, context=None):
     if context is None:
         context = {}
 
-    network_config = settings.OPENSTACK_NEUTRON_NETWORK
-
     context['launch_instance_allowed'] = policy.check(
         (("compute", "os_compute_api:servers:create"),), request)
     context['instance_quota_exceeded'] = _quota_exceeded(request, 'instances')
@@ -37,7 +36,8 @@ def get_context(request, context=None):
         (("network", "create_network"),), request)
     context['network_quota_exceeded'] = _quota_exceeded(request, 'network')
     context['create_router_allowed'] = (
-        network_config['enable_router'] and
+        setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                      'enable_router') and
         policy.check((("network", "create_router"),), request))
     context['router_quota_exceeded'] = _quota_exceeded(request, 'router')
     context['console_type'] = settings.CONSOLE_TYPE

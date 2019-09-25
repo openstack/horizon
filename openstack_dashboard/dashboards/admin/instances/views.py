@@ -17,7 +17,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -38,6 +37,7 @@ from openstack_dashboard.dashboards.project.instances import views
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
 from openstack_dashboard.utils import futurist_utils
+from openstack_dashboard.utils import settings as setting_utils
 
 
 # re-use console from project.instances.views to make reflection work
@@ -142,8 +142,8 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
         # If filter_first is set and if there are not other filters
         # selected, then search criteria must be provided and return an empty
         # list
-        filter_first = settings.FILTER_DATA_FIRST
-        if (filter_first['admin.instances'] and
+        if (setting_utils.get_dict_config('FILTER_DATA_FIRST',
+                                          'admin.instances') and
                 len(search_opts) == len(default_search_opts)):
             self._needs_filter_first = True
             self._more = False

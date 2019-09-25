@@ -1036,8 +1036,8 @@ def extension_supported(extension_name, request):
 
 @profiler.trace
 def can_set_server_password():
-    features = settings.OPENSTACK_HYPERVISOR_FEATURES
-    return features['can_set_password']
+    return utils.get_dict_config('OPENSTACK_HYPERVISOR_FEATURES',
+                                 'can_set_password')
 
 
 @profiler.trace
@@ -1049,16 +1049,16 @@ def instance_action_list(request, instance_id):
 @profiler.trace
 def can_set_mount_point():
     """Return the Hypervisor's capability of setting mount points."""
-    hypervisor_features = settings.OPENSTACK_HYPERVISOR_FEATURES
-    return hypervisor_features["can_set_mount_point"]
+    return utils.get_dict_config('OPENSTACK_HYPERVISOR_FEATURES',
+                                 'can_set_mount_point')
 
 
 @profiler.trace
 def requires_keypair():
-    features = settings.OPENSTACK_HYPERVISOR_FEATURES
-    return features['requires_keypair']
+    return utils.get_dict_config('OPENSTACK_HYPERVISOR_FEATURES',
+                                 'requires_keypair')
 
 
 def can_set_quotas():
-    features = settings.OPENSTACK_HYPERVISOR_FEATURES
-    return features['enable_quotas']
+    return utils.get_dict_config('OPENSTACK_HYPERVISOR_FEATURES',
+                                 'enable_quotas')

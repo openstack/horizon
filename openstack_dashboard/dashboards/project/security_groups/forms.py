@@ -32,6 +32,7 @@ from horizon.utils import validators as utils_validators
 
 from openstack_dashboard import api
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import settings as setting_utils
 
 
 class GroupBase(forms.SelfHandlingForm):
@@ -296,7 +297,8 @@ class AddRule(forms.SelfHandlingForm):
             ('all', _('All ports')),
         ]
 
-        if not settings.OPENSTACK_NEUTRON_NETWORK['enable_ipv6']:
+        if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_ipv6'):
             self.fields['cidr'].version = forms.IPv4
             self.fields['ethertype'].widget = forms.TextInput(
                 attrs={'readonly': 'readonly'})

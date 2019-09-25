@@ -16,16 +16,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-
-from django.conf import settings
 from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
 
 from horizon.browsers.views import AngularIndexView
 from openstack_dashboard.dashboards.identity.users import views
+from openstack_dashboard.utils import settings as setting_utils
 
 
-if settings.ANGULAR_FEATURES.get('users_panel', False):
+if setting_utils.get_dict_config('ANGULAR_FEATURES', 'users_panel'):
     title = _("Users")
     # new angular panel
     urlpatterns = [

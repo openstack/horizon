@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django import shortcuts
 from django import template
 from django.utils import encoding
@@ -21,6 +20,7 @@ from osprofiler import profiler
 
 import horizon
 from horizon import exceptions
+from horizon.utils import settings as setting_utils
 
 
 class PageTitleMixin(object):
@@ -73,7 +73,7 @@ class PageTitleMixin(object):
 
 def trace(name):
     def decorator(func):
-        if settings.OPENSTACK_PROFILER['enabled']:
+        if setting_utils.get_dict_config('OPENSTACK_PROFILER', 'enabled'):
             return profiler.trace(name, info=None, hide_args=False,
                                   allow_multiple_trace=True)(func)
         else:

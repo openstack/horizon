@@ -39,6 +39,7 @@ from openstack_dashboard.api import base
 from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 from openstack_dashboard import policy
+from openstack_dashboard.utils import settings as setting_utils
 
 # Python 3.8 removes the ability to import the abstract base classes from
 # 'collections', but 'collections.abc' is not present in Python 2.7
@@ -799,8 +800,8 @@ class FloatingIpManager(object):
 
     def is_supported(self):
         """Returns True if floating IP feature is supported."""
-        network_config = settings.OPENSTACK_NEUTRON_NETWORK
-        return network_config['enable_router']
+        return setting_utils.get_dict_config(
+            'OPENSTACK_NEUTRON_NETWORK', 'enable_router')
 
 
 def get_ipver_str(ip_version):
@@ -1841,11 +1842,12 @@ def is_extension_supported(request, extension_alias):
 # values are pre-defined now, so 'default' argument is meaningless
 # in most cases.
 def is_enabled_by_config(name, default=True):
-    network_config = settings.OPENSTACK_NEUTRON_NETWORK
-    # NOTE(amotoki): This function is used by horizon plugins
-    # via is_service_enabled() function, so we need to keep .get()
-    # rather than [] dict operator.
-    return network_config.get(name, default)
+    try:
+        return setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK', name)
+    except KeyError:
+        # No default value is defined.
+        # This is a fallback logic for horizon plugins.
+        return default
 
 
 # TODO(amotoki): Clean up 'default' parameter because the default
@@ -1879,7 +1881,6 @@ FEATURE_MAP = {
         'extension': 'dvr',
         'config': {
             'name': 'enable_distributed_router',
-            'default': False,
         },
         'policies': {
             'get': 'get_router:distributed',
@@ -1889,8 +1890,9 @@ FEATURE_MAP = {
     },
     'l3-ha': {
         'extension': 'l3-ha',
-        'config': {'name': 'enable_ha_router',
-                   'default': False},
+        'config': {
+            'name': 'enable_ha_router',
+        },
         'policies': {
             'get': 'get_router:ha',
             'create': 'create_router:ha',
@@ -1921,7 +1923,6 @@ def get_feature_permission(request, feature, operation=None):
         defined in FEATURE_MAP[feature]['policies']
         It must be specified if FEATURE_MAP[feature] has 'policies'.
     """
-    network_config = settings.OPENSTACK_NEUTRON_NETWORK
     feature_info = FEATURE_MAP.get(feature)
     if not feature_info:
         raise ValueError("The requested feature '%(feature)s' is unknown. "
@@ -1931,10 +1932,8 @@ def get_feature_permission(request, feature, operation=None):
     # Check dashboard settings
     feature_config = feature_info.get('config')
     if feature_config:
-        # TODO(amotoki): Drop 'default' from FEATURE_MAP as it will be
-        # meaningless once all default settings are pre-defined.
-        if not network_config.get(feature_config['name'],
-                                  feature_config['default']):
+        if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             feature_config['name']):
             return False
 
     # Check policy

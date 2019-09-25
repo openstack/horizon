@@ -40,6 +40,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import settings as setting_utils
 
 from openstack_dashboard.dashboards.project.instances \
     import console as project_console
@@ -266,8 +267,8 @@ class LaunchInstanceView(workflows.WorkflowView):
         initial = super(LaunchInstanceView, self).get_initial()
         initial['project_id'] = self.request.user.tenant_id
         initial['user_id'] = self.request.user.id
-        defaults = settings.LAUNCH_INSTANCE_DEFAULTS
-        initial['config_drive'] = defaults['config_drive']
+        initial['config_drive'] = setting_utils.get_dict_config(
+            'LAUNCH_INSTANCE_DEFAULTS', 'config_drive')
         return initial
 
 

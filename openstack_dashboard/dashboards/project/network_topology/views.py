@@ -76,6 +76,7 @@ from openstack_dashboard.dashboards.project.routers.tables import \
 from openstack_dashboard.dashboards.project.routers import\
     views as r_views
 from openstack_dashboard import policy
+from openstack_dashboard.utils import settings as setting_utils
 
 # List of known server statuses that wont connect to the console
 console_invalid_status = {
@@ -214,8 +215,8 @@ class JSONView(View):
 
     @property
     def is_router_enabled(self):
-        network_config = settings.OPENSTACK_NEUTRON_NETWORK
-        return network_config['enable_router']
+        return setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_router')
 
     def add_resource_url(self, view, resources):
         tenant_id = self.request.user.tenant_id

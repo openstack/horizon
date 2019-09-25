@@ -10,7 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf import settings
 from django import template
 from django.template import defaultfilters as filters
 from django import urls
@@ -20,6 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 from horizon.utils import filters as utils_filters
 from openstack_dashboard import api
+from openstack_dashboard.utils import settings as setting_utils
 
 
 SERVICE_ENABLED = "enabled"
@@ -187,8 +187,8 @@ class NetworkL3AgentRoutersLinkAction(tables.LinkAction):
     verbose_name = _("View Routers")
 
     def allowed(self, request, datum):
-        network_config = settings.OPENSTACK_NEUTRON_NETWORK
-        if not network_config['enable_router']:
+        if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_router'):
             return False
         # Determine whether this action is allowed for the current request.
         return datum.agent_type == "L3 agent"

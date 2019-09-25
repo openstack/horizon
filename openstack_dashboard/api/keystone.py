@@ -37,6 +37,7 @@ from horizon import exceptions
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 from openstack_dashboard import policy
+from openstack_dashboard.utils import settings as setting_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -823,34 +824,35 @@ def delete_user_ec2_credentials(request, user_id, access_token):
 
 
 def keystone_can_edit_domain():
-    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
-    can_edit_domain = backend_settings['can_edit_domain']
+    can_edit_domain = setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_domain')
     multi_domain_support = settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT
     return can_edit_domain and multi_domain_support
 
 
 def keystone_can_edit_user():
-    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
-    return backend_settings['can_edit_user']
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_user')
 
 
 def keystone_can_edit_project():
-    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
-    return backend_settings['can_edit_project']
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_project')
 
 
 def keystone_can_edit_group():
-    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
-    return backend_settings['can_edit_group']
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_group')
 
 
 def keystone_can_edit_role():
-    backend_settings = settings.OPENSTACK_KEYSTONE_BACKEND
-    return backend_settings['can_edit_role']
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_role')
 
 
 def keystone_backend_name():
-    return settings.OPENSTACK_KEYSTONE_BACKEND['name'] or 'unknown'
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'name') or 'unknown'
 
 
 def get_version():
