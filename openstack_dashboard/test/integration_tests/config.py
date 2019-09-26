@@ -57,6 +57,18 @@ IdentityGroup = [
                default='admin',
                help="Name of the role that grants admin rights to a user in "
                     "his project"),
+    cfg.IntOpt('unique_last_password_count',
+               # The default value is chosen to match the value of
+               # [security_compliance] unique_last_password_count in DevStack
+               # as the first target of the integration tests is the gate.
+               # Note that the default value of unique_last_password_count
+               # in keystone may differ, so you might need
+               # to change this parameter.
+               default=2,
+               help=("The number of passwords for a user that must be unique "
+                     "before an old password can be used. "
+                     "This should match the keystone configuration option "
+                     "'[security_compliance] unique_last_password_count'.")),
 ]
 
 ImageGroup = [

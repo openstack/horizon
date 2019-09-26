@@ -9,8 +9,11 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-import collections
 
+import collections
+import os
+
+from django.utils import html
 from selenium.common import exceptions
 from selenium.webdriver.common import by
 import selenium.webdriver.support.ui as Support
@@ -85,7 +88,6 @@ class BaseFormFieldRegion(baseregion.BaseRegion):
 
 
 class CheckBoxMixin(object):
-
     @property
     def label(self):
         id_attribute = self.element.get_attribute('id')
@@ -116,7 +118,7 @@ class ChooseFileFormFieldRegion(BaseFormFieldRegion):
     _element_locator_str_suffix = 'div > input[type=file]'
 
     def choose(self, path):
-        self.element.send_keys(path)
+        self.element.send_keys(os.path.join(os.getcwd(), path))
 
 
 class BaseTextFormFieldRegion(BaseFormFieldRegion):
@@ -215,7 +217,9 @@ class SelectFormFieldRegion(BaseFormFieldRegion):
 
     @value.setter
     def value(self, value):
-        self.element.select_by_value(value)
+        js_cmd = "$('[name=\"%s\"]').val(\"%s\").change();" % (
+            self.name, html.escape(value))
+        self.driver.execute_script(js_cmd)
 
 
 class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
@@ -264,8 +268,9 @@ class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
                 if match:
                     option.click()
                     return
-            raise ValueError('Widget "%s" does have an option with text "%s"'
-                             % (self.name, text))
+            raise ValueError(
+                'Widget "%s" does not have an option with text "%s"' %
+                (self.name, text))
 
     @value.setter
     def value(self, value):
@@ -275,8 +280,9 @@ class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
                 if value == option.get_attribute('data-select-value'):
                     option.click()
                     return
-            raise ValueError('Widget "%s" does have an option with value "%s"'
-                             % (self.name, value))
+            raise ValueError(
+                'Widget "%s" does not have an option with value "%s"' %
+                (self.name, value))
 
 
 class BaseFormRegion(baseregion.BaseRegion):
@@ -424,8 +430,10 @@ class TabbedFormRegion(FormRegion):
             driver, conf, field_mappings=field_mappings)
 
     def _prepare_mappings(self, field_mappings):
-        return [super(TabbedFormRegion, self)._prepare_mappings(tab_mappings)
-                for tab_mappings in field_mappings]
+        return [
+            super(TabbedFormRegion, self)._prepare_mappings(tab_mappings)
+            for tab_mappings in field_mappings
+        ]
 
     def _init_form_fields(self):
         self.switch_to(self.current_tab)
@@ -448,8 +456,8 @@ class TabbedFormRegion(FormRegion):
 
     @property
     def tabs(self):
-        return menus.TabbedMenuRegion(self.driver, self.conf,
-                                      src_elem=self.src_elem)
+        return menus.TabbedMenuRegion(
+            self.driver, self.conf, src_elem=self.src_elem)
 
 
 class DateFormRegion(BaseFormRegion):
@@ -541,8 +549,8 @@ class ItemTextDescription(baseregion.BaseRegion):
         keys = []
         values = []
         for section in self._get_elements(*self._separator_locator):
-            keys.extend([x.text for x in
-                         section.find_elements(*self._key_locator)])
-            values.extend([x.text for x in
-                           section.find_elements(*self._value_locator)])
+            keys.extend(
+                [x.text for x in section.find_elements(*self._key_locator)])
+            values.extend(
+                [x.text for x in section.find_elements(*self._value_locator)])
         return dict(zip(keys, values))

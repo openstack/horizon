@@ -73,6 +73,7 @@ class LoginPage(pageobject.PageObject):
 
     def _do_login(self, user, password, login_method):
         if self.conf.identity.domain:
+            self.domain[0].clear()
             self.domain[0].send_keys(self.conf.identity.domain)
         if user == self.conf.identity.admin_username:
             if password is None:

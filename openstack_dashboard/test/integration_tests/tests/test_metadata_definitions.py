@@ -12,7 +12,6 @@
 
 import os
 
-from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -84,7 +83,6 @@ class TestMetadataDefinitions(helpers.AdminTestCase):
         self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(page.is_namespace_present(namespace_name))
 
-    @decorators.skip_because(bugs=['1774697'])
     def test_namespace_create_delete(self):
         """Tests the NameSpace creation and deletion functionality:
 
