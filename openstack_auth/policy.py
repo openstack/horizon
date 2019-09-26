@@ -64,7 +64,16 @@ def _get_enforcer():
             policy_file, policy_dirs = _get_policy_file_with_full_path(service)
             conf = _get_policy_conf(policy_file, policy_dirs)
             enforcer = policy.Enforcer(conf)
-            enforcer.load_rules()
+            try:
+                enforcer.load_rules()
+            except IOError:
+                # Just in case if we have permission denied error which is not
+                # handled by oslo.policy now. It will handled in the code like
+                # we don't have any policy file: allow action from the Horizon
+                # side.
+                LOG.warning("Cannot load a policy file '%s' for service '%s' "
+                            "due to IOError. One possible reason is "
+                            "permission denied.", policy_file, service)
             # Ensure enforcer.rules is populated.
             if enforcer.rules:
                 LOG.debug("adding enforcer for service: %s", service)
