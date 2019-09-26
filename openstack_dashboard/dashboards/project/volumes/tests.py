@@ -35,6 +35,7 @@ from openstack_dashboard.usage import quotas
 DETAIL_URL = ('horizon:project:volumes:detail')
 INDEX_URL = reverse('horizon:project:volumes:index')
 SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
+ATTACHMENT_ID = '6061364b-6612-48a9-8fee-1a38fe072547'
 
 
 class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
@@ -144,7 +145,8 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         for volume in volumes:
             if not volume.attachments:
                 volume.attachments.append({
-                    "id": "1", "server_id": '1', "device": "/dev/hda"})
+                    "id": "1", "server_id": '1', "device": "/dev/hda",
+                    "attachment_id": ATTACHMENT_ID})
         return volumes
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
@@ -1159,6 +1161,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         volume.attachments = [{'id': volume.id,
                                'volume_id': volume.id,
                                'volume_name': volume.name,
+                               "attachment_id": ATTACHMENT_ID,
                                'instance': servers[0],
                                'device': '/dev/vdb',
                                'server_id': servers[0].id}]
@@ -1195,6 +1198,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         volume.attachments = [{'id': volume.id,
                                'volume_id': volume.id,
                                'volume_name': volume.name,
+                               "attachment_id": ATTACHMENT_ID,
                                'instance': servers[0],
                                'device': '',
                                'server_id': servers[0].id}]
@@ -1421,7 +1425,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         server = self.servers.first()
         snapshots = self.cinder_volume_snapshots.list()
 
-        volume.attachments = [{"server_id": server.id}]
+        volume.attachments = [{"server_id": server.id,
+                               "attachment_id": ATTACHMENT_ID}]
 
         self.mock_volume_get.return_value = volume
         self.mock_volume_snapshot_list.return_value = snapshots
@@ -1545,7 +1550,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         snapshots = self.cinder_volume_snapshots.list()
         this_volume_snapshots = [snapshot for snapshot in snapshots
                                  if snapshot.volume_id == volume.id]
-        volume.attachments = [{"server_id": server.id}]
+        volume.attachments = [{"server_id": server.id,
+                               "attachment_id": ATTACHMENT_ID}]
 
         self.mock_volume_get.return_value = volume
         self.mock_server_get.return_value = server
@@ -1581,7 +1587,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         volume = self.cinder_volumes.first()
         server = self.servers.first()
 
-        volume.attachments = [{"server_id": server.id}]
+        volume.attachments = [{"server_id": server.id,
+                               "attachment_id": ATTACHMENT_ID}]
 
         mock_get.side_effect = self.exceptions.cinder
 

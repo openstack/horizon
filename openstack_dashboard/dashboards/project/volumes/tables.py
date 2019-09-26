@@ -617,7 +617,7 @@ class DetachVolume(tables.BatchAction):
         attachment = self.table.get_object_by_id(obj_id)
         api.nova.instance_volume_detach(request,
                                         attachment.get('server_id', None),
-                                        obj_id)
+                                        attachment['id'])
 
     def get_success_url(self, request):
         return reverse('horizon:project:volumes:index')
@@ -636,7 +636,7 @@ class AttachmentsTable(tables.DataTable):
                            verbose_name=_("Device"))
 
     def get_object_id(self, obj):
-        return obj['id']
+        return obj['attachment_id']
 
     def get_object_display(self, attachment):
         instance_name = get_attachment_name(self.request, attachment)
@@ -646,7 +646,7 @@ class AttachmentsTable(tables.DataTable):
 
     def get_object_by_id(self, obj_id):
         for obj in self.data:
-            if self.get_object_id(obj) == obj_id:
+            if obj['attachment_id'] == obj_id:
                 return obj
         raise ValueError('No match found for the id "%s".' % obj_id)
 
