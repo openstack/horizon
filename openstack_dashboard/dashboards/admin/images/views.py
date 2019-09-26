@@ -21,7 +21,6 @@ import logging
 from oslo_utils import units
 from six.moves import builtins
 
-from django.conf import settings
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -33,6 +32,7 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.images.images import views
 from openstack_dashboard import policy
+from openstack_dashboard.utils import settings as setting_utils
 
 from openstack_dashboard.dashboards.admin.images import forms as project_forms
 from openstack_dashboard.dashboards.admin.images \
@@ -65,8 +65,8 @@ class IndexView(tables.DataTableView):
             return images
         filters = self.get_filters()
 
-        filter_first = settings.FILTER_DATA_FIRST
-        if (filter_first['admin.images'] and
+        if (setting_utils.get_dict_config('FILTER_DATA_FIRST',
+                                          'admin.images') and
                 len(filters) == len(self.DEFAULT_FILTERS)):
             self._prev = False
             self._more = False

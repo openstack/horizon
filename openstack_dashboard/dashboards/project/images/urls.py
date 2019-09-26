@@ -16,7 +16,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
@@ -27,9 +26,10 @@ from openstack_dashboard.dashboards.project.images.images \
 from openstack_dashboard.dashboards.project.images.snapshots \
     import urls as snapshot_urls
 from openstack_dashboard.dashboards.project.images import views
+from openstack_dashboard.utils import settings as setting_utils
 
 
-if settings.ANGULAR_FEATURES['images_panel']:
+if setting_utils.get_dict_config('ANGULAR_FEATURES', 'images_panel'):
     title = _("Images")
     # New angular images
     urlpatterns = [

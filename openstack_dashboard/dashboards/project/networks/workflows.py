@@ -28,6 +28,7 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.subnets import utils
 from openstack_dashboard import policy
+from openstack_dashboard.utils import settings as setting_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -205,7 +206,8 @@ class CreateSubnetInfoAction(workflows.Action):
     def __init__(self, request, context, *args, **kwargs):
         super(CreateSubnetInfoAction, self).__init__(request, context, *args,
                                                      **kwargs)
-        if not settings.OPENSTACK_NEUTRON_NETWORK['enable_ipv6']:
+        if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_ipv6'):
             self.fields['ip_version'].widget = forms.HiddenInput()
             self.fields['ip_version'].initial = 4
 
@@ -380,7 +382,8 @@ class CreateSubnetDetailAction(workflows.Action):
     def __init__(self, request, context, *args, **kwargs):
         super(CreateSubnetDetailAction, self).__init__(request, context,
                                                        *args, **kwargs)
-        if not settings.OPENSTACK_NEUTRON_NETWORK['enable_ipv6']:
+        if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_ipv6'):
             self.fields['ipv6_modes'].widget = forms.HiddenInput()
 
     def populate_ipv6_modes_choices(self, request, context):

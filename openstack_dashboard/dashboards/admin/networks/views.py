@@ -14,7 +14,6 @@
 
 from collections import OrderedDict
 
-from django.conf import settings
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -27,6 +26,7 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.tabs import OverviewTab
 from openstack_dashboard.dashboards.project.networks import views as user_views
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import settings as setting_utils
 
 from openstack_dashboard.dashboards.admin.networks.agents import tabs \
     as agents_tabs
@@ -95,8 +95,9 @@ class IndexView(tables.DataTableView):
             # If filter_first is set and if there are not other filters
             # selected, then search criteria must be provided and return an
             # empty list
-            filter_first = settings.FILTER_DATA_FIRST
-            if filter_first['admin.networks'] and not search_opts:
+            if (setting_utils.get_dict_config('FILTER_DATA_FIRST',
+                                              'admin.networks') and
+                    not search_opts):
                 self._needs_filter_first = True
                 return []
             self._needs_filter_first = False

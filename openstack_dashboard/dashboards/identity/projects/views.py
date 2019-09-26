@@ -42,6 +42,7 @@ from openstack_dashboard.dashboards.identity.projects \
 from openstack_dashboard.dashboards.project.overview \
     import views as project_views
 from openstack_dashboard.utils import identity
+from openstack_dashboard.utils import settings as setting_utils
 
 PROJECT_INFO_FIELDS = ("domain_id",
                        "domain_name",
@@ -95,8 +96,8 @@ class IndexView(tables.DataTableView):
             # If filter_first is set and if there are not other filters
             # selected, then search criteria must be provided and
             # return an empty list
-            filter_first = settings.FILTER_DATA_FIRST
-            if filter_first['identity.projects'] and not filters:
+            if (setting_utils.get_dict_config(
+                    'FILTER_DATA_FIRST', 'identity.projects') and not filters):
                 self._needs_filter_first = True
                 self._more = False
                 return tenants

@@ -43,6 +43,7 @@ from openstack_dashboard.dashboards.identity.users \
 from openstack_dashboard.dashboards.identity.users \
     import tabs as user_tabs
 from openstack_dashboard.utils import identity
+from openstack_dashboard.utils import settings as setting_utils
 
 LOG = logging.getLogger(__name__)
 
@@ -67,8 +68,8 @@ class IndexView(tables.DataTableView):
             # If filter_first is set and if there are not other filters
             # selected, then search criteria must be provided
             # and return an empty list
-            filter_first = settings.FILTER_DATA_FIRST
-            if filter_first['identity.users'] and not filters:
+            if (setting_utils.get_dict_config(
+                    'FILTER_DATA_FIRST', 'identity.users') and not filters):
                 self._needs_filter_first = True
                 return users
 

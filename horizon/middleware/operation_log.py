@@ -22,6 +22,8 @@ from django.core.exceptions import MiddlewareNotUsed
 
 import six.moves.urllib.parse as urlparse
 
+from horizon.utils import settings as setting_utils
+
 LOG = logging.getLogger(__name__)
 
 
@@ -44,7 +46,7 @@ class OperationLogMiddleware(object):
     - ``http status``
     - ``request parameters``
 
-    and log format is defined OPERATION_LOG_OPTIONS.
+    and log format is defined in OPERATION_LOG_OPTIONS.
     """
 
     @property
@@ -59,15 +61,18 @@ class OperationLogMiddleware(object):
         self.get_response = get_response
 
         # set configurations
-        _log_option = settings.OPERATION_LOG_OPTIONS
         _available_methods = ['POST', 'GET', 'PUT', 'DELETE']
-        _methods = _log_option["target_methods"]
+        _methods = setting_utils.get_dict_config(
+            'OPERATION_LOG_OPTIONS', 'target_methods')
         self.target_methods = [x for x in _methods if x in _available_methods]
-        self.mask_fields = _log_option["mask_fields"]
-        self.format = _log_option["format"]
+        self.mask_fields = setting_utils.get_dict_config(
+            'OPERATION_LOG_OPTIONS', 'mask_fields')
+        self.format = setting_utils.get_dict_config(
+            'OPERATION_LOG_OPTIONS', 'format')
         self._logger = logging.getLogger('horizon.operation_log')
-        self._ignored_urls = [re.compile(url)
-                              for url in _log_option["ignore_urls"]]
+        self._ignored_urls = [re.compile(url) for url
+                              in setting_utils.get_dict_config(
+                                  'OPERATION_LOG_OPTIONS', 'ignore_urls')]
 
     def __call__(self, request):
         response = self.get_response(request)

@@ -25,6 +25,7 @@ from keystoneauth1 import token_endpoint
 from keystoneclient.v3 import client as client_v3
 from six.moves.urllib import parse as urlparse
 
+from openstack_auth import defaults
 
 LOG = logging.getLogger(__name__)
 
@@ -97,10 +98,23 @@ def is_token_valid(token, margin=None):
     return expiration > timezone.now()
 
 
+# NOTE(amotoki):
+# This is a copy from openstack_dashboard.utils.settings.get_dict_config().
+# This copy is needed to look up defaults for openstack_auth.defaults
+# instead of openstack_dashboard.defaults.
+# TODO(amotoki): This copy might be cleanup if we can use oslo.config
+# for openstack_auth configurations.
+def _get_dict_config(name, key):
+    config = getattr(settings, name)
+    if key in config:
+        return config[key]
+    return getattr(defaults, name)[key]
+
+
 # Helper for figuring out keystone version
 # Implementation will change when API version discovery is available
 def get_keystone_version():
-    return settings.OPENSTACK_API_VERSIONS['identity']
+    return _get_dict_config('OPENSTACK_API_VERSIONS', 'identity')
 
 
 def get_session(**kwargs):

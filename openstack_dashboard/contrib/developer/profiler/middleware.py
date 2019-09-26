@@ -24,13 +24,14 @@ from osprofiler import web
 import six
 
 from horizon import messages
+from horizon.utils import settings as horizon_settings
 from openstack_dashboard.contrib.developer.profiler import api
 
 _REQUIRED_KEYS = ("base_id", "hmac_key")
 _OPTIONAL_KEYS = ("parent_id",)
 
-PROFILER_CONF = settings.OPENSTACK_PROFILER
-PROFILER_ENABLED = PROFILER_CONF['enabled']
+PROFILER_ENABLED = horizon_settings.get_dict_config(
+    'OPENSTACK_PROFILER', 'enabled')
 
 
 class ProfilerClientMiddleware(object):
@@ -60,7 +61,8 @@ class ProfilerClientMiddleware(object):
             return None
 
         if 'profile_page' in request.COOKIES:
-            hmac_key = PROFILER_CONF['keys'][0]
+            hmac_key = horizon_settings.get_dict_config(
+                'OPENSTACK_PROFILER', 'keys')[0]
             profiler.init(hmac_key)
             for hdr_key, hdr_value in web.get_trace_id_headers().items():
                 request.META[hdr_key] = hdr_value
@@ -69,11 +71,14 @@ class ProfilerClientMiddleware(object):
 
 class ProfilerMiddleware(object):
     def __init__(self, get_response):
-        self.name = PROFILER_CONF['facility_name']
-        self.hmac_keys = PROFILER_CONF['keys']
+        self.name = horizon_settings.get_dict_config(
+            'OPENSTACK_PROFILER', 'facility_name')
+        self.hmac_keys = horizon_settings.get_dict_config(
+            'OPENSTACK_PROFILER', 'keys')
         self.get_response = get_response
         if PROFILER_ENABLED:
-            api.init_notifier(PROFILER_CONF['notifier_connection_string'])
+            api.init_notifier(horizon_settings.get_dict_config(
+                'OPENSTACK_PROFILER', 'notifier_connection_string'))
         else:
             raise exceptions.MiddlewareNotUsed()
 

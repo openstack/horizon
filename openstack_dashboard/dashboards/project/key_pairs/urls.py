@@ -16,15 +16,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
 
 from horizon.browsers import views
 from openstack_dashboard.dashboards.project.key_pairs import views as \
     legacy_views
+from openstack_dashboard.utils import settings as setting_utils
 
-if settings.ANGULAR_FEATURES.get('key_pairs_panel'):
+if setting_utils.get_dict_config('ANGULAR_FEATURES', 'key_pairs_panel'):
     title = _("Key Pairs")
     urlpatterns = [
         url('', views.AngularIndexView.as_view(title=title), name='index'),

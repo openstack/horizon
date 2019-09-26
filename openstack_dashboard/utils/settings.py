@@ -21,7 +21,32 @@ from django.conf import settings
 
 from horizon.utils import file_discovery
 from horizon.utils import functions as utils
+from openstack_dashboard import defaults
 from openstack_dashboard import theme_settings
+
+
+def get_dict_config(name, key):
+    """Get a config value from a dict-type setting.
+
+    If a specified key does not exist in a requested setting,
+    the default value defined in openstack_dashboard.defaults
+    is considered.
+
+    .. warning::
+
+       This function should not be used from horizon plugins
+       as it only checks openstack_dashboard.defaults
+       when accessing default values.
+
+    :param name: Name of a dict-type setting
+    :param key: Key name of the dict-type setting
+    :raises KeyError: Raised if no default value is found for a requested key.
+        (This can happen only for horizon plugin codes.)
+    """
+    config = getattr(settings, name)
+    if key in config:
+        return config[key]
+    return getattr(defaults, name)[key]
 
 
 def import_submodules(module):

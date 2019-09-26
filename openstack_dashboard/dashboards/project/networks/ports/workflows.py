@@ -15,7 +15,6 @@
 
 import logging
 
-from django.conf import settings
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -26,6 +25,7 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports import sg_base
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import settings as setting_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -160,8 +160,8 @@ class CreatePortInfoAction(workflows.Action):
         return is_supproted
 
     def _populate_vnic_type_choices(self, request):
-        neutron_settings = settings.OPENSTACK_NEUTRON_NETWORK
-        supported_vnic_types = neutron_settings['supported_vnic_types']
+        supported_vnic_types = setting_utils.get_dict_config(
+            'OPENSTACK_NEUTRON_NETWORK', 'supported_vnic_types')
         # When a list of VNIC types is empty, hide the corresponding field.
         if not supported_vnic_types:
             del self.fields['binding__vnic_type']
@@ -314,8 +314,8 @@ class UpdatePortInfoAction(workflows.Action):
         super(UpdatePortInfoAction, self).__init__(request, *args, **kwargs)
         try:
             if api.neutron.is_extension_supported(request, 'binding'):
-                neutron_settings = settings.OPENSTACK_NEUTRON_NETWORK
-                supported_vnic_types = neutron_settings['supported_vnic_types']
+                supported_vnic_types = setting_utils.get_dict_config(
+                    'OPENSTACK_NEUTRON_NETWORK', 'supported_vnic_types')
                 if supported_vnic_types:
                     if supported_vnic_types == ['*']:
                         vnic_type_choices = api.neutron.VNIC_TYPES

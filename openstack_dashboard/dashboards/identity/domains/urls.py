@@ -12,16 +12,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
 
 from horizon.browsers import views
 
 from openstack_dashboard.dashboards.identity.domains import views as legacyView
+from openstack_dashboard.utils import settings as setting_utils
 
 
-if settings.ANGULAR_FEATURES.get('domains_panel'):
+if setting_utils.get_dict_config('ANGULAR_FEATURES', 'domains_panel'):
     title = _("Domains")
     urlpatterns = [
         url('', views.AngularIndexView.as_view(title=title), name='index'),

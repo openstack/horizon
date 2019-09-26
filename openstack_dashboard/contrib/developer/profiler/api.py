@@ -25,9 +25,10 @@ from osprofiler import web
 import six
 from six.moves.urllib.parse import urlparse
 
+from horizon.utils import settings as horizon_settings
+
 
 ROOT_HEADER = 'PARENT_VIEW_TRACE_ID'
-PROFILER_SETTINGS = settings.OPENSTACK_PROFILER
 
 
 def init_notifier(connection_str, host="localhost"):
@@ -71,7 +72,8 @@ def _get_engine_kwargs(request, connection_str):
 
 
 def _get_engine(request):
-    connection_str = PROFILER_SETTINGS['receiver_connection_string']
+    connection_str = horizon_settings.get_dict_config(
+        'OPENSTACK_PROFILER', 'receiver_connection_string')
     kwargs = _get_engine_kwargs(request, connection_str)
     return profiler_get_driver(connection_str, **kwargs)
 
@@ -124,7 +126,7 @@ def update_trace_headers(keys, **kwargs):
                        web.X_TRACE_HMAC: trace_data[1]})
 
 
-if not PROFILER_SETTINGS['enabled']:
+if not horizon_settings.get_dict_config('OPENSTACK_PROFILER', 'enabled'):
     def trace(function):
         return function
 else:

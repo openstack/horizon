@@ -12,12 +12,12 @@
 
 import logging
 
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
 from openstack_dashboard.api import neutron
+from openstack_dashboard.utils import settings as setting_utils
 
 LOG = logging.getLogger(__name__)
 
@@ -30,10 +30,10 @@ class RBACPolicies(horizon.Panel):
 
     def allowed(self, context):
         request = context['request']
-        network_config = settings.OPENSTACK_NEUTRON_NETWORK
         try:
             return (
-                network_config['enable_rbac_policy'] and
+                setting_utils.get_dict_config(
+                    'OPENSTACK_NEUTRON_NETWORK', 'enable_rbac_policy') and
                 neutron.is_extension_supported(request,
                                                extension_alias='rbac-policies')
             )

@@ -16,7 +16,6 @@
 Admin views for managing volumes and snapshots.
 """
 
-from django.conf import settings
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -37,6 +36,7 @@ from openstack_dashboard.dashboards.admin.volumes \
 from openstack_dashboard.dashboards.project.volumes \
     import views as volumes_views
 from openstack_dashboard.utils import futurist_utils
+from openstack_dashboard.utils import settings as setting_utils
 
 
 class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
@@ -51,12 +51,12 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
         default_filters = {'all_tenants': True}
 
         filters = self.get_filters(default_filters.copy())
-        filter_first = settings.FILTER_DATA_FIRST
         volumes = []
 
         self.table.needs_filter_first = False
 
-        if (filter_first['admin.volumes'] and
+        if (setting_utils.get_dict_config('FILTER_DATA_FIRST',
+                                          'admin.volumes') and
                 len(filters) == len(default_filters)):
             self.table.needs_filter_first = True
             return volumes

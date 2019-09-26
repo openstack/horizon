@@ -587,8 +587,7 @@ def volume_backup_supported(request):
     # backup is configured yet. This is a workaround until that
     # capability is available.
     # https://bugs.launchpad.net/cinder/+bug/1334856
-    cinder_config = settings.OPENSTACK_CINDER_FEATURES
-    return cinder_config['enable_backup']
+    return utils.get_dict_config('OPENSTACK_CINDER_FEATURES', 'enable_backup')
 
 
 @profiler.trace
