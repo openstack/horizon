@@ -126,7 +126,7 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
         if get_selected_func is not None:
             selected_item = get_selected_func()
             if selected_item:
-                if text != selected_item.text:
+                if text != selected_item.text and selected_item.text:
                     # In case different item was chosen previously, collapse
                     # it. Otherwise selenium will complain with
                     # MoveTargetOutOfBoundsException
