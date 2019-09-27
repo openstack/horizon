@@ -88,6 +88,12 @@ NetworkGroup = [
     cfg.StrOpt('network_cidr',
                default='10.100.0.0/16',
                help='The cidr block to allocate tenant ipv4 subnets from'),
+    cfg.StrOpt(
+        'external_network',
+        # Devstack default external network is 'public' but it
+        # can be changed as per available external network.
+        default='public',
+        help='The external network for a router creation.'),
 ]
 
 AvailableServiceGroup = [

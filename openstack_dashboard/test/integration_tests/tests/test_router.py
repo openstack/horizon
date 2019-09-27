@@ -19,6 +19,8 @@ from openstack_dashboard.test.integration_tests.regions import messages
 @decorators.services_required("neutron")
 class TestRouters(helpers.TestCase):
     ROUTER_NAME = helpers.gen_random_resource_name("router")
+    NETWORK_NAME = helpers.gen_random_resource_name("network")
+    SUBNET_NAME = helpers.gen_random_resource_name("subnet")
 
     @property
     def routers_page(self):
@@ -54,15 +56,15 @@ class TestRouters(helpers.TestCase):
         self._delete_router()
 
     def _create_interface(self, interfaces_page):
-        interfaces_page.create_interface()
-        interface_name = interfaces_page.interfaces_names[0]
+        interfaces_page.create_interface(self.SUBNET_NAME)
         self.assertTrue(
             interfaces_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertFalse(
             interfaces_page.find_message_and_dismiss(messages.ERROR))
+        interface_name = interfaces_page.interface_name
         self.assertTrue(interfaces_page.is_interface_present(interface_name))
-        self.assertTrue(interfaces_page.is_interface_status(
-            interface_name, 'Down'))
+        self.assertTrue(
+            interfaces_page.is_interface_status(interface_name, 'Down'))
 
     def _delete_interface(self, interfaces_page, interface_name):
         interfaces_page.delete_interface(interface_name)
@@ -72,7 +74,18 @@ class TestRouters(helpers.TestCase):
             interfaces_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(interfaces_page.is_interface_present(interface_name))
 
-    @decorators.skip_because(bugs=['1792028'])
+    def _create_subnet(self):
+        networks_page = self.home_pg.go_to_project_network_networkspage()
+        networks_page.create_network(self.NETWORK_NAME, self.SUBNET_NAME)
+        self.assertTrue(
+            networks_page.find_message_and_dismiss(messages.SUCCESS))
+
+    def _delete_subnet(self):
+        networks_page = self.home_pg.go_to_project_network_networkspage()
+        networks_page.delete_network(self.NETWORK_NAME)
+        self.assertTrue(
+            networks_page.find_message_and_dismiss(messages.SUCCESS))
+
     def test_router_add_delete_interface(self):
         """Tests the router interface creation and deletion functionalities:
 
@@ -87,6 +100,8 @@ class TestRouters(helpers.TestCase):
         * Switches to the routers view by clicking on the breadcrumb link
         * Follows the steps to delete the router
         """
+        self._create_subnet()
+
         self._create_router()
 
         routers_page = self.routers_page
@@ -96,7 +111,7 @@ class TestRouters(helpers.TestCase):
 
         self._create_interface(router_interfaces_page)
 
-        interface_name = router_interfaces_page.interfaces_names[0]
+        interface_name = router_interfaces_page.interface_name
 
         self._delete_interface(router_interfaces_page, interface_name)
 
@@ -104,7 +119,8 @@ class TestRouters(helpers.TestCase):
 
         self._delete_router()
 
-    @decorators.skip_because(bugs=['1792028'])
+        self._delete_subnet()
+
     def test_router_delete_interface_by_row(self):
         """Tests the router interface creation and deletion by row action:
 
@@ -118,6 +134,8 @@ class TestRouters(helpers.TestCase):
         * Switches to the routers view by clicking on the breadcrumb link
         * Follows the steps to delete the router
         """
+        self._create_subnet()
+
         self._create_router()
 
         routers_page = self.routers_page
@@ -127,7 +145,7 @@ class TestRouters(helpers.TestCase):
 
         self._create_interface(router_interfaces_page)
 
-        interface_name = router_interfaces_page.interfaces_names[0]
+        interface_name = router_interfaces_page.interface_name
 
         router_interfaces_page.delete_interface_by_row_action(interface_name)
 
@@ -135,7 +153,8 @@ class TestRouters(helpers.TestCase):
 
         self._delete_router()
 
-    @decorators.skip_because(bugs=['1792028'])
+        self._delete_subnet()
+
     def test_router_overview_data(self):
         self._create_router()
 
@@ -162,7 +181,6 @@ class TestRouters(helpers.TestCase):
 class TestAdminRouters(helpers.AdminTestCase):
     ROUTER_NAME = helpers.gen_random_resource_name("router")
 
-    @decorators.skip_because(bugs=['1792028'])
     @decorators.services_required("neutron")
     def test_router_create_admin(self):
         """tests the router creation and deletion functionalities:
