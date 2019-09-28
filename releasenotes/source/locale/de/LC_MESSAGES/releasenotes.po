@@ -5,17 +5,18 @@
 # Alexander Loew <alexander.loew@innovo-cloud.de>, 2018. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2019. #zanata
 # Robert Simai <robert.simai@suse.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-25 16:39+0000\n"
+"POT-Creation-Date: 2019-09-27 11:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-07-26 12:00+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2019-09-27 02:16+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -72,14 +73,23 @@ msgstr "14.0.0"
 msgid "14.0.2"
 msgstr "14.0.2"
 
+msgid "14.0.3-8"
+msgstr "14.0.3-8"
+
 msgid "15.0.0"
 msgstr "15.0.0"
 
 msgid "15.1.0"
 msgstr "15.1.0"
 
+msgid "15.1.0-12"
+msgstr "15.1.0-12"
+
 msgid "16.0.0.0b1"
 msgstr "16.0.0.0b1"
+
+msgid "16.0.0.0b2"
+msgstr "16.0.0.0b2"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -2848,6 +2858,9 @@ msgstr "Sortieren wurde an vielen Stellen im Dashboard verbessert."
 msgid "Stack Template view"
 msgstr "Stack Vorlagenansicht"
 
+msgid "Stein Series Release Notes"
+msgstr "Stein Serie Releasenotes"
+
 msgid ""
 "Support a parameter to specify subnet or fixed IP address when creating port."
 msgstr ""
@@ -3827,6 +3840,9 @@ msgstr ""
 "Dashboards verwenden diese Komponenten und sie wurden alle im Hinblick auf "
 "Third Party Entwickler entworfen. Einige der Hauptkomponenten sind unten "
 "aufgelistet."
+
+msgid "Train Series Release Notes"
+msgstr "Train Serie Releasenotes"
 
 msgid "Transfer table widget"
 msgstr "Transfer-Tabellen Widget"
