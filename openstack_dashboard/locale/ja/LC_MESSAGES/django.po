@@ -6,16 +6,17 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2019. #zanata
+# Takashi Kuroda <tkuroda@redhat.com>, 2019. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2019-10-01 07:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-19 05:55+0000\n"
+"PO-Revision-Date: 2019-09-30 01:35+0000\n"
 "Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1396,6 +1397,11 @@ msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "ボリューム種別に対する「追加スペック」のキーと値のペアを新規作成します。 "
 
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr ""
+"グループ種別に対する「グループ種別スペック」のキーと値のペアを新規作成しま"
+"す。 "
+
 #, python-format
 msgid ""
 "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
@@ -2611,6 +2617,9 @@ msgstr "ボリュームグループからのボリュームの削除でエラー
 msgid "Ether Type"
 msgstr "Ethernet タイプ"
 
+msgid "Euca2ools state"
+msgstr "Euca2ools の状態"
+
 msgid "Evacuate Host"
 msgstr "ホストからの退避"
 
@@ -3429,6 +3438,9 @@ msgstr ""
 "「ボリューム種別の指定なし」を選択した場合、ボリュームはボリューム種別の指定"
 "なしで作成されます。"
 
+msgid "If checked, the network will be enabled."
+msgstr "チェックをつけると、ネットワークが有効になります。"
+
 msgid "If checked, the selected floating IP will be released at the same time."
 msgstr "チェックをつけると、選択された Floating IP は同時に解放されます。"
 
@@ -3501,6 +3513,9 @@ msgstr "イメージスナップショット取得待ち"
 
 msgid "Image Source"
 msgstr "イメージソース"
+
+msgid "Image Type"
+msgstr "イメージ種別"
 
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
@@ -5427,6 +5442,10 @@ msgid "Saved extra spec \"%s\"."
 msgstr "追加スペック \"%s\" を保存しました。"
 
 #, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "グループ種別スペック \"%s\" を保存しました。"
+
+#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "スペック \"%s\" を保存しました。"
 
@@ -6769,7 +6788,7 @@ msgid "Topology"
 msgstr "トポロジー"
 
 msgid "Total Active RAM (MB):"
-msgstr "使用中の合計メモリー量 (GB):"
+msgstr "使用中の合計メモリー量 (MB):"
 
 msgid "Total Disk"
 msgstr "合計ディスク"
@@ -6916,6 +6935,10 @@ msgstr "QoS スペックを作成できません。"
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "ドメイン \"%s\" の作成に失敗しました。"
+
+#, python-format
+msgid "Unable to create encrypted volume type: %s"
+msgstr "ボリューム種別の暗号化設定を作成できません: %s"
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -8134,6 +8157,10 @@ msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "「追加スペック」の \"%(key)s\" の値を更新します。"
 
 #, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "「グループ種別スペック」の \"%(key)s\" の値を更新します。"
+
+#, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "スペック \"%(key)s\" の値を更新します。"
 
@@ -8830,6 +8857,9 @@ msgstr ""
 
 msgid "no"
 msgstr "いいえ"
+
+msgid "rbac policy quota exceeded."
+msgstr "RBAC ポリシーのクォータが超過しました。"
 
 msgid "undefined"
 msgstr "未定義"
