@@ -6,9 +6,9 @@ Quickstart
 
 ..  Note ::
 
-    This section has been tested for Horizon on Ubuntu (16.04-64) and RPM-based
-    (RHEL 7.x) distributions. Feel free to add notes and any changes according
-    to your experiences or operating system.
+    This section has been tested for Horizon on Ubuntu (18.04-amd64) and
+    RPM-based (RHEL 8.x) distributions. Feel free to add notes and any changes
+    according to your experiences or operating system.
 
 Linux Systems
 =============
@@ -19,13 +19,20 @@ On Ubuntu
 
 .. code-block:: console
 
-    $ sudo apt-get install git python-pip
+    $ sudo apt-get install git python3-dev python3-pip
 
-On RPM-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)
+To get a full python2.7 development environment, you also need to install
+the following packages:
 
 .. code-block:: console
 
-    $ sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel which
+    python-dev
+
+On RPM-based distributions (e.g., Fedora/RHEL/CentOS)
+
+.. code-block:: console
+
+    $ sudo yum install gcc git-core python3-devel python3-virtualenv
 
 .. note::
 
@@ -70,6 +77,12 @@ development tasks. You can install it with
 .. code-block:: console
 
     $ pip install tox
+
+or
+
+.. code-block:: console
+
+    $ pip3 install tox
 
 The ``tox`` environments provide wrappers around ``manage.py``. For more
 information on ``manage.py``, which is a Django command, see
