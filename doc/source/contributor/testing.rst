@@ -57,6 +57,13 @@ If you need to install PhantomJS, you may do so with `npm` like this::
 Alternatively, many distributions have system packages for PhantomJS, or
 it can be downloaded from http://phantomjs.org/download.html.
 
+To run integration tests you should use `integration` tox environment::
+
+    $ tox -e integration
+
+These tests requires `geckodriver` installed. It could be downloaded from
+https://github.com/mozilla/geckodriver/releases.
+
 tox Test Environments
 =====================
 
@@ -97,10 +104,10 @@ when a test fails you can use::
 
   $ tox -e py27 -- --pdb
 
-py27dj18, py27dj19, py27dj110
+py3-dj111, py3-dj21, py3-dj22
 -----------------------------
 
-Runs the Python unit tests against Django 1.8, Django 1.9 and Django 1.10
+Runs the Python unit tests against Django 1.11, Django 2.1 and Django 2.2
 respectively
 
 py36
