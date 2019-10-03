@@ -885,13 +885,6 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         image.min_disk = 30
         self._test_create_volume_from_image_under_image_min_disk_size(image)
 
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_create_volume_from_image_under_image_prop_min_disk_size_v1(self):
-        image = self.images.get(name="protected_images")
-        image.min_disk = 0
-        image.properties['min_disk'] = 30
-        self._test_create_volume_from_image_under_image_min_disk_size(image)
-
     def test_create_volume_from_image_under_image_prop_min_disk_size_v2(self):
         image = self.imagesV2.get(name="protected_images")
         self._test_create_volume_from_image_under_image_min_disk_size(image)

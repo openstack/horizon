@@ -359,18 +359,6 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertEqual(1, len(defs))
         self.assertEqual('namespace_4', defs[0].namespace)
 
-    @mock.patch.object(api.glance, 'get_version', return_value=1)
-    def test_metadefs_namespace_list_v1(self, mock_version):
-        defs, more, prev = api.glance.metadefs_namespace_list(self.request)
-        self.assertItemsEqual(defs, [])
-        self.assertFalse(more)
-        self.assertFalse(prev)
-
-    @mock.patch.object(api.glance, 'get_version', return_value=1)
-    def test_metadefs_resource_types_list_v1(self, mock_version):
-        res_types = api.glance.metadefs_resource_types_list(self.request)
-        self.assertItemsEqual(res_types, [])
-
     @mock.patch.object(api.glance, 'glanceclient')
     def _test_image_create_external_upload(self, mock_glanceclient,
                                            api_version=2):
@@ -393,38 +381,8 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertEqual(upload_url, actual_image.upload_url)
         self.assertEqual(self.request.user.token.id, actual_image.token_id)
 
-    @override_settings(OPENSTACK_API_VERSIONS={"image": 1})
-    def test_image_create_v1_external_upload(self):
-        self._test_image_create_external_upload(api_version=1)
-
     def test_image_create_v2_external_upload(self):
         self._test_image_create_external_upload()
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_create_image_metadata_docker_v1(self):
-        form_data = {
-            'name': u'Docker image',
-            'description': u'Docker image test',
-            'source_type': u'url',
-            'image_url': u'/',
-            'disk_format': u'docker',
-            'architecture': u'x86-64',
-            'min_disk': 15,
-            'min_ram': 512,
-            'is_public': False,
-            'protected': False,
-            'is_copying': False
-        }
-        meta = api.glance.create_image_metadata(form_data)
-        self.assertEqual(meta['disk_format'], 'raw')
-        self.assertEqual(meta['container_format'], 'docker')
-        self.assertIn('properties', meta)
-        self.assertNotIn('description', meta)
-        self.assertNotIn('architecture', meta)
-        self.assertEqual(meta['properties']['description'],
-                         form_data['description'])
-        self.assertEqual(meta['properties']['architecture'],
-                         form_data['architecture'])
 
     def test_create_image_metadata_docker_v2(self):
         form_data = {
