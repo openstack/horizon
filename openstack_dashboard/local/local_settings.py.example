@@ -1,5 +1,17 @@
 # -*- coding: utf-8 -*-
 
+# ----------------------------------------------------------------------
+# NOTE: The default values of the settings are defined in
+# openstack_dashboard/defaults.py. Prevously most available settings
+# were listed in this example file, but it is no longer true.
+# For available settings, see openstack_dashboard/defaults.py and
+# the horizon setting reference found at
+# https://docs.openstack.org/horizon/latest/configuration/settings.html.
+#
+# Django related settings and HORIZON_CONFIG still exist here.
+# Keep in my mind that they will be revisit in upcoming releases.
+# ----------------------------------------------------------------------
+
 import os
 
 from django.utils.translation import ugettext_lazy as _
@@ -388,21 +400,3 @@ SECURITY_GROUP_RULES = {
 # Help URL can be made available for the client. To provide a help URL, edit the
 # following attribute to the URL of your choice.
 #HORIZON_CONFIG["help_url"] = "http://openstack.mycompany.org"
-
-# Settings for OperationLogMiddleware
-# OPERATION_LOG_ENABLED is flag to use the function to log an operation on
-# Horizon.
-# mask_targets is arrangement for appointing a target to mask.
-# method_targets is arrangement of HTTP method to output log.
-# format is the log contents.
-#OPERATION_LOG_ENABLED = False
-#OPERATION_LOG_OPTIONS = {
-#    'mask_fields': ['password'],
-#    'target_methods': ['POST'],
-#    'ignored_urls': ['/js/', '/static/', '^/api/'],
-#    'format': ("[%(client_ip)s] [%(domain_name)s]"
-#        " [%(domain_id)s] [%(project_name)s]"
-#        " [%(project_id)s] [%(user_name)s] [%(user_id)s] [%(request_scheme)s]"
-#        " [%(referer_url)s] [%(request_url)s] [%(message)s] [%(method)s]"
-#        " [%(http_status)s] [%(param)s]"),
-#}
