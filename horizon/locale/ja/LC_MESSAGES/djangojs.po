@@ -5,16 +5,17 @@
 # Shu Muto <shu.mutow@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
 # Takashi Kuroda <tkuroda@redhat.com>, 2019. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-10-01 07:07+0000\n"
+"POT-Creation-Date: 2019-10-01 11:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-09-30 12:46+0000\n"
-"Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
+"PO-Revision-Date: 2019-10-02 10:18+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -224,7 +225,7 @@ msgid "Flavor"
 msgstr "フレーバー"
 
 msgid "Forbidden. Insufficient permissions of the requested operation"
-msgstr "権限がありません。要求された操作を行うための権限が不十分です。"
+msgstr "権限がありません。要求された操作を行うには権限が不十分です。"
 
 msgid "Format validation failed"
 msgstr "フォーマットの検証に失敗しました"
