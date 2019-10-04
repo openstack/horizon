@@ -1,14 +1,15 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
+# Michele Valsecchi <mvalsecc@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.1.1.dev5\n"
+"Project-Id-Version: horizon 15.1.1.dev18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-23 04:38-0500\n"
+"POT-Creation-Date: 2019-10-01 10:30-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-14 09:34+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2019-10-04 05:43+0000\n"
+"Last-Translator: Michele Valsecchi <mvalsecc@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -359,6 +360,9 @@ msgstr ""
 
 msgid "Set to your domain name(s)"
 msgstr "使用するドメイン名に設定します。"
+
+msgid "Settings"
+msgstr "設定"
 
 msgid "Solum Dashboard"
 msgstr "Solum Dashboard"
