@@ -1,14 +1,15 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2019-10-05 03:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-08 12:45+0000\n"
+"PO-Revision-Date: 2019-10-04 04:06+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -37,14 +38,27 @@ msgstr ""
 
 msgid ""
 "\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
+msgstr ""
+"\n"
+"Se savkopio estas specifita ĉi tie nur la specifita savkopio de la volumo "
+"estos savita. \n"
+"  </p>\n"
+"  "
+
+msgid ""
+"\n"
 "  If no container name is provided, a default container named volumebackups\n"
 "  will be provisioned for you.\n"
 "  Backups will be the same size as the volume they originate from.\n"
 "  "
 msgstr ""
 "\n"
-"  Se neniu entenilo nomo estas provizita, implicite defaulta entenilo nomita "
-"volumsekurkopio estos provizita por vi. Sekurkopioj estos de la sama "
+"  Se neniu kontenero nomo estas provizita, implicite defaulta kontenero "
+"nomita volumsekurkopio estos provizita por vi. Sekurkopioj estos de la sama "
 "grandeco kiel la volumo de kiu ili devenas.\n"
 "  "
 
@@ -126,6 +140,10 @@ msgstr "%(offset)s: %(label)s"
 #, python-format
 msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
+
+#, python-format
+msgid "%(role)s  (through group %(group)s)"
+msgstr "%(role)s  (per grupo %(group)s)"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -303,6 +321,9 @@ msgstr "Ago"
 
 msgid "Action Log"
 msgstr "Ago Protokolo"
+
+msgid "Action and Object Type"
+msgstr "Ago kaj Objekto Tipo"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -510,6 +531,9 @@ msgid ""
 msgstr ""
 "Post lanĉi aperon, vi ensalutas uzante privatan ŝlosilon (la uzanto nomo "
 "povas esti alia dependa de la bildo kiun vi lanĉis):"
+
+msgid "Age"
+msgstr "Aĝo"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -788,6 +812,9 @@ msgstr "Sekurkopio Nomo"
 msgid "Backup Size (GiB)"
 msgstr "Sekurkopio Grando (GiB)"
 
+msgid "Backup Snapshot"
+msgstr "Varma Savkopio"
+
 msgid "Backups"
 msgstr "Sekurkopiojn"
 
@@ -875,6 +902,13 @@ msgstr ""
 "esti uzataj por krei pliajn aplikaĵajn legitimaĵojn aŭ 'keystone trusts'. Se "
 "via aplika legitimaĵo bezonas plenumi ĉi tiujn agojn, kontrolu \"nelimigita"
 "\"."
+
+msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"Defaŭlte, grupo tipo estas kreita publike. Por krei privatan grupo tipon, "
+"malselektu tiun kampon."
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -1137,7 +1171,7 @@ msgid "Container Name"
 msgstr "Entenilo Nomo"
 
 msgid "Containers"
-msgstr "Enteniloj"
+msgstr "Konteneroj"
 
 msgid "Contents"
 msgstr "Enhavo"
@@ -1179,6 +1213,9 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "Kreu"
 
+msgid "Create A RBAC Policy"
+msgstr "Kreu RBAC Regularo"
+
 msgid "Create An Image"
 msgstr "Kreu Bildigon"
 
@@ -1208,6 +1245,12 @@ msgstr "Kreu Grupo"
 
 msgid "Create Group Snapshot"
 msgstr "Kreu Grupo Savkopion"
+
+msgid "Create Group Type"
+msgstr "Kreu Grupo Tipo"
+
+msgid "Create Group Type Spec"
+msgstr "Kreu Grupo Tipo Specifon"
 
 msgid "Create Host Aggregate"
 msgstr "Kreu Servilo Agregato"
@@ -1241,6 +1284,9 @@ msgstr "Kreu Protokolo"
 
 msgid "Create QoS Spec"
 msgstr "Kreu QoS Spec"
+
+msgid "Create RBAC Policy"
+msgstr "Kreu RBAC Regularo"
 
 msgid "Create Role"
 msgstr "Kreu Rolon"
@@ -1302,6 +1348,9 @@ msgstr "Kreu Volumo Tipo ĉifradon"
 msgid "Create Volume Type Extra Spec"
 msgstr "Kreu Volumo Tipo Ekstra Specifo"
 
+msgid "Create a Group Type"
+msgstr "Kreu Grupo Tipo"
+
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
 "the snapshots in the source Group Snapshot."
@@ -1315,6 +1364,9 @@ msgstr "Kreu Metadatuma Nomspaco"
 msgid "Create a New Volume"
 msgstr "Kreu novan Volumon."
 
+msgid "Create a RBAC Policy"
+msgstr "Kreu RBAC Regularo"
+
 msgid "Create a Router"
 msgstr "Kreu Enkursigilon"
 
@@ -1326,6 +1378,9 @@ msgstr "Kreu mapigon."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Kreu novan \"ekstra spec\" klavo-valoro paro por volumo tipo."
+
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr "Kreu novan \"grupo tipo spec\" klavo-valoro paron por grupo tipo."
 
 msgid "Create a new application credential."
 msgstr "Krei novan aplikado legitimaĵon."
@@ -1373,6 +1428,10 @@ msgstr "Kreita"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Kreita ekstra specifo \"%s\"."
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "Kreita grupo tipo specifon \"%s\"."
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1598,6 +1657,11 @@ msgid_plural "Delete Groups"
 msgstr[0] "Forigu Grupon"
 msgstr[1] "Forigu Grupojn"
 
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Forigu Grupo Tipon"
+msgstr[1] "Forigu Grupo Tipojn"
+
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Forigi Servilo Agregato"
@@ -1657,6 +1721,11 @@ msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "Forigu QoS Specifo"
 msgstr[1] "Forigu QoS Specifojn"
+
+msgid "Delete RBAC Policy"
+msgid_plural "Delete RBAC Policies"
+msgstr[0] "Forigu RBAC Regularo"
+msgstr[1] "Forigu RBAC Regularoj"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -1782,6 +1851,11 @@ msgid_plural "Deleted Groups"
 msgstr[0] "Forigita Grupo"
 msgstr[1] "Forigitaj Grupoj"
 
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Forigita Grupo Tipo"
+msgstr[1] "Forigita Grupo Tipoj"
+
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "Forigigita Servilo Agregato"
@@ -1836,6 +1910,14 @@ msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "Forigita QoS Specifon"
 msgstr[1] "Forigitaj QoS Specifojn"
+
+msgid "Deleted RBAC Policy"
+msgid_plural "Deleted RBAC Policies"
+msgstr[0] "Forigita RBAC Regularo"
+msgstr[1] "Forigitaj RBAC Regularoj"
+
+msgid "Deleted RBAC policy is not recoverable."
+msgstr "Forigita RBAC regularo ne estas restaŭrebla."
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -2194,6 +2276,9 @@ msgstr "Elŝuti OpenStack RC Dosiero"
 msgid "Download clouds.yaml"
 msgstr "Elŝuti clouds.yaml"
 
+msgid "Download kubeconfig file"
+msgstr "Elŝuti kubeconfig dosieron"
+
 msgid "Download openrc file"
 msgstr "Elŝuti openrc dosieron"
 
@@ -2243,6 +2328,16 @@ msgstr "Redaktu Variaĵo"
 msgid "Edit Group"
 msgstr "Redaktu Grupo"
 
+msgid "Edit Group Type"
+msgstr "Agordu Grupo Tipon"
+
+msgid "Edit Group Type Spec"
+msgstr "Agordu Grupo Tipo Specifon"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "Redaktu Grupo Tipo Specifo Valoron: %s"
+
 msgid "Edit Host Aggregate"
 msgstr "Redaktu Servilo Agregato"
 
@@ -2263,6 +2358,9 @@ msgstr "Reduktu Nomspaco atributoj"
 
 msgid "Edit Network"
 msgstr "Redakti Reton"
+
+msgid "Edit Policy"
+msgstr "Redaktu Regularon"
 
 msgid "Edit Port"
 msgstr "Redaktu Pordon"
@@ -2558,6 +2656,9 @@ msgstr "Eraroj okazis dum forigante volumojn de grupo."
 msgid "Ether Type"
 msgstr "Ether Tipo"
 
+msgid "Euca2ools state"
+msgstr "Euca2ools stato"
+
 msgid "Evacuate Host"
 msgstr "Evakui gastiganto"
 
@@ -2683,6 +2784,9 @@ msgstr "Malsukcesis kontroli se Neutron subtenas \"auto_allocated_network\"."
 
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "Malsukcesis kontroli se Nova subtenas \"auto_allocated_network\"."
+
+msgid "Failed to create a rbac policy."
+msgstr "Malsukcesis krei rbac regularo ."
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
@@ -2815,6 +2919,10 @@ msgstr "Malsukcesis ĝisdatigi reto %s"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "Malsukcesis ĝisdatigi pordo \"%s\"."
+
+#, python-format
+msgid "Failed to update rbac policy %s"
+msgstr "Malsukcesis ĝisdatigi rbac regularo  %s"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -2978,6 +3086,9 @@ msgstr "De ĉi tie vi povas aldoni DHCP agenton por la reto."
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "De ĉi tie vi povas asigni glidanta IP al specifa projekto."
 
+msgid "From here you can create a rbac policy."
+msgstr "De ĉi tie vi povas krei rbac regularo."
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "De ĉi tie vi povas krei savkopion de unu volumo."
 
@@ -3023,6 +3134,10 @@ msgid "Group"
 msgstr "Grupo"
 
 #, python-format
+msgid "Group \"%s\" already exists."
+msgstr "Grupo \"%s\" jam ekzistas."
+
+#, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Grupo \"%s\" sukcese kreita."
 
@@ -3059,8 +3174,44 @@ msgstr "Grupo Savkopioj"
 msgid "Group Type"
 msgstr "Grupo Tipo"
 
+msgid "Group Type Specs"
+msgstr "Grupo Tipo Specifoj"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "Grupo Tipo: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "Grupo Tipo: %(group_type_name)s"
+
+msgid "Group Types"
+msgstr "Grupo Tipoj"
+
 msgid "Group has been updated successfully."
 msgstr "Grupo sukcese ĝisdatigita."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"Grupo tipo estas tipo aŭ etikedo kiu povas esti selektita je grupo kreanta "
+"tempo en OpenStack. Ĝi kutime mapigas al aro da kapabloj de la memoro back-"
+"end pelilo uzonta por tiun grupon. Ekzemploj: \"Rendimento\", \"SSD\", "
+"\"Sekurkopio\", ktp. Tiu estas ekvivalenta al <tt>cinder tipo- krei</tt> "
+"komando. Kiam la grupo tipo estas kreita, kliku la \"Vidu Specifojn\" klavon "
+"por agordi specifajn klava-valoro paro(j)n por tiu grupo tipo."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Grupo tipo nomo \"%s\" jam ekzistas."
+
+msgid "Group type name can not be empty."
+msgstr "Grupo tipo nomo ne povas esti malplena."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3308,6 +3459,9 @@ msgstr ""
 "Se \"Neniu volumo tipo\" estas selektita, la volumo estos kreita sen volumo "
 "tipo."
 
+msgid "If checked, the network will be enabled."
+msgstr "Se markita, la reto estos estos ebligita."
+
 msgid "If checked, the selected floating IP will be released at the same time."
 msgstr "Se markita, la selektita glita IP estos liberigita samtempe. "
 
@@ -3379,6 +3533,9 @@ msgstr "Bildo Savkopio Pritraktanta "
 
 msgid "Image Source"
 msgstr "Bildo Fonto"
+
+msgid "Image Type"
+msgstr "Bildo Tipo"
 
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
@@ -3590,6 +3747,13 @@ msgid "Key Size (bits)"
 msgstr "Ŝlosilo Grando (bitoj)"
 
 msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+" Ŝlosilo nomoj nur enhavus  literciferajn signojn, substrekojn, punktojn, "
+"dupunktojn kaj dividstrekojn."
+
+msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 msgstr ""
@@ -3599,12 +3763,29 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Ŝlosila paro uzonta por aŭtentigon."
 
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"ŝlosilo kun nomo \"%s\" jam ekzistas. Uzu Agordo por ĝisdatigi la valoron, "
+"aŭ kreu ŝlosilon kun alia nomo."
+
 msgid "Key-Value Pairs"
 msgstr "Klavo-Valoro Paroj"
+
+msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Ŝlosilo: maxIOPS kaj Valoro: 5000 (nombro pli granda ol minIOPS)"
+
+msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Ŝlosilo: maxIOPS kaj Valoro: 5000 (nombro pli granda ol minIOPS)"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Ĉesigita  "
+
+msgid "Kubernetes Namespace"
+msgstr "Kubernetes Nomspaco"
 
 msgid "L3 Agent"
 msgstr "L3 Agento"
@@ -3940,6 +4121,9 @@ msgstr "Modifu Kvotojn"
 msgid "Modify dashboard settings for your user."
 msgstr "Modifu stirpanelo  agordojn por la uzanto."
 
+msgid "Modify group type name, description, and public status."
+msgstr "Modifu grupo tipo nomon, priskribon, kaj publikan staton."
+
 msgid "Modify name and description of a volume."
 msgstr "Modifu nomon kaj priskribon de volumo."
 
@@ -4110,6 +4294,9 @@ msgstr "Nova Grando (GiB)"
 msgid "New name cannot be empty."
 msgstr "Nova nomo ne povas esti malplena."
 
+msgid "New name conflicts with another group type."
+msgstr "Nova nomo konfliktas kun alia grupo tipo."
+
 msgid "New name conflicts with another volume type."
 msgstr "Nova nomo konfliktas kun alia volumo tipo."
 
@@ -4266,6 +4453,9 @@ msgstr "Neniuj secureco grupoj trovitaj."
 msgid "No server groups available"
 msgstr "Neniuj servilo grupoj haveblaj"
 
+msgid "No snapshot for this volume"
+msgstr "Neniu savkopio por ĉi tiu volumo"
+
 msgid "No snapshots available"
 msgstr "Neniuj savkopioj disponeblaj."
 
@@ -4378,8 +4568,17 @@ msgstr "OR Kopii/Alglui vian Privatan Klavon"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Nefermita Virtuala Aplikaĵo "
 
+msgid "Object"
+msgstr "Objekto"
+
+msgid "Object ID"
+msgstr "Objekto ID"
+
 msgid "Object Store"
 msgstr "Objekto Memorilo"
+
+msgid "Object Type"
+msgstr "Objekto Tipo"
 
 msgid "Old Flavor"
 msgstr "Malnova Variaĵo "
@@ -4408,6 +4607,9 @@ msgstr "Malferma Pordo/Pordo Intervalo:"
 
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profililo   "
+
+msgid "OpenStack RC File"
+msgstr "OpenStack RC Dosiero"
 
 msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml Dosiero"
@@ -4471,6 +4673,9 @@ msgstr "Pasvorto"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Pasvorto"
+
+msgid "Password Expires At"
+msgstr "Pasvorto Senvalidiĝas je"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "Pasvorto ŝanĝita. Bonvolu ensaluti por daŭrigi."
@@ -4710,6 +4915,9 @@ msgstr "QCOW2 - QEMU Imitilo"
 msgid "QOS Policy ID"
 msgstr "QOS Regularo ID"
 
+msgid "QoS Policy"
+msgstr "QOS Regularo"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "QoS Specifo Nomo \"%s\" jam ekzistas."
@@ -4781,6 +4989,16 @@ msgstr "RAM(Havebla: %(avail)s, Petita: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC Regularo  "
+
+#, python-format
+msgid "RBAC Policy %s was successfully updated."
+msgstr "RBAC Regularo  %s sukcese ĝisdatigita."
+
+msgid "RBAC Policy Details"
+msgstr "RBAC Regularo Detajloj"
+
+msgid "RBAC Policy was successfully created."
+msgstr "RBAC Regularo estis sukcese kreita."
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Faktoro"
@@ -4973,6 +5191,9 @@ msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Savadita"
 
+msgid "Rescue Instance"
+msgstr "Savkopio apero"
+
 msgctxt "Current status of an Instance"
 msgid "Rescued"
 msgstr "Savadita"
@@ -5112,6 +5333,9 @@ msgstr "Rolo Nomo"
 msgid "Role Name ="
 msgstr "Rolo Nomo ="
 
+msgid "Role assignments"
+msgstr "Rol-atribuojn"
+
 msgid "Role created successfully."
 msgstr "Rolon sukcese kreita."
 
@@ -5207,6 +5431,10 @@ msgstr "Savu ŝanĝojn   "
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "Estas konservita ekstra specifo \"%s\"."
+
+#, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "Konservis grupo specifon \"%s\"."
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -5337,11 +5565,17 @@ msgstr "Elektu Volumo Savkopion"
 msgid "Select a New Flavor"
 msgstr "Elektu novan variaĵon"
 
+msgid "Select a QoS policy"
+msgstr "Elektu QOS Regularo"
+
 msgid "Select a floating IP to disassociate"
 msgstr "Elektu glitan IP adreson por malasocii.   "
 
 msgid "Select a key pair"
 msgstr "Elektu klavo paron"
+
+msgid "Select a network"
+msgstr "Elektu reton"
 
 msgid "Select a new QoS spec"
 msgstr "Elektu novan QoS spec"
@@ -5385,6 +5619,9 @@ msgstr "Elektu volumon por malligi de tiu apero."
 msgid "Select a volume to restore to."
 msgstr "Elektu Volumon por restaŭrigi. "
 
+msgid "Select action and object type"
+msgstr "Elekti ago kaj objekto tipon"
+
 msgid "Select an IP address"
 msgstr "Elektu IP adreson"
 
@@ -5405,6 +5642,9 @@ msgstr "Elektu reton"
 
 msgid "Select networks for your instance."
 msgstr "Elektu retojn por via apero."
+
+msgid "Select snapshot to backup (Optional)"
+msgstr "Elektu savkopion por stori (laŭvole)"
 
 msgid "Select source"
 msgstr "Elektu fonto"
@@ -5535,6 +5775,12 @@ msgstr "Kunhavigita"
 
 msgid "Shared ="
 msgstr "Opuza ="
+
+msgid "Shared Network"
+msgstr "Opuzata Reto"
+
+msgid "Shared QoS Policy"
+msgstr "Opuzata QOS Regularo"
 
 msgid "Shared Storage"
 msgstr "Kunhavigita   Memorilo"
@@ -5865,6 +6111,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Sukcese kreita ĉifradon por volumo tipo: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Sukcese kreita grupo tipon: %s   "
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "Sukcese kreita sekureco grupo: %s   "
 
@@ -5937,6 +6187,9 @@ msgstr "Sucese ĝisdatigita agregato: \"%s.\""
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Sukcese ĝisdatigita ĉifradon por volumo tipo: %s"
 
+msgid "Successfully updated group type."
+msgstr "Sukcese ĝisdatigita grupo tipon."
+
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "Sukcese ĝisdatigita sekurecan grupon: %s"
@@ -5990,8 +6243,17 @@ msgstr "Sistemo"
 msgid "System Information"
 msgstr "Sistema Informo"
 
+msgid "System Scope"
+msgstr "Sistema Amplekso"
+
 msgid "Target Host"
 msgstr "Celo Gastiganto"
+
+msgid "Target Project"
+msgstr "Celo Projekto"
+
+msgid "Target Tenant"
+msgstr "Celgastiganto"
 
 msgid "Task"
 msgstr "Tasko"
@@ -6045,6 +6307,14 @@ msgid ""
 msgstr ""
 "La <strong>Kontrola Loko</strong> estas la nocia servo kie ĉifradon estas "
 "efektivigita (e.g., front-end=Nova). La defaulta valoro estas 'front-end.'"
+
+msgid ""
+"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
+"g., 256). If the field is left empty, the provider default will be used."
+msgstr ""
+"La <strong> Ŝlosilo Grando </strong> estas la grandeco de la ĉifrada "
+"ŝlosilo, en bitoj (ekz., 256). Se la kampo estas malplena, la provizanto "
+"defaŭlto estos uzata."
 
 msgid ""
 "The <strong>Provider</strong> is the encryption provider format (e.g. 'luks' "
@@ -6191,6 +6461,9 @@ msgstr "La apero pasvorto ĉifrita kun via publika klavo."
 msgid "The instance(s) will be shut off."
 msgstr "La apero(j) estas malŝaltota.   "
 
+msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
+msgstr "La ŝlosilo devas kongrui kun la sekva regekso: '^ [a-zA-Z0-9-_:. /] '"
+
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
@@ -6236,6 +6509,10 @@ msgstr ""
 
 msgid "The new availability zone can't be empty"
 msgstr "La nova disponebla zono ne povas esti malplena"
+
+#, python-format
+msgid "The password does not match the requirements: %s"
+msgstr "Pasvorto ne kongruas kun postuloj: %s"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "La fisika mekanismo helpe de la virtuala reto estas realigita."
@@ -6284,6 +6561,13 @@ msgid ""
 msgstr ""
 "La petita apero(j) ne povas esti lanĉita ĉar via kvoto estos transpasita: "
 "Havebla: %(avail)s, Petita: %(req)s."
+
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr ""
+"La savkopio modo estas nur por krizaj okazoj, ekzemple en kazo de sistemo aŭ "
+"aliro eraro."
 
 msgid "The specified floating IP no longer exists."
 msgstr "La difinita glitaj IP ne plu ekzistas."
@@ -6427,6 +6711,15 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "Ĉi tiu voluma tipo estas uzita de unu aŭ pli da volumoj."
 
+msgid ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
+msgstr ""
+"Ĉi tio malŝaltos vian aperon kaj muntos la radikan diskon al provizora "
+"servilo. Poste, vi povos konekti al ĉi tiu servilo, ripari la sisteman "
+"agordon aŭ reakiri viajn datumojn."
+
 msgid "Time since update"
 msgstr "Tempo ekde ĝisdatigo"
 
@@ -6449,6 +6742,9 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Por eliri la plenekranan reĝimon; kliku la reen butonon de la retumilo."
+
+msgid "To make group type private, uncheck this field."
+msgstr "Por fari grupo tipo privatan, malselektu tiun kampon."
 
 msgid "To make volume type private, uncheck this field."
 msgstr "Por fari volumo tipo privatan, malselektu tiun kampon."
@@ -6621,8 +6917,16 @@ msgid "Unable to create QoS Spec."
 msgstr "Neeblas krei QoS Specifon."
 
 #, python-format
+msgid "Unable to create application credential: %s"
+msgstr "Neeblas krei aplikadan legitimaĵon: %s"
+
+#, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Neeblas krei domajnon \"%s\"."
+
+#, python-format
+msgid "Unable to create encrypted volume type: %s"
+msgstr "Neeblas krei ĉifritan volumo tipon: %s"
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -6640,6 +6944,12 @@ msgstr "Neeblas krei grupon pro transpasita volumo kvota limito."
 
 msgid "Unable to create group snapshot."
 msgstr "Neeblas krei grupo savkopion."
+
+msgid "Unable to create group type spec."
+msgstr "Neeblas krei grupo tipo specifon."
+
+msgid "Unable to create group type."
+msgstr "Neeblas krei grupo tipon."
 
 msgid "Unable to create group."
 msgstr "Neeblas krei grupo."
@@ -6771,11 +7081,23 @@ msgstr "Neeblas malasocii glitan IP %s   "
 msgid "Unable to disassociate floating IP."
 msgstr "Neeblas malasocii glidanta IP.   "
 
+msgid "Unable to display role assignment through groups."
+msgstr "Ne eblas montri la rol-atribuojn per grupoj."
+
 msgid "Unable to display the groups of this project."
 msgstr "Ne eblas montri la grupojn de ĉi tiu projekto."
 
+msgid "Unable to display the groups of this user."
+msgstr "Ne eblas montri la grupojn de ĉi tiu uzanto."
+
+msgid "Unable to display the role assignments of this user."
+msgstr "Ne eblas montri la rol-atribuojn de ĉi tiu uzanto."
+
 msgid "Unable to display the users of this project."
 msgstr "Ne eblas montri la uzantojn de ĉi tiu projekto."
+
+msgid "Unable to edit group type spec."
+msgstr "Neeblas redakti grupo tipo spec."
 
 msgid "Unable to edit spec."
 msgstr "Neeblas redakti specifon."
@@ -6788,6 +7110,12 @@ msgstr "Neeblas etendi volumon."
 
 msgid "Unable to fetch EC2 credentials."
 msgstr "Neeblas venigi EC2 legitimaĵojn."
+
+msgid "Unable to fetch snapshot"
+msgstr "Neeblas venigi la savkopion."
+
+msgid "Unable to fetch snapshots"
+msgstr "Neeblas venigi la savkopiojn."
 
 msgid "Unable to find default role."
 msgstr "Neeblas trovi defaŭltan rolon."
@@ -6990,6 +7318,9 @@ msgstr "Neeblas ricevi QoS specifo liston."
 msgid "Unable to retrieve QoS specs"
 msgstr "Neeblas ricevi QoS specifojn."
 
+msgid "Unable to retrieve RBAC policies."
+msgstr "Neeblas ricevi la RBAC regularojn."
+
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr "Neeblas ricevi liston de eksteraj retoj \"%s\"."
@@ -7046,6 +7377,10 @@ msgstr "Neeblas ricevi detajlojn por  ŝlosilparo \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Neeblas ricevi detajlojn por  reto \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for rbac_policy \"%s\"."
+msgstr "Neeblas ricevi detajlojn por rbac regularo \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -7120,8 +7455,30 @@ msgstr "Neeblas ricevi grupo listo. Bonvolu provu denove poste."
 msgid "Unable to retrieve group snapshot details."
 msgstr "Neeblas ricevi grupo savkopio detajlojn."
 
+msgid "Unable to retrieve group snapshot project information."
+msgstr "Neeblas ricevi grupo savkopio projekto informon."
+
 msgid "Unable to retrieve group snapshots."
 msgstr "Ne eblas ricevi grupajn savkopiojn."
+
+msgid "Unable to retrieve group type details."
+msgstr "Neeblas ricevi gruptipo detajlojn."
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "Neeblas ricevi grupo tipo por: \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "Neeblas ricevi grupo tipo nomon."
+
+msgid "Unable to retrieve group type spec details."
+msgstr "Neeblas ricevi  gruptipo specifo detajlojn."
+
+msgid "Unable to retrieve group type spec list."
+msgstr "Neeblas ricevi  gruptipo specifo liston."
+
+msgid "Unable to retrieve group type."
+msgstr "Neeblas ricevi grupo tipon."
 
 msgid "Unable to retrieve group types."
 msgstr "Neeblas ricevi grupo tipojn."
@@ -7170,6 +7527,15 @@ msgstr "Neeblas ricevi bildojn."
 
 msgid "Unable to retrieve information about the networks' projects."
 msgstr "Neeblas trovi informojn pri la networks' projektoj."
+
+msgid "Unable to retrieve information about the policies' networks."
+msgstr "Neeblas trovi informojn pri la regularaj' retoj."
+
+msgid "Unable to retrieve information about the policies' projects."
+msgstr "Neeblas trovi informojn pri la regularoj' projektoj."
+
+msgid "Unable to retrieve information about the policies' qos policies."
+msgstr "Neeblas trovi informojn pri la politikoj' qos regularoj."
 
 msgid "Unable to retrieve instance action list."
 msgstr "Neeblas recevi apero ago liston."
@@ -7249,6 +7615,9 @@ msgstr "Neeblas ricevi projekto detajlojn."
 msgid "Unable to retrieve project domain."
 msgstr "Neeblas ricevi projekto domajnon."
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr "Neeblas ricevi projekto informon de volumo savkopiojn."
+
 msgid "Unable to retrieve project information."
 msgstr "Neeblas ricevi projekto informojn."
 
@@ -7266,6 +7635,9 @@ msgstr "Neeblas ricevi publikaj bildigoj."
 
 msgid "Unable to retrieve quota information."
 msgstr "Neeblas ricevi kvota informon."
+
+msgid "Unable to retrieve rbac policy details."
+msgstr "Neeblas ricevi rbac regularo detajlojn."
 
 msgid "Unable to retrieve role list."
 msgstr "Neeblas ricevi rolo listo."
@@ -7343,6 +7715,9 @@ msgstr "Neeblas ricevi uzanto detajlojn"
 msgid "Unable to retrieve user domain role assignments."
 msgstr "Neeblas ricevi uzanto domajno rol-atribuojn."
 
+msgid "Unable to retrieve user domain."
+msgstr "Neeblas ricevi  uzanto domajnon."
+
 msgid "Unable to retrieve user information."
 msgstr "Neeblas ricevi uzanto informon."
 
@@ -7369,6 +7744,9 @@ msgstr "Neeblas ricevi volumo detajlojn"
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Neeblas ricevi volumo ĉifrado detajlojn."
+
+msgid "Unable to retrieve volume group project information."
+msgstr "Neeblas ricevi volumgrupo projekto informon."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Neeblas ricevi volumo grupo savkopiojn."
@@ -7404,6 +7782,9 @@ msgstr "Neeblas ricevi volumo projekto informon."
 
 msgid "Unable to retrieve volume quota information."
 msgstr "Neeblas ricevi volumo kvoto informon."
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr "Neeblas ricevi volumo savkopio projekto informon."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Neeblas ricevi volumo savkopion."
@@ -7484,6 +7865,9 @@ msgstr "Neeblas ĝisdatigi defaŭlt volumajn kvotojn."
 
 msgid "Unable to update encrypted volume type."
 msgstr "Neeblas ĝisdatigi  ĉifrita volumo tipo."
+
+msgid "Unable to update group type."
+msgstr "Neeblas ĝisdatigi grupo tipon."
 
 msgid "Unable to update group."
 msgstr "Neeblas ĝisdatigi grupon."
@@ -7678,6 +8062,9 @@ msgstr "Ĝisdatigu Metadatumo"
 msgid "Update Network"
 msgstr "Ĝisdatigu Reton"
 
+msgid "Update RBAC Policy"
+msgstr "Ĝisdatigu RBAC Regularo"
+
 msgid "Update Role"
 msgstr "Ĝisdatigu Rolon"
 
@@ -7715,6 +8102,10 @@ msgstr "Ĝisdatigu ĉifraditan Volumo Tipon"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Ĝisdatigu la \"ekstra spec\" valoro por \"%(key)s\""
+
+#, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "Ĝisdatigu la \"grupo tipo spec\" valoro por \"%(key)s\""
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
@@ -7812,6 +8203,10 @@ msgstr "Uzitaj IP-oj"
 
 msgid "User"
 msgstr "Uzanto"
+
+#, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "Uzanto \"%s\" sukcese ĝisdatigita."
 
 #, python-format
 msgid "User \"%s\" was successfully created."
@@ -7920,6 +8315,9 @@ msgstr "Vidu Protokolon  "
 
 msgid "View Routers"
 msgstr "Vidu enkursigilojn"
+
+msgid "View Specs"
+msgstr "Vidu  Specifojn"
 
 msgid "View Usage"
 msgstr "Vidu Uzaĵon"
@@ -8213,6 +8611,13 @@ msgid "You can edit the properties of your port here."
 msgstr "Vi povas redakti la redakteblaj ecoj de via pordo ĉi tie."
 
 msgid ""
+"You can optionally provide a Kubernetes Namespace. It will be included in "
+"the kubeconfig file which can be downloaded from the next screen."
+msgstr ""
+"Vi povas laŭvole provizi Kubernetes Nomspacon. Ĝi estos inkluzivita en la "
+"dosiero kubeconfig elŝutebla el la sekva ekrano."
+
+msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -8265,6 +8670,13 @@ msgstr ""
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "Vi eble mistajpis la adreson aŭ la paĝo eble movis."
 
+msgid ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
+msgstr ""
+"Vi rajtas elekti bildon kaj agordi pasvorton sur la savkopia apero de "
+"servilo."
+
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "Vi eble nedeviga volas krei pasvorton je la rekonstruita apero."
 
@@ -8292,6 +8704,9 @@ msgstr ""
 "Vi povas elekti unu aŭ pli da roloj por ĉi tiu aplikaĵo. Se vi ne elektas "
 "iun ajn, ĉiuj roloj, kiujn vi atribuis en la nuna projekto, estos aplikitaj "
 "al la aplikaĵo."
+
+msgid "You may update the editable properties of the RBAC policy here."
+msgstr "Vi povus ĝisdatigi la redakteblaj ecoj de RBAC regularo ĉi tie."
 
 msgid "You may update the editable properties of your network here."
 msgstr "Vi povus ĝisdatigi la redaktiblaj ecoj de via reto ĉi tie."
@@ -8368,14 +8783,32 @@ msgstr "ekz. Jes / Ne"
 msgid "e.g. Yes/No"
 msgstr "ekz. Jes/Ne"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+" speco id nur enhavus  literciferajn signojn, substrekojn, punktojn,"
+"dividstrekojn, blankspacojn."
+
 msgid "front-end"
 msgstr "fasada"
 
 msgid "instance"
 msgstr "apero"
 
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"ŝlosilo kun nomo \"%s\" jam ekzistas. Uzu Agordo por ĝisdatigi la valoron, "
+"aŭ kreu ŝlosilon kun alia nomo."
+
 msgid "no"
 msgstr "ne"
+
+msgid "rbac policy quota exceeded."
+msgstr "rbac regulara kvoto transpasita."
 
 msgid "undefined"
 msgstr "nedifinita"
