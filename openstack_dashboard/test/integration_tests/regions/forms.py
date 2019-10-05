@@ -54,7 +54,6 @@ class FieldFactory(baseregion.BaseRegion):
 
 class MetaBaseFormFieldRegion(type):
     """Register form field class in FieldFactory."""
-
     def __init__(cls, name, bases, dct):
         FieldFactory.register_field_cls(cls, bases)
         super(MetaBaseFormFieldRegion, cls).__init__(name, bases, dct)
@@ -231,8 +230,8 @@ class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
     _dropdown_menu_locator = (by.By.CSS_SELECTOR, 'ul.dropdown-menu > li > a')
 
     def __init__(self, driver, conf, strict_options_match=True, **kwargs):
-        super(ThemableSelectFormFieldRegion, self).__init__(
-            driver, conf, **kwargs)
+        super(ThemableSelectFormFieldRegion,
+              self).__init__(driver, conf, **kwargs)
         self.strict_options_match = strict_options_match
 
     @property
@@ -264,7 +263,7 @@ class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
                 if self.strict_options_match:
                     match = text == str(option.text.strip())
                 else:
-                    match = option.text.startswith(text)
+                    match = text in str(option.text.strip())
                 if match:
                     option.click()
                     return
@@ -348,6 +347,8 @@ class FormRegion(BaseFormRegion):
         self.fields_src_elem = self._get_element(*self._fields_locator)
         fields = self._get_form_fields()
         for accessor_name, accessor_expr in self.field_mappings.items():
+            if accessor_expr not in fields:
+                continue
             if isinstance(accessor_expr, six.string_types):
                 self._dynamic_properties[accessor_name] = fields[accessor_expr]
             else:  # it is a class
@@ -426,8 +427,9 @@ class TabbedFormRegion(FormRegion):
 
     def __init__(self, driver, conf, field_mappings=None, default_tab=0):
         self.current_tab = default_tab
-        super(TabbedFormRegion, self).__init__(
-            driver, conf, field_mappings=field_mappings)
+        super(TabbedFormRegion, self).__init__(driver,
+                                               conf,
+                                               field_mappings=field_mappings)
 
     def _prepare_mappings(self, field_mappings):
         return [
@@ -444,6 +446,8 @@ class TabbedFormRegion(FormRegion):
         fields = self._get_form_fields()
         current_tab_mappings = self.field_mappings[tab_index]
         for accessor_name, accessor_expr in current_tab_mappings.items():
+            if accessor_expr not in fields:
+                continue
             if isinstance(accessor_expr, six.string_types):
                 self._dynamic_properties[accessor_name] = fields[accessor_expr]
             else:  # it is a class
@@ -456,8 +460,9 @@ class TabbedFormRegion(FormRegion):
 
     @property
     def tabs(self):
-        return menus.TabbedMenuRegion(
-            self.driver, self.conf, src_elem=self.src_elem)
+        return menus.TabbedMenuRegion(self.driver,
+                                      self.conf,
+                                      src_elem=self.src_elem)
 
 
 class DateFormRegion(BaseFormRegion):

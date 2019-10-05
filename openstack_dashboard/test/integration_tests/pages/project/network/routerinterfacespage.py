@@ -10,7 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
@@ -28,8 +27,7 @@ class InterfacesTable(tables.TableRegion):
         return forms.FormRegion(
             self.driver,
             self.conf,
-            field_mappings=self.CREATE_INTERFACE_FORM_FIELDS
-        )
+            field_mappings=self.CREATE_INTERFACE_FORM_FIELDS)
 
     @tables.bind_table_action('delete')
     def delete_interface(self, delete_button):
@@ -46,37 +44,49 @@ class RouterInterfacesPage(basepage.BaseNavigationPage):
 
     INTERFACES_TABLE_STATUS_COLUMN = 'Status'
     INTERFACES_TABLE_NAME_COLUMN = 'Name'
-    DEFAULT_IPv4_ADDRESS = '10.0.0.10'
-    DEFAULT_SUBNET = 'private: 10.0.0.0/26 (private-subnet)'
-
-    _breadcrumb_routers_locator = (by.By.CSS_SELECTOR,
-                                   'ol.breadcrumb>li>' +
-                                   'a[href*="/dashboard/project/routers"]')
+    INTERFACES_TABLE_FIXED_IPS_COLUMN = 'Fixed IPs'
+    DEFAULT_IPv4_ADDRESS = '10.100.0.1'
+    _interface_subnet_selector = (by.By.CSS_SELECTOR, 'div > .themable-select')
+    _breadcrumb_routers_locator = (
+        by.By.CSS_SELECTOR,
+        'ol.breadcrumb>li>' + 'a[href*="/project/routers"]')
 
     def __init__(self, driver, conf, router_name):
         super(RouterInterfacesPage, self).__init__(driver, conf)
         self._page_title = router_name
 
     def _get_row_with_interface_name(self, name):
+        return self.interfaces_table.get_row(self.INTERFACES_TABLE_NAME_COLUMN,
+                                             name)
+
+    def _get_row_with_ip_address(self):
         return self.interfaces_table.get_row(
-            self.INTERFACES_TABLE_NAME_COLUMN, name)
+            self.INTERFACES_TABLE_FIXED_IPS_COLUMN, self.DEFAULT_IPv4_ADDRESS)
+
+    @property
+    def subnet_selector(self):
+        src_elem = self._get_element(*self._interface_subnet_selector)
+        return forms.ThemableSelectFormFieldRegion(
+            self.driver,
+            self.conf,
+            src_elem=src_elem,
+            strict_options_match=False)
 
     @property
     def interfaces_table(self):
         return InterfacesTable(self.driver, self.conf)
 
     @property
-    def interfaces_names(self):
-        return map(lambda row: row.cells[self.
-                   INTERFACES_TABLE_NAME_COLUMN].text,
-                   self.interfaces_table.rows)
+    def interface_name(self):
+        row = self._get_row_with_ip_address()
+        return row.cells[self.INTERFACES_TABLE_NAME_COLUMN].text
 
     def switch_to_routers_page(self):
         self._get_element(*self._breadcrumb_routers_locator).click()
 
-    def create_interface(self):
+    def create_interface(self, subnet):
         interface_form = self.interfaces_table.create_interface()
-        interface_form.subnet_id.text = self.DEFAULT_SUBNET
+        self.subnet_selector.text = subnet
         interface_form.ip_address.text = self.DEFAULT_IPv4_ADDRESS
         interface_form.submit()
 

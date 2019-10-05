@@ -17,19 +17,18 @@ from openstack_dashboard.test.integration_tests.pages import basepage
 
 class NetworkOverviewPage(basepage.BaseNavigationPage):
 
-    DEFAULT_NETWORK_NAME = 'public'
+    _network_dd_name_locator = (by.By.CSS_SELECTOR, 'dt[title*="Name"]+dd')
 
-    _network_dd_name_locator = (by.By.CSS_SELECTOR,
-                                'dt[title*="Name"]+dd')
-
-    _network_dd_status_locator = (by.By.CSS_SELECTOR,
-                                  'dt[title*="Status"]+dd')
+    _network_dd_status_locator = (by.By.CSS_SELECTOR, 'dt[title*="Status"]+dd')
 
     def __init__(self, driver, conf):
         super(NetworkOverviewPage, self).__init__(driver, conf)
         self._page_title = 'Network Details'
+        self._external_network = conf.network.external_network
 
-    def is_network_name_present(self, network_name=DEFAULT_NETWORK_NAME):
+    def is_network_name_present(self, network_name=None):
+        if network_name is None:
+            network_name = self._external_network
         dd_text = self._get_element(*self._network_dd_name_locator).text
         return dd_text == network_name
 
