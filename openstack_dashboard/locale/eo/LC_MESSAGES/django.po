@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-10-05 03:52+0000\n"
+"POT-Creation-Date: 2019-10-05 18:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-10-04 04:06+0000\n"
+"PO-Revision-Date: 2019-10-05 09:16+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -199,6 +199,9 @@ msgstr "%sGiB"
 msgid "%sMB"
 msgstr "%sMB"
 
+msgid "(No IP address)"
+msgstr "(Neniu IP adreso)"
+
 msgid "(Quota exceeded)"
 msgstr "(Kvoto transpasita)"
 
@@ -210,6 +213,12 @@ msgstr ", ĝisdatigu projekto grupojn  "
 
 msgid "-"
 msgstr "-"
+
+msgid "1 (icmp) should be specified for IPv4 instead of 58."
+msgstr "1 (icmp) devus esti specifita anstatau ol IPv4 instead of 58."
+
+msgid "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
+msgstr "58 (ipv6-icmp) devus esti specifity por IPv6 anstatau ol 1."
 
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
@@ -229,6 +238,10 @@ msgstr ""
 "ĉiuj interfacoj de la apero. Se vi havas multajn interfacojn en ĉi tiu apero "
 "kaj aplikas malsamajn sekurecajn grupojn per pordo, anstataŭe uzu \"Redaktu "
 "Pordo Sekurecajn Grupojn\"."
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>Variaĵo Detajloj: %(name)s</span>\">%(name)s"
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "Mallonga priskribo de la regularo de sekureco grupo vi aldonas"
@@ -387,6 +400,9 @@ msgstr "Aldonu Enkursigila Kurson"
 msgid "Add Rule"
 msgstr "Aldoni Regulon"
 
+msgid "Add Rule (Quota exceeded)"
+msgstr "Aldonu Regulon (Kvoto transpasita)"
+
 msgid "Add Static Route"
 msgstr "Aldonu Statikan Kurson"
 
@@ -534,6 +550,9 @@ msgstr ""
 
 msgid "Age"
 msgstr "Aĝo"
+
+msgid "Age (Seconds)"
+msgstr "Aĝo (Sekundoj)"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -801,6 +820,13 @@ msgstr "Disponeblaj Tipoj"
 
 msgid "Available networks"
 msgstr "Disponeblaj retoj"
+
+msgctxt "Current status of a Volume"
+msgid "Awaiting Transfer"
+msgstr "Akceptanta Transigon"
+
+msgid "Back-End Example:"
+msgstr "Interna Ekzemplo:"
 
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
@@ -1086,6 +1112,10 @@ msgstr ""
 "Klonu ĉiu de la volumoj en la fonto grupo, tiam aldonu ilin al nove kreita "
 "grupo."
 
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "Klonanta volumo grupo \"%s\"."
+
 msgid "Close"
 msgstr "Fermu"
 
@@ -1123,6 +1153,9 @@ msgid ""
 msgstr ""
 "Konfiguru Openstack por skribi metadatumo al speciala konfigura diskingo kiu "
 "ligas al apero kiam ĝi praŝargas. "
+
+msgid "Confirm"
+msgstr "Konfirmu"
 
 msgid "Confirm Admin Password"
 msgstr "Konfirmu Admin Pasvorton"
@@ -1258,6 +1291,10 @@ msgstr "Kreu Servilo Agregato"
 msgid "Create Image"
 msgstr "Kreu Bildon"
 
+msgctxt "Action log of an instance"
+msgid "Create Image"
+msgstr "Kreu Bildon"
+
 msgid "Create Key Pair"
 msgstr "Kreu Ŝlosilparon"
 
@@ -1381,6 +1418,15 @@ msgstr "Kreu novan \"ekstra spec\" klavo-valoro paro por volumo tipo."
 
 msgid "Create a new \"group type spec\" key-value pair for a group type."
 msgstr "Kreu novan \"grupo tipo spec\" klavo-valoro paron por grupo tipo."
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
+msgstr ""
+"Kreu novan \"spec\" ŝlosilo-valoro paron por QoS Spec \"%(qos_spec_name)s\". "
+"Validaj ŝlosilaj nomoj estas atenditaj en la QoS specifoj. "
 
 msgid "Create a new application credential."
 msgstr "Krei novan aplikado legitimaĵon."
@@ -1988,6 +2034,10 @@ msgstr ""
 "Forigitaj volumoj ne estas restaŭrebla. Ĉiuj datumo savita en la volumo "
 "estos viŝita.   "
 
+msgctxt "Current status of Volume Group"
+msgid "Deleting"
+msgstr "Foriganta"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Forigi"
@@ -2003,6 +2053,12 @@ msgstr "Foriganta"
 #, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "Forigi volume grupo \"%s\""
+
+msgid "Deprecated Settings"
+msgstr "Evitinda Agordo"
+
+msgid "Deprecated settings: {}."
+msgstr "Evitinda Agordo: {}."
 
 msgid "Description"
 msgstr "Priskribo"
@@ -2804,6 +2860,9 @@ msgstr "Malsukcesis krei pordon \"%s\"."
 msgid "Failed to create router \"%s\"."
 msgstr "Malsukcesis krei enkursigilo \"%s\"."
 
+msgid "Failed to create router."
+msgstr "Malsukcesis krei enkursigilo."
+
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
 msgstr ""
@@ -3100,6 +3159,9 @@ msgid "From here you can update the default volume quotas (max limits)."
 msgstr ""
 "De ĉi-tie vi povas ĝisdatigi  la defaŭlt voluajn kvotojn (max limitoj)."
 
+msgid "Front-End Example:"
+msgstr "Fasada Ekzemplo:"
+
 msgid "GB"
 msgstr "GB"
 
@@ -3394,6 +3456,13 @@ msgstr ""
 "IP adreso listo de DNS nomo serviloj por tiu subreto. Unu enigo po linio."
 
 msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"IP adreso de kluzo  (e.g. 192.168.0.254). Se vi ne volas uzi kluzon, agordu  "
+"'Disable Gateway' sube."
+
+msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
 "of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
 "2001:DB8::/48). If you use the default, leave blank. If you do not want to "
@@ -3461,6 +3530,12 @@ msgstr ""
 
 msgid "If checked, the network will be enabled."
 msgstr "Se markita, la reto estos estos ebligita."
+
+msgid "If checked, the port will be enabled."
+msgstr "Se markita, la pordo estos ebligita."
+
+msgid "If checked, the router will be enabled."
+msgstr "Se markita, la enkursigilo estos ebligita."
 
 msgid "If checked, the selected floating IP will be released at the same time."
 msgstr "Se markita, la selektita glita IP estos liberigita samtempe. "
@@ -3736,6 +3811,9 @@ msgstr "Klavo Paro Nomo"
 msgid "Key Pair Name ="
 msgstr "Klavo Paro Nomo ="
 
+msgid "Key Pair Type"
+msgstr "Ŝlosil Paro Tipo"
+
 msgid "Key Pairs"
 msgstr "Ŝlosilaj Paroj"
 
@@ -3745,6 +3823,9 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "Ŝlosilo Grando (bitoj)"
+
+msgid "Key Type"
+msgstr "Ŝlosilo Tipo"
 
 msgid ""
 "Key names can only contain alphanumeric characters, underscores, periods, "
@@ -3779,6 +3860,18 @@ msgstr "Ŝlosilo: maxIOPS kaj Valoro: 5000 (nombro pli granda ol minIOPS)"
 
 msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
 msgstr "Ŝlosilo: maxIOPS kaj Valoro: 5000 (nombro pli granda ol minIOPS)"
+
+msgid "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
+msgstr "Ŝlosilo: minIOPS kaj Valoro:20 (numera valoro malpli ol maxIOPS)"
+
+msgid "Key: size_iops_sec and Value: 16"
+msgstr "Ŝlosilo: grando_iops_sek kaj Valoro:16"
+
+msgid "Key: total_bytes_sec_max and Value: 512000"
+msgstr "Ŝlosilo: total_bajtoj_sek_maks kaj Valoro: 512000"
+
+msgid "Key: total_iops_sec and Value: 5000"
+msgstr "Ŝlosilo: total_iops_sec kaj Valoro: 5000"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -3854,6 +3947,10 @@ msgstr "Loka memorilo  (sume)"
 
 msgid "Local Storage (used)"
 msgstr "Loka memorilo  (uzita)"
+
+msgctxt "Action log of an instance"
+msgid "Lock"
+msgstr "Ŝlosi"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
@@ -4023,6 +4120,10 @@ msgstr "MidoNet Uplink"
 msgid "Migrate"
 msgstr "Migru"
 
+msgctxt "Action log of an instance"
+msgid "Migrate"
+msgstr "Migri"
+
 msgid "Migrate Host"
 msgstr "Transmetu Gastiganto"
 
@@ -4082,6 +4183,9 @@ msgstr "Minimuma Disko (GB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "Minimuma RAM (MB)"
+
+msgid "Missing required settings: {}."
+msgstr "Mankanta bezonata agordo: {}."
 
 #, python-format
 msgid "Modified domain \"%s\"."
@@ -4719,6 +4823,9 @@ msgstr "Pritraktota Forigo"
 msgid "Per Volume Size (GiB)"
 msgstr "Per Volumo Grando (GiB)"
 
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr "Faru kontrolon por vidi ĉu la aplikaĵo pretas por ĝisdatigo."
+
 msgid "Physical Network"
 msgstr "Fisika reto"
 
@@ -5187,6 +5294,13 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Petita savkopio transpasus la permesita kvota."
 
+msgid "Required Settings"
+msgstr "Bezonata Agordo"
+
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "Savi"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Savadita"
@@ -5418,6 +5532,9 @@ msgstr "SLAAC: Adreso malkovrita de ekstera Enkursigilo"
 
 msgid "SNAT"
 msgstr "SNAT"
+
+msgid "SSH Key"
+msgstr "SSH Ŝlosilo"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH ŝlosilparoj povas esti generata kun la ssh-keygen komando:"
@@ -5788,6 +5905,10 @@ msgstr "Kunhavigita   Memorilo"
 msgid "Shared with Project"
 msgstr "Opuza kun Projekto"
 
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "Bretigi"
+
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
 msgstr[0] "Reservu Aperon"
@@ -5989,6 +6110,9 @@ msgstr "Difinu IP adreson por la interfaco kreita (e.g. 192.168.0.254)."
 msgid "Specify an image to upload to the Image Service."
 msgstr "Specifu bildigon por alŝargi al Bildigo Servo."
 
+msgid "Specify network address"
+msgstr "Difinu reto adreso"
+
 msgid "Specify the MAC address for the new port"
 msgstr "Difinu la MAC adreso por la nova pordo"
 
@@ -6150,6 +6274,9 @@ msgstr "Sukcese modikita QoS Spec konsumanto."
 
 msgid "Successfully recreated ec2 credentials."
 msgstr "Sukcese rekreita  ec2 legitimaĵojn."
+
+msgid "Successfully rescued instance"
+msgstr "Sukcese savita apero"
 
 #, python-format
 msgid ""
@@ -6509,6 +6636,12 @@ msgstr ""
 
 msgid "The new availability zone can't be empty"
 msgstr "La nova disponebla zono ne povas esti malplena"
+
+msgid "The new type must be different from the current volume type."
+msgstr "La nova tipo devas esti malsama de la nuntempa volumo tipo."
+
+msgid "The output format"
+msgstr "La eligo formato"
 
 #, python-format
 msgid "The password does not match the requirements: %s"
@@ -6884,6 +7017,14 @@ msgid "Unable to attach volume."
 msgstr "Neeblas ligi volumon."
 
 #, python-format
+msgid "Unable to attach volume: %s"
+msgstr "Neeblas ligi volumon: %s"
+
+#, python-format
+msgid "Unable to change password: %s"
+msgstr "Neeblas ŝanĝi pasvorton: %s"
+
+#, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Neeblas  ŝanĝi la volumo tipon por volumo: \"%s\""
 
@@ -7008,6 +7149,10 @@ msgstr "Neeblas krei savkopion."
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "Neeblas krei savkopion. grupo devas enhavi volumojn,"
 
+#, python-format
+msgid "Unable to create snapshot: %s"
+msgstr "Neeblas krei savkopion: %s"
+
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "Neeblas krei savkopiojn pro transpasita savkopio kvota limito."
 
@@ -7067,6 +7212,10 @@ msgstr "Neeblas malligi interfacon."
 
 msgid "Unable to detach volume."
 msgstr "Neeblas malligi volumon."
+
+#, python-format
+msgid "Unable to detach volume: %s"
+msgstr "Neeblas malligi volumon: %s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Neeblas determini  se disponeblo zonoj etendo estas subtenata."
@@ -7268,6 +7417,9 @@ msgstr ""
 "Neeblas registri identeco provizanto. Bonvolu kontrolu ke la Identeco "
 "Provizanto ID-o kaj Defora ID-oj provizita ne jam estas uzata. "
 
+msgid "Unable to rescue instance"
+msgstr "Neeblas savi aperon"
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Neeblas regrandiĝi aperon \"%s\"."
@@ -7349,6 +7501,9 @@ msgstr "Neebla ricevi disponeblo zonojn."
 
 msgid "Unable to retrieve backup details."
 msgstr "Neeblas ricevi sekurkopio detajlojn"
+
+msgid "Unable to retrieve community images."
+msgstr "Neeblas ricevi publikaj bildoj."
 
 msgid "Unable to retrieve compute host information."
 msgstr "Neeblas ricevi komputa gastiganto informojn."
@@ -7953,6 +8108,9 @@ msgstr "Nekapabla validi la VNIC tipo etendo  en Neutron"
 msgid "Unknown"
 msgstr "Nekonata"
 
+msgid "Unknown Settings"
+msgstr "Nekonata Agordo"
+
 msgid "Unknown instance"
 msgstr "Nekonata ekzemplero"
 
@@ -7962,8 +8120,15 @@ msgstr "Nekonata apero (Nenio)"
 msgid "Unknown resource type for detail API."
 msgstr "Nekonata risurco tipe por detajla API."
 
+msgid "Unknown settings: {}."
+msgstr "Nekonata Agordo: {}."
+
 msgid "Unknown volume (None)"
 msgstr "Nekonata volumo (Nenio)"
+
+msgctxt "Action log of an instance"
+msgid "Unlock"
+msgstr "Malŝlosi"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
@@ -7995,6 +8160,20 @@ msgid_plural "Unregistered Identity Providers"
 msgstr[0] "Malregistrita Identeco Provizanto"
 msgstr[1] "Malregistrita Identeco Provizantoj"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "Malsavi"
+
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "Malsavi Aperon"
+msgstr[1] "Malsavi Aperojn"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "Malsavita Apero"
+msgstr[1] "Malsavitaj Aperoj"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Malsavidanta"
@@ -8004,6 +8183,10 @@ msgstr "Nelimigita"
 
 msgid "Unrestricted (dangerous)"
 msgstr "Nelimigita (danĝera)"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "malbretigi"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -8123,6 +8306,10 @@ msgstr "Ĝisdatigita subreto \"%s\"."
 
 msgid "Updated volumes for group."
 msgstr "Ĝisdatigitaj volumoj por  grupo."
+
+msgctxt "Current status of Volume Group"
+msgid "Updating"
+msgstr "Ĝisdatiganta"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -8565,6 +8752,9 @@ msgid ""
 msgstr ""
 "Kiam la volumo stato estas \"en uzo\", vi povas uzi \"Devigi\" por alŝuti la "
 "volumon al bildo. "
+
+msgid "X509 Certificate"
+msgstr "X509 Ateston"
 
 msgid "Yes"
 msgstr "Jes"

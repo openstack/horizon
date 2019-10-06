@@ -1,14 +1,15 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-10-05 18:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-08 12:57+0000\n"
+"PO-Revision-Date: 2019-10-05 09:27+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -720,6 +721,10 @@ msgstr "Kreita ŝlosilparo: %s"
 
 msgid "Creating"
 msgstr "Krei"
+
+#, python-format
+msgid "Creating volume %s"
+msgstr "Krei volumo \"%s\""
 
 msgid "Custom Properties"
 msgstr "Propraj Ecoj"
@@ -1602,6 +1607,9 @@ msgstr ""
 "lanĉita. Elektu ŝlosilpara nomon, kiun vi rekonos. Nomoj nur povas inkludi "
 "karakterojn litercifera, spacoj, streketoj kaj substrekoj."
 
+msgid "Key Type"
+msgstr "Ŝlosilo Tipo"
+
 #, python-format
 msgid "Key pair %(name)s was successfully created."
 msgstr "Ŝlosilparo %(name)s estis sukcese kreita."
@@ -2286,6 +2294,9 @@ msgstr "Rolo"
 msgid "Role %s was successfully created."
 msgstr "Rolo %s estis sukcese kreita."
 
+msgid "Role already exists."
+msgstr "Rolo jam ekzistas."
+
 msgid "Role updated successfully."
 msgstr "Rolon sukcese ĝisdatigita."
 
@@ -2301,6 +2312,9 @@ msgstr "Regulo ID"
 msgid "Rules"
 msgstr "Reguloj"
 
+msgid "SSH Key"
+msgstr "SSH Ŝlosilo"
+
 msgid "STATUS"
 msgstr "STATUSO"
 
@@ -2312,6 +2326,12 @@ msgstr "Savu ŝanĝojn "
 
 msgid "Saving"
 msgstr "Konservi"
+
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "Vicigilita kreado de%s apero."
+msgstr[1] "Vicigilita kreado de %s aperoj."
 
 msgid "Scheduler Hints"
 msgstr "Planilo  Aludoj"
@@ -2478,6 +2498,9 @@ msgstr "Servilo Grupo"
 #, python-format
 msgid "Server Group %s was successfully created."
 msgstr "Servilo Grupo %s estis sukcese kreita."
+
+msgid "Server Group Members"
+msgstr "Servilogrupo Membroj"
 
 msgid "Server Groups"
 msgstr "Servilo Grupoj"
@@ -3722,6 +3745,9 @@ msgstr "Volumo kaj Savkopia Kvoto (GiB)"
 msgid "Volume size is required and must be an integer"
 msgstr "Volumo grando estas bezonata kaj devas esti entjero"
 
+msgid "Volume size is required and must be positive integer"
+msgstr "Volumo grando estas bezonata kaj devas esti entjero"
+
 msgid "Volumes"
 msgstr "Volumoj"
 
@@ -3792,6 +3818,9 @@ msgstr ""
 " <b>Funkciilo Propriulo</b>, tiam la pordo estas disponebla por uzo. Vi "
 "povas agordi la <b> Admin Stato</b> al \n"
 " <b>Suben</b>  se vi ne estas preta por lasi aliajn uzantoj aliri la reton."
+
+msgid "X509 Certificate"
+msgstr "X509 Ateston"
 
 msgid "XL Modal"
 msgstr "XL Modal"
@@ -3929,6 +3958,12 @@ msgstr "bildo"
 
 msgid "inherit"
 msgstr "heredi"
+
+msgid "min disk is required and must be an integer not less than 0"
+msgstr "min disko estas bezonata kaj devas esti entjero ne pli malgranda ol 0 "
+
+msgid "min ram is required and must be an integer not less than 0"
+msgstr "min ram estas bezonata kaj devas esti entjero ne pli malgranda ol 0 "
 
 #, python-format
 msgid "resource load failed: %s"
