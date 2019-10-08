@@ -12,6 +12,7 @@
   </p>
   <p>
   {% blocktrans trimmed %}
+  <b>Secret</b>:
   You may provide your own secret, or one will be generated for you. Once your
   application credential is created, the secret will be revealed once. If you
   lose the secret, you will have to generate a new application credential.
@@ -19,6 +20,7 @@
   </p>
   <p>
   {% blocktrans trimmed %}
+  <b>Expiration Date/Time</b>:
   You may give the application credential an expiration. The expiration will
   be in UTC. If you provide an expiration date with no expiration time, the
   time will be assumed to be 00:00:00. If you provide an expiration time with
@@ -27,6 +29,7 @@
   </p>
   <p>
   {% blocktrans trimmed %}
+  <b>Roles</b>:
   You may select one or more roles for this application credential. If you do
   not select any, all of the roles you have assigned on the current project
   will be applied to the application credential.
@@ -34,6 +37,38 @@
   </p>
   <p>
   {% blocktrans trimmed %}
+  <b>Access Rules</b>:
+  If you want more fine-grained access control delegation, you can create one
+  or more access rules for this application credential. The list of access
+  rules must be a JSON- or YAML-formatted list of rules each containing a service type,
+  an HTTP method, and a URL path, for example:
+  <br />
+  <code>
+  [
+  <br />
+  &nbsp;&nbsp;{"service": "compute",
+  <br />
+  &nbsp;&nbsp;"method": "POST",
+  <br />
+  &nbsp;&nbsp;"path": "/v2.1/servers"}
+  <br />
+  ]
+  <br />
+  </code>
+  or:
+  <br />
+  <code>
+  - service: compute
+  <br />
+  &nbsp;&nbsp;method: POST
+  <br />
+  &nbsp;&nbsp;path: /v2.1/servers
+  </code>
+  {% endblocktrans %}
+  </p>
+  <p>
+  {% blocktrans trimmed %}
+  <b>Unrestricted</b>:
   By default, for security reasons, application credentials are forbidden from
   being used for creating additional application credentials or keystone
   trusts. If your application credential needs to be able to perform these
@@ -43,6 +78,7 @@
   <p>
   {% if kubeconfig_enabled %}
   {% blocktrans trimmed %}
+  <b>Kubernetes Namespace</b>:
   You can optionally provide a Kubernetes Namespace. It will be included in the
   kubeconfig file which can be downloaded from the next screen.
   {% endblocktrans %}
