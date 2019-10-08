@@ -10,5 +10,5 @@ other:
     https://docs.openstack.org/horizon/latest/configuration/settings.html.
 
     Note that Django related settings and HORIZON_CONFIG still exist in
-    ``local_settings.py.example`` in this release and they will be revisit
+    ``local_settings.py.example`` in this release and they will be revisited
     in upcoming releases.
