@@ -22,17 +22,18 @@
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
 # Soonyeul Park <ardentpark@gmail.com>, 2018. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2019. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2019-10-06 11:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-02-10 04:07+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2019-10-07 02:00+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -1252,6 +1253,9 @@ msgstr "그룹 스냅샷 생성"
 msgid "Create Group Type"
 msgstr "그룹 타입 생성"
 
+msgid "Create Group Type Spec"
+msgstr "그룹 유형 사양 생성"
+
 msgid "Create Host Aggregate"
 msgstr "호스트 집합 생성"
 
@@ -1433,6 +1437,10 @@ msgstr "생성됨"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "추가 사양 \"%s\"이 생성됨."
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "그룹 타임 사양 \"%s\" 를 생성하였습니다."
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -2254,6 +2262,10 @@ msgstr "그룹 편집"
 msgid "Edit Group Type"
 msgstr "그룹 타입 수정"
 
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "그룹 유형 사양 값: %s 편집"
+
 msgid "Edit Host Aggregate"
 msgstr "호스트 집합 편집"
 
@@ -2564,6 +2576,9 @@ msgstr "그룹에서 볼륨 제거중 오류가 발생하였습니다."
 
 msgid "Ether Type"
 msgstr "Ether 타입"
+
+msgid "Euca2ools state"
+msgstr "Euca2ools 상태"
 
 msgid "Evacuate Host"
 msgstr "호스트 Evacuate"
@@ -3076,6 +3091,9 @@ msgstr "그룹 스냅샷"
 msgid "Group Type"
 msgstr "그룹 타입"
 
+msgid "Group Type Specs"
+msgstr "그룹 유형 사양"
+
 msgid "Group Types"
 msgstr "그룹 타입"
 
@@ -3404,6 +3422,9 @@ msgstr "Image Snapshot Pending"
 
 msgid "Image Source"
 msgstr "이미지 소스"
+
+msgid "Image Type"
+msgstr "이미지 유형"
 
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
@@ -5289,6 +5310,10 @@ msgid "Saved extra spec \"%s\"."
 msgstr "추가 사양 \"%s\" 저장함."
 
 #, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "그룹 유형 사양 \"%s\" 를 저장했습니다."
+
+#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "사양  \"%s\"를 저장했습니다."
 
@@ -6755,6 +6780,9 @@ msgstr "볼륨 제한 값 초과로 그룹을 생성할 수 없습니다."
 msgid "Unable to create group snapshot."
 msgstr "그룹 스냅샷 생성할 수 없습니다."
 
+msgid "Unable to create group type spec."
+msgstr "그룹 타입 사양을 생성할 수 없습니다."
+
 msgid "Unable to create group type."
 msgstr "그룹 타입을 생성할 수 없습니다."
 
@@ -6906,6 +6934,9 @@ msgstr "선택한 사용자에 대한 역할 할당을 표시할 수 없습니�
 
 msgid "Unable to display the users of this project."
 msgstr "이 프로젝트의 사용자를 표시할 수 없습니다."
+
+msgid "Unable to edit group type spec."
+msgstr "그룹 유형 사양을 편집할 수 없습니다."
 
 msgid "Unable to edit spec."
 msgstr "사양을 수정하지 못 했습니다."
@@ -7267,12 +7298,21 @@ msgstr "그룹 스냅샷 세부 사항을 찾을 수 없습니다."
 msgid "Unable to retrieve group snapshots."
 msgstr "그룹 스냅샷을 찾지 못했습니다"
 
+msgid "Unable to retrieve group type details."
+msgstr "그룹 유형 세부 사항을 가져올 수 없습니다."
+
 #, python-format
 msgid "Unable to retrieve group type for: \"%s\""
 msgstr "그룹 타입을 찾을 수 없습니다: \"%s\""
 
 msgid "Unable to retrieve group type name."
 msgstr "그룹 타입 이름을 찾을 수 없습니다."
+
+msgid "Unable to retrieve group type spec details."
+msgstr "그룹 유형 사양 세부 사항을 가져올 수 없습니다."
+
+msgid "Unable to retrieve group type spec list."
+msgstr "그룹 유형 사양 목록을 가져올 수 없습니다."
 
 msgid "Unable to retrieve group type."
 msgstr "그룹 타입을 찾을 수 없습니다."
@@ -8105,6 +8145,9 @@ msgstr "로그 확인"
 msgid "View Routers"
 msgstr "라우터 보기"
 
+msgid "View Specs"
+msgstr "사양 확인"
+
 msgid "View Usage"
 msgstr "사용량 확인"
 
@@ -8549,11 +8592,26 @@ msgstr "예시: Yes / No"
 msgid "e.g. Yes/No"
 msgstr "예: Yes/No"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+"flavor id는 영숫자 문자, 밑줄, 마침표, 콜론, 하이픈, 스페이스만 포함할 수 있"
+"습니다."
+
 msgid "front-end"
 msgstr "프론트-엔드"
 
 msgid "instance"
 msgstr "인스턴스"
+
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"이름 \"%s\" 에 해당하는 키가 이미 존재합니다. 편집 버튼을 사용하여 값을 수정"
+"하거나, 다른 이름으로 키를 만드십시오."
 
 msgid "no"
 msgstr "아니오"
