@@ -15,6 +15,7 @@
 
 from django.core.urlresolvers import reverse
 from django import http
+from django.test.utils import override_settings
 
 from mox3.mox import IsA
 
@@ -594,3 +595,75 @@ class NetworkPortTests(test.BaseAdminViewTests):
         res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, url)
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'network_get',
+                                      'is_extension_supported')})
+    def test_add_allowed_address_pair_button_shown(self):
+        port = self.ports.first()
+        network_id = self.networks.first().id
+        api.neutron.port_get(IsA(http.HttpRequest), port.id) \
+            .AndReturn(self.ports.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning') \
+            .MultipleTimes().AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'allowed-address-pairs') \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.network_get(IsA(http.HttpRequest), network_id) \
+            .AndReturn(self.networks.first())
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:networks:ports:addallowedaddresspairs',
+                      args=[port.id])
+        classes = 'btn data-table-action btn-default ajax-modal'
+        link_name = "Add Allowed Address Pair"
+
+        expected_string = \
+            '<a id="allowed_address_pairs__action_AddAllowedAddressPair" ' \
+            'class="%s" href="%s" title="Add Allowed Address Pair">' \
+            '<span class="fa fa-plus"></span> %s</a>' \
+            % (classes, url, link_name)
+
+        res = self.client.get(reverse('horizon:project:networks:ports:detail',
+                                      args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'network_get',
+                                      'is_extension_supported')})
+    def test_delete_address_pair_button_shown(self):
+        port = self.ports.first()
+        network_id = self.networks.first().id
+        api.neutron.port_get(IsA(http.HttpRequest), port.id) \
+            .AndReturn(self.ports.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning') \
+            .MultipleTimes().AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'allowed-address-pairs') \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.network_get(IsA(http.HttpRequest), network_id) \
+            .AndReturn(self.networks.first())
+        self.mox.ReplayAll()
+
+        classes = 'data-table-action btn-danger btn'
+
+        expected_string = \
+            '<button data-batch-action="true" ' \
+            'id="allowed_address_pairs__action_delete" ' \
+            'class="%s" name="action" help_text="This action cannot be ' \
+            'undone." type="submit" value="allowed_address_pairs__delete">' \
+            '<span class="fa fa-trash"></span>' \
+            ' Delete</button>' \
+            % (classes)
+
+        res = self.client.get(reverse(
+            'horizon:project:networks:ports:detail', args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())
