@@ -1,0 +1,14 @@
+---
+other:
+  - |
+    The default values of the settings listed in ``local_settings.py.example``
+    in past releases have been moved to ``openstack_dashboard/defaults.py``.
+    By doing this, horizon can now provide the definitions of the default
+    settings more explicitly.
+    For the available settings, see ``openstack_dashboard/defaults.py`` and
+    the horizon setting reference found at
+    https://docs.openstack.org/horizon/latest/configuration/settings.html.
+
+    Note that Django related settings and HORIZON_CONFIG still exist in
+    ``local_settings.py.example`` in this release and they will be revisited
+    in upcoming releases.
