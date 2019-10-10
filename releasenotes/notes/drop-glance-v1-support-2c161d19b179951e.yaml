@@ -1,0 +1,5 @@
+---
+upgrade:
+  - |
+    Glance API V1 support has been dropped in Ussuri release. Glance V1 API
+    support was deprecated in Stein release.

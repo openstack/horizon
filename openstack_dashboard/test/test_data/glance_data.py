@@ -12,8 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from glanceclient.v1 import images
-
 from openstack_dashboard import api
 from openstack_dashboard.test.test_data import utils
 
@@ -47,6 +45,9 @@ class APIResourceV2(dict):
 
 
 def data(TEST):
+    # TODO(e0ne): merge images with imagesV2 and snapshots with snapshotsV2
+    # test data.
+
     TEST.images = utils.TestDataContainer()
     TEST.images_api = utils.TestDataContainer()
     TEST.snapshots = utils.TestDataContainer()
@@ -90,14 +91,13 @@ def data(TEST):
                                  'is_public': False,
                                  'protected': False}
 
-    snapshot = images.Image(images.ImageManager(None), snapshot_dict)
+    snapshot = APIResourceV2(snapshot_dict)
     TEST.snapshots.add(api.glance.Image(snapshot))
-    snapshot = images.Image(images.ImageManager(None), snapshot_dict_no_owner)
+    snapshot = APIResourceV2(snapshot_dict_no_owner)
     TEST.snapshots.add(api.glance.Image(snapshot))
-    snapshot = images.Image(images.ImageManager(None), snapshot_dict_queued)
+    snapshot = APIResourceV2(snapshot_dict_queued)
     TEST.snapshots.add(api.glance.Image(snapshot))
-    snapshot = images.Image(images.ImageManager(None),
-                            snapshot_dict_with_volume)
+    snapshot = APIResourceV2(snapshot_dict_with_volume)
     TEST.snapshots.add(api.glance.Image(snapshot))
 
     # Images
@@ -115,7 +115,7 @@ def data(TEST):
                   'protected': False,
                   'min_ram': 0,
                   'created_at': '2014-02-14T20:56:53'}
-    public_image = images.Image(images.ImageManager(None), image_dict)
+    public_image = APIResourceV2(image_dict)
 
     image_dict = {'id': 'a001c047-22f8-47d0-80a1-8ec94a9524fe',
                   'name': 'private_image',
@@ -129,7 +129,7 @@ def data(TEST):
                   'protected': False,
                   'min_ram': 0,
                   'created_at': '2014-03-14T12:56:53'}
-    private_image = images.Image(images.ImageManager(None), image_dict)
+    private_image = APIResourceV2(image_dict)
 
     image_dict = {'id': 'd6936c86-7fec-474a-85c5-5e467b371c3c',
                   'name': 'protected_images',
@@ -144,7 +144,7 @@ def data(TEST):
                   'protected': True,
                   'min_ram': 0,
                   'created_at': '2014-03-16T06:22:14'}
-    protected_image = images.Image(images.ImageManager(None), image_dict)
+    protected_image = APIResourceV2(image_dict)
 
     image_dict = {'id': '278905a6-4b52-4d1e-98f9-8c57bb25ba32',
                   'name': None,
@@ -158,7 +158,7 @@ def data(TEST):
                   'is_public': True,
                   'protected': False,
                   'min_ram': 0}
-    public_image2 = images.Image(images.ImageManager(None), image_dict)
+    public_image2 = APIResourceV2(image_dict)
 
     image_dict = {'id': '710a1acf-a3e3-41dd-a32d-5d6b6c86ea10',
                   'name': 'private_image 2',
@@ -171,7 +171,7 @@ def data(TEST):
                   'is_public': False,
                   'protected': False,
                   'min_ram': 0}
-    private_image2 = images.Image(images.ImageManager(None), image_dict)
+    private_image2 = APIResourceV2(image_dict)
 
     image_dict = {'id': '7cd892fd-5652-40f3-a450-547615680132',
                   'name': 'private_image 3',
@@ -184,7 +184,7 @@ def data(TEST):
                   'is_public': False,
                   'protected': False,
                   'min_ram': 0}
-    private_image3 = images.Image(images.ImageManager(None), image_dict)
+    private_image3 = APIResourceV2(image_dict)
 
     # A community image. Not public and not local tenant, but visibility
     # is set as 'community'
@@ -200,7 +200,7 @@ def data(TEST):
                   'protected': False,
                   'min_ram': 0,
                   'visibility': 'community'}
-    community_image = images.Image(images.ImageManager(None), image_dict)
+    community_image = APIResourceV2(image_dict)
 
     # A shared image. Not public and not local tenant.
     image_dict = {'id': 'c8756975-7a3b-4e43-b7f7-433576112849',
@@ -214,7 +214,7 @@ def data(TEST):
                   'is_public': False,
                   'protected': False,
                   'min_ram': 0}
-    shared_image1 = images.Image(images.ImageManager(None), image_dict)
+    shared_image1 = APIResourceV2(image_dict)
 
     # "Official" image. Public and tenant matches an entry
     # in IMAGES_LIST_FILTER_TENANTS.
@@ -229,7 +229,7 @@ def data(TEST):
                   'is_public': True,
                   'protected': False,
                   'min_ram': 0}
-    official_image1 = images.Image(images.ImageManager(None), image_dict)
+    official_image1 = APIResourceV2(image_dict)
 
     image_dict = {'id': 'a67e7d45-fe1e-4c5c-bf08-44b4a4964822',
                   'name': 'multi_prop_image',
@@ -244,7 +244,7 @@ def data(TEST):
                                  'bar': u'bar val'},
                   'is_public': True,
                   'protected': False}
-    multi_prop_image = images.Image(images.ImageManager(None), image_dict)
+    multi_prop_image = APIResourceV2(image_dict)
 
     # An image without name being returned based on current api
     image_dict = {'id': 'c8756975-7a3b-4e43-b7f7-433576112849',
@@ -256,7 +256,7 @@ def data(TEST):
                   'container_format': 'aki',
                   'is_public': False,
                   'protected': False}
-    no_name_image = images.Image(images.ImageManager(None), image_dict)
+    no_name_image = APIResourceV2(image_dict)
 
     TEST.images_api.add(public_image, private_image, protected_image,
                         public_image2, private_image2, private_image3,
