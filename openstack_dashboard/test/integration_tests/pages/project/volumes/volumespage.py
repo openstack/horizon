@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from selenium.common import exceptions
 from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.integration_tests.pages import basepage
@@ -164,9 +165,13 @@ class VolumesPage(basepage.BaseNavigationPage):
     def is_volume_status(self, name, status):
         def cell_getter():
             row = self._get_row_with_volume_name(name)
-            return row and row.cells[self.VOLUMES_TABLE_STATUS_COLUMN]
+            return row.cells[self.VOLUMES_TABLE_STATUS_COLUMN]
 
-        return bool(self.volumes_table.wait_cell_status(cell_getter, status))
+        try:
+            self._wait_till_text_present_in_element(cell_getter, status)
+        except exceptions.TimeoutException:
+            return False
+        return True
 
     def is_volume_deleted(self, name):
         return self.volumes_table.is_row_deleted(
@@ -210,7 +215,7 @@ class VolumesPage(basepage.BaseNavigationPage):
     def get_size(self, name):
         row = self._get_row_with_volume_name(name)
         size = str(row.cells[self.VOLUMES_TABLE_SIZE_COLUMN].text)
-        return int(filter(str.isdigit, size))
+        return int(''.join(filter(str.isdigit, size)))
 
     def launch_instance(self, name, instance_name, available_zone=None):
         row = self._get_row_with_volume_name(name)

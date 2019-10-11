@@ -9,8 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-from unittest import skip
-
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -36,12 +34,11 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         def cleanup():
             volumes_page = self.home_pg.go_to_project_volumes_volumespage()
             volumes_page.delete_volume(self.VOLUME_NAME)
-            volumes_page.find_message_and_dismiss(messages.SUCCESS)
+            volumes_page.find_message_and_dismiss(messages.INFO)
             self.assertTrue(volumes_page.is_volume_deleted(self.VOLUME_NAME))
 
         self.addCleanup(cleanup)
 
-    @skip('Skipped until bug 1792028 is resolved')
     def test_create_edit_delete_volume_snapshot(self):
         """Test checks create/delete volume snapshot action
 
@@ -87,7 +84,6 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         self.assertTrue(volumes_snapshot_page.is_volume_snapshot_deleted(
             new_name))
 
-    @skip('Skipped until bug 1792028 is resolved')
     def test_volume_snapshots_pagination(self):
         """This test checks volumes snapshots pagination
 
@@ -180,12 +176,10 @@ class TestVolumeSnapshotsAdmin(helpers.AdminTestCase,
     def volumes_snapshot_page(self):
         return self.home_pg.go_to_project_volumes_snapshotspage()
 
-    @skip('Skipped until bug 1792028 is resolved')
     def test_create_edit_delete_volume_snapshot(self):
         super(TestVolumeSnapshotsAdmin, self).\
             test_create_edit_delete_volume_snapshot()
 
-    @skip('Skipped until bug 1792028 is resolved')
     def test_volume_snapshots_pagination(self):
         super(TestVolumeSnapshotsAdmin, self).\
             test_volume_snapshots_pagination()
@@ -213,14 +207,13 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
             volumes_page = self.home_pg.go_to_project_volumes_volumespage()
             volumes_page.delete_volume(self.VOLUME_NAME)
             self.assertTrue(
-                volumes_page.find_message_and_dismiss(messages.SUCCESS))
+                volumes_page.find_message_and_dismiss(messages.INFO))
             self.assertFalse(
                 volumes_page.find_message_and_dismiss(messages.ERROR))
             self.assertTrue(volumes_page.is_volume_deleted(self.VOLUME_NAME))
 
         self.addCleanup(cleanup)
 
-    @skip('Skipped until bug 1792028 is resolved')
     def test_create_volume_from_snapshot(self):
         """Test checks possibility to create volume from snapshot
 
@@ -259,6 +252,6 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.delete_volume(new_volume)
         self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.SUCCESS))
+            volumes_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(volumes_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(volumes_page.is_volume_deleted(new_volume))

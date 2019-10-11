@@ -25,7 +25,6 @@ class TestVolumesBasic(helpers.TestCase):
     def volumes_page(self):
         return self.home_pg.go_to_project_volumes_volumespage()
 
-    @skip('Skipped until bug 1792028 is resolved')
     def test_volume_create_edit_delete(self):
         """This test case checks create, edit, delete volume functionality:
 
@@ -64,7 +63,7 @@ class TestVolumesBasic(helpers.TestCase):
         volumes_page = self.volumes_page
         volumes_page.delete_volume(new_name)
         self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.SUCCESS))
+            volumes_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             volumes_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(volumes_page.is_volume_deleted(new_name))
@@ -78,7 +77,6 @@ class TestVolumesBasic(helpers.TestCase):
             form = volumes_page.volumes_table.create_volume()
             form.cancel()
 
-    @skip('Skipped until bug 1792028 is resolved')
     def test_volumes_pagination(self):
         """This test checks volumes pagination
 
@@ -108,8 +106,13 @@ class TestVolumesBasic(helpers.TestCase):
                          range(count)]
         for volume_name in volumes_names:
             volumes_page.create_volume(volume_name)
-            volumes_page.find_message_and_dismiss(messages.INFO)
+            self.assertTrue(
+                volumes_page.find_message_and_dismiss(messages.INFO))
+            self.assertFalse(
+                volumes_page.find_message_and_dismiss(messages.ERROR))
             self.assertTrue(volumes_page.is_volume_present(volume_name))
+            self.assertTrue(volumes_page.is_volume_status(volume_name,
+                                                          'Available'))
 
         first_page_definition = {'Next': True, 'Prev': False,
                                  'Count': items_per_page,
@@ -145,7 +148,10 @@ class TestVolumesBasic(helpers.TestCase):
 
         volumes_page = self.volumes_page
         volumes_page.delete_volumes(volumes_names)
-        volumes_page.find_message_and_dismiss(messages.SUCCESS)
+        self.assertTrue(
+            volumes_page.find_message_and_dismiss(messages.INFO))
+        self.assertFalse(
+            volumes_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(volumes_page.are_volumes_deleted(volumes_names))
 
 
@@ -251,7 +257,7 @@ class TestVolumesActions(helpers.TestCase):
             volumes_page = self.volumes_page
             volumes_page.delete_volume(self.VOLUME_NAME)
             self.assertTrue(
-                volumes_page.find_message_and_dismiss(messages.SUCCESS))
+                volumes_page.find_message_and_dismiss(messages.INFO))
             self.assertFalse(
                 volumes_page.find_message_and_dismiss(messages.ERROR))
             self.assertTrue(
@@ -259,7 +265,6 @@ class TestVolumesActions(helpers.TestCase):
 
         self.addCleanup(cleanup)
 
-    @skip('Skipped until bug 1792028 is resolved')
     def test_volume_extend(self):
         """This test case checks extend volume functionality:
 
@@ -282,7 +287,7 @@ class TestVolumesActions(helpers.TestCase):
         new_size = volumes_page.get_size(self.VOLUME_NAME)
         self.assertLess(orig_size, new_size)
 
-    @skip('Skipped until bug 1774697 is resolved')
+    @skip('Skipped until bug 1847715 is resolved')
     def test_volume_upload_to_image(self):
         """This test case checks upload volume to image functionality:
 
@@ -311,7 +316,7 @@ class TestVolumesActions(helpers.TestCase):
                              all_formats[disk_format])
             images_page.delete_image(self.IMAGE_NAME)
             self.assertTrue(images_page.find_message_and_dismiss(
-                messages.SUCCESS))
+                messages.INFO))
             self.assertFalse(images_page.find_message_and_dismiss(
                 messages.ERROR))
             self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
