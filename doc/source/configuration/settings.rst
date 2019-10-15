@@ -1734,7 +1734,7 @@ Default:
         'enable_fip_topology_check': True,
         'enable_ha_router': False,
         'enable_ipv6': True,
-        'enable_quotas': False,
+        'enable_quotas': True,
         'enable_rbac_policy': True,
         'enable_router': True,
         'extra_provider_types': {},
@@ -1834,7 +1834,11 @@ will only expose IPv4 configuration for networks.
 enable_quotas
 #############
 
-Default: ``False``
+.. versionchanged:: 17.0.0(Ussuri)
+
+   The default value was changed to ``True``
+
+Default: ``True``
 
 Enable support for Neutron quotas feature. To make this feature work
 appropriately, you need to use Neutron plugins with quotas extension support

@@ -398,8 +398,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_fip_topology_check': True,
     'enable_ha_router': False,
     'enable_ipv6': True,
-    # TODO(amotoki): Change the default value to True? See local_settings.py
-    'enable_quotas': False,
+    'enable_quotas': True,
     'enable_rbac_policy': True,
     'enable_router': True,
 
