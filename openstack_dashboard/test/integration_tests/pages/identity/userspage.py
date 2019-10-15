@@ -34,7 +34,7 @@ class UsersTable(tables.TableRegion):
 
 class UsersPage(basepage.BaseNavigationPage):
 
-    USERS_TABLE_NAME_COLUMN = 'name'
+    USERS_TABLE_NAME_COLUMN = 'User Name'
 
     def __init__(self, driver, conf):
         super(UsersPage, self).__init__(driver, conf)
