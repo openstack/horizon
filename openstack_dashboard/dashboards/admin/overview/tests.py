@@ -166,16 +166,17 @@ class UsageViewTests(test.BaseAdminViewTests):
         res = self.client.get(csv_url)
         self.assertTemplateUsed(res, 'admin/overview/usage.csv')
         self.assertIsInstance(res.context['usage'], usage.GlobalUsage)
-        hdr = 'Project Name,VCPUs,RAM (MB),Disk (GB),Usage (Hours)'
+        hdr = '"Project Name","VCPUs","RAM (MB)","Disk (GB)","Usage (Hours)"'
         self.assertContains(res, '%s\r\n' % hdr)
 
         if nova_stu_enabled:
             for obj in usage_obj:
-                row = u'{0},{1},{2},{3},{4:.2f}\r\n'.format(obj.project_name,
-                                                            obj.vcpus,
-                                                            obj.memory_mb,
-                                                            obj.disk_gb_hours,
-                                                            obj.vcpu_hours)
+                row = u'"{0}","{1}","{2}","{3}","{4:.2f}"\r\n'.format(
+                    obj.project_name,
+                    obj.vcpus,
+                    obj.memory_mb,
+                    obj.disk_gb_hours,
+                    obj.vcpu_hours)
                 self.assertContains(res, row)
 
         self.assert_mock_multiple_calls_with_same_arguments(

@@ -229,7 +229,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         return self.client.get(INDEX_URL)
 
     def _check_get_index(self, use_servers_update_address=True,
-                         multiplier=4):
+                         multiplier=5):
         expected_extension_count = {'AdminActions': 4 * multiplier,
                                     'Shelve': 1 * multiplier}
         expected_feature_count = 2 * multiplier
@@ -357,10 +357,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertItemsEqual(instances, self.servers.list())
 
-        self._check_extension_supported({'AdminActions': 16,
-                                         'Shelve': 4})
+        self._check_extension_supported({'AdminActions': 20,
+                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_is_feature_available, 8,
+            self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
         self.mock_server_list_paged.assert_called_once_with(
             helpers.IsHttpRequest(),
@@ -375,10 +375,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             self.mock_tenant_absolute_limits, 2,
             mock.call(helpers.IsHttpRequest(), reserved=True))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_supported, 8,
+            self.mock_floating_ip_supported, 10,
             mock.call(helpers.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_simple_associate_supported, 4,
+            self.mock_floating_ip_simple_associate_supported, 5,
             mock.call(helpers.IsHttpRequest()))
 
     @helpers.create_mocks({
@@ -435,10 +435,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         if expected_image_name:
             self.assertContains(res, expected_image_name)
 
-        self._check_extension_supported({'AdminActions': 16,
-                                         'Shelve': 4})
+        self._check_extension_supported({'AdminActions': 20,
+                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_is_feature_available, 8,
+            self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
@@ -454,10 +454,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             self.mock_tenant_absolute_limits, 2,
             mock.call(helpers.IsHttpRequest(), reserved=True))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_supported, 8,
+            self.mock_floating_ip_supported, 10,
             mock.call(helpers.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_simple_associate_supported, 4,
+            self.mock_floating_ip_simple_associate_supported, 5,
             mock.call(helpers.IsHttpRequest()))
         self.mock_volume_list.assert_called_once_with(helpers.IsHttpRequest())
 
@@ -497,7 +497,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             if console_link_rendered:
                 break
             self.assertTrue(console_link_rendered)
-        self._check_get_index(multiplier=5)
+        self._check_get_index(multiplier=6)
 
     @django.test.utils.override_settings(CONSOLE_TYPE=None)
     def test_index_without_console_link(self):
@@ -508,7 +508,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         for instance in instances:
             for action in instances_table.get_row_actions(instance):
                 self.assertNotIsInstance(action, tables.ConsoleLink)
-        self._check_get_index(multiplier=8)
+        self._check_get_index(multiplier=10)
 
     @helpers.create_mocks({api.nova: ('server_list_paged',
                                       'flavor_list',
@@ -1928,10 +1928,10 @@ class InstanceTests(InstanceTestBase):
             else:
                 self.assertNotContains(res, _action_id)
 
-        self._check_extension_supported({'AdminActions': 16,
-                                         'Shelve': 4})
+        self._check_extension_supported({'AdminActions': 20,
+                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_is_feature_available, 8,
+            self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
@@ -1947,10 +1947,10 @@ class InstanceTests(InstanceTestBase):
             self.mock_tenant_absolute_limits, 2,
             mock.call(helpers.IsHttpRequest(), reserved=True))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_supported, 8,
+            self.mock_floating_ip_supported, 10,
             mock.call(helpers.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_simple_associate_supported, 4,
+            self.mock_floating_ip_simple_associate_supported, 5,
             mock.call(helpers.IsHttpRequest()))
 
     @helpers.create_mocks({api.nova: ('get_password',)})
@@ -4224,10 +4224,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertEqual((('compute', 'os_compute_api:servers:create'),),
                          launch_action.policy_rules)
 
-        self._check_extension_supported({'AdminActions': 16,
-                                         'Shelve': 4})
+        self._check_extension_supported({'AdminActions': 20,
+                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_is_feature_available, 8,
+            self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
@@ -4243,10 +4243,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             self.mock_tenant_absolute_limits, 3,
             mock.call(helpers.IsHttpRequest(), reserved=True))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_supported, 8,
+            self.mock_floating_ip_supported, 10,
             mock.call(helpers.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_simple_associate_supported, 4,
+            self.mock_floating_ip_simple_associate_supported, 5,
             mock.call(helpers.IsHttpRequest()))
 
     @helpers.create_mocks({
@@ -4289,10 +4289,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertEqual('Launch Instance (Quota exceeded)',
                          six.text_type(launch_action.verbose_name))
 
-        self._check_extension_supported({'AdminActions': 16,
-                                         'Shelve': 4})
+        self._check_extension_supported({'AdminActions': 20,
+                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_is_feature_available, 8,
+            self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
@@ -4308,10 +4308,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             self.mock_tenant_absolute_limits, 3,
             mock.call(helpers.IsHttpRequest(), reserved=True))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_supported, 8,
+            self.mock_floating_ip_supported, 10,
             mock.call(helpers.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_simple_associate_supported, 4,
+            self.mock_floating_ip_simple_associate_supported, 5,
             mock.call(helpers.IsHttpRequest()))
 
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
@@ -4472,10 +4472,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.assertContains(res, "instances__confirm")
         self.assertContains(res, "instances__revert")
 
-        self._check_extension_supported({'AdminActions': 16,
-                                         'Shelve': 4})
+        self._check_extension_supported({'AdminActions': 20,
+                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_is_feature_available, 8,
+            self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
@@ -4491,10 +4491,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             self.mock_tenant_absolute_limits, 2,
             mock.call(helpers.IsHttpRequest(), reserved=True))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_supported, 8,
+            self.mock_floating_ip_supported, 10,
             mock.call(helpers.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_floating_ip_simple_associate_supported, 4,
+            self.mock_floating_ip_simple_associate_supported, 5,
             mock.call(helpers.IsHttpRequest()))
 
     @helpers.create_mocks({api.nova: ('extension_supported',
