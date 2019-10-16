@@ -16,7 +16,7 @@ Back-end service support
   possible by using micro-versioning for nova, cinder and so on and API
   extensions for neutron (and others if any).
 
-* Related to the previous item, features available in ``N-3`` releases
+* Related to the previous item, features available in ``N-4`` releases
   (which means the recent four releases including the development version)
   are assumed without checking the availability of features
   to simplify the implementation.
