@@ -88,13 +88,6 @@
     vars: *base_vars
 
 - job:
-    name: horizon-dsvm-tempest-plugin-py27
-    parent: horizon-dsvm-tempest-plugin
-    vars:
-      devstack_localrc:
-        USE_PYTHON3: false
-
-- job:
     # Security testing for known issues
     name: horizon-tox-bandit-baseline
     parent: openstack-tox
@@ -174,7 +167,6 @@
       - horizon-nodejs10-jobs
       - horizon-non-primary-django-jobs
       - openstack-lower-constraints-jobs
-      - openstack-python-jobs
       - openstack-python3-ussuri-jobs
       - periodic-stable-jobs
       - publish-openstack-docs-pti
@@ -184,14 +176,12 @@
         - horizon-selenium-headless
         - horizon-integration-tests
         - horizon-dsvm-tempest-plugin
-        - horizon-dsvm-tempest-plugin-py27
         - horizon-tox-bandit-baseline
         - horizon-tempest-plugin-ipv6
     gate:
       queue: horizon
       jobs:
         - horizon-dsvm-tempest-plugin
-        - horizon-dsvm-tempest-plugin-py27
         - horizon-selenium-headless
         - horizon-integration-tests
         - horizon-tempest-plugin-ipv6
