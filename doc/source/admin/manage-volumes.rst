@@ -101,14 +101,9 @@ volumes.
 |                    |                       |type 'cryptsetup benchmark' |
 |                    |                       |for additional options      |
 +--------------------+-----------------------+----------------------------+
-|     Key Size (bits)| 512 (Recommended for  |Using this selection for    |
-|                    | aes-xts-plain64. 256  |aes-xts, the underlying key |
-|                    | should be used for    |size would only be 256-bits*|
-|                    | aes-cbc-essiv)        |                            |
-+                    +-----------------------+----------------------------+
-|                    | 256                   |Using this selection for    |
-|                    |                       |aes-xts, the underlying key |
-|                    |                       |size would only be 128-bits*|
+|     Key Size (bits)| 256 (Recommended for  |Using this selection for    |
+|                    | aes-xts-plain64 and   |aes-xts, the underlying key |
+|                    | aes-cbc-essiv)        |size would only be 128-bits*|
 +--------------------+-----------------------+----------------------------+
 
 `*` Source `NIST SP 800-38E <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38e.pdf>`_
