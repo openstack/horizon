@@ -487,15 +487,9 @@ class NovaRestTestCase(test.TestCase):
     # Extensions
     #
     @test.create_mocks({api.nova: ['list_extensions']})
-    @mock.patch.object(settings,
-                       'OPENSTACK_NOVA_EXTENSIONS_BLACKLIST', ['baz'])
-    def _test_extension_list(self):
+    def test_extension_list(self):
         request = self.mock_rest_request()
-        self.mock_list_extensions.return_value = [
-            mock.Mock(**{'to_dict.return_value': {'name': 'foo'}}),
-            mock.Mock(**{'to_dict.return_value': {'name': 'bar'}}),
-            mock.Mock(**{'to_dict.return_value': {'name': 'baz'}}),
-        ]
+        self.mock_list_extensions.return_value = ['foo', 'bar']
         response = nova.Extensions().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual({"items": [{"name": "foo"}, {"name": "bar"}]},

@@ -72,6 +72,15 @@ class ComputeApiTests(test.APIMockTestCase):
         # To handle upgrade_api
         mock_novaclient.api_version = api_versions.APIVersion(version)
 
+    @override_settings(OPENSTACK_NOVA_EXTENSIONS_BLACKLIST=['ConsoleOutput'])
+    def test_extension_supported(self):
+        self.assertTrue(api.nova.extension_supported(
+            'Evacuate', mock.sentinel.request))
+        self.assertFalse(api.nova.extension_supported(
+            'ConsoleOutput', mock.sentinel.request))
+        self.assertFalse(api.nova.extension_supported(
+            'DoesNotExist', mock.sentinel.request))
+
     @mock.patch.object(api._nova, 'novaclient')
     def test_server_reboot(self, mock_novaclient):
         server = self.servers.first()

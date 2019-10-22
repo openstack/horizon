@@ -548,12 +548,7 @@
      *  {
      *    "items": [
      *      {
-     *        "alias": "NMN",
-     *        "description": "Multiple network support.",
-     *        "links": [],
-     *        "name": "Multinic",
-     *        "namespace": "http://docs.openstack.org/compute/ext/multinic/api/v1.1",
-     *        "updated": "2011-06-09T00:00:00Z"
+     *        "name": "Multinic"
      *      }
      *    ]
      *  }

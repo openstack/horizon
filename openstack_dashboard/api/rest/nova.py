@@ -512,13 +512,13 @@ class Extensions(generic.View):
         """Get a list of extensions.
 
         The listing result is an object with property "items". Each item is
-        an image.
+        an object with property "name".
 
         Example GET:
         http://localhost/api/nova/extensions
         """
         result = api.nova.list_extensions(request)
-        return {'items': [e.to_dict() for e in result]}
+        return {'items': [{'name': e} for e in result]}
 
 
 @urls.register
