@@ -201,7 +201,7 @@
           <div class="form-group required"
                ng-class="{'has-error':imageForm.min_disk.$invalid && imageForm.min_disk.$dirty}">
             <label class="control-label" for="imageForm-min_disk">
-              <translate>Minimum Disk (GB)</translate>
+              <translate>Minimum Disk (GB)</translate><span class="hz-icon-required fa fa-asterisk"></span>
             </label>
             <input id="imageForm-min_disk" name="min_disk"
                    type="number" class="form-control"
@@ -216,7 +216,7 @@
           <div class="form-group required"
                ng-class="{'has-error':imageForm.min_ram.$invalid && imageForm.min_ram.$dirty}">
             <label class="control-label required">
-              <translate>Minimum RAM (MB)</translate>
+              <translate>Minimum RAM (MB)</translate><span class="hz-icon-required fa fa-asterisk"></span>
             </label>
             <input id="imageForm-min_ram" name="min_ram"
                    type="number" class="form-control"
