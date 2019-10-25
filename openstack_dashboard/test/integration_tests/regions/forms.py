@@ -347,8 +347,6 @@ class FormRegion(BaseFormRegion):
         self.fields_src_elem = self._get_element(*self._fields_locator)
         fields = self._get_form_fields()
         for accessor_name, accessor_expr in self.field_mappings.items():
-            if accessor_expr not in fields:
-                continue
             if isinstance(accessor_expr, six.string_types):
                 self._dynamic_properties[accessor_name] = fields[accessor_expr]
             else:  # it is a class
@@ -446,8 +444,6 @@ class TabbedFormRegion(FormRegion):
         fields = self._get_form_fields()
         current_tab_mappings = self.field_mappings[tab_index]
         for accessor_name, accessor_expr in current_tab_mappings.items():
-            if accessor_expr not in fields:
-                continue
             if isinstance(accessor_expr, six.string_types):
                 self._dynamic_properties[accessor_name] = fields[accessor_expr]
             else:  # it is a class

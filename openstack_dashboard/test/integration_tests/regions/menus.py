@@ -360,20 +360,17 @@ class MembershipMenuRegion(baseregion.BaseRegion):
     def _is_role_selected(role):
         return 'selected' == role.get_attribute('class')
 
-    @staticmethod
-    def _get_hidden_text(role):
-        return role.get_attribute('textContent')
-
     def get_member_available_roles(self, name, allocated_members=None,
                                    strip=True):
         roles = self._get_member_all_roles(name, allocated_members)
-        return [(self._get_hidden_text(role).strip() if strip else role)
+        return [(role.text.strip() if strip else role)
                 for role in roles if not self._is_role_selected(role)]
 
     def get_member_allocated_roles(self, name, allocated_members=None,
                                    strip=True):
+        self.open_member_roles_dropdown(name, allocated_members)
         roles = self._get_member_all_roles(name, allocated_members)
-        return [(self._get_hidden_text(role).strip() if strip else role)
+        return [(role.text.strip() if strip else role)
                 for role in roles if self._is_role_selected(role)]
 
     def open_member_roles_dropdown(self, name, allocated_members=None):

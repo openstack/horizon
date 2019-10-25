@@ -51,7 +51,7 @@ IdentityGroup = [
                default='admin',
                help="Project to keep all objects belonging to an admin user."),
     cfg.StrOpt('default_keystone_role',
-               default='Member',
+               default='member',
                help="Name of default role every user gets in his new project"),
     cfg.StrOpt('default_keystone_admin_role',
                default='admin',
