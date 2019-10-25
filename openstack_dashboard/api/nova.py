@@ -30,7 +30,6 @@ from django.utils.translation import ugettext_lazy as _
 from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import instance_action as nova_instance_action
-from novaclient.v2 import list_extensions as nova_list_extensions
 from novaclient.v2 import servers as nova_servers
 
 from horizon import exceptions as horizon_exceptions
@@ -48,6 +47,113 @@ LOG = logging.getLogger(__name__)
 INSTANCE_ACTIVE_STATE = 'ACTIVE'
 VOLUME_STATE_AVAILABLE = "available"
 DEFAULT_QUOTA_NAME = 'default'
+
+# python-novaclient 16.0.0 removed the list_extensions module and the
+# GET /extensions API is deprecated since Newton. Furthermore, the ability
+# to enable/disable compute API extensions was also removed in Newton.
+# Therefore we hard-code the list of extensions here until the
+# OPENSTACK_NOVA_EXTENSIONS_BLACKLIST setting is no longer used.
+EXTENSIONS = (
+    'AccessIPs',
+    'AdminActions',
+    'AdminPassword',
+    'Agents',
+    'Aggregates',
+    'AssistedVolumeSnapshots',
+    'AttachInterfaces',
+    'AvailabilityZone',
+    'BareMetalExtStatus',
+    'BareMetalNodes',
+    'BlockDeviceMapping',
+    'BlockDeviceMappingV2Boot',
+    'CellCapacities',
+    'Cells',
+    'Certificates',
+    'Cloudpipe',
+    'CloudpipeUpdate',
+    'ConfigDrive',
+    'ConsoleAuthTokens',
+    'ConsoleOutput',
+    'Consoles',
+    'CreateBackup',
+    'Createserverext',
+    'DeferredDelete',
+    'DiskConfig',
+    'Evacuate',
+    'ExtendedAvailabilityZone',
+    'ExtendedEvacuateFindHost',
+    'ExtendedFloatingIps',
+    'ExtendedHypervisors',
+    'ExtendedIps',
+    'ExtendedIpsMac',
+    'ExtendedNetworks',
+    'ExtendedQuotas',
+    'ExtendedRescueWithImage',
+    'ExtendedServerAttributes',
+    'ExtendedServices',
+    'ExtendedServicesDelete',
+    'ExtendedStatus',
+    'ExtendedStatus',
+    'ExtendedVolumes',
+    'FixedIPs',
+    'FlavorAccess',
+    'FlavorDisabled',
+    'FlavorExtraData',
+    'FlavorExtraSpecs',
+    'FlavorManage',
+    'FlavorRxtx',
+    'FlavorSwap',
+    'FloatingIpDns',
+    'FloatingIpPools',
+    'FloatingIps',
+    'FloatingIpsBulk',
+    'Fping',
+    'HideServerAddresses',
+    'Hosts',
+    'HypervisorStatus',
+    'Hypervisors',
+    'ImageSize',
+    'InstanceActions',
+    'Keypairs',
+    'LockServer',
+    'MigrateServer',
+    'Migrations',
+    'Multinic',
+    'MultipleCreate',
+    'NetworkAssociationSupport',
+    'Networks',
+    'OSInstanceUsageAuditLog',
+    'OSTenantNetworks',
+    'PauseServer',
+    'Personality',
+    'PreserveEphemeralOnRebuild',
+    'QuotaClasses',
+    'Quotas',
+    'Rescue',
+    'SchedulerHints',
+    'SecurityGroupDefaultRules',
+    'SecurityGroups',
+    'ServerDiagnostics',
+    'ServerExternalEvents',
+    'ServerGroupQuotas',
+    'ServerGroups',
+    'ServerListMultiStatus',
+    'ServerPassword',
+    'ServerSortKeys',
+    'ServerStartStop',
+    'ServerUsage',
+    'Services',
+    'Shelve',
+    'SimpleTenantUsage',
+    'SuspendServer',
+    'UsedLimits',
+    'UsedLimitsForAdmin',
+    'UserData',
+    'UserQuotas',
+    'VirtualInterfaces',
+    'VolumeAttachmentUpdate',
+    'Volumes'
+)
 
 
 get_microversion = _nova.get_microversion
@@ -1010,13 +1116,10 @@ def interface_detach(request, server, port_id):
 @profiler.trace
 @memoized.memoized
 def list_extensions(request):
-    """List all nova extensions, except the ones in the blacklist."""
+    """List all nova extension names, except the ones in the blacklist."""
     blacklist = set(settings.OPENSTACK_NOVA_EXTENSIONS_BLACKLIST)
-    nova_api = _nova.novaclient(request)
     return tuple(
-        extension for extension in
-        nova_list_extensions.ListExtManager(nova_api).show_all()
-        if extension.name not in blacklist
+        extension for extension in EXTENSIONS if extension not in blacklist
     )
 
 
@@ -1028,10 +1131,7 @@ def extension_supported(extension_name, request):
     Example values for the extension_name include AdminActions, ConsoleOutput,
     etc.
     """
-    for ext in list_extensions(request):
-        if ext.name == extension_name:
-            return True
-    return False
+    return extension_name in list_extensions(request)
 
 
 @profiler.trace
