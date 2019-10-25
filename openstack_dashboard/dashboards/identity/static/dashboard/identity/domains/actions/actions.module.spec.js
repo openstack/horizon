@@ -15,10 +15,39 @@
 (function () {
   'use strict';
 
-  describe('horizon.dashboard.identity.domains.actions', function () {
-    it('should exist', function () {
-      expect(angular.module('horizon.dashboard.identity.domains.actions')).toBeDefined();
+  describe('domains actions module', function() {
+    var registry;
+    beforeEach(module('horizon.dashboard.identity.domains.actions'));
+
+    beforeEach(inject(function($injector) {
+      registry = $injector.get('horizon.framework.conf.resource-type-registry.service');
+    }));
+
+    it('registers Create Domain as a global action', function() {
+      var actions = registry.getResourceType('OS::Keystone::Domain').globalActions;
+      expect(actionHasId(actions, 'createDomainAction')).toBe(true);
     });
+
+    it('registers Delete Domains as a batch action', function() {
+      var actions = registry.getResourceType('OS::Keystone::Domain').batchActions;
+      expect(actionHasId(actions, 'deleteDomainsAction')).toBe(true);
+    });
+
+    it('registers Delete Domain as a item action', function() {
+      var actions = registry.getResourceType('OS::Keystone::Domain').itemActions;
+      expect(actionHasId(actions, 'deleteDomainAction')).toBe(true);
+    });
+
+    function actionHasId(list, value) {
+      return list.filter(matchesId).length === 1;
+
+      function matchesId(action) {
+        if (action.id === value) {
+          return true;
+        }
+      }
+    }
+
   });
 
 })();
