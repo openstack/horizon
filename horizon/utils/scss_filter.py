@@ -39,5 +39,8 @@ class HorizonScssFilter(DjangoScssFilter):
     @property
     def compiler(self):
         return DjangoScssCompiler(
+            # output_style is 'nested' by default, which is crazy. See:
+            # https://github.com/Kronuz/pyScss/issues/243
+            output_style='compact',  # or 'compressed'
             namespace=self.namespace
         )
