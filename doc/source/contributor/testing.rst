@@ -76,11 +76,11 @@ pep8
 Runs pep8, which is a tool that checks Python code style. You can read more
 about pep8 at https://www.python.org/dev/peps/pep-0008/
 
-py27
+py37
 ----
 
 Runs the Python unit tests against the current default version of Django
-with Python 2.7 environment. Check ``requirements.txt`` in horizon
+with Python 3.7 environment. Check ``requirements.txt`` in horizon
 repository to know which version of Django is actually used.
 
 All other dependencies are as defined by the upper-constraints file at
@@ -89,20 +89,20 @@ https://opendev.org/openstack/requirements/raw/branch/master/upper-constraints.t
 You can run a subset of the tests by passing the test path as an argument to
 tox::
 
-  $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests
+  $ tox -e py37 -- openstack_dashboard.dashboards.identity.users.tests
 
 The following is more example to run a specific test class and a
 specific test:
 
 .. code-block:: console
 
-   $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests
-   $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests.test_index
+   $ tox -e py37 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests
+   $ tox -e py37 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests.test_index
 
 You can also pass other arguments. For example, to drop into a live debugger
 when a test fails you can use::
 
-  $ tox -e py27 -- --pdb
+  $ tox -e py37 -- --pdb
 
 py3-dj111, py3-dj21, py3-dj22
 -----------------------------
@@ -114,11 +114,6 @@ py36
 ----
 
 Runs the Python unit tests with a Python 3.6 environment.
-
-py37
-----
-
-Runs the Python unit tests with a Python 3.7 environment.
 
 releasenotes
 ------------

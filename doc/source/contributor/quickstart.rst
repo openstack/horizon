@@ -21,13 +21,6 @@ On Ubuntu
 
     $ sudo apt-get install git python3-dev python3-pip
 
-To get a full python2.7 development environment, you also need to install
-the following packages:
-
-.. code-block:: console
-
-    python-dev
-
 On RPM-based distributions (e.g., Fedora/RHEL/CentOS)
 
 .. code-block:: console

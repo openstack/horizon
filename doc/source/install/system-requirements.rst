@@ -2,20 +2,16 @@
 System Requirements
 ===================
 
-The Train release of horizon has the following dependencies.
+The Ussuri release of horizon has the following dependencies.
 
-* Python 2.7, 3.6 or 3.7
+* Python 3.6 or 3.7
 
-* Django 1.11, 2.0 and 2.2
+* Django 2.2
 
-  * Django 2.0 and 2.2 support are experimental in Train release.
-
-    * Note that Ussuri release (the upcoming release after Train release)
-      will use Django 2.2 as the primary Django version.
-      Django 2.0 support will be dropped.
-
-  * Django 1.8 to 1.10 are no longer supported since Rocky release.
   * Django support policy is documented at :doc:`/contributor/policy`.
+  * Ussuri release uses Django 2.2 (the latest LTS) as the primary Django
+    version. The prevouos LTS of Django 1.11 will be dropped during
+    Ussuri cycle. Django 2.0 support will be dropped as well.
 
 * An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ endpoint
 

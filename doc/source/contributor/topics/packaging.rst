@@ -203,8 +203,8 @@ Packaging Horizon for distributions
 
 Horizon is a Python module. Preferably, it is installed at the default
 location for python. In Fedora and openSUSE, this is
-``/usr/lib/python2.7/site-packages/horizon``, and in Debian/Ubuntu it is
-``/usr/lib/python2.7/dist-packages/horizon``.
+``/usr/lib/python3.7/site-packages/horizon``, and in Debian/Ubuntu it is
+``/usr/lib/python3.7/dist-packages/horizon``.
 
 Configuration files should reside under ``/etc/openstack-dashboard``.
 Policy files should be created and modified there as well.
