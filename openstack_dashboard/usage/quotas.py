@@ -135,6 +135,9 @@ class QuotaUsage(dict):
     def __repr__(self):
         return repr(dict(self.usages))
 
+    def __bool__(self):
+        return bool(self.usages)
+
     def get(self, key, default=None):
         return self.usages.get(key, default)
 
@@ -365,14 +368,12 @@ def _get_tenant_network_usages_legacy(request, usages, disabled_quotas,
     for quota in qs:
         usages.add_quota(quota)
 
-    # TODO(amotoki): Add security_group_rule?
     resource_lister = {
         'network': (neutron.network_list, {'tenant_id': tenant_id}),
         'subnet': (neutron.subnet_list, {'tenant_id': tenant_id}),
         'port': (neutron.port_list, {'tenant_id': tenant_id}),
         'router': (neutron.router_list, {'tenant_id': tenant_id}),
         'floatingip': (neutron.tenant_floating_ip_list, {}),
-        'security_group': (neutron.security_group_list, {}),
     }
 
     for quota_name, lister_info in resource_lister.items():
@@ -384,6 +385,26 @@ def _get_tenant_network_usages_legacy(request, usages, disabled_quotas,
             except Exception:
                 resources = []
             usages.tally(quota_name, len(resources))
+
+    # Security groups have to be processed separately so that rules may be
+    # processed in the same api call and in a single pass
+    add_sg = 'security_group' not in disabled_quotas
+    add_sgr = 'security_group_rule' not in disabled_quotas
+
+    if add_sg or add_sgr:
+        try:
+            security_groups = neutron.security_group_list(request)
+            num_rules = sum(len(group['security_group_rules'])
+                            for group in security_groups)
+        except Exception:
+            security_groups = []
+            num_rules = 0
+
+    if add_sg:
+        usages.tally('security_group', len(security_groups))
+
+    if add_sgr:
+        usages.tally('security_group_rule', num_rules)
 
 
 @profiler.trace

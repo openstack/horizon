@@ -56,7 +56,8 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
             # Prevent allocating more IP than the quota allows
             usages = quotas.tenant_quota_usages(request,
                                                 targets=('floatingip', ))
-            if usages['floatingip']['available'] <= 0:
+            if ('floatingip' in usages and
+                    usages['floatingip']['available'] <= 0):
                 error_message = _('You are already using all of your available'
                                   ' floating IPs.')
                 self.api_error(error_message)

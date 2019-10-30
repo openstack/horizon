@@ -5,26 +5,30 @@
 <div class="quota-dynamic">
   <h3>{% trans "Description:" %}</h3>
   <p>{% trans "Allocate a floating IP from a given floating IP pool." %}</p>
+  {% if usages %}
+    <h3>{% trans "Project Quotas" %}</h3>
 
-  <h3>{% trans "Project Quotas" %}</h3>
-  <div class="quota_title">
-    <div class="pull-left">
-      <strong>{% trans "Floating IP" %}</strong>
-    </div>
-    <span class="pull-right">
-        {% blocktrans with used=usages.floatingip.used quota=usages.floatingip.quota|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
-    </span>
-  </div>
-  <div id="floating_ip_progress"
-       class="quota_bar"
-       data-quota-used="{{ usages.floatingip.used }}"
-       data-quota-limit="{{ usages.floatingip.quota }}">
-  {% widthratio usages.floatingip.used usages.floatingip.quota 100 as ip_percent %}
-  {% widthratio 100 usages.floatingip.quota 1 as single_step %}
-  {% bs_progress_bar ip_percent single_step %}
-  </div>
+    {% if usages.floatingip %}
+      <div class="quota_title">
+        <div class="pull-left">
+          <strong>{% trans "Floating IP" %}</strong>
+        </div>
+        <span class="pull-right">
+            {% blocktrans with used=usages.floatingip.used quota=usages.floatingip.quota|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+        </span>
+      </div>
+      <div id="floating_ip_progress"
+           class="quota_bar"
+           data-quota-used="{{ usages.floatingip.used }}"
+           data-quota-limit="{{ usages.floatingip.quota }}">
+      {% widthratio usages.floatingip.used usages.floatingip.quota 100 as ip_percent %}
+      {% widthratio 100 usages.floatingip.quota 1 as single_step %}
+      {% bs_progress_bar ip_percent single_step %}
+      </div>
+    {% endif %}
+  {% endif %}
+
 </div>
-
   <script type="text/javascript" charset="utf-8">
     if(typeof horizon.Quota !== 'undefined') {
       horizon.Quota.init();
