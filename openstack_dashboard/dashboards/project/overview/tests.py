@@ -35,13 +35,16 @@ INDEX_URL = reverse('horizon:project:overview:index')
 
 class UsageViewTests(test.TestCase):
 
-    @test.create_mocks({api.nova: (
-        'usage_get',
-        'extension_supported',
-    )})
+    @test.create_mocks({
+        api.nova: ('usage_get', 'extension_supported',),
+        api.neutron: ('is_quotas_extension_supported',)
+    })
     def _stub_api_calls(self, nova_stu_enabled=True,
                         stu_exception=False, overview_days_range=1,
-                        quota_usage_overrides=None):
+                        quota_usage_overrides=None,
+                        quota_extension_support=True):
+        self.mock_is_quotas_extension_supported.return_value = \
+            quota_extension_support
         self.mock_extension_supported.side_effect = [nova_stu_enabled,
                                                      nova_stu_enabled]
         if nova_stu_enabled:
@@ -255,9 +258,11 @@ class UsageViewTests(test.TestCase):
 
         self._check_api_calls(nova_stu_enabled=True)
 
-    def _test_usage_charts(self, quota_usage_overrides=None):
+    def _test_usage_charts(self, quota_usage_overrides=None,
+                           quota_extension_support=True):
         self._stub_api_calls(nova_stu_enabled=False,
-                             quota_usage_overrides=quota_usage_overrides)
+                             quota_usage_overrides=quota_usage_overrides,
+                             quota_extension_support=quota_extension_support)
 
         res = self.client.get(reverse('horizon:project:overview:index'))
 
@@ -300,6 +305,14 @@ class UsageViewTests(test.TestCase):
         self.assertEqual(float('inf'), chart_fip['quota_display'])
         self.assertEqual(1234, chart_fip['used'])
         self.assertEqual('1,234', chart_fip['used_display'])
+
+    def test_disallowed_network_chart(self):
+        res = self._test_usage_charts(
+            quota_usage_overrides={'floatingip': {'quota': -1, 'used': 1234}},
+            quota_extension_support=False)
+        charts = res.context['charts']
+        self.assertEqual(['Compute', 'Volume'],
+                         [c['title'] for c in charts])
 
     def test_usage_charts_infinite_quota(self):
         res = self._test_usage_charts(
