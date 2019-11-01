@@ -436,7 +436,7 @@ def user_update(request, user, **data):
 
     if not keystone_can_edit_user():
         raise keystone_exceptions.ClientException(
-            405, _("Identity service does not allow editing user data."))
+            _("Identity service does not allow editing user data."))
     try:
         user = manager.update(user, **data)
     except keystone_exceptions.Conflict:
@@ -454,7 +454,7 @@ def user_update_password(request, user, password, admin=True):
 
     if not keystone_can_edit_user():
         raise keystone_exceptions.ClientException(
-            405, _("Identity service does not allow editing user password."))
+            _("Identity service does not allow editing user password."))
 
     manager = keystoneclient(request, admin=admin).users
     manager.update(user, password=password)
