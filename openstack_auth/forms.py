@@ -21,6 +21,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
+from keystoneauth1 import plugin as auth_plugin
 from openstack_auth import exceptions
 from openstack_auth import utils
 
@@ -162,7 +163,7 @@ class Login(django_auth_forms.AuthenticationForm):
         return self.cleaned_data
 
 
-class DummyAuth(object):
+class DummyAuth(auth_plugin.BaseAuthPlugin):
     """A dummy Auth object
 
     It is needed for _KeystoneAdapter to get the user_id from, but otherwise
@@ -173,6 +174,9 @@ class DummyAuth(object):
 
     def __bool__(self):
         return False
+
+    def get_headers(self, session, **kwargs):
+        return {}
 
 
 class Password(forms.Form):
@@ -233,7 +237,9 @@ class Password(forms.Form):
         client.users.client.endpoint_override = region
         try:
             client.users.update_password(original_password, password)
-        except Exception:
+        except Exception as e:
+            LOG.error("Unable to update password due to exception: %s",
+                      e)
             raise forms.ValidationError(
                 _("Unable to update the user password."))
         return self.cleaned_data
