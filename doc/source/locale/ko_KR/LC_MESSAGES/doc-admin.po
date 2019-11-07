@@ -4,9 +4,9 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev218\n"
+"Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 10:46-0600\n"
+"POT-Creation-Date: 2019-10-23 08:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -98,9 +98,6 @@ msgstr "20"
 msgid "2048"
 msgstr "2048"
 
-msgid "256"
-msgstr "256"
-
 msgid "4"
 msgstr "4"
 
@@ -112,10 +109,6 @@ msgstr "4096"
 
 msgid "512"
 msgstr "512"
-
-msgid ""
-"512 (Recommended for aes-xts-plain64. 256 should be used for aes-cbc-essiv)"
-msgstr "512 (aes-xts-plain64에 권장. aes-cbc-essiv에는 256을 사용해야 합니다.)"
 
 msgid "8"
 msgstr "8"
@@ -1842,12 +1835,6 @@ msgid ""
 "bits*"
 msgstr ""
 "aes-xts에 대해 이 선택 항목을 사용하면 기본 키 크기는 128비트만 됩니다*"
-
-msgid ""
-"Using this selection for aes-xts, the underlying key size would only be 256-"
-"bits*"
-msgstr ""
-"aes-xts에 대해 이 선택 항목을 사용하면 기본 키 크기는 256비트만 됩니다*"
 
 msgid "VCPUs"
 msgstr "VCPUs"

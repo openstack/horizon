@@ -2,9 +2,9 @@
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev218\n"
+"Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 10:46-0600\n"
+"POT-Creation-Date: 2019-10-23 08:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,9 +96,6 @@ msgstr "20"
 msgid "2048"
 msgstr "2048"
 
-msgid "256"
-msgstr "256"
-
 msgid "4"
 msgstr "4"
 
@@ -110,11 +107,6 @@ msgstr "4096"
 
 msgid "512"
 msgstr "512"
-
-msgid ""
-"512 (Recommended for aes-xts-plain64. 256 should be used for aes-cbc-essiv)"
-msgstr ""
-"512 (Recommended for aes-xts-plain64. 256 should be used for aes-cbc-essiv)"
 
 msgid "8"
 msgstr "8"
@@ -1886,13 +1878,6 @@ msgid ""
 "bits*"
 msgstr ""
 "Using this selection for aes-xts, the underlying key size would only be 128-"
-"bits*"
-
-msgid ""
-"Using this selection for aes-xts, the underlying key size would only be 256-"
-"bits*"
-msgstr ""
-"Using this selection for aes-xts, the underlying key size would only be 256-"
 "bits*"
 
 msgid "VCPUs"
