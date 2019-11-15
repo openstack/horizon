@@ -9,6 +9,7 @@ openstackdocstheme>=1.20.0 # Apache-2.0
 reno>=2.5.0 # Apache-2.0
 sphinx!=1.6.6,!=1.6.7,>=1.6.2,<2.0.0;python_version=='2.7' # BSD
 sphinx!=1.6.6,!=1.6.7,!=2.1.0,>=1.6.2;python_version>='3.4' # BSD
+doc8>=0.6.0 # Apache-2.0
 
 # The below is rewquired to build testing module reference
 mock>=2.0.0 # BSD
