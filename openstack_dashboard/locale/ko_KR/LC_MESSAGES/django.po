@@ -22,18 +22,19 @@
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
 # Soonyeul Park <ardentpark@gmail.com>, 2018. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2019. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2019. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-10-06 11:03+0000\n"
+"POT-Creation-Date: 2019-11-13 14:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-10-07 02:00+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2019-11-18 04:02+0000\n"
+"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -1383,6 +1384,9 @@ msgstr "맵핑을 생성합니다."
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "볼륨 타입에대한 새로운 \"추가 사양\" 키-값 페어를 생성합니다."
 
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr "그룹 타입에대한 새로운 \"그룹 타입 사양\" 키-값 페어를 생성합니다."
+
 #, python-format
 msgid ""
 "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
@@ -2262,6 +2266,9 @@ msgstr "그룹 편집"
 msgid "Edit Group Type"
 msgstr "그룹 타입 수정"
 
+msgid "Edit Group Type Spec"
+msgstr "그룹 타입 사양 수정"
+
 #, python-format
 msgid "Edit Group Type Spec Value: %s"
 msgstr "그룹 유형 사양 값: %s 편집"
@@ -3094,11 +3101,34 @@ msgstr "그룹 타입"
 msgid "Group Type Specs"
 msgstr "그룹 유형 사양"
 
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "그룹 타입: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "그룹 타입: %(group_type_name)s"
+
 msgid "Group Types"
 msgstr "그룹 타입"
 
 msgid "Group has been updated successfully."
 msgstr "그룹을 성공적으로 업데이트 하였습니다."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"그룹 타입은 OpenStack에서 그룹 생성시 선택할 수 있는 타입이나 레이블입니다. "
+"보통 이 그룹에 서용되는 스토리지 백엔드 드라이버의 기능 세트에 매핑됩니다. 예"
+"를 들어: \"Performance\", \"SSD\", \"Backup\" 등과 매핑된다고 보면 됩니다. "
+"<tt>cinder type-create</tt> 명령어와 동일합니다. 그룹 타입이 생성되면 \"사양 "
+"보기(View Specs)\" 버튼을 클릭하여 해당 그룹 타입에 대한 추가 사양에대한 키-"
+"값 쌍을 설정합니다."
 
 #, python-format
 msgid "Group type name \"%s\" already exists."
@@ -3353,6 +3383,9 @@ msgid ""
 "volume type."
 msgstr ""
 "\"볼륨 타입 없음\"을 선택하면, 볼륨은 볼륨 타입이 없는 상태로 생성됩니다."
+
+msgid "If checked, the network will be enabled."
+msgstr "체크되었다면 네트워크는 활성화됩니다."
 
 msgid "If checked, the selected floating IP will be released at the same time."
 msgstr "선택될 경우, 선택된 floating IP는 같은 시간에 해제됩니다."
@@ -7222,6 +7255,10 @@ msgid "Unable to retrieve details for network \"%s\"."
 msgstr "네트워크 \"%s\"의 세부 정보를 찾지 못했습니다."
 
 #, python-format
+msgid "Unable to retrieve details for rbac_policy \"%s\"."
+msgstr "rbac_policy \"%s\"에 대한 세부 사항을 가져올 수 없습니다."
+
+#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "라우터 \"%s\"의 세부 정보를 찾지 못 했습니다."
 
@@ -7294,6 +7331,9 @@ msgstr "그룹 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세
 
 msgid "Unable to retrieve group snapshot details."
 msgstr "그룹 스냅샷 세부 사항을 찾을 수 없습니다."
+
+msgid "Unable to retrieve group snapshot project information."
+msgstr "그룹 스냅샷 프로젝트 정보를 가져올 수 없습니다."
 
 msgid "Unable to retrieve group snapshots."
 msgstr "그룹 스냅샷을 찾지 못했습니다"
@@ -7451,6 +7491,9 @@ msgstr "프로젝트 세부 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve project domain."
 msgstr "프로젝트 도메인을 찾지 못 했습니다."
+
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr "볼륨 스냅샷의 프로젝트 정보를 가져올 수 없습니다."
 
 msgid "Unable to retrieve project information."
 msgstr "프로젝트 정보를 찾지 못 했습니다."
@@ -7612,6 +7655,9 @@ msgstr "볼륨 프로젝트 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve volume quota information."
 msgstr "볼륨 쿼터 정보를 가져올 수 없습니다."
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr "볼륨 스냅샷 프로젝트 정보를 가져올 수 없습니다."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "볼륨 스냅샷을 찾지 못했습니다."
@@ -7939,6 +7985,10 @@ msgstr "암호화된 볼륨 타입 업데이트"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "\"%(key)s\"에 대한 \"extra spec\" 값을 업데이트 하였습니다."
+
+#, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "\"%(key)s\"에 대한 \"그룹 타입 사양\" 값을 업데이트합니다."
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
@@ -8615,6 +8665,9 @@ msgstr ""
 
 msgid "no"
 msgstr "아니오"
+
+msgid "rbac policy quota exceeded."
+msgstr "RBAC 정책 quota가 초과되었습니다."
 
 msgid "undefined"
 msgstr "정의되지 않은"
