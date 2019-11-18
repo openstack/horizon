@@ -1,0 +1,8 @@
+---
+upgrade:
+  - |
+    ``enable_quotas`` in ``OPENSTACK_NEUTRON_NETWORK`` is now enabled
+    by default. Neutron provides the quotas API for long and most horizon
+    deployments are expected to enable this, so the feature is enabled
+    by default. If your deployment disables the neutron quotas support,
+    make sure to set this value to ``False``.
