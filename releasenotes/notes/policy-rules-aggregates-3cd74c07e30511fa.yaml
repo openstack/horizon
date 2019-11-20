@@ -1,0 +1,4 @@
+---
+fixes:
+  - |
+    The missing nova's os-aggregates policy rules are added to the dashboard.
