@@ -719,7 +719,7 @@ class UploadToImageForm(forms.SelfHandlingForm):
         # I can only use 'raw', 'vmdk', 'vdi' or 'qcow2' so qemu-img will not
         # have issues when processes image request from cinder.
         disk_format_choices = [(value, name) for value, name
-                               in IMAGE_FORMAT_CHOICES
+                               in glance.get_image_formats(request)
                                if value in VALID_DISK_FORMATS]
         self.fields['disk_format'].choices = disk_format_choices
         self.fields['disk_format'].initial = 'raw'

@@ -27,12 +27,15 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 
 class ImageCreateViewTest(test.BaseAdminViewTests):
+    @mock.patch.object(api.glance, 'get_image_schemas')
     @mock.patch.object(api.glance, 'image_list_detailed')
     def test_admin_image_create_view_uses_admin_template(self,
-                                                         mock_image_list):
+                                                         mock_image_list,
+                                                         mock_schemas_list):
         filters1 = {'disk_format': 'aki'}
         filters2 = {'disk_format': 'ari'}
 
+        mock_schemas_list.return_value = self.image_schemas.first()
         mock_image_list.return_value = [self.images.list(), False, False]
 
         res = self.client.get(

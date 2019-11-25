@@ -38,8 +38,9 @@ IMAGES_INDEX_URL = reverse('horizon:project:images:index')
 
 
 class CreateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
+    @mock.patch.object(api.glance, 'get_image_formats')
     @mock.patch.object(api.glance, 'image_list_detailed')
-    def test_no_location_or_file(self, mock_image_list):
+    def test_no_location_or_file(self, mock_image_list, mock_schemas_list):
         mock_image_list.side_effect = [
             [self.images.list(), False, False],
             [self.images.list(), False, False]
@@ -133,8 +134,9 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
 
 class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
+    @mock.patch.object(api.glance, 'get_image_schemas')
     @mock.patch.object(api.glance, 'image_list_detailed')
-    def test_image_create_get(self, mock_image_list):
+    def test_image_create_get(self, mock_image_list, mock_schemas_list):
         mock_image_list.side_effect = [
             [self.images.list(), False, False],
             [self.images.list(), False, False]
@@ -151,7 +153,9 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_image_list.assert_has_calls(image_calls)
 
     @override_settings(IMAGES_ALLOW_LOCATION=True)
-    def test_image_create_post_location_v2(self):
+    @mock.patch.object(api.glance, 'get_image_schemas')
+    def test_image_create_post_location_v2(self, mock_schemas_list):
+        mock_schemas_list.return_value = self.image_schemas.first()
         data = {
             'source_type': u'url',
             'image_url': u'http://cloud-images.ubuntu.com/releases/'
@@ -161,7 +165,9 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         api_data = {'location': data['image_url']}
         self._test_image_create(data, api_data)
 
-    def test_image_create_post_upload_v2(self):
+    @mock.patch.object(api.glance, 'get_image_schemas')
+    def test_image_create_post_upload_v2(self, mock_schemas_list):
+        mock_schemas_list.return_value = self.image_schemas.first()
         temp_file = tempfile.NamedTemporaryFile()
         temp_file.write(b'123')
         temp_file.flush()
@@ -173,7 +179,9 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         api_data = {'data': test.IsA(InMemoryUploadedFile)}
         self._test_image_create(data, api_data)
 
-    def test_image_create_post_with_kernel_ramdisk_v2(self):
+    @mock.patch.object(api.glance, 'get_image_schemas')
+    def test_image_create_post_with_kernel_ramdisk_v2(self, mock_schemas_list):
+        mock_schemas_list.return_value = self.image_schemas.first()
         temp_file = tempfile.NamedTemporaryFile()
         temp_file.write(b'123')
         temp_file.flush()

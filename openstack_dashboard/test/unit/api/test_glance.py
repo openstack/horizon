@@ -315,6 +315,19 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertIsNone(image.name)
 
     @mock.patch.object(api.glance, 'glanceclient')
+    def test_get_image_formats(self, mock_glanceclient):
+        glance_schemas = self.image_schemas.first()
+        glanceclient = mock_glanceclient.return_value
+        mock_schemas_list = glanceclient.schemas.get('image').raw()
+        mock_schemas_list.return_value = glance_schemas
+        disk_formats = [
+            item
+            for item in glance_schemas['properties']['disk_format']['enum']
+            if item
+        ]
+        self.assertListEqual(sorted(disk_formats), sorted(['raw', 'qcow2']))
+
+    @mock.patch.object(api.glance, 'glanceclient')
     def test_metadefs_namespace_list(self, mock_glanceclient):
         metadata_defs = self.metadata_defs.list()
         limit = settings.API_RESULT_LIMIT

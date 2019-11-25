@@ -174,7 +174,8 @@ class CreateImageForm(CreateParent):
         if not policy.check((("image", "publicize_image"),), request):
             self._hide_is_public()
 
-        self.fields['disk_format'].choices = IMAGE_FORMAT_CHOICES
+        self.fields['disk_format'].choices = \
+            api.glance.get_image_formats(request)
 
         try:
             kernel_images = api.glance.image_list_detailed(
