@@ -19,6 +19,7 @@ from django.conf import settings
 from django.forms import widgets
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
+import yaml
 
 from horizon import exceptions
 from horizon import forms
@@ -49,6 +50,10 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
         widget=forms.widgets.SelectMultiple(),
         label=_("Roles"),
         required=False)
+    access_rules = forms.CharField(
+        widget=forms.Textarea(attrs={'rows': 5}),
+        label=_("Access Rules"),
+        required=False)
     unrestricted = forms.BooleanField(label=_("Unrestricted (dangerous)"),
                                       required=False)
     kubernetes_namespace = forms.CharField(max_length=255,
@@ -64,6 +69,9 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
         role_names = [role['name'] for role in role_list]
         role_choices = ((name, name) for name in role_names)
         self.fields['roles'].choices = role_choices
+        keystone_version = api.keystone.get_identity_api_version(request)
+        if keystone_version < (3, 13):
+            del self.fields['access_rules']
         if not settings.KUBECONFIG_ENABLED:
             self.fields['kubernetes_namespace'].widget = widgets.HiddenInput()
 
@@ -95,6 +103,10 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
                 roles = [{'name': role_name} for role_name in data['roles']]
             else:
                 roles = None
+            if data.get('access_rules'):
+                access_rules = data['access_rules']
+            else:
+                access_rules = None
             new_app_cred = api.keystone.application_credential_create(
                 request,
                 name=data['name'],
@@ -102,6 +114,7 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
                 secret=data['secret'] or None,
                 expires_at=expiration or None,
                 roles=roles,
+                access_rules=access_rules,
                 unrestricted=data['unrestricted']
             )
             self.request.session['application_credential'] = \
@@ -117,6 +130,16 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
         except Exception as ex:
             exceptions.handle(
                 request, _('Unable to create application credential: %s') % ex)
+
+    def clean(self):
+        cleaned_data = super(CreateApplicationCredentialForm, self).clean()
+        try:
+            cleaned_data['access_rules'] = yaml.safe_load(
+                cleaned_data['access_rules'])
+        except yaml.YAMLError:
+            msg = (_('Access rules must be a valid JSON or YAML list.'))
+            raise forms.ValidationError(msg)
+        return cleaned_data
 
 
 class CreateSuccessfulForm(forms.SelfHandlingForm):

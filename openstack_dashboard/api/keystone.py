@@ -1003,12 +1003,14 @@ def application_credential_delete(request, application_credential_id):
 @profiler.trace
 def application_credential_create(request, name, secret=None,
                                   description=None, expires_at=None,
-                                  roles=None, unrestricted=False):
+                                  roles=None, unrestricted=False,
+                                  access_rules=None):
     user = request.user.id
     manager = keystoneclient(request).application_credentials
     try:
         return manager.create(name=name, user=user, secret=secret,
                               description=description, expires_at=expires_at,
-                              roles=roles, unrestricted=unrestricted)
+                              roles=roles, unrestricted=unrestricted,
+                              access_rules=access_rules)
     except keystone_exceptions.Conflict:
         raise exceptions.Conflict()

@@ -26,10 +26,36 @@
             <td class="word-wrap">{{ role.name }}</td>
             <td>{{ role.id }}</td>
             <td>{{ role.domain_id | default:_("-") }}</td>
+          </tr>
         {% endfor %}
         </tbody>
       </table>
     </dd>
+    <dt>{% trans "Access Rules" %}</dt>
+    {% if application_credential.access_rules %}
+    <dd>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th><strong>{% trans "Service" %}</strong></th>
+            <th><strong>{% trans "Method" %}</strong></th>
+            <th><strong>{% trans "Path" %}</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for rule in application_credential.access_rules %}
+          <tr>
+            <td>{{ rule.service }}</td>
+            <td>{{ rule.method }}</td>
+            <td>{{ rule.path }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </dd>
+    {% else %}
+    <dd>{{ _("-")}}</dd>
+    {% endif %}
     <dt>{% trans "Expires" %}</dt>
     <dd>{{ application_credential.expires_at | default:_("-") }}</dd>
     <dt>{% trans "Unrestricted" %}</dt>
