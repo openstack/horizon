@@ -71,7 +71,7 @@
                $memoize,
                keystone) {
     registry.getResourceType(imageResourceType)
-      .setNames(gettext('Image'), gettext('Images'))
+      .setNames('Image', 'Images', ngettext('Image', 'Images', 1))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setDefaultIndexUrl('/project/images/')
       .setItemInTransitionFunction(imagesService.isInTransition)
