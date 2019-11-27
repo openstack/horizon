@@ -83,12 +83,15 @@
 
   function run(accountResCode, containerResCode, objectResCode, registryService) {
     registryService.getResourceType(accountResCode)
-      .setNames(gettext('Swift Account'), gettext('Swift Accounts'));
+      .setNames('Swift Account', 'Swift Accounts',
+                ngettext('Swift Account', 'Swift Accounts', 1));
     registryService.getResourceType(containerResCode)
-      .setNames(gettext('Swift Container'), gettext('Swift Containers'));
+      .setNames('Swift Container', 'Swift Containers',
+                ngettext('Swift Container', 'Swift Containers', 1));
 
     var objectResourceType = registryService.getResourceType(objectResCode);
-    objectResourceType.setNames(gettext('Object'), gettext('Objects'))
+    objectResourceType.setNames('Object', 'Objects',
+                                ngettext('Object', 'Objects', 1))
       .setProperty('name', {label: gettext('Name')})
       .setProperty('size', { label: gettext('Size')});
 

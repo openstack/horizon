@@ -43,7 +43,7 @@
 
   function run(registry, keystone, basePath, groupResourceType) {
     registry.getResourceType(groupResourceType)
-      .setNames(gettext('Group'), gettext('Groups'))
+      .setNames('Group', 'Groups', ngettext('Group', 'Groups', 1))
       .setProperties(groupProperties())
       .setListFunction(listFunction)
       .tableColumns

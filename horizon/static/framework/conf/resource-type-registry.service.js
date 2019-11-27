@@ -570,12 +570,12 @@
        *
        * The type's "names" property holds an array of the labels to be used
        * here which are passed to ngettext, so for example names could be
-       * [gettext('Image'), gettext('Images')]
+       * ['Image', 'Images']
        *
        * @example
        ```
        var resourceType = getResourceType('thing');
-       resourceType.names = [gettext('Thing'), gettext('Things')];
+       resourceType.names = ['Thing', 'Things'];
        var singleName = resourceType.getName(1); // returns singular
        ```
        */
@@ -589,19 +589,22 @@
        * @ngdoc function
        * @name setNames
        * @description
-       * Takes in the singular/plural names used for display.
+       * Takes in the untranslated singular/plural names used for display.
+       * The "translated" parameter is to mark the strings for translation.
        * @example
        ```
        var resourceType = getResourceType('thing')
-       .setNames(gettext('Thing'), gettext('Things'));
+       .setNames('Thing', 'Things', ngettext('Thing', 'Things', 1));
        });
 
        ```
        */
-      function setNames(singular, plural) {
+      /* eslint-disable no-unused-vars */
+      function setNames(singular, plural, translated) {
         names = [singular, plural];
         return self;
       }
+      /* eslint-enable no-unused-vars */
 
       /**
        * @ngdoc function
