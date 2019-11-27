@@ -258,7 +258,9 @@ class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
     @text.setter
     def text(self, text):
         if text != self.text:
-            self.src_elem.click()
+            js_cmd = ("$('select[name=\"%s\"]').closest(\"div\")."
+                      "find(\".btn\").click();" % (self.name))
+            self.driver.execute_script(js_cmd)
             for option in self.options:
                 if self.strict_options_match:
                     match = text == str(option.text.strip())
