@@ -114,8 +114,10 @@ Memcached
 
   SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
   CACHES = {
-      'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache'
-      'LOCATION': 'my_memcached_host:11211',
+      'default': {
+          'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+          'LOCATION': 'controller:11211',
+      }
   }
 
 External caching using an application such as memcached offers persistence
