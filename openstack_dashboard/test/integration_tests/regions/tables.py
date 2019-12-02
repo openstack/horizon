@@ -58,6 +58,8 @@ class TableRegion(baseregion.BaseRegion):
                               'div.table_search > button')
     _search_option_locator = (by.By.CSS_SELECTOR,
                               'div.table_search > .themable-select')
+    _cell_progress_bar_locator = (by.By.CSS_SELECTOR, 'div.progress-bar')
+    _warning_cell_locator = (by.By.CSS_SELECTOR, 'td.warning')
     marker_name = 'marker'
     prev_marker_name = 'prev_marker'
 
@@ -75,6 +77,12 @@ class TableRegion(baseregion.BaseRegion):
     def _search_menu_value_locator(self, value):
         return (by.By.CSS_SELECTOR,
                 'ul.dropdown-menu a[data-select-value="%s"]' % value)
+
+    def _cell_progress_bar_getter(self):
+        return self.driver.find_element(*self._cell_progress_bar_locator)
+
+    def _warning_cell_getter(self):
+        return self.driver.find_element(*self._warning_cell_locator)
 
     def __init__(self, driver, conf):
         self._default_src_locator = self._table_locator(self.__class__.name)
@@ -125,6 +133,11 @@ class TableRegion(baseregion.BaseRegion):
             text = element.get_attribute('data-selenium')
             return text or element.text
 
+        # wait until cells actions are completed eg: downloading image,
+        # uploading image, creating, deleting etc.
+        self.wait_till_element_disappears(self._cell_progress_bar_getter)
+        self.wait_till_element_disappears(self._warning_cell_getter)
+
         for row in self.rows:
             try:
                 cell = row.cells[column_name]
@@ -169,6 +182,9 @@ class TableRegion(baseregion.BaseRegion):
             lambda: not self._is_element_displayed(row_getter()))
 
     def are_rows_deleted(self, rows_getter):
+        # wait until rows are deleted.
+        self.wait_till_element_disappears(self._warning_cell_getter)
+
         return self._is_row_deleted(
             lambda: all([not self._is_element_displayed(row) for row
                          in rows_getter()]))

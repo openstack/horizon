@@ -208,7 +208,10 @@ class SelectFormFieldRegion(BaseFormFieldRegion):
 
     @text.setter
     def text(self, text):
-        self.element.select_by_visible_text(text)
+        js_cmd = ("$('select option').filter(function() {return $(this).text()"
+                  " == \"%s\";}).prop('selected', true); $('[name=\"%s\"]')."
+                  "change();" % (html.escape(text), self.name))
+        self.driver.execute_script(js_cmd)
 
     @property
     def value(self):
