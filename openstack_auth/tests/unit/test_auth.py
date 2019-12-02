@@ -57,11 +57,6 @@ class OpenStackAuthTestsMixin(object):
         return self.ks_client_module.Client(session=mox.IsA(session.Session),
                                             auth=plugin)
 
-    def _mock_client_token_auth_failure(self, unscoped, tenant_id):
-        plugin = self._create_token_auth(tenant_id, unscoped.auth_token)
-        plugin.get_access(mox.IsA(session.Session)). \
-            AndRaise(keystone_exceptions.AuthorizationFailure)
-
     def _mock_client_password_auth_failure(self, username, password, exc):
         plugin = self._create_password_auth(username=username,
                                             password=password)
@@ -143,10 +138,6 @@ class OpenStackAuthFederatedTestsMixin(object):
 class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
                            OpenStackAuthFederatedTestsMixin,
                            test.TestCase):
-
-    def _mock_unscoped_client_list_projects(self, user, projects):
-        client = self._mock_unscoped_client(user)
-        self._mock_unscoped_list_projects(client, user, projects)
 
     def _mock_unscoped_list_projects(self, client, user, projects):
         client.projects = self.mox.CreateMockAnything()
