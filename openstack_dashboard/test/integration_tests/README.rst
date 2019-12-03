@@ -13,7 +13,7 @@ Running the integration tests
 
 #. Run the tests. ::
 
-    $ tox -e py27integration
+    $ tox -e integration
 
 More information
 ----------------

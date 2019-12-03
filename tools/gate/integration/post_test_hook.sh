@@ -14,7 +14,7 @@ sudo rm firefox.deb
 
 HORIZON_DIR=/opt/stack/new/horizon
 pushd $HORIZON_DIR
-sudo -H -E -u stack tox -e py27integration
+sudo -H -E -u stack tox -e integration
 retval=$?
 
 if [ -d openstack_dashboard/test/integration_tests/test_reports/ ]; then
