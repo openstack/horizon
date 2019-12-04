@@ -1,0 +1,4 @@
+---
+fixes:
+  - |
+    The missing nova's os-flavors policy rules are added to the dashboard.
