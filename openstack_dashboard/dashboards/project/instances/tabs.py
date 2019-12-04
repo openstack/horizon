@@ -35,7 +35,18 @@ class OverviewTab(tabs.Tab):
                      "_detail_overview.html")
 
     def get_context_data(self, request):
-        return {"instance": self.tab_group.kwargs['instance']}
+        instance = self.tab_group.kwargs['instance']
+        if instance.volumes and not instance.image:
+            try:
+                volume = api.cinder.volume_get(
+                    self.request, volume_id=instance.volumes[0].volumeId)
+                instance.image = {
+                    'id': volume.volume_image_metadata['image_id'],
+                    'name': volume.volume_image_metadata['image_name']}
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Failed to get attached volume.'))
+        return {"instance": instance}
 
 
 class InterfacesTab(tabs.TableTab):
