@@ -2,7 +2,7 @@
 
 # ----------------------------------------------------------------------
 # NOTE: The default values of the settings are defined in
-# openstack_dashboard/defaults.py. Prevously most available settings
+# openstack_dashboard/defaults.py. Previously most available settings
 # were listed in this example file, but it is no longer true.
 # For available settings, see openstack_dashboard/defaults.py and
 # the horizon setting reference found at
