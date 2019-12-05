@@ -244,7 +244,7 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         self.data = data_v3.generate_test_data()
         self.ks_client_module = client_v3
         settings.OPENSTACK_API_VERSIONS['identity'] = 3
-        settings.OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v3"
+        settings.OPENSTACK_KEYSTONE_URL = "http://localhost/identity/v3"
 
         self.mox.StubOutClassWithMocks(token_endpoint, 'Token')
         self.mox.StubOutClassWithMocks(v3_auth, 'Token')
@@ -594,7 +594,7 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
                                            service_provider=target_provider)
         plugin.get_access(mox.IsA(session.Session)). \
             AndReturn(self.sp_data.unscoped_access_info)
-        plugin.auth_url = 'http://service_provider_endp:5000/v3'
+        plugin.auth_url = 'http://service_provider_endp/identity/v3'
 
         # mock authenticate for service provider
         sp_projects = [self.sp_data.project_one, self.sp_data.project_two]
@@ -833,7 +833,7 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
         self.idp_saml2_id = uuid.uuid4().hex
 
         settings.OPENSTACK_API_VERSIONS['identity'] = 3
-        settings.OPENSTACK_KEYSTONE_URL = 'http://localhost:5000/v3'
+        settings.OPENSTACK_KEYSTONE_URL = 'http://localhost/identity/v3'
         settings.WEBSSO_ENABLED = True
         settings.WEBSSO_CHOICES = (
             ('credentials', 'Keystone Credentials'),
@@ -895,7 +895,7 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
         self.assertRedirects(response, redirect_url, status_code=302,
                              target_status_code=404)
 
-    @override_settings(WEBSSO_KEYSTONE_URL='http://keystone-public:5000/v3')
+    @override_settings(WEBSSO_KEYSTONE_URL='http://keystone-public/identity/v3')
     def test_websso_redirect_using_websso_keystone_url(self):
         origin = 'http://testserver/auth/websso/'
         protocol = 'oidc'
@@ -935,7 +935,8 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
         self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
 
     def test_websso_login_with_auth_in_url(self):
-        settings.OPENSTACK_KEYSTONE_URL = 'http://auth.openstack.org:5000/v3'
+        settings.OPENSTACK_KEYSTONE_URL =\
+            'http://auth.openstack.org/identity/v3'
 
         projects = [self.data.project_one, self.data.project_two]
         domains = []

@@ -89,9 +89,9 @@ SERVICE_CATALOG = [
      "endpoints_links": [],
      "endpoints": [
          {"region": "RegionOne",
-          "adminURL": "http://admin.keystone.example.com:5000/v3",
-          "internalURL": "http://int.keystone.example.com:5000/v3",
-          "publicURL": "http://public.keystone.example.com:5000/v3"}]},
+          "adminURL": "http://admin.keystone.example.com/identity/v3",
+          "internalURL": "http://int.keystone.example.com/identity/v3",
+          "publicURL": "http://public.keystone.example.com/identity/v3"}]},
     {"type": "object-store",
      "name": "swift",
      "endpoints_links": [],

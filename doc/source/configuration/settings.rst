@@ -1232,7 +1232,7 @@ AVAILABLE_REGIONS
 Default: ``None``
 
 A list of tuples which define multiple regions. The tuple format is
-``('http://{{ keystone_host }}:5000/v3', '{{ region_name }}')``. If any regions
+``('http://{{ keystone_host }}/identity/v3', '{{ region_name }}')``. If any regions
 are specified the login form will have a dropdown selector for authenticating
 to the appropriate region, and there will be a region switcher dropdown in
 the site header when logged in.
@@ -1438,11 +1438,15 @@ OPENSTACK_KEYSTONE_URL
 
 .. versionadded:: 2011.3(Diablo)
 
+.. versionchanged:: 17.1.0(Ussuri)
+
+   The default value was changed to ``"http://%s/identity/v3" % OPENSTACK_HOST``
+
 .. seealso::
 
   Horizon's `OPENSTACK_HOST`_ documentation
 
-Default: ``"http://%s:5000/v3" % OPENSTACK_HOST``
+Default: ``"http://%s/identity/v3" % OPENSTACK_HOST``
 
 The full URL for the Keystone endpoint used for authentication. Unless you
 are using HTTPS, running your Keystone server on a nonstandard port, or using

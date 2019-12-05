@@ -101,7 +101,7 @@ Install and configure components
      .. path /srv/www/openstack-dashboard/openstack_dashboard/local/local_settings.py
      .. code-block:: python
 
-        OPENSTACK_KEYSTONE_URL = "http://%s:5000/v3" % OPENSTACK_HOST
+        OPENSTACK_KEYSTONE_URL = "http://%s/identity/v3" % OPENSTACK_HOST
 
      .. end
 

@@ -315,7 +315,7 @@ class ApiHelperTests(test.APITestCase):
         self.request.user.services_region = "bogus_value"
         url = api_base.url_for(self.request, 'identity',
                                endpoint_type='adminURL')
-        self.assertEqual('http://admin.keystone.example.com:5000/v3', url)
+        self.assertEqual('http://admin.keystone.example.com/identity/v3', url)
 
         self.request.user.services_region = "bogus_value"
         with self.assertRaises(exceptions.ServiceCatalogException):

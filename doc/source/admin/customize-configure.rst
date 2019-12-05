@@ -224,12 +224,12 @@ The standard installation uses a non-encrypted HTTP channel.
 
       # For multiple regions uncomment this configuration, and add (endpoint, title).
       # AVAILABLE_REGIONS = [
-      #     ('http://cluster1.example.com:5000/v3', 'cluster1'),
-      #     ('http://cluster2.example.com:5000/v3', 'cluster2'),
+      #     ('http://cluster1.example.com/identity/v3', 'cluster1'),
+      #     ('http://cluster2.example.com/identity/v3', 'cluster2'),
       # ]
 
       OPENSTACK_HOST = "127.0.0.1"
-      OPENSTACK_KEYSTONE_URL = "http://%s:5000/v3" % OPENSTACK_HOST
+      OPENSTACK_KEYSTONE_URL = "http://%s/identity/v3" % OPENSTACK_HOST
       OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
       # The OPENSTACK_KEYSTONE_BACKEND settings can be used to identify the
