@@ -120,11 +120,11 @@ settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
 IMAGES_ALLOW_LOCATION = True
 
 AVAILABLE_REGIONS = [
-    ('http://localhost:5000/v3', 'local'),
-    ('http://remote:5000/v3', 'remote'),
+    ('http://localhost/identity/v3', 'local'),
+    ('http://remote/identity/v3', 'remote'),
 ]
 
-OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v3"
+OPENSTACK_KEYSTONE_URL = "http://localhost/identity/v3"
 
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
 OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'test_domain'

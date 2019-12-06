@@ -59,7 +59,7 @@ from within the ``horizon`` directory.
     $ cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py
 
 Horizon connects to the rest of OpenStack via a Keystone service catalog. By
-default Horizon looks for an endpoint at ``http://localhost:5000/v3``; this
+default Horizon looks for an endpoint at ``http://localhost/identity/v3``; this
 can be customised by modifying the ``OPENSTACK_HOST`` and
 ``OPENSTACK_KEYSTONE_URL`` values in
 ``openstack_dashboard/local/local_settings.py``

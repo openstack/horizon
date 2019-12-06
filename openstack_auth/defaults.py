@@ -23,8 +23,7 @@ WEBROOT = '/'
 # TODO(amotoki): What is the right default value in openstack_auth?
 LOGIN_ERROR = 'error/'
 
-OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v3"
-# OPENSTACK_KEYSTONE_URL = 'http://localhost/identity/v3'
+OPENSTACK_KEYSTONE_URL = "http://localhost/identity/v3"
 
 # TODO(amotoki): The default value in openstack_dashboard is different:
 # publicURL. It should be consistent.

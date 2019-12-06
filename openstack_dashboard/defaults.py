@@ -131,8 +131,8 @@ API_RESULT_PAGE_SIZE = 20
 
 # For multiple regions uncomment this configuration, and add (endpoint, title).
 # AVAILABLE_REGIONS = [
-#     ('http://cluster1.example.com:5000/v3', 'cluster1'),
-#     ('http://cluster2.example.com:5000/v3', 'cluster2'),
+#     ('http://cluster1.example.com/identity/v3', 'cluster1'),
+#     ('http://cluster2.example.com/identity/v3', 'cluster2'),
 # ]
 AVAILABLE_REGIONS = []
 

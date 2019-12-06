@@ -63,19 +63,19 @@ def generate_test_data(service_providers=False, endpoint='localhost'):
         'id': uuid.uuid4().hex,
         'endpoints': [
             {
-                'url': 'http://admin.%s:5000/v3' % endpoint,
+                'url': 'http://admin.%s/identity/v3' % endpoint,
                 'region': 'RegionOne',
                 'interface': 'admin',
                 'id': uuid.uuid4().hex,
             },
             {
-                'url': 'http://internal.%s:5000/v3' % endpoint,
+                'url': 'http://internal.%s/identity/v3' % endpoint,
                 'region': 'RegionOne',
                 'interface': 'internal',
                 'id': uuid.uuid4().hex
             },
             {
-                'url': 'http://public.%s:5000/v3' % endpoint,
+                'url': 'http://public.%s/identity/v3' % endpoint,
                 'region': 'RegionOne',
                 'interface': 'public',
                 'id': uuid.uuid4().hex
@@ -214,7 +214,7 @@ def generate_test_data(service_providers=False, endpoint='localhost'):
 
     sp_list = None
     if service_providers:
-        test_data.sp_auth_url = 'http://service_provider_endp:5000/v3'
+        test_data.sp_auth_url = 'http://service_provider_endp/identity/v3'
         test_data.service_provider_id = 'k2kserviceprovider'
         # The access info for the identity provider
         # should return a list of service providers
