@@ -16,13 +16,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import cgi
-
 import mock
 import six
 
 from django.conf import settings
 from django.urls import reverse
+from django.utils import html
 
 from horizon import exceptions
 from horizon import forms
@@ -618,8 +617,7 @@ class SecurityGroupsViewTests(test.TestCase):
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
-        self.assertContains(res, cgi.escape('"from" port number is invalid',
-                                            quote=True))
+        self.assertContains(res, html.escape('"from" port number is invalid'))
 
         # note that 'to_port' is not passed
         formData = {'method': 'AddRule',
@@ -631,8 +629,7 @@ class SecurityGroupsViewTests(test.TestCase):
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
-        self.assertContains(res, cgi.escape('"to" port number is invalid',
-                                            quote=True))
+        self.assertContains(res, html.escape('"to" port number is invalid'))
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_security_group_list, 6,
