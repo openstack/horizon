@@ -274,7 +274,7 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
                     with open(os.path.join(dirpath, filename)) as f:
                         # pylint: disable=exec-used
                         exec(f.read())
-                except Exception as e:
+                except Exception:
                     _LOG.exception(
                         "Can not exec settings snippet %s", filename)
 

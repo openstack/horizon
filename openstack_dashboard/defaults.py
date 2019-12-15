@@ -18,7 +18,7 @@ from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 # openstack_auth.default is imported in horizon.defaults.
-from horizon.defaults import *  # noqa: F403,H303
+from horizon.defaults import *  # noqa: F401,F403,H303
 
 
 def _get_root_path():

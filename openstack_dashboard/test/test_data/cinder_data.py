@@ -145,7 +145,6 @@ def data(TEST):
          'created_at': '2013-04-01 10:30:00',
          'volume_type': None,
          'bootable': 'false',
-         'bootable': False,
          'attachments': [{"id": "21023e92-8008-1234-8059-7f2293ff3890",
                           "server_id": '1',
                           "device": "/dev/hda"}]})
