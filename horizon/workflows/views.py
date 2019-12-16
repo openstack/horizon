@@ -208,7 +208,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
             messages.error(request, msg)
         if "HTTP_X_HORIZON_ADD_TO_FIELD" in self.request.META:
             field_id = self.request.META["HTTP_X_HORIZON_ADD_TO_FIELD"]
-            response = http.HttpResponse()
+            response = http.HttpResponse(content_type="text/plain")
             if workflow.object:
                 data = [self.get_object_id(workflow.object),
                         self.get_object_display(workflow.object)]
