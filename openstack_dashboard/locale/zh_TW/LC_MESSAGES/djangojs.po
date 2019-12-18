@@ -4,15 +4,16 @@
 # Gene Kuo <gene@openstack.org>, 2017. #zanata
 # Kyle Bai <kyle.b@inwinstack.com>, 2017. #zanata
 # Tom Fifield <tom@openstack.org>, 2017. #zanata
+# Gene Kuo <gene@openstack.org>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2019-12-09 13:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-16 08:03+0000\n"
+"PO-Revision-Date: 2019-12-18 06:04+0000\n"
 "Last-Translator: Gene Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh_TW\n"
@@ -87,6 +88,37 @@ msgstr ""
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>這一行文字將進行精細列印。</small>"
 
+msgid ""
+"<strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<strong>注意！</strong>\n"
+"           這則\n"
+"          <a href=\"#\" class=\"alert-link\">警示需要你的注意</a>,\n"
+"           但是它不是非常重要。"
+
+msgid ""
+"<strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<strong>喔不！</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">有些東西被改變了</a>\n"
+"          請嘗試重新送出一次。"
+
+msgid ""
+"<strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<strong>恭喜！</strong>\n"
+"          您已成功閱讀\n"
+"          <a href=\"#\" class=\"alert-link\">這則重要的警示訊息</a>."
+
 msgid "A Confirmation Dialog"
 msgstr "確認對話框"
 
@@ -94,6 +126,26 @@ msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
 "your objects in the container."
 msgstr "「公用儲存器」將容許任何人使用「公用 URL」來取得儲存器中物件的存取權。"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"  you to organize your data. You can think of a container as a folder in\n"
+"  Windows® or a directory in UNIX®. The primary difference between a\n"
+"  container and these other file system concepts is that containers cannot "
+"be\n"
+"  nested. You can, however, create an unlimited number of containers within\n"
+"  your account. Data must be stored in a container so you must have at "
+"least\n"
+"  one container defined in your account prior to uploading data."
+msgstr ""
+"儲存器是一個用於您資料的儲存隔間，並且提供\n"
+"          方法讓您組織資料。您可以將儲存器視為\n"
+"          Windows 資料夾或者 UNIX 目錄。儲存器與\n"
+"          這些其他的檔案系統觀念的主要不同在於\n"
+"          儲存器不能階層化。但是，您可以以您的帳戶\n"
+"          建立無限數量的儲存器。資料必須儲存在儲存器中，\n"
+"          所以在上傳資料前，您必須至少先在帳戶中\n"
+"          定義一個儲存器。"
 
 msgid "A container with that name exists."
 msgstr "同名稱的容器已存在。"
@@ -192,6 +244,9 @@ msgstr "加入網路卡"
 msgid "Add Ons, Required and Feedback"
 msgstr "添加，必需的和反饋"
 
+msgid "Admin Password"
+msgstr "管理員密碼"
+
 msgid "Admin State"
 msgstr "管理員狀態"
 
@@ -208,6 +263,9 @@ msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
 msgstr "管理員安裝可用於附加到雲實例的浮動 IP 倉庫。"
+
+msgid "Affinity"
+msgstr "Affinity"
 
 msgid "Alerts"
 msgstr "警報"
@@ -245,6 +303,12 @@ msgstr ""
 "發動雲實例時有硬碟分割這個進階選項可用。有兩種硬碟分割選項。選擇<b>自動</b>來"
 "調整硬碟容量並設定於單一的分割。選擇<b>手動</b>允許您在硬碟上新增多個分割。"
 
+msgid "An arbitrary description for the trunk."
+msgstr "此中繼的任何說明。"
+
+msgid "An arbitrary name for the trunk. May not be unique."
+msgstr "此中繼的任何名稱的，不要求是唯一的。"
+
 msgid "An external (HTTP) URL is required"
 msgstr "需要一個外部 (HTTP) URL"
 
@@ -278,6 +342,9 @@ msgstr "已模擬"
 
 msgid "Another action"
 msgstr "另一個動作"
+
+msgid "Anti Affinity"
+msgstr "Anti Affinity"
 
 msgid "Any Availability Zone"
 msgstr "任何可用區域"
@@ -358,6 +425,12 @@ msgstr "無法從 Keystone 獲得服務分類。"
 msgid "Cannot get the extension list."
 msgstr "無法獲得擴充清單。"
 
+msgid "Change Password"
+msgstr "更換密碼"
+
+msgid "Change user's password. We highly recommend you create a strong one."
+msgstr "更換用戶的密碼。我們強力建議您新增堅固的密碼。"
+
 msgid "Charts"
 msgstr "圖表"
 
@@ -417,21 +490,48 @@ msgstr "設定檔硬碟"
 msgid "Confirm Delete"
 msgstr "確認刪除"
 
+msgid "Confirm Delete Domain"
+msgid_plural "Confirm Delete Domains"
+msgstr[0] "確認刪除地域"
+
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "確認刪除虛擬硬體樣板"
+
+msgid "Confirm Delete Group"
+msgid_plural "Confirm Delete Groups"
+msgstr[0] "確認刪除群組"
 
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "確認刪除映像檔"
 
+msgid "Confirm Delete Key Pair"
+msgid_plural "Confirm Delete Key Pairs"
+msgstr[0] "確認刪除密鑰對"
+
+msgid "Confirm Delete Policy"
+msgid_plural "Confirm Delete Policies"
+msgstr[0] "確認刪除政策"
+
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "確認刪除角色"
 
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "確認刪除伺服器群組"
+
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
 msgstr[0] "確認刪除中繼"
+
+msgid "Confirm Delete User"
+msgid_plural "Confirm Delete Users"
+msgstr[0] "確認刪除用戶"
+
+msgid "Confirm Password"
+msgstr "確認密碼"
 
 msgid "Connecting"
 msgstr "連線中"
@@ -472,11 +572,23 @@ msgstr "內容類型"
 msgid "Contextual alternatives"
 msgstr "環境定義替代方案"
 
+msgid "Copy"
+msgstr "複製"
+
 msgid "Copy Data"
 msgstr "複製資料"
 
+msgid "Copy Object"
+msgstr "複製物件"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "複製物件：{$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
 msgid "Copy Private Key to Clipboard"
 msgstr "複制私鑰到剪貼簿"
+
+msgid "Copying"
+msgstr "複製中"
 
 msgid "Could not decrypt the password"
 msgstr "不能解鎖密碼"
@@ -490,11 +602,17 @@ msgstr "計數"
 msgid "Create Container"
 msgstr "新增容器"
 
+msgid "Create Domain"
+msgstr "新增地域"
+
 msgid "Create Folder"
 msgstr "新增資料夾"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "建立資料夾位置：{$ ctrl.model.container.name $}"
+
+msgid "Create Group"
+msgstr "新增群組"
 
 msgid "Create Image"
 msgstr "建立映像檔"
@@ -511,11 +629,25 @@ msgstr "新增新雲硬碟"
 msgid "Create Role"
 msgstr "新增角色"
 
+msgid "Create Server Group"
+msgstr "建立伺服器群組"
+
 msgid "Create Subnet"
 msgstr "新增子網路"
 
+msgid "Create Trunk"
+msgstr "建立中繼"
+
+msgid "Create User"
+msgstr "新增用戶"
+
 msgid "Create Volume"
 msgstr "新增雲硬碟"
+
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr "新增新用戶並且設定包括主要的專案及角色等相關的屬性。"
 
 msgid "Created"
 msgstr "已新增"
@@ -533,6 +665,10 @@ msgstr "已新增金鑰組： %s"
 msgid "Creating"
 msgstr "正在新增"
 
+#, python-format
+msgid "Creating volume %s"
+msgstr "正在新增雲硬碟 %s"
+
 msgid "Custom Properties"
 msgstr "自訂內容"
 
@@ -545,6 +681,9 @@ msgstr ""
 "啟動執行個體時，添加的自定義腳本會執行特定的操作。例如，如果您無法在客戶作業"
 "系統中安裝 <samp>cloud-init</samp> 時，可以使用自定義腳本來獲得公鑰並將其添加"
 "到使用者帳戶。"
+
+msgid "Customization Script"
+msgstr "客製化腳本"
 
 msgid "DNS Domain"
 msgstr "DNS 網域"
@@ -603,6 +742,12 @@ msgstr "預設按鈕"
 msgid "Default input"
 msgstr "預設輸入"
 
+msgid "Default: Empty string"
+msgstr "預設爲空白字串"
+
+msgid "Default: Enabled"
+msgstr "預設爲開啓"
+
 msgid "Definition list"
 msgstr "定義列表"
 
@@ -615,6 +760,13 @@ msgstr "刪除"
 msgid "Delete Container"
 msgstr "刪除容器"
 
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "刪除地域"
+
+msgid "Delete Domains"
+msgstr "刪除地域"
+
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "在 {$ ctrl.model.container.name $} 中刪除文件"
 
@@ -624,6 +776,13 @@ msgstr[0] "刪除虛擬硬體樣板"
 
 msgid "Delete Flavors"
 msgstr "刪除虛擬硬體樣板"
+
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "刪除群組"
+
+msgid "Delete Groups"
+msgstr "刪除群組"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -638,8 +797,22 @@ msgstr "刪除實例"
 msgid "Delete Interface"
 msgstr "刪除網路卡"
 
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "刪除密鑰對"
+
+msgid "Delete Key Pairs"
+msgstr "刪除密鑰對"
+
 msgid "Delete Network"
 msgstr "刪除網路"
+
+msgid "Delete Policies"
+msgstr "刪除政策"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "刪除政策"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -651,6 +824,13 @@ msgstr "刪除角色"
 msgid "Delete Router"
 msgstr "刪除路由器"
 
+msgid "Delete Server Group"
+msgid_plural "Delete Server Groups"
+msgstr[0] "刪除伺服器群組"
+
+msgid "Delete Server Groups"
+msgstr "刪除伺服器群組"
+
 msgid "Delete Subnet"
 msgstr "刪除子網路"
 
@@ -660,6 +840,13 @@ msgstr[0] "刪除中繼"
 
 msgid "Delete Trunks"
 msgstr "刪除中繼"
+
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "刪除用戶"
+
+msgid "Delete Users"
+msgstr "刪除用戶"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "在雲實例刪除時刪除雲硬碟"
@@ -673,9 +860,19 @@ msgid_plural "Deleted Flavors: %s."
 msgstr[0] "已刪除虛擬硬體樣板：%s."
 
 #, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "已刪除群組：%s。"
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "已刪除映像檔：%s。"
+
+#, python-format
+msgid "Deleted Key Pair: %s."
+msgid_plural "Deleted Key Pairs: %s."
+msgstr[0] "已刪除密鑰對：%s。"
 
 #, python-format
 msgid "Deleted Role: %s."
@@ -683,9 +880,29 @@ msgid_plural "Deleted Roles: %s."
 msgstr[0] "已刪除角色: %s."
 
 #, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "已刪除伺服器群組：%s。"
+
+#, python-format
 msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
 msgstr[0] "已刪除中繼: %s."
+
+#, python-format
+msgid "Deleted User: %s."
+msgid_plural "Deleted Users: %s."
+msgstr[0] "刪除了用戶：%s。"
+
+#, python-format
+msgid "Deleted domain: %s."
+msgid_plural "Deleted domains: %s."
+msgstr[0] "刪除了地域：%s。"
+
+#, python-format
+msgid "Deleted policy: %s."
+msgid_plural "Deleted policies: %s."
+msgstr[0] "刪除的政策：%s。"
 
 msgid "Deleting"
 msgstr "正在刪除"
@@ -699,14 +916,26 @@ msgstr "描述"
 msgid "Description lists"
 msgstr "描述列表"
 
+msgid "Destination Container"
+msgstr "目標容器"
+
+msgid "Destination Object"
+msgstr "目標物件名稱"
+
 msgid "Details"
 msgstr "詳細資訊"
 
 msgid "Details Views:"
 msgstr "詳細資料："
 
+msgid "Device ID"
+msgstr "裝置 ID"
+
 msgid "Device Name"
 msgstr "裝置名稱"
+
+msgid "Device Owner"
+msgstr "裝置持有人"
 
 msgid "Dialogs"
 msgstr "對話框"
@@ -719,6 +948,9 @@ msgstr "直通硬體"
 
 msgid "Direction"
 msgstr "直連"
+
+msgid "Disable User"
+msgstr "關閉用戶"
 
 msgid "Disabled"
 msgstr "已停用"
@@ -744,14 +976,26 @@ msgstr "Docker"
 msgid "Domain"
 msgstr "地域"
 
+#, python-format
+msgid "Domain %s was successfully created."
+msgstr "已順利建立地域 %s"
+
 msgid "Domain ID"
 msgstr "區域 ID"
+
+msgid "Domain Id"
+msgstr "地域 ID"
 
 msgid "Domain Name"
 msgstr "區域名稱"
 
 msgid "Domains"
 msgstr "地域"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr "地域提供了在不同組織間從底層結構中抽離出用戶。"
 
 msgid "Done"
 msgstr "完成"
@@ -783,17 +1027,35 @@ msgstr "編輯資料"
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "編輯資料： {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
+msgid "Edit Group"
+msgstr "編輯群組"
+
 msgid "Edit Image"
 msgstr "編輯映像檔"
 
 msgid "Edit Role"
 msgstr "編輯角色"
 
+msgid "Edit Trunk"
+msgstr "編輯中繼"
+
+msgid "Edit User"
+msgstr "編輯使用者"
+
+msgid "Edit the user's details, including the Primary Project."
+msgstr "編輯用戶的詳細資訊，包括主要的專案。"
+
 msgid "Email"
 msgstr "電子郵件信箱"
 
 msgid "Emphasis classes"
 msgstr "強調類別"
+
+msgid "Enable User"
+msgstr "啟用用戶"
+
+msgid "Enable/Disable subport addition, removal and trunk delete."
+msgstr "啟用/停用新增、刪除子端口和刪除中繼。"
 
 msgid "Enabled"
 msgstr "已啟用"
@@ -821,6 +1083,11 @@ msgstr "刪除時發生錯誤"
 
 msgid "Ether Type"
 msgstr "網路協定類型"
+
+msgid ""
+"Exactly one regular Neutron port. Has to be provided when\n"
+"  the trunk is created. Cannot be changed during the trunk's life."
+msgstr "中繼被建立時必須提供一個 Neutron 端口。此端口之後並不能被更改。"
 
 msgid "Example body text"
 msgstr "範例內文文字"
@@ -920,6 +1187,13 @@ msgstr "全域動作："
 
 msgid "Group"
 msgstr "群組"
+
+#, python-format
+msgid "Group %s was successfully created."
+msgstr "已順利建立群組 %s"
+
+msgid "Group updated successfully."
+msgstr "已成功更新群組。"
 
 msgid "Groups"
 msgstr "群組"
@@ -1066,6 +1340,9 @@ msgstr "對配額的影響"
 msgid "Import Key Pair"
 msgstr "匯入密鑰對"
 
+msgid "Import Public Key"
+msgstr "輸入公鑰"
+
 msgid "Indicators"
 msgstr "指示器"
 
@@ -1102,8 +1379,18 @@ msgstr "輸入成功"
 msgid "Input warning"
 msgstr "輸入警告"
 
+msgid ""
+"Inside the instance the parent port's network will always\n"
+"  be presented as the untagged network. It will be available early from\n"
+"  the moment of bootup."
+msgstr ""
+"在雲實例中，母端口將會是 untagged 的網路。其將會在早期開機過程中變爲可用。"
+
 msgid "Instance"
 msgstr "雲實例"
+
+msgid "Instance ID"
+msgstr "雲實例 ID"
 
 msgid "Instance Name"
 msgstr "雲實例名稱"
@@ -1174,6 +1461,36 @@ msgstr ""
 "      擇一個您可以識別金鑰組。\n"
 "      名稱只能包含英數字元、空格或橫線。"
 
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize and paste your SSH public key "
+"into the\n"
+"  space provided."
+msgstr ""
+"密鑰組是您在啟動雲實例之後登入該雲實例的方式。\n"
+"      選擇您可以識別的密鑰組名稱，並將您的 SSH 公開金鑰貼到\n"
+"      提供的空白處。"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, dashes and\n"
+"  underscores."
+msgstr ""
+"密鑰組是您在啟動雲實例之後登入該雲實例的方式。\n"
+"      擇一個您可以識別金鑰組。\n"
+"      名稱只能包含英數字元、空格、橫線或底線。"
+
+msgid "Key Type"
+msgstr "金鑰類型"
+
+#, python-format
+msgid "Key pair %(name)s was successfully created."
+msgstr "已成功新增密鑰組 %(name)s。"
+
+msgid "Key pair already exists."
+msgstr "密鑰組已存在。"
+
 msgid "Keypair already exists or name contains bad characters."
 msgstr "金鑰組已經存在，或者名稱包含不正確的字元。"
 
@@ -1243,6 +1560,12 @@ msgstr "載入功能："
 msgid "Loading"
 msgstr "載入中"
 
+msgid "Loading ports... Please Wait"
+msgstr "讀取端口中... 請等待"
+
+msgid "Loading trunk... Please Wait"
+msgstr "讀取中繼中... 請等待"
+
 msgid "Location"
 msgstr "位置"
 
@@ -1254,6 +1577,9 @@ msgstr "看，我在一口小井內！"
 
 msgid "Look, I'm in a well!"
 msgstr "看，我在一口井內！"
+
+msgid "MAC Address"
+msgstr "MAC 位址"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -1357,8 +1683,16 @@ msgstr "模組"
 msgid "Month"
 msgstr "月份"
 
+msgid ""
+"Must not be the parent or a subport of any other\n"
+"  trunks."
+msgstr "不得是其他中繼的母端口或子端口。"
+
 msgid "Name"
 msgstr "名稱"
+
+msgid "Name/ID"
+msgstr "名子/ID"
 
 msgid "Names:"
 msgstr "名稱："
@@ -1448,6 +1782,15 @@ msgid "Not public"
 msgstr "非公開"
 
 msgid ""
+"Note that some Neutron backends (notably the Open vSwitch\n"
+"  based backend) only allow trunk creation before an instance is launched\n"
+"  on the parent port.  Other backends may allow trunk creation at any\n"
+"  time during the life of a port."
+msgstr ""
+"請注意有些 Neutron 後端（特別是基於 Open vSwitch 的後端）只允許在雲實例在母端"
+"口建立前建立中繼。 其他後端也許可以在端口的任何週期時建立中繼。"
+
+msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
 "created\n"
@@ -1478,6 +1821,10 @@ msgstr "OVA - Open Virtual Appliance"
 
 msgid "Object"
 msgstr "物件"
+
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "物件 %(path)s 已經被複製"
 
 msgid "Object Count"
 msgstr "物件計數"
@@ -1584,6 +1931,9 @@ msgstr "畫面"
 msgid "Parent Port"
 msgstr "母端口"
 
+msgid "Parent port"
+msgstr "母端口"
+
 msgid "Password"
 msgstr "密碼"
 
@@ -1652,6 +2002,9 @@ msgstr "主要錨點"
 msgid "Primary Button"
 msgstr "主要按鈕"
 
+msgid "Primary Project"
+msgstr "主要的專案"
+
 msgid "Primary Project ID"
 msgstr "主要專案 ID"
 
@@ -1694,6 +2047,9 @@ msgstr "受保護的"
 
 msgid "Protocol"
 msgstr "協定"
+
+msgid "Provide basic properties of the trunk to be created. All optional."
+msgstr "提供中繼一些基本的可選的屬性"
 
 msgid "Provider Network"
 msgstr "提供者網路"
@@ -1778,6 +2134,9 @@ msgstr "角色"
 msgid "Role %s was successfully created."
 msgstr "已順利建立角色 %s"
 
+msgid "Role already exists."
+msgstr "此角色已經存在"
+
 msgid "Role updated successfully."
 msgstr "已順利更新角色。"
 
@@ -1793,6 +2152,9 @@ msgstr "規則 ID"
 msgid "Rules"
 msgstr "規則"
 
+msgid "SSH Key"
+msgstr "SSH 金鑰檔"
+
 msgid "STATUS"
 msgstr "狀態"
 
@@ -1804,6 +2166,11 @@ msgstr "儲存變更"
 
 msgid "Saving"
 msgstr "正在儲存"
+
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "已排程雲實例 %s 的啟用。"
 
 msgid "Scheduler Hints"
 msgstr "Scheduler Hints"
@@ -1849,8 +2216,16 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "分段識別號"
 
+msgid "Segmentation Id"
+msgstr "分段 ID"
+
 msgid "Segmentation Type"
 msgstr "分段類型"
+
+msgid ""
+"Select <em>exactly one port</em> as the parent port of the trunk to\n"
+"    be created. Mandatory."
+msgstr "選擇 <em>一個端口</em>爲要建立中繼的母端口。此欄位爲必須。"
 
 msgid "Select Boot Source"
 msgstr "選擇開機來源"
@@ -1878,6 +2253,15 @@ msgstr "從下列可用項目中選擇項目"
 
 msgid "Select at least one network"
 msgstr "選擇至少一個網路"
+
+msgid "Select from the list of available ports below."
+msgstr "從下列列表中選擇一個可用的端口。"
+
+msgid "Select items from Available items below"
+msgstr "從下列可用的項目中選擇"
+
+msgid "Select many"
+msgstr "選擇多個"
 
 msgid "Select networks from those listed below."
 msgstr "從下列列表中選擇網路。"
@@ -1928,6 +2312,16 @@ msgstr "寄送邀請"
 
 msgid "Separated link"
 msgstr "已區隔的鏈結"
+
+msgid "Server Group"
+msgstr "伺服器群組"
+
+#, python-format
+msgid "Server Group %s was successfully created."
+msgstr "已順利建立伺服器群組 %s"
+
+msgid "Server Group Members"
+msgstr "伺服器群組成員"
 
 msgid "Server Groups"
 msgstr "伺服器群組"
@@ -1984,11 +2378,20 @@ msgstr "小型輸入"
 msgid "Snapshot"
 msgstr "即時存檔"
 
+msgid "Soft Affinity"
+msgstr "Soft Affinity"
+
+msgid "Soft Anti Affinity"
+msgstr "Soft Anti Affinity"
+
 msgid "Someone famous in"
 msgstr "著名人物"
 
 msgid "Something else here"
 msgstr "在這裡填寫其他資訊"
+
+msgid "Something wrong to change password."
+msgstr "更換密碼時發生錯誤。"
 
 msgid "Source"
 msgstr "來源"
@@ -2035,6 +2438,9 @@ msgstr "子網路已聯結"
 
 msgid "Subport Count"
 msgstr "子端口數量"
+
+msgid "Subports"
+msgstr "子端口"
 
 msgid "Success"
 msgstr "成功"
@@ -2096,6 +2502,9 @@ msgstr "文字區"
 
 msgid "The access permission for the image."
 msgstr "映像檔的訪問權限"
+
+msgid "The admin password is incorrect."
+msgstr "管理員密碼不正確。"
 
 msgid "The architecture of the image."
 msgstr "映像檔的架構。"
@@ -2168,6 +2577,14 @@ msgstr "雲硬碟的名稱"
 msgid "The name of the image."
 msgstr "映像檔名稱"
 
+msgid ""
+"The parent port is the port you have to add to the instance\n"
+"  at launch. Do not try to add the trunk or any of the subports to the\n"
+"  instance directly."
+msgstr ""
+"母端口是在起動時您要接到雲實例上的端口。請不要嘗試將中繼或是任何的子端口直接"
+"接到雲實例上。"
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -2226,6 +2643,13 @@ msgid "There are no Availability Zones."
 msgstr "沒有可用區域"
 
 msgid ""
+"There are no allowed boot\n"
+"      sources. If you think this is wrong please contact your administrator."
+msgstr ""
+"沒有允許的開機來源。\n"
+"      如果您認為這不正確，請聯繫您的系統管理員。"
+
+msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
@@ -2245,6 +2669,12 @@ msgid ""
 msgstr ""
 "這道命令產生一組密鑰：一支私鑰（cloud.key）\n"
 "  及一支公鑰（cloud.key.pub）。"
+
+msgid "This container does not exist."
+msgstr "這個容器並不存在。"
+
+msgid "This field is required."
+msgstr "這欄位是必填"
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
@@ -2337,6 +2767,14 @@ msgstr "雲硬碟總和"
 msgid "Trunk"
 msgstr "中繼"
 
+#, python-format
+msgid "Trunk %s was successfully created."
+msgstr "已成功新增中繼 %s。"
+
+#, python-format
+msgid "Trunk %s was successfully edited."
+msgstr "已成功編輯中繼 %s。"
+
 msgid "Trunks"
 msgstr "中繼"
 
@@ -2366,6 +2804,9 @@ msgstr "無法與浮動 IP 位址建立關聯。"
 msgid "Unable to change the container access."
 msgstr "無法變更容器存取權。"
 
+msgid "Unable to check the Nova service feature."
+msgstr "無法檢查 Nova 服務功能。"
+
 msgid "Unable to copy the object."
 msgstr "無法複製物件。"
 
@@ -2380,6 +2821,9 @@ msgstr "無法新增虛擬硬體樣板。"
 
 msgid "Unable to create the folder."
 msgstr "無法新增資料夾。"
+
+msgid "Unable to create the group."
+msgstr "無法新增群組。"
 
 msgid "Unable to create the image."
 msgstr "無法新增映像檔。"
@@ -2396,6 +2840,9 @@ msgstr "無法新增專案。"
 msgid "Unable to create the role."
 msgstr "無法新增角色。"
 
+msgid "Unable to create the server group."
+msgstr "無法建立伺服器群組。"
+
 msgid "Unable to create the server snapshot."
 msgstr "無法建立伺服器即時存擋。"
 
@@ -2404,6 +2851,9 @@ msgstr "無法新增伺服器。"
 
 msgid "Unable to create the subnet."
 msgstr "無法新增子網路。"
+
+msgid "Unable to create the trunk."
+msgstr "無法新增 trunk。"
 
 msgid "Unable to create the user."
 msgstr "無法新增用戶。"
@@ -2417,9 +2867,19 @@ msgid_plural "Unable to delete Flavors: %s."
 msgstr[0] "無法刪除虛擬硬體樣板：%s。"
 
 #, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "無法刪除群組：%s。"
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "無法刪除映像檔：%s。"
+
+#, python-format
+msgid "Unable to delete Key Pair: %s."
+msgid_plural "Unable to delete Key Pairs: %s."
+msgstr[0] "無法刪除密鑰對：%s。"
 
 #, python-format
 msgid "Unable to delete Role: %s."
@@ -2427,9 +2887,33 @@ msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "無法刪除角色：%s。"
 
 #, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "無法刪除伺服器群組：%s。"
+
+#, python-format
 msgid "Unable to delete Trunk: %s."
 msgid_plural "Unable to delete Trunks: %s."
 msgstr[0] "無法刪除中繼：%s。"
+
+#, python-format
+msgid "Unable to delete User: %s."
+msgid_plural "Unable to delete Users: %s."
+msgstr[0] "無法刪除用戶：%s。"
+
+#, python-format
+msgid "Unable to delete domain: %s."
+msgid_plural "Unable to delete domains: %s."
+msgstr[0] "無法刪除地域：%s。"
+
+#, python-format
+msgid "Unable to delete policy: %s."
+msgid_plural "Unable to delete policies: %s."
+msgstr[0] "無法刪除政策：%s。"
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "無法刪除 QoS 原則。%(id)s"
 
 msgid "Unable to delete the container."
 msgstr "無法刪除容器。"
@@ -2447,9 +2931,19 @@ msgstr "無法刪除 ID 為 %(id)s 的虛擬硬體樣板"
 msgid "Unable to delete the folder because it is not empty."
 msgstr "無法刪除資料夾，因為該資料夾不是空的。"
 
+msgid "Unable to delete the group."
+msgstr "無法刪除群組。"
+
+msgid "Unable to delete the groups."
+msgstr "無法刪除群組。"
+
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "無法刪除 ID 為 %(id)s 的映像檔"
+
+#, python-format
+msgid "Unable to delete the keypair with name: %(name)s"
+msgstr "無法刪除名為 %(name)s 的密鑰對。"
 
 msgid "Unable to delete the object."
 msgstr "無法刪除物件。"
@@ -2465,6 +2959,10 @@ msgstr "無法刪除角色"
 
 msgid "Unable to delete the roles."
 msgstr "無法刪除角色"
+
+#, python-format
+msgid "Unable to delete the server group with id %(id)s"
+msgstr "無法刪除 ID 為 %(id)s 的伺服器群組"
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
@@ -2497,6 +2995,9 @@ msgstr "無法編輯地域。"
 
 msgid "Unable to edit the flavor extra specs."
 msgstr "無法編輯虛擬硬體樣板額外規格。"
+
+msgid "Unable to edit the group."
+msgstr "無法編輯群組。"
 
 msgid "Unable to edit the image custom properties."
 msgstr "無法編輯映像檔自訂屬性。"
@@ -2618,6 +3119,9 @@ msgstr "無法獲得 Cinder 服務。"
 msgid "Unable to retrieve the current user session."
 msgstr "無法獲得目前用戶連線階段。"
 
+msgid "Unable to retrieve the default domain."
+msgstr "無法獲得預設地域。"
+
 msgid "Unable to retrieve the default quotas."
 msgstr "無法獲得預設的配額。"
 
@@ -2645,6 +3149,9 @@ msgstr "無法獲得虛擬硬體樣板。"
 msgid "Unable to retrieve the flavors."
 msgstr "無法獲得虛擬硬體樣板。"
 
+msgid "Unable to retrieve the group."
+msgstr "無法獲得群組。"
+
 msgid "Unable to retrieve the image custom properties."
 msgstr "無法獲得映像檔自訂屬性。"
 
@@ -2653,6 +3160,9 @@ msgstr "無法獲得映像檔。"
 
 msgid "Unable to retrieve the images."
 msgstr "無法獲得映像檔。"
+
+msgid "Unable to retrieve the keypair."
+msgstr "無法獲得密鑰對。"
 
 msgid "Unable to retrieve the keypairs."
 msgstr "無法獲得密鑰對。"
@@ -2668,6 +3178,10 @@ msgstr "無法獲得網路。"
 
 msgid "Unable to retrieve the nova services."
 msgstr "無法獲得 Nova 服務。"
+
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "無法獲取 ID 為 %(id)s 的政策"
 
 msgid "Unable to retrieve the ports."
 msgstr "無法獲得端口。"
@@ -2693,6 +3207,9 @@ msgstr "無法獲得角色。"
 msgid "Unable to retrieve the security groups."
 msgstr "無法獲得安全性群組。"
 
+msgid "Unable to retrieve the server group."
+msgstr "無法獲得伺服器群組。"
+
 msgid "Unable to retrieve the server."
 msgstr "無法獲得伺服器。"
 
@@ -2714,6 +3231,9 @@ msgstr "無法獲得用戶。"
 
 msgid "Unable to retrieve the users."
 msgstr "無法獲得用戶。"
+
+msgid "Unable to retrieve the volume availability zones."
+msgstr "無法獲得雲硬碟可用區域。"
 
 msgid "Unable to retrieve the volume metadata."
 msgstr "無法擷取雲硬碟 metadata 。"
@@ -2770,6 +3290,9 @@ msgstr "無法更新虛擬硬體樣板。"
 
 msgid "Unable to update the image."
 msgstr "無法更新映像檔。"
+
+msgid "Unable to update the trunk."
+msgstr "無法更新 trunk。"
 
 msgid "Unable to upload the object."
 msgstr "無法上傳物件。"
@@ -2864,11 +3387,30 @@ msgstr ""
 msgid "User"
 msgstr "用戶"
 
+#, python-format
+msgid "User %s was successfully created."
+msgstr "已成功新增用戶 %s。"
+
+#, python-format
+msgid "User %s was successfully disabled."
+msgstr "已成功停用用戶 %s。"
+
+#, python-format
+msgid "User %s was successfully enabled."
+msgstr "已成功啟用用戶 %s。"
+
+#, python-format
+msgid "User %s was successfully updated."
+msgstr "已順利更新用戶 %s。"
+
 msgid "User ID"
 msgstr "用戶識別號"
 
 msgid "User Name"
 msgstr "用戶名稱"
+
+msgid "User password has been updated successfully."
+msgstr "已成功更新用戶密碼。"
 
 msgid "Users"
 msgstr "用戶"
@@ -2960,6 +3502,9 @@ msgstr "雲硬碟和即時存檔配額 (GB)"
 msgid "Volume size is required and must be an integer"
 msgstr "雲硬碟容量需要一個整數"
 
+msgid "Volume size is required and must be positive integer"
+msgstr "雲硬碟容量是必須並且需要爲一個正整數"
+
 msgid "Volumes"
 msgstr "雲硬碟"
 
@@ -3024,6 +3569,9 @@ msgstr ""
 "    該埠可供使用。如果您尚未準備好讓其他使用者使用此埠，\n"
 "    則您可以將<b>管理狀態</b>設為<b>離線</b>。"
 
+msgid "X509 Certificate"
+msgstr "X509 憑證"
+
 msgid "XL Modal"
 msgstr "XL Modal"
 
@@ -3032,6 +3580,10 @@ msgstr "XS"
 
 msgid "Yes"
 msgstr "是"
+
+#, python-format
+msgid "You are not allowed to delete domains: %s"
+msgstr "不容許您刪除地域：%s"
 
 #, python-format
 msgid "You are not allowed to delete images: %s"
@@ -3051,12 +3603,26 @@ msgstr ""
 "最大長度是 255 個字元。"
 
 msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr "在複製物件前，您需要建立一個目標容器。"
+
+msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "您可以使用在此出現的選項，在雲實例啟動之後對雲實例進行自訂。\n"
 "    「自訂 Script」類似於其他系統中的「使用者資料」。"
+
+msgid ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
+msgstr ""
+"您可以透過在目標物件欄位使用 '/' 指定資料夾。\n"
+"    例如，如果您想要複製在 'folder1' 資料夾下的物件，您需要指定目標物件爲 "
+"'folder1/[您的物件名稱]'。"
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "
@@ -3069,9 +3635,20 @@ msgstr ""
 "索引鍵的 scheduler hints 。"
 
 #, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的伺服器群組無法恢復。"
+
+#, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
 msgstr[0] "您已選取 \"%s\"。已刪除的中繼將不可回復。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的地域無法恢復。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
@@ -3079,20 +3656,49 @@ msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "您已選取 \"%s\"。已刪除的虛擬硬體樣板不可回復。"
 
 #, python-format
+msgid "You have selected \"%s\". Deleted group is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的群組無法恢復。"
+
+#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "您已選取 \"%s\"。已刪除的映像檔將不可恢復。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted key pair is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的密鑰對無法恢復。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted policy is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted policies are not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的政策無法恢復。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
 msgstr[0] "您已選取 \"%s\"。已刪除的角色將不可回復。"
 
+#, python-format
+msgid "You have selected \"%s\". Deleted user is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted users are not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的用戶無法恢復。"
+
 msgid "Your Form as JavaScript"
 msgstr "Javascript格式"
 
 msgid "image"
 msgstr "映像檔"
+
+msgid "inherit"
+msgstr "繼承"
+
+msgid "min disk is required and must be an integer not less than 0"
+msgstr "最小雲硬碟是必須並且需要不小於 0"
+
+msgid "min ram is required and must be an integer not less than 0"
+msgstr "最小記憶體是必須並且需要不小於 0"
 
 #, python-format
 msgid "resource load failed: %s"
@@ -3103,6 +3709,9 @@ msgstr "即時存檔"
 
 msgid "volume"
 msgstr "雲硬碟"
+
+msgid "{$ address $} on subnet {$ subnet $}"
+msgstr "{$ address $} 位於子網域 {$ subnet $}"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"

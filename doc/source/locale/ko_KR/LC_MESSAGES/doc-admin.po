@@ -2,16 +2,17 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Jongwon Lee <tothebinaryworld@gmail.com>, 2018. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-23 08:36+0000\n"
+"POT-Creation-Date: 2019-12-09 13:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-02 09:31+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2019-12-10 04:02+0000\n"
+"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -97,6 +98,9 @@ msgstr "20"
 
 msgid "2048"
 msgstr "2048"
+
+msgid "256 (Recommended for aes-xts-plain64 and aes-cbc-essiv)"
+msgstr "256 (aes-xts-plain64와 aes-cbc-essiv에 권장)"
 
 msgid "4"
 msgstr "4"
@@ -240,6 +244,13 @@ msgstr ""
 "를 설계 및 구현한 후 사용자와 관리자가 OpenStack 대시보드를 사용할 수 있습니"
 "다. 대시보드에 로그인하는 방법에 대한 자세한 지침은 OpenStack 최종 사용자 설"
 "명서의 :doc:`OpenStack User Documentation </user/index>` 장을 참조하십시오."
+
+msgid ""
+"After configuring the ``local_settings.py`` file as shown, you can run the :"
+"command:`manage.py migrate` command to populate this newly created database."
+msgstr ""
+"보여진 것 처럼 ``local_settings.py`` 파일을 구성한 후 :command:`manage.py "
+"migrate` 명령을 실행하여 새로 생성된 데이터베이스를 채울 수 있습니다."
 
 msgid ""
 "Allows easier import and migration of imported encrypted volumes, and allows "
@@ -1965,6 +1976,13 @@ msgstr ""
 "새 프로젝트가 대시보드의:guilabel:`Projects` 페이지에 표시되는 프로젝트 목록"
 "에 나타납니다. 프로젝트는 알파벳 순서로 나열되며, 이 섹션에서 **Project "
 "ID**, **Domain name** 및 프로젝트 상태를 확인할 수 있습니다."
+
+msgid ""
+"`*` Source `NIST SP 800-38E <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/"
+"nistspecialpublication800-38e.pdf>`_"
+msgstr ""
+"`*` 출처 `NIST SP 800-38E <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/"
+"nistspecialpublication800-38e.pdf>`_"
 
 msgid "aes-cbc-essiv"
 msgstr "aes-cbc-essiv"

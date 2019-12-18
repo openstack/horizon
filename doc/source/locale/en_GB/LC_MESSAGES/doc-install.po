@@ -4,22 +4,190 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2019-12-09 13:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-06 02:53+0000\n"
+"PO-Revision-Date: 2019-12-11 03:12+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+msgid ":launchpad:`bgpvpn`"
+msgstr ":launchpad:`bgpvpn`"
+
+msgid ":launchpad:`blazar`"
+msgstr ":launchpad:`blazar`"
+
+msgid ":launchpad:`cloudkitty`"
+msgstr ":launchpad:`cloudkitty`"
+
+msgid ":launchpad:`congress`"
+msgstr ":launchpad:`congress`"
+
+msgid ":launchpad:`designate-dashboard`"
+msgstr ":launchpad:`designate-dashboard`"
+
+msgid ":launchpad:`freezer`"
+msgstr ":launchpad:`freezer`"
+
+msgid ":launchpad:`group-based-policy-ui`"
+msgstr ":launchpad:`group-based-policy-ui`"
+
+msgid ":launchpad:`ironic-ui`"
+msgstr ":launchpad:`ironic-ui`"
+
+msgid ":launchpad:`karbor-dashboard`"
+msgstr ":launchpad:`karbor-dashboard`"
+
+msgid ":launchpad:`magnum-ui`"
+msgstr ":launchpad:`magnum-ui`"
+
+msgid ":launchpad:`manila-ui`"
+msgstr ":launchpad:`manila-ui`"
+
+msgid ":launchpad:`mistral`"
+msgstr ":launchpad:`mistral`"
+
+msgid ":launchpad:`monasca`"
+msgstr ":launchpad:`monasca`"
+
+msgid ":launchpad:`murano`"
+msgstr ":launchpad:`murano`"
+
+msgid ":launchpad:`neutron-fwaas-dashboard`"
+msgstr ":launchpad:`neutron-fwaas-dashboard`"
+
+msgid ":launchpad:`neutron-vpnaas-dashboard`"
+msgstr ":launchpad:`neutron-vpnaas-dashboard`"
+
+msgid ":launchpad:`senlin-dashboard`"
+msgstr ":launchpad:`senlin-dashboard`"
+
+msgid ":launchpad:`solum`"
+msgstr ":launchpad:`solum`"
+
+msgid ":launchpad:`tacker`"
+msgstr ":launchpad:`tacker`"
+
+msgid ":launchpad:`trove-dashboard`"
+msgstr ":launchpad:`trove-dashboard`"
+
+msgid ":launchpad:`watcher-dashboard`"
+msgstr ":launchpad:`watcher-dashboard`"
+
+msgid ":launchpad:`zaqar-ui`"
+msgstr ":launchpad:`zaqar-ui`"
+
+msgid ":launchpad:`zun-ui`"
+msgstr ":launchpad:`zun-ui`"
+
+msgid ":opendev-repo:`openstack/blazar-dashboard`"
+msgstr ":opendev-repo:`openstack/blazar-dashboard`"
+
+msgid ":opendev-repo:`openstack/cloudkitty-dashboard`"
+msgstr ":opendev-repo:`openstack/cloudkitty-dashboard`"
+
+msgid ":opendev-repo:`openstack/congress-dashboard`"
+msgstr ":opendev-repo:`openstack/congress-dashboard`"
+
+msgid ":opendev-repo:`openstack/designate-dashboard`"
+msgstr ":opendev-repo:`openstack/designate-dashboard`"
+
+msgid ":opendev-repo:`openstack/freezer-web-ui`"
+msgstr ":opendev-repo:`openstack/freezer-web-ui`"
+
+msgid ":opendev-repo:`openstack/heat-dashboard`"
+msgstr ":opendev-repo:`openstack/heat-dashboard`"
+
+msgid ":opendev-repo:`openstack/ironic-ui`"
+msgstr ":opendev-repo:`openstack/ironic-ui`"
+
+msgid ":opendev-repo:`openstack/karbor-dashboard`"
+msgstr ":opendev-repo:`openstack/karbor-dashboard`"
+
+msgid ":opendev-repo:`openstack/magnum-ui`"
+msgstr ":opendev-repo:`openstack/magnum-ui`"
+
+msgid ":opendev-repo:`openstack/manila-ui`"
+msgstr ":opendev-repo:`openstack/manila-ui`"
+
+msgid ":opendev-repo:`openstack/mistral-dashboard`"
+msgstr ":opendev-repo:`openstack/mistral-dashboard`"
+
+msgid ":opendev-repo:`openstack/monasca-ui`"
+msgstr ":opendev-repo:`openstack/monasca-ui`"
+
+msgid ":opendev-repo:`openstack/murano-dashboard`"
+msgstr ":opendev-repo:`openstack/murano-dashboard`"
+
+msgid ":opendev-repo:`openstack/networking-bgpvpn`"
+msgstr ":opendev-repo:`openstack/networking-bgpvpn`"
+
+msgid ":opendev-repo:`openstack/neutron-fwaas-dashboard`"
+msgstr ":opendev-repo:`openstack/neutron-fwaas-dashboard`"
+
+msgid ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
+msgstr ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
+
+msgid ":opendev-repo:`openstack/octavia-dashboard`"
+msgstr ":opendev-repo:`openstack/octavia-dashboard`"
+
+msgid ":opendev-repo:`openstack/sahara-dashboard`"
+msgstr ":opendev-repo:`openstack/sahara-dashboard`"
+
+msgid ":opendev-repo:`openstack/searchlight-ui`"
+msgstr ":opendev-repo:`openstack/searchlight-ui`"
+
+msgid ":opendev-repo:`openstack/senlin-dashboard`"
+msgstr ":opendev-repo:`openstack/senlin-dashboard`"
+
+msgid ":opendev-repo:`openstack/solum-dashboard`"
+msgstr ":opendev-repo:`openstack/solum-dashboard`"
+
+msgid ":opendev-repo:`openstack/tacker-horizon`"
+msgstr ":opendev-repo:`openstack/tacker-horizon`"
+
+msgid ":opendev-repo:`openstack/trove-dashboard`"
+msgstr ":opendev-repo:`openstack/trove-dashboard`"
+
+msgid ":opendev-repo:`openstack/vitrage-dashboard`"
+msgstr ":opendev-repo:`openstack/vitrage-dashboard`"
+
+msgid ":opendev-repo:`openstack/watcher-dashboard`"
+msgstr ":opendev-repo:`openstack/watcher-dashboard`"
+
+msgid ":opendev-repo:`openstack/zaqar-ui`"
+msgstr ":opendev-repo:`openstack/zaqar-ui`"
+
+msgid ":opendev-repo:`openstack/zun-ui`"
+msgstr ":opendev-repo:`openstack/zun-ui`"
+
+msgid ":opendev-repo:`x/group-based-policy-ui`"
+msgstr ":opendev-repo:`x/group-based-policy-ui`"
+
 msgid ":ref:`install-customizing` describes how to customize horizon."
 msgstr ":ref:`install-customizing` describes how to customise Horizon."
 
 msgid ":ref:`install-settings` lists the available settings for horizon."
 msgstr ":ref:`install-settings` lists the available settings for Horizon."
+
+msgid ":storyboard:`openstack/heat-dashboard`"
+msgstr ":storyboard:`openstack/heat-dashboard`"
+
+msgid ":storyboard:`openstack/octavia-dashboard`"
+msgstr ":storyboard:`openstack/octavia-dashboard`"
+
+msgid ":storyboard:`openstack/sahara-dashboard`"
+msgstr ":storyboard:`openstack/sahara-dashboard`"
+
+msgid ":storyboard:`openstack/searchlight-ui`"
+msgstr ":storyboard:`openstack/searchlight-ui`"
+
+msgid ":storyboard:`openstack/vitrage-dashboard`"
+msgstr ":storyboard:`openstack/vitrage-dashboard`"
 
 msgid ""
 "ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "
@@ -227,8 +395,14 @@ msgstr "Deployment"
 msgid "Designate Dashboard"
 msgstr "Designate Dashboard"
 
+msgid "Django 1.11, 2.0 and 2.2"
+msgstr "Django 1.11, 2.0 and 2.2"
+
 msgid "Django 1.8 to 1.10 are no longer supported since Rocky release."
 msgstr "Django 1.8 to 1.10 are no longer supported since Rocky release."
+
+msgid "Django 2.0 and 2.2 support are experimental in Train release."
+msgstr "Django 2.0 and 2.2 support are experimental in Train release."
 
 msgid "Django support policy is documented at :doc:`/contributor/policy`."
 msgstr "Django support policy is documented at :doc:`/contributor/policy`."
@@ -455,6 +629,13 @@ msgstr "Next Steps"
 msgid "Next steps"
 msgstr "Next steps"
 
+msgid ""
+"Note that Ussuri release (the upcoming release after Train release) will use "
+"Django 2.2 as the primary Django version. Django 2.0 support will be dropped."
+msgstr ""
+"Note that Ussuri release (the upcoming release after Train release) will use "
+"Django 2.2 as the primary Django version. Django 2.0 support will be dropped."
+
 msgid "Octavia Dashboard"
 msgstr "Octavia Dashboard"
 
@@ -478,6 +659,9 @@ msgstr ""
 "certificate connection problems, point the server IP address to a domain "
 "name, and give users access."
 
+msgid "Python 2.7, 3.6 or 3.7"
+msgstr "Python 2.7, 3.6 or 3.7"
+
 msgid "Python memcached module installed"
 msgstr "Python memcached module installed"
 
@@ -492,6 +676,9 @@ msgstr ""
 "Replace ``TIME_ZONE`` with an appropriate time zone identifier. For more "
 "information, see the `list of time zones <https://en.wikipedia.org/wiki/"
 "List_of_tz_database_time_zones>`__."
+
+msgid "Repository"
+msgstr "Repository"
 
 msgid "Requirements:"
 msgstr "Requirements:"
@@ -555,6 +742,9 @@ msgstr "System Requirements"
 msgid "Tacker UI"
 msgstr "Tacker UI"
 
+msgid "The Train release of horizon has the following dependencies."
+msgstr "The Train release of Horizon has the following dependencies."
+
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
 "running."
@@ -597,6 +787,25 @@ msgstr ""
 "can use the dashboard in combination with other services, such as Image "
 "service, Compute, and Networking. You can also use the dashboard in "
 "environments with stand-alone services such as Object Storage."
+
+msgid ""
+"Then configure the web server to host OpenStack dashboard via WSGI. For "
+"apache2 web server, you may need to create ``/etc/apache2/sites-available/"
+"horizon.conf``. The template in DevStack is a good example of the file. "
+"https://opendev.org/openstack/devstack/src/branch/master/files/apache-"
+"horizon.template Or you can automatically generate an apache configuration "
+"file. If you previously generated an ``openstack_dashboard/horizon_wsgi.py`` "
+"file it will use that, otherwise will default to using ``openstack_dashboard/"
+"wsgi.py``"
+msgstr ""
+"Then configure the web server to host OpenStack dashboard via WSGI. For "
+"apache2 web server, you may need to create ``/etc/apache2/sites-available/"
+"horizon.conf``. The template in DevStack is a good example of the file. "
+"https://opendev.org/openstack/devstack/src/branch/master/files/apache-"
+"horizon.template Or you can automatically generate an Apache configuration "
+"file. If you previously generated an ``openstack_dashboard/horizon_wsgi.py`` "
+"file it will use that, otherwise will default to using ``openstack_dashboard/"
+"wsgi.py``"
 
 msgid ""
 "There are a number of horizon plugins for various useful features. You can "

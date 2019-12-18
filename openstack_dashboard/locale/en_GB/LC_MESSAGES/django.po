@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2019-12-09 13:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-06 02:55+0000\n"
+"PO-Revision-Date: 2019-12-11 03:10+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -40,6 +40,19 @@ msgstr ""
 "\n"
 "      %(used)s of %(quota)s Used\n"
 "      "
+
+msgid ""
+"\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
+msgstr ""
+"\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
 
 msgid ""
 "\n"
@@ -207,6 +220,12 @@ msgstr ", update project groups"
 msgid "-"
 msgstr "-"
 
+msgid "1 (icmp) should be specified for IPv4 instead of 58."
+msgstr "1 (icmp) should be specified for IPv4 instead of 58."
+
+msgid "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
+msgstr "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
+
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
@@ -225,6 +244,10 @@ msgstr ""
 "applied to all interfaces of the instance. If you have multiple interfaces "
 "on this instance and apply different security groups per port, use \"Edit "
 "Port Security Groups\" action instead."
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "A brief description of the security group rule you are adding"
@@ -384,6 +407,9 @@ msgstr "Add Router Route"
 
 msgid "Add Rule"
 msgstr "Add Rule"
+
+msgid "Add Rule (Quota exceeded)"
+msgstr "Add Rule (Quota exceeded)"
 
 msgid "Add Static Route"
 msgstr "Add Static Route"
@@ -799,6 +825,10 @@ msgstr "Available Types"
 msgid "Available networks"
 msgstr "Available networks"
 
+msgctxt "Current status of a Volume"
+msgid "Awaiting Transfer"
+msgstr "Awaiting Transfer"
+
 msgid "Back-End Example:"
 msgstr "Back-End Example:"
 
@@ -811,6 +841,9 @@ msgstr "Backup Name"
 
 msgid "Backup Size (GiB)"
 msgstr "Backup Size (GiB)"
+
+msgid "Backup Snapshot"
+msgstr "Backup Snapshot"
 
 msgid "Backups"
 msgstr "Backups"
@@ -1083,6 +1116,10 @@ msgstr ""
 "Clone each of the volumes in the source Group, and then add them to a newly "
 "created Group."
 
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "Cloning volume group \"%s\"."
+
 msgid "Close"
 msgstr "Close"
 
@@ -1256,6 +1293,10 @@ msgstr "Create Host Aggregate"
 msgid "Create Image"
 msgstr "Create Image"
 
+msgctxt "Action log of an instance"
+msgid "Create Image"
+msgstr "Create Image"
+
 msgid "Create Key Pair"
 msgstr "Create Key Pair"
 
@@ -1376,6 +1417,9 @@ msgstr "Create a mapping."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Create a new \"extra spec\" key-value pair for a volume type."
+
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr "Create a new \"group type spec\" key-value pair for a group type."
 
 #, python-format
 msgid ""
@@ -1993,6 +2037,10 @@ msgstr ""
 "Deleted volumes are not recoverable. All data stored in the volume will be "
 "removed."
 
+msgctxt "Current status of Volume Group"
+msgid "Deleting"
+msgstr "Deleting"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Deleting"
@@ -2008,6 +2056,12 @@ msgstr "Deleting"
 #, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "Deleting volume group \"%s\""
+
+msgid "Deprecated Settings"
+msgstr "Deprecated Settings"
+
+msgid "Deprecated settings: {}."
+msgstr "Deprecated settings: {}."
 
 msgid "Description"
 msgstr "Description"
@@ -2280,6 +2334,9 @@ msgstr "Download OpenStack RC File"
 
 msgid "Download clouds.yaml"
 msgstr "Download clouds.yaml"
+
+msgid "Download kubeconfig file"
+msgstr "Download kubeconfig file"
 
 msgid "Download openrc file"
 msgstr "Download openrc file"
@@ -2658,6 +2715,9 @@ msgstr "Errors occurred in removing volumes from group."
 msgid "Ether Type"
 msgstr "Ether Type"
 
+msgid "Euca2ools state"
+msgstr "Euca2ools state"
+
 msgid "Evacuate Host"
 msgstr "Evacuate Host"
 
@@ -2801,6 +2861,9 @@ msgstr "Failed to create port \"%s\"."
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Failed to create router \"%s\"."
+
+msgid "Failed to create router."
+msgstr "Failed to create router."
 
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
@@ -3131,6 +3194,10 @@ msgid "Group"
 msgstr "Group"
 
 #, python-format
+msgid "Group \"%s\" already exists."
+msgstr "Group \"%s\" already exists."
+
+#, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Group \"%s\" was successfully created."
 
@@ -3183,6 +3250,21 @@ msgstr "Group Types"
 
 msgid "Group has been updated successfully."
 msgstr "Group has been updated successfully."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
 
 #, python-format
 msgid "Group type name \"%s\" already exists."
@@ -3442,6 +3524,15 @@ msgstr ""
 "If \"No volume type\" is selected, the volume will be created without a "
 "volume type."
 
+msgid "If checked, the network will be enabled."
+msgstr "If checked, the network will be enabled."
+
+msgid "If checked, the port will be enabled."
+msgstr "If checked, the port will be enabled."
+
+msgid "If checked, the router will be enabled."
+msgstr "If checked, the router will be enabled."
+
 msgid "If checked, the selected floating IP will be released at the same time."
 msgstr ""
 "If checked, the selected Floating IP will be released at the same time."
@@ -3514,6 +3605,9 @@ msgstr "Image Snapshot Pending"
 
 msgid "Image Source"
 msgstr "Image Source"
+
+msgid "Image Type"
+msgstr "Image Type"
 
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
@@ -3717,6 +3811,9 @@ msgstr "Key Pair Name"
 msgid "Key Pair Name ="
 msgstr "Key Pair Name ="
 
+msgid "Key Pair Type"
+msgstr "Key Pair Type"
+
 msgid "Key Pairs"
 msgstr "Key Pairs"
 
@@ -3725,6 +3822,9 @@ msgstr "Key Pairs are how you login to your instance after it is launched."
 
 msgid "Key Size (bits)"
 msgstr "Key Size (bits)"
+
+msgid "Key Type"
+msgstr "Key Type"
 
 msgid ""
 "Key names can only contain alphanumeric characters, underscores, periods, "
@@ -3742,6 +3842,14 @@ msgstr ""
 
 msgid "Key pair to use for authentication."
 msgstr "Key pair to use for authentication."
+
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
 
 msgid "Key-Value Pairs"
 msgstr "Key-Value Pairs"
@@ -3767,6 +3875,9 @@ msgstr "Key: total_iops_sec and Value: 5000"
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Killed"
+
+msgid "Kubernetes Namespace"
+msgstr "Kubernetes Namespace"
 
 msgid "L3 Agent"
 msgstr "L3 Agent"
@@ -3836,6 +3947,10 @@ msgstr "Local Storage (total)"
 
 msgid "Local Storage (used)"
 msgstr "Local Storage (used)"
+
+msgctxt "Action log of an instance"
+msgid "Lock"
+msgstr "Lock"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
@@ -4068,6 +4183,9 @@ msgstr "Minimum Disk (GB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
+
+msgid "Missing required settings: {}."
+msgstr "Missing required settings: {}."
 
 #, python-format
 msgid "Modified domain \"%s\"."
@@ -4438,6 +4556,9 @@ msgstr "No security groups found."
 msgid "No server groups available"
 msgstr "No server groups available"
 
+msgid "No snapshot for this volume"
+msgstr "No snapshot for this volume"
+
 msgid "No snapshots available"
 msgstr "No snapshots available"
 
@@ -4700,6 +4821,9 @@ msgstr "Pending Delete"
 
 msgid "Per Volume Size (GiB)"
 msgstr "Per Volume Size (GiB)"
+
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr "Perform a check to see if the application is ready for upgrade."
 
 msgid "Physical Network"
 msgstr "Physical Network"
@@ -5168,6 +5292,9 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Requested snapshot would exceed the allowed quota."
 
+msgid "Required Settings"
+msgstr "Required Settings"
+
 msgctxt "Action log of an instance"
 msgid "Rescue"
 msgstr "Rescue"
@@ -5403,6 +5530,9 @@ msgstr "SLAAC: Address discovered from an external router"
 msgid "SNAT"
 msgstr "SNAT"
 
+msgid "SSH Key"
+msgstr "SSH Key"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH key pairs can be generated with the ssh-keygen command:"
 
@@ -5415,6 +5545,10 @@ msgstr "Save Changes"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "Saved extra spec \"%s\"."
+
+#, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "Saved group type spec \"%s\"."
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -5622,6 +5756,9 @@ msgstr "Select network"
 
 msgid "Select networks for your instance."
 msgstr "Select networks for your instance."
+
+msgid "Select snapshot to backup (Optional)"
+msgstr "Select snapshot to backup (Optional)"
 
 msgid "Select source"
 msgstr "Select source"
@@ -6453,6 +6590,9 @@ msgstr "The instance password encrypted with your public key."
 msgid "The instance(s) will be shut off."
 msgstr "The instance(s) will be shut off."
 
+msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
+msgstr "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
+
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
@@ -6501,6 +6641,16 @@ msgstr ""
 
 msgid "The new availability zone can't be empty"
 msgstr "The new availability zone can't be empty"
+
+msgid "The new type must be different from the current volume type."
+msgstr "The new type must be different from the current volume type."
+
+msgid "The output format"
+msgstr "The output format"
+
+#, python-format
+msgid "The password does not match the requirements: %s"
+msgstr "The password does not match the requirements: %s"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "The physical mechanism by which the virtual network is implemented."
@@ -6868,6 +7018,14 @@ msgid "Unable to attach volume."
 msgstr "Unable to attach volume."
 
 #, python-format
+msgid "Unable to attach volume: %s"
+msgstr "Unable to attach volume: %s"
+
+#, python-format
+msgid "Unable to change password: %s"
+msgstr "Unable to change password: %s"
+
+#, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Unable to change the volume type for volume: \"%s\""
 
@@ -6901,8 +7059,16 @@ msgid "Unable to create QoS Spec."
 msgstr "Unable to create QoS Spec."
 
 #, python-format
+msgid "Unable to create application credential: %s"
+msgstr "Unable to create application credential: %s"
+
+#, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Unable to create domain \"%s\"."
+
+#, python-format
+msgid "Unable to create encrypted volume type: %s"
+msgstr "Unable to create encrypted volume type: %s"
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -7048,6 +7214,10 @@ msgstr "Unable to detach interface."
 msgid "Unable to detach volume."
 msgstr "Unable to detach volume."
 
+#, python-format
+msgid "Unable to detach volume: %s"
+msgstr "Unable to detach volume: %s"
+
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Unable to determine if availability zones extension is supported."
 
@@ -7090,6 +7260,12 @@ msgstr "Unable to extend volume."
 
 msgid "Unable to fetch EC2 credentials."
 msgstr "Unable to fetch EC2 credentials."
+
+msgid "Unable to fetch snapshot"
+msgstr "Unable to fetch snapshot"
+
+msgid "Unable to fetch snapshots"
+msgstr "Unable to fetch snapshots"
 
 msgid "Unable to find default role."
 msgstr "Unable to find default role."
@@ -7437,6 +7613,9 @@ msgstr "Unable to retrieve group list. Please try again later."
 
 msgid "Unable to retrieve group snapshot details."
 msgstr "Unable to retrieve group snapshot details."
+
+msgid "Unable to retrieve group snapshot project information."
+msgstr "Unable to retrieve group snapshot project information."
 
 msgid "Unable to retrieve group snapshots."
 msgstr "Unable to retrieve group snapshots."
@@ -7933,6 +8112,9 @@ msgstr "Unable to verify the VNIC types extension in Neutron"
 msgid "Unknown"
 msgstr "Unknown"
 
+msgid "Unknown Settings"
+msgstr "Unknown Settings"
+
 msgid "Unknown instance"
 msgstr "Unknown Instance"
 
@@ -7942,8 +8124,15 @@ msgstr "Unknown instance (None)"
 msgid "Unknown resource type for detail API."
 msgstr "Unknown resource type for detail API."
 
+msgid "Unknown settings: {}."
+msgstr "Unknown settings: {}."
+
 msgid "Unknown volume (None)"
 msgstr "Unknown volume (None)"
+
+msgctxt "Action log of an instance"
+msgid "Unlock"
+msgstr "Unlock"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
@@ -8102,6 +8291,10 @@ msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Update the \"extra spec\" value for \"%(key)s\""
 
 #, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "Update the \"group type spec\" value for \"%(key)s\""
+
+#, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "Update the spec value for \"%(key)s\""
 
@@ -8117,6 +8310,10 @@ msgstr "Updated subnet \"%s\"."
 
 msgid "Updated volumes for group."
 msgstr "Updated volumes for group."
+
+msgctxt "Current status of Volume Group"
+msgid "Updating"
+msgstr "Updating"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -8197,6 +8394,10 @@ msgstr "Used IPs"
 
 msgid "User"
 msgstr "User"
+
+#, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "User \"%s\" has been updated successfully."
 
 #, python-format
 msgid "User \"%s\" was successfully created."
@@ -8551,6 +8752,9 @@ msgstr ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
 "volume to an image."
 
+msgid "X509 Certificate"
+msgstr "X509 Certificate"
+
 msgid "Yes"
 msgstr "Yes"
 
@@ -8595,6 +8799,13 @@ msgstr ""
 
 msgid "You can edit the properties of your port here."
 msgstr "You can edit the properties of your port here."
+
+msgid ""
+"You can optionally provide a Kubernetes Namespace. It will be included in "
+"the kubeconfig file which can be downloaded from the next screen."
+msgstr ""
+"You can optionally provide a Kubernetes Namespace. It will be included in "
+"the kubeconfig file which can be downloaded from the next screen."
 
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "
@@ -8784,6 +8995,9 @@ msgstr ""
 
 msgid "no"
 msgstr "no"
+
+msgid "rbac policy quota exceeded."
+msgstr "RBAC policy quota exceeded."
 
 msgid "undefined"
 msgstr "undefined"
