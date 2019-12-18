@@ -593,24 +593,38 @@ def server_list_paged(request,
         view_marker = 'possibly_deleted' if deleted and marker else 'ok'
         search_opts['marker'] = deleted if deleted else marker
         search_opts['limit'] = page_size + 1
-        search_opts['sort_dir'] = sort_dir
+        # NOTE(amotoki): It looks like the 'sort_keys' must be unique to make
+        # the pagination in the nova API works as expected. Multiple servers
+        # can have a same 'created_at' as its resolution is a second.
+        # To ensure the uniqueness we add 'uuid' to the sort keys.
+        # 'display_name' is added before 'uuid' to list servers in the
+        # alphabetical order.
+        sort_keys = ['created_at', 'display_name', 'uuid']
+
         servers = [Server(s, request)
-                   for s in nova_client.servers.list(detailed, search_opts)]
+                   for s in nova_client.servers.list(detailed, search_opts,
+                                                     sort_keys=sort_keys,
+                                                     sort_dirs=[sort_dir] * 3)]
+
         if view_marker == 'possibly_deleted':
             if len(servers) == 0:
                 view_marker = 'head_deleted'
-                search_opts['sort_dir'] = 'desc'
                 reversed_order = False
                 servers = [Server(s, request)
-                           for s in nova_client.servers.list(detailed,
-                                                             search_opts)]
-            if len(servers) == 0:
+                           for s in
+                           nova_client.servers.list(detailed,
+                                                    search_opts,
+                                                    sort_keys=sort_keys,
+                                                    sort_dirs=['desc'] * 3)]
+            if not servers:
                 view_marker = 'tail_deleted'
-                search_opts['sort_dir'] = 'asc'
                 reversed_order = True
                 servers = [Server(s, request)
-                           for s in nova_client.servers.list(detailed,
-                                                             search_opts)]
+                           for s in
+                           nova_client.servers.list(detailed,
+                                                    search_opts,
+                                                    sort_keys=sort_keys,
+                                                    sort_dirs=['asc'] * 3)]
         (servers, has_more_data, has_prev_data) = update_pagination(
             servers, page_size, marker, reversed_order)
         has_prev_data = (False
