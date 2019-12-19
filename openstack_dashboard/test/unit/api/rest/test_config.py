@@ -12,15 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from openstack_dashboard.api.rest import config
+import mock
+
+from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
 class ConfigRestTestCase(test.TestCase):
 
-    def test_settings_config_get(self):
+    @mock.patch.object(api.glance, 'get_image_schemas')
+    def test_settings_config_get(self, mock_schemas_list):
         request = self.mock_rest_request()
-        response = config.Settings().get(request)
+        response = api.rest.config.Settings().get(request)
         self.assertStatusCode(response, 200)
         self.assertIn(b"REST_API_SETTING_1", response.content)
         self.assertIn(b"REST_API_SETTING_2", response.content)

@@ -1668,9 +1668,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_set_bootable.assert_called_once_with(
             test.IsHttpRequest(), volume.id, True)
 
+    @mock.patch.object(api.glance, 'get_image_schemas')
     @mock.patch.object(cinder, 'volume_upload_to_image')
     @mock.patch.object(cinder, 'volume_get')
-    def test_upload_to_image(self, mock_get, mock_upload):
+    def test_upload_to_image(self, mock_get, mock_upload, mock_schemas_list):
         volume = self.cinder_volumes.get(name='v2_volume')
         loaded_resp = {'container_format': 'bare',
                        'disk_format': 'raw',
@@ -1687,6 +1688,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                      'container_format': 'bare',
                      'disk_format': 'raw'}
 
+        mock_schemas_list.return_value = self.image_schemas.first()
         mock_get.return_value = volume
         mock_upload.return_value = loaded_resp
 

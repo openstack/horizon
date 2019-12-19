@@ -278,14 +278,6 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
                     _LOG.exception(
                         "Can not exec settings snippet %s", filename)
 
-# The purpose of OPENSTACK_IMAGE_FORMATS is to provide a simple object
-# that does not contain the lazy-loaded translations, so the list can
-# be sent as JSON to the client-side (Angular).
-# TODO(amotoki): Do we really need this here? Can't we calculate this
-# in openstack_dashboard.api.rest.config?
-OPENSTACK_IMAGE_FORMATS = [fmt for (fmt, name)
-                           in OPENSTACK_IMAGE_BACKEND['image_formats']]
-
 if USER_MENU_LINKS is None:
     USER_MENU_LINKS = []
     if SHOW_OPENRC_FILE:

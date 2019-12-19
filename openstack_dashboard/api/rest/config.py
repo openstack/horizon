@@ -58,7 +58,17 @@ class Settings(generic.View):
         plain_settings = {k: getattr(settings, k, None) for k
                           in settings_allowed if k not in self.SPECIALS}
         plain_settings.update(self.SPECIALS)
+        plain_settings.update(self.disk_formats(request))
         return plain_settings
+
+    def disk_formats(self, request):
+        # The purpose of OPENSTACK_IMAGE_FORMATS is to provide a simple object
+        # that does not contain the lazy-loaded translations, so the list can
+        # be sent as JSON to the client-side (Angular).
+        return {'OPENSTACK_IMAGE_FORMATS': [
+            value
+            for (value, name) in api.glance.get_image_formats(request)
+        ]}
 
 
 @urls.register

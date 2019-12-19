@@ -29,11 +29,13 @@ from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.files.uploadedfile import TemporaryUploadedFile
+from django.utils.translation import ugettext_lazy as _
 
 from glanceclient.v2 import client
 import six
 from six.moves import _thread as thread
 
+from horizon import messages
 from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
@@ -343,6 +345,32 @@ def image_update(request, image_id, **kwargs):
                 LOG.warning('Failed to remove temporary image file '
                             '%(file)s (%(e)s)',
                             {'file': filename, 'e': e})
+
+
+def get_image_formats(request):
+    image_format_choices = settings.OPENSTACK_IMAGE_BACKEND['image_formats']
+    try:
+        glance_schemas = get_image_schemas(request)
+        glance_formats = \
+            glance_schemas['properties']['disk_format']['enum']
+        supported_formats = []
+        for value, name in image_format_choices:
+            if value in glance_formats:
+                supported_formats.append((value, name))
+            else:
+                LOG.warning('OPENSTACK_IMAGE_BACKEND has a format "%s" '
+                            'unsupported by glance', value)
+    except Exception:
+        supported_formats = image_format_choices
+        msg = _('Unable to retrieve image format list.')
+        messages.error(request, msg)
+
+    return supported_formats
+
+
+@profiler.trace
+def get_image_schemas(request):
+    return glanceclient(request).schemas.get('image').raw()
 
 
 def get_image_upload_mode():

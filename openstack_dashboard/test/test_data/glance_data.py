@@ -52,6 +52,7 @@ def data(TEST):
     TEST.images_api = utils.TestDataContainer()
     TEST.snapshots = utils.TestDataContainer()
     TEST.metadata_defs = utils.TestDataContainer()
+    TEST.image_schemas = utils.TestDataContainer()
     TEST.imagesV2 = utils.TestDataContainer()
     TEST.snapshotsV2 = utils.TestDataContainer()
 
@@ -479,3 +480,148 @@ def data(TEST):
     }
     metadef = Namespace(metadef_dict)
     TEST.metadata_defs.add(metadef)
+
+    image_schemas_dict = {
+        'additionalProperties': {'type': 'string'},
+        'links': [
+            {'href': '{self}', 'rel': 'self'},
+            {'href': '{file}', 'rel': 'enclosure'},
+            {'href': '{schema}', 'rel': 'describedby'}
+        ],
+        'name': 'image',
+        'properties': {
+            'architecture': {
+                'is_base': False,
+                'type': 'string'
+            },
+            'checksum': {
+                'maxLength': 32,
+                'readOnly': True,
+                'type': ['null', 'string']
+            },
+            'container_format': {
+                'enum': [
+                    None,
+                    'ami',
+                    'ari',
+                    'aki',
+                    'bare',
+                    'ovf',
+                    'ova',
+                    'docker',
+                    'compressed'
+                ],
+                'type': ['null', 'string']
+            },
+            'created_at': {'readOnly': True, 'type': 'string'},
+            'direct_url': {'readOnly': True, 'type': 'string'},
+            'disk_format': {
+                'enum': [None, 'raw', 'qcow2'],
+                'type': ['null', 'string']
+            },
+            'file': {'readOnly': True, 'type': 'string'},
+            'id': {'type': 'string'},
+            'instance_uuid': {'is_base': False, 'type': 'string'},
+            'kernel_id': {
+                'is_base': False,
+                'type': ['null', 'string']
+            },
+            'locations': {
+                'items': {
+                    'properties': {
+                        'metadata': {'type': 'object'},
+                        'url': {'maxLength': 255, 'type': 'string'},
+                        'validation_data': {
+                            'additionalProperties': False,
+                            'properties': {
+                                'checksum': {
+                                    'maxLength': 32,
+                                    'minLength': 32,
+                                    'type': 'string'
+                                },
+                                'os_hash_algo': {
+                                    'maxLength': 64,
+                                    'type': 'string'
+                                },
+                                'os_hash_value': {
+                                    'maxLength': 128,
+                                    'type': 'string'
+                                }
+                            },
+                            'required': ['os_hash_algo', 'os_hash_value'],
+                            'type': 'object',
+                            'writeOnly': True
+                        }
+                    },
+                    'required': ['url', 'metadata'],
+                    'type': 'object'
+                },
+                'type': 'array'
+            },
+            'min_disk': {'type': 'integer'},
+            'min_ram': {'type': 'integer'},
+            'name': {'maxLength': 255, 'type': ['null', 'string']},
+            'os_distro': {'is_base': False, 'type': 'string'},
+            'os_hash_algo': {
+                'maxLength': 64,
+                'readOnly': True,
+                'type': ['null', 'string']
+            },
+            'os_hash_value': {
+                'maxLength': 128,
+                'readOnly': True,
+                'type': ['null', 'string']
+            },
+            'os_hidden': {'type': 'boolean'},
+            'os_version': {'is_base': False, 'type': 'string'},
+            'owner': {
+                'description': 'Owner of the image',
+                'maxLength': 255,
+                'type': ['null', 'string']
+            },
+            'protected': {'type': 'boolean'},
+            'ramdisk_id': {
+                'is_base': False,
+                'type': ['null', 'string']
+            },
+            'schema': {'readOnly': True, 'type': 'string'},
+            'self': {'readOnly': True, 'type': 'string'},
+            'size': {'readOnly': True, 'type': ['null', 'integer']},
+            'status': {
+                'enum': [
+                    'queued',
+                    'saving',
+                    'active',
+                    'killed',
+                    'deleted',
+                    'uploading',
+                    'importing',
+                    'pending_delete',
+                    'deactivated'
+                ],
+                'readOnly': True,
+                'type': 'string'
+            },
+            'stores': {'readOnly': True, 'type': 'string'},
+            'tags': {
+                'items': {'maxLength': 255, 'type': 'string'},
+                'type': 'array'
+            },
+            'updated_at': {'readOnly': True, 'type': 'string'},
+            'virtual_size': {
+                'readOnly': True,
+                'type': ['null', 'integer']
+            },
+            'visibility': {
+                'enum': [
+                    'community',
+                    'public',
+                    'private',
+                    'shared'
+                ],
+                'type': 'string'
+            }
+        }
+    }
+    schemas = Namespace(image_schemas_dict)
+    TEST.image_schemas.add(schemas)
