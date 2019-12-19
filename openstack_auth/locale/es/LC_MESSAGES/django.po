@@ -1,13 +1,14 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2018. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2019-12-09 13:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-31 06:49+0000\n"
+"PO-Revision-Date: 2019-12-16 07:53+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -21,8 +22,14 @@ msgstr ""
 msgid "Authenticate using"
 msgstr "Autenticar mediante"
 
+msgid "Confirm password"
+msgstr "Confirme contraseña"
+
 msgid "Could not find service provider ID on keystone."
 msgstr "No se puede encontrar el ID del proveedor en keystone."
+
+msgid "Default Region"
+msgstr "Región por defecto"
 
 msgid "Domain"
 msgstr "Dominio"
@@ -36,6 +43,9 @@ msgstr "Credenciales no válidas."
 msgid "K2K Federation not setup for this session"
 msgstr "Se ha configurado una federación K2K en esta sesión"
 
+msgid "New password"
+msgstr "Nueva contraseña"
+
 msgid ""
 "No authentication backend could be determined to handle the provided "
 "credentials."
@@ -43,8 +53,23 @@ msgstr ""
 "No se puede determinar el sistema de autenticación a utilizar para manejar "
 "las credenciales proporcionadas."
 
+msgid "Old password and new password must be different."
+msgstr "Las contraseñas nueva y vieja deben ser diferentes."
+
+msgid "Original password"
+msgstr "Contraseña original"
+
 msgid "Password"
 msgstr "Contraseña"
+
+msgid "Password changed. Please log in to continue."
+msgstr "Contraseña modificada. Por favor inicie sesión para continuar."
+
+msgid "Password expired."
+msgstr "Contraseña caducada."
+
+msgid "Passwords do not match."
+msgstr "Las contraseñas no coinciden."
 
 #, python-format
 msgid "Please consider changing your password, it will expire in %s minutes"
@@ -62,6 +87,10 @@ msgid "Service provider authentication failed. %s"
 msgstr "Ha fallado la autenticación del proveedor del servicio. %s"
 
 #, python-format
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\" successful."
+msgstr "Cambio correcto al proveedor de Keystone \"%(keystone_provider)s\"."
+
+#, python-format
 msgid "Switch to project \"%(project_name)s\" successful."
 msgstr "Se ha cambiado al proyecto \"%(project_name)s\" correcamente."
 
@@ -77,8 +106,14 @@ msgstr "No ha sido posible obtener dominios autorizados."
 msgid "Unable to retrieve authorized projects."
 msgstr "No ha sido posible obtener proyectos autorizados."
 
+msgid "Unable to update the user password."
+msgstr "No ha sido posible actualizar la contraseña del usuario."
+
 msgid "User Name"
 msgstr "Usuario"
 
 msgid "You are not authorized for any projects or domains."
 msgstr "No está autorizado en ningún proyecto o dominio."
+
+msgid "Your password has expired. Please set a new password."
+msgstr "Su contraseña ha caducado. Por favor establezca una nueva."
