@@ -1,7 +1,8 @@
 ./manage.py
 ./node_modules
 ./tools/abandon_old_reviews.sh
+./tools/find_settings.py
 ./tools/gate/integration/post_test_hook.sh
 ./tools/gate/integration/pre_test_hook.sh
+./tools/list-horizon-plugins.py
 ./tools/unit_tests.sh
-./tools/find_settings.py
