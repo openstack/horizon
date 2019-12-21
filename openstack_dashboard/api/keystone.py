@@ -163,8 +163,12 @@ def keystoneclient(request, admin=False):
     token_id = user.token.id
 
     if is_multi_domain_enabled():
-        # Cloud Admin, Domain Admin or Mixed Domain Admin
-        if is_domain_admin(request):
+        is_domain_context_specified = bool(
+            request.session.get("domain_context"))
+
+        # If user is Cloud Admin, Domain Admin or Mixed Domain Admin and there
+        # is no domain context specified, use domain scoped token
+        if is_domain_admin(request) and not is_domain_context_specified:
             domain_token = request.session.get('domain_token')
             if domain_token:
                 token_id = getattr(domain_token, 'auth_token', None)
