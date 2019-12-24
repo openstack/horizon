@@ -229,6 +229,48 @@ Tips and tricks
     +        },
              'django.db.backends': {
 
+Testing with different Django versions
+--------------------------------------
+
+Horizon supports multiple Django versions and our CI tests proposed patches
+with various supported Django versions. The corresponding job names are like
+``horizon-tox-python3-django111``.
+
+You can know which tox env and django version are used by checking
+``tox_envlist`` and ``django_version`` of the corresponding job definition
+in ``.zuul.yaml``.
+
+To test it locally, you need some extra steps.
+Here is an example where ``tox_envlist`` is ``py36`` and
+``django_version`` is ``>=1.11,<2.0``.
+
+.. code:: console
+
+   $ tox -e py36 --notest -r
+   $ .tox/py36/bin/python -m pip install 'django>=1.11,<2.0'
+   $ tox -e py36
+
+.. note::
+
+   - ``-r`` in the first command recreates the tox environment.
+     Omit it if you know what happens.
+   - We usually need to quote the django version in the pip command-line
+     in most shells to escape interpretations by the shell.
+
+To check the django version installed in your tox env, run:
+
+.. code:: console
+
+   $ .tox/py36/bin/python -m pip freeze | grep Django
+   Django==1.11.27
+
+To reset the tox env used for testing with different Django version
+to the regular tox env, run ``tox`` command with ``-r`` to recreate it.
+
+.. code:: console
+
+   $ tox -e py36 -r
+
 Coverage reports
 ----------------
 

@@ -1,0 +1,11 @@
+# The base contents come from zuul-jobs/playbooks/tox/run.yaml
+- hosts: all
+  roles:
+    - revoke-sudo
+    - role: tox
+      vars:
+        # Do not run actual tests now as we would like to install
+        # a different version of django.
+        tox_extra_args: "-vv --notest"
+        tox_install_siblings: true
+    - ensure-django
