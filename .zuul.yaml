@@ -33,12 +33,6 @@
       - name: openstack/horizon
 
 - job:
-    name: horizon-tox-python3-django111
-    parent: horizon-tox-python3-django
-    vars:
-      django_version: '>=1.11,<2.0'
-
-- job:
     name: horizon-tox-python3-django22
     parent: horizon-tox-python3-django
     vars:
@@ -173,11 +167,9 @@
       Run unit tests with non-primary Django versions.
     check:
       jobs:
-        - horizon-tox-python3-django111
         - horizon-tox-python3-django22
     gate:
       jobs:
-        - horizon-tox-python3-django111
         - horizon-tox-python3-django22
 
 - project:

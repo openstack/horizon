@@ -14,7 +14,6 @@
 
 import mock
 
-import django
 from django.core.management import call_command
 from django.core.management import CommandError
 from django.test import TestCase
@@ -30,17 +29,9 @@ class CommandsTestCase(TestCase):
     def test_startpanel_usage_correct(self, handle):
         call_command('startpanel', 'test_dash', '--dashboard=foo.bar')
 
-        if django.VERSION >= (2, 2):
-            handle.assert_called_with(
-                panel_name='test_dash', dashboard='foo.bar',
-                extensions=["py", "tmpl", "html"],
-                files=[], force_color=False, no_color=False, pythonpath=None,
-                settings=None, skip_checks=True, target=None,
-                template=None, traceback=False, verbosity=1)
-        else:
-            handle.assert_called_with(
-                panel_name='test_dash', dashboard='foo.bar',
-                extensions=["py", "tmpl", "html"],
-                files=[], no_color=False, pythonpath=None,
-                settings=None, skip_checks=True, target=None,
-                template=None, traceback=False, verbosity=1)
+        handle.assert_called_with(
+            panel_name='test_dash', dashboard='foo.bar',
+            extensions=["py", "tmpl", "html"],
+            files=[], force_color=False, no_color=False, pythonpath=None,
+            settings=None, skip_checks=True, target=None,
+            template=None, traceback=False, verbosity=1)

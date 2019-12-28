@@ -18,7 +18,6 @@
 import unittest
 import uuid
 
-import django
 from django import forms
 from django import http
 from django import shortcuts
@@ -669,12 +668,8 @@ class DataTableTests(test.TestCase):
         row = self.table.get_rows()[0]
 
         self.assertEqual(35, len(row.cells['status'].data))
-        if django.VERSION >= (2, 2):
-            self.assertEqual(u'A Status that is longer than 35 ch…',
-                             row.cells['status'].data)
-        else:
-            self.assertEqual(u'A Status that is longer than 35 ...',
-                             row.cells['status'].data)
+        self.assertEqual(u'A Status that is longer than 35 ch…',
+                         row.cells['status'].data)
 
     def test_table_rendering(self):
         self.table = MyTable(self.request, TEST_DATA)

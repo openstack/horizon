@@ -14,7 +14,6 @@
 
 import mock
 
-import django
 from django.core.management import call_command
 from django.core.management import CommandError
 from django.test import TestCase
@@ -30,17 +29,9 @@ class CommandsTestCase(TestCase):
     def test_startdash_usage_correct(self, handle):
         call_command('startdash', 'test_dash')
 
-        if django.VERSION >= (2, 2):
-            handle.assert_called_with(
-                dash_name='test_dash',
-                extensions=["py", "tmpl", "html", "js", "css"],
-                files=[], force_color=False, no_color=False, pythonpath=None,
-                settings=None, skip_checks=True, target=None, template=None,
-                traceback=False, verbosity=1)
-        else:
-            handle.assert_called_with(
-                dash_name='test_dash',
-                extensions=["py", "tmpl", "html", "js", "css"],
-                files=[], no_color=False, pythonpath=None,
-                settings=None, skip_checks=True, target=None, template=None,
-                traceback=False, verbosity=1)
+        handle.assert_called_with(
+            dash_name='test_dash',
+            extensions=["py", "tmpl", "html", "js", "css"],
+            files=[], force_color=False, no_color=False, pythonpath=None,
+            settings=None, skip_checks=True, target=None, template=None,
+            traceback=False, verbosity=1)

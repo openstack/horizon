@@ -4906,17 +4906,11 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.assertEqual(res.context['form'].errors['__all__'],
                          ["Passwords do not match."])
 
-        if django.VERSION >= (1, 9):
-            image_list_count = 8
-            ext_count = 2
-        else:
-            image_list_count = 5
-            ext_count = 1
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
-        self._check_glance_image_list_detailed(count=image_list_count)
+        self._check_glance_image_list_detailed(count=8)
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_extension_supported, ext_count,
+            self.mock_extension_supported, 2,
             mock.call('DiskConfig', helpers.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 2,
