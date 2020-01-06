@@ -167,10 +167,17 @@
       Run unit tests with non-primary Django versions.
     check:
       jobs:
-        - horizon-tox-python3-django22
+        # Currently we only support Django 2.2, so there is no need
+        # to run tests with different versions of Django.
+        # We specify a job in openstack-python3-ussuri-jobs(-horizon)
+        # to keep this project template as it is used in horizon plugins.
+        - openstack-tox-py37
+        # NOTE: We keep it as a template even though it is not used now.
+        # - horizon-tox-python3-django22
     gate:
       jobs:
-        - horizon-tox-python3-django22
+        - openstack-tox-py37
+        # - horizon-tox-python3-django22
 
 - project:
     templates:
