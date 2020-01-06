@@ -49,7 +49,7 @@ class AllocateIP(tables.LinkAction):
     def allowed(self, request, fip=None):
         usages = quotas.tenant_quota_usages(request,
                                             targets=('floatingip', ))
-        if usages['floatingip']['available'] <= 0:
+        if 'floatingip' in usages and usages['floatingip']['available'] <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ['disabled']
                 self.verbose_name = format_lazy(
