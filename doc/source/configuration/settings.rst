@@ -2302,6 +2302,8 @@ OPENSTACK_NOVA_EXTENSIONS_BLACKLIST
 
 .. versionadded:: 8.0.0(Liberty)
 
+.. deprecated:: 17.2.0(Ussuri)
+
 Default: ``[]``
 
 Ignore all listed Nova extensions, and behave as if they were unsupported.
