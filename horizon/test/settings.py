@@ -19,8 +19,8 @@
 import os
 import socket
 
-from horizon.defaults import *  # noqa: F403,H303
-from openstack_auth.defaults import *  # noqa: F403,H303
+from horizon.defaults import *  # noqa: F401,F403,H303
+from openstack_auth.defaults import *  # noqa: F401,F403,H303
 from openstack_dashboard.utils import settings as settings_utils
 
 socket.setdefaulttimeout(1)

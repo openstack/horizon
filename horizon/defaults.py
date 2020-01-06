@@ -13,7 +13,7 @@
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth.defaults import *  # noqa: F403,H303
+from openstack_auth.defaults import *  # noqa: F401,F403,H303
 
 from horizon.contrib import bootstrap_datepicker
 
