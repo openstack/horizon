@@ -46,7 +46,7 @@
 
   function run(registry, gettext, basePath, flavorsService, flavorResourceType) {
     registry.getResourceType(flavorResourceType)
-      .setNames(gettext('Flavor'), gettext('Flavors'))
+      .setNames('Flavor', 'Flavors', ngettext('Flavor', 'Flavors', 1))
       .setSummaryTemplateUrl(basePath + 'summary.html')
       .setProperties(flavorProperties())
       .setListFunction(flavorsService.getFlavorsPromise)

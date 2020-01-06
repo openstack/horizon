@@ -45,7 +45,7 @@
 
   function run(registry, nova, basePath, resourceType, keypairsService) {
     registry.getResourceType(resourceType)
-      .setNames(gettext('Key Pair'), gettext('Key Pairs'))
+      .setNames('Key Pair', 'Key Pairs', ngettext('Key Pair', 'Key Pairs', 1))
       // for detail summary view on table row.
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setDefaultIndexUrl('/project/key_pairs/')

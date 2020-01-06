@@ -41,52 +41,66 @@
     // fleshed out there's no reason to pollute the directory/file structure.
     // As a model, the Images registration happens in the images module.
     registry.getResourceType('OS::Glance::Metadef')
-      .setNames(gettext('Metadata Definition'), gettext('Metadata Definitions'));
+      .setNames('Metadata Definition', 'Metadata Definitions',
+                ngettext('Metadata Definition', 'Metadata Definitions', 1));
     registry.getResourceType('OS::Nova::Server')
-      .setNames(gettext('Instance'), gettext('Instances'));
+      .setNames('Instance', 'Instances', ngettext('Instance', 'Instances', 1));
     registry.getResourceType('OS::Nova::Flavor')
-      .setNames(gettext('Flavor'), gettext('Flavors'));
+      .setNames('Flavor', 'Flavors', ngettext('Flavor', 'Flavors', 1));
     registry.getResourceType('OS::Nova::Hypervisor')
-      .setNames(gettext('Hypervisor'), gettext('Hypervisors'));
+      .setNames('Hypervisor', 'Hypervisors',
+                ngettext('Hypervisor', 'Hypervisors', 1));
     registry.getResourceType('OS::Nova::Keypair')
-      .setNames(gettext('Key Pair'), gettext('Key Pairs'));
+      .setNames('Key Pair', 'Key Pairs', ngettext('Key Pair', 'Key Pairs', 1));
     registry.getResourceType('OS::Designate::Zone')
-      .setNames(gettext('DNS Domain'), gettext('DNS Domains'));
+      .setNames('DNS Domain', 'DNS Domains',
+                ngettext('DNS Domain', 'DNS Domains', 1));
     registry.getResourceType('OS::Designate::RecordSet')
-      .setNames(gettext('DNS Record'), gettext('DNS Records'));
+      .setNames('DNS Record', 'DNS Records',
+                ngettext('DNS Record', 'DNS Records', 1));
     registry.getResourceType('OS::Cinder::Backup')
-      .setNames(gettext('Volume Backup'), gettext('Volume Backups'));
+      .setNames('Volume Backup', 'Volume Backups',
+                ngettext('Volume Backup', 'Volume Backups', 1));
     registry.getResourceType('OS::Cinder::Snapshot')
-      .setNames(gettext('Volume Snapshot'), gettext('Volume Snapshots'));
+      .setNames('Volume Snapshot', 'Volume Snapshots',
+                ngettext('Volume Snapshot', 'Volume Snapshots', 1));
     registry.getResourceType('OS::Cinder::Volume')
-      .setNames(gettext('Volume'), gettext('Volumes'));
+      .setNames('Volume', 'Volumes', ngettext('Volume', 'Volumes', 1));
     registry.getResourceType('OS::Neutron::HealthMonitor')
-      .setNames(gettext('Network Health Monitor'), gettext('Network Health Monitors'));
+      .setNames('Network Health Monitor', 'Network Health Monitors',
+                ngettext('Network Health Monitor', 'Network Health Monitors', 1));
     registry.getResourceType('OS::Neutron::Net')
-      .setNames(gettext('Network'), gettext('Networks'));
+      .setNames('Network', 'Networks', ngettext('Network', 'Networks', 1));
     registry.getResourceType('OS::Neutron::Pool')
-      .setNames(gettext('Load Balancer Pool'), gettext('Load Balancer Pools'));
+      .setNames('Load Balancer Pool', 'Load Balancer Pools',
+                ngettext('Load Balancer Pool', 'Load Balancer Pools', 1));
     registry.getResourceType('OS::Neutron::PoolMember')
-      .setNames(gettext('Load Balancer Pool Member'), gettext('Load Balancer Pool Members'));
+      .setNames('Load Balancer Pool Member', 'Load Balancer Pool Members',
+                ngettext('Load Balancer Pool Member', 'Load Balancer Pool Members', 1));
     registry.getResourceType('OS::Neutron::Port')
-      .setNames(gettext('Network Port'), gettext('Network Ports'));
+      .setNames('Network Port', 'Network Ports',
+                ngettext('Network Port', 'Network Ports', 1));
     registry.getResourceType('OS::Neutron::Router')
-      .setNames(gettext('Network Router'), gettext('Network Routers'));
+      .setNames('Network Router', 'Network Routers',
+                ngettext('Network Router', 'Network Routers', 1));
     registry.getResourceType('OS::Neutron::Subnet')
-      .setNames(gettext('Network Subnet'), gettext('Network Subnets'));
+      .setNames('Network Subnet', 'Network Subnets',
+                ngettext('Network Subnet', 'Network Subnets', 1));
     registry.getResourceType('OS::Neutron::FloatingIP')
-     .setNames(gettext('Floating IP'), gettext('Floating IPs'));
+     .setNames('Floating IP', 'Floating IPs',
+               ngettext('Floating IP', 'Floating IPs', 1));
     registry.getResourceType('OS::Neutron::SecurityGroup')
-      .setNames(gettext('Security Group'), gettext('Security Groups'));
+      .setNames('Security Group', 'Security Groups',
+                ngettext('Security Group', 'Security Groups', 1));
     registry.getResourceType('OS::Neutron::Trunk')
-      .setNames(gettext('Trunk'), gettext('Trunks'));
+      .setNames('Trunk', 'Trunks', ngettext('Trunk', 'Trunks', 1));
     registry.getResourceType('OS::Keystone::User')
-      .setNames(gettext('User'), gettext('Users'));
+      .setNames('User', 'Users', ngettext('User', 'Users', 1));
     registry.getResourceType('OS::Keystone::Group')
-      .setNames(gettext('Group'), gettext('Groups'));
+      .setNames('Group', 'Groups', ngettext('Group', 'Groups', 1));
     registry.getResourceType('OS::Keystone::Project')
-      .setNames(gettext('Project'), gettext('Projects'));
+      .setNames('Project', 'Projects', ngettext('Project', 'Projects', 1));
     registry.getResourceType('OS::Keystone::Role')
-      .setNames(gettext('Role'), gettext('Roles'));
+      .setNames('Role', 'Roles', ngettext('Role', 'Roles', 1));
   }
 })();

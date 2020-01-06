@@ -44,7 +44,8 @@
                serverGroupsService,
                registry) {
     registry.getResourceType(serverGroupResourceType)
-      .setNames(gettext('Server Group'), gettext('Server Groups'))
+      .setNames('Server Group', 'Server Groups',
+                ngettext('Server Group', 'Server Groups', 1))
       .setProperties(serverGroupProperties())
       .setListFunction(serverGroupsService.getServerGroupsPromise)
       .tableColumns

@@ -46,7 +46,7 @@
 
   function run(registry, basePath, userResourceType, usersService) {
     registry.getResourceType(userResourceType)
-      .setNames(gettext('User'), gettext('Users'))
+      .setNames('User', 'Users', ngettext('User', 'Users', 1))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setDefaultIndexUrl('/identity/users/')
       .setProperties(userProperties())
