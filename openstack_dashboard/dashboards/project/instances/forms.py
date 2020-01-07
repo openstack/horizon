@@ -42,7 +42,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
 
     image = forms.ChoiceField(
         label=_("Select Image"),
-        widget=forms.ThemableSelectWidget(
+        widget=forms.SelectWidget(
             attrs={'class': 'image-selector'},
             data_attrs=('size', 'display-name'),
             transform=_image_choice_title))
@@ -56,8 +56,8 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         label=_("Confirm Rebuild Password"),
         required=False,
         widget=forms.PasswordInput(render_value=False))
-    disk_config = forms.ThemableChoiceField(label=_("Disk Partition"),
-                                            required=False)
+    disk_config = forms.ChoiceField(label=_("Disk Partition"),
+                                    required=False)
     description = forms.CharField(
         label=_("Description"),
         widget=forms.Textarea(attrs={'rows': 4}),
