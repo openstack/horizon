@@ -38,7 +38,6 @@ from django.test.client import RequestFactory
 from django.test import tag
 from django.test import utils as django_test_utils
 from django.utils.encoding import force_text
-import six
 
 from django.contrib.staticfiles.testing \
     import StaticLiveServerTestCase as LiveServerTestCase
@@ -177,14 +176,6 @@ class TestCase(django_test.TestCase):
             self.user.user_permissions.add(perm)
         if hasattr(self.user, "_perm_cache"):
             del self.user._perm_cache
-
-    if six.PY3:
-        # Python 2 assert methods renamed in Python 3
-        def assertItemsEqual(self, expected_seq, actual_seq, msg=None):
-            self.assertCountEqual(expected_seq, actual_seq, msg)
-
-        def assertNotRegexpMatches(self, text, unexpected_regexp, msg=None):
-            self.assertNotRegex(text, unexpected_regexp, msg)
 
     def assertNoMessages(self, response=None):
         """Asserts no messages have been attached by the messages framework.

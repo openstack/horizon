@@ -12,11 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import forms
-from django import http
 import mock
 
-import six
+from django import forms
+from django import http
 
 from horizon import base
 from horizon import exceptions
@@ -345,10 +344,10 @@ class WorkflowsTests(test.TestCase):
         req = self.factory.get("/foo")
         flow = TestWorkflow(req)
         output = http.HttpResponse(flow.render())
-        self.assertContains(output, six.text_type(flow.name))
-        self.assertContains(output, six.text_type(TestActionOne.name))
-        self.assertContains(output, six.text_type(TestActionTwo.name))
-        self.assertContains(output, six.text_type(TestActionThree.name))
+        self.assertContains(output, flow.name)
+        self.assertContains(output, TestActionOne.name)
+        self.assertContains(output, TestActionTwo.name)
+        self.assertContains(output, TestActionThree.name)
 
     def test_has_permissions(self):
         self.assertQuerysetEqual(TestWorkflow._cls_registry, [])
@@ -356,7 +355,7 @@ class WorkflowsTests(test.TestCase):
         flow = TestWorkflow(self.request)
         step = AdminStep(flow)
 
-        self.assertItemsEqual(step.permissions,
+        self.assertCountEqual(step.permissions,
                               ("horizon.test",))
         self.assertQuerysetEqual(flow.steps,
                                  ['<TestStepOne: test_action_one>',
@@ -391,8 +390,7 @@ class WorkflowsTests(test.TestCase):
             TestWorkflow.register(AdminForbiddenStep)
             flow = TestWorkflow(self.request)
             output = http.HttpResponse(flow.render())
-            self.assertNotContains(output,
-                                   six.text_type(AdminForbiddenAction.name))
+            self.assertNotContains(output, AdminForbiddenAction.name)
 
     def test_entry_point(self):
         req = self.factory.get("/foo")

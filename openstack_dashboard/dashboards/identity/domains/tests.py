@@ -40,7 +40,7 @@ class DomainsViewTests(test.BaseAdminViewTests):
         res = self.client.get(DOMAINS_INDEX_URL)
 
         self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, self.domains.list())
+        self.assertCountEqual(res.context['table'].data, self.domains.list())
         self.assertContains(res, 'Create Domain')
         self.assertContains(res, 'Edit')
         self.assertContains(res, 'Delete Domain')
@@ -58,7 +58,7 @@ class DomainsViewTests(test.BaseAdminViewTests):
         res = self.client.get(DOMAINS_INDEX_URL)
 
         self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, self.domains.list())
+        self.assertCountEqual(res.context['table'].data, self.domains.list())
         self.assertNotContains(res, 'Create Domain')
         self.assertNotContains(res, 'Edit')
         self.assertNotContains(res, 'Delete Domain')
@@ -156,14 +156,14 @@ class DomainsViewTests(test.BaseAdminViewTests):
         res = self.client.post(DOMAINS_INDEX_URL, formData)
 
         self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, [domain, ])
+        self.assertCountEqual(res.context['table'].data, [domain, ])
         self.assertContains(res, "<em>another_test_domain:</em>")
 
         formData = {'action': 'domains__clear_domain_context__%s' % domain.id}
         res = self.client.post(DOMAINS_INDEX_URL, formData)
 
         self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, self.domains.list())
+        self.assertCountEqual(res.context['table'].data, self.domains.list())
         self.assertNotContains(res, "<em>test_domain:</em>")
         self.assertNotContains(res, "<em>another_test_domain:</em>")
 

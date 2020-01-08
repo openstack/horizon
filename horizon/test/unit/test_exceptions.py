@@ -37,7 +37,7 @@ class HandleTests(test.TestCase):
         # The real test here is to make sure the handle method doesn't throw a
         # UnicodeEncodeError, but making sure the message is correct and
         # useful as well.
-        self.assertItemsEqual(req.horizon['async_messages'], [expected])
+        self.assertCountEqual(req.horizon['async_messages'], [expected])
 
     def test_handle_message_as_recoverable(self):
         # tests that if a message is passed to handle that it is treated

@@ -11,6 +11,7 @@
 #    under the License.
 
 import collections
+import itertools
 import logging
 import sys
 
@@ -38,8 +39,7 @@ class FormsetCell(horizon_tables.Cell):
             if self.field.errors:
                 self.attrs['class'] = (self.attrs.get('class', '') +
                                        ' error form-group')
-                self.attrs['title'] = ' '.join(
-                    six.text_type(error) for error in self.field.errors)
+                self.attrs['title'] = ' '.join(self.field.errors)
 
 
 class FormsetRow(horizon_tables.Row):
@@ -136,7 +136,7 @@ class FormsetDataTableMixin(object):
             else:
                 formset = self.get_formset()
                 formset.is_valid()
-            for datum, form in six.moves.zip_longest(self.filtered_data,
+            for datum, form in itertools.zip_longest(self.filtered_data,
                                                      formset):
                 row = self._meta.row_class(self, datum, form)
                 if self.get_object_id(datum) == self.current_item_id:

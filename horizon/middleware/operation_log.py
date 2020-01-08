@@ -15,12 +15,12 @@
 import json
 import logging
 import re
+from urllib import parse
 
 from django.conf import settings
 from django.contrib import messages as django_messages
 from django.core.exceptions import MiddlewareNotUsed
 
-import six.moves.urllib.parse as urlparse
 
 from horizon.utils import settings as setting_utils
 
@@ -123,7 +123,7 @@ class OperationLogMiddleware(object):
         method = request.method.upper()
         if not (method in self.target_methods):
             return
-        request_url = urlparse.unquote(request.path)
+        request_url = parse.unquote(request.path)
         for rule in self._ignored_urls:
             if rule.search(request_url):
                 return
@@ -134,8 +134,8 @@ class OperationLogMiddleware(object):
         user = request.user
         referer_url = None
         try:
-            referer_dic = urlparse.urlsplit(
-                urlparse.unquote(request.META.get('HTTP_REFERER')))
+            referer_dic = parse.urlsplit(
+                parse.unquote(request.META.get('HTTP_REFERER')))
             referer_url = referer_dic[2]
             if referer_dic[3]:
                 referer_url += "?" + referer_dic[3]
@@ -143,7 +143,7 @@ class OperationLogMiddleware(object):
                 referer_url = referer_url.decode('utf-8')
         except Exception:
             pass
-        request_url = urlparse.unquote(request.path)
+        request_url = parse.unquote(request.path)
         if request.META['QUERY_STRING']:
             request_url += '?' + request.META['QUERY_STRING']
         return {

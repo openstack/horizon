@@ -274,7 +274,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['instances_table'].data
 
-        self.assertItemsEqual(instances, self.servers.list())
+        self.assertCountEqual(instances, self.servers.list())
         self.assertNotContains(res, "Launch Instance (Quota exceeded)")
         self._check_get_index()
 
@@ -285,7 +285,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['instances_table'].data
 
-        self.assertItemsEqual(instances, self.servers.list())
+        self.assertCountEqual(instances, self.servers.list())
         self.assertNotContains(res, "Launch Instance (Quota exceeded)")
         self._check_get_index(use_servers_update_address=False)
 
@@ -355,7 +355,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['instances_table'].data
 
-        self.assertItemsEqual(instances, self.servers.list())
+        self.assertCountEqual(instances, self.servers.list())
 
         self._check_extension_supported({'AdminActions': 20,
                                          'Shelve': 5})
@@ -1506,7 +1506,7 @@ class InstanceDetailTests(InstanceTestBase):
             server, volumes_return=volumes,
             security_groups_return=security_groups)
 
-        self.assertItemsEqual(res.context['instance'].volumes, volumes)
+        self.assertCountEqual(res.context['instance'].volumes, volumes)
         self.mock_is_extension_supported.assert_called_once_with(
             helpers.IsHttpRequest(), 'mac-learning')
 
@@ -1522,7 +1522,7 @@ class InstanceDetailTests(InstanceTestBase):
             server, volumes_return=volumes,
             security_groups_return=security_groups)
 
-        self.assertItemsEqual(res.context['instance'].volumes, volumes)
+        self.assertCountEqual(res.context['instance'].volumes, volumes)
         self.assertEqual(res.context['instance'].volumes[0].device,
                          "/dev/hda")
         self.assertEqual(res.context['instance'].volumes[1].device,
@@ -1571,7 +1571,7 @@ class InstanceDetailTests(InstanceTestBase):
                         "created": "2013-10-07T00:08:32Z"}
 
         res = self._get_instance_details(server)
-        self.assertItemsEqual(res.context['instance'].fault, server.fault)
+        self.assertCountEqual(res.context['instance'].fault, server.fault)
         self.mock_is_extension_supported.assert_called_once_with(
             helpers.IsHttpRequest(), 'mac-learning')
 

@@ -20,8 +20,6 @@ from django.conf import settings
 from django import http
 from django.test.utils import override_settings
 
-import six
-
 from horizon import exceptions
 from horizon import middleware
 from horizon import tabs as horizon_tabs
@@ -299,7 +297,7 @@ class TabTests(test.TestCase):
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
                                   u'FakeObject: öbject_4'],
-                                 transform=six.text_type)
+                                 transform=str)
         context = tab.get_context_data(self.request)
         # Make sure our table is loaded into the context correctly
         self.assertEqual(table, context['my_table_table'])

@@ -111,7 +111,6 @@ class ServiceCatalogException(HorizonException):
         super(ServiceCatalogException, self).__init__(message)
 
 
-@six.python_2_unicode_compatible
 class AlreadyExists(HorizonException):
     """API resources tried to create already exists."""
     def __init__(self, name, resource_type):
@@ -125,7 +124,6 @@ class AlreadyExists(HorizonException):
         return self.msg % self.attrs
 
 
-@six.python_2_unicode_compatible
 class GetFileError(HorizonException):
     """Exception to be raised when the value of get_file is not expected.
 

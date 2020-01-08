@@ -30,7 +30,6 @@ from django.utils.encoding import force_text
 from django.utils import module_loading
 from django.utils.translation import ugettext_lazy as _
 from openstack_auth import policy
-import six
 
 from horizon import base
 from horizon import exceptions
@@ -78,9 +77,7 @@ class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
         return cls_
 
 
-@six.python_2_unicode_compatible
-@six.add_metaclass(ActionMetaclass)
-class Action(forms.Form):
+class Action(forms.Form, metaclass=ActionMetaclass):
     """An ``Action`` represents an atomic logical interaction with the system.
 
     This is easier to understand with a conceptual example: in the context of
@@ -216,7 +213,6 @@ class MembershipAction(Action):
         return self.slug + "_role_" + role_id
 
 
-@six.python_2_unicode_compatible
 class Step(object):
     """A wrapper around an action which defines its context in a workflow.
 
@@ -348,7 +344,7 @@ class Step(object):
                     # If it's callable we know the function exists and is valid
                     self._handlers[key].append(possible_handler)
                     continue
-                elif not isinstance(possible_handler, six.string_types):
+                elif not isinstance(possible_handler, str):
                     raise TypeError("Connection handlers must be either "
                                     "callables or strings.")
                 bits = possible_handler.split(".")
@@ -525,9 +521,7 @@ class UpdateMembersStep(Step):
             return self.slug + "_role_" + role_id
 
 
-@six.python_2_unicode_compatible
-@six.add_metaclass(WorkflowMetaclass)
-class Workflow(html.HTMLElement):
+class Workflow(html.HTMLElement, metaclass=WorkflowMetaclass):
     """A Workflow is a collection of Steps.
 
     Its interface is very straightforward, but it is responsible for handling

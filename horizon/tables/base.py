@@ -72,7 +72,6 @@ else:
     getargspec = inspect.getargspec
 
 
-@six.python_2_unicode_compatible
 class Column(html.HTMLElement):
     """A class which represents a single column in a :class:`.DataTable`.
 
@@ -332,7 +331,7 @@ class Column(html.HTMLElement):
             self.transform = transform
             self.name = "<%s callable>" % transform.__name__
         else:
-            self.transform = six.text_type(transform)
+            self.transform = str(transform)
             self.name = self.transform
 
         # Empty string is a valid value for verbose_name
@@ -342,7 +341,7 @@ class Column(html.HTMLElement):
             else:
                 self.verbose_name = self.transform.title()
         else:
-            self.verbose_name = verbose_name
+            self.verbose_name = str(verbose_name)
 
         self.auto = auto
         self.sortable = sortable
@@ -386,7 +385,7 @@ class Column(html.HTMLElement):
             self.classes.append('anchor')
 
     def __str__(self):
-        return six.text_type(self.verbose_name)
+        return self.verbose_name
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.name)
@@ -457,7 +456,7 @@ class Column(html.HTMLElement):
                            "'%(data)s' on column '%(col_name)s'")
                     args = {'filter': filter_func.__name__,
                             'data': data,
-                            'col_name': six.text_type(self.verbose_name)}
+                            'col_name': self.verbose_name}
                     LOG.warning(msg, args)
 
         if data and self.truncate:
@@ -766,7 +765,7 @@ class Cell(html.HTMLElement):
                 widget = ThemableCheckboxInput(check_test=lambda value: False)
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
-                                     six.text_type(table.get_object_id(datum)),
+                                     table.get_object_id(datum),
                                      {'class': 'table-row-multi-select'})
             table._data_cache[column][table.get_object_id(datum)] = data
         elif column.auto == "form_field":
@@ -776,7 +775,7 @@ class Cell(html.HTMLElement):
 
             widget_name = "%s__%s" % \
                 (column.name,
-                 six.text_type(table.get_object_id(datum)))
+                 table.get_object_id(datum))
 
             # Create local copy of attributes, so it don't change column
             # class form_field_attributes
@@ -813,7 +812,7 @@ class Cell(html.HTMLElement):
     @property
     def id(self):
         return ("%s__%s" % (self.column.name,
-                six.text_type(self.row.table.get_object_id(self.datum))))
+                self.row.table.get_object_id(self.datum)))
 
     @property
     def value(self):
@@ -844,7 +843,7 @@ class Cell(html.HTMLElement):
             data = mark_safe('<a href="%s" %s>%s</a>' % (
                              (escape(self.url),
                               link_attrs,
-                              escape(six.text_type(data)))))
+                              escape(data))))
         return data
 
     @property
@@ -867,10 +866,10 @@ class Cell(html.HTMLElement):
         if self.column.status or \
                 self.column.name in self.column.table._meta.status_columns:
             # returns the first matching status found
-            data_status_lower = six.text_type(
+            data_status_lower = str(
                 self.column.get_raw_data(self.datum)).lower()
             for status_name, status_value in self.column.status_choices:
-                if six.text_type(status_name).lower() == data_status_lower:
+                if str(status_name).lower() == data_status_lower:
                     self._status = status_value
                     return self._status
         self._status = None
@@ -1149,9 +1148,9 @@ class DataTableOptions(object):
             getattr(options,
                     'table_actions_template',
                     'horizon/common/_data_table_table_actions.html')
-        self.context_var_name = six.text_type(getattr(options,
-                                                      'context_var_name',
-                                                      'table'))
+        self.context_var_name = getattr(options,
+                                        'context_var_name',
+                                        'table')
         self.actions_column = getattr(options,
                                       'actions_column',
                                       len(self.row_actions) > 0)
@@ -1266,9 +1265,7 @@ class DataTableMetaclass(type):
         return type.__new__(cls, name, bases, dt_attrs)
 
 
-@six.python_2_unicode_compatible
-@six.add_metaclass(DataTableMetaclass)
-class DataTable(object):
+class DataTable(object, metaclass=DataTableMetaclass):
     """A class which defines a table with all data and associated actions.
 
     .. attribute:: name
@@ -1333,7 +1330,7 @@ class DataTable(object):
             self.set_multiselect_column_visibility(bool(batch_actions))
 
     def __str__(self):
-        return six.text_type(self._meta.verbose_name)
+        return str(self._meta.verbose_name)
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self._meta.name)
@@ -1490,17 +1487,13 @@ class DataTable(object):
 
         Uses :meth:`~horizon.tables.DataTable.get_object_id` internally.
         """
-        if not isinstance(lookup, six.text_type):
+        if not isinstance(lookup, str):
             lookup = str(lookup)
-            if six.PY2:
-                lookup = lookup.decode('utf-8')
         matches = []
         for datum in self.data:
             obj_id = self.get_object_id(datum)
-            if not isinstance(obj_id, six.text_type):
+            if not isinstance(obj_id, str):
                 obj_id = str(obj_id)
-                if six.PY2:
-                    obj_id = obj_id.decode('utf-8')
             if obj_id == lookup:
                 matches.append(datum)
         if len(matches) > 1:

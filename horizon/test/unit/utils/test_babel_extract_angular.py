@@ -13,7 +13,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from six import StringIO
+import io
 
 from horizon.test import helpers as test
 from horizon.utils.babel_extract_angular import extract_angular
@@ -24,13 +24,13 @@ default_keys = []
 class ExtractAngularTestCase(test.TestCase):
 
     def test_extract_no_tags(self):
-        buf = StringIO('<html></html>')
+        buf = io.StringIO('<html></html>')
 
         messages = list(extract_angular(buf, default_keys, [], {}))
         self.assertEqual([], messages)
 
     def test_simple_string(self):
-        buf = StringIO(
+        buf = io.StringIO(
             """<html><translate>hello world!</translate>'
             <div translate>hello world!</div></html>"""
         )
@@ -45,27 +45,27 @@ class ExtractAngularTestCase(test.TestCase):
 
     def test_attr_value(self):
         """Should not translate tags with translate as the value of an attr."""
-        buf = StringIO('<html><div id="translate">hello world!</div></html>')
+        buf = io.StringIO('<html><div id="translate">hello world!</div></html>')
 
         messages = list(extract_angular(buf, [], [], {}))
         self.assertEqual([], messages)
 
     def test_attr_value_plus_directive(self):
         """Unless they also have a translate directive."""
-        buf = StringIO(
+        buf = io.StringIO(
             '<html><div id="translate" translate>hello world!</div></html>')
 
         messages = list(extract_angular(buf, [], [], {}))
         self.assertEqual([(1, 'gettext', 'hello world!', [])], messages)
 
     def test_translate_tag(self):
-        buf = StringIO('<html><translate>hello world!</translate></html>')
+        buf = io.StringIO('<html><translate>hello world!</translate></html>')
 
         messages = list(extract_angular(buf, [], [], {}))
         self.assertEqual([(1, 'gettext', 'hello world!', [])], messages)
 
     def test_plural_form(self):
-        buf = StringIO(
+        buf = io.StringIO(
             (
                 '<html><translate translate-plural="hello {$count$} worlds!">'
                 'hello one world!</translate></html>'
@@ -82,7 +82,7 @@ class ExtractAngularTestCase(test.TestCase):
             ], messages)
 
     def test_translate_tag_comments(self):
-        buf = StringIO(
+        buf = io.StringIO(
             '<html><translate translate-comment='
             '"What a beautiful world">hello world!</translate></html>')
 
@@ -94,7 +94,7 @@ class ExtractAngularTestCase(test.TestCase):
             messages)
 
     def test_comments(self):
-        buf = StringIO(
+        buf = io.StringIO(
             '<html><div translate translate-comment='
             '"What a beautiful world">hello world!</div></html>')
 
@@ -106,7 +106,7 @@ class ExtractAngularTestCase(test.TestCase):
             messages)
 
     def test_multiple_comments(self):
-        buf = StringIO(
+        buf = io.StringIO(
             '<html><translate '
             'translate-comment="What a beautiful world"'
             'translate-comment="Another comment"'
@@ -125,7 +125,7 @@ class ExtractAngularTestCase(test.TestCase):
 
     def test_filter(self):
         # test also for some forms that should not match
-        buf = StringIO(
+        buf = io.StringIO(
             """
             <img alt="{$ 'hello world1' | translate $}">
             <p>{$'hello world2'|translate$}</p>
@@ -167,7 +167,7 @@ class ExtractAngularTestCase(test.TestCase):
             messages)
 
     def test_trim_translate_tag(self):
-        buf = StringIO(
+        buf = io.StringIO(
             "<html><translate> \n hello\n world! \n "
             "</translate></html>")
 
@@ -175,7 +175,7 @@ class ExtractAngularTestCase(test.TestCase):
         self.assertEqual([(1, 'gettext', 'hello\n world!', [])], messages)
 
     def test_nested_translate_tag(self):
-        buf = StringIO(
+        buf = io.StringIO(
             "<html><translate>hello <b>beautiful <i>world</i></b> !"
             "</translate></html>"
         )
@@ -186,7 +186,7 @@ class ExtractAngularTestCase(test.TestCase):
             messages)
 
     def test_nested_variations(self):
-        buf = StringIO(
+        buf = io.StringIO(
             '''
             <p translate>To <a href="link">link</a> here</p>
             <p translate>To <!-- a comment!! --> here</p>

@@ -20,8 +20,6 @@ from django_pyscss import DjangoScssCompiler
 from scss.namespace import Namespace
 from scss.types import String
 
-import six
-
 
 class HorizonScssFilter(DjangoScssFilter):
     def __init__(self, *args, **kwargs):
@@ -32,7 +30,7 @@ class HorizonScssFilter(DjangoScssFilter):
         # Add variables to the SCSS Global Namespace Here
         self.namespace.set_variable(
             '$static_url',
-            String(six.text_type(settings.STATIC_URL))
+            String(settings.STATIC_URL)
         )
 
     # Create a compiler with the right namespace

@@ -54,7 +54,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'identity/projects/index.html')
-        self.assertItemsEqual(res.context['table'].data, self.tenants.list())
+        self.assertCountEqual(res.context['table'].data, self.tenants.list())
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
                                                       domain=None,
@@ -86,7 +86,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'identity/projects/index.html')
-        self.assertItemsEqual(res.context['table'].data, domain_tenants)
+        self.assertCountEqual(res.context['table'].data, domain_tenants)
         self.assertContains(res, "<em>test_domain:</em>")
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
@@ -102,7 +102,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'identity/projects/index.html')
         projects = res.context['table'].data
-        self.assertItemsEqual(projects, [])
+        self.assertCountEqual(projects, [])
 
 
 class ProjectsViewNonAdminTests(test.TestCase):
@@ -118,7 +118,7 @@ class ProjectsViewNonAdminTests(test.TestCase):
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'identity/projects/index.html')
-        self.assertItemsEqual(res.context['table'].data, self.tenants.list())
+        self.assertCountEqual(res.context['table'].data, self.tenants.list())
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
                                                       user=self.user.id,
@@ -1466,13 +1466,13 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         users_id_observed = [user.id for user in
                              res.context["userstable_table"].data]
-        self.assertItemsEqual(users_expected.keys(), users_id_observed)
+        self.assertCountEqual(users_expected.keys(), users_id_observed)
 
         # Check the users groups and roles
         for user in res.context["userstable_table"].data:
-            self.assertItemsEqual(users_expected[user.id]["roles"],
+            self.assertCountEqual(users_expected[user.id]["roles"],
                                   user.roles)
-            self.assertItemsEqual(users_expected[user.id]["roles_from_groups"],
+            self.assertCountEqual(users_expected[user.id]["roles_from_groups"],
                                   user.roles_from_groups)
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
@@ -1571,7 +1571,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                               res.context["groupstable_table"].data]
 
         # Check the group is displayed
-        self.assertItemsEqual(groups_id_observed, groups_expected.keys())
+        self.assertCountEqual(groups_id_observed, groups_expected.keys())
 
         # Check the groups roles
         for group in res.context["groupstable_table"].data:

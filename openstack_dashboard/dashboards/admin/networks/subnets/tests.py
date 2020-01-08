@@ -416,7 +416,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, [self.subnets.first()])
+        self.assertCountEqual(subnets, [self.subnets.first()])
 
         self._check_is_extension_supported(
             {'network-ip-availability': 2,

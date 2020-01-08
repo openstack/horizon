@@ -149,7 +149,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
-        self.assertItemsEqual(networks, self.networks.list())
+        self.assertCountEqual(networks, self.networks.list())
 
         self.mock_tenant_quota_usages.assert_has_calls([
             mock.call(test.IsHttpRequest(), targets=('network', )),
@@ -241,7 +241,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, [self.subnets.first()])
+        self.assertCountEqual(subnets, [self.subnets.first()])
 
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network_id)
@@ -351,7 +351,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, [self.subnets.first()])
+        self.assertCountEqual(subnets, [self.subnets.first()])
 
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network_id)
@@ -1113,7 +1113,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         networks = res.context['networks_table'].data
-        self.assertItemsEqual(networks, self.networks.list())
+        self.assertCountEqual(networks, self.networks.list())
 
         button = find_button_fn(res)
         self.assertFalse('disabled' in button.classes,
@@ -1150,7 +1150,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         networks = res.context['networks_table'].data
-        self.assertItemsEqual(networks, self.networks.list())
+        self.assertCountEqual(networks, self.networks.list())
 
         button = find_button_fn(res)
         self.assertIn('disabled', button.classes,
@@ -1224,7 +1224,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
 
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, self.subnets.list())
+        self.assertCountEqual(subnets, self.subnets.list())
 
         self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
                                                       network_id)
@@ -1297,7 +1297,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
 
         ports = res.context['ports_table'].data
-        self.assertItemsEqual(ports, self.ports.list())
+        self.assertCountEqual(ports, self.ports.list())
 
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network_id)

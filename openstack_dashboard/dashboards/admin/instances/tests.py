@@ -50,7 +50,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['table'].data
-        self.assertItemsEqual(instances, servers)
+        self.assertCountEqual(instances, servers)
 
         self.mock_extension_supported.assert_has_calls([
             mock.call('AdminActions', test.IsHttpRequest()),
@@ -94,7 +94,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['table'].data
-        self.assertItemsEqual(instances, servers)
+        self.assertCountEqual(instances, servers)
 
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         self.mock_server_list_paged.assert_called_once_with(
@@ -143,7 +143,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         # there will be only one error message for all instances
         # (messages de-duplication).
         self.assertMessageCount(res, error=1)
-        self.assertItemsEqual(instances, servers)
+        self.assertCountEqual(instances, servers)
 
         self.mock_image_list_detailed_by_ids.assert_called_once_with(
             test.IsHttpRequest(), instances_img_ids)
@@ -487,7 +487,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['table'].data
-        self.assertItemsEqual(instances, [])
+        self.assertCountEqual(instances, [])
 
     @test.create_mocks({
         api.nova: ['flavor_list',
@@ -559,7 +559,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             has_more=True,
             has_prev=False)
         servers = res.context['table'].data
-        self.assertItemsEqual(servers, expected_servers)
+        self.assertCountEqual(servers, expected_servers)
 
         # get second page
         expected_servers = mox_servers[size:2 * size]
@@ -570,7 +570,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             has_more=True,
             has_prev=True)
         servers = res.context['table'].data
-        self.assertItemsEqual(servers, expected_servers)
+        self.assertCountEqual(servers, expected_servers)
 
         # get last page
         expected_servers = mox_servers[-size:]
@@ -581,7 +581,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             has_more=False,
             has_prev=True)
         servers = res.context['table'].data
-        self.assertItemsEqual(servers, expected_servers)
+        self.assertCountEqual(servers, expected_servers)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_servers_index_paginated_prev(self):
@@ -598,7 +598,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             has_more=False,
             has_prev=True)
         servers = res.context['table'].data
-        self.assertItemsEqual(servers, expected_servers)
+        self.assertCountEqual(servers, expected_servers)
 
         # back to first page
         expected_servers = mox_servers[:size]
@@ -609,4 +609,4 @@ class InstanceViewTest(test.BaseAdminViewTests):
             has_more=True,
             has_prev=False)
         servers = res.context['table'].data
-        self.assertItemsEqual(servers, expected_servers)
+        self.assertCountEqual(servers, expected_servers)

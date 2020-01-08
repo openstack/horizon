@@ -44,7 +44,7 @@ class KeyPairTests(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
-        self.assertItemsEqual(res.context['keypairs_table'].data, keypairs)
+        self.assertCountEqual(res.context['keypairs_table'].data, keypairs)
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 4,

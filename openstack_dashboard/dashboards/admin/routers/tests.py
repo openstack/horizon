@@ -88,7 +88,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         self.mock_router_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
@@ -143,7 +143,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         self.mock_agent_list.assert_called_once_with(
             test.IsHttpRequest(), id=agent.id)
@@ -305,7 +305,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         res = self.client.get(self.INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, [])
+        self.assertCountEqual(routers, [])
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 2,
@@ -329,7 +329,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         res = self.client.get(self.INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, [])
+        self.assertCountEqual(routers, [])
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 2,

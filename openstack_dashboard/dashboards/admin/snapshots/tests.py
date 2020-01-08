@@ -42,7 +42,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, self.cinder_volume_snapshots.list())
+        self.assertCountEqual(snapshots, self.cinder_volume_snapshots.list())
 
         self.mock_volume_snapshot_list_paged.assert_called_once_with(
             test.IsHttpRequest(), paginate=True, marker=None, sort_dir='desc',
@@ -89,7 +89,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
             marker=None, sort_dir="desc", snapshots=expected_snapshots,
             url=base_url, has_more=True, has_prev=False)
         result = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(result, expected_snapshots)
+        self.assertCountEqual(result, expected_snapshots)
 
         # get second page
         expected_snapshots = snapshots[size:2 * size]
@@ -99,7 +99,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
             marker=marker, sort_dir="desc", snapshots=expected_snapshots,
             url=url, has_more=True, has_prev=True)
         result = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(result, expected_snapshots)
+        self.assertCountEqual(result, expected_snapshots)
 
         # get last page
         expected_snapshots = snapshots[-size:]
@@ -109,7 +109,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
             marker=marker, sort_dir="desc", snapshots=expected_snapshots,
             url=url, has_more=False, has_prev=True)
         result = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(result, expected_snapshots)
+        self.assertCountEqual(result, expected_snapshots)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_snapshots_index_paginated_prev(self):
@@ -126,7 +126,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
             marker=marker, sort_dir="asc", snapshots=expected_snapshots,
             url=url, has_more=False, has_prev=True)
         snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        self.assertCountEqual(snapshots, expected_snapshots)
 
         # back to first page
         expected_snapshots = max_snapshots[:size]
@@ -136,7 +136,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
             marker=marker, sort_dir="asc", snapshots=expected_snapshots,
             url=url, has_more=True, has_prev=False)
         snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        self.assertCountEqual(snapshots, expected_snapshots)
 
     @test.create_mocks({cinder: ('volume_snapshot_reset_state',
                                  'volume_snapshot_get')})

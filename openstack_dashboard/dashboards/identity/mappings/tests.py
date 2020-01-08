@@ -35,7 +35,7 @@ class MappingsViewTests(test.BaseAdminViewTests):
         res = self.client.get(MAPPINGS_INDEX_URL)
 
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.idp_mappings.list())
         self.mock_mapping_list.assert_called_once_with(test.IsHttpRequest())
 

@@ -67,7 +67,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
-        self.assertItemsEqual(networks, self.networks.list())
+        self.assertCountEqual(networks, self.networks.list())
 
         self.mock_network_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
@@ -174,7 +174,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, [self.subnets.first()])
+        self.assertCountEqual(subnets, [self.subnets.first()])
 
         self.mock_show_network_ip_availability.assert_called_once_with(
             test.IsHttpRequest(), network.id)
@@ -216,7 +216,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         ports = res.context['ports_table'].data
-        self.assertItemsEqual(ports, [self.ports.first()])
+        self.assertCountEqual(ports, [self.ports.first()])
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_network_get, 2,
@@ -263,7 +263,7 @@ class NetworkTests(test.BaseAdminViewTests):
         result_agents = res.context['agents_table'].data
         expected_agents = self.agents.list()
 
-        self.assertItemsEqual(result_agents, expected_agents)
+        self.assertCountEqual(result_agents, expected_agents)
 
         self._check_is_extension_supported(
             {'network-ip-availability': 1,
@@ -404,7 +404,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, [self.subnets.first()])
+        self.assertCountEqual(subnets, [self.subnets.first()])
 
         self.mock_show_network_ip_availability.assert_called_once_with(
             test.IsHttpRequest(), network.id)
@@ -966,7 +966,7 @@ class NetworkTests(test.BaseAdminViewTests):
         res = self.client.get(reverse('horizon:admin:networks:index'))
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
-        self.assertItemsEqual(networks, [])
+        self.assertCountEqual(networks, [])
 
         self._check_is_extension_supported(
             {'network_availability_zone': 1,
@@ -987,7 +987,7 @@ class NetworkTests(test.BaseAdminViewTests):
         res = self.client.get(reverse('horizon:admin:networks:index'))
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
-        self.assertItemsEqual(networks, [])
+        self.assertCountEqual(networks, [])
 
         self._check_is_extension_supported(
             {'network_availability_zone': 2,

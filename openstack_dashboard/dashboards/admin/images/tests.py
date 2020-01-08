@@ -78,7 +78,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         res = self.client.get(reverse('horizon:admin:images:index'))
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         images = res.context['table'].data
-        self.assertItemsEqual(images, [])
+        self.assertCountEqual(images, [])
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @mock.patch.object(api.glance, 'image_list_detailed')

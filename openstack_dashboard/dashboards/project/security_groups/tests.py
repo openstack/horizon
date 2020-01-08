@@ -78,7 +78,7 @@ class SecurityGroupsViewTests(test.TestCase):
         # Security groups
         sec_groups_from_ctx = res.context['security_groups_table'].data
         # Context data needs to contains all items from the test data.
-        self.assertItemsEqual(sec_groups_from_ctx,
+        self.assertCountEqual(sec_groups_from_ctx,
                               sec_groups)
         # Sec groups in context need to be sorted by their ``name`` attribute.
         # This assertion is somewhat weak since it's only meaningful as long as
@@ -107,7 +107,7 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         security_groups = res.context['security_groups_table'].data
-        self.assertItemsEqual(security_groups, self.security_groups.list())
+        self.assertCountEqual(security_groups, self.security_groups.list())
 
         create_action = self.getAndAssertTableAction(res, 'security_groups',
                                                      'create')
@@ -140,7 +140,7 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         security_groups = res.context['security_groups_table'].data
-        self.assertItemsEqual(security_groups, self.security_groups.list())
+        self.assertCountEqual(security_groups, self.security_groups.list())
 
         create_action = self.getAndAssertTableAction(res, 'security_groups',
                                                      'create')

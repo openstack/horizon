@@ -13,10 +13,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from html import parser
 import re
 
 from oslo_utils import encodeutils
-from six.moves import html_parser
 
 
 # regex to find filter translation expressions
@@ -35,7 +35,7 @@ HTML_ENTITY_DECODED = {
 }
 
 
-class AngularGettextHTMLParser(html_parser.HTMLParser):
+class AngularGettextHTMLParser(parser.HTMLParser):
     """Parse HTML to find translate directives.
 
     Currently this parses for these forms of translation:
@@ -54,13 +54,9 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
     """
 
     def __init__(self):
-        try:
-            super(AngularGettextHTMLParser, self).__init__(
-                convert_charrefs=False
-            )
-        except TypeError:
-            # handle HTMLParser not being a type on Python 2
-            html_parser.HTMLParser.__init__(self)
+        super(AngularGettextHTMLParser, self).__init__(
+            convert_charrefs=False
+        )
 
         self.in_translate = False
         self.inner_tags = []

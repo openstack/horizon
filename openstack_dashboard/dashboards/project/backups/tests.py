@@ -63,7 +63,7 @@ class VolumeBackupsViewTests(test.TestCase):
             marker=None, sort_dir="desc", backups=expected_backups,
             url=base_url, has_more=True, has_prev=False)
         result = res.context['volume_backups_table'].data
-        self.assertItemsEqual(result, expected_backups)
+        self.assertCountEqual(result, expected_backups)
 
         # get second page
         expected_backups = backups[size:2 * size]
@@ -74,7 +74,7 @@ class VolumeBackupsViewTests(test.TestCase):
             marker=marker, sort_dir="desc", backups=expected_backups, url=url,
             has_more=True, has_prev=True)
         result = res.context['volume_backups_table'].data
-        self.assertItemsEqual(result, expected_backups)
+        self.assertCountEqual(result, expected_backups)
         self.assertEqual(result[0].snapshot.id, expected_snapshosts[1].id)
         # get last page
         expected_backups = backups[-size:]
@@ -84,7 +84,7 @@ class VolumeBackupsViewTests(test.TestCase):
             marker=marker, sort_dir="desc", backups=expected_backups, url=url,
             has_more=False, has_prev=True)
         result = res.context['volume_backups_table'].data
-        self.assertItemsEqual(result, expected_backups)
+        self.assertCountEqual(result, expected_backups)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_backups_index_paginated_prev_page(self):
@@ -101,7 +101,7 @@ class VolumeBackupsViewTests(test.TestCase):
             marker=marker, sort_dir="asc", backups=expected_backups, url=url,
             has_more=True, has_prev=True)
         result = res.context['volume_backups_table'].data
-        self.assertItemsEqual(result, expected_backups)
+        self.assertCountEqual(result, expected_backups)
 
         # back to first page
         expected_backups = backups[:size]
@@ -111,7 +111,7 @@ class VolumeBackupsViewTests(test.TestCase):
             marker=marker, sort_dir="asc", backups=expected_backups, url=url,
             has_more=True, has_prev=False)
         result = res.context['volume_backups_table'].data
-        self.assertItemsEqual(result, expected_backups)
+        self.assertCountEqual(result, expected_backups)
 
     @test.create_mocks({api.cinder: ('volume_backup_create',
                                      'volume_snapshot_list',

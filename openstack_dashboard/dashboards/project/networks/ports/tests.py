@@ -282,7 +282,7 @@ class NetworkPortTests(test.TestCase):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertEqual(res.context['port'].id, port.id)
         address_pairs = res.context['allowed_address_pairs_table'].data
-        self.assertItemsEqual(port.allowed_address_pairs, address_pairs)
+        self.assertCountEqual(port.allowed_address_pairs, address_pairs)
 
         self.mock_port_get.assert_called_once_with(test.IsHttpRequest(),
                                                    port.id)
