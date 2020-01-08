@@ -17,7 +17,6 @@ import logging
 from django.contrib.auth import models
 from django.db import models as db_models
 from keystoneauth1 import exceptions as keystone_exceptions
-import six
 
 from openstack_auth import utils
 
@@ -379,7 +378,7 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
         if not perm_list:
             return True
         for perm in perm_list:
-            if isinstance(perm, six.string_types):
+            if isinstance(perm, str):
                 # check that the permission matches
                 if not self.has_perm(perm, obj):
                     return False

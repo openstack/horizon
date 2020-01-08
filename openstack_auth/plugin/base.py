@@ -17,7 +17,6 @@ import re
 from django.utils.translation import ugettext_lazy as _
 from keystoneauth1 import exceptions as keystone_exceptions
 from keystoneclient.v3 import client as v3_client
-import six
 
 from openstack_auth import exceptions
 from openstack_auth import utils
@@ -26,8 +25,7 @@ LOG = logging.getLogger(__name__)
 __all__ = ['BasePlugin']
 
 
-@six.add_metaclass(abc.ABCMeta)
-class BasePlugin(object):
+class BasePlugin(object, metaclass=abc.ABCMeta):
     """Base plugin to provide ways to log in to dashboard.
 
     Provides a framework for keystoneclient plugins that can be used with the
