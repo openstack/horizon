@@ -57,7 +57,7 @@
     ];
 
     ctrl.setFormats = setFormats;
-    ctrl.allowPublicizeImage = { rules: [['image', 'image:publicize_image']] };
+    ctrl.allowPublicizeImage = { rules: [['image', 'publicize_image']] };
 
     $scope.imagePromise.then(init);
 
