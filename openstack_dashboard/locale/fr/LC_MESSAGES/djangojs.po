@@ -20,16 +20,22 @@
 # Cecilia Di Maulo <cecidimaulo@gmail.com>, 2019. #zanata
 # Gael Rehault <gael_rehault@dell.com>, 2019. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2019. #zanata
+# Corinne Verheyde <cverheyd@gmail.com>, 2020. #zanata
+# Gérald LONLAS <g.lonlas@gmail.com>, 2020. #zanata
+# JF Taltavull <jftalta@gmail.com>, 2020. #zanata
+# Loic Nicolle <loic.nicolle@orange.com>, 2020. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2020. #zanata
+# Pascal Larivée <pascal@larivee.photo>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2020-01-08 17:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-05 02:38+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2020-01-08 04:04+0000\n"
+"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -742,17 +748,17 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Script de personnalisation"
 
+#, fuzzy
 msgid "DNS Domain"
-msgstr "Domaine DNS"
+msgid_plural "DNS Domains"
+msgstr[0] "Domaine DNS"
+msgstr[1] ""
 
-msgid "DNS Domains"
-msgstr "Domaines DNS"
-
+#, fuzzy
 msgid "DNS Record"
-msgstr "Enregistrement DNS"
-
-msgid "DNS Records"
-msgstr "Enregistrements DNS"
+msgid_plural "DNS Records"
+msgstr[0] "Enregistrement DNS"
+msgstr[1] ""
 
 msgid "DSCP Mark"
 msgstr "Marque DSCP"
@@ -1050,8 +1056,11 @@ msgstr "Graphiques de distribution"
 msgid "Docker"
 msgstr "Docker"
 
+#, fuzzy
 msgid "Domain"
-msgstr "Domaine"
+msgid_plural "Domains"
+msgstr[0] "Domaine"
+msgstr[1] ""
 
 #, python-format
 msgid "Domain %s was successfully created."
@@ -1065,9 +1074,6 @@ msgstr "Id du domaine"
 
 msgid "Domain Name"
 msgstr "Nom de domaine"
-
-msgid "Domains"
-msgstr "Domaines"
 
 msgid ""
 "Domains provide separation between users and infrastructure used by "
@@ -1193,14 +1199,14 @@ msgstr "Nom du fichier"
 msgid "Fingerprint"
 msgstr "Empreinte"
 
+#, fuzzy
 msgid "Flavor"
-msgstr "Gabarit"
+msgid_plural "Flavors"
+msgstr[0] "Gabarit"
+msgstr[1] ""
 
 msgid "Flavor Name"
 msgstr "Nom du Gabarit"
-
-msgid "Flavors"
-msgstr "Gabarits"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -1209,11 +1215,11 @@ msgstr ""
 "Les gabarits sont en place pour gérer la taille de la capacité de stockage, "
 "de mémoire et de calcul d'une instance."
 
+#, fuzzy
 msgid "Floating IP"
-msgstr "IP flottante"
-
-msgid "Floating IPs"
-msgstr "IPs flottantes"
+msgid_plural "Floating IPs"
+msgstr[0] "IP flottante"
+msgstr[1] ""
 
 msgid "Focused input"
 msgstr "Saisie mise en évidence"
@@ -1260,8 +1266,11 @@ msgstr "Vue générique en tableau :"
 msgid "Global Actions:"
 msgstr "Actions globales :"
 
+#, fuzzy
 msgid "Group"
-msgstr "Groupe"
+msgid_plural "Groups"
+msgstr[0] "Groupe"
+msgstr[1] ""
 
 #, python-format
 msgid "Group %s was successfully created."
@@ -1269,9 +1278,6 @@ msgstr "Le groupe %s a été créé avec succès."
 
 msgid "Group updated successfully."
 msgstr "Le groupe a été mis à jour avec succès."
-
-msgid "Groups"
-msgstr "Groupes"
 
 msgid "Hash"
 msgstr "Hash"
@@ -1303,11 +1309,11 @@ msgstr "Liste de définition horizontale"
 msgid "Host ID"
 msgstr "ID hôte"
 
+#, fuzzy
 msgid "Hypervisor"
-msgstr "Hyperviseur"
-
-msgid "Hypervisors"
-msgstr "Hyperviseurs"
+msgid_plural "Hypervisors"
+msgstr[0] "Hyperviseur"
+msgstr[1] ""
 
 msgid "ID"
 msgstr "ID"
@@ -1381,8 +1387,11 @@ msgstr ""
 "d que les données de l'instance seront perdues quand l'instance aura été "
 "supprimée, alors sélectionnez une des sources de démarrage suivantes :"
 
+#, fuzzy
 msgid "Image"
-msgstr "Image"
+msgid_plural "Images"
+msgstr[0] "Image"
+msgstr[1] ""
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -1415,9 +1424,6 @@ msgstr "Source de l'image"
 
 msgid "Image from Other Project - Non-Public"
 msgstr "Image venant d'autre projet - Non Publique"
-
-msgid "Images"
-msgstr "Images"
 
 msgid "Impact on your quota"
 msgstr "Impact sur votre quota"
@@ -1464,8 +1470,11 @@ msgstr "Réussite saisie"
 msgid "Input warning"
 msgstr "Avertissement de saisie"
 
+#, fuzzy
 msgid "Instance"
-msgstr "Instance"
+msgid_plural "Instances"
+msgstr[0] "Instance"
+msgstr[1] ""
 
 msgid "Instance ID"
 msgstr "ID de l'instance"
@@ -1493,9 +1502,6 @@ msgstr ""
 "    Vous pouvez également choisir d'utiliser du stockage persistent en "
 "créant un nouveau volume.  "
 
-msgid "Instances"
-msgstr "Instances"
-
 msgid "Interfaces"
 msgstr "Interfaces"
 
@@ -1514,14 +1520,14 @@ msgstr "Noyau"
 msgid "Kernel ID"
 msgstr "ID Noyau"
 
+#, fuzzy
 msgid "Key Pair"
-msgstr "Paire de clés"
+msgid_plural "Key Pairs"
+msgstr[0] "Paire de clés"
+msgstr[1] ""
 
 msgid "Key Pair Name"
 msgstr "Nom de la paire de clés"
-
-msgid "Key Pairs"
-msgstr "Paires de clés"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1631,17 +1637,17 @@ msgstr "Liste des groupes"
 msgid "Live Edit Schema Form Examples"
 msgstr "Exemples d'édition directe de schéma de formulaire "
 
+#, fuzzy
 msgid "Load Balancer Pool"
-msgstr "Pool de répartiteur de charge"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "Pool de répartiteur de charge"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Load Balancer Pool Member"
-msgstr "Membre du pool de répartiteur de charge"
-
-msgid "Load Balancer Pool Members"
-msgstr "Membres du pool de répartiteur de charge"
-
-msgid "Load Balancer Pools"
-msgstr "Pools de répartiteur de charge"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "Membre du pool de répartiteur de charge"
+msgstr[1] ""
 
 msgid "Load Function:"
 msgstr "Charger une fonction :"
@@ -1697,11 +1703,11 @@ msgstr "Messages"
 msgid "Metadata"
 msgstr "Métadonnées"
 
+#, fuzzy
 msgid "Metadata Definition"
-msgstr "Définition des métadonnées"
-
-msgid "Metadata Definitions"
-msgstr "Définitions des Metadata"
+msgid_plural "Metadata Definitions"
+msgstr[0] "Définition des métadonnées"
+msgstr[1] ""
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
@@ -1792,35 +1798,41 @@ msgstr "Navbar"
 msgid "Navs"
 msgstr "Navigation"
 
+#, fuzzy
 msgid "Network"
-msgstr "Réseau"
+msgid_plural "Networks"
+msgstr[0] "Réseau"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Network Health Monitor"
-msgstr "Réseau du moniteur de santé"
-
-msgid "Network Health Monitors"
-msgstr "Réseau des moniteurs de santé"
+msgid_plural "Network Health Monitors"
+msgstr[0] "Réseau du moniteur de santé"
+msgstr[1] ""
 
 msgid "Network ID"
 msgstr "ID Réseau"
 
+#, fuzzy
 msgid "Network Port"
-msgstr "Port réseaux"
+msgid_plural "Network Ports"
+msgstr[0] "Port réseaux"
+msgstr[1] ""
 
 msgid "Network Ports"
 msgstr "Ports réseaux"
 
+#, fuzzy
 msgid "Network Router"
-msgstr "Réseau du routeur"
+msgid_plural "Network Routers"
+msgstr[0] "Réseau du routeur"
+msgstr[1] ""
 
-msgid "Network Routers"
-msgstr "Réseau des routeurs"
-
+#, fuzzy
 msgid "Network Subnet"
-msgstr "Subnet"
-
-msgid "Network Subnets"
-msgstr "Subnets"
+msgid_plural "Network Subnets"
+msgstr[0] "Subnet"
+msgstr[1] ""
 
 msgid "Network characteristics"
 msgstr "Caractéristiques de réseau"
@@ -1911,8 +1923,11 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+#, fuzzy
 msgid "Object"
-msgstr "Objet"
+msgid_plural "Objects"
+msgstr[0] "Objet"
+msgstr[1] ""
 
 #, python-format
 msgid "Object %(path)s has copied."
@@ -1923,9 +1938,6 @@ msgstr "Nombre d'objets"
 
 msgid "Object Details"
 msgstr "Détails de l'Objet"
-
-msgid "Objects"
-msgstr "Objets"
 
 msgid "Ok"
 msgstr "Ok"
@@ -2119,8 +2131,11 @@ msgstr "Profil"
 msgid "Progress bars"
 msgstr "Barres de progression"
 
+#, fuzzy
 msgid "Project"
-msgstr "Projet"
+msgid_plural "Projects"
+msgstr[0] "Projet"
+msgstr[1] ""
 
 msgid "Project ID"
 msgstr "ID Projet"
@@ -2131,9 +2146,6 @@ msgid ""
 msgstr ""
 "Les réseaux de projets sont créés par les utilisateurs.\n"
 "Ces réseaux sont totalement isolés et sont spécifiques à chaque projet."
-
-msgid "Projects"
-msgstr "Projets"
 
 msgid "Properties:"
 msgstr "Propriétés :"
@@ -2169,11 +2181,11 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulateur QEMU"
 
-msgid "QoS Policies"
-msgstr "Stratégies QoS"
-
+#, fuzzy
 msgid "QoS Policy"
-msgstr "Stratégie QoS"
+msgid_plural "QoS Policies"
+msgstr[0] "Stratégie QoS"
+msgstr[1] ""
 
 msgid "Queued"
 msgstr "En attente"
@@ -2221,8 +2233,11 @@ msgstr "Numéro de révision"
 msgid "Right"
 msgstr "Droite"
 
+#, fuzzy
 msgid "Role"
-msgstr "Rôle"
+msgid_plural "Roles"
+msgstr[0] "Rôle"
+msgstr[1] ""
 
 #, python-format
 msgid "Role %s was successfully created."
@@ -2233,9 +2248,6 @@ msgstr "Le rôle existe déjà."
 
 msgid "Role updated successfully."
 msgstr "Rôle mis à jour avec succès."
-
-msgid "Roles"
-msgstr "Rôles"
 
 msgid "Root Disk"
 msgstr "Disque Racine"
@@ -2289,8 +2301,11 @@ msgstr "Sections et  Groupe de champs"
 msgid "Security"
 msgstr "Sécurité"
 
+#, fuzzy
 msgid "Security Group"
-msgstr "Groupe de sécurité"
+msgid_plural "Security Groups"
+msgstr[0] "Groupe de sécurité"
+msgstr[1] ""
 
 msgid "Security Groups"
 msgstr "Groupes de sécurité"
@@ -2408,8 +2423,11 @@ msgstr "Envoyer une invitation"
 msgid "Separated link"
 msgstr "Lien séparé"
 
+#, fuzzy
 msgid "Server Group"
-msgstr "Groupe de serveur"
+msgid_plural "Server Groups"
+msgstr[0] "Groupe de serveur"
+msgstr[1] ""
 
 #, python-format
 msgid "Server Group %s was successfully created."
@@ -2547,17 +2565,17 @@ msgstr "Vue des détails support."
 msgid "Swap Disk"
 msgstr "Disque d'échange"
 
+#, fuzzy
 msgid "Swift Account"
-msgstr "Compte Swift"
+msgid_plural "Swift Accounts"
+msgstr[0] "Compte Swift"
+msgstr[1] ""
 
-msgid "Swift Accounts"
-msgstr "Comptes Swift"
-
+#, fuzzy
 msgid "Swift Container"
-msgstr "Conteneur Swift"
-
-msgid "Swift Containers"
-msgstr "Conteneurs Swift"
+msgid_plural "Swift Containers"
+msgstr[0] "Conteneur Swift"
+msgstr[1] ""
 
 msgid "Tab Array"
 msgstr "Tableau de tabulation"
@@ -2867,8 +2885,11 @@ msgstr "Stockage Volume Total"
 msgid "Total Volumes"
 msgstr "Total des Volumes"
 
+#, fuzzy
 msgid "Trunk"
-msgstr "Joncteur"
+msgid_plural "Trunks"
+msgstr[0] "Joncteur"
+msgstr[1] ""
 
 #, python-format
 msgid "Trunk %s was successfully created."
@@ -2877,9 +2898,6 @@ msgstr "Le joncteur  %s a été créé avec succès."
 #, python-format
 msgid "Trunk %s was successfully edited."
 msgstr "Le joncteur %s a été mis à jour avec succès."
-
-msgid "Trunks"
-msgstr "Joncteurs"
 
 msgid "Type"
 msgstr "Type"
@@ -3506,8 +3524,11 @@ msgstr ""
 "schéma n'est pas nécessaire pour les items qui n'ont pas de modèle de "
 "données, comme les sections et les groupes de champs"
 
+#, fuzzy
 msgid "User"
-msgstr "Utilisateur"
+msgid_plural "Users"
+msgstr[0] "Utilisateur"
+msgstr[1] ""
 
 #, python-format
 msgid "User %s was successfully created."
@@ -3533,9 +3554,6 @@ msgstr "Nom d'utilisateur"
 
 msgid "User password has been updated successfully."
 msgstr "Le mot de passe utilisateur a été mis à jour avec succès."
-
-msgid "Users"
-msgstr "Utilisateurs"
 
 msgid "VCPUS"
 msgstr "VCPUS"
@@ -3591,14 +3609,17 @@ msgstr "Les instances virtuelles attachent leurs interfaces à des ports."
 msgid "Visibility"
 msgstr "Visibilité"
 
+#, fuzzy
 msgid "Volume"
-msgstr "Volume"
+msgid_plural "Volumes"
+msgstr[0] "Volume"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Volume Backup"
-msgstr "Volume de sauvegarde"
-
-msgid "Volume Backups"
-msgstr "Sauvegardes de Volume"
+msgid_plural "Volume Backups"
+msgstr[0] "Volume de sauvegarde"
+msgstr[1] ""
 
 msgid "Volume Details"
 msgstr "Détails du Volume"
@@ -3609,11 +3630,11 @@ msgstr "Quota de volume"
 msgid "Volume Size (GB)"
 msgstr "Taille du volume (Go)"
 
+#, fuzzy
 msgid "Volume Snapshot"
-msgstr "Instantané de Volume"
-
-msgid "Volume Snapshots"
-msgstr "Snapshots du volume"
+msgid_plural "Volume Snapshots"
+msgstr[0] "Instantané de Volume"
+msgstr[1] ""
 
 msgid "Volume Type Description:"
 msgstr "Description de Type de Volume:"
@@ -3629,9 +3650,6 @@ msgid "Volume size is required and must be positive integer"
 msgstr ""
 "La taille du volume est obligatoire et doit correspondre à nombre entier "
 "positif"
-
-msgid "Volumes"
-msgstr "Volumes"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr ""

@@ -2,15 +2,17 @@
 # Tom Fifield <tom@openstack.org>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Tom Fifield <tom@openstack.org>, 2016. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
+# Tom Fifield <tom@openstack.org>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2020-01-08 17:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-19 04:35+0000\n"
+"PO-Revision-Date: 2020-01-08 04:04+0000\n"
 "Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia)\n"
 "Language: en_AU\n"
@@ -485,17 +487,17 @@ msgstr ""
 "<samp>cloud-init</samp> inside a guest operating system, you can use a "
 "custom script to get a public key and add it to the user account."
 
+#, fuzzy
 msgid "DNS Domain"
-msgstr "DNS Domain"
+msgid_plural "DNS Domains"
+msgstr[0] "DNS Domain"
+msgstr[1] ""
 
-msgid "DNS Domains"
-msgstr "DNS Domains"
-
+#, fuzzy
 msgid "DNS Record"
-msgstr "DNS Record"
-
-msgid "DNS Records"
-msgstr "DNS Records"
+msgid_plural "DNS Records"
+msgstr[0] "DNS Record"
+msgstr[1] ""
 
 msgid "Danger"
 msgstr "Danger"
@@ -718,14 +720,14 @@ msgstr "Filename"
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
+#, fuzzy
 msgid "Flavor"
-msgstr "Flavour"
+msgid_plural "Flavors"
+msgstr[0] "Flavour"
+msgstr[1] ""
 
 msgid "Flavor Name"
 msgstr "Flavour Name"
-
-msgid "Flavors"
-msgstr "Flavours"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -734,11 +736,11 @@ msgstr ""
 "Flavours manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 
+#, fuzzy
 msgid "Floating IP"
-msgstr "Floating IP"
-
-msgid "Floating IPs"
-msgstr "Floating IPs"
+msgid_plural "Floating IPs"
+msgstr[0] "Floating IP"
+msgstr[1] ""
 
 msgid "Focused input"
 msgstr "Focused input"
@@ -808,11 +810,11 @@ msgstr "Horizontal Definition List"
 msgid "Host ID"
 msgstr "Host ID"
 
+#, fuzzy
 msgid "Hypervisor"
-msgstr "Hypervisor"
-
-msgid "Hypervisors"
-msgstr "Hypervisors"
+msgid_plural "Hypervisors"
+msgstr[0] "Hypervisor"
+msgstr[1] ""
 
 msgid "ID"
 msgstr "ID"
@@ -879,8 +881,11 @@ msgstr ""
 "instance data is saved when the instance is deleted, then select one of the "
 "following boot options:"
 
+#, fuzzy
 msgid "Image"
-msgstr "Image"
+msgid_plural "Images"
+msgstr[0] "Image"
+msgstr[1] ""
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -910,9 +915,6 @@ msgstr "Image Sharing"
 
 msgid "Image Source"
 msgstr "Image Source"
-
-msgid "Images"
-msgstr "Images"
 
 msgid "Impact on your quota"
 msgstr "Impact on your quota"
@@ -956,8 +958,11 @@ msgstr "Input success"
 msgid "Input warning"
 msgstr "Input warning"
 
+#, fuzzy
 msgid "Instance"
-msgstr "Instance"
+msgid_plural "Instances"
+msgstr[0] "Instance"
+msgstr[1] ""
 
 msgid "Instance Name"
 msgstr "Instance Name"
@@ -967,9 +972,6 @@ msgstr "Instance Snapshot"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Instance count is required and must be an integer of at least 1"
-
-msgid "Instances"
-msgstr "Instances"
 
 msgid "Is Public"
 msgstr "Is Public"
@@ -986,11 +988,11 @@ msgstr "Kernel"
 msgid "Kernel ID"
 msgstr "Kernel ID"
 
+#, fuzzy
 msgid "Key Pair"
-msgstr "Key Pair"
-
-msgid "Key Pairs"
-msgstr "Key Pairs"
+msgid_plural "Key Pairs"
+msgstr[0] "Key Pair"
+msgstr[1] ""
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1060,17 +1062,17 @@ msgstr "List group item heading"
 msgid "List groups"
 msgstr "List groups"
 
+#, fuzzy
 msgid "Load Balancer Pool"
-msgstr "Load Balancer Pool"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "Load Balancer Pool"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Load Balancer Pool Member"
-msgstr "Load Balancer Pool Member"
-
-msgid "Load Balancer Pool Members"
-msgstr "Load Balancer Pool Members"
-
-msgid "Load Balancer Pools"
-msgstr "Load Balancer Pools"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "Load Balancer Pool Member"
+msgstr[1] ""
 
 msgid "Load Function:"
 msgstr "Load Function:"
@@ -1111,11 +1113,11 @@ msgstr "Messages"
 msgid "Metadata"
 msgstr "Metadata"
 
+#, fuzzy
 msgid "Metadata Definition"
-msgstr "Metadata Definition"
-
-msgid "Metadata Definitions"
-msgstr "Metadata Definitions"
+msgid_plural "Metadata Definitions"
+msgstr[0] "Metadata Definition"
+msgstr[1] ""
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
@@ -1192,35 +1194,41 @@ msgstr "Navbar"
 msgid "Navs"
 msgstr "Navs"
 
+#, fuzzy
 msgid "Network"
-msgstr "Network"
+msgid_plural "Networks"
+msgstr[0] "Network"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Network Health Monitor"
-msgstr "Network Health Monitor"
-
-msgid "Network Health Monitors"
-msgstr "Network Health Monitors"
+msgid_plural "Network Health Monitors"
+msgstr[0] "Network Health Monitor"
+msgstr[1] ""
 
 msgid "Network ID"
 msgstr "Network ID"
 
+#, fuzzy
 msgid "Network Port"
-msgstr "Network Port"
+msgid_plural "Network Ports"
+msgstr[0] "Network Port"
+msgstr[1] ""
 
 msgid "Network Ports"
 msgstr "Network Ports"
 
+#, fuzzy
 msgid "Network Router"
-msgstr "Network Router"
+msgid_plural "Network Routers"
+msgstr[0] "Network Router"
+msgstr[1] ""
 
-msgid "Network Routers"
-msgstr "Network Routers"
-
+#, fuzzy
 msgid "Network Subnet"
-msgstr "Network Subnet"
-
-msgid "Network Subnets"
-msgstr "Network Subnets"
+msgid_plural "Network Subnets"
+msgstr[0] "Network Subnet"
+msgstr[1] ""
 
 msgid "Network characteristics"
 msgstr "Network characteristics"
@@ -1289,17 +1297,17 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+#, fuzzy
 msgid "Object"
-msgstr "Object"
+msgid_plural "Objects"
+msgstr[0] "Object"
+msgstr[1] ""
 
 msgid "Object Count"
 msgstr "Object Count"
 
 msgid "Object Details"
 msgstr "Object Details"
-
-msgid "Objects"
-msgstr "Objects"
 
 msgid "Ok"
 msgstr "Ok"
@@ -1440,8 +1448,11 @@ msgstr "Profile"
 msgid "Progress bars"
 msgstr "Progress bars"
 
+#, fuzzy
 msgid "Project"
-msgstr "Project"
+msgid_plural "Projects"
+msgstr[0] "Project"
+msgstr[1] ""
 
 msgid "Project ID"
 msgstr "Project ID"
@@ -1551,8 +1562,11 @@ msgstr "Search"
 msgid "Security"
 msgstr "Security"
 
+#, fuzzy
 msgid "Security Group"
-msgstr "Security Group"
+msgid_plural "Security Groups"
+msgstr[0] "Security Group"
+msgstr[1] ""
 
 msgid "Security Groups"
 msgstr "Security Groups"
@@ -2489,14 +2503,17 @@ msgstr "Virtual instances attach their interfaces to ports."
 msgid "Visibility"
 msgstr "Visibility"
 
+#, fuzzy
 msgid "Volume"
-msgstr "Volume"
+msgid_plural "Volumes"
+msgstr[0] "Volume"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Volume Backup"
-msgstr "Volume Backup"
-
-msgid "Volume Backups"
-msgstr "Volume Backups"
+msgid_plural "Volume Backups"
+msgstr[0] "Volume Backup"
+msgstr[1] ""
 
 msgid "Volume Details"
 msgstr "Volume Details"
@@ -2504,20 +2521,17 @@ msgstr "Volume Details"
 msgid "Volume Quota"
 msgstr "Volume Quota"
 
+#, fuzzy
 msgid "Volume Snapshot"
-msgstr "Volume Snapshot"
-
-msgid "Volume Snapshots"
-msgstr "Volume Snapshots"
+msgid_plural "Volume Snapshots"
+msgstr[0] "Volume Snapshot"
+msgstr[1] ""
 
 msgid "Volume Type Description:"
 msgstr "Volume Type Description:"
 
 msgid "Volume size is required and must be an integer"
 msgstr "Volume size is required and must be an integer"
-
-msgid "Volumes"
-msgstr "Volumes"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "Volumes are block devices that can be attached to instances."

@@ -1,14 +1,15 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-01-08 17:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-09-12 12:08+0000\n"
+"PO-Revision-Date: 2020-01-07 03:45+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -397,14 +398,8 @@ msgstr "Deployment"
 msgid "Designate Dashboard"
 msgstr "Designate Dashboard"
 
-msgid "Django 1.11, 2.0 and 2.2"
-msgstr "Django 1.11, 2.0 dan 2.2"
-
-msgid "Django 1.8 to 1.10 are no longer supported since Rocky release."
-msgstr "Django 1.8 hingga 1.10 tidak lagi didukung sejak Rocky rilis."
-
-msgid "Django 2.0 and 2.2 support are experimental in Train release."
-msgstr "Dukungan Django 2.0 dan 2.2 bersifat eksperimental dalam rilis Train."
+msgid "Django 2.2"
+msgstr "Django 2.2"
 
 msgid "Django support policy is documented at :doc:`/contributor/policy`."
 msgstr ""
@@ -632,14 +627,6 @@ msgstr "Langkah selanjutnya"
 msgid "Next steps"
 msgstr "Langkah selanjutnya"
 
-msgid ""
-"Note that Ussuri release (the upcoming release after Train release) will use "
-"Django 2.2 as the primary Django version. Django 2.0 support will be dropped."
-msgstr ""
-"Perhatikan bahwa rilis Ussuri (rilis mendatang setelah rilis Train) akan "
-"menggunakan Django 2.2 sebagai versi Django utama. Dukungan Django 2.0 akan "
-"dijatuhkan."
-
 msgid "Octavia Dashboard"
 msgstr "Octavia Dashboard"
 
@@ -663,8 +650,8 @@ msgstr ""
 "sambungan sertifikat SSL, arahkan alamat IP server ke nama domain, dan "
 "berikan akses kepada pengguna."
 
-msgid "Python 2.7, 3.6 or 3.7"
-msgstr "Python 2.7, 3.6 or 3.7"
+msgid "Python 3.6 or 3.7"
+msgstr "Python 3.6 atau 3.7"
 
 msgid "Python memcached module installed"
 msgstr "Modul Python memcached terpasang"
@@ -747,8 +734,8 @@ msgstr "Persyaratan sistem"
 msgid "Tacker UI"
 msgstr "Tacker UI"
 
-msgid "The Train release of horizon has the following dependencies."
-msgstr "Rilis Train horizon memiliki dependensi berikut."
+msgid "The Ussuri release of horizon has the following dependencies."
+msgstr "Rilis horizon Ussuri memiliki dependensi berikut."
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
@@ -896,6 +883,15 @@ msgstr "Translations (terjemahan)"
 
 msgid "Trove Dashboard"
 msgstr "Trove Dashboard"
+
+msgid ""
+"Ussuri release uses Django 2.2 (the latest LTS) as the primary Django "
+"version. The prevouos LTS of Django 1.11 will be dropped during Ussuri "
+"cycle. Django 2.0 support will be dropped as well."
+msgstr ""
+"Rilis Ussuri menggunakan Django 2.2 (LTS terbaru) sebagai versi Django "
+"utama. LTS yang ada di Django 1.11 akan jatuh selama siklus Ussuri. Dukungan "
+"Django 2.0 juga akan turun."
 
 msgid "Verify operation for Debian"
 msgstr "Verifikasi operasi untuk Debian"

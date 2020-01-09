@@ -4,16 +4,19 @@
 # Gene Kuo <gene@openstack.org>, 2017. #zanata
 # Kyle Bai <kyle.b@inwinstack.com>, 2017. #zanata
 # Tom Fifield <tom@openstack.org>, 2017. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
+# Gene Kuo <gene@openstack.org>, 2020. #zanata
+# Tom Fifield <tom@openstack.org>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-05-29 17:58+0000\n"
+"POT-Creation-Date: 2020-01-08 17:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-16 08:03+0000\n"
-"Last-Translator: Gene Kuo <gene@openstack.org>\n"
+"PO-Revision-Date: 2020-01-08 04:04+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh_TW\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -546,17 +549,15 @@ msgstr ""
 "系統中安裝 <samp>cloud-init</samp> 時，可以使用自定義腳本來獲得公鑰並將其添加"
 "到使用者帳戶。"
 
+#, fuzzy
 msgid "DNS Domain"
-msgstr "DNS 網域"
+msgid_plural "DNS Domains"
+msgstr[0] "DNS 網域"
 
-msgid "DNS Domains"
-msgstr "DNS 網域"
-
+#, fuzzy
 msgid "DNS Record"
-msgstr "DNS 記錄"
-
-msgid "DNS Records"
-msgstr "DNS 記錄"
+msgid_plural "DNS Records"
+msgstr[0] "DNS 記錄"
 
 msgid "DSCP Mark"
 msgstr "DSCP 標記"
@@ -741,17 +742,16 @@ msgstr "分布圖表"
 msgid "Docker"
 msgstr "Docker"
 
+#, fuzzy
 msgid "Domain"
-msgstr "地域"
+msgid_plural "Domains"
+msgstr[0] "地域"
 
 msgid "Domain ID"
 msgstr "區域 ID"
 
 msgid "Domain Name"
 msgstr "區域名稱"
-
-msgid "Domains"
-msgstr "地域"
 
 msgid "Done"
 msgstr "完成"
@@ -855,25 +855,23 @@ msgstr "檔名"
 msgid "Fingerprint"
 msgstr "指紋"
 
+#, fuzzy
 msgid "Flavor"
-msgstr "虛擬硬體樣板"
+msgid_plural "Flavors"
+msgstr[0] "虛擬硬體樣板"
 
 msgid "Flavor Name"
 msgstr "虛擬硬體樣板名稱"
-
-msgid "Flavors"
-msgstr "虛擬硬體樣板"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 msgstr "虛擬硬體樣板管理雲實例的運算、記憶體及儲存容量規格。"
 
+#, fuzzy
 msgid "Floating IP"
-msgstr "浮動 IP"
-
-msgid "Floating IPs"
-msgstr "浮動 IP"
+msgid_plural "Floating IPs"
+msgstr[0] "浮動 IP"
 
 msgid "Focused input"
 msgstr "聚焦的輸入"
@@ -918,11 +916,10 @@ msgstr "通用表格圖"
 msgid "Global Actions:"
 msgstr "全域動作："
 
+#, fuzzy
 msgid "Group"
-msgstr "群組"
-
-msgid "Groups"
-msgstr "群組"
+msgid_plural "Groups"
+msgstr[0] "群組"
 
 msgid "Hash"
 msgstr "雜湊值"
@@ -954,11 +951,10 @@ msgstr "橫向定義列表"
 msgid "Host ID"
 msgstr "主機 ID"
 
+#, fuzzy
 msgid "Hypervisor"
-msgstr "虛擬機器管理程式"
-
-msgid "Hypervisors"
-msgstr "虛擬機器管理程式"
+msgid_plural "Hypervisors"
+msgstr[0] "虛擬機器管理程式"
 
 msgid "ID"
 msgstr "ID"
@@ -1022,8 +1018,10 @@ msgstr ""
 "如果您想要利用持續性儲存空間來新增雲實例，這意味著當雲實例被刪除時雲實例資料"
 "不會一併被刪除，那麼請選擇下列的開機來源："
 
+#, fuzzy
 msgid "Image"
-msgstr "映像檔"
+msgid_plural "Images"
+msgstr[0] "映像檔"
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -1056,9 +1054,6 @@ msgstr "映像檔來源"
 
 msgid "Image from Other Project - Non-Public"
 msgstr "其他專案的映像黨 — 非公有"
-
-msgid "Images"
-msgstr "映像檔"
 
 msgid "Impact on your quota"
 msgstr "對配額的影響"
@@ -1102,8 +1097,10 @@ msgstr "輸入成功"
 msgid "Input warning"
 msgstr "輸入警告"
 
+#, fuzzy
 msgid "Instance"
-msgstr "雲實例"
+msgid_plural "Instances"
+msgstr[0] "雲實例"
 
 msgid "Instance Name"
 msgstr "雲實例名稱"
@@ -1125,9 +1122,6 @@ msgstr ""
 "      雲硬碟或雲硬碟即時存擋（若已啟用）。\n"
 "      您也可以選擇新增新的雲硬碟來使用持續性硬碟。"
 
-msgid "Instances"
-msgstr "雲實例"
-
 msgid "Interfaces"
 msgstr "網路卡"
 
@@ -1146,14 +1140,13 @@ msgstr "核心"
 msgid "Kernel ID"
 msgstr "核心 ID"
 
+#, fuzzy
 msgid "Key Pair"
-msgstr "密鑰對"
+msgid_plural "Key Pairs"
+msgstr[0] "密鑰對"
 
 msgid "Key Pair Name"
 msgstr "密鑰對名稱"
-
-msgid "Key Pairs"
-msgstr "密鑰組"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1225,17 +1218,15 @@ msgstr "清單群組"
 msgid "Live Edit Schema Form Examples"
 msgstr "即時編輯模式範例"
 
+#, fuzzy
 msgid "Load Balancer Pool"
-msgstr "負載平衡器儲存區"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "負載平衡器儲存區"
 
+#, fuzzy
 msgid "Load Balancer Pool Member"
-msgstr "負載平衡器儲存區成員"
-
-msgid "Load Balancer Pool Members"
-msgstr "負載平衡器儲存區成員"
-
-msgid "Load Balancer Pools"
-msgstr "負載平衡器儲存區"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "負載平衡器儲存區成員"
 
 msgid "Load Function:"
 msgstr "載入功能："
@@ -1282,11 +1273,10 @@ msgstr "訊息"
 msgid "Metadata"
 msgstr "詮釋資料"
 
+#, fuzzy
 msgid "Metadata Definition"
-msgstr "詮釋資料定義"
-
-msgid "Metadata Definitions"
-msgstr "詮釋資料定義"
+msgid_plural "Metadata Definitions"
+msgstr[0] "詮釋資料定義"
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
@@ -1369,35 +1359,36 @@ msgstr "導覽列"
 msgid "Navs"
 msgstr "導覽"
 
+#, fuzzy
 msgid "Network"
-msgstr "網路"
+msgid_plural "Networks"
+msgstr[0] "網路"
 
+#, fuzzy
 msgid "Network Health Monitor"
-msgstr "網路性能監視器"
-
-msgid "Network Health Monitors"
-msgstr "網路性能監視器"
+msgid_plural "Network Health Monitors"
+msgstr[0] "網路性能監視器"
 
 msgid "Network ID"
 msgstr "網路 ID。"
 
+#, fuzzy
 msgid "Network Port"
-msgstr "網路埠"
+msgid_plural "Network Ports"
+msgstr[0] "網路埠"
 
 msgid "Network Ports"
 msgstr "網路埠"
 
+#, fuzzy
 msgid "Network Router"
-msgstr "網路路由器"
+msgid_plural "Network Routers"
+msgstr[0] "網路路由器"
 
-msgid "Network Routers"
-msgstr "網路路由器"
-
+#, fuzzy
 msgid "Network Subnet"
-msgstr "網路子網路"
-
-msgid "Network Subnets"
-msgstr "網路子網路"
+msgid_plural "Network Subnets"
+msgstr[0] "網路子網路"
 
 msgid "Network characteristics"
 msgstr "網路特徵"
@@ -1476,17 +1467,16 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+#, fuzzy
 msgid "Object"
-msgstr "物件"
+msgid_plural "Objects"
+msgstr[0] "物件"
 
 msgid "Object Count"
 msgstr "物件計數"
 
 msgid "Object Details"
 msgstr "物件詳細資訊"
-
-msgid "Objects"
-msgstr "物件"
 
 msgid "Ok"
 msgstr "確定"
@@ -1670,8 +1660,10 @@ msgstr "概要"
 msgid "Progress bars"
 msgstr "進度條"
 
+#, fuzzy
 msgid "Project"
-msgstr "專案"
+msgid_plural "Projects"
+msgstr[0] "專案"
 
 msgid "Project ID"
 msgstr "專案 ID"
@@ -1682,9 +1674,6 @@ msgid ""
 msgstr ""
 "專案網路由用戶新增。\n"
 "    這些網路完全統一並且專案專用。"
-
-msgid "Projects"
-msgstr "專案"
 
 msgid "Properties:"
 msgstr "內容："
@@ -1720,11 +1709,10 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-msgid "QoS Policies"
-msgstr "QOS 原則"
-
+#, fuzzy
 msgid "QoS Policy"
-msgstr "QOS 原則"
+msgid_plural "QoS Policies"
+msgstr[0] "QOS 原則"
 
 msgid "Queued"
 msgstr "已排入"
@@ -1771,8 +1759,10 @@ msgstr "版本號"
 msgid "Right"
 msgstr "右側"
 
+#, fuzzy
 msgid "Role"
-msgstr "角色"
+msgid_plural "Roles"
+msgstr[0] "角色"
 
 #, python-format
 msgid "Role %s was successfully created."
@@ -1780,9 +1770,6 @@ msgstr "已順利建立角色 %s"
 
 msgid "Role updated successfully."
 msgstr "已順利更新角色。"
-
-msgid "Roles"
-msgstr "角色"
 
 msgid "Root Disk"
 msgstr "根硬碟"
@@ -1825,8 +1812,10 @@ msgstr "區域和組合"
 msgid "Security"
 msgstr "安全性"
 
+#, fuzzy
 msgid "Security Group"
-msgstr "安全群組"
+msgid_plural "Security Groups"
+msgstr[0] "安全群組"
 
 msgid "Security Groups"
 msgstr "安全性群組"
@@ -2052,17 +2041,15 @@ msgstr "支援詳細資料顯示："
 msgid "Swap Disk"
 msgstr "Swap 硬碟"
 
+#, fuzzy
 msgid "Swift Account"
-msgstr "Swift 帳號"
+msgid_plural "Swift Accounts"
+msgstr[0] "Swift 帳號"
 
-msgid "Swift Accounts"
-msgstr "Swift 帳號"
-
+#, fuzzy
 msgid "Swift Container"
-msgstr "Swift 容器"
-
-msgid "Swift Containers"
-msgstr "Swift 容器"
+msgid_plural "Swift Containers"
+msgstr[0] "Swift 容器"
 
 msgid "Tab Array"
 msgstr "表格陣列"
@@ -2334,11 +2321,10 @@ msgstr "總共的雲硬碟儲存空間"
 msgid "Total Volumes"
 msgstr "雲硬碟總和"
 
+#, fuzzy
 msgid "Trunk"
-msgstr "中繼"
-
-msgid "Trunks"
-msgstr "中繼"
+msgid_plural "Trunks"
+msgstr[0] "中繼"
 
 msgid "Type"
 msgstr "類型"
@@ -2861,17 +2847,16 @@ msgstr ""
 "使用 schema 描述數據模型和有效的輸入特徵。 schema 總是 JSON。請注意：沒有數據"
 "模型的項不需要 schema 項，如 section 和 fieldset."
 
+#, fuzzy
 msgid "User"
-msgstr "用戶"
+msgid_plural "Users"
+msgstr[0] "用戶"
 
 msgid "User ID"
 msgstr "用戶識別號"
 
 msgid "User Name"
 msgstr "用戶名稱"
-
-msgid "Users"
-msgstr "用戶"
 
 msgid "VCPUS"
 msgstr "虛擬處理器"
@@ -2927,14 +2912,15 @@ msgstr "虛擬雲實例會將它們的介面連接至埠。"
 msgid "Visibility"
 msgstr "可見性"
 
+#, fuzzy
 msgid "Volume"
-msgstr "雲硬碟"
+msgid_plural "Volumes"
+msgstr[0] "雲硬碟"
 
+#, fuzzy
 msgid "Volume Backup"
-msgstr "雲硬碟備份"
-
-msgid "Volume Backups"
-msgstr "雲硬碟備份"
+msgid_plural "Volume Backups"
+msgstr[0] "雲硬碟備份"
 
 msgid "Volume Details"
 msgstr "雲硬碟詳細資訊"
@@ -2945,11 +2931,10 @@ msgstr "雲硬碟配額"
 msgid "Volume Size (GB)"
 msgstr "磁區大小 (GB)"
 
+#, fuzzy
 msgid "Volume Snapshot"
-msgstr "雲硬碟即時存檔"
-
-msgid "Volume Snapshots"
-msgstr "雲硬碟即時存檔"
+msgid_plural "Volume Snapshots"
+msgstr[0] "雲硬碟即時存檔"
 
 msgid "Volume Type Description:"
 msgstr "雲硬碟類型說明："
@@ -2959,9 +2944,6 @@ msgstr "雲硬碟和即時存檔配額 (GB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "雲硬碟容量需要一個整數"
-
-msgid "Volumes"
-msgstr "雲硬碟"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "雲硬碟是可以被附加到雲實例的區塊裝置。"

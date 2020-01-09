@@ -19,16 +19,17 @@
 # Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2019. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2019. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2019. #zanata
+# Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-08-05 06:15+0000\n"
+"POT-Creation-Date: 2020-01-08 17:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-05 01:29+0000\n"
-"Last-Translator: Roman Gorshunov <roman.gorshunov@att.com>\n"
+"PO-Revision-Date: 2020-01-08 01:00+0000\n"
+"Last-Translator: Dmitriy Rabotyagov <noonedeadpunk@ya.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -789,16 +790,16 @@ msgid "Customization Script"
 msgstr "Скрипт настройки"
 
 msgid "DNS Domain"
-msgstr "Домен DNS"
-
-msgid "DNS Domains"
-msgstr "Домены DNS"
+msgid_plural "DNS Domains"
+msgstr[0] "Домен DNS"
+msgstr[1] "Домены DNS"
+msgstr[2] "Домены DNS"
 
 msgid "DNS Record"
-msgstr "Запись DNS"
-
-msgid "DNS Records"
-msgstr "Записи DNS"
+msgid_plural "DNS Records"
+msgstr[0] "Запись DNS"
+msgstr[1] "Записи DNS"
+msgstr[2] "Записи DNS"
 
 msgid "DSCP Mark"
 msgstr "DSCP метка"
@@ -1117,7 +1118,10 @@ msgid "Docker"
 msgstr "Docker"
 
 msgid "Domain"
-msgstr "Домен"
+msgid_plural "Domains"
+msgstr[0] "Домен"
+msgstr[1] "Домены"
+msgstr[2] "Домены"
 
 #, python-format
 msgid "Domain %s was successfully created."
@@ -1131,9 +1135,6 @@ msgstr "ID домена"
 
 msgid "Domain Name"
 msgstr "Имя домена"
-
-msgid "Domains"
-msgstr "Домены"
 
 msgid ""
 "Domains provide separation between users and infrastructure used by "
@@ -1274,13 +1275,13 @@ msgid "Fingerprint"
 msgstr "Отпечаток"
 
 msgid "Flavor"
-msgstr "Тип инстанса"
+msgid_plural "Flavors"
+msgstr[0] "Тип инстанса"
+msgstr[1] "Типы инстанса"
+msgstr[2] "Типы инстанса"
 
 msgid "Flavor Name"
 msgstr "Название разновидности"
-
-msgid "Flavors"
-msgstr "Разновидности"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -1290,10 +1291,10 @@ msgstr ""
 "процессорной мощности для создаваемых инстансов."
 
 msgid "Floating IP"
-msgstr "Назначаемый IP"
-
-msgid "Floating IPs"
-msgstr "Назначаемые IP"
+msgid_plural "Floating IPs"
+msgstr[0] "Назначаемый IP"
+msgstr[1] "Назначаемые IP"
+msgstr[2] "Назначаемые IP"
 
 msgid "Focused input"
 msgstr "Активный элемент ввода"
@@ -1356,7 +1357,10 @@ msgid "Global Actions:"
 msgstr "Глобальные действия:"
 
 msgid "Group"
-msgstr "Группа"
+msgid_plural "Groups"
+msgstr[0] "Группа"
+msgstr[1] "Группы"
+msgstr[2] "Группы"
 
 #, python-format
 msgid "Group %s was successfully created."
@@ -1364,9 +1368,6 @@ msgstr "Группа %s успешно создана."
 
 msgid "Group updated successfully."
 msgstr "Группа успешно обновлена"
-
-msgid "Groups"
-msgstr "Группы"
 
 msgid "Hash"
 msgstr "Хэш"
@@ -1399,10 +1400,10 @@ msgid "Host ID"
 msgstr "ID хоста"
 
 msgid "Hypervisor"
-msgstr "Гипервизор"
-
-msgid "Hypervisors"
-msgstr "Гипервизоры"
+msgid_plural "Hypervisors"
+msgstr[0] "Гипервизор"
+msgstr[1] "Гипервизоры"
+msgstr[2] "Гипервизоры"
 
 msgid "ID"
 msgstr "ID"
@@ -1473,7 +1474,10 @@ msgstr ""
 "следующих опций для загрузки:"
 
 msgid "Image"
-msgstr "Образ"
+msgid_plural "Images"
+msgstr[0] "Образ"
+msgstr[1] "Образы"
+msgstr[2] "Образы"
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -1506,9 +1510,6 @@ msgstr "Источник образа"
 
 msgid "Image from Other Project - Non-Public"
 msgstr "Образ из другого проекта - непубичный"
-
-msgid "Images"
-msgstr "Образы"
 
 msgid "Impact on your quota"
 msgstr "Влияние на квоту"
@@ -1579,7 +1580,10 @@ msgstr ""
 "  сразу же в процессе старта загрузки."
 
 msgid "Instance"
-msgstr "Инстанс"
+msgid_plural "Instances"
+msgstr[0] "Инстанс"
+msgstr[1] "Инстансы"
+msgstr[2] "Инстансы"
 
 msgid "Instance ID"
 msgstr "ID инстанса"
@@ -1604,9 +1608,6 @@ msgstr ""
 "    диск или снимок диска (если доступно).\n"
 "    Также можно выбрать постоянный тип хранения, создав новый диск."
 
-msgid "Instances"
-msgstr "Инстансы"
-
 msgid "Interfaces"
 msgstr "Интерфейсы"
 
@@ -1626,13 +1627,13 @@ msgid "Kernel ID"
 msgstr "ИД ядра"
 
 msgid "Key Pair"
-msgstr "Ключевая пара"
+msgid_plural "Key Pairs"
+msgstr[0] "Ключевая пара"
+msgstr[1] "Ключевые пары"
+msgstr[2] "Ключевые пары"
 
 msgid "Key Pair Name"
 msgstr "Имя ключевой пары"
-
-msgid "Key Pairs"
-msgstr "Ключевые пары"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1740,16 +1741,16 @@ msgid "Live Edit Schema Form Examples"
 msgstr "Редактирование примеров форм \"вживую\""
 
 msgid "Load Balancer Pool"
-msgstr "Пул балансировщика нагрузки"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "Пул балансировщика нагрузки"
+msgstr[1] "Пулы балансировщика нагрузки"
+msgstr[2] "Пулы балансировщика нагрузки"
 
 msgid "Load Balancer Pool Member"
-msgstr "Участник пула балансировщика нагрузки"
-
-msgid "Load Balancer Pool Members"
-msgstr "Участники пула балансировщика нагрузки"
-
-msgid "Load Balancer Pools"
-msgstr "Пулы балансировщика нагрузки"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "Участник пула балансировщика нагрузки"
+msgstr[1] "Участники пула балансировщика нагрузки"
+msgstr[2] "Участники пула балансировщика нагрузки"
 
 msgid "Load Function:"
 msgstr "Функция Load:"
@@ -1806,10 +1807,10 @@ msgid "Metadata"
 msgstr "Метаданные"
 
 msgid "Metadata Definition"
-msgstr "Определение метаданных"
-
-msgid "Metadata Definitions"
-msgstr "Определения метаданных"
+msgid_plural "Metadata Definitions"
+msgstr[0] "Определение метаданных"
+msgstr[1] "Определения метаданных"
+msgstr[2] "Определения метаданных"
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
@@ -1903,34 +1904,40 @@ msgid "Navs"
 msgstr "Элементы навигации"
 
 msgid "Network"
-msgstr "Сеть"
+msgid_plural "Networks"
+msgstr[0] "Сеть"
+msgstr[1] "Сети"
+msgstr[2] "Сети"
 
 msgid "Network Health Monitor"
-msgstr "Монитор работоспособности сети"
-
-msgid "Network Health Monitors"
-msgstr "Мониторы работоспособности сети"
+msgid_plural "Network Health Monitors"
+msgstr[0] "Монитор работоспособности сети"
+msgstr[1] "Мониторы работоспособности сети"
+msgstr[2] "Мониторы работоспособности сети"
 
 msgid "Network ID"
 msgstr "ID сети"
 
 msgid "Network Port"
-msgstr "Сетевой порт"
+msgid_plural "Network Ports"
+msgstr[0] "Сетевой порт"
+msgstr[1] "Сетевые порты"
+msgstr[2] "Сетевые порты"
 
 msgid "Network Ports"
 msgstr "Сетевые порты"
 
 msgid "Network Router"
-msgstr "Сетевой маршрутизатор"
-
-msgid "Network Routers"
-msgstr "Сетевые маршрутизаторы"
+msgid_plural "Network Routers"
+msgstr[0] "Сетевой маршрутизатор"
+msgstr[1] "Сетевые маршрутизаторы"
+msgstr[2] "Сетевые маршрутизаторы"
 
 msgid "Network Subnet"
-msgstr "Подсеть"
-
-msgid "Network Subnets"
-msgstr "Подсети"
+msgid_plural "Network Subnets"
+msgstr[0] "Подсеть"
+msgstr[1] "Подсети"
+msgstr[2] "Подсети"
 
 msgid "Network characteristics"
 msgstr "Характеристики сети"
@@ -2048,7 +2055,10 @@ msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
 msgid "Object"
-msgstr "Объект"
+msgid_plural "Objects"
+msgstr[0] "Объект"
+msgstr[1] "Объекты"
+msgstr[2] "Объекты"
 
 #, python-format
 msgid "Object %(path)s has copied."
@@ -2059,9 +2069,6 @@ msgstr "Количество объектов"
 
 msgid "Object Details"
 msgstr "Сведения об объекте"
-
-msgid "Objects"
-msgstr "Объекты"
 
 msgid "Ok"
 msgstr "Ок"
@@ -2254,7 +2261,10 @@ msgid "Progress bars"
 msgstr "Индикаторы прогресса"
 
 msgid "Project"
-msgstr "Проект"
+msgid_plural "Projects"
+msgstr[0] "Проект"
+msgstr[1] "Проекты"
+msgstr[2] "Проекты"
 
 msgid "Project ID"
 msgstr " ID проекта"
@@ -2265,9 +2275,6 @@ msgid ""
 msgstr ""
 "Проектные сети создаются пользователями.\n"
 "    Эти сети полностью изолированы и принадлежат проекту."
-
-msgid "Projects"
-msgstr "Проекты"
 
 msgid "Properties:"
 msgstr "Свойства:"
@@ -2307,11 +2314,11 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - образ QEMU"
 
-msgid "QoS Policies"
-msgstr "Политики QoS"
-
 msgid "QoS Policy"
-msgstr "Политика QoS"
+msgid_plural "QoS Policies"
+msgstr[0] "Политика QoS"
+msgstr[1] "Политики QoS"
+msgstr[2] "Политики QoS"
 
 msgid "Queued"
 msgstr "Запланировано"
@@ -2359,7 +2366,10 @@ msgid "Right"
 msgstr "Справа"
 
 msgid "Role"
-msgstr "Роль"
+msgid_plural "Roles"
+msgstr[0] "Роль"
+msgstr[1] "Роли"
+msgstr[2] "Роли"
 
 #, python-format
 msgid "Role %s was successfully created."
@@ -2370,9 +2380,6 @@ msgstr "Роль уже существует."
 
 msgid "Role updated successfully."
 msgstr "Роль успешно обновлена."
-
-msgid "Roles"
-msgstr "Роли"
 
 msgid "Root Disk"
 msgstr "Основной диск"
@@ -2428,7 +2435,10 @@ msgid "Security"
 msgstr "Защита"
 
 msgid "Security Group"
-msgstr "Группа безопасности"
+msgid_plural "Security Groups"
+msgstr[0] "Группа безопасности"
+msgstr[1] "Группы безопасности"
+msgstr[2] "Группы безопасности"
 
 msgid "Security Groups"
 msgstr "Группы безопасности"
@@ -2566,7 +2576,10 @@ msgid "Separated link"
 msgstr "Отдельная ссылка"
 
 msgid "Server Group"
-msgstr "Группа серверов"
+msgid_plural "Server Groups"
+msgstr[0] "Группа серверов"
+msgstr[1] "Группы серверов"
+msgstr[2] "Группы серверов"
 
 #, python-format
 msgid "Server Group %s was successfully created."
@@ -2714,16 +2727,16 @@ msgid "Swap Disk"
 msgstr "Диск подкачки"
 
 msgid "Swift Account"
-msgstr "Swift аккаунт"
-
-msgid "Swift Accounts"
-msgstr "Swift аккаунты"
+msgid_plural "Swift Accounts"
+msgstr[0] "Swift аккаунт"
+msgstr[1] "Swift аккаунты"
+msgstr[2] "Swift аккаунты"
 
 msgid "Swift Container"
-msgstr "Swift контейнер"
-
-msgid "Swift Containers"
-msgstr "Swift контейнеры"
+msgid_plural "Swift Containers"
+msgstr[0] "Swift контейнер"
+msgstr[1] "Swift контейнеры"
+msgstr[2] "Swift контейнеры"
 
 msgid "Tab Array"
 msgstr "Список вкладок"
@@ -3070,7 +3083,10 @@ msgid "Total Volumes"
 msgstr "Всего дисков"
 
 msgid "Trunk"
-msgstr "Транк"
+msgid_plural "Trunks"
+msgstr[0] "Транк"
+msgstr[1] "Транки"
+msgstr[2] "Транки"
 
 #, python-format
 msgid "Trunk %s was successfully created."
@@ -3079,9 +3095,6 @@ msgstr "Транк %s успешно создан."
 #, python-format
 msgid "Trunk %s was successfully edited."
 msgstr "Транк %s успешно изменён."
-
-msgid "Trunks"
-msgstr "Транки"
 
 msgid "Type"
 msgstr "Тип"
@@ -3715,7 +3728,10 @@ msgstr ""
 "данных, например, таких как секции и наборы полей."
 
 msgid "User"
-msgstr "Пользователь"
+msgid_plural "Users"
+msgstr[0] "Пользователь"
+msgstr[1] "Пользователи"
+msgstr[2] "Пользователи"
 
 #, python-format
 msgid "User %s was successfully created."
@@ -3741,9 +3757,6 @@ msgstr "Имя пользователя"
 
 msgid "User password has been updated successfully."
 msgstr "Пароль пользователя успешно обновлён."
-
-msgid "Users"
-msgstr "Пользователи"
 
 msgid "VCPUS"
 msgstr "VCPU"
@@ -3800,13 +3813,16 @@ msgid "Visibility"
 msgstr "Видимость"
 
 msgid "Volume"
-msgstr "Диск"
+msgid_plural "Volumes"
+msgstr[0] "Диск"
+msgstr[1] "Диски"
+msgstr[2] "Диски"
 
 msgid "Volume Backup"
-msgstr "Резервная копия тома"
-
-msgid "Volume Backups"
-msgstr "Резервные копии тома"
+msgid_plural "Volume Backups"
+msgstr[0] "Резервная копия тома"
+msgstr[1] "Резервные копии тома"
+msgstr[2] "Резервные копии тома"
 
 msgid "Volume Details"
 msgstr "Сведения о томе"
@@ -3818,10 +3834,10 @@ msgid "Volume Size (GB)"
 msgstr "Размер диска (ГБ)"
 
 msgid "Volume Snapshot"
-msgstr "Снимок диска"
-
-msgid "Volume Snapshots"
-msgstr "Моментальные копии тома"
+msgid_plural "Volume Snapshots"
+msgstr[0] "Снимок диска"
+msgstr[1] "Снимки диска"
+msgstr[2] "Снимки диска"
 
 msgid "Volume Type Description:"
 msgstr "Описание типа тома:"
@@ -3834,9 +3850,6 @@ msgstr "Требуется указать размер диска в виде ц
 
 msgid "Volume size is required and must be positive integer"
 msgstr "Размер диска (тома) должен быть целым положительным числом."
-
-msgid "Volumes"
-msgstr "Тома"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr ""
