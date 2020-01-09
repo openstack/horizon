@@ -24,7 +24,6 @@ from django.test.utils import override_settings
 from django.urls import reverse
 
 import mock
-import six
 
 from horizon import tables as horizon_tables
 from openstack_dashboard import api
@@ -265,8 +264,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                 'horizon/common/_detail.html')
         self.assertEqual(res.context['image'].name, image.name)
         self.assertEqual(res.context['image'].protected, image.protected)
-        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
-                                               six.text_type(image.id))
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(), image.id)
 
     def test_image_detail_get_v2(self):
         image = self.imagesV2.first()
@@ -296,8 +294,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertContains(res, '<dt title="foo">foo</dt>')
         self.assertContains(res, '<dd>foo val</dd>')
 
-        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
-                                               six.text_type(image.id))
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(), image.id)
 
     def test_image_detail_custom_props_get_v2(self):
         image = self.imagesV2.list()[2]
@@ -316,7 +313,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(res.context['image'].protected, image.protected)
 
         mock_image_get.assert_called_once_with(test.IsHttpRequest(),
-                                               six.text_type(image.id))
+                                               image.id)
 
     def test_protected_image_detail_get_v2(self):
         image = self.imagesV2.list()[1]
@@ -333,8 +330,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                       args=[image.id])
         res = self.client.get(url)
         self.assertRedirectsNoFollow(res, IMAGES_INDEX_URL)
-        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
-                                               six.text_type(image.id))
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(), image.id)
 
     @mock.patch.object(api.glance, 'image_get')
     def test_image_update_get(self, mock_image_get):
@@ -353,8 +349,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                  " name='is_public' checked='checked'>",
                             html=True,
                             msg_prefix="The is_public checkbox is not checked")
-        mock_image_get.assert_called_once_with(test.IsHttpRequest(),
-                                               six.text_type(image.id))
+        mock_image_get.assert_called_once_with(test.IsHttpRequest(), image.id)
 
 
 class OwnerFilterTests(test.TestCase):

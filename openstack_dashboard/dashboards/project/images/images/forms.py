@@ -26,7 +26,6 @@ from django.forms import ValidationError
 from django.forms.widgets import HiddenInput
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import exceptions
 from horizon import forms
@@ -46,8 +45,10 @@ class ImageURLField(forms.URLField):
 
 if api.glance.get_image_upload_mode() == 'direct':
     FileField = forms.ExternalFileField
-    CreateParent = six.with_metaclass(forms.ExternalUploadMeta,
-                                      forms.SelfHandlingForm)
+
+    class CreateParent(forms.SelfHandlingForm,
+                       metaclass=forms.ExternalUploadMeta):
+        pass
 else:
     FileField = forms.FileField
     CreateParent = forms.SelfHandlingForm

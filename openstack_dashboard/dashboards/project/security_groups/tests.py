@@ -17,7 +17,6 @@
 #    under the License.
 
 import mock
-import six
 
 from django.conf import settings
 from django.urls import reverse
@@ -113,7 +112,7 @@ class SecurityGroupsViewTests(test.TestCase):
                                                      'create')
 
         self.assertEqual('Create Security Group',
-                         six.text_type(create_action.verbose_name))
+                         create_action.verbose_name)
         self.assertIsNone(create_action.policy_rules)
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
 

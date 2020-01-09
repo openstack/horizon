@@ -17,7 +17,6 @@ from django.utils import html
 from selenium.common import exceptions
 from selenium.webdriver.common import by
 import selenium.webdriver.support.ui as Support
-import six
 
 from openstack_dashboard.test.integration_tests.regions import baseregion
 from openstack_dashboard.test.integration_tests.regions import menus
@@ -59,8 +58,8 @@ class MetaBaseFormFieldRegion(type):
         super(MetaBaseFormFieldRegion, cls).__init__(name, bases, dct)
 
 
-@six.add_metaclass(MetaBaseFormFieldRegion)
-class BaseFormFieldRegion(baseregion.BaseRegion):
+class BaseFormFieldRegion(baseregion.BaseRegion,
+                          metaclass=MetaBaseFormFieldRegion):
     """Base class for form fields classes."""
 
     _label_locator = None
@@ -352,7 +351,7 @@ class FormRegion(BaseFormRegion):
         self.fields_src_elem = self._get_element(*self._fields_locator)
         fields = self._get_form_fields()
         for accessor_name, accessor_expr in self.field_mappings.items():
-            if isinstance(accessor_expr, six.string_types):
+            if isinstance(accessor_expr, str):
                 self._dynamic_properties[accessor_name] = fields[accessor_expr]
             else:  # it is a class
                 self._dynamic_properties[accessor_name] = accessor_expr(
@@ -449,7 +448,7 @@ class TabbedFormRegion(FormRegion):
         fields = self._get_form_fields()
         current_tab_mappings = self.field_mappings[tab_index]
         for accessor_name, accessor_expr in current_tab_mappings.items():
-            if isinstance(accessor_expr, six.string_types):
+            if isinstance(accessor_expr, str):
                 self._dynamic_properties[accessor_name] = fields[accessor_expr]
             else:  # it is a class
                 self._dynamic_properties[accessor_name] = accessor_expr(

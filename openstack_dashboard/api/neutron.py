@@ -20,6 +20,7 @@
 from __future__ import absolute_import
 
 import collections
+from collections.abc import Sequence
 import copy
 import logging
 
@@ -30,7 +31,6 @@ from django.utils.translation import ugettext_lazy as _
 from neutronclient.common import exceptions as neutron_exc
 from neutronclient.v2_0 import client as neutron_client
 from novaclient import exceptions as nova_exc
-import six
 
 from horizon import exceptions
 from horizon import messages
@@ -40,15 +40,6 @@ from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 from openstack_dashboard import policy
 from openstack_dashboard.utils import settings as setting_utils
-
-# Python 3.8 removes the ability to import the abstract base classes from
-# 'collections', but 'collections.abc' is not present in Python 2.7
-# TODO(stephenfin): Remove when we drop support for Python 2.7
-# pylint: disable=ungrouped-imports
-if hasattr(collections, 'abc'):
-    from collections.abc import Sequence
-else:
-    from collections import Sequence
 
 
 LOG = logging.getLogger(__name__)
@@ -255,7 +246,6 @@ class SecurityGroup(NeutronAPIDictWrapper):
         return {k: self._apidict[k] for k in self._apidict if k != 'rules'}
 
 
-@six.python_2_unicode_compatible
 class SecurityGroupRule(NeutronAPIDictWrapper):
     # Required attributes:
     #   id, parent_group_id
@@ -864,7 +854,7 @@ def list_resources_with_long_filters(list_method,
         # filter_values) and do not consider other filter conditions
         # which may be specified in **params.
 
-        if isinstance(filter_values, six.string_types):
+        if isinstance(filter_values, str):
             filter_values = [filter_values]
         elif not isinstance(filter_values, Sequence):
             filter_values = list(filter_values)
@@ -1762,7 +1752,7 @@ def servers_update_addresses(request, servers, all_tenants=False):
                 ports_floating_ips,
                 network_names)
         except Exception as e:
-            LOG.error(six.text_type(e))
+            LOG.error(str(e))
         else:
             server.addresses = addresses
 

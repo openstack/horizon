@@ -15,6 +15,7 @@
 
 import contextlib
 import json
+from urllib.parse import urlparse
 
 from django.conf import settings
 from osprofiler import _utils as utils
@@ -22,8 +23,6 @@ from osprofiler.drivers.base import get_driver as profiler_get_driver
 from osprofiler import notifier
 from osprofiler import profiler
 from osprofiler import web
-import six
-from six.moves.urllib.parse import urlparse
 
 from horizon.utils import settings as horizon_settings
 
@@ -119,9 +118,8 @@ def update_trace_headers(keys, **kwargs):
     trace_info.update(kwargs)
     p = profiler.get()
     trace_data = utils.signed_pack(trace_info, p.hmac_key)
-    if six.PY3:
-        trace_data = [key.decode() if isinstance(key, six.binary_type)
-                      else key for key in trace_data]
+    trace_data = [key.decode() if isinstance(key, bytes)
+                  else key for key in trace_data]
     return json.dumps({web.X_TRACE_INFO: trace_data[0],
                        web.X_TRACE_HMAC: trace_data[1]})
 

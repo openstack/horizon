@@ -13,14 +13,10 @@
 
 {% if ACTIVATE_THIS %}
 activate_this = '{{ ACTIVATE_THIS }}'
-{% if PY2 %}
-execfile(activate_this, dict(__file__=activate_this))
-{% elif PY3 %}
 exec(
     compile(open(activate_this, "rb").read(), activate_this, 'exec'),
     dict(__file__=activate_this)
 )
-{% endif %}
 # We import now instead of at the top of the module to use the virtual env
 {% endif %}
 import os

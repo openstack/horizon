@@ -14,6 +14,7 @@
 
 from importlib import import_module
 import logging
+import urllib
 
 from django.conf import settings
 from django import http
@@ -23,7 +24,6 @@ from django.utils.encoding import smart_text
 from django.utils.translation import ugettext as _
 import django.views.decorators.vary
 from django.views.generic import TemplateView
-from six.moves import urllib
 
 import horizon
 from horizon import exceptions

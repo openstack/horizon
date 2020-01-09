@@ -25,7 +25,6 @@ import unittest
 from django.urls import reverse
 
 import mock
-import six
 
 from horizon import exceptions
 
@@ -133,8 +132,7 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         row_actions = snaps.get_row_actions(snaps.data[2])
         # third instance - status queued, only delete is available
         self.assertEqual(len(row_actions), 1)
-        self.assertEqual(six.text_type(row_actions[0].verbose_name),
-                         u"Delete Image")
+        self.assertEqual(row_actions[0].verbose_name, u"Delete Image")
         self.assertEqual(str(row_actions[0]), "<DeleteImage: delete>")
 
         self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),

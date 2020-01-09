@@ -21,7 +21,6 @@ import json
 import logging
 import sys
 
-import django
 from django.conf import settings
 from django.forms import widgets
 from django import http
@@ -31,7 +30,6 @@ from django.urls import reverse
 from django.utils.http import urlencode
 import mock
 from novaclient import api_versions
-import six
 
 from horizon import exceptions
 from horizon import forms
@@ -4287,7 +4285,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertIn('disabled', launch_action.classes,
                       'The launch button should be disabled')
         self.assertEqual('Launch Instance (Quota exceeded)',
-                         six.text_type(launch_action.verbose_name))
+                         launch_action.verbose_name)
 
         self._check_extension_supported({'AdminActions': 20,
                                          'Shelve': 5})

@@ -55,7 +55,7 @@ class URL(types.ConfigType):
         super(URL, self).__init__('web URL')
 
     def __call__(self, value):
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             raise ValueError("Expected URL.")
         value = re.sub(self.CLEAN_SLASH_RE, '/', value)
         if not value.endswith('/'):
@@ -73,7 +73,7 @@ class Path(types.ConfigType):
         super(Path, self).__init__('filesystem path')
 
     def __call__(self, value):
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             raise ValueError("Expected file path.")
         return os.path.normpath(value)
 
@@ -89,7 +89,7 @@ class Translate(types.ConfigType):
         super(Translate, self).__init__('translatable string')
 
     def __call__(self, value):
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             return value
         return pgettext_lazy(value, self.hint)
 
@@ -106,7 +106,7 @@ class Literal(types.ConfigType):
         super(Literal, self).__init__('python literal')
 
     def __call__(self, value):
-        if isinstance(value, six.string_types):
+        if isinstance(value, str):
             try:
                 value = ast.literal_eval(value)
             except SyntaxError as e:
@@ -143,8 +143,8 @@ class Literal(types.ConfigType):
                                  (len(spec), result))
             for s, value in zip(spec, result):
                 self.validate(value, s)
-        if isinstance(spec, six.string_types):
-            if not isinstance(result, six.string_types):
+        if isinstance(spec, str):
+            if not isinstance(result, str):
                 raise ValueError('String expected, but %r found.' % result)
         if isinstance(spec, int):
             if not isinstance(result, int):
@@ -199,7 +199,7 @@ class Importable(types.ConfigType):
         super(Importable, self).__init__('importable python object')
 
     def __call__(self, value):
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             # Already imported.
             return value
         try:

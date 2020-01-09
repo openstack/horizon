@@ -21,7 +21,6 @@ from django.urls import reverse
 from django.utils.http import urlencode
 
 import mock
-import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -293,8 +292,7 @@ class FloatingIpViewTests(test.TestCase):
         allocate_action = self.getAndAssertTableAction(res, 'floating_ips',
                                                        'allocate')
         self.assertEqual(set(['ajax-modal']), set(allocate_action.classes))
-        self.assertEqual('Allocate IP To Project',
-                         six.text_type(allocate_action.verbose_name))
+        self.assertEqual('Allocate IP To Project', allocate_action.verbose_name)
         self.assertIsNone(allocate_action.policy_rules)
 
         url = 'horizon:project:floating_ips:allocate'
@@ -337,7 +335,7 @@ class FloatingIpViewTests(test.TestCase):
         self.assertIn('disabled', allocate_action.classes,
                       'The create button should be disabled')
         self.assertEqual('Allocate IP To Project (Quota exceeded)',
-                         six.text_type(allocate_action.verbose_name))
+                         allocate_action.verbose_name)
 
         self.mock_tenant_floating_ip_list.assert_called_once_with(
             test.IsHttpRequest())

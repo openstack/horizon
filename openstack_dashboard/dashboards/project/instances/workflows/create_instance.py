@@ -21,7 +21,6 @@ import logging
 import operator
 
 from oslo_utils import units
-import six
 
 from django.template.defaultfilters import filesizeformat
 from django.utils.text import normalize_newlines
@@ -690,14 +689,14 @@ class CustomizeAction(workflows.Action):
                 script = upload_file.read()
                 if script != "":
                     try:
-                        if not isinstance(script, six.text_type):
+                        if not isinstance(script, str):
                             script = script.decode()
                         normalize_newlines(script)
                     except Exception as e:
                         msg = _('There was a problem parsing the'
                                 ' %(prefix)s: %(error)s')
                         msg = msg % {'prefix': prefix,
-                                     'error': six.text_type(e)}
+                                     'error': e}
                         raise forms.ValidationError(msg)
                 return script
         else:

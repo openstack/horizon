@@ -18,7 +18,6 @@ from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
-import six
 
 from horizon import exceptions
 from horizon import forms
@@ -239,7 +238,7 @@ class AttachVolume(forms.SelfHandlingForm):
             redirect = reverse('horizon:project:instances:index')
             if isinstance(ex, api.nova.VolumeMultiattachNotSupported):
                 # Use the specific error from the specific message.
-                msg = six.text_type(ex)
+                msg = str(ex)
             else:
                 # Use a generic error message.
                 msg = _('Unable to attach volume: %s') % ex

@@ -16,10 +16,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from urllib import parse
+
 from django.urls import reverse
 import mock
-import six
-from six.moves.urllib import parse
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.key_pairs.forms \
@@ -156,7 +156,7 @@ class KeyPairTests(test.TestCase):
         url = reverse('horizon:project:key_pairs:import')
         res = self.client.post(url, formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
-        msg = six.text_type(KEYPAIR_ERROR_MESSAGES['invalid'])
+        msg = str(KEYPAIR_ERROR_MESSAGES['invalid'])
         self.assertFormErrors(res, count=1, message=msg)
 
     def test_import_keypair_space_key_name(self):
@@ -171,7 +171,7 @@ class KeyPairTests(test.TestCase):
         url = reverse('horizon:project:key_pairs:import')
         res = self.client.post(url, formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
-        msg = six.text_type(KEYPAIR_ERROR_MESSAGES['invalid'])
+        msg = str(KEYPAIR_ERROR_MESSAGES['invalid'])
         self.assertFormErrors(res, count=1, message=msg)
 
     @test.create_mocks({api.nova: ('keypair_import',)})

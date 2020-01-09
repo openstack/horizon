@@ -13,9 +13,9 @@
 import functools
 import importlib
 import json
+import types
 
 from selenium.webdriver.common import by
-import six
 
 from openstack_dashboard.test.integration_tests import config
 
@@ -316,18 +316,13 @@ class Navigation(object):
     @classmethod
     def _create_go_to_method(cls, path, class_name=None):
         go_to_method = Navigation.GoToMethodFactory(path, class_name)
-        inst_method = six.create_unbound_method(go_to_method, Navigation)
+        inst_method = types.MethodType(go_to_method, Navigation)
 
-        # TODO(e0ne): remove python2 support once all integration jobs
-        # will be switched to python3.
-        if six.PY3:
-            def _go_to_page(self, path):
-                return Navigation._go_to_page(self, path)
+        def _go_to_page(self, path):
+            return Navigation._go_to_page(self, path)
 
-            wrapped_go_to = functools.partialmethod(_go_to_page, path)
-            setattr(Navigation, inst_method.name, wrapped_go_to)
-        else:
-            setattr(Navigation, inst_method.name, inst_method)
+        wrapped_go_to = functools.partialmethod(_go_to_page, path)
+        setattr(Navigation, inst_method.name, wrapped_go_to)
 
     @classmethod
     def unify_page_path(cls, path, preserve_spaces=True):

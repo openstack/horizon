@@ -17,7 +17,6 @@ import mock
 import netaddr
 from neutronclient.common import exceptions as neutron_exc
 from oslo_utils import uuidutils
-import six
 
 from django.test.utils import override_settings
 
@@ -1154,7 +1153,7 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         # 'security_group_rules' field, so .get() method needs to be used.
         exp_rules = exp_sg.get('security_group_rules', [])
         self.assertEqual(len(exp_rules), len(ret_sg.rules))
-        for (exprule, retrule) in six.moves.zip(exp_rules, ret_sg.rules):
+        for (exprule, retrule) in zip(exp_rules, ret_sg.rules):
             self._cmp_sg_rule(exprule, retrule)
 
     def _test_security_group_list(self, **params):
@@ -1168,7 +1167,7 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 
         rets = api.neutron.security_group_list(self.request, **params)
         self.assertEqual(len(sgs), len(rets))
-        for (exp, ret) in six.moves.zip(sgs, rets):
+        for (exp, ret) in zip(sgs, rets):
             self._cmp_sg(exp, ret)
         self.qclient.list_security_groups.assert_called_once_with(**q_params)
 
