@@ -14,6 +14,7 @@
 import datetime
 import logging
 import re
+from urllib import parse
 
 from django.conf import settings
 from django.contrib import auth
@@ -23,7 +24,6 @@ from keystoneauth1.identity import v3 as v3_auth
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint
 from keystoneclient.v3 import client as client_v3
-from six.moves.urllib import parse as urlparse
 
 from openstack_auth import defaults
 
@@ -252,7 +252,7 @@ def get_websso_url(request, auth_url, websso_auth):
 
 def has_in_url_path(url, subs):
     """Test if any of `subs` strings is present in the `url` path."""
-    scheme, netloc, path, query, fragment = urlparse.urlsplit(url)
+    scheme, netloc, path, query, fragment = parse.urlsplit(url)
     return any([sub in path for sub in subs])
 
 
@@ -264,17 +264,17 @@ def url_path_replace(url, old, new, count=None):
     occurrences are replaced.
     """
     args = []
-    scheme, netloc, path, query, fragment = urlparse.urlsplit(url)
+    scheme, netloc, path, query, fragment = parse.urlsplit(url)
     if count is not None:
         args.append(count)
-    return urlparse.urlunsplit((
+    return parse.urlunsplit((
         scheme, netloc, path.replace(old, new, *args), query, fragment))
 
 
 def url_path_append(url, suffix):
-    scheme, netloc, path, query, fragment = urlparse.urlsplit(url)
+    scheme, netloc, path, query, fragment = parse.urlsplit(url)
     path = (path + suffix).replace('//', '/')
-    return urlparse.urlunsplit((scheme, netloc, path, query, fragment))
+    return parse.urlunsplit((scheme, netloc, path, query, fragment))
 
 
 def _augment_url_with_version(auth_url):
@@ -316,8 +316,8 @@ def clean_up_auth_url(auth_url):
 
     # NOTE(mnaser): This drops the query and fragment because we're only
     #               trying to extract the Keystone URL.
-    scheme, netloc, path, query, fragment = urlparse.urlsplit(auth_url)
-    return urlparse.urlunsplit((
+    scheme, netloc, path, query, fragment = parse.urlsplit(auth_url)
+    return parse.urlunsplit((
         scheme, netloc, re.sub(r'/auth.*', '', path), '', ''))
 
 

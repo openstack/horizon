@@ -30,7 +30,6 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.generic import edit as edit_views
 from keystoneauth1 import exceptions as keystone_exceptions
-import six
 
 from openstack_auth import exceptions
 from openstack_auth import forms
@@ -174,7 +173,7 @@ def websso(request):
         if utils.is_websso_default_redirect():
             res = django_http.HttpResponseRedirect(settings.LOGIN_ERROR)
         else:
-            msg = 'Login failed: %s' % six.text_type(exc)
+            msg = 'Login failed: %s' % exc
             res = django_http.HttpResponseRedirect(settings.LOGIN_URL)
             res.set_cookie('logout_reason', msg, max_age=10)
         return res
@@ -337,7 +336,7 @@ def switch_keystone_provider(request, keystone_provider=None,
         unscoped_auth_ref = current_plugin.get_access_info(unscoped_auth)
     except exceptions.KeystoneAuthException as exc:
         msg = 'Switching to Keystone Provider %s has failed. %s' \
-              % (keystone_provider, (six.text_type(exc)))
+              % (keystone_provider, exc)
         messages.error(request, msg)
 
     if unscoped_auth_ref:
@@ -346,7 +345,7 @@ def switch_keystone_provider(request, keystone_provider=None,
                 request, auth_url=unscoped_auth.auth_url,
                 token=unscoped_auth_ref.auth_token)
         except exceptions.KeystoneAuthException as exc:
-            msg = 'Keystone provider switch failed: %s' % six.text_type(exc)
+            msg = 'Keystone provider switch failed: %s' % exc
             res = django_http.HttpResponseRedirect(settings.LOGIN_URL)
             res.set_cookie('logout_reason', msg, max_age=10)
             return res
