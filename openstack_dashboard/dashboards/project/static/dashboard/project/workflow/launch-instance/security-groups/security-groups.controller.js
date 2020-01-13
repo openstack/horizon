@@ -37,16 +37,24 @@
 
     ctrl.tableData = {
       available: launchInstanceModel.securityGroups,
-      allocated: launchInstanceModel.newInstanceSpec.security_groups,
-      displayedAvailable: [],
-      displayedAllocated: []
+      allocated: launchInstanceModel.newInstanceSpec.security_groups
     };
 
-    ctrl.tableDetails = basePath + 'security-groups/security-group-details.html';
+    ctrl.availableTableConfig = {
+      selectAll: false,
+      trackId: 'id',
+      detailsTemplateUrl: basePath + 'security-groups/security-group-details.html',
+      columns: [
+        {id: 'name', title: gettext('Name'), priority: 1},
+        {id: 'description', title: gettext('Description'), priority: 2}
+      ]
+    };
+
+    ctrl.allocatedTableConfig = angular.copy(ctrl.availableTableConfig);
+    ctrl.allocatedTableConfig.noItemsMessage = gettext(
+      'Select one or more security groups from the available groups below.');
 
     ctrl.tableHelp = {
-      /*eslint-disable max-len */
-      noneAllocText: gettext('Select one or more security groups from the available groups below.'),
       /*eslint-enable max-len */
       availHelpText: gettext('Select one or more')
     };
