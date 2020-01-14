@@ -252,7 +252,7 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
 
     :param sort_key:
 
-        The name of key by by which the resulting image list throughout all
+        The name of key by which the resulting image list throughout all
         pages (if pagination is enabled) will be sorted. Defaults to
         'created_at'.
 
