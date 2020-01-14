@@ -5,9 +5,7 @@
       - ^.*\.rst$
       - ^doc/.*$
       - ^releasenotes/.*$
-      - ^horizon/locale/.*$
-      - ^openstack_dashboard/locale/.*$
-      - ^openstack_auth/locale/.*$
+      - ^.*/locale/.*$
 
 - job:
     name: horizon-tox-python3-django
@@ -57,6 +55,7 @@
       - ^.*\.rst$
       - ^doc/.*$
       - ^releasenotes/.*$
+      - ^.*/locale/.*$
     vars:
       devstack_services:
         horizon: true
@@ -73,9 +72,7 @@
       - ^.*\.rst$
       - ^doc/.*$
       - ^releasenotes/.*$
-      - ^horizon/locale/.*$
-      - ^openstack_dashboard/locale/.*$
-      - ^openstack_auth/locale/.*$
+      - ^.*/locale/.*$
       # Test codes are not related to tempest tests
       # as tempest is defined in a separete repository
       - ^horizon/test/.*$
@@ -109,7 +106,7 @@
       tox_envlist: bandit-baseline
     irrelevant-files:
       - ^.*\.rst$
-      - ^.*\locale/.*$
+      - ^.*/locale/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^setup.cfg$
