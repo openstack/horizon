@@ -20,8 +20,6 @@ import logging
 import os
 import sys
 
-import six
-
 from debtcollector import removals
 from django.core.management import color_style
 from django.utils import encoding
@@ -345,4 +343,6 @@ def handle(request, message=None, redirect=None, ignore=False,
         if ret:
             return ret
 
-    six.reraise(exc_type, exc_value, exc_traceback)
+    # NOTE: This function is intended to call inside an except clause.
+    # pylint: disable=misplaced-bare-raise
+    raise

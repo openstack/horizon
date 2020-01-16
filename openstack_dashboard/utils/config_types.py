@@ -18,8 +18,6 @@ import ast
 import os
 import re
 
-import six
-
 from django.utils import encoding
 from django.utils import functional
 from django.utils.module_loading import import_string
@@ -110,7 +108,7 @@ class Literal(types.ConfigType):
             try:
                 value = ast.literal_eval(value)
             except SyntaxError as e:
-                six.raise_from(ValueError(e), e)
+                raise ValueError from e
         self.validate(value, self.spec)
         return self.update(value, self.spec)
 
@@ -205,7 +203,7 @@ class Importable(types.ConfigType):
         try:
             return import_string(value)
         except ImportError as e:
-            six.raise_from(ValueError(e), e)
+            raise ValueError from e
 
     def _formatter(self, value):
         module = value.__module__

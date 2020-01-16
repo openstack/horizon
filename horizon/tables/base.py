@@ -36,7 +36,6 @@ from django.utils.http import urlencode
 from django.utils.safestring import mark_safe
 from django.utils import termcolors
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import conf
 from horizon import exceptions
@@ -830,11 +829,8 @@ class Cell(html.HTMLElement):
                     data = self.column.empty_value(self.datum)
                 else:
                     data = self.column.empty_value
-        except Exception:
-            data = None
-            exc_info = sys.exc_info()
-            raise six.reraise(template.TemplateSyntaxError, exc_info[1],
-                              exc_info[2])
+        except Exception as e:
+            raise template.TemplateSyntaxError from e
 
         if self.url and not self.column.auto == "form_field":
             link_attrs = ' '.join(['%s="%s"' % (k, v) for (k, v) in
@@ -1960,13 +1956,11 @@ class DataTable(object, metaclass=DataTableMetaclass):
                     self.selected = True
                     row.classes.append('current_selected')
                 rows.append(row)
-        except Exception:
+        except Exception as e:
             # Exceptions can be swallowed at the template level here,
             # re-raising as a TemplateSyntaxError makes them visible.
             LOG.exception("Error while rendering table rows.")
-            exc_info = sys.exc_info()
-            raise six.reraise(template.TemplateSyntaxError, exc_info[1],
-                              exc_info[2])
+            raise template.TemplateSyntaxError from e
 
         return rows
 

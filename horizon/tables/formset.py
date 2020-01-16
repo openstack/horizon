@@ -13,9 +13,6 @@
 import collections
 import itertools
 import logging
-import sys
-
-import six
 
 from django import template
 from django.template import loader
@@ -143,13 +140,11 @@ class FormsetDataTableMixin(object):
                     self.selected = True
                     row.classes.append('current_selected')
                 rows.append(row)
-        except Exception:
+        except Exception as e:
             # Exceptions can be swallowed at the template level here,
             # re-raising as a TemplateSyntaxError makes them visible.
             LOG.exception("Error while rendering table rows.")
-            exc_info = sys.exc_info()
-            raise six.reraise(template.TemplateSyntaxError, exc_info[1],
-                              exc_info[2])
+            raise template.TemplateSyntaxError from e
         return rows
 
     def get_object_id(self, datum):
