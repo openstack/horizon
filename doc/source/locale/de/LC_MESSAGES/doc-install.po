@@ -1,14 +1,15 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2019. #zanata
 # Robert Holling <r.holling@protonmail.ch>, 2019. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 17:20+0000\n"
+"POT-Creation-Date: 2020-01-10 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-09-16 09:38+0000\n"
+"PO-Revision-Date: 2020-01-15 03:45+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -371,6 +372,9 @@ msgstr "Bereitstellung"
 msgid "Designate Dashboard"
 msgstr "Designate Dashboard"
 
+msgid "Django 2.2"
+msgstr "Django 2.2"
+
 msgid "Django support policy is documented at :doc:`/contributor/policy`."
 msgstr ""
 "Die Django Support  Richtlinie ist dokumentiert unter :doc:`/contributor/"
@@ -586,6 +590,9 @@ msgstr ""
 "können. Bei Verbindungsproblemen aufgrund von SSL-Zertifikaten weisen Sie "
 "der IP-Adresse des Servers einen Domänennamen zu und erlauben dann Benutzern "
 "den Zugriff."
+
+msgid "Python 3.6 or 3.7"
+msgstr "Python 3.6 oder 3.7"
 
 msgid "Python memcached module installed"
 msgstr "Das Modul Python Memcached ist installiert"
