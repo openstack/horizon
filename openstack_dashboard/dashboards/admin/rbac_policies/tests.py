@@ -40,7 +40,7 @@ class RBACPolicyTests(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         rbac_policies = res.context['table'].data
-        self.assertItemsEqual(rbac_policies, self.rbac_policies.list())
+        self.assertCountEqual(rbac_policies, self.rbac_policies.list())
         self.mock_network_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_policy_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())

@@ -160,7 +160,7 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         res = self._test_index_paginated(None, "desc", expected_volumes, url,
                                          True, False)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
         # get second page
         expected_volumes = volumes[size:2 * size]
@@ -170,7 +170,7 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         res = self._test_index_paginated(marker, "desc", expected_volumes, url,
                                          True, True)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
         # get last page
         expected_volumes = volumes[-size:]
@@ -180,7 +180,7 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         res = self._test_index_paginated(marker, "desc", expected_volumes, url,
                                          False, True)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_index_paginated_prev_page(self):
@@ -195,7 +195,7 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         res = self._test_index_paginated(marker, "asc", expected_volumes, url,
                                          True, True)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
         # back to first page
         expected_volumes = volumes[:size]
@@ -205,7 +205,7 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         res = self._test_index_paginated(marker, "asc", expected_volumes, url,
                                          True, False)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
 
 class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
@@ -1348,7 +1348,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
 
         volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, self.cinder_volumes.list())
+        self.assertCountEqual(volumes, self.cinder_volumes.list())
 
         create_action = self.getAndAssertTableAction(res, 'volumes', 'create')
 
@@ -1392,7 +1392,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
 
         volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, self.cinder_volumes.list())
+        self.assertCountEqual(volumes, self.cinder_volumes.list())
 
         create_action = self.getAndAssertTableAction(res, 'volumes', 'create')
         self.assertIn('disabled', create_action.classes,

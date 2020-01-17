@@ -36,7 +36,7 @@ class IdPsViewTests(test.BaseAdminViewTests):
         res = self.client.get(IDPS_INDEX_URL)
 
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.identity_providers.list())
 
         self.mock_identity_provider_list.assert_called_once_with(
@@ -145,7 +145,7 @@ class IdPsViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(
             res, 'identity/identity_providers/_detail_overview.html')
         self.assertTemplateUsed(res, 'horizon/common/_detail_table.html')
-        self.assertItemsEqual(res.context['idp_protocols_table'].data,
+        self.assertCountEqual(res.context['idp_protocols_table'].data,
                               self.idp_protocols.list())
 
         self.mock_identity_provider_get.assert_called_once_with(

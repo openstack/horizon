@@ -55,10 +55,10 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUPS_INDEX_URL)
 
         self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, groups)
+        self.assertCountEqual(res.context['table'].data, groups)
         if domain_id:
             for group in res.context['table'].data:
-                self.assertItemsEqual(group.domain_id, domain_id)
+                self.assertCountEqual(group.domain_id, domain_id)
 
         self.assertContains(res, 'Create Group')
         self.assertContains(res, 'Edit')
@@ -83,10 +83,10 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUPS_INDEX_URL)
 
         self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, groups)
+        self.assertCountEqual(res.context['table'].data, groups)
         if domain.id:
             for group in res.context['table'].data:
-                self.assertItemsEqual(group.domain_id, domain.id)
+                self.assertCountEqual(group.domain_id, domain.id)
 
         self.assertContains(res, 'Create Group')
         self.assertContains(res, 'Edit')
@@ -110,7 +110,7 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUPS_INDEX_URL)
 
         self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, groups)
+        self.assertCountEqual(res.context['table'].data, groups)
 
         self.assertNotContains(res, 'Create Group')
         self.assertNotContains(res, 'Edit')
@@ -239,7 +239,7 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUP_MANAGE_URL)
 
         self.assertTemplateUsed(res, constants.GROUPS_MANAGE_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, group_members)
+        self.assertCountEqual(res.context['table'].data, group_members)
 
         self.mock_group_get.assert_called_once_with(test.IsHttpRequest(),
                                                     group.id)
@@ -326,4 +326,4 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUPS_INDEX_URL)
         self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
         groups = res.context['table'].data
-        self.assertItemsEqual(groups, [])
+        self.assertCountEqual(groups, [])

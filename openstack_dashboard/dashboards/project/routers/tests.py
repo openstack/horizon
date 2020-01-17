@@ -99,7 +99,7 @@ class RouterTestCase(object):
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         self.mock_router_list.assert_called_once_with(
             test.IsHttpRequest(), tenant_id=self.tenant.id)
@@ -176,7 +176,7 @@ class RouterTestCase(object):
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         ports = res.context['interfaces_table'].data
-        self.assertItemsEqual(ports, [self.ports.first()])
+        self.assertCountEqual(ports, [self.ports.first()])
 
         self._check_get_detail(router)
 
@@ -1070,7 +1070,7 @@ class RouterRouteTestCase(object):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         routes = res.context['extra_routes_table'].data
         routes_dict = [r._apidict for r in routes]
-        self.assertItemsEqual(routes_dict, router['routes'])
+        self.assertCountEqual(routes_dict, router['routes'])
 
         self._check_get_detail(router, extraroute=True)
 
@@ -1188,7 +1188,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         routers = res.context['routers_table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertIn('disabled', create_action.classes,
@@ -1221,7 +1221,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         routers = res.context['routers_table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertFalse('disabled' in create_action.classes,
@@ -1254,7 +1254,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         routers = res.context['routers_table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))

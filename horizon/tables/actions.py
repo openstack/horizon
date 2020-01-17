@@ -26,7 +26,6 @@ from django import urls
 from django.utils.functional import Promise
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import exceptions
 from horizon import messages
@@ -82,8 +81,7 @@ class BaseActionMetaClass(type):
         return klass
 
 
-@six.add_metaclass(BaseActionMetaClass)
-class BaseAction(html.HTMLElement):
+class BaseAction(html.HTMLElement, metaclass=BaseActionMetaClass):
     """Common base class for all ``Action`` classes."""
 
     def __init__(self, **kwargs):
@@ -719,7 +717,7 @@ class BatchAction(Action):
             count = len(items)
 
         action_attr = getattr(self, "action_%s" % action_type)(count)
-        if isinstance(action_attr, (six.string_types, Promise)):
+        if isinstance(action_attr, (str, Promise)):
             action = action_attr
         else:
             toggle_selection = getattr(self, "current_%s_action" % action_type)

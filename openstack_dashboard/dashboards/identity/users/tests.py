@@ -69,11 +69,11 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(USERS_INDEX_URL)
         self.assertTemplateUsed(res, 'identity/users/index.html')
-        self.assertItemsEqual(res.context['table'].data, users)
+        self.assertCountEqual(res.context['table'].data, users)
 
         if domain_id:
             for user in res.context['table'].data:
-                self.assertItemsEqual(user.domain_id, domain_id)
+                self.assertCountEqual(user.domain_id, domain_id)
 
         if with_domain:
             self.mock_get_effective_domain_id.assert_not_called()
@@ -1001,7 +1001,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         role_assignments_expected = user_role_assignments
         role_assignments_expected.extend(group_role_assignments)
         role_assignments_observed = res.context["table"].data
-        self.assertItemsEqual(role_assignments_expected,
+        self.assertCountEqual(role_assignments_expected,
                               role_assignments_observed)
 
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
@@ -1092,7 +1092,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         # Check the table contains the good data
         groups_expected = groups
         groups_observed = res.context["table"].data
-        self.assertItemsEqual(groups_expected, groups_observed)
+        self.assertCountEqual(groups_expected, groups_observed)
 
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
         self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
@@ -1223,7 +1223,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.get(USERS_INDEX_URL)
         self.assertTemplateUsed(res, 'identity/users/index.html')
         users = res.context['table'].data
-        self.assertItemsEqual(users, [])
+        self.assertCountEqual(users, [])
 
 
 class SeleniumTests(test.SeleniumAdminTestCase):

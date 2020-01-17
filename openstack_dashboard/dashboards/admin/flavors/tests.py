@@ -34,7 +34,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
-        self.assertItemsEqual(res.context['table'].data, self.flavors.list())
+        self.assertCountEqual(res.context['table'].data, self.flavors.list())
 
         self.mock_flavor_list_paged.assert_called_once_with(
             test.IsHttpRequest(), None, marker=None, paginate=True,
@@ -57,13 +57,13 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         # get all
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:5])
 
         # get first page with 2 items
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:2])
 
         # get second page (items 2-4)
@@ -71,7 +71,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
                            flavors_list[2].id])
         url = "?".join([reverse(constants.FLAVORS_INDEX_URL), params])
         res = self.client.get(url)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[2:4])
 
         self.mock_flavor_list_paged.assert_has_calls([
@@ -108,13 +108,13 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         # get all
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:3])
         # get first page with 2 items
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertEqual(len(res.context['table'].data),
                          settings.API_RESULT_PAGE_SIZE)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:2])
         params = "=".join([tables.FlavorsTable._meta.pagination_param,
                            flavors_list[2].id])
@@ -122,7 +122,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         res = self.client.get(url)
         # get second page (item 3)
         self.assertEqual(len(res.context['table'].data), 1)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[2:3])
 
         params = "=".join([tables.FlavorsTable._meta.prev_pagination_param,
@@ -132,7 +132,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         # prev back to get first page with 2 items
         self.assertEqual(len(res.context['table'].data),
                          settings.API_RESULT_PAGE_SIZE)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:2])
 
         self.mock_flavor_list_paged.assert_has_calls([

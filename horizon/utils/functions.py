@@ -16,7 +16,6 @@ import math
 import re
 
 from oslo_utils import units
-import six
 
 from django.conf import settings
 from django.contrib.auth import logout
@@ -31,7 +30,7 @@ def _lazy_join(separator, strings):
                            for s in strings])
 
 
-lazy_join = lazy(_lazy_join, six.text_type)
+lazy_join = lazy(_lazy_join, str)
 
 
 def bytes_to_gigabytes(bytes):
@@ -44,9 +43,7 @@ def add_logout_reason(request, response, reason, status='success'):
     # Store the translated string in the cookie
     lang = translation.get_language_from_request(request)
     with translation.override(lang):
-        reason = six.text_type(reason)
-        if six.PY2:
-            reason = reason.encode('utf-8')
+        reason = str(reason)
         response.set_cookie('logout_reason', reason, max_age=10)
         response.set_cookie('logout_status', status, max_age=10)
 

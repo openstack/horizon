@@ -220,9 +220,9 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(reverse(constants.AGGREGATES_INDEX_URL))
         self.assertTemplateUsed(res, constants.AGGREGATES_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['host_aggregates_table'].data,
+        self.assertCountEqual(res.context['host_aggregates_table'].data,
                               self.aggregates.list())
-        self.assertItemsEqual(res.context['availability_zones_table'].data,
+        self.assertCountEqual(res.context['availability_zones_table'].data,
                               self.availability_zones.list())
         self.mock_aggregate_details_list.assert_called_once_with(
             test.IsHttpRequest())

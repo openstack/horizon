@@ -70,7 +70,7 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_tenant_list.assert_called_once()
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, self.cinder_volumes.list())
+        self.assertCountEqual(volumes, self.cinder_volumes.list())
 
     def test_index_without_attachments(self):
         self._test_index(True)
@@ -116,7 +116,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, [])
+        self.assertCountEqual(volumes, [])
 
     def _ensure_attachments_exist(self, volumes):
         volumes = copy.copy(volumes)
@@ -138,7 +138,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(None, "desc", expected_volumes, url,
                                          True, False)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
         # get second page
         expected_volumes = volumes[size:2 * size]
@@ -148,7 +148,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(marker, "desc", expected_volumes, url,
                                          True, True)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
         # get last page
         expected_volumes = volumes[-size:]
@@ -158,7 +158,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(marker, "desc", expected_volumes, url,
                                          False, True)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_index_paginated_prev(self):
@@ -174,7 +174,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(marker, "asc", expected_volumes, url,
                                          False, True)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
         # back to first page
         expected_volumes = volumes[:size]
@@ -184,7 +184,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(marker, "asc", expected_volumes, url,
                                          True, False)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
     @test.create_mocks({api.cinder: ['volume_get', 'volume_reset_state']})
     def test_update_volume_status(self):

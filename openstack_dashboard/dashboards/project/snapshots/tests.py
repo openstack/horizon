@@ -78,7 +78,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
             marker=None, sort_dir="desc", snapshots=expected_snapshots,
             url=base_url, has_more=True, has_prev=False)
         snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        self.assertCountEqual(snapshots, expected_snapshots)
 
         # get second page
         expected_snapshots = mock_snapshots[size:2 * size]
@@ -89,7 +89,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
             marker=marker, sort_dir="desc", snapshots=expected_snapshots,
             url=url, has_more=True, has_prev=True)
         snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        self.assertCountEqual(snapshots, expected_snapshots)
 
         # get last page
         expected_snapshots = mock_snapshots[-size:]
@@ -99,7 +99,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
             marker=marker, sort_dir="desc", snapshots=expected_snapshots,
             url=url, has_more=False, has_prev=True)
         snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        self.assertCountEqual(snapshots, expected_snapshots)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_snapshots_index_with_group(self):
@@ -113,7 +113,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
             marker=None, sort_dir="desc", snapshots=expected_snapshots,
             url=base_url, has_more=False, has_prev=False, with_groups=True)
         snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, mock_snapshots)
+        self.assertCountEqual(snapshots, mock_snapshots)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_snapshots_index_paginated_prev_page(self):
@@ -130,7 +130,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
             marker=marker, sort_dir="asc", snapshots=expected_snapshots,
             url=url, has_more=True, has_prev=True)
         snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        self.assertCountEqual(snapshots, expected_snapshots)
 
         # back to first page
         expected_snapshots = mock_snapshots[:size]
@@ -140,7 +140,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
             marker=marker, sort_dir="asc", snapshots=expected_snapshots,
             url=url, has_more=True, has_prev=False)
         snapshots = res.context['volume_snapshots_table'].data
-        self.assertItemsEqual(snapshots, expected_snapshots)
+        self.assertCountEqual(snapshots, expected_snapshots)
 
     @test.create_mocks({api.cinder: ('volume_get',),
                         quotas: ('tenant_quota_usages',)})

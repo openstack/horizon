@@ -17,7 +17,6 @@ import itertools
 import re
 
 import netaddr
-import six
 
 from oslo_utils import uuidutils
 
@@ -278,7 +277,7 @@ class SelectWidget(widgets.Widget):
 
     def get_data_attrs(self, option_label):
         other_html = []
-        if not isinstance(option_label, (six.string_types, Promise)):
+        if not isinstance(option_label, (str, Promise)):
             for data_attr in self.data_attrs:
                 data_value = html.conditional_escape(
                     force_text(getattr(option_label,
@@ -287,7 +286,7 @@ class SelectWidget(widgets.Widget):
         return ' '.join(other_html)
 
     def transform_option_label(self, option_label):
-        if (not isinstance(option_label, (six.string_types, Promise)) and
+        if (not isinstance(option_label, (str, Promise)) and
                 callable(self.transform)):
             option_label = self.transform(option_label)
         return html.conditional_escape(force_text(option_label))

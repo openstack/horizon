@@ -13,13 +13,11 @@
 from __future__ import division
 
 import csv
+import io
 
 from django.http import HttpResponse
 from django.http import StreamingHttpResponse
 from django import template as django_template
-import six
-
-from six import StringIO
 
 
 class CsvDataMixin(object):
@@ -32,7 +30,7 @@ class CsvDataMixin(object):
         will be shown in the result file. Optional.
     """
     def __init__(self):
-        self.out = StringIO()
+        self.out = io.StringIO()
         super(CsvDataMixin, self).__init__()
         if hasattr(self, "columns"):
             columns = [self.encode(col) for col in self.columns]
@@ -61,12 +59,7 @@ class CsvDataMixin(object):
             self.writer.writerow([self.encode(col) for col in args])
 
     def encode(self, value):
-        value = six.text_type(value)
-        if six.PY2:
-            # csv and StringIO cannot work with mixed encodings,
-            # so encode all with utf-8
-            value = value.encode('utf-8')
-        return value
+        return str(value)
 
 
 class BaseCsvResponse(CsvDataMixin, HttpResponse):

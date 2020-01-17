@@ -20,8 +20,6 @@ from django import http
 from django import shortcuts
 from django.views import generic
 
-import six
-
 from horizon import exceptions
 from horizon.forms import views as hz_views
 from horizon.forms.views import ADD_TO_FIELD_HEADER
@@ -159,7 +157,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         for step in workflow.steps[start:end + 1]:
             if not step.action.is_valid():
                 errors[step.slug] = dict(
-                    (field, [six.text_type(error) for error in errors])
+                    (field, [str(error) for error in errors])
                     for (field, errors) in step.action.errors.items())
         return {
             'has_errors': bool(errors),

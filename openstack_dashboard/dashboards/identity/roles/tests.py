@@ -40,7 +40,7 @@ class RolesViewTests(test.BaseAdminViewTests):
         self.assertContains(res, 'Delete Role')
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, self.roles.list())
+        self.assertCountEqual(res.context['table'].data, self.roles.list())
 
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest(),
                                                     filters=filters)
@@ -60,7 +60,7 @@ class RolesViewTests(test.BaseAdminViewTests):
         self.assertNotContains(res, 'Delete Role')
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, self.roles.list())
+        self.assertCountEqual(res.context['table'].data, self.roles.list())
 
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest(),
                                                     filters=filters)
@@ -128,4 +128,4 @@ class RolesViewTests(test.BaseAdminViewTests):
         res = self.client.get(ROLES_INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         roles = res.context['table'].data
-        self.assertItemsEqual(roles, [])
+        self.assertCountEqual(roles, [])

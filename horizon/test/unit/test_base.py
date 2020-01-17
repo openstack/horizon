@@ -17,10 +17,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from importlib import import_module
-
-import six
-from six import moves
+import importlib
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -106,7 +103,7 @@ class BaseHorizonTests(test.TestCase):
         del base.Horizon
         base.Horizon = base.HorizonSite()
         # Reload the convenience references to Horizon stored in __init__
-        moves.reload_module(import_module("horizon"))
+        importlib.reload(importlib.import_module("horizon"))
         # Re-register our original dashboards and panels.
         # This is necessary because autodiscovery only works on the first
         # import, and calling reload introduces innumerable additional
@@ -126,7 +123,7 @@ class BaseHorizonTests(test.TestCase):
         Useful only for testing and should never be used on a live site.
         """
         urls.clear_url_caches()
-        moves.reload_module(import_module(settings.ROOT_URLCONF))
+        importlib.reload(importlib.import_module(settings.ROOT_URLCONF))
         base.Horizon._urls()
 
 
@@ -168,7 +165,7 @@ class HorizonTests(BaseHorizonTests):
             horizon.get_dashboard(MyDash)
 
     def test_site(self):
-        self.assertEqual("Horizon", six.text_type(base.Horizon))
+        self.assertEqual("Horizon", str(base.Horizon))
         self.assertEqual("<Site: horizon>", repr(base.Horizon))
         dash = base.Horizon.get_dashboard('cats')
         self.assertEqual(dash, base.Horizon.get_default_dashboard())
@@ -499,7 +496,7 @@ class RbacHorizonTests(test.TestCase):
         del base.Horizon
         base.Horizon = base.HorizonSite()
         # Reload the convenience references to Horizon stored in __init__
-        moves.reload_module(import_module("horizon"))
+        importlib.reload(importlib.import_module("horizon"))
 
         # Reset Cats and Dogs default_panel to default values
         Cats.default_panel = 'kittens'

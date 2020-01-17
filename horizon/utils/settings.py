@@ -10,8 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import six
-
 from django.conf import settings
 from django.utils.module_loading import import_string
 
@@ -19,7 +17,7 @@ from horizon import defaults
 
 
 def import_object(name_or_object):
-    if isinstance(name_or_object, six.string_types):
+    if isinstance(name_or_object, str):
         return import_string(name_or_object)
     return name_or_object
 
