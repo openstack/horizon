@@ -18,7 +18,6 @@ from django.urls import reverse
 from django.utils.html import escape
 from django.utils.http import urlunquote
 import mock
-import six
 
 from horizon.workflows import views
 
@@ -1260,8 +1259,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
         self.assertEqual('horizon:project:networks:create', create_action.url)
-        self.assertEqual('Create Network',
-                         six.text_type(create_action.verbose_name))
+        self.assertEqual('Create Network', create_action.verbose_name)
         self.assertEqual((('network', 'create_network'),),
                          create_action.policy_rules)
 
@@ -1273,8 +1271,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
         self.assertEqual('horizon:project:networks:createsubnet',
                          create_action.url)
-        self.assertEqual('Create Subnet',
-                         six.text_type(create_action.verbose_name))
+        self.assertEqual('Create Subnet', create_action.verbose_name)
         self.assertEqual((('network', 'create_subnet'),),
                          create_action.policy_rules)
 
@@ -1335,7 +1332,6 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
         self.assertEqual('horizon:project:networks:addport',
                          create_action.url)
-        self.assertEqual('Create Port',
-                         six.text_type(create_action.verbose_name))
+        self.assertEqual('Create Port', create_action.verbose_name)
         self.assertEqual((('network', 'create_port'),),
                          create_action.policy_rules)

@@ -16,10 +16,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import builtins
 import logging
 
 from oslo_utils import units
-from six.moves import builtins
 
 from django.urls import reverse
 from django.urls import reverse_lazy

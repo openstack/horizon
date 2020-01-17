@@ -10,7 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import six.moves.urllib.parse as urlparse
+from urllib import parse
 
 from openstack_dashboard.test.integration_tests import basewebobject
 
@@ -43,7 +43,7 @@ class PageObject(basewebobject.BaseWebObject):
         base_url = self.conf.dashboard.dashboard_url
         if not base_url.endswith('/'):
             base_url += '/'
-        return urlparse.urljoin(base_url, self.PARTIAL_LOGIN_URL)
+        return parse.urljoin(base_url, self.PARTIAL_LOGIN_URL)
 
     def get_url_current_page(self):
         return self.driver.current_url

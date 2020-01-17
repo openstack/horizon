@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import six
 import yaml
 
 from django import template
@@ -150,9 +149,8 @@ class UnicodeTenantNameRCTests(test.TestCase):
 
         result_content_disposition = res['content-disposition']
 
-        if six.PY3:
-            result_content_disposition = result_content_disposition.\
-                encode('latin-1')
+        result_content_disposition = result_content_disposition.\
+            encode('latin-1')
         self.assertEqual(expected,
                          result_content_disposition)
 

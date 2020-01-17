@@ -12,11 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from urllib import parse
+
 from django import urls
 from django.utils.text import format_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
-from six.moves.urllib import parse
 
 from horizon import tables
 

@@ -13,7 +13,6 @@
 #    under the License.
 
 import mock
-import six
 
 from django.urls import reverse
 
@@ -80,7 +79,7 @@ class ApplicationCredentialViewTests(test.TestCase):
         self.assertEqual(res.context['application_credential'].name,
                          app_cred.name)
         mock_app_cred_get.assert_called_once_with(test.IsHttpRequest(),
-                                                  six.text_type(app_cred.id))
+                                                  str(app_cred.id))
 
     @mock.patch.object(api.keystone, 'application_credential_get')
     def test_application_credential_detail_get_with_exception(
@@ -94,7 +93,7 @@ class ApplicationCredentialViewTests(test.TestCase):
         res = self.client.get(url)
         self.assertRedirectsNoFollow(res, APP_CREDS_INDEX_URL)
         mock_app_cred_get.assert_called_once_with(test.IsHttpRequest(),
-                                                  six.text_type(app_cred.id))
+                                                  app_cred.id)
 
     @mock.patch.object(api.keystone, 'application_credential_create')
     @mock.patch.object(api.keystone, 'get_identity_api_version')

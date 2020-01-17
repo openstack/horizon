@@ -19,7 +19,9 @@
 from __future__ import absolute_import
 from __future__ import division
 
+import _thread as thread
 import collections
+from collections import abc
 import itertools
 import json
 import logging
@@ -32,23 +34,13 @@ from django.core.files.uploadedfile import TemporaryUploadedFile
 from django.utils.translation import ugettext_lazy as _
 
 from glanceclient.v2 import client
-import six
-from six.moves import _thread as thread
+
 
 from horizon import messages
 from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 from openstack_dashboard.utils import settings as utils
-
-# Python 3.8 removes the ability to import the abstract base classes from
-# 'collections', but 'collections.abc' is not present in Python 2.7
-# TODO(stephenfin): Remove when we drop support for Python 2.7
-# pylint: disable=ungrouped-imports
-if hasattr(collections, 'abc'):
-    from collections.abc import Iterable
-else:
-    from collections import Iterable
 
 
 LOG = logging.getLogger(__name__)
@@ -119,7 +111,7 @@ class Image(base.APIResourceWrapper):
             return prop_name not in (self._attrs | self._ext_attrs)
 
     def to_dict(self, show_ext_attrs=False):
-        if not isinstance(self._apiresource, Iterable):
+        if not isinstance(self._apiresource, abc.Iterable):
             return self._apiresource.to_dict()
         image_dict = super(Image, self).to_dict()
         image_dict['is_public'] = self.is_public
@@ -501,16 +493,13 @@ def image_create(request, **kwargs):
         glanceclient(request).images.add_location(image.id, location, {})
 
     if data:
-        if isinstance(data, six.string_types):
+        if isinstance(data, str):
             # The image data is meant to be uploaded externally, return a
             # special wrapper to bypass the web server in a subsequent upload
             return ExternallyUploadedImage(image, request)
         elif isinstance(data, TemporaryUploadedFile):
             # Hack to fool Django, so we can keep file open in the new thread.
-            if six.PY2:
-                data.file.close_called = True
-            else:
-                data.file._closer.close_called = True
+            data.file._closer.close_called = True
         elif isinstance(data, InMemoryUploadedFile):
             # Clone a new file for InMemeoryUploadedFile.
             # Because the old one will be closed by Django.

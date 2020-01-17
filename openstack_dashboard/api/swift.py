@@ -17,10 +17,10 @@
 #    under the License.
 
 from datetime import datetime
+from urllib import parse
 
 import functools
 
-import six.moves.urllib.parse as urlparse
 import swiftclient
 
 from django.conf import settings
@@ -181,7 +181,7 @@ def swift_get_container(request, container_name, with_data=True):
             swift_endpoint = base.url_for(request,
                                           'object-store',
                                           endpoint_type='publicURL')
-            parameters = urlparse.quote(container_name.encode('utf8'))
+            parameters = parse.quote(container_name.encode('utf8'))
             public_url = swift_endpoint + '/' + parameters
         ts_float = float(headers.get('x-timestamp'))
         timestamp = datetime.utcfromtimestamp(ts_float).isoformat()

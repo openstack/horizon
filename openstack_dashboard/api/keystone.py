@@ -19,11 +19,10 @@
 
 import collections
 import logging
+from urllib import parse
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-import six
-import six.moves.urllib.parse as urlparse
 
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint
@@ -70,7 +69,6 @@ except ImportError:
     pass
 
 
-@six.python_2_unicode_compatible
 class Service(base.APIDictWrapper):
     """Wrapper for a dict based on the service data from keystone."""
     _attrs = ['id', 'type', 'name']
@@ -81,7 +79,7 @@ class Service(base.APIDictWrapper):
                                                    'publicURL')
         self.url = base.get_url_for_service(service, region, 'internalURL')
         if self.url:
-            self.host = urlparse.urlparse(self.url).hostname
+            self.host = parse.urlparse(self.url).hostname
         else:
             self.host = None
         self.disabled = None
@@ -95,7 +93,7 @@ class Service(base.APIDictWrapper):
             return self.type
 
     def __repr__(self):
-        return "<Service: %s>" % six.text_type(self)
+        return "<Service: %s>" % self
 
 
 def _get_endpoint_url(request, endpoint_type, catalog=None):

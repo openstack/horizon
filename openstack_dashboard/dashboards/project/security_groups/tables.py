@@ -19,7 +19,6 @@ from django.template import defaultfilters
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
-import six
 
 from horizon import exceptions
 from horizon import tables
@@ -213,7 +212,7 @@ def filter_direction(direction):
 def filter_protocol(protocol):
     if protocol is None:
         return _('Any')
-    return six.text_type.upper(protocol)
+    return protocol.upper()
 
 
 def check_rule_template(port, ip_proto):
@@ -269,7 +268,7 @@ class RulesTable(tables.DataTable):
         return filters.get_int_or_uuid(obj_id)
 
     def get_object_display(self, rule):
-        return six.text_type(rule)
+        return str(rule)
 
     class Meta(object):
         name = "rules"

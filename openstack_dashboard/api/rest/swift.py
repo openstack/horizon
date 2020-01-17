@@ -20,7 +20,6 @@ from django.http import StreamingHttpResponse
 from django.utils.http import urlunquote
 from django.views.decorators.csrf import csrf_exempt
 from django.views import generic
-import six
 
 from horizon import exceptions
 from openstack_dashboard import api
@@ -227,8 +226,6 @@ class Object(generic.View):
             filename = "%s%s" % (filename, ext)
         response = StreamingHttpResponse(obj.data)
         safe = filename.replace(",", "")
-        if six.PY2:
-            safe = safe.encode('utf-8')
         response['Content-Disposition'] = 'attachment; filename="%s"' % safe
         response['Content-Type'] = 'application/octet-stream'
         response['Content-Length'] = obj.bytes

@@ -19,7 +19,6 @@
 from __future__ import absolute_import
 
 import mock
-import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -78,7 +77,7 @@ class ServiceAPITests(test.APIMockTestCase):
         identity_data['id'] = 1
         region = identity_data["endpoints"][0]["region"]
         service = api.keystone.Service(identity_data, region)
-        self.assertEqual(u"identity (native backend)", six.text_type(service))
+        self.assertEqual(u"identity (native backend)", str(service))
         self.assertEqual(identity_data["endpoints"][0]["region"],
                          service.region)
         self.assertEqual("http://int.keystone.example.com/identity/v3",
@@ -93,7 +92,7 @@ class ServiceAPITests(test.APIMockTestCase):
         compute_data['id'] = 1
         region = compute_data["endpoints"][1]["region"]
         service = api.keystone.Service(compute_data, region)
-        self.assertEqual(u"compute", six.text_type(service))
+        self.assertEqual(u"compute", str(service))
         self.assertEqual(compute_data["endpoints"][1]["region"],
                          service.region)
         self.assertEqual("http://int.nova2.example.com:8774/v2",

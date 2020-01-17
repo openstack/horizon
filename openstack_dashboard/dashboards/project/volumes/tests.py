@@ -15,7 +15,6 @@
 import copy
 
 import mock
-import six
 
 from django.conf import settings
 from django.forms import widgets
@@ -1354,10 +1353,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.assertEqual(set(['ajax-modal', 'ajax-update', 'btn-create']),
                          set(create_action.classes))
-        self.assertEqual('Create Volume',
-                         six.text_type(create_action.verbose_name))
-        self.assertEqual('horizon:project:volumes:create',
-                         create_action.url)
+        self.assertEqual('Create Volume', create_action.verbose_name)
+        self.assertEqual('horizon:project:volumes:create', create_action.url)
         self.assertEqual((('volume', 'volume:create'),),
                          create_action.policy_rules)
         self.assertEqual(5, self.mock_volume_backup_supported.call_count)

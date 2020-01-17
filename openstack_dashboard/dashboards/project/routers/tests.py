@@ -16,7 +16,6 @@ import copy
 from django.urls import reverse
 
 import mock
-import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -1258,8 +1257,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
 
         create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
-        self.assertEqual('Create Router',
-                         six.text_type(create_action.verbose_name))
+        self.assertEqual('Create Router', create_action.verbose_name)
         self.assertEqual('horizon:project:routers:create', create_action.url)
         self.assertEqual((('network', 'create_router'),),
                          create_action.policy_rules)

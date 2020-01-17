@@ -15,7 +15,6 @@ from operator import itemgetter
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import exceptions
 
@@ -103,7 +102,7 @@ def network_field_data(request, include_empty_option=False, with_cidr=False,
             networks = api.neutron.network_list_for_tenant(
                 request, tenant_id, **extra_params)
         except Exception as e:
-            msg = _('Failed to get network list {0}').format(six.text_type(e))
+            msg = _('Failed to get network list {0}').format(e)
             exceptions.handle(request, msg)
 
         _networks = []

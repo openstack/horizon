@@ -20,8 +20,6 @@ import subprocess
 import sys
 import warnings
 
-import six
-
 from django.conf import settings
 from django.core.management import base
 from django import template
@@ -78,8 +76,6 @@ context = template.Context({
     'SSLKEY': '/etc/pki/tls/private/ca.key',
     'CACERT': None,
     'PROCESSES': multiprocessing.cpu_count() + 1,
-    'PY2': six.PY2,
-    'PY3': six.PY3,
     'PYTHON_EXEC': sys.executable,
 })
 
@@ -120,7 +116,7 @@ for cmd in APACHE2_VERSION_CMDS:
         try:
             reg = re.compile(cmd[1])
             output = subprocess.check_output(cmd[0], stderr=subprocess.STDOUT)
-            if isinstance(output, six.binary_type):
+            if isinstance(output, bytes):
                 output = output.decode()
             res = reg.search(output)
             if res:

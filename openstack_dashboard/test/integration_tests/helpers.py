@@ -11,6 +11,7 @@
 # under the License.
 
 import contextlib
+import io
 import logging
 import os
 import shutil
@@ -25,7 +26,6 @@ from oslo_utils import uuidutils
 from selenium.webdriver.common import action_chains
 from selenium.webdriver.common import by
 from selenium.webdriver.common import keys
-from six import StringIO
 import testtools
 import xvfbwrapper
 
@@ -210,7 +210,7 @@ class BaseTestCase(testtools.TestCase):
         """
         # clear other handlers to set target handler
         ROOT_LOGGER.handlers[:] = []
-        self._log_buffer = StringIO()
+        self._log_buffer = io.StringIO()
         stream_handler = logging.StreamHandler(stream=self._log_buffer)
         stream_handler.setLevel(logging.DEBUG)
         formatter = logging.Formatter(

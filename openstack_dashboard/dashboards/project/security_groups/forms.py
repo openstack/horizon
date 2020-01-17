@@ -23,8 +23,6 @@ from django.forms import ValidationError
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
-import six
-
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
@@ -484,9 +482,7 @@ class AddRule(forms.SelfHandlingForm):
                 data['cidr'],
                 data['security_group'],
                 **params)
-            messages.success(request,
-                             _('Successfully added rule: %s')
-                             % six.text_type(rule))
+            messages.success(request, _('Successfully added rule: %s') % rule)
             return rule
         except exceptions.Conflict as error:
             exceptions.handle(request, error, redirect=redirect)
