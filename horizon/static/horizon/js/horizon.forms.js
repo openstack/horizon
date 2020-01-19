@@ -27,6 +27,7 @@ horizon.forms = {
       var dataSize = parseInt($option.data("size"), 10) || -1;
       if (volSize < dataSize) {
         $volSize.val(dataSize);
+        $volSize.trigger('input');
       }
     });
   },
@@ -44,6 +45,7 @@ horizon.forms = {
       var dataSize = parseInt($option.data("size"), 10) || -1;
       if (volSize < dataSize) {
         $volSize.val(dataSize);
+        $volSize.trigger('input');
       }
     });
   },
@@ -60,6 +62,7 @@ horizon.forms = {
       var dataSize = parseInt($option.data("size"), 10) || -1;
       var minDiskSize = parseInt($option.data("min_disk"), 10) || 1;
       $volSize.val(Math.max(minDiskSize, dataSize));
+      $volSize.trigger('input');
     });
   },
 
