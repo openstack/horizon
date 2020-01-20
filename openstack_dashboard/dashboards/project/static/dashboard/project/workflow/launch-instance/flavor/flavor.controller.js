@@ -382,7 +382,7 @@
         /* If sourceType is volume and has image metadata the min_disk and min_ram
         values are no longer source.min_ but source.volume_image_metadata.min_. */
         if (sourceType.type === 'volume' && source.volume_image_metadata) {
-          source.min_disk = source.volume_image_metadata.min_disk;
+          source.min_disk = 0;
           source.min_ram = source.volume_image_metadata.min_ram;
         }
         /* Error if min_disk is greater than 0 (if min_disk == 0 it is variable and valid)
