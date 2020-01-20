@@ -15,9 +15,6 @@
 from collections import OrderedDict
 import logging
 import operator
-import sys
-
-import six
 
 from django.conf import settings
 from django.template.loader import render_to_string
@@ -370,9 +367,8 @@ class Tab(html.HTMLElement):
             context = self.data
         except exceptions.Http302:
             raise
-        except Exception:
-            exc_type, exc_value, exc_traceback = sys.exc_info()
-            raise six.reraise(TemplateSyntaxError, exc_value, exc_traceback)
+        except Exception as e:
+            raise TemplateSyntaxError from e
         return render_to_string(self.get_template_name(self.request), context)
 
     def get_id(self):
