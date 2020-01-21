@@ -511,13 +511,17 @@ def image_create(request, **kwargs):
             try:
                 return glanceclient(request).images.upload(image.id, data)
             finally:
-                filename = str(data.file.name)
                 try:
-                    os.remove(filename)
-                except OSError as e:
-                    LOG.warning('Failed to remove temporary image file '
-                                '%(file)s (%(e)s)',
-                                {'file': filename, 'e': e})
+                    filename = str(data.file.name)
+                except AttributeError:
+                    pass
+                else:
+                    try:
+                        os.remove(filename)
+                    except OSError as e:
+                        LOG.warning('Failed to remove temporary image file '
+                                    '%(file)s (%(e)s)',
+                                    {'file': filename, 'e': e})
         thread.start_new_thread(upload, ())
 
     return Image(image)
