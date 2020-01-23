@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 17:20+0000\n"
+"POT-Creation-Date: 2020-01-22 17:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,12 +100,6 @@ msgstr ""
 "``admin`` 이나 ``demo`` 사용자 계정 및 ``default`` 도메인 credential을 사용하"
 "여 인증합니다."
 
-msgid "BGPVPN Dashboard"
-msgstr "BGPVPN Dashboard"
-
-msgid "Blazar Dashboard"
-msgstr "Blazar Dashboard"
-
 msgid "Bug Tracker"
 msgstr "Bug Tracker"
 
@@ -124,9 +118,6 @@ msgstr "캐시된 데이터베이스"
 
 msgid "Clone Horizon"
 msgstr "Horizon 복제"
-
-msgid "Cloudkitty Dashboard"
-msgstr "Cloudkitty Dashboard"
 
 msgid "Comment out any other session storage configuration."
 msgstr "다른 세션 스토리지 구성을 주석으로 처리하십시오."
@@ -175,9 +166,6 @@ msgstr ""
 msgid "Configure the web server:"
 msgstr "웹 서버 구성:"
 
-msgid "Congress Dashboard"
-msgstr "Congress Dashboard"
-
 msgid ""
 "Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
 "idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
@@ -222,9 +210,6 @@ msgstr ""
 
 msgid "Deployment"
 msgstr "배포"
-
-msgid "Designate Dashboard"
-msgstr "Designate Dashboard"
 
 msgid ""
 "Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
@@ -294,15 +279,6 @@ msgstr ""
 
 msgid "For the system dependencies, see :doc:`system-requirements`."
 msgstr "시스템 의존성은, :doc:`system-requirements` 를 참조하십시오."
-
-msgid "Freezer Web UI"
-msgstr "Freezer Web UI"
-
-msgid "Group Based Policy UI"
-msgstr "Group Based Policy UI"
-
-msgid "Heat Dashboard"
-msgstr "Heat Dashboard"
 
 msgid ""
 "Horizon also supports many other OpenStack services via plugins. For more "
@@ -400,20 +376,8 @@ msgstr "패키지에서 설치"
 msgid "Installing from Source"
 msgstr "소스에서 설치"
 
-msgid "Ironic UI"
-msgstr "Ironic UI"
-
-msgid "Karbor Dashboard"
-msgstr "Karbor Dashboard"
-
 msgid "Logging"
 msgstr "로깅"
-
-msgid "Magnum UI"
-msgstr "Magnum UI"
-
-msgid "Manila UI"
-msgstr "Manila UI"
 
 msgid "Manual installation"
 msgstr "수동 설치"
@@ -424,29 +388,11 @@ msgstr "Memcached"
 msgid "Memcached service running and accessible"
 msgstr "Mencached 서비스 실행과 접근 가능성"
 
-msgid "Mistral Dashboard"
-msgstr "Mistral Dashboard"
-
-msgid "Monasca UI"
-msgstr "Monasca UI"
-
-msgid "Murano Dashboard"
-msgstr "Murano Dashboard"
-
-msgid "Neutron FWaaS Dashboard"
-msgstr "Neutron FWaaS Dashboard"
-
-msgid "Neutron VPNaaS Dashboard"
-msgstr "Neutron VPNaaS Dashboard"
-
 msgid "Next Steps"
 msgstr "다음 단계"
 
 msgid "Next steps"
 msgstr "다음 단계"
-
-msgid "Octavia Dashboard"
-msgstr "Octavia Dashboard"
 
 msgid "Optionally, configure the time zone:"
 msgstr "선택적으로, 표준 시간대를 구성하십시오:"
@@ -491,17 +437,8 @@ msgstr "웹 서버 구성을 위한 프롬프트에 응답하십시오."
 msgid "Restart the web server and session storage service:"
 msgstr "웹 서버와 세션 스토리지 서비스를 재시작하십시오:"
 
-msgid "Sahara Dashboard"
-msgstr "Sahara Dashboard"
-
 msgid "Same as above but if you want SSL support"
 msgstr "위와 같지만 SSL 지원이 필요한 경우"
-
-msgid "Searchlight UI"
-msgstr "Searchlight UI"
-
-msgid "Senlin Dashboard"
-msgstr "Senlin Dashboard"
 
 msgid "Session Storage"
 msgstr "세션 저장소"
@@ -534,17 +471,11 @@ msgstr ""
 msgid "Settings"
 msgstr "설정"
 
-msgid "Solum Dashboard"
-msgstr "Solum Dashboard"
-
 msgid "Static Assets"
 msgstr "정적 자산"
 
 msgid "System Requirements"
 msgstr "시스템 요구사항"
-
-msgid "Tacker UI"
-msgstr "Tacker UI"
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
@@ -660,9 +591,6 @@ msgstr ""
 msgid "Translations"
 msgstr "번역"
 
-msgid "Trove Dashboard"
-msgstr "Trove Dashboard"
-
 msgid "Verify operation for Debian"
 msgstr "Debian을 위한 동작 검증"
 
@@ -678,12 +606,6 @@ msgstr "openSUSE와 SUSE Linux Enterprise를 위한 동작 검증"
 msgid "Verify operation of the dashboard."
 msgstr "대시보드의 동작을 검증하십시오."
 
-msgid "Vitrage Dashboard"
-msgstr "Vitrage Dashboard"
-
-msgid "Watcher Dashboard"
-msgstr "Watcher Dashboard"
-
 msgid ""
 "You can either use the provided ``openstack_dashboard/wsgi.py`` or generate "
 "a ``openstack_dashboard/horizon_wsgi.py`` file with the following command "
@@ -696,12 +618,6 @@ msgstr ""
 
 msgid "Your OpenStack environment now includes the dashboard."
 msgstr "OpenStack 환경은 이제 대시보드를 포함합니다."
-
-msgid "Zaqar UI"
-msgstr "Zaqar UI"
-
-msgid "Zun UI"
-msgstr "Zun UI"
 
 msgid "``ALLOWED_HOSTS``"
 msgstr "``ALLOWED_HOSTS``"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-05 19:12+0000\n"
+"POT-Creation-Date: 2020-01-22 17:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,12 +84,6 @@ msgstr ""
 "``admin`` ユーザーまたは ``demo`` ユーザーと ``default`` ドメインのクレデン"
 "シャルで認証を行います。"
 
-msgid "BGPVPN Dashboard"
-msgstr "BGPVPN Dashboard"
-
-msgid "Blazar Dashboard"
-msgstr "Blazar Dashboard"
-
 msgid "Bug Tracker"
 msgstr "バグ管理システム"
 
@@ -98,9 +92,6 @@ msgstr "キャッシュ付きデータベース"
 
 msgid "Clone Horizon"
 msgstr "horizon を取得します。"
-
-msgid "Cloudkitty Dashboard"
-msgstr "Cloudkitty Dashboard"
 
 msgid "Comment out any other session storage configuration."
 msgstr "それ以外のすべてのセッションストレージ設定をコメントアウトします。"
@@ -137,9 +128,6 @@ msgstr ""
 msgid "Configure the web server:"
 msgstr "ウェブサーバーを設定します。"
 
-msgid "Congress Dashboard"
-msgstr "Congress Dashboard"
-
 msgid ""
 "Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
 "idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
@@ -162,9 +150,6 @@ msgstr ""
 "既存のセクションとオプションを編集するのではなく、追加する必要があるかもしれ"
 "ません。また、設定のスニペットにある 省略 (``...``) は、保持すべきデフォルト"
 "の設定オプションを意味します。"
-
-msgid "Designate Dashboard"
-msgstr "Designate Dashboard"
 
 msgid ""
 "Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
@@ -215,15 +200,6 @@ msgstr ""
 "システム要件については :ref:`こちら <system-requirements>` を参照してくださ"
 "い。"
 
-msgid "Freezer Web UI"
-msgstr "Freezer Web UI"
-
-msgid "Group Based Policy UI"
-msgstr "Group Based Policy UI"
-
-msgid "Heat Dashboard"
-msgstr "Heat Dashboard"
-
 msgid "Horizon plugins"
 msgstr "horizon プラグイン"
 
@@ -273,20 +249,8 @@ msgstr "パッケージからのインストール"
 msgid "Installing from Source"
 msgstr "ソースからのインストール"
 
-msgid "Ironic UI"
-msgstr "Ironic UI"
-
-msgid "Karbor Dashboard"
-msgstr "Karbor Dashboard"
-
 msgid "Logging"
 msgstr "ログ"
-
-msgid "Magnum UI"
-msgstr "Magnum UI"
-
-msgid "Manila UI"
-msgstr "Manila UI"
 
 msgid "Manual installation"
 msgstr "手動でのインストール"
@@ -297,29 +261,11 @@ msgstr "memcached"
 msgid "Memcached service running and accessible"
 msgstr "memcached サービスが動作していてアクセスできること"
 
-msgid "Mistral Dashboard"
-msgstr "Mistral Dashboard"
-
-msgid "Monasca UI"
-msgstr "Monasca UI"
-
-msgid "Murano Dashboard"
-msgstr "Murano Dashboard"
-
-msgid "Neutron FWaaS Dashboard"
-msgstr "Neutron FWaaS Dashboard"
-
-msgid "Neutron VPNaaS Dashboard"
-msgstr "Neutron VPNaaS Dashboard"
-
 msgid "Next Steps"
 msgstr "次の手順"
 
 msgid "Next steps"
 msgstr "次の手順"
-
-msgid "Octavia Dashboard"
-msgstr "Octavia Dashboard"
 
 msgid "Optionally, configure the time zone:"
 msgstr "必要であれば、タイムゾーンを設定します。"
@@ -365,15 +311,6 @@ msgstr "ウェブサーバー設定のプロンプトに答えます。"
 msgid "Restart the web server and session storage service:"
 msgstr "ウェブサーバーとセッションストレージサービスを再起動します。"
 
-msgid "Sahara Dashboard"
-msgstr "Sahara Dashboard"
-
-msgid "Searchlight UI"
-msgstr "Searchlight UI"
-
-msgid "Senlin Dashboard"
-msgstr "Senlin Dashboard"
-
 msgid "Session Storage"
 msgstr "セッションストレージ"
 
@@ -393,17 +330,11 @@ msgstr "使用するドメイン名に設定します。"
 msgid "Settings"
 msgstr "設定"
 
-msgid "Solum Dashboard"
-msgstr "Solum Dashboard"
-
 msgid "Static Assets"
 msgstr "静的なファイル"
 
 msgid "System Requirements"
 msgstr "システム要件"
-
-msgid "Tacker UI"
-msgstr "Tacker UI"
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
@@ -480,9 +411,6 @@ msgstr ""
 msgid "Translations"
 msgstr "翻訳"
 
-msgid "Trove Dashboard"
-msgstr "Trove Dashboard"
-
 msgid "Verify operation for Debian"
 msgstr "動作検証 (Debian)"
 
@@ -498,20 +426,8 @@ msgstr "動作検証 (openSUSE, SUSE Linux Enterprise)"
 msgid "Verify operation of the dashboard."
 msgstr "ダッシュボードの動作を検証します。"
 
-msgid "Vitrage Dashboard"
-msgstr "Vitrage Dashboard"
-
-msgid "Watcher Dashboard"
-msgstr "Watcher Dashboard"
-
 msgid "Your OpenStack environment now includes the dashboard."
 msgstr "OpenStack 環境にダッシュボードが追加されました。"
-
-msgid "Zaqar UI"
-msgstr "Zaqar UI"
-
-msgid "Zun UI"
-msgstr "Zun UI"
 
 msgid "``ALLOWED_HOSTS``"
 msgstr "``ALLOWED_HOSTS``"

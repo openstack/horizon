@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 17:20+0000\n"
+"POT-Creation-Date: 2020-01-22 17:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,23 +21,11 @@ msgstr ":launchpad:`bgpvpn`"
 msgid ":launchpad:`blazar`"
 msgstr ":launchpad:`blazar`"
 
-msgid ":launchpad:`cloudkitty`"
-msgstr ":launchpad:`cloudkitty`"
-
 msgid ":launchpad:`congress`"
 msgstr ":launchpad:`congress`"
 
 msgid ":launchpad:`designate-dashboard`"
 msgstr ":launchpad:`designate-dashboard`"
-
-msgid ":launchpad:`freezer`"
-msgstr ":launchpad:`freezer`"
-
-msgid ":launchpad:`group-based-policy-ui`"
-msgstr ":launchpad:`group-based-policy-ui`"
-
-msgid ":launchpad:`ironic-ui`"
-msgstr ":launchpad:`ironic-ui`"
 
 msgid ":launchpad:`karbor-dashboard`"
 msgstr ":launchpad:`karbor-dashboard`"
@@ -165,9 +153,6 @@ msgstr ":opendev-repo:`openstack/zaqar-ui`"
 msgid ":opendev-repo:`openstack/zun-ui`"
 msgstr ":opendev-repo:`openstack/zun-ui`"
 
-msgid ":opendev-repo:`x/group-based-policy-ui`"
-msgstr ":opendev-repo:`x/group-based-policy-ui`"
-
 msgid ":ref:`install-customizing` describes how to customize horizon."
 msgstr ": ref: 'instali-agordi' priskribas kiel agordi horizon."
 
@@ -261,12 +246,6 @@ msgstr ""
 "Aŭtentigu uzante ``admin`` aŭ ``demo`` uzanto kaj ``defaŭltaj`` domajnaj "
 "legitimaĵoj."
 
-msgid "BGPVPN Dashboard"
-msgstr "BGPVPN Stirpanelo"
-
-msgid "Blazar Dashboard"
-msgstr "Blazar Stirpanelo"
-
 msgid "Bug Tracker"
 msgstr "Cimspuradilo "
 
@@ -286,9 +265,6 @@ msgstr "Kaŝmemorigita Datumbazo"
 
 msgid "Clone Horizon"
 msgstr "Klonu Horizon"
-
-msgid "Cloudkitty Dashboard"
-msgstr "Cloudkitty Stirpanelo"
 
 msgid "Comment out any other session storage configuration."
 msgstr "Komenti ajnan alian seancan memorilo agordon."
@@ -340,9 +316,6 @@ msgstr ""
 msgid "Configure the web server:"
 msgstr "Agordi la ttt-servilon:"
 
-msgid "Congress Dashboard"
-msgstr "Congress Stirpanelo"
-
 msgid ""
 "Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
 "idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
@@ -387,9 +360,6 @@ msgstr ""
 
 msgid "Deployment"
 msgstr "Disponigo"
-
-msgid "Designate Dashboard"
-msgstr "Designate Stirpanelo"
 
 msgid "Django support policy is documented at :doc:`/contributor/policy`."
 msgstr ""
@@ -465,15 +435,6 @@ msgstr ""
 
 msgid "For the system dependencies, see :doc:`system-requirements`."
 msgstr "Por la sistemaj dependecoj, vidu: doc: 'system-requirements'."
-
-msgid "Freezer Web UI"
-msgstr "Freezer Reto UI"
-
-msgid "Group Based Policy UI"
-msgstr "Grupo Bazita Regularo UI"
-
-msgid "Heat Dashboard"
-msgstr "Heat Stirpanelo"
 
 msgid ""
 "Horizon also supports many other OpenStack services via plugins. For more "
@@ -573,20 +534,8 @@ msgstr "Instali de Pakoj"
 msgid "Installing from Source"
 msgstr "Instali de Fonto"
 
-msgid "Ironic UI"
-msgstr "Ironic UI"
-
-msgid "Karbor Dashboard"
-msgstr "Karbor Stirpanelo"
-
 msgid "Logging"
 msgstr "Protokolado"
-
-msgid "Magnum UI"
-msgstr "Magnum UI"
-
-msgid "Manila UI"
-msgstr "Manila UI"
 
 msgid "Manual installation"
 msgstr "Permana instalado"
@@ -597,29 +546,11 @@ msgstr "Memcached"
 msgid "Memcached service running and accessible"
 msgstr "Memcached servo kuranta kaj alirebla"
 
-msgid "Mistral Dashboard"
-msgstr "Mistral Stirpanelo"
-
-msgid "Monasca UI"
-msgstr "Monasca UI"
-
-msgid "Murano Dashboard"
-msgstr "Murano Stirpanelo"
-
-msgid "Neutron FWaaS Dashboard"
-msgstr "Neutron FWaaS Stirpanelo"
-
-msgid "Neutron VPNaaS Dashboard"
-msgstr "Neutron VPNaaS Stirpanelo"
-
 msgid "Next Steps"
 msgstr "Sekvaj paŝoj"
 
 msgid "Next steps"
 msgstr "Sekvaj paŝoj"
-
-msgid "Octavia Dashboard"
-msgstr "Octavia Stirpanelo"
 
 msgid "Optionally, configure the time zone:"
 msgstr "Laŭvole, agordu la tempzono:"
@@ -668,17 +599,8 @@ msgstr "Respondu al dialogo por retservilo agordo."
 msgid "Restart the web server and session storage service:"
 msgstr "Restartu la ret-servilon kaj la seanco memoro servon:"
 
-msgid "Sahara Dashboard"
-msgstr "Sahara Stirpanelo"
-
 msgid "Same as above but if you want SSL support"
 msgstr "Same kiel supre sed se vi volas SSL-subtenon"
-
-msgid "Searchlight UI"
-msgstr "Searchlight UI"
-
-msgid "Senlin Dashboard"
-msgstr "Senlin Stirpanelo"
 
 msgid "Session Storage"
 msgstr "Seanco Memorilo"
@@ -709,17 +631,11 @@ msgstr "Agordi seancon stokadon. Por detaloj, vidu: doc:`/admin/sessions`."
 msgid "Settings"
 msgstr "Agordoj"
 
-msgid "Solum Dashboard"
-msgstr "Solum Stirpanelo"
-
 msgid "Static Assets"
 msgstr "Statikaj Aĵoj"
 
 msgid "System Requirements"
 msgstr "Sistemaj Postuloj"
-
-msgid "Tacker UI"
-msgstr "Tacker UI"
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
@@ -858,9 +774,6 @@ msgstr ""
 msgid "Translations"
 msgstr "Tradukoj"
 
-msgid "Trove Dashboard"
-msgstr "Trove Stirpanelo"
-
 msgid "Verify operation for Debian"
 msgstr "Kontrolu operacion por Debian"
 
@@ -876,12 +789,6 @@ msgstr "Kontrolu operacion por openSUSE and SUSE Linux Enterprise"
 msgid "Verify operation of the dashboard."
 msgstr "Kontrolu operacion de la stirpanelo."
 
-msgid "Vitrage Dashboard"
-msgstr "Vitrage Stirpanelo"
-
-msgid "Watcher Dashboard"
-msgstr "Watcher Stirpanelo"
-
 msgid ""
 "You can either use the provided ``openstack_dashboard/wsgi.py`` or generate "
 "a ``openstack_dashboard/horizon_wsgi.py`` file with the following command "
@@ -895,12 +802,6 @@ msgstr ""
 
 msgid "Your OpenStack environment now includes the dashboard."
 msgstr "Via OpenStack medio nun inkluzivas la panelon."
-
-msgid "Zaqar UI"
-msgstr "Zaqar UI"
-
-msgid "Zun UI"
-msgstr "Zun UI"
 
 msgid "``ALLOWED_HOSTS``"
 msgstr "``ALLOWED_HOSTS``"

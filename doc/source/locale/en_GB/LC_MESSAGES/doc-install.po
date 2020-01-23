@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 17:20+0000\n"
+"POT-Creation-Date: 2020-01-22 17:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,23 +22,11 @@ msgstr ":launchpad:`bgpvpn`"
 msgid ":launchpad:`blazar`"
 msgstr ":launchpad:`blazar`"
 
-msgid ":launchpad:`cloudkitty`"
-msgstr ":launchpad:`cloudkitty`"
-
 msgid ":launchpad:`congress`"
 msgstr ":launchpad:`congress`"
 
 msgid ":launchpad:`designate-dashboard`"
 msgstr ":launchpad:`designate-dashboard`"
-
-msgid ":launchpad:`freezer`"
-msgstr ":launchpad:`freezer`"
-
-msgid ":launchpad:`group-based-policy-ui`"
-msgstr ":launchpad:`group-based-policy-ui`"
-
-msgid ":launchpad:`ironic-ui`"
-msgstr ":launchpad:`ironic-ui`"
 
 msgid ":launchpad:`karbor-dashboard`"
 msgstr ":launchpad:`karbor-dashboard`"
@@ -166,9 +154,6 @@ msgstr ":opendev-repo:`openstack/zaqar-ui`"
 msgid ":opendev-repo:`openstack/zun-ui`"
 msgstr ":opendev-repo:`openstack/zun-ui`"
 
-msgid ":opendev-repo:`x/group-based-policy-ui`"
-msgstr ":opendev-repo:`x/group-based-policy-ui`"
-
 msgid ":ref:`install-customizing` describes how to customize horizon."
 msgstr ":ref:`install-customizing` describes how to customise Horizon."
 
@@ -266,12 +251,6 @@ msgstr ""
 "Authenticate using ``admin`` or ``demo`` user and ``default`` domain "
 "credentials."
 
-msgid "BGPVPN Dashboard"
-msgstr "BGPVPN Dashboard"
-
-msgid "Blazar Dashboard"
-msgstr "Blazar Dashboard"
-
 msgid "Bug Tracker"
 msgstr "Bug Tracker"
 
@@ -291,9 +270,6 @@ msgstr "Cached Database"
 
 msgid "Clone Horizon"
 msgstr "Clone Horizon"
-
-msgid "Cloudkitty Dashboard"
-msgstr "Cloudkitty Dashboard"
 
 msgid "Comment out any other session storage configuration."
 msgstr "Comment out any other session storage configuration."
@@ -345,9 +321,6 @@ msgstr ""
 msgid "Configure the web server:"
 msgstr "Configure the web server:"
 
-msgid "Congress Dashboard"
-msgstr "Congress Dashboard"
-
 msgid ""
 "Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
 "idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
@@ -392,9 +365,6 @@ msgstr ""
 
 msgid "Deployment"
 msgstr "Deployment"
-
-msgid "Designate Dashboard"
-msgstr "Designate Dashboard"
 
 msgid "Django 2.2"
 msgstr "Django 2.2"
@@ -473,15 +443,6 @@ msgstr ""
 
 msgid "For the system dependencies, see :doc:`system-requirements`."
 msgstr "For the system dependencies, see :doc:`system-requirements`."
-
-msgid "Freezer Web UI"
-msgstr "Freezer Web UI"
-
-msgid "Group Based Policy UI"
-msgstr "Group Based Policy UI"
-
-msgid "Heat Dashboard"
-msgstr "Heat Dashboard"
 
 msgid ""
 "Horizon also supports many other OpenStack services via plugins. For more "
@@ -579,20 +540,8 @@ msgstr "Installing from Packages"
 msgid "Installing from Source"
 msgstr "Installing from Source"
 
-msgid "Ironic UI"
-msgstr "Ironic UI"
-
-msgid "Karbor Dashboard"
-msgstr "Karbor Dashboard"
-
 msgid "Logging"
 msgstr "Logging"
-
-msgid "Magnum UI"
-msgstr "Magnum UI"
-
-msgid "Manila UI"
-msgstr "Manila UI"
 
 msgid "Manual installation"
 msgstr "Manual installation"
@@ -603,29 +552,11 @@ msgstr "Memcached"
 msgid "Memcached service running and accessible"
 msgstr "Memcached service running and accessible"
 
-msgid "Mistral Dashboard"
-msgstr "Mistral Dashboard"
-
-msgid "Monasca UI"
-msgstr "Monasca UI"
-
-msgid "Murano Dashboard"
-msgstr "Murano Dashboard"
-
-msgid "Neutron FWaaS Dashboard"
-msgstr "Neutron FWaaS Dashboard"
-
-msgid "Neutron VPNaaS Dashboard"
-msgstr "Neutron VPNaaS Dashboard"
-
 msgid "Next Steps"
 msgstr "Next Steps"
 
 msgid "Next steps"
 msgstr "Next steps"
-
-msgid "Octavia Dashboard"
-msgstr "Octavia Dashboard"
 
 msgid "Optionally, configure the time zone:"
 msgstr "Optionally, configure the time zone:"
@@ -677,17 +608,8 @@ msgstr "Respond to prompts for web server configuration."
 msgid "Restart the web server and session storage service:"
 msgstr "Restart the web server and session storage service:"
 
-msgid "Sahara Dashboard"
-msgstr "Sahara Dashboard"
-
 msgid "Same as above but if you want SSL support"
 msgstr "Same as above but if you want SSL support"
-
-msgid "Searchlight UI"
-msgstr "Searchlight UI"
-
-msgid "Senlin Dashboard"
-msgstr "Senlin Dashboard"
 
 msgid "Session Storage"
 msgstr "Session Storage"
@@ -718,17 +640,11 @@ msgstr "Set up session storage. For details, see :doc:`/admin/sessions`."
 msgid "Settings"
 msgstr "Settings"
 
-msgid "Solum Dashboard"
-msgstr "Solum Dashboard"
-
 msgid "Static Assets"
 msgstr "Static Assets"
 
 msgid "System Requirements"
 msgstr "System Requirements"
-
-msgid "Tacker UI"
-msgstr "Tacker UI"
 
 msgid "The Ussuri release of horizon has the following dependencies."
 msgstr "The Ussuri release of Horizon has the following dependencies."
@@ -872,9 +788,6 @@ msgstr ""
 msgid "Translations"
 msgstr "Translations"
 
-msgid "Trove Dashboard"
-msgstr "Trove Dashboard"
-
 msgid ""
 "Ussuri release uses Django 2.2 (the latest LTS) as the primary Django "
 "version. The prevouos LTS of Django 1.11 will be dropped during Ussuri "
@@ -899,12 +812,6 @@ msgstr "Verify operation for openSUSE and SUSE Linux Enterprise"
 msgid "Verify operation of the dashboard."
 msgstr "Verify operation of the dashboard."
 
-msgid "Vitrage Dashboard"
-msgstr "Vitrage Dashboard"
-
-msgid "Watcher Dashboard"
-msgstr "Watcher Dashboard"
-
 msgid ""
 "You can either use the provided ``openstack_dashboard/wsgi.py`` or generate "
 "a ``openstack_dashboard/horizon_wsgi.py`` file with the following command "
@@ -918,12 +825,6 @@ msgstr ""
 
 msgid "Your OpenStack environment now includes the dashboard."
 msgstr "Your OpenStack environment now includes the dashboard."
-
-msgid "Zaqar UI"
-msgstr "Zaqar UI"
-
-msgid "Zun UI"
-msgstr "Zun UI"
 
 msgid "``ALLOWED_HOSTS``"
 msgstr "``ALLOWED_HOSTS``"
