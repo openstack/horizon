@@ -15,6 +15,8 @@
 
 import re
 
+from hacking import core
+
 """
 Guidelines for writing new hacking checks
  - Use only for Horizon specific tests. OpenStack general tests
@@ -31,11 +33,8 @@ Guidelines for writing new hacking checks
 mutable_default_args = re.compile(r"^\s*def .+\((.+=\{\}|.+=\[\])")
 
 
+@core.flake8ext
 def no_mutable_default_args(logical_line):
     msg = "M322: Method's default argument shouldn't be mutable!"
     if mutable_default_args.match(logical_line):
         yield (0, msg)
-
-
-def factory(register):
-    register(no_mutable_default_args)
