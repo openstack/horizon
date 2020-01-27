@@ -181,7 +181,6 @@ The standard installation uses a non-encrypted HTTP channel.
       DEBUG = False
       TEMPLATE_DEBUG = DEBUG
       PROD = True
-      USE_SSL = False
 
       SITE_BRANDING = 'OpenStack Dashboard'
 
@@ -320,12 +319,9 @@ Use a domain that fits your current setup.
 
    .. code-block:: python
 
-      USE_SSL = True
       CSRF_COOKIE_SECURE = True
       SESSION_COOKIE_SECURE = True
       SESSION_COOKIE_HTTPONLY = True
-
-   To enable HTTPS, the ``USE_SSL = True`` option is required.
 
    The other options require that HTTPS is enabled;
    these options defend against cross-site scripting.
