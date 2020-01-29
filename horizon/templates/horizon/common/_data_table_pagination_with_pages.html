@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load form_helpers %}
+<tr>
+    <td colspan="{{ columns|length }}">
+        <span class="table_count">{% blocktrans count counter=rows|length trimmed %}
+            Displaying {{ counter }} item{% plural %}
+            Displaying {{ counter }} items{% endblocktrans %}</span>
+        {% if table.has_prev_data or table.has_more_data %}
+            <span class="spacer">|</span>
+        {% endif %}
+        {% if table.has_prev_data %}
+            <a href="{{ table.get_pagination_string }}1">{% trans "&laquo;&laquo;&nbsp;First" %}</a>
+            <a href="{{ table.get_pagination_string }}{{ table.current_page | add:-1 }}">{% trans "&laquo;&nbsp;Prev&nbsp;" %}</a>
+        {% endif %}
+        {% for page in table.number_of_pages|get_range %}
+            {% if table.current_page == page %}
+                <span>{{page}}&nbsp;</span>
+            {% else %}
+                <a href="{{ table.get_pagination_string }}{{page}}">{{page}}&nbsp;</a>
+            {% endif %}
+        {% endfor %}
+        {% if table.has_more_data %}
+            <a href="{{ table.get_pagination_string }}{{ table.current_page | add:1 }}">{% trans "Next&nbsp;&raquo;" %}</a>
+            <a href="{{ table.get_pagination_string }}{{ table.number_of_pages }}">{% trans "Last&nbsp;&raquo;&raquo;" %}</a>
+        {% endif %}
+    </td>
+</tr>

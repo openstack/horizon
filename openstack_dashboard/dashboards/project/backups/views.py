@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
+
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -30,8 +32,10 @@ from openstack_dashboard.dashboards.project.backups \
 from openstack_dashboard.dashboards.project.volumes \
     import views as volume_views
 
+LOG = logging.getLogger(__name__)
 
-class BackupsView(tables.DataTableView, tables.PagedTableMixin,
+
+class BackupsView(tables.PagedTableWithPageMenu, tables.DataTableView,
                   volume_views.VolumeTableMixIn):
     table_class = backup_tables.BackupsTable
     page_title = _("Volume Backups")
@@ -41,11 +45,11 @@ class BackupsView(tables.DataTableView, tables.PagedTableMixin,
 
     def get_data(self):
         try:
-            marker, sort_dir = self._get_marker()
-            backups, self._has_more_data, self._has_prev_data = \
-                api.cinder.volume_backup_list_paged(
-                    self.request, marker=marker, sort_dir=sort_dir,
-                    paginate=True)
+            self._current_page = self._get_page_number()
+            (backups, self._page_size, self._total_of_entries,
+             self._number_of_pages) = \
+                api.cinder.volume_backup_list_paged_with_page_menu(
+                    self.request, page_number=self._current_page)
             volumes = api.cinder.volume_list(self.request)
             volumes = dict((v.id, v) for v in volumes)
             snapshots = api.cinder.volume_snapshot_list(self.request)
@@ -53,7 +57,8 @@ class BackupsView(tables.DataTableView, tables.PagedTableMixin,
             for backup in backups:
                 backup.volume = volumes.get(backup.volume_id)
                 backup.snapshot = snapshots.get(backup.snapshot_id)
-        except Exception:
+        except Exception as e:
+            LOG.exception(e)
             backups = []
             exceptions.handle(self.request, _("Unable to retrieve "
                                               "volume backups."))

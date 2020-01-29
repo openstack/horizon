@@ -21,6 +21,7 @@
 from __future__ import absolute_import
 
 import logging
+import math
 
 from django.conf import settings
 from django.utils.translation import pgettext_lazy
@@ -583,6 +584,42 @@ def volume_backup_get(request, backup_id):
 def volume_backup_list(request):
     backups, _, __ = volume_backup_list_paged(request, paginate=False)
     return backups
+
+
+@profiler.trace
+def volume_backup_list_paged_with_page_menu(request, page_number=1,
+                                            sort_dir="desc"):
+    backups = []
+    count = 0
+    pages_count = 0
+    page_size = utils.get_page_size(request)
+    c_client = cinderclient(request, '3.45')
+
+    if c_client is None:
+        return backups, 0, count, pages_count
+
+    if VERSIONS.active > 1:
+        offset = (page_number - 1) * page_size
+        sort = 'created_at:' + sort_dir
+        bkps, count = c_client.backups.list(limit=page_size,
+                                            sort=sort,
+                                            search_opts={'with_count': True,
+                                                         'offset': offset})
+        if not bkps:
+            return backups, page_size, count, pages_count
+
+        if isinstance(bkps[0], list):
+            bkps = bkps[0]
+        pages_count = int(math.ceil(float(count) / float(page_size)))
+        for b in bkps:
+            backups.append(VolumeBackup(b))
+
+        return backups, page_size, count, pages_count
+    else:
+        for b in c_client.backups.list():
+            backups.append(VolumeBackup(b))
+
+    return backups, 0, count, pages_count
 
 
 @profiler.trace

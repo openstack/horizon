@@ -28,11 +28,13 @@ INDEX_URL = reverse('horizon:project:backups:index')
 class VolumeBackupsViewTests(test.TestCase):
 
     @test.create_mocks({api.cinder: ('volume_list', 'volume_snapshot_list',
-                                     'volume_backup_list_paged')})
-    def _test_backups_index_paginated(self, marker, sort_dir, backups, url,
-                                      has_more, has_prev):
-        self.mock_volume_backup_list_paged.return_value = [backups,
-                                                           has_more, has_prev]
+                                     'volume_backup_list_paged_with_page_menu')
+                        })
+    def _test_backups_index_paginated(self, page_number, backups,
+                                      url, page_size, total_of_entries,
+                                      number_of_pages, has_prev, has_more):
+        self.mock_volume_backup_list_paged_with_page_menu.return_value = [
+            backups, page_size, total_of_entries, number_of_pages]
         self.mock_volume_list.return_value = self.cinder_volumes.list()
         self.mock_volume_snapshot_list.return_value \
             = self.cinder_volume_snapshots.list()
@@ -41,9 +43,17 @@ class VolumeBackupsViewTests(test.TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
-        self.mock_volume_backup_list_paged.assert_called_once_with(
-            test.IsHttpRequest(), marker=marker, sort_dir=sort_dir,
-            paginate=True)
+        self.assertEqual(has_more,
+                         res.context_data['view'].has_more_data(None))
+        self.assertEqual(has_prev,
+                         res.context_data['view'].has_prev_data(None))
+        self.assertEqual(
+            page_number, res.context_data['view'].current_page(None))
+        self.assertEqual(
+            number_of_pages, res.context_data['view'].number_of_pages(None))
+        self.mock_volume_backup_list_paged_with_page_menu.\
+            assert_called_once_with(test.IsHttpRequest(),
+                                    page_number=page_number)
         self.mock_volume_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest())
@@ -55,34 +65,38 @@ class VolumeBackupsViewTests(test.TestCase):
         expected_snapshosts = self.cinder_volume_snapshots.list()
         size = settings.API_RESULT_PAGE_SIZE
         base_url = INDEX_URL
-        next = backup_tables.BackupsTable._meta.pagination_param
+        number_of_pages = len(backups)
+        pag = backup_tables.BackupsTable._meta.pagination_param
+        page_number = 1
 
         # get first page
         expected_backups = backups[:size]
         res = self._test_backups_index_paginated(
-            marker=None, sort_dir="desc", backups=expected_backups,
-            url=base_url, has_more=True, has_prev=False)
+            page_number=page_number, backups=expected_backups, url=base_url,
+            has_more=True, has_prev=False, page_size=size,
+            number_of_pages=number_of_pages, total_of_entries=number_of_pages)
         result = res.context['volume_backups_table'].data
         self.assertCountEqual(result, expected_backups)
 
         # get second page
         expected_backups = backups[size:2 * size]
-        marker = expected_backups[0].id
-
-        url = base_url + "?%s=%s" % (next, marker)
+        page_number = 2
+        url = base_url + "?%s=%s" % (pag, page_number)
         res = self._test_backups_index_paginated(
-            marker=marker, sort_dir="desc", backups=expected_backups, url=url,
-            has_more=True, has_prev=True)
+            page_number=page_number, backups=expected_backups, url=url,
+            has_more=True, has_prev=True, page_size=size,
+            number_of_pages=number_of_pages, total_of_entries=number_of_pages)
         result = res.context['volume_backups_table'].data
         self.assertCountEqual(result, expected_backups)
         self.assertEqual(result[0].snapshot.id, expected_snapshosts[1].id)
         # get last page
         expected_backups = backups[-size:]
-        marker = expected_backups[0].id
-        url = base_url + "?%s=%s" % (next, marker)
+        page_number = 3
+        url = base_url + "?%s=%s" % (pag, page_number)
         res = self._test_backups_index_paginated(
-            marker=marker, sort_dir="desc", backups=expected_backups, url=url,
-            has_more=False, has_prev=True)
+            page_number=page_number, backups=expected_backups, url=url,
+            has_more=False, has_prev=True, page_size=size,
+            number_of_pages=number_of_pages, total_of_entries=number_of_pages)
         result = res.context['volume_backups_table'].data
         self.assertCountEqual(result, expected_backups)
 
@@ -90,26 +104,29 @@ class VolumeBackupsViewTests(test.TestCase):
     def test_backups_index_paginated_prev_page(self):
         backups = self.cinder_volume_backups.list()
         size = settings.API_RESULT_PAGE_SIZE
+        number_of_pages = len(backups)
         base_url = INDEX_URL
-        prev = backup_tables.BackupsTable._meta.prev_pagination_param
+        pag = backup_tables.BackupsTable._meta.pagination_param
 
         # prev from some page
         expected_backups = backups[size:2 * size]
-        marker = expected_backups[0].id
-        url = base_url + "?%s=%s" % (prev, marker)
+        page_number = 2
+        url = base_url + "?%s=%s" % (pag, page_number)
         res = self._test_backups_index_paginated(
-            marker=marker, sort_dir="asc", backups=expected_backups, url=url,
-            has_more=True, has_prev=True)
+            page_number=page_number, backups=expected_backups, url=url,
+            has_more=True, has_prev=True, page_size=size,
+            number_of_pages=number_of_pages, total_of_entries=number_of_pages)
         result = res.context['volume_backups_table'].data
         self.assertCountEqual(result, expected_backups)
 
         # back to first page
         expected_backups = backups[:size]
-        marker = expected_backups[0].id
-        url = base_url + "?%s=%s" % (prev, marker)
+        page_number = 1
+        url = base_url + "?%s=%s" % (pag, page_number)
         res = self._test_backups_index_paginated(
-            marker=marker, sort_dir="asc", backups=expected_backups, url=url,
-            has_more=True, has_prev=False)
+            page_number=page_number, backups=expected_backups, url=url,
+            has_more=True, has_prev=False, page_size=size,
+            number_of_pages=number_of_pages, total_of_entries=number_of_pages)
         result = res.context['volume_backups_table'].data
         self.assertCountEqual(result, expected_backups)
 
@@ -267,16 +284,20 @@ class VolumeBackupsViewTests(test.TestCase):
 
     @test.create_mocks({api.cinder: ('volume_list',
                                      'volume_snapshot_list',
-                                     'volume_backup_list_paged',
+                                     'volume_backup_list_paged_with_page_menu',
                                      'volume_backup_delete')})
     def test_delete_volume_backup(self):
         vol_backups = self.cinder_volume_backups.list()
         volumes = self.cinder_volumes.list()
         backup = self.cinder_volume_backups.first()
         snapshots = self.cinder_volume_snapshots.list()
+        page_number = 1
+        page_size = 1
+        total_of_entries = 1
+        number_of_pages = 1
 
-        self.mock_volume_backup_list_paged.return_value = [vol_backups,
-                                                           False, False]
+        self.mock_volume_backup_list_paged_with_page_menu.return_value = [
+            vol_backups, page_size, total_of_entries, number_of_pages]
         self.mock_volume_list.return_value = volumes
         self.mock_volume_backup_delete.return_value = None
         self.mock_volume_snapshot_list.return_value = snapshots
@@ -286,9 +307,9 @@ class VolumeBackupsViewTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
         self.assertMessageCount(success=1)
-        self.mock_volume_backup_list_paged.assert_called_once_with(
-            test.IsHttpRequest(), marker=None, sort_dir='desc',
-            paginate=True)
+        self.mock_volume_backup_list_paged_with_page_menu.\
+            assert_called_once_with(test.IsHttpRequest(),
+                                    page_number=page_number)
         self.mock_volume_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest())
