@@ -44,18 +44,13 @@
 
       it('sets table data to appropriate scoped items', function() {
         expect(ctrl.tableData).toBeDefined();
-        expect(Object.keys(ctrl.tableData).length).toBe(4);
+        expect(Object.keys(ctrl.tableData).length).toBe(2);
         expect(ctrl.tableData.available).toEqual([ 'server group 1', 'server group 2' ]);
         expect(ctrl.tableData.allocated).toEqual([ 'server group 1' ]);
-        expect(ctrl.tableData.displayedAvailable).toEqual([]);
-        expect(ctrl.tableData.displayedAllocated).toEqual([]);
       });
 
-      it('defines table help', function() {
-        expect(ctrl.tableHelp).toBeDefined();
-        expect(Object.keys(ctrl.tableHelp).length).toBe(2);
-        expect(ctrl.tableHelp.noneAllocText).toBeDefined();
-        expect(ctrl.tableHelp.availHelpText).toBeDefined();
+      it('defines a custom no items message for allocated table', function() {
+        expect(ctrl.allocatedTableConfig.noItemsMessage).toBeDefined();
       });
 
       it('allows only one allocation', function() {
