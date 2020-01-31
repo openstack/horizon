@@ -25,6 +25,7 @@ import copy
 from importlib import import_module
 import inspect
 import logging
+import operator
 import os
 
 from django.conf import settings
@@ -777,7 +778,8 @@ class Site(Registry, HorizonComponent):
                 dashboards.append(dashboard)
                 registered.pop(dashboard.__class__)
             if registered:
-                extra = sorted(registered.values())
+                extra = sorted(registered.values(),
+                               key=operator.attrgetter('name'))
                 dashboards.extend(extra)
             return dashboards
         else:
