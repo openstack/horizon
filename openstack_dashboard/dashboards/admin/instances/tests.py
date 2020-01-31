@@ -549,10 +549,10 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_severs_index_paginated(self):
         size = settings.API_RESULT_PAGE_SIZE
-        mox_servers = self.servers.list()
+        mock_servers = self.servers.list()
 
         # get first page
-        expected_servers = mox_servers[:size]
+        expected_servers = mock_servers[:size]
         res = self._test_servers_paginate_do(
             marker=None,
             servers=expected_servers,
@@ -562,7 +562,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertCountEqual(servers, expected_servers)
 
         # get second page
-        expected_servers = mox_servers[size:2 * size]
+        expected_servers = mock_servers[size:2 * size]
         marker = expected_servers[0].id
         res = self._test_servers_paginate_do(
             marker=marker,
@@ -573,7 +573,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertCountEqual(servers, expected_servers)
 
         # get last page
-        expected_servers = mox_servers[-size:]
+        expected_servers = mock_servers[-size:]
         marker = expected_servers[0].id
         res = self._test_servers_paginate_do(
             marker=marker,
@@ -586,11 +586,11 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_servers_index_paginated_prev(self):
         size = settings.API_RESULT_PAGE_SIZE
-        mox_servers = self.servers.list()
+        mock_servers = self.servers.list()
 
         # prev from some page
-        expected_servers = mox_servers[size:2 * size]
-        marker = mox_servers[0].id
+        expected_servers = mock_servers[size:2 * size]
+        marker = mock_servers[0].id
 
         res = self._test_servers_paginate_do(
             marker=marker,
@@ -601,8 +601,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertCountEqual(servers, expected_servers)
 
         # back to first page
-        expected_servers = mox_servers[:size]
-        marker = mox_servers[0].id
+        expected_servers = mock_servers[:size]
+        marker = mock_servers[0].id
         res = self._test_servers_paginate_do(
             marker=marker,
             servers=expected_servers,

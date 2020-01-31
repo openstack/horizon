@@ -315,46 +315,7 @@ Some common things to look for:
    the ``index`` view for a panel that got combined (such as instances &
    volumes).
 
-#. Make sure your mock calls are in order before calling ``mox.ReplayAll``.
-   The order matters.
-
 #. Make sure you repeat any stubbed out method calls that happen more than
    once. They don't automatically repeat, you have to explicitly define them.
    While this is a nuisance, it makes you acutely aware of how many API
    calls are involved in a particular function.
-
-Understanding the output from ``mox``
--------------------------------------
-
-Horizon uses ``mox`` as its mocking framework of choice, and while it
-offers many nice features, its output when a test fails can be quite
-mysterious.
-
-Unexpected Method Call
-~~~~~~~~~~~~~~~~~~~~~~
-
-This occurs when you stubbed out a piece of code, and it was subsequently
-called in a way that you didn't specify it would be. There are two reasons
-this tends to come up:
-
-#. You defined the expected call, but a subtle difference crept in. This
-   may be a string versus integer difference, a string versus unicode
-   difference, a slightly off date/time, or passing a name instead of an id.
-
-#. The method is actually being called *multiple times*. Since mox uses
-   a call stack internally, it simply pops off the expected method calls to
-   verify them. That means once a call is used once, it's gone. An easy way
-   to see if this is the case is simply to copy and paste your method call a
-   second time to see if the error changes. If it does, that means your method
-   is being called more times than you think it is.
-
-Expected Method Never Called
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This one is the opposite of the unexpected method call. This one means you
-told mox to expect a call and it didn't happen. This is almost always the
-result of an error in the conditions of the test. Using the
-:meth:`~openstack_dashboard.test.helpers.TestCase.assertNoFormErrors` and
-:meth:`~horizon.test.helpers.TestCase.assertMessageCount` will make it readily
-apparent what the problem is in the majority of cases. If not, then use ``pdb``
-and start interrupting the code flow to see where things are getting off track.
