@@ -23,20 +23,19 @@
     beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
     describe('LaunchInstanceNetworkPortController', function() {
-      var scope, ctrl;
+      var ctrl;
+      var port = {name: 'test_name', id: 'test_id'};
 
       beforeEach(inject(function($controller) {
-        scope = {
-          model: {
-            newInstanceSpec: {
-              ports: ['port-a']
-            },
-            ports: ['port-a', 'port-b']
-          }
+        var model = {
+          newInstanceSpec: {
+            ports: ['port-a']
+          },
+          ports: ['port-a', 'port-b']
         };
-        ctrl = $controller('LaunchInstanceNetworkPortController', {
-          $scope: scope
-        });
+
+        ctrl = $controller('LaunchInstanceNetworkPortController',
+                          { launchInstanceModel: model });
       }));
 
       it('has correct ports statuses', function() {
@@ -63,25 +62,35 @@
         expect(ctrl.tableHelpText.allocHelpText).toBeDefined();
       });
 
-      it('nameOrId return the name', function() {
-        var obj = {name: 'test_name', id: 'test_id'};
+      it('nameOrID returns the name', function() {
         expect(ctrl.nameOrID).toBeDefined();
-        expect(ctrl.nameOrID(obj)).toBe('test_name');
+        expect(ctrl.nameOrID(port)).toBe('test_name');
       });
 
-      it('nameOrId return the id if the name is missing', function() {
+      it('nameOrID returns the id if the name is missing', function() {
         expect(ctrl.nameOrID).toBeDefined();
         expect(ctrl.nameOrID({'id': 'testid'})).toBe('testid');
+      });
+
+      it('getPortsObj returns generated ports object', function() {
+        expect(ctrl.getPortsObj).toBeDefined();
+        expect(ctrl.isPortsObjGenerated).toBe(false);
+        expect(ctrl.getPortsObj([port])).toEqual({'test_id': port});
+        expect(ctrl.isPortsObjGenerated).toBe(true);
+      });
+
+      it('getPortsObj returns existing ports object', function() {
+        ctrl.portsObj = {'test_id': port};
+        ctrl.isPortsObjGenerated = true;
+        expect(ctrl.getPortsObj).toBeDefined();
+        expect(ctrl.getPortsObj([port])).toEqual({'test_id': port});
       });
 
       it('uses scope to set table data', function() {
         expect(ctrl.tableDataMulti).toBeDefined();
         expect(ctrl.tableDataMulti.available).toEqual(['port-a', 'port-b']);
         expect(ctrl.tableDataMulti.allocated).toEqual(['port-a']);
-        expect(ctrl.tableDataMulti.displayedAllocated).toEqual([]);
-        expect(ctrl.tableDataMulti.displayedAvailable).toEqual([]);
       });
     });
-
   });
 })();

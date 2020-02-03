@@ -27,11 +27,12 @@
     .controller('LaunchInstanceNetworkPortController', LaunchInstanceNetworkPortController);
 
   LaunchInstanceNetworkPortController.$inject = [
-    '$scope',
+    'horizon.dashboard.project.workflow.launch-instance.basePath',
+    'launchInstanceModel',
     'horizon.framework.widgets.action-list.button-tooltip.row-warning.service'
   ];
 
-  function LaunchInstanceNetworkPortController($scope, tooltipService) {
+  function LaunchInstanceNetworkPortController(basePath, launchInstanceModel, tooltipService) {
     var ctrl = this;
 
     ctrl.portStatuses = {
@@ -53,25 +54,96 @@
       'virtio-forwarder': gettext('Virtio Forwarder')
     };
 
+    function getPortStatus(status) {
+      return ctrl.portStatuses[status];
+    }
+
+    function getPortAdminState(state) {
+      return ctrl.portAdminStates[state];
+    }
+
+    var portsArr = launchInstanceModel.ports;
+    ctrl.portsObj = {};
+    ctrl.isPortsObjGenerated = false;
+
+    function getNameOrID(id) {
+      ctrl.portsObj = ctrl.getPortsObj(portsArr);
+      var port = ctrl.portsObj[id];
+      return ctrl.nameOrID(port);
+    }
+
+    function getPortFixedIPs(id) {
+      var port = ctrl.portsObj[id];
+      var fixedIPs = '';
+      for (var ip in port.subnet_names) {
+        fixedIPs += ip + ' on subnet ' + port.subnet_names[ip] + '\n';
+      }
+      return fixedIPs;
+    }
+
     ctrl.tableDataMulti = {
-      available: $scope.model.ports,
-      allocated: $scope.model.newInstanceSpec.ports,
-      displayedAvailable: [],
-      displayedAllocated: []
+      available: launchInstanceModel.ports,
+      allocated: launchInstanceModel.newInstanceSpec.ports
     };
+
+    ctrl.availableTableConfig = {
+      selectAll: false,
+      trackId: 'id',
+      detailsTemplateUrl: basePath + 'networkports/port-details.html',
+      columns: [
+        {id: 'id', title: gettext('Name'), priority: 1, filters: [getNameOrID]},
+        {id: 'id', title: gettext('IP'), priority: 2, filters: [getPortFixedIPs]},
+        {id: 'admin_state', title: gettext('Admin State'), priority: 2,
+         filters: [getPortAdminState]},
+        {id: 'status', title: gettext('Status'), priority: 2, filters: [getPortStatus]}
+      ]
+    };
+
+    ctrl.allocatedTableConfig = angular.copy(ctrl.availableTableConfig);
+
+    ctrl.tableHelpText = {
+      allocHelpText: gettext('Select ports from those listed below.'),
+      availHelpText: gettext('Select one or more ports')
+    };
+
+    ctrl.filterFacets = [{
+      label: gettext('Name'),
+      name: 'name',
+      singleton: true
+    }, {
+      label: gettext('ID'),
+      name: 'id',
+      singleton: true
+    }, {
+      label: gettext('Admin State'),
+      name: 'admin_state',
+      singleton: true
+    }, {
+      label: gettext('Status'),
+      name: 'status',
+      singleton: true
+    }];
 
     ctrl.tableLimits = {
       maxAllocation: -1
-    };
-
-    ctrl.tableHelpText = {
-      allocHelpText: gettext('Select ports from those listed below.')
     };
 
     ctrl.tooltipModel = tooltipService;
 
     ctrl.nameOrID = function nameOrId(data) {
       return angular.isDefined(data.name) && data.name !== '' ? data.name : data.id;
+    };
+
+    ctrl.getPortsObj = function (data) {
+      if (!ctrl.isPortsObjGenerated) {
+        var ports = data.reduce(function (acc, cur) {
+          acc[cur.id] = cur;
+          return acc;
+        }, {});
+        ctrl.isPortsObjGenerated = true;
+        return ports;
+      }
+      else { return ctrl.portsObj; }
     };
   }
 })();
