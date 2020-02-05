@@ -71,6 +71,7 @@ class Login(django_auth_forms.AuthenticationForm):
         label=_("User Name"),
         widget=forms.TextInput(attrs={"autofocus": "autofocus"}))
     password = forms.CharField(label=_("Password"),
+                               strip=False,
                                widget=forms.PasswordInput(render_value=False))
 
     def __init__(self, *args, **kwargs):
@@ -190,14 +191,17 @@ class Password(forms.Form):
             ), (
                 'original_password',
                 forms.CharField(label=_("Original password"),
+                                strip=False,
                                 widget=forms.PasswordInput(render_value=False))
             ), (
                 'password',
                 forms.CharField(label=_("New password"),
+                                strip=False,
                                 widget=forms.PasswordInput(render_value=False))
             ), (
                 'confirm_password',
                 forms.CharField(label=_("Confirm password"),
+                                strip=False,
                                 widget=forms.PasswordInput(render_value=False))
             ),
         ])
