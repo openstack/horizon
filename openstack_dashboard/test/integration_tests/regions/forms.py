@@ -77,6 +77,10 @@ class BaseFormFieldRegion(baseregion.BaseRegion,
     def name(self):
         return self.element.get_attribute('name')
 
+    @property
+    def id(self):
+        return self.element.get_attribute('id')
+
     def is_required(self):
         classes = self.driver.get_attribute('class')
         return 'required' in classes
@@ -113,7 +117,7 @@ class CheckBoxFormFieldRegion(CheckBoxMixin, BaseFormFieldRegion):
 class ChooseFileFormFieldRegion(BaseFormFieldRegion):
     """Choose file field."""
 
-    _element_locator_str_suffix = 'div > input[type=file]'
+    _element_locator_str_suffix = 'input[type=file]'
 
     def choose(self, path):
         self.element.send_keys(os.path.join(os.getcwd(), path))
@@ -136,31 +140,31 @@ class TextInputFormFieldRegion(BaseTextFormFieldRegion):
     """Text input box."""
 
     _element_locator_str_suffix = \
-        'div > input[type=text], div > input[type=None]'
+        'input[type=text], input[type=None]'
 
 
 class PasswordInputFormFieldRegion(BaseTextFormFieldRegion):
     """Password text input box."""
 
-    _element_locator_str_suffix = 'div > input[type=password]'
+    _element_locator_str_suffix = 'input[type=password]'
 
 
 class EmailInputFormFieldRegion(BaseTextFormFieldRegion):
     """Email text input box."""
 
-    _element_locator_str_suffix = 'div > input[type=email]'
+    _element_locator_str_suffix = 'input[type=email]'
 
 
 class TextAreaFormFieldRegion(BaseTextFormFieldRegion):
     """Multi-line text input box."""
 
-    _element_locator_str_suffix = 'div > textarea'
+    _element_locator_str_suffix = 'textarea'
 
 
 class IntegerFormFieldRegion(BaseFormFieldRegion):
     """Integer input box."""
 
-    _element_locator_str_suffix = 'div > input[type=number]'
+    _element_locator_str_suffix = 'input[type=number]'
 
     @property
     def value(self):
@@ -174,7 +178,7 @@ class IntegerFormFieldRegion(BaseFormFieldRegion):
 class SelectFormFieldRegion(BaseFormFieldRegion):
     """Select box field."""
 
-    _element_locator_str_suffix = 'div > select.form-control'
+    _element_locator_str_suffix = 'select.form-control'
 
     def is_displayed(self):
         return self.element._el.is_displayed()
@@ -202,6 +206,10 @@ class SelectFormFieldRegion(BaseFormFieldRegion):
         return self.element._el.get_attribute('name')
 
     @property
+    def id(self):
+        return self.element._el.get_attribute('id')
+
+    @property
     def text(self):
         return self.element.first_selected_option.text
 
@@ -226,7 +234,7 @@ class SelectFormFieldRegion(BaseFormFieldRegion):
 class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
     """Select box field."""
 
-    _element_locator_str_suffix = 'div > .themable-select'
+    _element_locator_str_suffix = '.themable-select'
     _raw_select_locator = (by.By.CSS_SELECTOR, 'select')
     _selected_label_locator = (by.By.CSS_SELECTOR, '.dropdown-title')
     _dropdown_menu_locator = (by.By.CSS_SELECTOR, 'ul.dropdown-menu > li > a')
@@ -332,6 +340,7 @@ class FormRegion(BaseFormRegion):
     _header_locator = (by.By.CSS_SELECTOR, 'div.modal-header > h3')
     _side_info_locator = (by.By.CSS_SELECTOR, 'div.right')
     _fields_locator = (by.By.CSS_SELECTOR, 'fieldset')
+    _step_locator = (by.By.CSS_SELECTOR, 'div.step')
 
     # private methods
     def __init__(self, driver, conf, src_elem=None, field_mappings=None):
@@ -359,9 +368,15 @@ class FormRegion(BaseFormRegion):
 
     def _get_form_fields(self):
         factory = FieldFactory(self.driver, self.conf, self.fields_src_elem)
+        fields = {}
         try:
             self._turn_off_implicit_wait()
-            return {field.name: field for field in factory.fields()}
+            for field in factory.fields():
+                if hasattr(field, 'name') and field.name is not None:
+                    fields.update({field.name.replace('-', '_'): field})
+                elif hasattr(field, 'id') and field.id is not None:
+                    fields.update({field.id.replace('-', '_'): field})
+            return fields
         finally:
             self._turn_on_implicit_wait()
 
@@ -461,6 +476,61 @@ class TabbedFormRegion(FormRegion):
     @property
     def tabs(self):
         return menus.TabbedMenuRegion(self.driver,
+                                      self.conf,
+                                      src_elem=self.src_elem)
+
+
+class WizardFormRegion(FormRegion):
+    """Form consists of sequence of steps."""
+
+    _submit_locator = (by.By.CSS_SELECTOR,
+                       '*.btn.btn-primary.finish[type=button]')
+
+    def __init__(self, driver, conf, field_mappings=None, default_step=0):
+        self.current_step = default_step
+        super(WizardFormRegion, self).__init__(driver,
+                                               conf,
+                                               field_mappings=field_mappings)
+
+    def _form_getter(self):
+        return self.driver.find_element(*self._default_form_locator)
+
+    def _prepare_mappings(self, field_mappings):
+        return [
+            super(WizardFormRegion, self)._prepare_mappings(step_mappings)
+            for step_mappings in field_mappings
+        ]
+
+    def _init_form_fields(self):
+        self.switch_to(self.current_step)
+
+    def _init_step_fields(self, step_index):
+        steps = self._get_elements(*self._step_locator)
+        self.fields_src_elem = steps[step_index]
+        fields = self._get_form_fields()
+        current_step_mappings = self.field_mappings[step_index]
+        for accessor_name, accessor_expr in current_step_mappings.items():
+            if isinstance(accessor_expr, str):
+                self._dynamic_properties[accessor_name] = fields[accessor_expr]
+            else:  # it is a class
+                self._dynamic_properties[accessor_name] = accessor_expr(
+                    self.driver, self.conf)
+
+    def switch_to(self, step_index=0):
+        self.steps.switch_to(index=step_index)
+        self._init_step_fields(step_index)
+
+    def wait_till_wizard_disappears(self):
+        try:
+            self.wait_till_element_disappears(self._form_getter)
+        except exceptions.StaleElementReferenceException:
+            # The form might be absent already by the time the first check
+            # occurs. So just suppress the exception here.
+            pass
+
+    @property
+    def steps(self):
+        return menus.WizardMenuRegion(self.driver,
                                       self.conf,
                                       src_elem=self.src_elem)
 

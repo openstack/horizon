@@ -23,7 +23,10 @@ class TestInstances(helpers.TestCase):
     def instances_page(self):
         return self.home_pg.go_to_project_compute_instancespage()
 
-    @pytest.mark.skip(reason="Bug 1774697")
+    @property
+    def instance_table_name_column(self):
+        return 'Instance Name'
+
     def test_create_delete_instance(self):
         """tests the instance creation and deletion functionality:
 
@@ -35,16 +38,14 @@ class TestInstances(helpers.TestCase):
         instances_page = self.home_pg.go_to_project_compute_instancespage()
 
         instances_page.create_instance(self.INSTANCE_NAME)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertTrue(instances_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_active(self.INSTANCE_NAME))
 
         instances_page = self.instances_page
         instances_page.delete_instance(self.INSTANCE_NAME)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertTrue(instances_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
@@ -242,7 +243,12 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
 
     @property
     def instances_page(self):
+        self.home_pg.go_to_admin_overviewpage()
         return self.home_pg.go_to_admin_compute_instancespage()
+
+    @property
+    def instance_table_name_column(self):
+        return 'Name'
 
     @pytest.mark.skip(reason="Bug 1774697")
     def test_instances_pagination_and_filtration(self):
