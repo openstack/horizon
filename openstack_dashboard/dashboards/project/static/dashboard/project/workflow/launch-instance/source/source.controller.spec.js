@@ -134,8 +134,10 @@
           expect(ctrl.currentBootSource).toBe('snapshot');
 
           // Change the allowed boot sources
-          scope.model.allowedBootSources = [{type: 'image', label: 'Image'},
-            {type: 'snapshot', label: 'Snapshot'}];
+          scope.model.allowedBootSources = [
+            {type: 'image', label: 'Image', selected: false},
+            {type: 'snapshot', label: 'Snapshot', selected: true}
+          ];
 
           scope.$apply();
 

@@ -409,8 +409,8 @@
     );
 
     // When the allowedboot list changes, change the source_type
-    // and update the table for the new source selection. Only done
-    // with the first item for the list
+    // and update the table for the new source selection. The devault value is
+    // set by the DEFAULT_BOOT_SOURCE config option.
     // The boot source is changed only if the selected value is not included
     // in the updated list (newValue)
     var allowedBootSourcesWatcher = $scope.$watchCollection(
@@ -419,13 +419,14 @@
       },
       function changeBootSource(newValue) {
         if (angular.isArray(newValue) && newValue.length > 0 ) {
-          if (!$scope.model.newInstanceSpec.source_type ||
-              newValue.filter(function(value) {
-                return value.type === $scope.model.newInstanceSpec.source_type.type;
-              }).length === 0) {
-            updateBootSourceSelection(newValue[0].type);
-            $scope.model.newInstanceSpec.source_type = newValue[0];
+          var opt = newValue[0];
+          for (var index = 0; index < newValue.length; index++) {
+            if (newValue[index].selected) {
+              opt = newValue[index];
+            }
           }
+          updateBootSourceSelection(opt.type);
+          $scope.model.newInstanceSpec.source_type = opt;
         }
       }
     );

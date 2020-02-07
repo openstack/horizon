@@ -2052,6 +2052,20 @@ This setting specifies the type of in-browser console used to access the VMs.
 Valid values are  ``"AUTO"``, ``"VNC"``, ``"SPICE"``, ``"RDP"``,
 ``"SERIAL"``, ``"MKS"``, and ``None``.
 
+DEFAULT_BOOT_SOURCE
+~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 18.1.0(Ussuri)
+
+Default: ``image``
+
+A default instance boot source. Allowed values are:
+
+* ``image`` - boot instance from image (default option)
+* ``snapshot`` - boot instance from instance snapshot
+* ``volume`` - boot instance from volume
+* ``volume_snapshot`` - boot instance from volume snapshot
+
 INSTANCE_LOG_LENGTH
 ~~~~~~~~~~~~~~~~~~~
 
