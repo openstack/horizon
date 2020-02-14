@@ -341,9 +341,7 @@ def get_project_list(*args, **kwargs):
     auth = token_endpoint.Token(auth_url, kwargs['token'])
     client = get_keystone_client().Client(session=sess, auth=auth)
 
-    if get_keystone_version() < 3:
-        projects = client.tenants.list()
-    elif is_federated:
+    if is_federated:
         projects = client.federation.projects.list()
     else:
         projects = client.projects.list(user=kwargs.get('user_id'))
