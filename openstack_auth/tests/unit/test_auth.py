@@ -23,6 +23,7 @@ from keystoneauth1.identity import v3 as v3_auth
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint
 from keystoneclient.v3 import client as client_v3
+import mock
 from mox3 import mox
 from testscenarios import load_tests_apply_scenarios
 
@@ -56,11 +57,6 @@ class OpenStackAuthTestsMixin(object):
                                       unscoped.auth_token)
         return self.ks_client_module.Client(session=mox.IsA(session.Session),
                                             auth=plugin)
-
-    def _mock_client_password_auth_failure(self, username, password, exc):
-        plugin = self._create_password_auth(username=username,
-                                            password=password)
-        plugin.get_access(mox.IsA(session.Session)).AndRaise(exc)
 
     def _mock_scoped_client_for_tenant(self, auth_ref, tenant_id, url=None,
                                        client=True, token=None):
@@ -243,27 +239,6 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         self.mox.StubOutClassWithMocks(client_v3, 'Client')
         self.mox.StubOutClassWithMocks(v3_auth, 'Keystone2Keystone')
 
-    def test_login(self):
-        projects = [self.data.project_one, self.data.project_two]
-        user = self.data.user
-        unscoped = self.data.unscoped_access_info
-
-        form_data = self.get_form_data(user)
-        self._mock_unscoped_and_domain_list_projects(user, projects)
-        self._mock_scoped_client_for_tenant(unscoped, self.data.project_one.id)
-
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        # GET the page to set the test cookie.
-        response = self.client.get(url, form_data)
-        self.assertEqual(response.status_code, 200)
-
-        # POST to the page to log in.
-        response = self.client.post(url, form_data)
-        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
-
     def test_login_with_disabled_project(self):
         # Test to validate that authentication will not try to get
         # scoped token for disabled project.
@@ -340,50 +315,6 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         self.assertTemplateUsed(response, 'auth/login.html')
         self.assertContains(response,
                             'Unable to retrieve authorized projects.')
-
-    def test_invalid_credentials(self):
-        user = self.data.user
-
-        form_data = self.get_form_data(user)
-
-        form_data['password'] = "invalid"
-
-        exc = keystone_exceptions.Unauthorized(401)
-        self._mock_client_password_auth_failure(user.name, "invalid", exc)
-
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        # GET the page to set the test cookie.
-        response = self.client.get(url, form_data)
-        self.assertEqual(response.status_code, 200)
-
-        # POST to the page to log in.
-        response = self.client.post(url, form_data)
-        self.assertTemplateUsed(response, 'auth/login.html')
-        self.assertContains(response, "Invalid credentials.")
-
-    def test_exception(self):
-        user = self.data.user
-        form_data = self.get_form_data(user)
-        exc = keystone_exceptions.ClientException(500)
-        self._mock_client_password_auth_failure(user.name, user.password, exc)
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        # GET the page to set the test cookie.
-        response = self.client.get(url, form_data)
-        self.assertEqual(response.status_code, 200)
-
-        # POST to the page to log in.
-        response = self.client.post(url, form_data)
-
-        self.assertTemplateUsed(response, 'auth/login.html')
-        self.assertContains(response,
-                            ("An error occurred authenticating. Please try "
-                             "again later."))
 
     def test_switch(self, next=None):
         project = self.data.project_two
@@ -763,35 +694,6 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         self.assertContains(response, 'option value="Default"')
         settings.OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN = False
 
-    def test_password_expired(self):
-        user = self.data.user
-        form_data = self.get_form_data(user)
-
-        class ExpiredException(keystone_exceptions.Unauthorized):
-            http_status = 401
-            message = ("The password is expired and needs to be changed"
-                       " for user: %s." % user.id)
-
-        exc = ExpiredException()
-        self._mock_client_password_auth_failure(user.name, user.password, exc)
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        # GET the page to set the test cookie.
-        response = self.client.get(url, form_data)
-        self.assertEqual(response.status_code, 200)
-
-        # POST to the page to log in.
-        response = self.client.post(url, form_data)
-
-        # This fails with TemplateDoesNotExist for some reason.
-        # self.assertRedirects(response, reverse('password', args=[user.id]))
-        # so instead we check for the redirect manually:
-
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, "/password/%s/" % user.id)
-
 
 class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
                                OpenStackAuthFederatedTestsMixin,
@@ -976,6 +878,124 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
         response = self.client.get(url)
         self.assertRedirects(response, settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT,
                              status_code=302, target_status_code=301)
+
+
+class OpenStackAuthTestsV3WithMock(test.TestCase):
+
+    def get_form_data(self, user):
+        return {'region': "default",
+                'domain': DEFAULT_DOMAIN,
+                'password': user.password,
+                'username': user.name}
+
+    def setUp(self):
+        super(OpenStackAuthTestsV3WithMock, self).setUp()
+
+        if getattr(self, 'interface', None):
+            override = self.settings(OPENSTACK_ENDPOINT_TYPE=self.interface)
+            override.enable()
+            self.addCleanup(override.disable)
+
+        self.data = data_v3.generate_test_data()
+        settings.OPENSTACK_API_VERSIONS['identity'] = 3
+        settings.OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v3"
+
+    @mock.patch('keystoneauth1.identity.v3.Token.get_access')
+    @mock.patch('keystoneauth1.identity.v3.Password.get_access')
+    @mock.patch('keystoneclient.v3.client.Client')
+    def test_login(self, mock_client, mock_get_access, mock_get_access_token):
+        projects = [self.data.project_one, self.data.project_two]
+        user = self.data.user
+        form_data = self.get_form_data(user)
+        url = reverse('login')
+
+        mock_get_access.return_value = self.data.unscoped_access_info
+        mock_client.return_value.projects.list.return_value = projects
+        # TODO(stephenfin): What is the return type of this method?
+        mock_get_access_token.return_value = self.data.unscoped_access_info
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+    @mock.patch('keystoneauth1.identity.v3.Password.get_access')
+    def test_invalid_credentials(self, mock_get_access):
+        user = self.data.user
+        form_data = self.get_form_data(user)
+        form_data['password'] = "invalid"
+        url = reverse('login')
+
+        mock_get_access.side_effect = keystone_exceptions.Unauthorized(401)
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+        self.assertTemplateUsed(response, 'auth/login.html')
+        self.assertContains(response, "Invalid credentials.")
+
+        mock_get_access.assert_called_once_with(mock.ANY)
+        self.assertIsInstance(mock_get_access.call_args_list[0][0][0],
+                              session.Session)
+
+    @mock.patch('keystoneauth1.identity.v3.Password.get_access')
+    def test_exception(self, mock_get_access):
+        user = self.data.user
+        form_data = self.get_form_data(user)
+        url = reverse('login')
+
+        mock_get_access.side_effect = keystone_exceptions.ClientException(500)
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+        self.assertTemplateUsed(response, 'auth/login.html')
+        self.assertContains(response,
+                            ("An error occurred authenticating. Please try "
+                             "again later."))
+
+        mock_get_access.assert_called_once_with(mock.ANY)
+        self.assertIsInstance(mock_get_access.call_args_list[0][0][0],
+                              session.Session)
+
+    @mock.patch('keystoneauth1.identity.v3.Password.get_access')
+    def test_password_expired(self, mock_get_access):
+        user = self.data.user
+        form_data = self.get_form_data(user)
+        url = reverse('login')
+
+        class ExpiredException(keystone_exceptions.Unauthorized):
+            http_status = 401
+            message = ("The password is expired and needs to be changed"
+                       " for user: %s." % user.id)
+
+        mock_get_access.side_effect = ExpiredException()
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+
+        # This fails with TemplateDoesNotExist for some reason.
+        # self.assertRedirects(response, reverse('password', args=[user.id]))
+        # so instead we check for the redirect manually:
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, "/password/%s/" % user.id)
+
+        mock_get_access.assert_called_once_with(mock.ANY)
+        self.assertIsInstance(mock_get_access.call_args_list[0][0][0],
+                              session.Session)
 
 
 load_tests = load_tests_apply_scenarios
