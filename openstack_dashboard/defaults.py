@@ -213,6 +213,10 @@ HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
 # configuration and policies allow setting locations.
 IMAGES_ALLOW_LOCATION = False
 
+# A default instance boot source. Allowed values are: "image", "snapshot",
+# "volume" and "volume_snapshot"
+DEFAULT_BOOT_SOURCE = "image"
+
 # The IMAGE_CUSTOM_PROPERTY_TITLES settings is used to customize the titles for
 # image custom property attributes that appear on image detail pages.
 IMAGE_CUSTOM_PROPERTY_TITLES = {
@@ -522,6 +526,7 @@ ANGULAR_FEATURES = {
 # See: https://wiki.openstack.org/wiki/Horizon/RESTAPI
 REST_API_REQUIRED_SETTINGS = [
     'CREATE_IMAGE_DEFAULTS',
+    'DEFAULT_BOOT_SOURCE'
     'ENFORCE_PASSWORD_CHECK'
     'LAUNCH_INSTANCE_DEFAULTS',
     'OPENSTACK_HYPERVISOR_FEATURES',

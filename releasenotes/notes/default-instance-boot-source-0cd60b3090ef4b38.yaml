@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Introduced a new ``DEFAULT_BOOT_SOURCE`` config option to allow
+    operators to configure a default instance boot source.

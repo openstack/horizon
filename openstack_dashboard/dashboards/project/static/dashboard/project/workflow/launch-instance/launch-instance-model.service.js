@@ -247,6 +247,10 @@
         model.allowedBootSources.length = 0;
 
         var launchInstanceDefaults = settings.getSetting('LAUNCH_INSTANCE_DEFAULTS');
+        settings.getSetting('DEFAULT_BOOT_SOURCE').then(
+          function (response) {
+            model.defaultBootSource = response;
+          });
 
         promise = $q.all([
           novaAPI.getAvailabilityZones().then(onGetAvailabilityZones)
@@ -726,10 +730,13 @@
 
     function addAllowedBootSource(rawTypes, type, label) {
       if (rawTypes) {
+        var selected = model.defaultBootSource === type;
         model.allowedBootSources.push({
           type: type,
-          label: label
+          label: label,
+          selected: selected
         });
+
         model.allowedBootSources.sort(function(a, b) {
           return a.type > b.type;
         });

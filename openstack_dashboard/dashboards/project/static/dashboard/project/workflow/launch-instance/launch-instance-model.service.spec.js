@@ -170,12 +170,13 @@
               disable_instance_snapshot: false,
               disable_volume: false,
               disable_volume_snapshot: false
-            }
+            },
+            DEFAULT_BOOT_SOURCE: 'image'
           };
-          IMAGE = {type: 'image', label: 'Image'};
-          VOLUME = {type: 'volume', label: 'Volume'};
-          VOLUME_SNAPSHOT = {type: 'volume_snapshot', label: 'Volume Snapshot'};
-          INSTANCE_SNAPSHOT = {type: 'snapshot', label: 'Instance Snapshot'};
+          IMAGE = {type: 'image', label: 'Image', selected: true};
+          VOLUME = {type: 'volume', label: 'Volume', selected: false};
+          VOLUME_SNAPSHOT = {type: 'volume_snapshot', label: 'Volume Snapshot', selected: false};
+          INSTANCE_SNAPSHOT = {type: 'snapshot', label: 'Instance Snapshot', selected: false};
         });
         $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
 
