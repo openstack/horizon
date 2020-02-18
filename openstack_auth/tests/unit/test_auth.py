@@ -23,15 +23,28 @@ from keystoneauth1.identity import v3 as v3_auth
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint
 from keystoneclient.v3 import client as client_v3
+from keystoneclient.v3 import projects
 import mock
 from mox3 import mox
-from testscenarios import load_tests_apply_scenarios
 
+
+from openstack_auth.plugin import password
 from openstack_auth.tests import data_v3
 from openstack_auth import utils
 
 
 DEFAULT_DOMAIN = settings.OPENSTACK_KEYSTONE_DEFAULT_DOMAIN
+
+
+# NOTE(e0ne): it's copy-pasted from horizon.test.helpers module until we
+# figure out how to avoid this.
+class IsA(object):
+    """Class to compare param is a specified class."""
+    def __init__(self, cls):
+        self.cls = cls
+
+    def __eq__(self, other):
+        return isinstance(other, self.cls)
 
 
 class OpenStackAuthTestsMixin(object):
@@ -238,83 +251,6 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         self.mox.StubOutClassWithMocks(v3_auth, 'Password')
         self.mox.StubOutClassWithMocks(client_v3, 'Client')
         self.mox.StubOutClassWithMocks(v3_auth, 'Keystone2Keystone')
-
-    def test_login_with_disabled_project(self):
-        # Test to validate that authentication will not try to get
-        # scoped token for disabled project.
-        projects = [self.data.project_two, self.data.project_one]
-        user = self.data.user
-        unscoped = self.data.unscoped_access_info
-
-        form_data = self.get_form_data(user)
-        self._mock_unscoped_and_domain_list_projects(user, projects)
-        self._mock_scoped_client_for_tenant(unscoped, self.data.project_one.id)
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        # GET the page to set the test cookie.
-        response = self.client.get(url, form_data)
-        self.assertEqual(response.status_code, 200)
-
-        # POST to the page to log in.
-        response = self.client.post(url, form_data)
-        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
-
-    def test_no_enabled_projects(self):
-        projects = [self.data.project_two]
-        user = self.data.user
-
-        form_data = self.get_form_data(user)
-
-        self._mock_unscoped_and_domain_list_projects(user, projects)
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        # GET the page to set the test cookie.
-        response = self.client.get(url, form_data)
-        self.assertEqual(response.status_code, 200)
-
-        # POST to the page to log in.
-        response = self.client.post(url, form_data)
-        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
-
-    def test_no_projects(self):
-        user = self.data.user
-        form_data = self.get_form_data(user)
-
-        self._mock_unscoped_and_domain_list_projects(user, [])
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        # GET the page to set the test cookie.
-        response = self.client.get(url, form_data)
-        self.assertEqual(response.status_code, 200)
-
-        # POST to the page to log in.
-        response = self.client.post(url, form_data)
-        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
-
-    def test_fail_projects(self):
-        user = self.data.user
-
-        form_data = self.get_form_data(user)
-        self._mock_unscoped_client_list_projects_fail(user)
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        # GET the page to set the test cookie.
-        response = self.client.get(url, form_data)
-        self.assertEqual(response.status_code, 200)
-
-        # POST to the page to log in.
-        response = self.client.post(url, form_data)
-        self.assertTemplateUsed(response, 'auth/login.html')
-        self.assertContains(response,
-                            'Unable to retrieve authorized projects.')
 
     def test_switch(self, next=None):
         project = self.data.project_two
@@ -650,50 +586,6 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
                          unscoped.auth_token)
         self.assertEqual(self.client.session['k2k_auth_url'], auth_url)
 
-    def test_tenant_sorting(self):
-        projects = [self.data.project_two, self.data.project_one]
-        expected_projects = [self.data.project_one, self.data.project_two]
-        user = self.data.user
-        unscoped = self.data.unscoped_access_info
-
-        client = self._mock_unscoped_client_with_token(user, unscoped)
-        self._mock_unscoped_list_projects(client, user, projects)
-        self.mox.ReplayAll()
-
-        project_list = utils.get_project_list(
-            user_id=user.id,
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            token=unscoped.auth_token)
-        self.assertEqual(project_list, expected_projects)
-
-    def test_login_form_multidomain(self):
-        override = self.settings(OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT=True)
-        override.enable()
-        self.addCleanup(override.disable)
-
-        url = reverse('login')
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'id="id_domain"')
-        self.assertContains(response, 'name="domain"')
-
-    def test_login_form_multidomain_dropdown(self):
-        override = self.settings(OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT=True,
-                                 OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN=True,
-                                 OPENSTACK_KEYSTONE_DOMAIN_CHOICES=(
-                                     ('Default', 'Default'),)
-                                 )
-        override.enable()
-        self.addCleanup(override.disable)
-
-        url = reverse('login')
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'id="id_domain"')
-        self.assertContains(response, 'name="domain"')
-        self.assertContains(response, 'option value="Default"')
-        settings.OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN = False
-
 
 class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
                                OpenStackAuthFederatedTestsMixin,
@@ -997,5 +889,166 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         self.assertIsInstance(mock_get_access.call_args_list[0][0][0],
                               session.Session)
 
+    def test_login_form_multidomain(self):
+        override = self.settings(OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT=True)
+        override.enable()
+        self.addCleanup(override.disable)
 
-load_tests = load_tests_apply_scenarios
+        url = reverse('login')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'id="id_domain"')
+        self.assertContains(response, 'name="domain"')
+
+    def test_login_form_multidomain_dropdown(self):
+        override = self.settings(OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT=True,
+                                 OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN=True,
+                                 OPENSTACK_KEYSTONE_DOMAIN_CHOICES=(
+                                     ('Default', 'Default'),)
+                                 )
+        override.enable()
+        self.addCleanup(override.disable)
+
+        url = reverse('login')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'id="id_domain"')
+        self.assertContains(response, 'name="domain"')
+        self.assertContains(response, 'option value="Default"')
+        settings.OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN = False
+
+    @mock.patch.object(projects.ProjectManager, 'list')
+    def test_tenant_sorting(self, mock_project_list):
+        projects = [self.data.project_two, self.data.project_one]
+        expected_projects = [self.data.project_one, self.data.project_two]
+        user = self.data.user
+        unscoped = self.data.unscoped_access_info
+
+        mock_project_list.return_value = projects
+
+        project_list = utils.get_project_list(
+            user_id=user.id,
+            auth_url=settings.OPENSTACK_KEYSTONE_URL,
+            token=unscoped.auth_token)
+        self.assertEqual(project_list, expected_projects)
+
+        mock_project_list.assert_called_once()
+
+    @mock.patch.object(v3_auth.Token, 'get_access')
+    @mock.patch.object(password.PasswordPlugin, 'list_projects')
+    @mock.patch.object(v3_auth.Password, 'get_access')
+    def test_login_with_disabled_project(self, mock_access, mock_project_list,
+                                         mock_token):
+        # Test to validate that authentication will not try to get
+        # scoped token for disabled project.
+        projects = [self.data.project_two, self.data.project_one]
+        user = self.data.user
+
+        mock_access.return_value = self.data.unscoped_access_info
+        mock_project_list.return_value = projects
+        mock_token.return_value = self.data.unscoped_access_info
+
+        form_data = self.get_form_data(user)
+
+        url = reverse('login')
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+        mock_access.assert_called_once_with(IsA(session.Session))
+        mock_token.assert_called_with(IsA(session.Session))
+        mock_project_list.assert_called_once_with(
+            IsA(session.Session),
+            IsA(v3_auth.Password),
+            self.data.unscoped_access_info)
+
+    @mock.patch.object(v3_auth.Token, 'get_access')
+    @mock.patch.object(password.PasswordPlugin, 'list_projects')
+    @mock.patch.object(v3_auth.Password, 'get_access')
+    def test_no_enabled_projects(self, mock_access, mock_project_list,
+                                 mock_token):
+        projects = [self.data.project_two]
+        user = self.data.user
+
+        mock_access.return_value = self.data.unscoped_access_info
+        mock_project_list.return_value = projects
+        mock_token.return_value = self.data.unscoped_access_info
+
+        form_data = self.get_form_data(user)
+
+        url = reverse('login')
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        mock_access.assert_called_once_with(IsA(session.Session))
+        mock_token.assert_called_with(IsA(session.Session))
+        mock_project_list.assert_called_once_with(
+            IsA(session.Session),
+            IsA(v3_auth.Password),
+            self.data.unscoped_access_info)
+
+    @mock.patch.object(v3_auth.Token, 'get_access')
+    @mock.patch.object(password.PasswordPlugin, 'list_projects')
+    @mock.patch.object(v3_auth.Password, 'get_access')
+    def test_no_projects(self, mock_access, mock_project_list, mock_token):
+        user = self.data.user
+        form_data = self.get_form_data(user)
+
+        mock_access.return_value = self.data.unscoped_access_info
+        mock_token.return_value = self.data.unscoped_access_info
+        mock_project_list.return_value = []
+
+        url = reverse('login')
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        mock_access.assert_called_once_with(IsA(session.Session))
+        mock_token.assert_called_with(IsA(session.Session))
+        mock_project_list.assert_called_once_with(
+            IsA(session.Session),
+            IsA(v3_auth.Password),
+            self.data.unscoped_access_info)
+
+    @mock.patch.object(v3_auth.Token, 'get_access')
+    @mock.patch.object(projects.ProjectManager, 'list')
+    @mock.patch.object(v3_auth.Password, 'get_access')
+    def test_fail_projects(self, mock_access, mock_project_list, mock_token):
+        user = self.data.user
+
+        form_data = self.get_form_data(user)
+
+        mock_access.return_value = self.data.unscoped_access_info
+        mock_token.return_value = self.data.unscoped_access_info
+        mock_project_list.side_effect = keystone_exceptions.AuthorizationFailure
+
+        url = reverse('login')
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+        self.assertTemplateUsed(response, 'auth/login.html')
+        self.assertContains(response,
+                            'Unable to retrieve authorized projects.')
+
+        mock_access.assert_called_once_with(IsA(session.Session))
+        mock_token.assert_called_with(IsA(session.Session))
+        mock_project_list.assert_called_once_with(user=user.id)
