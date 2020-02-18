@@ -27,7 +27,6 @@ from keystoneclient.v3 import projects
 import mock
 from mox3 import mox
 
-
 from openstack_auth.plugin import password
 from openstack_auth.tests import data_v3
 from openstack_auth import utils
@@ -739,9 +738,7 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         self.assertTemplateUsed(response, 'auth/login.html')
         self.assertContains(response, "Invalid credentials.")
 
-        mock_get_access.assert_called_once_with(mock.ANY)
-        self.assertIsInstance(mock_get_access.call_args_list[0][0][0],
-                              session.Session)
+        mock_get_access.assert_called_once_with(IsA(session.Session))
 
     @mock.patch('keystoneauth1.identity.v3.Password.get_access')
     def test_exception(self, mock_get_access):
@@ -762,9 +759,7 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
                             ("An error occurred authenticating. Please try "
                              "again later."))
 
-        mock_get_access.assert_called_once_with(mock.ANY)
-        self.assertIsInstance(mock_get_access.call_args_list[0][0][0],
-                              session.Session)
+        mock_get_access.assert_called_once_with(IsA(session.Session))
 
     @mock.patch('keystoneauth1.identity.v3.Password.get_access')
     def test_password_expired(self, mock_get_access):
@@ -792,9 +787,7 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, "/password/%s/" % user.id)
 
-        mock_get_access.assert_called_once_with(mock.ANY)
-        self.assertIsInstance(mock_get_access.call_args_list[0][0][0],
-                              session.Session)
+        mock_get_access.assert_called_once_with(IsA(session.Session))
 
     def test_login_form_multidomain(self):
         override = self.settings(OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT=True)
@@ -844,16 +837,17 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
     @mock.patch.object(v3_auth.Token, 'get_access')
     @mock.patch.object(password.PasswordPlugin, 'list_projects')
     @mock.patch.object(v3_auth.Password, 'get_access')
-    def test_login_with_disabled_project(self, mock_access, mock_project_list,
-                                         mock_token):
+    def test_login_with_disabled_project(self, mock_get_access,
+                                         mock_project_list,
+                                         mock_get_access_token):
         # Test to validate that authentication will not try to get
         # scoped token for disabled project.
         projects = [self.data.project_two, self.data.project_one]
         user = self.data.user
 
-        mock_access.return_value = self.data.unscoped_access_info
+        mock_get_access.return_value = self.data.unscoped_access_info
         mock_project_list.return_value = projects
-        mock_token.return_value = self.data.unscoped_access_info
+        mock_get_access_token.return_value = self.data.unscoped_access_info
 
         form_data = self.get_form_data(user)
 
@@ -866,8 +860,8 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         # POST to the page to log in.
         response = self.client.post(url, form_data)
         self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
-        mock_access.assert_called_once_with(IsA(session.Session))
-        mock_token.assert_called_with(IsA(session.Session))
+        mock_get_access.assert_called_once_with(IsA(session.Session))
+        mock_get_access_token.assert_called_with(IsA(session.Session))
         mock_project_list.assert_called_once_with(
             IsA(session.Session),
             IsA(v3_auth.Password),
@@ -876,14 +870,14 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
     @mock.patch.object(v3_auth.Token, 'get_access')
     @mock.patch.object(password.PasswordPlugin, 'list_projects')
     @mock.patch.object(v3_auth.Password, 'get_access')
-    def test_no_enabled_projects(self, mock_access, mock_project_list,
-                                 mock_token):
+    def test_no_enabled_projects(self, mock_get_access, mock_project_list,
+                                 mock_get_access_token):
         projects = [self.data.project_two]
         user = self.data.user
 
-        mock_access.return_value = self.data.unscoped_access_info
+        mock_get_access.return_value = self.data.unscoped_access_info
         mock_project_list.return_value = projects
-        mock_token.return_value = self.data.unscoped_access_info
+        mock_get_access_token.return_value = self.data.unscoped_access_info
 
         form_data = self.get_form_data(user)
 
@@ -897,8 +891,8 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         response = self.client.post(url, form_data)
         self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
 
-        mock_access.assert_called_once_with(IsA(session.Session))
-        mock_token.assert_called_with(IsA(session.Session))
+        mock_get_access.assert_called_once_with(IsA(session.Session))
+        mock_get_access_token.assert_called_with(IsA(session.Session))
         mock_project_list.assert_called_once_with(
             IsA(session.Session),
             IsA(v3_auth.Password),
@@ -907,12 +901,13 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
     @mock.patch.object(v3_auth.Token, 'get_access')
     @mock.patch.object(password.PasswordPlugin, 'list_projects')
     @mock.patch.object(v3_auth.Password, 'get_access')
-    def test_no_projects(self, mock_access, mock_project_list, mock_token):
+    def test_no_projects(self, mock_get_access, mock_project_list,
+                         mock_get_access_token):
         user = self.data.user
         form_data = self.get_form_data(user)
 
-        mock_access.return_value = self.data.unscoped_access_info
-        mock_token.return_value = self.data.unscoped_access_info
+        mock_get_access.return_value = self.data.unscoped_access_info
+        mock_get_access_token.return_value = self.data.unscoped_access_info
         mock_project_list.return_value = []
 
         url = reverse('login')
@@ -925,8 +920,8 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         response = self.client.post(url, form_data)
         self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
 
-        mock_access.assert_called_once_with(IsA(session.Session))
-        mock_token.assert_called_with(IsA(session.Session))
+        mock_get_access.assert_called_once_with(IsA(session.Session))
+        mock_get_access_token.assert_called_with(IsA(session.Session))
         mock_project_list.assert_called_once_with(
             IsA(session.Session),
             IsA(v3_auth.Password),
@@ -935,13 +930,14 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
     @mock.patch.object(v3_auth.Token, 'get_access')
     @mock.patch.object(projects.ProjectManager, 'list')
     @mock.patch.object(v3_auth.Password, 'get_access')
-    def test_fail_projects(self, mock_access, mock_project_list, mock_token):
+    def test_fail_projects(self, mock_get_access, mock_project_list,
+                           mock_get_access_token):
         user = self.data.user
 
         form_data = self.get_form_data(user)
 
-        mock_access.return_value = self.data.unscoped_access_info
-        mock_token.return_value = self.data.unscoped_access_info
+        mock_get_access.return_value = self.data.unscoped_access_info
+        mock_get_access_token.return_value = self.data.unscoped_access_info
         mock_project_list.side_effect = keystone_exceptions.AuthorizationFailure
 
         url = reverse('login')
@@ -956,14 +952,15 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         self.assertContains(response,
                             'Unable to retrieve authorized projects.')
 
-        mock_access.assert_called_once_with(IsA(session.Session))
-        mock_token.assert_called_with(IsA(session.Session))
+        mock_get_access.assert_called_once_with(IsA(session.Session))
+        mock_get_access_token.assert_called_with(IsA(session.Session))
         mock_project_list.assert_called_once_with(user=user.id)
 
     @mock.patch.object(v3_auth.Token, 'get_access')
     @mock.patch.object(password.PasswordPlugin, 'list_projects')
     @mock.patch.object(v3_auth.Password, 'get_access')
-    def test_switch(self, mock_access, mock_project_list, mock_token,
+    def test_switch(self, mock_get_access, mock_project_list,
+                    mock_get_access_token,
                     next=None):
         project = self.data.project_two
         projects = [self.data.project_one, self.data.project_two]
@@ -972,8 +969,8 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
 
         form_data = self.get_form_data(user)
 
-        mock_access.return_value = self.data.unscoped_access_info
-        mock_token.return_value = scoped
+        mock_get_access.return_value = self.data.unscoped_access_info
+        mock_get_access_token.return_value = scoped
         mock_project_list.return_value = projects
 
         url = reverse('login')
@@ -1002,8 +999,8 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         self.assertEqual(self.client.session['token'].project['id'],
                          scoped.project_id)
 
-        mock_access.assert_called_once_with(IsA(session.Session))
-        mock_token.assert_called_with(IsA(session.Session))
+        mock_get_access.assert_called_once_with(IsA(session.Session))
+        mock_get_access_token.assert_called_with(IsA(session.Session))
         mock_project_list.assert_called_once_with(
             IsA(session.Session),
             IsA(v3_auth.Password),
@@ -1015,7 +1012,8 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
     @mock.patch.object(v3_auth.Token, 'get_access')
     @mock.patch.object(password.PasswordPlugin, 'list_projects')
     @mock.patch.object(v3_auth.Password, 'get_access')
-    def test_switch_region(self, mock_access, mock_project_list, mock_token,
+    def test_switch_region(self, mock_get_access, mock_project_list,
+                           mock_get_access_token,
                            next=None):
         projects = [self.data.project_one, self.data.project_two]
         user = self.data.user
@@ -1024,8 +1022,8 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
 
         form_data = self.get_form_data(user)
 
-        mock_access.return_value = self.data.unscoped_access_info
-        mock_token.return_value = scoped
+        mock_get_access.return_value = self.data.unscoped_access_info
+        mock_get_access_token.return_value = scoped
         mock_project_list.return_value = projects
 
         url = reverse('login')
@@ -1057,8 +1055,8 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
 
         self.assertEqual(self.client.session['services_region'], region)
 
-        mock_access.assert_called_once_with(IsA(session.Session))
-        mock_token.assert_called_with(IsA(session.Session))
+        mock_get_access.assert_called_once_with(IsA(session.Session))
+        mock_get_access_token.assert_called_with(IsA(session.Session))
         mock_project_list.assert_called_once_with(
             IsA(session.Session),
             IsA(v3_auth.Password),
