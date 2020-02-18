@@ -24,12 +24,8 @@ import warnings
 
 from django.utils.translation import ugettext_lazy as _
 
-import openstack_auth
-
-import horizon
 from horizon.utils.escape import monkeypatch_escape
 
-import openstack_dashboard
 from openstack_dashboard import enabled
 from openstack_dashboard import exceptions
 from openstack_dashboard.local import enabled as local_enabled
@@ -370,15 +366,7 @@ HORIZON_COMPRESS_OFFLINE_CONTEXT_BASE = {
 if DEBUG:
     logging.basicConfig(level=logging.DEBUG)
 
-# NOTE(e0ne): Set absolute paths for directories with localization.
-# Django doesn't work well for Taiwanese locale with relative paths
-# wich are used by default and I can't figure out at the moment why it
-# works in this way. We don't use default Django templates, so it should
-# be safe to have such defaults
-LOCALE_PATHS = [
-    os.path.join(os.path.dirname(os.path.abspath(m.__file__)), 'locale')
-    for m in (horizon, openstack_dashboard, openstack_auth)
-]
+
 # Here comes the Django settings deprecation section. Being at the very end
 # of settings.py allows it to catch the settings defined in local_settings.py
 # or inside one of local_settings.d/ snippets.
