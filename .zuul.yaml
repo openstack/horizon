@@ -56,6 +56,15 @@
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^.*/locale/.*$
+      # Unit tests are not related to the integration tests
+      - ^horizon/test/unit/.*$
+      - ^openstack_auth/tests/unit/.*$
+      - ^openstack_dashboard/test/unit/.*$
+      - ^openstack_dashboard/contrib/.*/tests.py$
+      - ^openstack_dashboard/dashboards/.*/tests.py$
+      # JavaScript unit tests are not related to the integration tests
+      - ^openstack_dashboard/.*/[^/]*\.spec\.js$
+      - ^horizon/static/.*/[^/]*\.spec\.js$
     vars:
       devstack_services:
         horizon: true
@@ -78,7 +87,11 @@
       - ^horizon/test/.*$
       - ^openstack_auth/tests/.*$
       - ^openstack_dashboard/test/.*$
+      - ^openstack_dashboard/contrib/.*/tests.py$
       - ^openstack_dashboard/dashboards/.*/tests.py$
+      # JavaScript unit tests are not related to tempest tests
+      - ^openstack_dashboard/.*/[^/]*\.spec\.js$
+      - ^horizon/static/.*/[^/]*\.spec\.js$
     vars: &base_vars
       devstack_localrc:
         TEMPEST_PLUGINS: "{{ ansible_user_dir }}/src/opendev.org/openstack/tempest-horizon"
