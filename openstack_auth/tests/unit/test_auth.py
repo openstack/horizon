@@ -252,99 +252,6 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         self.mox.StubOutClassWithMocks(client_v3, 'Client')
         self.mox.StubOutClassWithMocks(v3_auth, 'Keystone2Keystone')
 
-    def test_switch(self, next=None):
-        project = self.data.project_two
-        projects = [self.data.project_one, self.data.project_two]
-        user = self.data.user
-        scoped = self.data.scoped_access_info
-        sc = self.data.service_catalog
-        et = getattr(settings, 'OPENSTACK_ENDPOINT_TYPE', 'publicURL')
-
-        form_data = self.get_form_data(user)
-
-        self._mock_unscoped_and_domain_list_projects(user, projects)
-        self._mock_scoped_client_for_tenant(scoped, self.data.project_one.id)
-        self._mock_scoped_client_for_tenant(
-            scoped,
-            project.id,
-            url=sc.url_for(service_type='identity', interface=et),
-            client=False)
-
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-
-        response = self.client.post(url, form_data)
-        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
-
-        url = reverse('switch_tenants', args=[project.id])
-
-        scoped._project['id'] = self.data.project_two.id
-
-        if next:
-            form_data.update({auth.REDIRECT_FIELD_NAME: next})
-
-        response = self.client.get(url, form_data)
-
-        if next:
-            expected_url = next
-            self.assertEqual(response['location'], expected_url)
-        else:
-            self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
-
-        self.assertEqual(self.client.session['token'].project['id'],
-                         scoped.project_id)
-
-    def test_switch_with_next(self):
-        self.test_switch(next='/next_url')
-
-    def test_switch_region(self, next=None):
-        projects = [self.data.project_one, self.data.project_two]
-        user = self.data.user
-        scoped = self.data.unscoped_access_info
-        sc = self.data.service_catalog
-
-        form_data = self.get_form_data(user)
-        self._mock_unscoped_and_domain_list_projects(user, projects)
-        self._mock_scoped_client_for_tenant(scoped, self.data.project_one.id)
-
-        self.mox.ReplayAll()
-
-        url = reverse('login')
-
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-
-        response = self.client.post(url, form_data)
-        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
-
-        old_region = sc.get_endpoints()['compute'][0]['region']
-        self.assertEqual(self.client.session['services_region'], old_region)
-
-        region = sc.get_endpoints()['compute'][1]['region']
-        url = reverse('switch_services_region', args=[region])
-
-        form_data['region_name'] = region
-
-        if next:
-            form_data.update({auth.REDIRECT_FIELD_NAME: next})
-
-        response = self.client.get(url, form_data)
-
-        if next:
-            expected_url = next
-            self.assertEqual(response['location'], expected_url)
-        else:
-            self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
-
-        self.assertEqual(self.client.session['services_region'], region)
-
-    def test_switch_region_with_next(self, next=None):
-        self.test_switch_region(next='/next_url')
-
     def test_switch_keystone_provider_remote_fail(self):
         auth_url = settings.OPENSTACK_KEYSTONE_URL
         target_provider = 'k2kserviceprovider'
@@ -1052,3 +959,110 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         mock_access.assert_called_once_with(IsA(session.Session))
         mock_token.assert_called_with(IsA(session.Session))
         mock_project_list.assert_called_once_with(user=user.id)
+
+    @mock.patch.object(v3_auth.Token, 'get_access')
+    @mock.patch.object(password.PasswordPlugin, 'list_projects')
+    @mock.patch.object(v3_auth.Password, 'get_access')
+    def test_switch(self, mock_access, mock_project_list, mock_token,
+                    next=None):
+        project = self.data.project_two
+        projects = [self.data.project_one, self.data.project_two]
+        user = self.data.user
+        scoped = self.data.scoped_access_info
+
+        form_data = self.get_form_data(user)
+
+        mock_access.return_value = self.data.unscoped_access_info
+        mock_token.return_value = scoped
+        mock_project_list.return_value = projects
+
+        url = reverse('login')
+
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.post(url, form_data)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        url = reverse('switch_tenants', args=[project.id])
+
+        scoped._project['id'] = self.data.project_two.id
+
+        if next:
+            form_data.update({auth.REDIRECT_FIELD_NAME: next})
+
+        response = self.client.get(url, form_data)
+
+        if next:
+            expected_url = next
+            self.assertEqual(response['location'], expected_url)
+        else:
+            self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        self.assertEqual(self.client.session['token'].project['id'],
+                         scoped.project_id)
+
+        mock_access.assert_called_once_with(IsA(session.Session))
+        mock_token.assert_called_with(IsA(session.Session))
+        mock_project_list.assert_called_once_with(
+            IsA(session.Session),
+            IsA(v3_auth.Password),
+            self.data.unscoped_access_info)
+
+    def test_switch_with_next(self):
+        self.test_switch(next='/next_url')
+
+    @mock.patch.object(v3_auth.Token, 'get_access')
+    @mock.patch.object(password.PasswordPlugin, 'list_projects')
+    @mock.patch.object(v3_auth.Password, 'get_access')
+    def test_switch_region(self, mock_access, mock_project_list, mock_token,
+                           next=None):
+        projects = [self.data.project_one, self.data.project_two]
+        user = self.data.user
+        scoped = self.data.unscoped_access_info
+        sc = self.data.service_catalog
+
+        form_data = self.get_form_data(user)
+
+        mock_access.return_value = self.data.unscoped_access_info
+        mock_token.return_value = scoped
+        mock_project_list.return_value = projects
+
+        url = reverse('login')
+
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.post(url, form_data)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        old_region = sc.get_endpoints()['compute'][0]['region']
+        self.assertEqual(self.client.session['services_region'], old_region)
+
+        region = sc.get_endpoints()['compute'][1]['region']
+        url = reverse('switch_services_region', args=[region])
+
+        form_data['region_name'] = region
+
+        if next:
+            form_data.update({auth.REDIRECT_FIELD_NAME: next})
+
+        response = self.client.get(url, form_data)
+
+        if next:
+            expected_url = next
+            self.assertEqual(response['location'], expected_url)
+        else:
+            self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        self.assertEqual(self.client.session['services_region'], region)
+
+        mock_access.assert_called_once_with(IsA(session.Session))
+        mock_token.assert_called_with(IsA(session.Session))
+        mock_project_list.assert_called_once_with(
+            IsA(session.Session),
+            IsA(v3_auth.Password),
+            self.data.unscoped_access_info)
+
+    def test_switch_region_with_next(self, next=None):
+        self.test_switch_region(next='/next_url')
