@@ -41,19 +41,38 @@
       'soft-affinity': gettext('Soft Affinity')
     };
 
+    function getPolicyName(policy) {
+      return ctrl.policies[policy];
+    }
+
     ctrl.tableData = {
       available: launchInstanceModel.serverGroups,
-      allocated: launchInstanceModel.newInstanceSpec.server_groups,
-      displayedAvailable: [],
-      displayedAllocated: []
+      allocated: launchInstanceModel.newInstanceSpec.server_groups
     };
 
-    ctrl.tableHelp = {
-      /*eslint-disable max-len */
-      noneAllocText: gettext('Select a server group from the available groups below.'),
-      /*eslint-enable max-len */
-      availHelpText: gettext('Select one')
+    ctrl.availableTableConfig = {
+      selectAll: false,
+      trackId: 'id',
+      expand: false,
+      columns: [
+        {id: 'name', title: gettext('Name'), priority: 1},
+        {id: 'policies', title: gettext('Policy'), priority: 2, filters: [getPolicyName, 'noValue']}
+      ]
     };
+
+    ctrl.allocatedTableConfig = angular.copy(ctrl.availableTableConfig);
+    ctrl.allocatedTableConfig.noItemsMessage = gettext(
+      'Select a server group from the available groups below.');
+
+    ctrl.filterFacets = [{
+      label: gettext('Name'),
+      name: 'name',
+      singleton: true
+    }, {
+      label: gettext('Policy'),
+      name: 'policies',
+      singleton: true
+    }];
 
     ctrl.tableLimits = {
       maxAllocation: 1
