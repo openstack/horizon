@@ -13,6 +13,7 @@
 from collections import defaultdict
 import itertools
 import logging
+import warnings
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -361,8 +362,14 @@ def _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id):
     return qs
 
 
+# TODO(amotoki): Deprecated in Ussuri. Drop this in Victoria release or later.
 def _get_tenant_network_usages_legacy(request, usages, disabled_quotas,
                                       tenant_id):
+    warnings.warn(
+        "The legacy way to retrieve neutron resource usage is deprecated "
+        "in Ussuri release. Horizon will depend on 'quota_details' "
+        "neutron extension added in Pike release in future.",
+        DeprecationWarning)
     qs = base.QuotaSet()
     _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id)
     for quota in qs:

@@ -1,0 +1,9 @@
+---
+deprecations:
+  - |
+    The legacy way to retrive neutron resource usages is deprecated.
+    In future, horizon will require ``quota_details`` neutron extension.
+    In the legacy way, horizon list all related resources to count resource usage.
+    It is not efficient and ``quota_details`` neutron extension was added
+    to address it. It was implemented in Pike release and the enough migration
+    period has passed, so we deprecate the legacy way.
