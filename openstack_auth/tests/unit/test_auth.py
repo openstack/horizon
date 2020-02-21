@@ -66,27 +66,6 @@ class OpenStackAuthTestsMixin(object):
 class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
                            test.TestCase):
 
-    def _mock_scoped_for_domain(self, projects):
-        url = settings.OPENSTACK_KEYSTONE_URL
-
-        plugin = self._create_token_auth(
-            project_id=None,
-            domain_name=DEFAULT_DOMAIN,
-            token=self.data.unscoped_access_info.auth_token,
-            url=url)
-
-        plugin.get_access(mox.IsA(session.Session)).AndReturn(
-            self.data.domain_scoped_access_info)
-
-        # if no projects or no enabled projects for user, but domain scoped
-        # token client auth gets set to domain scoped auth otherwise it's set
-        # to the project scoped auth and that happens in a different mock
-        enabled_projects = [project for project in projects if project.enabled]
-        if not projects or not enabled_projects:
-            return self.ks_client_module.Client(
-                session=mox.IsA(session.Session),
-                auth=plugin)
-
     def _create_password_auth(self, username=None, password=None, url=None):
         if not username:
             username = self.data.user.name
@@ -168,7 +147,27 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         client = self.ks_client_module.Client(
             session=mox.IsA(session.Session), auth=plugin)
 
-        self._mock_scoped_for_domain(projects)
+        # _mock_scoped_for_domain
+
+        url = settings.OPENSTACK_KEYSTONE_URL
+
+        plugin = self._create_token_auth(
+            project_id=None,
+            domain_name=DEFAULT_DOMAIN,
+            token=self.data.unscoped_access_info.auth_token,
+            url=url)
+
+        plugin.get_access(mox.IsA(session.Session)).AndReturn(
+            self.data.domain_scoped_access_info)
+
+        # if no projects or no enabled projects for user, but domain scoped
+        # token client auth gets set to domain scoped auth otherwise it's set
+        # to the project scoped auth and that happens in a different mock
+        enabled_projects = [project for project in projects if project.enabled]
+        if not enabled_projects:
+            self.ks_client_module.Client(
+                session=mox.IsA(session.Session),
+                auth=plugin)
 
         # _mock_unscoped_list_projects
 
@@ -268,7 +267,27 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         client = self.ks_client_module.Client(
             session=mox.IsA(session.Session), auth=plugin)
 
-        self._mock_scoped_for_domain(projects)
+        # _mock_scoped_for_domain
+
+        url = settings.OPENSTACK_KEYSTONE_URL
+
+        plugin = self._create_token_auth(
+            project_id=None,
+            domain_name=DEFAULT_DOMAIN,
+            token=self.data.unscoped_access_info.auth_token,
+            url=url)
+
+        plugin.get_access(mox.IsA(session.Session)).AndReturn(
+            self.data.domain_scoped_access_info)
+
+        # if no projects or no enabled projects for user, but domain scoped
+        # token client auth gets set to domain scoped auth otherwise it's set
+        # to the project scoped auth and that happens in a different mock
+        enabled_projects = [project for project in projects if project.enabled]
+        if not enabled_projects:
+            self.ks_client_module.Client(
+                session=mox.IsA(session.Session),
+                auth=plugin)
 
         # _mock_unscoped_list_projects
 
@@ -422,7 +441,27 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         client = self.ks_client_module.Client(
             session=mox.IsA(session.Session), auth=plugin)
 
-        self._mock_scoped_for_domain(projects)
+        # _mock_scoped_for_domain
+
+        url = settings.OPENSTACK_KEYSTONE_URL
+
+        plugin = self._create_token_auth(
+            project_id=None,
+            domain_name=DEFAULT_DOMAIN,
+            token=self.data.unscoped_access_info.auth_token,
+            url=url)
+
+        plugin.get_access(mox.IsA(session.Session)).AndReturn(
+            self.data.domain_scoped_access_info)
+
+        # if no projects or no enabled projects for user, but domain scoped
+        # token client auth gets set to domain scoped auth otherwise it's set
+        # to the project scoped auth and that happens in a different mock
+        enabled_projects = [project for project in projects if project.enabled]
+        if not enabled_projects:
+            self.ks_client_module.Client(
+                session=mox.IsA(session.Session),
+                auth=plugin)
 
         # _mock_unscoped_list_projects
 
@@ -545,7 +584,27 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         client = self.ks_client_module.Client(
             session=mox.IsA(session.Session), auth=plugin)
 
-        self._mock_scoped_for_domain(projects)
+        # _mock_scoped_for_domain
+
+        url = settings.OPENSTACK_KEYSTONE_URL
+
+        plugin = self._create_token_auth(
+            project_id=None,
+            domain_name=DEFAULT_DOMAIN,
+            token=self.data.unscoped_access_info.auth_token,
+            url=url)
+
+        plugin.get_access(mox.IsA(session.Session)).AndReturn(
+            self.data.domain_scoped_access_info)
+
+        # if no projects or no enabled projects for user, but domain scoped
+        # token client auth gets set to domain scoped auth otherwise it's set
+        # to the project scoped auth and that happens in a different mock
+        enabled_projects = [project for project in projects if project.enabled]
+        if not enabled_projects:
+            self.ks_client_module.Client(
+                session=mox.IsA(session.Session),
+                auth=plugin)
 
         # _mock_unscoped_list_projects
 
