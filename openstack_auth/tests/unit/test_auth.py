@@ -66,47 +66,6 @@ class OpenStackAuthTestsMixin(object):
 class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
                            test.TestCase):
 
-    def _mock_unscoped_list_projects(self, client, user, projects):
-        client.projects = self.mox.CreateMockAnything()
-        client.projects.list(user=user.id).AndReturn(projects)
-
-    def _mock_unscoped_client_list_projects_fail(self, user):
-        # _mock_unscoped_client
-
-        plugin = self._create_password_auth()
-        plugin.get_access(mox.IsA(session.Session)). \
-            AndReturn(self.data.unscoped_access_info)
-        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
-        client = self.ks_client_module.Client(
-            session=mox.IsA(session.Session), auth=plugin)
-
-        self._mock_unscoped_list_projects_fail(client, user)
-
-    def _mock_unscoped_list_projects_fail(self, client, user):
-        plugin = self._create_token_auth(
-            project_id=None,
-            domain_name=DEFAULT_DOMAIN,
-            token=self.data.unscoped_access_info.auth_token,
-            url=settings.OPENSTACK_KEYSTONE_URL)
-        plugin.get_access(mox.IsA(session.Session)).AndReturn(
-            self.data.domain_scoped_access_info)
-        client.projects = self.mox.CreateMockAnything()
-        client.projects.list(user=user.id).AndRaise(
-            keystone_exceptions.AuthorizationFailure)
-
-    def _mock_unscoped_and_domain_list_projects(self, user, projects):
-        # _mock_unscoped_client
-
-        plugin = self._create_password_auth()
-        plugin.get_access(mox.IsA(session.Session)). \
-            AndReturn(self.data.unscoped_access_info)
-        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
-        client = self.ks_client_module.Client(
-            session=mox.IsA(session.Session), auth=plugin)
-
-        self._mock_scoped_for_domain(projects)
-        self._mock_unscoped_list_projects(client, user, projects)
-
     def _mock_scoped_for_domain(self, projects):
         url = settings.OPENSTACK_KEYSTONE_URL
 
@@ -197,7 +156,24 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         form_data = self.get_form_data(user)
 
         # mock authenticate
-        self._mock_unscoped_and_domain_list_projects(user, projects)
+
+        # _mock_unscoped_and_domain_list_projects
+
+        # _mock_unscoped_client
+
+        plugin = self._create_password_auth()
+        plugin.get_access(mox.IsA(session.Session)). \
+            AndReturn(self.data.unscoped_access_info)
+        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
+        client = self.ks_client_module.Client(
+            session=mox.IsA(session.Session), auth=plugin)
+
+        self._mock_scoped_for_domain(projects)
+
+        # _mock_unscoped_list_projects
+
+        client.projects = self.mox.CreateMockAnything()
+        client.projects.list(user=user.id).AndReturn(projects)
 
         # _mock_scoped_client_for_tenant
 
@@ -224,7 +200,11 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         client = self.ks_client_module.Client(session=mox.IsA(session.Session),
                                               auth=plugin)
 
-        self._mock_unscoped_list_projects(client, user, projects)
+        # _mock_unscoped_list_projects
+
+        client.projects = self.mox.CreateMockAnything()
+        client.projects.list(user=user.id).AndReturn(projects)
+
         plugin = self._create_token_auth(
             self.data.project_one.id,
             token=self.data.unscoped_access_info.auth_token,
@@ -276,7 +256,24 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         form_data = self.get_form_data(user)
 
         # mock authenticate
-        self._mock_unscoped_and_domain_list_projects(user, projects)
+
+        # _mock_unscoped_and_domain_list_projects
+
+        # _mock_unscoped_client
+
+        plugin = self._create_password_auth()
+        plugin.get_access(mox.IsA(session.Session)). \
+            AndReturn(self.data.unscoped_access_info)
+        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
+        client = self.ks_client_module.Client(
+            session=mox.IsA(session.Session), auth=plugin)
+
+        self._mock_scoped_for_domain(projects)
+
+        # _mock_unscoped_list_projects
+
+        client.projects = self.mox.CreateMockAnything()
+        client.projects.list(user=user.id).AndReturn(projects)
 
         # _mock_scoped_client_for_tenant
 
@@ -304,7 +301,11 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         client = self.ks_client_module.Client(session=mox.IsA(session.Session),
                                               auth=plugin)
 
-        self._mock_unscoped_list_projects(client, user, projects)
+        # _mock_unscoped_list_projects
+
+        client.projects = self.mox.CreateMockAnything()
+        client.projects.list(user=user.id).AndReturn(projects)
+
         plugin = self._create_token_auth(
             self.data.project_one.id,
             token=self.data.unscoped_access_info.auth_token,
@@ -409,7 +410,24 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         form_data = self.get_form_data(user)
 
         # mock authenticate
-        self._mock_unscoped_and_domain_list_projects(user, projects)
+
+        # _mock_unscoped_and_domain_list_projects
+
+        # _mock_unscoped_client
+
+        plugin = self._create_password_auth()
+        plugin.get_access(mox.IsA(session.Session)). \
+            AndReturn(self.data.unscoped_access_info)
+        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
+        client = self.ks_client_module.Client(
+            session=mox.IsA(session.Session), auth=plugin)
+
+        self._mock_scoped_for_domain(projects)
+
+        # _mock_unscoped_list_projects
+
+        client.projects = self.mox.CreateMockAnything()
+        client.projects.list(user=user.id).AndReturn(projects)
 
         # _mock_scoped_client_for_tenant
 
@@ -463,7 +481,10 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
             session=mox.IsA(session.Session),
             auth=unscoped_auth)
 
-        self._mock_unscoped_list_projects(client, user, projects)
+        # _mock_unscoped_list_projects
+
+        client.projects = self.mox.CreateMockAnything()
+        client.projects.list(user=user.id).AndReturn(projects)
 
         # _mock_scoped_client_for_tenant
 
@@ -512,7 +533,24 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         form_data = self.get_form_data(user)
 
         # mock authenticate
-        self._mock_unscoped_and_domain_list_projects(user, projects)
+
+        # _mock_unscoped_and_domain_list_projects
+
+        # _mock_unscoped_client
+
+        plugin = self._create_password_auth()
+        plugin.get_access(mox.IsA(session.Session)). \
+            AndReturn(self.data.unscoped_access_info)
+        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
+        client = self.ks_client_module.Client(
+            session=mox.IsA(session.Session), auth=plugin)
+
+        self._mock_scoped_for_domain(projects)
+
+        # _mock_unscoped_list_projects
+
+        client.projects = self.mox.CreateMockAnything()
+        client.projects.list(user=user.id).AndReturn(projects)
 
         # _mock_scoped_client_for_tenant
 
