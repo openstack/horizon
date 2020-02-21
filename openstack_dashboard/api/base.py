@@ -16,7 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import abc as collections
+import collections.abc
 import functools
 
 from django.conf import settings
@@ -220,7 +220,7 @@ class Quota(object):
         return "<Quota: (%s, %s)>" % (self.name, self.limit)
 
 
-class QuotaSet(collections.Sequence):
+class QuotaSet(collections.abc.Sequence):
     """Wrapper for client QuotaSet objects.
 
     This turns the individual quotas into Quota objects

@@ -47,28 +47,10 @@ from horizon.tables.actions import LinkAction
 from horizon.utils import html
 from horizon.utils import settings as utils_settings
 
-# Python 3.8 removes the ability to import the abstract base classes from
-# 'collections', but 'collections.abc' is not present in Python 2.7
-# TODO(stephenfin): Remove when we drop support for Python 2.7
-# pylint: disable=ungrouped-imports
-if hasattr(collections, 'abc'):
-    from collections.abc import Mapping
-else:
-    from collections import Mapping
-
 
 LOG = logging.getLogger(__name__)
 PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]
 STRING_SEPARATOR = "__"
-
-
-# 'getfullargspec' is Python 3-only, but 'getargspec' is deprecated for removal
-# in Python 3.6
-# TODO(stephenfin): Remove 'getargspec' when we drop support for Python 2.7
-if hasattr(inspect, 'getfullargspec'):
-    getargspec = inspect.getfullargspec
-else:
-    getargspec = inspect.getargspec
 
 
 class Column(html.HTMLElement):
@@ -413,7 +395,8 @@ class Column(html.HTMLElement):
         if callable(self.transform):
             data = self.transform(datum)
         # Dict lookups
-        elif isinstance(datum, Mapping) and self.transform in datum:
+        elif (isinstance(datum, collections.abc.Mapping) and
+              self.transform in datum):
             data = datum.get(self.transform)
         else:
             # Basic object lookups
@@ -485,7 +468,7 @@ class Column(html.HTMLElement):
                 return None
         obj_id = self.table.get_object_id(datum)
         if callable(self.link):
-            if 'request' in getargspec(self.link).args:
+            if 'request' in inspect.getfullargspec(self.link).args:
                 return self.link(datum, request=self.table.request)
             return self.link(datum)
         try:

@@ -44,15 +44,6 @@ from django.contrib.staticfiles.testing \
 
 from horizon import middleware
 
-# Python 3.8 removes the ability to import the abstract base classes from
-# 'collections', but 'collections.abc' is not present in Python 2.7
-# TODO(stephenfin): Remove when we drop support for Python 2.7
-# pylint: disable=ungrouped-imports
-if hasattr(collections, 'abc'):
-    from collections.abc import Mapping
-else:
-    from collections import Mapping
-
 
 LOG = logging.getLogger(__name__)
 
@@ -335,8 +326,8 @@ class update_settings(django_test_utils.override_settings):
         if keep_dict:
             for key, new_value in kwargs.items():
                 value = getattr(settings, key, None)
-                if (isinstance(new_value, Mapping) and
-                        isinstance(value, Mapping)):
+                if (isinstance(new_value, collections.abc.Mapping) and
+                        isinstance(value, collections.abc.Mapping)):
                     copied = copy.copy(value)
                     copied.update(new_value)
                     kwargs[key] = copied
