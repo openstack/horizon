@@ -65,14 +65,6 @@ class OpenStackAuthTestsMixin(object):
 
 class OpenStackAuthFederatedTestsMixin(object):
     """Common functions for federation"""
-    def _mock_unscoped_federated_list_projects(self, client, projects):
-        client.federation = self.mox.CreateMockAnything()
-        client.federation.projects = self.mox.CreateMockAnything()
-        client.federation.projects.list().AndReturn(projects)
-
-    def _mock_unscoped_list_domains(self, client, domains):
-        client.auth = self.mox.CreateMockAnything()
-        client.auth.domains().AndReturn(domains)
 
     def _mock_unscoped_token_client(self, unscoped, auth_url=None,
                                     client=True, plugin=None):
@@ -103,11 +95,20 @@ class OpenStackAuthFederatedTestsMixin(object):
 
     def _mock_federated_client_list_projects(self, unscoped_auth, projects):
         client = self._mock_unscoped_token_client(None, plugin=unscoped_auth)
-        self._mock_unscoped_federated_list_projects(client, projects)
+
+        # _mock_unscoped_federated_list_projects
+
+        client.federation = self.mox.CreateMockAnything()
+        client.federation.projects = self.mox.CreateMockAnything()
+        client.federation.projects.list().AndReturn(projects)
 
     def _mock_federated_client_list_domains(self, unscoped_auth, domains):
         client = self._mock_unscoped_token_client(None, plugin=unscoped_auth)
-        self._mock_unscoped_list_domains(client, domains)
+
+        # _mock_unscoped_list_domains
+
+        client.auth = self.mox.CreateMockAnything()
+        client.auth.domains().AndReturn(domains)
 
 
 class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
@@ -376,10 +377,20 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
                                              auth_url=plugin.auth_url)
         client = self._mock_unscoped_token_client(None, plugin.auth_url,
                                                   plugin=sp_unscoped_auth)
-        self._mock_unscoped_list_domains(client, domains)
+
+        # _mock_unscoped_list_domains
+
+        client.auth = self.mox.CreateMockAnything()
+        client.auth.domains().AndReturn(domains)
+
         client = self._mock_unscoped_token_client(None, plugin.auth_url,
                                                   plugin=sp_unscoped_auth)
-        self._mock_unscoped_federated_list_projects(client, sp_projects)
+
+        # _mock_unscoped_federated_list_projects
+
+        client.federation = self.mox.CreateMockAnything()
+        client.federation.projects = self.mox.CreateMockAnything()
+        client.federation.projects.list().AndReturn(sp_projects)
 
         # _mock_scoped_client_for_tenant
 
@@ -452,7 +463,12 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         unscoped_auth = self._mock_plugin(unscoped)
         client = self._mock_unscoped_token_client(None, auth_url=auth_url,
                                                   plugin=unscoped_auth)
-        self._mock_unscoped_list_domains(client, domains)
+
+        # _mock_unscoped_list_domains
+
+        client.auth = self.mox.CreateMockAnything()
+        client.auth.domains().AndReturn(domains)
+
         client = self._mock_unscoped_token_client(None, auth_url=auth_url,
                                                   plugin=unscoped_auth)
         self._mock_unscoped_list_projects(client, user, projects)
