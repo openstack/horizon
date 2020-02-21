@@ -20,7 +20,6 @@ import glob
 import logging
 import os
 import sys
-import warnings
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -44,9 +43,6 @@ monkeypatch_escape()
 from openstack_dashboard.defaults import *  # noqa: F403,H303
 
 _LOG = logging.getLogger(__name__)
-
-warnings.formatwarning = lambda message, category, *args, **kwargs: \
-    '%s: %s' % (category.__name__, message)
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
