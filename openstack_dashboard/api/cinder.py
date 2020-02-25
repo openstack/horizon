@@ -201,78 +201,56 @@ class GroupType(base.APIResourceWrapper):
     _attrs = ['id', 'name', 'description', 'is_public', 'group_specs']
 
 
-def get_auth_params_from_request(request):
-    auth_url = base.url_for(request, 'identity')
-    cinder_urls = []
-    for service_name in ('volumev3', 'volumev2', 'volume'):
+def _find_cinder_url(request, version=None):
+    if version is None:
+        api_version = VERSIONS.get_active_version()
+        version = api_version['version']
+    version = base.Version(version)
+
+    # We support only cinder v2 and v3.
+    if version.major == 3:
+        candidates = ['volumev3', 'volume']
+    else:
+        candidates = ['volumev2', 'volume']
+
+    for service_name in candidates:
         try:
-            cinder_url = base.url_for(request, service_name)
-            cinder_urls.append((service_name, cinder_url))
+            return version, base.url_for(request, service_name)
         except exceptions.ServiceCatalogException:
             pass
-    if not cinder_urls:
+    else:
         raise exceptions.ServiceCatalogException(
-            "no volume service configured")
-    cinder_urls = tuple(cinder_urls)  # need to make it cacheable
-    return(
-        request.user.username,
-        request.user.token.id,
-        request.user.tenant_id,
-        cinder_urls,
-        auth_url,
-    )
+            ("Cinder %(version)s requested but no '%(service)s' service "
+             "type available in Keystone catalog.") %
+            {'version': version, 'service': candidates})
 
 
 @memoized
 def cinderclient(request, version=None):
-    if version is None:
-        api_version = VERSIONS.get_active_version()
-        version = api_version['version']
+    version, cinder_url = _find_cinder_url(request, version)
+
     insecure = settings.OPENSTACK_SSL_NO_VERIFY
     cacert = settings.OPENSTACK_SSL_CACERT
 
-    (username, token_id, tenant_id, cinder_urls,
-        auth_url) = get_auth_params_from_request(request)
-    version = base.Version(version)
-    if version.major == 2:
-        service_names = ('volumev2', 'volume')
-    elif version.major == 3:
-        service_names = ('volumev3', 'volume')
-    else:
-        service_names = ('volume',)
-    for name, _url in cinder_urls:
-        if name in service_names:
-            cinder_url = _url
-            break
-    else:
-        raise exceptions.ServiceCatalogException(
-            "Cinder {version} requested but no '{service}' service "
-            "type available in Keystone catalog.".format(version=version,
-                                                         service=service_names)
-        )
     c = cinder_client.Client(
         version,
-        username,
-        token_id,
-        project_id=tenant_id,
-        auth_url=auth_url,
+        request.user.username,
+        request.user.token.id,
+        project_id=request.user.tenant_id,
+        auth_url=base.url_for(request, 'identity'),
         insecure=insecure,
         cacert=cacert,
         http_log_debug=settings.DEBUG,
     )
-    c.client.auth_token = token_id
+    c.client.auth_token = request.user.token.id
     c.client.management_url = cinder_url
     return c
 
 
 def get_microversion(request, features):
-    for service_name in ('volume', 'volumev2', 'volumev3'):
-        try:
-            cinder_url = base.url_for(request, service_name)
-            break
-        except exceptions.ServiceCatalogException:
-            continue
-    else:
+    try:
+        version, cinder_url = _find_cinder_url(request)
+    except exceptions.ServiceCatalogException:
         return None
 
     insecure = settings.OPENSTACK_SSL_NO_VERIFY
