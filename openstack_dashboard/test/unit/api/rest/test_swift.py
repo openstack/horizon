@@ -34,6 +34,43 @@ class SwiftRestTestCase(test.TestCase):
                          response.json)
         self.mock_swift_get_capabilities.assert_called_once_with(request)
 
+    @test.create_mocks({api.swift: ['swift_get_capabilities',
+                                    'get_storage_policy_display_name']})
+    def test_policies_get(self):
+        request = self.mock_rest_request()
+        self.mock_get_storage_policy_display_name.side_effect = [
+            "Multi Region", None]
+        self.mock_swift_get_capabilities.return_value = {
+            'swift': {
+                'policies': [
+                    {
+                        "aliases": "nz--o1--mr-r3",
+                        "default": True,
+                        "name": "nz--o1--mr-r3"
+                    }, {
+                        "aliases": "another-policy",
+                        "name": "some-other-policy"
+                    }
+                ]
+            }
+        }
+        response = swift.Policies().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual({
+            'policies': [
+                {
+                    "aliases": "nz--o1--mr-r3",
+                    "default": True,
+                    "name": "nz--o1--mr-r3",
+                    "display_name": "Multi Region"
+                },
+                {
+                    "aliases": "another-policy",
+                    "name": "some-other-policy"
+                }
+            ]}, response.json)
+        self.mock_swift_get_capabilities.assert_called_once_with(request)
+
     #
     # Containers
     #

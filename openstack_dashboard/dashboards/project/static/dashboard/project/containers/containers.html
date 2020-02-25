@@ -55,6 +55,15 @@
                 <span class="hz-object-label col-lg-7 col-md-12" translate>Date Created</span>
                 <span class="hz-object-val col-lg-5 col-md-12">{$ container.timestamp | date $}</span>
               </li>
+              <li ng-if="container.storage_policy.display_name" class="hz-object-policy row">
+                <span class="hz-object-label col-lg-7 col-md-12" translate>Storage Policy</span>
+                <span class="hz-object-val col-lg-5 col-md-12">{$ container.storage_policy.display_name $}</span>
+                <span class="hz-object-val col-lg-offset-7 col-lg-5 col-md-12">({$ container.storage_policy.name $})</span>
+              </li>
+              <li ng-if="!container.storage_policy.display_name" class="hz-object-policy row">
+                <span class="hz-object-label col-lg-7 col-md-12" translate>Storage Policy</span>
+                <span class="hz-object-val col-lg-5 col-md-12">{$ container.storage_policy.name $}</span>
+              </li>
               <li class="hz-object-link row">
                 <div class="themable-checkbox col-lg-7 col-md-12">
                   <input type="checkbox" id="id_access" ng-model="container.is_public"

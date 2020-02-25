@@ -41,6 +41,27 @@ class Info(generic.View):
 
 
 @urls.register
+class Policies(generic.View):
+    """API for information about available container storage policies"""
+    url_regex = r'swift/policies/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """List available container storage policies"""
+
+        capabilities = api.swift.swift_get_capabilities(request)
+        policies = capabilities['swift']['policies']
+
+        for policy in policies:
+            display_name = \
+                api.swift.get_storage_policy_display_name(policy['name'])
+            if display_name:
+                policy["display_name"] = display_name
+
+        return {'policies': policies}
+
+
+@urls.register
 class Containers(generic.View):
     """API for swift container listing for an account"""
     url_regex = r'swift/containers/$'
@@ -82,6 +103,9 @@ class Container(generic.View):
 
         if 'is_public' in request.DATA:
             metadata['is_public'] = request.DATA['is_public']
+
+        if 'storage_policy' in request.DATA:
+            metadata['storage_policy'] = request.DATA['storage_policy']
 
         # This will raise an exception if the container already exists
         try:

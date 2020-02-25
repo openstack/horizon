@@ -47,6 +47,7 @@
       getObjectDetails:getObjectDetails,
       getObjects: getObjects,
       getObjectURL: getObjectURL,
+      getPolicyDetails: getPolicyDetails,
       setContainerAccess: setContainerAccess,
       uploadObject: uploadObject
     };
@@ -87,6 +88,23 @@
         .error(function () {
           toastService.add('error', gettext('Unable to get the Swift service info.'));
         });
+    }
+
+    /**
+     * @name getPolicyDetails
+     * @description
+     * Fetch all the storage policy details with display names and storage values.
+     *
+     * @returns {Object} The result of the object passed to the Swift /policies call.
+     *
+     */
+    function getPolicyDetails() {
+      return apiService.get('/api/swift/policies/').error(function() {
+        toastService.add(
+          'error',
+          gettext('Unable to fetch the policy details.')
+        );
+      });
     }
 
     /**
@@ -135,8 +153,8 @@
      * @returns {Object} The result of the creation call
      *
      */
-    function createContainer(container, isPublic) {
-      var data = {is_public: false};
+    function createContainer(container, isPublic, policy) {
+      var data = {is_public: false, storage_policy: policy};
 
       if (isPublic) {
         data.is_public = true;

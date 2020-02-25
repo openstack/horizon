@@ -322,6 +322,10 @@ SHOW_OPENSTACK_CLOUDS_YAML = True
 # The size of chunk in bytes for downloading objects from Swift
 SWIFT_FILE_TRANSFER_CHUNK_SIZE = 512 * 1024
 
+# Mapping from actual storage policy name to user friendly
+# name to be rendered.
+SWIFT_STORAGE_POLICY_DISPLAY_NAMES = {}
+
 # NOTE: The default value of USER_MENU_LINKS will be set after loading
 # local_settings if it is not configured.
 USER_MENU_LINKS = None
