@@ -16,6 +16,8 @@ from django.conf import settings
 from django.test.utils import override_settings
 
 import cinderclient as cinder_client
+from cinderclient import api_versions
+from cinderclient import exceptions as cinder_exception
 import mock
 
 from openstack_dashboard import api
@@ -445,6 +447,83 @@ class CinderApiTests(test.APIMockTestCase):
         default_volume_type = api.cinder.volume_type_default(self.request)
         self.assertEqual(default_volume_type, volume_type)
         cinderclient.volume_types.default.assert_called_once()
+
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def _check_get_server_version_v3(self, volume_url, version_url, expected,
+                                     mock_cinderclient):
+        versions = {'versions': self.cinder_versions.list()}
+        cinder_client = mock_cinderclient.return_value
+        cinder_client.client.request.return_value = (200, versions)
+
+        versions = api.cinder._get_server_version(self.request, volume_url)
+
+        self.assertEqual(expected, versions)
+        cinder_client.client.request.assert_called_once_with(
+            version_url, 'GET')
+
+    def test_get_server_version_v3_dedicated_port_http(self):
+        volume_url = ('http://192.168.122.127:8776/v3/'
+                      'e5526285ebd741b1819393f772f11fc3')
+        version_url = 'http://192.168.122.127:8776/'
+        expected = (api_versions.APIVersion('3.0'),
+                    api_versions.APIVersion('3.16'))
+        self._check_get_server_version_v3(volume_url, version_url, expected)
+
+    def test_get_server_version_v3_dedicated_port_https(self):
+        volume_url = ('https://192.168.122.127:8776/v3/'
+                      'e55285ebd741b1819393f772f11fc3')
+        version_url = 'https://192.168.122.127:8776/'
+        expected = (api_versions.APIVersion('3.0'),
+                    api_versions.APIVersion('3.16'))
+        self._check_get_server_version_v3(volume_url, version_url, expected)
+
+    def test_get_server_version_v3_path(self):
+        volume_url = ('http://192.168.122.127/volumes/v3/'
+                      'e5526285ebd741b1819393f772f11fc3')
+        version_url = 'http://192.168.122.127/volumes/'
+        expected = (api_versions.APIVersion('3.0'),
+                    api_versions.APIVersion('3.16'))
+        self._check_get_server_version_v3(volume_url, version_url, expected)
+
+    def test_get_server_version_v3_without_project_id(self):
+        volume_url = 'http://192.168.122.127/volumes/v3/'
+        version_url = 'http://192.168.122.127/volumes/'
+        expected = (api_versions.APIVersion('3.0'),
+                    api_versions.APIVersion('3.16'))
+        self._check_get_server_version_v3(volume_url, version_url, expected)
+
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_get_server_version_v2(self, mock_cinderclient):
+        versions = {'versions': [x for x in self.cinder_versions.list()
+                                 if x['id'] == 'v2.0']}
+        cinder_client = mock_cinderclient.return_value
+        cinder_client.client.request.return_value = (200, versions)
+
+        versions = api.cinder._get_server_version(
+            self.request,
+            'http://192.168.122.127:8776/v2/e5526285ebd741b1819393f772f11fc3')
+
+        self.assertEqual((api_versions.APIVersion('2.0'),
+                          api_versions.APIVersion('2.0')),
+                         versions)
+        cinder_client.client.request.assert_called_once_with(
+            'http://192.168.122.127:8776/', 'GET')
+
+    @mock.patch.object(api.cinder, 'cinderclient')
+    def test_get_server_version_exception(self, mock_cinderclient):
+        cinder_client = mock_cinderclient.return_value
+        cinder_client.client.request.side_effect = \
+            cinder_exception.ClientException(500)
+
+        versions = api.cinder._get_server_version(
+            self.request,
+            'http://192.168.122.127:8776/v3/')
+
+        self.assertEqual((api_versions.APIVersion('2.0'),
+                          api_versions.APIVersion('2.0')),
+                         versions)
+        cinder_client.client.request.assert_called_once_with(
+            'http://192.168.122.127:8776/', 'GET')
 
 
 class CinderApiVersionTests(test.TestCase):
