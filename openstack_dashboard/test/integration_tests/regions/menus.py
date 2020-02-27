@@ -52,6 +52,7 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
     _menu_list_locator = (by.By.CSS_SELECTOR, 'a')
     _expanded_menu_class = ""
     _transitioning_menu_class = 'collapsing'
+    _form_body_locator = (by.By.CSS_SELECTOR, 'body')
 
     def _get_first_level_item_locator(self, text):
         return (by.By.XPATH,
@@ -78,6 +79,10 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
             return None
 
     @property
+    def get_form_body(self):
+        return self._get_element(*self._form_body_locator)
+
+    @property
     def security_groups(self):
         return self._get_element(*self._project_security_groups_locator)
 
@@ -97,6 +102,12 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
             else:
                 status = self._expanded_menu_class is not classes
             return status and self._transitioning_menu_class not in classes
+        self._wait_until(predicate)
+
+    def _wait_until_modal_dialog_close(self):
+        def predicate(d):
+            classes = self.get_form_body.get_attribute('class')
+            return classes and "modal-open" not in classes
         self._wait_until(predicate)
 
     def _click_menu_item(self, text, loc_craft_func, get_selected_func=None,
@@ -123,6 +134,7 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
         """
         is_already_within_required_item = False
         selected_item = None
+        self._wait_until_modal_dialog_close()
         if get_selected_func is not None:
             selected_item = get_selected_func()
             if selected_item:
