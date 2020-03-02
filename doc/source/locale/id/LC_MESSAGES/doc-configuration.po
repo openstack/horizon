@@ -1,14 +1,15 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 17:20+0000\n"
+"POT-Creation-Date: 2020-02-28 12:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-12-13 04:12+0000\n"
+"PO-Revision-Date: 2020-02-27 06:48+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -53,6 +54,9 @@ msgstr ""
 "kustomisasi yang diinginkan, karena dapat menyertakan file statis serta "
 "template Django. Ini dapat mencakup subdirektori khusus yang akan digunakan "
 "secara berbeda: ``static``, ``templates`` dan ``img``."
+
+msgid "A default instance boot source. Allowed values are:"
+msgstr "Sumber boot instance default. Nilai yang diizinkan adalah:"
 
 msgid ""
 "A dictionary containing a regular expression which will be used for password "
@@ -890,6 +894,9 @@ msgstr "Menyesuaikan Logo"
 msgid "DEBUG"
 msgstr "DEBUG"
 
+msgid "DEFAULT_BOOT_SOURCE"
+msgstr "DEFAULT_BOOT_SOURCE"
+
 msgid "DEFAULT_SERVICE_REGIONS"
 msgstr "DEFAULT_SERVICE_REGIONS"
 
@@ -1088,6 +1095,9 @@ msgstr "Default: ``['openstack_auth.urls']``"
 
 msgid "Default: ``[]``"
 msgstr "Default: ``[]``"
+
+msgid "Default: ``image``"
+msgstr "Default: ``image``"
 
 msgid "Default: ``settings.LOGIN_REDIRECT_URL``"
 msgstr "Default: ``settings.LOGIN_REDIRECT_URL``"
@@ -4441,6 +4451,9 @@ msgid "``ignored_urls`` is a list of request URLs to be hidden from a log."
 msgstr ""
 "``ignored_urls`` adalah daftar URL permintaan yang disembunyikan dari log."
 
+msgid "``image`` - boot instance from image (default option)"
+msgstr "``image`` - boot instance dari image (opsi default)"
+
 msgid "``label``"
 msgstr "``label``"
 
@@ -4487,12 +4500,21 @@ msgstr ""
 "jaringan ini memerlukan ID segmentasi. Jika True, rentang ID segmentasi yang "
 "valid harus dikonfigurasi dalam pengaturan ``segmentation_id_range`` di atas."
 
+msgid "``snapshot`` - boot instance from instance snapshot"
+msgstr "``snapshot`` - boot instance dari instance snapshot"
+
 msgid ""
 "``target_methods`` is a request method which is logged to an operation log. "
 "The valid methods are ``POST``, ``GET``, ``PUT``, ``DELETE``."
 msgstr ""
 "``target_methods`` adalah metode permintaan yang dicatat ke log operasi. "
 "Metode yang valid adalah ``POST``, ``GET``, ``PUT``, ``DELETE``."
+
+msgid "``volume_snapshot`` - boot instance from volume snapshot"
+msgstr "``volume_snapshot`` - boot instance dari volume snapshot"
+
+msgid "``volume`` - boot instance from volume"
+msgstr "``volume`` - boot instance dari volume"
 
 msgid "ajax_poll_interval"
 msgstr "ajax_poll_interval"
