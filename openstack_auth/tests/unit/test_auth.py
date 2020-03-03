@@ -56,20 +56,6 @@ class OpenStackAuthTestsMixin(object):
         ('admin', {'interface': 'adminURL'})
     ]
 
-    def _mock_unscoped_client(self, user):
-        plugin = self._create_password_auth()
-        plugin.get_access(mox.IsA(session.Session)). \
-            AndReturn(self.data.unscoped_access_info)
-        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
-        return self.ks_client_module.Client(session=mox.IsA(session.Session),
-                                            auth=plugin)
-
-    def _mock_unscoped_client_with_token(self, user, unscoped):
-        plugin = token_endpoint.Token(settings.OPENSTACK_KEYSTONE_URL,
-                                      unscoped.auth_token)
-        return self.ks_client_module.Client(session=mox.IsA(session.Session),
-                                            auth=plugin)
-
     def _mock_scoped_client_for_tenant(self, auth_ref, tenant_id, url=None,
                                        client=True, token=None):
         if url is None:
@@ -152,7 +138,15 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
         client.projects.list(user=user.id).AndReturn(projects)
 
     def _mock_unscoped_client_list_projects_fail(self, user):
-        client = self._mock_unscoped_client(user)
+        # _mock_unscoped_client
+
+        plugin = self._create_password_auth()
+        plugin.get_access(mox.IsA(session.Session)). \
+            AndReturn(self.data.unscoped_access_info)
+        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
+        client = self.ks_client_module.Client(
+            session=mox.IsA(session.Session), auth=plugin)
+
         self._mock_unscoped_list_projects_fail(client, user)
 
     def _mock_unscoped_list_projects_fail(self, client, user):
@@ -168,7 +162,15 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
             keystone_exceptions.AuthorizationFailure)
 
     def _mock_unscoped_and_domain_list_projects(self, user, projects):
-        client = self._mock_unscoped_client(user)
+        # _mock_unscoped_client
+
+        plugin = self._create_password_auth()
+        plugin.get_access(mox.IsA(session.Session)). \
+            AndReturn(self.data.unscoped_access_info)
+        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
+        client = self.ks_client_module.Client(
+            session=mox.IsA(session.Session), auth=plugin)
+
         self._mock_scoped_for_domain(projects)
         self._mock_unscoped_list_projects(client, user, projects)
 
