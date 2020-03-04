@@ -9,6 +9,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import pytest
 
 from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
@@ -71,7 +72,7 @@ class TestImagesBasic(TestImagesLegacy):
         self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
 
-    @decorators.skip_because(bugs=['1595335'])
+    @pytest.mark.skip(reason="Bug 1595335")
     def test_image_create_delete(self):
         """tests the image creation and deletion functionalities:
 
@@ -333,7 +334,7 @@ class TestImagesAdmin(helpers.AdminTestCase, TestImagesLegacy):
     def images_page(self):
         return self.home_pg.go_to_admin_compute_imagespage()
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_image_create_delete(self):
         super(TestImagesAdmin, self).test_image_create_delete()
 

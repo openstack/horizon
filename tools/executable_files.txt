@@ -6,3 +6,4 @@
 ./tools/gate/integration/pre_test_hook.sh
 ./tools/list-horizon-plugins.py
 ./tools/unit_tests.sh
+./tools/selenium_tests.sh

@@ -23,6 +23,7 @@ import traceback
 
 from django.test import tag
 from oslo_utils import uuidutils
+import pytest
 from selenium.webdriver.common import action_chains
 from selenium.webdriver.common import by
 from selenium.webdriver.common import keys
@@ -100,6 +101,7 @@ class AssertsMixin(object):
         return self.assertEqual(list(actual), [False] * len(actual))
 
 
+@pytest.mark.integration
 @tag('integration')
 class BaseTestCase(testtools.TestCase):
 
@@ -303,6 +305,7 @@ class BaseTestCase(testtools.TestCase):
         return html_elem.get_attribute("innerHTML").encode("utf-8")
 
 
+@pytest.mark.integration
 @tag('integration')
 class TestCase(BaseTestCase, AssertsMixin):
 

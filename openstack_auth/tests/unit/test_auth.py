@@ -956,16 +956,15 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin, test.TestCase):
         client_unscoped_2.federation.projects.list.assert_called_once_with()
         client_scoped.assert_not_called()
 
+    @override_settings(WEBSSO_DEFAULT_REDIRECT=True)
+    @override_settings(WEBSSO_DEFAULT_REDIRECT_PROTOCOL='oidc')
+    @override_settings(
+        WEBSSO_DEFAULT_REDIRECT_REGION=settings.OPENSTACK_KEYSTONE_URL)
     def test_websso_login_default_redirect(self):
         origin = 'http://testserver/auth/websso/'
         protocol = 'oidc'
         redirect_url = ('%s/auth/OS-FEDERATION/websso/%s?origin=%s' %
                         (settings.OPENSTACK_KEYSTONE_URL, protocol, origin))
-
-        settings.WEBSSO_DEFAULT_REDIRECT = True
-        settings.WEBSSO_DEFAULT_REDIRECT_PROTOCOL = 'oidc'
-        settings.WEBSSO_DEFAULT_REDIRECT_REGION = (
-            settings.OPENSTACK_KEYSTONE_URL)
 
         url = reverse('login')
 
@@ -974,6 +973,8 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin, test.TestCase):
         self.assertRedirects(response, redirect_url, status_code=302,
                              target_status_code=404)
 
+    @override_settings(WEBSSO_DEFAULT_REDIRECT=True)
+    @override_settings(WEBSSO_DEFAULT_REDIRECT_LOGOUT='http://idptest/logout')
     def test_websso_logout_default_redirect(self):
         settings.WEBSSO_DEFAULT_REDIRECT = True
         settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT = 'http://idptest/logout'
