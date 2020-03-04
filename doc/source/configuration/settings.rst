@@ -2544,23 +2544,6 @@ After the whole settings process has gone through, TEMPLATE_LOADERS will be:
         ('django.template.loaders.cached.Loader', CACHED_TEMPLATE_LOADERS),
     ) + tuple(ADD_TEMPLATE_LOADERS)
 
-LOCALE_PATHS
-------------
-
-.. versionadded:: 16.0.0(Train)
-
-.. seealso::
-
-    `Django's LOCALE_PATHS documentation
-    <https://docs.djangoproject.com/en/2.2/ref/settings/#locale-paths>`_
-
-Default: Absolute paths for `horizon/locale`, `openstack_auth/locale` and
-`openstack_dashboard/locale` directories.
-
-Django uses relative paths by default so it causes localization issues
-depending on your runtime settings. To avoid this we recommend to use absolute
-paths for directories with locales.
-
 Other Settings
 ==============
 
