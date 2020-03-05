@@ -18,15 +18,6 @@ import testtools
 
 from openstack_dashboard.test.integration_tests import config
 
-# Python 3.8 removes the ability to import the abstract base classes from
-# 'collections', but 'collections.abc' is not present in Python 2.7
-# TODO(stephenfin): Remove when we drop support for Python 2.7
-# pylint: disable=ungrouped-imports
-if hasattr(collections, 'abc'):
-    from collections.abc import Iterable
-else:
-    from collections import Iterable
-
 
 def _is_test_method_name(method):
     return method.startswith('test_')
@@ -165,7 +156,7 @@ def skip_because(**kwargs):
     def actual_decoration(obj):
         skip_method = _get_skip_method(obj)
         bugs = kwargs.get("bugs")
-        if bugs and isinstance(bugs, Iterable):
+        if bugs and isinstance(bugs, collections.abc.Iterable):
             for bug in bugs:
                 if not bug.isdigit():
                     raise ValueError("bug must be a valid bug number")
