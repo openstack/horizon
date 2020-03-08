@@ -33,11 +33,6 @@
   LaunchInstanceSourceController.$inject = [
     '$scope',
     'horizon.dashboard.project.workflow.launch-instance.boot-source-types',
-    'bytesFilter',
-    'dateFilter',
-    'decodeFilter',
-    'diskFormatFilter',
-    'gbFilter',
     'horizon.dashboard.project.workflow.launch-instance.basePath',
     'horizon.framework.widgets.transfer-table.events',
     'horizon.framework.widgets.magic-search.events'
@@ -45,11 +40,6 @@
 
   function LaunchInstanceSourceController($scope,
     bootSourceTypes,
-    bytesFilter,
-    dateFilter,
-    decodeFilter,
-    diskFormatFilter,
-    gbFilter,
     basePath,
     events,
     magicSearchEvents
@@ -78,8 +68,6 @@
     /*
      * Transfer table
      */
-    ctrl.tableHeadCells = [];
-    ctrl.tableBodyCells = [];
     ctrl.tableData = {
       available: [],
       allocated: selection,
@@ -87,7 +75,21 @@
       displayedAllocated: []
     };
     ctrl.helpText = {};
-    ctrl.sourceDetails = basePath + 'source/source-details.html';
+
+    ctrl.availableTableConfig = {
+      selectAll: false,
+      trackId: 'id',
+      detailsTemplateUrl: basePath + 'source/source-details.html',
+      columns: []
+    };
+
+    ctrl.allocatedTableConfig = angular.copy(ctrl.availableTableConfig);
+    ctrl.allocatedTableConfig.noItemsMessage = gettext(
+      'Select an item from Available items below');
+
+    ctrl.tableLimits = {
+      maxAllocation: 1
+    };
 
     var bootSources = {
       image: {
@@ -130,35 +132,66 @@
       { label: gettext('VMDK'), key: 'vmdk' }
     ];
 
-    // Mapping for dynamic table headers
-    var tableHeadCellsMap = {
+    var diskFormatsObj = diskFormats.reduce(function (acc, cur) {
+      acc[cur.key] = cur.label;
+      return acc;
+    }, {});
+
+    function getImageDiskFormat(key) {
+      return diskFormatsObj[key];
+    }
+
+    function getVolumeDiskFormat(data) {
+      return diskFormatsObj[data.disk_format];
+    }
+
+    var statuses = [
+          { label: gettext('Available'), key: 'available' },
+          { label: gettext('Creating'), key: 'creating' },
+          { label: gettext('Deleting'), key: 'deleting' },
+          { label: gettext('Error'), key: 'error' },
+          { label: gettext('Error Deleting'), key: 'error_deleting' }
+    ];
+
+    var statusesObj = statuses.reduce(function (acc, cur) {
+      acc[cur.key] = cur.label;
+      return acc;
+    }, {});
+
+    function getStatus(status) {
+      return statusesObj[status];
+    }
+
+    // Mapping for dynamic table columns
+    var tableColumnsMap = {
       image: [
-        { text: gettext('Name') },
-        { text: gettext('Updated') },
-        { text: gettext('Size') },
-        { text: gettext('Type') },
-        { text: gettext('Visibility') }
+        { id: 'name', title: gettext('Name'), priority: 1 },
+        { id: 'updated_at', title: gettext('Updated'), filters: ['simpleDate'], priority: 2 },
+        { id: 'size', title: gettext('Size'), filters: ['bytes'], priority: 2 },
+        { id: 'disk_format', title: gettext('Type'), filters: [getImageDiskFormat], priority: 2 },
+        { id: 'visibility', title: gettext('Visibility'), filters: [getVisibility], priority: 2 }
       ],
       snapshot: [
-        { text: gettext('Name') },
-        { text: gettext('Updated') },
-        { text: gettext('Size') },
-        { text: gettext('Type') },
-        { text: gettext('Visibility') }
+        { id: 'name', title: gettext('Name'), priority: 1 },
+        { id: 'updated_at', title: gettext('Updated'), filters: ['simpleDate'], priority: 2 },
+        { id: 'size', title: gettext('Size'), filters: ['bytes'], priority: 2 },
+        { id: 'disk_format', title: gettext('Type'), filters: [getImageDiskFormat], priority: 2 },
+        { id: 'visibility', title: gettext('Visibility'), filters: [getVisibility], priority: 2 }
       ],
       volume: [
-        { text: gettext('Name') },
-        { text: gettext('Description') },
-        { text: gettext('Size') },
-        { text: gettext('Type') },
-        { text: gettext('Availability Zone') }
+        { id: 'name', title: gettext('Name'), priority: 1 },
+        { id: 'description', title: gettext('Description'), filters: ['noValue'], priority: 2 },
+        { id: 'size', title: gettext('Size'), filters: ['gb'], priority: 2 },
+        { id: 'volume_image_metadata', title: gettext('Type'),
+          filters: [getVolumeDiskFormat], priority: 2 },
+        { id: 'availability_zone', title: gettext('Availability Zone'), priority: 2 }
       ],
       volume_snapshot: [
-        { text: gettext('Name') },
-        { text: gettext('Description') },
-        { text: gettext('Size') },
-        { text: gettext('Created') },
-        { text: gettext('Status') }
+        { id: 'name', title: gettext('Name'), priority: 1 },
+        { id: 'description', title: gettext('Description'), filters: ['noValue'], priority: 2 },
+        { id: 'size', title: gettext('Size'), filters: ['gb'], priority: 2 },
+        { id: 'created_at', title: gettext('Created'), filters: ['simpleDate'], priority: 2 },
+        { id: 'status', title: gettext('Status'), filters: [getStatus], priority: 2 }
       ]
     };
 
@@ -169,37 +202,9 @@
                            'community': gettext('Community')
     };
 
-    // Mapping for dynamic table data
-    var tableBodyCellsMap = {
-      image: [
-        { key: 'name', classList: ['hi-light', 'word-break'] },
-        { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
-        { key: 'size', filter: bytesFilter, classList: ['number'] },
-        { key: 'disk_format', filter: diskFormatFilter, filterRawData: true },
-        { key: 'visibility', filter: decodeFilter, filterArg: _visibilitymap }
-      ],
-      snapshot: [
-        { key: 'name', classList: ['hi-light', 'word-break'] },
-        { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
-        { key: 'size', filter: bytesFilter, classList: ['number'] },
-        { key: 'disk_format', filter: diskFormatFilter, filterRawData: true },
-        { key: 'visibility', filter: decodeFilter, filterArg: _visibilitymap }
-      ],
-      volume: [
-        { key: 'name', classList: ['hi-light', 'word-break'] },
-        { key: 'description' },
-        { key: 'size', filter: gbFilter, classList: ['number'] },
-        { key: 'volume_image_metadata', filter: diskFormatFilter },
-        { key: 'availability_zone' }
-      ],
-      volume_snapshot: [
-        { key: 'name', classList: ['hi-light', 'word-break'] },
-        { key: 'description' },
-        { key: 'size', filter: gbFilter, classList: ['number'] },
-        { key: 'created_at', filter: dateFilter, filterArg: 'short' },
-        { key: 'status' }
-      ]
-    };
+    function getVisibility(visibility) {
+      return _visibilitymap[visibility];
+    }
 
     /**
      * Creates a map of functions that sort by the key at a given index for
@@ -208,8 +213,8 @@
     ctrl.sortByField = [];
 
     var sortFunction = function(columnIndex, comparedObject) {
-      var cell = tableBodyCellsMap[ctrl.currentBootSource];
-      var key = cell[columnIndex].key;
+      var cell = tableColumnsMap[ctrl.currentBootSource];
+      var key = cell[columnIndex].id;
       return comparedObject[key];
     };
 
@@ -257,13 +262,7 @@
         label: gettext('Status'),
         name: 'status',
         singleton: true,
-        options: [
-          { label: gettext('Available'), key: 'available' },
-          { label: gettext('Creating'), key: 'creating' },
-          { label: gettext('Deleting'), key: 'deleting' },
-          { label: gettext('Error'), key: 'error' },
-          { label: gettext('Error Deleting'), key: 'error_deleting' }
-        ]
+        options: statuses
       },
       type: {
         label: gettext('Type'),
@@ -479,8 +478,7 @@
     function changeBootSource(key, preSelection) {
       updateDataSource(key, preSelection);
       updateHelpText(key);
-      updateTableHeadCells(key);
-      updateTableBodyCells(key);
+      updateTableColumns(key);
       updateFacets(key);
     }
 
@@ -502,12 +500,9 @@
       });
     }
 
-    function updateTableHeadCells(key) {
-      refillArray(ctrl.tableHeadCells, tableHeadCellsMap[key]);
-    }
-
-    function updateTableBodyCells(key) {
-      refillArray(ctrl.tableBodyCells, tableBodyCellsMap[key]);
+    function updateTableColumns(key) {
+      refillArray(ctrl.availableTableConfig.columns, tableColumnsMap[key]);
+      refillArray(ctrl.allocatedTableConfig.columns, tableColumnsMap[key]);
     }
 
     function updateFacets(key) {

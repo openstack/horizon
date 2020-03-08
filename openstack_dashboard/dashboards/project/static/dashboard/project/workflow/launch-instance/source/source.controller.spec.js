@@ -82,10 +82,10 @@
       it('initializes transfer table variables', function() {
         // NOTE: these are set by the default, not the initial values.
         // Arguably we shouldn't even set the original values.
-        expect(ctrl.tableHeadCells).toBeDefined();
-        expect(ctrl.tableHeadCells.length).toEqual(5);
-        expect(ctrl.tableBodyCells).toBeDefined();
-        expect(ctrl.tableBodyCells.length).toEqual(5);
+        expect(ctrl.availableTableConfig.columns).toBeDefined();
+        expect(ctrl.availableTableConfig.columns.length).toEqual(5);
+        expect(ctrl.allocatedTableConfig.columns).toBeDefined();
+        expect(ctrl.allocatedTableConfig.columns.length).toEqual(5);
         expect(ctrl.tableData).toBeDefined();
         expect(Object.keys(ctrl.tableData).length).toEqual(4);
         expect(ctrl.helpText).toBeDefined();
@@ -291,8 +291,8 @@
             // check table data
             expect(ctrl.tableData).toBeDefined();
             expect(Object.keys(ctrl.tableData)).toEqual(tableKeys);
-            expect(ctrl.tableHeadCells.length).toBeGreaterThan(0);
-            expect(ctrl.tableBodyCells.length).toBeGreaterThan(0);
+            expect(ctrl.availableTableConfig.columns.length).toBeGreaterThan(0);
+            expect(ctrl.allocatedTableConfig.columns.length).toBeGreaterThan(0);
           });
 
           it('updates the scope appropriately, with Cinder available', function() {
