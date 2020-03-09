@@ -528,15 +528,10 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
                          settings.OPENSTACK_KEYSTONE_URL)
 
 
-class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
-                               test.TestCase):
+class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin, test.TestCase):
 
     def setUp(self):
-        super(OpenStackAuthTestsWebSSO, self).setUp()
-
-        self.mox = mox.Mox()
-        self.addCleanup(self.mox.VerifyAll)
-        self.addCleanup(self.mox.UnsetStubs)
+        super().setUp()
 
         self.data = data_v3.generate_test_data()
         self.ks_client_module = client_v3
@@ -559,11 +554,6 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
             self.idp_oidc_id: (self.idp_id, 'oidc'),
             self.idp_saml2_id: (self.idp_id, 'saml2')
         }
-
-        self.mox.StubOutClassWithMocks(token_endpoint, 'Token')
-        self.mox.StubOutClassWithMocks(v3_auth, 'Token')
-        self.mox.StubOutClassWithMocks(v3_auth, 'Password')
-        self.mox.StubOutClassWithMocks(client_v3, 'Client')
 
     def test_login_form(self):
         url = reverse('login')
@@ -627,53 +617,37 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
         self.assertRedirects(response, redirect_url, status_code=302,
                              target_status_code=404)
 
-    def test_websso_login(self):
-        projects = [self.data.project_one, self.data.project_two]
-        domains = []
+    @mock.patch.object(client_v3, 'Client')
+    @mock.patch.object(v3_auth, 'Token')
+    def test_websso_login(self, mock_token, mock_client):
+        keystone_url = settings.OPENSTACK_KEYSTONE_URL
         form_data = {
-            'token': self.data.federated_unscoped_access_info.auth_token
+            'token': self.data.federated_unscoped_access_info.auth_token,
         }
 
-        unscoped_auth = v3_auth.Token(
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            token=self.data.federated_unscoped_access_info.auth_token,
-            project_id=None,
-            reauthenticate=False)
+        auth_token_unscoped = mock.Mock(auth_url=keystone_url)
+        auth_token_scoped = mock.Mock(auth_url=keystone_url)
+        mock_token.side_effect = [
+            auth_token_unscoped,
+            auth_token_scoped,
+        ]
+        auth_token_unscoped.get_access.return_value = \
+            self.data.federated_unscoped_access_info
+        auth_token_scoped.get_access.return_value = \
+            self.data.unscoped_access_info
 
-        unscoped_auth.get_access(mox.IsA(session.Session)).AndReturn(
-            self.data.federated_unscoped_access_info)
-        unscoped_auth.auth_url = settings.OPENSTACK_KEYSTONE_URL
-
-        unscoped_auth.auth_url = settings.OPENSTACK_KEYSTONE_URL
-        client = self.ks_client_module.Client(
-            session=mox.IsA(session.Session),
-            auth=unscoped_auth)
-
-        client.auth = self.mox.CreateMockAnything()
-        client.auth.domains().AndReturn(domains)
-
-        unscoped_auth.auth_url = settings.OPENSTACK_KEYSTONE_URL
-        client = self.ks_client_module.Client(
-            session=mox.IsA(session.Session),
-            auth=unscoped_auth)
-
-        client.federation = self.mox.CreateMockAnything()
-        client.federation.projects = self.mox.CreateMockAnything()
-        client.federation.projects.list().AndReturn(projects)
-
-        plugin = v3_auth.Token(
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            token=self.data.unscoped_access_info.auth_token,
-            project_id=self.data.project_one.id,
-            reauthenticate=False)
-        self.scoped_token_auth = plugin
-        plugin.get_access(mox.IsA(session.Session)).AndReturn(
-            self.data.unscoped_access_info)
-        self.ks_client_module.Client(
-            session=mox.IsA(session.Session),
-            auth=plugin)
-
-        self.mox.ReplayAll()
+        client_unscoped_1 = mock.Mock()
+        client_unscoped_2 = mock.Mock()
+        client_scoped = mock.Mock()
+        mock_client.side_effect = [
+            client_unscoped_1,
+            client_unscoped_2,
+            client_scoped,
+        ]
+        client_unscoped_1.auth.domains.return_value = []
+        client_unscoped_2.federation.projects.list.return_value = [
+            self.data.project_one, self.data.project_two
+        ]
 
         url = reverse('websso')
 
@@ -681,59 +655,125 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin,
         response = self.client.post(url, form_data)
         self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
 
-    def test_websso_login_with_auth_in_url(self):
-        settings.OPENSTACK_KEYSTONE_URL =\
-            'http://auth.openstack.org/identity/v3'
+        mock_token.assert_has_calls([
+            mock.call(
+                auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                token=self.data.federated_unscoped_access_info.auth_token,
+                project_id=None,
+                reauthenticate=False,
+            ),
+            mock.call(
+                auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                token=self.data.unscoped_access_info.auth_token,
+                project_id=self.data.project_one.id,
+                reauthenticate=False,
+            ),
+        ])
+        self.assertEqual(2, mock_token.call_count)
+        auth_token_unscoped.get_access.assert_called_once_with(
+            IsA(session.Session))
+        auth_token_scoped.get_access.assert_called_once_with(
+            IsA(session.Session))
 
-        projects = [self.data.project_one, self.data.project_two]
-        domains = []
-        form_data = {'token': self.data.unscoped_access_info.auth_token}
+        mock_client.assert_has_calls([
+            mock.call(
+                auth=auth_token_unscoped,
+                session=IsA(session.Session),
+            ),
+            mock.call(
+                auth=auth_token_unscoped,
+                session=IsA(session.Session),
+            ),
+            mock.call(
+                auth=auth_token_scoped,
+                session=IsA(session.Session),
+            ),
+        ])
+        self.assertEqual(3, mock_client.call_count)
+        client_unscoped_1.auth.domains.assert_called_once_with()
+        client_unscoped_2.federation.projects.list.assert_called_once_with()
+        client_scoped.assert_not_called()
 
-        unscoped_auth = v3_auth.Token(
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            token=self.data.federated_unscoped_access_info.auth_token,
-            project_id=None,
-            reauthenticate=False)
-        unscoped_auth.get_access(mox.IsA(session.Session)).AndReturn(
-            self.data.federated_unscoped_access_info)
-        unscoped_auth.auth_url = settings.OPENSTACK_KEYSTONE_URL
+    @mock.patch.object(client_v3, 'Client')
+    @mock.patch.object(v3_auth, 'Token')
+    @override_settings(
+        OPENSTACK_KEYSTONE_URL='http://auth.openstack.org/identity/v3')
+    def test_websso_login_with_auth_in_url(self, mock_token, mock_client):
+        keystone_url = settings.OPENSTACK_KEYSTONE_URL
+        form_data = {
+            'token': self.data.federated_unscoped_access_info.auth_token,
+        }
 
-        unscoped_auth.auth_url = settings.OPENSTACK_KEYSTONE_URL
-        client = self.ks_client_module.Client(
-            session=mox.IsA(session.Session),
-            auth=unscoped_auth)
+        auth_token_unscoped = mock.Mock(auth_url=keystone_url)
+        auth_token_scoped = mock.Mock(auth_url=keystone_url)
+        mock_token.side_effect = [
+            auth_token_unscoped,
+            auth_token_scoped,
+        ]
+        auth_token_unscoped.get_access.return_value = \
+            self.data.federated_unscoped_access_info
+        auth_token_scoped.get_access.return_value = \
+            self.data.unscoped_access_info
 
-        client.auth = self.mox.CreateMockAnything()
-        client.auth.domains().AndReturn(domains)
-
-        unscoped_auth.auth_url = settings.OPENSTACK_KEYSTONE_URL
-        client = self.ks_client_module.Client(
-            session=mox.IsA(session.Session),
-            auth=unscoped_auth)
-
-        client.federation = self.mox.CreateMockAnything()
-        client.federation.projects = self.mox.CreateMockAnything()
-        client.federation.projects.list().AndReturn(projects)
-
-        plugin = v3_auth.Token(
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            token=self.data.unscoped_access_info.auth_token,
-            project_id=self.data.project_one.id,
-            reauthenticate=False)
-        self.scoped_token_auth = plugin
-        plugin.get_access(mox.IsA(session.Session)).AndReturn(
-            self.data.unscoped_access_info)
-        self.ks_client_module.Client(
-            session=mox.IsA(session.Session),
-            auth=plugin)
-
-        self.mox.ReplayAll()
+        client_unscoped_1 = mock.Mock()
+        client_unscoped_2 = mock.Mock()
+        client_scoped = mock.Mock()
+        mock_client.side_effect = [
+            client_unscoped_1,
+            client_unscoped_2,
+            client_scoped,
+        ]
+        client_unscoped_1.auth.domains.return_value = []
+        client_unscoped_2.federation.projects.list.return_value = [
+            self.data.project_one, self.data.project_two
+        ]
 
         url = reverse('websso')
 
         # POST to the page to log in.
         response = self.client.post(url, form_data)
         self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        # validate token flow
+
+        mock_token.assert_has_calls([
+            mock.call(
+                auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                token=self.data.federated_unscoped_access_info.auth_token,
+                project_id=None,
+                reauthenticate=False,
+            ),
+            mock.call(
+                auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                token=self.data.federated_unscoped_access_info.auth_token,
+                project_id=self.data.project_one.id,
+                reauthenticate=False,
+            ),
+        ])
+        self.assertEqual(2, mock_token.call_count)
+        auth_token_unscoped.get_access.assert_called_once_with(
+            IsA(session.Session))
+        auth_token_scoped.get_access.assert_called_once_with(
+            IsA(session.Session))
+
+        mock_client.assert_has_calls([
+            mock.call(
+                session=IsA(session.Session),
+                auth=auth_token_unscoped,
+            ),
+            mock.call(
+                session=IsA(session.Session),
+                auth=auth_token_unscoped,
+            ),
+            mock.call(
+                session=IsA(session.Session),
+                auth=auth_token_scoped,
+            ),
+        ])
+        self.assertEqual(3, mock_client.call_count)
+        client_unscoped_1.auth.domains.assert_called_once_with()
+        client_unscoped_2.federation.projects.list.assert_called_once_with()
+        client_scoped.assert_not_called()
 
     def test_websso_login_default_redirect(self):
         origin = 'http://testserver/auth/websso/'
