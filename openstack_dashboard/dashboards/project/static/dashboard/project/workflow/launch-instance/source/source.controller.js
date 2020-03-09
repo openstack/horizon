@@ -101,19 +101,19 @@
       snapshot: {
         available: $scope.model.imageSnapshots,
         allocated: selection,
-        displayedAvailable: [],
+        displayedAvailable: $scope.model.imageSnapshots,
         displayedAllocated: selection
       },
       volume: {
         available: $scope.model.volumes,
         allocated: selection,
-        displayedAvailable: [],
+        displayedAvailable: $scope.model.volumes,
         displayedAllocated: selection
       },
       volume_snapshot: {
         available: $scope.model.volumeSnapshots,
         allocated: selection,
-        displayedAvailable: [],
+        displayedAvailable: $scope.model.volumeSnapshots,
         displayedAllocated: selection
       }
     };

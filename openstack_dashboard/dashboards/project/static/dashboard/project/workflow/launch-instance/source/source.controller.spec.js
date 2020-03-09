@@ -105,6 +105,77 @@
         });
       });
 
+      var executeBootSourcesTest = function (expectedBootResources, allowedBootSources, testType) {
+        describe('LaunchInstanceSourceControllerUsing' + testType, function () {
+          beforeEach(inject(function ($controller, $rootScope, _$browser_, $q) {
+            scope = $rootScope.$new();
+            spyOn(scope, '$watch').and.callThrough();
+            spyOn(scope, '$watchCollection').and.callThrough();
+            $browser = _$browser_;
+            deferred = $q.defer();
+            scope.initPromise = deferred.promise;
+
+            scope.model = {
+              allowedBootSources: allowedBootSources,
+              newInstanceSpec: {source: [], source_type: '', create_volume_default: true},
+              images: [{id: 'image-1'}, {id: 'image-2'}],
+              imageSnapshots: [{id: 'imageSnapshot-1'}],
+              volumes: [{id: 'volume-1'}, {id: 'volume-2'}],
+              volumeSnapshots: [{id: 'snapshot-2'}],
+              novaLimits: {
+                maxTotalInstances: 10,
+                totalInstancesUsed: 0
+              }
+            };
+
+            scope.launchInstanceSourceForm = {
+              'boot-source-type': {$setValidity: noop}
+            };
+
+            ctrl = $controller('LaunchInstanceSourceController', {$scope: scope});
+
+            scope.$apply();
+          }));
+
+          var iterationName = 'initializes table data to reflect "{0}" selection';
+          it(iterationName.replace("{0}", testType), function () {
+            var list = expectedBootResources; // Use scope's values.
+            var sel = []; // None selected.
+
+            expect(ctrl.tableData).toEqual({
+              available: list,
+              allocated: sel,
+              displayedAvailable: list,
+              displayedAllocated: sel
+            });
+          });
+        });
+      };
+
+      executeBootSourcesTest(
+          [{id: 'imageSnapshot-1'}],
+          [{type: 'snapshot', label: 'ImageSnapshot'},
+            {type: 'volume', label: 'Volume'},
+            {type: 'image', label: 'Image'},
+            {type: 'volume_snapshot', label: 'VolumeSnapshot'}],
+          "ImageSnapshot");
+
+      executeBootSourcesTest(
+          [{id: 'volume-1'}, {id: 'volume-2'}],
+          [{type: 'volume', label: 'Volume'},
+            {type: 'image', label: 'Image'},
+            {type: 'volume_snapshot', label: 'VolumeSnapshot'},
+            {type: 'snapshot', label: 'ImageSnapshot'}],
+          "UsingVolume");
+
+      executeBootSourcesTest(
+          [{id: 'snapshot-2'}],
+          [{type: 'volume_snapshot', label: 'volumeSnapshots'},
+            {type: 'volume', label: 'Volume'},
+            {type: 'image', label: 'Image'},
+            {type: 'snapshot', label: 'ImageSnapshot'}],
+          "VolumeSnapshot");
+
       it('defaults to first source type if none existing', function() {
         expect(scope.model.newInstanceSpec.source_type.type).toBe('image');
         expect(ctrl.currentBootSource).toBe('image');
