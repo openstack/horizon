@@ -21,11 +21,9 @@ from django.urls import reverse
 from keystoneauth1 import exceptions as keystone_exceptions
 from keystoneauth1.identity import v3 as v3_auth
 from keystoneauth1 import session
-from keystoneauth1 import token_endpoint
 from keystoneclient.v3 import client as client_v3
 from keystoneclient.v3 import projects
 import mock
-from mox3 import mox
 
 from openstack_auth.plugin import password
 from openstack_auth.tests import data_v3
@@ -65,8 +63,6 @@ class OpenStackAuthTestsMixin(object):
 
 class OpenStackAuthTestsV3Base(OpenStackAuthTestsMixin, test.TestCase):
 
-    USE_MOX = True
-
     def setUp(self):
         super().setUp()
 
@@ -75,27 +71,18 @@ class OpenStackAuthTestsV3Base(OpenStackAuthTestsMixin, test.TestCase):
             override.enable()
             self.addCleanup(override.disable)
 
-        if self.USE_MOX:
-            self.mox = mox.Mox()
-            self.addCleanup(self.mox.VerifyAll)
-            self.addCleanup(self.mox.UnsetStubs)
-
         self.data = data_v3.generate_test_data()
         self.ks_client_module = client_v3
         settings.OPENSTACK_API_VERSIONS['identity'] = 3
         settings.OPENSTACK_KEYSTONE_URL = "http://localhost/identity/v3"
 
-        if self.USE_MOX:
-            self.mox.StubOutClassWithMocks(token_endpoint, 'Token')
-            self.mox.StubOutClassWithMocks(v3_auth, 'Token')
-            self.mox.StubOutClassWithMocks(v3_auth, 'Password')
-            self.mox.StubOutClassWithMocks(client_v3, 'Client')
-            self.mox.StubOutClassWithMocks(v3_auth, 'Keystone2Keystone')
-
-
-class OpenStackAuthTestsV3(OpenStackAuthTestsV3Base):
-
-    def test_switch_keystone_provider_remote_fail(self):
+    @mock.patch.object(v3_auth, 'Keystone2Keystone')
+    @mock.patch.object(client_v3, 'Client')
+    @mock.patch.object(v3_auth, 'Token')
+    @mock.patch.object(v3_auth, 'Password')
+    def test_switch_keystone_provider_remote_fail(
+        self, mock_password, mock_token, mock_client, mock_k2k,
+    ):
         target_provider = 'k2kserviceprovider'
         self.data = data_v3.generate_test_data(service_providers=True)
         self.sp_data = data_v3.generate_test_data(endpoint='http://sp2')
@@ -103,73 +90,52 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsV3Base):
         user = self.data.user
         form_data = self.get_form_data(user)
 
-        plugin = v3_auth.Password(
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            password=self.data.user.password,
-            username=self.data.user.name,
-            user_domain_name=DEFAULT_DOMAIN,
-            unscoped=True)
-        plugin.get_access(mox.IsA(session.Session)). \
-            AndReturn(self.data.unscoped_access_info)
-        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
-        client = self.ks_client_module.Client(
-            session=mox.IsA(session.Session), auth=plugin)
+        auth_password = mock.Mock(
+            auth_url=settings.OPENSTACK_KEYSTONE_URL)
+        auth_password.get_access.side_effect = [
+            self.data.unscoped_access_info
+        ]
+        mock_password.return_value = auth_password
 
-        plugin = v3_auth.Token(
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            token=self.data.unscoped_access_info.auth_token,
-            domain_name=DEFAULT_DOMAIN,
-            reauthenticate=False)
-        plugin.get_access(mox.IsA(session.Session)).AndReturn(
-            self.data.domain_scoped_access_info)
+        auth_token_domain = mock.Mock(
+            auth_url=settings.OPENSTACK_KEYSTONE_URL)
+        auth_token_project1 = mock.Mock(
+            auth_url=settings.OPENSTACK_KEYSTONE_URL)
+        auth_token_unscoped = mock.Mock(
+            auth_url=settings.OPENSTACK_KEYSTONE_URL)
+        auth_token_project2 = mock.Mock(
+            auth_url=settings.OPENSTACK_KEYSTONE_URL)
 
-        client.projects = self.mox.CreateMockAnything()
-        client.projects.list(user=user.id).AndReturn(projects)
+        mock_token.side_effect = [auth_token_domain,
+                                  auth_token_project1,
+                                  auth_token_unscoped,
+                                  auth_token_project2]
+        auth_token_domain.get_access.return_value = \
+            self.data.domain_scoped_access_info
+        auth_token_project1.get_access.return_value = \
+            self.data.unscoped_access_info
+        auth_token_unscoped.get_access.return_value = \
+            self.data.unscoped_access_info
+        auth_token_project2.get_access.return_value = \
+            self.data.unscoped_access_info
 
-        plugin = v3_auth.Token(
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            token=self.data.unscoped_access_info.auth_token,
-            project_id=self.data.project_one.id,
-            reauthenticate=False)
-        self.scoped_token_auth = plugin
-        plugin.get_access(mox.IsA(session.Session)).AndReturn(
-            self.data.unscoped_access_info)
-        self.ks_client_module.Client(
-            session=mox.IsA(session.Session),
-            auth=plugin)
+        auth_token_project2.get_sp_auth_url.return_value = \
+            'https://k2kserviceprovider/sp_url'
 
-        # mock switch
-        plugin = v3_auth.Token(
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            token=self.data.unscoped_access_info.auth_token,
-            project_id=None,
-            reauthenticate=False)
-        plugin.get_access(mox.IsA(session.Session)).AndReturn(
-            self.data.unscoped_access_info)
-        plugin.auth_url = settings.OPENSTACK_KEYSTONE_URL
-        client = self.ks_client_module.Client(session=mox.IsA(session.Session),
-                                              auth=plugin)
-
-        client.projects = self.mox.CreateMockAnything()
-        client.projects.list(user=user.id).AndReturn(projects)
-
-        plugin = v3_auth.Token(
-            auth_url=settings.OPENSTACK_KEYSTONE_URL,
-            token=self.data.unscoped_access_info.auth_token,
-            project_id=self.data.project_one.id,
-            reauthenticate=False)
-        plugin.get_access(mox.IsA(session.Session)).AndReturn(
-            settings.OPENSTACK_KEYSTONE_URL)
-        plugin.get_sp_auth_url(
-            mox.IsA(session.Session), target_provider
-        ).AndReturn('https://k2kserviceprovider/sp_url')
+        client_domain = mock.Mock()
+        client_project1 = mock.Mock()
+        client_unscoped = mock.Mock()
+        mock_client.side_effect = [client_domain,
+                                   client_project1,
+                                   client_unscoped]
+        client_domain.projects.list.return_value = projects
+        client_unscoped.projects.list.return_value = projects
 
         # let the K2K plugin fail when logging in
-        plugin = v3_auth.Keystone2Keystone(
-            base_plugin=plugin, service_provider=target_provider)
-        plugin.get_access(mox.IsA(session.Session)).AndRaise(
-            keystone_exceptions.AuthorizationFailure)
-        self.mox.ReplayAll()
+        auth_k2k = mock.Mock()
+        auth_k2k.get_access.side_effect = \
+            keystone_exceptions.AuthorizationFailure
+        mock_k2k.return_value = auth_k2k
 
         # Log in
         url = reverse('login')
@@ -194,10 +160,76 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsV3Base):
         self.assertEqual(self.client.session['k2k_auth_url'],
                          settings.OPENSTACK_KEYSTONE_URL)
 
+        mock_password.assert_called_once_with(
+            auth_url=settings.OPENSTACK_KEYSTONE_URL,
+            password=self.data.user.password,
+            username=self.data.user.name,
+            user_domain_name=DEFAULT_DOMAIN,
+            unscoped=True,
+        )
+        auth_password.get_access.assert_called_once_with(IsA(session.Session))
 
-class OpenStackAuthTestsV3WithMock2(OpenStackAuthTestsV3Base):
+        mock_client.assert_has_calls([
+            mock.call(
+                session=IsA(session.Session),
+                auth=auth_password,
+            ),
+            mock.call(
+                session=IsA(session.Session),
+                auth=auth_token_project1,
+            ),
+            mock.call(
+                session=IsA(session.Session),
+                auth=auth_token_unscoped,
+            ),
+        ])
+        self.assertEqual(3, mock_client.call_count)
+        client_domain.projects.list.assert_called_once_with(user=user.id)
+        client_unscoped.projects.list.assert_called_once_with(user=user.id)
 
-    USE_MOX = False
+        mock_token.assert_has_calls([
+            mock.call(
+                auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                token=self.data.unscoped_access_info.auth_token,
+                domain_name=DEFAULT_DOMAIN,
+                reauthenticate=False,
+            ),
+            mock.call(
+                auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                token=self.data.unscoped_access_info.auth_token,
+                project_id=self.data.project_one.id,
+                reauthenticate=False,
+            ),
+            mock.call(
+                auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                token=self.data.unscoped_access_info.auth_token,
+                project_id=None,
+                reauthenticate=False,
+            ),
+            mock.call(
+                auth_url=settings.OPENSTACK_KEYSTONE_URL,
+                token=self.data.unscoped_access_info.auth_token,
+                project_id=self.data.project_one.id,
+                reauthenticate=False,
+            ),
+        ])
+        self.assertEqual(4, mock_token.call_count)
+        auth_token_domain.get_access.assert_called_once_with(
+            IsA(session.Session))
+        auth_token_project1.get_access.assert_called_once_with(
+            IsA(session.Session))
+        auth_token_unscoped.get_access.assert_called_once_with(
+            IsA(session.Session))
+        auth_token_project2.get_access.assert_called_once_with(
+            IsA(session.Session))
+        auth_token_project2.get_sp_auth_url.assert_called_once_with(
+            IsA(session.Session), target_provider)
+
+        mock_k2k.assert_called_once_with(
+            base_plugin=auth_token_project2,
+            service_provider=target_provider,
+        )
+        auth_k2k.get_access.assert_called_once_with(IsA(session.Session))
 
     @mock.patch.object(v3_auth, 'Keystone2Keystone')
     @mock.patch.object(client_v3, 'Client')
