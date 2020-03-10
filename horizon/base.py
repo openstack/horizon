@@ -33,7 +33,6 @@ from django.conf.urls import include
 from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured
 from django.urls import reverse
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import empty
 from django.utils.functional import SimpleLazyObject
 from django.utils.module_loading import module_has_submodule
@@ -105,7 +104,6 @@ class NotRegistered(Exception):
     pass
 
 
-@python_2_unicode_compatible
 class HorizonComponent(object):
     policy_rules = tuple()
 

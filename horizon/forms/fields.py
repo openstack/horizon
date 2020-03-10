@@ -28,7 +28,6 @@ from django.forms import widgets
 from django.template.loader import get_template
 from django import urls
 from django.utils.encoding import force_text
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import Promise
 from django.utils import html
 from django.utils.safestring import mark_safe
@@ -435,7 +434,6 @@ class ThemableCheckboxInput(widgets.CheckboxInput):
 # NOTE(adriant): SubWidget was removed in Django 1.11 and thus has been moved
 # to our codebase until we redo how we handle widgets.
 @html.html_safe
-@python_2_unicode_compatible
 class SubWidget(object):
     """SubWidget class from django 1.10.7 codebase
 
@@ -458,7 +456,6 @@ class SubWidget(object):
 # Django 1.11 so ChoiceInput has been moved to our codebase until we redo how
 # we handle widgets.
 @html.html_safe
-@python_2_unicode_compatible
 class ChoiceInput(SubWidget):
     """ChoiceInput class from django 1.10.7 codebase
 
