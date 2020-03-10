@@ -44,14 +44,16 @@ ROOT_LOGGER.setLevel(logging.DEBUG)
 LOG = logging.getLogger(__name__)
 
 IS_SELENIUM_HEADLESS = os.environ.get('SELENIUM_HEADLESS', False)
+
 ROOT_PATH = os.path.dirname(os.path.abspath(config.__file__))
 
 SCREEN_SIZE = (None, None)
 
 if not subprocess.call('which xdpyinfo > /dev/null 2>&1', shell=True):
     try:
-        SCREEN_SIZE = subprocess.check_output('xdpyinfo | grep dimensions',
-                                              shell=True).split()[1].split('x')
+        SCREEN_SIZE = subprocess.check_output(
+            'xdpyinfo | grep dimensions',
+            shell=True).decode().split()[1].split('x')
     except subprocess.CalledProcessError:
         LOG.info("Can't run 'xdpyinfo'")
 else:
