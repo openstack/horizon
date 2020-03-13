@@ -1,3 +1,5 @@
+libpcre3-dev [platform:dpkg]
+pcre-devel [platform:redhat]
 # selenium tests
 firefox [selenium]
 xvfb [selenium platform:dpkg]
