@@ -1864,7 +1864,7 @@ def is_router_enabled(request):
 # FEATURE_MAP is used to define:
 # - related neutron extension name (key: "extension")
 # - corresponding dashboard config (key: "config")
-# - RBAC policies (key: "poclies")
+# - RBAC policies (key: "policies")
 # If a key is not contained, the corresponding permission check is skipped.
 FEATURE_MAP = {
     'dvr': {
