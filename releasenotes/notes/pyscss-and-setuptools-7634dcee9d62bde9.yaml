@@ -1,0 +1,13 @@
+---
+issues:
+  - |
+    The material design theme is now broken with pyScss 1.3.7
+    (also see the upgrade notice section).
+    If you really depends on the material design theme, keep using
+    pyScss 1.3.4 with setuptools<45 (while the horizon dependencies list
+    says pyScss>=1.3.7 is required).
+    The issue is tracked via [:bug:`1771559`].
+upgrade:
+  - |
+    pyScss 1.3.7 is now required due to the incompatibility that
+    pyScss 1.3.4 used before in horizon does not work with setuptools 46.
