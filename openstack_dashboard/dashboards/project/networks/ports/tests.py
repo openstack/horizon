@@ -543,6 +543,37 @@ class NetworkPortTests(test.TestCase):
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest(), tenant_id='1')
 
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'security_group_list',
+                                      'is_extension_supported')})
+    def test_port_create_on_network_from_different_tenant(self):
+        network = self.networks.list()[1]
+        tenant_id = self.request.user.tenant_id
+        # Ensure the network belongs to a different tenant
+        self.assertNotEqual(tenant_id, network.tenant_id)
+
+        self.mock_network_get.return_value = self.networks.first()
+        self._stub_is_extension_supported({'binding': False,
+                                           'mac-learning': False,
+                                           'port-security': True})
+        self.mock_security_group_list.return_value = \
+            self.security_groups.list()
+
+        url = reverse('horizon:project:networks:addport',
+                      args=[network.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_network_get, 2,
+            mock.call(test.IsHttpRequest(), network.id))
+        self._check_is_extension_supported({'binding': 1,
+                                            'mac-learning': 1,
+                                            'port-security': 1})
+        # Check the new port belongs to a tenant of the login user
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id=tenant_id)
+
     def test_port_create_post(self):
         self._test_port_create_post()
 
