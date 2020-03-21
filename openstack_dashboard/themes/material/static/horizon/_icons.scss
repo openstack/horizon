@@ -86,6 +86,8 @@ $icon-swap: (
 
 @each $fa-icon, $mdi-icon in $icon-swap {
   .fa-#{$fa-icon} {
-    @extend .mdi-#{$mdi-icon};
+    &:before {
+      content: unquote("\"\\#{map-get($mdi-icons, $mdi-icon)}\"");
+    }
   }
 }
