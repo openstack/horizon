@@ -16,8 +16,11 @@ coverage-karma
 pep8.txt
 pylint.txt
 # Files created by releasenotes build
+RELEASENOTES.rst
 releasenotes/build
+releasenotes/notes/reno.cache
 reports
+
 openstack_dashboard/local/*
 !openstack_dashboard/local/local_settings.py.example
 !openstack_dashboard/local/enabled/_50__settings.py.example
