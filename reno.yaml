@@ -1,0 +1,3 @@
+---
+# Ignore the kilo-eol tag because that branch does not work with reno.
+closed_branch_tag_re: "(.+)(?<!kilo)-eol"
