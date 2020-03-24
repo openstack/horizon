@@ -51,6 +51,9 @@
     post-run: playbooks/horizon-devstack-integration/post.yaml
     roles:
       - zuul: openstack-infra/devstack
+    required-projects:
+      - openstack/horizon
+      - openstack/requirements
     irrelevant-files:
       - ^.*\.rst$
       - ^doc/.*$
@@ -69,6 +72,7 @@
       devstack_services:
         horizon: true
       tox_envlist: integration
+      tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
 
 - job:
     name: horizon-dsvm-tempest-plugin
@@ -132,9 +136,11 @@
       Run lint using Node 10 for horizon plugins.
     vars:
       node_version: 10
+      tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
     nodeset: ubuntu-bionic
     required-projects:
-      openstack/horizon
+      - openstack/horizon
+      - openstack/requirements
 
 - job:
     name: nodejs10-npm-run-test
@@ -143,9 +149,11 @@
       Run test using Node 10 for horizon plugins.
     vars:
       node_version: 10
+      tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
     nodeset: ubuntu-bionic
     required-projects:
-      openstack/horizon
+      - openstack/horizon
+      - openstack/requirements
 
 - project-template:
     name: horizon-nodejs10-jobs
