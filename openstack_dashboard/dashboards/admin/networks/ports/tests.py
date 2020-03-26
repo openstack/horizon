@@ -14,11 +14,10 @@
 #    under the License.
 
 import collections
+from unittest import mock
 
 from django.test.utils import override_settings
 from django.urls import reverse
-
-import mock
 
 from horizon.workflows import views
 

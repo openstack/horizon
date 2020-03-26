@@ -11,10 +11,10 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
 import textwrap
+from unittest import mock
 
-import mock
+
 import pycodestyle
 
 from horizon.hacking import checks

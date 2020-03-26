@@ -13,8 +13,8 @@
 #    under the License.
 
 import collections
+from unittest import mock
 
-import mock
 import netaddr
 
 from django.test.utils import override_settings

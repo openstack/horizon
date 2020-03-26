@@ -12,8 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from unittest import mock
+
 from django.conf import settings
-import mock
 from oslo_serialization import jsonutils
 
 from openstack_dashboard import api

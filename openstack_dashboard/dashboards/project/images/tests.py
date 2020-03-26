@@ -21,10 +21,9 @@ import os
 from socket import timeout as socket_timeout
 import tempfile
 import unittest
+from unittest import mock
 
 from django.urls import reverse
-
-import mock
 
 from horizon import exceptions
 

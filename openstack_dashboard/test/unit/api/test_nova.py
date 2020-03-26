@@ -18,11 +18,11 @@
 #    under the License.
 
 from __future__ import absolute_import
+from unittest import mock
 
 from django.conf import settings
 from django.test.utils import override_settings
 
-import mock
 from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import flavor_access as nova_flavor_access

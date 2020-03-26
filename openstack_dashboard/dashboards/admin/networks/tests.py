@@ -13,11 +13,10 @@
 #    under the License.
 
 import collections
+from unittest import mock
 
 from django.urls import reverse
 from django.utils.http import urlunquote
-
-import mock
 
 from horizon import forms
 

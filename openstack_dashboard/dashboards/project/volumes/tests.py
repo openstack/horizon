@@ -13,8 +13,7 @@
 #    under the License.
 
 import copy
-
-import mock
+from unittest import mock
 
 from django.conf import settings
 from django.forms import widgets

@@ -17,8 +17,8 @@
 #    under the License.
 
 from __future__ import absolute_import
+from unittest import mock
 
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

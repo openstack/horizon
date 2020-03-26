@@ -10,10 +10,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from unittest import mock
+
 import django
 from django.conf import settings
 from django.urls import reverse
-import mock
 from novaclient.v2 import flavors
 
 from openstack_dashboard import api

@@ -15,11 +15,10 @@
 
 import collections
 import copy
+from unittest import mock
 
 from django.test.utils import override_settings
 from django.urls import reverse
-
-import mock
 
 from openstack_auth import utils as auth_utils
 

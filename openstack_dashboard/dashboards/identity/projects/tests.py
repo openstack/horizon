@@ -14,13 +14,12 @@
 
 import datetime
 import logging
+from unittest import mock
 
 from django.test import tag
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils import timezone
-
-import mock
 
 from horizon.workflows import views
 

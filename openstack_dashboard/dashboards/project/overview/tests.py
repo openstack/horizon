@@ -18,12 +18,11 @@
 
 import datetime
 import logging
+from unittest import mock
 
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils import timezone
-
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

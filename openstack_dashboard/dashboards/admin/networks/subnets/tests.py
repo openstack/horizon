@@ -14,9 +14,9 @@
 #    under the License.
 
 import collections
+from unittest import mock
 
 from django.urls import reverse
-import mock
 
 from horizon.workflows import views
 

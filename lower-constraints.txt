@@ -47,7 +47,6 @@ kombu==4.0.0
 linecache2==1.0.0
 MarkupSafe==1.0
 mccabe==0.2.1
-mock==2.0.0
 monotonic==0.6
 msgpack-python==0.4.0
 munch==2.1.0

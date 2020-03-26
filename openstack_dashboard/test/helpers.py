@@ -21,6 +21,7 @@ import importlib
 import logging
 import os
 import traceback
+from unittest import mock
 
 from django.conf import settings
 from django.contrib.messages.storage import default_storage
@@ -30,7 +31,6 @@ from django.test import tag
 from django import urls
 from django.utils import http
 
-import mock
 from openstack_auth import user
 from openstack_auth import utils
 from requests.packages.urllib3.connection import HTTPConnection

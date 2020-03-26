@@ -16,6 +16,7 @@
 #    under the License.
 
 import unittest
+from unittest import mock
 import uuid
 
 from django import forms
@@ -25,7 +26,6 @@ from django.template import defaultfilters
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.translation import ungettext_lazy
-import mock
 
 from horizon import exceptions
 from horizon import tables
