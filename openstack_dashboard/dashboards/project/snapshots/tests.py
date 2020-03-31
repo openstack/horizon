@@ -16,11 +16,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from django.conf import settings
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.http import urlunquote
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.snapshots \

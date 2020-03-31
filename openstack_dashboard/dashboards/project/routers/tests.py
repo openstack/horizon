@@ -11,11 +11,11 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+
 import copy
+from unittest import mock
 
 from django.urls import reverse
-
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

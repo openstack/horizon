@@ -20,6 +20,7 @@ import collections
 import json
 import logging
 import sys
+from unittest import mock
 
 from django.conf import settings
 from django.forms import widgets
@@ -28,7 +29,6 @@ import django.test
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.http import urlencode
-import mock
 from novaclient import api_versions
 
 from horizon import exceptions

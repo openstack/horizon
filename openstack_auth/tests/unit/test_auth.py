@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from unittest import mock
 import uuid
 
 from django.conf import settings
@@ -23,7 +24,7 @@ from keystoneauth1.identity import v3 as v3_auth
 from keystoneauth1 import session
 from keystoneclient.v3 import client as client_v3
 from keystoneclient.v3 import projects
-import mock
+
 
 from openstack_auth.plugin import password
 from openstack_auth.tests import data_v3

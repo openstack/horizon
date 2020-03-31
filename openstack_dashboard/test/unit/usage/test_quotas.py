@@ -20,10 +20,10 @@
 from __future__ import absolute_import
 
 import collections
+from unittest import mock
 
 from django.test.utils import override_settings
 from django.utils.translation import ugettext_lazy as _
-import mock
 
 from horizon import exceptions
 from openstack_dashboard import api

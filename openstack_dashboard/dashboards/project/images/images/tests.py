@@ -17,13 +17,12 @@
 #    under the License.
 
 import tempfile
+from unittest import mock
 
 from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.test.utils import override_settings
 from django.urls import reverse
-
-import mock
 
 from horizon import tables as horizon_tables
 from openstack_dashboard import api

@@ -12,11 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from django.conf import settings
 from django.test.utils import override_settings
 
 import cinderclient as cinder_client
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

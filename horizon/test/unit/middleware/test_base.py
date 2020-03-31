@@ -14,8 +14,8 @@
 #    under the License.
 
 import datetime
+from unittest import mock
 
-import mock
 import pytz
 
 from django.conf import settings

@@ -17,11 +17,10 @@
 #    under the License.
 
 from socket import timeout as socket_timeout
+from unittest import mock
 
 from django.test.utils import override_settings
 from django.urls import reverse
-
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.identity.users import tabs

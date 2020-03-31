@@ -13,10 +13,8 @@
 #    under the License.
 
 from collections import OrderedDict
-
+from unittest import mock
 import uuid
-
-import mock
 
 from django.conf import settings
 from django.test import override_settings

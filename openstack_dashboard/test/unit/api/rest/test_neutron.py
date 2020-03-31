@@ -13,8 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from unittest import mock
+
 from django.http import request as django_request
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.api import base

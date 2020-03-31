@@ -16,10 +16,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
 from urllib import parse
 
 from django.urls import reverse
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.key_pairs.forms \

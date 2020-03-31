@@ -14,10 +14,10 @@
 
 import json
 from json import loads as to_json
+from unittest import mock
 import uuid
 
 from django.conf import settings
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.api.base import Quota

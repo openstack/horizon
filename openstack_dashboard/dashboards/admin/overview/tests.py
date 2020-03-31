@@ -17,13 +17,12 @@
 #    under the License.
 
 import datetime
+from unittest import mock
 
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils import encoding
 from django.utils import timezone
-
-import mock
 
 from horizon.templatetags import sizeformat
 
