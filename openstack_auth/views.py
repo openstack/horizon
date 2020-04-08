@@ -69,6 +69,7 @@ def login(request):
     # from the dropdown, We need to redirect user to the websso url
     if request.method == 'POST':
         auth_type = request.POST.get('auth_type', 'credentials')
+        request.session['auth_type'] = auth_type
         if utils.is_websso_enabled() and auth_type != 'credentials':
             region_id = request.POST.get('region')
             auth_url = getattr(settings, 'WEBSSO_KEYSTONE_URL', None)

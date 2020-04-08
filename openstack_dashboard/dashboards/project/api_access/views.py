@@ -80,6 +80,7 @@ def _get_openrc_credentials(request):
         'user': request.user,
         'interface': 'public',
         'os_endpoint_type': 'publicURL',
+        'auth_type': request.session.get('auth_type'),
         'region': getattr(request.user, 'services_region') or "",
     }
 
