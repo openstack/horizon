@@ -148,7 +148,7 @@ XStatic-jquery-ui==1.10.4.1
 XStatic-JQuery.quicksearch==2.0.3.1
 XStatic-JQuery.TableSorter==2.14.5.1
 XStatic-JSEncrypt==2.3.1.1
-XStatic-mdi==1.4.57.0
+XStatic-mdi==1.6.50.2
 XStatic-objectpath==1.2.1.0
 XStatic-Rickshaw==1.5.0.0
 XStatic-roboto-fontface==0.5.0.0
