@@ -43,7 +43,6 @@ LOG = logging.getLogger(__name__)
 
 INDEX_URL = "horizon:identity:projects:index"
 ADD_USER_URL = "horizon:identity:projects:create_user"
-PROJECT_GROUP_ENABLED = keystone.VERSIONS.active >= 3
 PROJECT_USER_MEMBER_SLUG = "update_members"
 PROJECT_GROUP_MEMBER_SLUG = "update_group_members"
 COMMON_HORIZONTAL_TEMPLATE = "identity/projects/_common_horizontal_form.html"
@@ -232,12 +231,10 @@ class CreateProjectInfoAction(workflows.Action):
         super(CreateProjectInfoAction, self).__init__(request,
                                                       *args,
                                                       **kwargs)
-        # For keystone V3, display the two fields in read-only
-        if keystone.VERSIONS.active >= 3:
-            readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
-            self.fields["domain_id"].widget = readonlyInput
-            self.fields["domain_name"].widget = readonlyInput
-            self.add_extra_fields()
+        readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.fields["domain_id"].widget = readonlyInput
+        self.fields["domain_name"].widget = readonlyInput
+        self.add_extra_fields()
 
     def add_extra_fields(self):
         # add extra column defined by setting
@@ -263,9 +260,8 @@ class CreateProjectInfo(workflows.Step):
 
     def __init__(self, workflow):
         super(CreateProjectInfo, self).__init__(workflow)
-        if keystone.VERSIONS.active >= 3:
-            EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
-            self.contributes += tuple(EXTRA_INFO.keys())
+        EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
+        self.contributes += tuple(EXTRA_INFO.keys())
 
 
 class UpdateProjectMembersAction(workflows.MembershipAction):
@@ -478,10 +474,9 @@ class CreateProject(workflows.Workflow):
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
-        if PROJECT_GROUP_ENABLED:
-            self.default_steps = (CreateProjectInfo,
-                                  UpdateProjectMembers,
-                                  UpdateProjectGroups)
+        self.default_steps = (CreateProjectInfo,
+                              UpdateProjectMembers,
+                              UpdateProjectGroups)
         super(CreateProject, self).__init__(request=request,
                                             context_seed=context_seed,
                                             entry_point=entry_point,
@@ -499,11 +494,8 @@ class CreateProject(workflows.Workflow):
         domain_id = data['domain_id']
         try:
             # add extra information
-            if keystone.VERSIONS.active >= 3:
-                EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
-                kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
-            else:
-                kwargs = {}
+            EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
+            kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
 
             desc = data['description']
             self.object = api.keystone.tenant_create(request,
@@ -545,10 +537,7 @@ class CreateProject(workflows.Workflow):
                     users_added += 1
                 users_to_add -= users_added
         except Exception:
-            if PROJECT_GROUP_ENABLED:
-                group_msg = _(", add project groups")
-            else:
-                group_msg = ""
+            group_msg = _(", add project groups")
             exceptions.handle(request,
                               _('Failed to add %(users_to_add)s project '
                                 'members%(group_msg)s and set project quotas.')
@@ -591,8 +580,7 @@ class CreateProject(workflows.Workflow):
             return False
         project_id = project.id
         self._update_project_members(request, data, project_id)
-        if PROJECT_GROUP_ENABLED:
-            self._update_project_groups(request, data, project_id)
+        self._update_project_groups(request, data, project_id)
         return True
 
 
@@ -640,9 +628,8 @@ class UpdateProjectInfo(workflows.Step):
 
     def __init__(self, workflow):
         super(UpdateProjectInfo, self).__init__(workflow)
-        if keystone.VERSIONS.active >= 3:
-            EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
-            self.contributes += tuple(EXTRA_INFO.keys())
+        EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
+        self.contributes += tuple(EXTRA_INFO.keys())
 
 
 class UpdateProject(workflows.Workflow):
@@ -657,10 +644,9 @@ class UpdateProject(workflows.Workflow):
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
-        if PROJECT_GROUP_ENABLED:
-            self.default_steps = (UpdateProjectInfo,
-                                  UpdateProjectMembers,
-                                  UpdateProjectGroups)
+        self.default_steps = (UpdateProjectInfo,
+                              UpdateProjectMembers,
+                              UpdateProjectGroups)
 
         super(UpdateProject, self).__init__(request=request,
                                             context_seed=context_seed,
@@ -685,11 +671,8 @@ class UpdateProject(workflows.Workflow):
             project_id = data['project_id']
 
             # add extra information
-            if keystone.VERSIONS.active >= 3:
-                EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
-                kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
-            else:
-                kwargs = {}
+            EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
+            kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
 
             return api.keystone.tenant_update(
                 request,
@@ -832,10 +815,7 @@ class UpdateProject(workflows.Workflow):
                 users_to_modify -= users_added
             return True
         except Exception:
-            if PROJECT_GROUP_ENABLED:
-                group_msg = _(", update project groups")
-            else:
-                group_msg = ""
+            group_msg = _(", update project groups")
             exceptions.handle(request,
                               _('Failed to modify %(users_to_modify)s'
                                 ' project members%(group_msg)s and '
@@ -935,10 +915,9 @@ class UpdateProject(workflows.Workflow):
         if not ret:
             return False
 
-        if PROJECT_GROUP_ENABLED:
-            ret = self._update_project_groups(request, data,
-                                              project_id, domain_id)
-            if not ret:
-                return False
+        ret = self._update_project_groups(request, data,
+                                          project_id, domain_id)
+        if not ret:
+            return False
 
         return True

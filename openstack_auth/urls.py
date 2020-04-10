@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from django.conf import settings
 from django.conf.urls import url
 from django.views import generic
 
@@ -37,7 +38,7 @@ if utils.allow_expired_passowrd_change():
             name='password')
     )
 
-if utils.is_websso_enabled():
+if settings.WEBSSO_ENABLED:
     urlpatterns += [
         url(r"^websso/$", views.websso, name='websso'),
         url(r"^error/$",

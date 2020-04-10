@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
@@ -24,12 +25,8 @@ class Groups(horizon.Panel):
     slug = 'groups'
     policy_rules = (("identity", "identity:list_groups"),)
 
-    @staticmethod
-    def can_register():
-        return keystone.VERSIONS.active >= 3
-
     def can_access(self, context):
-        if keystone.is_multi_domain_enabled() \
-                and not keystone.is_domain_admin(context['request']):
+        if (settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT and
+                not keystone.is_domain_admin(context['request'])):
             return False
         return super(Groups, self).can_access(context)

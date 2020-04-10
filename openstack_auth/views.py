@@ -56,10 +56,10 @@ def login(request):
 
     # If the user enabled websso and the default redirect
     # redirect to the default websso url
-    if (request.method == 'GET' and utils.is_websso_enabled and
-            utils.is_websso_default_redirect()):
-        protocol = utils.get_websso_default_redirect_protocol()
-        region = utils.get_websso_default_redirect_region()
+    if (request.method == 'GET' and settings.WEBSSO_ENABLED and
+            settings.WEBSSO_DEFAULT_REDIRECT):
+        protocol = settings.WEBSSO_DEFAULT_REDIRECT_PROTOCOL
+        region = settings.WEBSSO_DEFAULT_REDIRECT_REGION
         origin = utils.build_absolute_uri(request, '/auth/websso/')
         url = ('%s/auth/OS-FEDERATION/websso/%s?origin=%s' %
                (region, protocol, origin))
@@ -70,7 +70,7 @@ def login(request):
     if request.method == 'POST':
         auth_type = request.POST.get('auth_type', 'credentials')
         request.session['auth_type'] = auth_type
-        if utils.is_websso_enabled() and auth_type != 'credentials':
+        if settings.WEBSSO_ENABLED and auth_type != 'credentials':
             region_id = request.POST.get('region')
             auth_url = getattr(settings, 'WEBSSO_KEYSTONE_URL', None)
             if auth_url is None:
@@ -105,7 +105,7 @@ def login(request):
     extra_context = {
         'redirect_field_name': auth.REDIRECT_FIELD_NAME,
         'csrf_failure': request.GET.get('csrf_failure'),
-        'show_sso_opts': utils.is_websso_enabled() and len(choices) > 1,
+        'show_sso_opts': settings.WEBSSO_ENABLED and len(choices) > 1,
     }
 
     if request.is_ajax():
@@ -171,7 +171,7 @@ def websso(request):
         request.user = auth.authenticate(request, auth_url=auth_url,
                                          token=token)
     except exceptions.KeystoneAuthException as exc:
-        if utils.is_websso_default_redirect():
+        if settings.WEBSSO_DEFAULT_REDIRECT:
             res = django_http.HttpResponseRedirect(settings.LOGIN_ERROR)
         else:
             msg = 'Login failed: %s' % exc
@@ -202,11 +202,11 @@ def logout(request, login_url=None, **kwargs):
     LOG.info(msg)
 
     """ Securely logs a user out. """
-    if (utils.is_websso_enabled and utils.is_websso_default_redirect() and
-            utils.get_websso_default_redirect_logout()):
+    if (settings.WEBSSO_ENABLED and settings.WEBSSO_DEFAULT_REDIRECT and
+            settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT):
         auth_user.unset_session_user_variables(request)
         return django_http.HttpResponseRedirect(
-            utils.get_websso_default_redirect_logout())
+            settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT)
     else:
         return django_auth_views.logout_then_login(request,
                                                    login_url=login_url,

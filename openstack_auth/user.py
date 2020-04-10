@@ -187,8 +187,7 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
 
     .. attribute:: password_expires_at
 
-        Password expiration date. This attribute could be None when using
-        keystone version < 3.0 or if the feature is not enabled in keystone.
+        Password expiration date.
 
     """
 

@@ -100,7 +100,7 @@ class Login(django_auth_forms.AuthenticationForm):
 
         # if websso is enabled and keystone version supported
         # prepend the websso_choices select input to the form
-        if utils.is_websso_enabled():
+        if settings.WEBSSO_ENABLED:
             initial = settings.WEBSSO_INITIAL_CHOICE
             self.fields['auth_type'] = forms.ChoiceField(
                 label=_("Authenticate using"),

@@ -131,10 +131,9 @@ class IndexView(tables.DataTableView):
                 _("Insufficient privilege level to view project information.")
             messages.info(self.request, msg)
 
-        if api.keystone.VERSIONS.active >= 3:
-            domain_lookup = api.keystone.domain_lookup(self.request)
-            for t in tenants:
-                t.domain_name = domain_lookup.get(t.domain_id)
+        domain_lookup = api.keystone.domain_lookup(self.request)
+        for t in tenants:
+            t.domain_name = domain_lookup.get(t.domain_id)
 
         return tenants
 
@@ -182,28 +181,27 @@ class UpdateProjectView(workflows.WorkflowView):
             for field in PROJECT_INFO_FIELDS:
                 initial[field] = getattr(project_info, field, None)
 
-            if keystone.VERSIONS.active >= 3:
-                # get extra columns info
-                ex_info = settings.PROJECT_TABLE_EXTRA_INFO
-                for ex_field in ex_info:
-                    initial[ex_field] = getattr(project_info, ex_field, None)
+            # get extra columns info
+            ex_info = settings.PROJECT_TABLE_EXTRA_INFO
+            for ex_field in ex_info:
+                initial[ex_field] = getattr(project_info, ex_field, None)
 
-                # Retrieve the domain name where the project belong
-                try:
-                    if policy.check((("identity", "identity:get_domain"),),
-                                    self.request):
-                        domain = api.keystone.domain_get(self.request,
-                                                         initial["domain_id"])
-                        initial["domain_name"] = domain.name
+            # Retrieve the domain name where the project belong
+            try:
+                if policy.check((("identity", "identity:get_domain"),),
+                                self.request):
+                    domain = api.keystone.domain_get(self.request,
+                                                     initial["domain_id"])
+                    initial["domain_name"] = domain.name
 
-                    else:
-                        domain = api.keystone.get_default_domain(self.request)
-                        initial["domain_name"] = domain.name
+                else:
+                    domain = api.keystone.get_default_domain(self.request)
+                    initial["domain_name"] = domain.name
 
-                except Exception:
-                    exceptions.handle(self.request,
-                                      _('Unable to retrieve project domain.'),
-                                      redirect=reverse(INDEX_URL))
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve project domain.'),
+                                  redirect=reverse(INDEX_URL))
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve project details.'),

@@ -159,13 +159,10 @@ class DeleteUsersAction(policy.PolicyTargetMixin, tables.DeleteAction):
 
 
 class UserFilterAction(tables.FilterAction):
-    if api.keystone.VERSIONS.active < 3:
-        filter_type = "query"
-    else:
-        filter_type = "server"
-        filter_choices = (("name", _("User Name ="), True),
-                          ("id", _("User ID ="), True),
-                          ("enabled", _("Enabled ="), True, _('e.g. Yes/No')))
+    filter_type = "server"
+    filter_choices = (("name", _("User Name ="), True),
+                      ("id", _("User ID ="), True),
+                      ("enabled", _("Enabled ="), True, _('e.g. Yes/No')))
 
 
 class UpdateRow(tables.Row):
@@ -209,11 +206,9 @@ class UsersTable(tables.DataTable):
                             filters=(defaultfilters.yesno,
                                      defaultfilters.capfirst),
                             empty_value="False")
-
-    if api.keystone.VERSIONS.active >= 3:
-        domain_name = tables.Column('domain_name',
-                                    verbose_name=_('Domain Name'),
-                                    attrs={'data-type': 'uuid'})
+    domain_name = tables.Column('domain_name',
+                                verbose_name=_('Domain Name'),
+                                attrs={'data-type': 'uuid'})
 
     class Meta(object):
         name = "users"

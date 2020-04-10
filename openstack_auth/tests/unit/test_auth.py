@@ -967,7 +967,6 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin, test.TestCase):
                         (settings.OPENSTACK_KEYSTONE_URL, protocol, origin))
 
         url = reverse('login')
-
         # POST to the page and redirect to keystone.
         response = self.client.get(url)
         self.assertRedirects(response, redirect_url, status_code=302,

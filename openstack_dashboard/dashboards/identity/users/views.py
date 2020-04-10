@@ -95,10 +95,9 @@ class IndexView(tables.DataTableView):
             msg = _("Insufficient privilege level to view user information.")
             messages.info(self.request, msg)
 
-        if api.keystone.VERSIONS.active >= 3:
-            domain_lookup = api.keystone.domain_lookup(self.request)
-            for u in users:
-                u.domain_name = domain_lookup.get(u.domain_id)
+        domain_lookup = api.keystone.domain_lookup(self.request)
+        for u in users:
+            u.domain_name = domain_lookup.get(u.domain_id)
         return users
 
 
@@ -134,20 +133,19 @@ class UpdateView(forms.ModalFormView):
         domain_id = getattr(user, "domain_id", None)
         domain_name = ''
         # Retrieve the domain name where the project belongs
-        if api.keystone.VERSIONS.active >= 3:
-            try:
-                if policy.check((("identity", "identity:get_domain"),),
-                                self.request):
-                    domain = api.keystone.domain_get(self.request, domain_id)
-                    domain_name = domain.name
+        try:
+            if policy.check((("identity", "identity:get_domain"),),
+                            self.request):
+                domain = api.keystone.domain_get(self.request, domain_id)
+                domain_name = domain.name
 
-                else:
-                    domain = api.keystone.get_default_domain(self.request)
-                    domain_name = domain.get('name')
+            else:
+                domain = api.keystone.get_default_domain(self.request)
+                domain_name = domain.get('name')
 
-            except Exception:
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve project domain.'))
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve project domain.'))
 
         data = {'domain_id': domain_id,
                 'domain_name': domain_name,
@@ -157,9 +155,8 @@ class UpdateView(forms.ModalFormView):
                 'email': getattr(user, 'email', None),
                 'description': getattr(user, 'description', None),
                 'lock_password': options.get("lock_password", False)}
-        if api.keystone.VERSIONS.active >= 3:
-            for key in settings.USER_TABLE_EXTRA_INFO:
-                data[key] = getattr(user, key, None)
+        for key in settings.USER_TABLE_EXTRA_INFO:
+            data[key] = getattr(user, key, None)
         return data
 
 

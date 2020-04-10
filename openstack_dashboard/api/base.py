@@ -293,17 +293,9 @@ def get_service_from_catalog(catalog, service_type):
     return None
 
 
-def get_version_from_service(service):
-    if service and service.get('endpoints'):
-        endpoint = service['endpoints'][0]
-        if 'interface' in endpoint:
-            return 3
-        else:
-            return 2.0
-    return 2.0
-
-
 # Mapping of V2 Catalog Endpoint_type to V3 Catalog Interfaces
+# TODO(e0ne): remove this mapping once OPENSTACK_ENDPOINT_TYPE config option
+#  will be removed.
 ENDPOINT_TYPE_TO_INTERFACE = {
     'publicURL': 'public',
     'internalURL': 'internal',
@@ -315,31 +307,25 @@ def get_url_for_service(service, region, endpoint_type):
     if 'type' not in service:
         return None
 
-    identity_version = get_version_from_service(service)
     service_endpoints = service.get('endpoints', [])
     available_endpoints = [endpoint for endpoint in service_endpoints
                            if region == _get_endpoint_region(endpoint)]
-    """if we are dealing with the identity service and there is no endpoint
-    in the current region, it is okay to use the first endpoint for any
-    identity service endpoints and we can assume that it is global
-    """
+    # if we are dealing with the identity service and there is no endpoint
+    # in the current region, it is okay to use the first endpoint for any
+    # identity service endpoints and we can assume that it is global
     if service['type'] == 'identity' and not available_endpoints:
         available_endpoints = [endpoint for endpoint in service_endpoints]
 
     for endpoint in available_endpoints:
         try:
-            if identity_version < 3:
-                return endpoint.get(endpoint_type)
-            else:
-                interface = \
-                    ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
-                if endpoint.get('interface') == interface:
-                    return endpoint.get('url')
-        except (IndexError, KeyError):
+            interface = \
+                ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
+            if endpoint['interface'] == interface:
+                return endpoint['url']
+        except KeyError:
             # it could be that the current endpoint just doesn't match the
             # type, continue trying the next one
             pass
-    return None
 
 
 def url_for(request, service_type, endpoint_type=None, region=None):

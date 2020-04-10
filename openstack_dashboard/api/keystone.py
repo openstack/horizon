@@ -146,7 +146,7 @@ def keystoneclient(request, admin=False):
     user = request.user
     token_id = user.token.id
 
-    if is_multi_domain_enabled():
+    if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
         is_domain_context_specified = bool(
             request.session.get("domain_context"))
 
@@ -274,8 +274,7 @@ def get_default_domain(request, get_name=True):
     """
     domain_id = request.session.get("domain_context", None)
     domain_name = request.session.get("domain_context_name", None)
-    # if running in Keystone V3 or later
-    if VERSIONS.active >= 3 and domain_id is None:
+    if domain_id is None:
         # if no domain context set, default to user's domain
         domain_id = request.user.user_domain_id
         domain_name = request.user.user_domain_name
@@ -859,15 +858,6 @@ def keystone_backend_name():
 
 def get_version():
     return VERSIONS.active
-
-
-def is_multi_domain_enabled():
-    return (VERSIONS.active >= 3 and
-            settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT)
-
-
-def is_federation_management_enabled():
-    return settings.OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT
 
 
 def identity_provider_create(request, idp_id, description=None,

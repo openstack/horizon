@@ -243,15 +243,10 @@ class GroupsViewTests(test.BaseAdminViewTests):
 
         self.mock_group_get.assert_called_once_with(test.IsHttpRequest(),
                                                     group.id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_get_effective_domain_id.assert_called_once_with(
-                test.IsHttpRequest())
-            self.mock_user_list.assert_called_once_with(
-                test.IsHttpRequest(), group=group.id, domain=domain_id)
-        else:
-            self.mock_get_effective_domain_id.assert_not_called()
-            self.mock_user_list.assert_called_once_with(
-                test.IsHttpRequest(), group=group.id)
+        self.mock_get_effective_domain_id.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_user_list.assert_called_once_with(
+            test.IsHttpRequest(), group=group.id, domain=domain_id)
 
     @test.create_mocks({api.keystone: ('get_effective_domain_id',
                                        'user_list',
@@ -271,15 +266,10 @@ class GroupsViewTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, GROUP_MANAGE_URL)
         self.assertMessageCount(success=1)
 
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_get_effective_domain_id.assert_called_once_with(
-                test.IsHttpRequest())
-            self.mock_user_list.assert_called_once_with(
-                test.IsHttpRequest(), group=group.id, domain=domain_id)
-        else:
-            self.mock_get_effective_domain_id.assert_not_called()
-            self.mock_user_list.assert_called_once_with(
-                test.IsHttpRequest(), group=group.id)
+        self.mock_get_effective_domain_id.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_user_list.assert_called_once_with(
+            test.IsHttpRequest(), group=group.id, domain=domain_id)
 
         self.mock_remove_group_user.assert_called_once_with(
             test.IsHttpRequest(),

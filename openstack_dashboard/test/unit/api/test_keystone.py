@@ -74,12 +74,11 @@ class ServiceAPITests(test.APIMockTestCase):
     def test_service_wrapper(self):
         catalog = self.service_catalog
         identity_data = api.base.get_service_from_catalog(catalog, "identity")
+        # 'Service' class below requires 'id', so populate it here.
         identity_data['id'] = 1
-        region = identity_data["endpoints"][0]["region"]
-        service = api.keystone.Service(identity_data, region)
+        service = api.keystone.Service(identity_data, "RegionOne")
         self.assertEqual(u"identity (native backend)", str(service))
-        self.assertEqual(identity_data["endpoints"][0]["region"],
-                         service.region)
+        self.assertEqual("RegionOne", service.region)
         self.assertEqual("http://int.keystone.example.com/identity/v3",
                          service.url)
         self.assertEqual("http://public.keystone.example.com/identity/v3",
@@ -89,12 +88,11 @@ class ServiceAPITests(test.APIMockTestCase):
     def test_service_wrapper_service_in_region(self):
         catalog = self.service_catalog
         compute_data = api.base.get_service_from_catalog(catalog, "compute")
+        # 'Service' class below requires 'id', so populate it here.
         compute_data['id'] = 1
-        region = compute_data["endpoints"][1]["region"]
-        service = api.keystone.Service(compute_data, region)
+        service = api.keystone.Service(compute_data, 'RegionTwo')
         self.assertEqual(u"compute", str(service))
-        self.assertEqual(compute_data["endpoints"][1]["region"],
-                         service.region)
+        self.assertEqual("RegionTwo", service.region)
         self.assertEqual("http://int.nova2.example.com:8774/v2",
                          service.url)
         self.assertEqual("http://public.nova2.example.com:8774/v2",

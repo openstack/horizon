@@ -35,7 +35,6 @@ from horizon.utils import validators
 from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
-PROJECT_REQUIRED = api.keystone.VERSIONS.active < 3
 
 
 class PasswordMixin(forms.SelfHandlingForm):
@@ -72,12 +71,8 @@ class BaseUserForm(forms.SelfHandlingForm):
         default_project_id = kwargs['initial'].get('project', None)
 
         try:
-            if api.keystone.VERSIONS.active >= 3:
-                projects, has_more = api.keystone.tenant_list(
-                    request, domain=domain_id)
-            else:
-                projects, has_more = api.keystone.tenant_list(
-                    request, user=user_id)
+            projects, has_more = api.keystone.tenant_list(
+                request, domain=domain_id)
 
             for project in sorted(projects, key=lambda p: p.name.lower()):
                 if project.enabled:
@@ -96,14 +91,13 @@ class BaseUserForm(forms.SelfHandlingForm):
 
 class AddExtraColumnMixIn(object):
     def add_extra_fields(self, ordering=None):
-        if api.keystone.VERSIONS.active >= 3:
-            # add extra column defined by setting
-            EXTRA_INFO = settings.USER_TABLE_EXTRA_INFO
-            for key, value in EXTRA_INFO.items():
-                self.fields[key] = forms.CharField(label=value,
-                                                   required=False)
-                if ordering:
-                    ordering.append(key)
+        # add extra column defined by setting
+        EXTRA_INFO = settings.USER_TABLE_EXTRA_INFO
+        for key, value in EXTRA_INFO.items():
+            self.fields[key] = forms.CharField(label=value,
+                                               required=False)
+            if ordering:
+                ordering.append(key)
 
 
 ADD_PROJECT_URL = "horizon:identity:projects:create"
@@ -126,10 +120,10 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
         label=_("Email"),
         required=False)
     project = forms.ThemableDynamicChoiceField(label=_("Primary Project"),
-                                               required=PROJECT_REQUIRED,
+                                               required=False,
                                                add_item_link=ADD_PROJECT_URL)
     role_id = forms.ThemableChoiceField(label=_("Role"),
-                                        required=PROJECT_REQUIRED)
+                                        required=False)
     enabled = forms.BooleanField(label=_("Enabled"),
                                  required=False,
                                  initial=True)
@@ -155,13 +149,9 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
         self.fields['role_id'].choices = role_choices
 
         # For keystone V3, display the two fields in read-only
-        if api.keystone.VERSIONS.active >= 3:
-            readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
-            self.fields["domain_id"].widget = readonlyInput
-            self.fields["domain_name"].widget = readonlyInput
-        # For keystone V2.0, hide description field
-        else:
-            self.fields["description"].widget = forms.HiddenInput()
+        readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.fields["domain_id"].widget = readonlyInput
+        self.fields["domain_name"].widget = readonlyInput
 
     # We have to protect the entire "data" dict because it contains the
     # password and confirm_password strings.
@@ -175,11 +165,8 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
                 data['email'] = data['email'] or None
 
             # add extra information
-            if api.keystone.VERSIONS.active >= 3:
-                EXTRA_INFO = settings.USER_TABLE_EXTRA_INFO
-                kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
-            else:
-                kwargs = {}
+            EXTRA_INFO = settings.USER_TABLE_EXTRA_INFO
+            kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
 
             if "lock_password" in data:
                 kwargs.update({'options':
@@ -240,7 +227,7 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
         label=_("Email"),
         required=False)
     project = forms.ThemableChoiceField(label=_("Primary Project"),
-                                        required=PROJECT_REQUIRED)
+                                        required=False)
 
     lock_password = forms.BooleanField(label=_("Lock password"),
                                        required=False,
@@ -252,14 +239,9 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
         if api.keystone.keystone_can_edit_user() is False:
             for field in ('name', 'email'):
                 self.fields.pop(field)
-        # For keystone V3, display the two fields in read-only
-        if api.keystone.VERSIONS.active >= 3:
-            readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
-            self.fields["domain_id"].widget = readonlyInput
-            self.fields["domain_name"].widget = readonlyInput
-        # For keystone V2.0, hide description field
-        else:
-            self.fields["description"].widget = forms.HiddenInput()
+        readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.fields["domain_id"].widget = readonlyInput
+        self.fields["domain_name"].widget = readonlyInput
 
     def handle(self, request, data):
         user = data.pop('id')
@@ -267,7 +249,7 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
         data.pop('domain_id')
         data.pop('domain_name')
 
-        if not PROJECT_REQUIRED and 'project' not in self.changed_data:
+        if 'project' not in self.changed_data:
             data.pop('project')
 
         if 'description' not in self.changed_data:

@@ -41,28 +41,24 @@ class OverviewTab(tabs.Tab):
 
     def _get_domain_name(self, project):
         domain_name = ''
-        if api.keystone.VERSIONS.active >= 3:
-            try:
-                if policy.check((("identity", "identity:get_domain"),),
-                                self.request):
-                    domain = api.keystone.domain_get(
-                        self.request, project.domain_id)
-                    domain_name = domain.name
-                else:
-                    domain = api.keystone.get_default_domain(self.request)
-                    domain_name = domain.get('name')
-            except Exception:
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve project domain.'))
+        try:
+            if policy.check((("identity", "identity:get_domain"),),
+                            self.request):
+                domain = api.keystone.domain_get(
+                    self.request, project.domain_id)
+                domain_name = domain.name
+            else:
+                domain = api.keystone.get_default_domain(self.request)
+                domain_name = domain.get('name')
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve project domain.'))
         return domain_name
 
     def _get_extras(self, project):
-        if api.keystone.VERSIONS.active >= 3:
-            extra_info = settings.PROJECT_TABLE_EXTRA_INFO
-            return dict((display_key, getattr(project, key, ''))
-                        for key, display_key in extra_info.items())
-        else:
-            return {}
+        extra_info = settings.PROJECT_TABLE_EXTRA_INFO
+        return dict((display_key, getattr(project, key, ''))
+                    for key, display_key in extra_info.items())
 
 
 class UsersTab(tabs.TableTab):

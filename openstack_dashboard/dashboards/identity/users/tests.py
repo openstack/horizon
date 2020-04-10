@@ -143,12 +143,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         ])
         self.assertEqual(2, self.mock_get_default_domain.call_count)
 
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=None)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
 
         kwargs = {'phone_num': phone_number}
         self.mock_user_create.assert_called_once_with(
@@ -217,12 +213,8 @@ class UsersViewTests(test.BaseAdminViewTests):
             mock.call(test.IsHttpRequest()),
             mock.call(test.IsHttpRequest(), False),
         ])
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         self.mock_user_create.assert_called_once_with(
             test.IsHttpRequest(),
             name=user.name,
@@ -276,14 +268,9 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_default_domain, 2,
             mock.call(test.IsHttpRequest()))
-        if api.keystone.VERSIONS.active >= 3:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), domain=domain_id))
-        else:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), user=None))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_role_list, 2,
             mock.call(test.IsHttpRequest()))
@@ -329,14 +316,9 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_default_domain, 2,
             mock.call(test.IsHttpRequest()))
-        if api.keystone.VERSIONS.active >= 3:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), domain=domain_id))
-        else:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), user=None))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_role_list, 2,
             mock.call(test.IsHttpRequest()))
@@ -382,14 +364,9 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_default_domain, 2,
             mock.call(test.IsHttpRequest()))
-        if api.keystone.VERSIONS.active >= 3:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), domain=domain_id))
-        else:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), user=None))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_role_list, 2,
             mock.call(test.IsHttpRequest()))
@@ -493,12 +470,8 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         kwargs = {'phone_num': phone_number}
         self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
                                                       user.id,
@@ -538,12 +511,8 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
                                                       user.id,
                                                       email=user.email,
@@ -581,12 +550,8 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
                                                       user.id,
                                                       email=user.email or "",
@@ -657,12 +622,8 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_keystone_can_edit_user, 2,
             mock.call())
@@ -1339,12 +1300,8 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
-                                                          domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
-                                                          user=user.id)
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      domain=domain.id)
         self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
                                                       user.id,
                                                       email=user.email,

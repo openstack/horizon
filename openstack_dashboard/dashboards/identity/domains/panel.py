@@ -16,18 +16,12 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-from openstack_dashboard.api import keystone
-
 
 class Domains(horizon.Panel):
     name = _("Domains")
     slug = 'domains'
     policy_rules = (("identity", "identity:get_domain"),
                     ("identity", "identity:list_domains"))
-
-    @staticmethod
-    def can_register():
-        return keystone.VERSIONS.active >= 3
 
     def can_access(self, context):
         request = context['request']

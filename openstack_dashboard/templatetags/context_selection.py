@@ -17,8 +17,6 @@ from __future__ import absolute_import
 from django.conf import settings
 from django import template
 
-from openstack_dashboard.api import keystone
-
 
 register = template.Library()
 
@@ -27,9 +25,10 @@ def is_multi_region_configured(request):
     return len(request.user.available_services_regions) > 1
 
 
+# TODO(e0ne): pass OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT to the template
+# context and remove `is_multidomain` template tag
 def is_multidomain_supported():
-    return (keystone.VERSIONS.active >= 3 and
-            settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT)
+    return settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT
 
 
 @register.simple_tag(takes_context=True)

@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.conf import settings
 from django.template import defaultfilters as filters
 from django.urls import reverse
 from django.utils.http import urlencode
@@ -62,7 +63,7 @@ class UpdateMembersLink(tables.LinkAction):
         return "?".join([base_url, param])
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled():
+        if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
@@ -79,7 +80,7 @@ class UpdateGroupsLink(tables.LinkAction):
     policy_rules = (("identity", "identity:list_groups"),)
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled():
+        if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
@@ -114,7 +115,7 @@ class CreateProject(tables.LinkAction):
     policy_rules = (('identity', 'identity:create_project'),)
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled():
+        if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
@@ -132,7 +133,7 @@ class UpdateProject(policy.PolicyTargetMixin, tables.LinkAction):
     policy_target_attrs = (("target.project.domain_id", "domain_id"),)
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled():
+        if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
@@ -180,8 +181,8 @@ class DeleteTenantsAction(policy.PolicyTargetMixin, tables.DeleteAction):
     policy_target_attrs = (("target.project.domain_id", "domain_id"),)
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled() \
-                and not api.keystone.is_domain_admin(request):
+        if (settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT and
+                not api.keystone.is_domain_admin(request)):
             return False
         return api.keystone.keystone_can_edit_project()
 
@@ -220,11 +221,8 @@ class TenantsTable(tables.DataTable):
                                     widget=forms.Textarea(attrs={'rows': 4}),
                                     required=False))
     id = tables.Column('id', verbose_name=_('Project ID'))
-
-    if api.keystone.VERSIONS.active >= 3:
-        domain_name = tables.Column(
-            'domain_name', verbose_name=_('Domain Name'))
-
+    domain_name = tables.Column(
+        'domain_name', verbose_name=_('Domain Name'))
     enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
                             filters=(filters.yesno, filters.capfirst),
                             form_field=forms.BooleanField(

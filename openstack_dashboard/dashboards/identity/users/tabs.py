@@ -40,19 +40,18 @@ class OverviewTab(tabs.Tab):
 
     def _get_domain_name(self, user):
         domain_name = ''
-        if api.keystone.VERSIONS.active >= 3:
-            try:
-                if policy.check((("identity", "identity:get_domain"),),
-                                self.request):
-                    domain = api.keystone.domain_get(
-                        self.request, user.domain_id)
-                    domain_name = domain.name
-                else:
-                    domain = api.keystone.get_default_domain(self.request)
-                    domain_name = domain.get('name')
-            except Exception:
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve user domain.'))
+        try:
+            if policy.check((("identity", "identity:get_domain"),),
+                            self.request):
+                domain = api.keystone.domain_get(
+                    self.request, user.domain_id)
+                domain_name = domain.name
+            else:
+                domain = api.keystone.get_default_domain(self.request)
+                domain_name = domain.get('name')
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve user domain.'))
         return domain_name
 
     def _get_project_name(self, user):
@@ -67,12 +66,9 @@ class OverviewTab(tabs.Tab):
                       {'project_id': project_id, 'reason': e})
 
     def _get_extras(self, user):
-        if api.keystone.VERSIONS.active >= 3:
-            extra_info = settings.USER_TABLE_EXTRA_INFO
-            return dict((display_key, getattr(user, key, ''))
-                        for key, display_key in extra_info.items())
-        else:
-            return {}
+        extra_info = settings.USER_TABLE_EXTRA_INFO
+        return dict((display_key, getattr(user, key, ''))
+                    for key, display_key in extra_info.items())
 
     def get_context_data(self, request):
         user = self.tab_group.kwargs['user']

@@ -136,33 +136,6 @@ def allow_expired_passowrd_change():
     return getattr(settings, 'ALLOW_USERS_CHANGE_EXPIRED_PASSWORD', True)
 
 
-def is_websso_enabled():
-    """Websso is supported in Keystone version 3."""
-    return settings.WEBSSO_ENABLED
-
-
-def is_websso_default_redirect():
-    """Checks if the websso default redirect is available.
-
-    As with websso, this is only supported in Keystone version 3.
-    """
-    websso_default_redirect = settings.WEBSSO_DEFAULT_REDIRECT
-    keystonev3_plus = (get_keystone_version() >= 3)
-    return websso_default_redirect and keystonev3_plus
-
-
-def get_websso_default_redirect_protocol():
-    return settings.WEBSSO_DEFAULT_REDIRECT_PROTOCOL
-
-
-def get_websso_default_redirect_region():
-    return settings.WEBSSO_DEFAULT_REDIRECT_REGION
-
-
-def get_websso_default_redirect_logout():
-    return settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT
-
-
 def build_absolute_uri(request, relative_url):
     """Ensure absolute_uri are relative to WEBROOT."""
     webroot = settings.WEBROOT
