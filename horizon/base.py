@@ -273,7 +273,6 @@ class Panel(HorizonComponent):
         Default: ``None``.
 
     .. attribute:: nav
-    .. method:: nav(context)
 
         The ``nav`` attribute can be either a boolean value or a callable
         which accepts a ``RequestContext`` object as a single argument
@@ -453,7 +452,6 @@ class Dashboard(Registry, HorizonComponent):
         which are not connected to specific panels. Default: ``None``.
 
     .. attribute:: nav
-    .. method:: nav(context)
 
         The ``nav`` attribute can be either a boolean value or a callable
         which accepts a ``RequestContext`` object as a single argument
