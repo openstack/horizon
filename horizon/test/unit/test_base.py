@@ -212,7 +212,6 @@ class HorizonTests(BaseHorizonTests):
         cats.register(MyPanel)
         self.assertQuerysetEqual(cats.get_panel_groups()['other'],
                                  ['<Panel: myslug>'])
-
         # Test that panels defined as a tuple still return a PanelGroup
         dogs = horizon.get_dashboard("dogs")
         self.assertQuerysetEqual(dogs.get_panel_groups().values(),
@@ -225,6 +224,8 @@ class HorizonTests(BaseHorizonTests):
         self.assertQuerysetEqual(dogs.get_panels(),
                                  ['<Panel: puppies>',
                                   '<Panel: myslug>'])
+        cats.unregister(MyPanel)
+        dogs.unregister(MyPanel)
 
     def test_panels(self):
         cats = horizon.get_dashboard("cats")

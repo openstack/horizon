@@ -42,6 +42,9 @@ from django.utils.encoding import force_text
 from django.contrib.staticfiles.testing \
     import StaticLiveServerTestCase as LiveServerTestCase
 
+import pytest
+
+
 from horizon import middleware
 
 
@@ -218,6 +221,7 @@ class TestCase(django_test.TestCase):
                                                      ", ".join(msgs))
 
 
+@pytest.mark.selenium
 @tag('selenium')
 class SeleniumTestCase(LiveServerTestCase):
     @classmethod

@@ -12,8 +12,8 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import pytest
 
-from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -42,7 +42,7 @@ class TestFloatingip(helpers.TestCase):
 class TestFloatingipAssociateDisassociate(helpers.TestCase):
     """Checks that the user is able to Associate/Disassociate floatingip."""
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_floatingip_associate_disassociate(self):
         instance_name = helpers.gen_random_resource_name('instance',
                                                          timestamp=False)

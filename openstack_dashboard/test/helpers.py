@@ -33,6 +33,7 @@ from django.utils import http
 
 from openstack_auth import user
 from openstack_auth import utils
+import pytest
 from requests.packages.urllib3.connection import HTTPConnection
 
 from horizon import base
@@ -471,6 +472,7 @@ class ResetImageAPIVersionMixin(object):
         super(ResetImageAPIVersionMixin, self).tearDown()
 
 
+@pytest.mark.selenium
 @tag('selenium')
 class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
 
@@ -536,8 +538,9 @@ def my_custom_sort(flavor):
 # unit tests. Currently we fail to find a way to clean up urlpatterns and
 # Site registry touched by setUp() cleanly. As a workaround, we run
 # PluginTestCase as a separate test process. Hopefully this workaround has gone
-# in future. For more detail, see bug 1809983 and
+# in future. For more detail, see bugs 1809983, 1866666 and
 # https://review.opendev.org/#/c/627640/.
+@pytest.mark.plugin_test
 @tag('plugin-test')
 class PluginTestCase(TestCase):
     """Test case for testing plugin system of Horizon.

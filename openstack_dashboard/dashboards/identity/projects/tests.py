@@ -21,6 +21,8 @@ from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils import timezone
 
+import pytest
+
 from horizon.workflows import views
 
 from openstack_dashboard import api
@@ -1625,6 +1627,9 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), project=project.id)
 
 
+@pytest.mark.skip('This test was always skipped for selenium, '
+                  'because it falls under SkipIf SKIP_UNITTEST')
+@pytest.mark.selenium
 @tag('selenium')
 class SeleniumTests(test.SeleniumAdminTestCase, test.TestCase):
     @test.create_mocks({api.keystone: ('get_default_domain',

@@ -9,7 +9,8 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-from openstack_dashboard.test.integration_tests import decorators
+import pytest
+
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -22,7 +23,7 @@ class TestInstances(helpers.TestCase):
     def instances_page(self):
         return self.home_pg.go_to_project_compute_instancespage()
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_create_delete_instance(self):
         """tests the instance creation and deletion functionality:
 
@@ -48,7 +49,7 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_instances_pagination(self):
         """This test checks instance pagination
 
@@ -111,7 +112,7 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_instances_pagination_and_filtration(self):
         """This test checks instance pagination and filtration
 
@@ -184,7 +185,7 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_filter_instances(self):
         """This test checks filtering of instances by Instance Name
 
@@ -243,7 +244,7 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
     def instances_page(self):
         return self.home_pg.go_to_admin_compute_instancespage()
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_instances_pagination_and_filtration(self):
         super(TestAdminInstances, self).\
             test_instances_pagination_and_filtration()

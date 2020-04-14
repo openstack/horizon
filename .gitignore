@@ -47,3 +47,4 @@ tags
 ghostdriver.log
 .idea
 package-lock.json
+test_reports/*
