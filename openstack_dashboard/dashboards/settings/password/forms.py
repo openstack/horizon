@@ -59,6 +59,13 @@ class PasswordForm(forms.SelfHandlingForm):
     @sensitive_variables('data')
     def handle(self, request, data):
         user_is_editable = api.keystone.keystone_can_edit_user()
+        user_id = request.user.id
+        user = api.keystone.user_get(self.request, user_id, admin=False)
+        options = getattr(user, "options", {})
+        lock_password = options.get("lock_password", False)
+        if lock_password:
+            messages.error(request, _('Password is locked.'))
+            return False
 
         if user_is_editable:
             try:

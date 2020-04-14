@@ -130,6 +130,7 @@ class UpdateView(forms.ModalFormView):
 
     def get_initial(self):
         user = self.get_object()
+        options = getattr(user, "options", {})
         domain_id = getattr(user, "domain_id", None)
         domain_name = ''
         # Retrieve the domain name where the project belongs
@@ -154,7 +155,8 @@ class UpdateView(forms.ModalFormView):
                 'name': user.name,
                 'project': user.project_id,
                 'email': getattr(user, 'email', None),
-                'description': getattr(user, 'description', None)}
+                'description': getattr(user, 'description', None),
+                'lock_password': options.get("lock_password", False)}
         if api.keystone.VERSIONS.active >= 3:
             for key in settings.USER_TABLE_EXTRA_INFO:
                 data[key] = getattr(user, key, None)
@@ -209,6 +211,8 @@ class DetailView(tabs.TabView):
         context["user"] = user
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(user)
+        options = getattr(user, "options", {})
+        context["lock_password"] = options.get("lock_password", False)
         return context
 
     @memoized.memoized_method
