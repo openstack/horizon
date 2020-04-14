@@ -564,13 +564,13 @@ class Dashboard(Registry, HorizonComponent):
         urlpatterns.append(
             url(r'', _wrapped_include(default_panel._decorated_urls)))
 
-        # Require login if not public.
-        if not self.public:
-            _decorate_urlconf(urlpatterns, require_auth)
         # Apply access controls to all views in the patterns
         permissions = getattr(self, 'permissions', [])
         _decorate_urlconf(urlpatterns, require_perms, permissions)
         _decorate_urlconf(urlpatterns, _current_component, dashboard=self)
+        # Require login if not public.
+        if not self.public:
+            _decorate_urlconf(urlpatterns, require_auth)
 
         # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.slug, self.slug
