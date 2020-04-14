@@ -39,6 +39,7 @@ def unset_session_user_variables(request):
     request.session['user_id'] = None
     request.session['region_endpoint'] = None
     request.session['services_region'] = None
+    request.session['auth_type'] = None
     # Update the user object cached in the request
     request._cached_user = None
     request.user = None
