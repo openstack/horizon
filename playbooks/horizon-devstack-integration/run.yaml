@@ -2,5 +2,6 @@
 - hosts: all
   environment:
     OS_CLOUD: devstack-admin
+    FFMPEG_INSTALLED: True
   roles:
     - tox
