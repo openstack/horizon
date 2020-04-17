@@ -61,28 +61,34 @@
         testInput: [ 'spam' ]
       },
       {
-        func: 'createContainer',
-        method: 'post',
-        path: '/api/swift/containers/new-spam/metadata/',
-        data: {is_public: false},
-        error: 'Unable to create the container.',
-        testInput: [ 'new-spam' ]
+        func: 'getPolicyDetails',
+        method: 'get',
+        path: '/api/swift/policies/',
+        error: 'Unable to fetch the policy details.'
       },
       {
         func: 'createContainer',
         method: 'post',
         path: '/api/swift/containers/new-spam/metadata/',
-        data: {is_public: false},
+        data: {is_public: false, storage_policy: 'nz--o1--mr-r3'},
         error: 'Unable to create the container.',
-        testInput: [ 'new-spam', false ]
+        testInput: [ 'new-spam', false, 'nz--o1--mr-r3' ]
       },
       {
         func: 'createContainer',
         method: 'post',
         path: '/api/swift/containers/new-spam/metadata/',
-        data: {is_public: true},
+        data: {is_public: false, storage_policy: 'nz--o1--mr-r3'},
         error: 'Unable to create the container.',
-        testInput: [ 'new-spam', true ]
+        testInput: [ 'new-spam', false, 'nz--o1--mr-r3' ]
+      },
+      {
+        func: 'createContainer',
+        method: 'post',
+        path: '/api/swift/containers/new-spam/metadata/',
+        data: {is_public: true, storage_policy: 'nz--o1--mr-r3'},
+        error: 'Unable to create the container.',
+        testInput: [ 'new-spam', true, 'nz--o1--mr-r3' ]
       },
       {
         func: 'deleteContainer',

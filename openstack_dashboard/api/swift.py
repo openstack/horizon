@@ -104,6 +104,13 @@ def _objectify(items, container_name):
     return objects
 
 
+def get_storage_policy_display_name(name):
+    """Gets the user friendly display name for a storage policy"""
+
+    display_names = settings.SWIFT_STORAGE_POLICY_DISPLAY_NAMES
+    return display_names.get(name)
+
+
 def _metadata_to_header(metadata):
     headers = {}
     public = metadata.get('is_public')
@@ -113,6 +120,10 @@ def _metadata_to_header(metadata):
         headers['x-container-read'] = ",".join(public_container_acls)
     elif public is False:
         headers['x-container-read'] = ""
+
+    storage_policy = metadata.get("storage_policy")
+    if storage_policy:
+        headers["x-storage-policy"] = storage_policy
 
     return headers
 
@@ -175,6 +186,10 @@ def swift_get_container(request, container_name, with_data=True):
     timestamp = None
     is_public = False
     public_url = None
+    storage_policy = headers.get("x-storage-policy")
+    storage_policy_display_name = \
+        get_storage_policy_display_name(storage_policy)
+
     try:
         is_public = GLOBAL_READ_ACL in headers.get('x-container-read', '')
         if is_public:
@@ -194,8 +209,16 @@ def swift_get_container(request, container_name, with_data=True):
         'timestamp': timestamp,
         'data': data,
         'is_public': is_public,
+        'storage_policy': {
+            "name": storage_policy,
+        },
         'public_url': public_url,
     }
+
+    if storage_policy_display_name:
+        container_info['storage_policy']['display_name'] = \
+            get_storage_policy_display_name(storage_policy)
+
     return Container(container_info)
 
 

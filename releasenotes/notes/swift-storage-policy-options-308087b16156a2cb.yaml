@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Adds options to gui to allow user to select which storage policy container
+    will use and displays the container's storage policy in the container
+    information.

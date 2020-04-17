@@ -2339,6 +2339,19 @@ from Swift. Do not make it very large (higher than several dozens of Megabytes,
 exact number depends on your connection speed), otherwise you may encounter
 socket timeout. The default value is 524288 bytes (or 512 Kilobytes).
 
+
+SWIFT_STORAGE_POLICY_DISPLAY_NAMES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 18.3.0(Ussuri)
+
+Default: ``{}``
+
+A dictionary mapping from the swift storage policy name to an alternate,
+user friendly display name which will be rendered on the dashboard. If
+no display is specified for a storage policy, the storage
+policy name will be used verbatim.
+
 Django Settings
 ===============
 
