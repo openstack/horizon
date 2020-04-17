@@ -21,6 +21,7 @@ import copy
 import logging
 import os
 import socket
+import sys
 import time
 import unittest
 
@@ -42,8 +43,12 @@ from django.utils.encoding import force_text
 from django.contrib.staticfiles.testing \
     import StaticLiveServerTestCase as LiveServerTestCase
 
-import pytest
-
+# horizon plugins does not require pytest, so we need to consider
+# pytest is not installed.
+try:
+    import pytest
+except ImportError:
+    pass
 
 from horizon import middleware
 
@@ -67,6 +72,17 @@ except ImportError as e:
 
 # Makes output of failing tests much easier to read.
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
+
+
+def pytest_mark(name):
+    if 'pytest' in sys.modules:
+        return getattr(pytest.mark, name)
+    else:
+        # When pytest is not installed (in case of horizon plugins),
+        # we don't need a pytest marker, so just use a null decorator.
+        def wrapper(f):
+            return f
+        return wrapper
 
 
 class SessionStore(SessionBase):
@@ -221,7 +237,7 @@ class TestCase(django_test.TestCase):
                                                      ", ".join(msgs))
 
 
-@pytest.mark.selenium
+@pytest_mark('selenium')
 @tag('selenium')
 class SeleniumTestCase(LiveServerTestCase):
     @classmethod
