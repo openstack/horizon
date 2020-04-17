@@ -225,7 +225,7 @@
       jobs:
         # Currently we only support Django 2.2, so there is no need
         # to run tests with different versions of Django.
-        # We specify a job in openstack-python3-ussuri-jobs(-horizon)
+        # We specify a job in openstack-python3-victoria-jobs(-horizon)
         # to keep this project template as it is used in horizon plugins.
         - openstack-tox-py37
         # NOTE: We keep it as a template even though it is not used now.
@@ -241,7 +241,7 @@
       - horizon-nodejs10-jobs
       - horizon-non-primary-django-jobs
       - openstack-lower-constraints-jobs
-      - openstack-python3-ussuri-jobs
+      - openstack-python3-victoria-jobs
       - periodic-stable-jobs
       - publish-openstack-docs-pti
       - release-notes-jobs-python3
