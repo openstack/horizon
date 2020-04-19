@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-22 17:54+0000\n"
+"POT-Creation-Date: 2020-04-18 22:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-01-22 03:54+0000\n"
+"PO-Revision-Date: 2020-04-18 07:40+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -2573,6 +2573,9 @@ msgstr "Status (status)"
 msgid "Status: %s"
 msgstr "Status: %s"
 
+msgid "Storage Policy"
+msgstr "Storage Policy"
+
 msgid "Striped"
 msgstr "Striped (bergaris)"
 
@@ -3222,6 +3225,9 @@ msgstr "Tidak dapat mengedit metadata tipe volume."
 
 msgid "Unable to fetch the groups."
 msgstr "Tidak dapat mengambil kelompok."
+
+msgid "Unable to fetch the policy details."
+msgstr "Tidak dapat mengambil detail kebijakan."
 
 msgid "Unable to fetch the service catalog."
 msgstr "Tidak dapat mengambil katalog layanan."
