@@ -1,0 +1,10 @@
+---
+features:
+  - |
+    Added an ``cleanup_angular_template_cache`` management command, that clears
+    template cache for angularized views. The command is available
+    as ``./manage.py cleanup_angular_template_cache``.
+fixes:
+  - |
+    [`bug/1874657 <https://bugs.launchpad.net/horizon/1874657>`_] Horizon
+    container upgrade works without additional ``./manage.py compress`` call.
