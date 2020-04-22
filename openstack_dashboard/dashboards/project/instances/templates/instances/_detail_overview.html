@@ -22,9 +22,25 @@
     <dd>{{ instance.created|parse_isotime }}</dd>
     <dt>{% trans "Age" %}</dt>
     <dd>{{ instance.created|parse_isotime|timesince }}</dd>
-    {% if instance.host_server %}
+    {% if instance.has_extended_attrs %}
       <dt>{% trans "Host" %}</dt>
-      <dd>{{ instance.host_server }}</dd>
+      <dd>{{ instance.host_server|default:_("-") }}</dd>
+      <dt>{% trans "Instance Name" %}</dt>
+      <dd>{{ instance.instance_name|default:_("-") }}</dd>
+      <dt>{% trans "Reservation ID" %}</dt>
+      <dd>{{ instance.reservation_id|default:_("-") }}</dd>
+      <dt>{% trans "Launch Index" %}</dt>
+      <dd>{{ instance.launch_index|default:_("-") }}</dd>
+      <dt>{% trans "Hostname" %}</dt>
+      <dd>{{ instance.hostname|default:_("-") }}</dd>
+      <dt>{% trans "Kernel ID" %}</dt>
+      <dd>{{ instance.kernel_id|default:_("-") }}</dd>
+      <dt>{% trans "Ramdisk ID" %}</dt>
+      <dd>{{ instance.ramdisk_id|default:_("-") }}</dd>
+      <dt>{% trans "Device Name" %}</dt>
+      <dd>{{ instance.root_device_name|default:_("-") }}</dd>
+      <dt>{% trans "User Data" %}</dt>
+      <dd>{{ instance.user_data|default:_("-") }}</dd>
     {% endif %}
   </dl>
 
