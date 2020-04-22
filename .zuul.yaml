@@ -40,6 +40,7 @@
       - name: openstack/horizon
       - name: openstack/tempest
       - name: openstack/tempest-horizon
+        override-checkout: 0.2.0
     irrelevant-files:
       - ^.*\.rst$
       - ^doc/.*$
