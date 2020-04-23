@@ -164,7 +164,7 @@ class CreateBackup(policy.PolicyTargetMixin, tables.LinkAction):
 class UpdateMetadata(tables.LinkAction):
     name = "update_metadata"
     verbose_name = _("Update Metadata")
-
+    policy_rules = (("volume", "volume:update_snapshot_metadata"),)
     ajax = False
     attrs = {"ng-controller": "MetadataModalHelperController as modal"}
 

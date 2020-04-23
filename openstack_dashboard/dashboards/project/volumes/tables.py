@@ -529,6 +529,7 @@ class VolumesFilterAction(tables.FilterAction):
 class UpdateMetadata(tables.LinkAction):
     name = "update_metadata"
     verbose_name = _("Update Metadata")
+    policy_rules = (("volume", "volume:update_volume_metadata"),)
     ajax = False
     attrs = {"ng-controller": "MetadataModalHelperController as modal"}
 
