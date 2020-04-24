@@ -1715,6 +1715,23 @@ identity provider lives. This URL will take precedence over
 ``OPENSTACK_KEYSTONE_URL`` if the login choice is an external
 identity provider (IdP).
 
+WEBSSO_USE_HTTP_REFERER
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 21.0.0(Yoga)
+
+Default: ``True``
+
+For use in cases of web single-sign-on authentication when the control plane
+has no outbound connectivity to the external service endpoints. By default
+the HTTP_REFERER is used to derive the Keystone endpoint to pass requests to.
+As previous requests to an external IdP will be using Keystone's external
+endpoint, this HTTP_REFERER will be Keystone's external endpoint.
+When Horizon is unable to connect to Keystone's external endpoint in this setup
+this leads to a time out. ``WEBSSO_USE_HTTP_REFERER`` can be set to False to
+use the ``OPENSTACK_KEYSTONE_URL`` instead, which should be set to an internal
+Keystone endpoint, so that this request will succeed.
+
 Neutron
 -------
 

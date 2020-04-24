@@ -159,6 +159,12 @@ WEBSSO_DEFAULT_REDIRECT_LOGOUT = None
 # Example: WEBSSO_KEYSTONE_URL = "http://keystone-public.example.com/v3"
 WEBSSO_KEYSTONE_URL = None
 
+# In the case of web single-sign-on authentication when the control plane
+# has no outbound connectivity to the external service endpoints set this
+# to False. Otherwise the Keystone external endpoint will be used to make
+# a token authentication request from Horizon to Keystone which will timeout.
+WEBSSO_USE_HTTP_REFERER = True
+
 # The Keystone Provider drop down uses Keystone to Keystone federation
 # to switch between Keystone service providers.
 # Set display name for Identity Provider (dropdown display name)
