@@ -1,0 +1,11 @@
+---
+upgrade:
+  - |
+    ``publicize_image`` policy now has the same name both for image create and
+    edit features and corresponds to the same one in Glance. If you changed the
+    policy name manually to get feature working you have to rollback your
+    changes before Horizon update.
+fixes:
+  - |
+    [:bug:`1859041`] ``image:publicize_image`` policy is renamed to
+    ``publicize_image`` to be the same as Glance has.
