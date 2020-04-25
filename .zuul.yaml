@@ -64,7 +64,7 @@
       tox_envlist: bandit-baseline
     irrelevant-files:
       - ^.*\.rst$
-      - ^.*\locale/.*$
+      - ^.*/locale/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^setup.cfg$
