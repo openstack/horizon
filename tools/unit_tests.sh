@@ -23,13 +23,13 @@ single_html="--self-contained-html"
 # If we are running a test subset, supply the correct settings file.
 # If not, simply run the entire test suite.
 if [ -n "$subset" ]; then
-  project="${subset%%.*}"
+  project="${subset%%/*}"
   if [ $project == "horizon" ]; then
-    $testcommand ${1}/horizon/test/ --ds=horizon.test.settings -v -m "$tagarg" $horizon_test_results $single_html
+    $testcommand $posargs --ds=horizon.test.settings -v -m "$tagarg" $horizon_test_results $single_html
   elif [ $project == "openstack_dashboard" ]; then
-    $testcommand ${1}/openstack_dashboard/test/ --ds=openstack_dashboard.test.settings -v -m "$tagarg" $dashboard_test_results $single_html
+    $testcommand $posargs --ds=openstack_dashboard.test.settings -v -m "$tagarg" $dashboard_test_results $single_html
   elif [ $project == "openstack_auth" ]; then
-    $testcommand ${1}/openstack_auth/tests/ --ds=openstack_auth.tests.settings -v -m "$tagarg" $auth_test_results $single_html
+    $testcommand $posargs --ds=openstack_auth.tests.settings -v -m "$tagarg" $auth_test_results $single_html
   elif [ $project == "plugin-test" ]; then
     $testcommand ${1}/openstack_dashboard/test/test_plugins --ds=openstack_dashboard.test.settings -v -m plugin_test $plugins_test_results $single_html
   fi
