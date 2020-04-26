@@ -7,15 +7,16 @@
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2019. #zanata
 # Robert Simai <robert.simai@suse.com>, 2019. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 17:52+0000\n"
+"POT-Creation-Date: 2020-04-23 13:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-11-17 05:00+0000\n"
+"PO-Revision-Date: 2020-04-25 08:17+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -73,6 +74,9 @@ msgstr "14.0.2"
 msgid "14.0.4"
 msgstr "14.0.4"
 
+msgid "14.1.0"
+msgstr "14.1.0"
+
 msgid "15.0.0"
 msgstr "15.0.0"
 
@@ -82,8 +86,26 @@ msgstr "15.1.0"
 msgid "15.1.1"
 msgstr "15.1.1"
 
+msgid "15.2.0"
+msgstr "15.2.0"
+
 msgid "16.0.0"
 msgstr "16.0.0"
+
+msgid "17.0.0"
+msgstr "17.0.0"
+
+msgid "17.1.0"
+msgstr "17.1.0"
+
+msgid "18.0.0"
+msgstr "18.0.0"
+
+msgid "18.1.0"
+msgstr "18.1.0"
+
+msgid "18.3.0"
+msgstr "18.3.0"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -2634,6 +2656,15 @@ msgstr ""
 "Bietet die Möglichkeit für externe Plugins, um Übersetzungen zum Javascript "
 "Nachrichtenkatalog beizusteuern. Zuvor waren die horizon und "
 "openstack_dashboard Anwendungen hart codiert."
+
+msgid ""
+"Python 2.7 support has been dropped. Last release of horizon to support "
+"python 2.7 is OpenStack Train. The minimum version of Python now supported "
+"by horizon is Python 3.6."
+msgstr ""
+"Python 2.7 Unterstützung wurde beendet. Der letzte Release von Horizon "
+"welcher Python 2.7 unterstützt ist OpenStack Train. Die minimal Python "
+"Version welche von Horizon unterstützt wird ist Python 3.6."
 
 msgid "QoS (quality of service) support."
 msgstr "QoS (quality of service) Unterstützung."
