@@ -5,16 +5,17 @@
 # Gene Kuo <gene@openstack.org>, 2016. #zanata
 # Gene Kuo <gene@openstack.org>, 2017. #zanata
 # Tom Fifield <tom@openstack.org>, 2017. #zanata
+# Gene Kuo <gene@openstack.org>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-04-23 13:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-16 08:03+0000\n"
-"Last-Translator: Tom Fifield <tom@openstack.org>\n"
+"PO-Revision-Date: 2019-12-18 07:05+0000\n"
+"Last-Translator: Gene Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh_TW\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -39,6 +40,40 @@ msgstr ""
 "\n"
 "      已使用 %(quota)s 中的 %(used)s\n"
 "      "
+
+msgid ""
+"\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
+msgstr ""
+"\n"
+"如果有快照被指定，只有被指定的快照的雲硬碟會被備份。\n"
+"</p>"
+
+msgid ""
+"\n"
+"  If no container name is provided, a default container named volumebackups\n"
+"  will be provisioned for you.\n"
+"  Backups will be the same size as the volume they originate from.\n"
+"  "
+msgstr ""
+"\n"
+"若不提供容器名稱，將提供您預設的容器命名 volumebackups。備份將擁有與雲硬碟原"
+"本容量相同的容量。"
+
+msgid ""
+"\n"
+"  Volume Backups are stored using one of cinder-backup drivers\n"
+"  (object storage service, Ceph, NFS, etc ...).\n"
+"  You must have one of these services activated in order to create a "
+"backup.\n"
+"  "
+msgstr ""
+"\n"
+"雲硬碟備份使用了其中一個 cinder-backup drivers (物件儲存服務， Ceph，NFS等)。"
+"您必須已啟動其中一下服務才能新增備份。"
 
 msgid " - End"
 msgstr "- 結束"
@@ -103,6 +138,10 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
+msgid "%(role)s  (through group %(group)s)"
+msgstr "%(role)s  (through group %(group)s)"
+
+#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s（%(backend)s 後端）"
 
@@ -155,6 +194,9 @@ msgstr "%sGiB"
 #, python-format
 msgid "%sMB"
 msgstr "%sMB"
+
+msgid "(No IP address)"
+msgstr "（無 IP 地址）"
 
 msgid "(Quota exceeded)"
 msgstr "（超過配額）"
@@ -263,6 +305,9 @@ msgstr "行為"
 msgid "Action Log"
 msgstr "行為記錄"
 
+msgid "Action and Object Type"
+msgstr "行動和物件類型"
+
 msgctxt "Current status of a Floating IP"
 msgid "Active"
 msgstr "使用中"
@@ -360,6 +405,11 @@ msgstr "在此聚合加入主機或移除主機。可以加入主機到多個聚
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "加入主機到這個聚合裡。主機可以放在多個聚合裡。"
 
+msgid ""
+"Add or remove security groups to this port from the list of available "
+"security groups."
+msgstr "從可用的安全性群組列表加入或移除此端口的安全性群組。"
+
 msgid "Add static route to the router."
 msgstr "加入靜態路由到路由器。"
 
@@ -423,6 +473,12 @@ msgid ""
 msgstr ""
 "在發動執行個體後，您用這個私鑰來登入（依照您發動的映像檔，用戶名稱可能不"
 "同）："
+
+msgid "Age"
+msgstr "時間"
+
+msgid "Age (Seconds)"
+msgstr "時間（秒）"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -521,6 +577,19 @@ msgstr "任意"
 msgid "Any Availability Zone"
 msgstr "任何可用區域"
 
+msgid "Application Credential Details"
+msgstr "應用程序憑證詳細資料"
+
+msgid "Application Credential Name ="
+msgstr "應用程序憑證名稱 = "
+
+msgid "Application Credentials"
+msgstr "應用程序憑證"
+
+#, python-format
+msgid "Application credential name \"%s\" is already used."
+msgstr "已經有其他人用了應用程序憑證名稱「%s」。"
+
 msgid "Architecture"
 msgstr "架構"
 
@@ -615,6 +684,9 @@ msgstr "可用區域"
 msgid "Availability Zone ="
 msgstr "可用區域 ="
 
+msgid "Availability Zone Hints"
+msgstr "可用區域提示"
+
 msgid "Availability Zone Name"
 msgstr "可用區域名稱"
 
@@ -641,6 +713,9 @@ msgstr "可用的類型"
 msgid "Available networks"
 msgstr "可用的網路"
 
+msgid "Back-End Example:"
+msgstr "後端例子："
+
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "正在備份"
@@ -650,6 +725,9 @@ msgstr "備份名稱"
 
 msgid "Backup Size (GiB)"
 msgstr "備份容量 (GiB)"
+
+msgid "Backup Snapshot"
+msgstr "備份快照"
 
 msgid "Backups"
 msgstr "備份"
@@ -729,6 +807,11 @@ msgid "Building"
 msgstr "正在建立"
 
 msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr "新增的群組類型預設是公用的。如果要新增私有的群組類型，取消選擇此選項。"
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -764,6 +847,9 @@ msgstr "無法獲得雲實例 %s 的主控臺。"
 msgid "Cannot specify both file and direct input."
 msgstr "不能指定檔案同時又直接輸入。"
 
+msgid "Center Topology"
+msgstr "中心拓撲"
+
 msgid "Centralized"
 msgstr "集式式"
 
@@ -795,6 +881,11 @@ msgstr "最後變更"
 
 msgid "Changing password is not supported."
 msgstr "不支援變更密碼。"
+
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this group."
+msgstr "勾選「刪除雲硬碟」方框，以同時刪除與此群組相關聯的任何雲硬碟。"
 
 msgid "Checksum"
 msgstr "檢查碼"
@@ -896,6 +987,9 @@ msgstr "運算"
 msgid "Compute Host"
 msgstr "運算主機"
 
+msgid "Compute Quotas"
+msgstr "運算資源配額"
+
 msgid "Compute Services"
 msgstr "運算伺服器"
 
@@ -906,6 +1000,9 @@ msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "設置 OpenStack 來寫入詮釋資料到一開機雲實例就會附加的設定檔硬碟。"
+
+msgid "Confirm"
+msgstr "確認"
 
 msgid "Confirm Admin Password"
 msgstr "確認管理員密碼"
@@ -967,6 +1064,9 @@ msgid ""
 "mechanisms."
 msgstr "從密鑰對、安全性群組及其他機制控制存取您的雲實例。"
 
+msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
+msgstr "Cookies 可能被關閉。請確認 cookies 有開啟後重新嘗試。"
+
 msgid "Copy Data"
 msgstr "複製資料"
 
@@ -989,8 +1089,14 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "新增"
 
+msgid "Create A RBAC Policy"
+msgstr "建立 RBAC 政策"
+
 msgid "Create An Image"
 msgstr "新增映像檔"
+
+msgid "Create Application Credential"
+msgstr "建立應用程序憑證"
 
 msgid "Create Backup"
 msgstr "新增備份"
@@ -1013,11 +1119,21 @@ msgstr "新增虛擬硬體樣板"
 msgid "Create Group"
 msgstr "新增群組"
 
+msgid "Create Group Type"
+msgstr "新增群組類型"
+
+msgid "Create Group Type Spec"
+msgstr "新增群組類型規格"
+
 msgid "Create Host Aggregate"
 msgstr "新增主機聚合"
 
 msgid "Create Image"
 msgstr "新增映像檔"
+
+msgctxt "Action log of an instance"
+msgid "Create Image"
+msgstr "建立映像檔"
 
 msgid "Create Key Pair"
 msgstr "新增密鑰對"
@@ -1034,6 +1150,9 @@ msgstr "新增網路（超過配額）"
 msgid "Create Port"
 msgstr "新增接口"
 
+msgid "Create Port (Quota exceeded)"
+msgstr "新增端口（超過配額）"
+
 msgid "Create Project"
 msgstr "新增專案"
 
@@ -1042,6 +1161,9 @@ msgstr "建立通訊協定"
 
 msgid "Create QoS Spec"
 msgstr "新增 QoS 規格"
+
+msgid "Create RBAC Policy"
+msgstr "建立 RBAC 政策"
 
 msgid "Create Role"
 msgstr "新增角色"
@@ -1100,11 +1222,17 @@ msgstr "新增雲硬碟類型加密"
 msgid "Create Volume Type Extra Spec"
 msgstr "新增雲硬碟類型的額外規格"
 
+msgid "Create a Group Type"
+msgstr "新增群組類型"
+
 msgid "Create a Metadata Namespace"
 msgstr "新增詮釋資料命名空間"
 
 msgid "Create a New Volume"
 msgstr "新增新雲硬碟"
+
+msgid "Create a RBAC Policy"
+msgstr "建立 RBAC 政策"
 
 msgid "Create a Router"
 msgstr "新增路由器"
@@ -1117,6 +1245,21 @@ msgstr "建立對映。"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "給雲硬碟類型新增新的「額外規格」鍵值對。"
+
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr "給群組類型規格新增新的「群組類型規格」鍵值對。"
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
+msgstr ""
+"為 QoS 規格「%(qos_spec_name)s」新增新的「規格」鍵值對。QoS規範中應包含有效的"
+"鍵值對名稱。有關受支持的前端和後端鍵值對，請參考 Cinder 文件。"
+
+msgid "Create a new application credential."
+msgstr "新稱新的應用程序憑證"
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -1152,6 +1295,10 @@ msgstr "已新增"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "新增額外的規格「%s」。"
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "新增群組類型規格 \"%s\"。"
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1282,6 +1429,9 @@ msgstr "DHCPv6 無態：從 OpenStack 路由器探索位址並且從 OpenStack D
 msgid "DNS Assignment"
 msgstr "DNS 指派"
 
+msgid "DNS Domain"
+msgstr "DNS 網域"
+
 msgid "DNS Name"
 msgstr "DNS 名稱"
 
@@ -1321,6 +1471,10 @@ msgid "Delete"
 msgid_plural "Delete"
 msgstr[0] "刪除"
 
+msgid "Delete Application Credential"
+msgid_plural "Delete Application Credentials"
+msgstr[0] "刪除應用程序憑證"
+
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "刪除 DHCP 媒介"
@@ -1344,6 +1498,10 @@ msgstr[0] "刪除虛擬硬體樣板"
 msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "刪除群組"
+
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "刪除群組類型"
 
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
@@ -1392,6 +1550,10 @@ msgstr[0] "刪除通訊協定"
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "刪除 QoS 規格"
+
+msgid "Delete RBAC Policy"
+msgid_plural "Delete RBAC Policies"
+msgstr[0] "刪除RBAC 政策"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -1469,6 +1631,10 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "已刪除"
 
+msgid "Deleted Application Credential"
+msgid_plural "Deleted Application Credentialss"
+msgstr[0] "已刪除的應用程序憑證"
+
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "已刪除 DHCP 媒介"
@@ -1492,6 +1658,10 @@ msgstr[0] "已刪除虛擬硬體樣板"
 msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "已刪除群組"
+
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "刪除群組類型"
 
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
@@ -1536,6 +1706,13 @@ msgstr[0] "已刪除通訊協定"
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "已刪除 QoS 規格"
+
+msgid "Deleted RBAC Policy"
+msgid_plural "Deleted RBAC Policies"
+msgstr[0] "已刪除的 RBAC 政策"
+
+msgid "Deleted RBAC policy is not recoverable."
+msgstr "刪除的RBAC 政策將不可恢復。"
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -1673,11 +1850,17 @@ msgstr "裝置識別號"
 msgid "Device ID attached to the port"
 msgstr "附加到接口的裝置識別號"
 
+msgid "Device ID attached to the port."
+msgstr "附加到端口的裝置 ID"
+
 msgid "Device Name"
 msgstr "裝置名稱"
 
 msgid "Device Owner"
 msgstr "裝置持有人"
+
+msgid "Device owner attached to the port."
+msgstr "附加到接口的裝置的持有人"
 
 msgid "Device size (GB)"
 msgstr "裝置容量（GB）"
@@ -1742,6 +1925,9 @@ msgstr "取消聯結"
 msgid "Disassociate Floating IP"
 msgstr "解除浮動 IP 聯結"
 
+msgid "Disassociate floating IP"
+msgstr "解除浮動 IP 聯結"
+
 msgid "Disk"
 msgstr "硬碟"
 
@@ -1778,6 +1964,9 @@ msgstr "Docker"
 msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr "Docker"
+
+msgid "Domain"
+msgstr "地域"
 
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
@@ -1853,6 +2042,15 @@ msgstr "下載 CSV 摘要"
 msgid "Download OpenStack RC File"
 msgstr "下載 OpenStack 用的 RC 檔"
 
+msgid "Download clouds.yaml"
+msgstr "下載 clouds.yaml"
+
+msgid "Download kubeconfig file"
+msgstr "下載 kubeconfig 檔案"
+
+msgid "Download openrc file"
+msgstr "下載 openrc 檔案"
+
 msgid "Download transfer credentials"
 msgstr "下載轉移憑證"
 
@@ -1899,6 +2097,16 @@ msgstr "編輯虛擬硬體樣板"
 msgid "Edit Group"
 msgstr "編輯群組"
 
+msgid "Edit Group Type"
+msgstr "編輯群組類型"
+
+msgid "Edit Group Type Spec"
+msgstr "編輯群組類型規格"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "編輯群組類型規格的值：%s"
+
 msgid "Edit Host Aggregate"
 msgstr "編輯主機聚合"
 
@@ -1926,6 +2134,9 @@ msgstr "編輯政策"
 msgid "Edit Port"
 msgstr "編輯接口"
 
+msgid "Edit Port Security Groups"
+msgstr "編輯端口安全性群組"
+
 msgid "Edit Project"
 msgstr "編輯專案"
 
@@ -1934,6 +2145,9 @@ msgstr "更新名稱空間公開/受保護的屬性"
 
 msgid "Edit QoS Spec Consumer"
 msgstr "編輯 QoS 規格規範的對象"
+
+msgid "Edit Quotas"
+msgstr "編輯配額"
 
 msgid "Edit Router"
 msgstr "編輯路由器"
@@ -2010,6 +2224,9 @@ msgstr "啟用地域"
 
 msgid "Enable HA mode"
 msgstr "啟用高可用性模式"
+
+msgid "Enable SNAT"
+msgstr "啟用 SNAT"
 
 msgid "Enable Service"
 msgid_plural "Enable Services"
@@ -2173,6 +2390,9 @@ msgstr "寫入 Zip 檔錯誤：%(exc)s"
 msgid "Ether Type"
 msgstr "網路協定類型"
 
+msgid "Euca2ools state"
+msgstr "Euca2ools 狀態"
+
 msgid "Evacuate Host"
 msgstr "撤離主機"
 
@@ -2196,6 +2416,18 @@ msgid ""
 msgstr ""
 "範例：將前綴「hw:」加入到虛擬處理器的拓撲 OS::NOVA::Flavor 命名空間裡，會導致"
 "套用虛擬硬體樣板時以「hw:」前綴來命名屬性。"
+
+msgid "Expiration"
+msgstr "截止"
+
+msgid "Expiration Date"
+msgstr "截止日期"
+
+msgid "Expiration Time"
+msgstr "截止時間"
+
+msgid "Expires"
+msgstr "截止"
 
 msgid "Extend Volume"
 msgstr "擴充的雲硬碟"
@@ -2271,6 +2503,15 @@ msgstr "加入路由時失敗：%s"
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "檢查是否支援 Neutron network-ip-availability 擴充套件時失敗"
 
+msgid "Failed to check if neutron supports \"auto_allocated_network\"."
+msgstr "檢查是否支援 neutron 自動配置網路時失敗。"
+
+msgid "Failed to check if nova supports \"auto_allocated_network\"."
+msgstr "檢查是否支援 nova 自動配置網路時失敗。"
+
+msgid "Failed to create a rbac policy."
+msgstr "建立 RBAC 政策失敗"
+
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "新增網路「%(network)s」時失敗：%(reason)s"
@@ -2280,8 +2521,15 @@ msgid "Failed to create network %s"
 msgstr "新增網路 %s 時失敗"
 
 #, python-format
+msgid "Failed to create port \"%s\"."
+msgstr "建立端口 %s 失敗"
+
+#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "新增路由器「%s」時失敗。"
+
+msgid "Failed to create router."
+msgstr "建立路由器失敗。"
 
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
@@ -2310,6 +2558,12 @@ msgstr "撤離主機時失敗：%s。"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "撤離雲實例時失敗：%s"
+
+msgid "Failed to get availability zone list."
+msgstr "無法獲得可用區域列表。"
+
+msgid "Failed to get instance interfaces."
+msgstr "無法取得實例 ID 的網路介面"
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -2384,6 +2638,10 @@ msgstr "更新網路 %s 時失敗"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "更新接口 %s 時失敗"
+
+#, python-format
+msgid "Failed to update rbac policy %s"
+msgstr "更新 RBAC 政策 %s 時失敗。"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -2476,6 +2734,9 @@ msgstr "浮動 IP"
 msgid "Floating IP Address (optional)"
 msgstr "浮動IP位址（選填）"
 
+msgid "Floating IP Address ="
+msgstr "浮動IP位址"
+
 msgid "Floating IP Details"
 msgstr "浮動 IP 內容"
 
@@ -2541,8 +2802,20 @@ msgstr "您可以在此為此網路加入 DHCP 媒介。"
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "從這裡可以配製浮動 IP 至特定專案"
 
+msgid "From here you can create a rbac policy."
+msgstr "可以從這裡建立 RBAC 政策。"
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "您可以在此新增雲硬碟的即時存檔。"
+
+msgid "From here you can update the default compute quotas (max limits)."
+msgstr "您可以在此更新預設的運算配額（最大限制）。"
+
+msgid "From here you can update the default volume quotas (max limits)."
+msgstr "您可以在此更新預設的雲硬碟配額（最大限制）。"
+
+msgid "Front-End Example:"
+msgstr "前端例子："
 
 msgid "GB"
 msgstr "GB"
@@ -2574,6 +2847,13 @@ msgstr "執行"
 msgid "Graph"
 msgstr "圖表"
 
+msgid "Group"
+msgstr "群組"
+
+#, python-format
+msgid "Group \"%s\" already exists."
+msgstr "已存在群組名稱「%s」。"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "已成功新增群組「%s」。"
@@ -2596,8 +2876,51 @@ msgstr "群組成員"
 msgid "Group Name ="
 msgstr "群組名稱 ="
 
+msgid "Group Snapshot"
+msgstr "群組快照"
+
+msgid "Group Snapshots"
+msgstr "關聯群組快照"
+
+msgid "Group Type"
+msgstr "群組類型"
+
+msgid "Group Type Specs"
+msgstr "群組類型規格"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "群組類型：%(group_type_name)s "
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "群組類型：%(group_type_name)s "
+
+msgid "Group Types"
+msgstr "群組類型"
+
 msgid "Group has been updated successfully."
 msgstr "已成功更新群組。"
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"群組類型是個新增群組時在 OpenStack 裡可以選則的類型或標籤。它通常對應儲存後端"
+"的一系列能力。例如：「高效能」、「SSD」、「備份」等等。這相當於<tt>cinder "
+"type-create</tt> 指令。當第一次新增群組類型時，點擊「檢視額外的規格」按鈕來為"
+"群組類型設定額外的規格鍵值對。"
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "已存在群組類型名稱「%s」。"
+
+msgid "Group type name can not be empty."
+msgstr "群組類型名稱不能爲空白。"
 
 msgid "Groups"
 msgstr "群組"
@@ -2752,9 +3075,18 @@ msgstr ""
 "IP 位址分配倉庫。每個條目長得像：start_ip_address,end_ip_address（如 "
 "192.168.1.100,192.168.1.120）並且一行一個條目。"
 
+msgid "IP address for the new port"
+msgstr "給新端口的 IP 位置"
+
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "此子網路的 DNS 名稱伺服器 IP 位址列表。一行一個條目。"
+
+msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"閘道 IP 位址（如 192.168.0.254）假如您不想使用閘道，勾選下列的「關閉閘道」。"
 
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
@@ -2818,6 +3150,15 @@ msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "
 "volume type."
 msgstr "若選擇了「無雲硬碟類型」，將以不指定雲硬碟的類型來新增雲硬碟。"
+
+msgid "If checked, the network will be enabled."
+msgstr "如果此選項爲勾選，網路會被啟用。"
+
+msgid "If checked, the port will be enabled."
+msgstr "如果此選項爲勾選，端口會被啟用。"
+
+msgid "If checked, the router will be enabled."
+msgstr "如果此選項爲勾選，路由器會被啟用。"
 
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
@@ -2883,6 +3224,9 @@ msgstr "等候儲存映像檔即時存檔"
 msgid "Image Source"
 msgstr "映像檔來源"
 
+msgid "Image Type"
+msgstr "映像檔類型"
+
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "正在上傳映像檔"
@@ -2906,6 +3250,9 @@ msgstr "匯入密鑰對"
 
 msgid "Import Namespace"
 msgstr "匯入命名空間"
+
+msgid "Import Public Key"
+msgstr "輸入公鑰"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -3037,6 +3384,9 @@ msgid ""
 "exist."
 msgstr "無效的時段。您從未來要求的資料還不存在。"
 
+msgid "It specifies the VNIC type bound to the networking port."
+msgstr "指定綁在網路端口上的虛擬網路卡類型。"
+
 msgid "Items Per Page"
 msgstr "每頁的項目"
 
@@ -3061,6 +3411,12 @@ msgstr "密鑰對詳細資訊"
 msgid "Key Pair Name"
 msgstr "密鑰對名稱"
 
+msgid "Key Pair Name ="
+msgstr "密鑰對名稱 ="
+
+msgid "Key Pair Type"
+msgstr "密鑰對類型"
+
 msgid "Key Pairs"
 msgstr "密鑰對"
 
@@ -3070,6 +3426,14 @@ msgstr "您可以在發動後以密鑰對登入您的執行個體。"
 msgid "Key Size (bits)"
 msgstr "密鑰長度（位元）"
 
+msgid "Key Type"
+msgstr "金鑰類型"
+
+msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr "索引鍵名稱只能包含英數字元、底線、句點、冒號及連字號。"
+
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
@@ -3078,12 +3442,41 @@ msgstr "密鑰對名稱只能包含英文字母、數字、底線、空格和連
 msgid "Key pair to use for authentication."
 msgstr "用於認證的密鑰對。"
 
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"名為 \"%s\" 的索引鍵已經存在。請使用編輯去更新值，或是使用其他名稱建立索引"
+"鍵。"
+
 msgid "Key-Value Pairs"
 msgstr "鍵值對"
+
+msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
+
+msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
+
+msgid "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
+msgstr "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
+
+msgid "Key: size_iops_sec and Value: 16"
+msgstr "Key: size_iops_sec and Value: 16"
+
+msgid "Key: total_bytes_sec_max and Value: 512000"
+msgstr "Key: total_bytes_sec_max and Value: 512000"
+
+msgid "Key: total_iops_sec and Value: 5000"
+msgstr "Key: total_iops_sec and Value: 5000"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "已中斷"
+
+msgid "Kubernetes Namespace"
+msgstr "Kubernetes 命名空間"
 
 msgid "L3 Agent"
 msgstr "L3代理"
@@ -3152,6 +3545,10 @@ msgstr "當地儲存容量（總計）"
 msgid "Local Storage (used)"
 msgstr "當地儲存容量（使用中）"
 
+msgctxt "Action log of an instance"
+msgid "Lock"
+msgstr "鎖定"
+
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "鎖住雲實例"
@@ -3181,6 +3578,9 @@ msgstr "MAC 位址"
 
 msgid "MAC Learning State"
 msgstr "MAC 學習狀態"
+
+msgid "MAC address for the port."
+msgstr "端口的 MAC 位址。"
 
 msgid "MB"
 msgstr "MB"
@@ -3314,6 +3714,10 @@ msgstr "MidoNet Uplink"
 msgid "Migrate"
 msgstr "轉移"
 
+msgctxt "Action log of an instance"
+msgid "Migrate"
+msgstr "轉移"
+
 msgid "Migrate Host"
 msgstr "轉移主機"
 
@@ -3376,12 +3780,19 @@ msgid "Modified domain \"%s\"."
 msgstr "已更改地域「%s」。"
 
 #, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "已更改了虛擬硬體樣板 %s。"
+
+#, python-format
 msgid "Modified instance \"%s\"."
 msgstr "已更改雲實例「%s」。"
 
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "已更改專案「%s」。"
+
+msgid "Modified quotas of project"
+msgstr "編輯專案配額"
 
 #, python-format
 msgid "Modified volume type access: %s"
@@ -3402,6 +3813,9 @@ msgstr "更改配額"
 msgid "Modify dashboard settings for your user."
 msgstr "為您的用戶更改儀表板設定。"
 
+msgid "Modify group type name, description, and public status."
+msgstr "更改群組類型名稱、描述和公開狀態。"
+
 msgid "Modify name and description of a volume."
 msgstr "更改雲硬碟的名稱及描述。"
 
@@ -3413,6 +3827,9 @@ msgstr "更改雲碟碟類型名稱、描述和公開狀態。"
 
 msgid "Monitoring:"
 msgstr "監視："
+
+msgid "Multiattach volumes are not yet supported."
+msgstr "Multiattach 雲硬碟尚未被支援。"
 
 msgid "N/A"
 msgstr "N/A"
@@ -3492,6 +3909,9 @@ msgstr "網路詳細資訊"
 msgid "Network ID"
 msgstr "網路識別號"
 
+msgid "Network ID ="
+msgstr "網絡 ID ="
+
 msgid "Network Mask"
 msgstr "網路遮罩"
 
@@ -3506,6 +3926,9 @@ msgstr "網路 QoS"
 
 msgid "Network QoS Policies"
 msgstr "網路 QoS 原則"
+
+msgid "Network Quotas"
+msgstr "網路配額"
 
 msgid "Network Topology"
 msgstr "網路拓撲"
@@ -3555,6 +3978,9 @@ msgstr "新容量 (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "新名稱不能是空的。"
+
+msgid "New name conflicts with another group type."
+msgstr "新名稱與另一個群組類型衝突。"
 
 msgid "New name conflicts with another volume type."
 msgstr "新名稱與另一個雲硬碟類型衝突。"
@@ -3706,6 +4132,9 @@ msgstr "找不到任何安全性群組。"
 msgid "No server groups available"
 msgstr "無可用的主機群組"
 
+msgid "No snapshot for this volume"
+msgstr "此雲硬碟並沒有快照"
+
 msgid "No snapshots available"
 msgstr "無可用的即時存檔"
 
@@ -3813,8 +4242,17 @@ msgstr "或複製並貼上您的私人密鑰"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - 開放虛擬裝置"
 
+msgid "Object"
+msgstr "物件"
+
+msgid "Object ID"
+msgstr "物件 ID"
+
 msgid "Object Store"
 msgstr "物件式儲存空間"
+
+msgid "Object Type"
+msgstr "物件類型"
 
 msgid "Old Flavor"
 msgstr "舊虛擬硬體樣板"
@@ -3841,6 +4279,9 @@ msgstr "開放埠口/埠口範圍："
 
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profiler"
+
+msgid "OpenStack RC File"
+msgstr "OpenStack RC 檔"
 
 msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml 檔"
@@ -3903,6 +4344,9 @@ msgstr "密碼"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "產生密碼"
+
+msgid "Password Expires At"
+msgstr "密碼截止於"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "密碼已更換。請再登入一次以繼續。"
@@ -3971,6 +4415,9 @@ msgstr "已成功新增接口 %s。"
 msgid "Port %s was successfully updated."
 msgstr "已成功更新接口 %s。"
 
+msgid "Port ID ="
+msgstr "連接端口 ID ="
+
 msgid "Port Range"
 msgstr "埠口範圍"
 
@@ -3979,6 +4426,9 @@ msgstr "網路埠安全"
 
 msgid "Port Security Enabled"
 msgstr "已啟用埠安全"
+
+msgid "Port Security Groups"
+msgstr "端口安全性群組"
 
 msgid "Port list can not be retrieved."
 msgstr "不能獲得接口列表。"
@@ -4127,6 +4577,9 @@ msgstr "QCOW2 - QEMU 模擬器"
 msgid "QOS Policy ID"
 msgstr "QOS 原則 ID"
 
+msgid "QoS Policy"
+msgstr "QoS 政策"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "QoS 規格名稱 \"%s\" 已經存在。"
@@ -4166,6 +4619,9 @@ msgstr "已排入"
 msgid "Quota Name"
 msgstr "配額名稱"
 
+msgid "Quota exceeded for creating snapshots"
+msgstr "建立快照的配額已超出"
+
 msgid "Quota exceeded for resource router."
 msgstr "資源路由器的配額已超過。"
 
@@ -4188,6 +4644,19 @@ msgstr "隨機存取記憶體（使用中）"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "隨機存取記憶體（可用：%(avail)s、已請求：%(req)s）"
+
+msgid "RBAC Policies"
+msgstr "RBAC 政策"
+
+#, python-format
+msgid "RBAC Policy %s was successfully updated."
+msgstr "已順利更新RBAC 政策 %s。"
+
+msgid "RBAC Policy Details"
+msgstr "RBAC 政策詳細內容"
+
+msgid "RBAC Policy was successfully created."
+msgstr "已成功新增 RBAC 政策"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 因數"
@@ -4334,6 +4803,9 @@ msgstr ""
 "移除金鑰對可孤立 OpenStack 資源。除非您確定某個金鑰對在所有位置均未使用，否則"
 "不應移除該金鑰對。"
 
+msgid "Replication Status"
+msgstr "複製狀態"
+
 msgid "Report Bug"
 msgstr "回報錯誤"
 
@@ -4358,9 +4830,16 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "請求的即時存檔將會超過允許的配額。"
 
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "救援"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "救援中"
+
+msgid "Rescue Instance"
+msgstr "救援雲實例"
 
 msgctxt "Current status of an Instance"
 msgid "Rescued"
@@ -4493,6 +4972,9 @@ msgstr "角色名稱"
 msgid "Role Name ="
 msgstr "角色名稱 = "
 
+msgid "Role assignments"
+msgstr "指派角色"
+
 msgid "Role created successfully."
 msgstr "已成功新增角色。"
 
@@ -4501,6 +4983,9 @@ msgstr "已成功更新角色。"
 
 msgid "Roles"
 msgstr "角色"
+
+msgid "Roles from Groups"
+msgstr "群組中的角色"
 
 msgid "Root Disk"
 msgstr "根硬碟"
@@ -4518,6 +5003,9 @@ msgstr "已成功新增路由器 %s。"
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "已成功更新路由器 %s。"
+
+msgid "Router ID ="
+msgstr "路由器 ID ="
 
 msgid "Router Name"
 msgstr "路由器名稱"
@@ -4570,6 +5058,9 @@ msgstr "SLAAC：從 OpenStack 外部路由器探索到的位址"
 msgid "SNAT"
 msgstr "SNAT"
 
+msgid "SSH Key"
+msgstr "SSH 金鑰檔"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH 密鑰對可以用 ssh-keygen 命令來產生："
 
@@ -4582,6 +5073,10 @@ msgstr "儲存變更"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "已儲存了額外的規格「%s」。"
+
+#, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "已儲存了群組類型規格「%s」。"
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -4625,6 +5120,9 @@ msgstr "腳本資料"
 msgid "Script File"
 msgstr "腳本檔案"
 
+msgid "Secret"
+msgstr "祕密"
+
 msgid "Security Group"
 msgstr "安全性群組"
 
@@ -4639,6 +5137,9 @@ msgstr "安全性群組"
 
 msgid "Security group rule already exists."
 msgstr "安全群組規則已存在"
+
+msgid "Security group rule quota exceeded."
+msgstr "安全性群組規則超過配額"
 
 msgid ""
 "Security groups are sets of IP filter rules that are applied to network "
@@ -4698,8 +5199,17 @@ msgstr "選擇雲硬碟的即時存檔"
 msgid "Select a New Flavor"
 msgstr "選擇新的虛擬硬體樣板"
 
+msgid "Select a QoS policy"
+msgstr "選取 QoS 政策"
+
+msgid "Select a floating IP to disassociate"
+msgstr "選擇要取消關聯的浮動 IP 位置"
+
 msgid "Select a key pair"
 msgstr "選擇密鑰對"
+
+msgid "Select a network"
+msgstr "選擇網路"
 
 msgid "Select a new QoS spec"
 msgstr "選擇新的 QoS 規格"
@@ -4743,6 +5253,9 @@ msgstr "選擇雲硬碟來卸除自這個雲實例。"
 msgid "Select a volume to restore to."
 msgstr "選擇雲硬碟來還原。"
 
+msgid "Select action and object type"
+msgstr "選擇行動和物件類型"
+
 msgid "Select an IP address"
 msgstr "選擇 IP 位址"
 
@@ -4760,6 +5273,9 @@ msgstr "選擇網路"
 
 msgid "Select networks for your instance."
 msgstr "為您的雲實例選擇網路。"
+
+msgid "Select snapshot to backup (Optional)"
+msgstr "選擇要備份的快照（選填）"
 
 msgid "Select source"
 msgstr "選擇來源"
@@ -4881,11 +5397,21 @@ msgstr "已分享"
 msgid "Shared ="
 msgstr "已共用 ="
 
+msgid "Shared Network"
+msgstr "共有網路"
+
+msgid "Shared QoS Policy"
+msgstr "共有 QoS 政策"
+
 msgid "Shared Storage"
 msgstr "已分享的儲存容量"
 
 msgid "Shared with Project"
 msgstr "與專案共享"
+
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "擱置雲實例"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -5069,6 +5595,9 @@ msgstr "為已新增的網路卡指定 IP 位址（如 192.168.0.254）。"
 msgid "Specify an image to upload to the Image Service."
 msgstr "指定映像檔以供上傳到映像檔伺服器。"
 
+msgid "Specify network address"
+msgstr "指定網路位址"
+
 msgid "Specify the MAC address for the new port"
 msgstr "指定配置給此新埠的 MAC 位址"
 
@@ -5189,6 +5718,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "已成功為雲硬碟類型新增加密：%s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "已成功新增群組類型：%s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "已成功新增安全性群組：%s"
 
@@ -5208,6 +5741,14 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "已成功解除了浮動 IP 的聯結：%s"
 
 #, python-format
+msgid "Successfully disassociated and released floating IP %s"
+msgstr "已成功解除連結並釋放浮動 IP %s"
+
+#, python-format
+msgid "Successfully disassociated floating IP %s"
+msgstr "已成功解除浮動 IP 聯結 %s"
+
+#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "已成功匯入公鑰：%s"
 
@@ -5216,6 +5757,9 @@ msgstr "已成功更改 QoS 規格規範用戶。"
 
 msgid "Successfully recreated ec2 credentials."
 msgstr "已順利建立 EC2 格式的憑證。"
+
+msgid "Successfully rescued instance"
+msgstr "成功已救援雲實例"
 
 #, python-format
 msgid ""
@@ -5250,6 +5794,9 @@ msgstr "已成功更新聚合：「%s。」"
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "已成功為雲硬碟類型更新加密：%s"
+
+msgid "Successfully updated group type."
+msgstr "已成功更新群組類型。"
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -5302,8 +5849,17 @@ msgstr "系統"
 msgid "System Information"
 msgstr "系統資訊"
 
+msgid "System Scope"
+msgstr "系統範圍"
+
 msgid "Target Host"
 msgstr "目標主機"
+
+msgid "Target Project"
+msgstr "目標專案"
+
+msgid "Target Tenant"
+msgstr "目標租用人"
 
 msgid "Task"
 msgstr "任務"
@@ -5352,6 +5908,23 @@ msgid ""
 msgstr ""
 "<strong>控制位置</strong>是用來標記何處要加密的（例如前端=Nova）。預設值是"
 "「前端」。"
+
+msgid ""
+"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
+"g., 256). If the field is left empty, the provider default will be used."
+msgstr ""
+"<strong>密鑰長度</strong>是加密密鑰的長度，以位元為單位（例如 128、256）。假"
+"如此欄位留空，預設將使用提供者所提供的密鑰長度。"
+
+msgid ""
+"The <strong>Provider</strong> is the encryption provider format (e.g. 'luks' "
+"or 'plain')."
+msgstr "<strong>提供者</strong>是提供加密的類別（例如 'luks' 或 'plain'）。"
+
+msgid ""
+"The <strong>Provider</strong> is the encryption provider format (e.g., "
+"'luks' or 'plain')."
+msgstr "<strong>提供者</strong>是提供加密的類別（例如 'luks' 或 'plain'）。"
 
 msgid "The Aggregate was updated."
 msgstr "已更新聚合。"
@@ -5412,6 +5985,9 @@ msgstr ""
 "若要承辦者允許轉移，需要轉移識別號及認證密鑰。請截取轉移識別號和認證密鑰並提"
 "供給轉移承辦者。"
 
+msgid "The VNIC type that is bound to the network port"
+msgstr "綁在網路端口上的虛擬網路卡類型"
+
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -5421,6 +5997,11 @@ msgstr ""
 
 msgid "The admin password is incorrect."
 msgstr "管理員密碼不正確。"
+
+msgid ""
+"The application credential will be created for the currently selected "
+"project."
+msgstr "應用程序憑證會被建立給目前選擇的專案。"
 
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
@@ -5460,6 +6041,9 @@ msgstr "已用您的公鑰為雲實例加密。"
 
 msgid "The instance(s) will be shut off."
 msgstr "雲實例將會被關機。"
+
+msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
+msgstr "索引鍵的值必須符合此 regex: '^[a-zA-Z0-9-_:. /]'"
 
 #, python-format
 msgid ""
@@ -5503,6 +6087,13 @@ msgstr ""
 "實體網絡的名稱在其上的虛擬網絡為flat和VLAN網絡實現。指定一個在 Neutron 部署環"
 "境中定義的實體網路"
 
+msgid "The new availability zone can't be empty"
+msgstr "新的可用區域不能是空的"
+
+#, python-format
+msgid "The password does not match the requirements: %s"
+msgstr "密碼並不符合規定：%s"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "來自已實作的虛擬網路的實體機制。"
 
@@ -5543,6 +6134,14 @@ msgid ""
 "Available: %(avail)s, Requested: %(req)s."
 msgstr ""
 "不能發動所請求的雲實例因請求超出可用配額：可用：%(avail)s、請求：%(req)s。"
+
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr "救援模式僅供緊急使用，如系統或訪問失敗。"
+
+msgid "The specified floating IP no longer exists."
+msgstr "選擇的浮動 IP 不再存在。"
 
 msgid "The specified port is invalid."
 msgstr "指定的埠口是無效的。"
@@ -5585,6 +6184,9 @@ msgstr "雲硬碟容量不能小於即時存檔容量 (%sGiB)"
 msgid "The volume size cannot be less than the source volume size (%sGiB)"
 msgstr "雲硬碟容量不能小於來源雲硬碟容量 (%sGiB)"
 
+msgid "The way to specify an interface"
+msgstr "選擇建立網路介面的形式"
+
 msgid "Theme Preview"
 msgstr "主題預覽"
 
@@ -5617,8 +6219,16 @@ msgid ""
 "not recoverable."
 msgstr "這個動作將無法回復。現行 EC2 憑證將予以刪除且不可回復。"
 
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"group."
+msgstr "這個動作將會將所有雲硬碟從這個群組移除。"
+
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr "這個應用程式需要您啟用您網頁瀏覽器裡的 JavaScript。"
+
+msgid "This field is required."
+msgstr "這欄位是必填"
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -5655,6 +6265,14 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "此雲硬碟類型由一個以上的雲硬碟使用。"
 
+msgid ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
+msgstr ""
+"這會將您的雲實例關機並且將子硬碟接上一個暫時性的伺服器。之後，您可以連接到這"
+"個伺服器，修復系統設定並且恢復資料。"
+
 msgid "Time since update"
 msgstr "更新已過時間"
 
@@ -5674,6 +6292,9 @@ msgstr ""
 
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "若要離開全螢幕模式，請點擊瀏覽器的「上一頁」按鍵。"
+
+msgid "To make group type private, uncheck this field."
+msgstr "要更改群組類型為私有的，取消選擇此選項。"
 
 msgid "To make volume type private, uncheck this field."
 msgstr "要更改雲硬碟類型為私有的，取消選擇此選項。"
@@ -5811,6 +6432,10 @@ msgid "Unable to attach volume."
 msgstr "無法附加雲硬碟。"
 
 #, python-format
+msgid "Unable to attach volume: %s"
+msgstr "無法掛載雲硬碟： %s"
+
+#, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "無法為雲硬碟更換雲硬碟類型：「%s」"
 
@@ -5824,8 +6449,16 @@ msgid "Unable to create QoS Spec."
 msgstr "無法新增 QoS 規格。"
 
 #, python-format
+msgid "Unable to create application credential: %s"
+msgstr "無法建立應用程序憑證： %s"
+
+#, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "無法新增地域「%s」。"
+
+#, python-format
+msgid "Unable to create encrypted volume type: %s"
+msgstr "無法新增已加密的雲硬碟類型：%s"
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -5833,6 +6466,12 @@ msgstr "無法新增虛擬硬體樣板「%s」。"
 
 msgid "Unable to create flavor."
 msgstr "無法新增虛擬硬體樣板。"
+
+msgid "Unable to create group type spec."
+msgstr "無法新增群組類型規格。"
+
+msgid "Unable to create group type."
+msgstr "無法新增群組類型。"
 
 msgid "Unable to create group."
 msgstr "無法新增群組。"
@@ -5888,6 +6527,10 @@ msgstr "無法新增安全性群組：%s"
 msgid "Unable to create snapshot."
 msgstr "無法新增即時存檔。"
 
+#, python-format
+msgid "Unable to create snapshot: %s"
+msgstr "無法建立快照：%s"
+
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "無法建立一致性群組快照因為超過快照使用限制"
 
@@ -5928,14 +6571,37 @@ msgstr "無法卸除網路卡。"
 msgid "Unable to detach volume."
 msgstr "無法卸除雲硬碟"
 
+#, python-format
+msgid "Unable to detach volume: %s"
+msgstr "無法卸除雲硬碟：%s"
+
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "無法得知是否支援可用區域擴充套件。"
 
 msgid "Unable to determine if volume type encryption is supported."
 msgstr "無法得知是否支援雲硬碟類型加密。"
 
+#, python-format
+msgid "Unable to disassociate floating IP %s"
+msgstr "無法取消關聯浮動 IP 位址 %s"
+
 msgid "Unable to disassociate floating IP."
 msgstr "無法解除浮動 IP 的連結。"
+
+msgid "Unable to display the groups of this project."
+msgstr "無法顯示此專案的用戶。"
+
+msgid "Unable to display the groups of this user."
+msgstr "無法顯示此用戶的專案。"
+
+msgid "Unable to display the role assignments of this user."
+msgstr "無法獲得此用戶的指派角色。"
+
+msgid "Unable to display the users of this project."
+msgstr "無法獲得此專案的用戶。"
+
+msgid "Unable to edit group type spec."
+msgstr "無法更改群組類型規格。"
 
 msgid "Unable to edit spec."
 msgstr "無法編輯規格。"
@@ -5949,11 +6615,21 @@ msgstr "無法擴充雲硬碟。"
 msgid "Unable to fetch EC2 credentials."
 msgstr "無法獲得 EC2 格式的憑證"
 
+msgid "Unable to fetch snapshot"
+msgstr "無法獲得快照"
+
+msgid "Unable to fetch snapshots"
+msgstr "無法獲得快照"
+
 msgid "Unable to find default role."
 msgstr "找不到預設的角色。"
 
 msgid "Unable to get EC2 credentials"
 msgstr "無法獲得 EC2 格式的憑證"
+
+#, python-format
+msgid "Unable to get MKS console for instance \"%s\"."
+msgstr "無法獲得雲實例「%s」的 MKS console。"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
@@ -5967,8 +6643,15 @@ msgstr "無法獲得雲實例「%s」的 SPICE 主控臺。"
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "無法獲得雲實例「%s」的 VNC 主控臺。"
 
+msgid "Unable to get cinder quota info."
+msgstr "無法獲得 cinder 配額資訊。"
+
 msgid "Unable to get cinder services list."
 msgstr "無法獲得 Cinder 伺服器列表。"
+
+#, python-format
+msgid "Unable to get console for instance \"%s\"."
+msgstr "無法獲得雲實例「%s」的 console。"
 
 msgid "Unable to get flavor list"
 msgstr "無法獲得虛擬硬體樣板的列表"
@@ -5985,6 +6668,12 @@ msgstr "無法獲得網路媒介資訊。"
 
 msgid "Unable to get network agents list."
 msgstr "無法獲得網路媒介列表。"
+
+msgid "Unable to get neutron quota info."
+msgstr "無法獲得 neutron 配額資訊。"
+
+msgid "Unable to get nova quota info."
+msgstr "無法獲得 nova 配額資訊。"
 
 msgid "Unable to get nova services list."
 msgstr "無法獲得 Nova 伺服器列表。"
@@ -6043,12 +6732,19 @@ msgid "Unable to modify domain \"%s\"."
 msgstr "無法更改地域「%s」。"
 
 #, python-format
+msgid "Unable to modify flavor access of \"%s\"."
+msgstr "無法更改虛擬硬體樣板 %s 的使用權。"
+
+#, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "無法更改雲實例「%s」。"
 
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "無法更改專案「%s」。"
+
+msgid "Unable to modify quotas of project"
+msgstr "無法編輯專案配額"
 
 #, python-format
 msgid "Unable to parse IP address %s."
@@ -6071,6 +6767,9 @@ msgid ""
 "Provider ID and Remote IDs provided are not already in use."
 msgstr ""
 "無法註冊身分提供者。請確認所提供的「身分提供者 ID」及「遠端 ID」未在使用中。"
+
+msgid "Unable to rescue instance"
+msgstr "無法救援雲實例"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -6119,6 +6818,9 @@ msgstr "無法獲得 QoS 規格的列表。"
 msgid "Unable to retrieve QoS specs"
 msgstr "無法獲得 QoS 規格"
 
+msgid "Unable to retrieve RBAC policies."
+msgstr "無法獲得 RBAC 政策。"
+
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr "無法獲得對外網路「%s」的列表。"
@@ -6129,6 +6831,12 @@ msgstr "無法獲得媒介列表。"
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "無法獲得對外網路「%s」。"
+
+msgid "Unable to retrieve application credential details."
+msgstr "無法獲得應用程序憑證詳細資料"
+
+msgid "Unable to retrieve application credential list."
+msgstr "無法獲得應用程序憑證清單"
 
 msgid "Unable to retrieve attachment information."
 msgstr "無法獲得附件資訊。"
@@ -6142,11 +6850,20 @@ msgstr "無法獲得可用區域。"
 msgid "Unable to retrieve backup details."
 msgstr "無法獲得備份詳細資訊。"
 
+msgid "Unable to retrieve community images."
+msgstr "無法獲得社群映像檔。"
+
 msgid "Unable to retrieve compute host information."
 msgstr "無法獲得運算主機資訊。"
 
 msgid "Unable to retrieve compute limit information."
 msgstr "無法獲得運算限制資訊。"
+
+msgid "Unable to retrieve default compute quotas."
+msgstr "無法獲得預設的運算配額。"
+
+msgid "Unable to retrieve default volume quotas."
+msgstr "無法獲得預設的雲硬碟配額。"
 
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
@@ -6163,6 +6880,10 @@ msgstr "無法獲得密鑰對「%s」的詳細資訊。"
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "無法獲得網路「%s」的詳細資訊。"
+
+#, python-format
+msgid "Unable to retrieve details for rbac_policy \"%s\"."
+msgstr "無法獲得RBAC 政策「%s」的詳細資訊。"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -6225,6 +6946,34 @@ msgstr "無法獲得群組列表。"
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "無法獲得群組列表。請稍後再試一次。"
 
+msgid "Unable to retrieve group snapshot project information."
+msgstr "無法獲得雲硬碟快照專案的資訊。"
+
+msgid "Unable to retrieve group snapshots."
+msgstr "無法獲得群組快照。"
+
+msgid "Unable to retrieve group type details."
+msgstr "無法擷取群組類型詳細資料。"
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "無法獲得群組類型：「%s」"
+
+msgid "Unable to retrieve group type name."
+msgstr "無法獲得群組類型的名稱。"
+
+msgid "Unable to retrieve group type spec details."
+msgstr "無法獲得群組類型規格詳細資料。"
+
+msgid "Unable to retrieve group type spec list."
+msgstr "無法獲得群組類型規格列表。"
+
+msgid "Unable to retrieve group type."
+msgstr "無法獲得群組類型"
+
+msgid "Unable to retrieve group types."
+msgstr "無法獲得群組類型"
+
 msgid "Unable to retrieve group users."
 msgstr "無法獲得群組用戶。"
 
@@ -6266,6 +7015,15 @@ msgstr "無法獲得映像檔。"
 
 msgid "Unable to retrieve information about the networks' projects."
 msgstr "無法獲得網路專案的資訊。"
+
+msgid "Unable to retrieve information about the policies' networks."
+msgstr "無法獲得政策網路的資訊。"
+
+msgid "Unable to retrieve information about the policies' projects."
+msgstr "無法獲得政策專案的資訊。"
+
+msgid "Unable to retrieve information about the policies' qos policies."
+msgstr "無法獲得政策 QoS 的資訊"
 
 msgid "Unable to retrieve instance action list."
 msgstr "無法獲得雲實例行為列表。"
@@ -6342,11 +7100,17 @@ msgstr "無法獲得專案的詳細資訊。"
 msgid "Unable to retrieve project domain."
 msgstr "無法獲得專案地域。"
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr "無法獲得雲硬碟快照專案的詳細訊息。"
+
 msgid "Unable to retrieve project information."
 msgstr "無法獲得專案資訊。"
 
 msgid "Unable to retrieve project list."
 msgstr "無法獲得專案列表。"
+
+msgid "Unable to retrieve project quotas."
+msgstr "無法獲得專案配額。"
 
 msgid "Unable to retrieve protocol list."
 msgstr "無法獲得通訊協定清單。"
@@ -6356,6 +7120,9 @@ msgstr "無法獲得公用的映像檔。"
 
 msgid "Unable to retrieve quota information."
 msgstr "無法獲得配額資訊。"
+
+msgid "Unable to retrieve rbac policy details."
+msgstr "無法 RBAC 原則詳細資料。"
 
 msgid "Unable to retrieve role list."
 msgstr "無法獲得角色列表。"
@@ -6430,6 +7197,9 @@ msgstr "無法獲得用戶詳細資訊。"
 msgid "Unable to retrieve user domain role assignments."
 msgstr "無法獲得用戶地域的角色指派。"
 
+msgid "Unable to retrieve user domain."
+msgstr "無法獲得使用者地域。"
+
 msgid "Unable to retrieve user information."
 msgstr "無法獲得用戶資訊。"
 
@@ -6457,6 +7227,15 @@ msgstr "無法獲得雲硬碟詳細資訊。"
 msgid "Unable to retrieve volume encryption details."
 msgstr "無法獲得雲硬碟加密詳細資訊。"
 
+msgid "Unable to retrieve volume group project information."
+msgstr "無法獲得雲硬碟群組專案的資訊。"
+
+msgid "Unable to retrieve volume group snapshots."
+msgstr "無法獲得雲硬碟群組快照。"
+
+msgid "Unable to retrieve volume groups."
+msgstr "無法獲得雲硬碟群組。"
+
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "無法為雲硬碟獲得雲硬碟資訊：「%s」"
@@ -6479,6 +7258,9 @@ msgstr "無法取得雲硬碟的訊息。"
 
 msgid "Unable to retrieve volume project information."
 msgstr "無法獲得雲硬碟專案的資訊。"
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr "無法獲得雲硬碟快照專案的資訊。"
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "無法獲得雲硬碟即時存檔。"
@@ -6545,11 +7327,20 @@ msgstr "無法排序雲實例的虛擬硬體樣板。"
 msgid "Unable to unmanage volume."
 msgstr "無法放棄管理雲硬碟。"
 
+msgid "Unable to update default compute quotas."
+msgstr "無法更新預設的運算配額。"
+
 msgid "Unable to update default quotas."
 msgstr "無法更新預設的配額。"
 
+msgid "Unable to update default volume quotas."
+msgstr "無法更新預設的雲硬碟配額。"
+
 msgid "Unable to update encrypted volume type."
 msgstr "無法更新已加密的雲硬碟類型。"
+
+msgid "Unable to update group type."
+msgstr "無法更新群組類型。"
 
 msgid "Unable to update group."
 msgstr "無法更新群組。"
@@ -6639,6 +7430,10 @@ msgstr "API中未知的資源類型"
 msgid "Unknown volume (None)"
 msgstr "未知的雲硬碟（無）"
 
+msgctxt "Action log of an instance"
+msgid "Unlock"
+msgstr "解鎖"
+
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
 msgstr[0] "解鎖雲實例"
@@ -6665,9 +7460,31 @@ msgid "Unregistered Identity Provider"
 msgid_plural "Unregistered Identity Providers"
 msgstr[0] "已註銷身分提供者"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "取消救援"
+
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "取消救援雲實例"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "已取消救援的雲實例"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "正在取消救援"
+
+msgid "Unrestricted"
+msgstr "不被限制的"
+
+msgid "Unrestricted (dangerous)"
+msgstr "不被限制的（危險）"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "取消擱置雲實例"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -6724,6 +7541,9 @@ msgstr "更新詮釋資料"
 msgid "Update Network"
 msgstr "更新網路"
 
+msgid "Update RBAC Policy"
+msgstr "更新 RBAC 政策"
+
 msgid "Update Role"
 msgstr "更新角色"
 
@@ -6759,6 +7579,10 @@ msgstr "更新已加密的雲硬碟類型"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "為「%(key)s」更新「額外規格」的值"
+
+#, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "為「%(key)s」更新「群組類型規格」的值"
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
@@ -6841,6 +7665,10 @@ msgstr "已使用的 IP"
 
 msgid "User"
 msgstr "用戶"
+
+#, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "已成功更新用戶 %s。"
 
 #, python-format
 msgid "User \"%s\" was successfully created."
@@ -6950,6 +7778,9 @@ msgstr "檢視記錄"
 msgid "View Routers"
 msgstr "檢視路由器"
 
+msgid "View Specs"
+msgstr "檢視規格"
+
 msgid "View Usage"
 msgstr "檢視使用量"
 
@@ -6985,6 +7816,9 @@ msgstr "雲硬碟加密詳細資訊：{{ volume.name }}"
 msgid "Volume Encryption Overview"
 msgstr "雲硬碟加密概觀"
 
+msgid "Volume Groups"
+msgstr "雲硬碟一致性群組"
+
 msgid "Volume ID"
 msgstr "雲硬碟 ID"
 
@@ -6996,6 +7830,9 @@ msgstr "雲硬碟名稱"
 
 msgid "Volume Name ="
 msgstr "雲硬碟名稱 = "
+
+msgid "Volume Quotas"
+msgstr "雲硬碟配額"
 
 msgid "Volume Snapshot"
 msgstr "雲硬碟即時存檔"
@@ -7053,6 +7890,9 @@ msgstr "雲硬碟類型：%(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "雲硬碟類型"
+
+msgid "Volume groups can not be deleted if they contain volumes."
+msgstr "含有雲硬碟的雲硬碟群組無法被刪除。"
 
 msgid "Volume is Unencrypted"
 msgstr "雲硬碟未加密"
@@ -7149,6 +7989,9 @@ msgstr ""
 "當雲硬碟狀態是「使用中」，您可以使用「強制」來上傳雲硬碟到映像檔。\n"
 "          "
 
+msgid "X509 Certificate"
+msgstr "X509 憑證"
+
 msgid "Yes"
 msgstr "是"
 
@@ -7180,6 +8023,9 @@ msgid ""
 "You can customize your instance after it has launched using the options "
 "available here."
 msgstr "您可以用在此出現的選項來客製化您之後會發動的雲實例。"
+
+msgid "You can edit the properties of your port here."
+msgstr "您可以在這更新您的端口的屬性。"
 
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "
@@ -7220,6 +8066,11 @@ msgstr "你已經選擇:"
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "您可能輸入錯的位址或此頁面已移除"
 
+msgid ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
+msgstr "您可以選擇性的選擇一個印象檔並且設定救援實例的密碼。"
+
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "您可以在重建雲實例時選填密碼。"
 
@@ -7227,6 +8078,9 @@ msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
 msgstr "您可以稍後設定閘道行為來重設閘道，但是會更換閘道 IP。"
+
+msgid "You may update the editable properties of the RBAC policy here."
+msgstr "您將在這更新您的 RBAC 政策上可供編輯的屬性。"
 
 msgid "You may update the editable properties of your network here."
 msgstr "您將在這更新您的網路上可供編輯的屬性。"
@@ -7257,6 +8111,12 @@ msgstr ""
 "由來源群組（安全性群組）。選擇安全性群組為來源將允許任何屬於那安全性群組的其"
 "他雲實例經由規則來訪問其他雲實例。"
 
+msgid "Your Application Credential"
+msgstr "您的應用程序憑證"
+
+msgid "Your application credential"
+msgstr "您的應用程序憑證"
+
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr "您的映像檔 %s 已經排入建立流程。"
@@ -7271,11 +8131,20 @@ msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "兩者"
 
+msgid "by Network (and IP address)"
+msgstr "由網路（跟 IP 位置）"
+
+msgid "by Port"
+msgstr "由端口"
+
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
 msgid "down"
 msgstr "關閉"
+
+msgid "e.g. ACTIVE / DOWN / ERROR"
+msgstr "例如：ACTIVE / DOWN / ERROR"
 
 msgid "e.g. UP / DOWN"
 msgstr "例如：UP / DOWN"
@@ -7286,14 +8155,30 @@ msgstr "例如：Yes/No"
 msgid "e.g. Yes/No"
 msgstr "例如：Yes/No"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr "樣板 ID 名稱只能包含英數字元、底線、句點、連字號及空白鍵。"
+
 msgid "front-end"
 msgstr "前端"
 
 msgid "instance"
 msgstr "雲實例"
 
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"名為 \"%s\" 的索引鍵已經存在。請使用編輯去更新值，或是使用其他名稱建立索引"
+"鍵。"
+
 msgid "no"
 msgstr "否"
+
+msgid "rbac policy quota exceeded."
+msgstr "已超出 RBAC 政策配額"
 
 msgid "undefined"
 msgstr "未定義"

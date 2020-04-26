@@ -17,6 +17,7 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2018. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2018. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2019. #zanata
 # ByungYeol Woo <wby1089@gmail.com>, 2020. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2020. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2020. #zanata
@@ -24,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-08 17:19+0000\n"
+"POT-Creation-Date: 2020-04-23 13:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -721,6 +722,10 @@ msgstr "생성된 키페어: %s"
 
 msgid "Creating"
 msgstr "생성 중"
+
+#, python-format
+msgid "Creating volume %s"
+msgstr "볼륨 %s 생성"
 
 msgid "Custom Properties"
 msgstr "사용자 속성"
@@ -1564,6 +1569,9 @@ msgstr ""
 "이름은 영숫자, 공백, 대시, \n"
 "그리고 밑줄만 포함합니다."
 
+msgid "Key Type"
+msgstr "키 유형"
+
 #, python-format
 msgid "Key pair %(name)s was successfully created."
 msgstr "키 페어 %(name)s 를 성공적으로 생성하였습니다."
@@ -2239,6 +2247,9 @@ msgstr[0] "역할"
 msgid "Role %s was successfully created."
 msgstr "역할 %s 를 성공적으로 생성하였습니다."
 
+msgid "Role already exists."
+msgstr "역할이 이미 존재합니다."
+
 msgid "Role updated successfully."
 msgstr "역할을 성공적으로 업데이트 하였습니다."
 
@@ -2251,6 +2262,9 @@ msgstr "규칙 ID"
 msgid "Rules"
 msgstr "규칙"
 
+msgid "SSH Key"
+msgstr "SSH 키"
+
 msgid "STATUS"
 msgstr "STATUS"
 
@@ -2262,6 +2276,11 @@ msgstr "Save changes"
 
 msgid "Saving"
 msgstr "Saving"
+
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "스케줄된 %s 인스턴스 생성"
 
 msgid "Scheduler Hints"
 msgstr "스케줄러 힌트"
@@ -2428,6 +2447,9 @@ msgstr[0] "서버 그룹"
 #, python-format
 msgid "Server Group %s was successfully created."
 msgstr "서버 그룹 %s 를 성공적으로 생성하였습니다."
+
+msgid "Server Group Members"
+msgstr "서버 그룹 멤버"
 
 msgid "Server Groups"
 msgstr "서버 그룹"
@@ -3651,6 +3673,9 @@ msgstr "볼륨과 스냅샷 할당량 (GiB)"
 msgid "Volume size is required and must be an integer"
 msgstr "볼륨 크기가 필요하고 정수값이어야 합니다"
 
+msgid "Volume size is required and must be positive integer"
+msgstr "볼륨 크기가 필요하고 그 값은 양의 정수여야 합니다."
+
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "볼륨은 인스턴스에 연결 할 수 있는 블록 디바이스입니다."
 
@@ -3716,6 +3741,9 @@ msgstr ""
 "    해당 포트는 사용할 수 있는 상태입니다. <b>관리 상태</b>를 <b>Down</b>"
 "로 \n"
 "    설정한다면 다른 사용자들이 해당 포트에 접근할 수 없습니다."
+
+msgid "X509 Certificate"
+msgstr "X509 인증서"
 
 msgid "XL Modal"
 msgstr "XL Modal"
@@ -3840,6 +3868,12 @@ msgstr "image"
 
 msgid "inherit"
 msgstr "상속"
+
+msgid "min disk is required and must be an integer not less than 0"
+msgstr "최소 디스크 크기가 필요하고 0 이상의 정수여야 합니다."
+
+msgid "min ram is required and must be an integer not less than 0"
+msgstr "최소 램 크기가 필요하고 0 이상의 정수여야 합니다."
 
 #, python-format
 msgid "resource load failed: %s"

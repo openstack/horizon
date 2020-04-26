@@ -7,15 +7,16 @@
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2017. #zanata
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2018. #zanata
+# Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-03 20:32+0000\n"
+"POT-Creation-Date: 2020-04-23 13:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-03 07:53+0000\n"
+"PO-Revision-Date: 2020-04-24 02:24+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
@@ -224,6 +225,9 @@ msgstr "Encerrar"
 
 msgid "Flavor"
 msgstr "Flavor"
+
+msgid "Forbidden. Insufficient permissions of the requested operation"
+msgstr "Proibido. Permissões insuficientes da operação solicitada"
 
 msgid "Format validation failed"
 msgstr "Validação de formato falhou"
