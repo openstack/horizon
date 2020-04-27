@@ -29,6 +29,12 @@ class CreateView(project_views.CreateView):
     workflow_class = admin_workflows.CreatePort
     failure_url = 'horizon:admin:networks:detail'
 
+    def get_initial(self):
+        network = self.get_network()
+        return {"network_id": self.kwargs['network_id'],
+                "network_name": network.name,
+                "target_tenant_id": network.tenant_id}
+
 
 class DetailView(project_views.DetailView):
     tab_group_class = ports_tabs.PortDetailTabs

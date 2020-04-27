@@ -129,6 +129,40 @@ class NetworkPortTests(test.BaseAdminViewTests):
              'binding': 1,
              'port-security': 1})
 
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'security_group_list',)})
+    def test_port_create_on_network_from_different_tenant(self):
+        network = self.networks.list()[1]
+        tenant_id = self.request.user.tenant_id
+        # Ensure the network belongs to a different tenant
+        self.assertNotEqual(tenant_id, network.tenant_id)
+
+        self.mock_network_get.return_value = network
+        self.mock_security_group_list.return_value = \
+            self.security_groups.list()
+        self._stub_is_extension_supported(
+            {'mac-learning': False,
+             'binding': False,
+             'port-security': True})
+
+        url = reverse('horizon:admin:networks:addport',
+                      args=[network.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_network_get, 2,
+            mock.call(test.IsHttpRequest(), network.id))
+        # Check the new port belongs to a tenant of the network
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id=network.tenant_id)
+        self._check_is_extension_supported(
+            {'mac-learning': 1,
+             'binding': 1,
+             'port-security': 1})
+
     def test_port_create_post(self):
         self._test_port_create_post()
 
