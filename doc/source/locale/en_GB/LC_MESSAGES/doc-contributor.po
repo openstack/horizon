@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 13:50+0000\n"
+"POT-Creation-Date: 2020-04-26 13:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-04-20 04:41+0000\n"
+"PO-Revision-Date: 2020-04-26 06:54+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -606,6 +606,19 @@ msgstr ""
 "A roll-up list of all the ``depends_on`` values compiled from the workflow's "
 "steps."
 
+msgid ""
+"A second theme is provided by default at ``openstack_dashboard/themes/"
+"material/``. When adding new SCSS to horizon, you should check that it does "
+"not interfere with the Material theme. Images of how the Material theme "
+"should look can be found at https://bootswatch.com/3/paper/. This theme is "
+"now configured to run as the alternate theme within Horizon."
+msgstr ""
+"A second theme is provided by default at ``openstack_dashboard/themes/"
+"material/``. When adding new SCSS to Horizon, you should check that it does "
+"not interfere with the Material theme. Images of how the Material theme "
+"should look can be found at https://bootswatch.com/3/paper/. This theme is "
+"now configured to run as the alternate theme within Horizon."
+
 msgid "A security bug is fixed"
 msgstr "A security bug is fixed"
 
@@ -862,6 +875,9 @@ msgstr "ADD_INSTALLED_APPS"
 msgid "API resources tried to create already exists."
 msgstr "API resources tried to create already exists."
 
+msgid "API-WG"
+msgstr "API-WG"
+
 msgid "Accepts a single object id and performs the specific action."
 msgstr "Accepts a single object id and performs the specific action."
 
@@ -893,6 +909,9 @@ msgstr ""
 
 msgid "Action entry point. Overrides base class' action method."
 msgstr "Action entry point. Overrides base class' action method."
+
+msgid "Actions"
+msgstr "Actions"
 
 msgid ""
 "Actions comprise any manipulations that might happen on the data in the "
@@ -1046,6 +1065,9 @@ msgstr ""
 "SelfHandlingForm` classes, and modal concerns when the associated template "
 "inherits from `horizon/common/_modal_form.html`."
 
+msgid "Alternate Theme"
+msgstr "Alternate Theme"
+
 msgid ""
 "Although this tutorial focuses on extending a workflow, the steps here can "
 "easily be adapted to extend any service that inherited the "
@@ -1149,6 +1171,9 @@ msgstr ""
 msgid "An overview of testing"
 msgstr "An overview of testing"
 
+msgid "And in your ``sidebar.html`` you might have"
+msgstr "And in your ``sidebar.html`` you might have"
+
 msgid "Angular specific testing"
 msgstr "Angular specific testing"
 
@@ -1158,6 +1183,12 @@ msgid ""
 msgstr ""
 "Angular's directives are prefixed with ng. Similarly, Horizon's directives "
 "are prefixed with hz. You can think of them as namespaces."
+
+msgid "Angular: hz-if-policies"
+msgstr "Angular: hz-if-policies"
+
+msgid "Angular: ifAllowed method"
+msgstr "Angular: ifAllowed method"
 
 msgid "AngularJS"
 msgstr "AngularJS"
@@ -1187,6 +1218,17 @@ msgstr ""
 "over workflow ordering when steps are dynamically added to workflows. The "
 "workflow mechanism will attempt to place the current step before the step "
 "specified in the attribute."
+
+msgid ""
+"Another reason to avoid copying a library into Horizon source code is that "
+"it might create conflicting licenses. Distributing sources with conflicting "
+"licenses in one tarball revokes rights in best case. In the worst case, you "
+"could be held legally responsible."
+msgstr ""
+"Another reason to avoid copying a library into Horizon source code is that "
+"it might create conflicting licences. Distributing sources with conflicting "
+"licences in one tarball revokes rights in best case. In the worst case, you "
+"could be held legally responsible."
 
 msgid "Answering questions and participating in mailing list discussions"
 msgstr "Answering questions and participating in mailing list discussions"
@@ -1350,6 +1392,9 @@ msgstr ""
 "Authentication type selected by the user from the login form. The value is "
 "derived from the horizon setting WEBSSO_CHOICES."
 
+msgid "Automatic Mapping"
+msgstr "Automatic Mapping"
+
 msgid ""
 "Automatically generated navigation will use the order of the modules in this "
 "attribute."
@@ -1461,6 +1506,9 @@ msgstr ""
 
 msgid "Basic actions"
 msgstr "Basic actions"
+
+msgid "Basic strategy of mapping"
+msgstr "Basic strategy of mapping"
 
 msgid ""
 "Be sure to generate the documentation before submitting a patch for review. "
@@ -1803,6 +1851,15 @@ msgid "Check for workflow errors."
 msgstr "Check for workflow errors."
 
 msgid ""
+"Check if existing components suit your use case. There may be existing "
+"components defined by Bootstrap or Horizon that can be reused, rather than "
+"writing new ones."
+msgstr ""
+"Check if existing components suit your use case. There may be existing "
+"components defined by Bootstrap or Horizon that can be reused, rather than "
+"writing new ones."
+
+msgid ""
 "Check if the library is already packaged as xstatic on PyPi, by searching "
 "for the library name. If it already is, go to step 5. If it is, but not in "
 "the right version, contact the original packager to have them update it."
@@ -1845,6 +1902,12 @@ msgstr "ChoiceInput class from Django 1.10.7 codebase"
 
 msgid "Choosing Issues To Work On"
 msgstr "Choosing Issues To Work On"
+
+msgid "Cinder"
+msgstr "Cinder"
+
+msgid "Class-Based Views"
+msgstr "Class-Based Views"
 
 msgid "Clean up the auth url to extract the exact Keystone URL"
 msgstr "Clean up the auth URL to extract the exact Keystone URL"
@@ -1942,6 +2005,15 @@ msgstr "Contributor Documentation"
 
 msgid "Conventions"
 msgstr "Conventions"
+
+msgid ""
+"Copy ``_9001_developer.py`` and ``_9010_preview.py`` from "
+"``openstack_dashboard/contrib/developer/enabled/`` to ``openstack_dashboard/"
+"local/enabled/``."
+msgstr ""
+"Copy ``_9001_developer.py`` and ``_9010_preview.py`` from "
+"``openstack_dashboard/contrib/developer/enabled/`` to ``openstack_dashboard/"
+"local/enabled/``."
 
 msgid ""
 "Copy ``openstack_dashboard/contrib/developer/enabled/_9030_profiler.py`` to "
@@ -2051,6 +2123,9 @@ msgstr "Dashboard"
 msgid "Dashboard Classes"
 msgstr "Dashboard Classes"
 
+msgid "Dashboard configuration"
+msgstr "Dashboard configuration"
+
 msgid "Data is fetched and loaded into the table."
 msgstr "Data is fetched and loaded into the table."
 
@@ -2083,6 +2158,9 @@ msgstr "DataTables Topic Guide"
 
 msgid "Debugging Unit Tests"
 msgstr "Debugging Unit Tests"
+
+msgid "Debugging with ``pdb`` becomes much simpler to interact with."
+msgstr "Debugging with ``pdb`` becomes much simpler to interact with."
 
 msgid "Decorator pattern"
 msgstr "Decorator pattern"
@@ -2173,6 +2251,9 @@ msgstr ""
 "Defining an ``get_data`` method in a class inherited from ``tables.Row``. "
 "This method takes care of fetching the row data. This class has to be then "
 "defined in the table Meta class as ``row_class = UpdateRow``."
+
+msgid "Defining default settings in code"
+msgstr "Defining default settings in code"
 
 msgid "Defining tabs"
 msgstr "Defining tabs"
@@ -2396,6 +2477,9 @@ msgstr "Each list item should be a dict with the following keys:"
 
 msgid "Easy to be lax in writing them, or lazy in constructing them."
 msgstr "Easy to be lax in writing them, or lazy in constructing them."
+
+msgid "Editing Horizon's Source"
+msgstr "Editing Horizon's Source"
 
 msgid "Enable and show the dashboard"
 msgstr "Enable and show the dashboard"
@@ -2771,6 +2855,9 @@ msgstr "FormsetDataTable"
 msgid "Frank Lloyd Wright"
 msgstr "Frank Lloyd Wright"
 
+msgid "Free software"
+msgstr "Free software"
+
 msgid "Frequently Asked Questions"
 msgstr "Frequently Asked Questions"
 
@@ -2780,6 +2867,9 @@ msgid ""
 msgstr ""
 "From there it grew to support multiple OpenStack projects and APIs "
 "gradually, arranged rigidly into \"dash\" and \"syspanel\" groupings."
+
+msgid "From there you can access all the key methods you need."
+msgstr "From there you can access all the key methods you need."
 
 msgid "Function was removed (hopefully it was deprecated)"
 msgstr "Function was removed (hopefully it was deprecated)"
@@ -2962,6 +3052,9 @@ msgstr "Hook to allow customisation of the message returned to the user."
 msgid "Hook to customize how the workflow context is passed to the action."
 msgstr "Hook to customise how the workflow context is passed to the action."
 
+msgid "Horizon"
+msgstr "Horizon"
+
 msgid "Horizon Basics"
 msgstr "Horizon Basics"
 
@@ -2995,6 +3088,9 @@ msgstr "Horizon Forms"
 
 msgid "Horizon Framework"
 msgstr "Horizon Framework"
+
+msgid "Horizon Microversion Support"
+msgstr "Horizon Microversion Support"
 
 msgid "Horizon Middleware"
 msgstr "Horizon Middleware"
@@ -3172,6 +3268,9 @@ msgstr ""
 "versions of Django as of the feature freeze of each OpenStack release. "
 "Supports for other maintained Django versions are optional and best-effort."
 
+msgid "Horizon's Structure"
+msgstr "Horizon's Structure"
+
 msgid ""
 "Horizon's documentation is written in reStructuredText (reST) and uses "
 "Sphinx for additional parsing and functionality, and should follow standard "
@@ -3333,6 +3432,13 @@ msgid ""
 msgstr ""
 "If authenticated, this return the user object based on the user ID and "
 "session data."
+
+msgid ""
+"If dependencies are added to either ``horizon`` or ``openstack_dashboard``, "
+"they should be added to ``requirements.txt``."
+msgstr ""
+"If dependencies are added to either ``horizon`` or ``openstack_dashboard``, "
+"they should be added to ``requirements.txt``."
 
 msgid ""
 "If for some reason your plugin needs to register other python modules to "
@@ -3546,6 +3652,15 @@ msgstr ""
 "If you are setting up a project and need to know how to make it "
 "translatable, please refer to `this guide <https://docs.openstack.org/infra/"
 "manual/creators.html#enabling-translation-infrastructure>`_."
+
+msgid ""
+"If you are unable to use existing variables - such as for very specific "
+"functionality - keep the new rules as specific as possible to your component "
+"so they do not cause issues in unexpected places."
+msgstr ""
+"If you are unable to use existing variables - such as for very specific "
+"functionality - keep the new rules as specific as possible to your component "
+"so they do not cause issues in unexpected places."
 
 msgid ""
 "If you are writing software for a global audience, you must ensure that it "
@@ -3921,6 +4036,13 @@ msgstr ""
 msgid "Indicates whether there are any available actions on this table."
 msgstr "Indicates whether there are any available actions on this table."
 
+msgid ""
+"Information on how to work with specific areas of Horizon can be found in "
+"the following topic guides."
+msgstr ""
+"Information on how to work with specific areas of Horizon can be found in "
+"the following topic guides."
+
 msgid "Inherited from the ``Action`` class."
 msgstr "Inherited from the ``Action`` class."
 
@@ -3964,6 +4086,9 @@ msgstr "Integration Tests"
 
 msgid "Interfacing with other OpenStack teams"
 msgstr "Interfacing with other OpenStack teams"
+
+msgid "Introduction"
+msgstr "Introduction"
 
 msgid ""
 "It adds the Horizon config to the context as well as setting the names "
@@ -4269,6 +4394,9 @@ msgstr "Log error info when exception occurred."
 
 msgid "Log in and change to the language you pseudo translated."
 msgstr "Log in and change to the language you pseudo translated."
+
+msgid "Log messages and print statements go directly to the console."
+msgstr "Log messages and print statements go directly to the console."
 
 msgid "Logs a user in using a token from Keystone's POST."
 msgstr "Logs a user in using a token from Keystone's POST."
@@ -4614,6 +4742,9 @@ msgstr ""
 "not showing up properly. If your plugin does not show up properly, check "
 "your ``.tox`` folder to make sure the plugin's content is as you expect."
 
+msgid "Nova"
+msgstr "Nova"
+
 msgid ""
 "Now let's create and add a filter action to the table. To do so, we will "
 "need to edit the ``tables.py`` file used above. To add a filter action which "
@@ -4860,6 +4991,9 @@ msgstr ""
 msgid "Packaging Horizon"
 msgstr "Packaging Horizon"
 
+msgid "Packaging Horizon for distributions"
+msgstr "Packaging Horizon for distributions"
+
 msgid "Panel"
 msgstr "Panel"
 
@@ -4902,6 +5036,9 @@ msgid ""
 msgstr ""
 "Participate in related design summit sessions at the OpenStack Summits and "
 "Project Team Gatherings"
+
+msgid "Password expiration date."
+msgstr "Password expiration date."
 
 msgid ""
 "Path to a URLconf of views for this panel using dotted Python notation. If "
@@ -4973,6 +5110,13 @@ msgstr ""
 msgid "Possible client ip address"
 msgstr "Possible client IP address"
 
+msgid ""
+"Pre-built template tags generate navigation. In your ``nav.html`` template "
+"you might have the following"
+msgstr ""
+"Pre-built template tags generate navigation. In your ``nav.html`` template "
+"you might have the following"
+
 msgid "Preemptive actions"
 msgstr "Preemptive actions"
 
@@ -4981,6 +5125,9 @@ msgstr "Preload all data that for the tabs that will be displayed."
 
 msgid "Profiling Pages"
 msgstr "Profiling Pages"
+
+msgid "Project Structure"
+msgstr "Project Structure"
 
 msgid "Project page: https://launchpad.net/horizon"
 msgstr "Project page: https://launchpad.net/horizon"
@@ -5623,6 +5770,15 @@ msgstr "Returns the template name to use for this request."
 msgid "Returns this table's columns including auto-generated ones."
 msgstr "Returns this table's columns including auto-generated ones."
 
+msgid ""
+"Reuse Bootstrap variables where possible. This allows themes to influence "
+"styling by simply overriding a few existing variables, instead of rewriting "
+"large chunks of the SCSS files."
+msgstr ""
+"Reuse Bootstrap variables where possible. This allows themes to influence "
+"styling by simply overriding a few existing variables, instead of rewriting "
+"large chunks of the SCSS files."
+
 msgid "Review patch submissions actively and consistently"
 msgstr "Review patch submissions actively and consistently"
 
@@ -5652,6 +5808,9 @@ msgstr ""
 
 msgid "Run your development server."
 msgstr "Run your development server."
+
+msgid "Running Tests"
+msgstr "Running Tests"
 
 msgid "Running the pseudo translation tool"
 msgstr "Running the pseudo translation tool"
@@ -5697,6 +5856,9 @@ msgstr "Send changed data to server."
 
 msgid "Sends back an AJAX-appropriate response for the tab group if needed."
 msgstr "Sends back an AJAX-appropriate response for the tab group if needed."
+
+msgid "Set :ref:`DEBUG <debug_setting>` setting to ``True``."
+msgstr "Set :ref:`DEBUG <debug_setting>` setting to ``True``."
 
 msgid ""
 "Set object including all admin permission. If there is no permission, this "
@@ -5767,6 +5929,17 @@ msgstr "Setup"
 
 msgid "Several handy additional assertion methods."
 msgstr "Several handy additional assertion methods."
+
+msgid ""
+"Several services use API microversions, which allows consumers of that API "
+"to specify an exact version when making a request. This can be useful in "
+"ensuring a feature continues to work as expected across many service "
+"releases."
+msgstr ""
+"Several services use API microversions, which allows consumers of that API "
+"to specify an exact version when making a request. This can be useful in "
+"ensuring a feature continues to work as expected across many service "
+"releases."
 
 msgid "Shortcut actions"
 msgstr "Shortcut actions"
@@ -5886,6 +6059,13 @@ msgstr ""
 "template tag. There a number of other tags and filters at your disposal "
 "should you need to use them. For more information, see the `Django docs "
 "<https://docs.djangoproject.com/en/1.8/topics/i18n/translation/>`_"
+
+msgid ""
+"Source code changes aren't as easily lost when running ``unstack.sh`` / "
+"``stack.sh``"
+msgstr ""
+"Source code changes aren't as easily lost when running ``unstack.sh`` / "
+"``stack.sh``"
 
 msgid "Source code: https://github.com/openstack/horizon"
 msgstr "Source code: https://github.com/openstack/horizon"
@@ -6115,6 +6295,9 @@ msgstr ""
 "Take a look at your patch in API profiler, i.e. how it impacts the "
 "performance. See `Profiling Pages`_."
 
+msgid "Templates"
+msgstr "Templates"
+
 msgid "Test data"
 msgstr "Test data"
 
@@ -6126,6 +6309,9 @@ msgstr "Testing Overview"
 
 msgid "Testing with different Django versions"
 msgstr "Testing with different Django versions"
+
+msgid "Tests can be run in two ways:"
+msgstr "Tests can be run in two ways:"
 
 msgid ""
 "That code would create the ``\"switchable\"`` control field ``source``, and "
@@ -6152,6 +6338,9 @@ msgid ""
 msgstr ""
 "The \"Profile\" drop-down menu should appear in the top-right corner, you "
 "are ready to profile your pages!"
+
+msgid "The \"horizon\" directory"
+msgstr "The \"Horizon\" directory"
 
 msgid ""
 "The 'force_insert' and 'force_update' parameters can be used to insist that "
@@ -6189,6 +6378,15 @@ msgstr ""
 
 msgid "The Backend Module"
 msgstr "The Backend Module"
+
+msgid ""
+"The Bootstrap Theme Preview panel contains examples of all stock Bootstrap "
+"markup with the currently applied theme, as well as source code for "
+"replicating them; click the ``</>`` symbol when hovering over a component."
+msgstr ""
+"The Bootstrap Theme Preview panel contains examples of all stock Bootstrap "
+"markup with the currently applied theme, as well as source code for "
+"replicating them; click the ``</>`` symbol when hovering over a component."
 
 msgid "The Current Architecture & How It Meets Our Values"
 msgstr "The Current Architecture & How It Meets Our Values"
@@ -6325,6 +6523,27 @@ msgstr ""
 "consumption by the table (effectively the \"get\" lookup versus the table's "
 "\"list\" lookup)."
 
+msgid ""
+"The ``components`` directory contains overrides for Bootstrap components, "
+"such as tables or navbars."
+msgstr ""
+"The ``components`` directory contains overrides for Bootstrap components, "
+"such as tables or navbars."
+
+msgid ""
+"The ``components`` directory contains styling for each individual component "
+"defined by Horizon, such as the sidebar or pie charts."
+msgstr ""
+"The ``components`` directory contains styling for each individual component "
+"defined by Horizon, such as the sidebar or pie charts."
+
+msgid ""
+"The ``horizon`` directory holds the generic libraries and components that "
+"can be used in any Django project."
+msgstr ""
+"The ``horizon`` directory holds the generic libraries and components that "
+"can be used in any Django project."
+
 msgid "The ``main`` block must be modified to insert the following code::"
 msgstr "The ``main`` block must be modified to insert the following code::"
 
@@ -6358,6 +6577,13 @@ msgstr ""
 "accepts a ``RequestContext`` object as a single argument to control whether "
 "or not this panel should appear in automatically-generated navigation. "
 "Default: ``True``."
+
+msgid ""
+"The ``openstack_dashboard`` directory contains a reference Django project "
+"that uses ``horizon``."
+msgstr ""
+"The ``openstack_dashboard`` directory contains a reference Django project "
+"that uses ``horizon``."
 
 msgid ""
 "The ``panel.py`` file referenced above has a special meaning. Within a "
@@ -6466,6 +6692,9 @@ msgstr ""
 "should avoid embedding HTML fragments in your texts because it makes it "
 "harder to translate. Use your best judgement if you absolutely need to "
 "include HTML."
+
+msgid "The auto-generated URLconf for horizon. Usage::"
+msgstr "The auto-generated URLconf for horizon. Usage::"
 
 msgid "The auto-generated ``urls.py`` file is like::"
 msgstr "The auto-generated ``urls.py`` file is like::"
@@ -6699,6 +6928,11 @@ msgstr "The deployer needs to take an action when upgrading"
 
 msgid "The detail is same as that of ``action_present``."
 msgstr "The detail is same as that of ``action_present``."
+
+msgid ""
+"The development server picks up source code changes while still running."
+msgstr ""
+"The development server picks up source code changes while still running."
 
 msgid ""
 "The display name for the tab which will be rendered as the text for the tab "
@@ -7057,6 +7291,15 @@ msgstr ""
 "The only way to attain and uphold those ideals is to make it *easy* for "
 "developers to implement those values."
 
+msgid ""
+"The open question is how to maintain Django related settings in "
+"openstack_dashboard and horizon. How can we make them common? The following "
+"files are related:"
+msgstr ""
+"The open question is how to maintain Django related settings in "
+"openstack_dashboard and horizon. How can we make them common? The following "
+"files are related:"
+
 msgid "The openstack_auth.user.Token instance to check"
 msgstr "The openstack_auth.user.Token instance to check"
 
@@ -7323,6 +7566,9 @@ msgstr "The workflow's Step is specified by its slug."
 msgid "The workflow's context data (data passed from step to step)."
 msgstr "The workflow's context data (data passed from step to step)."
 
+msgid "Theme Preview Panel"
+msgstr "Theme Preview Panel"
+
 msgid "Then connecting ``UpdateRow`` and ``UpdateCell`` classes to the table."
 msgstr "Then connecting ``UpdateRow`` and ``UpdateCell`` classes to the table."
 
@@ -7331,12 +7577,21 @@ msgid ""
 msgstr ""
 "Then edit the sample file that was created and push it with your change."
 
+msgid "Then in your HTML, use it like so::"
+msgstr "Then in your HTML, use it like so::"
+
 msgid ""
 "Then look at the generated release notes files in releasenotes/build/html in "
 "your favorite browser."
 msgstr ""
 "Then look at the generated release notes files in releasenotes/build/html in "
 "your favourite browser."
+
+msgid "Then update your  ``openstack_dashboard/local/local_settings.py`` file"
+msgstr "Then update your  ``openstack_dashboard/local/local_settings.py`` file"
+
+msgid "Then you add a single line to your project's ``urls.py``"
+msgstr "Then you add a single line to your project's ``urls.py``"
 
 msgid "Then, we add that action to the table actions for our table.::"
 msgstr "Then, we add that action to the table actions for our table.::"
@@ -7519,6 +7774,27 @@ msgstr ""
 "``Create snapshot`` button."
 
 msgid ""
+"This applies ``openstack_dashboard/local/local_settings.diff`` on "
+"``openstack_dashboard/local/local_settings.py.example`` to regenerate an "
+"``openstack_dashboard/local/local_settings.py`` file. The migration can "
+"sometimes have difficulties to migrate some settings, if this happens you "
+"will be warned with a conflict message pointing to an ``openstack_dashboard/"
+"local/local_settings.py_Some_DateTime.rej`` file. In this file, you will see "
+"the lines which could not be automatically changed and you will have to redo "
+"only these few changes manually instead of modifying the full "
+"``openstack_dashboard/local/local_settings.py.example`` file."
+msgstr ""
+"This applies ``openstack_dashboard/local/local_settings.diff`` on "
+"``openstack_dashboard/local/local_settings.py.example`` to regenerate an "
+"``openstack_dashboard/local/local_settings.py`` file. The migration can "
+"sometimes have difficulties to migrate some settings, if this happens you "
+"will be warned with a conflict message pointing to an ``openstack_dashboard/"
+"local/local_settings.py_Some_DateTime.rej`` file. In this file, you will see "
+"the lines which could not be automatically changed and you will have to redo "
+"only these few changes manually instead of modifying the full "
+"``openstack_dashboard/local/local_settings.py.example`` file."
+
+msgid ""
 "This can allow actions which don't need access to the full table data to "
 "bypass any API calls and processing which would otherwise be required to "
 "load the table."
@@ -7552,6 +7828,15 @@ msgid ""
 msgstr ""
 "This creates a ``local_settings.diff`` file which is a diff between "
 "``local_settings.py`` and ``local_settings.py.example``"
+
+msgid ""
+"This directory contains SCSS that is absolutely specific to Horizon; code "
+"here should **not** override existing Bootstrap content, such as variables "
+"and rules."
+msgstr ""
+"This directory contains SCSS that is absolutely specific to Horizon; code "
+"here should **not** override existing Bootstrap content, such as variables "
+"and rules."
 
 msgid ""
 "This distinct class is required due to the complexity involved in handling "
@@ -7890,6 +8175,15 @@ msgstr ""
 "\"roles\"."
 
 msgid ""
+"This project is a bit different from other OpenStack projects in that it has "
+"two very distinct components underneath it: ``horizon``, and "
+"``openstack_dashboard``."
+msgstr ""
+"This project is a bit different from other OpenStack projects in that it has "
+"two very distinct components underneath it: ``horizon``, and "
+"``openstack_dashboard``."
+
+msgid ""
 "This provides the greatest protection against false positives without "
 "weighting any particular columns."
 msgstr ""
@@ -8040,6 +8334,13 @@ msgstr ""
 "add to existing DataTable subclasses."
 
 msgid ""
+"Those urls are automatically constructed based on the registered Horizon "
+"apps. If a different URL structure is desired it can be constructed by hand."
+msgstr ""
+"Those URLs are automatically constructed based on the registered Horizon "
+"apps. If a different URL structure is desired it can be constructed by hand."
+
+msgid ""
 "Three steps are required to use this view: set the ``table_class`` attribute "
 "with the desired :class:`~horizon.tables.DataTable` class; define a "
 "``get_data`` method which returns a set of data for the table; and specify a "
@@ -8068,6 +8369,15 @@ msgstr "Timezone-aware checking of the auth token's expiration timestamp."
 
 msgid "Tips and tricks"
 msgstr "Tips and tricks"
+
+msgid ""
+"To add a new dashboard to your project, you need to add a configuration file "
+"to ``openstack_dashboard/local/enabled`` directory. For more information on "
+"this, see :ref:`pluggable-settings-label`."
+msgstr ""
+"To add a new dashboard to your project, you need to add a configuration file "
+"to ``openstack_dashboard/local/enabled`` directory. For more information on "
+"this, see :ref:`pluggable-settings-label`."
 
 msgid ""
 "To begin setting up a Horizon development environment simply clone the "
@@ -8103,6 +8413,18 @@ msgstr ""
 "To do this, we must edit the ``tables.py`` file under the ``mypanel`` "
 "directory and add the following::"
 
+msgid "To enable the Developer dashboard with the Theme Preview panel:"
+msgstr "To enable the Developer dashboard with the Theme Preview panel:"
+
+msgid ""
+"To ensure that JS and CSS changes are picked up without a server restart, "
+"you can disable compression with ``COMPRESS_ENABLED = False`` in your local "
+"settings file."
+msgstr ""
+"To ensure that JS and CSS changes are picked up without a server restart, "
+"you can disable compression with ``COMPRESS_ENABLED = False`` in your local "
+"settings file."
+
 msgid ""
 "To have filtering working properly on the client, each row will need CSS "
 "class(es) beginning with 'category-', followed by the value of the fixed "
@@ -8111,6 +8433,13 @@ msgstr ""
 "To have filtering working properly on the client, each row will need CSS "
 "class(es) beginning with 'category-', followed by the value of the fixed "
 "button."
+
+msgid ""
+"To keep Horizon easily themable, there are several code design guidelines "
+"that should be adhered to:"
+msgstr ""
+"To keep Horizon easily themable, there are several code design guidelines "
+"that should be adhered to:"
 
 msgid "To make a new release of the package, you need to:"
 msgstr "To make a new release of the package, you need to:"
@@ -8284,6 +8613,9 @@ msgstr "Tying it together in a view"
 
 msgid "Types of Plugins that add content"
 msgstr "Types of Plugins that add content"
+
+msgid "URLs"
+msgstr "URLs"
 
 msgid ""
 "Ultimately that's up to each and every developer that touches the code, but "
@@ -8664,6 +8996,13 @@ msgid "When actions get run"
 msgstr "When actions get run"
 
 msgid ""
+"When all settings have been migrated, it is safe to regenerate a clean diff "
+"in order to prevent Conflicts for future migrations"
+msgstr ""
+"When all settings have been migrated, it is safe to regenerate a clean diff "
+"in order to prevent Conflicts for future migrations"
+
+msgid ""
 "When called for a row action, the current row data object will be passed as "
 "the first parameter."
 msgstr ""
@@ -9033,6 +9372,35 @@ msgstr ""
 "OpenStack services (like Nova, Cinder, Neutron and so on). This allows "
 "operators to upgrade Horizon separately from other OpenStack services."
 
+msgid ""
+"``OPENSTACK_KEYSTONE_BACKEND['can_edit_group']`` <-> ``[keystone] "
+"backend_can_edit_group``"
+msgstr ""
+"``OPENSTACK_KEYSTONE_BACKEND['can_edit_group']`` <-> ``[keystone] "
+"backend_can_edit_group``"
+
+msgid ""
+"``OPENSTACK_KEYSTONE_BACKEND['can_edit_user']`` <-> ``[keystone] "
+"backend_can_edit_user``"
+msgstr ""
+"``OPENSTACK_KEYSTONE_BACKEND['can_edit_user']`` <-> ``[keystone] "
+"backend_can_edit_user``"
+
+msgid "``OPENSTACK_KEYSTONE_BACKEND['name']`` <-> ``[keystone] backend_name``"
+msgstr "``OPENSTACK_KEYSTONE_BACKEND['name']`` <-> ``[keystone] backend_name``"
+
+msgid ""
+"``OPENSTACK_NEUTRON_NETWORK['enable_ipv6']`` <-> ``[neutron] enable_ipv6``"
+msgstr ""
+"``OPENSTACK_NEUTRON_NETWORK['enable_ipv6']`` <-> ``[neutron] enable_ipv6``"
+
+msgid ""
+"``OPENSTACK_NEUTRON_NETWORK['enable_router']`` <-> ``[neutron] "
+"enable_router``"
+msgstr ""
+"``OPENSTACK_NEUTRON_NETWORK['enable_router']`` <-> ``[neutron] "
+"enable_router``"
+
 msgid "``POLICY_CHECK_FUNCTION``"
 msgstr "``POLICY_CHECK_FUNCTION``"
 
@@ -9072,6 +9440,22 @@ msgstr ""
 "``UNAUTHORISED``: Errors resulting from authentication or authorisation "
 "problems. These result in being logged out and sent to the login screen."
 
+msgid ""
+"``_styles.scss`` imports the SCSS defined for each component. It may also "
+"contain some minor styling overrides."
+msgstr ""
+"``_styles.scss`` imports the SCSS defined for each component. It may also "
+"contain some minor styling overrides."
+
+msgid ""
+"``_variables.scss`` contains the definitions for every Bootstrap variable. "
+"These variables can be altered to affect the look and feel of Horizon's "
+"default theme."
+msgstr ""
+"``_variables.scss`` contains the definitions for every Bootstrap variable. "
+"These variables can be altered to affect the look and feel of Horizon's "
+"default theme."
+
 msgid "``domain id``"
 msgstr "``domain id``"
 
@@ -9092,6 +9476,9 @@ msgstr "``message``"
 
 msgid "``method``"
 msgstr "``method``"
+
+msgid "``network.spec.js``:"
+msgstr "``network.spec.js``:"
 
 msgid "``package`` is the complete name of your packaged plugin"
 msgstr "``package`` is the complete name of your packaged plugin"
@@ -9169,6 +9556,9 @@ msgstr "help_text is returned if applicable."
 msgid "hide checkbox column if no current table action is allowed."
 msgstr "hide checkbox column if no current table action is allowed."
 
+msgid "horizon.test.settings"
+msgstr "horizon.test.settings"
+
 msgid ""
 "https://docs.djangoproject.com/es/1.9/topics/i18n/translation/#how-django-"
 "discovers-translations"
@@ -9240,6 +9630,12 @@ msgstr "mystep.html"
 
 msgid "openstack_auth Module"
 msgstr "openstack_auth Module"
+
+msgid "openstack_dashboard.settings (and local_settings.py)"
+msgstr "openstack_dashboard.settings (and local_settings.py)"
+
+msgid "openstack_dashboard.test.settings"
+msgstr "openstack_dashboard.test.settings"
 
 msgid "or"
 msgstr "or"
