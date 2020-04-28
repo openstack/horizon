@@ -6,18 +6,18 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2019. #zanata
-# Takashi Kuroda <tkuroda@redhat.com>, 2019. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2019. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-08 17:20+0000\n"
+"POT-Creation-Date: 2020-04-27 21:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-10-03 06:48+0000\n"
-"Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
+"PO-Revision-Date: 2020-04-28 04:16+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -239,6 +239,77 @@ msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "%(volume_device)s (<a href=\"%(volume_url)s\">%(volume_label)s</a>)"
 
 msgid ""
+"<b>Access Rules</b>: If you want more fine-grained access control "
+"delegation, you can create one or more access rules for this application "
+"credential. The list of access rules must be a JSON- or YAML-formatted list "
+"of rules each containing a service type, an HTTP method, and a URL path, for "
+"example: <br /> <code> [ <br /> &nbsp;&nbsp;{\"service\": \"compute\", <br /"
+"> &nbsp;&nbsp;\"method\": \"POST\", <br /> &nbsp;&nbsp;\"path\": \"/v2.1/"
+"servers\"} <br /> ] <br /> </code> or: <br /> <code> - service: compute <br /"
+"> &nbsp;&nbsp;method: POST <br /> &nbsp;&nbsp;path: /v2.1/servers </code>"
+msgstr ""
+"<b>アクセスルール</b>: アクセス制御の移譲をより細かい粒度にしたい場合には、こ"
+"のアプリケーション認証情報に対して 1 つまたは複数のアクセスルールを作成するこ"
+"とができます。アクセスルールは、JSON または YAML 形式のルール一覧で、各ルール"
+"にサービスタイプ、HTTP メソッド、URL パスが含まれる必要があります。例: <br /"
+"> <code> [ <br /> &nbsp;&nbsp;{\"service\": \"compute\", <br /> &nbsp;&nbsp;"
+"\"method\": \"POST\", <br /> &nbsp;&nbsp;\"path\": \"/v2.1/servers\"} <br /"
+"> ] <br /> </code> or: <br /> <code> - service: compute <br /> &nbsp;&nbsp;"
+"method: POST <br /> &nbsp;&nbsp;path: /v2.1/servers </code>"
+
+msgid ""
+"<b>Expiration Date/Time</b>: You may give the application credential an "
+"expiration. The expiration will be in UTC. If you provide an expiration date "
+"with no expiration time, the time will be assumed to be 00:00:00. If you "
+"provide an expiration time with no expiration date, the date will be assumed "
+"to be today."
+msgstr ""
+"<b>有効期限 (日付/時刻)</b>: アプリケーション認証情報の有効期限を設定できま"
+"す。有効期限は UTC で設定してください。期限時刻なしで期限日を設定すると、期限"
+"時刻は 00:00:00 に設定されます。期限日なしで期限時刻を設定すると、期限日は今"
+"日に設定されます。"
+
+msgid ""
+"<b>Kubernetes Namespace</b>: You can optionally provide a Kubernetes "
+"Namespace. It will be included in the kubeconfig file which can be "
+"downloaded from the next screen."
+msgstr ""
+"<b>Kubernetes 名前空間</b>: オプションとして、Kubernetes 名前空間を指定するこ"
+"とができます。この設定は、次の画面からダウンロードすることのできる "
+"kubeconfig ファイルに反映されます。"
+
+msgid ""
+"<b>Roles</b>: You may select one or more roles for this application "
+"credential. If you do not select any, all of the roles you have assigned on "
+"the current project will be applied to the application credential."
+msgstr ""
+"<b>ロール</b>: アプリケーション認証情報のロールを一つ以上選択できます。何も選"
+"択しない場合は、現在のプロジェクトに割り当てられているすべてのロールがアプリ"
+"ケーション認証情報に適用されます。"
+
+msgid ""
+"<b>Secret</b>: You may provide your own secret, or one will be generated for "
+"you. Once your application credential is created, the secret will be "
+"revealed once. If you lose the secret, you will have to generate a new "
+"application credential."
+msgstr ""
+"<b>シークレット</b>: シークレットキーは、ユーザーが提供することもできますが、"
+"システムで生成することもできます。アプリケーション認証情報が作成されると、"
+"シークレットキーが一度だけ提示されます。シークレットキーを紛失した場合は、新"
+"しいアプリケーション認証情報を生成する必要があります。"
+
+msgid ""
+"<b>Unrestricted</b>: By default, for security reasons, application "
+"credentials are forbidden from being used for creating additional "
+"application credentials or keystone trusts. If your application credential "
+"needs to be able to perform these actions, check \"unrestricted\"."
+msgstr ""
+"<b>無制限</b>: デフォルトでは、セキュリティー上の理由から、追加のアプリケー"
+"ション認証情報や Keystone 認証の作成にアプリケーション認証情報を使用すること"
+"は禁止されています。アプリケーション認証情報がこれらのアクションを実行できる"
+"必要がある場合は、「無制限」をチェックしてください。"
+
+msgid ""
 "<b>Warning:</b> If you change security groups here, the change will be "
 "applied to all interfaces of the instance. If you have multiple interfaces "
 "on this instance and apply different security groups per port, use \"Edit "
@@ -340,6 +411,12 @@ msgstr "ボリュームの譲渡の受理"
 
 msgid "Access & Security"
 msgstr "アクセスとセキュリティー"
+
+msgid "Access Rules"
+msgstr "アクセスルール"
+
+msgid "Access rules must be a valid JSON or YAML list."
+msgstr "アクセスルールは、有効な JSON または YAML の一覧である必要があります。"
 
 msgid "Action"
 msgstr "アクション"
@@ -2836,6 +2913,9 @@ msgstr "ホスト %s からの退避に失敗しました。"
 msgid "Failed to evacuate instances: %s"
 msgstr "インスタンスの退避に失敗しました: %s"
 
+msgid "Failed to get attached volume."
+msgstr "接続されているボリュームを取得できませんでした。"
+
 msgid "Failed to get availability zone list."
 msgstr "アベイラビリティーゾーンの一覧を取得できません。"
 
@@ -3901,6 +3981,9 @@ msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "インスタンスのロック"
 
+msgid "Lock password"
+msgstr "パスワードのロック"
+
 msgctxt "Locked status of an instance"
 msgid "Locked"
 msgstr "ロック状態"
@@ -4053,6 +4136,9 @@ msgstr "メタデータ定義"
 
 msgid "Metadata Items"
 msgstr "メタデータ項目数"
+
+msgid "Method"
+msgstr "メソッド"
 
 msgid "MidoNet"
 msgstr "MidoNet"
@@ -4734,8 +4820,14 @@ msgstr "パスワードが変更されました。続行するには、再度ロ
 msgid "Password changed. Please log in to continue."
 msgstr "パスワードが変更されました。続行するには、ログインしてください。"
 
+msgid "Password is locked."
+msgstr "パスワードがロックされています。"
+
 msgid "Passwords do not match."
 msgstr "パスワードが一致しません。"
+
+msgid "Path"
+msgstr "パス"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -7625,6 +7717,9 @@ msgstr "認証プロバイダー一覧を取得できません。"
 
 msgid "Unable to retrieve image details."
 msgstr "イメージの詳細を取得できません。"
+
+msgid "Unable to retrieve image format list."
+msgstr "イメージ形式の一覧を取得できません。"
 
 msgid "Unable to retrieve image list."
 msgstr "イメージの一覧を取得できません。"

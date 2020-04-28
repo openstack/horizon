@@ -6,16 +6,17 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 # Shu Muto <shu.mutow@gmail.com>, 2018. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-20 14:26+0000\n"
+"POT-Creation-Date: 2020-04-27 21:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-30 10:37+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2020-04-28 04:26+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -84,17 +85,74 @@ msgstr "11.0.0"
 msgid "11.0.3"
 msgstr "11.0.3"
 
+msgid "11.0.4-22"
+msgstr "11.0.4-22"
+
 msgid "12.0.0"
 msgstr "12.0.0"
 
 msgid "12.0.3"
 msgstr "12.0.3"
 
+msgid "12.0.4-3"
+msgstr "12.0.4-3"
+
 msgid "13.0.0"
 msgstr "13.0.0"
 
+msgid "13.0.3"
+msgstr "13.0.3"
+
+msgid "13.0.3-5"
+msgstr "13.0.3-5"
+
 msgid "14.0.0"
 msgstr "14.0.0"
+
+msgid "14.0.2"
+msgstr "14.0.2"
+
+msgid "14.0.4"
+msgstr "14.0.4"
+
+msgid "14.1.0"
+msgstr "14.1.0"
+
+msgid "15.0.0"
+msgstr "15.0.0"
+
+msgid "15.1.0"
+msgstr "15.1.0"
+
+msgid "15.1.1"
+msgstr "15.1.1"
+
+msgid "15.2.0"
+msgstr "15.2.0"
+
+msgid "15.2.0-8"
+msgstr "15.2.0-8"
+
+msgid "16.0.0"
+msgstr "16.0.0"
+
+msgid "16.1.0-10"
+msgstr "16.1.0-10"
+
+msgid "17.0.0"
+msgstr "17.0.0"
+
+msgid "17.1.0"
+msgstr "17.1.0"
+
+msgid "18.0.0"
+msgstr "18.0.0"
+
+msgid "18.1.0"
+msgstr "18.1.0"
+
+msgid "18.3.0"
+msgstr "18.3.0"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -316,8 +374,16 @@ msgstr ""
 "のエラーを軽視せずに適切な措置を取るように試みる必要がありますが、そのために"
 "極端な対応や破壊的となる可能性のある措置は取るべきではありません。"
 
+msgid "API restrictions:"
+msgstr "API の制限:"
+
 msgid "Ability to add exceptions"
 msgstr "例外を追加する機能"
+
+msgid "Add \"Create Router\" button to Admin/Network/Routers panel."
+msgstr ""
+"管理/ネットワーク/ルーターのパネルに「ルーターの作成」ボタンが追加されまし"
+"た。"
 
 msgid ""
 "Add MKS console support. Blueprint can be found at [`<https://blueprints."
@@ -440,6 +506,19 @@ msgstr ""
 "設定で、 Cinder が利用可能な場合の \"Create Volume\" (ボリュームを作成) のデ"
 "フォルト値が制御できます。"
 
+#, fuzzy
+msgid ""
+"Added a new ``hide_create_volume`` setting under the "
+"``LAUNCH_INSTANCE_DEFAULTS`` dict. This allows you to hide the \"Create New "
+"Volume\" option in the \"Launch Instance\" form and instead rely on the "
+"default value you select with ``create_volume`` is the best suitable option "
+"for your users."
+msgstr ""
+"``LAUNCH_INSTANCE_DEFAULTS`` に ``hide_create_volume`` 設定が新しく追加されま"
+"した。この設定により、\"Launch Instance\" フォームの \"Create New Volume\" オ"
+"プションを非表示にして、代わりに ``create_volume`` でデフォルト値を選択し、"
+"ユーザーにとって最も適切なオプションを表示することができます。"
+
 msgid ""
 "Added a new setting CREATE_IMAGE_DEFAULTS(dictionary) to configure the "
 "default options shown on create image modal. By default, the visibility "
@@ -471,6 +550,15 @@ msgstr ""
 "LBaaS VIP を簡単に floating IP に割り当てるアクションが追加されました。詳細"
 "は `こちら <https://blueprints.launchpad.net/horizon/+spec/lbaas-vip-fip-"
 "associate>`__ を参照してください。"
+
+msgid ""
+"Added an upgrade_check management command, that checks the configuration "
+"files for any settings that may potentially be problematic in the next "
+"version. The command is available as ``./manage.py upgrade_check``."
+msgstr ""
+"次のバージョンで問題となる可能性のある設定ファイルをチェックする "
+"upgrade_check 管理コマンドが追加されました。このコマンドは、``./manage.py "
+"upgrade_check`` として提供されています。"
 
 msgid ""
 "Added editing capabilities for data sources. See `this <https://blueprints."
@@ -579,6 +667,17 @@ msgstr ""
 "きるようになりました。"
 
 msgid ""
+"Added support for Keystone locking user option. Locked user can't change own "
+"password using the self-service password change API. By default, users are "
+"unlocked and can change their own passwords. In case of older Keystone not "
+"supporting this feature, all users treated as unlocked."
+msgstr ""
+"Added support for Keystone locking user option. Locked user can't change own "
+"password using the self-service password change API. By default, users are "
+"unlocked and can change their own passwords. In case of older Keystone not "
+"supporting this feature, all users treated as unlocked."
+
+msgid ""
 "Added support for Swift object copy as one of row actions. Destination "
 "container must exist in advance. To avoid overwriting an existing object, "
 "you cannot copy an object if a specified destination object already exists."
@@ -622,6 +721,15 @@ msgstr ""
 "サブネットツールによるサブネット割り当てのためのサポートが追加されました。詳"
 "細は `こちら <https://blueprints.launchpad.net/horizon/+spec/neutron-subnet-"
 "allocation>`__ を参照してください。"
+
+msgid ""
+"Added support to retrieve supported disk formats from glance, so you can "
+"adjust disk_formats only inside glance-api.conf. You still can use "
+"IMAGE_BACKEND_SETTINGS to adjust format naming."
+msgstr ""
+"サポート対象のディスク形式を glance から取得するための機能が追加され、"
+"disk_formats は glance-api.conf でのみ調整できるようになりました。形式名の調"
+"整には、IMAGE_BACKEND_SETTINGS を引続き使用することができます。"
 
 msgid ""
 "Added the Bootstrap Theme Preview panel to the Developer dashboard. This "
@@ -1169,6 +1277,13 @@ msgstr "ハイパーバイザー設定のデフォルト値の変更"
 
 msgid "Deleting large numbers of resources simultaneously"
 msgstr "大量のリソースの同時削除"
+
+msgid "Deprecated ``SHOW_KEYSTONE_V2_RC`` since Stein release is removed."
+msgstr ""
+"Stein リリースより、非推奨となった ``SHOW_KEYSTONE_V2_RC`` は削除されました。"
+
+msgid "Deprecated config option ENABLE_FLAVOR_EDIT is removed."
+msgstr "非推奨となった ENABLE_FLAVOR_EDIT 設定オプションは削除されました。"
 
 msgid ""
 "Deprecated function fix_auth_url_version is removed from openstack_auth "
@@ -3092,6 +3207,9 @@ msgstr "ダッシュボードの多くの場面でのソーティング機能が
 msgid "Stack Template view"
 msgstr "スタックテンプレートのビューが追加"
 
+msgid "Stein Series Release Notes"
+msgstr "Stein バージョンのリリースノート"
+
 msgid ""
 "String attributes ``action_present`` and ``action_past`` were dropped from "
 "``horizon.tables.BatchAction``. ``action_present`` and ``action_past`` "
@@ -4199,6 +4317,9 @@ msgstr ""
 "ボードはこれらの部品を使用しており、これらはすべて third-party 開発者を念頭に"
 "おいて作成されました。主な部品のいくつかを以下で取り上げます。"
 
+msgid "Train Series Release Notes"
+msgstr "Train バージョンのリリースノート"
+
 msgid "Transfer table widget"
 msgstr "テーブルウィジェットの転送"
 
@@ -4323,6 +4444,9 @@ msgstr ""
 "ネットワークタイムアウトが発生することがあります (設定に依存します)。 API 自"
 "身は bulk delete (一括削除) に対応しておらず、その結果 Horizon がリソース単位"
 "に削除要求を送信しているからです。"
+
+msgid "Ussuri Series Release Notes"
+msgstr "Ussuri バージョンのリリースノート"
 
 msgid "VPN as a Service."
 msgstr "VPN as a Service"
