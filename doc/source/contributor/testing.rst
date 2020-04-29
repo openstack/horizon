@@ -89,15 +89,18 @@ https://opendev.org/openstack/requirements/raw/branch/master/upper-constraints.t
 You can run a subset of the tests by passing the test path as an argument to
 tox::
 
-  $ tox -e py37 -- openstack_dashboard.dashboards.identity.users.tests
+  $ tox -e py37 -- openstack_dashboard/dashboards/identity/users/tests.py
 
 The following is more example to run a specific test class and a
 specific test:
 
 .. code-block:: console
 
-   $ tox -e py37 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests
-   $ tox -e py37 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests.test_index
+   $ tox -e py37 -- openstack_dashboard/dashboards/identity/users/tests.py::UsersViewTests
+   $ tox -e py37 -- openstack_dashboard/dashboards/identity/users/tests.py::UsersViewTests::test_index
+
+The detail way to specify tests is found at
+`pytest documentation <https://docs.pytest.org/en/latest/usage.html#specifying-tests-selecting-tests>`__.
 
 You can also pass other arguments. For example, to drop into a live debugger
 when a test fails you can use::
