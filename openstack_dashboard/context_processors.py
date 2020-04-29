@@ -87,6 +87,7 @@ def openstack(request):
     context['WEBROOT'] = settings.WEBROOT
 
     context['USER_MENU_LINKS'] = settings.USER_MENU_LINKS
+    context['LOGOUT_URL'] = settings.LOGOUT_URL
 
     # Adding profiler support flag
     profiler_settings = settings.OPENSTACK_PROFILER
