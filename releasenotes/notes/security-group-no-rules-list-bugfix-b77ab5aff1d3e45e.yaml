@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    [:bug:`1840465`] Fixed a bug where listing security groups did not work
+    if one or more security groups had no rules in them.

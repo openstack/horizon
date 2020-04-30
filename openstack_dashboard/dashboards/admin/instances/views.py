@@ -70,9 +70,12 @@ class AdminUpdateView(views.UpdateView):
     success_url = reverse_lazy("horizon:admin:instances:index")
 
 
-class AdminIndexView(tables.DataTableView):
+class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
     table_class = project_tables.AdminInstancesTable
     page_title = _("Instances")
+
+    def has_prev_data(self, table):
+        return getattr(self, "_prev", False)
 
     def has_more_data(self, table):
         return self._more
@@ -90,14 +93,19 @@ class AdminIndexView(tables.DataTableView):
             exceptions.handle(self.request, msg)
             return {}
 
-    def _get_images(self):
-        # Gather our images to correlate againts IDs
+    def _get_images(self, instances=()):
+        # Gather our images to correlate our instances to them
         try:
-            images, __, __ = api.glance.image_list_detailed(self.request)
-            return dict([(image.id, image) for image in images])
+            # NOTE(aarefiev): request images, instances was booted from.
+            img_ids = (instance.image.get('id') for instance in
+                       instances if isinstance(instance.image, dict))
+            real_img_ids = list(filter(None, img_ids))
+            images = api.glance.image_list_detailed_by_ids(
+                self.request, real_img_ids)
+            image_map = dict((image.id, image) for image in images)
+            return image_map
         except Exception:
-            msg = _("Unable to retrieve image list.")
-            exceptions.handle(self.request, msg)
+            exceptions.handle(self.request, ignore=True)
             return {}
 
     def _get_flavors(self):
@@ -110,23 +118,21 @@ class AdminIndexView(tables.DataTableView):
             exceptions.handle(self.request, msg)
             return {}
 
-    def _get_instances(self, search_opts):
+    def _get_instances(self, search_opts, sort_dir):
         try:
-            instances, self._more = api.nova.server_list(
+            instances, self._more, self._prev = api.nova.server_list_paged(
                 self.request,
-                search_opts=search_opts)
+                search_opts=search_opts,
+                sort_dir=sort_dir)
         except Exception:
-            self._more = False
+            self._more = self._prev = False
             instances = []
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'))
         return instances
 
     def get_data(self):
-        instances = []
-
-        marker = self.request.GET.get(
-            project_tables.AdminInstancesTable._meta.pagination_param, None)
+        marker, sort_dir = self._get_marker()
         default_search_opts = {'marker': marker,
                                'paginate': True,
                                'all_tenants': True}
@@ -145,8 +151,11 @@ class AdminIndexView(tables.DataTableView):
 
         self._needs_filter_first = False
 
+        instances = self._get_instances(search_opts, sort_dir)
         results = futurist_utils.call_functions_parallel(
-            self._get_images, self._get_flavors, self._get_tenants)
+            (self._get_images, [tuple(instances)]),
+            self._get_flavors,
+            self._get_tenants)
         image_dict, flavor_dict, tenant_dict = results
 
         non_api_filter_info = (
@@ -157,8 +166,6 @@ class AdminIndexView(tables.DataTableView):
         if not views.process_non_api_filters(search_opts, non_api_filter_info):
             self._more = False
             return []
-
-        instances = self._get_instances(search_opts)
 
         # Loop through instances to get image, flavor and tenant info.
         for inst in instances:

@@ -170,7 +170,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({
         api.nova: (
             'flavor_list',
-            'server_list',
+            'server_list_paged',
             'tenant_absolute_limits',
             'extension_supported',
             'is_feature_available',
@@ -192,13 +192,12 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = \
             (self.images.list(), False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_tenant_absolute_limits.return_value = \
             self.limits['absolute']
         self.mock_floating_ip_supported.return_value = True
         self.mock_floating_ip_simple_associate_supported.return_value = True
-
         return self.client.get(INDEX_URL)
 
     def _check_get_index(self, use_servers_update_address=True,
@@ -217,8 +216,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(
-            helpers.IsHttpRequest(), search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         if use_servers_update_address:
             servers = self.servers.list()
             self.mock_servers_update_addresses.assert_called_once_with(
@@ -261,17 +262,18 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self._check_get_index(use_servers_update_address=False)
 
     @helpers.create_mocks({
-        api.nova: ('server_list', 'tenant_absolute_limits', 'flavor_list'),
+        api.nova: ('server_list_paged',
+                   'tenant_absolute_limits',
+                   'flavor_list'),
         api.glance: ('image_list_detailed',),
     })
     def test_index_server_list_exception(self):
         search_opts = {'marker': None, 'paginate': True}
         flavors = self.flavors.list()
         images = self.images.list()
-
         self.mock_flavor_list.return_value = flavors
         self.mock_image_list_detailed.return_value = (images, False, False)
-        self.mock_server_list.side_effect = self.exceptions.nova
+        self.mock_server_list_paged.side_effect = self.exceptions.nova
         self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
 
         res = self.client.get(INDEX_URL)
@@ -283,15 +285,20 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_absolute_limits, 2,
             mock.call(helpers.IsHttpRequest(), reserved=True))
 
     @helpers.create_mocks({
-        api.nova: ('flavor_list', 'server_list', 'flavor_get',
-                   'tenant_absolute_limits', 'extension_supported',
+        api.nova: ('flavor_list',
+                   'server_list_paged',
+                   'flavor_get',
+                   'tenant_absolute_limits',
+                   'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
@@ -305,7 +312,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self._mock_extension_supported({'AdminActions': True,
                                         'Shelve': True})
         self.mock_is_feature_available.return_value = True
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_flavor_list.side_effect = self.exceptions.nova
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -326,8 +333,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 8,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
@@ -344,8 +353,11 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             mock.call(helpers.IsHttpRequest()))
 
     @helpers.create_mocks({
-        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
-                   'extension_supported', 'is_feature_available',),
+        api.nova: ('flavor_list',
+                   'server_list_paged',
+                   'tenant_absolute_limits',
+                   'extension_supported',
+                   'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
@@ -361,7 +373,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self._mock_extension_supported({'AdminActions': True,
                                         'Shelve': True})
         self.mock_is_feature_available.return_value = True
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -386,8 +398,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.assert_mock_multiple_calls_with_same_arguments(
@@ -427,7 +441,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                 self.assertNotIsInstance(action, tables.ConsoleLink)
         self._check_get_index(multiplier=8)
 
-    @helpers.create_mocks({api.nova: ('server_list',
+    @helpers.create_mocks({api.nova: ('server_list_paged',
                                       'flavor_list',
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
@@ -436,21 +450,22 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
         self.mock_server_delete.return_value = None
-
         formData = {'action': 'instances__delete__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
@@ -459,7 +474,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_delete.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
-    @helpers.create_mocks({api.nova: ('server_list',
+    @helpers.create_mocks({api.nova: ('server_list_paged',
                                       'flavor_list',
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
@@ -469,7 +484,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         server = servers[0]
         server.status = 'ERROR'
 
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -482,8 +497,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
@@ -492,7 +509,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_delete.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
-    @helpers.create_mocks({api.nova: ('server_list',
+    @helpers.create_mocks({api.nova: ('server_list_paged',
                                       'flavor_list',
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
@@ -501,7 +518,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -514,8 +531,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
@@ -525,7 +544,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_pause',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -539,7 +558,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_pause.return_value = None
 
@@ -554,15 +573,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_pause.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_pause',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -576,7 +597,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_pause.side_effect = self.exceptions.nova
 
@@ -591,15 +612,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_pause.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_unpause',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -613,7 +636,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_unpause.return_value = None
 
@@ -628,15 +651,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_unpause.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_unpause',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -651,7 +676,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_unpause.side_effect = self.exceptions.nova
 
@@ -666,15 +691,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_unpause.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_reboot',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
@@ -685,7 +712,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_reboot.return_value = None
 
@@ -698,15 +725,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_reboot.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, soft_reboot=False)
 
     @helpers.create_mocks({api.nova: ('server_reboot',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
@@ -717,7 +746,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_reboot.side_effect = self.exceptions.nova
 
@@ -730,15 +759,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_reboot.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, soft_reboot=False)
 
     @helpers.create_mocks({api.nova: ('server_reboot',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
@@ -749,7 +780,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_reboot.return_value = None
 
@@ -762,15 +793,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_reboot.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, soft_reboot=True)
 
     @helpers.create_mocks({api.nova: ('server_suspend',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -784,7 +817,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_suspend.return_value = None
 
@@ -797,12 +830,15 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_extension_supported.assert_called_once_with(
             'AdminActions', helpers.IsHttpRequest())
-        self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(
+            helpers.IsHttpRequest())
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_suspend.assert_called_once_with(
@@ -810,7 +846,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
     @helpers.create_mocks({api.nova: ('server_suspend',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -824,7 +860,8 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers[page_size:], False]
+        self.mock_server_list_paged.return_value = [
+            servers[page_size:], False, True]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_suspend.return_value = None
 
@@ -842,8 +879,9 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
-        self.mock_server_list.assert_called_once_with(
+        self.mock_server_list_paged.assert_called_once_with(
             helpers.IsHttpRequest(),
+            sort_dir='desc',
             search_opts={'marker': servers[page_size - 1].id,
                          'paginate': True})
         self.mock_servers_update_addresses.assert_called_once_with(
@@ -852,7 +890,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             helpers.IsHttpRequest(), servers[-1].id)
 
     @helpers.create_mocks({api.nova: ('server_suspend',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -866,7 +904,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_suspend.side_effect = self.exceptions.nova
 
@@ -881,15 +919,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_suspend.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_resume',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -904,7 +944,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_resume.return_value = None
 
@@ -919,15 +959,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_resume.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_resume',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available'),
@@ -942,7 +984,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_resume.side_effect = self.exceptions.nova
 
@@ -957,15 +999,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_resume.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_shelve',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -979,10 +1023,9 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_shelve.return_value = None
-
         formData = {'action': 'instances__shelve__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
 
@@ -994,15 +1037,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_shelve.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_shelve',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -1016,7 +1061,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_shelve.side_effect = self.exceptions.nova
 
@@ -1031,15 +1076,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_shelve.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_unshelve',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -1054,7 +1101,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_unshelve.return_value = None
 
@@ -1069,15 +1116,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_unshelve.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_unshelve',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -1092,7 +1141,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_unshelve.side_effect = self.exceptions.nova
 
@@ -1107,15 +1156,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_unshelve.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_lock',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -1130,10 +1181,9 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_lock.return_value = None
-
         formData = {'action': 'instances__lock__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
 
@@ -1147,15 +1197,17 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_lock.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_lock',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available',),
@@ -1170,7 +1222,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_lock.side_effect = self.exceptions.nova
 
@@ -1183,19 +1235,22 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             'AdminActions', helpers.IsHttpRequest())
         self.mock_is_feature_available.assert_called_once_with(
             helpers.IsHttpRequest(), 'locked_attribute')
-        self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(
+            helpers.IsHttpRequest())
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_lock.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_unlock',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available'),
@@ -1209,10 +1264,9 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_unlock.return_value = None
-
         formData = {'action': 'instances__unlock__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
 
@@ -1222,19 +1276,22 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             'AdminActions', helpers.IsHttpRequest())
         self.mock_is_feature_available.assert_called_once_with(
             helpers.IsHttpRequest(), 'locked_attribute')
-        self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(
+            helpers.IsHttpRequest())
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_unlock.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
     @helpers.create_mocks({api.nova: ('server_unlock',
-                                      'server_list',
+                                      'server_list_paged',
                                       'flavor_list',
                                       'extension_supported',
                                       'is_feature_available'),
@@ -1243,13 +1300,12 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     def test_unlock_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
-
         self.mock_extension_supported.return_value = True
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_server_unlock.side_effect = self.exceptions.nova
 
@@ -1266,8 +1322,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.mock_server_unlock.assert_called_once_with(
@@ -1743,8 +1801,11 @@ class InstanceTests(InstanceTestBase):
         self._test_instances_index_retrieve_password_action()
 
     @helpers.create_mocks({
-        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
-                   'extension_supported', 'is_feature_available',),
+        api.nova: ('flavor_list',
+                   'server_list_paged',
+                   'tenant_absolute_limits',
+                   'extension_supported',
+                   'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
@@ -1759,7 +1820,7 @@ class InstanceTests(InstanceTestBase):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
         self.mock_floating_ip_supported.return_value = True
@@ -1787,8 +1848,10 @@ class InstanceTests(InstanceTestBase):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.assert_mock_multiple_calls_with_same_arguments(
@@ -3923,8 +3986,11 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                                     msg, 0)
 
     @helpers.create_mocks({
-        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
-                   'extension_supported', 'is_feature_available',),
+        api.nova: ('flavor_list',
+                   'server_list_paged',
+                   'tenant_absolute_limits',
+                   'extension_supported',
+                   'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
@@ -3940,7 +4006,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_tenant_absolute_limits.return_value = limits
         self.mock_floating_ip_supported.return_value = True
@@ -3967,8 +4033,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.assert_mock_multiple_calls_with_same_arguments(
@@ -3982,8 +4050,11 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             mock.call(helpers.IsHttpRequest()))
 
     @helpers.create_mocks({
-        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
-                   'extension_supported', 'is_feature_available',),
+        api.nova: ('flavor_list',
+                   'server_list_paged',
+                   'tenant_absolute_limits',
+                   'extension_supported',
+                   'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
@@ -4000,7 +4071,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_tenant_absolute_limits.return_value = limits
         self.mock_floating_ip_supported.return_value = True
@@ -4026,8 +4097,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(helpers.IsHttpRequest(),
-                                                      search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.assert_mock_multiple_calls_with_same_arguments(
@@ -4166,8 +4239,11 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
     @helpers.create_mocks({
-        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
-                   'extension_supported', 'is_feature_available',),
+        api.nova: ('flavor_list',
+                   'server_list_paged',
+                   'tenant_absolute_limits',
+                   'extension_supported',
+                   'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
@@ -4184,7 +4260,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
         self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
         self.mock_floating_ip_supported.return_value = True
@@ -4203,8 +4279,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(
-            helpers.IsHttpRequest(), search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers)
         self.assert_mock_multiple_calls_with_same_arguments(
@@ -4737,8 +4815,11 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
     @helpers.create_mocks({
-        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
-                   'extension_supported', 'is_feature_available',),
+        api.nova: ('flavor_list',
+                   'server_list_paged',
+                   'tenant_absolute_limits',
+                   'extension_supported',
+                   'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
                       'floating_ip_supported',),
@@ -4758,9 +4839,9 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
 
-        self.mock_server_list.side_effect = [
-            [servers[:page_size], True],
-            [servers[page_size:], False]
+        self.mock_server_list_paged.side_effect = [
+            [servers[:page_size], True, False],
+            [servers[page_size:], False, False]
         ]
         self.mock_servers_update_addresses.return_value = None
 
@@ -4798,14 +4879,16 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             self.mock_image_list_detailed, 2,
             mock.call(helpers.IsHttpRequest()))
 
-        self.mock_server_list.assert_has_calls([
+        self.mock_server_list_paged.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
+                      sort_dir='desc',
                       search_opts={'marker': None, 'paginate': True}),
             mock.call(helpers.IsHttpRequest(),
+                      sort_dir='desc',
                       search_opts={'marker': servers[page_size - 1].id,
                                    'paginate': True}),
         ])
-        self.assertEqual(2, self.mock_server_list.call_count)
+        self.assertEqual(2, self.mock_server_list_paged.call_count)
         self.mock_servers_update_addresses.assert_has_calls([
             mock.call(helpers.IsHttpRequest(), servers[:page_size]),
             mock.call(helpers.IsHttpRequest(), servers[page_size:]),
@@ -4823,7 +4906,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             mock.call(helpers.IsHttpRequest()))
 
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
-    @helpers.create_mocks({api.nova: ('server_list',
+    @helpers.create_mocks({api.nova: ('server_list_paged',
                                       'flavor_list',
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
@@ -4835,7 +4918,8 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()[:3]
         server = servers[-1]
 
-        self.mock_server_list.return_value = [servers[page_size:], False]
+        self.mock_server_list_paged.return_value = [
+            servers[page_size:], False, True]
         self.mock_servers_update_addresses.return_value = None
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -4854,8 +4938,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.assertMessageCount(success=1)
 
         search_opts = {'marker': servers[page_size - 1].id, 'paginate': True}
-        self.mock_server_list.assert_called_once_with(
-            helpers.IsHttpRequest(), search_opts=search_opts)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
         self.mock_servers_update_addresses.assert_called_once_with(
             helpers.IsHttpRequest(), servers[page_size:])
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
