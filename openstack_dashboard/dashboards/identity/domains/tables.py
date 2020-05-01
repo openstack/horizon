@@ -116,7 +116,7 @@ class DeleteDomainsAction(tables.DeleteAction):
             msg = _('Domain "%s" must be disabled before it can be deleted.') \
                 % domain.name
             messages.error(request, msg)
-            raise keystoneclient_exceptions.ClientException(409, msg)
+            raise keystoneclient_exceptions.ClientException(msg)
         else:
             LOG.info('Deleting domain "%s".', obj_id)
             api.keystone.domain_delete(request, obj_id)
