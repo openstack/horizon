@@ -17,7 +17,6 @@
 #    under the License.
 
 from __future__ import absolute_import
-from __future__ import division
 
 import collections
 import itertools
@@ -56,18 +55,6 @@ try:
                                         "version": 1})
 except ImportError:
     pass
-
-# TODO(e0ne): remove this workaround once glanceclient will raise
-# RequestURITooLong exception
-
-# NOTE(e0ne): set MAX_URI_LEN to 8KB like Neutron does
-MAX_URI_LEN = 8192
-
-URI_FILTER_PREFIX = "/v2/images?id=in:"
-# NOTE(e0ne): 36 is a lengght of UUID, we need tp have '+' for sapparator.
-# Decreasing value by 1 to make sure it could be send to a server
-MAX_IMGAGES_PER_REQUEST = \
-    (MAX_URI_LEN - len(URI_FILTER_PREFIX)) // (36 + 1) - 1
 
 
 class Image(base.APIResourceWrapper):
@@ -266,19 +253,6 @@ def image_get(request, image_id):
     """Returns an Image object populated with metadata for a given image."""
     image = glanceclient(request).images.get(image_id)
     return Image(image)
-
-
-@profiler.trace
-def image_list_detailed_by_ids(request, ids=None):
-    images = []
-    if not ids:
-        return images
-    for i in range(0, len(ids), MAX_IMGAGES_PER_REQUEST):
-        ids_to_filter = ids[i:i + MAX_IMGAGES_PER_REQUEST]
-        filters = {'id': 'in:' + ','.join(ids_to_filter)}
-        images.extend(image_list_detailed(request, filters=filters)[0])
-
-    return images
 
 
 @profiler.trace

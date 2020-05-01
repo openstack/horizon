@@ -135,15 +135,6 @@ class ExtractAngularTestCase(test.TestCase):
             <img alt="{$'some other thing'$}">
             <p>{$'"it\\'s awesome"'|translate$}</p>
             <p>{$"oh \\"hello\\" there"|translate$}</p>
-            <img alt="{$::'hello colon1' | translate $}">
-            <p>{$ ::'hello colon2' |translate$}</p>
-            <p>{$ :: 'hello colon3'| translate$}</p>
-            <img alt="something {$::'hello colon4'|translate$} something
-            {$ ::'hello colon5' | translate$}">
-            <img alt="{::$expr()|translate$}">
-            <img alt="{$::'some other thing'$}">
-            <p>{$:: '"it\\'s awesome"'|translate$}</p>
-            <p>{$ :: "oh \\"hello\\" there" | translate$}</p>
             """
         )
 
@@ -156,13 +147,6 @@ class ExtractAngularTestCase(test.TestCase):
                 (4, u'gettext', 'hello world4', []),
                 (8, u'gettext', '"it\\\'s awesome"', []),
                 (9, u'gettext', 'oh \\"hello\\" there', []),
-                (10, u'gettext', u'hello colon1', []),
-                (11, u'gettext', u'hello colon2', []),
-                (12, u'gettext', u'hello colon3', []),
-                (13, u'gettext', u'hello colon4', []),
-                (13, u'gettext', u'hello colon5', []),
-                (17, u'gettext', u'"it\\\'s awesome"', []),
-                (18, u'gettext', u'oh \\"hello\\" there', []),
             ],
             messages)
 

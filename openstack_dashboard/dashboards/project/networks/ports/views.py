@@ -138,8 +138,7 @@ class DetailView(tabs.TabbedTableView):
         ]
         context["custom_breadcrumb"] = breadcrumb
         context["port"] = port
-        context["url"] = reverse(
-            'horizon:project:networks:ports_tab', args=[port.network_id])
+        context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(port)
         return context
 

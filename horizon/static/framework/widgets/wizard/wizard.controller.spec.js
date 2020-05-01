@@ -62,14 +62,14 @@
       expect(scope.viewModel.errorMessage).toBe('in valid');
     });
 
-    it('call onInitSuccess with auth_error event', function() {
-      rootScope.$broadcast(frameworkEvents.AUTH_ERROR, 'auth_error');
+    it('call onInitSuccess with logout event', function() {
+      rootScope.$broadcast(frameworkEvents.FORCE_LOGOUT, 'logout');
       ctrl.onInitSuccess();
       scope.$apply();
       expect(scope.viewModel.hasError).toBe(true);
     });
 
-    it('call onInitSuccess without auth_error event', function() {
+    it('call onInitSuccess without logout event', function() {
       spyOn(scope, '$broadcast');
       ctrl.onInitSuccess();
       scope.$apply();
@@ -77,8 +77,8 @@
       expect(scope.$broadcast).toHaveBeenCalledWith(wizardEvents.ON_INIT_SUCCESS);
     });
 
-    it('call onInitError with auth_error event', function() {
-      rootScope.$broadcast(frameworkEvents.AUTH_ERROR, 'auth_error');
+    it('call onInitError with logout event', function() {
+      rootScope.$broadcast(frameworkEvents.FORCE_LOGOUT, 'logout');
       ctrl.onInitError();
       scope.$apply();
       expect(scope.viewModel.hasError).toBe(true);

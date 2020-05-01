@@ -32,39 +32,6 @@ class GlanceApiTests(test.APIMockTestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @mock.patch.object(api.glance, 'glanceclient')
-    def test_long_url(self, mock_glanceclient):
-        servers = self.servers.list()*100
-        api_images = self.images_api.list()*100
-        instances_img_ids = [instance.image.get('id') for instance in
-                             servers if hasattr(instance, 'image')]
-        expected_images = self.images.list()*100
-        glanceclient = mock_glanceclient.return_value
-        mock_images_list = glanceclient.images.list
-        mock_images_list.return_value = iter(api_images)
-
-        images = api.glance.image_list_detailed_by_ids(self.request,
-                                                       instances_img_ids)
-        self.assertEqual(images, expected_images)
-
-    @override_settings(API_RESULT_PAGE_SIZE=2)
-    @mock.patch.object(api.glance, 'glanceclient')
-    def test_image_list_detailed_by_ids(self, mock_glanceclient):
-        servers = self.servers.list()
-        api_images = self.images_api.list()
-        instances_img_ids = [instance.image.get('id') for instance in
-                             servers if hasattr(instance, 'image')]
-        expected_images = self.images.list()
-
-        glanceclient = mock_glanceclient.return_value
-        mock_images_list = glanceclient.images.list
-        mock_images_list.return_value = iter(api_images)
-
-        images = api.glance.image_list_detailed_by_ids(self.request,
-                                                       instances_img_ids)
-        self.assertEqual(images, expected_images)
-
-    @override_settings(API_RESULT_PAGE_SIZE=2)
-    @mock.patch.object(api.glance, 'glanceclient')
     def test_image_list_detailed_no_pagination(self, mock_glanceclient):
         # Verify that all images are returned even with a small page size
         api_images = self.images_api.list()

@@ -28,19 +28,19 @@
 # Artem <amikhalev90@gmail.com>, 2017. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2017. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
-# Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2018. #zanata
+# Dmytriy Rabotjagov <noonedeadpunk@ya.ru>, 2018. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2018. #zanata
-# Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2019. #zanata
+# Dmytriy Rabotjagov <noonedeadpunk@ya.ru>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-04-11 11:44+0000\n"
+"POT-Creation-Date: 2019-01-14 15:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-05-23 01:07+0000\n"
-"Last-Translator: Dmitriy Rabotyagov <noonedeadpunk@ya.ru>\n"
+"PO-Revision-Date: 2019-01-17 05:51+0000\n"
+"Last-Translator: Dmytriy Rabotjagov <noonedeadpunk@ya.ru>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -267,7 +267,7 @@ msgstr "Один IP-адрес или CIDR"
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr ""
-"Снимок это образ, который сохраняет состояние диска включенного инстанса."
+"Снимок это образ который сохраняет состояние диска запущенного инстанса."
 
 msgid "A valid MAC Address"
 msgstr "Валидный MAC адрес"
@@ -708,7 +708,7 @@ msgid "Attach Volume"
 msgstr "Подключить диск"
 
 msgid "Attach Volume to Running Instance."
-msgstr "Подключить диск к включенному инстансу."
+msgstr "Подключить диск к запущенному инстансу."
 
 msgid "Attach a Volume"
 msgstr "Подключить диск"
@@ -2156,7 +2156,7 @@ msgstr[1] "Отсоединить диски"
 msgstr[2] "Отсоединить диски"
 
 msgid "Detach Volume from Running Instance."
-msgstr "Отключить диск от включенного инстанса."
+msgstr "Отключить диск от запущенного инстанса."
 
 msgid "Detach a Volume"
 msgstr "Отсоединить диск"
@@ -3108,7 +3108,7 @@ msgid "Flat"
 msgstr "Flat"
 
 msgid "Flavor"
-msgstr "Тип инстанса"
+msgstr "Тип инстансов"
 
 msgid "Flavor Access"
 msgstr "Права доступа типа инстансов"
@@ -4167,8 +4167,8 @@ msgid ""
 "each instance of migrated host."
 msgstr ""
 "Мигрируйте все инстансы с узла с отключенной службой nova-compute. "
-"Дополнительно вы можете выбрать тип миграции. Все включенные инстансы узла "
-"могут быть мигрированы \"вживую\". В случае холодной миграции будет "
+"Дополнительно вы можете выбрать тип миграции. Все запущенные инстансы узла "
+"могут быть смигрированы \"вживую\". В случае холодной миграции будет "
 "использоваться команда nova-migrate для каждого инстанса."
 
 msgctxt "Current status of an Instance"
@@ -5373,7 +5373,7 @@ msgstr "Ресурсы"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
-"Перезапущенные инстансы потеряют все данные, не сохраненные в постоянном "
+"Перезапущенные инстансы потеряют все данных не сохраненные в постоянном "
 "хранилище."
 
 msgid "Restore Backup"
@@ -5516,10 +5516,10 @@ msgstr ""
 
 msgctxt "Power state of an Instance"
 msgid "Running"
-msgstr "Включен"
+msgstr "Запущенный"
 
 msgid "Running Instance Migration Type"
-msgstr "Тип миграции включенных инстансов."
+msgstr "Тип миграции запущенных инстансов."
 
 msgid "S3 URL"
 msgstr "S3 URL"
@@ -5925,7 +5925,7 @@ msgstr "Выгрузка архивного образа"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
-msgstr "Выключен"
+msgstr "Выключить"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
@@ -5947,7 +5947,7 @@ msgstr[2] "Выключенные инстансы"
 
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
-msgstr "Остановлен"
+msgstr "Выключается"
 
 msgid "Sign Out"
 msgstr "Выход"

@@ -1150,9 +1150,7 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
     def _cmp_sg(self, exp_sg, ret_sg):
         self.assertEqual(exp_sg['id'], ret_sg.id)
         self.assertEqual(exp_sg['name'], ret_sg.name)
-        # When a SG has no rules, neutron API does not contain
-        # 'security_group_rules' field, so .get() method needs to be used.
-        exp_rules = exp_sg.get('security_group_rules', [])
+        exp_rules = exp_sg['security_group_rules']
         self.assertEqual(len(exp_rules), len(ret_sg.rules))
         for (exprule, retrule) in six.moves.zip(exp_rules, ret_sg.rules):
             self._cmp_sg_rule(exprule, retrule)

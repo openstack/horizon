@@ -238,6 +238,9 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
 @profiler.trace
 def get_disabled_quotas(request, targets=None):
     if targets:
+        if set(targets) - QUOTA_FIELDS:
+            raise ValueError('Unknown quota field names are included: %s'
+                             % set(targets) - QUOTA_FIELDS)
         candidates = set(targets)
     else:
         candidates = QUOTA_FIELDS
