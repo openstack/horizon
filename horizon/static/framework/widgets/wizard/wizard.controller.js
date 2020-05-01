@@ -142,7 +142,7 @@
       $scope.$broadcast(wizardEvents.ON_INIT_ERROR);
     }
 
-    $scope.$on(frameworkEvents.AUTH_ERROR, function(evt, arg) {
+    $scope.$on(frameworkEvents.FORCE_LOGOUT, function(evt, arg) {
       viewModel.hasError = true;
       viewModel.errorMessage = arg;
       return;

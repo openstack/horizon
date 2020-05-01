@@ -90,8 +90,7 @@ class CGSnapshotsTable(tables.DataTable):
 
     name = tables.Column("name",
                          verbose_name=_("Name"),
-                         link="horizon:project:"
-                              "cg_snapshots:cg_snapshot_detail")
+                         link="horizon:project:cg_snapshots:detail")
     description = tables.Column("description",
                                 verbose_name=_("Description"),
                                 truncate=40)

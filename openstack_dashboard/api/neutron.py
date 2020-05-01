@@ -236,8 +236,6 @@ class SecurityGroup(NeutronAPIDictWrapper):
     def __init__(self, sg, sg_dict=None):
         if sg_dict is None:
             sg_dict = {sg['id']: sg['name']}
-        if 'security_group_rules' not in sg:
-            sg['security_group_rules'] = []
         sg['rules'] = [SecurityGroupRule(rule, sg_dict)
                        for rule in sg['security_group_rules']]
         super(SecurityGroup, self).__init__(sg)

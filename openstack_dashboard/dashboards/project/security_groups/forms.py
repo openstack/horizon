@@ -397,35 +397,6 @@ class AddRule(forms.SelfHandlingForm):
         else:
             self._apply_rule_menu(cleaned_data, rule_menu)
 
-    def _adjust_ip_protocol_of_icmp(self, data):
-        # Note that this needs to be called after IPv4/IPv6 is determined.
-        try:
-            ip_protocol = int(data['ip_protocol'])
-        except ValueError:
-            # string representation of IP protocol
-            ip_protocol = data['ip_protocol']
-        is_ipv6 = data['ethertype'] == 'IPv6'
-
-        if isinstance(ip_protocol, int):
-            # When IP protocol number is specified, we assume a user
-            # knows more detail on IP protocol number,
-            # so a warning message on a mismatch between IP proto number
-            # and IP version is displayed.
-            if is_ipv6 and ip_protocol == 1:
-                msg = _('58 (ipv6-icmp) should be specified for IPv6 '
-                        'instead of 1.')
-                self._errors['ip_protocol'] = self.error_class([msg])
-            elif not is_ipv6 and ip_protocol == 58:
-                msg = _('1 (icmp) should be specified for IPv4 '
-                        'instead of 58.')
-                self._errors['ip_protocol'] = self.error_class([msg])
-        else:
-            # ICMPv6 uses different an IP protocol name and number.
-            # To allow 'icmp' for both IPv4 and IPv6 in the form,
-            # we need to replace 'icmp' with 'ipv6-icmp' based on IP version.
-            if is_ipv6 and ip_protocol == 'icmp':
-                data['ip_protocol'] = 'ipv6-icmp'
-
     def clean(self):
         cleaned_data = super(AddRule, self).clean()
 
@@ -459,8 +430,6 @@ class AddRule(forms.SelfHandlingForm):
                 # version. It is used only when Neutron is enabled.
                 ip_ver = netaddr.IPNetwork(cidr).version
                 cleaned_data['ethertype'] = 'IPv6' if ip_ver == 6 else 'IPv4'
-
-        self._adjust_ip_protocol_of_icmp(cleaned_data)
 
         return cleaned_data
 

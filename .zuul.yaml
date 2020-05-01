@@ -31,7 +31,6 @@
       - name: openstack/horizon
       - name: openstack/tempest
       - name: openstack/tempest-horizon
-        override-checkout: 0.2.0
     irrelevant-files:
       - ^.*\.rst$
       - ^doc/.*$
@@ -47,7 +46,7 @@
       - ^openstack_dashboard/dashboards/.*/tests.py$
     vars:
       devstack_localrc:
-        TEMPEST_PLUGINS: "{{ ansible_user_dir }}/src/opendev.org/openstack/tempest-horizon"
+        TEMPEST_PLUGINS: "'{{ ansible_user_dir }}/src/git.openstack.org/openstack/tempest-horizon'"
       devstack_services:
         horizon: true
         tempest: true
@@ -64,7 +63,7 @@
       tox_envlist: bandit-baseline
     irrelevant-files:
       - ^.*\.rst$
-      - ^.*/locale/.*$
+      - ^.*\locale/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^setup.cfg$

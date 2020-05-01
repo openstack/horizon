@@ -67,7 +67,7 @@ class FloatingIP(generic.View):
         if 'dns_name' in request.DATA:
             params['dns_name'] = request.DATA['dns_name']
         result = api.neutron.tenant_floating_ip_allocate(request, pool,
-                                                         None, **params)
+                                                         None, params)
         return result.to_dict()
 
     @rest_utils.ajax(data_required=True)

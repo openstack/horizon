@@ -187,3 +187,4 @@ class GroupsTable(tables.DataTable):
         )
         row_class = UpdateRow
         status_columns = ("status",)
+        permissions = ['openstack.services.volume']

@@ -25,7 +25,7 @@
     .run(run)
     .factory('horizon.framework.redirect', httpRedirectLogin)
     .constant('horizon.framework.events', {
-      AUTH_ERROR: 'AUTH_ERROR'
+      FORCE_LOGOUT: 'FORCE_LOGOUT'
     });
 
   config.$inject = [
@@ -128,28 +128,25 @@
       responseError: function (error) {
         if (error.status === 401) {
           var msg = gettext('Unauthorized. Redirecting to login');
-          handleRedirectMessage(msg, $rootScope, $window, frameworkEvents, toastService, true);
+          handleRedirectMessage(msg, $rootScope, $window, frameworkEvents, toastService);
         }
         if (error.status === 403) {
-          var msg2 = gettext('Forbidden. Insufficient permissions of the requested operation');
-          handleRedirectMessage(msg2, $rootScope, $window, frameworkEvents, toastService, false);
+          var msg2 = gettext('Forbidden. Redirecting to login');
+          handleRedirectMessage(msg2, $rootScope, $window, frameworkEvents, toastService);
         }
         return $q.reject(error);
       }
     };
   }
 
-  function handleRedirectMessage(
-      msg, $rootScope, $window, frameworkEvents, toastService, forceLogout) {
+  function handleRedirectMessage(msg, $rootScope, $window, frameworkEvents, toastService) {
     var toast = toastService.find('error', msg);
     //Suppress the multiple duplicate redirect toast messages.
     if (!toast) {
       toastService.add('error', msg);
-      $rootScope.$broadcast(frameworkEvents.AUTH_ERROR, msg);
+      $rootScope.$broadcast(frameworkEvents.FORCE_LOGOUT, msg);
     }
-    if (forceLogout) {
-      $window.location.replace($window.WEBROOT + 'auth/logout');
-    }
+    $window.location.replace($window.WEBROOT + 'auth/logout');
   }
 
 })();

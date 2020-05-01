@@ -102,6 +102,7 @@
           background-color: $link-hover-color;
         }
       }
+      .member,
       .role_options .roles_display {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -111,8 +112,6 @@
         padding-right: 0;
         padding-left: $padding-base-vertical;
         max-width: $members-list-item-width;
-        overflow: hidden;
-        overflow-wrap: break-word; // In case it is really long
       }
       .role_options {
         margin-left: 0;
