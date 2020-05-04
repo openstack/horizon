@@ -227,12 +227,12 @@
         # to run tests with different versions of Django.
         # We specify a job in openstack-python3-victoria-jobs(-horizon)
         # to keep this project template as it is used in horizon plugins.
-        - openstack-tox-py37
+        - openstack-tox-py38
         # NOTE: We keep it as a template even though it is not used now.
         # - horizon-tox-python3-django22
     gate:
       jobs:
-        - openstack-tox-py37
+        - openstack-tox-py38
         # - horizon-tox-python3-django22
 
 - project:
