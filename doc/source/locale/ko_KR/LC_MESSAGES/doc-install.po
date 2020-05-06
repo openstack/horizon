@@ -1,25 +1,200 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Soonyeul Park <ardentpark@gmail.com>, 2018. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 17:54+0000\n"
+"POT-Creation-Date: 2020-05-05 13:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-02 09:39+0000\n"
+"PO-Revision-Date: 2020-05-05 11:45+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
+msgid ":launchpad:`bgpvpn`"
+msgstr ":launchpad:`bgpvpn`"
+
+msgid ":launchpad:`blazar`"
+msgstr ":launchpad:`blazar`"
+
+msgid ":launchpad:`congress`"
+msgstr ":launchpad:`congress`"
+
+msgid ":launchpad:`designate-dashboard`"
+msgstr ":launchpad:`designate-dashboard`"
+
+msgid ":launchpad:`karbor-dashboard`"
+msgstr ":launchpad:`karbor-dashboard`"
+
+msgid ":launchpad:`magnum-ui`"
+msgstr ":launchpad:`magnum-ui`"
+
+msgid ":launchpad:`manila-ui`"
+msgstr ":launchpad:`manila-ui`"
+
+msgid ":launchpad:`masakari`"
+msgstr ":launchpad:`masakari`"
+
+msgid ":launchpad:`mistral`"
+msgstr ":launchpad:`mistral`"
+
+msgid ":launchpad:`monasca`"
+msgstr ":launchpad:`monasca`"
+
+msgid ":launchpad:`murano`"
+msgstr ":launchpad:`murano`"
+
+msgid ":launchpad:`neutron-fwaas-dashboard`"
+msgstr ":launchpad:`neutron-fwaas-dashboard`"
+
+msgid ":launchpad:`neutron-vpnaas-dashboard`"
+msgstr ":launchpad:`neutron-vpnaas-dashboard`"
+
+msgid ":launchpad:`senlin-dashboard`"
+msgstr ":launchpad:`senlin-dashboard`"
+
+msgid ":launchpad:`solum`"
+msgstr ":launchpad:`solum`"
+
+msgid ":launchpad:`tacker`"
+msgstr ":launchpad:`tacker`"
+
+msgid ":launchpad:`trove-dashboard`"
+msgstr ":launchpad:`trove-dashboard`"
+
+msgid ":launchpad:`watcher-dashboard`"
+msgstr ":launchpad:`watcher-dashboard`"
+
+msgid ":launchpad:`zaqar-ui`"
+msgstr ":launchpad:`zaqar-ui`"
+
+msgid ":launchpad:`zun-ui`"
+msgstr ":launchpad:`zun-ui`"
+
+msgid ":opendev-repo:`openstack/blazar-dashboard`"
+msgstr ":opendev-repo:`openstack/blazar-dashboard`"
+
+msgid ":opendev-repo:`openstack/cloudkitty-dashboard`"
+msgstr ":opendev-repo:`openstack/cloudkitty-dashboard`"
+
+msgid ":opendev-repo:`openstack/congress-dashboard`"
+msgstr ":opendev-repo:`openstack/congress-dashboard`"
+
+msgid ":opendev-repo:`openstack/designate-dashboard`"
+msgstr ":opendev-repo:`openstack/designate-dashboard`"
+
+msgid ":opendev-repo:`openstack/freezer-web-ui`"
+msgstr ":opendev-repo:`openstack/freezer-web-ui`"
+
+msgid ":opendev-repo:`openstack/heat-dashboard`"
+msgstr ":opendev-repo:`openstack/heat-dashboard`"
+
+msgid ":opendev-repo:`openstack/ironic-ui`"
+msgstr ":opendev-repo:`openstack/ironic-ui`"
+
+msgid ":opendev-repo:`openstack/karbor-dashboard`"
+msgstr ":opendev-repo:`openstack/karbor-dashboard`"
+
+msgid ":opendev-repo:`openstack/magnum-ui`"
+msgstr ":opendev-repo:`openstack/magnum-ui`"
+
+msgid ":opendev-repo:`openstack/manila-ui`"
+msgstr ":opendev-repo:`openstack/manila-ui`"
+
+msgid ":opendev-repo:`openstack/masakari-dashboard`"
+msgstr ":opendev-repo:`openstack/masakari-dashboard`"
+
+msgid ":opendev-repo:`openstack/mistral-dashboard`"
+msgstr ":opendev-repo:`openstack/mistral-dashboard`"
+
+msgid ":opendev-repo:`openstack/monasca-ui`"
+msgstr ":opendev-repo:`openstack/monasca-ui`"
+
+msgid ":opendev-repo:`openstack/murano-dashboard`"
+msgstr ":opendev-repo:`openstack/murano-dashboard`"
+
+msgid ":opendev-repo:`openstack/networking-bgpvpn`"
+msgstr ":opendev-repo:`openstack/networking-bgpvpn`"
+
+msgid ":opendev-repo:`openstack/neutron-fwaas-dashboard`"
+msgstr ":opendev-repo:`openstack/neutron-fwaas-dashboard`"
+
+msgid ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
+msgstr ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
+
+msgid ":opendev-repo:`openstack/octavia-dashboard`"
+msgstr ":opendev-repo:`openstack/octavia-dashboard`"
+
+msgid ":opendev-repo:`openstack/qinling-dashboard`"
+msgstr ":opendev-repo:`openstack/qinling-dashboard`"
+
+msgid ":opendev-repo:`openstack/sahara-dashboard`"
+msgstr ":opendev-repo:`openstack/sahara-dashboard`"
+
+msgid ":opendev-repo:`openstack/searchlight-ui`"
+msgstr ":opendev-repo:`openstack/searchlight-ui`"
+
+msgid ":opendev-repo:`openstack/senlin-dashboard`"
+msgstr ":opendev-repo:`openstack/senlin-dashboard`"
+
+msgid ":opendev-repo:`openstack/solum-dashboard`"
+msgstr ":opendev-repo:`openstack/solum-dashboard`"
+
+msgid ":opendev-repo:`openstack/tacker-horizon`"
+msgstr ":opendev-repo:`openstack/tacker-horizon`"
+
+msgid ":opendev-repo:`openstack/trove-dashboard`"
+msgstr ":opendev-repo:`openstack/trove-dashboard`"
+
+msgid ":opendev-repo:`openstack/vitrage-dashboard`"
+msgstr ":opendev-repo:`openstack/vitrage-dashboard`"
+
+msgid ":opendev-repo:`openstack/watcher-dashboard`"
+msgstr ":opendev-repo:`openstack/watcher-dashboard`"
+
+msgid ":opendev-repo:`openstack/zaqar-ui`"
+msgstr ":opendev-repo:`openstack/zaqar-ui`"
+
+msgid ":opendev-repo:`openstack/zun-ui`"
+msgstr ":opendev-repo:`openstack/zun-ui`"
+
 msgid ":ref:`install-customizing` describes how to customize horizon."
 msgstr ":ref:`install-customizing` 어떻게 horizon을 커스터마이즈하는지 기술"
 
 msgid ":ref:`install-settings` lists the available settings for horizon."
 msgstr ":ref:`install-settings` horizon을 위한 가능한 설정 목록"
+
+msgid ":storyboard:`openstack/cloudkitty-dashboard`"
+msgstr ":storyboard:`openstack/cloudkitty-dashboard`"
+
+msgid ":storyboard:`openstack/freezer-web-ui`"
+msgstr ":storyboard:`openstack/freezer-web-ui`"
+
+msgid ":storyboard:`openstack/heat-dashboard`"
+msgstr ":storyboard:`openstack/heat-dashboard`"
+
+msgid ":storyboard:`openstack/ironic-ui`"
+msgstr ":storyboard:`openstack/ironic-ui`"
+
+msgid ":storyboard:`openstack/octavia-dashboard`"
+msgstr ":storyboard:`openstack/octavia-dashboard`"
+
+msgid ":storyboard:`openstack/qinling-dashboard`"
+msgstr ":storyboard:`openstack/qinling-dashboard`"
+
+msgid ":storyboard:`openstack/sahara-dashboard`"
+msgstr ":storyboard:`openstack/sahara-dashboard`"
+
+msgid ":storyboard:`openstack/searchlight-ui`"
+msgstr ":storyboard:`openstack/searchlight-ui`"
+
+msgid ":storyboard:`openstack/vitrage-dashboard`"
+msgstr ":storyboard:`openstack/vitrage-dashboard`"
 
 msgid ""
 "ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "
@@ -171,7 +346,7 @@ msgid ""
 "idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
 "edit it. As a minimum, the follow settings will need to be modified:"
 msgstr ""
-"``openstack_dashboard/local/local_settings.py``를 생성하십시오. "
+"``openstack_dashboard/local/local_settings.py`` 를 생성하십시오. "
 "``openstack_dashboard/local/local_settings.py.example`` 을 복사하고 편집하는 "
 "것을 권장합니다. 적어도, 다음의 설정들은 수정될 필요가 있습니다."
 
@@ -210,6 +385,12 @@ msgstr ""
 
 msgid "Deployment"
 msgstr "배포"
+
+msgid "Django 2.2"
+msgstr "Django 2.2"
+
+msgid "Django support policy is documented at :doc:`/contributor/policy`."
+msgstr "Django 지원 정책은 :doc:`/contributor/policy` 에 문서화되어 있습니다."
 
 msgid ""
 "Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
@@ -413,6 +594,9 @@ msgstr ""
 "보드를 액세스 가능하도록 합니다. SSL 인증서 접속 문제가 있는 경우, 서버 IP 주"
 "소를 도메인 이름으로 가리키도록 하고, 사용자에게 액세스를 부여합니다."
 
+msgid "Python 3.6 or 3.7"
+msgstr "Python 3.6 또는 3.7"
+
 msgid "Python memcached module installed"
 msgstr "Python memcached 모듈 설치"
 
@@ -427,6 +611,9 @@ msgstr ""
 "``TIME_ZONE`` 을 적절한 시간대 식별자로 교체하십시오. 자세한 정보는 `표준 시"
 "간대 목록 <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>`__` "
 "을 참조하십시오."
+
+msgid "Repository"
+msgstr "저장소"
 
 msgid "Requirements:"
 msgstr "요구사항:"
@@ -477,6 +664,9 @@ msgstr "정적 자산"
 msgid "System Requirements"
 msgstr "시스템 요구사항"
 
+msgid "The Ussuri release of horizon has the following dependencies."
+msgstr "Horizon Ussuri 릴리즈는 다음 의존성을 갖습니다."
+
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
 "running."
@@ -518,6 +708,24 @@ msgstr ""
 "를 사용할 수 있습니다."
 
 msgid ""
+"Then configure the web server to host OpenStack dashboard via WSGI. For "
+"apache2 web server, you may need to create ``/etc/apache2/sites-available/"
+"horizon.conf``. The template in DevStack is a good example of the file. "
+"https://opendev.org/openstack/devstack/src/branch/master/files/apache-"
+"horizon.template Or you can automatically generate an apache configuration "
+"file. If you previously generated an ``openstack_dashboard/horizon_wsgi.py`` "
+"file it will use that, otherwise will default to using ``openstack_dashboard/"
+"wsgi.py``"
+msgstr ""
+"그리고, WSGI를 통해 OpenStack 대시보드를 호스팅하도록 웹 서버를 구성하십시"
+"오. apache2 웹 서버의 경우, ``/etc/apache2/sites-available/horizon.conf`` 생"
+"성이 필요할 수 있습니다. DevStack의 템플릿은 해당 파일의 좋은 예시입니다. "
+"https://opendev.org/openstack/devstack/src/branch/master/files/apache-"
+"horizon.template 또는 자동으로 apache 구성 파일을 생성할 수 있습니다. 이전에 "
+"``openstack_dashboard/horizon_wsgi.py`` 파일을 생성하였다면 그것을 사용하고, "
+"그렇지 않다면 기본적으로 ``openstack_dashboard/wsgi.py`` 를 사용합니다."
+
+msgid ""
 "There are a number of horizon plugins for various useful features. You can "
 "get dashboard supports for them by installing corresponding horizon plugins."
 msgstr ""
@@ -541,12 +749,17 @@ msgstr ""
 "치하십시오."
 
 msgid ""
+"This is a list of horizon plugins which are part of the official OpenStack "
+"releases."
+msgstr "공식 OpenStack 릴리스 파트에 해당하는 horizon 플러그인 목록입니다."
+
+msgid ""
 "This page covers the basic installation of horizon in a production "
 "environment. If you are looking for a developer environment, see :ref:"
 "`quickstart`."
 msgstr ""
 "이 페이지는 제품 환경에서의 horizon 기본 설치를 다루고 있습니다. 개발 환경을 "
-"찾는 경우, :ref:`quickstart`를 참조하십시오."
+"찾는 경우, :ref:`quickstart` 를 참조하십시오."
 
 msgid ""
 "This section assumes proper installation, configuration, and operation of "
@@ -590,6 +803,15 @@ msgstr ""
 
 msgid "Translations"
 msgstr "번역"
+
+msgid ""
+"Ussuri release uses Django 2.2 (the latest LTS) as the primary Django "
+"version. The prevouos LTS of Django 1.11 will be dropped during Ussuri "
+"cycle. Django 2.0 support will be dropped as well."
+msgstr ""
+"Ussuri 릴리스는 기본 Django 버전으로 Django 2.2 (최신 LTS)를 사용합니다. 이"
+"전 Django LTS인 1.11은 Ussuri 개발 주기에서 중지 예정입니다. Django 2.0 지원 "
+"역시 중지될 예정입니다."
 
 msgid "Verify operation for Debian"
 msgstr "Debian을 위한 동작 검증"
@@ -666,3 +888,90 @@ msgstr "`nova <https://docs.openstack.org/nova/latest/>`_: 컴퓨팅"
 
 msgid "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
 msgstr "`swift <https://docs.openstack.org/swift/latest/>`_: 오브젝트 스토리지"
+
+msgid "blazar-dashboard"
+msgstr "blazar-dashboard"
+
+msgid "cloudkitty-dashboard"
+msgstr "cloudkitty-dashboard"
+
+msgid "congress-dashboard"
+msgstr "congress-dashboard"
+
+msgid "designate-dashboard"
+msgstr "designate-dashboard"
+
+msgid "freezer-web-ui"
+msgstr "freezer-web-ui"
+
+msgid "heat-dashboard"
+msgstr "heat-dashboard"
+
+msgid "ironic-ui"
+msgstr "ironic-ui"
+
+msgid "karbor-dashboard"
+msgstr "karbor-dashboard"
+
+msgid "magnum-ui"
+msgstr "magnum-ui"
+
+msgid "manila-ui"
+msgstr "manila-ui"
+
+msgid "masakari-dashboard"
+msgstr "masakari-dashboard"
+
+msgid "mistral-dashboard"
+msgstr "mistral-dashboard"
+
+msgid "monasca-ui"
+msgstr "monasca-ui"
+
+msgid "murano-dashboard"
+msgstr "murano-dashboard"
+
+msgid "networking-bgpvpn"
+msgstr "networking-bgpvpn"
+
+msgid "neutron-fwaas-dashboard"
+msgstr "neutron-fwaas-dashboard"
+
+msgid "neutron-vpnaas-dashboard"
+msgstr "neutron-vpnaas-dashboard"
+
+msgid "octavia-dashboard"
+msgstr "octavia-dashboard"
+
+msgid "qinling-dashboard"
+msgstr "qinling-dashboard"
+
+msgid "sahara-dashboard"
+msgstr "sahara-dashboard"
+
+msgid "searchlight-ui"
+msgstr "searchlight-ui"
+
+msgid "senlin-dashboard"
+msgstr "senlin-dashboard"
+
+msgid "solum-dashboard"
+msgstr "solum-dashboard"
+
+msgid "tacker-horizon"
+msgstr "tacker-horizon"
+
+msgid "trove-dashboard"
+msgstr "trove-dashboard"
+
+msgid "vitrage-dashboard"
+msgstr "vitrage-dashboard"
+
+msgid "watcher-dashboard"
+msgstr "watcher-dashboard"
+
+msgid "zaqar-ui"
+msgstr "zaqar-ui"
+
+msgid "zun-ui"
+msgstr "zun-ui"
