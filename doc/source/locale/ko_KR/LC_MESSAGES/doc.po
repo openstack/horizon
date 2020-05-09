@@ -1,15 +1,16 @@
 # ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"POT-Creation-Date: 2020-05-06 10:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-27 11:37+0000\n"
-"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
+"PO-Revision-Date: 2020-05-05 11:37+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -112,6 +113,9 @@ msgid ""
 "word."
 msgstr ""
 "키스톤에서 쓰이는 \"tenant\"라는 용어 대신 사용자에게 보여지는 단어로 사용됨."
+
+msgid "User Documentation"
+msgstr "사용자 문서"
 
 msgid "Using Horizon"
 msgstr "호라이즌 사용하기"
