@@ -27,7 +27,7 @@ from openstack_dashboard.utils import settings as settings_utils
 monkeypatch_escape()
 
 # Load default values
-from openstack_dashboard.defaults import *  # noqa: F403,H303
+from openstack_dashboard.defaults import *  # noqa: E402,F403,H303
 
 WEBROOT = '/'
 
