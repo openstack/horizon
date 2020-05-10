@@ -127,6 +127,7 @@ class VolumeBackup(BaseCinderAPIResourceWrapper):
               'created_at', 'volume_id', 'availability_zone', 'snapshot_id']
     _volume = None
     _snapshot = None
+
     @property
     def volume(self):
         return self._volume

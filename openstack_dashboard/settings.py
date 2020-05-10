@@ -37,7 +37,7 @@ monkeypatch_escape()
 
 # Load default values
 # pylint: disable=wrong-import-position
-from openstack_dashboard.defaults import *  # noqa: F403,H303
+from openstack_dashboard.defaults import *  # noqa: E402,F403,H303
 
 _LOG = logging.getLogger(__name__)
 
