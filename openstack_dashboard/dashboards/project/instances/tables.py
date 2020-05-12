@@ -530,6 +530,7 @@ class EditInstanceSecurityGroups(EditInstance):
 class EditPortSecurityGroups(tables.LinkAction):
     name = "edit_port_secgroups"
     verbose_name = _("Edit Port Security Groups")
+    policy_rules = (("network", "update_security_group"),)
     url = "horizon:project:instances:detail"
     icon = "pencil"
 
