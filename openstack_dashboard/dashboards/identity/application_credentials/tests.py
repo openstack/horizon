@@ -65,6 +65,21 @@ class ApplicationCredentialViewTests(test.TestCase):
         mock_app_cred_create.assert_called_once_with(test.IsHttpRequest(),
                                                      **api_data)
 
+    @mock.patch.object(api.keystone, 'application_credential_list')
+    def test_application_credential_detail_list(self, mock_app_cred_list):
+        app_creds = self.application_credentials.list()
+        mock_app_cred_list.return_value = app_creds
+
+        res = self.client.get(
+            reverse('horizon:identity:application_credentials:index'))
+
+        self.assertTemplateUsed(
+            res, 'identity/application_credentials/index.html')
+        self.assertListEqual(res.context['table'].data, app_creds)
+        self.assertContains(res, 'Member, admin')
+        mock_app_cred_list.assert_called_once_with(test.IsHttpRequest(),
+                                                   filters={})
+
     @mock.patch.object(api.keystone, 'application_credential_get')
     def test_application_credential_detail_get(self, mock_app_cred_get):
         app_cred = self.application_credentials.list()[1]
