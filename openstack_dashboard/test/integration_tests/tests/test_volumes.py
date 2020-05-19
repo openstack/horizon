@@ -10,7 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import time
-from unittest import skip
+
+import pytest
 
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
@@ -174,7 +175,7 @@ class TestVolumesAdvanced(helpers.TestCase):
     def volumes_page(self):
         return self.home_pg.go_to_project_volumes_volumespage()
 
-    @skip('Skipped until bug 1774697 is resolved')
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_manage_volume_attachments(self):
         """This test case checks attach/detach actions for volume
 
@@ -287,7 +288,7 @@ class TestVolumesActions(helpers.TestCase):
         new_size = volumes_page.get_size(self.VOLUME_NAME)
         self.assertLess(orig_size, new_size)
 
-    @skip('Skipped until bug 1847715 is resolved')
+    @pytest.mark.skip(reason="Bug 1847715")
     def test_volume_upload_to_image(self):
         """This test case checks upload volume to image functionality:
 
@@ -323,7 +324,7 @@ class TestVolumesActions(helpers.TestCase):
             self.volumes_page = \
                 self.home_pg.go_to_project_volumes_volumespage()
 
-    @skip('Skipped until bug 1774697 is resolved')
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_volume_launch_as_instance(self):
         """This test case checks launch volume as instance functionality:
 
