@@ -180,6 +180,7 @@ class SoftRebootInstance(RebootInstance):
 class RescueInstance(policy.PolicyTargetMixin, tables.LinkAction):
     name = "rescue"
     verbose_name = _("Rescue Instance")
+    policy_rules = (("compute", "os_compute_api:os-rescue"),)
     classes = ("btn-rescue", "ajax-modal")
     url = "horizon:project:instances:rescue"
 
