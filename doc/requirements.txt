@@ -5,9 +5,9 @@
 # changes how packages are installed.  New dependencies should be
 # added in alphabetical order, however, some dependencies may need to
 # be installed in a specific order.
-openstackdocstheme>=1.20.0 # Apache-2.0
-reno>=2.5.0 # Apache-2.0
-sphinx!=1.6.6,!=1.6.7,!=2.1.0,>=1.6.2 # BSD
+openstackdocstheme>=2.2.0 # Apache-2.0
+reno>=3.1.0 # Apache-2.0
+sphinx>=2.0.0,!=2.1.0 # BSD
 doc8>=0.6.0 # Apache-2.0
 
 # The below is rewquired to build testing module reference
