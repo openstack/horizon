@@ -66,6 +66,8 @@ class Login(django_auth_forms.AuthenticationForm):
     class for added security features.
     """
     use_required_attribute = False
+    required_css_class = "required"
+    warnings = []
     region = forms.ChoiceField(label=_("Region"), required=False)
     username = forms.CharField(
         label=_("User Name"),

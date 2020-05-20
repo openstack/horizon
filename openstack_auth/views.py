@@ -106,6 +106,11 @@ def login(request):
         'redirect_field_name': auth.REDIRECT_FIELD_NAME,
         'csrf_failure': request.GET.get('csrf_failure'),
         'show_sso_opts': settings.WEBSSO_ENABLED and len(choices) > 1,
+        'classes': {
+            'value': '',
+            'single_value': '',
+            'label': '',
+        },
     }
 
     if request.is_ajax():
