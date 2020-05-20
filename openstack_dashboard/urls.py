@@ -27,7 +27,6 @@ from django.conf.urls import url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views import defaults
 
-import horizon
 import horizon.base
 from horizon.browsers import views as browsers_views
 from horizon.decorators import require_auth
