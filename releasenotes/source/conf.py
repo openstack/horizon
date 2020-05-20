@@ -44,9 +44,9 @@ extensions = [
 ]
 
 # openstackdocstheme options
-repository_name = 'openstack/horizon'
-bug_project = 'horizon'
-bug_tag = 'documentation'
+openstackdocs_repo_name = 'openstack/horizon'
+openstackdocs_bug_project = 'horizon'
+openstackdocs_bug_tag = 'documentation'
 
 # Set aliases for extlinks
 # - generic launchpad bug - [:bug:`12345`]
