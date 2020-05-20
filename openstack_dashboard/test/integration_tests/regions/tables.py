@@ -12,6 +12,7 @@
 
 import functools
 
+from django.utils import html
 from selenium.common import exceptions
 from selenium.webdriver.common import by
 
@@ -60,6 +61,7 @@ class TableRegion(baseregion.BaseRegion):
                               'div.table_search > .themable-select')
     _cell_progress_bar_locator = (by.By.CSS_SELECTOR, 'div.progress-bar')
     _warning_cell_locator = (by.By.CSS_SELECTOR, 'td.warning')
+    _default_form_locator = (by.By.CSS_SELECTOR, 'div.modal-dialog')
     marker_name = 'marker'
     prev_marker_name = 'prev_marker'
 
@@ -83,6 +85,9 @@ class TableRegion(baseregion.BaseRegion):
 
     def _warning_cell_getter(self):
         return self.driver.find_element(*self._warning_cell_locator)
+
+    def _form_getter(self):
+        return self.driver.find_element(*self._default_form_locator)
 
     def __init__(self, driver, conf):
         self._default_src_locator = self._table_locator(self.__class__.name)
@@ -115,12 +120,13 @@ class TableRegion(baseregion.BaseRegion):
     def filter(self, value):
         self._set_search_field(value)
         self._click_search_btn()
+        self.driver.implicitly_wait(5)
 
     def set_filter_value(self, value):
-        search_menu = self._get_element(*self._search_option_locator)
-        search_menu.click()
-        item_locator = self._search_menu_value_locator(value)
-        search_menu.find_element(*item_locator).click()
+        self.wait_till_element_disappears(self._form_getter)
+        js_cmd = ("$('ul.dropdown-menu').find(\"a[data-select-value='%s']\")."
+                  "click();" % (html.escape(value)))
+        self.driver.execute_script(js_cmd)
 
     def get_row(self, column_name, text, exact_match=True):
         """Get row that contains specified text in specified column.
@@ -222,7 +228,13 @@ class TableRegion(baseregion.BaseRegion):
             lnk = self._get_element(*self._prev_locator)
             lnk.click()
 
-    def assert_definition(self, expected_table_definition, sorting=False):
+    def get_column_data(self, name_column='Name'):
+        return [row.cells[name_column].text for row in self.rows]
+
+    def assert_definition(self,
+                          expected_table_definition,
+                          sorting=False,
+                          name_column='Name'):
         """Checks that actual table is expected one.
 
         Items to compare: 'next' and 'prev' links, count of rows and names of
@@ -231,7 +243,7 @@ class TableRegion(baseregion.BaseRegion):
         :param sorting: boolean arg specifying whether to sort actual names
         :return:
         """
-        names = [row.cells['Name'].text for row in self.rows]
+        names = self.get_column_data(name_column)
         if sorting:
             names.sort()
         actual_table = {'Next': self.is_next_link_available(),

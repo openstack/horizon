@@ -292,6 +292,15 @@ class TabbedMenuRegion(baseregion.BaseRegion):
         self._get_elements(*self._tab_locator)[index].click()
 
 
+class WizardMenuRegion(baseregion.BaseRegion):
+
+    _step_locator = (by.By.CSS_SELECTOR, 'li > a')
+    _default_src_locator = (by.By.CSS_SELECTOR, 'div > .nav.nav-pills')
+
+    def switch_to(self, index=0):
+        self._get_elements(*self._step_locator)[index].click()
+
+
 class ProjectDropDownRegion(DropDownMenuRegion):
     _menu_items_locator = (
         by.By.CSS_SELECTOR, 'ul.context-selection li > a')
@@ -414,3 +423,30 @@ class MembershipMenuRegion(baseregion.BaseRegion):
         self._switch_member_roles(
             name, roles2remove, self.get_member_allocated_roles,
             allocated_members=allocated_members)
+
+
+class InstanceAvailableResourceMenuRegion(baseregion.BaseRegion):
+    _available_table_locator = (
+        by.By.CSS_SELECTOR,
+        'div.step:not(.ng-hide) div.transfer-available table')
+    _available_table_row_locator = (by.By.CSS_SELECTOR,
+                                    "tbody > tr.ng-scope:not(.detail-row)")
+    _available_table_column_locator = (by.By.TAG_NAME, "td")
+    _action_column_btn_locator = (by.By.CSS_SELECTOR,
+                                  "td.actions_column button")
+
+    def transfer_available_resource(self, resource_name):
+        available_table = self._get_element(*self._available_table_locator)
+        rows = available_table.find_elements(
+            *self._available_table_row_locator)
+        for row in rows:
+            cols = row.find_elements(*self._available_table_column_locator)
+            if len(cols) > 1 and cols[1].text.strip() in resource_name:
+                row_selector_btn = row.find_element(
+                    *self._action_column_btn_locator)
+                row_selector_btn.click()
+                break
+
+
+class InstanceFlavorMenuRegion(InstanceAvailableResourceMenuRegion):
+    _action_column_btn_locator = (by.By.CSS_SELECTOR, "td.action-col button")
