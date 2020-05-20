@@ -123,7 +123,7 @@ SeleniumGroup = [
         help='Timeout in seconds to wait for a page to become available'),
     cfg.StrOpt(
         'screenshots_directory',
-        default='integration_tests_screenshots',
+        default='test_reports',
         help='Output directory for screenshots'),
     cfg.BoolOpt(
         'maximize_browser',

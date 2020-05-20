@@ -224,9 +224,9 @@ class BaseTestCase(testtools.TestCase):
 
     @property
     def _test_report_dir(self):
-        report_dir = os.path.join(ROOT_PATH, 'test_reports',
-                                  '{}.{}'.format(self.__class__.__name__,
-                                                 self._testMethodName))
+        report_dir = os.path.join(
+            ROOT_PATH, self.CONFIG.selenium.screenshots_directory,
+            '{}.{}'.format(self.__class__.__name__, self._testMethodName))
         if not os.path.isdir(report_dir):
             os.makedirs(report_dir)
         return report_dir
