@@ -37,7 +37,7 @@ class Traces(generic.View):
 
     @utils.ajax()
     def get(self, request):
-        return api.list_traces(request)
+        return api.list_traces()
 
 
 @urls.register
@@ -46,4 +46,4 @@ class Trace(generic.View):
 
     @utils.ajax()
     def get(self, request, trace_id):
-        return api.get_trace(request, trace_id)
+        return api.get_trace(trace_id)

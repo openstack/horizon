@@ -15,9 +15,7 @@
 
 import contextlib
 import json
-from urllib.parse import urlparse
 
-from django.conf import settings
 from osprofiler import _utils as utils
 from osprofiler.drivers.base import get_driver as profiler_get_driver
 from osprofiler import notifier
@@ -50,35 +48,14 @@ def traced(request, name, info=None):
         yield
 
 
-def _get_engine_kwargs(request, connection_str):
-    from openstack_dashboard.api import base
-    engines_kwargs = {
-        # NOTE(tsufiev): actually Horizon doesn't use ceilometer backend (too
-        # slow for UI), but since osprofiler still supports it (due to API
-        # deprecation cycle limitations), Horizon also should support this
-        # option
-        'ceilometer': lambda req: {
-            'endpoint': base.url_for(req, 'metering'),
-            'insecure': settings.OPENSTACK_SSL_NO_VERIFY,
-            'cacert': settings.OPENSTACK_SSL_CACERT,
-            'token': (lambda: req.user.token.id),
-            'ceilometer_api_version': '2'
-        }
-    }
-
-    engine = urlparse(connection_str).scheme
-    return engines_kwargs.get(engine, lambda req: {})(request)
-
-
-def _get_engine(request):
+def _get_engine():
     connection_str = horizon_settings.get_dict_config(
         'OPENSTACK_PROFILER', 'receiver_connection_string')
-    kwargs = _get_engine_kwargs(request, connection_str)
-    return profiler_get_driver(connection_str, **kwargs)
+    return profiler_get_driver(connection_str)
 
 
-def list_traces(request):
-    engine = _get_engine(request)
+def list_traces():
+    engine = _get_engine()
     fields = ['base_id', 'timestamp', 'info.request.path', 'info']
     traces = engine.list_traces(fields)
     return [{'id': trace['base_id'],
@@ -86,7 +63,7 @@ def list_traces(request):
              'origin': trace['info']['request']['path']} for trace in traces]
 
 
-def get_trace(request, trace_id):
+def get_trace(trace_id):
     def rec(_data, level=0):
         _data['level'] = level
         _data['is_leaf'] = not _data['children']
@@ -103,7 +80,7 @@ def get_trace(request, trace_id):
                 finished = child_finished
         return _data, finished
 
-    engine = _get_engine(request)
+    engine = _get_engine()
     trace = engine.get_report(trace_id)
     data, max_finished = rec(trace)
     data['info']['max_finished'] = max_finished
