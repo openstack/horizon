@@ -1,5 +1,7 @@
-# Uses envpython and toxinidir from tox run to construct a test command
+ROOT=$1
 
-test_results="--junitxml=${1}/test_reports/selenium_test_results.xml --html=${1}/test_reports/selenium_test_results.html"
+report_args="--junitxml=$ROOT/test_reports/selenium_test_results.xml"
+report_args+=" --html=$ROOT/test_reports/selenium_test_results.html"
+report_args+=" --self-contained-html"
 
-pytest ${1}/openstack_dashboard/ --ds=openstack_dashboard.test.settings -v -m selenium $test_results --self-contained-html
+pytest $ROOT/openstack_dashboard/ --ds=openstack_dashboard.test.settings -v -m selenium $report_args

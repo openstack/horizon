@@ -1,8 +1,7 @@
-# Uses envpython and toxinidir from tox run to construct a test command
-testcommand="pytest"
+root=$1
 posargs="${@:2}"
 
-tagarg="not selenium and not integration and not plugin_test"
+report_dir=$root/test_reports
 
 # Attempt to identify if any of the arguments passed from tox is a test subset
 if [ -n "$posargs" ]; then
@@ -14,37 +13,70 @@ if [ -n "$posargs" ]; then
   done
 fi
 
-horizon_test_results="--junitxml=${1}/test_reports/horizon_test_results.xml --html=${1}/test_reports/horizon_test_results.html"
-dashboard_test_results="--junitxml=${1}/test_reports/openstack_dashboard_test_results.xml --html=${1}/test_reports/openstack_dashboard_test_results.html"
-auth_test_results="--junitxml=${1}/test_reports/openstack_auth_test_results.xml --html=${1}/test_reports/openstack_auth_test_results.html"
-plugins_test_results="--junitxml=${1}/test_reports/plugin_test_results.xml --html=${1}/test_reports/plugin_test_results.html"
-single_html="--self-contained-html"
+
+function run_test {
+  local project=$1
+  local tag
+  local target
+  local settings_module
+  local report_args
+
+  tag="not selenium and not integration and not plugin_test"
+
+  case "$project" in
+    horizon)
+      settings_module="horizon.test.settings"
+      ;;
+    openstack_dashboard)
+      settings_module="openstack_dashboard.test.settings"
+      ;;
+    openstack_auth)
+      settings_module="openstack_auth.tests.settings"
+      ;;
+    plugin|plugin-test|plugin_test)
+      project="plugin"
+      tag="plugin_test"
+      target="$root/openstack_dashboard/test/test_plugins"
+      settings_module="openstack_dashboard.test.settings"
+      ;;
+    *)
+      # Declare error by returning 1 which usually means error in bash
+      return 1
+  esac
+
+  if [ -z "$target" ]; then
+    if [ -n "$subset" ]; then
+      target="$subset"
+    else
+      target="$root/$project"
+    fi
+  fi
+
+  report_args="--junitxml=$report_dir/${project}_test_results.xml"
+  report_args+=" --html=$report_dir/${project}_test_results.html"
+  report_args+=" --self-contained-html"
+
+  pytest $target --ds=$settings_module -v -m "$tag" $report_args
+  return $?
+}
 
 # If we are running a test subset, supply the correct settings file.
 # If not, simply run the entire test suite.
 if [ -n "$subset" ]; then
   project="${subset%%/*}"
-  if [ $project == "horizon" ]; then
-    $testcommand $posargs --ds=horizon.test.settings -v -m "$tagarg" $horizon_test_results $single_html
-  elif [ $project == "openstack_dashboard" ]; then
-    $testcommand $posargs --ds=openstack_dashboard.test.settings -v -m "$tagarg" $dashboard_test_results $single_html
-  elif [ $project == "openstack_auth" ]; then
-    $testcommand $posargs --ds=openstack_auth.tests.settings -v -m "$tagarg" $auth_test_results $single_html
-  elif [ $project == "plugin-test" ]; then
-    $testcommand ${1}/openstack_dashboard/test/test_plugins --ds=openstack_dashboard.test.settings -v -m plugin_test $plugins_test_results $single_html
-  fi
+  run_test $project
+  exit $?
 else
-  $testcommand ${1}/horizon/ --ds=horizon.test.settings -v -m "$tagarg" $horizon_test_results $single_html
-  horizon_tests=$?
-  $testcommand ${1}/openstack_dashboard/ --ds=openstack_dashboard.test.settings -v -m "$tagarg" $dashboard_test_results $single_html
-  openstack_dashboard_tests=$?
-  $testcommand ${1}/openstack_auth/tests/ --ds=openstack_auth.tests.settings -v -m "$tagarg" $auth_test_results $single_html
-  auth_tests=$?
-  $testcommand ${1}/openstack_dashboard/ --ds=openstack_dashboard.test.settings -v -m plugin_test $plugins_test_results $single_html
-  plugin_tests=$?
+  results=()
+  for project in horizon openstack_dashboard openstack_auth plugin; do
+    run_test $project
+    results+=($?)
+  done
+
   # we have to tell tox if either of these test runs failed
-  if [[ $horizon_tests != 0 || $openstack_dashboard_tests != 0 || \
-    $auth_tests != 0 || $plugin_tests != 0 ]]; then
-    exit 1;
-  fi
+  for r in "${results[@]}"; do
+    if [ $r != 0 ]; then
+      exit 1
+    fi
+  done
 fi
