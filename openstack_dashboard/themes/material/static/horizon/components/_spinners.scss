@@ -20,11 +20,17 @@
 
     .hz-spinner-icon-up {
       @extend .mdi-plus;
+      &:before {
+        content: "\F415";
+      }
     }
 
     .hz-spinner-icon-down {
       @extend .mdi-minus;
       padding-right: $padding-xs-horizontal;
+      &:before {
+        content: "\F374";
+      }
     }
 
     &-container {
