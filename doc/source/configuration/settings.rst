@@ -642,7 +642,7 @@ in that dictionary are:
   feature from older versions of osprofiler when OpenStack components could use
   oslo.messaging for notifications and the trace client used ceilometer as a
   receiver backend. By default Horizon uses the same URL pointing to a MongoDB
-  cluster for both purposes, since ceilometer was too slow for using with UI.
+  cluster for both purposes.
   Example: ``"receiver_connection_string": "mongodb://%s" % OPENSTACK_HOST``.
 
 .. _osprofiler documentation: https://docs.openstack.org/osprofiler/latest/user/integration.html#how-to-initialize-profiler-to-get-one-trace-across-all-services
