@@ -55,7 +55,7 @@ class CreateView(workflows.WorkflowView):
         network = self.get_network()
         return {"network_id": self.kwargs['network_id'],
                 "network_name": network.name,
-                "target_tenant_id": network.tenant_id}
+                "target_tenant_id": self.request.user.project_id}
 
 
 class DetailView(tabs.TabbedTableView):
@@ -175,7 +175,7 @@ class UpdateView(workflows.WorkflowView):
                    'name': port['name'],
                    'admin_state': port['admin_state_up'],
                    'mac_address': port['mac_address'],
-                   'target_tenant_id': port['tenant_id']}
+                   "target_tenant_id": self.request.user.project_id}
         if port.get('binding__vnic_type'):
             initial['binding__vnic_type'] = port['binding__vnic_type']
         try:
