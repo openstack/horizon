@@ -72,8 +72,8 @@ extensions = [
 ]
 
 # openstackdocstheme options
-openstackdocs_repo__name = 'openstack/horizon'
-openstackdocs_repo_bug_project = 'horizon'
+openstackdocs_repo_name = 'openstack/horizon'
+openstackdocs_bug_project = 'horizon'
 openstackdocs_bug_tag = 'documentation'
 openstackdocs_pdf_link = True
 
@@ -140,7 +140,7 @@ exclude_patterns = ['**/#*', '**~', '**/#*#']
 show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'native'
 
 # A list of ignored prefixes for module index sorting.
 modindex_common_prefix = ['horizon.', 'openstack_dashboard.']
