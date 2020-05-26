@@ -77,7 +77,8 @@ class Service(base.APIDictWrapper):
         super(Service, self).__init__(service, *args, **kwargs)
         self.public_url = base.get_url_for_service(service, region,
                                                    'publicURL')
-        self.url = base.get_url_for_service(service, region, 'internalURL')
+        self.url = base.get_url_for_service(service, region,
+                                            settings.OPENSTACK_ENDPOINT_TYPE)
         if self.url:
             self.host = parse.urlparse(self.url).hostname
         else:
