@@ -24,7 +24,11 @@
       {% endif %}
   {% endblock table_breadcrumb %}
   {% if table.footer and rows %}
-    {% include "horizon/common/_data_table_pagination.html" %}
+    {% if table.number_of_pages is defined %}
+      {% include "horizon/common/_data_table_pagination.html" %}
+    {% else %}
+      {% include "horizon/common/_data_table_pagination_with_pages.html" %}
+    {% endif %}
   {% endif %}
   {% block table_columns %}
       {% if not table.is_browser_table %}
@@ -72,7 +76,11 @@
         {% endfor %}
       </tr>
       {% endif %}
-      {% include "horizon/common/_data_table_pagination.html" %}
+      {% if table.number_of_pages is defined %}
+        {% include "horizon/common/_data_table_pagination.html" %}
+      {% else %}
+        {% include "horizon/common/_data_table_pagination_with_pages.html" %}
+      {% endif %}
     </tfoot>
     {% endif %}
   {% endblock table_footer %}

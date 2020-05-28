@@ -178,11 +178,19 @@ class BackupsTable(tables.DataTable):
                               verbose_name=_("Snapshot"),
                               link="horizon:project:snapshots:detail")
 
+    def current_page(self):
+        return self._meta.current_page()
+
+    def number_of_pages(self):
+        return self._meta.number_of_pages()
+
+    def get_pagination_string(self):
+        return '?%s=' % self._meta.pagination_param
+
     class Meta(object):
         name = "volume_backups"
         verbose_name = _("Volume Backups")
-        pagination_param = 'backup_marker'
-        prev_pagination_param = 'prev_backup_marker'
+        pagination_param = 'page'
         status_columns = ("status",)
         row_class = UpdateRow
         table_actions = (DeleteBackup,)

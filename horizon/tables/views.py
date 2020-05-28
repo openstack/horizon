@@ -389,3 +389,47 @@ class PagedTableMixin(object):
             if marker:
                 return marker, "desc"
             return None, "desc"
+
+
+class PagedTableWithPageMenu(object):
+    def __init__(self, *args, **kwargs):
+        super(PagedTableWithPageMenu, self).__init__(*args, **kwargs)
+        self._current_page = 1
+        self._number_of_pages = 0
+        self._total_of_entries = 0
+        self._page_size = 0
+
+    def handle_table(self, table):
+        name = table.name
+        self._tables[name]._meta.current_page = self.current_page
+        self._tables[name]._meta.number_of_pages = self.number_of_pages
+        return super(PagedTableWithPageMenu, self).handle_table(table)
+
+    def has_prev_data(self, table):
+        return self._current_page > 1
+
+    def has_more_data(self, table):
+        return self._current_page < self._number_of_pages
+
+    def current_page(self, table=None):
+        return self._current_page
+
+    def number_of_pages(self, table=None):
+        return self._number_of_pages
+
+    def current_offset(self, table):
+        return self._current_page * self._page_size + 1
+
+    def get_page_param(self, table):
+        try:
+            meta = self.table_class._meta
+        except AttributeError:
+            meta = self.table_classes[0]._meta
+
+        return meta.pagination_param
+
+    def _get_page_number(self):
+        page_number = self.request.GET.get(self.get_page_param(None), None)
+        if page_number:
+            return int(page_number)
+        return 1
