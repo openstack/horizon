@@ -148,7 +148,7 @@ InstancesGroup = [
                default='nova',
                help='Availability zone to be selected for launch instances'),
     cfg.StrOpt('image_name',
-               default='cirros-0.4.0-x86_64-disk (12.1 MB)',
+               default='cirros-0.5.1-x86_64-disk (15.6 MB)',
                help='Boot Source to be selected for launch Instances'),
     cfg.StrOpt('flavor',
                default='m1.tiny',
