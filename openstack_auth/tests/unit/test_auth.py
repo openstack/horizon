@@ -376,7 +376,7 @@ class OpenStackAuthTestsV3(OpenStackAuthTestsMixin,
     def test_exception(self):
         user = self.data.user
         form_data = self.get_form_data(user)
-        exc = keystone_exceptions.ClientException(500)
+        exc = keystone_exceptions.ClientException('error 500')
         self._mock_client_password_auth_failure(user.name, user.password, exc)
         self.mox.ReplayAll()
 
