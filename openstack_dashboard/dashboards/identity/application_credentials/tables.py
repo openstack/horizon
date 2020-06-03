@@ -59,8 +59,9 @@ class ApplicationCredentialFilterAction(tables.FilterAction):
     filter_choices = (("name", _("Application Credential Name ="), True))
 
 
-def _role_names(obj):
-    return [role['name'].encode('utf-8') for role in obj.roles]
+def _render_roles(obj):
+    names = [role['name'] for role in obj.roles]
+    return ', '.join(names)
 
 
 class ApplicationCredentialsTable(tables.DataTable):
@@ -73,7 +74,7 @@ class ApplicationCredentialsTable(tables.DataTable):
     expires_at = tables.Column('expires_at',
                                verbose_name=_('Expiration'))
     id = tables.Column('id', verbose_name=_('ID'))
-    roles = tables.Column(_role_names, verbose_name=_('Roles'))
+    roles = tables.Column(_render_roles, verbose_name=_('Roles'))
 
     class Meta(object):
         name = "application_credentials"
