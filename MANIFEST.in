@@ -2,6 +2,7 @@ recursive-include doc *.py *.rst *.scss *.js *.html *.conf *.jpg *.gif *.png
 recursive-include horizon *.html *.scss *.js *.csv *.template *.tmpl *.mo *.po
 recursive-include openstack_dashboard *.html *.js *.scss *.mo *.po *.example *.eot *.svg *.ttf *.woff *.png *.ico *.wsgi *.gif *.csv *.template
 recursive-include tools *.py *.sh
+recursive-include openstack_dashboard/conf *
 
 include AUTHORS
 include ChangeLog
