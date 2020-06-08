@@ -16,10 +16,12 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tabs
 
 from openstack_dashboard.dashboards.project.snapshots \
-    import tabs as overview_tab
+    import tables as snap_messages_tables
+from openstack_dashboard.dashboards.project.snapshots \
+    import tabs as project_tab
 
 
-class OverviewTab(overview_tab.OverviewTab):
+class OverviewTab(project_tab.OverviewTab):
     name = _("Overview")
     slug = "overview"
     template_name = ("project/snapshots/_detail_overview.html")
@@ -28,6 +30,10 @@ class OverviewTab(overview_tab.OverviewTab):
         return reverse('horizon:admin:snapshots:index')
 
 
+class SnapshotMessagesTab(project_tab.SnapshotMessagesTab):
+    table_classes = (snap_messages_tables.SnapshotMessagesTable,)
+
+
 class SnapshotDetailsTabs(tabs.TabGroup):
     slug = "snapshot_details"
-    tabs = (OverviewTab,)
+    tabs = (OverviewTab, SnapshotMessagesTab)

@@ -105,22 +105,4 @@
       <dd>{{ volume.transfer.created_at|parse_date }}</dd>
   </dl>
 {% endif %}
-
-{% if volume.messages %}
-  <h4>{% trans "Messages" %}</h4>
-  <hr class="header_rule">
-  <div>
-  {% for m in volume.messages %}
-    <div class="alert
-      {% if m.message_level == 'ERROR' %}alert-danger
-      {% elif m.message_level == 'WARNING' %}alert-warning
-      {% elif m.message_level == 'INFO' %}alert-info
-      {% else %}alert-success
-      {% endif %}
-    ">
-      {{ m.user_message }}
-    </div>
-  {% endfor %}
-  </div>
-{% endif %}
 </div>

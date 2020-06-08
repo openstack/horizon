@@ -380,7 +380,7 @@ class VolumeTests(test.BaseAdminViewTests):
     @test.create_mocks({
         api.nova: ['server_get'],
         api.cinder: ['tenant_absolute_limits', 'volume_get',
-                     'volume_snapshot_list', 'message_list']})
+                     'volume_snapshot_list']})
     def test_detail_view_snapshot_tab(self):
         volume = self.cinder_volumes.first()
         server = self.servers.first()
@@ -394,7 +394,6 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_tenant_absolute_limits.return_value = volume_limits
         self.mock_volume_get.return_value = volume
         self.mock_volume_snapshot_list.return_value = this_volume_snapshots
-        self.mock_message_list.return_value = []
 
         url = (reverse(DETAIL_URL, args=[volume.id]) + '?' +
                '='.join(['tab', 'volume_details__snapshots_tab']))
@@ -414,9 +413,3 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(),
             search_opts={'volume_id': volume.id, 'all_tenants': True})
-        self.mock_message_list.assert_called_once_with(
-            test.IsHttpRequest(),
-            {
-                'resource_uuid': volume.id,
-                'resource_type': 'volume'
-            })

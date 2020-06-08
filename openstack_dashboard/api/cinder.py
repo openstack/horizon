@@ -187,6 +187,10 @@ class VolumePool(base.APIResourceWrapper):
               'storage_protocol', 'extra_specs']
 
 
+class Message(base.APIResourceWrapper):
+    _attrs = ['id', 'event_id', 'created_at', 'resource_type', 'user_message']
+
+
 class Group(base.APIResourceWrapper):
     _attrs = ['id', 'status', 'availability_zone', 'created_at', 'name',
               'description', 'group_type', 'volume_types',
