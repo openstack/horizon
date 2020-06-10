@@ -624,8 +624,14 @@ class ConfirmResize(policy.PolicyTargetMixin, tables.Action):
     def allowed(self, request, instance):
         return instance.status == 'VERIFY_RESIZE'
 
-    def single(self, table, request, instance):
-        api.nova.server_confirm_resize(request, instance)
+    def single(self, table, request, obj_id):
+        instance = table.get_object_by_id(obj_id)
+        try:
+            api.nova.server_confirm_resize(request, instance.id)
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to confirm resize instance "%s".')
+                              % (instance.name or instance.id))
         return shortcuts.redirect(request.get_full_path())
 
 
@@ -638,8 +644,14 @@ class RevertResize(policy.PolicyTargetMixin, tables.Action):
     def allowed(self, request, instance):
         return instance.status == 'VERIFY_RESIZE'
 
-    def single(self, table, request, instance):
-        api.nova.server_revert_resize(request, instance)
+    def single(self, table, request, obj_id):
+        instance = table.get_object_by_id(obj_id)
+        try:
+            api.nova.server_revert_resize(request, instance.id)
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to revert resize instance "%s".')
+                              % (instance.name or instance.id))
 
 
 class RebuildInstance(policy.PolicyTargetMixin, tables.LinkAction):
