@@ -32,6 +32,43 @@
     vars:
       tox_envlist: selenium-headless
 
+- job:
+    name: horizon-nodejs4-run-lint
+    parent: nodejs-run-lint
+    description: |
+      Run lint using Node 4 for horizon plugins.
+    vars:
+      node_version: 4
+    nodeset: ubuntu-xenial
+    pre-run: playbooks/horizon-nodejs/pre.yaml
+    required-projects:
+      openstack/horizon
+
+- job:
+    name: horizon-nodejs4-run-test
+    parent: nodejs-run-test-browser
+    description: |
+      Run test using Node 4 for horizon plugins.
+    vars:
+      node_version: 4
+    nodeset: ubuntu-xenial
+    pre-run: playbooks/horizon-nodejs/pre.yaml
+    required-projects:
+      openstack/horizon
+
+- project-template:
+    name: horizon-nodejs4-jobs
+    description: |
+      Run lint and test jobs using Node 4 for horizon plugins.
+    check:
+      jobs:
+        - horizon-nodejs4-run-lint
+        - horizon-nodejs4-run-test
+    gate:
+      jobs:
+        - horizon-nodejs4-run-lint
+        - horizon-nodejs4-run-test
+
 - project:
     templates:
       - openstack-python-jobs
@@ -40,7 +77,7 @@
       - periodic-stable-jobs
       - check-requirements
       - release-notes-jobs
-      - nodejs4-jobs
+      - horizon-nodejs4-jobs
     check:
       jobs:
         - horizon-openstack-tox-py27dj110
