@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    # package.json needs to run 'tox' as command, ensure that it's
+    # installed and can be used globally.
+    - role: ensure-tox
+      ensure_global_symlinks: True
