@@ -102,6 +102,7 @@
     vars:
       node_version: 4
     nodeset: ubuntu-xenial
+    pre-run: playbooks/horizon-nodejs/pre.yaml
     required-projects:
       openstack/horizon
 
@@ -113,6 +114,7 @@
     vars:
       node_version: 4
     nodeset: ubuntu-xenial
+    pre-run: playbooks/horizon-nodejs/pre.yaml
     required-projects:
       openstack/horizon
 
@@ -124,6 +126,7 @@
     vars:
       node_version: 10
     nodeset: ubuntu-bionic
+    pre-run: playbooks/horizon-nodejs/pre.yaml
     required-projects:
       openstack/horizon
 
@@ -135,6 +138,7 @@
     vars:
       node_version: 10
     nodeset: ubuntu-bionic
+    pre-run: playbooks/horizon-nodejs/pre.yaml
     required-projects:
       openstack/horizon
 
