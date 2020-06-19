@@ -118,6 +118,7 @@
     vars:
       node_version: 10
     nodeset: ubuntu-bionic
+    pre-run: playbooks/horizon-nodejs/pre.yaml
     required-projects:
       openstack/horizon
 
@@ -128,6 +129,7 @@
       Run test using Node 10 for horizon plugins.
     vars:
       node_version: 10
+    pre-run: playbooks/horizon-nodejs/pre.yaml
     nodeset: ubuntu-bionic
     required-projects:
       openstack/horizon
