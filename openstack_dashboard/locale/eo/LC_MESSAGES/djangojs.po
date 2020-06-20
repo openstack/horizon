@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-03-29 00:45+0000\n"
+"POT-Creation-Date: 2020-06-20 06:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-30 11:50+0000\n"
+"PO-Revision-Date: 2020-06-19 09:58+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -2594,6 +2594,9 @@ msgstr "Statuso"
 msgid "Status: %s"
 msgstr "Statuso: %s"
 
+msgid "Storage Policy"
+msgstr "Konservada Regularo"
+
 msgid "Striped"
 msgstr "Striita"
 
@@ -3246,6 +3249,9 @@ msgstr "Neeblas redakti volumo tipo metadatumon."
 
 msgid "Unable to fetch the groups."
 msgstr "Neeblas venigi la grupojn."
+
+msgid "Unable to fetch the policy details."
+msgstr "Neeblas ricevi regularajn detajlojn."
 
 msgid "Unable to fetch the service catalog."
 msgstr "Neeblas venigi la servo katalogon."
