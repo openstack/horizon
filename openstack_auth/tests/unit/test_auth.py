@@ -1055,7 +1055,8 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         form_data = self.get_form_data(user)
         url = reverse('login')
 
-        mock_get_access.side_effect = keystone_exceptions.ClientException(500)
+        mock_get_access.side_effect = \
+            keystone_exceptions.ClientException('error 500')
 
         # GET the page to set the test cookie.
         response = self.client.get(url, form_data)
