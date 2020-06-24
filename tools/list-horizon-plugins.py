@@ -28,7 +28,6 @@ import yaml
 # - the repository name of the dashboard.
 EXTRA_PLUGINS = {
     'networking-bgpvpn': 'networking-bgpvpn',
-    'mistral': 'mistral-dashboard',
 }
 
 
