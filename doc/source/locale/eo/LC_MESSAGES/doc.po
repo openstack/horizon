@@ -1,13 +1,14 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"POT-Creation-Date: 2020-06-23 22:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-07-13 07:06+0000\n"
+"PO-Revision-Date: 2020-06-19 10:14+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -112,6 +113,9 @@ msgid ""
 msgstr ""
 "Uzata en teksto por uzantoj anstataŭ la termino \"Tenanto\", kiu estas la "
 "vorto de Keystone."
+
+msgid "User Documentation"
+msgstr "Uzanto Dokumentado"
 
 msgid "Using Horizon"
 msgstr "Uzanta Horizon"
