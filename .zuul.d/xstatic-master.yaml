@@ -1,0 +1,37 @@
+- job:
+    name: horizon-integration-tests-xstatic-master
+    parent: horizon-integration-tests
+    required-projects: &xstatic-projects
+      - openstack/horizon
+      - openstack/xstatic-angular
+      - openstack/xstatic-angular-bootstrap
+      - openstack/xstatic-angular-gettext
+      - openstack/xstatic-angular-lrdragndrop
+      - openstack/xstatic-angular-smart-table
+      - openstack/xstatic-bootstrap-datepicker
+      - openstack/xstatic-bootstrap-scss
+      - openstack/xstatic-bootswatch
+      - openstack/xstatic-d3
+      - openstack/xstatic-font-awesome
+      - openstack/xstatic-hogan
+      - openstack/xstatic-jasmine
+      - openstack/xstatic-jquery-migrate
+      - openstack/xstatic-jquery.quicksearch
+      - openstack/xstatic-jquery.tablesorter
+      - openstack/xstatic-jsencrypt
+      - openstack/xstatic-mdi
+      - openstack/xstatic-rickshaw
+      - openstack/xstatic-roboto-fontface
+      - openstack/xstatic-spin
+      - x/xstatic-angular-fileupload
+
+- job:
+    name: horizon-tox-py36-xstatic-master
+    parent: openstack-tox-py36
+    required-projects: *xstatic-projects
+
+- job:
+    name: horizon-nodejs10-run-test-xstatic-master
+    parent: horizon-nodejs10-run-test
+    required-projects: *xstatic-projects
+    pre-run: playbooks/npm-test-xstatic-master/pre.yaml

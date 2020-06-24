@@ -1,0 +1,46 @@
+- job:
+    name: horizon-tox-python3-django
+    abstract: true
+    parent: horizon-openstack-tox-base
+    description: |
+      Run tox with different Django version.
+
+      .. zuul:jobvar: tox_envlist
+
+         Which tox environment to run
+
+      .. zuul:jobvar: django_version
+
+         Django version to be used.
+         pip version specifier like ``>=1.11,<2.0`` should be passed.
+
+    pre-run: playbooks/horizon-tox-django/pre.yaml
+    run: playbooks/horizon-tox-django/run.yaml
+    vars:
+      tox_envlist: py36
+    required-projects:
+      - name: openstack/horizon
+
+- job:
+    name: horizon-tox-python3-django22
+    parent: horizon-tox-python3-django
+    vars:
+      django_version: '>=2.2,<3.0'
+
+- project-template:
+    name: horizon-non-primary-django-jobs
+    description: |
+      Run unit tests with non-primary Django versions.
+    check:
+      jobs:
+        # Currently we only support Django 2.2, so there is no need
+        # to run tests with different versions of Django.
+        # We specify a job in openstack-python3-victoria-jobs(-horizon)
+        # to keep this project template as it is used in horizon plugins.
+        - openstack-tox-py38
+        # NOTE: We keep it as a template even though it is not used now.
+        # - horizon-tox-python3-django22
+    gate:
+      jobs:
+        - openstack-tox-py38
+        # - horizon-tox-python3-django22
