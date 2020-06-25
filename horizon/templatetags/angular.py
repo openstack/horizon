@@ -15,10 +15,10 @@
 
 from compressor.signals import post_compress
 from django.contrib.staticfiles import finders
-from django.core.cache import caches
-from django.core.cache.utils import make_template_fragment_key
 from django.dispatch import receiver
 from django import template
+
+from horizon import cache
 
 register = template.Library()
 
@@ -37,21 +37,8 @@ def update_angular_template_hash(sender, **kwargs):
     compressed = context['compressed']  # the compressed content
     compressed_name = compressed['name']  # name of the compressed content
     if compressed_name == 'angular_template_cache_preloads':
-        # The compressor has modified the angular template cache preloads
-        # which are cached in the 'default' Django cache. Fetch that cache.
-        cache = caches['default']
-
-        # generate the same key as used in _scripts.html when caching the
-        # preloads
         theme = context['THEME']  # current theme being compressed
-        key = make_template_fragment_key(
-            "angular",
-            ['template_cache_preloads', theme]
-        )
-
-        # if template preloads have been cached, clear them
-        if cache.get(key):
-            cache.delete(key)
+        cache.cleanup_angular_template_cache(theme)
 
 
 @register.filter(name='angular_escapes')
