@@ -1,7 +1,7 @@
 Plugin,Repository,Bug Tracker
+adjutant-ui,:opendev-repo:`openstack/adjutant-ui`,:storyboard:`openstack/adjutant-ui`
 blazar-dashboard,:opendev-repo:`openstack/blazar-dashboard`,:launchpad:`blazar`
 cloudkitty-dashboard,:opendev-repo:`openstack/cloudkitty-dashboard`,:storyboard:`openstack/cloudkitty-dashboard`
-congress-dashboard,:opendev-repo:`openstack/congress-dashboard`,:launchpad:`congress`
 designate-dashboard,:opendev-repo:`openstack/designate-dashboard`,:launchpad:`designate-dashboard`
 freezer-web-ui,:opendev-repo:`openstack/freezer-web-ui`,:storyboard:`openstack/freezer-web-ui`
 heat-dashboard,:opendev-repo:`openstack/heat-dashboard`,:storyboard:`openstack/heat-dashboard`
@@ -14,7 +14,6 @@ mistral-dashboard,:opendev-repo:`openstack/mistral-dashboard`,:launchpad:`mistra
 monasca-ui,:opendev-repo:`openstack/monasca-ui`,:launchpad:`monasca`
 murano-dashboard,:opendev-repo:`openstack/murano-dashboard`,:launchpad:`murano`
 networking-bgpvpn,:opendev-repo:`openstack/networking-bgpvpn`,:launchpad:`bgpvpn`
-neutron-fwaas-dashboard,:opendev-repo:`openstack/neutron-fwaas-dashboard`,:launchpad:`neutron-fwaas-dashboard`
 neutron-vpnaas-dashboard,:opendev-repo:`openstack/neutron-vpnaas-dashboard`,:launchpad:`neutron-vpnaas-dashboard`
 octavia-dashboard,:opendev-repo:`openstack/octavia-dashboard`,:storyboard:`openstack/octavia-dashboard`
 qinling-dashboard,:opendev-repo:`openstack/qinling-dashboard`,:storyboard:`openstack/qinling-dashboard`
