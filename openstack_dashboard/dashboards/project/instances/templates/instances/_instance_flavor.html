@@ -12,7 +12,7 @@ $(function () {
   var $flavor = $("#flavor_details_{{ id }}");
   // NOTE(tsufiev): check this in case this template is used in network topology -> delete instance
   if ( $flavor.popover ) {
-    $flavor.popover({html:true, trigger: "hover"});
+    $flavor.popover({html:true,  sanitize: false, trigger: "hover"});
   }
 });
 </script>
