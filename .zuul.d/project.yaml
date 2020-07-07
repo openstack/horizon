@@ -1,6 +1,7 @@
 - project:
     templates:
       - check-requirements
+      - horizon-cross-jobs
       - horizon-nodejs10-jobs
       - horizon-non-primary-django-jobs
       - openstack-lower-constraints-jobs
