@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 13:47+0000\n"
+"POT-Creation-Date: 2020-07-07 08:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-04-25 08:17+0000\n"
+"PO-Revision-Date: 2020-07-11 10:11+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -89,8 +89,14 @@ msgstr "15.1.1"
 msgid "15.2.0"
 msgstr "15.2.0"
 
+msgid "15.3.0"
+msgstr "15.3.0"
+
 msgid "16.0.0"
 msgstr "16.0.0"
+
+msgid "16.2.0"
+msgstr "16.2.0"
 
 msgid "17.0.0"
 msgstr "17.0.0"
@@ -2709,6 +2715,9 @@ msgstr "Echtzeit AJAX Aktualisierung für Instanzen in Übergangszuständen."
 msgid "Realtime AJAX updating for volumes in transition states."
 msgstr "Echtzeit AJAX-Aktualisierung für Datenträger im Übergangszustand."
 
+msgid "Release Notes Howto"
+msgstr "Releasenotes Erstellung"
+
 msgid "Release Overview"
 msgstr "Release Übersicht"
 
@@ -3974,6 +3983,9 @@ msgstr ""
 "die APIs nativ keine Bulk-Deletion unterstützen und folglich muss Horizon "
 "Anforderungen senden, um jede Ressource einzeln hinter den Kulissen zu "
 "löschen."
+
+msgid "Ussuri Series Release Notes"
+msgstr "Ussuri Serie Releasenotes"
 
 msgid "VPN as a Service."
 msgstr "VPN as a Service."
