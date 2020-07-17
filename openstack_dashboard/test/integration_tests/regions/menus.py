@@ -441,12 +441,18 @@ class InstanceAvailableResourceMenuRegion(baseregion.BaseRegion):
             *self._available_table_row_locator)
         for row in rows:
             cols = row.find_elements(*self._available_table_column_locator)
-            if len(cols) > 1 and cols[1].text.strip() in resource_name:
+            if len(cols) > 1 and self._get_column_text(cols) in resource_name:
                 row_selector_btn = row.find_element(
                     *self._action_column_btn_locator)
                 row_selector_btn.click()
                 break
 
+    def _get_column_text(self, cols):
+        return cols[2].text.strip()
+
 
 class InstanceFlavorMenuRegion(InstanceAvailableResourceMenuRegion):
     _action_column_btn_locator = (by.By.CSS_SELECTOR, "td.action-col button")
+
+    def _get_column_text(self, cols):
+        return cols[1].text.strip()
