@@ -9,8 +9,13 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import pytest
+
+from openstack_dashboard.test.integration_tests import config
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
+
+CONFIG = config.get_config()
 
 
 class TestVolumeSnapshotsBasic(helpers.TestCase):
@@ -214,18 +219,7 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
 
         self.addCleanup(cleanup)
 
-    def test_create_volume_from_snapshot(self):
-        """Test checks possibility to create volume from snapshot
-
-        Steps:
-        1. Login to Horizon Dashboard as regular user
-        2. Navigate to Project -> Volumes -> Volumes page
-        3. Create snapshot for existed volume
-        4. Create new volume from snapshot
-        5. Check the volume is created and has 'Available' status
-        6. Delete volume snapshot
-        7. Delete volume
-        """
+    def create_volume_from_snapshot(self):
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_snapshot_page = volumes_page.create_volume_snapshot(
             self.VOLUME_NAME, self.VOLUME_SNAPSHOT_NAME)
@@ -239,7 +233,9 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
             self.VOLUME_SNAPSHOT_NAME, new_volume)
         self.assertTrue(volumes_page.is_volume_present(new_volume))
         self.assertTrue(volumes_page.is_volume_status(new_volume, 'Available'))
+        return new_volume
 
+    def delete_snapshot(self):
         volumes_snapshot_page = self.volumes_snapshot_page
         volumes_snapshot_page.delete_volume_snapshot(self.VOLUME_SNAPSHOT_NAME)
         self.assertTrue(
@@ -249,9 +245,47 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
         self.assertTrue(volumes_snapshot_page.is_volume_snapshot_deleted(
             self.VOLUME_SNAPSHOT_NAME))
 
+    def delete_volume(self, new_volume):
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.delete_volume(new_volume)
         self.assertTrue(
             volumes_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(volumes_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(volumes_page.is_volume_deleted(new_volume))
+
+    @pytest.mark.skipif(
+        not CONFIG.volume.allow_delete_snapshot_before_volume,
+        reason="Skipped due to allow_delete_snapshot_before_volume=False")
+    def test_create_volume_from_snapshot(self):
+        """Test checks possibility to create volume from snapshot
+
+        Steps:
+        1. Login to Horizon Dashboard as regular user
+        2. Navigate to Project -> Volumes -> Volumes page
+        3. Create snapshot for existed volume
+        4. Create new volume from snapshot
+        5. Check the volume is created and has 'Available' status
+        6. Delete volume snapshot
+        7. Delete volume
+        """
+        new_volume = self.create_volume_from_snapshot()
+
+        self.delete_snapshot()
+        self.delete_volume(new_volume)
+
+    def test_create_volume_from_snapshot_delete_volume_first(self):
+        """Test checks possibility to create volume from snapshot
+
+        Steps:
+        1. Login to Horizon Dashboard as regular user
+        2. Navigate to Project -> Volumes -> Volumes page
+        3. Create snapshot for existed volume
+        4. Create new volume from snapshot
+        5. Check the volume is created and has 'Available' status
+        6. Delete volume
+        7. Delete volume snapshot
+        """
+        new_volume = self.create_volume_from_snapshot()
+
+        self.delete_volume(new_volume)
+        self.delete_snapshot()
