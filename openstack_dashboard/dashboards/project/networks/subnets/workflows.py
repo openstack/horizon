@@ -92,6 +92,7 @@ class CreateSubnet(network_workflows.CreateNetwork):
 
 
 class UpdateSubnetInfoAction(CreateSubnetInfoAction):
+    use_required_attribute = False
     address_source = forms.ThemableChoiceField(widget=forms.HiddenInput(),
                                                required=False)
     subnetpool = forms.ThemableChoiceField(widget=forms.HiddenInput(),
