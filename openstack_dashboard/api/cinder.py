@@ -338,7 +338,7 @@ def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
     transfers = {t.volume_id: t
                  for t in transfer_list(request, search_opts=search_opts)}
 
-    if VERSIONS.active > 1 and paginate:
+    if paginate:
         page_size = utils.get_page_size(request)
         # sort_key and sort_dir deprecated in kilo, use sort
         # if pagination is true, we use a single sort parameter
@@ -500,7 +500,7 @@ def volume_snapshot_list_paged(request, search_opts=None, marker=None,
     if c_client is None:
         return snapshots, has_more_data, has_more_data
 
-    if VERSIONS.active > 1 and paginate:
+    if paginate:
         page_size = utils.get_page_size(request)
         # sort_key and sort_dir deprecated in kilo, use sort
         # if pagination is true, we use a single sort parameter
@@ -596,28 +596,22 @@ def volume_backup_list_paged_with_page_menu(request, page_number=1,
     if c_client is None:
         return backups, 0, count, pages_count
 
-    if VERSIONS.active > 1:
-        offset = (page_number - 1) * page_size
-        sort = 'created_at:' + sort_dir
-        bkps, count = c_client.backups.list(limit=page_size,
-                                            sort=sort,
-                                            search_opts={'with_count': True,
-                                                         'offset': offset})
-        if not bkps:
-            return backups, page_size, count, pages_count
-
-        if isinstance(bkps[0], list):
-            bkps = bkps[0]
-        pages_count = int(math.ceil(float(count) / float(page_size)))
-        for b in bkps:
-            backups.append(VolumeBackup(b))
-
+    offset = (page_number - 1) * page_size
+    sort = 'created_at:' + sort_dir
+    bkps, count = c_client.backups.list(limit=page_size,
+                                        sort=sort,
+                                        search_opts={'with_count': True,
+                                                     'offset': offset})
+    if not bkps:
         return backups, page_size, count, pages_count
-    else:
-        for b in c_client.backups.list():
-            backups.append(VolumeBackup(b))
 
-    return backups, 0, count, pages_count
+    if isinstance(bkps[0], list):
+        bkps = bkps[0]
+    pages_count = int(math.ceil(float(count) / float(page_size)))
+    for b in bkps:
+        backups.append(VolumeBackup(b))
+
+    return backups, page_size, count, pages_count
 
 
 @profiler.trace
@@ -631,7 +625,7 @@ def volume_backup_list_paged(request, marker=None, paginate=False,
     if c_client is None:
         return backups, has_more_data, has_prev_data
 
-    if VERSIONS.active > 1 and paginate:
+    if paginate:
         page_size = utils.get_page_size(request)
         # sort_key and sort_dir deprecated in kilo, use sort
         # if pagination is true, we use a single sort parameter
