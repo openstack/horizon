@@ -1,111 +1,138 @@
-==================
-Contributing Guide
-==================
+============================
+So You Want to Contribute...
+============================
 
-First and foremost, thank you for wanting to contribute! It's the only way
-open source works!
+For general information on contributing to OpenStack, please check out the
+`contributor guide <https://docs.openstack.org/contributors/>`_ to get started.
+It covers all the basics that are common to all OpenStack projects: the accounts
+you need, the basics of interacting with our Gerrit review system, how we
+communicate as a community, etc.
 
-Before you dive into writing patches, here are some of the basics:
+Below will cover the more project specific information you need to get started
+with horizon.
 
+Project Resources
+-----------------
+
+* Source code: https://opendev.org/openstack/horizon
+* Documentation: https://docs.openstack.org/horizon/latest/
 * Project page: https://launchpad.net/horizon
 * Bug tracker: https://bugs.launchpad.net/horizon
-* Source code: https://github.com/openstack/horizon
 * Code review: https://review.opendev.org/#/q/project:openstack/horizon+status:open
-* Continuous integration:
-  * Jenkins: https://jenkins.openstack.org
-  * Zuul: http://status.openstack.org/zuul
-* IRC Channel: #openstack-horizon on Freenode.
 
-Making Contributions
-====================
+Communication
+-------------
 
-Getting Started
+* IRC channel: ``#openstack-horizon`` at freenode
+
+  Most active contributors are online at IRC while they are active,
+  so it would be the easiest way to contact the team directly.
+  Note that all IRC conversations are stored
+  `here <http://eavesdrop.openstack.org/irclogs/%23openstack-horizon/>`__.
+
+* Mailing list:
+  `openstack-discuss
+  <http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-discuss>`__
+  with ``[horizon]`` tag.
+
+  The mailing list would be a good place if you would like to discuss your
+  topic with the OpenStack community more broadly. Most OpenStack users,
+  operators and developers subscribe it and you can get useful feedbacks
+  from various perspectives.
+
+* Team meeting:
+
+  The horizon team has a weekly meeting which covers all things related to
+  the horizon project like announcements, project priorities, community goals,
+  bugs and so on.
+
+  There is the "On Demand Agenda" section at the end of the meeting, where
+  anyone can add a topic to discuss with the team. It is suggested to add
+  such topic to the On-Demand agenda in the "Weekly meeting" in
+  `horizon release priority etherpad
+  <https://etherpad.opendev.org/p/horizon-release-priorities>`__.
+
+  * Time: http://eavesdrop.openstack.org/#Horizon_Team_Meeting
+  * Agenda: https://wiki.openstack.org/wiki/Meetings/Horizon
+
+Contacting the Core Team
+------------------------
+
+The list of the current core reviewers is found at
+`gerrit <https://review.opendev.org/#/admin/groups/43,members>`__.
+
+Most core reviewers are online in the IRC channel and
+you can contact them there.
+
+New Feature Planning
+--------------------
+
+If you would like to add a new feature to horizon, file a blueprint
+to https://blueprints.launchpad.net/horizon. You can find a template for a
+blueprint at https://blueprints.launchpad.net/horizon/+spec/template.
+The template is not a strict requirement but it would be nice to cover
+a motivation and an approach of your blueprint. From the nature of GUI,
+a discussion on UI design during a patch review could be more productive,
+so there is no need to explain the detail of UI design in your blueprint
+proposal.
+
+We don't have a specific deadline during a development cycle. You can propose a
+feature any time. Only thing you keep in your mind is that we do not merge
+features during the feature freeze period after the milestone 3 in each cycle.
+
+There are a number of unsupported OpenStack features in horizon.
+Implementing such would be appreciated even if it is small.
+
+Task Tracking
+-------------
+
+We track our tasks in `Launchpad <https://bugs.launchpad.net/horizon>`__.
+
+If you're looking for some smaller, please look through the list of bugs
+and find what you think you can work on. If you are not sure the status of
+a bug feel free to ask to the horizon team. We can help you.
+Note that we recently do not maintain 'low-hanging-fruit' tag and some of
+them with this tag are not simple enough.
+
+Reporting a Bug
 ---------------
 
-We'll start by assuming you've got a working checkout of the repository (if
-not then please see the :ref:`quickstart`).
+You found an issue and want to make sure we are aware of it?
+You can do so on `Launchpad <https://bugs.launchpad.net/horizon>`__.
 
-Second, you'll need to take care of a couple administrative tasks:
+Please file a bug first even if you already have a fix for it.
+If you can reproduce the bug reliably and identify its cause
+then it's usually safe to start working on it.
+However, getting independent confirmation (and verifying that it's not a
+duplicate) is always a good idea if you can be patient.
 
-#. Create an account on Launchpad.
-#. Sign the `OpenStack Contributor License Agreement`_ and follow the associated
-   instructions to verify your signature.
-#. Join the `Horizon Developers`_ team on Launchpad.
-#. Follow the `instructions for setting up git-review`_ in your
-   development environment.
+Getting Your Patch Merged
+-------------------------
 
-Whew! Got all that? Okay! You're good to go.
+All changes proposed to horizon require two +2 votes from the horizon core
+reviewers before one of the core reviewers can approve a change by giving
+"Workflow +1" vote.
 
-.. _`OpenStack Contributor License Agreement`: https://wiki.openstack.org/CLA
-.. _`Horizon Developers`: https://launchpad.net/~horizon
-.. _`instructions for setting up git-review`: https://docs.openstack.org/infra/manual/developers.html#development-workflow
+In general, all changes should be proposed along with at least unit test
+coverage (python or JavaScript). Integration test support would be
+appreciated.
 
-Ways To Contribute
-------------------
+More detailed guidelines for reviewers of patches are available at
+`OpenDev Developer's Guide <https://docs.opendev.org/opendev/infra-manual/latest/developers.html#code-review>`__.
 
-The easiest way to get started with Horizon's code is to pick a bug on
-Launchpad that interests you, and start working on that. Bugs tagged as
-``low-hanging-fruit`` are a good place to start. Alternatively, if there's an
-OpenStack API feature you would like to see implemented in Horizon feel free
-to try building it.
+Project Team Lead Duties
+------------------------
 
-If those are too big, there are lots of great ways to get involved without
-plunging in head-first:
+All common PTL duties are enumerated in the `PTL guide
+<https://docs.openstack.org/project-team-guide/ptl.html>`_.
 
-* Report bugs, triage new tickets, and review old tickets on
-  the `bug tracker`_.
-* Propose ideas for improvements via `Launchpad Blueprints`_, via the
-  mailing list on the project page, or on IRC.
-* Write documentation!
-* Write unit tests for untested code!
-* Help improve the `User Experience Design`_ or contribute to the
-  `Persona Working Group`_.
-
-.. _`bug tracker`: https://bugs.launchpad.net/horizon
-.. _`Launchpad Blueprints`: https://blueprints.launchpad.net/horizon
-.. _`User Experience Design`: https://wiki.openstack.org/wiki/UX#Getting_Started
-.. _`Persona Working Group`: https://wiki.openstack.org/wiki/Personas
-
-Choosing Issues To Work On
---------------------------
-
-In general, if you want to write code, there are three cases for issues
-you might want to work on:
-
-#. Confirmed bugs
-#. Approved blueprints (features)
-#. New bugs you've discovered
-
-If you have an idea for a new feature that isn't in a blueprint yet, it's
-a good idea to write the blueprint first, so you don't end up writing a bunch
-of code that may not go in the direction the community wants.
-
-For bugs, open the bug first, but if you can reproduce the bug reliably and
-identify its cause then it's usually safe to start working on it. However,
-getting independent confirmation (and verifying that it's not a duplicate)
-is always a good idea if you can be patient.
-
-After You Write Your Patch
---------------------------
-
-Once you've made your changes, there are a few things to do:
-
-* Make sure the unit tests and linting tasks pass by running ``tox``
-* Take a look at your patch in API profiler, i.e. how it impacts the
-  performance. See :doc:`topics/profiling`.
-* Make sure your code is ready for translation: See :ref:`pseudo_translation`.
-* Make sure your code is up-to-date with the latest master:
-  ``git pull --rebase``
-* Finally, run ``git review`` to upload your changes to Gerrit for review.
-
-The Horizon core developers will be notified of the new review and will examine
-it in a timely fashion, either offering feedback or approving it to be merged.
-If the review is approved, it is sent to Jenkins to verify the unit tests pass
-and it can be merged cleanly. Once Jenkins approves it, the change will be
-merged to the master repository and it's time to celebrate!
+The horizon PTL is expected to coordinate and encourage the core reviewer team
+and contributors for the success. The expectations for the core reviewer team
+is documented at :doc:`policies/core-reviewers` and the PTL would play an
+important role in this.
 
 Etiquette
-=========
+---------
 
 The community's guidelines for etiquette are fairly simple:
 

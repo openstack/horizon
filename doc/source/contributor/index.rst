@@ -6,10 +6,10 @@
 .. toctree::
    :maxdepth: 2
 
+   contributing
    intro
    policies/index
    quickstart
-   contributing
    testing
    tutorials/index
    topics/index
