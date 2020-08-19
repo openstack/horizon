@@ -1,8 +1,6 @@
-================
-Project policies
-================
-
-This page collects basic policies on horizon development.
+==================
+Supported Software
+==================
 
 Back-end service support
 ------------------------
@@ -28,6 +26,8 @@ Back-end service support
   Deprecations in back-end services are applied to corresponding horizon
   features automatically and it is allowed to drop some feature from horizon
   without an explicit deprecation.
+
+.. _django_support:
 
 Django support
 --------------

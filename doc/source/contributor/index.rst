@@ -7,7 +7,7 @@
    :maxdepth: 2
 
    intro
-   policy
+   policies/index
    quickstart
    contributing
    testing

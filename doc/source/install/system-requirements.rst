@@ -8,7 +8,7 @@ The Ussuri release of horizon has the following dependencies.
 
 * Django 2.2
 
-  * Django support policy is documented at :doc:`/contributor/policy`.
+  * Django support policy is documented at :ref:`django_support`.
   * Ussuri release uses Django 2.2 (the latest LTS) as the primary Django
     version. The prevouos LTS of Django 1.11 will be dropped during
     Ussuri cycle. Django 2.0 support will be dropped as well.
