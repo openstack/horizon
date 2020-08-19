@@ -90,7 +90,15 @@
       });
 
       it('returns the expected time', function() {
-        mediumDateFilter().then(getResult);
+        mediumDateFilter('2019-09-03T09:19:07.000').then(getResult);
+
+        function getResult(result) {
+          expect(result).toBe('Sep 3, 2019 9:19:07 AM');
+        }
+      });
+
+      it('returns the expected time in UTC', function() {
+        mediumDateFilter('2019-09-03T09:19:07.000Z').then(getResult);
 
         function getResult(result) {
           expect(result).toBe('Sep 3, 2019 9:19:07 AM');
