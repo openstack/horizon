@@ -125,6 +125,7 @@ class Navigation(object):
                                     "Volumes",
                                     "Snapshots",
                                     "Volume Types",
+                                    "Group Types",
 
                                 )
                         },
