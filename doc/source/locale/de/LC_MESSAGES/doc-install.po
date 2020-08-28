@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 18.4.2.dev9\n"
+"Project-Id-Version: horizon 18.4.2.dev23\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 08:24+0000\n"
+"POT-Creation-Date: 2020-08-27 08:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -369,11 +369,6 @@ msgstr "Bereitstellung"
 
 msgid "Django 2.2"
 msgstr "Django 2.2"
-
-msgid "Django support policy is documented at :doc:`/contributor/policy`."
-msgstr ""
-"Die Django Support  Richtlinie ist dokumentiert unter :doc:`/contributor/"
-"policy`."
 
 msgid ""
 "Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
