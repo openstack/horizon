@@ -263,7 +263,7 @@ class BaseTestCase(testtools.TestCase):
         test_log_path = os.path.join(self._test_report_dir, 'test.log')
         with self.log_exception("Attach test log"):
             with open(test_log_path, 'w') as f:
-                f.write(self._log_buffer.getvalue().encode('utf-8'))
+                f.write(self._log_buffer.getvalue())
 
     @contextlib.contextmanager
     def log_exception(self, label):
@@ -304,7 +304,7 @@ class BaseTestCase(testtools.TestCase):
         display html code generated/changed by javascript.
         """
         html_elem = self.driver.find_element_by_tag_name("html")
-        return html_elem.get_attribute("innerHTML").encode("utf-8")
+        return html_elem.get_property("innerHTML")
 
 
 @helpers.pytest_mark('integration')

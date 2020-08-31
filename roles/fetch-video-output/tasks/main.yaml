@@ -1,0 +1,44 @@
+- name: Set tox log path for multiple nodes
+  set_fact:
+    log_path: "{{ zuul.executor.log_root }}/{{ inventory_hostname }}/tox"
+  when: groups['all'] | length > 1
+
+- name: Set tox log path for single node
+  set_fact:
+    log_path: "{{ zuul.executor.log_root }}/tox"
+  when: log_path is not defined
+
+- name: Ensure local tox dir
+  file:
+    path: "{{ log_path }}"
+    state: directory
+  delegate_to: localhost
+
+- name: Copy tox logs
+  copy:
+    dest: "{{ zuul_output_dir }}/logs/tox/"
+    src: "{{ zuul_work_dir }}/openstack_dashboard/test/integration_tests/test_reports"
+    remote_src: true
+  loop: "{{ envlist }}"
+  loop_control:
+    loop_var: zj_testenv
+  # some tox runs may not create a virtualenv and thus have
+  # no ./tox/env directory
+  failed_when: false
+  when: zuul_use_fetch_output
+
+- name: Collect tox logs
+  synchronize:
+    dest: "{{ log_path }}"
+    mode: pull
+    src: "{{ zuul_work_dir }}/openstack_dashboard/test/integration_tests/test_reports"
+    verify_host: true
+    owner: no
+    group: no
+  loop: "{{ envlist }}"
+  loop_control:
+    loop_var: zj_testenv
+  # some tox runs may not create a virtualenv and thus have
+  # no ./tox/env directory
+  failed_when: false
+  when: not zuul_use_fetch_output

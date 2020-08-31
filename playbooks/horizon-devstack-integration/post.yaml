@@ -3,3 +3,4 @@
   roles:
     - fetch-tox-output
     - fetch-subunit-output
+    - fetch-video-output
