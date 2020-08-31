@@ -42,6 +42,7 @@ MICROVERSION_FEATURES = {
         "groups": ["3.27", "3.43", "3.48", "3.58"],
         "message_list": ["3.5", "3.29"],
         "limits_project_id_query": ["3.43", "3.50", "3.55"],
+        "extend_in_use_volume": ["3.42", "3.60"],
     }
 }
 
