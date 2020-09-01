@@ -85,7 +85,10 @@
        * For the input time, we need to add "Z" to fit iso8601 time format
        * so the filter can confirm that the input time is in UTC timezone.
        */
-      input = input + 'Z';
+      input = $filter('noValue')(input);
+      if (input !== '-') {
+        input = input.slice(-1) !== 'Z' ? input + 'Z' : input;
+      }
       var currentTimeZone = $cookies.get('django_timezone') || 'UTC';
       currentTimeZone = currentTimeZone.replace(/^"(.*)"$/, '$1');
       return timeZoneService.getTimeZoneOffset(currentTimeZone).then(function (timeZoneOffset) {
