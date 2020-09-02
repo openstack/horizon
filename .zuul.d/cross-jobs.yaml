@@ -6,12 +6,13 @@
             voting: false
         - horizon-cross-ironic-ui-npm:
             voting: false
+        - horizon-cross-heat-dashboard-python:
+            voting: false
 
 - job:
     name: horizon-cross-manila-ui-python
-    parent: openstack-tox
+    parent: openstack-tox-py38
     vars:
-      tox_envlist: py38
       zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/manila-ui'].src_dir }}"
     required-projects:
       - openstack/manila-ui
@@ -23,3 +24,11 @@
       zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/ironic-ui'].src_dir }}"
     required-projects:
       - openstack/ironic-ui
+
+- job:
+    name: horizon-cross-heat-dashboard-python
+    parent: openstack-tox-py38
+    vars:
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/heat-dashboard'].src_dir }}"
+    required-projects:
+      - openstack/heat-dashboard
