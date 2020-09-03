@@ -45,6 +45,7 @@ class PasswordMixin(forms.SelfHandlingForm):
         error_messages={'invalid': validators.password_validator_msg()})
     confirm_password = forms.CharField(
         label=_("Confirm Password"),
+        strip=False,
         widget=forms.PasswordInput(render_value=False))
     no_autocomplete = True
 
@@ -292,6 +293,7 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
         if settings.ENFORCE_PASSWORD_CHECK:
             self.fields["admin_password"] = forms.CharField(
                 label=_("Admin Password"),
+                strip=False,
                 widget=forms.PasswordInput(render_value=False))
             # Reorder form fields from multiple inheritance
             self.fields.keyOrder = ["id", "name", "admin_password",

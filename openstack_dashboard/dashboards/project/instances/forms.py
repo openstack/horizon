@@ -54,6 +54,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
     confirm_password = forms.CharField(
         label=_("Confirm Rebuild Password"),
         required=False,
+        strip=False,
         widget=forms.PasswordInput(render_value=False))
     disk_config = forms.ChoiceField(label=_("Disk Partition"),
                                     required=False)
@@ -141,6 +142,7 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
     encrypted_password = forms.CharField(widget=forms.widgets.Textarea(_attrs),
                                          label=_("Encrypted Password"),
                                          help_text=_encrypted_pwd_help,
+                                         strip=False,
                                          required=False)
 
     def __init__(self, request, *args, **kwargs):
@@ -488,6 +490,7 @@ class RescueInstanceForm(forms.SelfHandlingForm):
             transform=_image_choice_title))
     password = forms.CharField(label=_("Password"), max_length=255,
                                required=False,
+                               strip=False,
                                widget=forms.PasswordInput(render_value=False))
     failure_url = 'horizon:project:instances:index'
 

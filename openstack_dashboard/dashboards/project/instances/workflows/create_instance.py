@@ -560,6 +560,7 @@ class SetAccessControlsAction(workflows.Action):
         error_messages={'invalid': validators.password_validator_msg()})
     confirm_admin_pass = forms.CharField(
         label=_("Confirm Admin Password"),
+        strip=False,
         required=False,
         widget=forms.PasswordInput(render_value=False))
     groups = forms.MultipleChoiceField(
