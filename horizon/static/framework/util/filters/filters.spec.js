@@ -16,7 +16,16 @@
   'use strict';
 
   describe('horizon.framework.util.filters', function () {
+    var $httpBackend;
+    var testData = {timezone_dict: {
+      UTC: "+0000"
+    }};
+
     beforeEach(module('horizon.framework'));
+    beforeEach(inject(function (_$httpBackend_) {
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET('/api/timezones/').respond(testData);
+    }));
 
     describe('yesno', function () {
       var yesnoFilter;
@@ -58,6 +67,10 @@
         simpleDateFilter = _simpleDateFilter_;
       }));
 
+      afterEach(function () {
+        $httpBackend.flush();
+      });
+
       it('returns blank if nothing', function () {
         simpleDateFilter().then(getResult);
 
@@ -67,7 +80,7 @@
       });
 
       it('returns the expected time', function() {
-        simpleDateFilter().then(getResult);
+        simpleDateFilter('2019-09-03T09:19:07.000Z').then(getResult);
 
         function getResult(result) {
           expect(result).toBe('9/3/19 9:19 AM');
@@ -81,6 +94,10 @@
         mediumDateFilter = _mediumDateFilter_;
       }));
 
+      afterEach(function () {
+        $httpBackend.flush();
+      });
+
       it('returns blank if nothing', function () {
         mediumDateFilter().then(getResult);
 
@@ -90,7 +107,7 @@
       });
 
       it('returns the expected time', function() {
-        mediumDateFilter('2019-09-03T09:19:07.000').then(getResult);
+        mediumDateFilter('2019-09-03T09:19:07.000Z').then(getResult);
 
         function getResult(result) {
           expect(result).toBe('Sep 3, 2019 9:19:07 AM');
@@ -98,7 +115,7 @@
       });
 
       it('returns the expected time in UTC', function() {
-        mediumDateFilter('2019-09-03T09:19:07.000Z').then(getResult);
+        mediumDateFilter('2019-09-03T09:19:07.000').then(getResult);
 
         function getResult(result) {
           expect(result).toBe('Sep 3, 2019 9:19:07 AM');
