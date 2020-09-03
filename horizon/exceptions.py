@@ -260,8 +260,13 @@ HANDLE_EXC_METHODS = [
 ]
 
 
+def _append_detail(message, details):
+    return encoding.force_text(message) + '\u2026' + \
+        encoding.force_text(details)
+
+
 def handle(request, message=None, redirect=None, ignore=False,
-           escalate=False, log_level=None, force_log=None):
+           escalate=False, log_level=None, force_log=None, details=None):
     """Centralized error handling for Horizon.
 
     Because Horizon consumes so many different APIs with completely
@@ -288,6 +293,9 @@ def handle(request, message=None, redirect=None, ignore=False,
     If the exception is not re-raised, an appropriate wrapper exception
     class indicating the type of exception that was encountered will be
     returned.
+    If details is None (default), take it from exception sys.exc_info.
+    If details is other string, then use that string explicitly or if details
+    is empty then suppress it.
     """
     exc_type, exc_value, exc_traceback = sys.exc_info()
     log_method = getattr(LOG, log_level or "exception")
@@ -316,6 +324,10 @@ def handle(request, message=None, redirect=None, ignore=False,
         user_message = encoding.force_text(message) % {"exc": log_entry}
     elif message:
         user_message = encoding.force_text(message)
+    if details is None:
+        user_message = _append_detail(user_message, exc_value)
+    elif details:
+        user_message = _append_detail(user_message, details)
 
     for exc_handler in HANDLE_EXC_METHODS:
         if issubclass(exc_type, exc_handler['exc']):

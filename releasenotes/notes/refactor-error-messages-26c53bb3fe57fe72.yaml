@@ -1,0 +1,9 @@
+---
+features:
+  - |
+    [`blueprint refactor-error-messages <https://blueprints.launchpad.net/horizon/+spec/refactor-error-messages>`_]
+    User can see detailed error message on the horizon UI.
+    This blueprint adds a hyperlink "details" in the alert box.
+    So now when an exception occurs a user can click on this hyperlink
+    "details" which shows original error message included in a corresponding
+    error. This may help a user to understand what happens in detail.
