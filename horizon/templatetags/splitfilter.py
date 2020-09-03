@@ -12,9 +12,11 @@
 
 from django import template
 
+from horizon import exceptions
+
 register = template.Library()
 
 
 @register.filter(name='split_message')
 def split_message(value):
-    return value.split('\u2026')
+    return value.split(exceptions.SEPERATOR)
