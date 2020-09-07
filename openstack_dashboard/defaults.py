@@ -73,17 +73,24 @@ POLICY_FILES_PATH = os.path.join(_get_root_path(), "conf")
 # Having matching policy files on the Horizon and Keystone servers is essential
 # for normal operation. This holds true for all services and their policy files.
 POLICY_FILES = {
-    'identity': 'keystone_policy.json',
-    'compute': 'nova_policy.json',
-    'volume': 'cinder_policy.json',
-    'image': 'glance_policy.json',
-    'network': 'neutron_policy.json',
+    'identity': 'keystone_policy.yaml',
+    'compute': 'nova_policy.yaml',
+    'volume': 'cinder_policy.yaml',
+    'image': 'glance_policy.yaml',
+    'network': 'neutron_policy.yaml',
 }
 # Services for which horizon has extra policies are defined
 # in POLICY_DIRS by default.
 POLICY_DIRS = {
     'compute': ['nova_policy.d'],
     'volume': ['cinder_policy.d'],
+}
+DEFAULT_POLICY_FILES = {
+    'identity': 'default_policies/keystone.yaml',
+    'compute': 'default_policies/nova.yaml',
+    'volume': 'default_policies/cinder.yaml',
+    'image': 'default_policies/glance.yaml',
+    'network': 'default_policies/neutron.yaml',
 }
 POLICY_CHECK_FUNCTION = 'openstack_auth.policy.check'
 

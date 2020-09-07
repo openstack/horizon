@@ -136,6 +136,30 @@ the GUI. For example themes, see: /horizon/openstack_dashboard/themes/
 Horizon ships with two themes configured. 'default' is the default theme,
 and 'material' is based on Google's Material Design.
 
+DEFAULT_POLICY_FILES
+--------------------
+
+.. versionadded:: 19.1.0(Wallaby)
+
+Default:
+
+.. code-block:: python
+
+    {
+        'identity': 'default_policies/keystone.yaml',
+        'compute': 'default_policies/nova.yaml',
+        'volume': 'default_policies/cinder.yaml',
+        'image': 'default_policies/glance.yaml',
+        'network': 'default_policies/neutron.yaml',
+    }
+
+This is a mapping from service types to YAML files including default
+policy definitions. Values of this mapping should be relative paths to
+`POLICY_FILES_PATH`_ or absolute paths. Policy files specified in this
+setting are generated from default policies of back-end services,
+so you rarely need to configure it. If you would like to override the
+default policies, consider customizing files under `POLICY_FILES`_.
+
 DEFAULT_THEME
 -------------
 
@@ -792,20 +816,25 @@ POLICY_FILES
 
 .. versionadded:: 2013.2(Havana)
 
+.. versionchanged:: 19.1.0(Wallaby)
+
+   The default files are changed to YAML format.
+   JSON format still continues to be supported.
+
 Default:
 
 .. code-block:: python
 
     {
-        'compute': 'nova_policy.json',
-        'identity': 'keystone_policy.json',
-        'image': 'glance_policy.json',
-        'network': 'neutron_policy.json',
-        'volume': 'cinder_policy.json',
+        'compute': 'nova_policy.yaml',
+        'identity': 'keystone_policy.yaml',
+        'image': 'glance_policy.yaml',
+        'network': 'neutron_policy.yaml',
+        'volume': 'cinder_policy.yaml',
     }
 
 This should essentially be the mapping of the contents of `POLICY_FILES_PATH`_
-to service types. When policy.json files are added to `POLICY_FILES_PATH`_,
+to service types. When policy files are added to `POLICY_FILES_PATH`_,
 they should be included here too.
 
 POLICY_FILES_PATH

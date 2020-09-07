@@ -1,0 +1,22 @@
+---
+features:
+  - |
+    Horizon supports the registered default policies and operators now
+    only need to define policies which they would like to override in policy
+    files in ``POLICY_FILES`` setting. (Previously the policy files need to
+    contain all defined policies including default policies.)
+    The registered default policies are defined in files under
+    ``DEFAULT_POLICY_FILES`` and they are synced with registered defaults
+    of back-end services before the horizon release.
+issues:
+  - |
+    Policies with the system scoped token (``system_scope:all``) are not
+    supported in horizon yet. The horizon team recognizes it as an important
+    feature gap and would like to support it in near future.
+upgrade:
+  - |
+    The format of the policy files under ``POLICY_FILES`` is changed to YAML
+    and all contents of these files are commented out now. You only need to
+    define policies which you would like to modify from the default.
+    You can still use policy files with JSON format. If you continue to use
+    JSON format, configure ``POLICY_FILES`` setting to point JSON files.

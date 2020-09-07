@@ -1,0 +1,3103 @@
+- check_str: role:admin
+  description: Decides what is required for the 'is_admin:True' check to succeed.
+  name: context_is_admin
+  operations: []
+  scope_types: null
+- check_str: is_admin:True or project_id:%(project_id)s
+  deprecated_for_removal: true
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_since: 21.0.0
+  description: Default rule for most non-Admin APIs.
+  name: admin_or_owner
+  operations: []
+  scope_types: null
+- check_str: is_admin:True
+  deprecated_for_removal: true
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_since: 21.0.0
+  description: Default rule for most Admin APIs.
+  name: admin_api
+  operations: []
+  scope_types: null
+- check_str: role:admin and system_scope:all
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: is_admin:True
+    name: rule:admin_api
+  deprecated_since: 21.0.0
+  description: Default rule for System Admin APIs.
+  name: system_admin_api
+  operations: []
+  scope_types: null
+- check_str: role:reader and system_scope:all
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: is_admin:True
+    name: rule:admin_api
+  deprecated_since: 21.0.0
+  description: Default rule for System level read only APIs.
+  name: system_reader_api
+  operations: []
+  scope_types: null
+- check_str: role:admin and project_id:%(project_id)s
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: is_admin:True
+    name: rule:admin_api
+  deprecated_since: 21.0.0
+  description: Default rule for Project level admin APIs.
+  name: project_admin_api
+  operations: []
+  scope_types: null
+- check_str: role:member and project_id:%(project_id)s
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: is_admin:True or project_id:%(project_id)s
+    name: rule:admin_or_owner
+  deprecated_since: 21.0.0
+  description: Default rule for Project level non admin APIs.
+  name: project_member_api
+  operations: []
+  scope_types: null
+- check_str: role:reader and project_id:%(project_id)s
+  description: Default rule for Project level read only APIs.
+  name: project_reader_api
+  operations: []
+  scope_types: null
+- check_str: rule:system_admin_api or rule:project_member_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: is_admin:True or project_id:%(project_id)s
+    name: rule:admin_or_owner
+  deprecated_since: 21.0.0
+  description: Default rule for System admin+owner APIs.
+  name: system_admin_or_owner
+  operations: []
+  scope_types: null
+- check_str: rule:system_reader_api or rule:project_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: is_admin:True or project_id:%(project_id)s
+    name: rule:admin_or_owner
+  deprecated_since: 21.0.0
+  description: Default rule for System+Project read only APIs.
+  name: system_or_project_reader
+  operations: []
+  scope_types: null
+- check_str: rule:system_admin_api
+  description: Reset the state of a given server
+  name: os_compute_api:os-admin-actions:reset_state
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (os-resetState)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Inject network information into the server
+  name: os_compute_api:os-admin-actions:inject_network_info
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (injectNetworkInfo)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Reset networking on a server
+  name: os_compute_api:os-admin-actions:reset_network
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (resetNetwork)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Change the administrative password for a server
+  name: os_compute_api:os-admin-password
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (changePassword)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-agents
+  deprecated_since: 21.0.0
+  description: 'List guest agent builds
+
+    This is XenAPI driver specific.
+
+    It is used to force the upgrade of the XenAPI guest agent on instance boot.
+
+    '
+  name: os_compute_api:os-agents:list
+  operations:
+  - method: GET
+    path: /os-agents
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-agents
+  deprecated_since: 21.0.0
+  description: 'Create guest agent builds
+
+    This is XenAPI driver specific.
+
+    It is used to force the upgrade of the XenAPI guest agent on instance boot.
+
+    '
+  name: os_compute_api:os-agents:create
+  operations:
+  - method: POST
+    path: /os-agents
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-agents
+  deprecated_since: 21.0.0
+  description: 'Update guest agent builds
+
+    This is XenAPI driver specific.
+
+    It is used to force the upgrade of the XenAPI guest agent on instance boot.
+
+    '
+  name: os_compute_api:os-agents:update
+  operations:
+  - method: PUT
+    path: /os-agents/{agent_build_id}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-agents
+  deprecated_since: 21.0.0
+  description: 'Delete guest agent builds
+
+    This is XenAPI driver specific.
+
+    It is used to force the upgrade of the XenAPI guest agent on instance boot.
+
+    '
+  name: os_compute_api:os-agents:delete
+  operations:
+  - method: DELETE
+    path: /os-agents/{agent_build_id}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Create or replace metadata for an aggregate
+  name: os_compute_api:os-aggregates:set_metadata
+  operations:
+  - method: POST
+    path: /os-aggregates/{aggregate_id}/action (set_metadata)
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Add a host to an aggregate
+  name: os_compute_api:os-aggregates:add_host
+  operations:
+  - method: POST
+    path: /os-aggregates/{aggregate_id}/action (add_host)
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Create an aggregate
+  name: os_compute_api:os-aggregates:create
+  operations:
+  - method: POST
+    path: /os-aggregates
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Remove a host from an aggregate
+  name: os_compute_api:os-aggregates:remove_host
+  operations:
+  - method: POST
+    path: /os-aggregates/{aggregate_id}/action (remove_host)
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Update name and/or availability zone for an aggregate
+  name: os_compute_api:os-aggregates:update
+  operations:
+  - method: PUT
+    path: /os-aggregates/{aggregate_id}
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  description: List all aggregates
+  name: os_compute_api:os-aggregates:index
+  operations:
+  - method: GET
+    path: /os-aggregates
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Delete an aggregate
+  name: os_compute_api:os-aggregates:delete
+  operations:
+  - method: DELETE
+    path: /os-aggregates/{aggregate_id}
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  description: Show details for an aggregate
+  name: os_compute_api:os-aggregates:show
+  operations:
+  - method: GET
+    path: /os-aggregates/{aggregate_id}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Request image caching for an aggregate
+  name: compute:aggregates:images
+  operations:
+  - method: POST
+    path: /os-aggregates/{aggregate_id}/images
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Create an assisted volume snapshot
+  name: os_compute_api:os-assisted-volume-snapshots:create
+  operations:
+  - method: POST
+    path: /os-assisted-volume-snapshots
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Delete an assisted volume snapshot
+  name: os_compute_api:os-assisted-volume-snapshots:delete
+  operations:
+  - method: DELETE
+    path: /os-assisted-volume-snapshots/{snapshot_id}
+  scope_types:
+  - system
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-attach-interfaces
+  deprecated_since: 21.0.0
+  description: List port interfaces attached to a server
+  name: os_compute_api:os-attach-interfaces:list
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-interface
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-attach-interfaces
+  deprecated_since: 21.0.0
+  description: Show details of a port interface attached to a server
+  name: os_compute_api:os-attach-interfaces:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-interface/{port_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-attach-interfaces
+  deprecated_since: 21.0.0
+  description: Attach an interface to a server
+  name: os_compute_api:os-attach-interfaces:create
+  operations:
+  - method: POST
+    path: /servers/{server_id}/os-interface
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-attach-interfaces
+  deprecated_since: 21.0.0
+  description: Detach an interface from a server
+  name: os_compute_api:os-attach-interfaces:delete
+  operations:
+  - method: DELETE
+    path: /servers/{server_id}/os-interface/{port_id}
+  scope_types:
+  - system
+  - project
+- check_str: '@'
+  description: List availability zone information without host information
+  name: os_compute_api:os-availability-zone:list
+  operations:
+  - method: GET
+    path: /os-availability-zone
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: List detailed availability zone information with host information
+  name: os_compute_api:os-availability-zone:detail
+  operations:
+  - method: GET
+    path: /os-availability-zone/detail
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-baremetal-nodes
+  deprecated_since: 22.0.0
+  description: 'List and show details of bare metal nodes.
+
+
+    These APIs are proxy calls to the Ironic service and are deprecated.
+
+    '
+  name: os_compute_api:os-baremetal-nodes:list
+  operations:
+  - method: GET
+    path: /os-baremetal-nodes
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-baremetal-nodes
+  deprecated_since: 22.0.0
+  description: Show action details for a server.
+  name: os_compute_api:os-baremetal-nodes:show
+  operations:
+  - method: GET
+    path: /os-baremetal-nodes/{node_id}
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  description: Show console connection information for a given console authentication
+    token
+  name: os_compute_api:os-console-auth-tokens
+  operations:
+  - method: GET
+    path: /os-console-auth-tokens/{console_token}
+  scope_types:
+  - system
+- check_str: rule:system_admin_or_owner
+  description: Show console output for a server
+  name: os_compute_api:os-console-output
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (os-getConsoleOutput)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Create a back up of a server
+  name: os_compute_api:os-create-backup
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (createBackup)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-deferred-delete
+  deprecated_since: 21.0.0
+  description: Restore a soft deleted server
+  name: os_compute_api:os-deferred-delete:restore
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (restore)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-deferred-delete
+  deprecated_since: 21.0.0
+  description: Force delete a server before deferred cleanup
+  name: os_compute_api:os-deferred-delete:force
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (forceDelete)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Evacuate a server from a failed host to a new host
+  name: os_compute_api:os-evacuate
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (evacuate)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: 'Return extended attributes for server.
+
+
+    This rule will control the visibility for a set of servers attributes:
+
+
+    - ``OS-EXT-SRV-ATTR:host``
+
+    - ``OS-EXT-SRV-ATTR:instance_name``
+
+    - ``OS-EXT-SRV-ATTR:reservation_id`` (since microversion 2.3)
+
+    - ``OS-EXT-SRV-ATTR:launch_index`` (since microversion 2.3)
+
+    - ``OS-EXT-SRV-ATTR:hostname`` (since microversion 2.3)
+
+    - ``OS-EXT-SRV-ATTR:kernel_id`` (since microversion 2.3)
+
+    - ``OS-EXT-SRV-ATTR:ramdisk_id`` (since microversion 2.3)
+
+    - ``OS-EXT-SRV-ATTR:root_device_name`` (since microversion 2.3)
+
+    - ``OS-EXT-SRV-ATTR:user_data`` (since microversion 2.3)
+
+
+    Microvision 2.75 added the above attributes in the ``PUT /servers/{server_id}``
+
+    and ``POST /servers/{server_id}/action (rebuild)`` API responses which are
+
+    also controlled by this policy rule, like the ``GET /servers*`` APIs.
+
+    '
+  name: os_compute_api:os-extended-server-attributes
+  operations:
+  - method: GET
+    path: /servers/{id}
+  - method: GET
+    path: /servers/detail
+  - method: PUT
+    path: /servers/{server_id}
+  - method: POST
+    path: /servers/{server_id}/action (rebuild)
+  scope_types:
+  - system
+  - project
+- check_str: '@'
+  description: List available extensions and show information for an extension by
+    alias
+  name: os_compute_api:extensions
+  operations:
+  - method: GET
+    path: /extensions
+  - method: GET
+    path: /extensions/{alias}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Add flavor access to a tenant
+  name: os_compute_api:os-flavor-access:add_tenant_access
+  operations:
+  - method: POST
+    path: /flavors/{flavor_id}/action (addTenantAccess)
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Remove flavor access from a tenant
+  name: os_compute_api:os-flavor-access:remove_tenant_access
+  operations:
+  - method: POST
+    path: /flavors/{flavor_id}/action (removeTenantAccess)
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-flavor-access
+  deprecated_since: 21.0.0
+  description: 'List flavor access information
+
+
+    Allows access to the full list of tenants that have access
+
+    to a flavor via an os-flavor-access API.
+
+    '
+  name: os_compute_api:os-flavor-access
+  operations:
+  - method: GET
+    path: /flavors/{flavor_id}/os-flavor-access
+  scope_types:
+  - system
+- check_str: rule:system_or_project_reader
+  description: Show an extra spec for a flavor
+  name: os_compute_api:os-flavor-extra-specs:show
+  operations:
+  - method: GET
+    path: /flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Create extra specs for a flavor
+  name: os_compute_api:os-flavor-extra-specs:create
+  operations:
+  - method: POST
+    path: /flavors/{flavor_id}/os-extra_specs/
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Update an extra spec for a flavor
+  name: os_compute_api:os-flavor-extra-specs:update
+  operations:
+  - method: PUT
+    path: /flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Delete an extra spec for a flavor
+  name: os_compute_api:os-flavor-extra-specs:delete
+  operations:
+  - method: DELETE
+    path: /flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+  scope_types:
+  - system
+- check_str: rule:system_or_project_reader
+  description: List extra specs for a flavor. Starting with microversion 2.47, the
+    flavor used for a server is also returned in the response when showing server
+    details, updating a server or rebuilding a server. Starting with microversion
+    2.61, extra specs may be returned in responses for the flavor resource.
+  name: os_compute_api:os-flavor-extra-specs:index
+  operations:
+  - method: GET
+    path: /flavors/{flavor_id}/os-extra_specs/
+  - method: GET
+    path: /servers/detail
+  - method: GET
+    path: /servers/{server_id}
+  - method: PUT
+    path: /servers/{server_id}
+  - method: POST
+    path: /servers/{server_id}/action (rebuild)
+  - method: POST
+    path: /flavors
+  - method: GET
+    path: /flavors/detail
+  - method: GET
+    path: /flavors/{flavor_id}
+  - method: PUT
+    path: /flavors/{flavor_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Create a flavor
+  name: os_compute_api:os-flavor-manage:create
+  operations:
+  - method: POST
+    path: /flavors
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Update a flavor
+  name: os_compute_api:os-flavor-manage:update
+  operations:
+  - method: PUT
+    path: /flavors/{flavor_id}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Delete a flavor
+  name: os_compute_api:os-flavor-manage:delete
+  operations:
+  - method: DELETE
+    path: /flavors/{flavor_id}
+  scope_types:
+  - system
+- check_str: '@'
+  description: List floating IP pools. This API is deprecated.
+  name: os_compute_api:os-floating-ip-pools
+  operations:
+  - method: GET
+    path: /os-floating-ip-pools
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-floating-ips
+  deprecated_since: 22.0.0
+  description: Associate floating IPs to server.  This API is deprecated.
+  name: os_compute_api:os-floating-ips:add
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (addFloatingIp)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-floating-ips
+  deprecated_since: 22.0.0
+  description: Disassociate floating IPs to server.  This API is deprecated.
+  name: os_compute_api:os-floating-ips:remove
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (removeFloatingIp)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-floating-ips
+  deprecated_since: 22.0.0
+  description: List floating IPs. This API is deprecated.
+  name: os_compute_api:os-floating-ips:list
+  operations:
+  - method: GET
+    path: /os-floating-ips
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-floating-ips
+  deprecated_since: 22.0.0
+  description: Create floating IPs. This API is deprecated.
+  name: os_compute_api:os-floating-ips:create
+  operations:
+  - method: POST
+    path: /os-floating-ips
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-floating-ips
+  deprecated_since: 22.0.0
+  description: Show floating IPs. This API is deprecated.
+  name: os_compute_api:os-floating-ips:show
+  operations:
+  - method: GET
+    path: /os-floating-ips/{floating_ip_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-floating-ips
+  deprecated_since: 22.0.0
+  description: Delete floating IPs. This API is deprecated.
+  name: os_compute_api:os-floating-ips:delete
+  operations:
+  - method: DELETE
+    path: /os-floating-ips/{floating_ip_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hosts
+  deprecated_since: 22.0.0
+  description: 'List physical hosts.
+
+
+    This API is deprecated in favor of os-hypervisors and os-services.'
+  name: os_compute_api:os-hosts:list
+  operations:
+  - method: GET
+    path: /os-hosts
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hosts
+  deprecated_since: 22.0.0
+  description: 'Show physical host.
+
+
+    This API is deprecated in favor of os-hypervisors and os-services.'
+  name: os_compute_api:os-hosts:show
+  operations:
+  - method: GET
+    path: /os-hosts/{host_name}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hosts
+  deprecated_since: 22.0.0
+  description: 'Update physical host.
+
+
+    This API is deprecated in favor of os-hypervisors and os-services.'
+  name: os_compute_api:os-hosts:update
+  operations:
+  - method: PUT
+    path: /os-hosts/{host_name}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hosts
+  deprecated_since: 22.0.0
+  description: 'Reboot physical host.
+
+
+    This API is deprecated in favor of os-hypervisors and os-services.'
+  name: os_compute_api:os-hosts:reboot
+  operations:
+  - method: GET
+    path: /os-hosts/{host_name}/reboot
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hosts
+  deprecated_since: 22.0.0
+  description: 'Shutdown physical host.
+
+
+    This API is deprecated in favor of os-hypervisors and os-services.'
+  name: os_compute_api:os-hosts:shutdown
+  operations:
+  - method: GET
+    path: /os-hosts/{host_name}/shutdown
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hosts
+  deprecated_since: 22.0.0
+  description: 'Start physical host.
+
+
+    This API is deprecated in favor of os-hypervisors and os-services.'
+  name: os_compute_api:os-hosts:start
+  operations:
+  - method: GET
+    path: /os-hosts/{host_name}/startup
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hypervisors
+  deprecated_since: 21.0.0
+  description: List all hypervisors.
+  name: os_compute_api:os-hypervisors:list
+  operations:
+  - method: GET
+    path: /os-hypervisors
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hypervisors
+  deprecated_since: 21.0.0
+  description: List all hypervisors with details
+  name: os_compute_api:os-hypervisors:list-detail
+  operations:
+  - method: GET
+    path: /os-hypervisors/details
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hypervisors
+  deprecated_since: 21.0.0
+  description: Show summary statistics for all hypervisors over all compute nodes.
+  name: os_compute_api:os-hypervisors:statistics
+  operations:
+  - method: GET
+    path: /os-hypervisors/statistics
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hypervisors
+  deprecated_since: 21.0.0
+  description: Show details for a hypervisor.
+  name: os_compute_api:os-hypervisors:show
+  operations:
+  - method: GET
+    path: /os-hypervisors/{hypervisor_id}
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hypervisors
+  deprecated_since: 21.0.0
+  description: Show the uptime of a hypervisor.
+  name: os_compute_api:os-hypervisors:uptime
+  operations:
+  - method: GET
+    path: /os-hypervisors/{hypervisor_id}/uptime
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hypervisors
+  deprecated_since: 21.0.0
+  description: Search hypervisor by hypervisor_hostname pattern.
+  name: os_compute_api:os-hypervisors:search
+  operations:
+  - method: GET
+    path: /os-hypervisors/{hypervisor_hostname_pattern}/search
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-hypervisors
+  deprecated_since: 21.0.0
+  description: List all servers on hypervisors that can match the provided hypervisor_hostname
+    pattern.
+  name: os_compute_api:os-hypervisors:servers
+  operations:
+  - method: GET
+    path: /os-hypervisors/{hypervisor_hostname_pattern}/servers
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  description: 'Add "details" key in action events for a server.
+
+
+    This check is performed only after the check
+
+    os_compute_api:os-instance-actions:show passes. Beginning with Microversion
+
+    2.84, new field ''details'' is exposed via API which can have more details about
+
+    event failure. That field is controlled by this policy which is system reader
+
+    by default. Making the ''details'' field visible to the non-admin user helps to
+
+    understand the nature of the problem (i.e. if the action can be retried),
+
+    but in the other hand it might leak information about the deployment
+
+    (e.g. the type of the hypervisor).
+
+    '
+  name: os_compute_api:os-instance-actions:events:details
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-instance-actions/{request_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: 'Add events details in action details for a server.
+
+    This check is performed only after the check
+
+    os_compute_api:os-instance-actions:show passes. Beginning with Microversion
+
+    2.51, events details are always included; traceback information is provided
+
+    per event if policy enforcement passes. Beginning with Microversion 2.62,
+
+    each event includes a hashed host identifier and, if policy enforcement
+
+    passes, the name of the host.'
+  name: os_compute_api:os-instance-actions:events
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-instance-actions/{request_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-instance-actions
+  deprecated_since: 21.0.0
+  description: List actions for a server.
+  name: os_compute_api:os-instance-actions:list
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-instance-actions
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-instance-actions
+  deprecated_since: 21.0.0
+  description: Show action details for a server.
+  name: os_compute_api:os-instance-actions:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-instance-actions/{request_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-instance-usage-audit-log
+  deprecated_since: 21.0.0
+  description: List all usage audits.
+  name: os_compute_api:os-instance-usage-audit-log:list
+  operations:
+  - method: GET
+    path: /os-instance_usage_audit_log
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-instance-usage-audit-log
+  deprecated_since: 21.0.0
+  description: List all usage audits occurred before a specified time for all servers
+    on all compute hosts where usage auditing is configured
+  name: os_compute_api:os-instance-usage-audit-log:show
+  operations:
+  - method: GET
+    path: /os-instance_usage_audit_log/{before_timestamp}
+  scope_types:
+  - system
+- check_str: rule:system_or_project_reader
+  description: Show IP addresses details for a network label of a  server
+  name: os_compute_api:ips:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}/ips/{network_label}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: List IP addresses that are assigned to a server
+  name: os_compute_api:ips:index
+  operations:
+  - method: GET
+    path: /servers/{server_id}/ips
+  scope_types:
+  - system
+  - project
+- check_str: (rule:system_reader_api) or user_id:%(user_id)s
+  description: List all keypairs
+  name: os_compute_api:os-keypairs:index
+  operations:
+  - method: GET
+    path: /os-keypairs
+  scope_types:
+  - system
+  - project
+- check_str: (rule:system_admin_api) or user_id:%(user_id)s
+  description: Create a keypair
+  name: os_compute_api:os-keypairs:create
+  operations:
+  - method: POST
+    path: /os-keypairs
+  scope_types:
+  - system
+  - project
+- check_str: (rule:system_admin_api) or user_id:%(user_id)s
+  description: Delete a keypair
+  name: os_compute_api:os-keypairs:delete
+  operations:
+  - method: DELETE
+    path: /os-keypairs/{keypair_name}
+  scope_types:
+  - system
+  - project
+- check_str: (rule:system_reader_api) or user_id:%(user_id)s
+  description: Show details of a keypair
+  name: os_compute_api:os-keypairs:show
+  operations:
+  - method: GET
+    path: /os-keypairs/{keypair_name}
+  scope_types:
+  - system
+  - project
+- check_str: '@'
+  description: Show rate and absolute limits for the current user project
+  name: os_compute_api:limits
+  operations:
+  - method: GET
+    path: /limits
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-used-limits
+  deprecated_since: 21.0.0
+  description: 'Show rate and absolute limits of other project.
+
+
+    This policy only checks if the user has access to the requested
+
+    project limits. And this check is performed only after the check
+
+    os_compute_api:limits passes'
+  name: os_compute_api:limits:other_project
+  operations:
+  - method: GET
+    path: /limits
+  scope_types:
+  - system
+- check_str: rule:system_admin_or_owner
+  description: Lock a server
+  name: os_compute_api:os-lock-server:lock
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (lock)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Unlock a server
+  name: os_compute_api:os-lock-server:unlock
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (unlock)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: 'Unlock a server, regardless who locked the server.
+
+
+    This check is performed only after the check
+
+    os_compute_api:os-lock-server:unlock passes'
+  name: os_compute_api:os-lock-server:unlock:unlock_override
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (unlock)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Cold migrate a server to a host
+  name: os_compute_api:os-migrate-server:migrate
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (migrate)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Live migrate a server to a new host without a reboot
+  name: os_compute_api:os-migrate-server:migrate_live
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (os-migrateLive)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: List migrations
+  name: os_compute_api:os-migrations:index
+  operations:
+  - method: GET
+    path: /os-migrations
+  scope_types:
+  - system
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-multinic
+  deprecated_since: 22.0.0
+  description: 'Add a fixed IP address to a server.
+
+
+    This API is proxy calls to the Network service. This is
+
+    deprecated.'
+  name: os_compute_api:os-multinic:add
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (addFixedIp)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-multinic
+  deprecated_since: 22.0.0
+  description: 'Remove a fixed IP address from a server.
+
+
+    This API is proxy calls to the Network service. This is
+
+    deprecated.'
+  name: os_compute_api:os-multinic:remove
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (removeFixedIp)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-networks:view
+  deprecated_since: 22.0.0
+  description: 'List networks for the project.
+
+
+    This API is proxy calls to the Network service. This is deprecated.'
+  name: os_compute_api:os-networks:list
+  operations:
+  - method: GET
+    path: /os-networks
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-networks:view
+  deprecated_since: 22.0.0
+  description: 'Show network details.
+
+
+    This API is proxy calls to the Network service. This is deprecated.'
+  name: os_compute_api:os-networks:show
+  operations:
+  - method: GET
+    path: /os-networks/{network_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Pause a server
+  name: os_compute_api:os-pause-server:pause
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (pause)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Unpause a paused server
+  name: os_compute_api:os-pause-server:unpause
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (unpause)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: List quotas for specific quota classs
+  name: os_compute_api:os-quota-class-sets:show
+  operations:
+  - method: GET
+    path: /os-quota-class-sets/{quota_class}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Update quotas for specific quota class
+  name: os_compute_api:os-quota-class-sets:update
+  operations:
+  - method: PUT
+    path: /os-quota-class-sets/{quota_class}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  description: Update the quotas
+  name: os_compute_api:os-quota-sets:update
+  operations:
+  - method: PUT
+    path: /os-quota-sets/{tenant_id}
+  scope_types:
+  - system
+- check_str: '@'
+  description: List default quotas
+  name: os_compute_api:os-quota-sets:defaults
+  operations:
+  - method: GET
+    path: /os-quota-sets/{tenant_id}/defaults
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: Show a quota
+  name: os_compute_api:os-quota-sets:show
+  operations:
+  - method: GET
+    path: /os-quota-sets/{tenant_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Revert quotas to defaults
+  name: os_compute_api:os-quota-sets:delete
+  operations:
+  - method: DELETE
+    path: /os-quota-sets/{tenant_id}
+  scope_types:
+  - system
+- check_str: rule:system_or_project_reader
+  description: Show the detail of quota
+  name: os_compute_api:os-quota-sets:detail
+  operations:
+  - method: GET
+    path: /os-quota-sets/{tenant_id}/detail
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: 'Generate a URL to access remove server console.
+
+
+    This policy is for ``POST /remote-consoles`` API and below Server actions APIs
+
+    are deprecated:
+
+
+    - ``os-getRDPConsole``
+
+    - ``os-getSerialConsole``
+
+    - ``os-getSPICEConsole``
+
+    - ``os-getVNCConsole``.'
+  name: os_compute_api:os-remote-consoles
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (os-getRDPConsole)
+  - method: POST
+    path: /servers/{server_id}/action (os-getSerialConsole)
+  - method: POST
+    path: /servers/{server_id}/action (os-getSPICEConsole)
+  - method: POST
+    path: /servers/{server_id}/action (os-getVNCConsole)
+  - method: POST
+    path: /servers/{server_id}/remote-consoles
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Rescue a server
+  name: os_compute_api:os-rescue
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (rescue)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Rescue/Unrescue API policies are made granular with new policy
+
+    for unrescue and keeping old policy for rescue.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-rescue
+  deprecated_since: 21.0.0
+  description: Unrescue a server
+  name: os_compute_api:os-unrescue
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (unrescue)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 22.0.0
+  description: List security groups. This API is deprecated.
+  name: os_compute_api:os-security-groups:get
+  operations:
+  - method: GET
+    path: /os-security-groups
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 22.0.0
+  description: Show security group. This API is deprecated.
+  name: os_compute_api:os-security-groups:show
+  operations:
+  - method: GET
+    path: /os-security-groups/{security_group_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 22.0.0
+  description: Create security group. This API is deprecated.
+  name: os_compute_api:os-security-groups:create
+  operations:
+  - method: POST
+    path: /os-security-groups
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 22.0.0
+  description: Update security group. This API is deprecated.
+  name: os_compute_api:os-security-groups:update
+  operations:
+  - method: PUT
+    path: /os-security-groups/{security_group_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 22.0.0
+  description: Delete security group. This API is deprecated.
+  name: os_compute_api:os-security-groups:delete
+  operations:
+  - method: DELETE
+    path: /os-security-groups/{security_group_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 22.0.0
+  description: Create security group Rule. This API is deprecated.
+  name: os_compute_api:os-security-groups:rule:create
+  operations:
+  - method: POST
+    path: /os-security-group-rules
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 22.0.0
+  description: Delete security group Rule. This API is deprecated.
+  name: os_compute_api:os-security-groups:rule:delete
+  operations:
+  - method: DELETE
+    path: /os-security-group-rules/{security_group_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 21.0.0
+  description: List security groups of server.
+  name: os_compute_api:os-security-groups:list
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-security-groups
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 21.0.0
+  description: Add security groups to server.
+  name: os_compute_api:os-security-groups:add
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (addSecurityGroup)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-security-groups
+  deprecated_since: 21.0.0
+  description: Remove security groups from server.
+  name: os_compute_api:os-security-groups:remove
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (removeSecurityGroup)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Show the usage data for a server
+  name: os_compute_api:os-server-diagnostics
+  operations:
+  - method: GET
+    path: /servers/{server_id}/diagnostics
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Create one or more external events
+  name: os_compute_api:os-server-external-events:create
+  operations:
+  - method: POST
+    path: /os-server-external-events
+  scope_types:
+  - system
+- check_str: rule:project_member_api
+  description: Create a new server group
+  name: os_compute_api:os-server-groups:create
+  operations:
+  - method: POST
+    path: /os-server-groups
+  scope_types:
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Delete a server group
+  name: os_compute_api:os-server-groups:delete
+  operations:
+  - method: DELETE
+    path: /os-server-groups/{server_group_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: List all server groups
+  name: os_compute_api:os-server-groups:index
+  operations:
+  - method: GET
+    path: /os-server-groups
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: List all server groups for all projects
+  name: os_compute_api:os-server-groups:index:all_projects
+  operations:
+  - method: GET
+    path: /os-server-groups
+  scope_types:
+  - system
+- check_str: rule:system_or_project_reader
+  description: Show details of a server group
+  name: os_compute_api:os-server-groups:show
+  operations:
+  - method: GET
+    path: /os-server-groups/{server_group_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: List all metadata of a server
+  name: os_compute_api:server-metadata:index
+  operations:
+  - method: GET
+    path: /servers/{server_id}/metadata
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: Show metadata for a server
+  name: os_compute_api:server-metadata:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}/metadata/{key}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Create metadata for a server
+  name: os_compute_api:server-metadata:create
+  operations:
+  - method: POST
+    path: /servers/{server_id}/metadata
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Replace metadata for a server
+  name: os_compute_api:server-metadata:update_all
+  operations:
+  - method: PUT
+    path: /servers/{server_id}/metadata
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Update metadata from a server
+  name: os_compute_api:server-metadata:update
+  operations:
+  - method: PUT
+    path: /servers/{server_id}/metadata/{key}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Delete metadata from a server
+  name: os_compute_api:server-metadata:delete
+  operations:
+  - method: DELETE
+    path: /servers/{server_id}/metadata/{key}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-server-password
+  deprecated_since: 21.0.0
+  description: Show the encrypted administrative password of a server
+  name: os_compute_api:os-server-password:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-server-password
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-server-password
+  deprecated_since: 21.0.0
+  description: Clear the encrypted administrative password of a server
+  name: os_compute_api:os-server-password:clear
+  operations:
+  - method: DELETE
+    path: /servers/{server_id}/os-server-password
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Delete all the server tags
+  name: os_compute_api:os-server-tags:delete_all
+  operations:
+  - method: DELETE
+    path: /servers/{server_id}/tags
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: List all tags for given server
+  name: os_compute_api:os-server-tags:index
+  operations:
+  - method: GET
+    path: /servers/{server_id}/tags
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Replace all tags on specified server with the new set of tags.
+  name: os_compute_api:os-server-tags:update_all
+  operations:
+  - method: PUT
+    path: /servers/{server_id}/tags
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Delete a single tag from the specified server
+  name: os_compute_api:os-server-tags:delete
+  operations:
+  - method: DELETE
+    path: /servers/{server_id}/tags/{tag}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Add a single tag to the server if server has no specified tag
+  name: os_compute_api:os-server-tags:update
+  operations:
+  - method: PUT
+    path: /servers/{server_id}/tags/{tag}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: Check tag existence on the server.
+  name: os_compute_api:os-server-tags:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}/tags/{tag}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: Show the NUMA topology data for a server
+  name: compute:server:topology:index
+  operations:
+  - method: GET
+    path: /servers/{server_id}/topology
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: Show the NUMA topology data for a server with host NUMA ID and CPU
+    pinning information
+  name: compute:server:topology:host:index
+  operations:
+  - method: GET
+    path: /servers/{server_id}/topology
+  scope_types:
+  - system
+- check_str: rule:system_or_project_reader
+  description: List all servers
+  name: os_compute_api:servers:index
+  operations:
+  - method: GET
+    path: /servers
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: List all servers with detailed information
+  name: os_compute_api:servers:detail
+  operations:
+  - method: GET
+    path: /servers/detail
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: List all servers for all projects
+  name: os_compute_api:servers:index:get_all_tenants
+  operations:
+  - method: GET
+    path: /servers
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  description: List all servers with detailed information for  all projects
+  name: os_compute_api:servers:detail:get_all_tenants
+  operations:
+  - method: GET
+    path: /servers/detail
+  scope_types:
+  - system
+- check_str: rule:system_reader_api
+  description: Allow all filters when listing servers
+  name: os_compute_api:servers:allow_all_filters
+  operations:
+  - method: GET
+    path: /servers
+  - method: GET
+    path: /servers/detail
+  scope_types:
+  - system
+- check_str: rule:system_or_project_reader
+  description: Show a server
+  name: os_compute_api:servers:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: '
+
+    Show a server with additional host status information.
+
+
+    This means host_status will be shown irrespective of status value. If showing
+
+    only host_status UNKNOWN is desired, use the
+
+    ``os_compute_api:servers:show:host_status:unknown-only`` policy rule.
+
+
+    Microvision 2.75 added the ``host_status`` attribute in the
+
+    ``PUT /servers/{server_id}`` and ``POST /servers/{server_id}/action (rebuild)``
+
+    API responses which are also controlled by this policy rule, like the
+
+    ``GET /servers*`` APIs.
+
+    '
+  name: os_compute_api:servers:show:host_status
+  operations:
+  - method: GET
+    path: /servers/{server_id}
+  - method: GET
+    path: /servers/detail
+  - method: PUT
+    path: /servers/{server_id}
+  - method: POST
+    path: /servers/{server_id}/action (rebuild)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: '
+
+    Show a server with additional host status information, only if host status is
+
+    UNKNOWN.
+
+
+    This policy rule will only be enforced when the
+
+    ``os_compute_api:servers:show:host_status`` policy rule does not pass for the
+
+    request. An example policy configuration could be where the
+
+    ``os_compute_api:servers:show:host_status`` rule is set to allow admin-only and
+
+    the ``os_compute_api:servers:show:host_status:unknown-only`` rule is set to
+
+    allow everyone.
+
+    '
+  name: os_compute_api:servers:show:host_status:unknown-only
+  operations:
+  - method: GET
+    path: /servers/{server_id}
+  - method: GET
+    path: /servers/detail
+  - method: PUT
+    path: /servers/{server_id}
+  - method: POST
+    path: /servers/{server_id}/action (rebuild)
+  scope_types:
+  - system
+  - project
+- check_str: rule:project_member_api
+  description: Create a server
+  name: os_compute_api:servers:create
+  operations:
+  - method: POST
+    path: /servers
+  scope_types:
+  - project
+- check_str: rule:project_admin_api
+  description: '
+
+    Create a server on the specified host and/or node.
+
+
+    In this case, the server is forced to launch on the specified
+
+    host and/or node by bypassing the scheduler filters unlike the
+
+    ``compute:servers:create:requested_destination`` rule.
+
+    '
+  name: os_compute_api:servers:create:forced_host
+  operations:
+  - method: POST
+    path: /servers
+  scope_types:
+  - system
+  - project
+- check_str: rule:project_admin_api
+  description: '
+
+    Create a server on the requested compute service host and/or
+
+    hypervisor_hostname.
+
+
+    In this case, the requested host and/or hypervisor_hostname is
+
+    validated by the scheduler filters unlike the
+
+    ``os_compute_api:servers:create:forced_host`` rule.
+
+    '
+  name: compute:servers:create:requested_destination
+  operations:
+  - method: POST
+    path: /servers
+  scope_types:
+  - system
+  - project
+- check_str: rule:project_member_api
+  description: Create a server with the requested volume attached to it
+  name: os_compute_api:servers:create:attach_volume
+  operations:
+  - method: POST
+    path: /servers
+  scope_types:
+  - project
+- check_str: rule:project_member_api
+  description: Create a server with the requested network attached  to it
+  name: os_compute_api:servers:create:attach_network
+  operations:
+  - method: POST
+    path: /servers
+  scope_types:
+  - project
+- check_str: rule:project_member_api
+  description: Create a server with trusted image certificate IDs
+  name: os_compute_api:servers:create:trusted_certs
+  operations:
+  - method: POST
+    path: /servers
+  scope_types:
+  - project
+- check_str: rule:project_admin_api
+  description: '
+
+    This rule controls the compute API validation behavior of creating a server
+
+    with a flavor that has 0 disk, indicating the server should be volume-backed.
+
+
+    For a flavor with disk=0, the root disk will be set to exactly the size of the
+
+    image used to deploy the instance. However, in this case the filter_scheduler
+
+    cannot select the compute host based on the virtual image size. Therefore, 0
+
+    should only be used for volume booted instances or for testing purposes.
+
+
+    WARNING: It is a potential security exposure to enable this policy rule
+
+    if users can upload their own images since repeated attempts to
+
+    create a disk=0 flavor instance with a large image can exhaust
+
+    the local disk of the compute (or shared storage cluster). See bug
+
+    https://bugs.launchpad.net/nova/+bug/1739646 for details.
+
+    '
+  name: os_compute_api:servers:create:zero_disk_flavor
+  operations:
+  - method: POST
+    path: /servers
+  scope_types:
+  - system
+  - project
+- check_str: rule:project_admin_api
+  description: Attach an unshared external network to a server
+  name: network:attach_external_network
+  operations:
+  - method: POST
+    path: /servers
+  - method: POST
+    path: /servers/{server_id}/os-interface
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Delete a server
+  name: os_compute_api:servers:delete
+  operations:
+  - method: DELETE
+    path: /servers/{server_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Update a server
+  name: os_compute_api:servers:update
+  operations:
+  - method: PUT
+    path: /servers/{server_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Confirm a server resize
+  name: os_compute_api:servers:confirm_resize
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (confirmResize)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Revert a server resize
+  name: os_compute_api:servers:revert_resize
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (revertResize)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Reboot a server
+  name: os_compute_api:servers:reboot
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (reboot)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Resize a server
+  name: os_compute_api:servers:resize
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (resize)
+  scope_types:
+  - system
+  - project
+- check_str: '!'
+  description: 'Resize a server across cells. By default, this is disabled for all
+    users and recommended to be tested in a deployment for admin users before opening
+    it up to non-admin users. Resizing within a cell is the default preferred behavior
+    even if this is enabled. '
+  name: compute:servers:resize:cross_cell
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (resize)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Rebuild a server
+  name: os_compute_api:servers:rebuild
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (rebuild)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Rebuild a server with trusted image certificate IDs
+  name: os_compute_api:servers:rebuild:trusted_certs
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (rebuild)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Create an image from a server
+  name: os_compute_api:servers:create_image
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (createImage)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Create an image from a volume backed server
+  name: os_compute_api:servers:create_image:allow_volume_backed
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (createImage)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Start a server
+  name: os_compute_api:servers:start
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (os-start)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Stop a server
+  name: os_compute_api:servers:stop
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (os-stop)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Trigger crash dump in a server
+  name: os_compute_api:servers:trigger_crash_dump
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (trigger_crash_dump)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: Show details for an in-progress live migration for a given server
+  name: os_compute_api:servers:migrations:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}/migrations/{migration_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Force an in-progress live migration for a given server to complete
+  name: os_compute_api:servers:migrations:force_complete
+  operations:
+  - method: POST
+    path: /servers/{server_id}/migrations/{migration_id}/action (force_complete)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Delete(Abort) an in-progress live migration
+  name: os_compute_api:servers:migrations:delete
+  operations:
+  - method: DELETE
+    path: /servers/{server_id}/migrations/{migration_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: Lists in-progress live migrations for a given server
+  name: os_compute_api:servers:migrations:index
+  operations:
+  - method: GET
+    path: /servers/{server_id}/migrations
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-services
+  deprecated_since: 21.0.0
+  description: List all running Compute services in a region.
+  name: os_compute_api:os-services:list
+  operations:
+  - method: GET
+    path: /os-services
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-services
+  deprecated_since: 21.0.0
+  description: Update a Compute service.
+  name: os_compute_api:os-services:update
+  operations:
+  - method: PUT
+    path: /os-services/{service_id}
+  scope_types:
+  - system
+- check_str: rule:system_admin_api
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: os_compute_api:os-services
+  deprecated_since: 21.0.0
+  description: Delete a Compute service.
+  name: os_compute_api:os-services:delete
+  operations:
+  - method: DELETE
+    path: /os-services/{service_id}
+  scope_types:
+  - system
+- check_str: rule:system_admin_or_owner
+  description: Shelve server
+  name: os_compute_api:os-shelve:shelve
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (shelve)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Unshelve (restore) shelved server
+  name: os_compute_api:os-shelve:unshelve
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (unshelve)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Shelf-offload (remove) server
+  name: os_compute_api:os-shelve:shelve_offload
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (shelveOffload)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: Show usage statistics for a specific tenant
+  name: os_compute_api:os-simple-tenant-usage:show
+  operations:
+  - method: GET
+    path: /os-simple-tenant-usage/{tenant_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_reader_api
+  description: List per tenant usage statistics for all tenants
+  name: os_compute_api:os-simple-tenant-usage:list
+  operations:
+  - method: GET
+    path: /os-simple-tenant-usage
+  scope_types:
+  - system
+- check_str: rule:system_admin_or_owner
+  description: Resume suspended server
+  name: os_compute_api:os-suspend-server:resume
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (resume)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Suspend server
+  name: os_compute_api:os-suspend-server:suspend
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (suspend)
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-tenant-networks
+  deprecated_since: 22.0.0
+  description: 'List project networks.
+
+
+    This API is proxy calls to the Network service. This is deprecated.'
+  name: os_compute_api:os-tenant-networks:list
+  operations:
+  - method: GET
+    path: /os-tenant-networks
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-tenant-networks
+  deprecated_since: 22.0.0
+  description: 'Show project network details.
+
+
+    This API is proxy calls to the Network service. This is deprecated.'
+  name: os_compute_api:os-tenant-networks:show
+  operations:
+  - method: GET
+    path: /os-tenant-networks/{network_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'List volumes.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:list
+  operations:
+  - method: GET
+    path: /os-volumes
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'Create volume.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:create
+  operations:
+  - method: POST
+    path: /os-volumes
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'List volumes detail.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:detail
+  operations:
+  - method: GET
+    path: /os-volumes/detail
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'Show volume.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:show
+  operations:
+  - method: GET
+    path: /os-volumes/{volume_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'Delete volume.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:delete
+  operations:
+  - method: DELETE
+    path: /os-volumes/{volume_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'List snapshots.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:snapshots:list
+  operations:
+  - method: GET
+    path: /os-snapshots
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'Create snapshots.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:snapshots:create
+  operations:
+  - method: POST
+    path: /os-snapshots
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'List snapshots details.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:snapshots:detail
+  operations:
+  - method: GET
+    path: /os-snapshots/detail
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'Show snapshot.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:snapshots:show
+  operations:
+  - method: GET
+    path: /os-snapshots/{snapshot_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  deprecated_reason: '
+
+    Nova API policies are introducing new default roles with scope_type
+
+    capabilities. Old policies are deprecated and silently going to be ignored
+
+    in nova 23.0.0 release.
+
+    '
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: os_compute_api:os-volumes
+  deprecated_since: 22.0.0
+  description: 'Delete snapshot.
+
+
+    This API is a proxy call to the Volume service. It is deprecated.'
+  name: os_compute_api:os-volumes:snapshots:delete
+  operations:
+  - method: DELETE
+    path: /os-snapshots/{snapshot_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: List volume attachments for an instance
+  name: os_compute_api:os-volumes-attachments:index
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-volume_attachments
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: Attach a volume to an instance
+  name: os_compute_api:os-volumes-attachments:create
+  operations:
+  - method: POST
+    path: /servers/{server_id}/os-volume_attachments
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_or_project_reader
+  description: Show details of a volume attachment
+  name: os_compute_api:os-volumes-attachments:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}/os-volume_attachments/{volume_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_or_owner
+  description: 'Update a volume attachment.
+
+    New ''update'' policy about ''swap + update'' request (which is possible
+
+    only >2.85) only <swap policy> is checked. We expect <swap policy> to be
+
+    always superset of this policy permission.
+
+    '
+  name: os_compute_api:os-volumes-attachments:update
+  operations:
+  - method: PUT
+    path: /servers/{server_id}/os-volume_attachments/{volume_id}
+  scope_types:
+  - system
+  - project
+- check_str: rule:system_admin_api
+  description: Update a volume attachment with a different volumeId
+  name: os_compute_api:os-volumes-attachments:swap
+  operations:
+  - method: PUT
+    path: /servers/{server_id}/os-volume_attachments/{volume_id}
+  scope_types:
+  - system
+- check_str: rule:system_admin_or_owner
+  description: Detach a volume from an instance
+  name: os_compute_api:os-volumes-attachments:delete
+  operations:
+  - method: DELETE
+    path: /servers/{server_id}/os-volume_attachments/{volume_id}
+  scope_types:
+  - system
+  - project

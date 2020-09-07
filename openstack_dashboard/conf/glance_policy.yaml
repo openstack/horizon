@@ -1,0 +1,121 @@
+# Defines the default rule used for policies that historically had an
+# empty policy in the supplied policy.json file.
+#"default": ""
+
+# DEPRECATED
+# "default":"role:admin" has been deprecated since Ussuri in favor of
+# "default":"".
+# In order to allow operators to accept the default policies from code
+# by not defining them in the policy file, while still working with
+# old policy files that rely on the ``default`` rule for policies that
+# are not specified in the policy file, the ``default`` rule must now
+# be explicitly set to ``"role:admin"`` when that is the desired
+# default for unspecified rules.
+
+# Defines the rule for the is_admin:True check.
+#"context_is_admin": "role:admin"
+
+#"add_image": "rule:default"
+
+#"delete_image": "rule:default"
+
+#"get_image": "rule:default"
+
+#"get_images": "rule:default"
+
+#"modify_image": "rule:default"
+
+#"publicize_image": "role:admin"
+
+#"communitize_image": "rule:default"
+
+#"download_image": "rule:default"
+
+#"upload_image": "rule:default"
+
+#"delete_image_location": "rule:default"
+
+#"get_image_location": "rule:default"
+
+#"set_image_location": "rule:default"
+
+#"add_member": "rule:default"
+
+#"delete_member": "rule:default"
+
+#"get_member": "rule:default"
+
+#"get_members": "rule:default"
+
+#"modify_member": "rule:default"
+
+#"manage_image_cache": "role:admin"
+
+#"deactivate": "rule:default"
+
+#"reactivate": "rule:default"
+
+#"copy_image": "role:admin"
+
+#"get_task": "rule:default"
+
+#"get_tasks": "rule:default"
+
+#"add_task": "rule:default"
+
+#"modify_task": "rule:default"
+
+#"tasks_api_access": "role:admin"
+
+#"get_metadef_namespace": "rule:default"
+
+#"get_metadef_namespaces": "rule:default"
+
+#"modify_metadef_namespace": "rule:default"
+
+#"add_metadef_namespace": "rule:default"
+
+#"delete_metadef_namespace": "rule:default"
+
+#"get_metadef_object": "rule:default"
+
+#"get_metadef_objects": "rule:default"
+
+#"modify_metadef_object": "rule:default"
+
+#"add_metadef_object": "rule:default"
+
+#"delete_metadef_object": "rule:default"
+
+#"list_metadef_resource_types": "rule:default"
+
+#"get_metadef_resource_type": "rule:default"
+
+#"add_metadef_resource_type_association": "rule:default"
+
+#"remove_metadef_resource_type_association": "rule:default"
+
+#"get_metadef_property": "rule:default"
+
+#"get_metadef_properties": "rule:default"
+
+#"modify_metadef_property": "rule:default"
+
+#"add_metadef_property": "rule:default"
+
+#"remove_metadef_property": "rule:default"
+
+#"get_metadef_tag": "rule:default"
+
+#"get_metadef_tags": "rule:default"
+
+#"modify_metadef_tag": "rule:default"
+
+#"add_metadef_tag": "rule:default"
+
+#"add_metadef_tags": "rule:default"
+
+#"delete_metadef_tag": "rule:default"
+
+#"delete_metadef_tags": "rule:default"
+
