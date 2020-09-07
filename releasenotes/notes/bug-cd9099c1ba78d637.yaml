@@ -1,0 +1,7 @@
+---
+security:
+  - |
+    An open redirect has been fixed, that could redirect users to arbitrary
+    addresses from certain views by specifying a "next" parameter in the URL.
+    Now the redirect will only work if the target URL is in the same domain,
+    and uses the same protocol.
