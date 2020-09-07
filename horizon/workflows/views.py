@@ -18,6 +18,7 @@ import json
 from django import forms
 from django import http
 from django import shortcuts
+from django.utils import http as utils_http
 from django.views import generic
 
 from horizon import exceptions
@@ -90,8 +91,15 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         workflow = self.get_workflow()
         workflow.verify_integrity()
         context[self.context_object_name] = workflow
-        next = self.request.GET.get(workflow.redirect_param_name)
-        context['REDIRECT_URL'] = next
+
+        redirect_to = self.request.GET.get(workflow.redirect_param_name)
+        # Make sure the requested redirect is safe
+        if redirect_to and not utils_http.is_safe_url(
+                url=redirect_to,
+                allowed_hosts=[self.request.get_host()]):
+            redirect_to = None
+        context['REDIRECT_URL'] = redirect_to
+
         context['layout'] = self.get_layout()
         # For consistency with Workflow class
         context['modal'] = 'modal' in context['layout']

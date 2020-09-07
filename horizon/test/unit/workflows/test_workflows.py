@@ -16,6 +16,7 @@ from unittest import mock
 
 from django import forms
 from django import http
+from django.test.utils import override_settings
 
 from horizon import base
 from horizon import exceptions
@@ -399,3 +400,27 @@ class WorkflowsTests(test.TestCase):
 
         flow = WorkflowForTesting(req, entry_point="action_two")
         self.assertEqual("action_two", flow.get_entry_point())
+
+    @override_settings(ALLOWED_HOSTS=['localhost'])
+    def test_redirect_url_safe(self):
+        url = 'http://localhost/test'
+        view = WorkflowViewForTesting()
+        request = self.factory.get("/", data={
+            'next': url,
+        })
+        request.META['SERVER_NAME'] = "localhost"
+        view.request = request
+        context = view.get_context_data()
+        self.assertEqual(url, context['REDIRECT_URL'])
+
+    @override_settings(ALLOWED_HOSTS=['localhost'])
+    def test_redirect_url_unsafe(self):
+        url = 'http://evilcorp/test'
+        view = WorkflowViewForTesting()
+        request = self.factory.get("/", data={
+            'next': url,
+        })
+        request.META['SERVER_NAME'] = "localhost"
+        view.request = request
+        context = view.get_context_data()
+        self.assertIsNone(context['REDIRECT_URL'])
