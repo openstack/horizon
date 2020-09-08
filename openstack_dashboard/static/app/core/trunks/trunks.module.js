@@ -52,7 +52,7 @@
                trunksService,
                trunkResourceType) {
     registry.getResourceType(trunkResourceType)
-      .setNames(gettext('Trunk'), gettext('Trunks'))
+      .setNames('Trunk', 'Trunks', ngettext('Trunk', 'Trunks', 1))
       .setSummaryTemplateUrl(basePath + 'summary.html')
       .setDefaultIndexUrl('/project/trunks/')
       .setProperties(trunkProperties())

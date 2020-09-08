@@ -44,7 +44,7 @@
 
   function run(registry, domainService, basePath, domainResourceType) {
     registry.getResourceType(domainResourceType)
-      .setNames(gettext('Domain'), gettext('Domains'))
+      .setNames('Domain', 'Domains', ngettext('Domain', 'Domains', 1))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setDefaultIndexUrl('/identity/domains/')
       .setProperties(domainProperties())
