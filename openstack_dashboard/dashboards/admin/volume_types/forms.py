@@ -126,10 +126,10 @@ class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
             messages.success(request, _('Successfully created encryption for '
                                         'volume type: %s') % volume_type_name)
             return volume_type
-        except Exception as ex:
+        except Exception:
             redirect = reverse("horizon:admin:volume_types:index")
             exceptions.handle(
-                request, _('Unable to create encrypted volume type: %s') % ex,
+                request, _('Unable to create encrypted volume type.'),
                 redirect=redirect)
 
 

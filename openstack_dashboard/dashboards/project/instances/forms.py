@@ -236,14 +236,9 @@ class AttachVolume(forms.SelfHandlingForm):
                                                    "inst": instance_id,
                                                    "dev": attach.device}
             messages.info(request, message)
-        except Exception as ex:
+        except Exception:
             redirect = reverse('horizon:project:instances:index')
-            if isinstance(ex, api.nova.VolumeMultiattachNotSupported):
-                # Use the specific error from the specific message.
-                msg = str(ex)
-            else:
-                # Use a generic error message.
-                msg = _('Unable to attach volume: %s') % ex
+            msg = _('Unable to attach volume.')
             exceptions.handle(request, msg, redirect=redirect)
         return True
 
@@ -296,10 +291,10 @@ class DetachVolume(forms.SelfHandlingForm):
                         '%(inst)s.') % {"vol": volume,
                                         "inst": instance_id}
             messages.info(request, message)
-        except Exception as ex:
+        except Exception:
             redirect = reverse('horizon:project:instances:index')
             exceptions.handle(
-                request, _("Unable to detach volume: %s") % ex,
+                request, _("Unable to detach volume."),
                 redirect=redirect)
         return True
 

@@ -66,10 +66,9 @@ class GroupBase(forms.SelfHandlingForm):
             sg = self._call_network_api(request, data)
             messages.success(request, self.success_message % sg.name)
             return sg
-        except Exception as e:
+        except Exception:
             redirect = reverse("horizon:project:security_groups:index")
-            error_msg = self.error_message % e
-            exceptions.handle(request, error_msg, redirect=redirect)
+            exceptions.handle(request, self.error_message, redirect=redirect)
 
 
 class CreateGroup(GroupBase):

@@ -220,10 +220,8 @@ class UpdateSubnet(network_workflows.CreateNetwork):
             subnet = api.neutron.subnet_update(request, subnet_id, **params)
             LOG.debug('Subnet "%s" was successfully updated.', data['cidr'])
             return subnet
-        except Exception as e:
-            msg = (_('Failed to update subnet "%(sub)s": '
-                     ' %(reason)s') %
-                   {"sub": data['cidr'], "reason": e})
+        except Exception:
+            msg = _('Failed to update subnet "%s".') % data['cidr']
             redirect = reverse(self.failure_url, args=(network_id,))
             exceptions.handle(request, msg, redirect=redirect)
             return False
