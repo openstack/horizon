@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1230,10 +1230,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "নেতৱার্ক %(network)sগী এজেন্ত %(agent_name)s হাপচিনবা ঙমদ্রে।"
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "নেত‍ৱার্ক \"%(network)s\" শেম্বা মায় পাক্ত্রে: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "নেতৱার্ক %s শেম্বা ঙমদ্রে"
 
@@ -1297,10 +1293,6 @@ msgstr "নেতৱার্ক %s অপদেত তৌবা ঙমদ্র
 #, python-format
 msgid "Failed to update router %s"
 msgstr "রাউতর %s অপদেত তৌবা মায় পাক্ত্রে"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "সবনেত \"%(sub)s\" অপদেত তৌবা মায় পাক্ত্রে:  %(reason)s"
 
 msgid "Fault"
 msgstr "অশোয়বা"
@@ -3120,6 +3112,9 @@ msgstr "IP এদ্রেস %s এসোসিএত তৌবা ঙমদে
 msgid "Unable to attach volume."
 msgstr "ভোল্যুম এতেচ তৌবা ঙমদে।"
 
+msgid "Unable to change password."
+msgstr "পাসৱার্দ হোংদোকপা ঙমদে।"
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "ভোল্যুম: \"%s\"গী ভোল্যুম তাইপ অদু হোংদোকপা ঙমদে"
@@ -3133,6 +3128,9 @@ msgstr "QoS স্পেক শেম্বা ঙমদে।"
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "দোমেইন \"%s\" শেম্বা ঙমদে।"
+
+msgid "Unable to create encrypted volume type."
+msgstr "এনক্রিপ তৌরবা ভোল্যুম মখল শেম্বা ঙমদ্রে।"
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -3338,10 +3336,6 @@ msgstr "QoS স্পেক লিষ্ট রিত্রিভ তৌবা �
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS স্পেকশীং রিত্রিভ তৌবা ঙমদে"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "এক্সতর্নেল নেতৱার্ক \"%s\"গী লিষ্ট অমা রিত্রিভ তৌবা ঙমদে।"
 
 msgid "Unable to retrieve agent list."
 msgstr "এজেন্ত লিষ্ট রিত্রিভ তৌবা ঙমদে।"

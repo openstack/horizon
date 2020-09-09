@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2382,16 +2382,8 @@ msgstr "Failed to add interface: %s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "Failed to add project %(project)s to volume type access."
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "Failed to add route: %s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Failed to check if network-ip-availability extension is supported."
-
-#, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Failed to create network \"%(network)s\": %(reason)s"
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2400,15 +2392,6 @@ msgstr "Failed to create network %s"
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Failed to create router \"%s\"."
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr ""
-"Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "Failed to create subnet \"%(sub)s\": %(reason)s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2434,15 +2417,8 @@ msgstr "Failed to evacuate instances: %s"
 msgid "Failed to get mapping list %s"
 msgstr "Failed to get mapping list %s"
 
-msgid "Failed to get network list {0}"
-msgstr "Failed to get network list {0}"
-
 msgid "Failed to get network list."
 msgstr "Failed to get network list."
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "Failed to get network list: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "Failed to live migrate instance to a new host."
@@ -2499,10 +2475,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Failed to remove project %(project)s from volume type access."
 
 #, python-format
-msgid "Failed to set gateway: %s"
-msgstr "Failed to set gateway: %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Failed to update network %s"
 
@@ -2513,10 +2485,6 @@ msgstr "Failed to update port \"%s\"."
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Failed to update router %s"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Failed to update subnet \"%(sub)s\":  %(reason)s"
 
 msgid "False"
 msgstr "False"
@@ -6067,6 +6035,9 @@ msgstr "Unable to attach interface."
 msgid "Unable to attach volume."
 msgstr "Unable to attach volume."
 
+msgid "Unable to change password."
+msgstr "Unable to change password."
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Unable to change the volume type for volume: \"%s\""
@@ -6083,6 +6054,9 @@ msgstr "Unable to create QoS Spec."
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Unable to create domain \"%s\"."
+
+msgid "Unable to create encrypted volume type."
+msgstr "Unable to create encrypted volume type."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -6378,10 +6352,6 @@ msgstr "Unable to retrieve QoS spec list."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Unable to retrieve QoS specs"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Unable to retrieve a list of external networks \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "Unable to retrieve agent list."

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-04-23 13:50+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2929,10 +2929,6 @@ msgid "Failed to add project %(project)s to volume type access."
 msgstr ""
 "Fehler beim Hinzufügen des Projekts %(project)s zum Datenträgertyp-Zugriff."
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "Route konnte nicht hinzugefügt werden: %s"
-
 msgid "Failed to check if description field is supported."
 msgstr "Fehler beim Prüfen, ob das Beschreibungsfeld unterstützt wird."
 
@@ -2953,10 +2949,6 @@ msgid "Failed to create a rbac policy."
 msgstr "Fehler bei der Erstellung der RBAC Richtlinie."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Netzwerk \"%(network)s\" konnte nicht angelegt werden: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "Das Netzwerk %s konnte nicht erstellt werden."
 
@@ -2970,16 +2962,6 @@ msgstr "Router \"%s\" konnte nicht angelegt werden."
 
 msgid "Failed to create router."
 msgstr "Fehler beim Erstellen des Routers."
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr ""
-"Fehler beim Erzeugen des Subnetzes \"%(sub)s\" für Netzwerk \"%(net)s\": "
-"%(reason)s"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "Fehler beim Erzeugen des Subnetzes \"%(sub)s\": %(reason)s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -3014,15 +2996,8 @@ msgstr "Fehler beim Abruf der Instanz-Interfaces."
 msgid "Failed to get mapping list %s"
 msgstr "Abrufen der Zuordnungsliste %s fehlgeschlagen."
 
-msgid "Failed to get network list {0}"
-msgstr "Fehler beim Abruf der Netzwerkliste {0}"
-
 msgid "Failed to get network list."
 msgstr "Fehler beim Abruf der Netzwerkliste."
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "Netzwerk-Liste konnte nicht gefunden werden: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr ""
@@ -3083,10 +3058,6 @@ msgstr ""
 "Fehler beim Entfernen des Projekts %(project)s vom Datenträgertyp-Zugriff."
 
 #, python-format
-msgid "Failed to set gateway: %s"
-msgstr "Gateway konnte nicht gesetzt werden: %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Das Netzwerk %s konnte nicht aktualisiert werden."
 
@@ -3101,10 +3072,6 @@ msgstr "Fehler beim Atualisieren der rbac Richtlinie %s"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Aktualisierung des Routers %s fehlgeschlagen."
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Subnetz \"%(sub)s\" konnte nicht aktualisiert werden:  %(reason)s"
 
 msgid "False"
 msgstr "Falsch"
@@ -7218,13 +7185,8 @@ msgstr "Schnittstelle konnte nicht hinzugefügt werden."
 msgid "Unable to attach volume."
 msgstr "Datenträger konnte nicht hinzugefügt werden."
 
-#, python-format
-msgid "Unable to attach volume: %s"
-msgstr "Nicht möglich Volumen hinzuzufügen: %s"
-
-#, python-format
-msgid "Unable to change password: %s"
-msgstr "Das Passwort kann nicht geändert werden. %s"
+msgid "Unable to change password."
+msgstr "Es war nicht möglich das Passwort zu ändern."
 
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
@@ -7264,17 +7226,15 @@ msgstr "Keine Verbindung zu Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "QoS Spezifikationen können nicht erzeugt werden."
 
-#, python-format
-msgid "Unable to create application credential: %s"
-msgstr "Applikations-Zugangsdaten können nicht erstellt werden: %s"
+msgid "Unable to create application credential."
+msgstr "Applikations-Zugangsdaten können nicht erstellt werden."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Domäne \"%s\" kann nicht erstellt werden."
 
-#, python-format
-msgid "Unable to create encrypted volume type: %s"
-msgstr "Verschlüsselter Datenträgertyp kann nicht erstellt werden: %s"
+msgid "Unable to create encrypted volume type."
+msgstr "Verschlüsselter Datenträgertyp kann nicht erstellt werden."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -7365,10 +7325,6 @@ msgstr ""
 "Schattenkopie kann nicht erstellt werden. Die Gruppe muss Datenträger "
 "enthalten."
 
-#, python-format
-msgid "Unable to create snapshot: %s"
-msgstr "Schattenkopie kann nicht erzeugt werden: %s"
-
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr ""
 "Schattenkopien können nicht erstellt werden, da das Kontingent für "
@@ -7430,10 +7386,6 @@ msgstr "Schnittstelle konnte nicht abgetrennt werden."
 
 msgid "Unable to detach volume."
 msgstr "Datenträger kann nicht abgetrennt werden."
-
-#, python-format
-msgid "Unable to detach volume: %s"
-msgstr "Datenträger kann nicht abgetrennt werden: %s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""
@@ -7706,10 +7658,6 @@ msgstr "QoS Spezifikationen können nicht abgerufen werden"
 
 msgid "Unable to retrieve RBAC policies."
 msgstr "Die RBAC Richtlinien können nicht abgerufen werden."
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Liste externer Netzwerke kann nicht abgerufen werden \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "Agentenliste kann nicht abgerufen werden."

@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-04-18 22:47+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-04-18 07:43+0000\n"
+"PO-Revision-Date: 2020-09-08 06:12+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -2826,9 +2826,8 @@ msgstr "Gagal menambahkan antarmuka: %s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "Gagal menambahkan proyek %(project)s untuk akses tipe volume"
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "Gagal menambahkan rute: %s"
+msgid "Failed to add route"
+msgstr "Gagal menambahkan route"
 
 msgid "Failed to check if description field is supported."
 msgstr "Gagal memeriksa apakah bidang deskripsi didukung."
@@ -2846,8 +2845,8 @@ msgid "Failed to create a rbac policy."
 msgstr "Gagal membuat kebijakan rbac."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Gagal membuat jaringan \"%(network)s\": %(reason)s"
+msgid "Failed to create network \"%s\"."
+msgstr "Gagal membuat jaringan \"%s\"."
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2865,12 +2864,12 @@ msgid "Failed to create router."
 msgstr "Gagal membuat router."
 
 #, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr "Gagal membuat subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
+msgstr "Gagal membuat subnet \"%(sub)s\" untuk jaringan \"%(net)s\"."
 
 #, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "Gagal membuat subnet \"%(sub)s\": %(reason)s"
+msgid "Failed to create subnet \"%(sub)s\"."
+msgstr "Gagal membuat subnet \"%(sub)s\"."
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2905,15 +2904,8 @@ msgstr "Gagal mendapatkan antarmuka instance."
 msgid "Failed to get mapping list %s"
 msgstr "Gagal mendapatkan daftar pemetaan %s"
 
-msgid "Failed to get network list {0}"
-msgstr "Gagal mendapatkan daftar jaringan {0}"
-
 msgid "Failed to get network list."
 msgstr "Gagal mendapatkan daftar jaringan."
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "Gagal mendapatkan daftar jaringan: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "Gagalmigrasi langsung instance ke host baru."
@@ -2970,9 +2962,8 @@ msgstr ""
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Gagal menghapus proyek %(project)s dari akses jenis volume"
 
-#, python-format
-msgid "Failed to set gateway: %s"
-msgstr "Gagal menyetel gerbang: %s"
+msgid "Failed to set gateway."
+msgstr "Gagal menyetel gateway."
 
 #, python-format
 msgid "Failed to update network %s"
@@ -2991,8 +2982,8 @@ msgid "Failed to update router %s"
 msgstr "Gagal memperbarui router %s"
 
 #, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Gagal memperbarui subnet \"%(sub)s\":  %(reason)s"
+msgid "Failed to update subnet \"%s\"."
+msgstr "Gagal memperbarui subnet\"%s\"."
 
 msgid "False"
 msgstr "False"
@@ -7026,13 +7017,8 @@ msgstr "Tidak dapat mengikatkan antarmuka."
 msgid "Unable to attach volume."
 msgstr "Tidak dapat mengkaitkan volume."
 
-#, python-format
-msgid "Unable to attach volume: %s"
-msgstr "Tidak dapat melampirkan volume: %s"
-
-#, python-format
-msgid "Unable to change password: %s"
-msgstr "Tidak dapat mengubah password: %s"
+msgid "Unable to change password."
+msgstr "Tidak dapat mengubah password"
 
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
@@ -7069,17 +7055,15 @@ msgstr "Tidak dapat terhubung dengan Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "Tidak dapat membuat QoS Spec."
 
-#, python-format
-msgid "Unable to create application credential: %s"
-msgstr "Tidak dapat membuat kredensial aplikasi: %s"
+msgid "Unable to create application credential."
+msgstr "Tidak dapat membuat kredensial aplikasi."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Tidak dapat membuat domain \"%s\"."
 
-#, python-format
-msgid "Unable to create encrypted volume type: %s"
-msgstr "Tidak dapat membuat jenis volume terenkripsi: %s"
+msgid "Unable to create encrypted volume type."
+msgstr "Tidak dapat membuat tipe volume terenkripsi."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -7162,10 +7146,6 @@ msgstr "Tidak dapat membuat snapshot."
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "Tidak dapat membuat snapshot. grup harus berisi volume."
 
-#, python-format
-msgid "Unable to create snapshot: %s"
-msgstr "Tidak dapat membuat snapshot: %s"
-
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "Tidak dapat membuat snapshot karena melebihi batas snapshot kuota."
 
@@ -7225,10 +7205,6 @@ msgstr "Tidak dapat melepaskan antarmuka (interface)."
 
 msgid "Unable to detach volume."
 msgstr "Tidak dapat melepaskan volume."
-
-#, python-format
-msgid "Unable to detach volume: %s"
-msgstr "Tidak dapat melepaskan volume: %s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Tidak dapat menentukan apakah zona ketersediaan ekstensi didukung."
@@ -7491,9 +7467,8 @@ msgstr "Tidak dapat mengambil spesifikasi QoS"
 msgid "Unable to retrieve RBAC policies."
 msgstr "Tidak dapat mengambil kebijakan RBAC."
 
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Tidak dapat mengambil daftar jaringan eksternal \"%s\"."
+msgid "Unable to retrieve a list of external networks."
+msgstr "Tidak dapat mengambil daftar jaringan eksternal."
 
 msgid "Unable to retrieve agent list."
 msgstr "Tidak bisa mengambil daftar agent."
@@ -8064,6 +8039,9 @@ msgstr ""
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "Tidak dapat memperbaharui image \"%s\"."
+
+msgid "Unable to update instance security group."
+msgstr "Tidak dapat memperbarui grup keamanan instance."
 
 msgid "Unable to update mapping."
 msgstr "Tidak dapat memperbarui pemetaan."

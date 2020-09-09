@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1284,10 +1284,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "பிணைய %(network)s -ற்கான முகவர் %(agent_name)s-ஐ சேர்க்க முடியவில்லை."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "பிணையம் \"%(network)s\"-ஐ உருவாக்குவதில் தோல்வி: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "பிணையம் %s -ஐ உருவாக்குவதில் தோல்வி"
 
@@ -1351,10 +1347,6 @@ msgstr "பிணையம் %s -ஐ புதுப்பிப்பதில
 #, python-format
 msgid "Failed to update router %s"
 msgstr "திசைவி %s -ஐ புதுப்பிப்பதில் தோல்வி"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "உபவலை %(sub)s\"-ஐ புதுப்பிப்பதில் தோல்வி: %(reason)s "
 
 msgid "Fault"
 msgstr "தவறு"
@@ -3369,6 +3361,9 @@ msgstr "ஐபி முகவரி %s -ஐ தொடர்புபடு�
 msgid "Unable to attach volume."
 msgstr "தொகுதியை இணைக்க முடியவில்லை."
 
+msgid "Unable to change password."
+msgstr "கடவுச்சொல்லை மாற்ற முடியவில்லை."
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "தொகுதி: \"%s\"-ற்கு தொகுதி வகையை மாற்ற முடியவில்லை."
@@ -3382,6 +3377,9 @@ msgstr "QoS விவரக்குறிப்பு உருவாக்க 
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "டொமைன் \"%s\"-ஐ உருவாக்க முடியவில்லை."
+
+msgid "Unable to create encrypted volume type."
+msgstr "குறியாக்கப்பட்ட தொகுதி வகையை உருவாக்க முடியவில்லை."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -3589,10 +3587,6 @@ msgstr "QoS விவரக்குறிப்பு பட்டியை ம
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS விவரக்குறிப்பை மீட்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "வெளிப்புற பிணையங்கள் \"%s\"-இன் பட்டியை பெற முடியவில்லை."
 
 msgid "Unable to retrieve agent list."
 msgstr "முகவர் பட்டியை மீட்க முடியவில்லை."

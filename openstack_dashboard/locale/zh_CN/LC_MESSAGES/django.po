@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-08 17:20+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2667,10 +2667,6 @@ msgstr "未能添加接口：%s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "无法将项目 %(project)s 添加到卷类型通道"
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "添加路由失败：%s"
-
 msgid "Failed to check if description field is supported."
 msgstr "无法检查是否支持描述项。"
 
@@ -2687,10 +2683,6 @@ msgid "Failed to create a rbac policy."
 msgstr "创建 rbac 策略失败。"
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "创建网络\"%(network)s\"失败: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "创建网络 %s 失败"
 
@@ -2704,14 +2696,6 @@ msgstr "新建路由\"%s\"失败"
 
 msgid "Failed to create router."
 msgstr "创建路由器失败。"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr "无法为网络 \"%(net)s\" 创建子网 \"%(sub)s\"：%(reason)s"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "无法创建子网 \"%(sub)s\"：%(reason)s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2743,15 +2727,8 @@ msgstr "获得实例接口失败。"
 msgid "Failed to get mapping list %s"
 msgstr "获取映射列表 %s 失败"
 
-msgid "Failed to get network list {0}"
-msgstr "获取网络列表{0}失败"
-
 msgid "Failed to get network list."
 msgstr "获取网络列表失败。"
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "获取网络列表失败：%s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "将实例迁移至新宿主机的操作失败。"
@@ -2802,10 +2779,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "无法从卷类型通道中移除项目%(project)s"
 
 #, python-format
-msgid "Failed to set gateway: %s"
-msgstr "设置网关失败：%s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "网络 %s 更新失败。"
 
@@ -2820,10 +2793,6 @@ msgstr "更新 rbac 策略 %s 失败"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "更新路由 %s 失败"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "更新子网 \"%(sub)s\"失败: %(reason)s"
 
 msgid "False"
 msgstr "False"
@@ -6672,13 +6641,8 @@ msgstr "未能连接接口。"
 msgid "Unable to attach volume."
 msgstr "无法连接卷"
 
-#, python-format
-msgid "Unable to attach volume: %s"
-msgstr "无法附加卷：%s"
-
-#, python-format
-msgid "Unable to change password: %s"
-msgstr "无法修改密码：%s"
+msgid "Unable to change password."
+msgstr "无法修改密码。"
 
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
@@ -6713,17 +6677,15 @@ msgstr "无法连接到Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "无法创建QoS规格。"
 
-#, python-format
-msgid "Unable to create application credential: %s"
-msgstr "无法创建应用程序凭证：%s"
+msgid "Unable to create application credential."
+msgstr "无法创建应用程序凭证"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "无法创建新域\"%s\"。"
 
-#, python-format
-msgid "Unable to create encrypted volume type: %s"
-msgstr "无法创建加密的卷类型：%s"
+msgid "Unable to create encrypted volume type."
+msgstr "无法创建加密卷类型。"
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -6805,10 +6767,6 @@ msgstr "无法创建快照。"
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "无法创建快照，组中必须包含卷。"
 
-#, python-format
-msgid "Unable to create snapshot: %s"
-msgstr "无法创建快照：%s"
-
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "由于超过卷配额限制，无法创建一致性组"
 
@@ -6868,10 +6826,6 @@ msgstr "未能分离接口。"
 
 msgid "Unable to detach volume."
 msgstr "无法分离卷"
-
-#, python-format
-msgid "Unable to detach volume: %s"
-msgstr "无法分离卷：%s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "无法确定可用域是否支持扩展"
@@ -7126,10 +7080,6 @@ msgstr "无法获取QoS规格"
 
 msgid "Unable to retrieve RBAC policies."
 msgstr "无法获取 RBAC 策略。"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "无法获取外部网络\"%s:列表"
 
 msgid "Unable to retrieve agent list."
 msgstr "无法获取agent列表。"

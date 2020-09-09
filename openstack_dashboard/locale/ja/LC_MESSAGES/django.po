@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-04-27 21:28+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2841,10 +2841,6 @@ msgid "Failed to add project %(project)s to volume type access."
 msgstr ""
 "ボリューム種別のアクセス権にプロジェクト %(project)s を追加できませんでした。"
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "ルートの追加に失敗しました: %s"
-
 msgid "Failed to check if description field is supported."
 msgstr "説明フィールドがサポートされているか確認できませんでした。"
 
@@ -2865,10 +2861,6 @@ msgid "Failed to create a rbac policy."
 msgstr "RBAC ポリシーの作成に失敗しました。"
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "ネットワーク \"%(network)s\" の作成に失敗しました: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "ネットワーク %s の作成に失敗しました"
 
@@ -2882,16 +2874,6 @@ msgstr "ルーター \"%s\" を作成できません。"
 
 msgid "Failed to create router."
 msgstr "ルーターを作成できません。"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr ""
-"ネットワーク \"%(net)s\" のサブネット \"%(sub)s\" の作成に失敗しました: "
-"%(reason)s"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "サブネット \"%(sub)s\" の作成に失敗しました:  %(reason)s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2926,15 +2908,8 @@ msgstr "インスタンスのインターフェース一覧を取得できませ
 msgid "Failed to get mapping list %s"
 msgstr "マッピング一覧 %s の取得に失敗しました。"
 
-msgid "Failed to get network list {0}"
-msgstr "ネットワーク一覧を取得できません: {0}"
-
 msgid "Failed to get network list."
 msgstr "ネットワーク一覧を取得できません。"
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "ネットワーク一覧を取得できません: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "新しいホストへのインスタンスのライブマイグレーションに失敗しました。"
@@ -2995,10 +2970,6 @@ msgstr ""
 "た。"
 
 #, python-format
-msgid "Failed to set gateway: %s"
-msgstr "ゲートウェイの設定に失敗しました: %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "ネットワーク %s の更新に失敗しました"
 
@@ -3013,10 +2984,6 @@ msgstr "RBAC ポリシー %s の更新に失敗しました。"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "ルーター %s の更新に失敗しました。"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "サブネット \"%(sub)s\" の更新に失敗しました:  %(reason)s"
 
 msgid "False"
 msgstr "False"
@@ -7049,13 +7016,8 @@ msgstr "インターフェースを接続できません。"
 msgid "Unable to attach volume."
 msgstr "ボリュームを接続できません。"
 
-#, python-format
-msgid "Unable to attach volume: %s"
-msgstr "ボリュームを接続できません: %s"
-
-#, python-format
-msgid "Unable to change password: %s"
-msgstr "パスワードを変更できません: %s"
+msgid "Unable to change password."
+msgstr "パスワードを変更できません。"
 
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
@@ -7091,17 +7053,15 @@ msgstr "Neutron に接続できません。"
 msgid "Unable to create QoS Spec."
 msgstr "QoS スペックを作成できません。"
 
-#, python-format
-msgid "Unable to create application credential: %s"
-msgstr "アプリケーション認証情報を作成できません: %s"
+msgid "Unable to create application credential."
+msgstr "アプリケーション認証情報を作成できません。"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "ドメイン \"%s\" の作成に失敗しました。"
 
-#, python-format
-msgid "Unable to create encrypted volume type: %s"
-msgstr "ボリューム種別の暗号化設定を作成できません: %s"
+msgid "Unable to create encrypted volume type."
+msgstr "ボリューム種別の暗号化設定を作成できません。"
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -7190,10 +7150,6 @@ msgstr ""
 "スナップショットを作成できません。ボリュームグループにはボリュームが含まれる"
 "必要があります。"
 
-#, python-format
-msgid "Unable to create snapshot: %s"
-msgstr "スナップショットを作成できません: %s"
-
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr ""
 "スナップショットのクォータの上限を超えているため、スナップショットを作成でき"
@@ -7255,10 +7211,6 @@ msgstr "インターフェースを切断できません。"
 
 msgid "Unable to detach volume."
 msgstr "ボリュームを切断できません。"
-
-#, python-format
-msgid "Unable to detach volume: %s"
-msgstr "ボリュームを切断できません: %s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""
@@ -7521,10 +7473,6 @@ msgstr "QoS スペックを取得できません"
 
 msgid "Unable to retrieve RBAC policies."
 msgstr "RBAC ポリシーの一覧を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "外部ネットワーク一覧を取得できません: \"%s\""
 
 msgid "Unable to retrieve agent list."
 msgstr "エージェントの一覧を取得できません。"

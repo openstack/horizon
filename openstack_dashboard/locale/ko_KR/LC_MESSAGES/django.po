@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-05-06 10:26+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2818,10 +2818,6 @@ msgstr "인터페이 추가하지 못함: %s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "프로젝트 %(project)s 를 볼륨 타입 접근 권한에 추가하지 못했습니다."
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "라우터 추가 실패함: %s"
-
 msgid "Failed to check if description field is supported."
 msgstr "설명 필드가 지원되는지에 대한 확인 실패."
 
@@ -2838,10 +2834,6 @@ msgid "Failed to create a rbac policy."
 msgstr "RBAC 정책을 생성하지 못했습니다."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "네트워크 \"%(network)s\"를 생성하지 못하였습니다.: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "네트워크 %s을(를) 생성하지 못하였습니다."
 
@@ -2855,15 +2847,6 @@ msgstr "라우터 \"%s\"를 생성하지 못하였습니다."
 
 msgid "Failed to create router."
 msgstr "라우터 생성을 실패했습니다."
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr ""
-"네트워크 \"%(net)s\"에 서브넷 \"%(sub)s\"을 생성하지 못하였습니다: %(reason)s"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "서브넷 \"%(sub)s\" 를 생성하지 못했습니다: %(reason)s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2898,15 +2881,8 @@ msgstr "인스턴스 인터페이스를 가져오는 데 실패했습니다."
 msgid "Failed to get mapping list %s"
 msgstr "맵핑 리스트 %s를 가져오지 못했습니다."
 
-msgid "Failed to get network list {0}"
-msgstr "네트워크 목록 {0}를 가져오지 못했습니다."
-
 msgid "Failed to get network list."
 msgstr "네트워크 목록을 가져울 수 없습니다."
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "네트워크 목록을 가져오지 못함: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "새로운 호스트로 인스턴스 라이브 마이그레이션에 실패하였습니다."
@@ -2963,10 +2939,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "볼륨 타입 접근 권한에서 프로젝트 %(project)s 를  제거하지 못했습니다."
 
 #, python-format
-msgid "Failed to set gateway: %s"
-msgstr "게이트웨이를 설정하지 못함: %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "네트워크 %s 업데이트를 하지 못하였습니다."
 
@@ -2981,10 +2953,6 @@ msgstr "RBAC 정책 업데이트를 하지 못했습니다: %s"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "라우터 %s를 업데이트하지 못 했습니다."
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "서브넷 \"%(sub)s\"를 업데이트하지 못 했습니다.\" %(reason)s"
 
 msgid "False"
 msgstr "False"
@@ -6960,13 +6928,8 @@ msgstr "인터페이스를 연결할 수 없습니다."
 msgid "Unable to attach volume."
 msgstr "볼륨을 연결할 수 없습니다."
 
-#, python-format
-msgid "Unable to attach volume: %s"
-msgstr "볼륨을 첨부할 수 없음: %s"
-
-#, python-format
-msgid "Unable to change password: %s"
-msgstr "비밀번호를 변경할 수 없습니다: %s"
+msgid "Unable to change password."
+msgstr "비밀번호를 변경할 수 없습니다."
 
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
@@ -7001,17 +6964,15 @@ msgstr "Neutron에 접속할 수 없습니다."
 msgid "Unable to create QoS Spec."
 msgstr "QOS 스펙을 생성할 수 없습니다. "
 
-#, python-format
-msgid "Unable to create application credential: %s"
-msgstr "어플리케이션 자격증명을 생성할 수 없습니다: %s"
+msgid "Unable to create application credential."
+msgstr "어플리케이션 증명서를 생성할 수 없습니다."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "도메인 \"%s\" 을 만들 수 없습니다."
 
-#, python-format
-msgid "Unable to create encrypted volume type: %s"
-msgstr "암호화된 볼륨 타입을 생성할 수 없습니다: %s"
+msgid "Unable to create encrypted volume type."
+msgstr "암호화된 볼륨 타입 생성 실패하였습니다."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -7093,10 +7054,6 @@ msgstr "스냅샷을 생성할 수 없습니다."
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "스냅샷을 생성할 수 없습니다. 그룹에 볼륨이 있어야 합니다."
 
-#, python-format
-msgid "Unable to create snapshot: %s"
-msgstr "스냅샷을 생성할 수 없습니다: %s"
-
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "스냅샷 쿼터 제한 초과로 인해 스냅샷을 생성하지 못했습니다."
 
@@ -7156,10 +7113,6 @@ msgstr "인터페이스를 해제할 수 없습니다."
 
 msgid "Unable to detach volume."
 msgstr "볼륨을 연결 해제할 수 없습니다."
-
-#, python-format
-msgid "Unable to detach volume: %s"
-msgstr "볼륨을 떼낼 수 없음: %s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "가용성 존 확장자의 지원 여부를 확인할 수 없습니다."
@@ -7419,10 +7372,6 @@ msgstr "QOS 사양을 검색할 수 없습니다."
 
 msgid "Unable to retrieve RBAC policies."
 msgstr "RBAC 정책을 찾을 수 없습니다."
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "외부 네트워크 \"%s\" 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve agent list."
 msgstr "에이전트 목록을 찾지 못했습니다."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1272,10 +1272,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "संजाल %(network)s क लेल एजेंट %(agent_name)s जोड़ब मे बिफल रहल."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "सँजाल बनाबै मे बिफल \"%(network)s\": %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "सँजाल %s निर्माण मे बिफल "
 
@@ -1338,10 +1334,6 @@ msgstr "%s सँजाल अद्यतन करबामे बिफल"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "राउटर %s केँ अपडेट करबामे बिफल रहल"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr " \"%(sub)s\" सबनेट अपडेट करबामे बिफल:  %(reason)s"
 
 msgid "Fault"
 msgstr "दोष"
@@ -3324,6 +3316,9 @@ msgstr "आईपी ​​पता केँ संबद्ध करबा�
 msgid "Unable to attach volume."
 msgstr "वाल्यूम संलग्न करबामे असमर्थ."
 
+msgid "Unable to change password."
+msgstr "गुड़किल्ली केँ बदलब मे असमर्थ."
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "वाल्यूम क लेल वाल्यूम प्रकार बदलब मे असमर्थ: \"%s\""
@@ -3337,6 +3332,9 @@ msgstr "QoS विनिर्देश बनाबै मे असमर्�
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "\"%s\" डोमेन बनाबै मे असमर्थ"
+
+msgid "Unable to create encrypted volume type."
+msgstr "एनक्रिप्टेड वाल्यूम प्रकार बनाबै मे असमर्थ."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -3542,10 +3540,6 @@ msgstr "QoS विनिर्देश सूची पुनर्प्रा
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS विनिर्देश पुनर्प्राप्त करबामे असमर्थ"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "\"%s\" बाह्य संजाल क एकटा सूची प्राप्त करबामे असमर्थ"
 
 msgid "Unable to retrieve agent list."
 msgstr "प्रतिनिधि सूची केँ प्राप्त करबामे असमर्थ."

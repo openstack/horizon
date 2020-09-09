@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1267,10 +1267,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr " %(network)s नेटवर्काखातीर %(agent_name)s एजंट जोडपाक असफळ."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "नेटवर्क \"%(network)s\" तयार करपाक शकना: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "%s नेटवर्क तयार करपाक असफळ"
 
@@ -1331,10 +1327,6 @@ msgstr "%s नेटवर्क सुदारपाक असफळ."
 #, python-format
 msgid "Failed to update router %s"
 msgstr "%s राऊटर सुदारपाक शकना."
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "उपनेट \"%(sub)s\" सुदारपाक असफळ: %(reason)s"
 
 msgid "Fault"
 msgstr "चूक"
@@ -3312,6 +3304,9 @@ msgstr "IPनामो %s जोडपाक अपेस."
 msgid "Unable to attach volume."
 msgstr "आकार जोडपाक शकना."
 
+msgid "Unable to change password."
+msgstr "पासवर्ड बदलुपाक शकना."
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "आकारमानाखातीर आकारमान प्रकार बदलुपाक शकना: \"%s\""
@@ -3325,6 +3320,9 @@ msgstr "QoS spec तयार करपाक शकना"
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "डोमेन \"%s\" तयार करपाक शकना."
+
+msgid "Unable to create encrypted volume type."
+msgstr "एनक्रिप्टेड आकाराचो प्रकार तयार करपाक शकना."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -3529,10 +3527,6 @@ msgstr "QoS spec वळेरी परत मेळोवपाक शकना
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS specs परत मेळोवपाक शकना"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "भायले नेटवर्क \"%s\" ची वळेरी परत मेळोवपाक शकना."
 
 msgid "Unable to retrieve agent list."
 msgstr "एजंटाची वळेरी परत मेळोवपाक शकना."

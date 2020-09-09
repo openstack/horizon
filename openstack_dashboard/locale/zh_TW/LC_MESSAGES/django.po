@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-04-26 13:36+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2496,10 +2496,6 @@ msgstr "無法新增介面：%s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "加入 %(project)s 到雲硬碟類型訪問權限列表失敗"
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "加入路由時失敗：%s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "檢查是否支援 Neutron network-ip-availability 擴充套件時失敗"
 
@@ -2511,10 +2507,6 @@ msgstr "檢查是否支援 nova 自動配置網路時失敗。"
 
 msgid "Failed to create a rbac policy."
 msgstr "建立 RBAC 政策失敗"
-
-#, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "新增網路「%(network)s」時失敗：%(reason)s"
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2530,14 +2522,6 @@ msgstr "新增路由器「%s」時失敗。"
 
 msgid "Failed to create router."
 msgstr "建立路由器失敗。"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr "無法為網路 \"%(net)s\" 建立子網路 \"%(sub)s\" ：%(reason)s"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "無法建立子網路 \"%(sub)s\"：%(reason)s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2569,15 +2553,8 @@ msgstr "無法取得實例 ID 的網路介面"
 msgid "Failed to get mapping list %s"
 msgstr "無法取得對映清單 %s"
 
-msgid "Failed to get network list {0}"
-msgstr "獲得網路列表 {0} 時失敗"
-
 msgid "Failed to get network list."
 msgstr "獲得網路列表時失敗。"
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "無法獲得網路列表: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "即時轉移雲實例到指定的主機失敗。"
@@ -2628,10 +2605,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "移除 %(project)s 到雲硬碟類型訪問權限列表失敗"
 
 #, python-format
-msgid "Failed to set gateway: %s"
-msgstr "無法設定閘道: %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "更新網路 %s 時失敗"
 
@@ -2646,10 +2619,6 @@ msgstr "更新 RBAC 政策 %s 時失敗。"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "更新路由器 %s 時失敗"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "更新子網路「%(sub)s」時失敗：%(reason)s"
 
 msgid "False"
 msgstr "假值"
@@ -6431,9 +6400,8 @@ msgstr "無法附加網路卡。"
 msgid "Unable to attach volume."
 msgstr "無法附加雲硬碟。"
 
-#, python-format
-msgid "Unable to attach volume: %s"
-msgstr "無法掛載雲硬碟： %s"
+msgid "Unable to change password."
+msgstr "無法更換密碼。"
 
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
@@ -6449,16 +6417,11 @@ msgid "Unable to create QoS Spec."
 msgstr "無法新增 QoS 規格。"
 
 #, python-format
-msgid "Unable to create application credential: %s"
-msgstr "無法建立應用程序憑證： %s"
-
-#, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "無法新增地域「%s」。"
 
-#, python-format
-msgid "Unable to create encrypted volume type: %s"
-msgstr "無法新增已加密的雲硬碟類型：%s"
+msgid "Unable to create encrypted volume type."
+msgstr "無法新增已加密的雲硬碟類型。"
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -6527,10 +6490,6 @@ msgstr "無法新增安全性群組：%s"
 msgid "Unable to create snapshot."
 msgstr "無法新增即時存檔。"
 
-#, python-format
-msgid "Unable to create snapshot: %s"
-msgstr "無法建立快照：%s"
-
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "無法建立一致性群組快照因為超過快照使用限制"
 
@@ -6570,10 +6529,6 @@ msgstr "無法卸除網路卡。"
 
 msgid "Unable to detach volume."
 msgstr "無法卸除雲硬碟"
-
-#, python-format
-msgid "Unable to detach volume: %s"
-msgstr "無法卸除雲硬碟：%s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "無法得知是否支援可用區域擴充套件。"
@@ -6820,10 +6775,6 @@ msgstr "無法獲得 QoS 規格"
 
 msgid "Unable to retrieve RBAC policies."
 msgstr "無法獲得 RBAC 政策。"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "無法獲得對外網路「%s」的列表。"
 
 msgid "Unable to retrieve agent list."
 msgstr "無法獲得媒介列表。"

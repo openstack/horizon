@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1271,10 +1271,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "प्रतिनिधी समाविष्ट करण्यात अपयशी %(agent_name)s नेटवर्कसाठी %(network)s."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "नेटवर्क तयार करण्यात अपयशी \"%(network)s\": %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "नेटवर्क तयार करण्यात अपयशी %s"
 
@@ -1337,10 +1333,6 @@ msgstr "नेटवर्कमध्ये सुधारणा करण्�
 #, python-format
 msgid "Failed to update router %s"
 msgstr "राउटर सुधारित करण्यास अपयशी %s"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "उपनेट सुधारित करण्यास अपयशी \"%(sub)s\":  %(reason)s"
 
 msgid "Fault"
 msgstr "चूक"
@@ -3326,6 +3318,9 @@ msgstr "आयपी पत्ता जोडण्यास असमर्थ
 msgid "Unable to attach volume."
 msgstr "खंड जोडण्यास असमर्थ."
 
+msgid "Unable to change password."
+msgstr "पासवर्ड बदलण्यास असमर्थ."
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "खंडासाठी खंड प्रकार बदलण्यास असमर्थ: \"%s\""
@@ -3339,6 +3334,9 @@ msgstr "क्यूओएस निर्देश तयार करण्य
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "कार्यक्षेत्र तयार करण्यास असमर्थ \"%s\"."
+
+msgid "Unable to create encrypted volume type."
+msgstr "सांकेतिकरण केलेला खंड प्रकार तयार करण्यास असमर्थ."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -3543,10 +3541,6 @@ msgstr "क्यूओएस निर्देश यादी मिळवि
 
 msgid "Unable to retrieve QoS specs"
 msgstr "क्यूओएस निर्देश मिळू शकले नाहीत"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "बाह्य नेटवर्कची यादी मिळविण्यास असमर्थ \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "प्रतिनिधी यादी मिळविण्यात अपयशी."

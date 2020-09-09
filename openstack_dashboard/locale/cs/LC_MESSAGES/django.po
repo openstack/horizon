@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2328,10 +2328,6 @@ msgstr ""
 "Nelze zkontrolovat, zda je podporováno rozšíření network-ip-availability."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Nelze vytvořit síť \"%(network)s\": %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "Vytváření sítě %s selhalo"
 
@@ -2362,9 +2358,6 @@ msgstr "Nelze vyklidit instance: %s"
 #, python-format
 msgid "Failed to get mapping list %s"
 msgstr "Nelze získat seznam mapování %s"
-
-msgid "Failed to get network list {0}"
-msgstr "Nelze získat seznam sítí {0}"
 
 msgid "Failed to get network list."
 msgstr "Nelze získat seznam sítí."
@@ -2427,10 +2420,6 @@ msgstr "Aktualizace portu \"%s\" selhala."
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Aktualizace routeru %s selhala"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Nelze aktualizovat podsíť \"%(sub)s\": %(reason)s"
 
 msgid "False"
 msgstr "Nepravda"
@@ -5707,6 +5696,9 @@ msgstr "Nelze připojit rozhraní."
 msgid "Unable to attach volume."
 msgstr "Nelze připojit svazek."
 
+msgid "Unable to change password."
+msgstr "Nelze změnit heslo"
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Nelze změnit typ svazku \"%s\""
@@ -5720,6 +5712,9 @@ msgstr "Nelze vytvořit specifikaci QoS."
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Nelze vytvořit doménu \"%s\"."
+
+msgid "Unable to create encrypted volume type."
+msgstr "Nelze vytvořit šifrovaný typ svazku."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -6017,10 +6012,6 @@ msgstr "Nelze získat seznam specifikací QoS."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Nelze získat specifikace QoS"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Nelze získat seznam externích sítí \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "Nelze získat seznam agentů."

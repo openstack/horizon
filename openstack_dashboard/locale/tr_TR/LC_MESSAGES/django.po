@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2399,18 +2399,10 @@ msgstr "Arabirim eklenemedi: %s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "%(project)s projesi mantıksal sürücü türü erişimine eklenemiyor."
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "Rota eklenemedi: %s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "Ağ-ip-kullanılırlığı eklentisinin desteklenip desteklenmediği kontrol "
 "edilemedi."
-
-#, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Ağ \"%(network)s\" oluşturulamadı: %(reason)s"
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2419,14 +2411,6 @@ msgstr "%s ağı oluşturulamadı"
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Yönlendirici \"%s\" oluşturulamadı."
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr "\"%(net)s\" ağı için alt ağ \"%(sub)s\" oluşturulamadı: %(reason)s"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "Alt ağ \"%(sub)s\" oluşturulamadı: %(reason)s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2452,15 +2436,8 @@ msgstr "Sanal makine(ler) tahliye edilemedi: %s"
 msgid "Failed to get mapping list %s"
 msgstr "Eşleştirme listesi %s alınamadı"
 
-msgid "Failed to get network list {0}"
-msgstr "Ağ listesi alınamadı {0}"
-
 msgid "Failed to get network list."
 msgstr "Ağ listesi alınamadı."
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "Ağ listesi alınamadı: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "Sunucunun yeni bir istemciye canlı geçişi başarısız."
@@ -2518,10 +2495,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "%(project)s projesi mantıksal sürücü türü erişiminden çıkarılamıyor."
 
 #, python-format
-msgid "Failed to set gateway: %s"
-msgstr "Ağ geçidi ayarlanamadı: %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s ağı değiştirilemedi"
 
@@ -2532,10 +2505,6 @@ msgstr "Bağlantı noktası \"%s\" güncellenemedi."
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Yönlendirici %s güncellenemedi"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Alt ağ \"%(sub)s\" güncellenemedi:  %(reason)s"
 
 msgid "False"
 msgstr "Yanlış"
@@ -6101,6 +6070,9 @@ msgstr "Arabirim eklenemedi."
 msgid "Unable to attach volume."
 msgstr "Birim eklenemiyor."
 
+msgid "Unable to change password."
+msgstr "Parola değiştirilemiyor."
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Mantıksal sürücü türü değiştirilemedi: \"%s\""
@@ -6119,6 +6091,9 @@ msgstr "QoS Özelliği oluşturulamıyor."
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Yeni alan \"%s\" oluşturulamadı."
+
+msgid "Unable to create encrypted volume type."
+msgstr "Şifrelenmiş mantıksal sürücü türü oluşturulamadı."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -6422,10 +6397,6 @@ msgstr "QoS özellik listesi alınamadı."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS özellikleri alınamıyor"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Dış ağların listesi alınamıyor \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "Ajan listesi getirilemedi."

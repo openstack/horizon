@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1228,10 +1228,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "%(network)s নেটওয়ার্কের জন্য %(agent_name)s এজেন্ট যোগ করতে ব্যর্থ."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "নেটওয়ার্ক \"%(network)s\" তৈরি করতে ব্যর্থ: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "নেটওয়ার্ক  %s তৈরি করতে ব্যর্থ"
 
@@ -1293,10 +1289,6 @@ msgstr "নেটওয়ার্ক %s আপডেট করতে ব্যর
 #, python-format
 msgid "Failed to update router %s"
 msgstr "রাউটার %s আপডেট করতে ব্যর্থ"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "সাবনেট \"%(sub)s\" আপডেট করতে ব্যর্থ:  %(reason)s"
 
 msgid "Fault"
 msgstr "ত্রুটি"
@@ -3098,6 +3090,9 @@ msgstr " IP ঠিকানা %s মিলন করতে অসমর্থ."
 msgid "Unable to attach volume."
 msgstr "ভলিয়্যুম সংযুক্ত করতে অসমর্থ."
 
+msgid "Unable to change password."
+msgstr "পাসওয়ার্ড বদলাতে অসমর্থ."
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "ভলিয়্যুমের জন্য ভলিয়্যুম প্রকার বদল করতে অসমর্থ: \"%s\""
@@ -3111,6 +3106,9 @@ msgstr "QoS স্পেক তৈরি করতে অসমর্থ."
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "\"%s\" ডোমেন তৈরি করতে অসমর্থ."
+
+msgid "Unable to create encrypted volume type."
+msgstr "এনক্রিপ্ট করা ভলিয়্যুম প্রকার তৈরি করতে অসমর্থ."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -3316,10 +3314,6 @@ msgstr "QoS স্পেক তালিকা পুনরুদ্ধার �
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS স্পেক পুনরুদ্ধার করতে অসমর্থ"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "বাহ্যিক নেটওয়ার্ক \"%s\" এর তালিকা পুনরুদ্ধার করতে অসমর্থ."
 
 msgid "Unable to retrieve agent list."
 msgstr "এজেন্ট তালিকা পুনরুদ্ধার করতে অসমর্থ."

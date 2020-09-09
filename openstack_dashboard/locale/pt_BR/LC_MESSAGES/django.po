@@ -17,11 +17,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-08 17:20+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-19 07:32+0000\n"
+"PO-Revision-Date: 2019-04-19 04:13+0000\n"
 "Last-Translator: Rodrigo Loures <rmoraesloures@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
@@ -2717,10 +2717,6 @@ msgstr "Falha ao adicionar interface: %s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "Falha ao adicionar  projeto %(project)s ao acesso de tipo de volume."
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "Falha ao adicionar rota: %s"
-
 msgid "Failed to check if description field is supported."
 msgstr "Falha ao verificar se o campo de descrição é suportado."
 
@@ -2734,10 +2730,6 @@ msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "Falha ao verificar se o nova suporta \"auto_allocated_network\"."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Falha ao criar rede \"%(network)s\": %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "Falha ao criar rede %s"
 
@@ -2748,14 +2740,6 @@ msgstr "Falha ao criar a porta \"%s\"."
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Falha ao criar roteador \"%s\"."
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr "Falha ao criar subrede \"%(sub)s\" para rede \"%(net)s\": %(reason)s"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "Falha ao criar subrede \"%(sub)s\": %(reason)s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2787,15 +2771,8 @@ msgstr "Falha ao obter as interfaces da instância."
 msgid "Failed to get mapping list %s"
 msgstr "Falha ao obter lista de mapeamentos %s"
 
-msgid "Failed to get network list {0}"
-msgstr "Falha para obter lista de rede {0}"
-
 msgid "Failed to get network list."
 msgstr "Falha ao obter a lista de redes."
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "Falha ao obter lista de redes: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "Falha ao migrar instância em tempo real para um novo host."
@@ -2853,10 +2830,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Falha ao remover  projeto %(project)s  do acesso de tipo de volume."
 
 #, python-format
-msgid "Failed to set gateway: %s"
-msgstr "Falha ao configurar gateway: %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Falha ao atualizar rede %s"
 
@@ -2867,10 +2840,6 @@ msgstr "Falha ao atualizar a porta \"%s\"."
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Falha ao atualizar o roteador %s"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Falha ao atualizar sub-rede \"%(sub)s\": %(reason)s"
 
 msgid "False"
 msgstr "Falso"
@@ -6783,6 +6752,9 @@ msgstr "Não foi possível anexar interface."
 msgid "Unable to attach volume."
 msgstr "Não foi possível anexar volume."
 
+msgid "Unable to change password."
+msgstr "Não foi possível alterar senha."
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Não é possível alterar o tipo de volume para volume: \"%s\""
@@ -6822,9 +6794,15 @@ msgstr "Não é possível conectar ao Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "Não foi possível criar Especificação de QoS."
 
+msgid "Unable to create application credential."
+msgstr "Não foi possível criar credencial de aplicação."
+
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Não foi possível criar domínio \"%s\"."
+
+msgid "Unable to create encrypted volume type."
+msgstr "Não é possível criar o tipo de volume criptografado."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -6908,10 +6886,6 @@ msgstr "Não foi possível criar o snapshot."
 
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "Não foi possível criar snapshot. O grupo deve conter volumes."
-
-#, python-format
-msgid "Unable to create snapshot: %s"
-msgstr "Não foi possível criar o snapshot: %s"
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr ""
@@ -7219,10 +7193,6 @@ msgstr "Não foi possível obter a lista de Especificação de QoS."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Não foi possível obter especificações de QoS"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Não é possível recuperar lista de redes externas \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "Não foi possível ler a lista de agentes."

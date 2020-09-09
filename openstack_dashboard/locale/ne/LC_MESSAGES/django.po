@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1221,10 +1221,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "नेटवर्क %(network)s का लागि एजेन्ट %(agent_name)s थप्न असफल"
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "नेटवर्क \"%(network)s\": %(reason)s बनाउन असफल"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "नेटवर्क %s बनाउन असफल"
 
@@ -1286,10 +1282,6 @@ msgstr "नेटवर्क %s अपडेट असफल भयो"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "रूटर \"%s\"  अपडेट गर्न असफल"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "सबनेट \"%(sub)s\":  %(reason)s अपडेट गर्न असफल"
 
 msgid "False"
 msgstr "गलत"
@@ -3094,6 +3086,9 @@ msgstr "IP ठेकाना %s संलग्न गर्न असमर्
 msgid "Unable to attach volume."
 msgstr "भोल्युम एटेच गर्न असमर्थ।"
 
+msgid "Unable to change password."
+msgstr "पासवर्ड परिवर्तन गर्न सकिएन"
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "भल्युमा: \"%s\" को लागि भोल्युम प्रकार परिवर्तन गर्न असमर्थ"
@@ -3107,6 +3102,9 @@ msgstr " QoS स्पेक बनाउन असमर्थ"
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "डोमेन \"%s\" बनेन।"
+
+msgid "Unable to create encrypted volume type."
+msgstr "इन्क्रिप्टेड भोल्युम प्रकार बनाउन असमर्थ।"
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -3312,10 +3310,6 @@ msgstr "QoS स्पेक सूची प्राप्त गर्न अ�
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS स्थानहरू प्राप्त गर्न असमर्थ"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr " बाह्य नेटवर्कहरू \"%s\".को सूची प्राप्त गर्न असमर्थ"
 
 msgid "Unable to retrieve agent list."
 msgstr "एजेन्ट सूची प्राप्त गर्न असमर्थ"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-13 12:32+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1271,10 +1271,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "નેટવર્ક %(network)s માટે એજન્ટ %(agent_name)s ઉમેરવામા નિષ્ફળ."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "નેટવર્ક બનાવવામાં નિષ્ફળ \"%(network)s\": %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "નેટવર્ક %s બનાવવામાં નિષ્ફળ થયા"
 
@@ -1336,10 +1332,6 @@ msgstr "%s નેટવર્કને અદ્યતન કરવામાં 
 #, python-format
 msgid "Failed to update router %s"
 msgstr " %s રૂટર અદ્યતન કરવામાં નિષ્ફળ"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "સબનેટ સુધારવામાં નિષ્ફળ \"%(sub)s\":  %(reason)s"
 
 msgid "Fault"
 msgstr "દોષ"
@@ -3320,6 +3312,9 @@ msgstr "IP સરનામું %s સાંકળવામાં અસમર�
 msgid "Unable to attach volume."
 msgstr "વોલ્યુમ જોડવામાં અસમર્થ."
 
+msgid "Unable to change password."
+msgstr "પાસવર્ડ બદલવાનું અક્ષમ"
+
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "વોલ્યુમ માટે વોલ્યુમ પ્રકાર બદલવામાં અક્ષમ: \"%s\""
@@ -3333,6 +3328,9 @@ msgstr "QoS સ્પેક બનાવવામાં અસક્ષમ."
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "\"%s\" ડોમેન બનાવવામાં અસક્ષમ."
+
+msgid "Unable to create encrypted volume type."
+msgstr "એનક્રિપ્ટ થયેલ વોલ્યુમ પ્રકાર બનાવવામાં અસક્ષમ."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -3538,10 +3536,6 @@ msgstr "QoS સ્પેક યાદી પુનઃપ્રાપ્ત ક�
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS સ્પેક્સ પુનઃપ્રાપ્ત કરવામા અસમર્થ"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "\"%s\" બાહ્ય નેટવર્કોની યાદી પુનઃપ્રાપ્ત કરવા અસમર્થ."
 
 msgid "Unable to retrieve agent list."
 msgstr "એજન્ટ યાદી મેળવવામા અસમર્થ."
