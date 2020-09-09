@@ -407,7 +407,9 @@ def volume_create(request, size, name, description, volume_type,
 
 @profiler.trace
 def volume_extend(request, volume_id, new_size):
-    return cinderclient(request).volumes.extend(volume_id, new_size)
+    client = _cinderclient_with_features(request,
+                                         'extend_in_use_volume')
+    return client.volumes.extend(volume_id, new_size)
 
 
 @profiler.trace
