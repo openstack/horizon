@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    When multiple availability zones are available, the default behavior is to
+    allow the scheduler to spawn a VM in any of them.
+    The new setting ``LAUNCH_INSTANCE_DEFAULTS.default_availability_zone``
+    allows an administrator to specify a default static availability zone
+    for new VM creation.
