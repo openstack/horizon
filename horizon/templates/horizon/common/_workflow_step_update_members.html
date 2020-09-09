@@ -19,8 +19,10 @@
       </div>
       <div class="col-xs-6">
         <div class="fake_table fake_table_header fake_{{ step.slug }}_table clearfix">
-          <span class="members_title">{{ step.members_list_title }}</span>
-          <div class="form-group has-feedback">
+           <div class="col-sm-7 col-xs-12 zero_padding">
+              <span class="members_title">{{ step.members_list_title }}</span>
+           </div>
+          <div class="form-group has-feedback col-sm-5 col-xs-12 zero_padding">
             <input type="text" name="{{ step.slug }}_members_filter" id="{{ step.slug }}_members" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "Filter" %}">
             <span class="fa fa-search search-icon form-control-feedback"></span>
           </div>
