@@ -1404,8 +1404,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
     @test.create_mocks({
         api.nova: ['server_get'],
-        cinder: ['message_list',
-                 'volume_snapshot_list',
+        cinder: ['volume_snapshot_list',
                  'volume_get',
                  'tenant_absolute_limits'],
     })
@@ -1422,7 +1421,6 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_server_get.return_value = server
         self.mock_tenant_absolute_limits.return_value = \
             self.cinder_limits['absolute']
-        self.mock_message_list.return_value = []
 
         url = reverse('horizon:project:volumes:detail',
                       args=[volume.id])
@@ -1438,12 +1436,6 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_server_get.assert_called_once_with(test.IsHttpRequest(),
                                                      server.id)
         self.mock_tenant_absolute_limits.assert_called_once()
-        self.mock_message_list.assert_called_once_with(
-            test.IsHttpRequest(),
-            {
-                'resource_uuid': '11023e92-8008-4c8b-8059-7f2293ff3887',
-                'resource_type': 'volume',
-            })
 
     @mock.patch.object(cinder, 'volume_get_encryption_metadata')
     @mock.patch.object(cinder, 'volume_get')
@@ -1530,8 +1522,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         api.nova: ['server_get'],
         cinder: ['tenant_absolute_limits',
                  'volume_get',
-                 'volume_snapshot_list',
-                 'message_list'],
+                 'volume_snapshot_list'],
     })
     def test_detail_view_snapshot_tab(self):
         volume = self.cinder_volumes.first()
@@ -1546,7 +1537,6 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_server_get.return_value = server
         self.mock_tenant_absolute_limits.return_value = \
             self.cinder_limits['absolute']
-        self.mock_message_list.return_value = []
         self.mock_volume_snapshot_list.return_value = this_volume_snapshots
 
         url = '?'.join([reverse(DETAIL_URL, args=[volume.id]),
@@ -1564,12 +1554,6 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts={'volume_id': volume.id})
         self.mock_tenant_absolute_limits.assert_called_once()
-        self.mock_message_list.assert_called_once_with(
-            test.IsHttpRequest(),
-            {
-                'resource_uuid': volume.id,
-                'resource_type': 'volume'
-            })
 
     @mock.patch.object(cinder, 'volume_get')
     def test_detail_view_with_exception(self, mock_get):

@@ -263,3 +263,21 @@ class VolumeSnapshotsTable(VolumeDetailsSnapshotsTable):
 
     class Meta(VolumeDetailsSnapshotsTable.Meta):
         pass
+
+
+class SnapshotMessagesTable(tables.DataTable):
+    message_id = tables.Column("id", verbose_name=_("ID"))
+    message_level = tables.Column("message_level",
+                                  verbose_name=_("Message Level"))
+    event_id = tables.Column("event_id",
+                             verbose_name=_("Event Id"))
+    user_message = tables.Column("user_message",
+                                 verbose_name=_("User Message"))
+    created_at = tables.Column("created_at",
+                               verbose_name=_("Created At"))
+    guaranteed_until = tables.Column("guaranteed_until",
+                                     verbose_name=_("Guaranteed Until"))
+
+    class Meta(object):
+        name = "snapshot_messages"
+        verbose_name = _("Messages")

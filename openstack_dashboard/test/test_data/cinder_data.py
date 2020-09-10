@@ -28,6 +28,7 @@ from cinderclient.v2 import volumes
 from cinderclient.v3 import group_snapshots
 from cinderclient.v3 import group_types
 from cinderclient.v3 import groups
+from cinderclient.v3 import messages
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder as cinder_api
@@ -36,6 +37,7 @@ from openstack_dashboard.usage import quotas as usage_quotas
 
 
 def data(TEST):
+    TEST.cinder_messages = utils.TestDataContainer()
     TEST.cinder_services = utils.TestDataContainer()
     TEST.cinder_volumes = utils.TestDataContainer()
     TEST.cinder_volume_backups = utils.TestDataContainer()
@@ -547,3 +549,27 @@ def data(TEST):
 
     TEST.cinder_volume_snapshots_with_groups.add(
         api.cinder.VolumeSnapshot(snapshot5))
+
+    # Cinder Messages
+    messages_1 = messages.Message(
+        messages.MessageManager(None),
+        {'created_at': '2020-07-08T17:12:06.000000',
+         'event_id': 'VOLUME_VOLUME_001_001',
+         'guaranteed_until': '2020-08-07T17:12:06.000000',
+         'id': '2d2bb0d7-af28-4566-9a65-6d987c19093c',
+         'resource_type': 'VOLUME',
+         'resource_uuid': '6d53d143-e10f-440a-a65f-16a6b6d068f7',
+         'user_message': 'schedule allocate volume:An unknown error occurred.'
+         })
+
+    messages_2 = messages.Message(
+        messages.MessageManager(None),
+        {'created_at': '2020-07-12T12:56:43.000000',
+         'event_id': 'VOLUME_VOLUME_SNAPSHOT_009_015',
+         'guaranteed_until': '2020-08-11T12:56:43.000000',
+         'id': 'd360b4e2-bda5-4289-b673-714a90cde80b',
+         'resource_type': 'VOLUME_SNAPSHOT',
+         'resource_uuid': '761634b0-fa1c-4e59-b8ad-d720807cb355',
+         'user_message': 'create snapshot:Snapshot is busy.'})
+    TEST.cinder_messages.add(api.cinder.Message(messages_1))
+    TEST.cinder_messages.add(api.cinder.Message(messages_2))

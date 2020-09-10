@@ -223,18 +223,6 @@ class DetailView(tabs.TabbedTableView):
             exceptions.handle(self.request,
                               _('Unable to retrieve volume details.'),
                               redirect=redirect)
-        try:
-            volume.messages = cinder.message_list(
-                self.request,
-                {'resource_type': 'volume', 'resource_uuid': volume.id},
-            )
-        except Exception:
-            volume.messages = []
-            exceptions.handle(
-                self.request,
-                _('Unable to retrieve volume messages.'),
-                ignore=True,
-            )
         return volume, snapshots
 
     def get_redirect_url(self):

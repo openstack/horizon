@@ -447,6 +447,19 @@ class CinderApiTests(test.APIMockTestCase):
         self.assertEqual(default_volume_type, volume_type)
         cinderclient.volume_types.default.assert_called_once()
 
+    @test.create_mocks({
+        api.cinder: [('_cinderclient_with_features', 'cinderclient'), ]})
+    def test_cinder_message_list(self):
+        search_opts = {'resource_type': 'VOLUME',
+                       'resource_uuid': '6d53d143-e10f-440a-a65f-16a6b6d068f7'}
+        messages = self.cinder_messages.list()
+        cinderclient = self.mock_cinderclient.return_value
+        messages_mock = cinderclient.messages.list
+        messages_mock.return_value = messages
+
+        api.cinder.message_list(self.request, search_opts=search_opts)
+        messages_mock.assert_called_once_with(search_opts)
+
 
 class CinderApiVersionTests(test.TestCase):
 

@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    [`cinder-user-facing messages  <https://blueprints.launchpad.net/horizon/+spec/cinder-user-facing-messages>`_]
+    This bp add a new tab "Messages" in volume/snapshot detail pages where User can see failure summary messages
+    for corresponding volume and snapshot resources. Before this bp it only shows user messages and message-level
+    info. for a specific volume in the detail page but now more parameters will be displayed for that volume.
