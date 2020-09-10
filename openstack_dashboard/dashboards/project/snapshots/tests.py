@@ -26,6 +26,7 @@ from django.utils.http import urlunquote
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.snapshots \
     import tables as snapshot_tables
+from openstack_dashboard.dashboards.project.snapshots import tabs
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
@@ -282,6 +283,44 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         self.mock_volume_snapshot_get.assert_called_once_with(
             test.IsHttpRequest(), snapshot.id)
+
+    @test.create_mocks({api.cinder: ('volume_snapshot_get',
+                                     'message_list',
+                                     'volume_get')})
+    def test_volume_snapshot_detail_view_with_messages_tab(self):
+        volume = self.cinder_volumes.first()
+        snapshot = self.cinder_volume_snapshots.first()
+        messages = [msg for msg in self.cinder_messages.list()
+                    if msg.resource_type == 'VOLUME_SNAPSHOT']
+
+        self.mock_volume_get.return_value = volume
+        self.mock_volume_snapshot_get.return_value = snapshot
+        self.mock_message_list.return_value = messages
+
+        url = reverse('horizon:project:snapshots:detail',
+                      args=[snapshot.id])
+        detail_view = tabs.SnapshotDetailTabs(self.request)
+        messages_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("messages_tab").get_id())
+        url += messages_tab_link
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertContains(res, messages[0].user_message)
+        self.assertNoMessages()
+
+        self.mock_volume_get.assert_has_calls([
+            mock.call(test.IsHttpRequest(), volume.id),
+            mock.call(test.IsHttpRequest(), snapshot.volume_id),
+        ])
+        self.assertEqual(2, self.mock_volume_get.call_count)
+        self.mock_volume_snapshot_get.assert_called_once_with(
+            test.IsHttpRequest(), snapshot.id)
+        search_opts = {'resource_type': 'volume_snapshot',
+                       'resource_uuid': snapshot.id}
+        self.mock_message_list.assert_called_once_with(
+            test.IsHttpRequest(), search_opts=search_opts)
 
     @test.create_mocks({api.cinder: ('volume_get',
                                      'volume_snapshot_get')})
