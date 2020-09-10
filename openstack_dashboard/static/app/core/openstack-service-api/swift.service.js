@@ -148,6 +148,7 @@
      * @name createContainer
      * @param {Object} container - The container
      * @param {boolean} isPublic - Whether the container should be public
+     * @param {string} policy - The storage policy for the container.
      * @description
      * Creates the named container with the is_public flag set to isPublic.
      * @returns {Object} The result of the creation call
