@@ -34,9 +34,6 @@ class EvacuateHost(tables.LinkAction):
         self.name = kwargs.get('name', self.name)
 
     def allowed(self, request, instance):
-        if not api.nova.extension_supported('AdminActions', request):
-            return False
-
         return self.datum.state == "down"
 
 
@@ -48,9 +45,6 @@ class DisableService(policy.PolicyTargetMixin, tables.LinkAction):
     policy_rules = (("compute", "os_compute_api:os-services"),)
 
     def allowed(self, request, service):
-        if not api.nova.extension_supported('AdminActions', request):
-            return False
-
         return service.status == "enabled"
 
 
@@ -75,9 +69,6 @@ class EnableService(policy.PolicyTargetMixin, tables.BatchAction):
         )
 
     def allowed(self, request, service):
-        if not api.nova.extension_supported('AdminActions', request):
-            return False
-
         return service.status == "disabled"
 
     def action(self, request, obj_id):
@@ -93,9 +84,6 @@ class MigrateMaintenanceHost(tables.LinkAction):
     action_type = "danger"
 
     def allowed(self, request, service):
-        if not api.nova.extension_supported('AdminActions', request):
-            return False
-
         return service.status == "disabled"
 
 

@@ -55,24 +55,7 @@ VOLUME_BOOTABLE_SEARCH_OPTS = dict(bootable=True)
 SNAPSHOT_SEARCH_OPTS = dict(status=AVAILABLE)
 
 
-class InstanceTestHelperMixin(object):
-
-    def _mock_extension_supported(self, features):
-        self._features = features
-        self._feature_call_counts = collections.defaultdict(int)
-
-        def fake_extension_supported(name, request):
-            self._feature_call_counts[name] += 1
-            return self._features[name]
-
-        self.mock_extension_supported.side_effect = fake_extension_supported
-
-    def _check_extension_supported(self, expected_count):
-        self.assertEqual(expected_count, self._feature_call_counts)
-
-
 class InstanceTestBase(helpers.ResetImageAPIVersionMixin,
-                       InstanceTestHelperMixin,
                        helpers.TestCase):
     def _assert_mock_image_list_detailed_calls(self):
         expected_calls = [
@@ -163,6 +146,7 @@ class InstanceTableTestMixin(object):
             self.security_groups.list()
         self.mock_availability_zone_list.return_value = \
             self.availability_zones.list()
+        self.mock_server_group_list.return_value = self.server_groups.list()
 
     def _check_nova_lists(self, flavor_count=None):
         if flavor_count is None:
@@ -175,8 +159,10 @@ class InstanceTableTestMixin(object):
             helpers.IsHttpRequest())
         self.mock_availability_zone_list.assert_called_once_with(
             helpers.IsHttpRequest())
+        self.mock_server_group_list.assert_called_once_with(
+            helpers.IsHttpRequest())
 
-    def _mock_nova_glance_neutron_lists(self, return_value=True):
+    def _mock_nova_glance_neutron_lists(self):
         self._mock_nova_lists()
         self._mock_glance_image_list_detailed(
             self.versioned_images.list())
@@ -197,7 +183,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             'flavor_list',
             'server_list_paged',
             'tenant_absolute_limits',
-            'extension_supported',
             'is_feature_available',
         ),
         api.glance: ('image_list_detailed',),
@@ -212,8 +197,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     })
     def _get_index(self, use_servers_update_address=True):
         servers = self.servers.list()
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = \
@@ -228,13 +211,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
     def _check_get_index(self, use_servers_update_address=True,
                          multiplier=5):
-        expected_extension_count = {'AdminActions': 4 * multiplier,
-                                    'Shelve': 1 * multiplier}
         expected_feature_count = 2 * multiplier
         expected_fip_supported_count = 2 * multiplier
         expected_simple_fip_supported = 1 * multiplier
 
-        self._check_extension_supported(expected_extension_count)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, expected_feature_count,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -324,7 +304,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
                    'server_list_paged',
                    'flavor_get',
                    'tenant_absolute_limits',
-                   'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
@@ -336,8 +315,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         search_opts = {'marker': None, 'paginate': True}
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
@@ -355,8 +332,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertCountEqual(instances, self.servers.list())
 
-        self._check_extension_supported({'AdminActions': 20,
-                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -383,7 +358,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         api.nova: ('flavor_list',
                    'server_list_paged',
                    'tenant_absolute_limits',
-                   'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
@@ -412,8 +386,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         volume = volumes[2]
         volume.volume_image_metadata = volume_image_metadata
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
@@ -433,8 +405,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         if expected_image_name:
             self.assertContains(res, expected_image_name)
 
-        self._check_extension_supported({'AdminActions': 20,
-                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -614,7 +584,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_pause',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -623,7 +592,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -636,8 +604,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
         search_opts = {'marker': None, 'paginate': True}
@@ -653,7 +619,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_pause',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -662,7 +627,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -675,8 +639,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
         search_opts = {'marker': None, 'paginate': True}
@@ -692,7 +654,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_unpause',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -701,7 +662,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
         server.status = "PAUSED"
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -714,8 +674,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -732,7 +690,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_unpause',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -742,7 +699,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         server = servers[0]
         server.status = "PAUSED"
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -755,8 +711,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -878,7 +832,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_suspend',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -887,7 +840,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -902,8 +854,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(
             helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
@@ -922,7 +872,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_suspend',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -931,7 +880,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         page_size = settings.API_RESULT_PAGE_SIZE
         servers = self.servers.list()[:3]
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -949,8 +897,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.client.post(url, formData)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -967,7 +913,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_suspend',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -976,7 +921,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -989,8 +933,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -1007,7 +949,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_resume',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1017,7 +958,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         server = servers[0]
         server.status = "SUSPENDED"
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -1030,8 +970,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -1048,7 +986,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_resume',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available'),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1058,7 +995,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         server = servers[0]
         server.status = "SUSPENDED"
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -1071,8 +1007,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -1089,7 +1023,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_shelve',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1098,7 +1031,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -1110,8 +1042,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'Shelve', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -1128,7 +1058,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_shelve',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1137,7 +1066,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -1150,8 +1078,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'Shelve', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -1168,7 +1094,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_unshelve',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1178,7 +1103,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         server = servers[0]
         server.status = "SHELVED_OFFLOADED"
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -1191,8 +1115,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'Shelve', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -1209,7 +1131,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_unshelve',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1219,7 +1140,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         server = servers[0]
         server.status = "SHELVED_OFFLOADED"
 
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)
@@ -1232,8 +1152,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'Shelve', helpers.IsHttpRequest())
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
         self._assert_mock_image_list_detailed_calls()
 
@@ -1250,7 +1168,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_lock',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1259,7 +1176,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_extension_supported.return_value = True
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -1272,8 +1188,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_is_feature_available.assert_called_once_with(
             helpers.IsHttpRequest(), 'locked_attribute')
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
@@ -1292,7 +1206,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_lock',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1301,7 +1214,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         servers = self.servers.list()
         server = servers[0]
 
-        self.mock_extension_supported.return_value = True
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -1315,8 +1227,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_is_feature_available.assert_called_once_with(
             helpers.IsHttpRequest(), 'locked_attribute')
         self.mock_flavor_list.assert_called_once_with(
@@ -1336,7 +1246,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_unlock',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available'),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1344,7 +1253,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     def test_unlock_instance(self):
         servers = self.servers.list()
         server = servers[0]
-        self.mock_extension_supported.return_value = True
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -1357,8 +1265,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_is_feature_available.assert_called_once_with(
             helpers.IsHttpRequest(), 'locked_attribute')
         self.mock_flavor_list.assert_called_once_with(
@@ -1378,7 +1284,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_unlock',
                                       'server_list_paged',
                                       'flavor_list',
-                                      'extension_supported',
                                       'is_feature_available'),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',),
@@ -1386,7 +1291,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
     def test_unlock_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
-        self.mock_extension_supported.return_value = True
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -1400,8 +1304,6 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_extension_supported.assert_called_once_with(
-            'AdminActions', helpers.IsHttpRequest())
         self.mock_is_feature_available.assert_called_once_with(
             helpers.IsHttpRequest(), 'locked_attribute')
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
@@ -1425,7 +1327,6 @@ class InstanceDetailTests(InstanceTestBase):
             "server_get",
             "instance_volumes_list",
             "flavor_get",
-            "extension_supported",
             'is_feature_available',
         ),
         api.neutron: (
@@ -1463,8 +1364,6 @@ class InstanceDetailTests(InstanceTestBase):
         self.mock_server_security_groups.return_value = security_groups_return
         self.mock_floating_ip_simple_associate_supported.return_value = True
         self.mock_floating_ip_supported.return_value = True
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
 
         res = self.client.get(url)
@@ -1484,8 +1383,6 @@ class InstanceDetailTests(InstanceTestBase):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_floating_ip_supported, 2,
             mock.call(helpers.IsHttpRequest()))
-        self._check_extension_supported({'AdminActions': 4,
-                                         'Shelve': 1})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 2,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -1890,7 +1787,6 @@ class InstanceTests(InstanceTestBase):
         api.nova: ('flavor_list',
                    'server_list_paged',
                    'tenant_absolute_limits',
-                   'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
@@ -1901,8 +1797,6 @@ class InstanceTests(InstanceTestBase):
     def _test_instances_index_retrieve_password_action(self):
         servers = self.servers.list()
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -1926,8 +1820,6 @@ class InstanceTests(InstanceTestBase):
             else:
                 self.assertNotContains(res, _action_id)
 
-        self._check_extension_supported({'AdminActions': 20,
-                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -2163,8 +2055,7 @@ class InstanceTests(InstanceTestBase):
 class InstanceLaunchInstanceTests(InstanceTestBase,
                                   InstanceTableTestMixin):
 
-    @helpers.create_mocks({api.nova: ('extension_supported',
-                                      'is_feature_available',
+    @helpers.create_mocks({api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
@@ -2178,20 +2069,11 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            quotas: ('tenant_quota_usages',)})
     def test_launch_instance_get(self,
                                  expect_password_fields=True,
-                                 block_device_mapping_v2=True,
                                  custom_flavor_sort=None,
                                  only_one_network=False,
-                                 disk_config=True,
-                                 config_drive=True,
                                  config_drive_default=False):
         image = self.versioned_images.first()
 
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': block_device_mapping_v2,
-            'DiskConfig': disk_config,
-            'ConfigDrive': config_drive,
-            'ServerGroups': True,
-        })
         self.mock_volume_list.return_value = []
         self.mock_volume_snapshot_list.return_value = []
         self._mock_glance_image_list_detailed(self.versioned_images.list())
@@ -2270,10 +2152,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             self.assertNotContains(res, password_field_label)
 
         boot_from_image_field_label = 'Boot from image (creates a new volume)'
-        if block_device_mapping_v2:
-            self.assertContains(res, boot_from_image_field_label)
-        else:
-            self.assertNotContains(res, boot_from_image_field_label)
+        self.assertContains(res, boot_from_image_field_label)
 
         # NOTE(adriant): Django 1.11 changes the checked syntax to use html5
         # "checked" rather than XHTML's "checked='checked'".
@@ -2287,28 +2166,13 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         else:
             self.assertNotContains(res, checked_box, html=True)
 
-        disk_config_field_label = 'Disk Partition'
-        if disk_config:
-            self.assertContains(res, disk_config_field_label)
-        else:
-            self.assertNotContains(res, disk_config_field_label)
-
-        config_drive_field_label = 'Configuration Drive'
-        if config_drive:
-            self.assertContains(res, config_drive_field_label)
-        else:
-            self.assertNotContains(res, config_drive_field_label)
+        self.assertContains(res, 'Disk Partition')
+        self.assertContains(res, 'Configuration Drive')
 
         step = workflow.get_step("setadvancedaction")
         self.assertEqual(step.action.initial['config_drive'],
                          config_drive_default)
 
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -2364,15 +2228,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
     def test_launch_instance_get_with_config_drive_default(self):
         self.test_launch_instance_get(config_drive_default=True)
 
-    def test_launch_instance_get_no_block_device_mapping_v2_supported(self):
-        self.test_launch_instance_get(block_device_mapping_v2=False)
-
-    def test_launch_instance_get_no_disk_config_supported(self):
-        self.test_launch_instance_get(disk_config=False)
-
-    def test_launch_instance_get_no_config_drive_supported(self):
-        self.test_launch_instance_get(config_drive=False)
-
     @django.test.utils.override_settings(
         CREATE_INSTANCE_FLAVOR_SORT={
             'key': 'id',
@@ -2409,8 +2264,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
     def test_launch_instance_get_with_only_one_network(self):
         self.test_launch_instance_get(only_one_network=True)
 
-    @helpers.create_mocks({api.nova: ('extension_supported',
-                                      'is_feature_available',
+    @helpers.create_mocks({api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
@@ -2427,12 +2281,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                                   only_one_network=False,
                                                   disk_config=True,
                                                   config_drive=True):
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': block_device_mapping_v2,
-            'DiskConfig': disk_config,
-            'ConfigDrive': config_drive,
-            'ServerGroups': True,
-        })
         self.mock_volume_list.return_value = []
         self.mock_volume_snapshot_list.return_value = []
         self._mock_glance_image_list_detailed(self.versioned_images.list() +
@@ -2478,12 +2326,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         for snapshot in snapshots:
             self.assertIn(snapshot, snapshot_sources_ids)
 
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -2514,8 +2356,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
         self._check_nova_lists(flavor_count=2)
 
-    @helpers.create_mocks({api.nova: ('extension_supported',
-                                      'is_feature_available',
+    @helpers.create_mocks({api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
@@ -2532,12 +2373,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                                   only_one_network=False,
                                                   disk_config=True,
                                                   config_drive=True):
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': block_device_mapping_v2,
-            'DiskConfig': disk_config,
-            'ConfigDrive': config_drive,
-            'ServerGroups': True,
-        })
         volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
@@ -2574,12 +2409,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         for volume in bootable_volumes:
             self.assertIn(volume, volume_sources_ids)
 
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -2615,8 +2444,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                          'port_create',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',
@@ -2625,9 +2453,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post(self,
-                                  disk_config=True,
-                                  config_drive=True):
+    def test_launch_instance_post(self):
         flavor = self.flavors.first()
         image = self.versioned_images.first()
         keypair = self.keypairs.first()
@@ -2641,12 +2467,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self._mock_nova_glance_neutron_lists()
 
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': disk_config,
-            'ConfigDrive': config_drive,
-            'ServerGroups': True,
-        })
         self.mock_server_group_list.return_value = self.server_groups.list()
         self.mock_volume_list.return_value = []
         self.mock_volume_snapshot_list.return_value = []
@@ -2668,11 +2488,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                      'volume_type': '',
                      'network': self.networks.first().id,
                      'count': 1,
-                     'server_group': self.server_groups.first().id}
-        if disk_config:
-            form_data['disk_config'] = 'AUTO'
-        if config_drive:
-            form_data['config_drive'] = True
+                     'server_group': self.server_groups.first().id,
+                     'disk_config': 'AUTO',
+                     'config_drive': True,
+                     }
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -2680,12 +2499,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
         self._check_nova_glance_neutron_lists(flavor_count=2, image_count=8)
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
         self.mock_volume_list.assert_has_calls([
@@ -2697,14 +2510,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
-        if disk_config:
-            disk_config_value = u'AUTO'
-        else:
-            disk_config_value = None
-        if config_drive:
-            config_drive_value = True
-        else:
-            config_drive_value = None
         self.mock_server_create.assert_called_once_with(
             helpers.IsHttpRequest(),
             server.name,
@@ -2719,8 +2524,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             availability_zone=avail_zone.zoneName,
             instance_count=helpers.IsA(int),
             admin_pass=u'',
-            disk_config=disk_config_value,
-            config_drive=config_drive_value,
+            disk_config=u'AUTO',
+            config_drive=True,
             scheduler_hints=scheduler_hints)
         self.mock_tenant_quota_usages.assert_called_once_with(
             helpers.IsHttpRequest(),
@@ -2729,30 +2534,21 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             self.mock_flavor_list, 2,
             mock.call(helpers.IsHttpRequest()))
 
-    def test_launch_instance_post_no_disk_config_supported(self):
-        self.test_launch_instance_post(disk_config=False)
-
-    def test_launch_instance_post_no_config_drive_supported(self):
-        self.test_launch_instance_post(config_drive=False)
-
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',
+                                      'server_group_list',
                                       'server_create',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post_boot_from_volume(
-        self,
-        test_with_bdmv2=False
-    ):
+    def test_launch_instance_post_boot_from_volume(self):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -2762,34 +2558,25 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         customization_script = 'user data'
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
-        if test_with_bdmv2:
-            volume_source_id = volume.id.split(':')[0]
-            block_device_mapping = None
-            block_device_mapping_2 = [
-                {'device_name': u'vda',
-                 'source_type': 'volume',
-                 'destination_type': 'volume',
-                 'delete_on_termination': False,
-                 'uuid': volume_source_id,
-                 'boot_index': '0',
-                 'volume_size': 1
-                 }
-            ]
-        else:
-            block_device_mapping = {device_name: u"%s::False" % volume_choice}
-            block_device_mapping_2 = None
+
+        volume_source_id = volume.id.split(':')[0]
+        block_device_mapping = None
+        block_device_mapping_2 = [
+            {'device_name': u'vda',
+             'source_type': 'volume',
+             'destination_type': 'volume',
+             'delete_on_termination': False,
+             'uuid': volume_source_id,
+             'boot_index': '0',
+             'volume_size': 1
+             }
+        ]
 
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
-        self._mock_nova_glance_neutron_lists(return_value=test_with_bdmv2)
+        self._mock_nova_glance_neutron_lists()
 
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': test_with_bdmv2,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': False,
-        })
         volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
@@ -2822,12 +2609,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
         self._check_nova_glance_neutron_lists(flavor_count=2, image_count=6)
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 2,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -2837,6 +2618,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_volume_snapshot_list.assert_called_once_with(
             helpers.IsHttpRequest(),
             search_opts=SNAPSHOT_SEARCH_OPTS)
+        self.mock_server_group_list.assert_called_once_with(
+            helpers.IsHttpRequest())
 
         self.mock_server_create.assert_called_once_with(
             helpers.IsHttpRequest(),
@@ -2862,16 +2645,12 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             self.mock_flavor_list, 2,
             mock.call(helpers.IsHttpRequest()))
 
-    def test_launch_instance_post_boot_from_volume_with_bdmv2(self):
-        self.test_launch_instance_post_boot_from_volume(test_with_bdmv2=True)
-
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
                            api.nova: ('server_create',
-                                      'extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
@@ -2890,20 +2669,22 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         customization_script = 'user data'
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
-        block_device_mapping = {device_name: u"%s::False" % volume_choice}
+        block_device_mapping = [
+            {'device_name': device_name,
+             'source_type': 'volume',
+             'destination_type': 'volume',
+             'delete_on_termination': False,
+             'uuid': volume.id,
+             'boot_index': '0',
+             'volume_size': None,
+             }
+        ]
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
         self._mock_nova_glance_neutron_lists()
 
         self.mock_flavor_list.return_value = self.flavors.list()
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': False,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': True,
-        })
-        self.mock_server_group_list.return_value = []
         volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
@@ -2940,12 +2721,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 2,
             mock.call(helpers.IsHttpRequest()))
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 2,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
         self.mock_volume_list.assert_has_calls([
@@ -2969,8 +2744,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             keypair.name,
             customization_script,
             [str(sec_group.id)],
-            block_device_mapping=block_device_mapping,
-            block_device_mapping_v2=None,
+            block_device_mapping=None,
+            block_device_mapping_v2=block_device_mapping,
             nics=nics,
             availability_zone=avail_zone.zoneName,
             instance_count=helpers.IsA(int),
@@ -2983,10 +2758,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            api.neutron: ('network_list',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
+                                      'server_group_list',
                                       'availability_zone_list'),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
@@ -3000,12 +2775,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         customization_script = 'user data'
         quota_usages = self.quota_usages.first()
 
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': False,
-        })
         self.mock_tenant_quota_usages.return_value = self.quota_usages.first()
         self._mock_glance_image_list_detailed([])
         self._mock_neutron_network_and_port_list()
@@ -3033,12 +2802,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertFormErrors(res, 1, "You must select an image.")
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_tenant_quota_usages.assert_has_calls([
             mock.call(
                 helpers.IsHttpRequest(),
@@ -3076,8 +2839,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                       'port_create',
                       'port_list_with_trunk_types',
                       'security_group_list',),
-        api.nova: ('extension_supported',
-                   'is_feature_available',
+        api.nova: ('is_feature_available',
                    'flavor_list',
                    'keypair_list',
                    'availability_zone_list',
@@ -3086,10 +2848,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         cinder: ('volume_list',
                  'volume_snapshot_list',),
         quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post_boot_from_snapshot(
-            self,
-            test_with_bdmv2=False
-    ):
+    def test_launch_instance_post_boot_from_snapshot(self):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -3099,36 +2858,25 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         customization_script = 'user data'
         device_name = u'vda'
         snapshot_choice = "%s:snap" % snapshot.id
-        if test_with_bdmv2:
-            snapshot_source_id = snapshot.id.split(':')[0]
-            block_device_mapping = None
-            block_device_mapping_2 = [
-                {'device_name': u'vda',
-                 'source_type': 'snapshot',
-                 'destination_type': 'volume',
-                 'delete_on_termination': 0,
-                 'uuid': snapshot_source_id,
-                 'boot_index': '0',
-                 'volume_size': 1
-                 }
-            ]
-        else:
-            block_device_mapping = {device_name:
-                                    u"%s::False" % snapshot_choice}
-            block_device_mapping_2 = None
+
+        snapshot_source_id = snapshot.id.split(':')[0]
+        block_device_mapping = None
+        block_device_mapping_2 = [
+            {'device_name': u'vda',
+             'source_type': 'snapshot',
+             'destination_type': 'volume',
+             'delete_on_termination': 0,
+             'uuid': snapshot_source_id,
+             'boot_index': '0',
+             'volume_size': 1
+             }
+        ]
 
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
-        self._mock_nova_glance_neutron_lists(return_value=test_with_bdmv2)
+        self._mock_nova_glance_neutron_lists()
 
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': test_with_bdmv2,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': True,
-        })
-        self.mock_server_group_list.return_value = []
         volumes = [v for v in self.cinder_volumes.list()
                    if (getattr(v, 'bootable', 'false') == 'true')]
         snapshots = [v for v in self.cinder_volume_snapshots.list()
@@ -3165,14 +2913,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 2,
             mock.call(helpers.IsHttpRequest()))
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 2,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
-        self.mock_server_group_list.assert_called_once_with(
-            helpers.IsHttpRequest())
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -3204,20 +2944,17 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             helpers.IsHttpRequest(),
             targets=('instances', 'cores', 'ram', 'volumes', ))
 
-    def test_launch_instance_post_boot_from_snapshot_with_bdmv2(self):
-        self.test_launch_instance_post_boot_from_snapshot(test_with_bdmv2=True)
-
     @helpers.create_mocks({
         api.glance: ('image_list_detailed',),
         api.neutron: ('network_list',
                       'port_create',
                       'port_list_with_trunk_types',
                       'security_group_list',),
-        api.nova: ('extension_supported',
-                   'is_feature_available',
+        api.nova: ('is_feature_available',
                    'flavor_list',
                    'keypair_list',
                    'availability_zone_list',
+                   'server_group_list',
                    'server_create'),
         cinder: ('volume_list',
                  'volume_snapshot_list'),
@@ -3232,12 +2969,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_image_list_detailed.return_value = [[], False, False]
         self.mock_tenant_quota_usages.return_value = quota_usages
         self._mock_neutron_network_and_port_list()
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': False,
-        })
 
         bad_snapshot_id = 'a-bogus-id'
 
@@ -3287,32 +3018,19 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self._check_neutron_network_and_port_list()
 
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
-
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
-                                      'availability_zone_list',),
+                                      'availability_zone_list',
+                                      'server_group_list',),
                            quotas: ('tenant_quota_usages',)})
     def test_launch_flavorlist_error(self):
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': False,
-        })
         self.mock_volume_list.return_value = []
         self.mock_volume_snapshot_list.return_value = []
         self._mock_glance_image_list_detailed(self.versioned_images.list())
@@ -3324,18 +3042,13 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             self.security_groups.list()
         self.mock_availability_zone_list.return_value = \
             self.availability_zones.list()
+        self.mock_server_group_list.return_value = self.server_groups.list()
 
         url = reverse('horizon:project:instances:launch')
         res = self.client.get(url)
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -3360,6 +3073,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             helpers.IsHttpRequest())
         self.mock_availability_zone_list.assert_called_once_with(
             helpers.IsHttpRequest())
+        self.mock_server_group_list.assert_called_once_with(
+            helpers.IsHttpRequest())
 
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
@@ -3367,8 +3082,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                                          'port_delete',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',
@@ -3388,12 +3102,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': False,
-        })
         volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
@@ -3437,12 +3145,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -3489,11 +3191,11 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            api.neutron: ('network_list',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
-                                      'availability_zone_list',),
+                                      'availability_zone_list',
+                                      'server_group_list'),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
@@ -3512,12 +3214,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self._mock_nova_glance_neutron_lists()
 
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': False,
-        })
         volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
@@ -3547,12 +3243,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self._check_nova_glance_neutron_lists(flavor_count=3,
                                               image_count=10)
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -3580,8 +3270,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            api.neutron: ('network_list',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
@@ -3608,13 +3297,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             quota_usages[resource]['available'] = avail
 
         self._mock_nova_glance_neutron_lists()
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': True,
-        })
-        self.mock_server_group_list.return_value = self.server_groups.list()
         volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
@@ -3654,14 +3336,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self._check_nova_glance_neutron_lists(flavor_count=3,
                                               image_count=10)
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
-        self.mock_server_group_list.assert_called_once_with(
-            helpers.IsHttpRequest())
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -3698,10 +3372,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            api.neutron: ('network_list',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
+                                      'server_group_list',
                                       'availability_zone_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
@@ -3717,12 +3391,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         quota_usages = self.quota_usages.first()
 
         self._mock_nova_glance_neutron_lists()
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': False,
-        })
         volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
@@ -3752,12 +3420,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self._check_nova_glance_neutron_lists(flavor_count=3,
                                               image_count=10)
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -3816,10 +3478,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            api.neutron: ('network_list',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
+                                      'server_group_list',
                                       'availability_zone_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
@@ -3838,18 +3500,13 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         volume_choice = "%s:vol" % volume.id
         quota_usages = self.quota_usages.first()
 
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': False,
-        })
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_keypair_list.return_value = self.keypairs.list()
         self.mock_security_group_list.return_value = \
             self.security_groups.list()
         self.mock_availability_zone_list.return_value = \
             self.availability_zones.list()
+        self.mock_server_group_list.return_value = self.server_groups.list()
         self.mock_image_list_detailed.side_effect = [
             [self.versioned_images.list(), False, False],
             [[], False, False],
@@ -3894,12 +3551,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         for widget_part in widget_content.split():
             self.assertContains(res, widget_part)
 
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 3,
             mock.call(helpers.IsHttpRequest()))
@@ -3907,6 +3558,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_security_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
         self.mock_availability_zone_list.assert_called_once_with(
+            helpers.IsHttpRequest())
+        self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
         self.assertEqual(10, self.mock_image_list_detailed.call_count)
         self.mock_image_list_detailed.assert_has_calls(
@@ -3995,8 +3648,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            api.neutron: ('network_list',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
@@ -4018,12 +3670,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         if avail_volumes is not None:
             quota_usages['volumes']['available'] = avail_volumes
 
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': True,
-        })
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_keypair_list.return_value = self.keypairs.list()
         self.mock_security_group_list.return_value = \
@@ -4060,12 +3706,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         res = self.client.post(url, form_data)
         self.assertContains(res, msg)
 
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
         self.mock_keypair_list.assert_called_once_with(helpers.IsHttpRequest())
         self.mock_security_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
@@ -4127,7 +3767,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         api.nova: ('flavor_list',
                    'server_list_paged',
                    'tenant_absolute_limits',
-                   'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
@@ -4139,8 +3778,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         servers = self.servers.list()
         limits = self.limits['absolute']
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -4163,8 +3800,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertEqual((('compute', 'os_compute_api:servers:create'),),
                          launch_action.policy_rules)
 
-        self._check_extension_supported({'AdminActions': 20,
-                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -4192,7 +3827,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         api.nova: ('flavor_list',
                    'server_list_paged',
                    'tenant_absolute_limits',
-                   'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
@@ -4205,8 +3839,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         limits = self.limits['absolute']
         limits['totalInstancesUsed'] = limits['maxTotalInstances']
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -4228,8 +3860,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assertEqual('Launch Instance (Quota exceeded)',
                          launch_action.verbose_name)
 
-        self._check_extension_supported({'AdminActions': 20,
-                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -4257,8 +3887,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                            api.neutron: ('network_list',
                                          'port_list_with_trunk_types',
                                          'security_group_list',),
-                           api.nova: ('extension_supported',
-                                      'is_feature_available',
+                           api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',
@@ -4289,13 +3918,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                               'volume_size': image.size}]
 
         self._mock_nova_glance_neutron_lists()
-        self._mock_extension_supported({
-            'BlockDeviceMappingV2Boot': True,
-            'DiskConfig': True,
-            'ConfigDrive': True,
-            'ServerGroups': True,
-        })
-        self.mock_server_group_list.return_value = []
         volumes = [v for v in self.cinder_volumes.list()
                    if (v.status == AVAILABLE and v.bootable == 'true')]
         self.mock_volume_list.return_value = volumes
@@ -4328,15 +3950,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
         self._check_nova_glance_neutron_lists(flavor_count=2,
                                               image_count=8)
-        self._check_extension_supported({
-            'BlockDeviceMappingV2Boot': 1,
-            'DiskConfig': 1,
-            'ConfigDrive': 1,
-            'ServerGroups': 1,
-        })
 
-        self.mock_server_group_list.assert_called_once_with(
-            helpers.IsHttpRequest())
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -4378,7 +3992,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         api.nova: ('flavor_list',
                    'server_list_paged',
                    'tenant_absolute_limits',
-                   'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
@@ -4391,8 +4004,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         server = self.servers.first()
         server.status = "VERIFY_RESIZE"
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -4407,8 +4018,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.assertContains(res, "instances__confirm")
         self.assertContains(res, "instances__revert")
 
-        self._check_extension_supported({'AdminActions': 20,
-                                         'Shelve': 5})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -4432,10 +4041,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             self.mock_floating_ip_simple_associate_supported, 5,
             mock.call(helpers.IsHttpRequest()))
 
-    @helpers.create_mocks({api.nova: ('extension_supported',
-                                      'is_feature_available',
+    @helpers.create_mocks({api.nova: ('is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
+                                      'server_group_list',
                                       'availability_zone_list'),
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
@@ -4452,10 +4061,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self._mock_glance_image_list_detailed(self.versioned_images.list())
         self._mock_neutron_network_and_port_list()
         self.mock_tenant_quota_usages.return_value = self.quota_usages.first()
-        self._mock_extension_supported({'BlockDeviceMappingV2Boot': True,
-                                        'DiskConfig': True,
-                                        'ConfigDrive': True,
-                                        'ServerGroups': False})
         self._mock_nova_lists()
 
         url = reverse('horizon:project:instances:launch')
@@ -4479,10 +4084,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_tenant_quota_usages.assert_called_once_with(
             helpers.IsHttpRequest(),
             targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
-        self._check_extension_supported({'BlockDeviceMappingV2Boot': 1,
-                                         'DiskConfig': 1,
-                                         'ConfigDrive': 1,
-                                         'ServerGroups': 1})
         self._check_nova_lists(flavor_count=2)
 
     @helpers.create_mocks({
@@ -4537,16 +4138,15 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
     @helpers.create_mocks({api.nova: ('server_get',
                                       'flavor_list',
+                                      'server_group_list',
                                       'tenant_absolute_limits',
-                                      'is_feature_available',
-                                      'extension_supported')})
+                                      'is_feature_available')})
     def test_instance_resize_get(self):
         server = self.servers.first()
         self.mock_server_get.return_value = server
         self.mock_flavor_list.return_value = self.flavors.list()
+        self.mock_server_group_list.return_value = self.server_groups.list()
         self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
-        self._mock_extension_supported({'DiskConfig': True,
-                                        'ServerGroups': False})
 
         url = reverse('horizon:project:instances:resize', args=[server.id])
         res = self.client.get(url)
@@ -4568,10 +4168,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 2,
             mock.call(helpers.IsHttpRequest()))
+        self.mock_server_group_list.assert_called_once_with(
+            helpers.IsHttpRequest())
         self.mock_tenant_absolute_limits.assert_called_once_with(
             helpers.IsHttpRequest(), reserved=True)
-        self._check_extension_supported({'DiskConfig': 1,
-                                         'ServerGroups': 1})
 
     @helpers.create_mocks({api.nova: ('server_get',)})
     def test_instance_resize_get_server_get_exception(self):
@@ -4608,17 +4208,16 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
     @helpers.create_mocks({api.nova: ('server_get',
                                       'flavor_list',
                                       'flavor_get',
+                                      'server_group_list',
                                       'tenant_absolute_limits',
-                                      'is_feature_available',
-                                      'extension_supported')})
+                                      'is_feature_available')})
     def test_instance_resize_get_current_flavor_not_found(self):
         server = self.servers.first()
         self.mock_server_get.return_value = server
         self.mock_flavor_list.return_value = []
         self.mock_flavor_get.side_effect = self.exceptions.nova
+        self.mock_server_group_list.return_value = self.server_groups.list()
         self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
-        self._mock_extension_supported({'DiskConfig': True,
-                                        'ServerGroups': False})
 
         url = reverse('horizon:project:instances:resize', args=[server.id])
         res = self.client.get(url)
@@ -4632,10 +4231,10 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             mock.call(helpers.IsHttpRequest()))
         self.mock_flavor_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.flavor['id'])
+        self.mock_server_group_list.assert_called_once_with(
+            helpers.IsHttpRequest())
         self.mock_tenant_absolute_limits.assert_called_once_with(
             helpers.IsHttpRequest(), reserved=True)
-        self._check_extension_supported({'DiskConfig': 1,
-                                         'ServerGroups': 1})
 
     def _instance_resize_post(self, server_id, flavor_id, disk_config):
         formData = {'flavor': flavor_id,
@@ -4647,9 +4246,8 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
     instance_resize_post_stubs = {
         api.nova: ('server_get', 'server_resize',
-                   'flavor_list', 'flavor_get',
-                   'is_feature_available',
-                   'extension_supported')}
+                   'flavor_list', 'flavor_get', 'server_group_list',
+                   'is_feature_available')}
 
     @helpers.create_mocks(instance_resize_post_stubs)
     def test_instance_resize_post(self):
@@ -4660,8 +4258,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.return_value = server
         self.mock_flavor_list.return_value = self.flavors.list()
-        self._mock_extension_supported({'DiskConfig': True,
-                                        'ServerGroups': False})
+        self.mock_server_group_list.return_value = self.server_groups.list()
         self.mock_server_resize.return_value = []
 
         res = self._instance_resize_post(server.id, flavor.id, u'AUTO')
@@ -4671,8 +4268,8 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_get.assert_called_once_with(helpers.IsHttpRequest(),
                                                      server.id)
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
-        self._check_extension_supported({'DiskConfig': 1,
-                                         'ServerGroups': 1})
+        self.mock_server_group_list.assert_called_once_with(
+            helpers.IsHttpRequest())
         self.mock_server_resize.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, flavor.id, 'AUTO')
 
@@ -4685,8 +4282,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.return_value = server
         self.mock_flavor_list.return_value = self.flavors.list()
-        self._mock_extension_supported({'DiskConfig': True,
-                                        'ServerGroups': False})
+        self.mock_server_group_list.return_value = self.server_groups.list()
         self.mock_server_resize.side_effect = self.exceptions.nova
 
         res = self._instance_resize_post(server.id, flavor.id, 'AUTO')
@@ -4695,19 +4291,17 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_get.assert_called_once_with(helpers.IsHttpRequest(),
                                                      server.id)
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
-        self._check_extension_supported({'DiskConfig': 1,
-                                         'ServerGroups': 1})
+        self.mock_server_group_list.assert_called_once_with(
+            helpers.IsHttpRequest())
         self.mock_server_resize.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, flavor.id, 'AUTO')
 
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.nova: ('server_get',
-                                      'extension_supported',
                                       'is_feature_available',)})
     def test_rebuild_instance_get(self, expect_password_fields=True):
         server = self.servers.first()
         self._mock_glance_image_list_detailed(self.images.list())
-        self.mock_extension_supported.return_value = True
         self.mock_is_feature_available.return_value = False
         self.mock_server_get.return_value = server
 
@@ -4725,8 +4319,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=4)
-        self.mock_extension_supported.assert_called_once_with(
-            'DiskConfig', helpers.IsHttpRequest())
         self.mock_is_feature_available.assert_called_once_with(
             helpers.IsHttpRequest(), "instance_description"
         )
@@ -4753,7 +4345,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
     instance_rebuild_post_stubs = {
         api.nova: ('server_get',
                    'server_rebuild',
-                   'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',)}
 
@@ -4765,7 +4356,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
-        self.mock_extension_supported.return_value = True
         self.mock_server_rebuild.return_value = []
         self.mock_is_feature_available.return_value = False
 
@@ -4779,8 +4369,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=4)
-        self.mock_extension_supported.assert_called_once_with(
-            'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, image.id, password, 'AUTO',
             description=None)
@@ -4795,7 +4383,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
-        self.mock_extension_supported.return_value = True
         self.mock_server_rebuild.side_effect = self.exceptions.nova
         self.mock_is_feature_available.return_value = False
 
@@ -4808,8 +4395,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=4)
-        self.mock_extension_supported.assert_called_once_with(
-            'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, image.id, None, 'AUTO',
             description=None)
@@ -4826,7 +4411,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
-        self.mock_extension_supported.return_value = True
         self.mock_is_feature_available.return_value = False
 
         res = self._instance_rebuild_post(server.id, image.id,
@@ -4841,9 +4425,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=8)
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_extension_supported, 2,
-            mock.call('DiskConfig', helpers.IsHttpRequest()))
-        self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 2,
             mock.call(helpers.IsHttpRequest(), 'instance_description'))
 
@@ -4854,7 +4435,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
-        self.mock_extension_supported.return_value = True
         self.mock_server_rebuild.return_value = []
         self.mock_is_feature_available.return_value = False
 
@@ -4868,8 +4448,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=4)
-        self.mock_extension_supported.assert_called_once_with(
-            'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, image.id, None, 'AUTO',
             description=None)
@@ -4885,7 +4463,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
-        self.mock_extension_supported.return_value = True
         self.mock_server_rebuild.return_value = []
         self.mock_is_feature_available.return_value = True
 
@@ -4901,8 +4478,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=4)
-        self.mock_extension_supported.assert_called_once_with(
-            'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, image.id, None, '',
             description=test_description)
@@ -4918,7 +4493,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
         self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
-        self.mock_extension_supported.return_value = True
         self.mock_server_rebuild.side_effect = self.exceptions.nova
         self.mock_is_feature_available.return_value = False
 
@@ -4931,8 +4505,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self._check_glance_image_list_detailed(count=4)
-        self.mock_extension_supported.assert_called_once_with(
-            'DiskConfig', helpers.IsHttpRequest())
         self.mock_server_rebuild.assert_called_once_with(
             helpers.IsHttpRequest(), server.id, image.id, password, 'AUTO',
             description=None)
@@ -4945,7 +4517,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         api.nova: ('flavor_list',
                    'server_list_paged',
                    'tenant_absolute_limits',
-                   'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',),
         api.neutron: ('floating_ip_simple_associate_supported',
@@ -4960,8 +4531,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         page_size = settings.API_RESULT_PAGE_SIZE
         servers = self.servers.list()[:3]
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_image_list_detailed.return_value = (self.images.list(),
@@ -4995,8 +4564,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         # ensure that marker object exists in form action
         self.assertContains(res, form_action, count=1)
 
-        self._check_extension_supported({'AdminActions': 12,
-                                         'Shelve': 3})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 6,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -5193,10 +4760,9 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             helpers.IsHttpRequest(), server.id)
 
 
-class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
+class InstanceAjaxTests(helpers.TestCase):
     @helpers.create_mocks({api.nova: ("server_get",
                                       "flavor_get",
-                                      "extension_supported",
                                       "is_feature_available",
                                       "tenant_absolute_limits"),
                            api.network: ('servers_update_addresses',)})
@@ -5207,8 +4773,6 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
         flavors = self.flavors.list()
         full_flavors = collections.OrderedDict([(f.id, f) for f in flavors])
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_server_get.return_value = server
         self.mock_flavor_get.return_value = full_flavors[flavor_id]
@@ -5223,8 +4787,6 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertContains(res, server.name)
 
-        self._check_extension_supported({'AdminActions': 4,
-                                         'Shelve': 1})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 2,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -5240,7 +4802,6 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
     @helpers.create_mocks({api.nova: ("server_get",
                                       "flavor_get",
                                       'is_feature_available',
-                                      "extension_supported",
                                       "tenant_absolute_limits"),
                            api.network: ('servers_update_addresses',)})
     def test_row_update_instance_error(self):
@@ -5261,8 +4822,6 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
                                    "(reason=\"\")\n",
                         "created": "2013-10-07T00:08:32Z"}
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_server_get.return_value = server
         self.mock_flavor_get.return_value = full_flavors[flavor_id]
@@ -5287,8 +4846,6 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
         self.assertEqual(messages[0][0], 'error')
         self.assertTrue(messages[0][1].startswith('Failed'))
 
-        self._check_extension_supported({'AdminActions': 4,
-                                         'Shelve': 1})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 2,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
@@ -5304,15 +4861,12 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
     @helpers.create_mocks({api.nova: ("server_get",
                                       "flavor_get",
                                       'is_feature_available',
-                                      "extension_supported",
                                       "tenant_absolute_limits"),
                            api.network: ('servers_update_addresses',)})
     def test_row_update_flavor_not_found(self):
         server = self.servers.first()
         instance_id = server.id
 
-        self._mock_extension_supported({'AdminActions': True,
-                                        'Shelve': True})
         self.mock_is_feature_available.return_value = True
         self.mock_server_get.return_value = server
         self.mock_flavor_get.side_effect = self.exceptions.nova
@@ -5328,8 +4882,6 @@ class InstanceAjaxTests(helpers.TestCase, InstanceTestHelperMixin):
         self.assertContains(res, server.name)
         self.assertContains(res, "Not available")
 
-        self._check_extension_supported({'AdminActions': 4,
-                                         'Shelve': 1})
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_feature_available, 2,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))

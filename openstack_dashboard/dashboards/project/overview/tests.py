@@ -18,7 +18,6 @@
 
 import datetime
 import logging
-from unittest import mock
 
 from django.test.utils import override_settings
 from django.urls import reverse
@@ -35,7 +34,7 @@ INDEX_URL = reverse('horizon:project:overview:index')
 class UsageViewTests(test.TestCase):
 
     @test.create_mocks({
-        api.nova: ('usage_get', 'extension_supported',),
+        api.nova: ('usage_get',),
         api.neutron: ('is_quotas_extension_supported',)
     })
     def _stub_api_calls(self, nova_stu_enabled=True,
@@ -44,8 +43,6 @@ class UsageViewTests(test.TestCase):
                         quota_extension_support=True):
         self.mock_is_quotas_extension_supported.return_value = \
             quota_extension_support
-        self.mock_extension_supported.side_effect = [nova_stu_enabled,
-                                                     nova_stu_enabled]
         if nova_stu_enabled:
             self._nova_stu_enabled(stu_exception,
                                    overview_days_range=overview_days_range)
@@ -54,9 +51,6 @@ class UsageViewTests(test.TestCase):
 
     def _check_api_calls(self, nova_stu_enabled=True,
                          stu_exception=False, overview_days_range=1):
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_extension_supported, 2,
-            mock.call('SimpleTenantUsage', test.IsHttpRequest()))
         if nova_stu_enabled:
             self._check_stu_enabled(stu_exception,
                                     overview_days_range=overview_days_range)
@@ -140,7 +134,10 @@ class UsageViewTests(test.TestCase):
     def test_usage_1_day(self):
         self._test_usage(nova_stu_enabled=True)
 
-    @override_settings(OVERVIEW_DAYS_RANGE=None)
+    @override_settings(
+        OVERVIEW_DAYS_RANGE=None,
+        OPENSTACK_USE_SIMPLE_TENANT_USAGE=False,
+    )
     def test_usage_disabled(self):
         self._test_usage(nova_stu_enabled=False, overview_days_range=None)
 
@@ -171,6 +168,7 @@ class UsageViewTests(test.TestCase):
     def test_usage_csv_1_day(self):
         self._test_usage_csv(nova_stu_enabled=True, overview_days_range=1)
 
+    @override_settings(OPENSTACK_USE_SIMPLE_TENANT_USAGE=False)
     def test_usage_csv_disabled(self):
         self._test_usage_csv(nova_stu_enabled=False)
 
@@ -257,6 +255,8 @@ class UsageViewTests(test.TestCase):
 
         self._check_api_calls(nova_stu_enabled=True)
 
+    # nova_stu_enable=False is specified below, so we need this.
+    @override_settings(OPENSTACK_USE_SIMPLE_TENANT_USAGE=False)
     def _test_usage_charts(self, quota_usage_overrides=None,
                            quota_extension_support=True):
         self._stub_api_calls(nova_stu_enabled=False,

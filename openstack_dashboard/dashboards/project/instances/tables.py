@@ -254,9 +254,6 @@ class TogglePause(tables.BatchAction):
         )
 
     def allowed(self, request, instance=None):
-        if not api.nova.extension_supported('AdminActions',
-                                            request):
-            return False
         if not instance:
             return False
         self.paused = instance.status == "PAUSED"
@@ -321,9 +318,6 @@ class ToggleSuspend(tables.BatchAction):
         )
 
     def allowed(self, request, instance=None):
-        if not api.nova.extension_supported('AdminActions',
-                                            request):
-            return False
         if not instance:
             return False
         self.suspended = instance.status == "SUSPENDED"
@@ -388,8 +382,6 @@ class ToggleShelve(tables.BatchAction):
         )
 
     def allowed(self, request, instance=None):
-        if not api.nova.extension_supported('Shelve', request):
-            return False
         if not instance:
             return False
         if not request.user.is_superuser and getattr(
@@ -903,8 +895,6 @@ class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
     def allowed(self, request, instance):
         if getattr(instance, 'locked', False):
             return False
-        if not api.nova.extension_supported('AdminActions', request):
-            return False
         if not api.nova.is_feature_available(request, "locked_attribute"):
             return False
         return True
@@ -936,8 +926,6 @@ class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
     # to only allow locked instances to be unlocked
     def allowed(self, request, instance):
         if not getattr(instance, 'locked', True):
-            return False
-        if not api.nova.extension_supported('AdminActions', request):
             return False
         if not api.nova.is_feature_available(request, "locked_attribute"):
             return False

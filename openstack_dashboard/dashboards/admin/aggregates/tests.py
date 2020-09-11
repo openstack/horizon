@@ -192,25 +192,6 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 class AggregatesViewTests(test.BaseAdminViewTests):
 
     @test.create_mocks({
-        api.keystone: ['tenant_list'],
-        api.nova: ['extension_supported']})
-    def test_panel_not_available(self):
-        self.mock_tenant_list.return_value = self.tenants.list()
-        self.mock_extension_supported.return_value = False
-
-        self.patchers['aggregates'].stop()
-        res = self.client.get(reverse('horizon:admin:overview:index'))
-        self.assertNotIn(b'Host Aggregates', res.content)
-        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.assertEqual(self.mock_extension_supported.call_count, 3)
-        expected_calls = [mock.call(a, test.IsHttpRequest())
-                          for a in ['SimpleTenantUsage',
-                                    'SimpleTenantUsage',
-                                    'Aggregates']]
-        self.mock_extension_supported.assert_has_calls(
-            expected_calls)
-
-    @test.create_mocks({
         api.nova: ['aggregate_details_list',
                    'availability_zone_list']})
     def test_index(self):
