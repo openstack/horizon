@@ -621,6 +621,7 @@
           neutronEnabled = true;
           model.initialize(true);
           scope.$apply();
+          expect(model.newInstanceSpec.ports.length).toBe(0);
         });
 
         it('should have the proper entries in allowedBootSources', function() {
