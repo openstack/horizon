@@ -12,6 +12,7 @@
 
 import collections
 
+from django.conf import settings
 from django.contrib.humanize.templatetags import humanize as humanize_filters
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -66,8 +67,10 @@ class UsageView(tables.DataTableView):
         context['usage'] = self.usage
 
         try:
-            context['simple_tenant_usage_enabled'] = \
+            context['simple_tenant_usage_enabled'] = (
+                settings.OPENSTACK_USE_SIMPLE_TENANT_USAGE and
                 api.nova.extension_supported('SimpleTenantUsage', self.request)
+            )
         except Exception:
             context['simple_tenant_usage_enabled'] = True
         return context

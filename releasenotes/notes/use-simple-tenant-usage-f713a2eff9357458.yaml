@@ -1,0 +1,17 @@
+---
+features:
+  - |
+    A new setting ``OPENSTACK_USE_SIMPLE_TENANT_USAGE`` was introduced
+    as a replacement of ``SimpleTenantUsage`` in
+    the deprecated ``OPENSTACK_NOVA_EXTENSIONS_BLACKLIST`` setting.
+    This new setting controls whether ``SimpleTenantUsage`` nova API is used
+    in the usage overview. According to feedbacks to the horizon team,
+    the usage of ``SimpleTenantUsage`` can cause performance issues in the
+    nova API in larger deployments.
+    Try to set this to ``False`` for such cases.
+upgrade:
+  - |
+    Considering the deprecation of ``OPENSTACK_NOVA_EXTENSIONS_BLACKLIST``,
+    set a new setting ``OPENSTACK_USE_SIMPLE_TENANT_USAGE`` to ``False``
+    if you specify ``SimpleTenantUsage`` in
+    ``OPENSTACK_USE_SIMPLE_TENANT_USAGE``
