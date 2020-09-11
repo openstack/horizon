@@ -50,13 +50,12 @@
     '$q',
     'horizon.app.core.openstack-service-api.serviceCatalog',
     'horizon.app.core.openstack-service-api.policy',
-    'horizon.app.core.openstack-service-api.settings',
-    'horizon.app.core.openstack-service-api.novaExtensions'
+    'horizon.app.core.openstack-service-api.settings'
   ];
 
   /////////////
 
-  function dashboardWorkflowDecorator($q, serviceCatalog, policy, settings, novaExtensions) {
+  function dashboardWorkflowDecorator($q, serviceCatalog, policy, settings) {
     return decorator;
 
     function decorator(spec) {
@@ -81,9 +80,6 @@
       }
       if (step.setting) {
         promises.push(settings.ifEnabled(step.setting, true, true));
-      }
-      if (step.novaExtension) {
-        promises.push(novaExtensions.ifNameEnabled(step.novaExtension));
       }
       if (promises.length > 0) {
         step.checkReadiness = function () {

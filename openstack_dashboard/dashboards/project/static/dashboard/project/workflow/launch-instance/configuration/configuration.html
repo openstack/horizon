@@ -11,29 +11,25 @@
              rows=8>
   </load-edit>
 
-  <div hz-if-nova-extensions='["DiskConfig"]'>
-    <div class="form-group">
-      <label for="disk-partition" translate>
-        Disk Partition
-      </label>
-      <select class="form-control"
-              id="disk-partition"
-              ng-model="model.newInstanceSpec.disk_config"
-              ng-options="option.value as option.text for option in ctrl.diskConfigOptions">
-      </select>
-    </div>
+  <div class="form-group">
+    <label for="disk-partition" translate>
+      Disk Partition
+    </label>
+    <select class="form-control"
+            id="disk-partition"
+            ng-model="model.newInstanceSpec.disk_config"
+            ng-options="option.value as option.text for option in ctrl.diskConfigOptions">
+    </select>
   </div>
 
-  <div hz-if-nova-extensions='["ConfigDrive"]'>
-    <div class="form-group">
-      <div class="themable-checkbox">
-        <input type="checkbox"
-               id="config-drive"
-               ng-model="model.newInstanceSpec.config_drive">
-        <label for="config-drive">
-          <span translate>Configuration Drive</span>
-        </label>
-      </div>
+  <div class="form-group">
+    <div class="themable-checkbox">
+      <input type="checkbox"
+             id="config-drive"
+             ng-model="model.newInstanceSpec.config_drive">
+      <label for="config-drive">
+        <span translate>Configuration Drive</span>
+      </label>
     </div>
   </div>
 </div>

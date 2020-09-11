@@ -37,7 +37,6 @@
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.neutron',
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.openstack-service-api.novaExtensions',
     'horizon.app.core.openstack-service-api.security-group',
     'horizon.app.core.openstack-service-api.serviceCatalog',
     'horizon.app.core.openstack-service-api.settings',
@@ -57,7 +56,6 @@
    * @param {Object} glanceAPI
    * @param {Object} neutronAPI
    * @param {Object} novaAPI
-   * @param {Object} novaExtensions
    * @param {Object} securityGroup
    * @param {Object} serviceCatalog
    * @param {Object} settings
@@ -81,7 +79,6 @@
     glanceAPI,
     neutronAPI,
     novaAPI,
-    novaExtensions,
     securityGroup,
     serviceCatalog,
     settings,
@@ -589,9 +586,7 @@
       }
       function onVolumeServiceEnabled() {
         model.volumeBootable = true;
-        novaExtensions
-          .ifNameEnabled('BlockDeviceMappingV2Boot')
-          .then(onBootToVolumeSupported);
+        model.allowCreateVolumeFromImage = true;
         if (!config || !config.disable_volume) {
           getVolumes().then(resolveVolumes, failVolumes);
           getAbsoluteLimits().then(resolveAbsoluteLimitsDeferred, resolveAbsoluteLimitsDeferred);
@@ -604,9 +599,6 @@
         } else {
           resolveVolumeSnapshots();
         }
-      }
-      function onBootToVolumeSupported() {
-        model.allowCreateVolumeFromImage = true;
       }
       function getVolumes() {
         return cinderAPI.getVolumes({status: 'available', bootable: 1})
