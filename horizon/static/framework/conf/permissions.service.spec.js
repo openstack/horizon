@@ -18,11 +18,13 @@
   'use strict';
 
   describe('permissions service', function() {
-    var service;
+    var service, $scope, deferred;
 
     beforeEach(module('horizon.framework.conf'));
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function($injector, _$rootScope_, $q) {
+      $scope = _$rootScope_.$new();
       service = $injector.get('horizon.framework.conf.permissions.service');
+      deferred = $q.defer();
     }));
 
     it("is defined", function() {
@@ -31,23 +33,21 @@
 
     describe("checkAllowed", function() {
 
-      it("returns rejected promise returned by configItem.allowed", inject(function($q, $timeout) {
-        var deferred = $q.defer();
+      it("returns rejected promise returned by configItem.allowed", inject(function($timeout) {
         deferred.reject();
         var item = {allowed: function() { return deferred.promise; }};
         service.checkAllowed(item).then(fail, pass);
         $timeout.flush();
       }));
 
-      it("returns resolved promise returned by configItem.allowed", inject(function($q, $timeout) {
-        var deferred = $q.defer();
+      it("returns resolved promise returned by configItem.allowed", inject(function($timeout) {
         deferred.resolve({});
         var item = {allowed: function() { return deferred.promise; }};
         service.checkAllowed(item).then(pass, fail);
         $timeout.flush();
       }));
 
-      it("returns resolved promise when no configItem.allowed", inject(function($q, $timeout) {
+      it("returns resolved promise when no configItem.allowed", inject(function($timeout) {
         var item = {};
         service.checkAllowed(item).then(pass, fail);
         $timeout.flush();
@@ -57,47 +57,51 @@
 
     describe("checkAll", function() {
       describe("with extended permissions", function() {
-        beforeEach(inject(function($q) {
-          var resolver = function() { return $q.defer().promise; };
-          service.extendedPermissions = { perm1: resolver };
-        }));
+        beforeEach(function() {
+          var resolver = function() { return deferred.promise; };
+          service.extendedPermissions = function() { return {perm1: resolver}; };
+        });
 
-        it("with promise array, adds checks for permissions", inject(function($q) {
-          var input = {perm1: [$q.defer().promise]};
+        it("with promise array, adds checks for permissions", function() {
+          var input = {perm1: [deferred.promise]};
           service.checkAll(input).then(verifyResult);
           function verifyResult(result) {
             expect(angular.isArray(result)).toBe(true);
             expect(result.length).toBe(1);
           }
-        }));
+          $scope.$apply();
+        });
 
-        it("with promise, adds checks for permissions", inject(function($q) {
-          var input = {perm1: $q.defer().promise};
+        it("with promise, adds checks for permissions", function() {
+          var input = {perm1: deferred.promise};
           service.checkAll(input).then(verifyResult);
           function verifyResult(result) {
             expect(angular.isArray(result)).toBe(true);
             expect(result.length).toBe(1);
           }
-        }));
+          $scope.$apply();
+        });
 
-        it("with no promise, adds checks for permissions", inject(function($q) {
-          var input = {unlisted: $q.defer().promise};
+        it("with no promise, adds checks for permissions", function() {
+          var input = {unlisted: deferred.promise};
           service.checkAll(input).then(verifyResult);
           function verifyResult(result) {
             expect(angular.isArray(result)).toBe(true);
             expect(result.length).toBe(1);
           }
-        }));
+          $scope.$apply();
+        });
       });
 
-      it("without extended permissions it returns no promises", inject(function($q) {
-        var retval = service.checkAll({perm1: [$q.defer().promise]});
-        retval.then(verifyResult);
+      it("without extended permissions it returns no promises", function() {
+        var input = {perm1: [deferred.promise]};
+        service.checkAll(input).then(verifyResult);
         function verifyResult(result) {
           expect(angular.isArray(result)).toBe(true);
-          expect(result.length).toBe(0);
+          expect(result.length).toBe(1);
         }
-      }));
+        $scope.$apply();
+      });
     });
 
     describe("extendedPermissions", function() {
