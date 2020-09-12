@@ -2343,10 +2343,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
         self._check_nova_lists(flavor_count=2)
 
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_instance_get_glance_v1(self):
-        self.test_launch_instance_get()
-
     @helpers.update_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
     def test_launch_instance_get_without_password(self):
@@ -2614,10 +2610,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes'))
         self._check_nova_lists(flavor_count=2)
 
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_instance_get_bootable_volumes_glance_v1(self):
-        self.test_launch_instance_get_bootable_volumes()
-
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
@@ -2736,10 +2728,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_flavor_list, 2,
             mock.call(helpers.IsHttpRequest()))
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_instance_post_glance_v1(self):
-        self.test_launch_instance_post()
 
     def test_launch_instance_post_no_disk_config_supported(self):
         self.test_launch_instance_post(disk_config=False)
@@ -2874,10 +2862,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             self.mock_flavor_list, 2,
             mock.call(helpers.IsHttpRequest()))
 
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_instance_post_boot_from_volume_glance_v1(self):
-        self.test_launch_instance_post_boot_from_volume()
-
     def test_launch_instance_post_boot_from_volume_with_bdmv2(self):
         self.test_launch_instance_post_boot_from_volume(test_with_bdmv2=True)
 
@@ -2994,10 +2978,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             disk_config='MANUAL',
             config_drive=True,
             scheduler_hints={})
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_lnch_inst_post_no_images_avail_boot_from_volume_glance_v1(self):
-        self.test_launch_instance_post_no_images_available_boot_from_volume()
 
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
@@ -3224,10 +3204,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             helpers.IsHttpRequest(),
             targets=('instances', 'cores', 'ram', 'volumes', ))
 
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_instance_post_boot_from_snapshot_glance_v1(self):
-        self.test_launch_instance_post_boot_from_snapshot()
-
     def test_launch_instance_post_boot_from_snapshot_with_bdmv2(self):
         self.test_launch_instance_post_boot_from_snapshot(test_with_bdmv2=True)
 
@@ -3385,10 +3361,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         self.mock_availability_zone_list.assert_called_once_with(
             helpers.IsHttpRequest())
 
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_flavorlist_error_glance_v1(self):
-        self.test_launch_flavorlist_error()
-
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
@@ -3513,10 +3485,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             helpers.IsHttpRequest(),
             targets=('instances', 'cores', 'ram', 'volumes', ))
 
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_form_keystone_exception_with_glance_v1(self):
-        self.test_launch_form_keystone_exception()
-
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_list_with_trunk_types',
@@ -3607,10 +3575,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                 targets=('instances', 'cores', 'ram', 'volumes', 'gigabytes')),
         ])
         self.assertEqual(2, self.mock_tenant_quota_usages.call_count)
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_form_instance_count_error_glance_v1(self):
-        self.test_launch_form_instance_count_error()
 
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
@@ -3724,10 +3688,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
     def test_launch_form_cores_count_error_glance_v2(self):
         self._test_launch_form_count_error('cores', 1)
 
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_form_cores_count_error_glance_v1(self):
-        self._test_launch_form_count_error('cores', 1)
-
     def test_launch_form_ram_count_error(self):
         self._test_launch_form_count_error('ram', 512)
 
@@ -3831,10 +3791,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         res = self._launch_form_instance(image, flavor, keypair)
         msg = "The flavor &#39;%s&#39; is too small" % flavor.name
         self.assertContains(res, msg)
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_form_instance_requirement_error_disk_glance_v1(self):
-        self.test_launch_form_instance_requirement_error_disk()
 
     def test_launch_form_instance_requirement_error_ram(self):
         flavor = self.flavors.first()
@@ -4027,17 +3983,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         )
 
     @helpers.update_settings(
-        OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': True},
-        OPENSTACK_API_VERSIONS={'image': 1}
-    )
-    def test_launch_form_instance_device_name_showed_glance_v1(self):
-        self._test_launch_form_instance_show_device_name(
-            u'vda', widgets.TextInput, {
-                'name': 'device_name', 'value': 'vda',
-                'attrs': {'id': 'id_device_name'}}
-        )
-
-    @helpers.update_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': False})
     def test_launch_form_instance_device_name_hidden(self):
         self._test_launch_form_instance_show_device_name(
@@ -4166,10 +4111,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         msg = ("The Volume size is too small for the &#39;%s&#39; image" %
                image.name)
         self._test_launch_form_instance_volume_size(image, volume_size, msg)
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_form_instance_volume_size_error_glance_v1(self):
-        self.test_launch_form_instance_volume_size_error()
 
     def test_launch_form_instance_non_int_volume_size(self):
         image = self.versioned_images.get(name='protected_images')
@@ -4430,10 +4371,6 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             disk_config=u'',
             scheduler_hints={})
 
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_with_empty_device_name_allowed_glance_v1(self):
-        self.test_launch_with_empty_device_name_allowed()
-
 
 class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
 
@@ -4547,10 +4484,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                          'ConfigDrive': 1,
                                          'ServerGroups': 1})
         self._check_nova_lists(flavor_count=2)
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_select_default_keypair_if_only_one_glance_v1(self):
-        self.test_select_default_keypair_if_only_one()
 
     @helpers.create_mocks({
         api.neutron: ('floating_ip_target_list_by_instance',
