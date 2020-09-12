@@ -461,8 +461,6 @@ OPENSTACK_NEUTRON_NETWORK = {
 # a performance issue in the project instance table in large deployments.
 OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES = True
 
-OPENSTACK_NOVA_EXTENSIONS_BLACKLIST = []
-
 # This setting controls whether SimpleTenantUsage nova API is used in the usage
 # overview. According to feedbacks to the horizon team, the usage of
 # SimpleTenantUsage can cause performance issues in the nova API in larger

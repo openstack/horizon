@@ -120,11 +120,9 @@ class Services(generic.View):
     def get(self, request):
         """Get a list of nova services.
 
-        Will return HTTP 501 status code if the service_list extension is
-        not supported.
+        Will return HTTP 501 status code if the compute service is enabled.
         """
-        if (api.base.is_service_enabled(request, 'compute') and
-                api.nova.extension_supported('Services', request)):
+        if api.base.is_service_enabled(request, 'compute'):
             result = api.nova.service_list(request)
             return {'items': [u.to_dict() for u in result]}
         raise rest_utils.AjaxError(501, '')
@@ -347,7 +345,7 @@ class Servers(generic.View):
         :param name: The new server name.
         :param source_id: The ID of the image to use.
         :param flavor_id: The ID of the flavor to use.
-        :param key_name: (optional extension) name of previously created
+        :param key_name: (optional) name of previously created
                       keypair to inject into the instance.
         :param user_data: user data to pass to be exposed by the metadata
                       server this can be a file type object as well or a
@@ -499,25 +497,6 @@ class ServerMetadata(generic.View):
             api.nova.server_metadata_update(request, server_id, updated)
         if removed:
             api.nova.server_metadata_delete(request, server_id, removed)
-
-
-@urls.register
-class Extensions(generic.View):
-    """API for nova extensions."""
-    url_regex = r'nova/extensions/$'
-
-    @rest_utils.ajax()
-    def get(self, request):
-        """Get a list of extensions.
-
-        The listing result is an object with property "items". Each item is
-        an object with property "name".
-
-        Example GET:
-        http://localhost/api/nova/extensions
-        """
-        result = api.nova.list_extensions(request)
-        return {'items': [{'name': e} for e in result]}
 
 
 @urls.register

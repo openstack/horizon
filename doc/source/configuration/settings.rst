@@ -2312,41 +2312,6 @@ Note that when disabling the query to neutron it takes some time until
 associated floating IPs are visible in the project instance table and
 users may reload the table to check them.
 
-OPENSTACK_NOVA_EXTENSIONS_BLACKLIST
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 8.0.0(Liberty)
-
-.. deprecated:: 17.2.0(Ussuri)
-
-Default: ``[]``
-
-Ignore all listed Nova extensions, and behave as if they were unsupported.
-Can be used to selectively disable certain costly extensions for performance
-reasons.
-
-Along with the deprecation, the current plan on individual effective values
-in this setting is as follows.
-
-The support of ``SimpleTenantUsage`` will be replaced by a new setting which
-controls whether ``SimpleTenantUsage`` nova API feature is used or not
-(not implemented yet as of Victoria; planned in Wallaby release).
-This setting will not be droped until the new setting is implemented.
-
-The support of the following values will be simply dropped
-as nova provides all features in the recent API versions.
-
-* ``AdminActions``
-* ``Aggregates``
-* ``BlockDeviceMappingV2Boot``
-* ``ConfigDrive``
-* ``DiskConfig``
-* ``Keypairs``
-* ``SchedulerHints``
-* ``ServerGroups``
-* ``Services``
-* ``Shelve``
-
 OPENSTACK_USE_SIMPLE_TENANT_USAGE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -484,19 +484,6 @@ class NovaRestTestCase(test.TestCase):
         )
 
     #
-    # Extensions
-    #
-    @test.create_mocks({api.nova: ['list_extensions']})
-    def test_extension_list(self):
-        request = self.mock_rest_request()
-        self.mock_list_extensions.return_value = ['foo', 'bar']
-        response = nova.Extensions().get(request)
-        self.assertStatusCode(response, 200)
-        self.assertEqual({"items": [{"name": "foo"}, {"name": "bar"}]},
-                         response.json)
-        self.mock_list_extensions.assert_called_once_with(request)
-
-    #
     # Flavors
     #
 
@@ -892,8 +879,7 @@ class NovaRestTestCase(test.TestCase):
     #
 
     @test.create_mocks({api.base: ['is_service_enabled'],
-                        api.nova: ['service_list',
-                                   'extension_supported']})
+                        api.nova: ['service_list']})
     def test_services_get(self):
         request = self.mock_rest_request(GET={})
         self.mock_service_list.return_value = [
@@ -901,7 +887,6 @@ class NovaRestTestCase(test.TestCase):
             mock.Mock(**{'to_dict.return_value': {'id': '2'}})
         ]
         self.mock_is_service_enabled.return_value = True
-        self.mock_extension_supported.return_value = True
 
         response = nova.Services().get(request)
 
@@ -911,8 +896,6 @@ class NovaRestTestCase(test.TestCase):
         self.mock_service_list.assert_called_once_with(request)
         self.mock_is_service_enabled.assert_called_once_with(request,
                                                              'compute')
-        self.mock_extension_supported.assert_called_once_with(
-            'Services', request)
 
     @mock.patch.object(api.base, 'is_service_enabled')
     def test_services_get_disabled(self, mock_is_service_enabled):
