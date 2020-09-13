@@ -16,8 +16,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
-
 from horizon import exceptions
 
 from openstack_dashboard.api import base as api_base
@@ -232,21 +230,22 @@ class ApiVersionTests(test.TestCase):
 
     def setUp(self):
         super(ApiVersionTests, self).setUp()
-        self.previous_settings = settings.OPENSTACK_API_VERSIONS
-        settings.OPENSTACK_API_VERSIONS = {
-            "data-processing": 1.1,
-            "identity": "3",
-            "volume": 1
-        }
-        # Make sure cached data from other tests doesn't interfere
-        cinder.VERSIONS.clear_active_cache()
-        keystone.VERSIONS.clear_active_cache()
-        glance.VERSIONS.clear_active_cache()
+        override = self.settings(
+            OPENSTACK_API_VERSIONS={
+                "data-processing": 1.1,
+                "identity": "3",
+                "volume": 1
+            }
+        )
+        override.enable()
+        self.addCleanup(override.disable)
 
-    def tearDown(self):
-        super(ApiVersionTests, self).tearDown()
-        settings.OPENSTACK_API_VERSIONS = self.previous_settings
+        # Make sure cached data from other tests doesn't interfere
+        self._clear_version_cache()
         # Clear out our bogus data so it doesn't interfere
+        self.addCleanup(self._clear_version_cache)
+
+    def _clear_version_cache(self):
         cinder.VERSIONS.clear_active_cache()
         keystone.VERSIONS.clear_active_cache()
         glance.VERSIONS.clear_active_cache()
