@@ -686,20 +686,20 @@ class CustomizeAction(workflows.Action):
             if upload_file._size > 16 * units.Ki:  # 16kb
                 msg = _('File exceeds maximum size (16kb)')
                 raise forms.ValidationError(msg)
-            else:
-                script = upload_file.read()
-                if script != "":
-                    try:
-                        if not isinstance(script, str):
-                            script = script.decode()
-                        normalize_newlines(script)
-                    except Exception as e:
-                        msg = _('There was a problem parsing the'
-                                ' %(prefix)s: %(error)s')
-                        msg = msg % {'prefix': prefix,
-                                     'error': e}
-                        raise forms.ValidationError(msg)
-                return script
+
+            script = upload_file.read()
+            if script != "":
+                try:
+                    if not isinstance(script, str):
+                        script = script.decode()
+                    normalize_newlines(script)
+                except Exception as e:
+                    msg = _('There was a problem parsing the'
+                            ' %(prefix)s: %(error)s')
+                    msg = msg % {'prefix': prefix,
+                                 'error': e}
+                    raise forms.ValidationError(msg)
+            return script
         else:
             return None
 

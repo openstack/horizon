@@ -344,7 +344,7 @@ class Step(object):
                     # If it's callable we know the function exists and is valid
                     self._handlers[key].append(possible_handler)
                     continue
-                elif not isinstance(possible_handler, str):
+                if not isinstance(possible_handler, str):
                     raise TypeError("Connection handlers must be either "
                                     "callables or strings.")
                 bits = possible_handler.split(".")
@@ -789,7 +789,7 @@ class Workflow(html.HTMLElement, metaclass=WorkflowMetaclass):
         """Registers a :class:`~horizon.workflows.Step` with the workflow."""
         if not inspect.isclass(step_class):
             raise ValueError('Only classes may be registered.')
-        elif not issubclass(step_class, cls._registerable_class):
+        if not issubclass(step_class, cls._registerable_class):
             raise ValueError('Only %s classes or subclasses may be registered.'
                              % cls._registerable_class.__name__)
         if step_class in cls._cls_registry:
@@ -852,7 +852,7 @@ class Workflow(html.HTMLElement, metaclass=WorkflowMetaclass):
                 data = step.action.handle(self.request, self.context)
                 if data is True or data is None:
                     continue
-                elif data is False:
+                if data is False:
                     partial = True
                 else:
                     self.context = step.contribute(data or {}, self.context)

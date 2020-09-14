@@ -187,7 +187,7 @@ class Registry(object):
         """
         if not inspect.isclass(cls):
             raise ValueError('Only classes may be registered.')
-        elif not issubclass(cls, self._registerable_class):
+        if not issubclass(cls, self._registerable_class):
             raise ValueError('Only %s classes or subclasses may be registered.'
                              % self._registerable_class.__name__)
 
@@ -233,11 +233,10 @@ class Registry(object):
                                    "slug": cls,
                                    "parent": parent,
                                    "name": self.slug})
-        else:
-            slug = getattr(cls, "slug", cls)
-            raise NotRegistered('%(type)s with slug "%(slug)s" is not '
-                                'registered.' % {"type": class_name,
-                                                 "slug": slug})
+        slug = getattr(cls, "slug", cls)
+        raise NotRegistered('%(type)s with slug "%(slug)s" is not '
+                            'registered.' % {"type": class_name,
+                                             "slug": slug})
 
 
 class Panel(HorizonComponent):
@@ -821,8 +820,7 @@ class Site(Registry, HorizonComponent):
             # If it's not callable and not a string, it's wrong.
             raise ValueError('The user_home setting must be either a string '
                              'or a callable object (e.g. a function).')
-        else:
-            return self.get_absolute_url()
+        return self.get_absolute_url()
 
     def get_absolute_url(self):
         """Returns the default URL for Horizon's URLconf.

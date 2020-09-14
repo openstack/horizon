@@ -117,9 +117,9 @@ class DeleteDomainsAction(tables.DeleteAction):
                 % domain.name
             messages.error(request, msg)
             raise keystoneclient_exceptions.ClientException(msg)
-        else:
-            LOG.info('Deleting domain "%s".', obj_id)
-            api.keystone.domain_delete(request, obj_id)
+
+        LOG.info('Deleting domain "%s".', obj_id)
+        api.keystone.domain_delete(request, obj_id)
 
 
 class DisableDomainsAction(tables.BatchAction):

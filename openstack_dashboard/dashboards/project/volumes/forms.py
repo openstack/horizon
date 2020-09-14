@@ -420,7 +420,7 @@ class CreateForm(forms.SelfHandlingForm):
                 params = {'req': data['size'],
                           'avail': availableGB}
                 raise ValidationError(error_message % params)
-            elif availableVol <= 0:
+            if availableVol <= 0:
                 error_message = _('You are already using all of your available'
                                   ' volumes.')
                 raise ValidationError(error_message)
