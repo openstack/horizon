@@ -137,12 +137,11 @@ class RebootInstance(policy.PolicyTargetMixin, tables.BatchAction):
         )
 
     def allowed(self, request, instance=None):
-        if instance is not None:
-            return ((instance.status in ACTIVE_STATES or
-                     instance.status == 'SHUTOFF') and
-                    not is_deleting(instance))
-        else:
+        if instance is None:
             return True
+        return ((instance.status in ACTIVE_STATES or
+                 instance.status == 'SHUTOFF') and
+                not is_deleting(instance))
 
     def action(self, request, obj_id):
         api.nova.server_reboot(request, obj_id, soft_reboot=False)
@@ -173,8 +172,7 @@ class SoftRebootInstance(RebootInstance):
     def allowed(self, request, instance=None):
         if instance is not None:
             return instance.status in ACTIVE_STATES
-        else:
-            return True
+        return True
 
 
 class RescueInstance(policy.PolicyTargetMixin, tables.LinkAction):

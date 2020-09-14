@@ -76,8 +76,7 @@ def trace(name):
         if setting_utils.get_dict_config('OPENSTACK_PROFILER', 'enabled'):
             return profiler.trace(name, info=None, hide_args=False,
                                   allow_multiple_trace=True)(func)
-        else:
-            return func
+        return func
     return decorator
 
 

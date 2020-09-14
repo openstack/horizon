@@ -42,8 +42,7 @@ class BaseUsage(object):
         days_range = settings.OVERVIEW_DAYS_RANGE
         if days_range:
             return self.today.date() - datetime.timedelta(days=days_range)
-        else:
-            return datetime.date(self.today.year, self.today.month, 1)
+        return datetime.date(self.today.year, self.today.month, 1)
 
     @staticmethod
     def get_start(year, month, day):

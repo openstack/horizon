@@ -661,8 +661,7 @@ class Row(html.HTMLElement):
         column_names = self.table._meta.status_columns
         if column_names:
             return self.table.get_row_status_class(self.status)
-        else:
-            return ''
+        return ''
 
     def render(self):
         return render_to_string("horizon/common/_data_table_row.html",
@@ -858,10 +857,9 @@ class Cell(html.HTMLElement):
         """Returns a css class name determined by the status value."""
         if status is True:
             return "status_up"
-        elif status is False:
+        if status is False:
             return "status_down"
-        else:
-            return "warning"
+        return "warning"
 
     def get_default_classes(self):
         """Returns a flattened string of the cell's CSS classes."""
@@ -1643,7 +1641,7 @@ class DataTable(object, metaclass=DataTableMetaclass):
                     obj_ids = [obj_id]
                 response = action.multiple(self, self.request, obj_ids)
             return response
-        elif action and action.requires_input and not (obj_id or obj_ids):
+        if action and action.requires_input and not (obj_id or obj_ids):
             messages.info(self.request,
                           _("Please select a row before taking that action."))
         return None
@@ -1688,8 +1686,7 @@ class DataTable(object, metaclass=DataTableMetaclass):
                 if request.is_ajax():
                     if not error:
                         return HttpResponse(new_row.render())
-                    else:
-                        return HttpResponse(status=error.status_code)
+                    return HttpResponse(status=error.status_code)
             elif new_row.ajax_cell_action_name == action_name:
                 # inline edit of the cell actions
                 return self.inline_edit_handle(request, table_name,
@@ -1749,8 +1746,7 @@ class DataTable(object, metaclass=DataTableMetaclass):
         if request.is_ajax():
             if not error:
                 return HttpResponse(cell.render())
-            else:
-                return HttpResponse(status=error.status_code)
+            return HttpResponse(status=error.status_code)
 
     def inline_update_action(self, request, datum, cell, obj_id, cell_name):
         """Handling update by POST of the cell."""
@@ -1907,10 +1903,9 @@ class DataTable(object, metaclass=DataTableMetaclass):
         values = statuses.values()
         if any([status is False for status in values]):
             return False
-        elif any([status is None for status in values]):
+        if any([status is None for status in values]):
             return None
-        else:
-            return True
+        return True
 
     def get_row_status_class(self, status):
         """Returns a css class name determined by the status value.
@@ -1920,10 +1915,9 @@ class DataTable(object, metaclass=DataTableMetaclass):
         """
         if status is True:
             return "status_up"
-        elif status is False:
+        if status is False:
             return "status_down"
-        else:
-            return "warning"
+        return "warning"
 
     def get_columns(self):
         """Returns this table's columns including auto-generated ones."""

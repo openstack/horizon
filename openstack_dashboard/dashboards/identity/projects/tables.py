@@ -67,8 +67,7 @@ class UpdateMembersLink(tables.LinkAction):
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        else:
-            return super(UpdateMembersLink, self).allowed(request, project)
+        return super(UpdateMembersLink, self).allowed(request, project)
 
 
 class UpdateGroupsLink(tables.LinkAction):
@@ -84,8 +83,7 @@ class UpdateGroupsLink(tables.LinkAction):
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        else:
-            return super(UpdateGroupsLink, self).allowed(request, project)
+        return super(UpdateGroupsLink, self).allowed(request, project)
 
     def get_link_url(self, project):
         step = 'update_group_members'
@@ -119,8 +117,7 @@ class CreateProject(tables.LinkAction):
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        else:
-            return api.keystone.keystone_can_edit_project()
+        return api.keystone.keystone_can_edit_project()
 
 
 class UpdateProject(policy.PolicyTargetMixin, tables.LinkAction):
@@ -137,8 +134,7 @@ class UpdateProject(policy.PolicyTargetMixin, tables.LinkAction):
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        else:
-            return api.keystone.keystone_can_edit_project()
+        return api.keystone.keystone_can_edit_project()
 
 
 class ModifyQuotas(tables.LinkAction):

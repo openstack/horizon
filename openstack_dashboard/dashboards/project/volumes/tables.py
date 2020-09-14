@@ -445,10 +445,9 @@ def get_volume_type(volume):
 def get_encrypted_value(volume):
     if not hasattr(volume, 'encrypted') or volume.encrypted is None:
         return _("-")
-    elif volume.encrypted is False:
+    if volume.encrypted is False:
         return _("No")
-    else:
-        return _("Yes")
+    return _("Yes")
 
 
 def get_encrypted_link(volume):

@@ -383,11 +383,10 @@ class PagedTableMixin(object):
         prev_marker = self.request.GET.get(meta.prev_pagination_param, None)
         if prev_marker:
             return prev_marker, "asc"
-        else:
-            marker = self.request.GET.get(meta.pagination_param, None)
-            if marker:
-                return marker, "desc"
-            return None, "desc"
+        marker = self.request.GET.get(meta.pagination_param, None)
+        if marker:
+            return marker, "desc"
+        return None, "desc"
 
 
 class PagedTableWithPageMenu(object):

@@ -608,6 +608,6 @@ class CreateNetwork(workflows.Workflow):
                                      tenant_id=network.tenant_id)
         if subnet:
             return True
-        else:
-            self._delete_network(request, network)
-            return False
+
+        self._delete_network(request, network)
+        return False

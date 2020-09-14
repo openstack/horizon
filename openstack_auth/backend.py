@@ -68,8 +68,8 @@ class KeystoneBackend(object):
             user = auth_user.create_user_from_token(self.request, token,
                                                     endpoint, services_region)
             return user
-        else:
-            return None
+
+        return None
 
     def _check_auth_expiry(self, auth_ref, margin=None):
         if not utils.is_token_valid(auth_ref, margin):

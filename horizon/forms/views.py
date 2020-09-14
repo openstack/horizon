@@ -217,7 +217,7 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
                 # and implemented.
                 response['X-Horizon-Location'] = success_url
             return response
-        else:
-            # If handled didn't return, we can assume something went
-            # wrong, and we should send back the form as-is.
-            return self.form_invalid(form)
+
+        # If handled didn't return, we can assume something went
+        # wrong, and we should send back the form as-is.
+        return self.form_invalid(form)

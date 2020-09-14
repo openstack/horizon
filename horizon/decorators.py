@@ -88,8 +88,7 @@ def require_perms(view_func, required):
     # If we don't have any permissions, just return the original view.
     if required:
         return dec
-    else:
-        return view_func
+    return view_func
 
 
 def require_component_access(view_func, component):

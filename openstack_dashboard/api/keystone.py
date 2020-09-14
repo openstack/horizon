@@ -90,8 +90,7 @@ class Service(base.APIDictWrapper):
         if(self.type == "identity"):
             return _("%(type)s (%(backend)s backend)") \
                 % {"type": self.type, "backend": keystone_backend_name()}
-        else:
-            return self.type
+        return self.type
 
     def __repr__(self):
         return "<Service: %s>" % self

@@ -50,8 +50,7 @@ class AddAllowedAddressPair(policy.PolicyTargetMixin, tables.LinkAction):
     def get_link_url(self, port=None):
         if port:
             return reverse(self.url, args=(port.id,))
-        else:
-            return reverse(self.url, args=(self.table.kwargs.get('port_id'),))
+        return reverse(self.url, args=(self.table.kwargs.get('port_id'),))
 
 
 class DeleteAllowedAddressPair(tables.DeleteAction):

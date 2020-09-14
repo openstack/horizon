@@ -30,8 +30,7 @@ class AdminDeleteImage(project_tables.DeleteImage):
     def allowed(self, request, image=None):
         if image and image.protected:
             return False
-        else:
-            return True
+        return True
 
 
 class AdminEditImage(project_tables.EditImage):

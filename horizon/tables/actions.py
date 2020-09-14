@@ -401,8 +401,7 @@ class LinkAction(BaseAction):
             if datum:
                 obj_id = self.table.get_object_id(datum)
                 return urls.reverse(self.url, args=(obj_id,))
-            else:
-                return urls.reverse(self.url)
+            return urls.reverse(self.url)
         except urls.NoReverseMatch as ex:
             LOG.info('No reverse found for "%(url)s": %(exception)s',
                      {'url': self.url, 'exception': ex})

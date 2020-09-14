@@ -156,8 +156,7 @@ class IPAssociationWorkflow(workflows.Workflow):
         if "%s" in message:
             return message % self.context.get('ip_address',
                                               _('unknown IP address'))
-        else:
-            return message
+        return message
 
     def handle(self, request, data):
         try:

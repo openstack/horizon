@@ -77,13 +77,11 @@ class UpdateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
 
 def subnet_ip_availability(availability):
     subnet_availability = availability.get("free_ips")
-    if subnet_availability:
-        if subnet_availability > 10000:
-            return ">10000"
-        else:
-            return str(subnet_availability)
-    else:
-        return str("Not Available")
+    if not subnet_availability:
+        return "Not Available"
+    if subnet_availability > 10000:
+        return ">10000"
+    return str(subnet_availability)
 
 
 class SubnetsTable(tables.DataTable):

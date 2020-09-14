@@ -69,8 +69,7 @@ class ManageVolumes(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, group=None):
         if hasattr(group, 'status'):
             return group.status != 'error'
-        else:
-            return False
+        return False
 
 
 class CreateSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
@@ -83,8 +82,7 @@ class CreateSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, group=None):
         if hasattr(group, 'status'):
             return group.status != 'error'
-        else:
-            return False
+        return False
 
 
 class CloneGroup(policy.PolicyTargetMixin, tables.LinkAction):
@@ -97,8 +95,7 @@ class CloneGroup(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, group=None):
         if hasattr(group, 'status'):
             return group.status != 'error'
-        else:
-            return False
+        return False
 
 
 class UpdateRow(tables.Row):

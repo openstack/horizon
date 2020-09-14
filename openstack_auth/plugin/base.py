@@ -83,8 +83,7 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
             client = v3_client.Client(session=session, auth=auth_plugin)
             if auth_ref.is_federated:
                 return client.federation.projects.list()
-            else:
-                return client.projects.list(user=auth_ref.user_id)
+            return client.projects.list(user=auth_ref.user_id)
 
         except (keystone_exceptions.ClientException,
                 keystone_exceptions.AuthorizationFailure):

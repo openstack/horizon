@@ -276,8 +276,8 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
 
         if isinstance(response, http.HttpResponse):
             return response
-        else:
-            return True
+
+        return True
 
 
 class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
@@ -341,5 +341,5 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
 
         if isinstance(response, http.HttpResponse):
             return response
-        else:
-            return True
+
+        return True

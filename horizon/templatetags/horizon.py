@@ -141,31 +141,28 @@ def horizon_dashboard_nav(context):
 def quota(val, units=None):
     if val == float("inf"):
         return _("(No Limit)")
-    elif units is not None:
+    if units is not None:
         return "%s %s %s" % (val, force_text(units),
                              force_text(_("Available")))
-    else:
-        return "%s %s" % (val, force_text(_("Available")))
+    return "%s %s" % (val, force_text(_("Available")))
 
 
 @register.filter
 def quotainf(val, units=None):
     if val == float("inf"):
         return '-1'
-    elif units is not None:
+    if units is not None:
         return "%s %s" % (val, units)
-    else:
-        return val
+    return val
 
 
 @register.simple_tag
 def quotapercent(used, limit):
     if used >= limit or limit == 0:
         return 100
-    elif limit == float("inf"):
+    if limit == float("inf"):
         return '[%s, true]' % used
-    else:
-        return round((float(used) / float(limit)) * 100)
+    return round((float(used) / float(limit)) * 100)
 
 
 class JSTemplateNode(template.Node):

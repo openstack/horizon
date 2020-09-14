@@ -581,8 +581,7 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
         form = self.get_form()
         if form.is_valid():
             return self.form_valid(form)
-        else:
-            return self.get(request, *args, **kwargs)
+        return self.get(request, *args, **kwargs)
 
 
 class RetypeView(forms.ModalFormView):

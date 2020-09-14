@@ -486,8 +486,7 @@ class CreateProject(workflows.Workflow):
     def format_status_message(self, message):
         if "%s" in message:
             return message % self.context.get('name', 'unknown project')
-        else:
-            return message
+        return message
 
     def _create_project(self, request, data):
         # create the project
@@ -657,8 +656,7 @@ class UpdateProject(workflows.Workflow):
     def format_status_message(self, message):
         if "%s" in message:
             return message % self.context.get('name', 'unknown project')
-        else:
-            return message
+        return message
 
     @memoized.memoized_method
     def _get_available_roles(self, request):
@@ -748,8 +746,7 @@ class UpdateProject(workflows.Workflow):
                     'administrative role manually via the CLI.')
             messages.warning(request, msg)
             return True
-        else:
-            return False
+        return False
 
     def _update_project_members(self, request, data, project_id):
         # update project members

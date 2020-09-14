@@ -171,8 +171,7 @@ def swift_get_containers(request, marker=None, prefix=None):
     container_objs = [Container(c) for c in containers]
     if(len(container_objs) > limit):
         return (container_objs[0:-1], True)
-    else:
-        return (container_objs, False)
+    return (container_objs, False)
 
 
 @profiler.trace
@@ -271,8 +270,7 @@ def swift_get_objects(request, container_name, prefix=None, marker=None,
 
     if(len(object_objs) > limit):
         return (object_objs[0:-1], True)
-    else:
-        return (object_objs, False)
+    return (object_objs, False)
 
 
 @profiler.trace
@@ -302,14 +300,14 @@ def wildcard_search(string, q):
     q_list = q.split('*')
     if all(map(lambda x: x == '', q_list)):
         return True
-    elif q_list[0] not in string:
+    if q_list[0] not in string:
         return False
+
+    if q_list[0] == '':
+        tail = string
     else:
-        if q_list[0] == '':
-            tail = string
-        else:
-            head, delimiter, tail = string.partition(q_list[0])
-        return wildcard_search(tail, '*'.join(q_list[1:]))
+        head, delimiter, tail = string.partition(q_list[0])
+    return wildcard_search(tail, '*'.join(q_list[1:]))
 
 
 @profiler.trace

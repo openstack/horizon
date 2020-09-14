@@ -63,10 +63,9 @@ class QuotaKeypairMixin(object):
                     verbose_name=self.verbose_name,
                     quota_exceeded=_("(Quota exceeded)"))
             return False
-        else:
-            classes = [c for c in self.classes if c != "disabled"]
-            self.classes = classes
-            return True
+        classes = [c for c in self.classes if c != "disabled"]
+        self.classes = classes
+        return True
 
 
 class ImportKeyPair(QuotaKeypairMixin, tables.LinkAction):

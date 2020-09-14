@@ -325,20 +325,20 @@ class Services(generic.View):
         Will return HTTP 501 status code if the service_list extension is
         not supported.
         """
-        if api.base.is_service_enabled(request, 'volume') and \
-           api.cinder.extension_supported(request, 'Services'):
-            result = api.cinder.service_list(request)
-            return {'items': [{
-                'binary': u.binary,
-                'host': u.host,
-                'zone': u.zone,
-                'updated_at': u.updated_at,
-                'status': u.status,
-                'state': u.state,
-                'id': idx + 1
-            } for idx, u in enumerate(result)]}
-        else:
+        if not (api.base.is_service_enabled(request, 'volume') and
+                api.cinder.extension_supported(request, 'Services')):
             raise rest_utils.AjaxError(501, '')
+
+        result = api.cinder.service_list(request)
+        return {'items': [{
+            'binary': u.binary,
+            'host': u.host,
+            'zone': u.zone,
+            'updated_at': u.updated_at,
+            'status': u.status,
+            'state': u.state,
+            'id': idx + 1
+        } for idx, u in enumerate(result)]}
 
 
 @urls.register
@@ -353,24 +353,23 @@ class DefaultQuotaSets(generic.View):
         Example GET:
         http://localhost/api/cinder/quota-sets/defaults/
         """
-        if api.cinder.is_volume_service_enabled(request):
-            quota_set = api.cinder.default_quota_get(
-                request, request.user.tenant_id)
-
-            result = [
-                {
-                    'display_name':
-                    quotas.QUOTA_NAMES.get(
-                        quota.name,
-                        quota.name.replace("_", " ").title()
-                    ) + '',
-                    'name': quota.name,
-                    'limit': quota.limit
-                }
-                for quota in quota_set]
-            return {'items': result}
-        else:
+        if not api.cinder.is_volume_service_enabled(request):
             raise rest_utils.AjaxError(501, _('Service Cinder is disabled.'))
+        quota_set = api.cinder.default_quota_get(
+            request, request.user.tenant_id)
+
+        result = [
+            {
+                'display_name':
+                quotas.QUOTA_NAMES.get(
+                    quota.name,
+                    quota.name.replace("_", " ").title()
+                ) + '',
+                'name': quota.name,
+                'limit': quota.limit
+            }
+            for quota in quota_set]
+        return {'items': result}
 
     @rest_utils.ajax(data_required=True)
     def patch(self, request):

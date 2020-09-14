@@ -65,19 +65,18 @@ class Server(base.APIResourceWrapper):
     def image_name(self):
         if not self.image:
             return None
-        elif hasattr(self.image, 'name'):
+        if hasattr(self.image, 'name'):
             return self.image.name
-        elif 'name' in self.image:
+        if 'name' in self.image:
             return self.image['name']
-        else:
-            try:
-                image = glance.image_get(self.request, self.image['id'])
-                self.image['name'] = image.name
-                return image.name
-            except (glance_exceptions.ClientException,
-                    horizon_exceptions.ServiceCatalogException):
-                self.image['name'] = None
-                return None
+        try:
+            image = glance.image_get(self.request, self.image['id'])
+            self.image['name'] = image.name
+            return image.name
+        except (glance_exceptions.ClientException,
+                horizon_exceptions.ServiceCatalogException):
+            self.image['name'] = None
+            return None
 
     @property
     def availability_zone(self):

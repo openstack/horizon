@@ -55,7 +55,6 @@ disable=
  duplicate-code,
  inconsistent-return-statements,  # TODO
  interface-not-implemented,
- no-else-return,
  no-self-use,
  # python3 way: Let's do it once we have a consensus.
  super-with-arguments,  # TODO

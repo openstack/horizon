@@ -300,11 +300,10 @@ def get_token_auth_plugin(auth_url, token, project_id=None, domain_name=None):
                              token=token,
                              domain_name=domain_name,
                              reauthenticate=False)
-    else:
-        return v3_auth.Token(auth_url=auth_url,
-                             token=token,
-                             project_id=project_id,
-                             reauthenticate=False)
+    return v3_auth.Token(auth_url=auth_url,
+                         token=token,
+                         project_id=project_id,
+                         reauthenticate=False)
 
 
 def get_project_list(*args, **kwargs):

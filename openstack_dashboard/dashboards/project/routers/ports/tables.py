@@ -31,10 +31,9 @@ LOG = logging.getLogger(__name__)
 def get_device_owner(port):
     if port['device_owner'] == 'network:router_gateway':
         return _('External Gateway')
-    elif port['device_owner'] == 'network:router_interface':
+    if port['device_owner'] == 'network:router_interface':
         return _('Internal Interface')
-    else:
-        return ' '
+    return ' '
 
 
 class AddInterface(policy.PolicyTargetMixin, tables.LinkAction):

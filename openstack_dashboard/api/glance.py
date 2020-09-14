@@ -104,8 +104,7 @@ class Image(base.APIResourceWrapper):
     def property_visible(self, prop_name, show_ext_attrs=False):
         if show_ext_attrs:
             return prop_name not in self._attrs
-        else:
-            return prop_name not in (self._attrs | self._ext_attrs)
+        return prop_name not in (self._attrs | self._ext_attrs)
 
     def to_dict(self, show_ext_attrs=False):
         if not isinstance(self._apiresource, abc.Iterable):
@@ -494,7 +493,8 @@ def image_create(request, **kwargs):
             # The image data is meant to be uploaded externally, return a
             # special wrapper to bypass the web server in a subsequent upload
             return ExternallyUploadedImage(image, request)
-        elif isinstance(data, TemporaryUploadedFile):
+
+        if isinstance(data, TemporaryUploadedFile):
             # Hack to fool Django, so we can keep file open in the new thread.
             data.file._closer.close_called = True
         elif isinstance(data, InMemoryUploadedFile):
@@ -603,8 +603,7 @@ def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
     # to wrap.
     if wrap:
         return Namespace(namespace)
-    else:
-        return namespace
+    return namespace
 
 
 @profiler.trace
