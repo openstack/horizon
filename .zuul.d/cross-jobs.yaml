@@ -20,6 +20,7 @@
 - job:
     name: horizon-cross-ironic-ui-npm
     parent: horizon-nodejs10-run-test
+    pre-run: playbooks/cross-jobs/phantomjs-deps.yaml
     vars:
       zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/ironic-ui'].src_dir }}"
     required-projects:
