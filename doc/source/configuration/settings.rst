@@ -828,13 +828,14 @@ Default:
 .. code-block:: python
 
     [
-        'OPENSTACK_HYPERVISOR_FEATURES',
+        'CREATE_IMAGE_DEFAULTS',
+        'DEFAULT_BOOT_SOURCE',
+        'ENFORCE_PASSWORD_CHECK',
         'LAUNCH_INSTANCE_DEFAULTS',
+        'OPENSTACK_HYPERVISOR_FEATURES',
         'OPENSTACK_IMAGE_FORMATS',
         'OPENSTACK_KEYSTONE_BACKEND',
         'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
-        'CREATE_IMAGE_DEFAULTS',
-        'ENFORCE_PASSWORD_CHECK'
     ]
 
 This setting allows you to expose configuration values over Horizons internal
