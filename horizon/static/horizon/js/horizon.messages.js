@@ -39,9 +39,11 @@ horizon.alert = function (type, message, extra_tags, details) {
     return str.split('\u2026');
   }
 
+  var id = horizon.uuid.generate();
   var template = horizon.templates.compiled_templates["#alert_message_template"],
     params = {
       "type": type || 'default',
+      "id": id,
       "type_display": type_display,
       "message": message,
       "safe": safe,
