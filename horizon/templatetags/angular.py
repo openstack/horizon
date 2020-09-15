@@ -107,7 +107,7 @@ def angular_templates(context):
             # there will simply be no pre-loaded version for this template.
             pass
 
-    templates = [(key, value) for key, value in angular_templates.items()]
+    templates = list(angular_templates.items())
     templates.sort(key=lambda item: item[0])
 
     return {

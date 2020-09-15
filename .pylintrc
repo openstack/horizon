@@ -66,8 +66,6 @@ disable=
  too-many-locals,
  too-many-return-statements,
  too-many-statements,
- # Better to be fixed but too many hits :(
- unnecessary-comprehension,  # TODO
  useless-object-inheritance
 
 [Basic]

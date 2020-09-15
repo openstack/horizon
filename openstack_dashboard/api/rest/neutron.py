@@ -224,7 +224,8 @@ class Extensions(generic.View):
         http://localhost/api/neutron/extensions
         """
         result = api.neutron.list_extensions(request)
-        return {'items': [e for e in result]}
+        # list_extensions can return a tuple, so list() is required.
+        return {'items': list(result)}
 
 
 class DefaultQuotaSets(generic.View):

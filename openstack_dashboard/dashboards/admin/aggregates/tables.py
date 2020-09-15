@@ -114,7 +114,7 @@ class AvailabilityZoneFilterAction(tables.FilterAction):
 
 
 def get_aggregate_hosts(aggregate):
-    return [host for host in aggregate.hosts]
+    return aggregate.hosts
 
 
 def get_metadata(aggregate):

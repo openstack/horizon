@@ -152,7 +152,7 @@ class CreateVolume(tables.LinkAction):
 
         if gb_available <= 0 or volumes_available <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = format_lazy(
                     '{verbose_name} {quota_exceeded}',
                     verbose_name=self.verbose_name,
@@ -227,7 +227,7 @@ class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
                                limits.get('totalSnapshotsUsed', 0))
 
         if snapshots_available <= 0 and "disabled" not in self.classes:
-            self.classes = [c for c in self.classes] + ['disabled']
+            self.classes = list(self.classes) + ['disabled']
             self.verbose_name = format_lazy(
                 '{verbose_name} {quota_exceeded}',
                 verbose_name=self.verbose_name,
@@ -315,7 +315,7 @@ class AcceptTransfer(tables.LinkAction):
         volumes_available = usages['volumes']['available']
         if gb_available <= 0 or volumes_available <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = format_lazy(
                     '{verbose_name} {quota_exceeded}',
                     verbose_name=self.verbose_name,
