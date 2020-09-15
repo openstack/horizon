@@ -74,7 +74,7 @@ class CreateBackupView(forms.ModalFormView):
     page_title = _("Create Volume Backup")
 
     def get_context_data(self, **kwargs):
-        context = super(CreateBackupView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume_id'] = self.kwargs['volume_id']
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -93,7 +93,7 @@ class BackupDetailView(tabs.TabView):
     page_title = "{{ backup.name|default:backup.id }}"
 
     def get_context_data(self, **kwargs):
-        context = super(BackupDetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         backup = self.get_data()
         table = backup_tables.BackupsTable(self.request)
         context["backup"] = backup
@@ -131,7 +131,7 @@ class RestoreBackupView(forms.ModalFormView):
     page_title = _("Restore Volume Backup")
 
     def get_context_data(self, **kwargs):
-        context = super(RestoreBackupView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['backup_id'] = self.kwargs['backup_id']
         args = (self.kwargs['backup_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)

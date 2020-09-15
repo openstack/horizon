@@ -229,7 +229,7 @@ class APIDictWrapperTests(test.TestCase):
 class ApiVersionTests(test.TestCase):
 
     def setUp(self):
-        super(ApiVersionTests, self).setUp()
+        super().setUp()
         override = self.settings(
             OPENSTACK_API_VERSIONS={
                 "data-processing": 1.1,

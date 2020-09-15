@@ -76,7 +76,7 @@ class CreateView(DefaultSubnetWorkflowMixin, workflows.WorkflowView):
     workflow_class = project_workflows.CreateNetwork
 
     def get_initial(self):
-        results = super(CreateView, self).get_initial()
+        results = super().get_initial()
         results['dns_nameservers'] = self.get_default_dns_servers()
         return results
 
@@ -92,7 +92,7 @@ class UpdateView(forms.ModalFormView):
     page_title = _("Edit Network")
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['network_id'],)
         context["network_id"] = self.kwargs['network_id']
         context["submit_url"] = reverse(self.submit_url, args=args)
@@ -147,7 +147,7 @@ class DetailView(tabs.TabbedTableView):
         pass
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         network = self._get_data()
         context["network"] = network
         table = project_tables.NetworksTable(self.request)

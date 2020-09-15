@@ -29,7 +29,7 @@ LOG = logging.getLogger(__name__)
 class AjaxError(Exception):
     def __init__(self, http_status, msg):
         self.http_status = http_status
-        super(AjaxError, self).__init__(msg)
+        super().__init__(msg)
 
 
 http_errors = exceptions.UNAUTHORIZED + exceptions.NOT_FOUND + \
@@ -53,8 +53,8 @@ class CreatedResponse(_RestResponse):
         else:
             content = ''
             content_type = None
-        super(CreatedResponse, self).__init__(status=201, content=content,
-                                              content_type=content_type)
+        super().__init__(status=201, content=content,
+                         content_type=content_type)
         self['Location'] = location
 
 
@@ -66,7 +66,7 @@ class JSONResponse(_RestResponse):
             content = jsonutils.dumps(data, sort_keys=settings.DEBUG,
                                       cls=json_encoder)
 
-        super(JSONResponse, self).__init__(
+        super().__init__(
             status=status,
             content=content,
             content_type='application/json',

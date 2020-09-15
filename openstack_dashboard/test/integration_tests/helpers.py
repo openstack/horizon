@@ -193,7 +193,7 @@ class BaseTestCase(testtools.TestCase):
 
         self.addCleanup(cleanup)
 
-        super(BaseTestCase, self).setUp()
+        super().setUp()
 
     def addOnException(self, exception_handler):
 
@@ -202,7 +202,7 @@ class BaseTestCase(testtools.TestCase):
                 return
             return exception_handler(exc_info)
 
-        super(BaseTestCase, self).addOnException(wrapped_handler)
+        super().addOnException(wrapped_handler)
 
     def __hash__(self):
         return hash((type(self), self._testMethodName))
@@ -316,7 +316,7 @@ class TestCase(BaseTestCase, AssertsMixin):
     HOME_PROJECT = BaseTestCase.CONFIG.identity.home_project
 
     def setUp(self):
-        super(TestCase, self).setUp()
+        super().setUp()
         self.login_pg = loginpage.LoginPage(self.driver, self.CONFIG)
         self.login_pg.go_to_login_page()
         # TODO(schipiga): lets check that tests work without viewport changing,
@@ -345,5 +345,5 @@ class AdminTestCase(TestCase, AssertsMixin):
     HOME_PROJECT = BaseTestCase.CONFIG.identity.admin_home_project
 
     def setUp(self):
-        super(AdminTestCase, self).setUp()
+        super().setUp()
         self.home_pg.go_to_admin_overviewpage()

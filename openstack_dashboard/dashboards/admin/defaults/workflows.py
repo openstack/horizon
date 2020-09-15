@@ -48,8 +48,7 @@ class UpdateDefaultComputeQuotasAction(workflows.Action):
         label=_("Length of Injected File Path"))
 
     def __init__(self, request, context, *args, **kwargs):
-        super(UpdateDefaultComputeQuotasAction, self).__init__(
-            request, context, *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
         disabled_quotas = context['disabled_quotas']
         for field in disabled_quotas:
             if field in self.fields:
@@ -104,8 +103,7 @@ class UpdateDefaultVolumeQuotasAction(workflows.Action):
     snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
 
     def __init__(self, request, context, *args, **kwargs):
-        super(UpdateDefaultVolumeQuotasAction, self).__init__(
-            request, context, *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
         disabled_quotas = context['disabled_quotas']
         for field in disabled_quotas:
             if field in self.fields:

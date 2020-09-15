@@ -32,7 +32,7 @@ class MessageRegion(baseregion.BaseRegion):
         # requires extra time to wait for message to pop up.
         driver.implicitly_wait(conf.selenium.message_implicit_wait)
         try:
-            super(MessageRegion, self).__init__(driver, conf)
+            super().__init__(driver, conf)
         except NoSuchElementException:
             self.src_elem = None
         finally:

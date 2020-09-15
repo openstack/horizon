@@ -111,7 +111,7 @@ class ImagesTable(tables.TableRegion):
 class ImagesPage(basepage.BaseNavigationPage):
 
     def __init__(self, driver, conf):
-        super(ImagesPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Images"
 
     def _get_row_with_image_name(self, name):

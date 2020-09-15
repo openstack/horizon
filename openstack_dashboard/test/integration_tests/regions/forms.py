@@ -29,14 +29,14 @@ class FieldFactory(baseregion.BaseRegion):
     _element_locator_str_prefix = 'div.form-group'
 
     def __init__(self, driver, conf, src_elem=None):
-        super(FieldFactory, self).__init__(driver, conf, src_elem)
+        super().__init__(driver, conf, src_elem)
 
     def fields(self):
         for field_cls in self.FORM_FIELDS_TYPES:
             locator = (by.By.CSS_SELECTOR,
                        '%s %s' % (self._element_locator_str_prefix,
                                   field_cls._element_locator_str_suffix))
-            elements = super(FieldFactory, self)._get_elements(*locator)
+            elements = super()._get_elements(*locator)
             for element in elements:
                 yield field_cls(self.driver, self.conf, src_elem=element)
 
@@ -55,7 +55,7 @@ class MetaBaseFormFieldRegion(type):
     """Register form field class in FieldFactory."""
     def __init__(cls, name, bases, dct):
         FieldFactory.register_field_cls(cls, bases)
-        super(MetaBaseFormFieldRegion, cls).__init__(name, bases, dct)
+        super().__init__(name, bases, dct)
 
 
 class BaseFormFieldRegion(baseregion.BaseRegion,
@@ -240,8 +240,7 @@ class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
     _dropdown_menu_locator = (by.By.CSS_SELECTOR, 'ul.dropdown-menu > li > a')
 
     def __init__(self, driver, conf, strict_options_match=True, **kwargs):
-        super(ThemableSelectFormFieldRegion,
-              self).__init__(driver, conf, **kwargs)
+        super().__init__(driver, conf, **kwargs)
         self.strict_options_match = strict_options_match
 
     @property
@@ -312,7 +311,7 @@ class BaseFormRegion(baseregion.BaseRegion):
             self.src_elem = driver
             # bind the topmost modal form in a modal stack
             src_elem = self._get_elements(*self._default_form_locator)[-1]
-        super(BaseFormRegion, self).__init__(driver, conf, src_elem)
+        super().__init__(driver, conf, src_elem)
 
     @property
     def _submit_element(self):
@@ -344,18 +343,25 @@ class FormRegion(BaseFormRegion):
 
     # private methods
     def __init__(self, driver, conf, src_elem=None, field_mappings=None):
-        super(FormRegion, self).__init__(driver, conf, src_elem)
+        super().__init__(driver, conf, src_elem)
         self.field_mappings = self._prepare_mappings(field_mappings)
         self.wait_till_spinner_disappears()
         self._init_form_fields()
 
+    # protected methods
+
+    # NOTE: There is a case where a subclass accepts different field_mappings.
+    # In such case, this method should be overridden.
     def _prepare_mappings(self, field_mappings):
+        return self._format_mappings(field_mappings)
+
+    @staticmethod
+    def _format_mappings(field_mappings):
         if isinstance(field_mappings, tuple):
             return {item: item for item in field_mappings}
         else:
             return field_mappings
 
-    # protected methods
     def _init_form_fields(self):
         self.fields_src_elem = self._get_element(*self._fields_locator)
         fields = self._get_form_fields()
@@ -444,13 +450,11 @@ class TabbedFormRegion(FormRegion):
 
     def __init__(self, driver, conf, field_mappings=None, default_tab=0):
         self.current_tab = default_tab
-        super(TabbedFormRegion, self).__init__(driver,
-                                               conf,
-                                               field_mappings=field_mappings)
+        super().__init__(driver, conf, field_mappings=field_mappings)
 
     def _prepare_mappings(self, field_mappings):
         return [
-            super(TabbedFormRegion, self)._prepare_mappings(tab_mappings)
+            self._format_mappings(tab_mappings)
             for tab_mappings in field_mappings
         ]
 
@@ -488,16 +492,14 @@ class WizardFormRegion(FormRegion):
 
     def __init__(self, driver, conf, field_mappings=None, default_step=0):
         self.current_step = default_step
-        super(WizardFormRegion, self).__init__(driver,
-                                               conf,
-                                               field_mappings=field_mappings)
+        super().__init__(driver, conf, field_mappings=field_mappings)
 
     def _form_getter(self):
         return self.driver.find_element(*self._default_form_locator)
 
     def _prepare_mappings(self, field_mappings):
         return [
-            super(WizardFormRegion, self)._prepare_mappings(step_mappings)
+            self._format_mappings(step_mappings)
             for step_mappings in field_mappings
         ]
 
@@ -618,7 +620,7 @@ class ItemTextDescription(baseregion.BaseRegion):
     _value_locator = (by.By.CSS_SELECTOR, 'dd')
 
     def __init__(self, driver, conf, src=None):
-        super(ItemTextDescription, self).__init__(driver, conf, src)
+        super().__init__(driver, conf, src)
 
     def get_content(self):
         keys = []

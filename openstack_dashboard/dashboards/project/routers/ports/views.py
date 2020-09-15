@@ -50,7 +50,7 @@ class AddInterfaceView(forms.ModalFormView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(AddInterfaceView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['router'] = self.get_object()
         context['form_url'] = 'horizon:project:routers:addinterface'
         return context
@@ -82,7 +82,7 @@ class SetGatewayView(forms.ModalFormView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(SetGatewayView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['router'] = self.get_object()
         return context
 

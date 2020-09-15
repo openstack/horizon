@@ -49,7 +49,7 @@ class UpdateMetadata(tables.LinkAction):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadata, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         image_id = self.table.get_object_id(datum)

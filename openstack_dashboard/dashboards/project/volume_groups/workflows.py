@@ -70,9 +70,7 @@ class AddGroupInfoAction(workflows.Action):
                    'data-source-image_source': _('Availability Zone')}))
 
     def __init__(self, request, *args, **kwargs):
-        super(AddGroupInfoAction, self).__init__(request,
-                                                 *args,
-                                                 **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.fields['availability_zone'].choices = \
             availability_zones(request)
         try:
@@ -110,9 +108,7 @@ class AddGroupInfoStep(workflows.Step):
 
 class AddVolumeTypesToGroupAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(AddVolumeTypesToGroupAction, self).__init__(request,
-                                                          *args,
-                                                          **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to get the available volume types')
 
         default_role_field_name = self.get_default_role_field_name()
@@ -137,7 +133,7 @@ class AddVolumeTypesToGroupAction(workflows.MembershipAction):
         slug = "add_vtypes_to_group"
 
     def clean(self):
-        cleaned_data = super(AddVolumeTypesToGroupAction, self).clean()
+        cleaned_data = super().clean()
         volume_types = cleaned_data.get('add_vtypes_to_group_role_member')
         if not volume_types:
             raise forms.ValidationError(
@@ -170,9 +166,7 @@ class AddVolTypesToGroupStep(workflows.UpdateMembersStep):
 
 class AddVolumesToGroupAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(AddVolumesToGroupAction, self).__init__(request,
-                                                      *args,
-                                                      **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to get the available volumes')
 
         default_role_field_name = self.get_default_role_field_name()

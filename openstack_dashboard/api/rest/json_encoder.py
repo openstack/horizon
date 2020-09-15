@@ -21,7 +21,7 @@ class NaNJSONEncoder(json.JSONEncoder):
     def __init__(self, nan_str='NaN', inf_str='1e+999', **kwargs):
         self.nan_str = nan_str
         self.inf_str = inf_str
-        super(NaNJSONEncoder, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def iterencode(self, o, _one_shot=False):
         """JSON encoder with NaN and float inf support.

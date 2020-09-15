@@ -30,7 +30,7 @@ class EvacuateHost(tables.LinkAction):
     policy_rules = (("compute", "os_compute_api:os-evacuate"),)
 
     def __init__(self, **kwargs):
-        super(EvacuateHost, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.name = kwargs.get('name', self.name)
 
     def allowed(self, request, instance):

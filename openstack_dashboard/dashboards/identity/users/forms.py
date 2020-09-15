@@ -51,7 +51,7 @@ class PasswordMixin(forms.SelfHandlingForm):
 
     def clean(self):
         '''Check to make sure password fields match.'''
-        data = super(PasswordMixin, self).clean()
+        data = super().clean()
         if 'password' in data and 'confirm_password' in data:
             if data['password'] != data['confirm_password']:
                 raise ValidationError(_('Passwords do not match.'))
@@ -60,7 +60,7 @@ class PasswordMixin(forms.SelfHandlingForm):
 
 class BaseUserForm(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
-        super(BaseUserForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         # Populate project choices
         project_choices = []
@@ -134,7 +134,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
 
     def __init__(self, *args, **kwargs):
         roles = kwargs.pop('roles')
-        super(CreateUserForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # Reorder form fields from multiple inheritance
         ordering = ["domain_id", "domain_name", "name",
                     "description", "email", "password",
@@ -235,7 +235,7 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
                                        initial=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateUserForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.add_extra_fields()
         if api.keystone.keystone_can_edit_user() is False:
             for field in ('name', 'email'):
@@ -288,7 +288,7 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
         required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(ChangePasswordForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         if settings.ENFORCE_PASSWORD_CHECK:
             self.fields["admin_password"] = forms.CharField(

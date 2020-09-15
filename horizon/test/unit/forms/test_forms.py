@@ -80,7 +80,7 @@ class FormErrorTests(test.TestCase):
     template = 'horizon/common/_form_fields.html'
 
     def setUp(self):
-        super(FormErrorTests, self).setUp()
+        super().setUp()
         # Note(Itxaka): We pass data to the form so its bound and has the
         # proper cleaned_data fields
         self.form = FormForTesting(self.request, data={'fake': 'data'})

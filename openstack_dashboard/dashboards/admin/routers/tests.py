@@ -55,7 +55,7 @@ class RouterMixin(r_test.RouterMixin):
         return res
 
     def _check_get_detail(self, router, extraroute=True):
-        super(RouterMixin, self)._check_get_detail(router, extraroute)
+        super()._check_get_detail(router, extraroute)
         self.mock_is_extension_supported.assert_any_call(
             test.IsHttpRequest(), 'l3_agent_scheduler')
         if self.support_l3_agent:
@@ -191,7 +191,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
 
     @test.create_mocks({api.neutron: ('list_l3_agent_hosting_router',)})
     def test_router_detail(self):
-        super(RouterTests, self).test_router_detail()
+        super().test_router_detail()
 
     @test.create_mocks({api.neutron: ('router_list',
                                       'network_list',
@@ -358,8 +358,8 @@ class RouterRouteTests(RouterMixin,
 
     @test.create_mocks({api.neutron: ('list_l3_agent_hosting_router',)})
     def test_extension_hides_without_routes(self):
-        super(RouterRouteTests, self).test_extension_hides_without_routes()
+        super().test_extension_hides_without_routes()
 
     @test.create_mocks({api.neutron: ('list_l3_agent_hosting_router',)})
     def test_routerroute_detail(self):
-        super(RouterRouteTests, self).test_routerroute_detail()
+        super().test_routerroute_detail()

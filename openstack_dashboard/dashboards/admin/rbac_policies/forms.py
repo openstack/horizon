@@ -79,7 +79,7 @@ class CreatePolicyForm(forms.SelfHandlingForm):
         required=False)
 
     def clean(self):
-        cleaned_data = super(CreatePolicyForm, self).clean()
+        cleaned_data = super().clean()
         action_object_type = cleaned_data.get("action_object_type")
         error_msg = _("This field is required.")
         if action_object_type in ["shared_network", "external_network"]:
@@ -91,7 +91,7 @@ class CreatePolicyForm(forms.SelfHandlingForm):
         return cleaned_data
 
     def __init__(self, request, *args, **kwargs):
-        super(CreatePolicyForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         tenant_choices = [('', _("Select a project"))]
         tenants, has_more = api.keystone.tenant_list(request)
         tenant_choices.append(("*", "*"))
@@ -161,7 +161,7 @@ class UpdatePolicyForm(forms.SelfHandlingForm):
     failure_url = 'horizon:admin:rbac_policies:index'
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdatePolicyForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         tenant_choices = [('', _("Select a project"))]
         tenant_choices.append(("*", "*"))
         tenants, has_more = api.keystone.tenant_list(request)

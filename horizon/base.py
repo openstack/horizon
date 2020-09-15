@@ -108,7 +108,7 @@ class HorizonComponent(object):
     policy_rules = tuple()
 
     def __init__(self):
-        super(HorizonComponent, self).__init__()
+        super().__init__()
         if not self.slug:
             raise ImproperlyConfigured('Every %s must have a slug.'
                                        % self.__class__)
@@ -476,7 +476,7 @@ class Dashboard(Registry, HorizonComponent):
         return "<Dashboard: %s>" % self.slug
 
     def __init__(self, *args, **kwargs):
-        super(Dashboard, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._panel_groups = None
 
     def get_panel(self, panel):
@@ -1023,8 +1023,7 @@ class HorizonSite(Site):
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(HorizonSite, cls).__new__(cls,
-                                                            *args, **kwargs)
+            cls._instance = super().__new__(cls, *args, **kwargs)
         return cls._instance
 
 

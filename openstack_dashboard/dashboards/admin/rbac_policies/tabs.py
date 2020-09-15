@@ -44,7 +44,7 @@ class OverviewTab(tabs.Tab):
         return rbac_policy
 
     def get_context_data(self, request, **kwargs):
-        context = super(OverviewTab, self).get_context_data(request, **kwargs)
+        context = super().get_context_data(request, **kwargs)
         rbac_policy = self._get_data()
 
         context["rbac_policy"] = rbac_policy

@@ -70,7 +70,7 @@ class UpdateView(workflows.WorkflowView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
-        initial = super(UpdateView, self).get_initial()
+        initial = super().get_initial()
 
         subnet = self._get_object()
 
@@ -145,7 +145,7 @@ class DetailView(tabs.TabView):
         return network
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         subnet = self.get_data()
         network = self.get_network(subnet.network_id)
         subnet.network_name = network.get('name')

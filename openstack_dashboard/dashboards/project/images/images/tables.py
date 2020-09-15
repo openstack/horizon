@@ -67,7 +67,7 @@ class LaunchImageNG(LaunchImage):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(LaunchImageNG, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         imageId = self.table.get_object_id(datum)
@@ -174,7 +174,7 @@ class UpdateMetadata(tables.LinkAction):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadata, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         image_id = self.table.get_object_id(datum)
@@ -281,7 +281,7 @@ class UpdateRow(tables.Row):
         return image
 
     def load_cells(self, image=None):
-        super(UpdateRow, self).load_cells(image)
+        super().load_cells(image)
         # Tag the row with the image category for client-side filtering.
         image = self.datum
         my_tenant_id = self.table.request.user.tenant_id

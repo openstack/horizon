@@ -56,7 +56,7 @@ class Container(base.APIDictWrapper):
 
 class StorageObject(base.APIDictWrapper):
     def __init__(self, apidict, container_name, orig_name=None, data=None):
-        super(StorageObject, self).__init__(apidict)
+        super().__init__(apidict)
         self.container_name = container_name
         self.orig_name = orig_name
         self.data = data
@@ -68,7 +68,7 @@ class StorageObject(base.APIDictWrapper):
 
 class PseudoFolder(base.APIDictWrapper):
     def __init__(self, apidict, container_name):
-        super(PseudoFolder, self).__init__(apidict)
+        super().__init__(apidict)
         self.container_name = container_name
 
     @property

@@ -38,7 +38,7 @@ class UpdateRow(snapshots_tables.UpdateRow):
     ajax = True
 
     def get_data(self, request, snapshot_id):
-        snapshot = super(UpdateRow, self).get_data(request, snapshot_id)
+        snapshot = super().get_data(request, snapshot_id)
         snapshot.host_name = getattr(snapshot._volume,
                                      'os-vol-host-attr:host')
         tenant_id = getattr(snapshot._volume,

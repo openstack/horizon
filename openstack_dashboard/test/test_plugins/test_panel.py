@@ -44,7 +44,7 @@ class PluginPanelTests(test.PluginTestCase):
     urls = 'openstack_dashboard.test.extensible_header_urls'
 
     def setUp(self):
-        super(PluginPanelTests, self).setUp()
+        super().setUp()
         util_settings.update_dashboards([panel_config, ], HORIZON_CONFIG, INSTALLED_APPS)
 
     def test_add_panel(self):

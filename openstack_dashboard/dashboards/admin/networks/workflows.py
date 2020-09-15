@@ -26,13 +26,11 @@ class CreateNetworkInfoAction(network_workflows.CreateNetworkInfoAction):
         self.create_network_form = context.get('create_network_form')
         self.base_fields = self.create_network_form.base_fields
 
-        super(CreateNetworkInfoAction, self).__init__(
-            request, context, *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
         self.fields = self.create_network_form.fields
 
     def clean(self):
-        self.create_network_form.cleaned_data = super(
-            CreateNetworkInfoAction, self).clean()
+        self.create_network_form.cleaned_data = super().clean()
         self.create_network_form._changed_data = self.changed_data
         self.create_network_form._errors = self.errors
         return self.create_network_form.clean()
@@ -48,11 +46,10 @@ class CreateNetworkInfo(network_workflows.CreateNetworkInfo):
 
     def __init__(self, workflow):
         self.contributes = tuple(workflow.create_network_form.fields.keys())
-        super(CreateNetworkInfo, self).__init__(workflow)
+        super().__init__(workflow)
 
     def prepare_action_context(self, request, context):
-        context = super(CreateNetworkInfo, self).prepare_action_context(
-            request, context)
+        context = super().prepare_action_context(request, context)
         context['create_network_form'] = self.workflow.create_network_form
         return context
 
@@ -66,11 +63,8 @@ class CreateNetwork(network_workflows.CreateNetwork):
                  *args, **kwargs):
         self.create_network_form = networks_forms.CreateNetwork(
             request, *args, **kwargs)
-        super(CreateNetwork, self).__init__(
-            request=request,
-            context_seed=context_seed,
-            entry_point=entry_point,
-            *args, **kwargs)
+        super().__init__(request=request, context_seed=context_seed,
+                         entry_point=entry_point, *args, **kwargs)
 
     def get_success_url(self):
         return reverse("horizon:admin:networks:index")

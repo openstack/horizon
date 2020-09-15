@@ -129,7 +129,7 @@ class DetailView(views.HorizonTemplateView):
             exceptions.handle(self.request, msg, redirect=url)
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         floating_ip_id = self.kwargs['floating_ip_id']
         floating_ip = self._get_corresponding_data("floating IP",

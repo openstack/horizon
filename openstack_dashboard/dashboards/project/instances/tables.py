@@ -432,7 +432,7 @@ class LaunchLink(tables.LinkAction):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(LaunchLink, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def allowed(self, request, datum):
         try:
@@ -481,7 +481,7 @@ class LaunchLinkNG(LaunchLink):
             'ng-controller': 'LaunchInstanceModalController as modal',
             'ng-click': ngclick
         })
-        return super(LaunchLinkNG, self).get_default_attrs()
+        return super().get_default_attrs()
 
     def get_link_url(self, datum=None):
         return "javascript:void(0);"
@@ -565,7 +565,7 @@ class ConsoleLink(policy.PolicyTargetMixin, tables.LinkAction):
                 not is_deleting(instance))
 
     def get_link_url(self, datum):
-        base_url = super(ConsoleLink, self).get_link_url(datum)
+        base_url = super().get_link_url(datum)
         tab_query_string = tabs.ConsoleTab(
             tabs.InstanceDetailTabs).get_query_string()
         return "?".join([base_url, tab_query_string])
@@ -582,7 +582,7 @@ class LogLink(policy.PolicyTargetMixin, tables.LinkAction):
         return instance.status in ACTIVE_STATES and not is_deleting(instance)
 
     def get_link_url(self, datum):
-        base_url = super(LogLink, self).get_link_url(datum)
+        base_url = super().get_link_url(datum)
         tab_query_string = tabs.LogTab(
             tabs.InstanceDetailTabs).get_query_string()
         return "?".join([base_url, tab_query_string])
@@ -753,7 +753,7 @@ class UpdateMetadata(policy.PolicyTargetMixin, tables.LinkAction):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadata, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)

@@ -25,7 +25,7 @@ from openstack_dashboard.test import helpers as test
 
 class RoleAPITests(test.APIMockTestCase):
     def setUp(self):
-        super(RoleAPITests, self).setUp()
+        super().setUp()
         self.role = self.roles.member
         self.roles = self.roles.list()
 

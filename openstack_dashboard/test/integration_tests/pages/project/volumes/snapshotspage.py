@@ -63,7 +63,7 @@ class SnapshotsPage(basepage.BaseNavigationPage):
         'a[href*="tab=volumes_and_snapshots__volumes_tab"]')
 
     def __init__(self, driver, conf):
-        super(SnapshotsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Volume Snapshots"
 
     @property

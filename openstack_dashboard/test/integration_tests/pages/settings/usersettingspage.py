@@ -38,7 +38,7 @@ class UsersettingsPage(basepage.BaseNavigationPage):
                                     'a[href*="/settings/password/"]')
 
     def __init__(self, driver, conf):
-        super(UsersettingsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "User Settings"
 
     @property

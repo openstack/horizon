@@ -205,9 +205,9 @@ class FloatingIPsTable(tables.DataTable):
                            display_choices=STATUS_DISPLAY_CHOICES)
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(FloatingIPsTable, self).__init__(
-            request, data=data, needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
         dns_supported = api.neutron.is_extension_supported(
             request,
             "dns-integration")

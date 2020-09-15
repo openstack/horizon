@@ -42,7 +42,7 @@ class ProfilerClientMiddleware(object):
     def __init__(self, get_response):
         if not PROFILER_ENABLED:
             raise exceptions.MiddlewareNotUsed()
-        super(ProfilerClientMiddleware, self).__init__()
+        super().__init__()
         self.get_response = get_response
 
     def __call__(self, request):

@@ -116,7 +116,7 @@ class UpdateView(forms.ModalFormView):
     page_title = _("Update RBAC Policy")
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['rbac_policy_id'],)
         context["rbac_policy_id"] = self.kwargs['rbac_policy_id']
         context["submit_url"] = reverse(self.submit_url, args=args)

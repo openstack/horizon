@@ -235,11 +235,8 @@ class RoutersTable(tables.DataTable):
                                        verbose_name=_("Availability Zones"))
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(RoutersTable, self).__init__(
-            request,
-            data=data,
-            needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper, **kwargs)
         if not api.neutron.get_feature_permission(request, "dvr", "get"):
             del self.columns["distributed"]
         if not api.neutron.get_feature_permission(request, "l3-ha", "get"):

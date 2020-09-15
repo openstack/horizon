@@ -65,7 +65,7 @@ class InstancesPage(basepage.BaseNavigationPage):
     NETWORKS_STEP_INDEX = 3
 
     def __init__(self, driver, conf):
-        super(InstancesPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Instances"
 
     def _get_row_with_instance_name(self, name):

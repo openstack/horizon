@@ -60,7 +60,7 @@ class ProjectOverview(usage.ProjectUsageView):
     csv_response_class = ProjectUsageCsvRenderer
 
     def get_data(self):
-        super(ProjectOverview, self).get_data()
+        super().get_data()
         return self.usage.get_instances()
 
 

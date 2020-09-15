@@ -170,9 +170,7 @@ class ManageQosSpecAssociation(forms.SelfHandlingForm):
         help_text=_("Choose associated QoS Spec."))
 
     def __init__(self, request, *args, **kwargs):
-        super(ManageQosSpecAssociation, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super().__init__(request, *args, **kwargs)
         qos_spec_field = self.fields['qos_spec_choice']
         qos_spec_field.choices = \
             self.populate_qos_spec_choices()
@@ -242,7 +240,7 @@ class EditQosSpecConsumer(forms.SelfHandlingForm):
         help_text=_("Choose consumer for this QoS Spec."))
 
     def __init__(self, request, *args, **kwargs):
-        super(EditQosSpecConsumer, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         consumer_field = self.fields['consumer_choice']
         qos_spec = self.initial["qos_spec"]
         self.fields['current_consumer'].initial = qos_spec.consumer
@@ -315,7 +313,7 @@ class EditVolumeType(forms.SelfHandlingForm):
 class EditTypeAccessForm(forms.SelfHandlingForm):
 
     def __init__(self, request, *args, **kwargs):
-        super(EditTypeAccessForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve volume type access list.')
 
         self.fields["member"] = forms.MultipleChoiceField(

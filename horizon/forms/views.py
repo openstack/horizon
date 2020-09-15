@@ -46,13 +46,13 @@ class ModalBackdropMixin(object):
     modal_backdrop = 'static'
 
     def __init__(self, *args, **kwargs):
-        super(ModalBackdropMixin, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         config = settings.HORIZON_CONFIG
         if 'modal_backdrop' in config:
             self.modal_backdrop = config['modal_backdrop']
 
     def get_context_data(self, **kwargs):
-        context = super(ModalBackdropMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['modal_backdrop'] = self.modal_backdrop
         return context
 
@@ -73,7 +73,7 @@ class ModalFormMixin(ModalBackdropMixin):
         return template
 
     def get_context_data(self, **kwargs):
-        context = super(ModalFormMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         if self.request.is_ajax():
             context['hide'] = True
         if ADD_TO_FIELD_HEADER in self.request.META:
@@ -140,7 +140,7 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
     cancel_url = None
 
     def get_context_data(self, **kwargs):
-        context = super(ModalFormView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['modal_id'] = self.modal_id
         context['modal_header'] = self.modal_header
         context['form_id'] = self.form_id

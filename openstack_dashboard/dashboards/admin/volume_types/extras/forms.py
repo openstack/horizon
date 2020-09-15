@@ -35,7 +35,7 @@ class CreateExtraSpec(forms.SelfHandlingForm):
     value = forms.CharField(max_length=255, label=_("Value"))
 
     def clean(self):
-        data = super(CreateExtraSpec, self).clean()
+        data = super().clean()
         type_id = self.initial['type_id']
         extra_list = api.cinder.volume_type_extra_get(self.request,
                                                       type_id)

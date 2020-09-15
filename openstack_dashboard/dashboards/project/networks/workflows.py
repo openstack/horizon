@@ -67,8 +67,7 @@ class CreateNetworkInfoAction(workflows.Action):
                     "selecting all availability zones"))
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateNetworkInfoAction, self).__init__(request,
-                                                      *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         if not policy.check((("network", "create_network:shared"),), request):
             self.fields['shared'].widget = forms.HiddenInput()
         try:
@@ -204,8 +203,7 @@ class CreateSubnetInfoAction(workflows.Action):
                       ' the "Subnet Details" tab.')
 
     def __init__(self, request, context, *args, **kwargs):
-        super(CreateSubnetInfoAction, self).__init__(request, context, *args,
-                                                     **kwargs)
+        super().__init__(request, context, *args, **kwargs)
         if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
                                              'enable_ipv6'):
             self.fields['ip_version'].widget = forms.HiddenInput()
@@ -322,7 +320,7 @@ class CreateSubnetInfoAction(workflows.Action):
         if not with_subnet:
             self._remove_fields_errors()
             return None
-        cleaned_data = super(CreateSubnetInfoAction, self).clean()
+        cleaned_data = super().clean()
         self._check_subnet_data(cleaned_data)
         return cleaned_data
 
@@ -380,8 +378,7 @@ class CreateSubnetDetailAction(workflows.Action):
         help_text = _('Specify additional attributes for the subnet.')
 
     def __init__(self, request, context, *args, **kwargs):
-        super(CreateSubnetDetailAction, self).__init__(request, context,
-                                                       *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
         if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
                                              'enable_ipv6'):
             self.fields['ipv6_modes'].widget = forms.HiddenInput()
@@ -447,7 +444,7 @@ class CreateSubnetDetailAction(workflows.Action):
             self._convert_ip_address(route[1], "host_routes")
 
     def clean(self):
-        cleaned_data = super(CreateSubnetDetailAction, self).clean()
+        cleaned_data = super().clean()
         self._check_allocation_pools(cleaned_data.get('allocation_pools'))
         self._check_host_routes(cleaned_data.get('host_routes'))
         self._check_dns_nameservers(cleaned_data.get('dns_nameservers'))

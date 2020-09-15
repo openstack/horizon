@@ -56,8 +56,6 @@ disable=
  inconsistent-return-statements,  # TODO
  interface-not-implemented,
  no-self-use,
- # python3 way: Let's do it once we have a consensus.
- super-with-arguments,  # TODO
  too-many-ancestors,
  too-many-arguments,
  too-many-branches,

@@ -31,7 +31,7 @@ class Maybe(types.ConfigType):
     def __init__(self, type_):
         self.type_ = type_
         type_name = getattr(type_, 'type_name', 'unknown value')
-        super(Maybe, self).__init__('optional %s' % type_name)
+        super().__init__('optional %s' % type_name)
 
     def __call__(self, value):
         if value is None:
@@ -50,7 +50,7 @@ class URL(types.ConfigType):
     CLEAN_SLASH_RE = re.compile(r'(?<!:)//')
 
     def __init__(self):
-        super(URL, self).__init__('web URL')
+        super().__init__('web URL')
 
     def __call__(self, value):
         if not isinstance(value, str):
@@ -68,7 +68,7 @@ class Path(types.ConfigType):
     """A custom option type for a path to file."""
 
     def __init__(self):
-        super(Path, self).__init__('filesystem path')
+        super().__init__('filesystem path')
 
     def __call__(self, value):
         if not isinstance(value, str):
@@ -84,7 +84,7 @@ class Translate(types.ConfigType):
 
     def __init__(self, hint=None):
         self.hint = hint
-        super(Translate, self).__init__('translatable string')
+        super().__init__('translatable string')
 
     def __call__(self, value):
         if not isinstance(value, str):
@@ -101,7 +101,7 @@ class Literal(types.ConfigType):
 
     def __init__(self, spec=None):
         self.spec = spec
-        super(Literal, self).__init__('python literal')
+        super().__init__('python literal')
 
     def __call__(self, value):
         if isinstance(value, str):
@@ -194,7 +194,7 @@ class Importable(types.ConfigType):
     """A custom option type for an importable python object."""
 
     def __init__(self):
-        super(Importable, self).__init__('importable python object')
+        super().__init__('importable python object')
 
     def __call__(self, value):
         if not isinstance(value, str):

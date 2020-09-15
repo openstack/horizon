@@ -161,8 +161,8 @@ class PortsTable(tables.DataTable):
         hidden_title = False
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(PortsTable, self).__init__(request, data=data,
-                                         needs_form_wrapper=needs_form_wrapper,
-                                         **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
         if not api.neutron.is_extension_supported(request, 'mac-learning'):
             del self.columns['mac_state']

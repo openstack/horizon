@@ -120,10 +120,9 @@ class SubnetsTable(tables.DataTable):
         hidden_title = False
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(SubnetsTable, self).__init__(
-            request, data=data,
-            needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
         if not api.neutron.is_extension_supported(request,
                                                   'network-ip-availability'):
             del self.columns['subnet_used_ips']
@@ -168,7 +167,7 @@ class SubnetsTab(project_tabs_subnets_tab):
 
     def get_subnets_data(self):
         try:
-            subnets = super(SubnetsTab, self).get_subnets_data()
+            subnets = super().get_subnets_data()
             network_id = self.tab_group.kwargs['network_id']
 
             if api.neutron.is_extension_supported(self.request,

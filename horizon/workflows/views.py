@@ -59,7 +59,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
     step_errors = {}
 
     def __init__(self):
-        super(WorkflowView, self).__init__()
+        super().__init__()
         if not self.workflow_class:
             raise AttributeError("You must set the workflow_class attribute "
                                  "on %s." % self.__class__.__name__)
@@ -87,7 +87,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         This method should be overridden in subclasses to provide additional
         context data to the template.
         """
-        context = super(WorkflowView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         workflow = self.get_workflow()
         workflow.verify_integrity()
         context[self.context_object_name] = workflow

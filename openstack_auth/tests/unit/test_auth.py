@@ -995,7 +995,7 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
                 'username': user.name}
 
     def setUp(self):
-        super(OpenStackAuthTestsV3WithMock, self).setUp()
+        super().setUp()
 
         if getattr(self, 'interface', None):
             override = self.settings(OPENSTACK_ENDPOINT_TYPE=self.interface)

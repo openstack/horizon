@@ -32,7 +32,7 @@ class IndexView(tabs.TabbedTableView):
     page_title = _("System Information")
 
     def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             context["version"] = version.version_info.version_string()
         except Exception:

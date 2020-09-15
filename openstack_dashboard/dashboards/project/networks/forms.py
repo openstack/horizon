@@ -42,7 +42,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
     failure_url = 'horizon:project:networks:index'
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateNetwork, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         if not policy.check((("network", "update_network:shared"),), request):
             self.fields['shared'].widget = forms.HiddenInput()

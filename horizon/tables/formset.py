@@ -27,7 +27,7 @@ class FormsetCell(horizon_tables.Cell):
     """A DataTable cell that knows about its field from the formset."""
 
     def __init__(self, *args, **kwargs):
-        super(FormsetCell, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         try:
             self.field = (self.row.form or {})[self.column.name]
         except KeyError:
@@ -46,7 +46,7 @@ class FormsetRow(horizon_tables.Row):
 
     def __init__(self, column, datum, form):
         self.form = form
-        super(FormsetRow, self).__init__(column, datum)
+        super().__init__(column, datum)
         if not self.cells:
             # We need to be able to handle empty rows, because there may
             # be extra empty forms in a formset. The original DataTable breaks
@@ -72,7 +72,7 @@ class FormsetDataTableMixin(object):
     formset_class = None
 
     def __init__(self, *args, **kwargs):
-        super(FormsetDataTableMixin, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._formset = None
 
         # Override Meta settings, because we need custom Form and Cell classes,
@@ -151,7 +151,7 @@ class FormsetDataTableMixin(object):
         # We need to support ``None`` when there are more forms than data.
         if datum is None:
             return None
-        return super(FormsetDataTableMixin, self).get_object_id(datum)
+        return super().get_object_id(datum)
 
 
 class FormsetDataTable(FormsetDataTableMixin, horizon_tables.DataTable):

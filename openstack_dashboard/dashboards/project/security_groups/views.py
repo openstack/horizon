@@ -74,7 +74,7 @@ class DetailView(tables.DataTableView):
         return sorted(data.rules, key=_sort_key)
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["security_group"] = self._get_data()
         return context
 
@@ -100,7 +100,7 @@ class UpdateView(forms.ModalFormView):
             exceptions.handle(self.request, msg, redirect=url)
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["security_group"] = self.get_object()
         args = (self.kwargs['security_group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -128,7 +128,7 @@ class AddRuleView(forms.ModalFormView):
         return reverse(self.url, args=[sg_id])
 
     def get_context_data(self, **kwargs):
-        context = super(AddRuleView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["security_group_id"] = self.kwargs['security_group_id']
         args = (self.kwargs['security_group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -139,7 +139,7 @@ class AddRuleView(forms.ModalFormView):
         return {'id': self.kwargs['security_group_id']}
 
     def get_form_kwargs(self):
-        kwargs = super(AddRuleView, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
 
         try:
             groups = api.neutron.security_group_list(self.request)

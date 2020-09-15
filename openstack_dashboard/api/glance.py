@@ -109,7 +109,7 @@ class Image(base.APIResourceWrapper):
     def to_dict(self, show_ext_attrs=False):
         if not isinstance(self._apiresource, abc.Iterable):
             return self._apiresource.to_dict()
-        image_dict = super(Image, self).to_dict()
+        image_dict = super().to_dict()
         image_dict['is_public'] = self.is_public
         image_dict['properties'] = {
             k: self._apiresource[k] for k in self._apiresource
@@ -372,14 +372,14 @@ def get_image_upload_mode():
 
 class ExternallyUploadedImage(Image):
     def __init__(self, apiresource, request):
-        super(ExternallyUploadedImage, self).__init__(apiresource)
+        super().__init__(apiresource)
         image_endpoint = base.url_for(request, 'image', 'publicURL')
         upload_template = "%s/v2/images/%s/file"
         self._url = upload_template % (image_endpoint, self.id)
         self._token_id = request.user.token.id
 
     def to_dict(self):
-        base_dict = super(ExternallyUploadedImage, self).to_dict()
+        base_dict = super().to_dict()
         base_dict.update({
             'upload_url': self._url,
             'token_id': self._token_id

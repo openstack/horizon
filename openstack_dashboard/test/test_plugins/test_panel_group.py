@@ -42,7 +42,7 @@ HORIZON_CONFIG.pop('default_dashboard', None)
 class PanelGroupPluginTests(test.PluginTestCase):
 
     def setUp(self):
-        super(PanelGroupPluginTests, self).setUp()
+        super().setUp()
         util_settings.update_dashboards([
             openstack_dashboard.test.test_plugins.panel_group_config,
         ], HORIZON_CONFIG, INSTALLED_APPS)

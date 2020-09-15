@@ -81,7 +81,7 @@ class UpdateView(forms.ModalFormView):
                 'availability_zone': aggregate.availability_zone}
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['id'] = self.kwargs['id']
         return context
 
@@ -107,6 +107,6 @@ class ManageHostsView(workflows.WorkflowView):
         return {'id': self.kwargs["id"]}
 
     def get_context_data(self, **kwargs):
-        context = super(ManageHostsView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['id'] = self.kwargs['id']
         return context

@@ -35,11 +35,11 @@ class MiddlewareTests(django_test.TestCase):
         self._timezone_backup = timezone.get_current_timezone_name()
         self.factory = test.RequestFactoryWithMessages()
         self.get_response = mock.Mock()
-        super(MiddlewareTests, self).setUp()
+        super().setUp()
 
     def tearDown(self):
         timezone.activate(self._timezone_backup)
-        super(MiddlewareTests, self).tearDown()
+        super().tearDown()
 
     def test_redirect_login_fail_to_login(self):
         url = settings.LOGIN_URL

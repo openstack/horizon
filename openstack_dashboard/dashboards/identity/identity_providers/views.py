@@ -87,7 +87,7 @@ class DetailView(tabs.TabbedTableView):
                               redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         idp = self._get_data()
         context["identity_provider"] = idp
         return context
@@ -122,7 +122,7 @@ class UpdateView(forms.ModalFormView):
                               redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.get_object().id,)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context

@@ -34,7 +34,7 @@ class UpdateRow(project_tables.UpdateRow):
     ajax = True
 
     def get_data(self, request, group_id):
-        group = super(UpdateRow, self).get_data(request, group_id)
+        group = super().get_data(request, group_id)
         tenant_id = getattr(group, 'project_id')
         try:
             tenant = keystone.tenant_get(request, tenant_id)

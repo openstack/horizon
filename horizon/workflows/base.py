@@ -42,11 +42,11 @@ LOG = logging.getLogger(__name__)
 
 class WorkflowContext(dict):
     def __init__(self, workflow, *args, **kwargs):
-        super(WorkflowContext, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._workflow = workflow
 
     def __setitem__(self, key, val):
-        super(WorkflowContext, self).__setitem__(key, val)
+        super().__setitem__(key, val)
         return self._workflow._trigger_handlers(key)
 
     def __delitem__(self, key):
@@ -64,7 +64,7 @@ class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
         # Pop Meta for later processing
         opts = attrs.pop("Meta", None)
         # Create our new class
-        cls_ = super(ActionMetaclass, cls).__new__(cls, name, bases, attrs)
+        cls_ = super().__new__(cls, name, bases, attrs)
         # Process options from Meta
         cls_.name = getattr(opts, "name", name)
         cls_.slug = getattr(opts, "slug", slugify(name))
@@ -151,9 +151,9 @@ class Action(forms.Form, metaclass=ActionMetaclass):
 
     def __init__(self, request, context, *args, **kwargs):
         if request.method == "POST":
-            super(Action, self).__init__(request.POST, initial=context)
+            super().__init__(request.POST, initial=context)
         else:
-            super(Action, self).__init__(initial=context)
+            super().__init__(initial=context)
 
         if not hasattr(self, "handle"):
             raise AttributeError("The action %s must define a handle method."
@@ -313,7 +313,7 @@ class Step(object):
         return force_text(self.name)
 
     def __init__(self, workflow):
-        super(Step, self).__init__()
+        super().__init__()
         self.workflow = workflow
 
         cls = self.__class__.__name__
@@ -478,7 +478,7 @@ class Step(object):
 
 class WorkflowMetaclass(type):
     def __new__(cls, name, bases, attrs):
-        super(WorkflowMetaclass, cls).__new__(cls, name, bases, attrs)
+        super().__new__(cls, name, bases, attrs)
         attrs["_cls_registry"] = []
         return type.__new__(cls, name, bases, attrs)
 
@@ -636,7 +636,7 @@ class Workflow(html.HTMLElement, metaclass=WorkflowMetaclass):
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
-        super(Workflow, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         if self.slug is None:
             raise AttributeError("The workflow %s must have a slug."
                                  % self.__class__.__name__)

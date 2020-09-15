@@ -40,4 +40,4 @@ class Aggregates(horizon.Panel):
                       "likely due to a problem communicating with the Nova "
                       "endpoint. Host Aggregates panel will not be displayed.")
             return False
-        return super(Aggregates, self).allowed(context)
+        return super().allowed(context)

@@ -39,7 +39,7 @@ class LiveMigrateForm(forms.SelfHandlingForm):
                                          initial=False, required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(LiveMigrateForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         initial = kwargs.get('initial', {})
         instance_id = initial.get('instance_id')
         self.fields['instance_id'] = forms.CharField(widget=forms.HiddenInput,

@@ -100,7 +100,7 @@ class InstanceTestBase(helpers.ResetImageAPIVersionMixin,
         self.mock_image_list_detailed.assert_has_calls(expected_calls, False)
 
     def setUp(self):
-        super(InstanceTestBase, self).setUp()
+        super().setUp()
         if api.glance.VERSIONS.active < 2:
             self.versioned_images = self.images
             self.versioned_snapshots = self.snapshots

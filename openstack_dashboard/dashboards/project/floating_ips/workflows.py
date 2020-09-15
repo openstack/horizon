@@ -46,7 +46,7 @@ class AssociateIPAction(workflows.Action):
                       "the selected instance or port.")
 
     def __init__(self, *args, **kwargs):
-        super(AssociateIPAction, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # If AssociateIP is invoked from instance menu, instance_id parameter
         # is passed in URL. In Neutron based Floating IP implementation
@@ -135,7 +135,7 @@ class AssociateIP(workflows.Step):
     contributes = ("ip_id", "instance_id", "ip_address")
 
     def contribute(self, data, context):
-        context = super(AssociateIP, self).contribute(data, context)
+        context = super().contribute(data, context)
         ip_id = data.get('ip_id', None)
         if ip_id:
             ip_choices = dict(self.action.fields['ip_id'].choices)

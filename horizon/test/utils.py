@@ -23,4 +23,4 @@ class ObjDictWrapper(dict):
         self[item] = value
 
     def __repr__(self):
-        return '<ObjDictWrapper %s>' % super(ObjDictWrapper, self).__repr__()
+        return '<ObjDictWrapper %s>' % super().__repr__()

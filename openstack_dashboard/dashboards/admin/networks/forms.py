@@ -153,7 +153,7 @@ class CreateNetwork(forms.SelfHandlingForm):
         return cls(request, *args, **kwargs)
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateNetwork, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         tenant_choices = [('', _("Select a project"))]
         tenants, has_more = api.keystone.tenant_list(request)
         for tenant in tenants:
@@ -293,7 +293,7 @@ class CreateNetwork(forms.SelfHandlingForm):
             exceptions.handle(request, msg, redirect=redirect)
 
     def clean(self):
-        cleaned_data = super(CreateNetwork, self).clean()
+        cleaned_data = super().clean()
         if api.neutron.is_extension_supported(self.request, 'provider'):
             self._clean_physical_network(cleaned_data)
             self._clean_segmentation_id(cleaned_data)

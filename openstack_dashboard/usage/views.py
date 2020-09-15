@@ -30,7 +30,7 @@ class UsageView(tables.DataTableView):
     page_title = _("Overview")
 
     def __init__(self, *args, **kwargs):
-        super(UsageView, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         if not issubclass(self.usage_class, base.BaseUsage):
             raise AttributeError("You must specify a usage_class attribute "
                                  "which is a subclass of BaseUsage.")
@@ -60,7 +60,7 @@ class UsageView(tables.DataTableView):
             return []
 
     def get_context_data(self, **kwargs):
-        context = super(UsageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['table'].kwargs['usage'] = self.usage
         context['form'] = self.usage.form
         context['usage'] = self.usage
@@ -207,12 +207,12 @@ class ProjectUsageView(UsageView):
         return charts
 
     def get_context_data(self, **kwargs):
-        context = super(ProjectUsageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['charts'] = self._get_charts_data()
         return context
 
     def get_data(self):
-        data = super(ProjectUsageView, self).get_data()
+        data = super().get_data()
         try:
             self.usage.get_limits()
         except Exception:

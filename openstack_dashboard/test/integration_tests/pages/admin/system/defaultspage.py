@@ -77,7 +77,7 @@ class DefaultsPage(basepage.BaseNavigationPage):
                                   'a[href*="defaults__volume_quotas"]')
 
     def __init__(self, driver, conf):
-        super(DefaultsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Defaults"
 
     def _get_compute_quota_row(self, name):

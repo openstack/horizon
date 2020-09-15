@@ -43,7 +43,7 @@ class ManageRulesPage(basepage.BaseNavigationPage):
     RULES_TABLE_PORT_RANGE_COLUMN = 'Port Range'
 
     def __init__(self, driver, conf):
-        super(ManageRulesPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Manage Security Group Rules"
 
     def _get_row_with_port_range(self, port):

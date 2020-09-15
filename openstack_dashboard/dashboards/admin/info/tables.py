@@ -214,11 +214,9 @@ class NetworkAgentsTable(tables.DataTable):
                                                  filters.timesince))
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(NetworkAgentsTable, self).__init__(
-            request,
-            data=data,
-            needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
 
         availability_zone_supported = api.neutron.is_extension_supported(
             request,

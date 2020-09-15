@@ -29,7 +29,7 @@ class CsvDataMixin(object):
     """
     def __init__(self):
         self.out = io.StringIO()
-        super(CsvDataMixin, self).__init__()
+        super().__init__()
         if hasattr(self, "columns"):
             columns = [self.encode(col) for col in self.columns]
             self.writer = csv.DictWriter(self.out, columns,
@@ -65,7 +65,7 @@ class BaseCsvResponse(CsvDataMixin, HttpResponse):
     """Base CSV response class. Provides handling of CSV data."""
 
     def __init__(self, request, template, context, content_type, **kwargs):
-        super(BaseCsvResponse, self).__init__()
+        super().__init__()
         self['Content-Disposition'] = 'attachment; filename="%s"' % (
             kwargs.get("filename", "export.csv"),)
         self['Content-Type'] = content_type
@@ -97,7 +97,7 @@ class BaseCsvStreamingResponse(CsvDataMixin, StreamingHttpResponse):
     """Base CSV Streaming class. Provides streaming response for CSV data."""
 
     def __init__(self, request, template, context, content_type, **kwargs):
-        super(BaseCsvStreamingResponse, self).__init__()
+        super().__init__()
         self['Content-Disposition'] = 'attachment; filename="%s"' % (
             kwargs.get("filename", "export.csv"),)
         self['Content-Type'] = content_type

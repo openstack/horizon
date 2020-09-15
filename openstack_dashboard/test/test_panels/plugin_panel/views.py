@@ -22,7 +22,7 @@ class TestBannerView(views.HorizonTemplateView):
     template_name = 'admin/plugin_panel/header.html'
 
     def get_context_data(self, **kwargs):
-        context = super(TestBannerView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         context['message'] = "sample context"
         return context

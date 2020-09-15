@@ -184,14 +184,14 @@ class FullscreenWorkflowView(workflows.WorkflowView):
 
 class WorkflowsTests(test.TestCase):
     def setUp(self):
-        super(WorkflowsTests, self).setUp()
+        super().setUp()
         self.policy_patcher = mock.patch(
             'openstack_auth.policy.check', lambda action, request: True)
         self.policy_check = self.policy_patcher.start()
         self.addCleanup(mock.patch.stopall)
 
     def tearDown(self):
-        super(WorkflowsTests, self).tearDown()
+        super().tearDown()
         self._reset_workflow()
 
     def _reset_workflow(self):

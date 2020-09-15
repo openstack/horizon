@@ -74,7 +74,7 @@ class Service(base.APIDictWrapper):
     _attrs = ['id', 'type', 'name']
 
     def __init__(self, service, region, *args, **kwargs):
-        super(Service, self).__init__(service, *args, **kwargs)
+        super().__init__(service, *args, **kwargs)
         self.public_url = base.get_url_for_service(service, region,
                                                    'publicURL')
         self.url = base.get_url_for_service(service, region,

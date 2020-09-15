@@ -103,7 +103,7 @@ class UpdateView(forms.ModalFormView):
                               redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.get_object().id,)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context
@@ -144,7 +144,7 @@ class ManageMembersView(GroupManageMixin, tables.DataTableView):
     page_title = _("Group Management: {{ group.name }}")
 
     def get_context_data(self, **kwargs):
-        context = super(ManageMembersView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group'] = self._get_group()
         return context
 
@@ -165,7 +165,7 @@ class NonMembersView(GroupManageMixin, forms.ModalFormMixin,
     table_class = project_tables.GroupNonMembersTable
 
     def get_context_data(self, **kwargs):
-        context = super(NonMembersView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group'] = self._get_group()
         return context
 

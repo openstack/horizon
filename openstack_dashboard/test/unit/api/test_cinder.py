@@ -464,7 +464,7 @@ class CinderApiTests(test.APIMockTestCase):
 class CinderApiVersionTests(test.TestCase):
 
     def setUp(self):
-        super(CinderApiVersionTests, self).setUp()
+        super().setUp()
         # The version is set when the module is loaded. Reset the
         # active version each time so that we can test with different
         # versions.

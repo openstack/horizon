@@ -41,7 +41,7 @@ class LazyLoadedTabsTests(test.SeleniumTestCase):
     select_all_selector = 'th.multi_select_column input[type=checkbox]'
 
     def setUp(self):
-        super(LazyLoadedTabsTests, self).setUp()
+        super().setUp()
         wait = self.ui.WebDriverWait(self.selenium, 120)
         self.get_element = self.selenium.find_element_by_css_selector
         self.get_elements = self.selenium.find_elements_by_css_selector

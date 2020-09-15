@@ -33,7 +33,7 @@ class OperationLogMiddlewareTest(django_test.TestCase):
     http_referer = u'/dashboard/test_http_referer'
 
     def setUp(self):
-        super(OperationLogMiddlewareTest, self).setUp()
+        super().setUp()
         self.factory = test.RequestFactoryWithMessages()
 
     def test_middleware_not_used(self):

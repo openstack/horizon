@@ -252,5 +252,4 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
 
     @pytest.mark.skip(reason="Bug 1774697")
     def test_instances_pagination_and_filtration(self):
-        super(TestAdminInstances, self).\
-            test_instances_pagination_and_filtration()
+        super().test_instances_pagination_and_filtration()

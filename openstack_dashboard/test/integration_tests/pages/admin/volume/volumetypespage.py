@@ -66,7 +66,7 @@ class VolumetypesPage(basepage.BaseNavigationPage):
     CINDER_CONSUMER = 'back-end'
 
     def __init__(self, driver, conf):
-        super(VolumetypesPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Volume Types"
 
     @property

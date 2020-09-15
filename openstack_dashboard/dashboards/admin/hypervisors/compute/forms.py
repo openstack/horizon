@@ -35,7 +35,7 @@ class EvacuateHostForm(forms.SelfHandlingForm):
                                            initial=False, required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(EvacuateHostForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         initial = kwargs.get('initial', {})
         self.fields['target_host'].choices = \
             self.populate_host_choices(request, initial)

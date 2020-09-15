@@ -45,7 +45,7 @@ class SecuritygroupsPage(basepage.BaseNavigationPage):
     SECURITYGROUPS_TABLE_NAME_COLUMN = 'Name'
 
     def __init__(self, driver, conf):
-        super(SecuritygroupsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Security Groups"
 
     def _get_row_with_securitygroup_name(self, name):

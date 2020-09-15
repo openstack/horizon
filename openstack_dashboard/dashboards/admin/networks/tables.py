@@ -119,10 +119,9 @@ class NetworksTable(tables.DataTable):
         row_actions = (EditNetwork, CreateSubnet, project_tables.DeleteNetwork)
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(NetworksTable, self).__init__(
-            request, data=data,
-            needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
         try:
             if not api.neutron.is_extension_supported(
                     request, "network_availability_zone"):

@@ -34,7 +34,7 @@ class AddProtocolView(forms.ModalFormView):
                        args=(self.kwargs['identity_provider_id'],))
 
     def get_context_data(self, **kwargs):
-        context = super(AddProtocolView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["submit_url"] = reverse(
             "horizon:identity:identity_providers:protocols:create",
             args=(self.kwargs['identity_provider_id'],))

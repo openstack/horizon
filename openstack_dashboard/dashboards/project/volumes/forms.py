@@ -295,7 +295,7 @@ class CreateForm(forms.SelfHandlingForm):
         self.fields['group'].choices = group_choices
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         volume_types = []
         try:
             volume_types = cinder.volume_type_list(request)
@@ -323,7 +323,7 @@ class CreateForm(forms.SelfHandlingForm):
         self._populate_group_choices(request)
 
     def clean(self):
-        cleaned_data = super(CreateForm, self).clean()
+        cleaned_data = super().clean()
         source_type = self.cleaned_data.get('volume_source_type')
         if (source_type == 'image_source' and
                 not cleaned_data.get('image_source')):
@@ -478,7 +478,7 @@ class AttachForm(forms.SelfHandlingForm):
                                          "select a device name."))
 
     def __init__(self, *args, **kwargs):
-        super(AttachForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # Hide the device field if the hypervisor doesn't support it.
         if not nova.can_set_mount_point():
@@ -547,7 +547,7 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
                                   required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateSnapshotForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         # populate volume_id
         volume_id = kwargs.get('initial', {}).get('volume_id', [])
@@ -587,7 +587,7 @@ class CreateTransferForm(forms.SelfHandlingForm):
 
     def __init__(self, *args, **kwargs):
         self.next_view = kwargs.pop('next_view', None)
-        super(CreateTransferForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def clean_name(self):
         cleaned_name = self.cleaned_data['name']
@@ -711,7 +711,7 @@ class UploadToImageForm(forms.SelfHandlingForm):
         required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(UploadToImageForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         # 'vhd','iso','aki','ari' and 'ami' disk formats are supported by
         # glance, but not by qemu-img. qemu-img supports 'vpc', 'cloop', 'cow'
@@ -768,7 +768,7 @@ class ExtendForm(forms.SelfHandlingForm):
     new_size = forms.IntegerField(label=_("New Size (GiB)"))
 
     def clean(self):
-        cleaned_data = super(ExtendForm, self).clean()
+        cleaned_data = super().clean()
         new_size = cleaned_data.get('new_size')
         orig_size = self.initial['orig_size']
         if new_size <= orig_size:
@@ -819,7 +819,7 @@ class RetypeForm(forms.SelfHandlingForm):
                                          required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(RetypeForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         try:
             volume_types = cinder.volume_type_list(request)

@@ -55,7 +55,7 @@ class CreateForm(forms.SelfHandlingForm):
     failure_url = 'horizon:project:routers:index'
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.dvr_allowed = api.neutron.get_feature_permission(self.request,
                                                               "dvr", "create")
         if self.dvr_allowed:
@@ -168,7 +168,7 @@ class UpdateForm(forms.SelfHandlingForm):
     redirect_url = reverse_lazy('horizon:project:routers:index')
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.dvr_allowed = api.neutron.get_feature_permission(self.request,
                                                               "dvr", "update")
         if not self.dvr_allowed:

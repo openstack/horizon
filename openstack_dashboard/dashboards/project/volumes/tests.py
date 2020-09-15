@@ -215,7 +215,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             for att in volume.attachments:
                 if 'instance' in att:
                     del att['instance']
-        super(VolumeViewTests, self).tearDown()
+        super().tearDown()
 
     @test.create_mocks({
         cinder: ['volume_create', 'volume_snapshot_list',

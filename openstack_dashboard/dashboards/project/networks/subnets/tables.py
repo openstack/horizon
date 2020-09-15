@@ -37,8 +37,7 @@ LOG = logging.getLogger(__name__)
 class SubnetPolicyTargetMixin(policy.PolicyTargetMixin):
 
     def get_policy_target(self, request, datum=None):
-        policy_target = super(SubnetPolicyTargetMixin, self)\
-            .get_policy_target(request, datum)
+        policy_target = super().get_policy_target(request, datum)
         # Use the network information if it is passed in with datum.
         if datum and "tenant_id" in datum:
             network = datum

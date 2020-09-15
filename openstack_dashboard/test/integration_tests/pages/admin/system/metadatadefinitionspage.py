@@ -47,7 +47,7 @@ class MetadatadefinitionsPage(basepage.BaseNavigationPage):
     boolean_mapping = {True: 'Yes', False: 'No'}
 
     def __init__(self, driver, conf):
-        super(MetadatadefinitionsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Metadata Definitions"
 
     def _get_row_with_namespace_name(self, name):

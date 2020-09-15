@@ -149,14 +149,14 @@ def _apply_panel_mocks(patchers=None):
 
 class RequestFactoryWithMessages(RequestFactory):
     def get(self, *args, **kwargs):
-        req = super(RequestFactoryWithMessages, self).get(*args, **kwargs)
+        req = super().get(*args, **kwargs)
         req.user = utils.get_user(req)
         req.session = []
         req._messages = default_storage(req)
         return req
 
     def post(self, *args, **kwargs):
-        req = super(RequestFactoryWithMessages, self).post(*args, **kwargs)
+        req = super().post(*args, **kwargs)
         req.user = utils.get_user(req)
         req.session = []
         req._messages = default_storage(req)
@@ -201,10 +201,10 @@ class TestCase(horizon_helpers.TestCase):
 
         self.patchers = _apply_panel_mocks()
 
-        super(TestCase, self).setUp()
+        super().setUp()
 
     def _setup_test_data(self):
-        super(TestCase, self)._setup_test_data()
+        super()._setup_test_data()
         test_utils.load_test_data(self)
         self.context = {
             'authorized_tenants': self.tenants.list(),
@@ -232,7 +232,7 @@ class TestCase(horizon_helpers.TestCase):
         self.setActiveUser(**base_kwargs)
 
     def _setup_request(self):
-        super(TestCase, self)._setup_request()
+        super()._setup_request()
         self.request.session['token'] = self.token.id
 
     def tearDown(self):
@@ -240,7 +240,7 @@ class TestCase(horizon_helpers.TestCase):
         context_processors.openstack = self._real_context_processor
         utils.get_user = self._real_get_user
         mock.patch.stopall()
-        super(TestCase, self).tearDown()
+        super().tearDown()
 
         # cause a test failure if an unmocked API call was attempted
         if self.missing_mocks:
@@ -432,7 +432,7 @@ class BaseAdminViewTests(TestCase):
     def setActiveUser(self, *args, **kwargs):
         if "roles" not in kwargs:
             kwargs['roles'] = [self.roles.admin._info]
-        super(BaseAdminViewTests, self).setActiveUser(*args, **kwargs)
+        super().setActiveUser(*args, **kwargs)
 
     def setSessionValues(self, **kwargs):
         settings.SESSION_ENGINE = 'django.contrib.sessions.backends.file'
@@ -448,7 +448,7 @@ class BaseAdminViewTests(TestCase):
 
 class APITestCase(TestCase):
     def setUp(self):
-        super(APITestCase, self).setUp()
+        super().setUp()
         utils.patch_middleware_get_user()
 
 
@@ -463,12 +463,12 @@ APIMockTestCase = APITestCase
 # Need this to test both Glance API V1 and V2 versions
 class ResetImageAPIVersionMixin(object):
     def setUp(self):
-        super(ResetImageAPIVersionMixin, self).setUp()
+        super().setUp()
         api.glance.VERSIONS.clear_active_cache()
 
     def tearDown(self):
         api.glance.VERSIONS.clear_active_cache()
-        super(ResetImageAPIVersionMixin, self).tearDown()
+        super().tearDown()
 
 
 @horizon_helpers.pytest_mark('selenium')
@@ -476,7 +476,7 @@ class ResetImageAPIVersionMixin(object):
 class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
 
     def setUp(self):
-        super(SeleniumTestCase, self).setUp()
+        super().setUp()
 
         test_utils.load_test_data(self)
 
@@ -520,7 +520,7 @@ class SeleniumAdminTestCase(SeleniumTestCase):
     def setActiveUser(self, *args, **kwargs):
         if "roles" not in kwargs:
             kwargs['roles'] = [self.roles.admin._info]
-        super(SeleniumAdminTestCase, self).setActiveUser(*args, **kwargs)
+        super().setActiveUser(*args, **kwargs)
 
 
 def my_custom_sort(flavor):
@@ -549,7 +549,7 @@ class PluginTestCase(TestCase):
     configuration.
     """
     def setUp(self):
-        super(PluginTestCase, self).setUp()
+        super().setUp()
         self.old_horizon_config = conf.HORIZON_CONFIG
         conf.HORIZON_CONFIG = conf.LazySettings()
         base.Horizon._urls()
@@ -562,7 +562,7 @@ class PluginTestCase(TestCase):
             self._discovered_panels[dash] = panels
 
     def tearDown(self):
-        super(PluginTestCase, self).tearDown()
+        super().tearDown()
         conf.HORIZON_CONFIG = self.old_horizon_config
         # Destroy our singleton and re-create it.
         base.HorizonSite._instance = None

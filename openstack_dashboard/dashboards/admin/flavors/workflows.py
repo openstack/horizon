@@ -76,7 +76,7 @@ class CreateFlavorInfoAction(workflows.Action):
         return name
 
     def clean(self):
-        cleaned_data = super(CreateFlavorInfoAction, self).clean()
+        cleaned_data = super().clean()
         name = cleaned_data.get('name')
         flavor_id = cleaned_data.get('flavor_id')
 
@@ -114,7 +114,7 @@ class CreateFlavorInfo(workflows.Step):
 
 class FlavorAccessAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(FlavorAccessAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve flavor access list. '
                     'Please try again later.')
         context = args[0]

@@ -24,7 +24,7 @@ class TestDownloadRCFile(helpers.AdminTestCase):
     _openrc_template = "-openrc.sh"
 
     def setUp(self):
-        super(TestDownloadRCFile, self).setUp()
+        super().setUp()
         username = self.TEST_USER_NAME
         tenant_name = self.HOME_PROJECT
         projects_page = self.home_pg.go_to_identity_projectspage()

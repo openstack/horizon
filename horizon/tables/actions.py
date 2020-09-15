@@ -76,8 +76,7 @@ class BaseActionMetaClass(type):
     def __call__(cls, *args, **kwargs):
         cls.base_options.update(kwargs)
         # Adding cls.base_options to each init call.
-        klass = super(BaseActionMetaClass, cls).__call__(
-            *args, **cls.base_options)
+        klass = super().__call__(*args, **cls.base_options)
         return klass
 
 
@@ -85,7 +84,7 @@ class BaseAction(html.HTMLElement, metaclass=BaseActionMetaClass):
     """Common base class for all ``Action`` classes."""
 
     def __init__(self, **kwargs):
-        super(BaseAction, self).__init__()
+        super().__init__()
         self.datum = kwargs.get('datum', None)
         self.table = kwargs.get('table', None)
         self.handles_multiple = kwargs.get('handles_multiple', False)
@@ -258,7 +257,7 @@ class Action(BaseAction):
 
     def __init__(self, single_func=None, multiple_func=None, handle_func=None,
                  attrs=None, **kwargs):
-        super(Action, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         self.method = kwargs.get('method', "POST")
         self.requires_input = kwargs.get('requires_input', True)
@@ -344,7 +343,7 @@ class LinkAction(BaseAction):
     ajax = False
 
     def __init__(self, attrs=None, **kwargs):
-        super(LinkAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.method = kwargs.get('method', "GET")
         self.bound_url = kwargs.get('bound_url', None)
         self.name = kwargs.get('name', self.name)
@@ -377,7 +376,7 @@ class LinkAction(BaseAction):
                                 action_dict)
 
     def associate_with_table(self, table):
-        super(LinkAction, self).associate_with_table(table)
+        super().associate_with_table(table)
         if self.ajax:
             self.attrs['data-update-url'] = self.get_ajax_update_url()
 
@@ -468,7 +467,7 @@ class FilterAction(BaseAction):
     name = "filter"
 
     def __init__(self, **kwargs):
-        super(FilterAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.method = kwargs.get('method', "POST")
         self.name = kwargs.get('name', self.name)
         self.verbose_name = kwargs.get('verbose_name', _("Filter"))
@@ -560,7 +559,7 @@ class FixedFilterAction(FilterAction):
     """A filter action with fixed buttons."""
 
     def __init__(self, **kwargs):
-        super(FixedFilterAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.filter_type = kwargs.get('filter_type', "fixed")
         self.needs_preloading = kwargs.get('needs_preloading', True)
 
@@ -654,7 +653,7 @@ class BatchAction(Action):
     default_message_level = "success"
 
     def __init__(self, **kwargs):
-        super(BatchAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         action_present_method = callable(getattr(self, 'action_present', None))
         action_past_method = callable(getattr(self, 'action_past', None))
@@ -687,7 +686,7 @@ class BatchAction(Action):
         action = request.GET.get('action')
         if action != 'row_update' and not self.table.data and not datum:
             return False
-        return super(BatchAction, self)._allowed(request, datum)
+        return super()._allowed(request, datum)
 
     def _get_action_name(self, items=None, past=False):
         """Retreive action name based on the number of items and `past` flag.
@@ -746,7 +745,7 @@ class BatchAction(Action):
 
     def get_default_attrs(self):
         """Returns a list of the default HTML attributes for the action."""
-        attrs = super(BatchAction, self).get_default_attrs()
+        attrs = super().get_default_attrs()
         attrs.update({'data-batch-action': 'true'})
         return attrs
 
@@ -869,7 +868,7 @@ class DeleteAction(BatchAction):
     name = "delete"
 
     def __init__(self, **kwargs):
-        super(DeleteAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.name = kwargs.get('name', self.name)
         self.icon = "trash"
         self.action_type = "danger"

@@ -37,7 +37,7 @@ class VolumeTests(test.BaseAdminViewTests):
             for att in volume.attachments:
                 if 'instance' in att:
                     del att['instance']
-        super(VolumeTests, self).tearDown()
+        super().tearDown()
 
     @test.create_mocks({
         api.nova: ['server_list'],

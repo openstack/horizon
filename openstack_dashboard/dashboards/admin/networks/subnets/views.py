@@ -32,7 +32,7 @@ class UpdateView(project_views.UpdateView):
 
 class DetailView(project_views.DetailView):
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         subnet = context['subnet']
         table = admin_tables.SubnetsTable(self.request,
                                           network_id=subnet.network_id)

@@ -78,7 +78,7 @@ class NeutronAPIDictWrapper(base.APIDictWrapper):
             for key, value in apidict.items()
             if ':' in key
         })
-        super(NeutronAPIDictWrapper, self).__init__(apidict)
+        super().__init__(apidict)
 
     def set_id_as_name_if_empty(self, length=8):
         try:
@@ -112,7 +112,7 @@ class Subnet(NeutronAPIDictWrapper):
 
     def __init__(self, apidict):
         apidict['ipver_str'] = get_ipver_str(apidict['ip_version'])
-        super(Subnet, self).__init__(apidict)
+        super().__init__(apidict)
 
 
 AUTO_ALLOCATE_ID = '__auto_allocate__'
@@ -142,7 +142,7 @@ class PreAutoAllocateNetwork(Network):
             'subnets': [auto_allocated_subnet],
             'tenant_id': tenant_id,
         }
-        super(PreAutoAllocateNetwork, self).__init__(auto_allocated_network)
+        super().__init__(auto_allocated_network)
 
 
 class Trunk(NeutronAPIDictWrapper):
@@ -153,7 +153,7 @@ class Trunk(NeutronAPIDictWrapper):
         return len(self._apidict.get('sub_ports', []))
 
     def to_dict(self):
-        trunk_dict = super(Trunk, self).to_dict()
+        trunk_dict = super().to_dict()
         trunk_dict['name_or_id'] = self.name_or_id
         trunk_dict['subport_count'] = self.subport_count
         return trunk_dict
@@ -175,7 +175,7 @@ class Port(NeutronAPIDictWrapper):
             apidict = copy.deepcopy(apidict)
             wrapped_pairs = [PortAllowedAddressPair(pair) for pair in pairs]
             apidict['allowed_address_pairs'] = wrapped_pairs
-        super(Port, self).__init__(apidict)
+        super().__init__(apidict)
 
 
 class PortTrunkParent(Port):
@@ -203,14 +203,14 @@ class PortTrunkSubport(Port):
     def __init__(self, apidict, trunk_subport_info):
         for field in ['trunk_id', 'segmentation_type', 'segmentation_id']:
             apidict[field] = trunk_subport_info[field]
-        super(PortTrunkSubport, self).__init__(apidict)
+        super().__init__(apidict)
 
 
 class PortAllowedAddressPair(NeutronAPIDictWrapper):
     """Wrapper for neutron port allowed address pairs."""
 
     def __init__(self, addr_pair):
-        super(PortAllowedAddressPair, self).__init__(addr_pair)
+        super().__init__(addr_pair)
         # Horizon references id property for table operations
         self.id = addr_pair['ip_address']
 
@@ -223,7 +223,7 @@ class RouterStaticRoute(NeutronAPIDictWrapper):
     """Wrapper for neutron routes extra route."""
 
     def __init__(self, route):
-        super(RouterStaticRoute, self).__init__(route)
+        super().__init__(route)
         # Horizon references id property for table operations
         self.id = route['nexthop'] + ":" + route['destination']
 
@@ -238,7 +238,7 @@ class SecurityGroup(NeutronAPIDictWrapper):
             sg['security_group_rules'] = []
         sg['rules'] = [SecurityGroupRule(rule, sg_dict)
                        for rule in sg['security_group_rules']]
-        super(SecurityGroup, self).__init__(sg)
+        super().__init__(sg)
 
     def to_dict(self):
         return {k: self._apidict[k] for k in self._apidict if k != 'rules'}
@@ -283,7 +283,7 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
         rule['ip_range'] = {'cidr': cidr} if cidr else {}
         group = self._get_secgroup_name(sgr['remote_group_id'], sg_dict)
         rule['group'] = {'name': group} if group else {}
-        super(SecurityGroupRule, self).__init__(rule)
+        super().__init__(rule)
 
     def __str__(self):
         if 'name' in self.group:
@@ -497,7 +497,7 @@ class FloatingIp(base.APIDictWrapper):
         fip['ip'] = fip['floating_ip_address']
         fip['fixed_ip'] = fip['fixed_ip_address']
         fip['pool'] = fip['floating_network_id']
-        super(FloatingIp, self).__init__(fip)
+        super().__init__(fip)
 
 
 class FloatingIpPool(base.APIDictWrapper):
@@ -522,7 +522,7 @@ class FloatingIpTarget(base.APIDictWrapper):
                   'id': '%s_%s' % (port.id, ip_address),
                   'port_id': port.id,
                   'instance_id': port.device_id}
-        super(FloatingIpTarget, self).__init__(target)
+        super().__init__(target)
 
 
 class FloatingIpManager(object):

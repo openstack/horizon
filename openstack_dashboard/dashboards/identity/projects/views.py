@@ -65,7 +65,7 @@ class TenantContextMixin(object):
                               redirect=reverse(INDEX_URL))
 
     def get_context_data(self, **kwargs):
-        context = super(TenantContextMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['tenant'] = self.get_object()
         return context
 
@@ -147,7 +147,7 @@ class ProjectUsageView(usage.UsageView):
     page_title = _("Project Usage")
 
     def get_data(self):
-        super(ProjectUsageView, self).get_data()
+        super().get_data()
         return self.usage.get_instances()
 
 
@@ -155,7 +155,7 @@ class CreateProjectView(workflows.WorkflowView):
     workflow_class = project_workflows.CreateProject
 
     def get_initial(self):
-        initial = super(CreateProjectView, self).get_initial()
+        initial = super().get_initial()
 
         # Set the domain of the project
         domain = api.keystone.get_default_domain(self.request)
@@ -169,7 +169,7 @@ class UpdateProjectView(workflows.WorkflowView):
     workflow_class = project_workflows.UpdateProject
 
     def get_initial(self):
-        initial = super(UpdateProjectView, self).get_initial()
+        initial = super().get_initial()
 
         project_id = self.kwargs['tenant_id']
         initial['project_id'] = project_id
@@ -213,7 +213,7 @@ class UpdateQuotasView(workflows.WorkflowView):
     workflow_class = project_workflows.UpdateQuota
 
     def get_initial(self):
-        initial = super(UpdateQuotasView, self).get_initial()
+        initial = super().get_initial()
         project_id = self.kwargs['tenant_id']
         initial['project_id'] = project_id
         try:
@@ -237,7 +237,7 @@ class DetailProjectView(tabs.TabView):
     page_title = "{{ project.name }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailProjectView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         project = self.get_data()
         table = project_tables.TenantsTable(self.request)
         context["project"] = project

@@ -254,7 +254,7 @@ class AddRule(forms.SelfHandlingForm):
 
     def __init__(self, *args, **kwargs):
         sg_list = kwargs.pop('sg_list', [])
-        super(AddRule, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # Determine if there are security groups available for the
         # remote group option; add the choices and enable the option if so.
         if sg_list:
@@ -426,7 +426,7 @@ class AddRule(forms.SelfHandlingForm):
                 data['ip_protocol'] = 'ipv6-icmp'
 
     def clean(self):
-        cleaned_data = super(AddRule, self).clean()
+        cleaned_data = super().clean()
 
         self._clean_rule_menu(cleaned_data)
 

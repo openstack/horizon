@@ -80,10 +80,10 @@ class IPField(fields.Field):
         self.min_mask = kwargs.pop("mask_range_from", 0)
         self.version = kwargs.pop('version', IPv4)
 
-        super(IPField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def validate(self, value):
-        super(IPField, self).validate(value)
+        super().validate(value)
         if not value and not self.required:
             return
 
@@ -109,7 +109,7 @@ class IPField(fields.Field):
                 raise ValidationError(self.invalid_mask_message)
 
     def clean(self, value):
-        super(IPField, self).clean(value)
+        super().clean(value)
         return str(getattr(self, "ip", ""))
 
 
@@ -120,13 +120,13 @@ class MultiIPField(IPField):
         if value:
             addresses = value.split(',')
             for ip in addresses:
-                super(MultiIPField, self).validate(ip)
+                super().validate(ip)
                 self.addresses.append(ip)
         else:
-            super(MultiIPField, self).validate(value)
+            super().validate(value)
 
     def clean(self, value):
-        super(MultiIPField, self).clean(value)
+        super().clean(value)
         return str(','.join(getattr(self, "addresses", [])))
 
 
@@ -139,7 +139,7 @@ class MACAddressField(fields.Field):
     .. xxxx.xxxx.xxxx
     """
     def validate(self, value):
-        super(MACAddressField, self).validate(value)
+        super().validate(value)
 
         if not value:
             return
@@ -153,7 +153,7 @@ class MACAddressField(fields.Field):
                                   code="invalid_mac")
 
     def clean(self, value):
-        super(MACAddressField, self).clean(value)
+        super().clean(value)
         return str(getattr(self, "mac_address", ""))
 
 
@@ -221,7 +221,7 @@ class SelectWidget(widgets.Widget):
         self.data_attrs = data_attrs
         self.transform = transform
         self.transform_html_attrs = transform_html_attrs
-        super(SelectWidget, self).__init__(attrs)
+        super().__init__(attrs)
 
     def render(self, name, value, attrs=None, renderer=None):
         if value is None:
@@ -356,7 +356,7 @@ class DynamicSelectWidget(SelectWidget):
         add_item_url = self.get_add_item_url()
         if add_item_url is not None:
             self.attrs[self._data_add_url_attr] = add_item_url
-        return super(DynamicSelectWidget, self).render(*args, **kwargs)
+        return super().render(*args, **kwargs)
 
     def get_add_item_url(self):
         if callable(self.add_item_link):
@@ -393,7 +393,7 @@ class DynamicChoiceField(fields.ChoiceField):
                  add_item_link_args=None,
                  *args,
                  **kwargs):
-        super(DynamicChoiceField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.widget.add_item_link = add_item_link
         self.widget.add_item_link_args = add_item_link_args
 
@@ -425,7 +425,7 @@ class ThemableCheckboxInput(widgets.CheckboxInput):
 
         return html.format_html(
             u'<div class="themable-checkbox">{}<label for="{}"></label></div>',
-            super(ThemableCheckboxInput, self).render(name, value, attrs),
+            super().render(name, value, attrs),
             label_for
         )
 
@@ -520,7 +520,7 @@ class ThemableCheckboxChoiceInput(ChoiceInput):
     input_type = 'checkbox'
 
     def __init__(self, *args, **kwargs):
-        super(ThemableCheckboxChoiceInput, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # NOTE(e0ne): Django sets default value to None
         if self.value:
             self.value = set(force_text(v) for v in self.value)
@@ -601,7 +601,7 @@ class ExternalFileField(fields.FileField):
     paired with ExternalUploadMeta metaclass embedded into the Form class.
     """
     def __init__(self, *args, **kwargs):
-        super(ExternalFileField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.widget.attrs.update({'data-external-upload': 'true'})
 
 
@@ -651,5 +651,4 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
                 new_attrs[new_attr_name] = hidden_field
                 meth_name = 'clean_' + new_attr_name
                 new_attrs[meth_name] = make_clean_method(new_attr_name)
-        return super(ExternalUploadMeta, cls).__new__(
-            cls, name, bases, new_attrs)
+        return super().__new__(cls, name, bases, new_attrs)

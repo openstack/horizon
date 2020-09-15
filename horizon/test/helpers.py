@@ -118,14 +118,14 @@ class SessionStore(SessionBase):
 
 class RequestFactoryWithMessages(RequestFactory):
     def get(self, *args, **kwargs):
-        req = super(RequestFactoryWithMessages, self).get(*args, **kwargs)
+        req = super().get(*args, **kwargs)
         req.user = User()
         req.session = SessionStore()
         req._messages = default_storage(req)
         return req
 
     def post(self, *args, **kwargs):
-        req = super(RequestFactoryWithMessages, self).post(*args, **kwargs)
+        req = super().post(*args, **kwargs)
         req.user = User()
         req.session = SessionStore()
         req._messages = default_storage(req)
@@ -143,7 +143,7 @@ class TestCase(django_test.TestCase):
     """
 
     def setUp(self):
-        super(TestCase, self).setUp()
+        super().setUp()
         self._setup_test_data()
         self._setup_factory()
         self._setup_user()
@@ -171,7 +171,7 @@ class TestCase(django_test.TestCase):
         self.request.session = self.client.session
 
     def tearDown(self):
-        super(TestCase, self).tearDown()
+        super().tearDown()
         del os.environ["HORIZON_TEST_RUN"]
 
     def set_permissions(self, permissions=None):
@@ -250,7 +250,7 @@ class SeleniumTestCase(LiveServerTestCase):
                 cls.vdisplay = xvfbwrapper.Xvfb(width=1280, height=720)
                 cls.vdisplay.start()
             cls.selenium = WebDriver()
-        super(SeleniumTestCase, cls).setUpClass()
+        super().setUpClass()
 
     @classmethod
     def tearDownClass(cls):
@@ -259,13 +259,13 @@ class SeleniumTestCase(LiveServerTestCase):
             time.sleep(1)
         if hasattr(cls, 'vdisplay'):
             cls.vdisplay.stop()
-        super(SeleniumTestCase, cls).tearDownClass()
+        super().tearDownClass()
 
     def setUp(self):
         socket.setdefaulttimeout(60)
         self.selenium.implicitly_wait(30)
         self.ui = selenium_ui
-        super(SeleniumTestCase, self).setUp()
+        super().setUp()
 
 
 class JasmineTests(SeleniumTestCase):
@@ -351,7 +351,7 @@ class update_settings(django_test_utils.override_settings):
                     copied = copy.copy(value)
                     copied.update(new_value)
                     kwargs[key] = copied
-        super(update_settings, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
 
 class IsA(object):
@@ -366,4 +366,4 @@ class IsA(object):
 class IsHttpRequest(IsA):
     """Class to compare param is django.http.HttpRequest."""
     def __init__(self):
-        super(IsHttpRequest, self).__init__(http.HttpRequest)
+        super().__init__(http.HttpRequest)

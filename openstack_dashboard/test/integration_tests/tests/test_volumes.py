@@ -243,7 +243,7 @@ class TestVolumesActions(helpers.TestCase):
         return self.home_pg.go_to_project_volumes_volumespage()
 
     def setUp(self):
-        super(TestVolumesActions, self).setUp()
+        super().setUp()
         volumes_page = self.volumes_page
         volumes_page.create_volume(self.VOLUME_NAME)
         self.assertTrue(

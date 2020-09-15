@@ -82,12 +82,12 @@ class CreateView(forms.ModalFormView):
     page_title = _("Create Application Credential")
 
     def get_form_kwargs(self):
-        kwargs = super(CreateView, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         kwargs['next_view'] = CreateSuccessfulView
         return kwargs
 
     def get_context_data(self, **kwargs):
-        context = super(CreateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['kubeconfig_enabled'] = settings.KUBECONFIG_ENABLED
         return context
 
@@ -105,7 +105,7 @@ class CreateSuccessfulView(forms.ModalFormView):
     download_kubeconfig_label = _("Download kubeconfig file")
 
     def get_context_data(self, **kwargs):
-        context = super(CreateSuccessfulView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['download_openrc_label'] = self.download_openrc_label
         context['download_clouds_yaml_label'] = self.download_clouds_yaml_label
         context['download_kubeconfig_label'] = self.download_kubeconfig_label
@@ -194,7 +194,7 @@ class DetailView(views.HorizonTemplateView):
     page_title = "{{ application_credential.name }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         app_cred = self.get_data()
         table = project_tables.ApplicationCredentialsTable(self.request)
         context["application_credential"] = app_cred

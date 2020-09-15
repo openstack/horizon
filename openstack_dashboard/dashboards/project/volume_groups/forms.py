@@ -161,7 +161,7 @@ class CloneGroupForm(forms.SelfHandlingForm):
                               _('Unable to load the specified group.'))
 
     def __init__(self, request, *args, **kwargs):
-        super(CloneGroupForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.prepare_group_source_field(request)
 
     def handle(self, request, data):

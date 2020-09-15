@@ -68,7 +68,7 @@ class CreateView(forms.ModalFormView):
         return initial
 
     def get_context_data(self, **kwargs):
-        context = super(CreateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         upload_mode = api.glance.get_image_upload_mode()
         context['image_upload_enabled'] = upload_mode != 'off'
         context['images_allow_location'] = settings.IMAGES_ALLOW_LOCATION
@@ -94,7 +94,7 @@ class UpdateView(forms.ModalFormView):
             exceptions.handle(self.request, msg, redirect=url)
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['image'] = self.get_object()
         args = (self.kwargs['image_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -127,7 +127,7 @@ class DetailView(tabs.TabView):
     page_title = "{{ image.name }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         image = self.get_data()
         table = project_tables.ImagesTable(self.request)
         context["image"] = image
