@@ -49,6 +49,12 @@ horizon.alert = function (type, message, extra_tags, details) {
     };
   var this_alert = $(template.render(params)).hide().prependTo("#main_content .messages").fadeIn(100);
   horizon.autoDismissAlert(this_alert);
+
+  // NOTE: messages template engine doesn't support conditional rendering yet
+  // So it's a temporary work-around to hide details link when details is empty.
+  if (details === undefined || details === "") {
+    this_alert.find("#details_link").remove();
+  }
   return this_alert;
 };
 

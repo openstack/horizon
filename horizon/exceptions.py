@@ -31,6 +31,8 @@ from horizon import messages
 
 LOG = logging.getLogger(__name__)
 
+SEPERATOR = '\u2026'
+
 
 class HorizonReporterFilter(SafeExceptionReporterFilter):
     """Error report filter that's always active, even in DEBUG mode."""
@@ -261,7 +263,7 @@ HANDLE_EXC_METHODS = [
 
 
 def _append_detail(message, details):
-    return encoding.force_text(message) + '\u2026' + \
+    return encoding.force_text(message) + SEPERATOR + \
         encoding.force_text(details)
 
 
