@@ -38,11 +38,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-09-09 01:42+0000\n"
+"POT-Creation-Date: 2020-09-16 17:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-01-08 12:54+0000\n"
+"PO-Revision-Date: 2020-09-16 04:39+0000\n"
 "Last-Translator: Dmitriy Rabotyagov <noonedeadpunk@ya.ru>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -1593,6 +1593,9 @@ msgctxt "Created time"
 msgid "Created"
 msgstr "Создано"
 
+msgid "Created At"
+msgstr "Создано"
+
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Создан доп. параметр «%s». "
@@ -2926,6 +2929,9 @@ msgid ""
 msgstr ""
 "Эвакуировать инстансы с выбранного недоступного узла нв активный целевой узел"
 
+msgid "Event Id"
+msgstr "Идентификатор События"
+
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
 "tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
@@ -3027,6 +3033,9 @@ msgstr "Не удалось добавить интерфейс: %s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "Не удалось добавить проект %(project)s к списку доступа типа диска."
 
+msgid "Failed to add route"
+msgstr "Не удалось добавить маршрут"
+
 msgid "Failed to check if description field is supported."
 msgstr "Не удалось проверить поддержку поля описания."
 
@@ -3044,6 +3053,10 @@ msgid "Failed to create a rbac policy."
 msgstr "Не удалось создать rbac политику."
 
 #, python-format
+msgid "Failed to create network \"%s\"."
+msgstr "Не удалось создать сеть \"%s\"."
+
+#, python-format
 msgid "Failed to create network %s"
 msgstr "Не удалось создать сеть %s"
 
@@ -3057,6 +3070,14 @@ msgstr "Не удалось создать маршрутизатор \"%s\"."
 
 msgid "Failed to create router."
 msgstr "Не удалось создать маршрутизатор."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
+msgstr "Не удалось создать подсеть \"%(sub)s\" для сети \"%(net)s\"."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\"."
+msgstr "Не удалось создать подсеть \"%(sub)s\"."
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -3148,6 +3169,9 @@ msgstr ""
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Не удалось удалить проект %(project)s из списка доступа типа диска."
 
+msgid "Failed to set gateway."
+msgstr "Не удалось установить шлюз."
+
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Не удалось обновить сеть %s"
@@ -3163,6 +3187,10 @@ msgstr "Не удалось обновить rbac политику %s"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Не удалось обновить маршрутизатор %s"
+
+#, python-format
+msgid "Failed to update subnet \"%s\"."
+msgstr "Не удалось обновить подсеть \"%s\"."
 
 msgid "False"
 msgstr "False"
@@ -3473,6 +3501,9 @@ msgid ""
 msgstr ""
 "Группы используются для управления доступом и назначения ролей для "
 "нескольких пользователей одновременно. Отредактируйте имя группы и описание."
+
+msgid "Guaranteed Until"
+msgstr "Гарантировано до"
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
@@ -4141,6 +4172,9 @@ msgstr[0] "Заблокировать инстанс"
 msgstr[1] "Заблокировать инстансы"
 msgstr[2] "Заблокировать инстансы"
 
+msgid "Lock password"
+msgstr "Заблокировать пароль"
+
 msgctxt "Locked status of an instance"
 msgid "Locked"
 msgstr "Заблокирован"
@@ -4280,6 +4314,9 @@ msgstr "Использование RAM"
 
 msgid "Message"
 msgstr "Сообщение"
+
+msgid "Message Level"
+msgstr "Уровень сообщения"
 
 msgid "Messages"
 msgstr "Сообщения"
@@ -4978,6 +5015,9 @@ msgstr "Пароль изменен. Снова войдите в систему
 
 msgid "Password changed. Please log in to continue."
 msgstr "Пароль изменен. Пожалуйста войдите в систему для продолжения."
+
+msgid "Password is locked."
+msgstr "Пароль заблокирован."
 
 msgid "Passwords do not match."
 msgstr "Пароли не совпадают."
@@ -7691,6 +7731,9 @@ msgstr "Не удалось получить спецификации QoS"
 msgid "Unable to retrieve RBAC policies."
 msgstr "Не удалось получить политики RBAC."
 
+msgid "Unable to retrieve a list of external networks."
+msgstr "Не удалось получить список внешних сетей."
+
 msgid "Unable to retrieve agent list."
 msgstr "Не удалось получить список агентов"
 
@@ -8059,6 +8102,9 @@ msgstr "Не удалось получить детали снимка."
 msgid "Unable to retrieve snapshot list."
 msgstr "Не удалось получить список снимков."
 
+msgid "Unable to retrieve snapshot messages."
+msgstr "Не удалось получить сообщения снимка."
+
 msgid "Unable to retrieve subnet details"
 msgstr "Не удалось получить  детальную информацию о подсети"
 
@@ -8262,6 +8308,9 @@ msgstr ""
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "Не удалось обновить образ \"%s\"."
+
+msgid "Unable to update instance security group."
+msgstr "Не удалось обновить группу безопасности инстанса."
 
 msgid "Unable to update mapping."
 msgstr "Не удаётся обновить преобразование."
@@ -8641,6 +8690,9 @@ msgstr "ID пользователя"
 
 msgid "User ID ="
 msgstr "ID пользователя ="
+
+msgid "User Message"
+msgstr "Сообщение пользователя"
 
 msgid "User Name"
 msgstr "Имя пользователя"

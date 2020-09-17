@@ -24,11 +24,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-08 17:19+0000\n"
+"POT-Creation-Date: 2020-09-16 17:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-01-08 01:00+0000\n"
+"PO-Revision-Date: 2020-09-16 04:40+0000\n"
 "Last-Translator: Dmitriy Rabotyagov <noonedeadpunk@ya.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -2692,6 +2692,9 @@ msgstr "Статус"
 msgid "Status: %s"
 msgstr "Статус: %s"
 
+msgid "Storage Policy"
+msgstr "Политика Хранения"
+
 msgid "Striped"
 msgstr "Полосатый"
 
@@ -3358,6 +3361,9 @@ msgstr "Не удалось изменить метаданные типа ди�
 
 msgid "Unable to fetch the groups."
 msgstr "Не удалось получить группы."
+
+msgid "Unable to fetch the policy details."
+msgstr "Не удалось получить детали политики."
 
 msgid "Unable to fetch the service catalog."
 msgstr "Не удалось получить каталог служб."
