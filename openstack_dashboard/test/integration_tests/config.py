@@ -161,7 +161,14 @@ VolumeGroup = [
                help='Default volume type'),
     cfg.StrOpt('volume_size',
                default='1',
-               help='Default volume size ')
+               help='Default volume size '),
+    cfg.BoolOpt('allow_delete_snapshot_before_volume',
+                default=True,
+                help='Set to False to disallow running the volume test where '
+                     'first snapshot is deleted and then volume booted from '
+                     'this snapshot is deleted, but instead run only the test '
+                     'that deletes volume first and then snapshot. '
+                     'Set to True to run both tests.')
 ]
 
 PluginGroup = [
