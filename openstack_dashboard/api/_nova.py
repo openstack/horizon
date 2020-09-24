@@ -50,6 +50,10 @@ class Server(base.APIResourceWrapper):
               'tenant_id', 'user_id', 'created', 'locked',
               'OS-EXT-STS:power_state', 'OS-EXT-STS:task_state',
               'OS-EXT-SRV-ATTR:instance_name', 'OS-EXT-SRV-ATTR:host',
+              'OS-EXT-SRV-ATTR:hostname', 'OS-EXT-SRV-ATTR:kernel_id',
+              'OS-EXT-SRV-ATTR:ramdisk_id', 'OS-EXT-SRV-ATTR:root_device_name',
+              'OS-EXT-SRV-ATTR:root_device_name', 'OS-EXT-SRV-ATTR:user_data',
+              'OS-EXT-SRV-ATTR:reservation_id', 'OS-EXT-SRV-ATTR:launch_index',
               'OS-EXT-AZ:availability_zone', 'OS-DCF:diskConfig']
 
     def __init__(self, apiresource, request):
@@ -76,16 +80,58 @@ class Server(base.APIResourceWrapper):
                 return None
 
     @property
-    def internal_name(self):
-        return getattr(self, 'OS-EXT-SRV-ATTR:instance_name', "")
-
-    @property
     def availability_zone(self):
         return getattr(self, 'OS-EXT-AZ:availability_zone', "")
 
     @property
+    def has_extended_attrs(self):
+        return any(getattr(self, attr) for attr in [
+            'OS-EXT-SRV-ATTR:instance_name', 'OS-EXT-SRV-ATTR:host',
+            'OS-EXT-SRV-ATTR:hostname', 'OS-EXT-SRV-ATTR:kernel_id',
+            'OS-EXT-SRV-ATTR:ramdisk_id', 'OS-EXT-SRV-ATTR:root_device_name',
+            'OS-EXT-SRV-ATTR:root_device_name', 'OS-EXT-SRV-ATTR:user_data',
+            'OS-EXT-SRV-ATTR:reservation_id', 'OS-EXT-SRV-ATTR:launch_index',
+        ])
+
+    @property
+    def internal_name(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:instance_name', "")
+
+    @property
     def host_server(self):
-        return getattr(self, 'OS-EXT-SRV-ATTR:host', '')
+        return getattr(self, 'OS-EXT-SRV-ATTR:host', "")
+
+    @property
+    def instance_name(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:instance_name', "")
+
+    @property
+    def reservation_id(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:reservation_id', "")
+
+    @property
+    def launch_index(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:launch_index', "")
+
+    @property
+    def hostname(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:hostname', "")
+
+    @property
+    def kernel_id(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:kernel_id', "")
+
+    @property
+    def ramdisk_id(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:ramdisk_id', "")
+
+    @property
+    def root_device_name(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:root_device_name', "")
+
+    @property
+    def user_data(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:user_data', "")
 
 
 @memoized.memoized
