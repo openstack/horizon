@@ -81,6 +81,7 @@ module.exports = function (config) {
 
       // from jasmine_tests.py; only those that are deps for others
       'horizon/js/horizon.js',
+      'horizon/js/horizon.uuid.js',
 
       /**
        * First, list all the files that defines application's angular modules.
