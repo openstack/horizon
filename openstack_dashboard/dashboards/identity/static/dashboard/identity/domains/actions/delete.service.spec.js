@@ -89,7 +89,7 @@
     }));
 
     describe('perform method and pass only', function() {
-      it('should open the delete modal', function() {
+      it('should open the delete modal', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteDomain');
         deleteModalService.onlyPass = true;
@@ -97,6 +97,7 @@
         var domain = generateDomains(1)[0];
         service.perform(domain);
         $scope.$apply();
+        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
@@ -104,7 +105,7 @@
         deleteFunction(domain.id);
       });
 
-      it('should pass and fail in a function that delete domain by item action', function() {
+      it('should pass and fail in a function that delete domain by item action', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteDomain');
         deleteModalService.onlyPass = false;
@@ -112,6 +113,7 @@
         var domain = generateDomains(1)[0];
         service.perform(domain);
         $scope.$apply();
+        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
@@ -119,7 +121,7 @@
         deleteFunction(domain.id);
       });
 
-      it('should pass and fail in a function that delete domain by batch action', function() {
+      it('should pass and fail in a function that delete domain by batch action', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteDomain');
         deleteModalService.onlyPass = false;
@@ -127,6 +129,7 @@
         var domain = generateDomains(1)[0];
         service.perform([domain]);
         $scope.$apply();
+        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;

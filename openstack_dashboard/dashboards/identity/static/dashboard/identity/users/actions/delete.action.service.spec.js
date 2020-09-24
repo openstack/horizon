@@ -90,7 +90,7 @@
     }));
 
     describe('perform method and pass only', function() {
-      it('should open the delete modal', function() {
+      it('should open the delete modal', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteUser');
         deleteModalService.onlyPass = true;
@@ -98,6 +98,7 @@
         var user = generateItems(1)[0];
         service.perform(user);
         $scope.$apply();
+        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
@@ -105,7 +106,7 @@
         deleteFunction(user.id);
       });
 
-      it('should pass and fail in a function that delete user by item action', function() {
+      it('should pass and fail in a function that delete user by item action', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteUser');
         deleteModalService.onlyPass = false;
@@ -113,6 +114,7 @@
         var user = generateItems(1)[0];
         service.perform(user);
         $scope.$apply();
+        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
@@ -120,7 +122,7 @@
         deleteFunction(user.id);
       });
 
-      it('should pass and fail in a function that delete user by batch action', function() {
+      it('should pass and fail in a function that delete user by batch action', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteUser');
         deleteModalService.onlyPass = false;
@@ -128,6 +130,7 @@
         var user = generateItems(1)[0];
         service.perform([user]);
         $scope.$apply();
+        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
