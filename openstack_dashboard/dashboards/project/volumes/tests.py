@@ -26,6 +26,7 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.project.volumes \
     import tables as volume_tables
+from openstack_dashboard.dashboards.project.volumes import tabs
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
@@ -1554,6 +1555,46 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts={'volume_id': volume.id})
         self.mock_tenant_absolute_limits.assert_called_once()
+
+    @test.create_mocks({cinder: ['volume_get',
+                                 'message_list',
+                                 'volume_snapshot_list',
+                                 'tenant_absolute_limits']})
+    def test_detail_view_with_messages_tab(self):
+        volume = self.cinder_volumes.first()
+        messages = [msg for msg in self.cinder_messages.list()
+                    if msg.resource_type == 'VOLUME']
+        snapshots = self.cinder_volume_snapshots.list()
+
+        self.mock_volume_get.return_value = volume
+        self.mock_message_list.return_value = messages
+        self.mock_volume_snapshot_list.return_value = snapshots
+        self.mock_tenant_absolute_limits.return_value = \
+            self.cinder_limits['absolute']
+
+        url = reverse(DETAIL_URL, args=[volume.id])
+        detail_view = tabs.VolumeDetailTabs(self.request)
+        messages_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("messages_tab").get_id())
+        url += messages_tab_link
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertContains(res, messages[0].user_message)
+        self.assertContains(res, messages[1].user_message)
+        self.assertNoMessages()
+
+        self.mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     volume.id)
+        self.mock_volume_snapshot_list.assert_called_once_with(
+            test.IsHttpRequest(), search_opts={'volume_id': volume.id})
+        self.mock_tenant_absolute_limits.assert_called_once_with(
+            test.IsHttpRequest())
+        search_opts = {'resource_type': 'volume',
+                       'resource_uuid': volume.id}
+        self.mock_message_list.assert_called_once_with(
+            test.IsHttpRequest(), search_opts=search_opts)
 
     @mock.patch.object(cinder, 'volume_get')
     def test_detail_view_with_exception(self, mock_get):

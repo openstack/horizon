@@ -559,9 +559,9 @@ def data(TEST):
          'id': '2d2bb0d7-af28-4566-9a65-6d987c19093c',
          'resource_type': 'VOLUME',
          'resource_uuid': '6d53d143-e10f-440a-a65f-16a6b6d068f7',
+         'message_level': 'ERROR',
          'user_message': 'schedule allocate volume:An unknown error occurred.'
          })
-
     messages_2 = messages.Message(
         messages.MessageManager(None),
         {'created_at': '2020-07-12T12:56:43.000000',
@@ -570,6 +570,20 @@ def data(TEST):
          'id': 'd360b4e2-bda5-4289-b673-714a90cde80b',
          'resource_type': 'VOLUME_SNAPSHOT',
          'resource_uuid': '761634b0-fa1c-4e59-b8ad-d720807cb355',
+         'message_level': 'ERROR',
          'user_message': 'create snapshot:Snapshot is busy.'})
+    messages_3 = messages.Message(
+        messages.MessageManager(None),
+        {'created_at': '2020-09-24T11:03:31.000000',
+         'event_id': 'VOLUME_VOLUME_001_003',
+         'guaranteed_until': '2020-10-24T11:03:31.000000',
+         'id': '1f481885-9e1b-4d67-bdb5-b9db461391d3',
+         'resource_type': 'VOLUME',
+         'resource_uuid': 'f227c02d-91d7-4c3f-90d8-d8f261d0331a',
+         'message_level': 'ERROR',
+         'user_message': ('schedule allocate volume:'
+                          'Could not find any available weighted backend.'),
+         })
     TEST.cinder_messages.add(api.cinder.Message(messages_1))
     TEST.cinder_messages.add(api.cinder.Message(messages_2))
+    TEST.cinder_messages.add(api.cinder.Message(messages_3))
