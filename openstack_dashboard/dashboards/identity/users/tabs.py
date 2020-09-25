@@ -76,11 +76,13 @@ class OverviewTab(tabs.Tab):
 
     def get_context_data(self, request):
         user = self.tab_group.kwargs['user']
+        options = getattr(user, 'options', {})
         return {
             "user": user,
             "domain_name": self._get_domain_name(user),
             'extras': self._get_extras(user),
             'project_name': self._get_project_name(user),
+            'lock_password': options.get('lock_password', False),
         }
 
 

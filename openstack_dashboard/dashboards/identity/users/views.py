@@ -211,8 +211,6 @@ class DetailView(tabs.TabView):
         context["user"] = user
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(user)
-        options = getattr(user, "options", {})
-        context["lock_password"] = options.get("lock_password", False)
         return context
 
     @memoized.memoized_method
