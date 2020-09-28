@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 18.4.2.dev11\n"
+"Project-Id-Version: horizon 18.7.0.dev3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-21 09:33+0000\n"
+"POT-Creation-Date: 2020-09-27 01:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-07-26 04:01+0000\n"
+"PO-Revision-Date: 2020-09-27 04:07+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -603,6 +603,13 @@ msgid ""
 msgstr ""
 "Memungkinkan untuk menentukan wilayah IdP untuk dihubungi jika "
 "WEBSSO_DEFAULT_REDIRECT disetel ke True"
+
+msgid ""
+"Along with the deprecation, the current plan on individual effective values "
+"in this setting is as follows."
+msgstr ""
+"Seiring dengan penghentian tersebut, rencana saat ini tentang nilai efektif "
+"individu dalam pengaturan ini adalah sebagai berikut."
 
 msgid ""
 "Angular Templates are cached using this duration (in seconds) if `DEBUG`_ is "
@@ -3130,6 +3137,24 @@ msgstr ""
 "Misalnya tema, lihat: /horizon/openstack_dashboard/themes/"
 
 msgid ""
+"The support of ``SimpleTenantUsage`` will be replaced by a new setting which "
+"controls whether ``SimpleTenantUsage`` nova API feature is used or not (not "
+"implemented yet as of Victoria; planned in Wallaby release). This setting "
+"will not be droped until the new setting is implemented."
+msgstr ""
+"Dukungan ``SimpleTenantUsage``akan diganti dengan pengaturan baru yang "
+"mengontrol apakah fitur nova API ``SimpleTenantUsage`` digunakan atau tidak "
+"(belum diimplementasikan sejak Victoria; direncanakan dalam rilis Wallaby). "
+"Pengaturan ini tidak akan dihapus sampai pengaturan baru diterapkan."
+
+msgid ""
+"The support of the following values will be simply dropped as nova provides "
+"all features in the recent API versions."
+msgstr ""
+"Dukungan dari nilai-nilai berikut akan dihilangkan begitu saja karena nova "
+"menyediakan semua fitur dalam versi API terbaru."
+
+msgid ""
 "The top navbar in Horizon now uses a native Bootstrap ``navbar``.  There are "
 "a number of variables that can be used to customize this element.  Please "
 "see the **Navbar** section of your variables file for specifics on what can "
@@ -4368,6 +4393,18 @@ msgstr "``ADD_XSTATIC_MODULES``"
 msgid "``AUTO_DISCOVER_STATIC_FILES``"
 msgstr "``AUTO_DISCOVER_STATIC_FILES``"
 
+msgid "``AdminActions``"
+msgstr "``AdminActions``"
+
+msgid "``Aggregates``"
+msgstr "``Aggregates``"
+
+msgid "``BlockDeviceMappingV2Boot``"
+msgstr "``BlockDeviceMappingV2Boot``"
+
+msgid "``ConfigDrive``"
+msgstr "``ConfigDrive``"
+
 msgid "``DASHBOARD``"
 msgstr "``DASHBOARD``"
 
@@ -4380,11 +4417,17 @@ msgstr "``DEFAULT``"
 msgid "``DISABLED``"
 msgstr "``DISABLED``"
 
+msgid "``DiskConfig``"
+msgstr "``DiskConfig``"
+
 msgid "``EXTRA_STEPS``"
 msgstr "``EXTRA_STEPS``"
 
 msgid "``EXTRA_TABS``"
 msgstr "``EXTRA_TABS``"
+
+msgid "``Keypairs``"
+msgstr "``Keypairs``"
 
 msgid "``PANEL_DASHBOARD``"
 msgstr "``PANEL_DASHBOARD``"
@@ -4403,6 +4446,18 @@ msgstr "``PANEL``"
 
 msgid "``REMOVE_PANEL``"
 msgstr "``REMOVE_PANEL``"
+
+msgid "``SchedulerHints``"
+msgstr "``SchedulerHints``"
+
+msgid "``ServerGroups``"
+msgstr "``ServerGroups``"
+
+msgid "``Services``"
+msgstr "``Services``"
+
+msgid "``Shelve``"
+msgstr "``Shelve``"
 
 msgid "``UPDATE_HORIZON_CONFIG``"
 msgstr "``UPDATE_HORIZON_CONFIG``"
