@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-09-08 11:08+0000\n"
+"POT-Creation-Date: 2020-09-14 10:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-09-08 06:24+0000\n"
+"PO-Revision-Date: 2020-09-29 04:27+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -745,15 +745,13 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Customization Script"
 
-#, fuzzy
 msgid "DNS Domain"
 msgid_plural "DNS Domains"
-msgstr[0] "Domain DNS"
+msgstr[0] "DNS Domain"
 
-#, fuzzy
 msgid "DNS Record"
 msgid_plural "DNS Records"
-msgstr[0] "Record DNS"
+msgstr[0] "DNS Record"
 
 msgid "DSCP Mark"
 msgstr "DSCP Mark"
@@ -1198,10 +1196,9 @@ msgstr ""
 "Flavor mengelola ukuran untuk komputasi, memori dan kapasitas penyimpanan "
 "dari instance."
 
-#, fuzzy
 msgid "Floating IP"
 msgid_plural "Floating IPs"
-msgstr[0] "IP mengambang"
+msgstr[0] "Floating IP"
 
 msgid "Focused input"
 msgstr "masukan terfokus"
@@ -1264,10 +1261,9 @@ msgstr "Generic Table View: (penampilan tabel generik)"
 msgid "Global Actions:"
 msgstr "Global Actions: (tindakan global)"
 
-#, fuzzy
 msgid "Group"
 msgid_plural "Groups"
-msgstr[0] "Group (kelompok)"
+msgstr[0] "Group"
 
 #, python-format
 msgid "Group %s was successfully created."
@@ -1536,10 +1532,9 @@ msgstr "Kernel"
 msgid "Kernel ID"
 msgstr "ID Kernel"
 
-#, fuzzy
 msgid "Key Pair"
 msgid_plural "Key Pairs"
-msgstr[0] "Pasangan kunci"
+msgstr[0] "Key Pair"
 
 msgid "Key Pair Name"
 msgstr "Key Pair Name"
@@ -1652,10 +1647,9 @@ msgstr "List groups (daftar kelompok)"
 msgid "Live Edit Schema Form Examples"
 msgstr "Live Edit Schema Form Examples"
 
-#, fuzzy
 msgid "Load Balancer Pool"
 msgid_plural "Load Balancer Pools"
-msgstr[0] "Pool load balancer"
+msgstr[0] "Load Balancer Pool"
 
 msgid "Load Balancer Pool Member"
 msgid_plural "Load Balancer Pool Members"
@@ -1815,15 +1809,13 @@ msgstr "Navbar"
 msgid "Navs"
 msgstr "Navs"
 
-#, fuzzy
 msgid "Network"
 msgid_plural "Networks"
-msgstr[0] "Network (jaringan)"
+msgstr[0] "Network"
 
-#, fuzzy
 msgid "Network Health Monitor"
 msgid_plural "Network Health Monitors"
-msgstr[0] "Monitor kesehatan jaringan"
+msgstr[0] "Network Health Monitor"
 
 msgid "Network ID"
 msgstr "Network ID"
@@ -1839,10 +1831,9 @@ msgid "Network Router"
 msgid_plural "Network Routers"
 msgstr[0] "Network Router"
 
-#, fuzzy
 msgid "Network Subnet"
 msgid_plural "Network Subnets"
-msgstr[0] "Subnet jaringan"
+msgstr[0] "Network Subnet"
 
 msgid "Network characteristics"
 msgstr "Karakteristik jaringan"
@@ -1962,10 +1953,9 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
-#, fuzzy
 msgid "Object"
 msgid_plural "Objects"
-msgstr[0] "Objek"
+msgstr[0] "Object"
 
 #, python-format
 msgid "Object %(path)s has copied."
@@ -2168,10 +2158,9 @@ msgstr "Profile (profil)"
 msgid "Progress bars"
 msgstr "Progress bars (bar progres)"
 
-#, fuzzy
 msgid "Project"
 msgid_plural "Projects"
-msgstr[0] "Project (proyek)"
+msgstr[0] "Project"
 
 msgid "Project ID"
 msgstr "ID proyek"
@@ -2335,10 +2324,9 @@ msgstr "Sections and Fieldsets"
 msgid "Security"
 msgstr "Security (keamanan)"
 
-#, fuzzy
 msgid "Security Group"
 msgid_plural "Security Groups"
-msgstr[0] "Kelompok keamanan"
+msgstr[0] "Security Group"
 
 msgid "Security Groups"
 msgstr "Kelompok keamanan"
@@ -3612,10 +3600,9 @@ msgstr ""
 "Skema selalu JSON. NOTE: Sebuah elemen skema tidak diperlukan untuk item "
 "yang tidak memiliki model data, seperti bagian dan fieldsets."
 
-#, fuzzy
 msgid "User"
 msgid_plural "Users"
-msgstr[0] "User (pengguna)"
+msgstr[0] "User"
 
 #, python-format
 msgid "User %s was successfully created."
@@ -3701,10 +3688,9 @@ msgid "Volume"
 msgid_plural "Volumes"
 msgstr[0] "Volume"
 
-#, fuzzy
 msgid "Volume Backup"
 msgid_plural "Volume Backups"
-msgstr[0] "Backup volume"
+msgstr[0] "Volume Backup"
 
 msgid "Volume Details"
 msgstr "Volume Details (detail volume)"
@@ -3715,10 +3701,9 @@ msgstr "Quota volume"
 msgid "Volume Size (GB)"
 msgstr "Volume Size (GB)"
 
-#, fuzzy
 msgid "Volume Snapshot"
 msgid_plural "Volume Snapshots"
-msgstr[0] "Snapshot volume"
+msgstr[0] "Volume Snapshot"
 
 msgid "Volume Type Description:"
 msgstr "Volume type deskripsi:"
