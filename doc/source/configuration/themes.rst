@@ -179,7 +179,7 @@ Advanced
 ~~~~~~~~
 
 If you need to do more to customize the logo than simply replacing the existing
-PNG, then you can also override the _brand.html through a custom theme.  To use
+SVG, then you can also override the _brand.html through a custom theme.  To use
 this technique, simply add a ``templates/header/_brand.html`` to the root of
 your custom theme, and add markup directly to the file.  For an example of how
 to do this, see
