@@ -11,11 +11,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-09-10 18:13+0000\n"
+"POT-Creation-Date: 2020-10-02 07:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-09-12 10:19+0000\n"
+"PO-Revision-Date: 2020-10-03 09:43+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -3962,6 +3962,9 @@ msgstr "Last Updated"
 msgid "Launch"
 msgstr "Launch"
 
+msgid "Launch Index"
+msgstr "Launch Index"
+
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
@@ -5398,6 +5401,9 @@ msgstr "Rescued"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescuing"
+
+msgid "Reservation ID"
+msgstr "Reservation ID"
 
 msgctxt "Current status of a Volume"
 msgid "Reserved"
@@ -7132,6 +7138,10 @@ msgstr "Unable to clone empty group."
 msgid "Unable to clone group."
 msgstr "Unable to clone group."
 
+#, python-format
+msgid "Unable to confirm resize instance \"%s\"."
+msgstr "Unable to confirm resize instance \"%s\"."
+
 msgid "Unable to connect to Neutron."
 msgstr "Unable to connect to Neutron."
 
@@ -8069,6 +8079,10 @@ msgstr "Unable to retrieve volume/instance attachment information"
 msgid "Unable to retrieve volumes."
 msgstr "Unable to retrieve volumes."
 
+#, python-format
+msgid "Unable to revert resize instance \"%s\"."
+msgstr "Unable to revert resize instance \"%s\"."
+
 msgid "Unable to set Domain Context."
 msgstr "Unable to set Domain Context."
 
@@ -8483,6 +8497,9 @@ msgstr "User \"%s\" was successfully created."
 
 msgid "User Credentials Details"
 msgstr "User Credentials Details"
+
+msgid "User Data"
+msgstr "User Data"
 
 msgid "User Details"
 msgstr "User Details"
