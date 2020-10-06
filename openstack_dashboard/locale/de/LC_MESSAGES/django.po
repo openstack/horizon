@@ -19,11 +19,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-09-09 01:42+0000\n"
+"POT-Creation-Date: 2020-10-05 07:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-04-25 08:13+0000\n"
+"PO-Revision-Date: 2020-10-05 06:42+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -1559,6 +1559,9 @@ msgctxt "Created time"
 msgid "Created"
 msgstr "Erstellt"
 
+msgid "Created At"
+msgstr "Erstellt am"
+
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Zusätzliche Spezifikation \"%s\" erstellt."
@@ -2823,6 +2826,9 @@ msgstr ""
 "Evakuiere die Server vom ausgewählten gestoppten Host auf einen aktiven "
 "Zielhost."
 
+msgid "Event Id"
+msgstr "Ereignis ID"
+
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
 "tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
@@ -2929,6 +2935,9 @@ msgid "Failed to add project %(project)s to volume type access."
 msgstr ""
 "Fehler beim Hinzufügen des Projekts %(project)s zum Datenträgertyp-Zugriff."
 
+msgid "Failed to add route"
+msgstr "Fehler beim Hinzufügen der Route."
+
 msgid "Failed to check if description field is supported."
 msgstr "Fehler beim Prüfen, ob das Beschreibungsfeld unterstützt wird."
 
@@ -2949,6 +2958,10 @@ msgid "Failed to create a rbac policy."
 msgstr "Fehler bei der Erstellung der RBAC Richtlinie."
 
 #, python-format
+msgid "Failed to create network \"%s\"."
+msgstr "Das Netzwerk \"%s\" konnte nicht erstellt werden."
+
+#, python-format
 msgid "Failed to create network %s"
 msgstr "Das Netzwerk %s konnte nicht erstellt werden."
 
@@ -2962,6 +2975,15 @@ msgstr "Router \"%s\" konnte nicht angelegt werden."
 
 msgid "Failed to create router."
 msgstr "Fehler beim Erstellen des Routers."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
+msgstr ""
+"Fehler beim Erzeugen des Subnetzes \"%(sub)s\" für Netzwerk \"%(net)s\"."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\"."
+msgstr "Fehler beim Erzeugen des Subnetzes \"%(sub)s\"."
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -3057,6 +3079,9 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr ""
 "Fehler beim Entfernen des Projekts %(project)s vom Datenträgertyp-Zugriff."
 
+msgid "Failed to set gateway."
+msgstr "Fehler beim setzen des Gateways."
+
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Das Netzwerk %s konnte nicht aktualisiert werden."
@@ -3072,6 +3097,10 @@ msgstr "Fehler beim Atualisieren der rbac Richtlinie %s"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Aktualisierung des Routers %s fehlgeschlagen."
+
+#, python-format
+msgid "Failed to update subnet \"%s\"."
+msgstr "Fehler beim aktualisieren des Subnetzes \"%s\"."
 
 msgid "False"
 msgstr "Falsch"
@@ -3386,6 +3415,9 @@ msgstr ""
 "Gruppen werden verwendet, um Zugriff und Zugehörigkeiten zu Rollen für "
 "mehrere Benutzer gleichzeitig zu regeln. Bearbeiten Sie hier den "
 "Gruppennamen und deren Beschreibung."
+
+msgid "Guaranteed Until"
+msgstr "Garantiert bis"
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
@@ -3993,6 +4025,9 @@ msgstr "Letzte Aktualisierung"
 msgid "Launch"
 msgstr "Start"
 
+msgid "Launch Index"
+msgstr "Start Index"
+
 msgid "Launch Instance"
 msgstr "Instanz starten"
 
@@ -4199,6 +4234,9 @@ msgstr "Speicherbelegung"
 
 msgid "Message"
 msgstr "Nachricht"
+
+msgid "Message Level"
+msgstr "Benachrichtigungslevel"
 
 msgid "Messages"
 msgstr "Nachrichten"
@@ -5440,6 +5478,9 @@ msgstr "Gerettet"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Start im Rescue Mode"
+
+msgid "Reservation ID"
+msgstr "Reservierungs ID"
 
 msgctxt "Current status of a Volume"
 msgid "Reserved"
@@ -7659,6 +7700,9 @@ msgstr "QoS Spezifikationen können nicht abgerufen werden"
 msgid "Unable to retrieve RBAC policies."
 msgstr "Die RBAC Richtlinien können nicht abgerufen werden."
 
+msgid "Unable to retrieve a list of external networks."
+msgstr "Liste externer Netzwerke kann nicht abgerufen werden."
+
 msgid "Unable to retrieve agent list."
 msgstr "Agentenliste kann nicht abgerufen werden."
 
@@ -8043,6 +8087,9 @@ msgstr "Details zur Schattenkopie können nicht abgerufen werden."
 msgid "Unable to retrieve snapshot list."
 msgstr "Liste der Schattenkopien kann nicht abgerufen werden."
 
+msgid "Unable to retrieve snapshot messages."
+msgstr "Konnte Schattenkopie Nachrichten nicht abrufen."
+
 msgid "Unable to retrieve subnet details"
 msgstr "Subnetz-Details konnten nicht abgerufen werden"
 
@@ -8207,6 +8254,12 @@ msgstr ""
 msgid "Unable to retrieve volumes."
 msgstr "Datenträger können nicht abgerufen werden."
 
+#, python-format
+msgid "Unable to revert resize instance \"%s\"."
+msgstr ""
+"Rückgängig machen der Änderung der Größe der Instanz \"%s\" ist nicht "
+"möglich."
+
 msgid "Unable to set Domain Context."
 msgstr "Domänen-Kontext kann nicht gesetzt werden."
 
@@ -8257,6 +8310,9 @@ msgstr ""
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "Abbild \"%s\" konnte nicht aktualisiert werden."
+
+msgid "Unable to update instance security group."
+msgstr "Sicherheitsgruppe kann nicht aktualisiert werden."
 
 msgid "Unable to update mapping."
 msgstr "Zuordnung kann nicht aktualisiert werden."
@@ -8622,6 +8678,9 @@ msgstr "Der Benutzer \"%s\" wurde erfolgreich erstellt."
 msgid "User Credentials Details"
 msgstr "Benutzeranmeldedatendetails"
 
+msgid "User Data"
+msgstr "Benutzerdaten"
+
 msgid "User Details"
 msgstr "Benutzerdetails"
 
@@ -8630,6 +8689,9 @@ msgstr "Benutzer ID"
 
 msgid "User ID ="
 msgstr "Benutzer-ID ="
+
+msgid "User Message"
+msgstr "Benutzernachricht"
 
 msgid "User Name"
 msgstr "Benutzername"

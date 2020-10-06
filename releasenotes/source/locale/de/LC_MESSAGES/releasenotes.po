@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 08:21+0000\n"
+"POT-Creation-Date: 2020-10-05 07:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-07-11 10:11+0000\n"
+"PO-Revision-Date: 2020-10-05 06:39+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -53,17 +53,26 @@ msgstr "11.0.0"
 msgid "11.0.3"
 msgstr "11.0.3"
 
+msgid "11.0.4-22"
+msgstr "11.0.4-22"
+
 msgid "12.0.0"
 msgstr "12.0.0"
 
 msgid "12.0.3"
 msgstr "12.0.3"
 
+msgid "12.0.4-3"
+msgstr "12.0.4-3"
+
 msgid "13.0.0"
 msgstr "13.0.0"
 
 msgid "13.0.3"
 msgstr "13.0.3"
+
+msgid "13.0.3-6"
+msgstr "13.0.3-6"
 
 msgid "14.0.0"
 msgstr "14.0.0"
@@ -112,6 +121,12 @@ msgstr "18.1.0"
 
 msgid "18.3.0"
 msgstr "18.3.0"
+
+msgid "18.5.0"
+msgstr "18.5.0"
+
+msgid "18.6.0"
+msgstr "18.6.0"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -4004,6 +4019,9 @@ msgstr ""
 "Cleanup- und Refactoring-Arbeiten zu tun. Das Dashboard \"nova\" wurde in "
 "\"Projekt\" umbenannt und das Armaturenbrett \"syspanel\" wurde in \"admin\" "
 "umbenannt."
+
+msgid "Victoria Series Release Notes"
+msgstr "Victoria Serie Releasenotes"
 
 msgid ""
 "View added to allow administrators to view/add/update Glance Metadata "
