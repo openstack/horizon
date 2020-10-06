@@ -1,14 +1,15 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 17:54+0000\n"
+"POT-Creation-Date: 2020-09-08 12:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-10-04 09:35+0000\n"
+"PO-Revision-Date: 2020-10-05 01:46+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -35,6 +36,9 @@ msgstr ":launchpad:`magnum-ui`"
 
 msgid ":launchpad:`manila-ui`"
 msgstr ":launchpad:`manila-ui`"
+
+msgid ":launchpad:`masakari`"
+msgstr ":launchpad:`masakari`"
 
 msgid ":launchpad:`mistral`"
 msgstr ":launchpad:`mistral`"
@@ -102,6 +106,9 @@ msgstr ":opendev-repo:`openstack/magnum-ui`"
 msgid ":opendev-repo:`openstack/manila-ui`"
 msgstr ":opendev-repo:`openstack/manila-ui`"
 
+msgid ":opendev-repo:`openstack/masakari-dashboard`"
+msgstr ":opendev-repo:`openstack/masakari-dashboard`"
+
 msgid ":opendev-repo:`openstack/mistral-dashboard`"
 msgstr ":opendev-repo:`openstack/mistral-dashboard`"
 
@@ -122,6 +129,9 @@ msgstr ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
 
 msgid ":opendev-repo:`openstack/octavia-dashboard`"
 msgstr ":opendev-repo:`openstack/octavia-dashboard`"
+
+msgid ":opendev-repo:`openstack/qinling-dashboard`"
+msgstr ":opendev-repo:`openstack/qinling-dashboard`"
 
 msgid ":opendev-repo:`openstack/sahara-dashboard`"
 msgstr ":opendev-repo:`openstack/sahara-dashboard`"
@@ -159,11 +169,23 @@ msgstr ": ref: 'instali-agordi' priskribas kiel agordi horizon."
 msgid ":ref:`install-settings` lists the available settings for horizon."
 msgstr ":ref:`install-settings` listigas la disponeblajn agordojn por horizon."
 
+msgid ":storyboard:`openstack/cloudkitty-dashboard`"
+msgstr ":storyboard:`openstack/cloudkitty-dashboard`"
+
+msgid ":storyboard:`openstack/freezer-web-ui`"
+msgstr ":storyboard:`openstack/freezer-web-ui`"
+
 msgid ":storyboard:`openstack/heat-dashboard`"
 msgstr ":storyboard:`openstack/heat-dashboard`"
 
+msgid ":storyboard:`openstack/ironic-ui`"
+msgstr ":storyboard:`openstack/ironic-ui`"
+
 msgid ":storyboard:`openstack/octavia-dashboard`"
 msgstr ":storyboard:`openstack/octavia-dashboard`"
+
+msgid ":storyboard:`openstack/qinling-dashboard`"
+msgstr ":storyboard:`openstack/qinling-dashboard`"
 
 msgid ":storyboard:`openstack/sahara-dashboard`"
 msgstr ":storyboard:`openstack/sahara-dashboard`"
@@ -360,6 +382,9 @@ msgstr ""
 
 msgid "Deployment"
 msgstr "Disponigo"
+
+msgid "Django 2.2"
+msgstr "Django 2.2"
 
 msgid "Django support policy is documented at :doc:`/contributor/policy`."
 msgstr ""
@@ -572,6 +597,9 @@ msgstr ""
 "problemoj, indiku la servilo IP-adreson al la domajna nomo, kaj provizu "
 "aliron al la uzantoj."
 
+msgid "Python 3.6 or 3.7"
+msgstr "Python 3.6 or 3.7"
+
 msgid "Python memcached module installed"
 msgstr "Python memcached modulo instalita"
 
@@ -636,6 +664,9 @@ msgstr "Statikaj Aĵoj"
 
 msgid "System Requirements"
 msgstr "Sistemaj Postuloj"
+
+msgid "The Ussuri release of horizon has the following dependencies."
+msgstr "La Ussuri-eldono de horizonto havas jenajn dependecojn."
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
@@ -722,6 +753,13 @@ msgstr ""
 "apache``."
 
 msgid ""
+"This is a list of horizon plugins which are part of the official OpenStack "
+"releases."
+msgstr ""
+"Jen listo de horizontaj kromaĵoj, kiuj estas parto de la oficialaj eldonoj "
+"de OpenStack."
+
+msgid ""
 "This page covers the basic installation of horizon in a production "
 "environment. If you are looking for a developer environment, see :ref:"
 "`quickstart`."
@@ -773,6 +811,15 @@ msgstr ""
 
 msgid "Translations"
 msgstr "Tradukoj"
+
+msgid ""
+"Ussuri release uses Django 2.2 (the latest LTS) as the primary Django "
+"version. The prevouos LTS of Django 1.11 will be dropped during Ussuri "
+"cycle. Django 2.0 support will be dropped as well."
+msgstr ""
+"Ussuri-eldono uzas Django 2.2 (la plej nova LTS) kiel la ĉefa Django-versio. "
+"La antaŭaj LTS de Django 1.11 estos forigitaj dum Ussuri-ciklo. Subteno de "
+"Django 2.0 ankaŭ estos forigita."
 
 msgid "Verify operation for Debian"
 msgstr "Kontrolu operacion por Debian"
@@ -853,3 +900,90 @@ msgstr "`nova <https://docs.openstack.org/nova/latest/>`_: Komputado"
 
 msgid "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
 msgstr "`swift <https://docs.openstack.org/swift/latest/>`_: Objekta Stokada"
+
+msgid "blazar-dashboard"
+msgstr "blazar-panelo"
+
+msgid "cloudkitty-dashboard"
+msgstr "cloudkitty-panelo"
+
+msgid "congress-dashboard"
+msgstr "congress-panelo"
+
+msgid "designate-dashboard"
+msgstr "designate-panelo"
+
+msgid "freezer-web-ui"
+msgstr "freezer-web-ui"
+
+msgid "heat-dashboard"
+msgstr "heat-panelo"
+
+msgid "ironic-ui"
+msgstr "ironic-ui"
+
+msgid "karbor-dashboard"
+msgstr "karbor-panelo"
+
+msgid "magnum-ui"
+msgstr "magnum-ui"
+
+msgid "manila-ui"
+msgstr "manila-ui"
+
+msgid "masakari-dashboard"
+msgstr "masakari-panelo"
+
+msgid "mistral-dashboard"
+msgstr "mistral-panelo"
+
+msgid "monasca-ui"
+msgstr "monasca-ui"
+
+msgid "murano-dashboard"
+msgstr "murano-panelo"
+
+msgid "networking-bgpvpn"
+msgstr "networking-bgpvpn"
+
+msgid "neutron-fwaas-dashboard"
+msgstr "neutron-fwaas-panelo"
+
+msgid "neutron-vpnaas-dashboard"
+msgstr "neutron-vpnaas-panelo"
+
+msgid "octavia-dashboard"
+msgstr "octavia-panelo"
+
+msgid "qinling-dashboard"
+msgstr "qinling-panelo"
+
+msgid "sahara-dashboard"
+msgstr "sahara-panelo"
+
+msgid "searchlight-ui"
+msgstr "searchlight-ui"
+
+msgid "senlin-dashboard"
+msgstr "senlin-panelo"
+
+msgid "solum-dashboard"
+msgstr "solum-panelo"
+
+msgid "tacker-horizon"
+msgstr "tacker-horizon"
+
+msgid "trove-dashboard"
+msgstr "trove-panelo"
+
+msgid "vitrage-dashboard"
+msgstr "vitrage-panelo"
+
+msgid "watcher-dashboard"
+msgstr "watcher-panelo"
+
+msgid "zaqar-ui"
+msgstr "zaqar-ui"
+
+msgid "zun-ui"
+msgstr "zun-ui"
