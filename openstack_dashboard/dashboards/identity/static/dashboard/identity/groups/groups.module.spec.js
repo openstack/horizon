@@ -50,10 +50,12 @@
     });
 
     it('should load groups', function () {
-      registry.getResourceType('OS::Keystone::Group').list().then(function(responses) {
-        $scope.$apply();
-        expect(responses).toEqual(groups);
-      });
+      var groupList = registry.getResourceType('OS::Keystone::Group').list();
+      groupList.then(verifyResult);
+      $scope.$apply();
+      function verifyResult (result) {
+        expect(result).toEqual(groups);
+      }
     });
   });
 })();
