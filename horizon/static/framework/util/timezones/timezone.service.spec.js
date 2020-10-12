@@ -17,34 +17,43 @@
   'use strict';
 
   describe('horizon.framework.util.timezones.service', function () {
-    var service;
+    var service, $httpBackend;
+    var testData = {timezone_dict: {
+      "Asia/Shanghai": "+0800",
+      UTC: "+0000"
+    }};
+
     beforeEach(module('horizon.framework'));
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function ($injector, _$httpBackend_) {
       service = $injector.get('horizon.framework.util.timezones.service');
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET('/api/timezones/').respond(testData);
     }));
 
-    it('defines the service', function() {
+    it('defines the service', function () {
       expect(service).toBeDefined();
+    });
+
+    it('defines getTimeZones', function () {
+      expect(service.getTimeZones()).toBeDefined();
     });
 
     describe('get timezone offset', function () {
 
       it('returns +0000(UTC offset) if nothing', function () {
+        service.getTimeZoneOffset().then(getResult);
         function getResult(result) {
           expect(result).toBe('+0000');
         }
-
-        service.getTimeZoneOffset().then(getResult);
+        $httpBackend.flush();
       });
 
-      it('returns the timezone offset', function() {
-
+      it('returns the timezone offset', function () {
+        service.getTimeZoneOffset('Asia/Shanghai').then(getResult);
         function getResult(result) {
           expect(result).toBe('+0800');
         }
-
-        service.getTimeZoneOffset('Asia/Shanghai').then(getResult);
-
+        $httpBackend.flush();
       });
     });
   }); // end of horizon.framework.util.timezones
