@@ -1,3 +1,12 @@
+# Usage: unit_tests.sh [--coverage] <root_dir> [<test-file>, ...]
+
+if [ "$1" = "--coverage" ]; then
+  shift
+  coverage=1
+else
+  coverage=0
+fi
+
 root=$1
 posargs="${@:2}"
 
@@ -52,11 +61,15 @@ function run_test {
     fi
   fi
 
-  report_args="--junitxml=$report_dir/${project}_test_results.xml"
-  report_args+=" --html=$report_dir/${project}_test_results.html"
-  report_args+=" --self-contained-html"
+  if [ "$coverage" -eq 1 ]; then
+    coverage run -m pytest $target --ds=$settings_module -m "$tag"
+  else
+    report_args="--junitxml=$report_dir/${project}_test_results.xml"
+    report_args+=" --html=$report_dir/${project}_test_results.html"
+    report_args+=" --self-contained-html"
 
-  pytest $target --ds=$settings_module -v -m "$tag" $report_args
+    pytest $target --ds=$settings_module -v -m "$tag" $report_args
+  fi
   return $?
 }
 

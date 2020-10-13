@@ -11,6 +11,7 @@
 .DS_STORE
 .DS_Store
 /cover
+/coverage/
 coverage.xml
 coverage-karma
 pep8.txt
@@ -19,7 +20,6 @@ pylint.txt
 RELEASENOTES.rst
 releasenotes/build
 releasenotes/notes/reno.cache
-reports
 
 openstack_dashboard/local/*
 !openstack_dashboard/local/local_settings.py.example
