@@ -34,16 +34,17 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2019. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2019. #zanata
 # Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2020. #zanata
+# Roman Gorshunov <roman.gorshunov@att.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-09-16 17:23+0000\n"
+"POT-Creation-Date: 2020-10-08 09:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-09-16 04:39+0000\n"
-"Last-Translator: Dmitriy Rabotyagov <noonedeadpunk@ya.ru>\n"
+"PO-Revision-Date: 2020-10-13 11:57+0000\n"
+"Last-Translator: Roman Gorshunov <roman.gorshunov@att.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -4106,6 +4107,9 @@ msgstr "Обновлено"
 msgid "Launch"
 msgstr "Запустить"
 
+msgid "Launch Index"
+msgstr "Индекс запуска"
+
 msgid "Launch Instance"
 msgstr "Запустить инстанс"
 
@@ -5559,6 +5563,9 @@ msgstr "Восстановлен"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Восстановление"
+
+msgid "Reservation ID"
+msgstr "ID резервации"
 
 msgctxt "Current status of a Volume"
 msgid "Reserved"
@@ -7312,6 +7319,10 @@ msgstr "Не удалось клонировать пустую группу."
 msgid "Unable to clone group."
 msgstr "Не удалось клонировать группу."
 
+#, python-format
+msgid "Unable to confirm resize instance \"%s\"."
+msgstr "Не удалось подтвердить изменение размера инстанса \"%s\"."
+
 msgid "Unable to connect to Neutron."
 msgstr "Невозможно подключиться к Neutron."
 
@@ -8258,6 +8269,10 @@ msgstr "Не удалось получить информацию о подкл�
 msgid "Unable to retrieve volumes."
 msgstr "Не удалось получить диски."
 
+#, python-format
+msgid "Unable to revert resize instance \"%s\"."
+msgstr "Не удалось отменить изменение размера инстанса \"%s\"."
+
 msgid "Unable to set Domain Context."
 msgstr "Не удалось установить контекст домена."
 
@@ -8681,6 +8696,9 @@ msgstr "Пользователь «%s» успешно создан."
 
 msgid "User Credentials Details"
 msgstr "Детали учетных данных пользователя"
+
+msgid "User Data"
+msgstr "Пользовательские данные"
 
 msgid "User Details"
 msgstr "Детали пользователя"
