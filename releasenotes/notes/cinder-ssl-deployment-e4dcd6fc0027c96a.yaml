@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    [:bug:`1744670`]
+    Previously when a custom SSL CA is used horizon cannot retrieve volume
+    and snapshot information from cinder. It is fixed now and a custom CA
+    is handled properly in horizon when communicating with cinder.

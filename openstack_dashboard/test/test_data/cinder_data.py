@@ -36,6 +36,7 @@ from openstack_dashboard.usage import quotas as usage_quotas
 
 
 def data(TEST):
+    TEST.cinder_versions = utils.TestDataContainer()
     TEST.cinder_services = utils.TestDataContainer()
     TEST.cinder_volumes = utils.TestDataContainer()
     TEST.cinder_volume_backups = utils.TestDataContainer()
@@ -58,6 +59,41 @@ def data(TEST):
     TEST.cinder_group_snapshots = utils.TestDataContainer()
     TEST.cinder_group_volumes = utils.TestDataContainer()
     TEST.cinder_volume_snapshots_with_groups = utils.TestDataContainer()
+
+    ver2 = {
+        'id': 'v2.0',
+        'links': [{'href': 'http://docs.openstack.org/',
+                   'rel': 'describedby',
+                   'type': 'text/html'},
+                  {'href': 'http://192.168.50.25/volume/v2/',
+                   'rel': 'self'}],
+        'media-types': [
+            {'base': 'application/json',
+             'type': 'application/vnd.openstack.volume+json;version=2'}
+        ],
+        'min_version': '',
+        'status': 'DEPRECATED',
+        'updated': '2014-06-28T12:20:21Z',
+        'version': '',
+    }
+    ver3 = {
+        'id': 'v3.0',
+        'links': [{'href': 'http://docs.openstack.org/',
+                   'rel': 'describedby',
+                   'type': 'text/html'},
+                  {'href': 'http://192.168.50.25/volume/v3/',
+                   'rel': 'self'}],
+        'media-types': [
+            {'base': 'application/json',
+             'type': 'application/vnd.openstack.volume+json;version=3'}
+        ],
+        'min_version': '3.0',
+        'status': 'CURRENT',
+        'updated': '2016-02-08T12:20:21Z',
+        'version': '3.16',
+    }
+    TEST.cinder_versions.add(ver2)
+    TEST.cinder_versions.add(ver3)
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {

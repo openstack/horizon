@@ -30,6 +30,7 @@ from cinderclient import api_versions
 from cinderclient import client as cinder_client
 from cinderclient import exceptions as cinder_exception
 from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
+from six.moves import urllib
 
 from horizon import exceptions
 from horizon.utils.memoized import memoized
@@ -253,9 +254,58 @@ def get_microversion(request, features):
         version, cinder_url = _find_cinder_url(request)
     except exceptions.ServiceCatalogException:
         return None
-    min_ver, max_ver = cinder_client.get_server_version(cinder_url)
+    min_ver, max_ver = _get_server_version(request, cinder_url)
     return microversions.get_microversion_for_features(
         'cinder', features, api_versions.APIVersion, min_ver, max_ver)
+
+
+# NOTE(amotoki): Borrowed from cinderclient.client.get_server_version()
+# to support custom SSL CA Cert support with cinderclient<5.
+def _get_server_version(request, url):
+    min_version = "2.0"
+    current_version = "2.0"
+    try:
+        u = urllib.parse.urlparse(url)
+        version_url = None
+
+        # NOTE(andreykurilin): endpoint URL has at least 2 formats:
+        #   1. The classic (legacy) endpoint:
+        #       http://{host}:{optional_port}/v{2 or 3}/{project-id}
+        #       http://{host}:{optional_port}/v{2 or 3}
+        #   3. Under wsgi:
+        #       http://{host}:{optional_port}/volume/v{2 or 3}
+        for ver in ['v2', 'v3']:
+            if u.path.endswith(ver) or "/{0}/".format(ver) in u.path:
+                path = u.path[:u.path.rfind(ver)]
+                version_url = '%s://%s%s' % (u.scheme, u.netloc, path)
+                break
+
+        if not version_url:
+            # NOTE(andreykurilin): probably, it is one of the next cases:
+            #  * https://volume.example.com/
+            #  * https://example.com/volume
+            # leave as is without cropping.
+            version_url = url
+
+        c = cinderclient(request)
+        resp, data = c.client.request(version_url, 'GET')
+
+        versions = data['versions']
+        for version in versions:
+            if '3.' in version['version']:
+                min_version = version['min_version']
+                current_version = version['version']
+                break
+            else:
+                # Set the values, but don't break out the loop here in case v3
+                # comes later
+                min_version = '2.0'
+                current_version = '2.0'
+    except cinder_exception.ClientException as e:
+        LOG.warning("Error in server version query:%s\n"
+                    "Returning APIVersion 2.0", e)
+    return (api_versions.APIVersion(min_version),
+            api_versions.APIVersion(current_version))
 
 
 def _cinderclient_with_features(request, features,
