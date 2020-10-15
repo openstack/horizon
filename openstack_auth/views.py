@@ -19,6 +19,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as django_auth_views
 from django.contrib import messages
 from django import http as django_http
+from django.middleware import csrf
 from django import shortcuts
 from django.urls import reverse
 from django.utils import functional
@@ -45,6 +46,24 @@ from openstack_auth import utils
 
 
 LOG = logging.getLogger(__name__)
+
+
+def get_csrf_reason(reason):
+    if not reason:
+        return
+
+    if reason not in [csrf.REASON_NO_REFERER,
+                      csrf.REASON_BAD_REFERER,
+                      csrf.REASON_NO_CSRF_COOKIE,
+                      csrf.REASON_BAD_TOKEN,
+                      csrf.REASON_MALFORMED_REFERER,
+                      csrf.REASON_INSECURE_REFERER]:
+        reason = ""
+    else:
+        reason += " "
+    reason += str(_("Cookies may be turned off. "
+                    "Make sure cookies are enabled and try again."))
+    return reason
 
 
 # TODO(stephenfin): Migrate to CBV
@@ -102,9 +121,10 @@ def login(request):
         form = functional.curry(forms.Login, initial=initial)
 
     choices = settings.WEBSSO_CHOICES
+    reason = get_csrf_reason(request.GET.get('csrf_failure'))
     extra_context = {
         'redirect_field_name': auth.REDIRECT_FIELD_NAME,
-        'csrf_failure': request.GET.get('csrf_failure'),
+        'csrf_failure': reason,
         'show_sso_opts': settings.WEBSSO_ENABLED and len(choices) > 1,
         'classes': {
             'value': '',

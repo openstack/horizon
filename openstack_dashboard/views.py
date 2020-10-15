@@ -21,7 +21,6 @@ from django import http
 from django import shortcuts
 from django import urls
 from django.utils.encoding import smart_text
-from django.utils.translation import ugettext as _
 import django.views.decorators.vary
 from django.views.generic import TemplateView
 
@@ -110,11 +109,6 @@ class ExtensibleHeaderView(TemplateView):
 
 
 def csrf_failure(request, reason=""):
-    if reason:
-        reason += " "
-    reason += _("Cookies may be turned off. "
-                "Make sure cookies are enabled and try again.")
-
     url = settings.LOGIN_URL + "?csrf_failure=%s" % urllib.parse.quote(reason)
     response = http.HttpResponseRedirect(url)
     return response
