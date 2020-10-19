@@ -12,18 +12,18 @@ disable=
 # "E" Error for important programming issues (likely bugs)
  method-hidden,
  no-member,
- no-value-for-parameter,  # TODO
  not-callable,
 # "W" Warnings for stylistic problems or minor programming issues
  arguments-differ,
  attribute-defined-outside-init,
  bad-indentation,
  broad-except,
- deprecated-method,  # TODO
  fixme,
+ # python3 way: pylint suggests to follow PEP 3102
  keyword-arg-before-vararg,  # TODO
  pointless-string-statement,
  protected-access,
+ # We should do it carefully considering PEP3134
  raise-missing-from,  # TODO
  redefined-builtin,
  redefined-outer-name,
@@ -33,7 +33,6 @@ disable=
  unused-argument,
  unused-wildcard-import,
  useless-else-on-loop,
- using-constant-test,  # TODO
  wildcard-import,
 # "C" Coding convention violations
  abstract-method,
@@ -42,21 +41,27 @@ disable=
  bad-continuation,
  deprecated-lambda,
  global-statement,
+ # Not a good idea to disable this globally
+ # Check one by one and add pylint disabled comment if needed
  import-outside-toplevel,  # TODO
  invalid-name,
  missing-docstring,
  superfluous-parens,
  too-many-lines,
  unused-variable,
- wrong-import-order,  # TODO
+ # import order is checked by flake8 (and pylint rule is incompatible with it)
+ wrong-import-order,
 # "R" Refactor recommendations
  duplicate-code,
  inconsistent-return-statements,  # TODO
  interface-not-implemented,
+ # Better to be fixed but too many hits :(
  no-else-continue,  # TODO
+ # Better to be fixed but too many hits :(
  no-else-raise,  # TODO
  no-else-return,
  no-self-use,
+ # python3 way: Let's do it once we have a consensus.
  super-with-arguments,  # TODO
  too-many-ancestors,
  too-many-arguments,
@@ -66,6 +71,7 @@ disable=
  too-many-locals,
  too-many-return-statements,
  too-many-statements,
+ # Better to be fixed but too many hits :(
  unnecessary-comprehension,  # TODO
  useless-object-inheritance
 

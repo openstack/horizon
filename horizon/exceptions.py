@@ -340,6 +340,8 @@ def handle(request, message=None, redirect=None, ignore=False,
                           exc_handler.get('escalate', escalate),
                           handled, force_silence, force_log,
                           log_method, log_entry, log_level)
+            # NOTE: pylint seems to get confused :(
+            # pylint: disable=using-constant-test
             if ret:
                 return ret  # return to normal code flow
 
@@ -353,6 +355,7 @@ def handle(request, message=None, redirect=None, ignore=False,
         ret = handle_recoverable(request, user_message, redirect, ignore,
                                  escalate, handled, force_silence, force_log,
                                  log_method, log_entry, log_level)
+        # NOTE: pylint seems to get confused :(
         # pylint: disable=using-constant-test
         if ret:
             return ret

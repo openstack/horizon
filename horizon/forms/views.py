@@ -64,6 +64,8 @@ class ModalFormMixin(ModalBackdropMixin):
                 # Transform standard template name to ajax name (leading "_")
                 bits = list(os.path.split(self.template_name))
                 bits[1] = "".join(("_", bits[1]))
+                # NOTE: Looks like false-positive in pylint 2.6.0
+                # pylint: disable=no-value-for-parameter
                 self.ajax_template_name = os.path.join(*bits)
             template = self.ajax_template_name
         else:
