@@ -76,8 +76,7 @@ class MultiTableMixin(object):
             cls_name = self.__class__.__name__
             raise NotImplementedError("You must define a %s method "
                                       "in %s." % (func_name, cls_name))
-        else:
-            return func
+        return func
 
     def assign_type_string(self, data, type_name, data_type):
         for datum in data:

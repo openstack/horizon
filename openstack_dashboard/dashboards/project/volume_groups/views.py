@@ -207,10 +207,9 @@ class CreateSnapshotView(forms.ModalFormView):
                     usages['snapshots']['quota']):
                 raise ValueError(_('Unable to create snapshots due to '
                                    'exceeding snapshot quota limit.'))
-            else:
-                context['numRequestedItems'] = num_volumes
-                context['usages'] = usages
 
+            context['numRequestedItems'] = num_volumes
+            context['usages'] = usages
         except ValueError as e:
             exceptions.handle(self.request, e.message)
             return None
@@ -251,10 +250,9 @@ class CloneGroupView(forms.ModalFormView):
                     usages['volumes']['quota']):
                 raise ValueError(_('Unable to create group due to '
                                    'exceeding volume quota limit.'))
-            else:
-                context['numRequestedItems'] = num_volumes
-                context['usages'] = usages
 
+            context['numRequestedItems'] = num_volumes
+            context['usages'] = usages
         except ValueError as e:
             exceptions.handle(self.request, e.message)
             return None

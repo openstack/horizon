@@ -246,11 +246,12 @@ class CreateImageForm(CreateParent):
         if not image_url and not image_file:
             msg = _("An image file or an external location must be specified.")
             if source_type == 'file':
-                raise ValidationError({'image_file': [msg, ]})
+                error_msg = {'image_file': [msg, ]}
             else:
-                raise ValidationError({'image_url': [msg, ]})
-        else:
-            return data
+                error_msg = {'image_url': [msg, ]}
+            raise ValidationError(error_msg)
+
+        return data
 
     def handle(self, request, data):
         meta = api.glance.create_image_metadata(data)
