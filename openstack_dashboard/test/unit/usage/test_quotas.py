@@ -432,23 +432,6 @@ class QuotaTests(test.APITestCase):
         else:
             self.mock_cinder_tenant_absolute_limits.assert_not_called()
 
-    def test_tenant_quota_usages_neutron_with_target_network_resources(self):
-        self._test_tenant_quota_usages_neutron_with_target(
-            targets=('network', 'subnet', 'router',))
-
-    def test_tenant_quota_usages_neutron_with_target_security_groups(self):
-        self._test_tenant_quota_usages_neutron_with_target(
-            targets=('security_group',))
-
-    def test_tenant_quota_usages_neutron_with_target_floating_ips(self):
-        self._test_tenant_quota_usages_neutron_with_target(
-            targets=('floatingip',))
-
-    def test_tenant_quota_usages_neutron_with_target_security_group_rule(self):
-        self._test_tenant_quota_usages_neutron_with_target(
-            targets=('security_group_rule',)
-        )
-
     def _list_security_group_rules(self):
         security_groups = self.security_groups.list()
         security_group_rules = []
@@ -464,7 +447,7 @@ class QuotaTests(test.APITestCase):
                         api.neutron: ('is_extension_supported',
                                       'is_quotas_extension_supported',
                                       'tenant_quota_detail_get')})
-    def test_tenant_quota_usages_non_legacy(self):
+    def test_tenant_quota_usages_network(self):
         self._mock_service_enabled(network_enabled=True)
         self.mock_is_extension_supported.return_value = True
         self.mock_is_quotas_extension_supported.return_value = True
@@ -517,149 +500,14 @@ class QuotaTests(test.APITestCase):
         # as _mock_service_enabled() requires it, but it is never called here.
         self.mock_is_volume_service_enabled.assert_not_called()
         self.mock_is_extension_supported.assert_has_calls([
-            # network
-            mock.call(test.IsHttpRequest(), 'quota_details'),
-            # subnet
-            mock.call(test.IsHttpRequest(), 'quota_details'),
-            # port
-            mock.call(test.IsHttpRequest(), 'quota_details'),
-            # router
             mock.call(test.IsHttpRequest(), 'router'),
-            mock.call(test.IsHttpRequest(), 'quota_details'),
-            # floating IP
-            mock.call(test.IsHttpRequest(), 'quota_details'),
-            # security group
             mock.call(test.IsHttpRequest(), 'security-group'),
-            mock.call(test.IsHttpRequest(), 'quota_details'),
-            # security group rule
             mock.call(test.IsHttpRequest(), 'security-group'),
-            mock.call(test.IsHttpRequest(), 'quota_details'),
         ])
-        self.assertEqual(10, self.mock_is_extension_supported.call_count)
+        self.assertEqual(3, self.mock_is_extension_supported.call_count)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_quotas_extension_supported, len(test_data),
             mock.call(test.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_detail_get, len(test_data),
             mock.call(test.IsHttpRequest(), self.request.user.tenant_id))
-
-    @test.create_mocks({api.base: ('is_service_enabled',),
-                        cinder: ('is_volume_service_enabled',),
-                        api.neutron: ('floating_ip_supported',
-                                      'tenant_floating_ip_list',
-                                      'security_group_list',
-                                      'is_extension_supported',
-                                      'is_router_enabled',
-                                      'is_quotas_extension_supported',
-                                      'tenant_quota_get',
-                                      'network_list',
-                                      'subnet_list',
-                                      'router_list')})
-    def _test_tenant_quota_usages_neutron_with_target(self, targets):
-        self._mock_service_enabled(network_enabled=True)
-        if 'security_group' in targets or 'security_group_rule' in targets:
-            self.mock_is_extension_supported.side_effect = [True, False]
-        else:
-            self.mock_is_extension_supported.side_effect = [False]
-        self.mock_is_router_enabled.return_value = True
-        self.mock_is_quotas_extension_supported.return_value = True
-        self.mock_tenant_quota_get.return_value = self.neutron_quotas.first()
-
-        if 'network' in targets:
-            self.mock_network_list.return_value = self.networks.list()
-        if 'subnet' in targets:
-            self.mock_subnet_list.return_value = self.subnets.list()
-        if 'router' in targets:
-            self.mock_router_list.return_value = self.routers.list()
-        if 'floatingip' in targets:
-            self.mock_tenant_floating_ip_list.return_value = \
-                self.floating_ips.list()
-        if 'security_group' in targets or 'security_group_rule' in targets:
-            self.mock_security_group_list.return_value = \
-                self.security_groups.list()
-
-        quota_usages = quotas.tenant_quota_usages(self.request,
-                                                  targets=targets)
-
-        network_used = len(self.networks.list())
-        subnet_used = len(self.subnets.list())
-        router_used = len(self.routers.list())
-        fip_used = len(self.floating_ips.list())
-
-        security_groups = self.security_groups.list()
-        sg_used = len(security_groups)
-        sgr_used = sum(map(
-            lambda group: len(group.security_group_rules),
-            security_groups
-        ))
-
-        expected = {
-            'network': {'used': network_used, 'quota': 10,
-                        'available': 10 - network_used},
-            'subnet': {'used': subnet_used, 'quota': 10,
-                       'available': 10 - subnet_used},
-            'router': {'used': router_used, 'quota': 10,
-                       'available': 10 - router_used},
-            'security_group': {'used': sg_used, 'quota': 20,
-                               'available': 20 - sg_used},
-            'security_group_rule': {
-                'quota': 100, 'used': sgr_used, 'available': 100 - sgr_used
-            },
-            'floatingip': {'used': fip_used, 'quota': 50,
-                           'available': 50 - fip_used},
-        }
-        expected = dict((k, v) for k, v in expected.items() if k in targets)
-
-        # Compare internal structure of usages to expected.
-        self.assertEqual(expected, quota_usages.usages)
-        # Compare available resources
-        self.assertAvailableQuotasEqual(expected, quota_usages.usages)
-
-        self._check_service_enabled({'network': 1})
-
-        if 'security_group' in targets or 'security_group_rule' in targets:
-            self.mock_is_extension_supported.assert_has_calls([
-                mock.call(test.IsHttpRequest(), 'security-group'),
-                mock.call(test.IsHttpRequest(), 'quota_details'),
-            ])
-            self.assertEqual(2, self.mock_is_extension_supported.call_count)
-        else:
-            self.mock_is_extension_supported.assert_called_once_with(
-                test.IsHttpRequest(), 'quota_details')
-        if 'floatingip' in targets or 'router' in targets:
-            self.mock_is_router_enabled.assert_called_once_with(
-                test.IsHttpRequest())
-        else:
-            self.mock_is_router_enabled.assert_not_called()
-        self.mock_is_quotas_extension_supported.assert_called_once_with(
-            test.IsHttpRequest())
-        self.mock_tenant_quota_get.assert_called_once_with(
-            test.IsHttpRequest(), '1')
-        if 'network' in targets:
-            self.mock_network_list.assert_called_once_with(
-                test.IsHttpRequest(),
-                tenant_id=self.request.user.tenant_id)
-        else:
-            self.mock_network_list.assert_not_called()
-        if 'subnet' in targets:
-            self.mock_subnet_list.assert_called_once_with(
-                test.IsHttpRequest(),
-                tenant_id=self.request.user.tenant_id)
-        else:
-            self.mock_subnet_list.assert_not_called()
-        if 'router' in targets:
-            self.mock_router_list.assert_called_once_with(
-                test.IsHttpRequest(),
-                tenant_id=self.request.user.tenant_id)
-        else:
-            self.mock_router_list.assert_not_called()
-        if 'floatingip' in targets:
-            self.mock_tenant_floating_ip_list.assert_called_once_with(
-                test.IsHttpRequest())
-        else:
-            self.mock_tenant_floating_ip_list.assert_not_called()
-        if 'security_group' in targets or 'security_group_rule' in targets:
-            self.mock_security_group_list.assert_called_once_with(
-                test.IsHttpRequest())
-        else:
-            self.mock_security_group_list.assert_not_called()
