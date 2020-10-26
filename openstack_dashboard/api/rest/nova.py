@@ -123,12 +123,11 @@ class Services(generic.View):
         Will return HTTP 501 status code if the service_list extension is
         not supported.
         """
-        if api.base.is_service_enabled(request, 'compute') \
-           and api.nova.extension_supported('Services', request):
+        if (api.base.is_service_enabled(request, 'compute') and
+                api.nova.extension_supported('Services', request)):
             result = api.nova.service_list(request)
             return {'items': [u.to_dict() for u in result]}
-        else:
-            raise rest_utils.AjaxError(501, '')
+        raise rest_utils.AjaxError(501, '')
 
 
 @urls.register
@@ -727,27 +726,27 @@ class DefaultQuotaSets(generic.View):
         Example GET:
         http://localhost/api/nova/quota-sets/defaults/
         """
-        if api.base.is_service_enabled(request, 'compute'):
-            quota_set = api.nova.default_quota_get(request,
-                                                   request.user.tenant_id)
-
-            disabled_quotas = quotas.get_disabled_quotas(request)
-
-            filtered_quotas = [quota for quota in quota_set
-                               if quota.name not in disabled_quotas]
-
-            result = [{
-                'display_name': quotas.QUOTA_NAMES.get(
-                    quota.name,
-                    quota.name.replace("_", " ").title()
-                ) + '',
-                'name': quota.name,
-                'limit': quota.limit
-            } for quota in filtered_quotas]
-
-            return {'items': result}
-        else:
+        if not api.base.is_service_enabled(request, 'compute'):
             raise rest_utils.AjaxError(501, _('Service Nova is disabled.'))
+
+        quota_set = api.nova.default_quota_get(request,
+                                               request.user.tenant_id)
+
+        disabled_quotas = quotas.get_disabled_quotas(request)
+
+        filtered_quotas = [quota for quota in quota_set
+                           if quota.name not in disabled_quotas]
+
+        result = [{
+            'display_name': quotas.QUOTA_NAMES.get(
+                quota.name,
+                quota.name.replace("_", " ").title()
+            ) + '',
+            'name': quota.name,
+            'limit': quota.limit
+        } for quota in filtered_quotas]
+
+        return {'items': result}
 
     @rest_utils.ajax(data_required=True)
     def patch(self, request):

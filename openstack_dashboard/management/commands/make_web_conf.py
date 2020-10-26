@@ -56,11 +56,8 @@ def _getattr(obj, name, default):
     attr does not exist, here, we return `default` even if attr evaluates to
     None or False.
     """
-    value = getattr(obj, name, default)
-    if value:
-        return value
-    else:
-        return default
+    value = getattr(obj, name, default) or default
+    return value
 
 
 context = template.Context({

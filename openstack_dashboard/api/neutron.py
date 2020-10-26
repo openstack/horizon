@@ -251,14 +251,14 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
     #   ethertype, direction (Neutron specific)
 
     def _get_secgroup_name(self, sg_id, sg_dict):
-        if sg_id:
-            if sg_dict is None:
-                sg_dict = {}
-            # If sg name not found in sg_dict,
-            # first two parts of UUID is used as sg name.
-            return sg_dict.get(sg_id, sg_id[:13])
-        else:
+        if not sg_id:
             return u''
+
+        if sg_dict is None:
+            sg_dict = {}
+        # If sg name not found in sg_dict,
+        # first two parts of UUID is used as sg name.
+        return sg_dict.get(sg_id, sg_id[:13])
 
     def __init__(self, sgr, sg_dict=None):
         # In Neutron, if both remote_ip_prefix and remote_group_id are None,
@@ -752,21 +752,21 @@ class FloatingIpManager(object):
             # have been done already. We skip all checks here.
             return [target for target in target_list
                     if target['instance_id'] == instance_id]
-        else:
-            ports = self._target_ports_by_instance(instance_id)
-            reachable_subnets = self._get_reachable_subnets(
-                ports, fetch_router_ports=True)
-            name = self._get_server_name(instance_id)
-            targets = []
-            for p in ports:
-                for ip in p.fixed_ips:
-                    if ip['subnet_id'] not in reachable_subnets:
-                        continue
-                    # Floating IPs can only target IPv4 addresses.
-                    if netaddr.IPAddress(ip['ip_address']).version != 4:
-                        continue
-                    targets.append(FloatingIpTarget(p, ip['ip_address'], name))
-            return targets
+
+        ports = self._target_ports_by_instance(instance_id)
+        reachable_subnets = self._get_reachable_subnets(
+            ports, fetch_router_ports=True)
+        name = self._get_server_name(instance_id)
+        targets = []
+        for p in ports:
+            for ip in p.fixed_ips:
+                if ip['subnet_id'] not in reachable_subnets:
+                    continue
+                # Floating IPs can only target IPv4 addresses.
+                if netaddr.IPAddress(ip['ip_address']).version != 4:
+                    continue
+                targets.append(FloatingIpTarget(p, ip['ip_address'], name))
+        return targets
 
     def _get_server_name(self, server_id):
         try:
@@ -1343,10 +1343,9 @@ def port_list_with_trunk_types(request, **params):
     def _get_port_info(port):
         if port['id'] in parent_ports:
             return PortTrunkParent(port)
-        elif port['id'] in child_ports:
+        if port['id'] in child_ports:
             return PortTrunkSubport(port, child_ports[port['id']])
-        else:
-            return Port(port)
+        return Port(port)
 
     return [_get_port_info(p) for p in ports]
 
@@ -1807,8 +1806,7 @@ def list_extensions(request):
         return {}
     if 'extensions' in extensions_list:
         return tuple(extensions_list['extensions'])
-    else:
-        return ()
+    return ()
 
 
 @profiler.trace

@@ -171,8 +171,7 @@ STATUS_DISPLAY_CHOICES = (
 def get_availability_zones(network):
     if 'availability_zones' in network and network.availability_zones:
         return ', '.join(network.availability_zones)
-    else:
-        return _("-")
+    return _("-")
 
 
 class ProjectNetworksFilterAction(tables.FilterAction):

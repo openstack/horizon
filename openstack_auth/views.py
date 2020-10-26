@@ -232,10 +232,10 @@ def logout(request, login_url=None, **kwargs):
         auth_user.unset_session_user_variables(request)
         return django_http.HttpResponseRedirect(
             settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT)
-    else:
-        return django_auth_views.logout_then_login(request,
-                                                   login_url=login_url,
-                                                   **kwargs)
+
+    return django_auth_views.logout_then_login(request,
+                                               login_url=login_url,
+                                               **kwargs)
 
 
 # TODO(stephenfin): Migrate to CBV

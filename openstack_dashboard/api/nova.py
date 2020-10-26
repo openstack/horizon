@@ -1064,8 +1064,7 @@ def service_disable(request, host, binary, reason=None):
     if reason:
         return _nova.novaclient(request).services.disable_log_reason(
             host, binary, reason)
-    else:
-        return _nova.novaclient(request).services.disable(host, binary)
+    return _nova.novaclient(request).services.disable(host, binary)
 
 
 @profiler.trace

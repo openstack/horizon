@@ -517,8 +517,7 @@ class UpdateMembersStep(Step):
     def get_member_field_name(self, role_id):
         if issubclass(self.action_class, MembershipAction):
             return self.action.get_member_field_name(role_id)
-        else:
-            return self.slug + "_role_" + role_id
+        return self.slug + "_role_" + role_id
 
 
 class Workflow(html.HTMLElement, metaclass=WorkflowMetaclass):
@@ -794,9 +793,8 @@ class Workflow(html.HTMLElement, metaclass=WorkflowMetaclass):
                              % cls._registerable_class.__name__)
         if step_class in cls._cls_registry:
             return False
-        else:
-            cls._cls_registry.append(step_class)
-            return True
+        cls._cls_registry.append(step_class)
+        return True
 
     @classmethod
     def unregister(cls, step_class):
@@ -893,8 +891,7 @@ class Workflow(html.HTMLElement, metaclass=WorkflowMetaclass):
         """
         if "%s" in message:
             return message % self.name
-        else:
-            return message
+        return message
 
     def verify_integrity(self):
         provided_keys = self.contributions | set(self.context_seed.keys())

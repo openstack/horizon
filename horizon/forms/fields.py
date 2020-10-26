@@ -365,8 +365,7 @@ class DynamicSelectWidget(SelectWidget):
             if self.add_item_link_args:
                 return urls.reverse(self.add_item_link,
                                     args=self.add_item_link_args)
-            else:
-                return urls.reverse(self.add_item_link)
+            return urls.reverse(self.add_item_link)
         except urls.NoReverseMatch:
             return self.add_item_link
 

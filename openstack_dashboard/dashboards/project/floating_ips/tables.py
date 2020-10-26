@@ -143,20 +143,18 @@ def get_instance_info(fip):
         return (_("%(instance_name)s %(fixed_ip)s")
                 % {'instance_name': getattr(fip, "instance_name", ''),
                    'fixed_ip': fip.fixed_ip})
-    elif fip.instance_type == 'loadbalancer':
+    if fip.instance_type == 'loadbalancer':
         return _("Load Balancer VIP %s") % fip.fixed_ip
-    elif fip.instance_type:
+    if fip.instance_type:
         return fip.fixed_ip
-    else:
-        return None
+    return None
 
 
 def get_instance_link(datum):
     if getattr(datum, 'instance_id'):
         return reverse("horizon:project:instances:detail",
                        args=(datum.instance_id,))
-    else:
-        return None
+    return None
 
 
 STATUS_DISPLAY_CHOICES = (

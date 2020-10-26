@@ -63,8 +63,7 @@ class TabView(views.HorizonTemplateView):
         if self.request.is_ajax():
             if tab_group.selected:
                 return http.HttpResponse(tab_group.selected.render())
-            else:
-                return http.HttpResponse(tab_group.render())
+            return http.HttpResponse(tab_group.render())
         return self.render_to_response(context)
 
     def get(self, request, *args, **kwargs):

@@ -768,8 +768,7 @@ class Site(Registry, HorizonComponent):
                                key=operator.attrgetter('name'))
                 dashboards.extend(extra)
             return dashboards
-        else:
-            return sorted(self._registry.values())
+        return sorted(self._registry.values())
 
     def get_default_dashboard(self):
         """Returns the default :class:`~horizon.Dashboard` instance.
@@ -780,10 +779,9 @@ class Site(Registry, HorizonComponent):
         """
         if self.default_dashboard:
             return self._registered(self.default_dashboard)
-        elif self._registry:
+        if self._registry:
             return self.get_dashboards()[0]
-        else:
-            raise NotRegistered("No dashboard modules have been registered.")
+        raise NotRegistered("No dashboard modules have been registered.")
 
     def get_user_home(self, user):
         """Returns the default URL for a particular user.
@@ -810,13 +808,12 @@ class Site(Registry, HorizonComponent):
         if user_home:
             if callable(user_home):
                 return user_home(user)
-            elif isinstance(user_home, str):
+            if isinstance(user_home, str):
                 # Assume we've got a URL if there's a slash in it
                 if '/' in user_home:
                     return user_home
-                else:
-                    mod, func = user_home.rsplit(".", 1)
-                    return getattr(import_module(mod), func)(user)
+                mod, func = user_home.rsplit(".", 1)
+                return getattr(import_module(mod), func)(user)
             # If it's not callable and not a string, it's wrong.
             raise ValueError('The user_home setting must be either a string '
                              'or a callable object (e.g. a function).')

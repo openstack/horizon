@@ -183,15 +183,13 @@ class UpdateRow(tables.Row):
 def get_external_network(router):
     if router.external_gateway_info:
         return router.external_gateway_info['network']
-    else:
-        return _("-")
+    return _("-")
 
 
 def get_availability_zones(router):
     if 'availability_zones' in router and router.availability_zones:
         return ', '.join(router.availability_zones)
-    else:
-        return _("-")
+    return _("-")
 
 
 class RoutersFilterAction(tables.FilterAction):

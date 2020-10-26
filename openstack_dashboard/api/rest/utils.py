@@ -128,7 +128,7 @@ def ajax(authenticated=True, data_required=False,
                 data = function(self, request, *args, **kw)
                 if isinstance(data, http.HttpResponse):
                     return data
-                elif data is None:
+                if data is None:
                     return JSONResponse('', status=204)
                 return JSONResponse(data, json_encoder=json_encoder)
             except http_errors as e:

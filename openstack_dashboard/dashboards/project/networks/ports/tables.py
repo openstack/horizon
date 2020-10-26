@@ -39,10 +39,9 @@ def get_fixed_ips(port):
 def get_attached(port):
     if port['device_owner']:
         return port['device_owner']
-    elif port['device_id']:
+    if port['device_id']:
         return _('Attached')
-    else:
-        return _('Detached')
+    return _('Detached')
 
 
 class UpdatePort(policy.PolicyTargetMixin, tables.LinkAction):

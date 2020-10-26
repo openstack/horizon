@@ -319,9 +319,8 @@ class SetInstanceDetailsAction(workflows.Action):
             msg = _("You must select an image.")
             self._errors['image_id'] = self.error_class([msg])
             return
-        else:
-            self._check_flavor_for_image(cleaned_data)
-            self._check_volume_for_image(cleaned_data)
+        self._check_flavor_for_image(cleaned_data)
+        self._check_volume_for_image(cleaned_data)
 
     def _check_source_instance_snapshot(self, cleaned_data):
         # using the array form of get blows up with KeyError
@@ -677,31 +676,30 @@ class CustomizeAction(workflows.Action):
     def clean_uploaded_files(self, prefix, files):
         upload_str = prefix + "_upload"
 
-        has_upload = upload_str in files
-        if has_upload:
-            upload_file = files[upload_str]
-            log_script_name = upload_file.name
-            LOG.info('got upload %s', log_script_name)
-
-            if upload_file._size > 16 * units.Ki:  # 16kb
-                msg = _('File exceeds maximum size (16kb)')
-                raise forms.ValidationError(msg)
-
-            script = upload_file.read()
-            if script != "":
-                try:
-                    if not isinstance(script, str):
-                        script = script.decode()
-                    normalize_newlines(script)
-                except Exception as e:
-                    msg = _('There was a problem parsing the'
-                            ' %(prefix)s: %(error)s')
-                    msg = msg % {'prefix': prefix,
-                                 'error': e}
-                    raise forms.ValidationError(msg)
-            return script
-        else:
+        if upload_str not in files:
             return None
+
+        upload_file = files[upload_str]
+        log_script_name = upload_file.name
+        LOG.info('got upload %s', log_script_name)
+
+        if upload_file._size > 16 * units.Ki:  # 16kb
+            msg = _('File exceeds maximum size (16kb)')
+            raise forms.ValidationError(msg)
+
+        script = upload_file.read()
+        if script != "":
+            try:
+                if not isinstance(script, str):
+                    script = script.decode()
+                normalize_newlines(script)
+            except Exception as e:
+                msg = _('There was a problem parsing the'
+                        ' %(prefix)s: %(error)s')
+                msg = msg % {'prefix': prefix,
+                             'error': e}
+                raise forms.ValidationError(msg)
+        return script
 
 
 class PostCreationStep(workflows.Step):
@@ -877,8 +875,7 @@ class LaunchInstance(workflows.Workflow):
         if int(count) > 1:
             return message % {"count": _("%s instances") % count,
                               "name": name}
-        else:
-            return message % {"count": _("instance"), "name": name}
+        return message % {"count": _("instance"), "name": name}
 
     @sensitive_variables('context')
     def handle(self, request, context):

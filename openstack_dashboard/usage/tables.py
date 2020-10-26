@@ -74,8 +74,7 @@ def get_instance_link(datum):
     view = "horizon:project:instances:detail"
     if datum.get('instance_id', False):
         return urls.reverse(view, args=(datum.get('instance_id'),))
-    else:
-        return None
+    return None
 
 
 class ProjectUsageTable(BaseUsageTable):

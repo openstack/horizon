@@ -99,8 +99,7 @@ class ResizeInstance(workflows.Workflow):
     def format_status_message(self, message):
         if "%s" in message:
             return message % self.context.get('name', 'unknown instance')
-        else:
-            return message
+        return message
 
     @sensitive_variables('context')
     def handle(self, request, context):

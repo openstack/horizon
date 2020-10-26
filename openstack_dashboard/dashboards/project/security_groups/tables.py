@@ -180,8 +180,7 @@ def get_remote_ip_prefix(rule):
         else:
             range = rule.ip_range['cidr']
         return range
-    else:
-        return None
+    return None
 
 
 def get_remote_security_group(rule):
@@ -196,17 +195,15 @@ def get_port_range(rule):
     ip_proto = rule.ip_protocol
     if rule.from_port == rule.to_port:
         return check_rule_template(rule.from_port, ip_proto)
-    else:
-        return (u"%(from)s - %(to)s" %
-                {'from': check_rule_template(rule.from_port, ip_proto),
-                 'to': check_rule_template(rule.to_port, ip_proto)})
+    return (u"%(from)s - %(to)s" %
+            {'from': check_rule_template(rule.from_port, ip_proto),
+             'to': check_rule_template(rule.to_port, ip_proto)})
 
 
 def filter_direction(direction):
     if direction is None or direction.lower() == 'ingress':
         return _('Ingress')
-    else:
-        return _('Egress')
+    return _('Egress')
 
 
 def filter_protocol(protocol):
