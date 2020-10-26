@@ -51,7 +51,7 @@ class AllocateIP(tables.LinkAction):
                                             targets=('floatingip', ))
         if 'floatingip' in usages and usages['floatingip']['available'] <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = format_lazy(
                     '{verbose_name} {quota_exceeded}',
                     verbose_name=self.verbose_name,

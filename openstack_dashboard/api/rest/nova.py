@@ -309,7 +309,7 @@ class ConsoleOutput(generic.View):
         log_length = request.DATA.get('length', 100)
         console_lines = api.nova.server_console_output(request, server_id,
                                                        tail_length=log_length)
-        return {"lines": [x for x in console_lines.split('\n')]}
+        return {"lines": console_lines.split('\n')}
 
 
 @urls.register

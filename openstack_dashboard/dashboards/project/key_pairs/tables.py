@@ -57,7 +57,7 @@ class QuotaKeypairMixin(object):
         usages.tally('key_pairs', len(self.table.data))
         if usages['key_pairs']['available'] <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = format_lazy(
                     '{verbose_name} {quota_exceeded}',
                     verbose_name=self.verbose_name,

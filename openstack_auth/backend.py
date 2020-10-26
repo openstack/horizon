@@ -161,7 +161,7 @@ class KeystoneBackend(object):
         region_name = None
         id_endpoints = scoped_auth_ref.service_catalog.\
             get_endpoints(service_type='identity')
-        for id_endpoint in [cat for cat in id_endpoints['identity']]:
+        for id_endpoint in id_endpoints['identity']:
             if auth_url in id_endpoint.values():
                 region_name = id_endpoint['region']
                 break

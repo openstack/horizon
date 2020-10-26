@@ -53,7 +53,7 @@ class CreateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
         # usages["subnet'] is empty
         if usages.get('subnet', {}).get('available', 1) <= 0:
             if 'disabled' not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _('Create Subnet (Quota exceeded)')
         else:
             self.verbose_name = _('Create Subnet')

@@ -314,7 +314,7 @@ def get_url_for_service(service, region, endpoint_type):
     # in the current region, it is okay to use the first endpoint for any
     # identity service endpoints and we can assume that it is global
     if service['type'] == 'identity' and not available_endpoints:
-        available_endpoints = [endpoint for endpoint in service_endpoints]
+        available_endpoints = service_endpoints
 
     for endpoint in available_endpoints:
         try:

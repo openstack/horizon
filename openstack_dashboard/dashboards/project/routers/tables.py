@@ -89,7 +89,7 @@ class CreateRouter(tables.LinkAction):
         # usages['router'] is empty
         if usages.get('router', {}).get('available', 1) <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ["disabled"]
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _("Create Router (Quota exceeded)")
         else:
             self.verbose_name = _("Create Router")

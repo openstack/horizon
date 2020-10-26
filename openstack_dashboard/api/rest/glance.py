@@ -303,8 +303,7 @@ class MetadefsResourceTypesList(generic.View):
         Any request parameters will be passed through the API as filters.
         """
         return {
-            'items': [resource_type for resource_type in
-                      api.glance.metadefs_resource_types_list(request)]
+            'items': api.glance.metadefs_resource_types_list(request)
         }
 
 

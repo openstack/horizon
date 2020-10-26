@@ -91,7 +91,7 @@ class CreatePort(tables.LinkAction):
         # usages["port"] is empty
         if usages.get('port', {}).get('available', 1) <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ["disabled"]
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _("Create Port (Quota exceeded)")
         else:
             # If the port is deleted, the usage of port will less than
