@@ -23,9 +23,7 @@ from openstack_dashboard import api
 
 class BaseSecurityGroupsAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(BaseSecurityGroupsAction, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve security group list. '
                     'Please try again later.')
         context = args[0]

@@ -122,7 +122,7 @@ class UpdateView(forms.ModalFormView):
                               redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['user_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context
@@ -172,10 +172,10 @@ class CreateView(forms.ModalFormView):
     @method_decorator(sensitive_post_parameters('password',
                                                 'confirm_password'))
     def dispatch(self, *args, **kwargs):
-        return super(CreateView, self).dispatch(*args, **kwargs)
+        return super().dispatch(*args, **kwargs)
 
     def get_form_kwargs(self):
-        kwargs = super(CreateView, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         try:
             roles = api.keystone.role_list(self.request)
         except Exception:
@@ -202,7 +202,7 @@ class DetailView(tabs.TabView):
     page_title = "{{ user.name }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         user = self.get_data()
         table = project_tables.UsersTable(self.request)
         context["user"] = user
@@ -242,7 +242,7 @@ class ChangePasswordView(forms.ModalFormView):
     @method_decorator(sensitive_post_parameters('password',
                                                 'confirm_password'))
     def dispatch(self, *args, **kwargs):
-        return super(ChangePasswordView, self).dispatch(*args, **kwargs)
+        return super().dispatch(*args, **kwargs)
 
     @memoized.memoized_method
     def get_object(self):
@@ -256,7 +256,7 @@ class ChangePasswordView(forms.ModalFormView):
                               redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(ChangePasswordView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['user_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context

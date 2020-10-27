@@ -179,7 +179,7 @@ class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
     page_title = _("User Credentials Details")
 
     def get_context_data(self, **kwargs):
-        context = super(CredentialsView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             context['openrc_creds'] = _get_openrc_credentials(self.request)
         except Exception:

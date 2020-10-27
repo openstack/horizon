@@ -25,7 +25,7 @@ from openstack_dashboard.test import helpers as test
 
 class NetworkApiNeutronTests(test.APIMockTestCase):
     def setUp(self):
-        super(NetworkApiNeutronTests, self).setUp()
+        super().setUp()
         neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
         self.qclient = neutronclient.return_value
 

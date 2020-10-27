@@ -29,7 +29,7 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
 
     def setUp(self):
         """Setup: create volume"""
-        super(TestVolumeSnapshotsBasic, self).setUp()
+        super().setUp()
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.create_volume(self.VOLUME_NAME)
         volumes_page.find_message_and_dismiss(messages.INFO)
@@ -182,12 +182,10 @@ class TestVolumeSnapshotsAdmin(helpers.AdminTestCase,
         return self.home_pg.go_to_project_volumes_snapshotspage()
 
     def test_create_edit_delete_volume_snapshot(self):
-        super(TestVolumeSnapshotsAdmin, self).\
-            test_create_edit_delete_volume_snapshot()
+        super().test_create_edit_delete_volume_snapshot()
 
     def test_volume_snapshots_pagination(self):
-        super(TestVolumeSnapshotsAdmin, self).\
-            test_volume_snapshots_pagination()
+        super().test_volume_snapshots_pagination()
 
 
 class TestVolumeSnapshotsAdvanced(helpers.TestCase):
@@ -201,7 +199,7 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
 
     def setUp(self):
         """Setup: create volume"""
-        super(TestVolumeSnapshotsAdvanced, self).setUp()
+        super().setUp()
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.create_volume(self.VOLUME_NAME)
         volumes_page.find_message_and_dismiss(messages.INFO)

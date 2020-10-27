@@ -16,5 +16,5 @@ from openstack_dashboard.test.integration_tests.pages import basepage
 class ServergroupsPage(basepage.BaseNavigationPage):
 
     def __init__(self, driver, conf):
-        super(ServergroupsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = 'Server Groups'

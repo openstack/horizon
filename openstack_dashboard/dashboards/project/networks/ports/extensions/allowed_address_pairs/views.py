@@ -36,7 +36,7 @@ class AddAllowedAddressPair(forms.ModalFormView):
         return reverse(self.success_url, args=(self.kwargs['port_id'],))
 
     def get_context_data(self, **kwargs):
-        context = super(AddAllowedAddressPair, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["port_id"] = self.kwargs['port_id']
         context['submit_url'] = reverse(self.submit_url,
                                         args=(self.kwargs['port_id'],))

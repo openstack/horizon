@@ -32,7 +32,7 @@ class AddDHCPAgent(forms.SelfHandlingForm):
         help_text=_("Choose an DHCP Agent to attach to."))
 
     def __init__(self, request, *args, **kwargs):
-        super(AddDHCPAgent, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         initial = kwargs.get('initial', {})
         self.fields['agent'].choices = self._populate_agent_choices(request,
                                                                     initial)

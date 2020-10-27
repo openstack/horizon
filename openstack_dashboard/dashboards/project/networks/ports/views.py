@@ -90,7 +90,7 @@ class DetailView(tabs.TabbedTableView):
         return port
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         port = self.get_data()
         network_url = "horizon:project:networks:detail"
         subnet_url = "horizon:project:networks:subnets:detail"

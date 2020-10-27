@@ -78,9 +78,7 @@ class UpdateInstanceInfoAction(workflows.Action):
     )
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateInstanceInfoAction, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super().__init__(request, *args, **kwargs)
         if not api.nova.is_feature_available(request, "instance_description"):
             del self.fields["description"]
 

@@ -101,7 +101,7 @@ class UpdateView(forms.ModalFormView):
     submit_label = _("Save Changes")
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['namespace_id'],)
         context["namespace_id"] = self.kwargs['namespace_id']
         context["submit_url"] = reverse(self.submit_url, args=args)
@@ -132,7 +132,7 @@ class DetailView(tabs.TabView):
     page_title = "{{ namespace.namespace }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["namespace"] = self.get_data()
         return context
 
@@ -171,7 +171,7 @@ class ManageResourceTypes(forms.ModalFormView):
                 'resource_types': resource_types}
 
     def get_context_data(self, **kwargs):
-        context = super(ManageResourceTypes, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         selected_type_names = [selected_type['name'] for selected_type in
                                context['form'].initial['resource_types']]

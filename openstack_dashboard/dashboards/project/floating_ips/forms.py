@@ -40,7 +40,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
                                required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(FloatingIpAllocate, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         floating_pool_list = kwargs.get('initial', {}).get('pool_list', [])
         self.fields['pool'].choices = floating_pool_list
 

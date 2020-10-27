@@ -20,7 +20,7 @@ from openstack_dashboard.test.integration_tests.regions import messages
                                    message="Angular Panels not tested")
 class TestImagesLegacy(helpers.TestCase):
     def __init__(self, *args, **kwargs):
-        super(TestImagesLegacy, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.IMAGE_NAME = helpers.gen_random_resource_name("image")
 
     @property
@@ -336,7 +336,7 @@ class TestImagesAdmin(helpers.AdminTestCase, TestImagesLegacy):
 
     @pytest.mark.skip(reason="Bug 1774697")
     def test_image_create_delete(self):
-        super(TestImagesAdmin, self).test_image_create_delete()
+        super().test_image_create_delete()
 
     def test_filter_images(self):
         """This test checks filtering of images

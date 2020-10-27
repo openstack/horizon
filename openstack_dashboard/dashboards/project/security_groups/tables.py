@@ -249,7 +249,7 @@ class RulesTable(tables.DataTable):
         filters=(functools.partial(defaultfilters.default, arg=_("-")),))
 
     def __init__(self, request, *args, **kwargs):
-        super(RulesTable, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         try:
             is_desc_supported = api.neutron.is_extension_supported(
                 self.request, 'standard-attr-description')

@@ -32,7 +32,7 @@ class Trunks(horizon.Panel):
         request = context['request']
         try:
             return (
-                super(Trunks, self).allowed(context) and
+                super().allowed(context) and
                 request.user.has_perms(self.permissions) and
                 neutron.is_extension_supported(request,
                                                extension_alias='trunk')

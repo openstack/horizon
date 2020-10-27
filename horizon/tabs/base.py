@@ -102,7 +102,7 @@ class TabGroup(html.HTMLElement):
         return self._active
 
     def __init__(self, request, **kwargs):
-        super(TabGroup, self).__init__()
+        super().__init__()
         if not hasattr(self, "tabs"):
             raise NotImplementedError('%s must declare a "tabs" attribute.'
                                       % self.__class__)
@@ -187,7 +187,7 @@ class TabGroup(html.HTMLElement):
 
         Defaults to ``["nav", "nav-tabs", "ajax-tabs"]``.
         """
-        default_classes = super(TabGroup, self).get_default_classes()
+        default_classes = super().get_default_classes()
         default_classes.extend(CSS_TAB_GROUP_CLASSES)
         return default_classes
 
@@ -309,7 +309,7 @@ class Tab(html.HTMLElement):
     permissions = []
 
     def __init__(self, tab_group, request=None):
-        super(Tab, self).__init__()
+        super().__init__()
         # Priority: constructor, class-defined, fallback
         if not self.name:
             raise ValueError("%s must have a name." % self.__class__.__name__)
@@ -393,7 +393,7 @@ class Tab(html.HTMLElement):
         If the tab is not enabled, the classes the class ``"disabled"``
         will be added.
         """
-        default_classes = super(Tab, self).get_default_classes()
+        default_classes = super().get_default_classes()
         if self.is_active():
             default_classes.extend(CSS_ACTIVE_TAB_CLASSES)
         if not self._enabled:
@@ -471,7 +471,7 @@ class TableTab(Tab):
     table_classes = []
 
     def __init__(self, tab_group, request):
-        super(TableTab, self).__init__(tab_group, request)
+        super().__init__(tab_group, request)
         if not self.table_classes:
             class_name = self.__class__.__name__
             raise NotImplementedError("You must define a table_class "
@@ -522,7 +522,7 @@ class TableTab(Tab):
         If only one table class is provided, a shortcut ``table`` context
         variable is also added containing the single table.
         """
-        context = super(TableTab, self).get_context_data(request, **kwargs)
+        context = super().get_context_data(request, **kwargs)
         # If the data hasn't been manually loaded before now,
         # make certain it's loaded before setting the context.
         self.load_table_data()

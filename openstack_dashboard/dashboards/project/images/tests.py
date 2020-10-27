@@ -39,7 +39,7 @@ CREATE_URL = reverse('horizon:project:images:images:create')
 
 class BaseImagesTestCase(test.TestCase):
     def setUp(self):
-        super(BaseImagesTestCase, self).setUp()
+        super().setUp()
         self.patcher = mock.patch.object(api.glance, 'image_list_detailed')
         self.mock_image_list = self.patcher.start()
 

@@ -21,8 +21,8 @@ class ProjectForm(forms.TabbedFormRegion):
               {'members': menus.MembershipMenuRegion})
 
     def __init__(self, driver, conf, tab=0):
-        super(ProjectForm, self).__init__(
-            driver, conf, field_mappings=self.FIELDS, default_tab=tab)
+        super().__init__(driver, conf, field_mappings=self.FIELDS,
+                         default_tab=tab)
 
 
 class ProjectsTable(tables.TableRegion):
@@ -51,7 +51,7 @@ class ProjectsPage(basepage.BaseNavigationPage):
     PROJECT_ID_TABLE_NAME_COLUMN = 'Project ID'
 
     def __init__(self, driver, conf):
-        super(ProjectsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Projects"
 
     @property

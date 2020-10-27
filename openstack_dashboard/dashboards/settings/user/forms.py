@@ -49,7 +49,7 @@ class UserSettingsForm(forms.SelfHandlingForm):
         return zones
 
     def __init__(self, *args, **kwargs):
-        super(UserSettingsForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # Languages
         def get_language_display_name(code, desc):

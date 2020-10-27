@@ -59,7 +59,7 @@ class AllocateView(forms.ModalFormView):
         return obj.ip
 
     def get_context_data(self, **kwargs):
-        context = super(AllocateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             context['usages'] = quotas.tenant_quota_usages(
                 self.request, targets=('floatingip', )

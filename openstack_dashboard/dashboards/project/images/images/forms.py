@@ -147,7 +147,7 @@ class CreateImageForm(CreateParent):
         required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateImageForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         if (api.glance.get_image_upload_mode() == 'off' or
                 not policy.check((("image", "upload_image"),), request)):
@@ -235,7 +235,7 @@ class CreateImageForm(CreateParent):
         self.fields['is_copying'].initial = False
 
     def clean(self):
-        data = super(CreateImageForm, self).clean()
+        data = super().clean()
 
         # The image_file key can be missing based on particular upload
         # conditions. Code defensively for it here...
@@ -334,7 +334,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateImageForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.fields['disk_format'].choices = [(value, name) for value,
                                               name in IMAGE_FORMAT_CHOICES
                                               if value]

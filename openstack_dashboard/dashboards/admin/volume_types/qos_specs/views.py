@@ -28,7 +28,7 @@ from openstack_dashboard.dashboards.admin.volume_types.qos_specs \
 class QosSpecMixin(object):
     @memoized
     def get_context_data(self, **kwargs):
-        context = super(QosSpecMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         # Note the use of self.kwargs instead of the parameter kwargs.
         # This is needed for consistency when dealing with both
         # index views and forms (i,e, EditView). With forms,
@@ -85,8 +85,7 @@ class CreateKeyValuePairView(QosSpecMixin, forms.ModalFormView):
         return reverse(self.url)
 
     def get_context_data(self, **kwargs):
-        context = super(CreateKeyValuePairView, self).\
-            get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['qos_spec_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         context['cancel_url'] = reverse(self.url)
@@ -121,7 +120,7 @@ class EditKeyValuePairView(QosSpecMixin, forms.ModalFormView):
                 'value': qos_specs.specs.get(key, '')}
 
     def get_context_data(self, **kwargs):
-        context = super(EditKeyValuePairView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['qos_spec_id'], self.kwargs['key'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         context['cancel_url'] = reverse(self.url)

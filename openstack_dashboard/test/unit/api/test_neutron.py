@@ -1118,7 +1118,7 @@ class NeutronApiTests(test.APIMockTestCase):
 class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 
     def setUp(self):
-        super(NeutronApiSecurityGroupTests, self).setUp()
+        super().setUp()
         neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
         self.qclient = neutronclient.return_value
         self.sg_dict = dict([(sg['id'], sg['name']) for sg
@@ -1353,7 +1353,7 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def setUp(self):
-        super(NeutronApiFloatingIpTests, self).setUp()
+        super().setUp()
         neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
         self.qclient = neutronclient.return_value
 

@@ -40,8 +40,7 @@ class AddAllowedAddressPair(policy.PolicyTargetMixin, tables.LinkAction):
     )
 
     def get_policy_target(self, request, datum=None):
-        policy_target = super(AddAllowedAddressPair, self).\
-            get_policy_target(request, datum)
+        policy_target = super().get_policy_target(request, datum)
         policy_target["network:tenant_id"] = (
             self.table.kwargs['port'].tenant_id)
 
@@ -76,8 +75,7 @@ class DeleteAllowedAddressPair(tables.DeleteAction):
     )
 
     def get_policy_target(self, request, datum=None):
-        policy_target = super(DeleteAllowedAddressPair, self).\
-            get_policy_target(request, datum)
+        policy_target = super().get_policy_target(request, datum)
         policy_target["network:tenant_id"] = (
             self.table.kwargs['port'].tenant_id)
 

@@ -28,7 +28,7 @@ from openstack_dashboard.dashboards.admin.volume_types.extras \
 
 class ExtraSpecMixin(object):
     def get_context_data(self, **kwargs):
-        context = super(ExtraSpecMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             context['vol_type'] = api.cinder.volume_type_get(
                 self.request, self.kwargs['type_id'])
@@ -76,7 +76,7 @@ class CreateView(ExtraSpecMixin, forms.ModalFormView):
                        args=(self.kwargs['type_id'],))
 
     def get_context_data(self, **kwargs):
-        context = super(CreateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['type_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context
@@ -114,14 +114,14 @@ class EditView(ExtraSpecMixin, forms.ModalFormView):
                 'value': extra_specs.get(key, '')}
 
     def get_context_data(self, **kwargs):
-        context = super(EditView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['type_id'], self.kwargs['key'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         context['page_title'] = self.page_title % self.kwargs['key']
         return context
 
     def form_invalid(self, form):
-        context = super(EditView, self).get_context_data()
+        context = super().get_context_data()
         context = self._populate_context(context)
         context['form'] = form
         context['page_title'] = self.page_title % self.kwargs['key']

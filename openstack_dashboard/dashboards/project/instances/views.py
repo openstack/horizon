@@ -264,7 +264,7 @@ class LaunchInstanceView(workflows.WorkflowView):
     workflow_class = project_workflows.LaunchInstance
 
     def get_initial(self):
-        initial = super(LaunchInstanceView, self).get_initial()
+        initial = super().get_initial()
         initial['project_id'] = self.request.user.tenant_id
         initial['user_id'] = self.request.user.id
         initial['config_drive'] = setting_utils.get_dict_config(
@@ -356,7 +356,7 @@ class SerialConsoleView(generic.TemplateView):
     template_name = 'serial_console.html'
 
     def get_context_data(self, **kwargs):
-        context = super(SerialConsoleView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         instance = None
         try:
             instance = api.nova.server_get(self.request,
@@ -386,7 +386,7 @@ class UpdateView(workflows.WorkflowView):
     success_url = reverse_lazy("horizon:project:instances:index")
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["instance_id"] = self.kwargs['instance_id']
         return context
 
@@ -401,7 +401,7 @@ class UpdateView(workflows.WorkflowView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
-        initial = super(UpdateView, self).get_initial()
+        initial = super().get_initial()
         instance = self.get_object()
         initial.update({'instance_id': self.kwargs['instance_id'],
                         'name': getattr(instance, 'name', ''),
@@ -418,7 +418,7 @@ class RebuildView(forms.ModalFormView):
     submit_label = page_title
 
     def get_context_data(self, **kwargs):
-        context = super(RebuildView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         context['can_set_server_password'] = api.nova.can_set_server_password()
         return context
@@ -447,7 +447,7 @@ class DecryptPasswordView(forms.ModalFormView):
     page_title = _("Retrieve Instance Password")
 
     def get_context_data(self, **kwargs):
-        context = super(DecryptPasswordView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         context['keypair_name'] = self.kwargs['keypair_name']
         return context
@@ -465,7 +465,7 @@ class DisassociateView(forms.ModalFormView):
     submit_label = _("Disassociate")
 
     def get_context_data(self, **kwargs):
-        context = super(DisassociateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -482,7 +482,7 @@ class DetailView(tabs.TabView):
     volume_url = 'horizon:project:volumes:detail'
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         instance = self.get_data()
         if instance.image:
             instance.image_url = reverse(self.image_url,
@@ -586,7 +586,7 @@ class ResizeView(workflows.WorkflowView):
     success_url = reverse_lazy("horizon:project:instances:index")
 
     def get_context_data(self, **kwargs):
-        context = super(ResizeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["instance_id"] = self.kwargs['instance_id']
         return context
 
@@ -626,7 +626,7 @@ class ResizeView(workflows.WorkflowView):
                               redirect=redirect)
 
     def get_initial(self):
-        initial = super(ResizeView, self).get_initial()
+        initial = super().get_initial()
         _object = self.get_object()
         if _object:
             initial.update(
@@ -647,7 +647,7 @@ class AttachInterfaceView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:project:instances:index')
 
     def get_context_data(self, **kwargs):
-        context = super(AttachInterfaceView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -680,7 +680,7 @@ class AttachVolumeView(forms.ModalFormView):
                 "volume_list": volume_list}
 
     def get_context_data(self, **kwargs):
-        context = super(AttachVolumeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -700,7 +700,7 @@ class DetachVolumeView(forms.ModalFormView):
         return {"instance_id": self.kwargs["instance_id"]}
 
     def get_context_data(self, **kwargs):
-        context = super(DetachVolumeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -714,7 +714,7 @@ class DetachInterfaceView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:project:instances:index')
 
     def get_context_data(self, **kwargs):
-        context = super(DetachInterfaceView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -741,7 +741,7 @@ class UpdatePortView(port_views.UpdateView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
-        initial = super(UpdatePortView, self).get_initial()
+        initial = super().get_initial()
         initial['instance_id'] = self.kwargs['instance_id']
         return initial
 
@@ -755,7 +755,7 @@ class RescueView(forms.ModalFormView):
     page_title = _("Rescue Instance")
 
     def get_context_data(self, **kwargs):
-        context = super(RescueView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["instance_id"] = self.kwargs['instance_id']
         args = (self.kwargs['instance_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)

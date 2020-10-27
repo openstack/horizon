@@ -305,7 +305,7 @@ class Column(html.HTMLElement):
 
         allowed_data_types = allowed_data_types or []
         self.classes = list(classes or getattr(self, "classes", []))
-        super(Column, self).__init__()
+        super().__init__()
         self.attrs.update(attrs or {})
 
         if callable(transform):
@@ -478,7 +478,7 @@ class Column(html.HTMLElement):
 
     if settings.INTEGRATION_TESTS_SUPPORT:
         def get_default_attrs(self):
-            attrs = super(Column, self).get_default_attrs()
+            attrs = super().get_default_attrs()
             attrs.update({'data-selenium': self.name})
             return attrs
 
@@ -510,7 +510,7 @@ class WrappingColumn(Column):
     """A column that wraps its contents. Useful for data like UUIDs or names"""
 
     def __init__(self, *args, **kwargs):
-        super(WrappingColumn, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.classes.append('word-break')
 
 
@@ -580,7 +580,7 @@ class Row(html.HTMLElement):
     ajax_cell_action_name = "cell_update"
 
     def __init__(self, table, datum=None):
-        super(Row, self).__init__()
+        super().__init__()
         self.table = table
         self.datum = datum
         self.selected = False
@@ -709,7 +709,7 @@ class Cell(html.HTMLElement):
 
     def __init__(self, datum, column, row, attrs=None, classes=None):
         self.classes = classes or getattr(self, "classes", [])
-        super(Cell, self).__init__()
+        super().__init__()
         self.attrs.update(attrs or {})
 
         self.datum = datum

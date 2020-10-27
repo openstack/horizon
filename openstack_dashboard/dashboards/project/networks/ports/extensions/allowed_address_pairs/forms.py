@@ -38,7 +38,7 @@ class AddAllowedAddressPairForm(forms.SelfHandlingForm):
     failure_url = 'horizon:project:networks:ports:detail'
 
     def clean(self):
-        cleaned_data = super(AddAllowedAddressPairForm, self).clean()
+        cleaned_data = super().clean()
         if '/' not in self.data['ip']:
             cleaned_data['ip'] = self.data['ip']
         return cleaned_data

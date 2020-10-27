@@ -84,7 +84,7 @@ class IndexView(r_views.IndexView, n_views.IndexView):
         return routers
 
     def get_filters(self, filters=None, filters_map=None):
-        filters = super(IndexView, self).get_filters(filters, filters_map)
+        filters = super().get_filters(filters, filters_map)
         if 'project' in filters:
             tenants = api.keystone.tenant_list(self.request)[0]
             tenants_filter_ids = [t.id for t in tenants
@@ -100,7 +100,7 @@ class DetailView(r_views.DetailView):
     network_url = 'horizon:admin:networks:detail'
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         table = rtbl.RoutersTable(self.request)
         context["url"] = self.failure_url
         router = context["router"]

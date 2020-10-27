@@ -53,7 +53,7 @@ class SecurityGroupsViewTests(test.TestCase):
     secgroup_backend = 'neutron'
 
     def setUp(self):
-        super(SecurityGroupsViewTests, self).setUp()
+        super().setUp()
 
         sec_group = self.security_groups.first()
         self.detail_url = reverse(SG_DETAIL_VIEW, args=[sec_group.id])

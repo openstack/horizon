@@ -115,7 +115,7 @@ class NTAddInterfaceView(p_views.AddInterfaceView):
         return reverse("horizon:project:network_topology:index")
 
     def get_context_data(self, **kwargs):
-        context = super(NTAddInterfaceView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['form_url'] = 'horizon:project:network_topology:interface'
         return context
 
@@ -206,7 +206,7 @@ class NetworkTopologyView(tabs.TabView):
     page_title = _("Network Topology")
 
     def get_context_data(self, **kwargs):
-        context = super(NetworkTopologyView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         return utils.get_context(self.request, context)
 
 

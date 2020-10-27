@@ -77,7 +77,7 @@ class UpdateView(forms.ModalFormView):
                 'description': group.description}
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -107,7 +107,7 @@ class RemoveVolumesView(forms.ModalFormView):
                 'name': group.name}
 
     def get_context_data(self, **kwargs):
-        context = super(RemoveVolumesView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -138,7 +138,7 @@ class DeleteView(forms.ModalFormView):
                 'name': group.name}
 
     def get_context_data(self, **kwargs):
-        context = super(DeleteView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -159,7 +159,7 @@ class ManageView(workflows.WorkflowView):
     workflow_class = vol_group_workflows.UpdateGroupWorkflow
 
     def get_context_data(self, **kwargs):
-        context = super(ManageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs["group_id"]
         return context
 
@@ -190,7 +190,7 @@ class CreateSnapshotView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:project:vg_snapshots:index')
 
     def get_context_data(self, **kwargs):
-        context = super(CreateSnapshotView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -231,7 +231,7 @@ class CloneGroupView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:project:volume_groups:index')
 
     def get_context_data(self, **kwargs):
-        context = super(CloneGroupView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -271,7 +271,7 @@ class DetailView(tabs.TabView):
     page_title = "{{ group.name|default:group.id }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         group = self.get_data()
         table = vol_group_tables.GroupsTable(self.request)
         context["group"] = group

@@ -77,7 +77,7 @@ class Login(django_auth_forms.AuthenticationForm):
                                widget=forms.PasswordInput(render_value=False))
 
     def __init__(self, *args, **kwargs):
-        super(Login, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         fields_ordering = ['username', 'password', 'region']
         if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             last_domain = self.request.COOKIES.get('login_domain', None)
@@ -185,7 +185,7 @@ class DummyAuth(auth_plugin.BaseAuthPlugin):
 class Password(forms.Form):
     """Form used for changing user's password without having to log in."""
     def __init__(self, *args, **kwargs):
-        super(Password, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields = collections.OrderedDict([
             (
                 'region',

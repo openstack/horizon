@@ -36,7 +36,7 @@ class AddInterface(forms.SelfHandlingForm):
     failure_url = 'horizon:project:routers:detail'
 
     def __init__(self, request, *args, **kwargs):
-        super(AddInterface, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         c = self.populate_subnet_id_choices(request)
         self.fields['subnet_id'].choices = c
 
@@ -152,7 +152,7 @@ class SetGatewayForm(forms.SelfHandlingForm):
     failure_url = 'horizon:project:routers:index'
 
     def __init__(self, request, *args, **kwargs):
-        super(SetGatewayForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         networks = self.populate_network_id_choices(request)
         self.fields['network_id'].choices = networks
         self.ext_gw_mode = api.neutron.is_extension_supported(

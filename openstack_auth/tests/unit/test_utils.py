@@ -85,7 +85,7 @@ class UtilsTestCase(test.TestCase):
 class BehindProxyTestCase(test.TestCase):
 
     def setUp(self):
-        super(BehindProxyTestCase, self).setUp()
+        super().setUp()
         self.request = http.HttpRequest()
 
     def test_without_proxy(self):

@@ -59,9 +59,7 @@ class CreateDomainInfo(workflows.Step):
 
 class UpdateDomainUsersAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateDomainUsersAction, self).__init__(request,
-                                                      *args,
-                                                      **kwargs)
+        super().__init__(request, *args, **kwargs)
         domain_id = self.initial.get("domain_id", '')
 
         # Get the default role
@@ -137,7 +135,7 @@ class UpdateDomainUsers(workflows.UpdateMembersStep):
     no_members_text = _("No users.")
 
     def contribute(self, data, context):
-        context = super(UpdateDomainUsers, self).contribute(data, context)
+        context = super().contribute(data, context)
         if data:
             try:
                 roles = api.keystone.role_list(self.workflow.request)
@@ -156,9 +154,7 @@ class UpdateDomainUsers(workflows.UpdateMembersStep):
 
 class UpdateDomainGroupsAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateDomainGroupsAction, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve group list. Please try again later.')
         domain_id = self.initial.get("domain_id", '')
 
@@ -233,7 +229,7 @@ class UpdateDomainGroups(workflows.UpdateMembersStep):
     no_members_text = _("No groups.")
 
     def contribute(self, data, context):
-        context = super(UpdateDomainGroups, self).contribute(data, context)
+        context = super().contribute(data, context)
         if data:
             try:
                 roles = api.keystone.role_list(self.workflow.request)

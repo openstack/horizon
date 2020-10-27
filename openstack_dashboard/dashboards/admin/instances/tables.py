@@ -94,7 +94,7 @@ class LiveMigrateInstance(policy.PolicyTargetMixin,
 
 class AdminUpdateRow(project_tables.UpdateRow):
     def get_data(self, request, instance_id):
-        instance = super(AdminUpdateRow, self).get_data(request, instance_id)
+        instance = super().get_data(request, instance_id)
         try:
             tenant = api.keystone.tenant_get(request,
                                              instance.tenant_id,

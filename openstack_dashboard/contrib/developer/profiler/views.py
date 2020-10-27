@@ -27,7 +27,7 @@ class IndexView(views.HorizonTemplateView):
     page_title = _("OpenStack Profiler")
 
     def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         return context
 
 

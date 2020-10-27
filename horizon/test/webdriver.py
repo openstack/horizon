@@ -40,8 +40,7 @@ class WrapperFindOverride(object):
         repeat = range(2)
         for i in repeat:
             try:
-                web_el = super(WrapperFindOverride, self).find_element(
-                    by, value)
+                web_el = super().find_element(by, value)
             except exceptions.NoSuchElementException:
                 if i == repeat[-1]:
                     raise
@@ -52,8 +51,7 @@ class WrapperFindOverride(object):
         repeat = range(2)
         for i in repeat:
             try:
-                web_els = super(WrapperFindOverride, self).find_elements(
-                    by, value)
+                web_els = super().find_elements(by, value)
             except exceptions.NoSuchElementException:
                 if i == repeat[-1]:
                     raise
@@ -77,7 +75,7 @@ class WebElementWrapper(WrapperFindOverride, webelement.WebElement):
     """
 
     def __init__(self, parent, id_, locator, src_element, index=None):
-        super(WebElementWrapper, self).__init__(parent, id_)
+        super().__init__(parent, id_)
         self.locator = locator
         self.src_element = src_element
         # in case element was looked up previously via find_elements
@@ -102,7 +100,7 @@ class WebElementWrapper(WrapperFindOverride, webelement.WebElement):
         repeat = range(20)
         for i in repeat:
             try:
-                return super(WebElementWrapper, self)._execute(command, params)
+                return super()._execute(command, params)
             except (exceptions.StaleElementReferenceException,
                     exceptions.ElementClickInterceptedException):
                 if i == repeat[-1]:

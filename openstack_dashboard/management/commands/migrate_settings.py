@@ -102,7 +102,7 @@ class Command(BaseCommand):
     local_settings_reject_pattern = 'local_settings.py_%s.rej'
 
     def __init__(self, *args, **kwargs):
-        super(Command, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         settings_file = os.path.abspath(
             get_module_path(os.environ['DJANGO_SETTINGS_MODULE'])

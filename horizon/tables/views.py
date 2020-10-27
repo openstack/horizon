@@ -26,7 +26,7 @@ class MultiTableMixin(object):
     data_method_pattern = "get_%s_data"
 
     def __init__(self, *args, **kwargs):
-        super(MultiTableMixin, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.table_classes = getattr(self, "table_classes", [])
         self._data = {}
         self._tables = {}
@@ -102,7 +102,7 @@ class MultiTableMixin(object):
         return self._tables
 
     def get_context_data(self, **kwargs):
-        context = super(MultiTableMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         tables = self.get_tables()
         for name, table in tables.items():
             context["%s_table" % name] = table
@@ -274,7 +274,7 @@ class DataTableView(MultiTableView):
         return self.table
 
     def get_context_data(self, **kwargs):
-        context = super(DataTableView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         if hasattr(self, "table"):
             context[self.context_object_name] = self.table
         return context
@@ -354,7 +354,7 @@ class MixedDataTableView(DataTableView):
                     type_string)
 
     def get_table(self):
-        self.table = super(MixedDataTableView, self).get_table()
+        self.table = super().get_table()
         if not self.table._meta.mixed_data_type:
             raise AttributeError('You must have at least two elements in '
                                  'the data_types attribute '
@@ -365,7 +365,7 @@ class MixedDataTableView(DataTableView):
 
 class PagedTableMixin(object):
     def __init__(self, *args, **kwargs):
-        super(PagedTableMixin, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._has_prev_data = False
         self._has_more_data = False
 
@@ -391,7 +391,7 @@ class PagedTableMixin(object):
 
 class PagedTableWithPageMenu(object):
     def __init__(self, *args, **kwargs):
-        super(PagedTableWithPageMenu, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._current_page = 1
         self._number_of_pages = 0
         self._total_of_entries = 0
@@ -401,7 +401,7 @@ class PagedTableWithPageMenu(object):
         name = table.name
         self._tables[name]._meta.current_page = self.current_page
         self._tables[name]._meta.number_of_pages = self.number_of_pages
-        return super(PagedTableWithPageMenu, self).handle_table(table)
+        return super().handle_table(table)
 
     def has_prev_data(self, table):
         return self._current_page > 1

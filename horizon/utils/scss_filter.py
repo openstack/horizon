@@ -23,7 +23,7 @@ from scss.types import String
 
 class HorizonScssFilter(DjangoScssFilter):
     def __init__(self, *args, **kwargs):
-        super(HorizonScssFilter, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         self.namespace = Namespace()
 

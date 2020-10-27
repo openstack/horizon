@@ -56,7 +56,7 @@ class SelectProjectUserAction(workflows.Action):
     user_id = forms.ThemableChoiceField(label=_("User"))
 
     def __init__(self, request, *args, **kwargs):
-        super(SelectProjectUserAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         # Set our project choices
         projects = [(tenant.id, tenant.name)
                     for tenant in request.user.authorized_tenants]
@@ -145,8 +145,7 @@ class SetInstanceDetailsAction(workflows.Action):
         self._init_images_cache()
         self.request = request
         self.context = context
-        super(SetInstanceDetailsAction, self).__init__(
-            request, context, *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
 
         # Hide the device field if the hypervisor doesn't support it.
         if not nova.can_set_mount_point():
@@ -362,7 +361,7 @@ class SetInstanceDetailsAction(workflows.Action):
             check_method(cleaned_data)
 
     def clean(self):
-        cleaned_data = super(SetInstanceDetailsAction, self).clean()
+        cleaned_data = super().clean()
 
         self._check_quotas(cleaned_data)
         self._check_source(cleaned_data)
@@ -414,7 +413,7 @@ class SetInstanceDetailsAction(workflows.Action):
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
-        return super(SetInstanceDetailsAction, self).get_help_text(extra)
+        return super().get_help_text(extra)
 
     def _init_images_cache(self):
         if not hasattr(self, '_images_cache'):
@@ -522,7 +521,7 @@ class SetInstanceDetails(workflows.Step):
         return context
 
     def contribute(self, data, context):
-        context = super(SetInstanceDetails, self).contribute(data, context)
+        context = super().contribute(data, context)
         # Allow setting the source dynamically.
         if ("source_type" in context and
                 "source_id" in context and
@@ -576,7 +575,7 @@ class SetAccessControlsAction(workflows.Action):
                       "security groups, and other mechanisms.")
 
     def __init__(self, request, *args, **kwargs):
-        super(SetAccessControlsAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         if not api.nova.can_set_server_password():
             del self.fields['admin_pass']
             del self.fields['confirm_admin_pass']
@@ -600,7 +599,7 @@ class SetAccessControlsAction(workflows.Action):
 
     def clean(self):
         '''Check to make sure password fields match.'''
-        cleaned_data = super(SetAccessControlsAction, self).clean()
+        cleaned_data = super().clean()
         if 'admin_pass' in cleaned_data:
             if cleaned_data['admin_pass'] != cleaned_data.get(
                     'confirm_admin_pass', None):
@@ -663,7 +662,7 @@ class CustomizeAction(workflows.Action):
         required=False)
 
     def clean(self):
-        cleaned = super(CustomizeAction, self).clean()
+        cleaned = super().clean()
 
         files = self.request.FILES
         script = self.clean_uploaded_files('script', files)
@@ -719,7 +718,7 @@ class SetNetworkAction(workflows.Action):
                     " these networks"))
 
     def __init__(self, request, *args, **kwargs):
-        super(SetNetworkAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         # NOTE(e0ne): we don't need 'required attribute for networks
         # checkboxes to be able to select only one network
@@ -805,8 +804,7 @@ class SetAdvancedAction(workflows.Action):
         help_text=_("Server group to associate with this instance."))
 
     def __init__(self, request, context, *args, **kwargs):
-        super(SetAdvancedAction, self).__init__(request, context,
-                                                *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
         try:
             if not api.nova.extension_supported("DiskConfig", request):
                 del self.fields['disk_config']
@@ -843,8 +841,7 @@ class SetAdvanced(workflows.Step):
     contributes = ("disk_config", "config_drive", "server_group",)
 
     def prepare_action_context(self, request, context):
-        context = super(SetAdvanced, self).prepare_action_context(request,
-                                                                  context)
+        context = super().prepare_action_context(request, context)
         # Add the workflow slug to the context so that we can tell which
         # workflow is being used when creating the action. This step is
         # used by both the Launch Instance and Resize Instance workflows.

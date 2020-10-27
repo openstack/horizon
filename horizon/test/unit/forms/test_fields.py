@@ -227,7 +227,7 @@ class ChoiceFieldForm(forms.SelfHandlingForm):
             transform_html_attrs=title_dic.get))
 
     def __init__(self, request, *args, **kwargs):
-        super(ChoiceFieldForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         choices = ([('choice1', 'label1'),
                     ('choice2', 'label2')])
         self.fields['test_choices'].choices = choices
@@ -241,7 +241,7 @@ class ChoiceFieldTests(test.TestCase):
     template = 'horizon/common/_form_fields.html'
 
     def setUp(self):
-        super(ChoiceFieldTests, self).setUp()
+        super().setUp()
         self.form = ChoiceFieldForm(self.request)
 
     def _render_form(self):
@@ -282,7 +282,7 @@ class ThemableChoiceFieldForm(forms.SelfHandlingForm):
             transform_html_attrs=title_dic.get))
 
     def __init__(self, request, *args, **kwargs):
-        super(ThemableChoiceFieldForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         choices = ([('choice1', 'label1'),
                     ('choice2', 'label2')])
         self.fields['test_choices'].choices = choices
@@ -296,7 +296,7 @@ class ThemableChoiceFieldTests(test.TestCase):
     template = 'horizon/common/_form_fields.html'
 
     def setUp(self):
-        super(ThemableChoiceFieldTests, self).setUp()
+        super().setUp()
         self.form = ThemableChoiceFieldForm(self.request)
 
     def _render_form(self):

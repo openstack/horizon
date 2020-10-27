@@ -63,8 +63,7 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
 
     def __init__(self, request, *args, **kwargs):
         self.next_view = kwargs.pop('next_view', None)
-        super(CreateApplicationCredentialForm, self).__init__(request, *args,
-                                                              **kwargs)
+        super().__init__(request, *args, **kwargs)
         role_list = self.request.user.roles
         role_names = [role['name'] for role in role_list]
         role_choices = ((name, name) for name in role_names)
@@ -132,7 +131,7 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
                 request, _('Unable to create application credential.'))
 
     def clean(self):
-        cleaned_data = super(CreateApplicationCredentialForm, self).clean()
+        cleaned_data = super().clean()
         try:
             cleaned_data['access_rules'] = yaml.safe_load(
                 cleaned_data['access_rules'])

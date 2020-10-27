@@ -205,7 +205,7 @@ class LiveMigrateView(forms.ModalFormView):
     success_label = page_title
 
     def get_context_data(self, **kwargs):
-        context = super(LiveMigrateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["instance_id"] = self.kwargs['instance_id']
         return context
 
@@ -231,7 +231,7 @@ class LiveMigrateView(forms.ModalFormView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
-        initial = super(LiveMigrateView, self).get_initial()
+        initial = super().get_initial()
         _object = self.get_object()
         if _object:
             current_host = getattr(_object, 'OS-EXT-SRV-ATTR:host', '')

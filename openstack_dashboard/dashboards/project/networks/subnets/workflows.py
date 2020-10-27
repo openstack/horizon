@@ -157,8 +157,7 @@ class UpdateSubnetInfo(CreateSubnetInfo):
 class UpdateSubnetDetailAction(network_workflows.CreateSubnetDetailAction):
 
     def __init__(self, request, context, *args, **kwargs):
-        super(UpdateSubnetDetailAction, self).__init__(request, context,
-                                                       *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
         # TODO(amotoki): Due to Neutron bug 1362966, we cannot pass "None"
         # to Neutron. It means we cannot set IPv6 two modes to
         # "No option selected".

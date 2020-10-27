@@ -125,8 +125,7 @@ class CreatePortInfoAction(workflows.Action):
         required=False)
 
     def __init__(self, request, context, *args, **kwargs):
-        super(CreatePortInfoAction, self).__init__(
-            request, context, *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
 
         # prepare subnet choices and input area for each subnet
         subnet_choices = self._get_subnet_choices(context)
@@ -311,7 +310,7 @@ class UpdatePortInfoAction(workflows.Action):
         help_text=_("If checked, the port will be enabled."))
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdatePortInfoAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         try:
             if api.neutron.is_extension_supported(request, 'binding'):
                 supported_vnic_types = setting_utils.get_dict_config(

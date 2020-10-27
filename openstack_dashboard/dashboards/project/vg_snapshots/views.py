@@ -63,7 +63,7 @@ class DetailView(tabs.TabView):
     page_title = "{{ vg_snapshot.name|default:vg_snapshot.id }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         vg_snapshot = self.get_data()
         table = vg_snapshot_tables.GroupSnapshotsTable(self.request)
         context["vg_snapshot"] = vg_snapshot
@@ -118,7 +118,7 @@ class CreateGroupView(forms.ModalFormView):
     page_title = _("Create Volume Group")
 
     def get_context_data(self, **kwargs):
-        context = super(CreateGroupView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['vg_snapshot_id'] = self.kwargs['vg_snapshot_id']
         args = (self.kwargs['vg_snapshot_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)

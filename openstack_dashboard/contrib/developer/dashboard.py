@@ -26,7 +26,7 @@ class Developer(horizon.Dashboard):
     def allowed(self, context):
         if not settings.DEBUG:
             return False
-        return super(Developer, self).allowed(context)
+        return super().allowed(context)
 
 
 horizon.register(Developer)

@@ -108,7 +108,7 @@ class ServiceCatalogException(HorizonException):
     """
     def __init__(self, service_name):
         message = _('Invalid service catalog: %s') % service_name
-        super(ServiceCatalogException, self).__init__(message)
+        super().__init__(message)
 
 
 class AlreadyExists(HorizonException):

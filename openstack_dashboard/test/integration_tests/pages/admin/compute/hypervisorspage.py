@@ -16,5 +16,5 @@ from openstack_dashboard.test.integration_tests.pages import basepage
 class HypervisorsPage(basepage.BaseNavigationPage):
 
     def __init__(self, driver, conf):
-        super(HypervisorsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "All Hypervisors"

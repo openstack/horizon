@@ -70,7 +70,7 @@ class RbacYesAccessPanel(horizon.Panel):
 class BaseHorizonTests(test.TestCase):
 
     def setUp(self):
-        super(BaseHorizonTests, self).setUp()
+        super().setUp()
         # Adjust our horizon config and register our custom dashboards/panels.
         self.old_default_dash = settings.HORIZON_CONFIG['default_dashboard']
         settings.HORIZON_CONFIG['default_dashboard'] = 'cats'
@@ -93,7 +93,7 @@ class BaseHorizonTests(test.TestCase):
             self._discovered_panels[dash] = panels
 
     def tearDown(self):
-        super(BaseHorizonTests, self).tearDown()
+        super().tearDown()
         # Restore our settings
         settings.HORIZON_CONFIG['default_dashboard'] = self.old_default_dash
         settings.HORIZON_CONFIG['dashboards'] = self.old_dashboards
@@ -349,12 +349,12 @@ class HorizonTests(BaseHorizonTests):
         settings.SECURE_PROXY_SSL_HEADER = None
 
 
-class GetUserHomeTests(BaseHorizonTests):
+class GetUserHomeTests(test.TestCase):
     """Test get_user_home parameters."""
 
     def setUp(self):
         self.orig_user_home = settings.HORIZON_CONFIG['user_home']
-        super(BaseHorizonTests, self).setUp()
+        super().setUp()
         self.original_username = "testname"
         self.test_user = User()
         self.test_user.username = self.original_username
@@ -362,6 +362,7 @@ class GetUserHomeTests(BaseHorizonTests):
     def tearDown(self):
         settings.HORIZON_CONFIG['user_home'] = self.orig_user_home
         conf.HORIZON_CONFIG._setup()
+        super().tearDown()
 
     def test_using_callable(self):
         def themable_user_fnc(user):
@@ -399,7 +400,7 @@ class CustomPanelTests(BaseHorizonTests):
     """
 
     def setUp(self):
-        super(CustomPanelTests, self).setUp()
+        super().setUp()
         settings.HORIZON_CONFIG['customization_module'] = \
             'horizon.test.customization.cust_test1'
         # refresh config
@@ -414,7 +415,7 @@ class CustomPanelTests(BaseHorizonTests):
         self._discovered_dashboards.append(Dogs)
         Dogs.register(Puppies)
         Cats.register(Tigers)
-        super(CustomPanelTests, self).tearDown()
+        super().tearDown()
         settings.HORIZON_CONFIG.pop('customization_module')
         # refresh config
         conf.HORIZON_CONFIG._setup()
@@ -440,14 +441,14 @@ class CustomPermissionsTests(BaseHorizonTests):
             'horizon.test.customization.cust_test2'
         # refresh config
         conf.HORIZON_CONFIG._setup()
-        super(CustomPermissionsTests, self).setUp()
+        super().setUp()
 
     def tearDown(self):
         # Restore permissions
         dogs = horizon.get_dashboard("dogs")
         puppies = dogs.get_panel("puppies")
         puppies.permissions = tuple([])
-        super(CustomPermissionsTests, self).tearDown()
+        super().tearDown()
         settings.HORIZON_CONFIG.pop('customization_module')
         # refresh config
         conf.HORIZON_CONFIG._setup()
@@ -489,7 +490,7 @@ class CustomPermissionsTests(BaseHorizonTests):
 class RbacHorizonTests(test.TestCase):
 
     def setUp(self):
-        super(RbacHorizonTests, self).setUp()
+        super().setUp()
         # Adjust our horizon config and register our custom dashboards/panels.
         self.old_default_dash = settings.HORIZON_CONFIG['default_dashboard']
         settings.HORIZON_CONFIG['default_dashboard'] = 'cats'
@@ -513,7 +514,7 @@ class RbacHorizonTests(test.TestCase):
             self._discovered_panels[dash] = panels
 
     def tearDown(self):
-        super(RbacHorizonTests, self).tearDown()
+        super().tearDown()
         # Restore our settings
         settings.HORIZON_CONFIG['default_dashboard'] = self.old_default_dash
         settings.HORIZON_CONFIG['dashboards'] = self.old_dashboards

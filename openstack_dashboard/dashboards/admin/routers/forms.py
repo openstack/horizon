@@ -27,7 +27,7 @@ class CreateForm(r_forms.CreateForm):
     failure_url = 'horizon:admin:routers:index'
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         tenant_choices = [('', _("Select a project"))]
         tenants, __ = api.keystone.tenant_list(request)
         for tenant in tenants:

@@ -53,7 +53,7 @@ class CommonQuotaAction(workflows.Action):
     _quota_fields = None
 
     def __init__(self, request, *args, **kwargs):
-        super(CommonQuotaAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         disabled_quotas = self.initial['disabled_quotas']
         for field in disabled_quotas:
             if field in self.fields:
@@ -61,7 +61,7 @@ class CommonQuotaAction(workflows.Action):
                 self.fields[field].widget = forms.HiddenInput()
 
     def clean(self):
-        cleaned_data = super(CommonQuotaAction, self).clean()
+        cleaned_data = super().clean()
         usages = quotas.tenant_quota_usages(
             self.request, tenant_id=self.initial['project_id'],
             targets=tuple(self._quota_fields))
@@ -228,9 +228,7 @@ class CreateProjectInfoAction(workflows.Action):
                                  initial=True)
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateProjectInfoAction, self).__init__(request,
-                                                      *args,
-                                                      **kwargs)
+        super().__init__(request, *args, **kwargs)
         readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
         self.fields["domain_id"].widget = readonlyInput
         self.fields["domain_name"].widget = readonlyInput
@@ -259,16 +257,14 @@ class CreateProjectInfo(workflows.Step):
                    "enabled")
 
     def __init__(self, workflow):
-        super(CreateProjectInfo, self).__init__(workflow)
+        super().__init__(workflow)
         EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
         self.contributes += tuple(EXTRA_INFO.keys())
 
 
 class UpdateProjectMembersAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateProjectMembersAction, self).__init__(request,
-                                                         *args,
-                                                         **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve user list. Please try again later.')
         # Use the domain_id from the project
         domain_id = self.initial.get("domain_id", None)
@@ -364,9 +360,7 @@ class UpdateProjectMembers(workflows.UpdateMembersStep):
 
 class UpdateProjectGroupsAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateProjectGroupsAction, self).__init__(request,
-                                                        *args,
-                                                        **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve group list. Please try again later.')
         # Use the domain_id from the project
         domain_id = self.initial.get("domain_id", None)
@@ -477,11 +471,8 @@ class CreateProject(workflows.Workflow):
         self.default_steps = (CreateProjectInfo,
                               UpdateProjectMembers,
                               UpdateProjectGroups)
-        super(CreateProject, self).__init__(request=request,
-                                            context_seed=context_seed,
-                                            entry_point=entry_point,
-                                            *args,
-                                            **kwargs)
+        super().__init__(request=request, context_seed=context_seed,
+                         entry_point=entry_point, *args, **kwargs)
 
     def format_status_message(self, message):
         if "%s" in message:
@@ -590,15 +581,14 @@ class UpdateProjectInfoAction(CreateProjectInfoAction):
                                   widget=forms.HiddenInput())
 
     def __init__(self, request, initial, *args, **kwargs):
-        super(UpdateProjectInfoAction, self).__init__(
-            request, initial, *args, **kwargs)
+        super().__init__(request, initial, *args, **kwargs)
         if initial['project_id'] == request.user.project_id:
             self.fields['enabled'].widget.attrs['disabled'] = True
             self.fields['enabled'].help_text = _(
                 'You cannot disable your current project')
 
     def clean(self):
-        cleaned_data = super(UpdateProjectInfoAction, self).clean()
+        cleaned_data = super().clean()
         # NOTE(tsufiev): in case the current project is being edited, its
         # 'enabled' field is disabled to prevent changing the field value
         # which is always `True` for the current project (because the user
@@ -626,7 +616,7 @@ class UpdateProjectInfo(workflows.Step):
                    "enabled")
 
     def __init__(self, workflow):
-        super(UpdateProjectInfo, self).__init__(workflow)
+        super().__init__(workflow)
         EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
         self.contributes += tuple(EXTRA_INFO.keys())
 
@@ -647,11 +637,8 @@ class UpdateProject(workflows.Workflow):
                               UpdateProjectMembers,
                               UpdateProjectGroups)
 
-        super(UpdateProject, self).__init__(request=request,
-                                            context_seed=context_seed,
-                                            entry_point=entry_point,
-                                            *args,
-                                            **kwargs)
+        super().__init__(request=request, context_seed=context_seed,
+                         entry_point=entry_point, *args, **kwargs)
 
     def format_status_message(self, message):
         if "%s" in message:

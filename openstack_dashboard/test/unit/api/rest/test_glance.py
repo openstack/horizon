@@ -22,7 +22,7 @@ from openstack_dashboard.test import helpers as test
 class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
 
     def setUp(self):
-        super(ImagesRestTestCase, self).setUp()
+        super().setUp()
         api.glance.VERSIONS.clear_active_cache()
 
     #

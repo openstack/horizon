@@ -44,7 +44,7 @@ class CreateBackupForm(forms.SelfHandlingForm):
                                             required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateBackupForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         if kwargs['initial'].get('snapshot_id'):
             snap_id = kwargs['initial']['snapshot_id']
             try:
@@ -111,7 +111,7 @@ class RestoreBackupForm(forms.SelfHandlingForm):
     backup_name = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, request, *args, **kwargs):
-        super(RestoreBackupForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         try:
             search_opts = {'status': 'available'}

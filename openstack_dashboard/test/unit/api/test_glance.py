@@ -28,7 +28,7 @@ from openstack_dashboard.test import helpers as test
 
 class GlanceApiTests(test.APIMockTestCase):
     def setUp(self):
-        super(GlanceApiTests, self).setUp()
+        super().setUp()
         api.glance.VERSIONS.clear_active_cache()
 
     @override_settings(API_RESULT_PAGE_SIZE=2)

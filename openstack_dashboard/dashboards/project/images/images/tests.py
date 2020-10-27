@@ -353,7 +353,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
 class OwnerFilterTests(test.TestCase):
     def setUp(self):
-        super(OwnerFilterTests, self).setUp()
+        super().setUp()
         self.table = mock.Mock(spec=horizon_tables.DataTable)
         self.table.request = self.request
 

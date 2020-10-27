@@ -64,7 +64,7 @@ class RoutersPage(basepage.BaseNavigationPage):
                                'a[href*="tab=router_details__interfaces"]')
 
     def __init__(self, driver, conf):
-        super(RoutersPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Routers"
         self._external_network = conf.network.external_network
 

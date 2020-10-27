@@ -50,12 +50,12 @@ class GlobalOverview(usage.UsageView):
     csv_response_class = GlobalUsageCsvRenderer
 
     def get_context_data(self, **kwargs):
-        context = super(GlobalOverview, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['monitoring'] = settings.EXTERNAL_MONITORING
         return context
 
     def get_data(self):
-        data = super(GlobalOverview, self).get_data()
+        data = super().get_data()
         # Pre-fill project names
         try:
             projects, has_more = api.keystone.tenant_list(self.request)

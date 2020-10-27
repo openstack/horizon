@@ -61,7 +61,7 @@ class CreateNamespaceForm(forms.SelfHandlingForm):
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
     def clean(self):
-        data = super(CreateNamespaceForm, self).clean()
+        data = super().clean()
 
         # The key can be missing based on particular upload
         # conditions. Code defensively for it here...

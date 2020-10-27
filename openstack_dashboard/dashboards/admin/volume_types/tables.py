@@ -211,7 +211,7 @@ class UpdateMetadata(tables.LinkAction):
 
     def __init__(self, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadata, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def get_link_url(self, datum):
         obj_id = self.table.get_object_id(datum)

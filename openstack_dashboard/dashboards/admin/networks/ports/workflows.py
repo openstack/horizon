@@ -56,7 +56,7 @@ class CreatePort(project_workflow.CreatePort):
                        args=(self.context['network_id'],))
 
     def _construct_parameters(self, context):
-        params = super(CreatePort, self)._construct_parameters(context)
+        params = super()._construct_parameters(context)
         params.update({'tenant_id': context['target_tenant_id'],
                        'binding__host_id': context['binding__host_id']})
         return params
@@ -97,7 +97,7 @@ class UpdatePort(project_workflow.UpdatePort):
                        args=(self.context['network_id'],))
 
     def _construct_parameters(self, data):
-        params = super(UpdatePort, self)._construct_parameters(data)
+        params = super()._construct_parameters(data)
         params.update({'device_id': data['device_id'],
                        'device_owner': data['device_owner'],
                        'binding__host_id': data['binding__host_id'],

@@ -118,7 +118,7 @@ class IndexView(tables.DataTableView):
         return networks
 
     def get_filters(self, filters=None, filters_map=None):
-        filters = super(IndexView, self).get_filters(filters, filters_map)
+        filters = super().get_filters(filters, filters_map)
         if 'project' in filters:
             tenants = api.keystone.tenant_list(self.request)[0]
             tenant_filter_ids = [t.id for t in tenants
@@ -179,7 +179,7 @@ class DetailView(tabs.TabbedTableView):
         return reverse_lazy('horizon:admin:networks:index')
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         network = self._get_data()
         context["network"] = network
         table = networks_tables.NetworksTable(self.request)

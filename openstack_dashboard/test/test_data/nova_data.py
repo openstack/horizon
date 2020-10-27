@@ -38,7 +38,7 @@ class FlavorExtraSpecs(dict):
         return "<FlavorExtraSpecs %s>" % self._info
 
     def __init__(self, info):
-        super(FlavorExtraSpecs, self).__init__()
+        super().__init__()
         self.__dict__.update(info)
         self.update(info)
         self._info = info

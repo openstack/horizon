@@ -66,7 +66,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
     )
 
     def __init__(self, request, *args, **kwargs):
-        super(RebuildInstanceForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         if not api.nova.is_feature_available(request, "instance_description"):
             del self.fields['description']
         instance_id = kwargs.get('initial', {}).get('instance_id')
@@ -98,7 +98,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
                                          'information.'))
 
     def clean(self):
-        cleaned_data = super(RebuildInstanceForm, self).clean()
+        cleaned_data = super().clean()
         if 'password' in cleaned_data:
             passwd = cleaned_data.get('password')
             confirm = cleaned_data.get('confirm_password')
@@ -146,9 +146,7 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
                                          required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(DecryptPasswordInstanceForm, self).__init__(request,
-                                                          *args,
-                                                          **kwargs)
+        super().__init__(request, *args, **kwargs)
         instance_id = kwargs.get('initial', {}).get('instance_id')
         self.fields['instance_id'].initial = instance_id
         keypair_name = kwargs.get('initial', {}).get('keypair_name')
@@ -196,7 +194,7 @@ class AttachVolume(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, request, *args, **kwargs):
-        super(AttachVolume, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         # Populate volume choices
         volume_list = kwargs.get('initial', {}).get("volume_list", [])
@@ -251,7 +249,7 @@ class DetachVolume(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
-        super(DetachVolume, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # Populate instance id
         instance_id = kwargs.get('initial', {}).get("instance_id", None)
@@ -338,7 +336,7 @@ class AttachInterface(forms.SelfHandlingForm):
         }))
 
     def __init__(self, request, *args, **kwargs):
-        super(AttachInterface, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         networks = instance_utils.network_field_data(request,
                                                      include_empty_option=True,
                                                      with_cidr=True)
@@ -389,7 +387,7 @@ class DetachInterface(forms.SelfHandlingForm):
     port = forms.ThemableChoiceField(label=_("Port"))
 
     def __init__(self, request, *args, **kwargs):
-        super(DetachInterface, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         instance_id = self.initial.get("instance_id", None)
 
         ports = []
@@ -431,7 +429,7 @@ class Disassociate(forms.SelfHandlingForm):
                                     required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(Disassociate, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         instance_id = self.initial['instance_id']
         targets = api.neutron.floating_ip_target_list_by_instance(
             request, instance_id)
@@ -490,7 +488,7 @@ class RescueInstanceForm(forms.SelfHandlingForm):
     failure_url = 'horizon:project:instances:index'
 
     def __init__(self, request, *args, **kwargs):
-        super(RescueInstanceForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         images = image_utils.get_available_images(request,
                                                   request.user.tenant_id)
         choices = [(image.id, image) for image in images]

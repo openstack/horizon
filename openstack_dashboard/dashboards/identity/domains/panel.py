@@ -26,4 +26,4 @@ class Domains(horizon.Panel):
     def can_access(self, context):
         request = context['request']
         domain_token = request.session.get('domain_token')
-        return super(Domains, self).can_access(context) and domain_token
+        return super().can_access(context) and domain_token

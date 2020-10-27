@@ -52,7 +52,7 @@ class RouterInterfacesPage(basepage.BaseNavigationPage):
         'ol.breadcrumb>li>' + 'a[href*="/project/routers"]')
 
     def __init__(self, driver, conf, router_name):
-        super(RouterInterfacesPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = router_name
 
     def _get_row_with_interface_name(self, name):

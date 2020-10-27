@@ -57,7 +57,7 @@ class Server(base.APIResourceWrapper):
               'OS-EXT-AZ:availability_zone', 'OS-DCF:diskConfig']
 
     def __init__(self, apiresource, request):
-        super(Server, self).__init__(apiresource)
+        super().__init__(apiresource)
         self.request = request
 
     # TODO(gabriel): deprecate making a call to Glance as a fallback.

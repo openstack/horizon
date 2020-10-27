@@ -38,7 +38,7 @@ class UpdateAggregateForm(forms.SelfHandlingForm):
     )
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateAggregateForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         old_availability_zone = self.initial['availability_zone']
         if not old_availability_zone:
             self.fields['availability_zone'].required = False

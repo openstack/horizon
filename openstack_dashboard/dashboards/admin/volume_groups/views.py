@@ -93,7 +93,7 @@ class DetailView(project_views.DetailView):
     tab_group_class = admin_tabs.GroupsDetailTabs
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         table = admin_tables.GroupsTable(self.request)
         context["actions"] = table.render_row_actions(context["group"])
         return context

@@ -22,7 +22,7 @@ class NetworkOverviewPage(basepage.BaseNavigationPage):
     _network_dd_status_locator = (by.By.CSS_SELECTOR, 'dt[title*="Status"]+dd')
 
     def __init__(self, driver, conf):
-        super(NetworkOverviewPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = 'Network Details'
         self._external_network = conf.network.external_network
 

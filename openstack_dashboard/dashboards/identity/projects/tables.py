@@ -67,7 +67,7 @@ class UpdateMembersLink(tables.LinkAction):
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        return super(UpdateMembersLink, self).allowed(request, project)
+        return super().allowed(request, project)
 
 
 class UpdateGroupsLink(tables.LinkAction):
@@ -83,7 +83,7 @@ class UpdateGroupsLink(tables.LinkAction):
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        return super(UpdateGroupsLink, self).allowed(request, project)
+        return super().allowed(request, project)
 
     def get_link_url(self, project):
         step = 'update_group_members'
@@ -186,8 +186,7 @@ class DeleteTenantsAction(policy.PolicyTargetMixin, tables.DeleteAction):
         api.keystone.tenant_delete(request, obj_id)
 
     def handle(self, table, request, obj_ids):
-        response = \
-            super(DeleteTenantsAction, self).handle(table, request, obj_ids)
+        response = super().handle(table, request, obj_ids)
         return response
 
 
@@ -235,10 +234,8 @@ class TenantsTable(tables.DataTable):
         return None
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(TenantsTable,
-              self).__init__(request, data=data,
-                             needs_form_wrapper=needs_form_wrapper,
-                             **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper, **kwargs)
         # see the comment above about ugly monkey patches
         self.columns['name'].get_link_url = self.get_project_detail_link
 

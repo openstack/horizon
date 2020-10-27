@@ -29,7 +29,7 @@ class LoginPage(pageobject.PageObject):
     _login_logout_reason_locator = (by.By.ID, 'logout_reason')
 
     def __init__(self, driver, conf):
-        super(LoginPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Login"
 
     def is_login_page(self):

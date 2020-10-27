@@ -19,7 +19,7 @@ from openstack_dashboard.test.integration_tests.regions import messages
 class TestDefaults(helpers.AdminTestCase):
 
     def setUp(self):
-        super(TestDefaults, self).setUp()
+        super().setUp()
         self.defaults_page = self.home_pg.go_to_admin_system_defaultspage()
         self.add_up = random.randint(1, 10)
 

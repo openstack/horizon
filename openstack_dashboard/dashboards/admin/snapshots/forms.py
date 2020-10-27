@@ -53,7 +53,7 @@ class UpdateStatus(forms.SelfHandlingForm):
         current_status = kwargs['initial']['status']
         kwargs['initial'].pop('status')
 
-        super(UpdateStatus, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         self.fields['status'].choices = populate_status_choices(
             current_status, STATUS_CHOICES)

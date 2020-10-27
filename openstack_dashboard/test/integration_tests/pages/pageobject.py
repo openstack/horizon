@@ -22,7 +22,7 @@ class PageObject(basewebobject.BaseWebObject):
 
     def __init__(self, driver, conf):
         """Constructor."""
-        super(PageObject, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = None
 
     @property

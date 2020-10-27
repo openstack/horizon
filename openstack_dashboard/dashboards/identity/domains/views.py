@@ -72,7 +72,7 @@ class UpdateDomainView(workflows.WorkflowView):
     workflow_class = project_workflows.UpdateDomain
 
     def get_initial(self):
-        initial = super(UpdateDomainView, self).get_initial()
+        initial = super().get_initial()
 
         domain_id = self.kwargs['domain_id']
         initial['domain_id'] = domain_id

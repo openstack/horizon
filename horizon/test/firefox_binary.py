@@ -82,7 +82,7 @@ class WebDriver(firefox.webdriver.WebDriver):
             # called from WebDriver.__init__, retry __init__.
             for i in range(self.CONNREFUSED_RETRY_COUNT + 1):
                 try:
-                    super(WebDriver, self).__init__(
+                    super().__init__(
                         firefox_profile, FirefoxBinary(), timeout,
                         desired_capabilities, proxy)
                     if i > 0:

@@ -21,7 +21,7 @@ class Namespace(dict):
         return "<Namespace %s>" % self._info
 
     def __init__(self, info):
-        super(Namespace, self).__init__()
+        super().__init__()
         self.__dict__.update(info)
         self.update(info)
         self._info = info

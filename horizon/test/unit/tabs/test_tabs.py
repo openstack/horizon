@@ -340,11 +340,11 @@ class TabTests(test.TestCase):
 
 class TabExceptionTests(test.TestCase):
     def setUp(self):
-        super(TabExceptionTests, self).setUp()
+        super().setUp()
         self._original_tabs = copy.copy(TabWithTableView.tab_group_class.tabs)
 
     def tearDown(self):
-        super(TabExceptionTests, self).tearDown()
+        super().tearDown()
         TabWithTableView.tab_group_class.tabs = self._original_tabs
 
     @override_settings(SESSION_REFRESH=False)

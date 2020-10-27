@@ -44,7 +44,7 @@ class GroupsTable(tables.TableRegion):
 class GroupsPage(basepage.BaseNavigationPage):
 
     def __init__(self, driver, conf):
-        super(GroupsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = 'Groups'
 
     @property

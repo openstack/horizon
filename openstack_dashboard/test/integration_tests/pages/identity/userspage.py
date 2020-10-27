@@ -37,7 +37,7 @@ class UsersPage(basepage.BaseNavigationPage):
     USERS_TABLE_NAME_COLUMN = 'User Name'
 
     def __init__(self, driver, conf):
-        super(UsersPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Users"
 
     def _get_row_with_user_name(self, name):

@@ -43,7 +43,7 @@ class CreateView(forms.ModalFormView):
         return {"instance_id": self.kwargs["instance_id"]}
 
     def get_context_data(self, **kwargs):
-        context = super(CreateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['instance_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context

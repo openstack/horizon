@@ -163,7 +163,7 @@ class ProjectUsage(BaseUsage):
              'hours', 'local_gb')
 
     def __init__(self, request, project_id=None):
-        super(ProjectUsage, self).__init__(request, project_id)
+        super().__init__(request, project_id)
         self.limits = {}
         self.quotas = {}
 

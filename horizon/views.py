@@ -68,7 +68,7 @@ class PageTitleMixin(object):
         """
 
         context = self.render_context_with_title(context)
-        return super(PageTitleMixin, self).render_to_response(context)
+        return super().render_to_response(context)
 
 
 def trace(name):
@@ -83,7 +83,7 @@ def trace(name):
 class HorizonTemplateView(PageTitleMixin, generic.TemplateView):
     @trace('horizon.render_to_response')
     def render_to_response(self, context):
-        return super(HorizonTemplateView, self).render_to_response(context)
+        return super().render_to_response(context)
 
 
 class HorizonFormView(PageTitleMixin, generic.FormView):

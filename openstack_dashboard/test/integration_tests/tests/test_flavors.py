@@ -31,7 +31,7 @@ class TestFlavors(helpers.AdminTestCase):
     FLAVOR_NAME = helpers.gen_random_resource_name("flavor")
 
     def setUp(self):
-        super(TestFlavors, self).setUp()
+        super().setUp()
         self.flavors_page = self.home_pg.go_to_admin_compute_flavorspage()
 
     def _create_flavor(self, flavor_name):

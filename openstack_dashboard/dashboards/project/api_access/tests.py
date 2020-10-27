@@ -120,8 +120,7 @@ class ASCIITenantNameRCTests(test.TestCase):
     TENANT_NAME = 'tenant'
 
     def _setup_user(self, **kwargs):
-        super(ASCIITenantNameRCTests, self)._setup_user(
-            tenant_name=self.TENANT_NAME)
+        super()._setup_user(tenant_name=self.TENANT_NAME)
 
     @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
     def test_openrc_credentials_filename(self):
@@ -136,8 +135,7 @@ class UnicodeTenantNameRCTests(test.TestCase):
     TENANT_NAME = u'\u043f\u0440\u043e\u0435\u043a\u0442'
 
     def _setup_user(self, **kwargs):
-        super(UnicodeTenantNameRCTests, self)._setup_user(
-            tenant_name=self.TENANT_NAME)
+        super()._setup_user(tenant_name=self.TENANT_NAME)
 
     @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
     def test_openrc_credentials_filename(self):

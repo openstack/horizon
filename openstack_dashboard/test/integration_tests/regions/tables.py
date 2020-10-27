@@ -32,7 +32,7 @@ class RowRegion(baseregion.BaseRegion):
 
     def __init__(self, driver, conf, src_elem, column_names):
         self.column_names = column_names
-        super(RowRegion, self).__init__(driver, conf, src_elem)
+        super().__init__(driver, conf, src_elem)
 
     @property
     def cells(self):
@@ -91,7 +91,7 @@ class TableRegion(baseregion.BaseRegion):
 
     def __init__(self, driver, conf):
         self._default_src_locator = self._table_locator(self.__class__.name)
-        super(TableRegion, self).__init__(driver, conf)
+        super().__init__(driver, conf)
 
     @property
     def heading(self):

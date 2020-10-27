@@ -77,7 +77,7 @@ class EditGroupTypeView(forms.ModalFormView):
         return group_type
 
     def get_context_data(self, **kwargs):
-        context = super(EditGroupTypeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_type'] = self.get_data()
 
         return context

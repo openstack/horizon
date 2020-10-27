@@ -22,7 +22,7 @@ class HorizonStaticFinder(AppDirectoriesFinder):
     """Static files finder that also looks into the directory of each panel."""
 
     def __init__(self, app_names=None, *args, **kwargs):
-        super(HorizonStaticFinder, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         app_configs = apps.get_app_configs()
         for app_config in app_configs:
             if 'openstack_dashboard' in app_config.path:

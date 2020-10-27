@@ -80,7 +80,7 @@ class ExtensibleHeaderView(TemplateView):
     template_name = 'header/_header_sections.html'
 
     def get_context_data(self, **kwargs):
-        context = super(ExtensibleHeaderView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         header_sections = []
         config = getattr(settings, 'HORIZON_CONFIG', {})
         for view_path in config.get("header_sections", []):

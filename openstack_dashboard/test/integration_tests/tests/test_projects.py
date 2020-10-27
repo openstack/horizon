@@ -19,7 +19,7 @@ PROJECT_NAME = helpers.gen_random_resource_name("project")
 class TestCreateDeleteProject(helpers.AdminTestCase):
 
     def setUp(self):
-        super(TestCreateDeleteProject, self).setUp()
+        super().setUp()
         self.projects_page = self.home_pg.go_to_identity_projectspage()
 
     def test_create_delete_project(self):
@@ -41,7 +41,7 @@ class TestCreateDeleteProject(helpers.AdminTestCase):
 class TestModifyProject(helpers.AdminTestCase):
 
     def setUp(self):
-        super(TestModifyProject, self).setUp()
+        super().setUp()
         self.projects_page = self.home_pg.go_to_identity_projectspage()
         self.projects_page.create_project(PROJECT_NAME)
         self.assertTrue(

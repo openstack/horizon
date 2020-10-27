@@ -77,7 +77,7 @@ class ImportKeyPair(QuotaKeypairMixin, tables.LinkAction):
     policy_rules = (("compute", "os_compute_api:os-keypairs:create"),)
 
     def allowed(self, request, keypair=None):
-        if super(ImportKeyPair, self).allowed(request, keypair):
+        if super().allowed(request, keypair):
             self.verbose_name = _("Import Public Key")
         return True
 
@@ -97,13 +97,13 @@ class CreateLinkNG(QuotaKeypairMixin, tables.LinkAction):
             'ng-controller': 'KeypairController as modal',
             'ng-click': ngclick
         })
-        return super(CreateLinkNG, self).get_default_attrs()
+        return super().get_default_attrs()
 
     def get_link_url(self, datum=None):
         return "javascript:void(0);"
 
     def allowed(self, request, keypair=None):
-        if super(CreateLinkNG, self).allowed(request, keypair):
+        if super().allowed(request, keypair):
             self.verbose_name = _("Create Key Pair")
         return True
 

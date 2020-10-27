@@ -29,7 +29,7 @@ class BaseRegion(basewebobject.BaseWebObject):
 
     # private methods
     def __init__(self, driver, conf, src_elem=None):
-        super(BaseRegion, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         if self._default_src_locator:
             root = src_elem or driver
             src_elem = root.find_element(*self._default_src_locator)

@@ -54,7 +54,7 @@ class AngularGettextHTMLParser(parser.HTMLParser):
     """
 
     def __init__(self):
-        super(AngularGettextHTMLParser, self).__init__(
+        super().__init__(
             convert_charrefs=False
         )
 

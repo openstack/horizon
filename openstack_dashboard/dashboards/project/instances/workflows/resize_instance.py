@@ -77,7 +77,7 @@ class SetFlavorChoiceAction(workflows.Action):
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
-        return super(SetFlavorChoiceAction, self).get_help_text(extra)
+        return super().get_help_text(extra)
 
 
 class SetFlavorChoice(workflows.Step):

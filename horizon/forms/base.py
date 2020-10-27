@@ -26,7 +26,7 @@ class SelfHandlingMixin(object):
         if not hasattr(self, "handle"):
             raise NotImplementedError("%s does not define a handle method."
                                       % self.__class__.__name__)
-        super(SelfHandlingMixin, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
 
 class SelfHandlingForm(SelfHandlingMixin, forms.Form):
@@ -56,6 +56,6 @@ class DateForm(forms.Form):
     end = forms.DateField(input_formats=("%Y-%m-%d",))
 
     def __init__(self, *args, **kwargs):
-        super(DateForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields['start'].widget.attrs['data-date-format'] = "yyyy-mm-dd"
         self.fields['end'].widget.attrs['data-date-format'] = "yyyy-mm-dd"
