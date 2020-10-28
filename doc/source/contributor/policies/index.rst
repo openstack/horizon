@@ -8,5 +8,5 @@ This page collects basic policies on horizon development.
    :maxdepth: 1
 
    supported-software
+   horizon-groups
    core-reviewers
-
