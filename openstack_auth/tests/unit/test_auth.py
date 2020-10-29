@@ -45,37 +45,32 @@ class IsA(object):
         return isinstance(other, self.cls)
 
 
-class OpenStackAuthTestsMixin(object):
-    """Common functions for version specific tests."""
+class SwitchProviderTests(test.TestCase):
 
-    scenarios = [
-        ('pure', {'interface': None}),
-        ('public', {'interface': 'publicURL'}),
-        ('internal', {'interface': 'internalURL'}),
-        ('admin', {'interface': 'adminURL'})
-    ]
+    interface = None
+
+    def setUp(self):
+        super().setUp()
+
+        params = {
+            'OPENSTACK_API_VERSIONS': {'identity': 3},
+            'OPENSTACK_KEYSTONE_URL': "http://localhost/identity/v3",
+        }
+        if self.interface:
+            params['OPENSTACK_ENDPOINT_TYPE'] = self.interface
+
+        override = self.settings(**params)
+        override.enable()
+        self.addCleanup(override.disable)
+
+        self.data = data_v3.generate_test_data()
+        self.ks_client_module = client_v3
 
     def get_form_data(self, user):
         return {'region': "default",
                 'domain': DEFAULT_DOMAIN,
                 'password': user.password,
                 'username': user.name}
-
-
-class OpenStackAuthTestsV3Base(OpenStackAuthTestsMixin, test.TestCase):
-
-    def setUp(self):
-        super().setUp()
-
-        if getattr(self, 'interface', None):
-            override = self.settings(OPENSTACK_ENDPOINT_TYPE=self.interface)
-            override.enable()
-            self.addCleanup(override.disable)
-
-        self.data = data_v3.generate_test_data()
-        self.ks_client_module = client_v3
-        settings.OPENSTACK_API_VERSIONS['identity'] = 3
-        settings.OPENSTACK_KEYSTONE_URL = "http://localhost/identity/v3"
 
     @mock.patch.object(v3_auth, 'Keystone2Keystone')
     @mock.patch.object(client_v3, 'Client')
@@ -709,7 +704,19 @@ class OpenStackAuthTestsV3Base(OpenStackAuthTestsMixin, test.TestCase):
             IsA(session.Session))
 
 
-class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin, test.TestCase):
+class SwitchProviderTestsPublicURL(SwitchProviderTests):
+    interface = 'publicURL'
+
+
+class SwitchProviderTestsInternalURL(SwitchProviderTests):
+    interface = 'internalURL'
+
+
+class SwitchProviderTestsAdminURL(SwitchProviderTests):
+    interface = 'adminURL'
+
+
+class OpenStackAuthTestsWebSSO(test.TestCase):
 
     def setUp(self):
         super().setUp()
@@ -986,25 +993,31 @@ class OpenStackAuthTestsWebSSO(OpenStackAuthTestsMixin, test.TestCase):
                              status_code=302, target_status_code=301)
 
 
-class OpenStackAuthTestsV3WithMock(test.TestCase):
+class OpenStackAuthTests(test.TestCase):
+
+    interface = None
+
+    def setUp(self):
+        super().setUp()
+
+        params = {
+            'OPENSTACK_API_VERSIONS': {'identity': 3},
+            'OPENSTACK_KEYSTONE_URL': "http://localhost/identity/v3",
+        }
+        if self.interface:
+            params['OPENSTACK_ENDPOINT_TYPE'] = self.interface
+
+        override = self.settings(**params)
+        override.enable()
+        self.addCleanup(override.disable)
+
+        self.data = data_v3.generate_test_data()
 
     def get_form_data(self, user):
         return {'region': "default",
                 'domain': DEFAULT_DOMAIN,
                 'password': user.password,
                 'username': user.name}
-
-    def setUp(self):
-        super().setUp()
-
-        if getattr(self, 'interface', None):
-            override = self.settings(OPENSTACK_ENDPOINT_TYPE=self.interface)
-            override.enable()
-            self.addCleanup(override.disable)
-
-        self.data = data_v3.generate_test_data()
-        settings.OPENSTACK_API_VERSIONS['identity'] = 3
-        settings.OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v3"
 
     @mock.patch('keystoneauth1.identity.v3.Token.get_access')
     @mock.patch('keystoneauth1.identity.v3.Password.get_access')
@@ -1109,22 +1122,18 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
         self.assertContains(response, 'id="id_domain"')
         self.assertContains(response, 'name="domain"')
 
+    @override_settings(
+        OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT=True,
+        OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN=True,
+        OPENSTACK_KEYSTONE_DOMAIN_CHOICES=(('Default', 'Default'),)
+    )
     def test_login_form_multidomain_dropdown(self):
-        override = self.settings(OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT=True,
-                                 OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN=True,
-                                 OPENSTACK_KEYSTONE_DOMAIN_CHOICES=(
-                                     ('Default', 'Default'),)
-                                 )
-        override.enable()
-        self.addCleanup(override.disable)
-
         url = reverse('login')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'id="id_domain"')
         self.assertContains(response, 'name="domain"')
         self.assertContains(response, 'option value="Default"')
-        settings.OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN = False
 
     @mock.patch.object(projects.ProjectManager, 'list')
     def test_tenant_sorting(self, mock_project_list):
@@ -1372,3 +1381,15 @@ class OpenStackAuthTestsV3WithMock(test.TestCase):
 
     def test_switch_region_with_next(self, next=None):
         self.test_switch_region(next='/next_url')
+
+
+class OpenStackAuthTestsPublicURL(OpenStackAuthTests):
+    interface = 'publicURL'
+
+
+class OpenStackAuthTestsInternalURL(OpenStackAuthTests):
+    interface = 'internalURL'
+
+
+class OpenStackAuthTestsAdminURL(OpenStackAuthTests):
+    interface = 'adminURL'
