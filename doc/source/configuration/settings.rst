@@ -2347,6 +2347,18 @@ as nova provides all features in the recent API versions.
 * ``Services``
 * ``Shelve``
 
+OPENSTACK_USE_SIMPLE_TENANT_USAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 19.0.0(Wallaby)
+
+Default: ``True``
+
+This setting controls whether ``SimpleTenantUsage`` nova API is used in the
+usage overview. According to feedbacks to the horizon team, the usage of
+``SimpleTenantUsage`` can cause performance issues in the nova API in larger
+deployments. Try to set this to ``False`` for such cases.
+
 Swift
 -----
 

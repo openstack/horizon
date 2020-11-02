@@ -462,6 +462,13 @@ OPENSTACK_NEUTRON_NETWORK = {
 OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES = True
 
 OPENSTACK_NOVA_EXTENSIONS_BLACKLIST = []
+
+# This setting controls whether SimpleTenantUsage nova API is used in the usage
+# overview. According to feedbacks to the horizon team, the usage of
+# SimpleTenantUsage can cause performance issues in the nova API in larger
+# deployments. Try to set this to ``False`` for such cases.
+OPENSTACK_USE_SIMPLE_TENANT_USAGE = True
+
 # The Xen Hypervisor has the ability to set the mount point for volumes
 # attached to instances (other Hypervisors currently do not). Setting
 # can_set_mount_point to True will add the option to set the mount point
