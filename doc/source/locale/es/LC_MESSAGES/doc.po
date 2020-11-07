@@ -1,0 +1,114 @@
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2020. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 18.6.2.dev1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-15 06:02+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-11-06 07:10+0000\n"
+"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+msgid ""
+"A Python class representing a sub-navigation item (e.g. \"instances\") which "
+"contains all the necessary logic (views, forms, tests, etc.) for that "
+"interface."
+msgstr ""
+"Una clase Python que representa un item de segundo nivel (p. ej. \"instancias"
+"\") que contiene toda la lógica necesaria(vistas, formularios, tests, etc.) "
+"para esa interfaz."
+
+msgid ""
+"A Python class representing a top-level navigation item (e.g. \"project\") "
+"which provides a consistent API for Horizon-compatible applications."
+msgstr ""
+"Una clase Python que representa un item de navegación de alto nivel (p. ej. "
+"\"proyecto\") que proporciona una API consistente para aplicaciones "
+"compatibles con Horizon."
+
+msgid "Contributor Docs"
+msgstr "Documentación para colaboradores"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid ""
+"For a more in-depth look at Horizon and its architecture, see the :ref:"
+"`contributor-intro`."
+msgstr ""
+"Para una visión más detallada de Horizon y su arquitectura, vea the :ref:"
+"`contributor-intro`."
+
+msgid "Glossary"
+msgstr "Glosario"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid ""
+"Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>`_, which provides a web based user interface "
+"to OpenStack services including Nova, Swift, Keystone, etc."
+msgstr ""
+"Horizon es la implementación canónica de `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>`_, que proporciona una interfaz de usuario web "
+"para los servicios de OpenStack, incluyendo Nova, Swift, Keystone, etc."
+
+msgid "Horizon: The OpenStack Dashboard Project"
+msgstr "Horizon: El proyecto OpenStack Dashboard"
+
+msgid "How to use Horizon in your own projects."
+msgstr "Cómo usar Horizon en sus propios proyectos."
+
+msgid "Information"
+msgstr "Información"
+
+msgid "Introduction"
+msgstr "Introducción"
+
+msgid "Panel"
+msgstr "Panel"
+
+msgid "Project"
+msgstr "Proyecto"
+
+msgid "Release Notes"
+msgstr "Notas de publicación"
+
+msgid "See https://docs.openstack.org/releasenotes/horizon/."
+msgstr "Vea https://docs.openstack.org/releasenotes/horizon/."
+
+msgid ""
+"The OpenStack dashboard project. Also the name of the top-level Python "
+"object which handles registration for the app."
+msgstr ""
+"El proyecto OpenStack dashboard. También el nombre del objeto Python de alto "
+"nivel que maneja el registro de la app."
+
+msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
+msgstr ""
+"Para aprender que necesita saber para poner en marcha, vea :ref:`quickstart`."
+
+msgid ""
+"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
+"word."
+msgstr ""
+"Usado con los usuarios en lugar del término \"Tenant\" propio del mundo de "
+"Keystone."
+
+msgid "User Documentation"
+msgstr "Documentación de usuario"
+
+msgid "Using Horizon"
+msgstr "Usando Horizon"
