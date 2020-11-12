@@ -39,7 +39,7 @@ Selenium will use a virtual display in this case, instead of your own. In order
 to run the tests this way you have to install the dependency `xvfb`, like
 this::
 
-    $ sudo apt-get install xvfb
+    $ sudo apt install xvfb
 
 for a Debian OS flavour, or for Fedora/Red Hat flavours::
 
