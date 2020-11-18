@@ -461,13 +461,13 @@ class QuotaTests(test.APITestCase):
     # quotas._get_tenant_network_usages)
     @test.create_mocks({api.base: ('is_service_enabled',),
                         cinder: ('is_volume_service_enabled',),
-                        api.neutron: ('floating_ip_supported',
-                                      'is_extension_supported',
+                        api.neutron: ('is_extension_supported',
                                       'is_quotas_extension_supported',
                                       'tenant_quota_detail_get')})
     def test_tenant_quota_usages_non_legacy(self):
         self._mock_service_enabled(network_enabled=True)
         self.mock_is_extension_supported.return_value = True
+        self.mock_is_quotas_extension_supported.return_value = True
 
         test_data = [
             ("network", self.networks.list(), 10),
@@ -509,6 +509,39 @@ class QuotaTests(test.APITestCase):
             # Compare available resources
             self.assertAvailableQuotasEqual(expected, quota_usages.usages,
                                             msg=msg)
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_service_enabled, len(test_data),
+            mock.call(test.IsHttpRequest(), 'network'))
+        # NOTE: is_volume_service_enabled() needs to be mocked
+        # as _mock_service_enabled() requires it, but it is never called here.
+        self.mock_is_volume_service_enabled.assert_not_called()
+        self.mock_is_extension_supported.assert_has_calls([
+            # network
+            mock.call(test.IsHttpRequest(), 'quota_details'),
+            # subnet
+            mock.call(test.IsHttpRequest(), 'quota_details'),
+            # port
+            mock.call(test.IsHttpRequest(), 'quota_details'),
+            # router
+            mock.call(test.IsHttpRequest(), 'router'),
+            mock.call(test.IsHttpRequest(), 'quota_details'),
+            # floating IP
+            mock.call(test.IsHttpRequest(), 'quota_details'),
+            # security group
+            mock.call(test.IsHttpRequest(), 'security-group'),
+            mock.call(test.IsHttpRequest(), 'quota_details'),
+            # security group rule
+            mock.call(test.IsHttpRequest(), 'security-group'),
+            mock.call(test.IsHttpRequest(), 'quota_details'),
+        ])
+        self.assertEqual(10, self.mock_is_extension_supported.call_count)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_quotas_extension_supported, len(test_data),
+            mock.call(test.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_detail_get, len(test_data),
+            mock.call(test.IsHttpRequest(), self.request.user.tenant_id))
 
     @test.create_mocks({api.base: ('is_service_enabled',),
                         cinder: ('is_volume_service_enabled',),

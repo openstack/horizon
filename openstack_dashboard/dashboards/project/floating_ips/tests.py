@@ -351,19 +351,13 @@ class FloatingIpViewTests(test.TestCase):
         )
 
     @test.create_mocks({api.neutron: ('floating_ip_pools_list',
-                                      'tenant_floating_ip_list',
-                                      'is_extension_supported',
-                                      'is_router_enabled',
-                                      'tenant_quota_get'),
-                        api.base: ('is_service_enabled',)})
+                                      'is_extension_supported'),
+                        quotas: ('tenant_quota_usages',)})
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_correct_quotas_displayed(self):
-        self.mock_is_service_enabled.return_value = True
         self.mock_is_extension_supported.side_effect = [False, True, False]
-        self.mock_is_router_enabled.return_value = True
-        self.mock_tenant_quota_get.return_value = self.neutron_quotas.first()
-        self.mock_tenant_floating_ip_list.return_value = \
-            self.floating_ips.list()
+        self.mock_tenant_quota_usages.return_value = \
+            self.neutron_quota_usages.first()
         self.mock_floating_ip_pools_list.return_value = self.pools.list()
 
         url = reverse('%s:allocate' % NAMESPACE)
@@ -371,19 +365,9 @@ class FloatingIpViewTests(test.TestCase):
         self.assertEqual(res.context['usages']['floatingip']['quota'],
                          self.neutron_quotas.first().get('floatingip').limit)
 
-        self.mock_is_service_enabled.assert_called_once_with(
-            test.IsHttpRequest(), 'network')
-        self.assertEqual(3, self.mock_is_extension_supported.call_count)
-        self.mock_is_extension_supported.assert_has_calls([
-            mock.call(test.IsHttpRequest(), 'dns-integration'),
-            mock.call(test.IsHttpRequest(), 'quotas'),
-            mock.call(test.IsHttpRequest(), 'quota_details'),
-        ])
-        self.mock_is_router_enabled.assert_called_once_with(
-            test.IsHttpRequest())
-        self.mock_tenant_quota_get.assert_called_once_with(
-            test.IsHttpRequest(), self.tenant.id)
-        self.mock_tenant_floating_ip_list.assert_called_once_with(
-            test.IsHttpRequest())
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'dns-integration')
+        self.mock_tenant_quota_usages.assert_called_once_with(
+            test.IsHttpRequest(), targets=('floatingip',))
         self.mock_floating_ip_pools_list.assert_called_once_with(
             test.IsHttpRequest())
