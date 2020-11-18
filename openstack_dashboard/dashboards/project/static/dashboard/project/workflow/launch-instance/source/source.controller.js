@@ -165,7 +165,7 @@
     // Mapping for dynamic table columns
     var tableColumnsMap = {
       image: [
-        { id: 'name', title: gettext('Name'), priority: 1 },
+        { id: 'name_or_id', title: gettext('Name'), priority: 1 },
         { id: 'updated_at', title: gettext('Updated'), filters: ['simpleDate'], priority: 2 },
         { id: 'size', title: gettext('Size'), filters: ['bytes'], priority: 2 },
         { id: 'disk_format', title: gettext('Type'), filters: [getImageDiskFormat], priority: 2 },
