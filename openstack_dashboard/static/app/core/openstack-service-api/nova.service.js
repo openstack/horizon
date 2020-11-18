@@ -65,7 +65,6 @@
       hardRebootServer: hardRebootServer,
       startServer: startServer,
       stopServer: stopServer,
-      getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
       getFlavorExtraSpecs: getFlavorExtraSpecs,
@@ -532,33 +531,6 @@
     function stopServer(serverId, suppressError) {
       return serverStateOperation('stop', serverId, suppressError,
         gettext('Unable to stop the server with id: %(id)s'));
-    }
-
-    /**
-     * @name getExtensions
-     * @param {Object} config - A configuration object
-     * @description
-     * Returns a list of enabled extensions.
-     *
-     * The listing result is an object with property "items". Each item is
-     * an extension.
-     * @example
-     * The following is an example response:
-     *
-     *  {
-     *    "items": [
-     *      {
-     *        "name": "Multinic"
-     *      }
-     *    ]
-     *  }
-     * @returns {Object} The list of enable extensions
-     */
-    function getExtensions(config) {
-      return apiService.get('/api/nova/extensions/', config)
-        .error(function () {
-          toastService.add('error', gettext('Unable to retrieve the extensions.'));
-        });
     }
 
     /**

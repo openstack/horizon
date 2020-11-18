@@ -71,24 +71,12 @@
       expect(launchInstanceWorkflow.steps[4].requiredServiceTypes).toEqual(['network']);
     });
 
-    it('has a nova extension the key pair step depends on', function() {
-      expect(launchInstanceWorkflow.steps[6].novaExtension).toEqual("Keypairs");
-    });
-
     it('has a policy rule for the server groups step', function() {
       expect(launchInstanceWorkflow.steps[8].policy).toEqual(stepPolicy.serverGroups);
     });
 
-    it('has a nova extension the server groups step depends on', function() {
-      expect(launchInstanceWorkflow.steps[8].novaExtension).toEqual("ServerGroups");
-    });
-
     it('has a policy rule for the scheduler hints step', function() {
       expect(launchInstanceWorkflow.steps[9].policy).toEqual(stepPolicy.schedulerHints);
-    });
-
-    it('has a nova extension the scheduler hints step depends on', function() {
-      expect(launchInstanceWorkflow.steps[9].novaExtension).toEqual("SchedulerHints");
     });
 
   });

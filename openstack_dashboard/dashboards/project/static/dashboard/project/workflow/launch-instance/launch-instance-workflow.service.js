@@ -81,8 +81,7 @@
           title: gettext('Key Pair'),
           templateUrl: basePath + 'keypair/keypair.html',
           helpUrl: basePath + 'keypair/keypair.help.html',
-          formName: 'launchInstanceKeypairForm',
-          novaExtension: 'Keypairs'
+          formName: 'launchInstanceKeypairForm'
         },
         {
           id: 'configuration',
@@ -97,8 +96,7 @@
           templateUrl: basePath + 'server-groups/server-groups.html',
           helpUrl: basePath + 'server-groups/server-groups.help.html',
           formName: 'launchInstanceServerGroupsForm',
-          policy: stepPolicy.serverGroups,
-          novaExtension: 'ServerGroups'
+          policy: stepPolicy.serverGroups
         },
         {
           id: 'hints',
@@ -107,8 +105,7 @@
           helpUrl: basePath + 'scheduler-hints/scheduler-hints.help.html',
           formName: 'launchInstanceSchedulerHintsForm',
           policy: stepPolicy.schedulerHints,
-          setting: 'LAUNCH_INSTANCE_DEFAULTS.enable_scheduler_hints',
-          novaExtension: 'SchedulerHints'
+          setting: 'LAUNCH_INSTANCE_DEFAULTS.enable_scheduler_hints'
         },
         {
           id: 'metadata',

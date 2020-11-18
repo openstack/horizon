@@ -22,7 +22,6 @@
       var model, scope, settings, $q, glance, IMAGE, VOLUME, VOLUME_SNAPSHOT, INSTANCE_SNAPSHOT;
       var cinderEnabled = false;
       var neutronEnabled = false;
-      var novaExtensionsEnabled = false;
       var ifAllowedResolve = true;
 
       var novaApi = {
@@ -252,20 +251,6 @@
           }
         });
 
-        $provide.value('horizon.app.core.openstack-service-api.novaExtensions', {
-          ifNameEnabled: function() {
-            var deferred = $q.defer();
-
-            if (novaExtensionsEnabled) {
-              deferred.resolve();
-            } else {
-              deferred.reject();
-            }
-
-            return deferred.promise;
-          }
-        });
-
         $provide.value('horizon.app.core.openstack-service-api.settings', {
           getSetting: function(setting) {
             var deferred = $q.defer();
@@ -463,15 +448,6 @@
           expect(model.networks.length).toBe(2);
           expect(model.volumes.length).toBe(2);
           expect(model.volumeSnapshots.length).toBe(2);
-        });
-
-        it('should disable create volume from image if nova extensions disabled', function() {
-          cinderEnabled = true;
-          novaExtensionsEnabled = false;
-          model.initialize(true);
-          scope.$apply();
-
-          expect(model.allowCreateVolumeFromImage).toBe(false);
         });
 
         it('should default config_drive to false', function() {
