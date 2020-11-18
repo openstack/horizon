@@ -1360,7 +1360,8 @@ def port_get(request, port_id, **params):
 
 
 def unescape_port_kwargs(**kwargs):
-    for key in kwargs:
+    keys = list(kwargs)
+    for key in keys:
         if '__' in key:
             kwargs[':'.join(key.split('__'))] = kwargs.pop(key)
     return kwargs
