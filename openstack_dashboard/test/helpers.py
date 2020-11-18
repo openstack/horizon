@@ -97,7 +97,6 @@ def create_mocks(target_methods):
             api.nova: [
                 'usage_get',
                 ('tenant_absolute_limits', 'nova_tenant_absolute_limits'),
-                'extension_supported',
             ],
             api.cinder: [
                 ('tenant_absolute_limits', 'cinder_tenant_absolute_limits'),
@@ -109,7 +108,6 @@ def create_mocks(target_methods):
             self.mock_nova_tenant_absolute_limits.return_value = ...
             self.mock_cinder_tenant_absolute_limits.return_value = ...
             ...
-            self.mock_extension_supported.assert_has_calls(....)
 
     """
     def wrapper(function):

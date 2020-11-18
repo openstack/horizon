@@ -12,8 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from unittest import mock
-
 from django.urls import reverse
 
 from openstack_dashboard import api
@@ -21,15 +19,13 @@ from openstack_dashboard.test import helpers as test
 
 
 class HypervisorViewTest(test.BaseAdminViewTests):
-    @test.create_mocks({api.nova: ['extension_supported',
-                                   'hypervisor_list',
+    @test.create_mocks({api.nova: ['hypervisor_list',
                                    'hypervisor_stats',
                                    'service_list']})
     def test_index(self):
         hypervisors = self.hypervisors.list()
         compute_services = [service for service in self.services.list()
                             if service.binary == 'nova-compute']
-        self.mock_extension_supported.return_value = True
         self.mock_hypervisor_list.return_value = hypervisors
         self.mock_hypervisor_stats.return_value = self.hypervisors.stats
         self.mock_service_list.return_value = compute_services
@@ -61,9 +57,6 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         self.assertEqual('migrate_maintenance',
                          actions_service_disabled[1].name)
 
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_extension_supported, 28,
-            mock.call('AdminActions', test.IsHttpRequest()))
         self.mock_hypervisor_list.assert_called_once_with(
             test.IsHttpRequest())
         self.mock_hypervisor_stats.assert_called_once_with(

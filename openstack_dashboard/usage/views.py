@@ -68,8 +68,7 @@ class UsageView(tables.DataTableView):
 
         try:
             context['simple_tenant_usage_enabled'] = (
-                settings.OPENSTACK_USE_SIMPLE_TENANT_USAGE and
-                api.nova.extension_supported('SimpleTenantUsage', self.request)
+                settings.OPENSTACK_USE_SIMPLE_TENANT_USAGE
             )
         except Exception:
             context['simple_tenant_usage_enabled'] = True

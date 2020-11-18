@@ -1167,6 +1167,8 @@ class UsageViewTests(test.BaseAdminViewTests):
     def test_usage_csv(self):
         self._test_usage_csv(nova_stu_enabled=True)
 
+    # nova_stu_enable=False is specified below, so we need this.
+    @override_settings(OPENSTACK_USE_SIMPLE_TENANT_USAGE=False)
     def test_usage_csv_disabled(self):
         self._test_usage_csv(nova_stu_enabled=False)
 
@@ -1174,12 +1176,10 @@ class UsageViewTests(test.BaseAdminViewTests):
     def test_usage_csv_1_day(self):
         self._test_usage_csv(nova_stu_enabled=True, overview_days_range=1)
 
-    @test.create_mocks({api.nova: ('usage_get',
-                                   'extension_supported')})
+    @test.create_mocks({api.nova: ('usage_get',)})
     def _test_usage_csv(self, nova_stu_enabled=True, overview_days_range=None):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
-        self.mock_extension_supported.return_value = nova_stu_enabled
         if overview_days_range:
             start_day = now - datetime.timedelta(days=overview_days_range)
         else:
@@ -1201,9 +1201,6 @@ class UsageViewTests(test.BaseAdminViewTests):
                '"Usage (Hours)","Age (Seconds)","State"')
         self.assertContains(res, '%s\r\n' % hdr)
 
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_extension_supported, 2,
-            mock.call('SimpleTenantUsage', test.IsHttpRequest()))
         if nova_stu_enabled:
             self.mock_usage_get.assert_called_once_with(test.IsHttpRequest(),
                                                         self.tenant.id,
@@ -1211,8 +1208,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         else:
             self.mock_usage_get.assert_not_called()
 
-    @test.create_mocks({api.nova: ('usage_get',
-                                   'extension_supported')})
+    @test.create_mocks({api.nova: ('usage_get',)})
     def test_usage_csv_quoting(self):
         # Explicitly test the values of the third usage for correct quoting
         usage_obj = api.nova.NovaUsage(self.usages.list()[2])

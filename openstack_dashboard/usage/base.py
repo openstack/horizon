@@ -112,9 +112,7 @@ class BaseUsage(object):
         return []
 
     def summarize(self, start, end):
-        if not (settings.OPENSTACK_USE_SIMPLE_TENANT_USAGE and
-                api.nova.extension_supported('SimpleTenantUsage',
-                                             self.request)):
+        if not settings.OPENSTACK_USE_SIMPLE_TENANT_USAGE:
             return
 
         if start <= end and start <= self.today:

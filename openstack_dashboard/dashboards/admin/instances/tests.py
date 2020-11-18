@@ -30,7 +30,7 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_mocks({
-        api.nova: ['flavor_list', 'server_list_paged', 'extension_supported'],
+        api.nova: ['flavor_list', 'server_list_paged'],
         api.keystone: ['tenant_list'],
         api.glance: ['image_list_detailed_by_ids'],
     })
@@ -39,7 +39,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         # TODO(vmarkov) instances_img_ids should be in test_data
         instances_img_ids = [instance.image.get('id') for instance in
                              servers if isinstance(instance.image, dict)]
-        self.mock_extension_supported.return_value = True
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
         self.mock_image_list_detailed_by_ids.return_value = self.images.list()
         self.mock_flavor_list.return_value = self.flavors.list()
@@ -50,11 +49,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         instances = res.context['table'].data
         self.assertCountEqual(instances, servers)
 
-        self.mock_extension_supported.assert_has_calls([
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())] * 4)
-        self.assertEqual(15, self.mock_extension_supported.call_count)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_image_list_detailed_by_ids.assert_called_once_with(
             test.IsHttpRequest(), instances_img_ids)
@@ -66,8 +60,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             search_opts=search_opts)
 
     @test.create_mocks({
-        api.nova: ['flavor_list', 'flavor_get', 'server_list_paged',
-                   'extension_supported'],
+        api.nova: ['flavor_list', 'flavor_get', 'server_list_paged'],
         api.keystone: ['tenant_list'],
         api.glance: ['image_list_detailed_by_ids'],
     })
@@ -78,7 +71,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
                              servers if hasattr(instance, 'image')]
         full_flavors = OrderedDict([(f.id, f) for f in flavors])
         self.mock_server_list_paged.return_value = [servers, False, False]
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.side_effect = self.exceptions.nova
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
@@ -99,11 +91,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
             test.IsHttpRequest(),
             sort_dir='desc',
             search_opts=search_opts)
-        self.mock_extension_supported.assert_has_calls([
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())] * 4)
-        self.assertEqual(15, self.mock_extension_supported.call_count)
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_flavor_get.assert_has_calls(
@@ -113,8 +100,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             test.IsHttpRequest(), instances_img_ids)
 
     @test.create_mocks({
-        api.nova: ['flavor_list', 'flavor_get', 'server_list_paged',
-                   'extension_supported'],
+        api.nova: ['flavor_list', 'flavor_get', 'server_list_paged'],
         api.keystone: ['tenant_list'],
         api.glance: ['image_list_detailed_by_ids'],
     })
@@ -130,7 +116,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_image_list_detailed_by_ids.return_value = self.images.list()
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_server_list_paged.return_value = [servers, False, False]
-        self.mock_extension_supported.return_value = True
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
         self.mock_flavor_get.side_effect = self.exceptions.nova
 
@@ -151,11 +136,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
             test.IsHttpRequest(),
             sort_dir='desc',
             search_opts=search_opts)
-        self.mock_extension_supported.assert_has_calls([
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())] * 4)
-        self.assertEqual(15, self.mock_extension_supported.call_count)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_flavor_get.assert_has_calls(
             [mock.call(test.IsHttpRequest(), s.flavor['id']) for s in servers])
@@ -186,14 +166,12 @@ class InstanceViewTest(test.BaseAdminViewTests):
             test.IsHttpRequest(), [])
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
 
-    @test.create_mocks({api.nova: ['server_get', 'flavor_get',
-                                   'extension_supported'],
+    @test.create_mocks({api.nova: ['server_get', 'flavor_get'],
                         api.network: ['servers_update_addresses'],
                         api.keystone: ['tenant_get']})
     def test_ajax_loading_instances(self):
         server = self.servers.first()
         self.mock_server_get.return_value = server
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_get.return_value = self.flavors.first()
         self.mock_tenant_get.return_value = self.tenants.first()
         self.mock_servers_update_addresses.return_value = None
@@ -218,11 +196,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         self.mock_server_get.assert_called_once_with(
             test.IsHttpRequest(), server.id)
-        self.mock_extension_supported.assert_has_calls([
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())])
-        self.assertEqual(3, self.mock_extension_supported.call_count)
         self.mock_flavor_get.assert_called_once_with(
             test.IsHttpRequest(), server.flavor['id'])
         self.mock_tenant_get.assert_called_once_with(
@@ -231,7 +204,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             test.IsHttpRequest(), [server])
 
     @test.create_mocks({
-        api.nova: ['flavor_list', 'server_list_paged', 'extension_supported'],
+        api.nova: ['flavor_list', 'server_list_paged'],
         api.keystone: ['tenant_list'],
         api.glance: ['image_list_detailed_by_ids'],
     })
@@ -244,7 +217,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_server_list_paged.return_value = [
             self.servers.list(), False, False]
-        self.mock_extension_supported.return_value = True
         res = self.client.get(INDEX_URL)
         self.assertContains(res, "instances__migrate")
         self.assertNotContains(res, "instances__confirm")
@@ -259,14 +231,9 @@ class InstanceViewTest(test.BaseAdminViewTests):
             test.IsHttpRequest(),
             sort_dir='desc',
             search_opts=search_opts)
-        self.mock_extension_supported.assert_has_calls([
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())] * 4)
-        self.assertEqual(15, self.mock_extension_supported.call_count)
 
     @test.create_mocks({
-        api.nova: ['flavor_list', 'server_list_paged', 'extension_supported'],
+        api.nova: ['flavor_list', 'server_list_paged'],
         api.keystone: ['tenant_list'],
         api.glance: ['image_list_detailed_by_ids'],
     })
@@ -281,7 +248,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
         self.mock_image_list_detailed_by_ids.return_value = self.images.list()
         self.mock_flavor_list.return_value = self.flavors.list()
-        self.mock_extension_supported.return_value = True
         self.mock_server_list_paged.return_value = [servers, False, False]
 
         res = self.client.get(INDEX_URL)
@@ -293,11 +259,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_image_list_detailed_by_ids.assert_called_once_with(
             test.IsHttpRequest(), instances_img_ids)
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
-        self.mock_extension_supported.assert_has_calls([
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())] * 4)
-        self.assertEqual(15, self.mock_extension_supported.call_count)
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         self.mock_server_list_paged.assert_called_once_with(
             test.IsHttpRequest(),
@@ -490,8 +451,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_mocks({
         api.nova: ['flavor_list',
                    'flavor_get',
-                   'server_list_paged',
-                   'extension_supported'],
+                   'server_list_paged'],
         api.keystone: ['tenant_list'],
         api.glance: ['image_list_detailed_by_ids'],
     })
@@ -509,7 +469,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         self.mock_server_list_paged.return_value = [
             servers, has_more, has_prev]
-        self.mock_extension_supported.return_value = True
         self.mock_flavor_list.return_value = flavors
         self.mock_image_list_detailed_by_ids.return_value = images
         self.mock_tenant_list.return_value = [tenants, False]
@@ -523,11 +482,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertEqual(res.status_code, 200)
 
-        self.mock_extension_supported.assert_has_calls([
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('AdminActions', test.IsHttpRequest()),
-            mock.call('Shelve', test.IsHttpRequest())])
-        self.assertEqual(3, self.mock_extension_supported.call_count)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_image_list_detailed_by_ids.assert_called_once_with(
             test.IsHttpRequest(),
