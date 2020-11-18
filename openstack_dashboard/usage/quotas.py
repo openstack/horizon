@@ -13,7 +13,6 @@
 from collections import defaultdict
 import itertools
 import logging
-import warnings
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -337,81 +336,13 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
     if not enabled_quotas:
         return
 
-    if neutron.is_extension_supported(request, 'quota_details'):
-        details = neutron.tenant_quota_detail_get(request, tenant_id)
-        for quota_name in NEUTRON_QUOTA_FIELDS:
-            if quota_name in disabled_quotas:
-                continue
-            detail = details[quota_name]
-            usages.add_quota(base.Quota(quota_name, detail['limit']))
-            usages.tally(quota_name, detail['used'] + detail['reserved'])
-    else:
-        _get_tenant_network_usages_legacy(
-            request, usages, disabled_quotas, tenant_id)
-
-
-def _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id):
-    tenant_id = tenant_id or request.user.tenant_id
-    neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
-
+    details = neutron.tenant_quota_detail_get(request, tenant_id)
     for quota_name in NEUTRON_QUOTA_FIELDS:
-        if quota_name not in disabled_quotas:
-            quota_data = neutron_quotas.get(quota_name).limit
-            qs.add(base.QuotaSet({quota_name: quota_data}))
-
-    return qs
-
-
-# TODO(amotoki): Deprecated in Ussuri. Drop this in Victoria release or later.
-def _get_tenant_network_usages_legacy(request, usages, disabled_quotas,
-                                      tenant_id):
-    warnings.warn(
-        "The legacy way to retrieve neutron resource usage is deprecated "
-        "in Ussuri release. Horizon will depend on 'quota_details' "
-        "neutron extension added in Pike release in future.",
-        DeprecationWarning)
-    qs = base.QuotaSet()
-    _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id)
-    for quota in qs:
-        usages.add_quota(quota)
-
-    resource_lister = {
-        'network': (neutron.network_list, {'tenant_id': tenant_id}),
-        'subnet': (neutron.subnet_list, {'tenant_id': tenant_id}),
-        'port': (neutron.port_list, {'tenant_id': tenant_id}),
-        'router': (neutron.router_list, {'tenant_id': tenant_id}),
-        'floatingip': (neutron.tenant_floating_ip_list, {}),
-    }
-
-    for quota_name, lister_info in resource_lister.items():
-        if quota_name not in disabled_quotas:
-            lister = lister_info[0]
-            kwargs = lister_info[1]
-            try:
-                resources = lister(request, **kwargs)
-            except Exception:
-                resources = []
-            usages.tally(quota_name, len(resources))
-
-    # Security groups have to be processed separately so that rules may be
-    # processed in the same api call and in a single pass
-    add_sg = 'security_group' not in disabled_quotas
-    add_sgr = 'security_group_rule' not in disabled_quotas
-
-    if add_sg or add_sgr:
-        try:
-            security_groups = neutron.security_group_list(request)
-            num_rules = sum(len(group['security_group_rules'])
-                            for group in security_groups)
-        except Exception:
-            security_groups = []
-            num_rules = 0
-
-    if add_sg:
-        usages.tally('security_group', len(security_groups))
-
-    if add_sgr:
-        usages.tally('security_group_rule', num_rules)
+        if quota_name in disabled_quotas:
+            continue
+        detail = details[quota_name]
+        usages.add_quota(base.Quota(quota_name, detail['limit']))
+        usages.tally(quota_name, detail['used'] + detail['reserved'])
 
 
 @profiler.trace

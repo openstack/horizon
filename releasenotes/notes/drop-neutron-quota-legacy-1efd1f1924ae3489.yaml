@@ -1,0 +1,7 @@
+---
+upgrade:
+  - |
+    The legacy way to retrive neutron resource usages was dropped and
+    horizon now assumes the ``quota_details`` neutron API extension
+    implemented in Pike release (over three years ago), so we expect
+    this is available in all Wallaby neutron deployments.
