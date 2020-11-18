@@ -66,7 +66,7 @@ GNU ``gettext`` tool is required to compile message catalogs.
 
 .. code-block:: console
 
-  $ sudo apt-get install gettext
+  $ sudo apt install gettext
   $ ./manage.py compilemessages
 
 Static Assets
@@ -172,7 +172,7 @@ Deployment
 
    .. code-block:: console
 
-     $ sudo apt-get install apache2 libapache2-mod-wsgi
+     $ sudo apt install apache2 libapache2-mod-wsgi
 
    You can either use the provided ``openstack_dashboard/wsgi.py`` or
    generate a ``openstack_dashboard/horizon_wsgi.py`` file with the following

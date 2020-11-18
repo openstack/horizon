@@ -19,13 +19,13 @@ On Ubuntu
 
 .. code-block:: console
 
-    $ sudo apt-get install git python3-dev python3-pip
+    $ sudo apt install git python3-dev python3-pip gettext
 
 On RPM-based distributions (e.g., Fedora/RHEL/CentOS)
 
 .. code-block:: console
 
-    $ sudo yum install gcc git-core python3-devel python3-virtualenv
+    $ sudo yum install gcc git-core python3-devel python3-virtualenv gettext
 
 .. note::
 
@@ -66,12 +66,6 @@ can be customised by modifying the ``OPENSTACK_HOST`` and
 
 Horizon uses ``tox`` to manage virtual environments for testing and other
 development tasks. You can install it with
-
-.. code-block:: console
-
-    $ pip install tox
-
-or
 
 .. code-block:: console
 
