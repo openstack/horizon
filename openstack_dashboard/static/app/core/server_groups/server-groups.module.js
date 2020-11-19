@@ -46,6 +46,7 @@
     registry.getResourceType(serverGroupResourceType)
       .setNames('Server Group', 'Server Groups',
                 ngettext('Server Group', 'Server Groups', 1))
+      .setDefaultIndexUrl('/project/server_groups/')
       .setProperties(serverGroupProperties())
       .setListFunction(serverGroupsService.getServerGroupsPromise)
       .tableColumns
