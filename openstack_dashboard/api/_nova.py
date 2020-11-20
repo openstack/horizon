@@ -84,7 +84,7 @@ class Server(base.APIResourceWrapper):
 
     @property
     def has_extended_attrs(self):
-        return any(getattr(self, attr) for attr in [
+        return any(getattr(self, attr, None) for attr in [
             'OS-EXT-SRV-ATTR:instance_name', 'OS-EXT-SRV-ATTR:host',
             'OS-EXT-SRV-ATTR:hostname', 'OS-EXT-SRV-ATTR:kernel_id',
             'OS-EXT-SRV-ATTR:ramdisk_id', 'OS-EXT-SRV-ATTR:root_device_name',
