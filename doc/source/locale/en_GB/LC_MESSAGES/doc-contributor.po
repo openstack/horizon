@@ -3,9 +3,9 @@
 # Andi Chandler <andi@gowling.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 18.7.0.dev38\n"
+"Project-Id-Version: horizon 18.7.0.dev64\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 14:30+0000\n"
+"POT-Creation-Date: 2020-11-23 00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12014,9 +12014,6 @@ msgstr "openstack_dashboard.settings (and local_settings.py)"
 
 msgid "openstack_dashboard.test.settings"
 msgstr "openstack_dashboard.test.settings"
-
-msgid "or"
-msgstr "or"
 
 msgid "panel.py"
 msgstr "panel.py"

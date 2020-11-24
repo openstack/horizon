@@ -3,9 +3,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 18.7.0.dev14\n"
+"Project-Id-Version: horizon 18.7.0.dev64\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-07 17:14+0000\n"
+"POT-Creation-Date: 2020-11-23 00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -603,13 +603,6 @@ msgid ""
 msgstr ""
 "Memungkinkan untuk menentukan wilayah IdP untuk dihubungi jika "
 "WEBSSO_DEFAULT_REDIRECT disetel ke True"
-
-msgid ""
-"Along with the deprecation, the current plan on individual effective values "
-"in this setting is as follows."
-msgstr ""
-"Seiring dengan penghentian tersebut, rencana saat ini tentang nilai efektif "
-"individu dalam pengaturan ini adalah sebagai berikut."
 
 msgid ""
 "Angular Templates are cached using this duration (in seconds) if `DEBUG`_ is "
@@ -1853,15 +1846,6 @@ msgstr ""
 "memungkinkan iframe embedding."
 
 msgid ""
-"Ignore all listed Nova extensions, and behave as if they were unsupported. "
-"Can be used to selectively disable certain costly extensions for performance "
-"reasons."
-msgstr ""
-"Abaikan semua ekstensi Nova yang terdaftar, dan berperilaku seolah-olah "
-"tidak didukung. Dapat digunakan untuk menonaktifkan secara selektif ekstensi "
-"mahal tertentu untuk alasan kinerja."
-
-msgid ""
 "In Angular, you may write a plugin to extend certain features. Two "
 "components in the Horizon framework that make this possible are the "
 "extensibility service and the resource type registry service. The "
@@ -2187,9 +2171,6 @@ msgstr "OPENSTACK_KEYSTONE_URL"
 
 msgid "OPENSTACK_NEUTRON_NETWORK"
 msgstr "OPENSTACK_NEUTRON_NETWORK"
-
-msgid "OPENSTACK_NOVA_EXTENSIONS_BLACKLIST"
-msgstr "OPENSTACK_NOVA_EXTENSIONS_BLACKLIST"
 
 msgid "OPENSTACK_PROFILER"
 msgstr "OPENSTACK_PROFILER"
@@ -3135,24 +3116,6 @@ msgstr ""
 "file _styles.scss. Ini harus berisi atau mengimpor semua variabel dan style "
 "bootstrap dan horizon tertentu yang digunakan untuk mengatur style GUI. "
 "Misalnya tema, lihat: /horizon/openstack_dashboard/themes/"
-
-msgid ""
-"The support of ``SimpleTenantUsage`` will be replaced by a new setting which "
-"controls whether ``SimpleTenantUsage`` nova API feature is used or not (not "
-"implemented yet as of Victoria; planned in Wallaby release). This setting "
-"will not be droped until the new setting is implemented."
-msgstr ""
-"Dukungan ``SimpleTenantUsage``akan diganti dengan pengaturan baru yang "
-"mengontrol apakah fitur nova API ``SimpleTenantUsage`` digunakan atau tidak "
-"(belum diimplementasikan sejak Victoria; direncanakan dalam rilis Wallaby). "
-"Pengaturan ini tidak akan dihapus sampai pengaturan baru diterapkan."
-
-msgid ""
-"The support of the following values will be simply dropped as nova provides "
-"all features in the recent API versions."
-msgstr ""
-"Dukungan dari nilai-nilai berikut akan dihilangkan begitu saja karena nova "
-"menyediakan semua fitur dalam versi API terbaru."
 
 msgid ""
 "The top navbar in Horizon now uses a native Bootstrap ``navbar``.  There are "
@@ -4393,18 +4356,6 @@ msgstr "``ADD_XSTATIC_MODULES``"
 msgid "``AUTO_DISCOVER_STATIC_FILES``"
 msgstr "``AUTO_DISCOVER_STATIC_FILES``"
 
-msgid "``AdminActions``"
-msgstr "``AdminActions``"
-
-msgid "``Aggregates``"
-msgstr "``Aggregates``"
-
-msgid "``BlockDeviceMappingV2Boot``"
-msgstr "``BlockDeviceMappingV2Boot``"
-
-msgid "``ConfigDrive``"
-msgstr "``ConfigDrive``"
-
 msgid "``DASHBOARD``"
 msgstr "``DASHBOARD``"
 
@@ -4417,17 +4368,11 @@ msgstr "``DEFAULT``"
 msgid "``DISABLED``"
 msgstr "``DISABLED``"
 
-msgid "``DiskConfig``"
-msgstr "``DiskConfig``"
-
 msgid "``EXTRA_STEPS``"
 msgstr "``EXTRA_STEPS``"
 
 msgid "``EXTRA_TABS``"
 msgstr "``EXTRA_TABS``"
-
-msgid "``Keypairs``"
-msgstr "``Keypairs``"
 
 msgid "``PANEL_DASHBOARD``"
 msgstr "``PANEL_DASHBOARD``"
@@ -4446,18 +4391,6 @@ msgstr "``PANEL``"
 
 msgid "``REMOVE_PANEL``"
 msgstr "``REMOVE_PANEL``"
-
-msgid "``SchedulerHints``"
-msgstr "``SchedulerHints``"
-
-msgid "``ServerGroups``"
-msgstr "``ServerGroups``"
-
-msgid "``Services``"
-msgstr "``Services``"
-
-msgid "``Shelve``"
-msgstr "``Shelve``"
 
 msgid "``UPDATE_HORIZON_CONFIG``"
 msgstr "``UPDATE_HORIZON_CONFIG``"
