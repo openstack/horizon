@@ -10,3 +10,4 @@ This page collects basic policies on horizon development.
    supported-software
    horizon-groups
    core-reviewers
+   horizon-bugs
