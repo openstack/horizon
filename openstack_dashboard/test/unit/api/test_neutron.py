@@ -581,21 +581,24 @@ class NeutronApiTests(test.APIMockTestCase):
 
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_port_create(self, mock_neutronclient):
-        port = {'port': self.api_ports.first()}
-        params = {'network_id': port['port']['network_id'],
-                  'tenant_id': port['port']['tenant_id'],
-                  'name': port['port']['name'],
-                  'device_id': port['port']['device_id']}
+        port = self.api_ports.first()
+        params = {'network_id': port['network_id'],
+                  'tenant_id': port['tenant_id'],
+                  'name': port['name'],
+                  'device_id': port['device_id']}
+        api_params = params.copy()
+        params['binding__vnic_type'] = port['binding:vnic_type']
+        api_params['binding:vnic_type'] = port['binding:vnic_type']
 
         neutronclient = mock_neutronclient.return_value
-        neutronclient.create_port.return_value = port
+        neutronclient.create_port.return_value = {'port': port}
 
         ret_val = api.neutron.port_create(self.request, **params)
 
         self.assertIsInstance(ret_val, api.neutron.Port)
-        self.assertEqual(api.neutron.Port(port['port']).id, ret_val.id)
+        self.assertEqual(api.neutron.Port(port).id, ret_val.id)
         neutronclient.create_port.assert_called_once_with(
-            body={'port': params})
+            body={'port': api_params})
 
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_port_update(self, mock_neutronclient):
@@ -603,6 +606,9 @@ class NeutronApiTests(test.APIMockTestCase):
         port_id = port_data['id']
         params = {'name': port_data['name'],
                   'device_id': port_data['device_id']}
+        api_params = params.copy()
+        params['binding__vnic_type'] = port_data['binding:vnic_type']
+        api_params['binding:vnic_type'] = port_data['binding:vnic_type']
 
         neutronclient = mock_neutronclient.return_value
         neutronclient.update_port.return_value = {'port': port_data}
@@ -612,7 +618,7 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val, api.neutron.Port)
         self.assertEqual(api.neutron.Port(port_data).id, ret_val.id)
         neutronclient.update_port.assert_called_once_with(
-            port_id, body={'port': params})
+            port_id, body={'port': api_params})
 
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_port_delete(self, mock_neutronclient):
