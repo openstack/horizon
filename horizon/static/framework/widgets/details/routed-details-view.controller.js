@@ -28,7 +28,8 @@
     'horizon.framework.widgets.modal-wait-spinner.service',
     '$location',
     '$q',
-    '$routeParams'
+    '$routeParams',
+    '$window'
   ];
 
   function controller(
@@ -39,7 +40,8 @@
     spinnerService,
     $location,
     $q,
-    $routeParams
+    $routeParams,
+    $window
   ) {
     var ctrl = this;
 
@@ -69,6 +71,9 @@
 
         // get defaultIndexUrl
         var url = resourceType.getDefaultIndexUrl();
+        // add webroot
+        var webroot = $window.WEBROOT;
+        url = navigationsService.setAbsoluteURI(webroot, url);
         // if querystring has 'nav' parameter, overwrite the url
         var query = $location.search();
         if (query.hasOwnProperty("nav")) {
