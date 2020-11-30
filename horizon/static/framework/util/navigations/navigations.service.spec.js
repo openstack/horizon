@@ -160,6 +160,13 @@
       });
     });
 
+    describe('setAbsoluteURI', function() {
+      it('sets absolute uri', function() {
+        var url = service.setAbsoluteURI('/dashboard/', '/project/images/');
+        expect(url).toBe('/dashboard/project/images/');
+      });
+    });
+
     describe('isNavigationExists', function() {
       it('returns true if navigation for specified URL exists', function() {
         var result = service.isNavigationExists('/project/images/');
