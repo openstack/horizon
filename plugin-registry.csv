@@ -16,7 +16,6 @@ murano-dashboard,:opendev-repo:`openstack/murano-dashboard`,:launchpad:`murano`
 networking-bgpvpn,:opendev-repo:`openstack/networking-bgpvpn`,:launchpad:`bgpvpn`
 neutron-vpnaas-dashboard,:opendev-repo:`openstack/neutron-vpnaas-dashboard`,:launchpad:`neutron-vpnaas-dashboard`
 octavia-dashboard,:opendev-repo:`openstack/octavia-dashboard`,:storyboard:`openstack/octavia-dashboard`
-qinling-dashboard,:opendev-repo:`openstack/qinling-dashboard`,:storyboard:`openstack/qinling-dashboard`
 sahara-dashboard,:opendev-repo:`openstack/sahara-dashboard`,:storyboard:`openstack/sahara-dashboard`
 senlin-dashboard,:opendev-repo:`openstack/senlin-dashboard`,:launchpad:`senlin-dashboard`
 solum-dashboard,:opendev-repo:`openstack/solum-dashboard`,:launchpad:`solum`
