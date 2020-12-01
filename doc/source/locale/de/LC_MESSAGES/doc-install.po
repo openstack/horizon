@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 18.4.2.dev23\n"
+"Project-Id-Version: horizon 18.7.0.dev69\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-27 08:53+0000\n"
+"POT-Creation-Date: 2020-11-25 16:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -729,16 +729,6 @@ msgstr ""
 
 msgid "Translations"
 msgstr "Übersetzungen"
-
-msgid ""
-"Ussuri release uses Django 2.2 (the latest LTS) as the primary Django "
-"version. The prevouos LTS of Django 1.11 will be dropped during Ussuri "
-"cycle. Django 2.0 support will be dropped as well."
-msgstr ""
-"Die Ussuri Version verwendet Django 2.2 (neueste LTS) als primäre Django-"
-"Version. Unterstützung für die vorherige LTS-Version von Django 1.1 wird "
-"während des Ussuri-Zyklus entfernt. Die Unterstützung für Django 2.0 wird "
-"ebenfalls eingestellt."
 
 msgid "Verify operation for Debian"
 msgstr "Überprüfen Sie die Funktionen für Debian"
