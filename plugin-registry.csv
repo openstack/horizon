@@ -18,7 +18,6 @@ neutron-vpnaas-dashboard,:opendev-repo:`openstack/neutron-vpnaas-dashboard`,:lau
 octavia-dashboard,:opendev-repo:`openstack/octavia-dashboard`,:storyboard:`openstack/octavia-dashboard`
 qinling-dashboard,:opendev-repo:`openstack/qinling-dashboard`,:storyboard:`openstack/qinling-dashboard`
 sahara-dashboard,:opendev-repo:`openstack/sahara-dashboard`,:storyboard:`openstack/sahara-dashboard`
-searchlight-ui,:opendev-repo:`openstack/searchlight-ui`,:storyboard:`openstack/searchlight-ui`
 senlin-dashboard,:opendev-repo:`openstack/senlin-dashboard`,:launchpad:`senlin-dashboard`
 solum-dashboard,:opendev-repo:`openstack/solum-dashboard`,:launchpad:`solum`
 tacker-horizon,:opendev-repo:`openstack/tacker-horizon`,:launchpad:`tacker`
