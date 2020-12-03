@@ -83,9 +83,6 @@ class Navigation(object):
                                     "Volumes",
                                     "Backups",
                                     "Snapshots",
-                                    "Consistency Groups",
-                                    "Consistency Group Snapshots",
-
                                 )
                         },
                     "Network":
