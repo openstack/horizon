@@ -120,14 +120,14 @@ module.exports = function (config) {
 
     frameworks: ['jasmine'],
 
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
     browserNoActivityTimeout: 60000,
 
     reporters: ['progress', 'coverage', 'threshold'],
 
     plugins: [
-      'karma-chrome-launcher',
+      'karma-firefox-launcher',
       'karma-jasmine',
       'karma-ng-html2js-preprocessor',
       'karma-coverage',
