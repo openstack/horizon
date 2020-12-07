@@ -111,7 +111,7 @@ Routes==2.3.1
 selenium==2.50.1
 semantic-version==2.3.1
 simplejson==3.5.1
-six==1.10.0
+six==1.12.0
 snowballstemmer==1.2.1
 statsd==3.2.1
 stevedore==1.20.0
@@ -124,7 +124,7 @@ unittest2==1.1.0
 vine==1.1.4
 warlock==1.2.0
 WebOb==1.7.1
-wrapt==1.7.0
+wrapt==1.11
 XStatic==1.0.0
 XStatic-Angular==1.5.8.0
 XStatic-Angular-Bootstrap==2.2.0.0
