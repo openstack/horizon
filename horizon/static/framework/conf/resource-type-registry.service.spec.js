@@ -194,7 +194,12 @@
       });
 
       it("default load function returns a promise", function() {
+        function load() {
+          return 'here be a promise';
+        }
+        type.setLoadFunction(load);
         expect(type.load()).toBeDefined();
+        expect(type.load()).toBe('here be a promise');
       });
 
       it("allows setting a list function", function() {
