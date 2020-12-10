@@ -98,12 +98,14 @@
         var user = generateItems(1)[0];
         service.perform(user);
         $scope.$apply();
-        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(user.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('should pass and fail in a function that delete user by item action', function(done) {
@@ -114,12 +116,14 @@
         var user = generateItems(1)[0];
         service.perform(user);
         $scope.$apply();
-        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(user.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('should pass and fail in a function that delete user by batch action', function(done) {
@@ -130,12 +134,14 @@
         var user = generateItems(1)[0];
         service.perform([user]);
         $scope.$apply();
-        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(user.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('should call policy check', function() {

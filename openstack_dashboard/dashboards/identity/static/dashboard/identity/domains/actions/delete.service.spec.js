@@ -97,12 +97,14 @@
         var domain = generateDomains(1)[0];
         service.perform(domain);
         $scope.$apply();
-        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(domain.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('should pass and fail in a function that delete domain by item action', function(done) {
@@ -113,12 +115,14 @@
         var domain = generateDomains(1)[0];
         service.perform(domain);
         $scope.$apply();
-        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(domain.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('should pass and fail in a function that delete domain by batch action', function(done) {
@@ -129,12 +133,14 @@
         var domain = generateDomains(1)[0];
         service.perform([domain]);
         $scope.$apply();
-        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(domain.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('fail to policy check because of no privilege', function() {
