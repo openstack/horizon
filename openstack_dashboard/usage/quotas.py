@@ -178,7 +178,12 @@ def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
         disabled_quotas = get_disabled_quotas(request)
 
     if NOVA_QUOTA_FIELDS - disabled_quotas:
-        quotasets.append(nova.default_quota_get(request, tenant_id))
+        try:
+            quotasets.append(nova.default_quota_get(request, tenant_id))
+        except Exception:
+            disabled_quotas.update(NOVA_QUOTA_FIELDS)
+            msg = _('Unable to retrieve Nova quota information.')
+            exceptions.handle(request, msg)
 
     if CINDER_QUOTA_FIELDS - disabled_quotas:
         try:
@@ -213,7 +218,12 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
         disabled_quotas = get_disabled_quotas(request)
 
     if NOVA_QUOTA_FIELDS - disabled_quotas:
-        quotasets.append(nova.tenant_quota_get(request, tenant_id))
+        try:
+            quotasets.append(nova.tenant_quota_get(request, tenant_id))
+        except Exception:
+            disabled_quotas.update(NOVA_QUOTA_FIELDS)
+            msg = _('Unable to retrieve Nova quota information.')
+            exceptions.handle(request, msg)
 
     if CINDER_QUOTA_FIELDS - disabled_quotas:
         try:
@@ -224,7 +234,12 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
             exceptions.handle(request, msg)
 
     if NEUTRON_QUOTA_FIELDS - disabled_quotas:
-        quotasets.append(neutron.tenant_quota_get(request, tenant_id))
+        try:
+            quotasets.append(neutron.tenant_quota_get(request, tenant_id))
+        except Exception:
+            disabled_quotas.update(NEUTRON_QUOTA_FIELDS)
+            msg = _('Unable to retrieve Neutron quota information.')
+            exceptions.handle(request, msg)
 
     qs = base.QuotaSet()
     for quota in itertools.chain(*quotasets):
