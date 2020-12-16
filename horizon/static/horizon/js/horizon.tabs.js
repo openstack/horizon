@@ -41,7 +41,7 @@ horizon.tabs.load_tab = function () {
     .addClass('tab-loading');
 
   // If query params exist, append tab id.
-  if(window.location.search.length > 0) {
+  if (window.location.search.length > 0) {
     $tab_pane.load(window.location.search + "&tab=" + tab_id.replace('#', ''), function() {
       horizon.tabs.initTabLoad($tab_pane);
     });
@@ -74,7 +74,7 @@ horizon.addInitFunction(horizon.tabs.init = function () {
     });
     // d3 renders incorrectly in a hidden tab, this forces a rerender when the
     // container size is not 0 from display:none
-    if($content.find(".d3-container").length) {
+    if ($content.find(".d3-container").length) {
       window.dispatchEvent(new Event('resize'));
     }
 

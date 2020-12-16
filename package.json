@@ -6,14 +6,14 @@
   "repository": "none",
   "license": "Apache 2.0",
   "devDependencies": {
-    "eslint": "1.10.3",
-    "eslint-config-openstack": "1.2.4",
-    "eslint-plugin-angular": "1.0.1",
+    "eslint": "3.0.0",
+    "eslint-config-openstack": "4.0.1",
+    "eslint-plugin-angular": "4.0.1",
     "jasmine-core": "2.4.1",
     "karma": "1.1.2",
-    "karma-firefox-launcher": "2.1.0",
     "karma-cli": "1.0.1",
     "karma-coverage": "1.1.1",
+    "karma-firefox-launcher": "2.1.0",
     "karma-jasmine": "1.0.2",
     "karma-ng-html2js-preprocessor": "1.0.0",
     "karma-threshold-reporter": "0.1.15"

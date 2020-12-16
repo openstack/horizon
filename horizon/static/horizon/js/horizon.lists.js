@@ -33,8 +33,8 @@ horizon.lists = {
       });
       $("#"+type+"ListId ul").html(
         lists.sort(function (a,b) {
-          if($(a).data("index") < $(b).data("index")) { return -1; }
-          if($(a).data("index") > $(b).data("index")) { return 1; }
+          if ($(a).data("index") < $(b).data("index")) { return -1; }
+          if ($(a).data("index") > $(b).data("index")) { return 1; }
           return 0;
         })
       );
@@ -60,7 +60,7 @@ horizon.lists = {
       e.preventDefault();
       e.stopPropagation();
 
-      if($this.parents("ul#available_"+type).length > 0) {
+      if ($this.parents("ul#available_"+type).length > 0) {
         $this.parent().appendTo($("#selected_"+type));
       } else if ($this.parents("ul#selected_"+type).length > 0) {
         $this.parent().appendTo($("#available_"+type));
@@ -103,7 +103,7 @@ horizon.lists = {
         $('pre.logs').text(response_body);
       },
       error: function () {
-        if(via_user_submit) {
+        if (via_user_submit) {
           horizon.clearErrorMessages();
           horizon.toast.add('error', error_txt);
         }
