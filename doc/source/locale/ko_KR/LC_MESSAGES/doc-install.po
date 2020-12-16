@@ -3,9 +3,9 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 18.7.0.dev69\n"
+"Project-Id-Version: horizon 19.0.1.dev6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-25 16:13+0000\n"
+"POT-Creation-Date: 2020-12-15 21:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,14 +118,8 @@ msgstr ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
 msgid ":opendev-repo:`openstack/octavia-dashboard`"
 msgstr ":opendev-repo:`openstack/octavia-dashboard`"
 
-msgid ":opendev-repo:`openstack/qinling-dashboard`"
-msgstr ":opendev-repo:`openstack/qinling-dashboard`"
-
 msgid ":opendev-repo:`openstack/sahara-dashboard`"
 msgstr ":opendev-repo:`openstack/sahara-dashboard`"
-
-msgid ":opendev-repo:`openstack/searchlight-ui`"
-msgstr ":opendev-repo:`openstack/searchlight-ui`"
 
 msgid ":opendev-repo:`openstack/senlin-dashboard`"
 msgstr ":opendev-repo:`openstack/senlin-dashboard`"
@@ -172,14 +166,8 @@ msgstr ":storyboard:`openstack/ironic-ui`"
 msgid ":storyboard:`openstack/octavia-dashboard`"
 msgstr ":storyboard:`openstack/octavia-dashboard`"
 
-msgid ":storyboard:`openstack/qinling-dashboard`"
-msgstr ":storyboard:`openstack/qinling-dashboard`"
-
 msgid ":storyboard:`openstack/sahara-dashboard`"
 msgstr ":storyboard:`openstack/sahara-dashboard`"
-
-msgid ":storyboard:`openstack/searchlight-ui`"
-msgstr ":storyboard:`openstack/searchlight-ui`"
 
 msgid ":storyboard:`openstack/vitrage-dashboard`"
 msgstr ":storyboard:`openstack/vitrage-dashboard`"
@@ -913,14 +901,8 @@ msgstr "neutron-vpnaas-dashboard"
 msgid "octavia-dashboard"
 msgstr "octavia-dashboard"
 
-msgid "qinling-dashboard"
-msgstr "qinling-dashboard"
-
 msgid "sahara-dashboard"
 msgstr "sahara-dashboard"
-
-msgid "searchlight-ui"
-msgstr "searchlight-ui"
 
 msgid "senlin-dashboard"
 msgstr "senlin-dashboard"
