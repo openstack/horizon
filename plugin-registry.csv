@@ -6,7 +6,6 @@ designate-dashboard,:opendev-repo:`openstack/designate-dashboard`,:launchpad:`de
 freezer-web-ui,:opendev-repo:`openstack/freezer-web-ui`,:storyboard:`openstack/freezer-web-ui`
 heat-dashboard,:opendev-repo:`openstack/heat-dashboard`,:storyboard:`openstack/heat-dashboard`
 ironic-ui,:opendev-repo:`openstack/ironic-ui`,:storyboard:`openstack/ironic-ui`
-karbor-dashboard,:opendev-repo:`openstack/karbor-dashboard`,:launchpad:`karbor-dashboard`
 magnum-ui,:opendev-repo:`openstack/magnum-ui`,:launchpad:`magnum-ui`
 manila-ui,:opendev-repo:`openstack/manila-ui`,:launchpad:`manila-ui`
 masakari-dashboard,:opendev-repo:`openstack/masakari-dashboard`,:launchpad:`masakari`
