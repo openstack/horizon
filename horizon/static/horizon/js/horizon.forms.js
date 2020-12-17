@@ -278,7 +278,7 @@ horizon.forms.init_themable_select = function ($elem) {
     }
 
     // Set the select if necessary
-    if($select.val() !== value) {
+    if ($select.val() !== value) {
       $select.val(value).change();
     }
   });
@@ -520,7 +520,7 @@ horizon.addInitFunction(horizon.forms.init = function () {
           }
         } else {
           //If the input is a checkbox no need to replace html for label since it has another structure
-          if($input.attr('type') !== "checkbox"){
+          if ($input.attr('type') !== "checkbox") {
             $('label[for=' + $input.attr('id') + ']').html(data);
           }
           $input.closest('.form-group').show();
@@ -568,7 +568,7 @@ horizon.addInitFunction(horizon.forms.init = function () {
         var hide_tab = String($switchable.data('hide-tab')).split(',');
         for (var i = 0, len = hide_tab.length; i < len; i++) {
           var tab = $('*[data-target="#'+ hide_tab[i] +'"]').parent();
-          if(checked == hide_on) {
+          if (checked == hide_on) {
             // If the checkbox is not checked then hide the tab
             tab.hide();
           } else if (!tab.is(':visible')) {
@@ -579,11 +579,11 @@ horizon.addInitFunction(horizon.forms.init = function () {
 
         // hide/show button-next or button-final
         var $btnfinal = $('.button-final');
-        if(checked == hide_on) {
+        if (checked == hide_on) {
           $('.button-next').hide();
           $btnfinal.show();
           $btnfinal.data('show-on-tab', $fieldset.prop('id'));
-        } else{
+        } else {
           $btnfinal.hide();
           $('.button-next').show();
           $btnfinal.removeData('show-on-tab');
