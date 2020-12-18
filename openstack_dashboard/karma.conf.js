@@ -180,6 +180,14 @@ module.exports = function (config) {
       dir: '../cover/openstack_dashboard'
     },
 
+    // TODO(tmazur) set failSpecWithNoExpectations to true after fixing tests
+    client: {
+      jasmine: {
+        random: false,
+        failSpecWithNoExpectations: false
+      }
+    },
+
     // Coverage threshold values.
     thresholdReporter: {
       statements: 96, // target 100

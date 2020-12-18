@@ -159,24 +159,23 @@
           }
         });
 
-        beforeEach(function () {
-          settings = {
-            LAUNCH_INSTANCE_DEFAULTS: {
-              create_volume: true,
-              hide_create_volume: false,
-              config_drive: false,
-              disable_image: false,
-              disable_instance_snapshot: false,
-              disable_volume: false,
-              disable_volume_snapshot: false
-            },
-            DEFAULT_BOOT_SOURCE: 'image'
-          };
-          IMAGE = {type: 'image', label: 'Image', selected: true};
-          VOLUME = {type: 'volume', label: 'Volume', selected: false};
-          VOLUME_SNAPSHOT = {type: 'volume_snapshot', label: 'Volume Snapshot', selected: false};
-          INSTANCE_SNAPSHOT = {type: 'snapshot', label: 'Instance Snapshot', selected: false};
-        });
+        settings = {
+          LAUNCH_INSTANCE_DEFAULTS: {
+            create_volume: true,
+            hide_create_volume: false,
+            config_drive: false,
+            disable_image: false,
+            disable_instance_snapshot: false,
+            disable_volume: false,
+            disable_volume_snapshot: false
+          },
+          DEFAULT_BOOT_SOURCE: 'image'
+        };
+        IMAGE = {type: 'image', label: 'Image', selected: true};
+        VOLUME = {type: 'volume', label: 'Volume', selected: false};
+        VOLUME_SNAPSHOT = {type: 'volume_snapshot', label: 'Volume Snapshot', selected: false};
+        INSTANCE_SNAPSHOT = {type: 'snapshot', label: 'Instance Snapshot', selected: false};
+
         $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
 
         $provide.value('horizon.app.core.openstack-service-api.security-group', securityGroupApi);

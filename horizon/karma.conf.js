@@ -139,12 +139,19 @@ module.exports = function (config) {
       dir: '../../cover/horizon'
     },
 
+    client: {
+      jasmine: {
+        random: false,
+        failSpecWithNoExpectations: true
+      }
+    },
+
     // Coverage threshold values.
     thresholdReporter: {
-      statements: 93, // target 100
+      statements: 92, // target 100
       branches: 84, // target 100
       functions: 91, // target 100
-      lines: 93 // target 100
+      lines: 92 // target 100
     }
   });
 };
