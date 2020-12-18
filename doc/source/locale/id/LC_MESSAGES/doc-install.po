@@ -3,9 +3,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 19.0.1.dev6\n"
+"Project-Id-Version: horizon 19.0.1.dev11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 21:05+0000\n"
+"POT-Creation-Date: 2020-12-17 18:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,9 +24,6 @@ msgstr ":launchpad:`blazar`"
 
 msgid ":launchpad:`designate-dashboard`"
 msgstr ":launchpad:`designate-dashboard`"
-
-msgid ":launchpad:`karbor-dashboard`"
-msgstr ":launchpad:`karbor-dashboard`"
 
 msgid ":launchpad:`magnum-ui`"
 msgstr ":launchpad:`magnum-ui`"
@@ -90,9 +87,6 @@ msgstr ":opendev-repo:`openstack/heat-dashboard`"
 
 msgid ":opendev-repo:`openstack/ironic-ui`"
 msgstr ":opendev-repo:`openstack/ironic-ui`"
-
-msgid ":opendev-repo:`openstack/karbor-dashboard`"
-msgstr ":opendev-repo:`openstack/karbor-dashboard`"
 
 msgid ":opendev-repo:`openstack/magnum-ui`"
 msgstr ":opendev-repo:`openstack/magnum-ui`"
@@ -905,9 +899,6 @@ msgstr "heat-dashboard"
 
 msgid "ironic-ui"
 msgstr "ironic-ui"
-
-msgid "karbor-dashboard"
-msgstr "karbor-dashboard"
 
 msgid "magnum-ui"
 msgstr "magnum-ui"

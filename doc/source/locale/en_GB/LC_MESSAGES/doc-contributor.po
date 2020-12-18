@@ -3,13 +3,13 @@
 # Andi Chandler <andi@gowling.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 18.7.0.dev64\n"
+"Project-Id-Version: horizon 19.0.1.dev11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 00:41+0000\n"
+"POT-Creation-Date: 2020-12-17 18:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-10-28 10:53+0000\n"
+"PO-Revision-Date: 2020-12-17 11:13+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -1007,6 +1007,9 @@ msgstr ""
 "Add a new panel/ panel group/ dashboard (See :ref:`tutorials-dashboard`). "
 "JavaScript file inclusion is the same as the Upstream process."
 
+msgid "Add or update proper bug tags"
+msgstr "Add or update proper bug tags"
+
 msgid ""
 "Add the feature to the ``MICROVERSION_FEATURES`` dict in "
 "``openstack_dashboard/api/microversions.py`` under the appropriate service "
@@ -1576,6 +1579,13 @@ msgstr ""
 "Asserts that the response either does not contain a workflow in its context, "
 "or that if it does, that workflow has no errors."
 
+msgid ""
+"Assign the importance. If it breaks horizon basic functionality, the "
+"importance should be marked as \"Critical\" or \"High\"."
+msgstr ""
+"Assign the importance. If it breaks horizon basic functionality, the "
+"importance should be marked as \"Critical\" or \"High\"."
+
 msgid "Assist in bug triage and delivery of bug fixes"
 msgstr "Assist in bug triage and delivery of bug fixes"
 
@@ -2017,6 +2027,9 @@ msgstr "Bootstrap based select field."
 msgid "Bug Supervisor Team"
 msgstr "Bug Supervisor Team"
 
+msgid "Bug Tags"
+msgstr "Bug Tags"
+
 msgid "Bug tracker: https://bugs.launchpad.net/horizon"
 msgstr "Bug tracker: https://bugs.launchpad.net/horizon"
 
@@ -2178,6 +2191,23 @@ msgstr "Check for redirect."
 
 msgid "Check for workflow errors."
 msgstr "Check for workflow errors."
+
+msgid ""
+"Check if a bug is filed for a correct project. Otherwise, change the project "
+"or mark it as \"Invalid\""
+msgstr ""
+"Check if a bug is filed for a correct project. Otherwise, change the project "
+"or mark it as \"Invalid\""
+
+msgid ""
+"Check if a similar bug was reported before. If found, mark it as duplicate "
+"(using \"Mark as duplicate\" button in the right-top menu)."
+msgstr ""
+"Check if a similar bug was reported before. If found, mark it as duplicate "
+"(using \"Mark as duplicate\" button in the right-top menu)."
+
+msgid "Check if enough information like below is provided:"
+msgstr "Check if enough information like below is provided:"
 
 msgid ""
 "Check if existing components suit your use case. There may be existing "
@@ -3135,6 +3165,9 @@ msgid ""
 msgstr ""
 "Exceptions raised by the Horizon code and the machinery for handling them."
 
+msgid "Expected output and actual output"
+msgstr "Expected output and actual output"
+
 msgid "Extending an AngularJS Workflow"
 msgstr "Extending an AngularJS Workflow"
 
@@ -3603,6 +3636,9 @@ msgstr ""
 "that is shown, then click to close the form. The ``Project Images`` view "
 "should be shown with the new snapshot added to the table."
 
+msgid "Go to the `horizon bugs page <https://bugs.launchpad.net/horizon>`__."
+msgstr "Go to the `Horizon bugs page <https://bugs.launchpad.net/horizon>`__."
+
 msgid ""
 "HORIZON_CONFIG is an internal interface now and most/some(?) of them should "
 "not be exposed as config options. For example, the horizon plugin mechanism "
@@ -3683,6 +3719,9 @@ msgstr "Helper function for building an attribute dictionary."
 msgid "Helping horizon plugin maintenances"
 msgstr "Helping Horizon plugin maintenances"
 
+msgid "High level description"
+msgstr "High level description"
+
 msgid "History"
 msgstr "History"
 
@@ -3730,6 +3769,9 @@ msgstr ""
 
 msgid "Horizon Basics"
 msgstr "Horizon Basics"
+
+msgid "Horizon Bugs"
+msgstr "Horizon Bugs"
 
 msgid "Horizon Context Processors"
 msgstr "Horizon Context Processors"
@@ -3859,6 +3901,13 @@ msgstr ""
 
 msgid "Horizon project defines several teams to maintain the project."
 msgstr "Horizon project defines several teams to maintain the project."
+
+msgid ""
+"Horizon project maintains all bugs in `Launchpad horizon <https://bugs."
+"launchpad.net/horizon>`__."
+msgstr ""
+"Horizon project maintains all bugs in `Launchpad horizon <https://bugs."
+"launchpad.net/horizon>`__."
 
 msgid ""
 "Horizon provides a :class:`~horizon.forms.SelfHandlingForm` :class:`~horizon."
@@ -4290,6 +4339,15 @@ msgid ""
 msgstr ""
 "If only one table class is provided, a shortcut ``table`` context variable "
 "is also added containing the single table."
+
+msgid ""
+"If the bug cannot be reproduced, there would be some pre-conditions. It is "
+"recommended to request more information from the bug reporter. Setting the "
+"status to \"Incomplete\" usually makes sense in this case."
+msgstr ""
+"If the bug cannot be reproduced, there would be some pre-conditions. It is "
+"recommended to request more information from the bug reporter. Setting the "
+"status to \"Incomplete\" usually makes sense in this case."
 
 msgid ""
 "If the error is in the Selenium test suite, you're likely getting very "
@@ -4895,6 +4953,19 @@ msgstr ""
 "In the first approach a jQuery object for ``document`` is created each time. "
 "The second approach creates only one jQuery object and reuses it. Each "
 "object needs to be created, uses memory, and needs to be garbage collected."
+
+msgid ""
+"In the pop-up that is displayed, keep the recipient as \"Yourself\", and set "
+"the subscription name to something useful like \"horizon-bugs\". You can "
+"choose either option for how much mail you get, but keep in mind that "
+"getting mail for all changes - while informative - will result in more "
+"emails."
+msgstr ""
+"In the pop-up that is displayed, keep the recipient as \"Yourself\", and set "
+"the subscription name to something useful like \"horizon-bugs\". You can "
+"choose either option for how much mail you get, but keep in mind that "
+"getting mail for all changes - while informative - will result in more "
+"emails."
 
 msgid ""
 "In the template you would just need to include the following to render the "
@@ -5960,6 +6031,9 @@ msgstr "On RPM-based distributions (e.g., Fedora/RHEL/CentOS)"
 msgid "On Ubuntu"
 msgstr "On Ubuntu"
 
+msgid "On the right hand side, click on \"Subscribe to bug mail\"."
+msgstr "On the right hand side, click on \"Subscribe to bug mail\"."
+
 msgid "Once logged out, defines the URL where to redirect after login"
 msgstr "Once logged out, defines the URL where to redirect after login"
 
@@ -6033,6 +6107,15 @@ msgstr ""
 
 msgid "One folder per component"
 msgstr "One folder per component"
+
+msgid ""
+"One of the important things in the bug management process is to triage "
+"incoming bugs appropriately. To keep you up-to-date to incoming bugs, see "
+"`Receiving incoming bugs`_."
+msgstr ""
+"One of the important things in the bug management process is to triage "
+"incoming bugs appropriately. To keep you up-to-date to incoming bugs, see "
+"`Receiving incoming bugs`_."
 
 msgid ""
 "One of the most challenging aspects of building a compelling user experience "
@@ -6530,6 +6613,9 @@ msgstr ""
 "Read-only property which is set to the value of the current active tab. This "
 "may not be the same as the value of ``selected`` if no specific tab was "
 "requested via the ``GET`` parameter."
+
+msgid "Receiving incoming bugs"
+msgstr "Receiving incoming bugs"
 
 msgid "Recommended"
 msgstr "Recommended"
@@ -7547,6 +7633,9 @@ msgstr ""
 "Step instances can override this method to specify conditions under which "
 "this tab should not be shown at all by returning ``False``."
 
+msgid "Step-by-step instruction to reproduce the bug"
+msgstr "Step-by-step instruction to reproduce the bug"
+
 msgid "Steps"
 msgstr "Steps"
 
@@ -7751,6 +7840,15 @@ msgstr "Tables, Tabs, and Views"
 
 msgid "Tabs"
 msgstr "Tabs"
+
+msgid ""
+"Tags are used to classify bugs in a meaningful way. Popular tags are found "
+"at `OpenStack Wiki <https://wiki.openstack.org/wiki/Bug_Tags>`__ (See "
+"``Horizon`` and ``All projects`` sections)."
+msgstr ""
+"Tags are used to classify bugs in a meaningful way. Popular tags are found "
+"at `OpenStack Wiki <https://wiki.openstack.org/wiki/Bug_Tags>`__ (See "
+"``Horizon`` and ``All projects`` sections)."
 
 msgid "Task Tracking"
 msgstr "Task Tracking"
@@ -8209,6 +8307,9 @@ msgstr ""
 "The benefit of the multi-step table instantiation is that you can use "
 "preemptive actions which don't need access to the entire collection of data "
 "to save yourself on processing overhead, API calls, etc."
+
+msgid "The bug triaging process would be:"
+msgstr "The bug triaging process would be:"
 
 msgid ""
 "The build environment inside a distribution is not exactly the same as the "
@@ -10354,6 +10455,15 @@ msgstr ""
 "To begin setting up a Horizon development environment simply clone the "
 "Horizon git repository from https://opendev.org/openstack/horizon"
 
+msgid ""
+"To check incoming bugs, you can check Launchpad bug page directly, but at "
+"the moment the easiest way is to subscribe Launchpad bug mails. The steps to "
+"subscribe to the Launchpad bugs are as follows:"
+msgstr ""
+"To check incoming bugs, you can check Launchpad bug page directly, but at "
+"the moment the easiest way is to subscribe Launchpad bug mails. The steps to "
+"subscribe to the Launchpad bugs are as follows:"
+
 msgid "To check the django version installed in your tox env, run:"
 msgstr "To check the django version installed in your tox env, run:"
 
@@ -10627,6 +10737,9 @@ msgstr "Translation in Horizon"
 msgid "Treat everyone respectfully and professionally."
 msgstr "Treat everyone respectfully and professionally."
 
+msgid "Triaging Bugs"
+msgstr "Triaging Bugs"
+
 msgid ""
 "Tuples in the list will possess the required permissions if the user has a "
 "permissions matching one of the elements of that tuple"
@@ -10865,12 +10978,19 @@ msgstr ""
 "Verifies things from an \"end user\" perspective, which helps to ensure a "
 "high-quality experience."
 
+msgid "Verify if a bug can be reproduced."
+msgstr "Verify if a bug can be reproduced."
+
 msgid ""
 "Verifying/validating the overall data integrity and subsequently triggering "
 "the final method to complete the workflow."
 msgstr ""
 "Verifying/validating the overall data integrity and subsequently triggering "
 "the final method to complete the workflow."
+
+msgid "Version(s) of related components (at least horizon version is required)"
+msgstr ""
+"Version(s) of related components (at least Horizon version is required)"
 
 msgid ""
 "Views or utilities needed by multiple dashboards are placed in "
@@ -11449,6 +11569,13 @@ msgstr ""
 "You will notice that the directory ``mydashboard`` gets automatically "
 "populated with the files related to a dashboard and the ``mypanel`` "
 "directory gets automatically populated with the files related to a panel."
+
+msgid ""
+"You will now receive bug mails from Launchpad when a new bug is filed. Note "
+"that you can classify emails based on the subscription name above."
+msgstr ""
+"You will now receive bug mails from Launchpad when a new bug is filed. Note "
+"that you can classify emails based on the subscription name above."
 
 msgid ""
 "Your controller is the glue between the model and the view. In this example, "
