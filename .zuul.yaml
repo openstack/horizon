@@ -265,3 +265,7 @@
         - horizon-integration-tests-xstatic-master
         - horizon-tox-py36-xstatic-master
         - horizon-nodejs10-run-test-xstatic-master
+    periodic-stable:
+      jobs:
+        - horizon-nodejs10-run-test
+        - horizon-integration-tests
