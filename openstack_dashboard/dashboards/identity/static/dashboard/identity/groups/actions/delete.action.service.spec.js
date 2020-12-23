@@ -109,12 +109,14 @@
         var group = generateItems(1)[0];
         service.perform(group);
         $scope.$apply();
-        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(group.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('should pass and fail in a function that delete group by item action', function(done) {
@@ -125,12 +127,14 @@
         var group = generateItems(1)[0];
         service.perform(group);
         $scope.$apply();
-        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(group.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('should pass and fail in a function that delete group by batch action', function(done) {
@@ -141,12 +145,14 @@
         var group = generateItems(1)[0];
         service.perform([group]);
         $scope.$apply();
-        done();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(group.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('should call policy check', function() {

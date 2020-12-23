@@ -141,8 +141,7 @@ module.exports = function (config) {
 
     client: {
       jasmine: {
-        random: false,
-        failSpecWithNoExpectations: true
+        random: false
       }
     },
 

@@ -180,11 +180,9 @@ module.exports = function (config) {
       dir: '../cover/openstack_dashboard'
     },
 
-    // TODO(tmazur) set failSpecWithNoExpectations to true after fixing tests
     client: {
       jasmine: {
-        random: false,
-        failSpecWithNoExpectations: false
+        random: false
       }
     },
 
