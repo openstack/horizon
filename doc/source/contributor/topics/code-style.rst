@@ -338,7 +338,7 @@ Having done a release of an xstatic package:
    "include-pypi-link: yes" setting.
 2. Pull that patch down so you have the edited upper-constraints.txt file
    locally.
-3. Set the environment variable `UPPER_CONSTRAINTS_FILE` to the edited
+3. Set the environment variable `TOX_CONSTRAINTS_FILE` to the edited
    upper-constraints.txt file name and run tests or local development server
    through tox. This will pull in the precise version of the xstatic package
    that you need.
