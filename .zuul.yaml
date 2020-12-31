@@ -198,3 +198,7 @@
         - horizon-selenium-headless
         - horizon-integration-tests
         - horizon-tempest-plugin-ipv6
+    periodic-stable:
+      jobs:
+        - horizon-nodejs10-run-test
+        - horizon-integration-tests
