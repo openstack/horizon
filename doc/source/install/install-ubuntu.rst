@@ -148,9 +148,6 @@ Install and configure components
             'enable_ipv6': False,
             'enable_distributed_router': False,
             'enable_ha_router': False,
-            'enable_lb': False,
-            'enable_firewall': False,
-            'enable_vpn': False,
             'enable_fip_topology_check': False,
         }
 
