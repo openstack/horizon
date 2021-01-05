@@ -89,16 +89,16 @@ class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Instance",
-            u"Delete Instances",
+            "Delete Instance",
+            "Delete Instances",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Scheduled deletion of Instance",
-            u"Scheduled deletion of Instances",
+            "Scheduled deletion of Instance",
+            "Scheduled deletion of Instances",
             count
         )
 
@@ -123,16 +123,16 @@ class RebootInstance(policy.PolicyTargetMixin, tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Hard Reboot Instance",
-            u"Hard Reboot Instances",
+            "Hard Reboot Instance",
+            "Hard Reboot Instances",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Hard Rebooted Instance",
-            u"Hard Rebooted Instances",
+            "Hard Rebooted Instance",
+            "Hard Rebooted Instances",
             count
         )
 
@@ -153,16 +153,16 @@ class SoftRebootInstance(RebootInstance):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Soft Reboot Instance",
-            u"Soft Reboot Instances",
+            "Soft Reboot Instance",
+            "Soft Reboot Instances",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Soft Rebooted Instance",
-            u"Soft Rebooted Instances",
+            "Soft Rebooted Instance",
+            "Soft Rebooted Instances",
             count
         )
 
@@ -197,16 +197,16 @@ class UnRescueInstance(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Unrescue Instance",
-            u"Unrescue Instances",
+            "Unrescue Instance",
+            "Unrescue Instances",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Unrescued Instance",
-            u"Unrescued Instances",
+            "Unrescued Instance",
+            "Unrescued Instances",
             count
         )
 
@@ -227,13 +227,13 @@ class TogglePause(tables.BatchAction):
     def action_present(count):
         return (
             ungettext_lazy(
-                u"Pause Instance",
-                u"Pause Instances",
+                "Pause Instance",
+                "Pause Instances",
                 count
             ),
             ungettext_lazy(
-                u"Resume Instance",
-                u"Resume Instances",
+                "Resume Instance",
+                "Resume Instances",
                 count
             ),
         )
@@ -242,13 +242,13 @@ class TogglePause(tables.BatchAction):
     def action_past(count):
         return (
             ungettext_lazy(
-                u"Paused Instance",
-                u"Paused Instances",
+                "Paused Instance",
+                "Paused Instances",
                 count
             ),
             ungettext_lazy(
-                u"Resumed Instance",
-                u"Resumed Instances",
+                "Resumed Instance",
+                "Resumed Instances",
                 count
             ),
         )
@@ -291,13 +291,13 @@ class ToggleSuspend(tables.BatchAction):
     def action_present(count):
         return (
             ungettext_lazy(
-                u"Suspend Instance",
-                u"Suspend Instances",
+                "Suspend Instance",
+                "Suspend Instances",
                 count
             ),
             ungettext_lazy(
-                u"Resume Instance",
-                u"Resume Instances",
+                "Resume Instance",
+                "Resume Instances",
                 count
             ),
         )
@@ -306,13 +306,13 @@ class ToggleSuspend(tables.BatchAction):
     def action_past(count):
         return (
             ungettext_lazy(
-                u"Suspended Instance",
-                u"Suspended Instances",
+                "Suspended Instance",
+                "Suspended Instances",
                 count
             ),
             ungettext_lazy(
-                u"Resumed Instance",
-                u"Resumed Instances",
+                "Resumed Instance",
+                "Resumed Instances",
                 count
             ),
         )
@@ -355,13 +355,13 @@ class ToggleShelve(tables.BatchAction):
     def action_present(count):
         return (
             ungettext_lazy(
-                u"Shelve Instance",
-                u"Shelve Instances",
+                "Shelve Instance",
+                "Shelve Instances",
                 count
             ),
             ungettext_lazy(
-                u"Unshelve Instance",
-                u"Unshelve Instances",
+                "Unshelve Instance",
+                "Unshelve Instances",
                 count
             ),
         )
@@ -370,13 +370,13 @@ class ToggleShelve(tables.BatchAction):
     def action_past(count):
         return (
             ungettext_lazy(
-                u"Shelved Instance",
-                u"Shelved Instances",
+                "Shelved Instance",
+                "Shelved Instances",
                 count
             ),
             ungettext_lazy(
-                u"Unshelved Instance",
-                u"Unshelved Instances",
+                "Unshelved Instance",
+                "Unshelved Instances",
                 count
             ),
         )
@@ -817,16 +817,16 @@ class StartInstance(policy.PolicyTargetMixin, tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Start Instance",
-            u"Start Instances",
+            "Start Instance",
+            "Start Instances",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Started Instance",
-            u"Started Instances",
+            "Started Instance",
+            "Started Instances",
             count
         )
 
@@ -848,8 +848,8 @@ class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
     def action_present(count):
         return npgettext_lazy(
             "Action to perform (the instance is currently running)",
-            u"Shut Off Instance",
-            u"Shut Off Instances",
+            "Shut Off Instance",
+            "Shut Off Instances",
             count
         )
 
@@ -857,8 +857,8 @@ class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
     def action_past(count):
         return npgettext_lazy(
             "Past action (the instance is currently already Shut Off)",
-            u"Shut Off Instance",
-            u"Shut Off Instances",
+            "Shut Off Instance",
+            "Shut Off Instances",
             count
         )
 
@@ -878,16 +878,16 @@ class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Lock Instance",
-            u"Lock Instances",
+            "Lock Instance",
+            "Lock Instances",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Locked Instance",
-            u"Locked Instances",
+            "Locked Instance",
+            "Locked Instances",
             count
         )
 
@@ -910,16 +910,16 @@ class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Unlock Instance",
-            u"Unlock Instances",
+            "Unlock Instance",
+            "Unlock Instances",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Unlocked Instance",
-            u"Unlocked Instances",
+            "Unlocked Instance",
+            "Unlocked Instances",
             count
         )
 
@@ -1059,131 +1059,131 @@ def get_power_state(instance):
 
 
 STATUS_DISPLAY_CHOICES = (
-    ("deleted", pgettext_lazy("Current status of an Instance", u"Deleted")),
-    ("active", pgettext_lazy("Current status of an Instance", u"Active")),
-    ("shutoff", pgettext_lazy("Current status of an Instance", u"Shutoff")),
+    ("deleted", pgettext_lazy("Current status of an Instance", "Deleted")),
+    ("active", pgettext_lazy("Current status of an Instance", "Active")),
+    ("shutoff", pgettext_lazy("Current status of an Instance", "Shutoff")),
     ("suspended", pgettext_lazy("Current status of an Instance",
-                                u"Suspended")),
-    ("paused", pgettext_lazy("Current status of an Instance", u"Paused")),
-    ("error", pgettext_lazy("Current status of an Instance", u"Error")),
+                                "Suspended")),
+    ("paused", pgettext_lazy("Current status of an Instance", "Paused")),
+    ("error", pgettext_lazy("Current status of an Instance", "Error")),
     ("resize", pgettext_lazy("Current status of an Instance",
-                             u"Resize/Migrate")),
+                             "Resize/Migrate")),
     ("verify_resize", pgettext_lazy("Current status of an Instance",
-                                    u"Confirm or Revert Resize/Migrate")),
+                                    "Confirm or Revert Resize/Migrate")),
     ("revert_resize", pgettext_lazy(
-        "Current status of an Instance", u"Revert Resize/Migrate")),
-    ("reboot", pgettext_lazy("Current status of an Instance", u"Reboot")),
+        "Current status of an Instance", "Revert Resize/Migrate")),
+    ("reboot", pgettext_lazy("Current status of an Instance", "Reboot")),
     ("hard_reboot", pgettext_lazy("Current status of an Instance",
-                                  u"Hard Reboot")),
-    ("password", pgettext_lazy("Current status of an Instance", u"Password")),
-    ("rebuild", pgettext_lazy("Current status of an Instance", u"Rebuild")),
+                                  "Hard Reboot")),
+    ("password", pgettext_lazy("Current status of an Instance", "Password")),
+    ("rebuild", pgettext_lazy("Current status of an Instance", "Rebuild")),
     ("migrating", pgettext_lazy("Current status of an Instance",
-                                u"Migrating")),
-    ("build", pgettext_lazy("Current status of an Instance", u"Build")),
-    ("rescue", pgettext_lazy("Current status of an Instance", u"Rescue")),
+                                "Migrating")),
+    ("build", pgettext_lazy("Current status of an Instance", "Build")),
+    ("rescue", pgettext_lazy("Current status of an Instance", "Rescue")),
     ("soft-delete", pgettext_lazy("Current status of an Instance",
-                                  u"Soft Deleted")),
-    ("shelved", pgettext_lazy("Current status of an Instance", u"Shelved")),
+                                  "Soft Deleted")),
+    ("shelved", pgettext_lazy("Current status of an Instance", "Shelved")),
     ("shelved_offloaded", pgettext_lazy("Current status of an Instance",
-                                        u"Shelved Offloaded")),
+                                        "Shelved Offloaded")),
     # these vm states are used when generating CSV usage summary
-    ("building", pgettext_lazy("Current status of an Instance", u"Building")),
-    ("stopped", pgettext_lazy("Current status of an Instance", u"Stopped")),
-    ("rescued", pgettext_lazy("Current status of an Instance", u"Rescued")),
-    ("resized", pgettext_lazy("Current status of an Instance", u"Resized")),
+    ("building", pgettext_lazy("Current status of an Instance", "Building")),
+    ("stopped", pgettext_lazy("Current status of an Instance", "Stopped")),
+    ("rescued", pgettext_lazy("Current status of an Instance", "Rescued")),
+    ("resized", pgettext_lazy("Current status of an Instance", "Resized")),
 )
 
-TASK_DISPLAY_NONE = pgettext_lazy("Task status of an Instance", u"None")
+TASK_DISPLAY_NONE = pgettext_lazy("Task status of an Instance", "None")
 
 # Mapping of task states taken from Nova's nova/compute/task_states.py
 TASK_DISPLAY_CHOICES = (
     ("scheduling", pgettext_lazy("Task status of an Instance",
-                                 u"Scheduling")),
+                                 "Scheduling")),
     ("block_device_mapping", pgettext_lazy("Task status of an Instance",
-                                           u"Block Device Mapping")),
+                                           "Block Device Mapping")),
     ("networking", pgettext_lazy("Task status of an Instance",
-                                 u"Networking")),
-    ("spawning", pgettext_lazy("Task status of an Instance", u"Spawning")),
+                                 "Networking")),
+    ("spawning", pgettext_lazy("Task status of an Instance", "Spawning")),
     ("image_snapshot", pgettext_lazy("Task status of an Instance",
-                                     u"Snapshotting")),
+                                     "Snapshotting")),
     ("image_snapshot_pending", pgettext_lazy("Task status of an Instance",
-                                             u"Image Snapshot Pending")),
+                                             "Image Snapshot Pending")),
     ("image_pending_upload", pgettext_lazy("Task status of an Instance",
-                                           u"Image Pending Upload")),
+                                           "Image Pending Upload")),
     ("image_uploading", pgettext_lazy("Task status of an Instance",
-                                      u"Image Uploading")),
+                                      "Image Uploading")),
     ("image_backup", pgettext_lazy("Task status of an Instance",
-                                   u"Image Backup")),
+                                   "Image Backup")),
     ("updating_password", pgettext_lazy("Task status of an Instance",
-                                        u"Updating Password")),
+                                        "Updating Password")),
     ("resize_prep", pgettext_lazy("Task status of an Instance",
-                                  u"Preparing Resize or Migrate")),
+                                  "Preparing Resize or Migrate")),
     ("resize_migrating", pgettext_lazy("Task status of an Instance",
-                                       u"Resizing or Migrating")),
+                                       "Resizing or Migrating")),
     ("resize_migrated", pgettext_lazy("Task status of an Instance",
-                                      u"Resized or Migrated")),
+                                      "Resized or Migrated")),
     ("resize_finish", pgettext_lazy("Task status of an Instance",
-                                    u"Finishing Resize or Migrate")),
+                                    "Finishing Resize or Migrate")),
     ("resize_reverting", pgettext_lazy("Task status of an Instance",
-                                       u"Reverting Resize or Migrate")),
+                                       "Reverting Resize or Migrate")),
     ("resize_confirming", pgettext_lazy("Task status of an Instance",
-                                        u"Confirming Resize or Migrate")),
-    ("rebooting", pgettext_lazy("Task status of an Instance", u"Rebooting")),
+                                        "Confirming Resize or Migrate")),
+    ("rebooting", pgettext_lazy("Task status of an Instance", "Rebooting")),
     ("reboot_pending", pgettext_lazy("Task status of an Instance",
-                                     u"Reboot Pending")),
+                                     "Reboot Pending")),
     ("reboot_started", pgettext_lazy("Task status of an Instance",
-                                     u"Reboot Started")),
+                                     "Reboot Started")),
     ("rebooting_hard", pgettext_lazy("Task status of an Instance",
-                                     u"Hard Rebooting")),
+                                     "Hard Rebooting")),
     ("reboot_pending_hard", pgettext_lazy("Task status of an Instance",
-                                          u"Hard Reboot Pending")),
+                                          "Hard Reboot Pending")),
     ("reboot_started_hard", pgettext_lazy("Task status of an Instance",
-                                          u"Hard Reboot Started")),
-    ("pausing", pgettext_lazy("Task status of an Instance", u"Pausing")),
-    ("unpausing", pgettext_lazy("Task status of an Instance", u"Resuming")),
+                                          "Hard Reboot Started")),
+    ("pausing", pgettext_lazy("Task status of an Instance", "Pausing")),
+    ("unpausing", pgettext_lazy("Task status of an Instance", "Resuming")),
     ("suspending", pgettext_lazy("Task status of an Instance",
-                                 u"Suspending")),
-    ("resuming", pgettext_lazy("Task status of an Instance", u"Resuming")),
+                                 "Suspending")),
+    ("resuming", pgettext_lazy("Task status of an Instance", "Resuming")),
     ("powering-off", pgettext_lazy("Task status of an Instance",
-                                   u"Powering Off")),
+                                   "Powering Off")),
     ("powering-on", pgettext_lazy("Task status of an Instance",
-                                  u"Powering On")),
-    ("rescuing", pgettext_lazy("Task status of an Instance", u"Rescuing")),
+                                  "Powering On")),
+    ("rescuing", pgettext_lazy("Task status of an Instance", "Rescuing")),
     ("unrescuing", pgettext_lazy("Task status of an Instance",
-                                 u"Unrescuing")),
+                                 "Unrescuing")),
     ("rebuilding", pgettext_lazy("Task status of an Instance",
-                                 u"Rebuilding")),
+                                 "Rebuilding")),
     ("rebuild_block_device_mapping", pgettext_lazy(
-        "Task status of an Instance", u"Rebuild Block Device Mapping")),
+        "Task status of an Instance", "Rebuild Block Device Mapping")),
     ("rebuild_spawning", pgettext_lazy("Task status of an Instance",
-                                       u"Rebuild Spawning")),
-    ("migrating", pgettext_lazy("Task status of an Instance", u"Migrating")),
-    ("deleting", pgettext_lazy("Task status of an Instance", u"Deleting")),
+                                       "Rebuild Spawning")),
+    ("migrating", pgettext_lazy("Task status of an Instance", "Migrating")),
+    ("deleting", pgettext_lazy("Task status of an Instance", "Deleting")),
     ("soft-deleting", pgettext_lazy("Task status of an Instance",
-                                    u"Soft Deleting")),
-    ("restoring", pgettext_lazy("Task status of an Instance", u"Restoring")),
-    ("shelving", pgettext_lazy("Task status of an Instance", u"Shelving")),
+                                    "Soft Deleting")),
+    ("restoring", pgettext_lazy("Task status of an Instance", "Restoring")),
+    ("shelving", pgettext_lazy("Task status of an Instance", "Shelving")),
     ("shelving_image_pending_upload", pgettext_lazy(
-        "Task status of an Instance", u"Shelving Image Pending Upload")),
+        "Task status of an Instance", "Shelving Image Pending Upload")),
     ("shelving_image_uploading", pgettext_lazy("Task status of an Instance",
-                                               u"Shelving Image Uploading")),
+                                               "Shelving Image Uploading")),
     ("shelving_offloading", pgettext_lazy("Task status of an Instance",
-                                          u"Shelving Offloading")),
+                                          "Shelving Offloading")),
     ("unshelving", pgettext_lazy("Task status of an Instance",
-                                 u"Unshelving")),
+                                 "Unshelving")),
 )
 
 POWER_DISPLAY_CHOICES = (
-    ("NO STATE", pgettext_lazy("Power state of an Instance", u"No State")),
-    ("RUNNING", pgettext_lazy("Power state of an Instance", u"Running")),
-    ("BLOCKED", pgettext_lazy("Power state of an Instance", u"Blocked")),
-    ("PAUSED", pgettext_lazy("Power state of an Instance", u"Paused")),
-    ("SHUTDOWN", pgettext_lazy("Power state of an Instance", u"Shut Down")),
-    ("SHUTOFF", pgettext_lazy("Power state of an Instance", u"Shut Off")),
-    ("CRASHED", pgettext_lazy("Power state of an Instance", u"Crashed")),
-    ("SUSPENDED", pgettext_lazy("Power state of an Instance", u"Suspended")),
-    ("FAILED", pgettext_lazy("Power state of an Instance", u"Failed")),
-    ("BUILDING", pgettext_lazy("Power state of an Instance", u"Building")),
+    ("NO STATE", pgettext_lazy("Power state of an Instance", "No State")),
+    ("RUNNING", pgettext_lazy("Power state of an Instance", "Running")),
+    ("BLOCKED", pgettext_lazy("Power state of an Instance", "Blocked")),
+    ("PAUSED", pgettext_lazy("Power state of an Instance", "Paused")),
+    ("SHUTDOWN", pgettext_lazy("Power state of an Instance", "Shut Down")),
+    ("SHUTOFF", pgettext_lazy("Power state of an Instance", "Shut Off")),
+    ("CRASHED", pgettext_lazy("Power state of an Instance", "Crashed")),
+    ("SUSPENDED", pgettext_lazy("Power state of an Instance", "Suspended")),
+    ("FAILED", pgettext_lazy("Power state of an Instance", "Failed")),
+    ("BUILDING", pgettext_lazy("Power state of an Instance", "Building")),
 )
 
 INSTANCE_FILTER_CHOICES = (

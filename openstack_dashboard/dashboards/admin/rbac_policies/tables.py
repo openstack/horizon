@@ -36,16 +36,16 @@ class DeleteRBACPolicy(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete RBAC Policy",
-            u"Delete RBAC Policies",
+            "Delete RBAC Policy",
+            "Delete RBAC Policies",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted RBAC Policy",
-            u"Deleted RBAC Policies",
+            "Deleted RBAC Policy",
+            "Deleted RBAC Policies",
             count
         )
 

@@ -264,7 +264,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.usage.get.assert_has_calls([
             mock.call(self.tenant.id, 'start', 'end'),
             mock.call(self.tenant.id, 'start', 'end',
-                      marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93'),
+                      marker='063cf7f3-ded1-4297-bc4c-31eae876cc93'),
         ])
 
     @mock.patch.object(api._nova, 'novaclient')
@@ -301,7 +301,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.usage.list.assert_has_calls([
             mock.call('start', 'end', True),
             mock.call('start', 'end', True,
-                      marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93'),
+                      marker='063cf7f3-ded1-4297-bc4c-31eae876cc93'),
         ])
 
     @mock.patch.object(api._nova, 'novaclient')

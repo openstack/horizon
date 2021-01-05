@@ -29,25 +29,25 @@ class FiltersTests(test.TestCase):
     def test_parse_isotime_filter(self):
         c = django.template.Context({'time': ''})
         t = django.template.Template('{{ time|parse_isotime }}')
-        output = u""
+        output = ""
 
         self.assertEqual(output, t.render(c))
 
         c = django.template.Context({'time': 'error'})
         t = django.template.Template('{{ time|parse_isotime }}')
-        output = u""
+        output = ""
 
         self.assertEqual(output, t.render(c))
 
         c = django.template.Context({'time': 'error'})
         t = django.template.Template('{{ time|parse_isotime:"test" }}')
-        output = u"test"
+        output = "test"
 
         self.assertEqual(output, t.render(c))
 
         c = django.template.Context({'time': '2007-03-04T21:08:12'})
         t = django.template.Template('{{ time|parse_isotime:"test" }}')
-        output = u"March 4, 2007, 9:08 p.m."
+        output = "March 4, 2007, 9:08 p.m."
 
         self.assertEqual(output, t.render(c))
 
@@ -58,7 +58,7 @@ class FiltersTests(test.TestCase):
 
 class TimeSinceNeverFilterTests(test.TestCase):
 
-    default = u"Never"
+    default = "Never"
 
     def test_timesince_or_never_returns_default_for_empty_string(self):
         c = django.template.Context({'time': ''})

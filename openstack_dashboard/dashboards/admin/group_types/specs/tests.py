@@ -64,8 +64,8 @@ class GroupTypeSpecTests(test.BaseAdminViewTests):
         index_url = reverse(
             'horizon:admin:group_types:index')
 
-        data = {'key': u'k1',
-                'value': u'v1'}
+        data = {'key': 'k1',
+                'value': 'v1'}
 
         self.mock_group_type_spec_set.return_value = None
         resp = self.client.post(create_url, data)
@@ -101,7 +101,7 @@ class GroupTypeSpecTests(test.BaseAdminViewTests):
                            args=[group_type.id, key])
         index_url = reverse('horizon:admin:group_types:index')
 
-        data = {'value': u'v1'}
+        data = {'value': 'v1'}
         specs = {key: data['value']}
 
         self.mock_group_type_spec_list.return_value = specs

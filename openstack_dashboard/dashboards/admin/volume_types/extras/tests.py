@@ -65,8 +65,8 @@ class VolTypeExtrasTests(test.BaseAdminViewTests):
             'horizon:admin:volume_types:extras:index',
             args=[vol_type.id])
 
-        data = {'key': u'k1',
-                'value': u'v1'}
+        data = {'key': 'k1',
+                'value': 'v1'}
 
         self.mock_volume_type_extra_set.return_value = None
         resp = self.client.post(create_url, data)
@@ -103,7 +103,7 @@ class VolTypeExtrasTests(test.BaseAdminViewTests):
         index_url = reverse('horizon:admin:volume_types:extras:index',
                             args=[vol_type.id])
 
-        data = {'value': u'v1'}
+        data = {'value': 'v1'}
         extras = {key: data['value']}
 
         self.mock_volume_type_extra_get.return_value = extras

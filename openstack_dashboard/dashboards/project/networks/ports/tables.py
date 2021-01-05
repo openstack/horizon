@@ -61,15 +61,15 @@ class UpdatePort(policy.PolicyTargetMixin, tables.LinkAction):
 
 
 DISPLAY_CHOICES = (
-    ("UP", pgettext_lazy("Admin state of a Port", u"UP")),
-    ("DOWN", pgettext_lazy("Admin state of a Port", u"DOWN")),
+    ("UP", pgettext_lazy("Admin state of a Port", "UP")),
+    ("DOWN", pgettext_lazy("Admin state of a Port", "DOWN")),
 )
 
 STATUS_DISPLAY_CHOICES = (
-    ("ACTIVE", pgettext_lazy("status of a network port", u"Active")),
-    ("DOWN", pgettext_lazy("status of a network port", u"Down")),
-    ("ERROR", pgettext_lazy("status of a network port", u"Error")),
-    ("BUILD", pgettext_lazy("status of a network port", u"Build")),
+    ("ACTIVE", pgettext_lazy("status of a network port", "Active")),
+    ("DOWN", pgettext_lazy("status of a network port", "Down")),
+    ("ERROR", pgettext_lazy("status of a network port", "Error")),
+    ("BUILD", pgettext_lazy("status of a network port", "Build")),
 )
 
 
@@ -107,16 +107,16 @@ class DeletePort(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Port",
-            u"Delete Ports",
+            "Delete Port",
+            "Delete Ports",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Port",
-            u"Deleted Ports",
+            "Deleted Port",
+            "Deleted Ports",
             count
         )
 

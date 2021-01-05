@@ -56,16 +56,16 @@ class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Migrate Instance",
-            u"Migrate Instances",
+            "Migrate Instance",
+            "Migrate Instances",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Scheduled migration (pending confirmation) of Instance",
-            u"Scheduled migration (pending confirmation) of Instances",
+            "Scheduled migration (pending confirmation) of Instance",
+            "Scheduled migration (pending confirmation) of Instances",
             count
         )
 

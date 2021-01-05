@@ -160,16 +160,16 @@ class DeleteTenantsAction(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Project",
-            u"Delete Projects",
+            "Delete Project",
+            "Delete Projects",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Project",
-            u"Deleted Projects",
+            "Deleted Project",
+            "Deleted Projects",
             count
         )
 

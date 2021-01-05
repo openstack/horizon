@@ -57,32 +57,32 @@ def data(TEST):
     TEST.snapshotsV2 = utils.TestDataContainer()
 
     # Snapshots
-    snapshot_dict = {'name': u'snapshot',
-                     'container_format': u'ami',
+    snapshot_dict = {'name': 'snapshot',
+                     'container_format': 'ami',
                      'id': 3,
                      'status': "active",
                      'owner': TEST.tenant.id,
-                     'properties': {'image_type': u'snapshot'},
+                     'properties': {'image_type': 'snapshot'},
                      'is_public': False,
                      'protected': False}
-    snapshot_dict_no_owner = {'name': u'snapshot 2',
-                              'container_format': u'ami',
+    snapshot_dict_no_owner = {'name': 'snapshot 2',
+                              'container_format': 'ami',
                               'id': 4,
                               'status': "active",
                               'owner': None,
-                              'properties': {'image_type': u'snapshot'},
+                              'properties': {'image_type': 'snapshot'},
                               'is_public': False,
                               'protected': False}
-    snapshot_dict_queued = {'name': u'snapshot 2',
-                            'container_format': u'ami',
+    snapshot_dict_queued = {'name': 'snapshot 2',
+                            'container_format': 'ami',
                             'id': 5,
                             'status': "queued",
                             'owner': TEST.tenant.id,
-                            'properties': {'image_type': u'snapshot'},
+                            'properties': {'image_type': 'snapshot'},
                             'is_public': False,
                             'protected': False}
-    snapshot_dict_with_volume = {'name': u'snapshot 2',
-                                 'container_format': u'ami',
+    snapshot_dict_with_volume = {'name': 'snapshot 2',
+                                 'container_format': 'ami',
                                  'id': 6,
                                  'status': "queued",
                                  'owner': TEST.tenant.id,
@@ -104,14 +104,14 @@ def data(TEST):
     # Images
     image_dict = {'id': '007e7d55-fe1e-4c5c-bf08-44b4a4964822',
                   'name': 'public_image',
-                  'disk_format': u'qcow2',
+                  'disk_format': 'qcow2',
                   'status': "active",
                   'size': 20 * 1024 ** 3,
                   'virtual_size': None,
                   'min_disk': 0,
                   'owner': TEST.tenant.id,
                   'container_format': 'novaImage',
-                  'properties': {'image_type': u'image'},
+                  'properties': {'image_type': 'image'},
                   'is_public': True,
                   'protected': False,
                   'min_ram': 0,
@@ -140,7 +140,7 @@ def data(TEST):
                   'virtual_size': None,
                   'min_disk': 30,
                   'container_format': 'novaImage',
-                  'properties': {'image_type': u'image'},
+                  'properties': {'image_type': 'image'},
                   'is_public': True,
                   'protected': True,
                   'min_ram': 0,
@@ -155,7 +155,7 @@ def data(TEST):
                   'min_disk': 0,
                   'owner': TEST.tenant.id,
                   'container_format': 'novaImage',
-                  'properties': {'image_type': u'image'},
+                  'properties': {'image_type': 'image'},
                   'is_public': True,
                   'protected': False,
                   'min_ram': 0}
@@ -240,9 +240,9 @@ def data(TEST):
                   'min_disk': 0,
                   'owner': TEST.tenant.id,
                   'container_format': 'novaImage',
-                  'properties': {'description': u'a multi prop image',
-                                 'foo': u'foo val',
-                                 'bar': u'bar val'},
+                  'properties': {'description': 'a multi prop image',
+                                 'foo': 'foo val',
+                                 'bar': 'bar val'},
                   'is_public': True,
                   'protected': False}
     multi_prop_image = APIResourceV2(image_dict)
@@ -283,7 +283,7 @@ def data(TEST):
         'created_at': '2014-02-14T20:56:53',
         'direct_url': 'swift+config://ref1/glance/'
                       'da8500d5-8b80-4b9c-8410-cc57fb8fb9d5',
-        'disk_format': u'qcow2',
+        'disk_format': 'qcow2',
         'file': '/v2/images/'
                 'da8500d5-8b80-4b9c-8410-cc57fb8fb9d5/file',
         'id': '007e7d55-fe1e-4c5c-bf08-44b4a4964822',
@@ -294,7 +294,7 @@ def data(TEST):
                     'da8500d5-8b80-4b9c-8410-cc57fb8fb9d5'}],
         'min_ram': 0,
         'name': 'public_image',
-        'image_type': u'image',
+        'image_type': 'image',
         'min_disk': 0,
         'owner': TEST.tenant.id,
         'protected': False,
@@ -310,7 +310,7 @@ def data(TEST):
         'container_format': 'novaImage',
         'created_at': '2014-03-16T06:22:14',
         'disk_format': None,
-        'image_type': u'image',
+        'image_type': 'image',
         'file': '/v2/images/885d1cb0-9f5c-4677-9d03-175be7f9f984/file',
         'id': 'd6936c86-7fec-474a-85c5-5e467b371c3c',
         'locations': [],
@@ -344,9 +344,9 @@ def data(TEST):
         'updated_at': '2015-09-02T00:31:17Z',
         'virtual_size': None,
         'visibility': 'public',
-        'description': u'a multi prop image',
-        'foo': u'foo val',
-        'bar': u'bar val'
+        'description': 'a multi prop image',
+        'foo': 'foo val',
+        'bar': 'bar val'
     }]
     for fixture in image_v2_dicts:
         apiresource = APIResourceV2(fixture)

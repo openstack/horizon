@@ -26,16 +26,16 @@ class DeleteAggregateAction(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Host Aggregate",
-            u"Delete Host Aggregates",
+            "Delete Host Aggregate",
+            "Delete Host Aggregates",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Host Aggregate",
-            u"Deleted Host Aggregates",
+            "Deleted Host Aggregate",
+            "Deleted Host Aggregates",
             count
         )
 

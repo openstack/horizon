@@ -359,7 +359,7 @@ def data(TEST):
                  "server_id": "2"})
     server_2 = servers.Server(servers.ServerManager(None),
                               json.loads(SERVER_DATA % vals)['server'])
-    vals.update({"name": u'\u4e91\u89c4\u5219',
+    vals.update({"name": '\u4e91\u89c4\u5219',
                  "status": "ACTIVE",
                  "tenant_id": tenant3.id,
                  "server_id": "3"})
@@ -380,33 +380,33 @@ def data(TEST):
 
     # VNC Console Data
     console = {
-        u'console': {
-            u'url': u'http://example.com:6080/vnc_auto.html',
-            u'type': u'novnc'
+        'console': {
+            'url': 'http://example.com:6080/vnc_auto.html',
+            'type': 'novnc'
         }
     }
     TEST.servers.vnc_console_data = console
     # SPICE Console Data
     console = {
-        u'console': {
-            u'url': u'http://example.com:6080/spice_auto.html',
-            u'type': u'spice'
+        'console': {
+            'url': 'http://example.com:6080/spice_auto.html',
+            'type': 'spice'
         }
     }
     TEST.servers.spice_console_data = console
     # RDP Console Data
     console = {
-        u'console': {
-            u'url': u'http://example.com:6080/rdp_auto.html',
-            u'type': u'rdp'
+        'console': {
+            'url': 'http://example.com:6080/rdp_auto.html',
+            'type': 'rdp'
         }
     }
     TEST.servers.rdp_console_data = console
     # MKS Console Data
     console = {
-        u'remote_console': {
-            u'url': u'http://example.com:6080/mks_auto.html',
-            u'type': u'mks'
+        'remote_console': {
+            'url': 'http://example.com:6080/mks_auto.html',
+            'type': 'mks'
         }
     }
     TEST.servers.mks_console_data = console

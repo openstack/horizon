@@ -706,7 +706,7 @@ class UploadToImageForm(forms.SelfHandlingForm):
                                     required=False)
     force = forms.BooleanField(
         label=pgettext_lazy("Force upload volume in in-use status to image",
-                            u"Force"),
+                            "Force"),
         widget=forms.CheckboxInput(),
         required=False)
 

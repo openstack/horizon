@@ -38,16 +38,16 @@ class SpecDeleteKeyValuePair(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Spec",
-            u"Delete Specs",
+            "Delete Spec",
+            "Delete Specs",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Spec",
-            u"Deleted Specs",
+            "Deleted Spec",
+            "Deleted Specs",
             count
         )
 

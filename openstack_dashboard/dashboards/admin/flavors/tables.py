@@ -34,16 +34,16 @@ class DeleteFlavor(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Flavor",
-            u"Delete Flavors",
+            "Delete Flavor",
+            "Delete Flavors",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Flavor",
-            u"Deleted Flavors",
+            "Deleted Flavor",
+            "Deleted Flavors",
             count
         )
 

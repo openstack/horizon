@@ -156,7 +156,7 @@ def check_invalid_settings(dummy=None):
     if invalid:
         return upgradecheck.Result(
             upgradecheck.Code.WARNING,
-            _("Unknown settings: {}.").format(u", ".join(invalid)),
+            _("Unknown settings: {}.").format(", ".join(invalid)),
         )
     return upgradecheck.Result(upgradecheck.Code.SUCCESS)
 
@@ -173,7 +173,7 @@ def check_deprecated_settings(dummy=None):
     if deprecated:
         return upgradecheck.Result(
             upgradecheck.Code.FAILURE,
-            _("Deprecated settings: {}.").format(u", ".join(deprecated)),
+            _("Deprecated settings: {}.").format(", ".join(deprecated)),
         )
     return upgradecheck.Result(upgradecheck.Code.SUCCESS)
 
@@ -193,7 +193,7 @@ def check_required_settings(dummy=None):
     if missing:
         return upgradecheck.Result(
             upgradecheck.Code.FAILURE,
-            _("Missing required settings: {}.").format(u", ".join(missing)),
+            _("Missing required settings: {}.").format(", ".join(missing)),
         )
     return upgradecheck.Result(upgradecheck.Code.SUCCESS)
 

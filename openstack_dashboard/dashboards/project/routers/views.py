@@ -98,7 +98,7 @@ class IndexView(tables.DataTableView):
                 # Translators: The usage is "<UUID of ext_net> (Not Found)"
                 gateway_info['network'] = pgettext_lazy(
                     'External network not found',
-                    u'%s (Not Found)') % ext_net_id
+                    '%s (Not Found)') % ext_net_id
 
 
 class DetailView(tabs.TabbedTableView):

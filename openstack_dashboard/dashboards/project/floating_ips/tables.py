@@ -75,16 +75,16 @@ class ReleaseIPs(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Release Floating IP",
-            u"Release Floating IPs",
+            "Release Floating IP",
+            "Release Floating IPs",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Released Floating IP",
-            u"Released Floating IPs",
+            "Released Floating IP",
+            "Released Floating IPs",
             count
         )
 
@@ -158,9 +158,9 @@ def get_instance_link(datum):
 
 
 STATUS_DISPLAY_CHOICES = (
-    ("active", pgettext_lazy("Current status of a Floating IP", u"Active")),
-    ("down", pgettext_lazy("Current status of a Floating IP", u"Down")),
-    ("error", pgettext_lazy("Current status of a Floating IP", u"Error")),
+    ("active", pgettext_lazy("Current status of a Floating IP", "Active")),
+    ("down", pgettext_lazy("Current status of a Floating IP", "Down")),
+    ("error", pgettext_lazy("Current status of a Floating IP", "Error")),
 )
 
 

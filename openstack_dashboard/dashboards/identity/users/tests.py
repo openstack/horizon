@@ -855,8 +855,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
 
         self.assertEqual(list(res.context['messages'])[0].message,
-                         u'You are not allowed to disable user: '
-                         u'test_user')
+                         'You are not allowed to disable user: '
+                         'test_user')
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_effective_domain_id, 2,
@@ -889,8 +889,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
 
         self.assertEqual(list(res.context['messages'])[0].message,
-                         u'You are not allowed to disable user: '
-                         u'test_user')
+                         'You are not allowed to disable user: '
+                         'test_user')
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_effective_domain_id, 2,
@@ -919,7 +919,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
 
         self.assertEqual(list(res.context['messages'])[0].message,
-                         u'You are not allowed to delete user: %s'
+                         'You are not allowed to delete user: %s'
                          % self.request.user.username)
 
         self.assert_mock_multiple_calls_with_same_arguments(
@@ -953,7 +953,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
 
         self.assertEqual(list(res.context['messages'])[0].message,
-                         u'You are not allowed to delete user: %s'
+                         'You are not allowed to delete user: %s'
                          % self.request.user.username)
 
         self.assert_mock_multiple_calls_with_same_arguments(

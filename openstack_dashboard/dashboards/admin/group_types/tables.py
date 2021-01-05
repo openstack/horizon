@@ -63,16 +63,16 @@ class DeleteGroupType(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Group Type",
-            u"Delete Group Types",
+            "Delete Group Type",
+            "Delete Group Types",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Group Type",
-            u"Deleted Group Types",
+            "Deleted Group Type",
+            "Deleted Group Types",
             count
         )
     policy_rules = (("volume", "group:group_types_manage"),)

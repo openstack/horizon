@@ -76,16 +76,16 @@ class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Volume Snapshot",
-            u"Delete Volume Snapshots",
+            "Delete Volume Snapshot",
+            "Delete Volume Snapshots",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Scheduled deletion of Volume Snapshot",
-            u"Scheduled deletion of Volume Snapshots",
+            "Scheduled deletion of Volume Snapshot",
+            "Scheduled deletion of Volume Snapshots",
             count
         )
 

@@ -36,16 +36,16 @@ class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Security Group",
-            u"Delete Security Groups",
+            "Delete Security Group",
+            "Delete Security Groups",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Security Group",
-            u"Deleted Security Groups",
+            "Deleted Security Group",
+            "Deleted Security Groups",
             count
         )
 
@@ -152,16 +152,16 @@ class DeleteRule(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Rule",
-            u"Delete Rules",
+            "Delete Rule",
+            "Delete Rules",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Rule",
-            u"Deleted Rules",
+            "Deleted Rule",
+            "Deleted Rules",
             count
         )
 
@@ -195,7 +195,7 @@ def get_port_range(rule):
     ip_proto = rule.ip_protocol
     if rule.from_port == rule.to_port:
         return check_rule_template(rule.from_port, ip_proto)
-    return (u"%(from)s - %(to)s" %
+    return ("%(from)s - %(to)s" %
             {'from': check_rule_template(rule.from_port, ip_proto),
              'to': check_rule_template(rule.to_port, ip_proto)})
 
@@ -221,7 +221,7 @@ def check_rule_template(port, ip_proto):
                       str(port) == rule['to_port'] and
                       ip_proto == rule['ip_protocol'])]
     if templ_rule:
-        return u"%(from_port)s (%(name)s)" % templ_rule[0]
+        return "%(from_port)s (%(name)s)" % templ_rule[0]
     return port
 
 

@@ -34,16 +34,16 @@ class DeleteKeyPairs(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Key Pair",
-            u"Delete Key Pairs",
+            "Delete Key Pair",
+            "Delete Key Pairs",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Key Pair",
-            u"Deleted Key Pairs",
+            "Deleted Key Pair",
+            "Deleted Key Pairs",
             count
         )
 

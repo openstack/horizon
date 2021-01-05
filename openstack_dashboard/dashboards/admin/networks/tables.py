@@ -69,8 +69,8 @@ class CreateSubnet(project_tables.CreateSubnet):
 
 
 DISPLAY_CHOICES = (
-    ("up", pgettext_lazy("Admin state of a Network", u"UP")),
-    ("down", pgettext_lazy("Admin state of a Network", u"DOWN")),
+    ("up", pgettext_lazy("Admin state of a Network", "UP")),
+    ("down", pgettext_lazy("Admin state of a Network", "DOWN")),
 )
 
 

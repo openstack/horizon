@@ -116,7 +116,7 @@ class Container(generic.View):
             return rest_utils.JSONResponse(str(e), 409)
 
         return rest_utils.CreatedResponse(
-            u'/api/swift/containers/%s' % container,
+            '/api/swift/containers/%s' % container,
         )
 
     @rest_utils.ajax()
@@ -219,7 +219,7 @@ class Object(generic.View):
             )
 
         return rest_utils.CreatedResponse(
-            u'/api/swift/containers/%s/object/%s' % (container, result.name)
+            '/api/swift/containers/%s/object/%s' % (container, result.name)
         )
 
     @rest_utils.ajax()
@@ -293,6 +293,6 @@ class ObjectCopy(generic.View):
         except exceptions.AlreadyExists as e:
             return rest_utils.JSONResponse(str(e), 409)
         return rest_utils.CreatedResponse(
-            u'/api/swift/containers/%s/object/%s' % (dest_container,
-                                                     result.name)
+            '/api/swift/containers/%s/object/%s' % (dest_container,
+                                                    result.name)
         )

@@ -44,16 +44,16 @@ class DeleteMappingsAction(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Mapping",
-            u"Delete Mappings",
+            "Delete Mapping",
+            "Delete Mappings",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Mapping",
-            u"Deleted Mappings",
+            "Deleted Mapping",
+            "Deleted Mappings",
             count
         )
     policy_rules = (("identity", "identity:delete_mapping"),)

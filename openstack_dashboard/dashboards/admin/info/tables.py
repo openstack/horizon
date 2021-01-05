@@ -111,7 +111,7 @@ class NovaServicesTable(tables.DataTable):
     updated_at = tables.Column('updated_at',
                                verbose_name=pgettext_lazy(
                                    'Time since the last update',
-                                   u'Last Updated'),
+                                   'Last Updated'),
                                filters=(utils_filters.parse_isotime,
                                         filters.timesince))
 
@@ -135,7 +135,7 @@ class CinderServicesTable(tables.DataTable):
     updated_at = tables.Column('updated_at',
                                verbose_name=pgettext_lazy(
                                    'Time since the last update',
-                                   u'Last Updated'),
+                                   'Last Updated'),
                                filters=(utils_filters.parse_isotime,
                                         filters.timesince))
 
@@ -209,7 +209,7 @@ class NetworkAgentsTable(tables.DataTable):
     heartbeat_timestamp = tables.Column('heartbeat_timestamp',
                                         verbose_name=pgettext_lazy(
                                             'Time since the last update',
-                                            u'Last Updated'),
+                                            'Last Updated'),
                                         filters=(utils_filters.parse_isotime,
                                                  filters.timesince))
 

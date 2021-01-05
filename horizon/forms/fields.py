@@ -243,7 +243,7 @@ class SelectWidget(widgets.Widget):
 
     def render_option(self, selected_choices, option_value, option_label):
         option_value = force_text(option_value)
-        other_html = (u' selected="selected"'
+        other_html = (' selected="selected"'
                       if option_value in selected_choices else '')
 
         other_html += self.transform_option_html_attrs(option_label)
@@ -254,7 +254,7 @@ class SelectWidget(widgets.Widget):
 
         option_label = self.transform_option_label(option_label)
 
-        return u'<option value="%s"%s>%s</option>' % (
+        return '<option value="%s"%s>%s</option>' % (
             html.escape(option_value), other_html, option_label)
 
     def render_options(self, selected_choices):
@@ -424,7 +424,7 @@ class ThemableCheckboxInput(widgets.CheckboxInput):
             label_for = attrs['id']
 
         return html.format_html(
-            u'<div class="themable-checkbox">{}<label for="{}"></label></div>',
+            '<div class="themable-checkbox">{}<label for="{}"></label></div>',
             super().render(name, value, attrs),
             label_for
         )
@@ -538,8 +538,8 @@ class ThemableCheckboxChoiceInput(ChoiceInput):
             label_for = ''
         attrs = dict(self.attrs, **attrs) if attrs else self.attrs
         return html.format_html(
-            u'<div class="themable-checkbox">{}<label{}>' +
-            u'<span>{}</span></label></div>',
+            '<div class="themable-checkbox">{}<label{}>' +
+            '<span>{}</span></label></div>',
             self.tag(attrs), label_for, self.choice_label
         )
 

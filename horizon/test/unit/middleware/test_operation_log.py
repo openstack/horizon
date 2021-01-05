@@ -29,8 +29,8 @@ from horizon.test import helpers as test
 
 class OperationLogMiddlewareTest(django_test.TestCase):
 
-    http_host = u'test_host'
-    http_referer = u'/dashboard/test_http_referer'
+    http_host = 'test_host'
+    http_referer = '/dashboard/test_http_referer'
 
     def setUp(self):
         super().setUp()
@@ -48,10 +48,10 @@ class OperationLogMiddlewareTest(django_test.TestCase):
         request.META['HTTP_HOST'] = self.http_host
         request.META['HTTP_REFERER'] = self.http_referer
         request.POST = {
-            "username": u"admin",
-            "password": u"pass"
+            "username": "admin",
+            "password": "pass"
         }
-        request.user.username = u'test_user_name'
+        request.user.username = 'test_user_name'
         response = HttpResponseRedirect(url)
         response.client = self.client
 
@@ -63,7 +63,7 @@ class OperationLogMiddlewareTest(django_test.TestCase):
         request = self.factory.get(url)
         request.META['HTTP_HOST'] = self.http_host
         request.META['HTTP_REFERER'] = self.http_referer
-        request.user.username = u'test_user_name'
+        request.user.username = 'test_user_name'
         response = HttpResponseRedirect(url)
         response.client = self.client
 

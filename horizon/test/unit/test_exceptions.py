@@ -18,10 +18,10 @@ from horizon.test import helpers as test
 
 class HandleTests(test.TestCase):
     def test_handle_translated(self):
-        translated_unicode = u'\u30b3\u30f3\u30c6\u30ca\u30fc\u304c' \
-                             u'\u7a7a\u3067\u306f\u306a\u3044\u305f' \
-                             u'\u3081\u3001\u524a\u9664\u3067\u304d' \
-                             u'\u307e\u305b\u3093\u3002'
+        translated_unicode = '\u30b3\u30f3\u30c6\u30ca\u30fc\u304c' \
+                             '\u7a7a\u3067\u306f\u306a\u3044\u305f' \
+                             '\u3081\u3001\u524a\u9664\u3067\u304d' \
+                             '\u307e\u305b\u3093\u3002'
         # Japanese translation of:
         # 'Because the container is not empty, it can not be deleted.'
 
@@ -45,8 +45,8 @@ class HandleTests(test.TestCase):
         # tests that if a message is passed to handle that it is treated
         # like a recoverable exception
 
-        message = u"Couldn't make the thing"
-        exc_msg = u"Exception string"
+        message = "Couldn't make the thing"
+        exc_msg = "Exception string"
         req = self.request
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
 
@@ -64,7 +64,7 @@ class HandleTests(test.TestCase):
         self.assertIn(exc_msg, req.horizon['async_messages'][0][1])
 
     def test_handle_exception_with_empty_details(self):
-        message = u"Couldn't make the thing"
+        message = "Couldn't make the thing"
         details = ""
         expected = ['error', message, '']
         req = self.request
@@ -78,8 +78,8 @@ class HandleTests(test.TestCase):
         self.assertCountEqual(req.horizon['async_messages'], [expected])
 
     def test_handle_exception_with_details(self):
-        message = u"Couldn't make the thing"
-        exc_msg = u"Exception string"
+        message = "Couldn't make the thing"
+        exc_msg = "Exception string"
         details = "custom detail message"
         expected = ['error', message + exceptions.SEPERATOR + details, '']
         req = self.request

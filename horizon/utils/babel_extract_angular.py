@@ -30,8 +30,8 @@ filter_regex = re.compile(
 # to HTML_ENTITIES as necessary.
 HTML_ENTITY_PASSTHROUGH = {'amp', 'gt', 'lt'}
 HTML_ENTITY_DECODED = {
-    'reg': u'®',
-    'times': u'×'
+    'reg': '®',
+    'times': '×'
 }
 
 
@@ -92,7 +92,7 @@ class AngularGettextHTMLParser(parser.HTMLParser):
                 for match in filter_regex.findall(attr[1]):
                     if match:
                         self.strings.append(
-                            (self.line, u'gettext', match[1][1:-1], [])
+                            (self.line, 'gettext', match[1][1:-1], [])
                         )
 
     def handle_data(self, data):
@@ -101,7 +101,7 @@ class AngularGettextHTMLParser(parser.HTMLParser):
         else:
             for match in filter_regex.findall(data):
                 self.strings.append(
-                    (self.line, u'gettext', match[1][1:-1], [])
+                    (self.line, 'gettext', match[1][1:-1], [])
                 )
 
     def handle_entityref(self, name):
@@ -130,10 +130,10 @@ class AngularGettextHTMLParser(parser.HTMLParser):
                     self.data.strip(),
                     self.plural_form
                 )
-                func_name = u'ngettext'
+                func_name = 'ngettext'
             else:
                 messages = self.data.strip()
-                func_name = u'gettext'
+                func_name = 'gettext'
             self.strings.append(
                 (self.line, func_name, messages, self.comments)
             )

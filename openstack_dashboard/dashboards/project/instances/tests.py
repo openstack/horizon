@@ -2523,8 +2523,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             nics=nics,
             availability_zone=avail_zone.zoneName,
             instance_count=helpers.IsA(int),
-            admin_pass=u'',
-            disk_config=u'AUTO',
+            admin_pass='',
+            disk_config='AUTO',
             config_drive=True,
             scheduler_hints=scheduler_hints)
         self.mock_tenant_quota_usages.assert_called_once_with(
@@ -2556,13 +2556,13 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
-        device_name = u'vda'
+        device_name = 'vda'
         volume_choice = "%s:vol" % volume.id
 
         volume_source_id = volume.id.split(':')[0]
         block_device_mapping = None
         block_device_mapping_2 = [
-            {'device_name': u'vda',
+            {'device_name': 'vda',
              'source_type': 'volume',
              'destination_type': 'volume',
              'delete_on_termination': False,
@@ -2634,8 +2634,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             nics=nics,
             availability_zone=avail_zone.zoneName,
             instance_count=helpers.IsA(int),
-            admin_pass=u'',
-            disk_config=u'AUTO',
+            admin_pass='',
+            disk_config='AUTO',
             config_drive=True,
             scheduler_hints={})
         self.mock_tenant_quota_usages.assert_called_once_with(
@@ -2667,7 +2667,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
-        device_name = u'vda'
+        device_name = 'vda'
         volume_choice = "%s:vol" % volume.id
         block_device_mapping = [
             {'device_name': device_name,
@@ -2749,7 +2749,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             nics=nics,
             availability_zone=avail_zone.zoneName,
             instance_count=helpers.IsA(int),
-            admin_pass=u'',
+            admin_pass='',
             disk_config='MANUAL',
             config_drive=True,
             scheduler_hints={})
@@ -2856,13 +2856,13 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
-        device_name = u'vda'
+        device_name = 'vda'
         snapshot_choice = "%s:snap" % snapshot.id
 
         snapshot_source_id = snapshot.id.split(':')[0]
         block_device_mapping = None
         block_device_mapping_2 = [
-            {'device_name': u'vda',
+            {'device_name': 'vda',
              'source_type': 'snapshot',
              'destination_type': 'volume',
              'delete_on_termination': 0,
@@ -2936,8 +2936,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             nics=nics,
             availability_zone=avail_zone.zoneName,
             instance_count=helpers.IsA(int),
-            admin_pass=u'',
-            disk_config=u'AUTO',
+            admin_pass='',
+            disk_config='AUTO',
             config_drive=True,
             scheduler_hints={})
         self.mock_tenant_quota_usages.assert_called_once_with(
@@ -3208,7 +3208,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
-        device_name = u'vda'
+        device_name = 'vda'
         volume_choice = "%s:vol" % volume.id
         quota_usages = self.quota_usages.first()
 
@@ -3287,7 +3287,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
-        device_name = u'vda'
+        device_name = 'vda'
         volume_choice = "%s:vol" % volume.id
         quota_usages = self.quota_usages.first()
         if resource == 'both':
@@ -3386,7 +3386,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
-        device_name = u'vda'
+        device_name = 'vda'
         volume_choice = "%s:vol" % volume.id
         quota_usages = self.quota_usages.first()
 
@@ -3630,7 +3630,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': True},)
     def test_launch_form_instance_device_name_showed(self):
         self._test_launch_form_instance_show_device_name(
-            u'vda', widgets.TextInput, {
+            'vda', widgets.TextInput, {
                 'name': 'device_name', 'value': 'vda',
                 'attrs': {'id': 'id_device_name'}}
         )
@@ -3639,7 +3639,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': False})
     def test_launch_form_instance_device_name_hidden(self):
         self._test_launch_form_instance_show_device_name(
-            u'', widgets.HiddenInput, {
+            '', widgets.HiddenInput, {
                 'name': 'device_name', 'value': '',
                 'attrs': {'id': 'id_device_name'}}
         )
@@ -3664,7 +3664,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
-        device_name = u'vda'
+        device_name = 'vda'
         quota_usages = self.quota_usages.first()
         quota_usages['cores']['available'] = 2000
         if avail_volumes is not None:
@@ -3906,7 +3906,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         avail_zone = self.availability_zones.first()
         customization_script = 'user data'
         nics = [{'net-id': self.networks.first().id, 'v4-fixed-ip': ''}]
-        device_name = u''
+        device_name = ''
         quota_usages = self.quota_usages.first()
         quota_usages['cores']['available'] = 2000
         device_mapping_v2 = [{'device_name': None,  # device_name must be None
@@ -3980,9 +3980,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             nics=nics,
             availability_zone=avail_zone.zoneName,
             instance_count=helpers.IsA(int),
-            admin_pass=u'',
+            admin_pass='',
             config_drive=False,
-            disk_config=u'',
+            disk_config='',
             scheduler_hints={})
 
 
@@ -4261,7 +4261,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_server_group_list.return_value = self.server_groups.list()
         self.mock_server_resize.return_value = []
 
-        res = self._instance_resize_post(server.id, flavor.id, u'AUTO')
+        res = self._instance_resize_post(server.id, flavor.id, 'AUTO')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
@@ -4352,7 +4352,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
     def test_rebuild_instance_post_with_password(self):
         server = self.servers.first()
         image = self.images.first()
-        password = u'testpass'
+        password = 'testpass'
 
         self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
@@ -4406,8 +4406,8 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
     def test_rebuild_instance_post_password_do_not_match(self):
         server = self.servers.first()
         image = self.images.first()
-        pass1 = u'somepass'
-        pass2 = u'notsomepass'
+        pass1 = 'somepass'
+        pass2 = 'notsomepass'
 
         self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
@@ -4439,9 +4439,9 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         self.mock_is_feature_available.return_value = False
 
         res = self._instance_rebuild_post(server.id, image.id,
-                                          password=u'',
-                                          confirm_password=u'',
-                                          disk_config=u'AUTO')
+                                          password='',
+                                          confirm_password='',
+                                          disk_config='AUTO')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
@@ -4489,7 +4489,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
     def test_rebuild_instance_post_api_exception(self):
         server = self.servers.first()
         image = self.images.first()
-        password = u'testpass'
+        password = 'testpass'
 
         self.mock_server_get.return_value = server
         self._mock_glance_image_list_detailed(self.images.list())
@@ -4711,7 +4711,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
     def test_rescue_instance_post(self):
         server = self.servers.first()
         image = self.images.first()
-        password = u'testpass'
+        password = 'testpass'
         self._mock_glance_image_list_detailed(self.images.list())
         self.mock_server_rescue.return_value = []
         res = self._server_rescue_post(server.id, image.id,
@@ -4839,10 +4839,10 @@ class InstanceAjaxTests(helpers.TestCase):
         messages = json.loads(res['X-Horizon-Messages'])
         self.assertEqual(len(messages), 1)
         # (Pdb) messages
-        # [[u'error', u'Failed to launch instance "server_1": \
+        # [['error', 'Failed to launch instance "server_1": \
         # There is not enough capacity for this flavor in the \
         # selected availability zone. Try again later or select \
-        # a different availability zone.', u'']]
+        # a different availability zone.', '']]
         self.assertEqual(messages[0][0], 'error')
         self.assertTrue(messages[0][1].startswith('Failed'))
 

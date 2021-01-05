@@ -56,16 +56,16 @@ class DeleteAllowedAddressPair(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete",
-            u"Delete",
+            "Delete",
+            "Delete",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted address pair",
-            u"Deleted address pairs",
+            "Deleted address pair",
+            "Deleted address pairs",
             count
         )
 

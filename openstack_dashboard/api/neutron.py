@@ -252,7 +252,7 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
 
     def _get_secgroup_name(self, sg_id, sg_dict):
         if not sg_id:
-            return u''
+            return ''
 
         if sg_dict is None:
             sg_dict = {}
@@ -1765,10 +1765,10 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
             error_message = _('Unable to parse IP address %s.') % ip
             messages.error(request, error_message)
             raise
-        return {u'OS-EXT-IPS-MAC:mac_addr': mac,
-                u'version': version,
-                u'addr': ip,
-                u'OS-EXT-IPS:type': type}
+        return {'OS-EXT-IPS-MAC:mac_addr': mac,
+                'version': version,
+                'addr': ip,
+                'OS-EXT-IPS:type': type}
 
     addresses = collections.defaultdict(list)
     instance_ports = ports.get(server.id, [])
@@ -1780,7 +1780,7 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
                     addresses[network_name].append(
                         _format_address(port.mac_address,
                                         fixed_ip['ip_address'],
-                                        u'fixed'))
+                                        'fixed'))
             else:
                 addresses[network_name] = []
             port_fips = floating_ips.get(port.id, [])
@@ -1788,7 +1788,7 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
                 addresses[network_name].append(
                     _format_address(port.mac_address,
                                     fip.floating_ip_address,
-                                    u'floating'))
+                                    'floating'))
 
     return dict(addresses)
 

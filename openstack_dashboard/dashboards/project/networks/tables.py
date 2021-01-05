@@ -39,16 +39,16 @@ class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Network",
-            u"Delete Networks",
+            "Delete Network",
+            "Delete Networks",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Network",
-            u"Deleted Networks",
+            "Deleted Network",
+            "Deleted Networks",
             count
         )
 
@@ -157,14 +157,14 @@ def get_network_link(network):
 
 
 DISPLAY_CHOICES = (
-    ("up", pgettext_lazy("Admin state of a Network", u"UP")),
-    ("down", pgettext_lazy("Admin state of a Network", u"DOWN")),
+    ("up", pgettext_lazy("Admin state of a Network", "UP")),
+    ("down", pgettext_lazy("Admin state of a Network", "DOWN")),
 )
 STATUS_DISPLAY_CHOICES = (
-    ("active", pgettext_lazy("Current status of a Network", u"Active")),
-    ("build", pgettext_lazy("Current status of a Network", u"Build")),
-    ("down", pgettext_lazy("Current status of a Network", u"Down")),
-    ("error", pgettext_lazy("Current status of a Network", u"Error")),
+    ("active", pgettext_lazy("Current status of a Network", "Active")),
+    ("build", pgettext_lazy("Current status of a Network", "Build")),
+    ("down", pgettext_lazy("Current status of a Network", "Down")),
+    ("error", pgettext_lazy("Current status of a Network", "Error")),
 )
 
 

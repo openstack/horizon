@@ -60,16 +60,16 @@ class DeleteSubnet(SubnetPolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Subnet",
-            u"Delete Subnets",
+            "Delete Subnet",
+            "Delete Subnets",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Subnet",
-            u"Deleted Subnets",
+            "Deleted Subnet",
+            "Deleted Subnets",
             count
         )
 

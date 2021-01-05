@@ -506,7 +506,7 @@ def data(TEST):
     def add_rule_to_group(secgroup, default_only=True):
         rule_egress_ipv4 = {
             'id': uuidutils.generate_uuid(),
-            'direction': u'egress', 'ethertype': u'IPv4',
+            'direction': 'egress', 'ethertype': 'IPv4',
             'port_range_min': None, 'port_range_max': None,
             'protocol': None, 'remote_group_id': None,
             'remote_ip_prefix': None,
@@ -516,7 +516,7 @@ def data(TEST):
         }
         rule_egress_ipv6 = {
             'id': uuidutils.generate_uuid(),
-            'direction': u'egress', 'ethertype': u'IPv6',
+            'direction': 'egress', 'ethertype': 'IPv6',
             'port_range_min': None, 'port_range_max': None,
             'protocol': None, 'remote_group_id': None,
             'remote_ip_prefix': None,
@@ -526,29 +526,29 @@ def data(TEST):
         }
         rule_tcp_80 = {
             'id': uuidutils.generate_uuid(),
-            'direction': u'ingress', 'ethertype': u'IPv4',
+            'direction': 'ingress', 'ethertype': 'IPv4',
             'port_range_min': 80, 'port_range_max': 80,
-            'protocol': u'tcp', 'remote_group_id': None,
-            'remote_ip_prefix': u'0.0.0.0/0',
+            'protocol': 'tcp', 'remote_group_id': None,
+            'remote_ip_prefix': '0.0.0.0/0',
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id'],
             'description': 'Ingress HTTP',
         }
         rule_icmp = {
             'id': uuidutils.generate_uuid(),
-            'direction': u'ingress', 'ethertype': u'IPv4',
+            'direction': 'ingress', 'ethertype': 'IPv4',
             'port_range_min': 5, 'port_range_max': 8,
-            'protocol': u'icmp', 'remote_group_id': None,
-            'remote_ip_prefix': u'0.0.0.0/0',
+            'protocol': 'icmp', 'remote_group_id': None,
+            'remote_ip_prefix': '0.0.0.0/0',
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id'],
             'description': 'Ingress IPv4 ICMP',
         }
         rule_group = {
             'id': uuidutils.generate_uuid(),
-            'direction': u'ingress', 'ethertype': u'IPv4',
+            'direction': 'ingress', 'ethertype': 'IPv4',
             'port_range_min': 80, 'port_range_max': 80,
-            'protocol': u'tcp', 'remote_group_id': sec_group_1['id'],
+            'protocol': 'tcp', 'remote_group_id': sec_group_1['id'],
             'remote_ip_prefix': None,
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id'],
@@ -556,20 +556,20 @@ def data(TEST):
         }
         rule_ip_proto = {
             'id': uuidutils.generate_uuid(),
-            'direction': u'ingress', 'ethertype': u'IPv4',
+            'direction': 'ingress', 'ethertype': 'IPv4',
             'port_range_min': None, 'port_range_max': None,
-            'protocol': u'99', 'remote_group_id': None,
-            'remote_ip_prefix': u'0.0.0.0/24',
+            'protocol': '99', 'remote_group_id': None,
+            'remote_ip_prefix': '0.0.0.0/24',
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id'],
             'description': 'Ingress custom IP protocol 99',
         }
         rule_all_tcp = {
             'id': uuidutils.generate_uuid(),
-            'direction': u'egress', 'ethertype': u'IPv4',
+            'direction': 'egress', 'ethertype': 'IPv4',
             'port_range_min': 1, 'port_range_max': 65535,
-            'protocol': u'tcp', 'remote_group_id': None,
-            'remote_ip_prefix': u'0.0.0.0/24',
+            'protocol': 'tcp', 'remote_group_id': None,
+            'remote_ip_prefix': '0.0.0.0/24',
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id'],
             'description': 'Egress all TCP',
@@ -867,7 +867,7 @@ def data(TEST):
         'sub_ports': [{'segmentation_type': 'vlan',
                        'segmentation_id': tdata['tag_1'],
                        'port_id': tdata['child1']['id']},
-                      {'segmentation_type': u'vlan',
+                      {'segmentation_type': 'vlan',
                        'segmentation_id': tdata['tag_2'],
                        'port_id': tdata['child2']['id']}],
         'name': 'trunk',

@@ -76,13 +76,13 @@ class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
     def action_present(count):
         return (
             ungettext_lazy(
-                u"Enable User",
-                u"Enable Users",
+                "Enable User",
+                "Enable Users",
                 count
             ),
             ungettext_lazy(
-                u"Disable User",
-                u"Disable Users",
+                "Disable User",
+                "Disable Users",
                 count
             ),
         )
@@ -91,13 +91,13 @@ class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
     def action_past(count):
         return (
             ungettext_lazy(
-                u"Enabled User",
-                u"Enabled Users",
+                "Enabled User",
+                "Enabled Users",
                 count
             ),
             ungettext_lazy(
-                u"Disabled User",
-                u"Disabled Users",
+                "Disabled User",
+                "Disabled Users",
                 count
             ),
         )
@@ -134,16 +134,16 @@ class DeleteUsersAction(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete User",
-            u"Delete Users",
+            "Delete User",
+            "Delete Users",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted User",
-            u"Deleted Users",
+            "Deleted User",
+            "Deleted Users",
             count
         )
     policy_rules = (("identity", "identity:delete_user"),)

@@ -132,7 +132,7 @@ class ASCIITenantNameRCTests(test.TestCase):
 
 
 class UnicodeTenantNameRCTests(test.TestCase):
-    TENANT_NAME = u'\u043f\u0440\u043e\u0435\u043a\u0442'
+    TENANT_NAME = '\u043f\u0440\u043e\u0435\u043a\u0442'
 
     def _setup_user(self, **kwargs):
         super()._setup_user(tenant_name=self.TENANT_NAME)
