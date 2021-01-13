@@ -1041,7 +1041,7 @@
           expect(finalSpec.key_pair).toBeUndefined();
         });
 
-        it('stips null properties', function() {
+        it('strips null properties', function() {
           model.newInstanceSpec.useless = null;
 
           var finalSpec = model.createInstance();
